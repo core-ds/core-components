@@ -15,5 +15,5 @@ module.exports = {
         '@semantic-release/github',
     ],
     branches: ['master'],
-    repositoryUrl: 'https://github.com/alfa-laboratory/core-components',
+    repositoryUrl: 'https://github.com/core-ds/core-components',
 };
