@@ -8,12 +8,12 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/alfa-laboratory/core-components.git"
+        "url": "git+https://github.com/core-ds/core-components.git"
     },
     "bugs": {
-        "url": "https://github.com/alfa-laboratory/core-components/issues"
+        "url": "https://github.com/core-ds/core-components/issues"
     },
-    "homepage": "https://github.com/alfa-laboratory/core-components#readme",
+    "homepage": "https://github.com/core-ds/core-components#readme",
     "scripts": {
         "build": "./bin/build.sh",
         "start": "start-storybook -p 9009 -c .storybook -s ./.storybook/public",
