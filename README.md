@@ -1,14 +1,14 @@
 <div class="github-doc">
 
-<p><img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/></p>
+## Библиотека React компонентов для создания веб-интерфейсов
 
-[![Release](https://github.com/alfa-laboratory/core-components/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/alfa-laboratory/core-components/actions/workflows/npm-publish.yml)
-[![Tests](https://github.com/alfa-laboratory/core-components/actions/workflows/build.yml/badge.svg)](https://github.com/alfa-laboratory/core-components/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/alfa-laboratory/core-components/badge.svg)](https://coveralls.io/github/alfa-laboratory/core-components)
-[![Demo build](https://github.com/alfa-laboratory/core-components/actions/workflows/main.yml/badge.svg)](https://github.com/alfa-laboratory/core-components/actions/workflows/main.yml)
+[![Release](https://github.com/core-ds/core-components/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/core-ds/core-components/actions/workflows/npm-publish.yml)
+[![Tests](https://github.com/core-ds/core-components/actions/workflows/build.yml/badge.svg)](https://github.com/core-ds/core-components/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/core-ds/core-components/badge.svg)](https://coveralls.io/github/core-ds/core-components)
+[![Demo build](https://github.com/core-ds/core-components/actions/workflows/main.yml/badge.svg)](https://github.com/core-ds/core-components/actions/workflows/main.yml)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-[Cторибук](https://alfa-laboratory.github.io/core-components/) с документацией и песочницей.
+[Cторибук](https://core-ds.github.io/core-components/) с документацией и песочницей.
 
 </div>
 
@@ -34,7 +34,7 @@ import { Button } from '@alfalab/core-components/button';
 
 ## Темизация
 
-[Гайд по настройке темизации](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
+[Гайд по настройке темизации](https://core-ds.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
 
 ## Поддерживаемые браузеры
 
@@ -57,7 +57,7 @@ import { Button } from '@alfalab/core-components/button';
 ## Разработка
 
 ```bash
-$ git clone git@github.com:alfa-laboratory/core-components.git
+$ git clone git@github.com:core-ds/core-components.git
 $ cd core-components
 $ yarn install
 $ yarn start
@@ -74,7 +74,7 @@ $ yarn start
 
 ### Импорт компонентов внутри компонентов
 
-Так как у нас монорепозиторий, то все пакеты должны быть независимы. Если при разработке компонента вам потребовался другой компонент, то его нужно добавить как зависимость. Пример можно посмотреть в [Тултипе](https://github.com/alfa-laboratory/core-components/tree/master/packages/tooltip). Также нужно добавить пару опций в `tsconfig.json`:
+Так как у нас монорепозиторий, то все пакеты должны быть независимы. Если при разработке компонента вам потребовался другой компонент, то его нужно добавить как зависимость. Пример можно посмотреть в [Тултипе](https://github.com/core-ds/core-components/tree/master/packages/tooltip). Также нужно добавить пару опций в `tsconfig.json`:
 
 ```json
 {
@@ -167,7 +167,7 @@ import { Button } from '@alfalab/core-components-button/dist/modern';
 ## Правила контрибьютинга
 
 Мы открыты к любым предложениям по развитию библиотеки.
-Отправляйте свои идеи и вопросы через [pull requests](https://github.com/alfa-laboratory/core-components/pulls) или [issues](https://github.com/alfa-laboratory/core-components/issues).
+Отправляйте свои идеи и вопросы через [pull requests](https://github.com/core-ds/core-components/pulls) или [issues](https://github.com/core-ds/core-components/issues).
 
 -   Уважаем тех, кто видит проблему и кидает PR.
 -   Не знаете что делать – можно брать любую задачу без Assignee, назначив её на себя.
