@@ -2,6 +2,7 @@
 
 ## Библиотека React компонентов для создания веб-интерфейсов
 
+
 [![Release](https://github.com/core-ds/core-components/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/core-ds/core-components/actions/workflows/npm-publish.yml)
 [![Tests](https://github.com/core-ds/core-components/actions/workflows/build.yml/badge.svg)](https://github.com/core-ds/core-components/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/github/core-ds/core-components/badge.svg)](https://coveralls.io/github/core-ds/core-components)
