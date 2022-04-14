@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>@storybook/cli - Storybook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./sb-common-assets/fonts.css" />
+
+    <link href="./sb-manager/runtime.js" rel="modulepreload" />
+
+    
+    <link href="./sb-addons/knobs-0/register-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/a11y-1/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-addons-theme-switcher-2/register-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-addons-mode-switcher-3/register-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-4/manager-bundle.js" rel="modulepreload" />
+      <link rel="stylesheet" href="./global.css" />
+ 
+
+    <style>
+      #storybook-root[hidden] {
+        display: none !important;
+      }
+    </style>
+
+    
+    <link href="./sb-addons/storybook-addons-theme-switcher-2/register-bundle.css" rel="stylesheet" />
+    
+    <link href="./sb-addons/storybook-addons-mode-switcher-3/register-bundle.css" rel="stylesheet" />
+    
+    <link href="./sb-addons/storybook-4/manager-bundle.css" rel="stylesheet" />
+    
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "warnOnLegacyHierarchySeparator": true,
+  "buildStoriesJson": false,
+  "storyStoreV7": true,
+  "argTypeTargetsV7": true,
+  "legacyDecoratorFileOrder": false
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "defaultName": "Docs",
+  "autodocs": false
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/runtime.js';
+
+      
+      import './sb-addons/knobs-0/register-bundle.js';
+      
+      import './sb-addons/a11y-1/manager-bundle.js';
+      
+      import './sb-addons/storybook-addons-theme-switcher-2/register-bundle.js';
+      
+      import './sb-addons/storybook-addons-mode-switcher-3/register-bundle.js';
+      
+      import './sb-addons/storybook-4/manager-bundle.js';
+      
+    </script>
+
+    <link href="./sb-preview/runtime.js" rel="prefetch" as="script" />
+  </body>
+</html>
