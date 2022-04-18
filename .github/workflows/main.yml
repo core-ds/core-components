@@ -26,7 +26,7 @@ jobs:
     - name: Publish storybook
       run: |
         cd ./storybook-demo
-        git push -q -f "https://alfa-bot:${{ secrets.BOT_AUTH_TOKEN }}@github.com/core-ds/core-components.git" master:gh-pages
+        git push -q -f "https://core-ds-bot:${{ secrets.BOT_AUTH_TOKEN }}@github.com/core-ds/core-components.git" master:gh-pages
 
     # Ищем открытый PR
     - name: Find open PR
