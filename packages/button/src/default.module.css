@@ -41,8 +41,8 @@
 
     /* ghost */
     --button-ghost-base-color: var(--color-light-text-primary);
-    --button-ghost-hover-color: var(--color-light-text-primary-tint-30);
-    --button-ghost-active-color: var(--color-light-text-primary-tint-50);
+    --button-ghost-hover-color: var(--color-light-text-primary-tint-20);
+    --button-ghost-active-color: var(--color-light-text-primary-tint-30);
     --button-ghost-disabled-color: var(--color-light-text-primary-alpha-30);
 }
 

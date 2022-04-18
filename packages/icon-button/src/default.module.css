@@ -3,8 +3,8 @@
 :root {
     /* primary */
     --icon-button-primary-base-color: var(--color-light-graphic-primary);
-    --icon-button-primary-hover-color: var(--color-light-graphic-primary-tint-30);
-    --icon-button-primary-active-color: var(--color-light-graphic-primary-tint-50);
+    --icon-button-primary-hover-color: var(--color-light-graphic-primary-tint-20);
+    --icon-button-primary-active-color: var(--color-light-graphic-primary-tint-30);
     --icon-button-primary-disabled-color: var(--color-light-graphic-primary-alpha-30);
 
     /* secondary */
@@ -21,8 +21,8 @@
 
     /* negative */
     --icon-button-negative-base-color: var(--color-light-graphic-negative);
-    --icon-button-negative-hover-color: var(--color-light-graphic-negative-tint-30);
-    --icon-button-negative-active-color: var(--color-light-graphic-negative-tint-50);
+    --icon-button-negative-hover-color: var(--color-light-graphic-negative-tint-20);
+    --icon-button-negative-active-color: var(--color-light-graphic-negative-tint-30);
 }
 
 .primary {
