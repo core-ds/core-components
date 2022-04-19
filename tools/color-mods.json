@@ -33,7 +33,7 @@
     "light-specialbg-component-inverted": {
         "tint": [15]
     },
-    "light-border-tertiary-inverted": {
+    "light-border-underline-inverted": {
         "alpha": [30]
     },
     "light-graphic-accent": {

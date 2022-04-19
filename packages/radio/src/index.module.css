@@ -6,9 +6,9 @@
 
     /* unchecked */
     --radio-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-border-color: var(--color-light-border-tertiary-inverted);
+    --radio-border-color: var(--color-light-border-underline-inverted);
     --radio-hover-bg-color: var(--color-light-graphic-tertiary);
-    --radio-hover-border-color: var(--color-light-border-tertiary-inverted);
+    --radio-hover-border-color: var(--color-light-border-underline-inverted);
     --radio-active-bg-color: var(--color-light-graphic-tertiary);
     --radio-active-border-color: var(--color-light-border-key);
 
@@ -26,7 +26,7 @@
     --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
     /* inactive */
-    --radio-inactive-border-color: var(--color-light-border-secondary-inverted);
+    --radio-inactive-border-color: var(--color-light-border-underline);
     --radio-checked-inactive-color: var(--color-light-graphic-tertiary);
 
     /* disabled and checked */

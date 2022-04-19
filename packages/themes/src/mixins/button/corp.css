@@ -7,8 +7,8 @@
     --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
     --button-secondary-active-bg-color: var(--color-light-specialbg-component-shade-7);
     --button-secondary-disabled-bg-color: transparent;
-    --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
-    --button-secondary-disabled-border-color: var(--color-light-border-tertiary-inverted-alpha-30);
+    --button-secondary-base-border-color: var(--color-light-border-underline-inverted);
+    --button-secondary-disabled-border-color: var(--color-light-border-underline-inverted-alpha-30);
 
     /* tertiary */
     --button-tertiary-base-bg-color: var(--color-light-bg-neutral);

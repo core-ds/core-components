@@ -98,8 +98,8 @@
     --color-light-bg-secondary-inverted-tint-15: var(--color-dark-bg-secondary-inverted-shade-15);
     --color-light-bg-secondary-inverted-tint-20: var(--color-dark-bg-secondary-inverted-shade-20);
     --color-light-bg-tertiary-shade-7: var(--color-dark-bg-tertiary-tint-7);
-    --color-light-border-tertiary-inverted-alpha-30: var(
-        --color-dark-border-tertiary-inverted-alpha-30
+    --color-light-border-underline-inverted-alpha-30: var(
+        --color-dark-border-underline-inverted-alpha-30
     );
     --color-light-graphic-accent-alpha-30: var(--color-dark-graphic-accent-alpha-30);
     --color-light-graphic-accent-tint-15: var(--color-dark-graphic-accent-shade-15);
