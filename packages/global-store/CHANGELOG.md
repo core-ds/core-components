@@ -8,4 +8,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **base-modal:** extract modal store to global ([#943](https://github.com/alfa-laboratory/core-components/issues/943)) ([9587f17](https://github.com/alfa-laboratory/core-components/commit/9587f1773bb690ac6696077509d4a519aa109198))
+* **base-modal:** extract modal store to global ([#943](https://github.com/core-ds/core-components/issues/943)) ([9587f17](https://github.com/core-ds/core-components/commit/9587f1773bb690ac6696077509d4a519aa109198))
