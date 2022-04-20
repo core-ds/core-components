@@ -1,0 +1,58 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { SliderPicker } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+
+<Meta
+    title='Компоненты/SliderPicker'
+    component={SliderPicker}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='SliderPicker'>
+{React.createElement(() => {
+    const [value, setValue] = React.useState('50');
+    const handleChange = (event, { value }) => setValue(value);
+    return (
+        <SliderPicker
+            value={value}
+            onChange={handleChange}
+            min={number('min', 0)}
+            max={number('max', 100)}
+            step={number('step', 1)}
+            steps={boolean('steps', false) && ['36 мес', '180 мес', '360 мес']}
+            block={boolean('block', false)}
+            size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+        />
+    );
+})}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SliderPicker'
+    version={version}
+    package='@alfalab/core-components/slider-picker'
+    stage={2}
+/>
+
+```tsx
+import { SliderPicker } from '@alfalab/core-components/slider-picker';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={SliderPicker} />}
+    cssVars={<CssVars css={styles} />}
+/>

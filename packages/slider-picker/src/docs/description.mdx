@@ -1,0 +1,58 @@
+Слайдер
+
+```tsx live
+const min = 0;
+const max = 10;
+const step = 1;
+const steps = ['0', '5', '10'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderPicker
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            steps={steps}
+        />
+    );
+});
+```
+
+```tsx live
+const min = 1;
+const max = 5;
+const step = 1;
+const steps = ['1 год', '2 года', '3 года', '4 года', '5 лет'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderPicker
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            steps={steps}
+        />
+    );
+});
+```
