@@ -9,7 +9,7 @@ const colorMods = require('./color-mods.json');
 const UNDERSCORE_RE = /_/g;
 const DASH = '-';
 
-const colorsDir = path.resolve(__dirname, '../node_modules/alfa-ui-primitives/styles');
+const colorsDir = path.resolve(__dirname, '../node_modules/ui-primitives/styles');
 
 glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
     files.forEach(pathname => {
