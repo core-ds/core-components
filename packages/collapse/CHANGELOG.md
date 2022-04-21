@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.1.2...@alfalab/core-components-collapse@2.1.3) (2021-12-08)
+## [2.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.1.2...@alfalab/core-components-collapse@2.1.3) (2021-12-08)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -11,7 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.1.1...@alfalab/core-components-collapse@2.1.2) (2021-11-16)
+## [2.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.1.1...@alfalab/core-components-collapse@2.1.2) (2021-11-16)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -19,60 +19,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.1.0...@alfalab/core-components-collapse@2.1.1) (2021-10-27)
+## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.1.0...@alfalab/core-components-collapse@2.1.1) (2021-10-27)
 
 
 ### Bug Fixes
 
-* **collapse:** dynamic content height ([#864](https://github.com/alfa-laboratory/core-components/issues/864)) ([e96c86b](https://github.com/alfa-laboratory/core-components/commit/e96c86bde70d58e4311a2c6bcd6d7407be0f4c44))
+* **collapse:** dynamic content height ([#864](https://github.com/core-ds/core-components/issues/864)) ([e96c86b](https://github.com/core-ds/core-components/commit/e96c86bde70d58e4311a2c6bcd6d7407be0f4c44))
 
 
 
 
 
-# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.3...@alfalab/core-components-collapse@2.1.0) (2021-10-25)
-
-
-### Features
-
-* **collapse:** reset height to auto ([#822](https://github.com/alfa-laboratory/core-components/issues/822)) ([f533e3b](https://github.com/alfa-laboratory/core-components/commit/f533e3ba1eab5f41539c39ca3b97f698e90ca687))
-
-
-
-
-
-## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.2...@alfalab/core-components-collapse@2.0.3) (2021-08-27)
-
-**Note:** Version bump only for package @alfalab/core-components-collapse
-
-
-
-
-
-## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.1...@alfalab/core-components-collapse@2.0.2) (2021-08-04)
-
-**Note:** Version bump only for package @alfalab/core-components-collapse
-
-
-
-
-
-## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.0...@alfalab/core-components-collapse@2.0.1) (2021-07-09)
-
-**Note:** Version bump only for package @alfalab/core-components-collapse
-
-
-
-
-
-# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.2.1...@alfalab/core-components-collapse@2.0.0) (2021-07-08)
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.0.3...@alfalab/core-components-collapse@2.1.0) (2021-10-25)
 
 
 ### Features
 
-* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+* **collapse:** reset height to auto ([#822](https://github.com/core-ds/core-components/issues/822)) ([f533e3b](https://github.com/core-ds/core-components/commit/f533e3ba1eab5f41539c39ca3b97f698e90ca687))
 
-## [1.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.2.0...@alfalab/core-components-collapse@1.2.1) (2021-05-25)
+
+
+
+
+## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.0.2...@alfalab/core-components-collapse@2.0.3) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -80,18 +49,30 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.1.1...@alfalab/core-components-collapse@1.2.0) (2021-05-25)
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.0.1...@alfalab/core-components-collapse@2.0.2) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-collapse
+
+
+
+
+
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.0.0...@alfalab/core-components-collapse@2.0.1) (2021-07-09)
+
+**Note:** Version bump only for package @alfalab/core-components-collapse
+
+
+
+
+
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.2.1...@alfalab/core-components-collapse@2.0.0) (2021-07-08)
 
 
 ### Features
 
-* **collapse:** add ability to change state using prop expanded ([#659](https://github.com/alfa-laboratory/core-components/issues/659)) ([809c835](https://github.com/alfa-laboratory/core-components/commit/809c8356f6dec0eeb9167bca8483f36bf5845455))
+* upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
-
-
-
-
-## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.1.0...@alfalab/core-components-collapse@1.1.1) (2021-04-26)
+## [1.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.2.0...@alfalab/core-components-collapse@1.2.1) (2021-05-25)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -99,18 +80,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.8...@alfalab/core-components-collapse@1.1.0) (2021-04-06)
+# [1.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.1.1...@alfalab/core-components-collapse@1.2.0) (2021-05-25)
 
 
 ### Features
 
-* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+* **collapse:** add ability to change state using prop expanded ([#659](https://github.com/core-ds/core-components/issues/659)) ([809c835](https://github.com/core-ds/core-components/commit/809c8356f6dec0eeb9167bca8483f36bf5845455))
 
 
 
 
 
-## [1.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.7...@alfalab/core-components-collapse@1.0.8) (2021-04-01)
+## [1.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.1.0...@alfalab/core-components-collapse@1.1.1) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -118,26 +99,37 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.5...@alfalab/core-components-collapse@1.0.7) (2021-03-18)
+# [1.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.8...@alfalab/core-components-collapse@1.1.0) (2021-04-06)
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/core-ds/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
+
+
+
+
+## [1.0.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.7...@alfalab/core-components-collapse@1.0.8) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-collapse
+
+
+
+
+
+## [1.0.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.5...@alfalab/core-components-collapse@1.0.7) (2021-03-18)
 
 
 ### Bug Fixes
 
-* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+* one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 
 
 
 
-## [1.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.4...@alfalab/core-components-collapse@1.0.5) (2021-03-14)
-
-**Note:** Version bump only for package @alfalab/core-components-collapse
-
-
-
-
-
-## [1.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.3...@alfalab/core-components-collapse@1.0.4) (2021-03-04)
+## [1.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.4...@alfalab/core-components-collapse@1.0.5) (2021-03-14)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -145,7 +137,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.2...@alfalab/core-components-collapse@1.0.3) (2021-03-03)
+## [1.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.3...@alfalab/core-components-collapse@1.0.4) (2021-03-04)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -153,7 +145,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.1...@alfalab/core-components-collapse@1.0.2) (2021-02-20)
+## [1.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.2...@alfalab/core-components-collapse@1.0.3) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
 
@@ -161,6 +153,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.0...@alfalab/core-components-collapse@1.0.1) (2021-02-19)
+## [1.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.1...@alfalab/core-components-collapse@1.0.2) (2021-02-20)
+
+**Note:** Version bump only for package @alfalab/core-components-collapse
+
+
+
+
+
+## [1.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@1.0.0...@alfalab/core-components-collapse@1.0.1) (2021-02-19)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
