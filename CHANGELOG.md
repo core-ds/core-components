@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [26.5.2](https://github.com/core-ds/core-components/compare/v26.5.0...v26.5.2) (2022-04-22)
+
+
+### Bug Fixes
+
+* **attach:** невозможность загрузить файл с таким же именем после удаления ([#8](https://github.com/core-ds/core-components/issues/8)) ([f323c56](https://github.com/core-ds/core-components/commit/f323c56d0ffee36ab4b42d3c5ab06a0abc35e3be))
+
 ## [26.5.1](https://github.com/core-ds/core-components/compare/v26.5.0...v26.5.1) (2022-04-22)
 
 
