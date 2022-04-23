@@ -1,0 +1,1 @@
+export { PureCell } from './component';

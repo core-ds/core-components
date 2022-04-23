@@ -1,0 +1,18 @@
+@import '../../vars.css';
+@import '../../../../themes/src/default.css';
+
+.component {
+    grid-column: 1/2;
+    display: grid;
+    align-self: center;
+
+    /* can use /r/n */
+    white-space: pre-line;
+}
+
+.vertical {
+    grid-row-gap: var(--gap-3xs);
+
+    /* for button */
+    text-align: center;
+}

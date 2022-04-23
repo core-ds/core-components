@@ -1,0 +1,17 @@
+@import '../../vars.css';
+@import '../../../../themes/src/default.css';
+
+.component {
+    padding: var(--gap-3xs) 0;
+    display: flex;
+}
+
+.bold {
+    --amount-major-part-font-weight: bold;
+    --amount-minor-part-font-weight: bold;
+}
+
+.normal {
+    --amount-major-part-font-weight: 400;
+    --amount-minor-part-font-weight: 400;
+}

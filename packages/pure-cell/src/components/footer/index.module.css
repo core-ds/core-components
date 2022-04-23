@@ -1,0 +1,8 @@
+@import '../../vars.css';
+@import '../../../../themes/src/default.css';
+
+.component {
+    grid-column: 1/3;
+    display: grid;
+    grid-row-gap: var(--gap-xs);
+}

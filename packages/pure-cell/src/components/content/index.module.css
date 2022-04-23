@@ -1,0 +1,13 @@
+@import '../../vars.css';
+@import '../../../../themes/src/default.css';
+
+.component {
+    flex-basis: 100%;
+    display: grid;
+    grid-row-gap: var(--gap-xs);
+}
+
+.horizontal {
+    /* for button */
+    align-self: stretch;
+}

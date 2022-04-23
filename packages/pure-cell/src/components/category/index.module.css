@@ -1,0 +1,21 @@
+@import '../../vars.css';
+@import '../../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    overflow: hidden;
+    padding: var(--gap-3xs) 0;
+}
+
+.categoryName {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.categoryPercent {
+    padding: 0 var(--gap-xs);
+    background-color: var(--color-light-bg-secondary);
+    border-radius: var(--border-radius-xl);
+    margin-left: var(--gap-2xs);
+}

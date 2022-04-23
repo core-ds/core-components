@@ -1,0 +1,17 @@
+@import '../../vars.css';
+@import '../../../../themes/src/default.css';
+
+.component {
+    width: fit-content;
+    padding: var(--gap-xs) var(--gap-m);
+    background-color: var(--color-light-bg-secondary);
+    border-radius: var(--border-radius-xs) var(--border-radius-xxl) var(--border-radius-xxl)
+        var(--border-radius-xxl);
+}
+
+.text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
