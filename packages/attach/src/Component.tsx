@@ -146,6 +146,10 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                 if (uncontrolled && event.target.files) {
                     setFiles(filesArray);
                 }
+
+                if (inputRef.current) {
+                    inputRef.current.value = '';
+                }
             },
             [onChange, uncontrolled],
         );
@@ -168,10 +172,6 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
 
         const handleClearClick = useCallback(
             ev => {
-                if (inputRef.current) {
-                    inputRef.current.value = '';
-                }
-
                 if (uncontrolled) {
                     setFiles([]);
                 }
