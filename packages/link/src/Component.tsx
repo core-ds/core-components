@@ -92,10 +92,12 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
         const [focused] = useFocus(linkRef, 'keyboard');
 
+        const viewClassName = view === 'default' ? 'defaultView' : view;
+
         const componentProps = {
             className: cn(
                 styles.component,
-                colorStyles[colors][view],
+                colorStyles[colors][viewClassName],
                 {
                     [styles.pseudo]: pseudo,
                     [styles.focused]: focused,
