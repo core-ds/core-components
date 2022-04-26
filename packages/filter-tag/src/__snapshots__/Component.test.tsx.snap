@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component default s"
+        class="component defaultVariant s"
       >
         <button
-          class="valueButton s default"
+          class="valueButton s defaultVariant"
           type="button"
         >
           <span>
@@ -37,10 +37,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component default s"
+      class="component defaultVariant s"
     >
       <button
-        class="valueButton s default"
+        class="valueButton s defaultVariant"
         type="button"
       >
         <span>
@@ -363,10 +363,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component default s"
+        class="component defaultVariant s"
       >
         <button
-          class="valueButton s default"
+          class="valueButton s defaultVariant"
           type="button"
         >
           <span />
@@ -392,10 +392,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component default s"
+      class="component defaultVariant s"
     >
       <button
-        class="valueButton s default"
+        class="valueButton s defaultVariant"
         type="button"
       >
         <span />
