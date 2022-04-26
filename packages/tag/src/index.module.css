@@ -202,7 +202,7 @@
     }
 }
 
-.defaultVariant {
+.default {
     border-radius: var(--tag-border-radius);
 }
 

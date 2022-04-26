@@ -86,14 +86,12 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
 
         const [focused] = useFocus(tagRef, 'keyboard');
 
-        const variantClassName = variant === 'default' ? 'defaultVariant' : variant;
-
         const tagProps = {
             className: cn(
                 styles.component,
                 colorStyles.component,
                 styles[size],
-                styles[variantClassName],
+                styles[variant],
                 {
                     [styles.checked]: checked,
                     [colorStyles.checked]: checked,

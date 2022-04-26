@@ -56,7 +56,7 @@ describe('Classes tests', () => {
             </Link>,
         );
 
-        expect(container.firstElementChild).toHaveClass('defaultView');
+        expect(container.firstElementChild).toHaveClass('default');
     });
 
     it('should set `pseudo` class if prop `pseudo` is present', () => {

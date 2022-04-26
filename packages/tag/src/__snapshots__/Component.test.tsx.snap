@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant"
+        class="component component s default"
         type="button"
       >
         <span>
@@ -17,7 +17,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant"
+      class="component component s default"
       type="button"
     >
       <span>
@@ -164,7 +164,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant withLeftAddons"
+        class="component component s default withLeftAddons"
         type="button"
       >
         <span
@@ -182,7 +182,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant withLeftAddons"
+      class="component component s default withLeftAddons"
       type="button"
     >
       <span
@@ -257,7 +257,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant withRightAddons"
+        class="component component s default withRightAddons"
         type="button"
       >
         <span>
@@ -275,7 +275,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant withRightAddons"
+      class="component component s default withRightAddons"
       type="button"
     >
       <span>
@@ -350,14 +350,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant"
+        class="component component s default"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant"
+      class="component component s default"
       type="button"
     />
   </div>,

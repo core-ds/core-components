@@ -9,7 +9,7 @@
     font-variant-numeric: tabular-nums;
 }
 
-.defaultView {
+.default {
     & > * {
         margin-right: var(--gap-xs);
 

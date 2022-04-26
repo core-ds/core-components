@@ -84,13 +84,8 @@ export const Pagination: FC<PaginationProps> = ({
     const shouldRenderNextArrow =
         view === 'per-page' || !hideArrows || currentPageIndex < pagesCount - 1;
 
-    const viewClassName = view === 'default' ? 'defaultView' : view;
-
     return (
-        <div
-            className={cn(styles.component, className, styles[viewClassName])}
-            data-test-id={dataTestId}
-        >
+        <div className={cn(styles.component, className, styles[view])} data-test-id={dataTestId}>
             {shouldRenderPrevArrow && (
                 <Tag
                     className={styles.arrow}

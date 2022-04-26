@@ -43,7 +43,7 @@
     }
 }
 
-.defaultView {
+.default {
     color: var(--link-default-color);
     border-bottom-color: var(--link-default-color);
 

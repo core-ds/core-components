@@ -89,23 +89,15 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             onClear();
         };
 
-        const variantClassName = variant === 'default' ? 'defaultVariant' : variant;
-
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
-                className={cn(
-                    className,
-                    [styles.component],
-                    styles[variantClassName],
-                    styles[size],
-                    {
-                        [styles.checked]: checked,
-                        [styles.disabled]: disabled,
-                        [styles.focused]: focused,
-                        [styles.open]: open,
-                    },
-                )}
+                className={cn(className, [styles.component], styles[variant], styles[size], {
+                    [styles.checked]: checked,
+                    [styles.disabled]: disabled,
+                    [styles.focused]: focused,
+                    [styles.open]: open,
+                })}
                 ref={ref}
                 data-test-id={dataTestId}
                 onClick={disabled ? undefined : onClick}
@@ -115,7 +107,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     type='button'
                     ref={valueRef}
                     disabled={disabled}
-                    className={cn(styles.valueButton, styles[size], styles[variantClassName], {
+                    className={cn(styles.valueButton, styles[size], styles[variant], {
                         [styles.checked]: checked,
                         [styles.open]: open,
                     })}
@@ -128,7 +120,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
 
                 {checked && !disabled && (
                     <IconButton
-                        className={cn(styles.clear, styles[size], styles[variantClassName])}
+                        className={cn(styles.clear, styles[size], styles[variant])}
                         icon={size === 'xxs' ? CrossCircleSIcon : CrossCircleMIcon}
                         colors='inverted'
                         size='xxs'

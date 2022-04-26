@@ -14,7 +14,7 @@
         background-color: var(--tag-background-color-disabled);
     }
 
-    &.defaultVariant {
+    &.default {
         border-radius: var(--tag-border-radius);
     }
 
@@ -76,7 +76,7 @@
     border-style: solid;
     transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 
-    &.defaultVariant {
+    &.default {
         border-radius: var(--tag-border-radius);
     }
 
@@ -173,7 +173,7 @@
         border-width: 0;
         color: var(--tag-text-color-checked);
 
-        &.defaultVariant {
+        &.default {
             border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
 
             &:disabled {
@@ -221,7 +221,7 @@
     position: relative;
     background-color: var(--tag-background-color-checked);
 
-    &.defaultVariant {
+    &.default {
         border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
     }
 
