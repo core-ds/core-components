@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [26.5.3](https://github.com/core-ds/core-components/compare/v26.5.2...v26.5.3) (2022-04-26)
+
+
+### Bug Fixes
+
+* default className bug ([#13](https://github.com/core-ds/core-components/issues/13)) ([32883b3](https://github.com/core-ds/core-components/commit/32883b3a54f04b558e97e285824c9701fc802f99))
+* `default` className bug ([624d4c8](https://github.com/core-ds/core-components/commit/624d4c835fd1b85833aff8e79e75afc41e25b536))
+
 ### [26.5.2](https://github.com/core-ds/core-components/compare/v26.5.0...v26.5.2) (2022-04-22)
 
 
