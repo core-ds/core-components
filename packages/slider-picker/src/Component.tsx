@@ -42,11 +42,6 @@ export type SliderPickerProps = Omit<
     value?: number;
 
     /**
-     * Дополнительная информация в правой части поля
-     */
-    info?: ReactNode;
-
-    /**
      * Класс для слайдера
      */
     sliderClassName?: string;
@@ -78,7 +73,6 @@ export const SliderPicker = forwardRef<HTMLInputElement, SliderPickerProps>(
             step = 1,
             value = min,
             steps = [],
-            size = 's',
             disabled,
             readOnly,
             onChange,
@@ -94,10 +88,7 @@ export const SliderPicker = forwardRef<HTMLInputElement, SliderPickerProps>(
         );
 
         return (
-            <div
-                className={cn(styles.component, styles[size], className)}
-                data-test-id={dataTestId}
-            >
+            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
                 <Slider
                     min={min}
                     max={max}

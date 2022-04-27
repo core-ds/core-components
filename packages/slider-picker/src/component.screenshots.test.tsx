@@ -18,7 +18,6 @@ describe('SliderPicker | sprite', () => {
                         knobs: {
                             label: 'Оставшийся срок по кредиту',
                             value: [0, 50, 100],
-                            size: ['s', 'm', 'l', 'xl'],
                         },
                         size: { width: 260, height: 120 },
                     }),

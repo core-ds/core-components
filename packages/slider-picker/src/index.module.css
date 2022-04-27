@@ -11,10 +11,7 @@
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
-}
-
-.block {
-    display: block;
+    border-top: 1px solid var(--color-light-border-secondary);
 }
 
 .slider {

@@ -3,7 +3,7 @@
 exports[`SliderPicker should match snapshot 1`] = `
 <div>
   <div
-    class="component s"
+    class="component"
   >
     <div
       class="component slider"

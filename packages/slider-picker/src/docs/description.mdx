@@ -1,10 +1,10 @@
-Слайдер
+Слайдер. У компонента можно настроить шаг слайдера и подписи для точек.
 
 ```tsx live
-const min = 0;
-const max = 10;
+const min = 1;
+const max = 8;
 const step = 1;
-const steps = ['0', '5', '10'];
+const steps = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
 const normalizeValue = (value, min, max) =>
     value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
@@ -21,7 +21,62 @@ render(() => {
             max={max}
             step={step}
             onChange={handleChange}
-            block={true}
+            steps={steps}
+        />
+    );
+});
+```
+
+
+```tsx live
+const min = 1;
+const max = 3;
+const step = 1;
+const steps = ['1', '2', '3'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderPicker
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            steps={steps}
+        />
+    );
+});
+```
+
+```tsx live
+const min = 0;
+const max = 100;
+const step = 25;
+const steps = ['0','50', '100'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+
+render(() => {
+    const [value, setValue] = React.useState(25);
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderPicker
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
             steps={steps}
         />
     );
@@ -30,16 +85,19 @@ render(() => {
 
 ```tsx live
 const min = 1;
-const max = 5;
+const max = 100;
 const step = 1;
-const steps = ['1 год', '2 года', '3 года', '4 года', '5 лет'];
-
+const steps = [
+  <span style={{ flexBasis: "19%" }}>1</span>,
+  <span style={{ flexBasis: "62%" }}>20</span>,
+  <span style={{ flexBasis: "18%" }}>80</span>,
+  <span style={{}}>100</span>,
+];
 const normalizeValue = (value, min, max) =>
     value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
 
-
 render(() => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState(25);
 
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
 
@@ -50,7 +108,6 @@ render(() => {
             max={max}
             step={step}
             onChange={handleChange}
-            block={true}
             steps={steps}
         />
     );
