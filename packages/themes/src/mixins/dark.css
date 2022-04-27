@@ -93,6 +93,12 @@
     --color-light-bg-primary-inverted-tint-7: var(--color-dark-bg-primary-inverted-shade-7);
     --color-light-bg-primary-inverted-tint-15: var(--color-dark-bg-primary-inverted-shade-15);
     --color-light-bg-primary-inverted-tint-20: var(--color-dark-bg-primary-inverted-shade-20);
+    --color-light-bg-quaternary-alpha-30: var(--color-dark-bg-quaternary-alpha-30);
+    --color-light-bg-quaternary-shade-7: var(--color-dark-bg-quaternary-tint-7);
+    --color-light-bg-quaternary-shade-10: var(--color-dark-bg-quaternary-tint-10);
+    --color-light-bg-quaternary-shade-15: var(--color-dark-bg-quaternary-tint-15);
+    --color-light-bg-quaternary-shade-30: var(--color-dark-bg-quaternary-tint-30);
+    --color-light-bg-quaternary-tint-15: var(--color-dark-bg-quaternary-shade-15);
     --color-light-bg-secondary-alpha-30: var(--color-dark-bg-secondary-alpha-30);
     --color-light-bg-secondary-shade-7: var(--color-dark-bg-secondary-tint-7);
     --color-light-bg-secondary-shade-15: var(--color-dark-bg-secondary-tint-15);
@@ -122,6 +128,7 @@
     --color-light-graphic-primary-tint-30: var(--color-dark-graphic-primary-shade-30);
     --color-light-graphic-primary-shade-10: var(--color-dark-graphic-primary-tint-10);
     --color-light-graphic-primary-shade-30: var(--color-dark-graphic-primary-tint-30);
+    --color-light-graphic-quaternary-shade-10: var(--color-dark-graphic-quaternary-tint-10);
     --color-light-graphic-secondary-alpha-30: var(--color-dark-graphic-secondary-alpha-30);
     --color-light-graphic-secondary-shade-30: var(--color-dark-graphic-secondary-tint-30);
     --color-light-graphic-secondary-shade-50: var(--color-dark-graphic-secondary-tint-50);
@@ -156,11 +163,4 @@
     --color-light-text-secondary-inverted-tint-30: var(
         --color-dark-text-secondary-inverted-shade-30
     );
-    --color-light-bg-neutral-alpha-30: var(--color-dark-bg-neutral-alpha-30);
-    --color-light-bg-neutral-shade-7: var(--color-dark-bg-neutral-tint-7);
-    --color-light-bg-neutral-shade-10: var(--color-dark-bg-neutral-tint-10);
-    --color-light-bg-neutral-shade-15: var(--color-dark-bg-neutral-tint-15);
-    --color-light-bg-neutral-shade-30: var(--color-dark-bg-neutral-tint-30);
-    --color-light-bg-neutral-tint-15: var(--color-dark-bg-neutral-shade-15);
-    --color-light-graphic-neutral-shade-10: var(--color-dark-graphic-neutral-tint-10);
 }

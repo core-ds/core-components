@@ -22,7 +22,7 @@
 
     /* highlighted */
     --calendar-highlighted-color: var(--color-light-text-primary);
-    --calendar-highlighted-background: var(--color-light-graphic-neutral);
+    --calendar-highlighted-background: var(--color-light-graphic-quaternary);
 
     /* range */
     --calendar-range-color: var(--color-light-text-primary);

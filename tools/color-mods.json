@@ -3,7 +3,7 @@
         "alpha": [30],
         "shade": [7, 10, 15, 30]
     },
-    "light-bg-neutral": {
+    "light-bg-quaternary": {
         "alpha": [30],
         "shade": [7, 10, 15, 30],
         "tint": [15]
@@ -47,7 +47,7 @@
     "light-graphic-negative": {
         "tint": [20, 30]
     },
-    "light-graphic-neutral": {
+    "light-graphic-quaternary": {
         "shade": [10]
     },
     "light-graphic-primary": {

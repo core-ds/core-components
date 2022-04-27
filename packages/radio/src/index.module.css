@@ -23,14 +23,14 @@
     /* disabled */
     --radio-disabled-color: var(--color-light-text-secondary);
     --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-disabled-border-color: var(--color-light-graphic-neutral);
+    --radio-disabled-border-color: var(--color-light-graphic-quaternary);
 
     /* inactive */
     --radio-inactive-border-color: var(--color-light-border-underline);
     --radio-checked-inactive-color: var(--color-light-graphic-tertiary);
 
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: var(--color-light-bg-neutral);
+    --radio-checked-disabled-bg-color: var(--color-light-bg-quaternary);
     --radio-checked-disabled-border-color: transparent;
 
     /* icon */

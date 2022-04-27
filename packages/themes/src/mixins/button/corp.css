@@ -11,10 +11,10 @@
     --button-secondary-disabled-border-color: var(--color-light-border-underline-inverted-alpha-30);
 
     /* tertiary */
-    --button-tertiary-base-bg-color: var(--color-light-bg-neutral);
-    --button-tertiary-hover-bg-color: var(--color-light-bg-neutral-shade-7);
-    --button-tertiary-active-bg-color: var(--color-light-bg-neutral-shade-15);
-    --button-tertiary-disabled-bg-color: var(--color-light-bg-neutral-alpha-30);
+    --button-tertiary-base-bg-color: var(--color-light-bg-quaternary);
+    --button-tertiary-hover-bg-color: var(--color-light-bg-quaternary-shade-7);
+    --button-tertiary-active-bg-color: var(--color-light-bg-quaternary-shade-15);
+    --button-tertiary-disabled-bg-color: var(--color-light-bg-quaternary-alpha-30);
     --button-tertiary-base-border-color: transparent;
     --button-tertiary-disabled-border-color: transparent;
     --button-tertiary-color: var(--color-light-text-primary);
@@ -34,10 +34,10 @@
 
     /* inverted-tertiary */
     --button-inverted-tertiary-color: var(--color-dark-text-primary);
-    --button-inverted-tertiary-base-bg-color: var(--color-dark-bg-neutral);
-    --button-inverted-tertiary-hover-bg-color: var(--color-dark-bg-neutral-tint-15);
-    --button-inverted-tertiary-active-bg-color: var(--color-dark-bg-neutral-shade-15);
-    --button-inverted-tertiary-disabled-bg-color: var(--color-dark-bg-neutral-alpha-30);
+    --button-inverted-tertiary-base-bg-color: var(--color-dark-bg-quaternary);
+    --button-inverted-tertiary-hover-bg-color: var(--color-dark-bg-quaternary-tint-15);
+    --button-inverted-tertiary-active-bg-color: var(--color-dark-bg-quaternary-shade-15);
+    --button-inverted-tertiary-disabled-bg-color: var(--color-dark-bg-quaternary-alpha-30);
     --button-inverted-tertiary-base-border-color: transparent;
     --button-inverted-tertiary-disabled-border-color: transparent;
     --button-inverted-tertiary-disabled-color: var(--color-dark-text-primary-alpha-30);

@@ -10,11 +10,15 @@
     --button-inverted-primary-disabled-color: var(--color-light-text-primary-inverted);
 
     /* secondary */
-    --button-inverted-secondary-base-bg-color: var(--color-dark-bg-neutral);
-    --button-inverted-secondary-hover-bg-color: color-mod(var(--color-dark-bg-neutral) tint(15%));
-    --button-inverted-secondary-active-bg-color: color-mod(var(--color-dark-bg-neutral) shade(15%));
+    --button-inverted-secondary-base-bg-color: var(--color-dark-bg-quaternary);
+    --button-inverted-secondary-hover-bg-color: color-mod(
+        var(--color-dark-bg-quaternary) tint(15%)
+    );
+    --button-inverted-secondary-active-bg-color: color-mod(
+        var(--color-dark-bg-quaternary) shade(15%)
+    );
     --button-inverted-secondary-disabled-bg-color: color-mod(
-        var(--color-dark-bg-neutral) alpha(30%)
+        var(--color-dark-bg-quaternary) alpha(30%)
     );
     --button-inverted-secondary-base-border-color: transparent;
     --button-inverted-secondary-disabled-border-color: transparent;
@@ -117,14 +121,14 @@
 
 .filled {
     color: var(--color-dark-text-primary);
-    background-color: var(--color-dark-bg-neutral);
+    background-color: var(--color-dark-bg-quaternary);
 
     &:hover {
-        background-color: color-mod(var(--color-dark-bg-neutral) tint(15%));
+        background-color: color-mod(var(--color-dark-bg-quaternary) tint(15%));
     }
 
     &:active {
-        background-color: color-mod(var(--color-dark-bg-neutral) shade(15%));
+        background-color: color-mod(var(--color-dark-bg-quaternary) shade(15%));
     }
 }
 
@@ -214,12 +218,12 @@
 
     &.filled {
         color: color-mod(var(--color-dark-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-dark-bg-neutral) alpha(30%));
+        background-color: color-mod(var(--color-dark-bg-quaternary) alpha(30%));
         border-color: transparent;
 
         &.loading {
             color: var(--color-dark-text-primary);
-            background-color: var(--color-dark-bg-neutral);
+            background-color: var(--color-dark-bg-quaternary);
             border-color: transparent;
         }
     }
