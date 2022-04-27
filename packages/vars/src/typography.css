@@ -531,6 +531,12 @@
     font-weight: 400;
 }
 
+@define-mixin system_14-20_regular {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
 @define-mixin system_12-16_medium_caps {
     font-size: 12px;
     line-height: 16px;
