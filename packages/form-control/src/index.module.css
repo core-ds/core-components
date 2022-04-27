@@ -72,7 +72,7 @@
 }
 
 .label {
-    @mixin system_14-20_regular;
+    @mixin system_16-20_regular;
 
     position: absolute;
     display: flex;
@@ -198,7 +198,7 @@
 }
 
 .xl .label {
-    top: calc(var(--form-control-xl-min-height) / 2);
+    top: calc(var(--form-control-xl-min-height) / 2 + 0.5px);
 }
 
 /* DISABLED STATE */
