@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-stack@3.0.0...@alfalab/core-components-stack@3.0.1) (2021-07-09)
+## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-stack@3.0.0...@alfalab/core-components-stack@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-stack
 
@@ -11,19 +11,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-stack@2.0.0...@alfalab/core-components-stack@3.0.0) (2021-07-08)
+# [3.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-stack@2.0.0...@alfalab/core-components-stack@3.0.0) (2021-07-08)
 
 
 ### Features
 
-* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+* upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 # 2.0.0 (2021-04-26)
 
 
 ### Features
 
-* **stack:** add new component ([#612](https://github.com/alfa-laboratory/core-components/issues/612)) ([c520f91](https://github.com/alfa-laboratory/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
+* **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
 
 
 ### BREAKING CHANGES
