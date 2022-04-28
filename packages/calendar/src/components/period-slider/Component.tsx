@@ -1,12 +1,14 @@
 import React, { FC, MouseEvent, useMemo } from 'react';
 import cn from 'classnames';
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { Button } from '@alfalab/core-components-button';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
-import { formatPeriod, shiftValues } from './utils';
+import { formatPeriod, getYearSelectorValue, shiftValues } from './utils';
 
 import styles from './index.module.css';
+import { monthName } from '../../utils';
 
 export type PeriodType = 'range' | 'day' | 'week' | 'month' | 'quarter' | 'year';
 
@@ -42,6 +44,16 @@ export type PeriodSliderProps = {
     hideDisabledArrows?: boolean;
 
     /**
+     * Возможность выбора месяца и года, если periodType 'month'
+     */
+    isMonthAndYearSelectable?: boolean;
+
+    /**
+     * Отображать ли текущий год, если isMonthAndYearSelectable true
+     */
+    showCurrentYearSelector?: boolean;
+
+    /**
      * Функция для форматирование выбранного периода
      */
     periodFormatter?: (valueFrom: Date, valueTo: Date, periodType: PeriodType) => string;
@@ -73,6 +85,16 @@ export type PeriodSliderProps = {
     ) => void;
 
     /**
+     * Обработчик нажатия на селектор месяца
+     */
+    onMonthClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Обработчик нажатия на селектор года
+     */
+    onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -86,8 +108,12 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     prevArrowDisabled = false,
     nextArrowDisabled = false,
     hideDisabledArrows = false,
+    isMonthAndYearSelectable = false,
+    showCurrentYearSelector = false,
     onPrevArrowClick = () => null,
     onNextArrowClick = () => null,
+    onMonthClick,
+    onYearClick,
     dataTestId,
 }) => {
     const [valueFrom, valueTo] = useMemo(() => {
@@ -109,6 +135,10 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
 
         return [from, to];
     }, [periodType, value]);
+
+    const yearSelectorValue = useMemo(() => {
+        return valueFrom ? getYearSelectorValue(valueFrom, showCurrentYearSelector) : '';
+    }, [showCurrentYearSelector, valueFrom]);
 
     const showArrow = (direction: 'prev' | 'next') => {
         if (hideDisabledArrows) {
@@ -162,10 +192,29 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                 />
             )}
 
+            {/* eslint-disable-next-line no-nested-ternary */}
             {valueFrom && valueTo ? (
-                <span className={styles.period}>
-                    {periodFormatter(valueFrom, valueTo, periodType)}
-                </span>
+                periodType === 'month' && isMonthAndYearSelectable ? (
+                    <span className={styles.period}>
+                        <Button view='ghost' size='l' onClick={onMonthClick}>
+                            {monthName(valueFrom)}
+                        </Button>
+                        {yearSelectorValue && (
+                            <Button
+                                className={styles.yearSelectorButton}
+                                view='ghost'
+                                size='l'
+                                onClick={onYearClick}
+                            >
+                                {yearSelectorValue}
+                            </Button>
+                        )}
+                    </span>
+                ) : (
+                    <span className={styles.period}>
+                        {periodFormatter(valueFrom, valueTo, periodType)}
+                    </span>
+                )
             ) : (
                 <span className={cn(styles.period, styles.empty)}>Укажите период</span>
             )}
