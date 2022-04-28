@@ -20,9 +20,14 @@ export type BadgeProps = {
     size?: 's' | 'm' | 'l';
 
     /**
-     *  Видимость обводки вокруг иконки (только для view=icon)
+     *  Видимость белой обводки вокруг иконки (только для view=icon)
      */
     visibleIconOutline?: boolean;
+
+    /**
+     *  Видимость цветной обводки вокруг иконки (только для view=icon)
+     */
+    visibleColorOutline?: boolean;
 
     /**
      * Контент компонента
@@ -52,6 +57,7 @@ export const Badge = ({
     size = 'm',
     view,
     visibleIconOutline = false,
+    visibleColorOutline = false,
     content,
     iconColor,
     dataTestId,
@@ -72,6 +78,7 @@ export const Badge = ({
                     [styles.isHidden]: isHidden,
                     [styles.dot]: !content,
                     [styles.outline]: visibleIconOutline,
+                    [styles.outlineColor]: visibleColorOutline,
                 },
                 className,
             )}
