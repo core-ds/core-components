@@ -6,7 +6,6 @@
     --button-inverted-primary-hover-bg-color: color-mod(var(--color-dark-bg-accent) tint(15%));
     --button-inverted-primary-active-bg-color: color-mod(var(--color-dark-bg-accent) shade(15%));
     --button-inverted-primary-disabled-bg-color: color-mod(var(--color-dark-bg-accent) alpha(30%));
-    --button-inverted-primary-color: var(--color-light-text-primary-inverted);
     --button-inverted-primary-disabled-color: var(--color-light-text-primary-inverted);
 
     /* secondary */
@@ -65,7 +64,6 @@
 }
 
 .primary {
-    color: var(--button-inverted-primary-color);
     background-color: var(--button-inverted-primary-base-bg-color);
 
     &:hover {

@@ -131,6 +131,7 @@
     --color-light-specialbg-component-alpha-2: var(--color-dark-specialbg-component-alpha-2);
     --color-light-specialbg-component-alpha-14: var(--color-dark-specialbg-component-alpha-14);
     --color-light-specialbg-component-alpha-23: var(--color-dark-specialbg-component-alpha-23);
+    --color-light-specialbg-component-alpha-30: var(--color-dark-specialbg-component-alpha-30);
     --color-light-specialbg-component-inverted-tint-15: var(
         --color-dark-specialbg-component-inverted-shade-15
     );

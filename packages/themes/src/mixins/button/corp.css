@@ -3,7 +3,7 @@
     --button-active-transform: none;
 
     /* secondary */
-    --button-secondary-base-bg-color: transparent;
+    --button-secondary-base-bg-color: var(--color-light-specialbg-component);
     --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
     --button-secondary-active-bg-color: var(--color-light-specialbg-component-shade-7);
     --button-secondary-disabled-bg-color: transparent;

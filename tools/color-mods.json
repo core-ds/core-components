@@ -27,7 +27,7 @@
     },
     "light-specialbg-component": {
         "shade": [7, 10, 30],
-        "alpha": [2, 14, 23]
+        "alpha": [2, 14, 23, 30]
     },
     "light-specialbg-component-inverted": {
         "tint": [15]
