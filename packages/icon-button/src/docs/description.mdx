@@ -1,4 +1,9 @@
+Компонент может использоваться самостоятельно или в составе более сложных компонентов: Calendar, FilterTag.
+
+## Примеры
+
 ### Размеры
+Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
 
 ```jsx live
 <Container>
@@ -6,7 +11,7 @@
         <Col>
             <IconButton
                 view='primary'
-                size='xxs'
+                size='s'
                 icon={StarMIcon}
                 style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
             />
@@ -22,7 +27,7 @@
         <Col>
             <IconButton
                 view='primary'
-                size='s'
+                size='xxs'
                 icon={StarMIcon}
                 style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
             />
@@ -31,12 +36,11 @@
 </Container>
 ```
 
-### Виды кнопок
-
--   <b>Primary</b>
+### Вью
+Primary, secondary, tertiary, negative
 
 ```jsx live
-<Container>
+<Container> 
     <Row>
         <Col>
             <IconButton view='primary' icon={StarMIcon} />
@@ -44,57 +48,21 @@
         <Col>
             <IconButton view='primary' icon={SfFaceIdXxlIcon} />
         </Col>
-    </Row>
-</Container>
-```
 
--   <b>Secondary</b>
-
-```jsx live
-<Container>
-    <Row>
         <Col>
             <IconButton view='secondary' icon={StarMIcon} />
         </Col>
         <Col>
             <IconButton view='secondary' icon={SfFaceIdXxlIcon} />
         </Col>
-    </Row>
-</Container>
-```
 
--   <b>Transparent</b>
+        <Col>
+            <IconButton view='tertiary' icon={StarMIcon} />
+        </Col>
+        <Col>
+            <IconButton view='tertiary' icon={SfFaceIdXxlIcon} />
+        </Col>
 
-```jsx live
-<>
-    <div
-        style={{
-            background: '#ef3124',
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-        }}
-    />
-    <Container>
-        <Row>
-            <Col>
-                <IconButton view='transparent' icon={StarMIcon} />
-            </Col>
-            <Col>
-                <IconButton view='transparent' icon={SfFaceIdXxlIcon} />
-            </Col>
-        </Row>
-    </Container>
-</>
-```
-
--   <b>Negative</b>
-
-```jsx live
-<Container>
-    <Row>
         <Col>
             <IconButton view='negative' icon={StarMIcon} />
         </Col>
@@ -104,10 +72,46 @@
     </Row>
 </Container>
 ```
+### Состояние загрузки
+С помощью свойства loading можно отобразить состояние загрузки. Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
 
-### Остальные пропсы
+```jsx live
+<Container>
+    <Row>
+        <Col>
+            <IconButton
+                view='primary'
+                icon={StarMIcon}
+                loading={true}
+            />
+        </Col>
+        <Col>
+            <IconButton
+                view='secondary'
+                icon={StarMIcon}
+                loading={true}
+            />
+        </Col>
+        <Col>
+             <IconButton
+                view='tertiary'
+                icon={StarMIcon}
+                loading={true}
+            />
+        </Col>
+        <Col>
+            <IconButton
+                view='negative'
+                icon={StarMIcon}
+                loading={true}
+            />
+        </Col>  
+    </Row>
+</Container>
+```
 
--   <b>href</b>
+
+### Ссылка
 
 ```jsx live
 <Container>
@@ -116,18 +120,6 @@
         icon={StarMIcon}
         href="https://alfabank.ru"
         target="_blank"
-    />
-</Container>
-```
-
--   <b>loading</b>
-
-```jsx live
-<Container>
-    <IconButton
-        view='primary'
-        icon={StarMIcon}
-        loading={true}
     />
 </Container>
 ```
