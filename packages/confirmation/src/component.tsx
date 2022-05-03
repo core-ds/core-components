@@ -59,7 +59,7 @@ export const Confirmation: FC<ConfirmationProps> = ({
         /**
          * Останавливаем таймер, если новый экран/состояние не содержит таймер
          */
-        if (!['INITIAL', 'HINT'].includes(screen) || blockSmsRetry) {
+        if (!['INITIAL', 'HINT', 'TEMP_BLOCK'].includes(screen) || blockSmsRetry) {
             stopTimer();
         }
     }, [state, screen, blockSmsRetry, stopTimer]);
