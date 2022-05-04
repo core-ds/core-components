@@ -136,9 +136,10 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         return [from, to];
     }, [periodType, value]);
 
-    const yearSelectorValue = useMemo(() => {
-        return valueFrom ? getYearSelectorValue(valueFrom, showCurrentYearSelector) : '';
-    }, [showCurrentYearSelector, valueFrom]);
+    const yearSelectorValue = useMemo(
+        () => getYearSelectorValue(valueFrom, showCurrentYearSelector),
+        [showCurrentYearSelector, valueFrom],
+    );
 
     const showArrow = (direction: 'prev' | 'next') => {
         if (hideDisabledArrows) {
@@ -175,6 +176,32 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         });
     };
 
+    const renderHeader = () => {
+        if (!(valueFrom && valueTo)) {
+            return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
+        }
+
+        return periodType === 'month' && isMonthAndYearSelectable ? (
+            <div>
+                <Button className={styles.period} view='ghost' size='l' onClick={onMonthClick}>
+                    {monthName(valueFrom)}
+                </Button>
+                {yearSelectorValue && (
+                    <Button
+                        className={cn(styles.yearSelectorButton, styles.period)}
+                        view='ghost'
+                        size='l'
+                        onClick={onYearClick}
+                    >
+                        {yearSelectorValue}
+                    </Button>
+                )}
+            </div>
+        ) : (
+            <span className={styles.period}>{periodFormatter(valueFrom, valueTo, periodType)}</span>
+        );
+    };
+
     return (
         <div
             className={cn(styles.component, className)}
@@ -192,32 +219,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                 />
             )}
 
-            {/* eslint-disable-next-line no-nested-ternary */}
-            {valueFrom && valueTo ? (
-                periodType === 'month' && isMonthAndYearSelectable ? (
-                    <span className={styles.period}>
-                        <Button view='ghost' size='l' onClick={onMonthClick}>
-                            {monthName(valueFrom)}
-                        </Button>
-                        {yearSelectorValue && (
-                            <Button
-                                className={styles.yearSelectorButton}
-                                view='ghost'
-                                size='l'
-                                onClick={onYearClick}
-                            >
-                                {yearSelectorValue}
-                            </Button>
-                        )}
-                    </span>
-                ) : (
-                    <span className={styles.period}>
-                        {periodFormatter(valueFrom, valueTo, periodType)}
-                    </span>
-                )
-            ) : (
-                <span className={cn(styles.period, styles.empty)}>Укажите период</span>
-            )}
+            {renderHeader()}
 
             {showArrow('next') && (
                 <IconButton
