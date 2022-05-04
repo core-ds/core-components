@@ -8,6 +8,8 @@
     --toast-plate-action-align: center;
     --toast-plate-action-padding: 0 var(--gap-2xl);
     --toast-plate-action-divider-display: block;
+    --toast-plate-content-with-closer-right-padding: var(--gap-m);
+    --toast-plate-close-button-align: center;
 }
 
 .component {
@@ -39,6 +41,10 @@
 .content {
     display: flex;
     flex-grow: 1;
+
+    &.hasCloser:not(.hasActionButton) {
+        padding-right: var(--toast-plate-content-with-closer-right-padding);
+    }
 }
 
 .actionSection {
@@ -78,23 +84,18 @@
 
 .closeButton {
     display: flex;
-    align-items: flex-start;
+    align-items: var(--toast-plate-close-button-align);
     position: absolute;
-    top: var(--gap-s);
-    bottom: var(--gap-s);
-    right: var(--gap-s);
-    padding: var(--gap-2xs);
-}
-
-.actionSection + .closeButton {
-    align-items: var(--toast-plate-action-align);
+    top: var(--gap-2xs);
+    bottom: var(--gap-2xs);
+    right: var(--gap-2xs);
 
     &:before {
         display: var(--toast-plate-action-divider-display);
         position: absolute;
-        right: 44px;
-        top: var(--gap-2xs);
-        bottom: var(--gap-2xs);
+        right: 51px;
+        top: var(--gap-s);
+        bottom: var(--gap-s);
         width: 1px;
         background-color: var(--color-light-bg-tertiary-inverted);
         content: '';
