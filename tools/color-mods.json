@@ -30,7 +30,11 @@
         "alpha": [2, 14, 23, 30]
     },
     "light-specialbg-component-inverted": {
-        "tint": [15]
+        "alpha": [30],
+        "tint": [15, 20]
+    },
+    "light-border-underline": {
+        "alpha": [30]
     },
     "light-border-underline-inverted": {
         "alpha": [30]
@@ -64,12 +68,13 @@
     },
     "light-text-primary": {
         "alpha": [30],
-        "tint": [20, 30],
+        "tint": [15, 20, 30],
         "shade": [20, 40]
     },
     "light-text-primary-inverted": {
-        "alpha": [40],
-        "tint": [20, 30]
+        "alpha": [30, 40],
+        "tint": [20, 30],
+        "shade": [7, 15, 30, 50]
     },
     "light-text-secondary": {
         "tint": [20, 30],

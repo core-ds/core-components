@@ -7,7 +7,7 @@
     --button-primary-active-bg-color: var(--color-light-bg-accent-shade-15);
     --button-primary-disabled-bg-color: var(--color-light-bg-accent-alpha-30);
     --button-primary-color: var(--color-static-text-primary-light);
-    --button-primary-disabled-color: var(--color-light-text-primary-inverted);
+    --button-primary-disabled-color: var(--color-static-text-primary-light);
 
     /* secondary */
     --button-secondary-base-bg-color: var(--color-light-specialbg-component);
@@ -30,7 +30,7 @@
     --button-tertiary-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* outlined */
-    --button-outlined-base-bg-color: transparent;
+    --button-outlined-base-bg-color: red;
     --button-outlined-hover-bg-color: rgba(0, 0, 0, 0.07);
     --button-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
     --button-outlined-disabled-bg-color: transparent;
@@ -132,11 +132,11 @@
     background-color: transparent;
 
     &:hover {
-        background-color: var(--color-light-specialbg-component);
+        background-color: var(--color-light-specialbg-component-shade-7);
     }
 
     &:active {
-        background-color: var(--color-light-specialbg-component-shade-7);
+        background-color: var(--color-light-specialbg-component-shade-15);
     }
 }
 
