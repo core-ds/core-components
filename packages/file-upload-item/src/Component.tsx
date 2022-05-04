@@ -121,7 +121,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     download,
     uploadStatus,
     uploadPercent = 0,
-    error = uploadStatus === 'ERROR' ? 'Не удалось загрузить файл' : undefined,
+    error,
     showDelete,
     showRestore,
     onDelete,
@@ -171,17 +171,21 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     }, [showRestore, uploadStatus]);
 
     const renderInfoSection = useCallback(
-        () => (
-            <div className={styles.infoSection}>
-                <div className={styles.name}>{name}</div>
+        () => {
+            const errorContent = (uploadStatus === 'ERROR' && !error) ? 'Не удалось загрузить файл' : error;
 
-                {uploadStatus === 'ERROR' && error && (
+            return (
+                <div className={styles.infoSection}>
+                    <div className={styles.name}>{name}</div>
+
+                    { error && (
                     <div className={styles.errorWrapper} role='alert'>
-                        {error}
+                        { errorContent }
                     </div>
                 )}
-            </div>
-        ),
+                </div>
+            );
+        },
         [name, uploadStatus, error],
     );
 
