@@ -78,7 +78,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             open,
             autoCloseDelay = 3000,
             className,
-            titleClassName = styles.title,
+            titleClassName,
             bottomOffset,
             style = {},
             block,
@@ -155,7 +155,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
 
         const props = {
             block,
-            titleClassName,
+            titleClassName: cn(titleClassName, styles.title),
             onClose,
             onMouseEnter: handleMouseEnter,
             onMouseLeave: handleMouseLeave,
