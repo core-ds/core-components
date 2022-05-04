@@ -6,6 +6,7 @@
 
 .toastPlate {
     box-shadow: var(--toast-box-shadow);
+    word-break: break-all;
 }
 
 .popoverInner {

@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [26.7.0](https://github.com/core-ds/core-components/compare/v26.5.3...v26.7.0) (2022-05-04)
+
+
+### Features
+
+* **button:** add overflow hidden and text overflow ellipsis for nowrap ([#17](https://github.com/core-ds/core-components/issues/17)) ([7d9669a](https://github.com/core-ds/core-components/commit/7d9669a56c6b134caae9a0317ffc2c0206928a27))
+* **toast:** break text in toast ([#25](https://github.com/core-ds/core-components/issues/25)) ([5356ce6](https://github.com/core-ds/core-components/commit/5356ce685e35b9414a465fb023382535f150abf5))
+
+
+### Bug Fixes
+
+* **code-input:** auto-fill styles ([#24](https://github.com/core-ds/core-components/issues/24)) ([7e83e02](https://github.com/core-ds/core-components/commit/7e83e02b4aae0aeefe91a2526744ca10d7577290))
+* **confirmation:** fix countdown timer ([#23](https://github.com/core-ds/core-components/issues/23)) ([2752723](https://github.com/core-ds/core-components/commit/2752723bdbf71e42cfb1e8c6e9009c719663ec09))
+
+# [26.6.0](https://github.com/core-ds/core-components/compare/v26.5.3...v26.6.0) (2022-05-04)
+
+
+### Bug Fixes
+
+* **code-input:** auto-fill styles ([#24](https://github.com/core-ds/core-components/issues/24)) ([7e83e02](https://github.com/core-ds/core-components/commit/7e83e02b4aae0aeefe91a2526744ca10d7577290))
+* **confirmation:** fix countdown timer ([#23](https://github.com/core-ds/core-components/issues/23)) ([2752723](https://github.com/core-ds/core-components/commit/2752723bdbf71e42cfb1e8c6e9009c719663ec09))
+
+
+### Features
+
+* **button:** add overflow hidden and text overflow ellipsis for nowrap ([#17](https://github.com/core-ds/core-components/issues/17)) ([7d9669a](https://github.com/core-ds/core-components/commit/7d9669a56c6b134caae9a0317ffc2c0206928a27))
+* **toast:** break text in toast ([#25](https://github.com/core-ds/core-components/issues/25)) ([5356ce6](https://github.com/core-ds/core-components/commit/5356ce685e35b9414a465fb023382535f150abf5))
+
+
+### Reverts
+
+* Revert "исправление (управление формы): исправление высоты метки линии (#14)" (#16) ([a4b70d1](https://github.com/core-ds/core-components/commit/a4b70d1ca36294fbc114486d65eef9fdb0543ad8)), closes [#14](https://github.com/core-ds/core-components/issues/14) [#16](https://github.com/core-ds/core-components/issues/16)
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ### [26.5.3](https://github.com/core-ds/core-components/compare/v26.5.2...v26.5.3) (2022-04-26)
 
 
