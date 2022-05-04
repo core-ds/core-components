@@ -175,13 +175,15 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                     )}
 
                     {hasCloser && (
-                        <IconButton
-                            icon={CrossMIcon}
-                            colors='inverted'
-                            className={cn(styles.closeButton)}
-                            onClick={handleClose}
-                            aria-label='закрыть'
-                        />
+                        <div className={styles.closeButtonWrapper}>
+                            <IconButton
+                                icon={CrossMIcon}
+                                colors='inverted'
+                                className={cn(styles.closeButton)}
+                                onClick={handleClose}
+                                aria-label='закрыть'
+                            />
+                        </div>
                     )}
                 </div>
             </div>

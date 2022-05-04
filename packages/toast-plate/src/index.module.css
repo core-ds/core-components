@@ -82,9 +82,7 @@
     margin-top: var(--gap-2xs);
 }
 
-.closeButton {
-    display: flex;
-    align-items: var(--toast-plate-close-button-align);
+.closeButtonWrapper {
     position: absolute;
     top: var(--gap-2xs);
     bottom: var(--gap-2xs);
@@ -97,7 +95,13 @@
         top: var(--gap-s);
         bottom: var(--gap-s);
         width: 1px;
-        background-color: var(--color-light-bg-tertiary-inverted);
+        background-color: var(--color-light-border-secondary-inverted);
         content: '';
     }
+}
+
+.closeButton {
+    display: flex;
+    align-items: var(--toast-plate-close-button-align);
+    height: 100%;
 }
