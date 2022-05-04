@@ -23,7 +23,7 @@ import styles from '!!raw-loader!../index.module.css';
         badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
         title={text('title', 'Поздравляем, полный успех')}
         hasCloser={boolean('hasCloser', true)}
-        actionButton={boolean('renderActionButton', false) ? <Button view="ghost" size="s">Action Button</Button> : null }
+        actionButton={boolean('renderActionButton', false) ? <Button view="ghost" size="s" colors="inverted">Action Button</Button> : null }
         offset={number('offset', 48)}
         onClose={() => {}}
     >
