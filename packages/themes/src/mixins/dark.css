@@ -95,6 +95,11 @@
     --color-light-bg-quaternary-shade-10: var(--color-dark-bg-quaternary-tint-10);
     --color-light-bg-quaternary-shade-15: var(--color-dark-bg-quaternary-tint-15);
     --color-light-bg-quaternary-shade-30: var(--color-dark-bg-quaternary-tint-30);
+    --color-light-bg-quaternary-inverted-alpha-30: var(
+        --color-dark-bg-quaternary-inverted-alpha-30
+    );
+    --color-light-bg-quaternary-inverted-tint-15: var(--color-dark-bg-quaternary-inverted-shade-15);
+    --color-light-bg-quaternary-inverted-tint-20: var(--color-dark-bg-quaternary-inverted-shade-20);
     --color-light-bg-secondary-alpha-30: var(--color-dark-bg-secondary-alpha-30);
     --color-light-bg-secondary-shade-7: var(--color-dark-bg-secondary-tint-7);
     --color-light-bg-secondary-shade-15: var(--color-dark-bg-secondary-tint-15);
@@ -128,6 +133,7 @@
     --color-light-graphic-secondary-shade-50: var(--color-dark-graphic-secondary-tint-50);
     --color-light-specialbg-component-shade-7: var(--color-dark-specialbg-component-tint-7);
     --color-light-specialbg-component-shade-10: var(--color-dark-specialbg-component-tint-10);
+    --color-light-specialbg-component-shade-15: var(--color-dark-specialbg-component-tint-15);
     --color-light-specialbg-component-shade-30: var(--color-dark-specialbg-component-tint-30);
     --color-light-specialbg-component-alpha-2: var(--color-dark-specialbg-component-alpha-2);
     --color-light-specialbg-component-alpha-14: var(--color-dark-specialbg-component-alpha-14);
@@ -147,9 +153,8 @@
     --color-light-text-link-shade-20: var(--color-dark-text-link-tint-20);
     --color-light-text-link-shade-40: var(--color-dark-text-link-tint-40);
     --color-light-text-primary-alpha-30: var(--color-dark-text-primary-alpha-30);
-    --color-light-text-primary-tint-15: var(--color-dark-text-primary-shade-15);
-    --color-light-text-primary-tint-20: var(--color-dark-text-primary-shade-20);
     --color-light-text-primary-tint-30: var(--color-dark-text-primary-shade-30);
+    --color-light-text-primary-tint-50: var(--color-dark-text-primary-shade-50);
     --color-light-text-primary-shade-20: var(--color-dark-text-primary-tint-20);
     --color-light-text-primary-shade-40: var(--color-dark-text-primary-tint-40);
     --color-light-text-primary-inverted-alpha-30: var(--color-dark-text-primary-inverted-alpha-30);
