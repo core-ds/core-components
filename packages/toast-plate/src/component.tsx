@@ -33,6 +33,11 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     contentClassName?: string;
 
     /**
+     * Дополнительный класс для области с кнопкой действия
+     */
+    actionSectionClassName?: string;
+
+    /**
      * Дочерние элементы
      */
     children?: ReactNode;
@@ -96,6 +101,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             className,
             titleClassName,
             contentClassName,
+            actionSectionClassName,
             hasCloser,
             leftAddons,
             badge,
@@ -166,7 +172,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
 
                     {actionButton && (
                         <div
-                            className={cn(styles.actionSection, {
+                            className={cn(actionSectionClassName, styles.actionSection, {
                                 [styles.hasCloser]: hasCloser,
                             })}
                         >

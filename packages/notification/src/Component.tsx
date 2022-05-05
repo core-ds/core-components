@@ -74,6 +74,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
     (
         {
             className,
+            actionSectionClassName,
             children,
             visible,
             offset = 108,
@@ -203,6 +204,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     className,
                                 )}
                                 contentClassName={styles.toastContent}
+                                actionSectionClassName={cn(
+                                    actionSectionClassName,
+                                    styles.actionSection,
+                                )}
                                 style={{
                                     top: offset,
                                     zIndex: computedZIndex,
