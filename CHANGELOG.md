@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [26.8.0](https://github.com/core-ds/core-components/compare/v26.7.0...v26.8.0) (2022-05-05)
+
+
+### Features
+
+* **calendar:** add selectable year and month for PeriodSlider ([#18](https://github.com/core-ds/core-components/issues/18)) ([918767c](https://github.com/core-ds/core-components/commit/918767ce06e5dec1ba094a57282e88fc4cd2de66))
+
+
+### Bug Fixes
+
+* add disabled props to checkbox ([#32](https://github.com/core-ds/core-components/issues/32)) ([b64adff](https://github.com/core-ds/core-components/commit/b64adffb8439a64bbf85e30864d1b932fc4dd2eb))
+
 ## [26.7.0](https://github.com/core-ds/core-components/compare/v26.5.3...v26.7.0) (2022-05-04)
 
 
