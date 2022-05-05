@@ -627,6 +627,11 @@ export type CheckmarkProps = {
     selected?: boolean;
 
     /**
+     * Флаг, данный пункт задизейблен
+     */
+    disabled?: boolean;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
