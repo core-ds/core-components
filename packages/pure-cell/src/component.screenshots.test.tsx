@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -8,38 +8,17 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 describe(
-    'PureCell | screenshots',
+    'PureCell | screenshots direction=`horizontal`',
     screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'PureCell',
-                    knobs: {
-                        direction: ['horizontal', 'vertical'],
-                    },
-                    size: { width: 100, height: 100 },
-                }),
-            ],
-        ],
-    }),
-);
-
-describe(
-    'PureCell.Addon | screenshots',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'PureCell',
-                    subComponentName: 'Addon',
-                    knobs: {
-                        direction: ['horizontal', 'vertical'],
-                    },
-                    size: { width: 400, height: 300 },
-                }),
-            ],
-        ],
+        cases: generateTestCases({
+            componentName: 'PureCell',
+            knobs: {
+                direction: ['horizontal'],
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 1920, height: 600 },
+        },
     }),
 );
