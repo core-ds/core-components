@@ -18,6 +18,7 @@
         "build": "./bin/build.sh",
         "start": "start-storybook -p 9009 -c .storybook -s ./.storybook/public",
         "start:quick": "RDTL=off yarn start",
+        "start:stand": "webpack serve --config ./test-stand/webpack.config.js --mode development",
         "build-storybook": "build-storybook -o build -s ./.storybook/public --quiet",
         "serve-storybook": "http-server build -p 9009",
         "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix && prettier --write \"./packages/{themes,vars}/**/*.css\"",
@@ -122,6 +123,7 @@
         "@types/node": "^13.5.0",
         "@types/react": "^16.9.19",
         "@types/react-dom": "^16.9.5",
+        "@types/react-router-dom": "^5.3.3",
         "@types/react-transition-group": "^4.2.4",
         "@types/swiper": "^5.4.3",
         "@typescript-eslint/eslint-plugin": "^2.23.0",
@@ -183,6 +185,7 @@
         "react-docgen-typescript-loader": "^3.6.0",
         "react-dom": "^16.9.0 || ^17.0.1",
         "react-github-btn": "^1.2.0",
+        "react-router-dom": "^5.3.1",
         "react-scripts": "^3.3.1",
         "replace-in-file": "^5.0.2",
         "rimraf": "^3.0.2",
@@ -201,7 +204,10 @@
         "ts-loader": "^6.2.1",
         "tslib": "^2.0.0",
         "typescript": "~3.8.3",
-        "url-loader": "^4.1.1"
+        "url-loader": "^4.1.1",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^3.11.3"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1",

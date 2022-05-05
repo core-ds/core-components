@@ -12,7 +12,7 @@ type RowProps = {
 
 export const Row: React.FC<RowProps> = ({ align, flex, className, children, ...restProps }) => (
     <div
-        className={cn(styles.row, className, styles[align], {
+        className={cn(styles.row, className, align && styles[align], {
             [styles.flex]: flex,
         })}
         {...restProps}

@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["../typings", "../packages", "./src", "../.storybook/blocks/grid"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDirs": ["src"],
+    "paths": {
+      "@alfalab/core-components-*": ["../packages/*/src"]
+    }
+  },
+}

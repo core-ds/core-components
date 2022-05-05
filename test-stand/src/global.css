@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Styrene UI';
+    src: url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_regular.woff2')
+            format('woff2'),
+        url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_regular.woff')
+            format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Styrene UI';
+    src: url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_medium.woff2')
+            format('woff2'),
+        url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Styrene UI';
+    src: url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_bold.woff2')
+            format('woff2'),
+        url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
+        sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: rgb(246, 249, 252);
+    box-sizing: border-box;
+}
+
+.page-wrapper {
+    display: flex;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 225px;
+    overflow-y: auto;
+    max-height: calc(100vh - 32px);
+}
+
+.sidebar .brand {
+    padding: 6px;
+    width: 200px;
+}
+
+.sidebar .link {
+    display: block;
+    padding: 6px 6px 6px 18px;
+    text-decoration: none;
+    color: rgba(11, 31, 53, 0.9);
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.sidebar .link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar .link.selected {
+    background-color: rgba(11, 31, 53, 0.1);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+}
+
+.content .container-outer {
+    margin: 16px;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 10%) 0 1px 5px 0;
+    border-radius: 4px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.content .container-inner {
+    margin: 0 auto;
+    padding: 32px 16px;
+    max-width: 1000px;
+}
+
+.content .container-inner .wrapper-header {
+    margin: 32px 0 16px;
+    color: #0b1f35;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.content .container-inner .wrapper-header:first-of-type {
+    margin-top: 0;
+}
+
+.content .container-inner .wrapper-component {
+    border: 1px solid #e7e9eb;
+    margin: 25px 0 40px;
+    padding: 30px 20px;
+    border-radius: 4px;
+}
+
+.content .container-inner .wrapper-description {
+    margin: 0 0 16px;
+    color: #0b1f35;
+    font-size: 16px;
+    line-height: 1.5;
+}
