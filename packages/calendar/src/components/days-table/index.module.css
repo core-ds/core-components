@@ -5,6 +5,7 @@
     border-collapse: separate;
     border-spacing: 0;
     position: relative;
+    width: 100%;
 
     & th {
         padding: 0;

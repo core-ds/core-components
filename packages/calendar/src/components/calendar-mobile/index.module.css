@@ -1,0 +1,10 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.calendar {
+    width: unset;
+}
+
+.calendar th {
+    border-bottom: 1px solid var(--color-light-border-primary);
+}

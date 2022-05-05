@@ -131,6 +131,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               <td />
               <td />
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -150,6 +151,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
             </tr>
             <tr>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -167,6 +169,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -184,6 +187,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -201,6 +205,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -218,6 +223,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -235,6 +241,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -252,6 +259,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -271,6 +279,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
             </tr>
             <tr>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -288,6 +297,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -305,6 +315,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -322,6 +333,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -339,6 +351,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -356,6 +369,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -373,6 +387,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -392,6 +407,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
             </tr>
             <tr>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -409,6 +425,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -426,6 +443,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -443,6 +461,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -460,6 +479,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -477,6 +497,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -494,6 +515,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -513,6 +535,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
             </tr>
             <tr>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -530,6 +553,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -547,6 +571,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -564,6 +589,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -581,6 +607,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -598,6 +625,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -615,6 +643,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 </button>
               </td>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button
@@ -634,6 +663,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
             </tr>
             <tr>
               <td
+                align="center"
                 class="dayWrapper"
               >
                 <button

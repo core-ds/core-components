@@ -114,6 +114,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                     [styles.rangeStart]: rangeStart,
                     [styles.rangeEnd]: rangeEnd,
                 })}
+                align='center'
             >
                 <Button
                     {...dayProps}

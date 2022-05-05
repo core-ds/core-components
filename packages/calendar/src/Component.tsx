@@ -4,6 +4,7 @@ import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfDay from 'date-fns/endOfDay';
 import { useDidUpdateEffect } from '@alfalab/hooks';
+
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
@@ -12,9 +13,9 @@ import { PeriodSlider } from './components/period-slider';
 import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
 import { View, SelectorView } from './typings';
+import { MonthYearHeader } from './components/month-year-header';
 
 import styles from './index.module.css';
-import { MonthYearHeader } from './components/month-year-header';
 
 export type CalendarProps = {
     /**
