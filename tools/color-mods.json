@@ -20,11 +20,13 @@
     },
     "light-bg-secondary": {
         "alpha": [30],
+        "tint": [15, 20],
         "shade": [7, 15]
     },
     "light-bg-secondary-inverted": {
         "alpha": [30],
-        "tint": [15, 20]
+        "tint": [15, 20],
+        "shade": [7, 15]
     },
     "light-bg-tertiary": {
         "shade": [7]

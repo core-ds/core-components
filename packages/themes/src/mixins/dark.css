@@ -101,11 +101,15 @@
     --color-light-bg-quaternary-inverted-tint-15: var(--color-dark-bg-quaternary-inverted-shade-15);
     --color-light-bg-quaternary-inverted-tint-20: var(--color-dark-bg-quaternary-inverted-shade-20);
     --color-light-bg-secondary-alpha-30: var(--color-dark-bg-secondary-alpha-30);
+    --color-light-bg-secondary-tint-15: var(--color-dark-bg-secondary-shade-15);
+    --color-light-bg-secondary-tint-20: var(--color-dark-bg-secondary-shade-20);
     --color-light-bg-secondary-shade-7: var(--color-dark-bg-secondary-tint-7);
     --color-light-bg-secondary-shade-15: var(--color-dark-bg-secondary-tint-15);
     --color-light-bg-secondary-inverted-alpha-30: var(--color-dark-bg-secondary-inverted-alpha-30);
     --color-light-bg-secondary-inverted-tint-15: var(--color-dark-bg-secondary-inverted-shade-15);
     --color-light-bg-secondary-inverted-tint-20: var(--color-dark-bg-secondary-inverted-shade-20);
+    --color-light-bg-secondary-inverted-shade-7: var(--color-dark-bg-secondary-inverted-tint-7);
+    --color-light-bg-secondary-inverted-shade-15: var(--color-dark-bg-secondary-inverted-tint-15);
     --color-light-bg-tertiary-shade-7: var(--color-dark-bg-tertiary-tint-7);
     --color-light-border-underline-alpha-30: var(--color-dark-border-underline-alpha-30);
     --color-light-border-underline-inverted-alpha-30: var(
