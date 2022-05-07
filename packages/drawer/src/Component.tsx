@@ -14,12 +14,16 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
      * Пропсы для анимации контента (CSSTransition)
      */
     contentTransitionProps?: Partial<TransitionProps>;
+    /**
+     * Можно прокинуть компонент, например для монтирования toast
+     */
+    footer?: React.ReactNode;
 };
 
 export const DrawerContext = BaseModalContext;
 
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
-    ({ open, className, children, contentTransitionProps, ...restProps }, ref) => {
+    ({ footer, open, className, children, contentTransitionProps, ...restProps }, ref) => {
         const transitionProps = useMemo(
             () => ({
                 classNames: {
@@ -82,7 +86,10 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                 backdropProps={backdropProps}
             >
                 <CSSTransition appear={true} {...contentProps} in={open}>
-                    <div className={styles.content}>{children}</div>
+                    <React.Fragment>
+                        <div className={styles.content}>{children}</div>
+                        {footer}
+                    </React.Fragment>
                 </CSSTransition>
             </BaseModal>
         );
