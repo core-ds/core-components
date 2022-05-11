@@ -1,3 +1,10 @@
+# [26.9.0](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.0) (2022-05-11)
+
+
+### Features
+
+* **attach:** add new icon ([#15](https://github.com/core-ds/core-components/issues/15)) ([4643792](https://github.com/core-ds/core-components/commit/46437929e503b8a1f22afb34f8fe6ad961211d86))
+
 # [26.9.0](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.0) (2022-05-06)
 
 
