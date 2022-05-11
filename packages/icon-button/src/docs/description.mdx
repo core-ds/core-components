@@ -1,4 +1,4 @@
-Компонент может использоваться самостоятельно или в составе более сложных компонентов: Calendar, FilterTag.
+Компонент может использоваться самостоятельно или в составе более сложных компонентов: <a href="/docs/компоненты-calendar--calendar">Calendar</a>, <a href="/docs/компоненты-filtertag--filter-tag">FilterTag</a>.
 
 ## Примеры
 
@@ -13,7 +13,7 @@
                 view='primary'
                 size='s'
                 icon={StarMIcon}
-                style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
+                style={{ border: '1px solid rgba(0,0,0,0.1) ', backgroundColor: '#3778FB1A' }}
             />
         </Col>
         <Col>
@@ -21,7 +21,7 @@
                 view='primary'
                 size='xs'
                 icon={StarMIcon}
-                style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
+                style={{ border: '1px solid rgba(0,0,0,0.1) ', backgroundColor: '#3778FB1A' }}
             />
         </Col>
         <Col>
@@ -29,7 +29,7 @@
                 view='primary'
                 size='xxs'
                 icon={StarMIcon}
-                style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
+                style={{ border: '1px solid rgba(0,0,0,0.1) ', backgroundColor: '#3778FB1A' }}
             />
         </Col>
     </Row>
@@ -76,42 +76,62 @@ Primary, secondary, tertiary, negative
 С помощью свойства loading можно отобразить состояние загрузки. Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
 
 ```jsx live
-<Container>
-    <Row>
+render(() => {
+    const [loading, setLoading] = React.useState({
+        primary: false,
+        secondary: false
+    });
+
+    const handleClick = (buttonName, timeout) => {
+        setLoading({...loading, [buttonName]: true});
+        setTimeout(() => {
+            setLoading({...loading, [buttonName]: false});
+        }, timeout)
+    }
+
+    return (
+        <Container>
+        <Row>
         <Col>
             <IconButton
                 view='primary'
                 icon={StarMIcon}
-                loading={true}
+                loading={loading.primary}
+                onClick={() => handleClick('primary', 1500)}
             />
         </Col>
         <Col>
             <IconButton
                 view='secondary'
                 icon={StarMIcon}
-                loading={true}
+                loading={loading.secondary}
+                onClick={() => handleClick('secondary', 1500)}
             />
         </Col>
         <Col>
              <IconButton
                 view='tertiary'
                 icon={StarMIcon}
-                loading={true}
+                loading={loading.tertiary}
+                onClick={() => handleClick('tertiary', 1500)}
             />
         </Col>
         <Col>
             <IconButton
                 view='negative'
                 icon={StarMIcon}
-                loading={true}
+                loading={loading.negative}
+                onClick={() => handleClick('negative', 1500)}
             />
-        </Col>  
-    </Row>
-</Container>
+        </Col> 
+        </Row> 
+        </Container>
+    );
+});
 ```
 
-
 ### Ссылка
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
 
 ```jsx live
 <Container>

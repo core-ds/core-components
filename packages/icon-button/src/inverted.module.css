@@ -38,10 +38,16 @@
     );
 
     /* tertiary */
-    --icon-button-inverted-tertiary-base-color: var(--color-light-graphic-tertiary);
-    --icon-button-inverted-tertiary-hover-color: var(--color-light-graphic-tertiary-tint-15);
-    --icon-button-inverted-tertiary-active-color: var(--color-light-graphic-tertiary-tint-20);
-    --icon-button-inverted-tertiary-disabled-color: var(--color-light-graphic-tertiary-alpha-30);
+    --icon-button-inverted-tertiary-base-color: var(--color-light-graphic-tertiary-inverted);
+    --icon-button-inverted-tertiary-hover-color: var(
+        --color-light-graphic-tertiary-inverted-tint-15
+    );
+    --icon-button-inverted-tertiary-active-color: var(
+        --color-light-graphic-tertiary-inverted-tint-20
+    );
+    --icon-button-inverted-tertiary-disabled-color: var(
+        --color-light-graphic-tertiary-inverted-alpha-30
+    );
 
     /* negative */
     --icon-button-inverted-negative-base-color: var(--color-light-graphic-negative);

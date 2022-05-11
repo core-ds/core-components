@@ -170,6 +170,15 @@
     --color-light-graphic-tertiary-tint-20: var(--color-dark-graphic-tertiary-shade-20);
     --color-light-graphic-tertiary-shade-7: var(--color-dark-graphic-tertiary-tint-7);
     --color-light-graphic-tertiary-shade-15: var(--color-dark-graphic-tertiary-tint-15);
+    --color-light-graphic-tertiary-inverted-alpha-30: var(
+        --color-dark-graphic-tertiary-inverted-alpha-30
+    );
+    --color-light-graphic-tertiary-inverted-tint-15: var(
+        --color-dark-graphic-tertiary-inverted-shade-15
+    );
+    --color-light-graphic-tertiary-inverted-tint-20: var(
+        --color-dark-graphic-tertiary-inverted-shade-20
+    );
     --color-light-specialbg-component-shade-7: var(--color-dark-specialbg-component-tint-7);
     --color-light-specialbg-component-shade-10: var(--color-dark-specialbg-component-tint-10);
     --color-light-specialbg-component-shade-30: var(--color-dark-specialbg-component-tint-30);

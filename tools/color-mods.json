@@ -65,6 +65,10 @@
         "tint": [15, 20],
         "shade": [7, 15]
     },
+    "light-graphic-tertiary-inverted": {
+        "alpha": [30],
+        "tint": [15, 20]
+    },
     "light-graphic-secondary": {
         "alpha": [30],
         "shade": [30, 50]

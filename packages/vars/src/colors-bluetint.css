@@ -226,6 +226,9 @@
     --color-dark-graphic-tertiary-shade-20: rgb(56, 56, 58);
     --color-dark-graphic-tertiary-tint-7: rgb(83, 83, 86);
     --color-dark-graphic-tertiary-tint-15: rgb(98, 98, 100);
+    --color-dark-graphic-tertiary-inverted-alpha-30: rgba(197, 197, 199, 0.3);
+    --color-dark-graphic-tertiary-inverted-shade-15: rgb(167, 167, 169);
+    --color-dark-graphic-tertiary-inverted-shade-20: rgb(158, 158, 159);
     --color-dark-specialbg-component-tint-7: rgba(255, 255, 255, 0.163);
     --color-dark-specialbg-component-tint-10: rgba(255, 255, 255, 0.19);
     --color-dark-specialbg-component-tint-30: rgba(255, 255, 255, 0.37);
@@ -322,6 +325,9 @@
     --color-light-graphic-tertiary-tint-20: rgb(209, 209, 210);
     --color-light-graphic-tertiary-shade-7: rgb(183, 183, 185);
     --color-light-graphic-tertiary-shade-15: rgb(167, 167, 169);
+    --color-light-graphic-tertiary-inverted-alpha-30: rgba(70, 70, 73, 0.3);
+    --color-light-graphic-tertiary-inverted-tint-15: rgb(98, 98, 100);
+    --color-light-graphic-tertiary-inverted-tint-20: rgb(107, 107, 109);
     --color-light-specialbg-component-shade-7: rgba(0, 0, 0, 0.1444);
     --color-light-specialbg-component-shade-10: rgba(0, 0, 0, 0.172);
     --color-light-specialbg-component-shade-30: rgba(0, 0, 0, 0.356);
