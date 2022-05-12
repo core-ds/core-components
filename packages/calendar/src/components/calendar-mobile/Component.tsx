@@ -191,7 +191,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             return () => {
                 elem.removeEventListener('scroll', handleScroll);
             };
-        }, [activeMonths, selectedFrom, selectedTo, extendCalendarPeriod]);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [modalRef.current, activeMonths, selectedFrom, selectedTo, extendCalendarPeriod]);
 
         const handleClose = useCallback(() => {
             if (onClose) onClose();
