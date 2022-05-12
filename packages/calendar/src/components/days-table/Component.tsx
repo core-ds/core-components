@@ -50,6 +50,11 @@ export type DaysTableProps = {
      * Доп. пропсы для переданного дня
      */
     getDayProps: (day: Day) => Record<string, unknown> & { ref: RefCallback<HTMLButtonElement> };
+
+    /**
+     * Нужно ли рендерить шапку
+     */
+    hasHeader?: boolean;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -60,6 +65,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     selectedTo,
     rangeComplete = selectedFrom && selectedTo,
     getDayProps,
+    hasHeader = true,
 }) => {
     const activeMonthRef = useRef(activeMonth);
 
@@ -151,9 +157,11 @@ export const DaysTable: FC<DaysTableProps> = ({
 
     return (
         <table className={cn(styles.daysTable, direction && styles[direction])}>
-            <thead>
-                <tr>{renderHeader()}</tr>
-            </thead>
+            {hasHeader && (
+                <thead>
+                    <tr>{renderHeader()}</tr>
+                </thead>
+            )}
             <TransitionGroup component={null}>
                 <CSSTransition
                     key={activeMonth.getTime()}
