@@ -17,6 +17,10 @@ export type SkeletonProps = {
      */
     className?: string;
     /**
+     * Контент
+     */
+    children?: React.ReactNode;
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;

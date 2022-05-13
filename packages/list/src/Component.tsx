@@ -22,6 +22,11 @@ export type ListProps = {
     className?: string;
 
     /**
+     * Контент
+     */
+    children?: React.ReactNode;
+
+    /**
      * Id компонента для тестов
      */
     dataTestId?: string;

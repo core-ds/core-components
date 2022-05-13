@@ -21,7 +21,6 @@ export const Confirmation: FC<ConfirmationProps> = ({
     state,
     screen,
     alignContent = 'left',
-    children,
     requiredCharAmount = 5,
     countdownDuration = ONE_MINUTE,
     tempBlockDuration = ONE_DAY,

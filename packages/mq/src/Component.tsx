@@ -7,6 +7,11 @@ const SUPPORTS_TOUCH = IS_BROWSER && (isPointerEventsSupported() || isTouchSuppo
 
 export type MqProps = {
     /**
+     * Контент
+     */
+    children?: React.ReactNode;
+
+    /**
      * Media выражение или кастомный запрос из `mq.json`, например `--mobile`.
      */
     query?: string;
