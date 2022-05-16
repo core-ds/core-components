@@ -1,11 +1,8 @@
 name: "Lint PR"
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchrosnize
+  pull_request:
+    types: [opened, edited, synchrosnize]
 
 jobs:
   main:
