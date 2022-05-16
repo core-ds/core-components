@@ -1,5 +1,11 @@
 import React, { MouseEvent, useState, FC } from 'react';
-import { render, fireEvent, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import {
+    render,
+    fireEvent,
+    screen,
+    waitFor,
+    waitForElementToBeRemoved,
+} from '@testing-library/react';
 
 import { Button, ButtonProps, LOADER_MIN_DISPLAY_INTERVAL } from './index';
 
@@ -118,9 +124,9 @@ describe('Button', () => {
         });
 
         it('should set `nowrap` class', () => {
-            const { container } = render(<Button nowrap={true} />);
+            render(<Button nowrap={true}>Button</Button>);
 
-            expect(container.firstElementChild).toHaveClass('nowrap');
+            expect(screen.getByText('Button')).toHaveClass('nowrap');
         });
     });
 

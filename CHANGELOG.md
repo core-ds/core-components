@@ -1,3 +1,66 @@
+# [26.9.0](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.0) (2022-05-11)
+
+
+### Features
+
+* **attach:** add new icon ([#15](https://github.com/core-ds/core-components/issues/15)) ([4643792](https://github.com/core-ds/core-components/commit/46437929e503b8a1f22afb34f8fe6ad961211d86))
+
+# [26.9.0](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.0) (2022-05-06)
+
+
+### Features
+
+* **attach:** add new icon ([#15](https://github.com/core-ds/core-components/issues/15)) ([4643792](https://github.com/core-ds/core-components/commit/46437929e503b8a1f22afb34f8fe6ad961211d86))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [26.8.0](https://github.com/core-ds/core-components/compare/v26.7.0...v26.8.0) (2022-05-05)
+
+
+### Features
+
+* **calendar:** add selectable year and month for PeriodSlider ([#18](https://github.com/core-ds/core-components/issues/18)) ([918767c](https://github.com/core-ds/core-components/commit/918767ce06e5dec1ba094a57282e88fc4cd2de66))
+
+
+### Bug Fixes
+
+* add disabled props to checkbox ([#32](https://github.com/core-ds/core-components/issues/32)) ([b64adff](https://github.com/core-ds/core-components/commit/b64adffb8439a64bbf85e30864d1b932fc4dd2eb))
+
+## [26.7.0](https://github.com/core-ds/core-components/compare/v26.5.3...v26.7.0) (2022-05-04)
+
+
+### Features
+
+* **button:** add overflow hidden and text overflow ellipsis for nowrap ([#17](https://github.com/core-ds/core-components/issues/17)) ([7d9669a](https://github.com/core-ds/core-components/commit/7d9669a56c6b134caae9a0317ffc2c0206928a27))
+* **toast:** break text in toast ([#25](https://github.com/core-ds/core-components/issues/25)) ([5356ce6](https://github.com/core-ds/core-components/commit/5356ce685e35b9414a465fb023382535f150abf5))
+
+
+### Bug Fixes
+
+* **code-input:** auto-fill styles ([#24](https://github.com/core-ds/core-components/issues/24)) ([7e83e02](https://github.com/core-ds/core-components/commit/7e83e02b4aae0aeefe91a2526744ca10d7577290))
+* **confirmation:** fix countdown timer ([#23](https://github.com/core-ds/core-components/issues/23)) ([2752723](https://github.com/core-ds/core-components/commit/2752723bdbf71e42cfb1e8c6e9009c719663ec09))
+
+# [26.6.0](https://github.com/core-ds/core-components/compare/v26.5.3...v26.6.0) (2022-05-04)
+
+
+### Bug Fixes
+
+* **code-input:** auto-fill styles ([#24](https://github.com/core-ds/core-components/issues/24)) ([7e83e02](https://github.com/core-ds/core-components/commit/7e83e02b4aae0aeefe91a2526744ca10d7577290))
+* **confirmation:** fix countdown timer ([#23](https://github.com/core-ds/core-components/issues/23)) ([2752723](https://github.com/core-ds/core-components/commit/2752723bdbf71e42cfb1e8c6e9009c719663ec09))
+
+
+### Features
+
+* **button:** add overflow hidden and text overflow ellipsis for nowrap ([#17](https://github.com/core-ds/core-components/issues/17)) ([7d9669a](https://github.com/core-ds/core-components/commit/7d9669a56c6b134caae9a0317ffc2c0206928a27))
+* **toast:** break text in toast ([#25](https://github.com/core-ds/core-components/issues/25)) ([5356ce6](https://github.com/core-ds/core-components/commit/5356ce685e35b9414a465fb023382535f150abf5))
+
+
+### Reverts
+
+* Revert "исправление (управление формы): исправление высоты метки линии (#14)" (#16) ([a4b70d1](https://github.com/core-ds/core-components/commit/a4b70d1ca36294fbc114486d65eef9fdb0543ad8)), closes [#14](https://github.com/core-ds/core-components/issues/14) [#16](https://github.com/core-ds/core-components/issues/16)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

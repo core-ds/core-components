@@ -27,8 +27,11 @@ import styles from '!!raw-loader!../index.module.css';
                 view,
                 content: number('content', 1),
                 size: select('size', ['s', 'm', 'l'], 'm'),
+                height: number('height', 16),
+                visibleIconOutline: boolean('visibleIconOutline', false),
             } : {
                 view,
+                size: select('size', ['s', 'm', 'xl'], 'm'),
                 content: <AlertCircleMIcon />,
                 visibleIconOutline: boolean('visibleIconOutline', false),
                 visibleColorOutline: boolean('visibleColorOutline', false),
@@ -42,7 +45,7 @@ import styles from '!!raw-loader!../index.module.css';
             <div style={{
                 display: 'inline-flex',
                 padding: '5px',
-                backgroundColor: '#233549',
+                backgroundColor: 'rgb(22%, 47%, 98%, 0.1)',
             }}>
                 <Badge {...props} />
             </div>

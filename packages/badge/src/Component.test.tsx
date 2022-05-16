@@ -28,15 +28,24 @@ describe('Badge', () => {
 
     describe('Classes tests', () => {
         it('should set `className` class', () => {
+            const dataTestId = 'test-id';
             const className = 'test-class';
-            const { container } = render(<Badge view='count' className={className} />);
+            const { getByTestId } = render(
+                <Badge view='count' className={className} dataTestId={dataTestId} />,
+            );
 
-            expect(container.firstElementChild).toHaveClass(className);
+            expect(getByTestId(dataTestId)).toHaveClass(className);
+        });
+
+        it('should set `outlineCount` class', () => {
+            const { container } = render(<Badge view='count' visibleIconOutline={true} />);
+
+            expect(container.firstElementChild).toHaveClass('outlineCount');
         });
 
         it('should set `size` class', () => {
             const size = 's';
-            const { container } = render(<Badge view='count' size={size} />);
+            const { container } = render(<Badge view='icon' size={size} />);
 
             expect(container.firstElementChild).toHaveClass(size);
         });
@@ -68,15 +77,18 @@ describe('Badge', () => {
         });
 
         it('should set `isHidden` class if `content` prop lower than 0', () => {
-            const { container } = render(<Badge view='count' content={0} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Badge view='count' content={0} dataTestId={dataTestId} />,
+            );
 
-            expect(container.firstElementChild).toHaveClass('isHidden');
+            expect(getByTestId(dataTestId)).toHaveClass('isHidden');
         });
 
         it('should set `dot` class without `content` prop', () => {
-            const { container } = render(<Badge view='count' />);
-
-            expect(container.firstElementChild).toHaveClass('dot');
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Badge view='count' dataTestId={dataTestId} />);
+            expect(getByTestId(dataTestId)).toHaveClass('dot');
         });
     });
 
