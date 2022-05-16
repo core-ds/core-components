@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } 
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfDay from 'date-fns/endOfDay';
-import { ModalResponsive } from '@alfalab/core-components-modal';
+import { ModalMobile } from '@alfalab/core-components-modal';
 import { Button } from '@alfalab/core-components-button';
 
 import { Calendar, CalendarProps, limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
@@ -27,11 +27,6 @@ export type CalendarMobileProps = CalendarProps & {
      * Заголовок календаря
      */
     title?: string;
-
-    /**
-     * Обработчик выбора даты
-     */
-    onChange?: (date?: number) => void;
 };
 
 const MODAL_HEADER_HEIGHT = 48;
@@ -110,7 +105,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
         const [activeMonths, setActiveMonths] = useState(months);
 
-        const scrollToCurrentMonth = useCallback(() => {
+        const scrollToInitialMonth = useCallback(() => {
             const currentDate = new Date();
             const currentMonthNode = document.querySelector(`#${generateId(currentDate)}`);
 
@@ -125,6 +120,31 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     });
                 }
             }
+        }, []);
+
+        const scrollToCurrentMonth = useCallback((side: 'start' | 'end') => {
+            const elem = modalRef.current;
+
+            if (!elem) return false;
+
+            const monthListHeight = CALENDAR_MONTH_HEIGHT * 12;
+            const monthOffset = MODAL_HEADER_HEIGHT + CALENDAR_HEADER_HEIGHT + CALENDAR_OFFSET;
+
+            const scrollHeight = side === 'start' ? 0 : elem.scrollHeight;
+            const sumSign = side === 'start' ? 1 : -1;
+            const signedMonthOffset = side === 'start' ? -monthOffset : monthOffset;
+
+            elem.style.overflow = 'hidden';
+
+            elem.scrollTo({
+                top: scrollHeight + sumSign * (monthListHeight + signedMonthOffset),
+            });
+
+            return setTimeout(() => {
+                elem.style.overflow = 'auto';
+            }, 0);
+
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
         const extendCalendarPeriod = useCallback(
@@ -151,9 +171,9 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
         useEffect(() => {
             if (open && monthOnlyView) {
-                setTimeout(scrollToCurrentMonth, 0);
+                setTimeout(scrollToInitialMonth, 0);
             }
-        }, [open, monthOnlyView, scrollToCurrentMonth]);
+        }, [open, monthOnlyView, scrollToInitialMonth]);
 
         useEffect(() => {
             const elem = modalRef.current;
@@ -161,7 +181,10 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (!elem) return undefined;
 
             const handleScroll = () => {
-                if (elem.scrollTop <= CALENDAR_MONTH_HEIGHT + CALENDAR_HEADER_HEIGHT) {
+                if (
+                    elem.scrollTop <=
+                    MODAL_HEADER_HEIGHT + CALENDAR_MONTH_HEIGHT + CALENDAR_HEADER_HEIGHT
+                ) {
                     extendCalendarPeriod('start');
 
                     if (activeMonths.length >= 36) {
@@ -170,19 +193,15 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         );
                     }
 
-                    if (modalRef.current) {
-                        modalRef.current.scrollTo({
-                            top:
-                                CALENDAR_MONTH_HEIGHT * 12 -
-                                (MODAL_HEADER_HEIGHT + CALENDAR_HEADER_HEIGHT + CALENDAR_OFFSET),
-                        });
-                    }
+                    scrollToCurrentMonth('start');
                 } else if (elem.scrollHeight - elem.scrollTop <= 2 * CALENDAR_MONTH_HEIGHT) {
                     extendCalendarPeriod('end');
 
                     if (activeMonths.length >= 36) {
                         setActiveMonths(prevState => [...prevState].slice(12));
                     }
+
+                    scrollToCurrentMonth('end');
                 }
             };
 
@@ -191,6 +210,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             return () => {
                 elem.removeEventListener('scroll', handleScroll);
             };
+
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [modalRef.current, activeMonths, selectedFrom, selectedTo, extendCalendarPeriod]);
 
@@ -219,13 +239,13 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
         return (
             <div className={className} ref={ref}>
-                <ModalResponsive
+                <ModalMobile
                     open={open}
                     onClose={handleClose}
                     dataTestId={dataTestId}
                     ref={modalRef}
                 >
-                    <ModalResponsive.Header
+                    <ModalMobile.Header
                         hasCloser={true}
                         title={title}
                         align='center'
@@ -234,7 +254,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         className={styles.modalHeader}
                     />
                     {monthOnlyView && renderHeader()}
-                    <ModalResponsive.Content flex={true}>
+                    <ModalMobile.Content flex={true}>
                         {monthOnlyView ? (
                             activeMonths.map(month => (
                                 <div
@@ -276,8 +296,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                                 selectedTo={selectedTo}
                             />
                         )}
-                    </ModalResponsive.Content>
-                    <ModalResponsive.Footer sticky={true} className={styles.modalFooter}>
+                    </ModalMobile.Content>
+                    <ModalMobile.Footer sticky={true} className={styles.modalFooter}>
                         {value || selectedFrom || selectedTo ? (
                             <Button view='primary' size='s' block={true} onClick={handleClose}>
                                 Выбрать
@@ -287,8 +307,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                                 Отмена
                             </Button>
                         )}
-                    </ModalResponsive.Footer>
-                </ModalResponsive>
+                    </ModalMobile.Footer>
+                </ModalMobile>
             </div>
         );
     },
