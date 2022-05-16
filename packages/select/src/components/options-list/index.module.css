@@ -2,14 +2,12 @@
 @import '../../vars.css';
 
 .optionsList {
-    overflow: auto;
     width: 100%;
     outline: none;
     box-sizing: border-box;
 }
 
 .scrollable {
-    overflow: auto;
     width: 100%;
 }
 

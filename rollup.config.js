@@ -20,7 +20,7 @@ const currentPackageDir = process.cwd();
 
 const currentPkg = path.join(currentPackageDir, 'package.json');
 
-const rootPkg = require(path.resolve(currentPackageDir, '../../package.json'))
+const rootPkg = require(path.resolve(currentPackageDir, '../../package.json'));
 const pkg = require(currentPkg);
 
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
@@ -32,7 +32,11 @@ const baseConfig = {
         '!src/**/*.mdx',
         '!src/**/*.d.ts',
     ],
-    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+    external: [
+        ...Object.keys(pkg.dependencies || {}),
+        ...Object.keys(pkg.peerDependencies || {}),
+        /(core-js).+/,
+    ],
 };
 
 const multiInputPlugin = multiInput();

@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { isGroup, useVisibleOptions } from '../../utils';
@@ -41,10 +42,16 @@ export const OptionsList = forwardRef(
         );
 
         const listRef = useRef<HTMLDivElement>(null);
+        const scrollbarRef = useRef<HTMLDivElement>(null);
         const counter = createCounter();
         const renderGroup = useCallback(
             (group: GroupShape) => (
-                <Optgroup className={optionGroupClassName} label={group.label} key={group.label} size={size}>
+                <Optgroup
+                    className={optionGroupClassName}
+                    label={group.label}
+                    key={group.label}
+                    size={size}
+                >
                     {group.options.map(option => renderOption(option, counter()))}
                 </Optgroup>
             ),
@@ -56,6 +63,7 @@ export const OptionsList = forwardRef(
             listRef,
             open,
             invalidate: options,
+            styleTargetRef: scrollbarRef,
         });
 
         if (options.length === 0 && !emptyPlaceholder) {
@@ -63,25 +71,41 @@ export const OptionsList = forwardRef(
         }
 
         return (
-            <div
-                className={cn(styles.optionsList, styles[size], className)}
-                data-test-id={dataTestId}
-            >
+            <div className={cn(styles.optionsList, styles[size], className)}>
                 {header}
 
-                <div
-                    className={styles.scrollable}
-                    ref={mergeRefs([listRef, ref])}
-                    onScroll={onScroll}
-                >
-                    {options.map(option =>
-                        isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
-                    )}
+                <Scrollbar className={styles.scrollable} ref={scrollbarRef}>
+                    {({
+                        scrollableNodeClassName,
+                        scrollableNodeRef,
+                        contentNodeClassName,
+                        contentNodeRef,
+                    }) => (
+                        <div
+                            ref={scrollableNodeRef}
+                            onScroll={onScroll}
+                            className={scrollableNodeClassName}
+                            data-test-id={dataTestId}
+                        >
+                            <div
+                                ref={mergeRefs([listRef, ref, contentNodeRef])}
+                                className={contentNodeClassName}
+                            >
+                                {options.map(option =>
+                                    isGroup(option)
+                                        ? renderGroup(option)
+                                        : renderOption(option, counter()),
+                                )}
 
-                    {emptyPlaceholder && options.length === 0 && (
-                        <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+                                {emptyPlaceholder && options.length === 0 && (
+                                    <div className={styles.emptyPlaceholder}>
+                                        {emptyPlaceholder}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
                     )}
-                </div>
+                </Scrollbar>
 
                 {footer}
             </div>

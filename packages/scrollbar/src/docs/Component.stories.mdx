@@ -1,0 +1,61 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import {boolean, select, number} from '@storybook/addon-knobs';
+import { ComponentHeader, CssVars, Tabs } from 'storybook/blocks';
+
+import {Scrollbar} from "../Component";
+import Description from './description.mdx';
+import { version } from '../../package.json';
+import styles from '!!raw-loader!../index.module.css';
+import colorsStyles from '!!raw-loader!../default.module.css';
+
+<Meta title='Компоненты/Scrollbar' component={Scrollbar} />
+
+<!-- Canvas -->
+
+<Story name='Scrollbar'>
+    {React.createElement(() => {
+        const getChildStyle = (bgColor) => ({
+            height: 80,
+            width: 1600,
+            textAlign: 'center',
+            lineHeight: '80px',
+            fontSize: 24,
+            background: `var(${bgColor})`
+        });
+        return (
+            <Scrollbar
+                style={{height: 200, width: 1000}}
+                autoHide={boolean('autoHide', false)}
+                colors={select('colors', ['default', 'inverted'], 'default')}
+                clickOnTrack={boolean('clickOnTrack', true)}
+                timeout={number('timeout', 1000)}
+            >
+                {new Array(51).fill(null).map((_, idx) => {
+                    const style = getChildStyle(idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary');
+                    return (<div key={idx} style={style}>{idx}</div>);
+                })}
+            </Scrollbar>
+        )
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Scrollbar'
+    version={version}
+    package='@alfalab/core-components/scrollbar'
+    stage={1}
+/>
+
+
+```tsx
+import { Scrollbar } from '@alfalab/core-components/scrollbar';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={Scrollbar} />}
+    cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
+/>

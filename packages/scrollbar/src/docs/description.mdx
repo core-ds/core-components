@@ -1,0 +1,91 @@
+Компонент скроллбара.
+
+Рекомендуется использовать только внутри компонентов, а не для всей страницы целиком.
+
+### Вертикальный скролл
+
+```tsx live
+render(() => {
+    const getChildStyle = (bgColor: string): React.CSSProperties =>({
+      height: 80,
+      textAlign: 'center',
+      lineHeight: '80px',
+      fontSize: 24,
+      background: `var(${bgColor})`
+    });
+
+    return (
+        <div style={{height: 200}}>
+              <Scrollbar style={{height: '100%'}} autoHide={false}>
+                    {new Array(51).fill(null).map((_, idx) => {
+                        const style = getChildStyle(idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary');
+                        return (<div key={idx} style={style}>{idx}</div>);
+                    })}
+              </Scrollbar>
+        </div>
+    )
+}
+```
+
+### Горизонтальный скролл
+
+```tsx live
+render(() => {
+const scrollbarStyle: React.CSSProperties = {
+    width: '100%',
+    margin: '10px 0px',
+    whiteSpace: 'nowrap',
+    overflow: 'auto'
+};
+
+const getChildStyle = (bgColor: string): React.CSSProperties =>({
+  display: 'inline-block',
+  width: 80,
+  height: 200,
+  textAlign: 'center',
+  lineHeight: '200px',
+  fontSize: 24,
+  background: `var(${bgColor})`
+});
+
+return (
+    <Scrollbar style={scrollbarStyle} autoHide={false}>
+        {new Array(51).fill(null).map((_, idx) => {
+            const style = getChildStyle(idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary');
+            return <div key={idx} style={style}>{idx}</div>;
+        })}
+    </Scrollbar>
+    )
+})
+```
+
+### Tips & Trics
+Используйте render-prop, если есть необходимость в доступе к прокручиваемому элементу и элементу с содержимым.
+
+```tsx live
+render(() => {
+    const getChildStyle = (bgColor: string): React.CSSProperties =>({
+      height: 80,
+      textAlign: 'center',
+      lineHeight: '80px',
+      fontSize: 24,
+      background: `var(${bgColor})`
+    });
+
+    return <Scrollbar style={{height: 250}} autoHide={false}>
+    {({ scrollableNodeRef, contentNodeRef, scrollableNodeClassName, contentNodeClassName }) => {
+        return (
+            <div ref={scrollableNodeRef} className={scrollableNodeClassName}>
+                <div ref={contentNodeRef} className={contentNodeClassName}>
+                    {new Array(51).fill(null).map((_, idx) => {
+                        const style = getChildStyle(idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary');
+                        return <div key={idx} style={style}>{idx}</div>;
+                    })}
+                </div>
+            </div>
+        )
+    }}
+</Scrollbar>
+})
+```
+

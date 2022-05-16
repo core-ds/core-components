@@ -1,3 +1,5 @@
+const ignoreModules = ['simplebar'];
+
 module.exports = {
     preset: 'ts-jest/presets/js-with-ts',
     testEnvironment: 'jest-environment-jsdom-sixteen',
@@ -20,6 +22,7 @@ module.exports = {
     },
     testMatch: ['**/*.test.ts?(x)', '!**/*.screenshots.test.ts?(x)'],
     testPathIgnorePatterns: ['codemod'],
+    transformIgnorePatterns: [`node_modules/(?!${ignoreModules.join('|')})`],
     coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
     coveragePathIgnorePatterns: ['index.ts'],
 };
