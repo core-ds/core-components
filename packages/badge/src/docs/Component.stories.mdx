@@ -44,8 +44,8 @@ import styles from '!!raw-loader!../index.module.css';
         return (
             <div style={{
                 display: 'inline-flex',
-                padding: '5px',
                 backgroundColor: 'rgb(22%, 47%, 98%, 0.1)',
+                ...(view === 'count'  && { padding: '20px',display: 'block', height: '100px', minWidth: '100px' }),
             }}>
                 <Badge {...props} />
             </div>
