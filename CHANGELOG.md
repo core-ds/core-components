@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [26.10.0](https://github.com/core-ds/core-components/compare/v26.9.1...v26.10.0) (2022-05-17)
+
+
+### Features
+
+* **icon-view:** adding 40 size for circle and super ellipse ([#42](https://github.com/core-ds/core-components/issues/42)) ([2e717cc](https://github.com/core-ds/core-components/commit/2e717ccec46c40e15fb4f6c1051ef33b1faa4c51))
+* **radio-group:** make radio group value prop nullable ([#33](https://github.com/core-ds/core-components/issues/33)) ([501d41c](https://github.com/core-ds/core-components/commit/501d41c06147843dc02de63ae5dc35023d112b05))
+* add lint-pr action ([#34](https://github.com/core-ds/core-components/issues/34)) ([477a464](https://github.com/core-ds/core-components/commit/477a464c97221b04c5fc8011e2164644d86788bb))
+
+
+### Bug Fixes
+
+* **chart:** chart stories restored ([#46](https://github.com/core-ds/core-components/issues/46)) ([b3bca85](https://github.com/core-ds/core-components/commit/b3bca858af37dc7e1cb6878e8e1c114ca218a998))
+* **modal:** rewrite invisible prop from backdropProps ([#38](https://github.com/core-ds/core-components/issues/38)) ([436e833](https://github.com/core-ds/core-components/commit/436e83346d2d35f02f94da0b67de7918d090e53a))
+* change package paths in storybook webpack config ([#27](https://github.com/core-ds/core-components/issues/27)) ([e7ff0b4](https://github.com/core-ds/core-components/commit/e7ff0b49e6c473d42f2695ed4a1f919c43e9c5ca))
+
 ### [26.9.1](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.1) (2022-05-13)
 
 
