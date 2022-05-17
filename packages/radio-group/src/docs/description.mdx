@@ -28,25 +28,40 @@ render(() => {
 
 ```tsx live
 render(() => {
-    const [value, setValue] = React.useState('one');
+    const [value, setValue] = React.useState<string | null>('one');
 
     const onChange = (_, payload) => {
         setValue(payload.value);
     };
 
+    const onReset = () => {
+        setValue(null);
+    }
+
     return (
-        <RadioGroup
-            label='Заголовок группы'
-            onChange={onChange}
-            direction='horizontal'
-            type='tag'
-            name='tagRadioGroup'
-            value={value}
-        >
-            <Tag value='one'>Первый вариант</Tag>
-            <Tag value='two'>Второй вариант</Tag>
-            <Tag value='three'>Третий вариант</Tag>
-        </RadioGroup>
+        <React.Fragment>
+            <RadioGroup
+                label='Заголовок группы'
+                onChange={onChange}
+                direction='horizontal'
+                type='tag'
+                name='tagRadioGroup'
+                value={value}
+            >
+                <Tag value='one'>Первый вариант</Tag>
+                <Tag value='two'>Второй вариант</Tag>
+                <Tag value='three'>Третий вариант</Tag>
+            </RadioGroup>
+            <br />
+            <Button
+                onClick={ onReset }
+                size="s"
+                view="tertiary"
+                disabled={ value === null }
+            >
+                Сбросить выбор
+            </Button>
+        </React.Fragment>
     );
 });
 ```
