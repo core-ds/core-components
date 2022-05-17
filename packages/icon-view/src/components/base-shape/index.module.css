@@ -50,6 +50,28 @@
     }
 }
 
+.size_40 {
+    & .children {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .addons {
+        width: 18px;
+        height: 18px;
+    }
+
+    & .topAddons {
+        top: -8px;
+        right: -8px;
+    }
+
+    & .bottomAddons {
+        bottom: -8px;
+        right: -8px;
+    }
+}
+
 .size_48 {
     & .children {
         width: 24px;
