@@ -24,17 +24,20 @@ import { Field as DefaultField } from '../field';
 import { Arrow as DefaultArrow } from '../arrow';
 import { Option as DefaultOption } from '../option';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
-import { OptionsList } from '../select-mobile/options-list';
+import { OptionsList } from './options-list';
 
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { getDataTestId } from '../../../../utils/getDataTestId';
-import { Checkmark } from '../select-mobile/checkmark';
+import { Checkmark } from './checkmark';
 import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 
 import styles from './index.module.css';
 
-export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'>;
+export type SelectModalMobileProps = Omit<
+    BaseSelectProps,
+    'OptionsList' | 'Checkmark' | 'onScroll'
+>;
 
 export const SelectModalMobile = forwardRef(
     (
@@ -76,7 +79,7 @@ export const SelectModalMobile = forwardRef(
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
         }: // footer,
-        SelectMobileProps,
+        SelectModalMobileProps,
         ref,
     ) => {
         const rootRef = useRef<HTMLLabelElement>(null);
