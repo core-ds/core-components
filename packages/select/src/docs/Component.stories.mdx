@@ -48,7 +48,10 @@ export const POSITION_OPTIONS = [
     'left-end',
 ];
 
-<Meta title='Компоненты/Select' component={Select} />
+<Meta 
+    title='Компоненты/Select'  
+    component={Select} 
+/>
 
 <!-- Canvas -->
 
@@ -129,10 +132,7 @@ import { Select } from '@alfalab/core-components/select';
 
 <Tabs
     description={<Description />}
-props={
-<Props of={Select} />}
-cssVars={
-<CssVars css={vars} />}
-changelog={
-<Changelog />}
+    props={<Props of={Select} />}
+    cssVars={<CssVars css={vars} />}
+    changelog={<Changelog />}
 />
