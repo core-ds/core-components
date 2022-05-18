@@ -11,8 +11,7 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-
-import { ModalMobile } from '@alfalab/core-components-modal';
+import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
 import {
     useMultipleSelection,
