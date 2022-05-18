@@ -49,7 +49,9 @@ export type DaysTableProps = {
     /**
      * Доп. пропсы для переданного дня
      */
-    getDayProps: (day: Day) => Record<string, unknown> & { ref: RefCallback<HTMLButtonElement> };
+    getDayProps: (
+        day: Day,
+    ) => Record<string, unknown> & { ref: RefCallback<HTMLTableDataCellElement> };
 
     /**
      * Нужно ли рендерить шапку
@@ -111,6 +113,7 @@ export const DaysTable: FC<DaysTableProps> = ({
 
         return (
             <td
+                {...dayProps}
                 key={day.date.getTime()}
                 className={cn(styles.dayWrapper, {
                     [styles.range]: inRange,
@@ -121,18 +124,17 @@ export const DaysTable: FC<DaysTableProps> = ({
                     [styles.rangeEnd]: rangeEnd,
                 })}
                 align='center'
+                ref={node => {
+                    /**
+                     * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
+                     * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
+                     */
+                    if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
+                        dayProps.ref(node as HTMLTableDataCellElement);
+                    }
+                }}
             >
                 <Button
-                    {...dayProps}
-                    ref={node => {
-                        /**
-                         * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
-                         * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
-                         */
-                        if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
-                            dayProps.ref(node as HTMLButtonElement);
-                        }
-                    }}
                     type='button'
                     view='ghost'
                     size='xs'

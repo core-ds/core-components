@@ -292,7 +292,7 @@ describe('Calendar', () => {
                 <Calendar defaultMonth={defaultValue} selectedFrom={selectedFrom.getTime()} />,
             );
 
-            const days = container.querySelectorAll('button[data-date]');
+            const days = container.querySelectorAll('td[data-date]');
 
             expect(days).toHaveLength(30);
 
@@ -308,7 +308,7 @@ describe('Calendar', () => {
                 }
 
                 if (date === selectedDay) {
-                    expect(day.parentElement).toHaveClass('rangeStart');
+                    expect(day).toHaveClass('rangeStart');
                     expect(day).toHaveClass('selected');
                     return;
                 }
@@ -318,7 +318,7 @@ describe('Calendar', () => {
                     return;
                 }
 
-                expect(day.parentElement).toHaveClass('range');
+                expect(day).toHaveClass('range');
             });
         });
 
@@ -333,7 +333,7 @@ describe('Calendar', () => {
                 <Calendar defaultMonth={defaultValue} selectedFrom={selectedFrom.getTime()} />,
             );
 
-            const days = container.querySelectorAll('button[data-date]');
+            const days = container.querySelectorAll('td[data-date]');
 
             expect(days).toHaveLength(30);
 
@@ -344,7 +344,7 @@ describe('Calendar', () => {
 
                 if (date < highlightedDay || date > selectedDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day.parentElement).not.toHaveClass('range');
+                    expect(day).not.toHaveClass('range');
                     return;
                 }
 
@@ -354,12 +354,12 @@ describe('Calendar', () => {
                 }
 
                 if (date === highlightedDay) {
-                    expect(day.parentElement).toHaveClass('rangeStart');
+                    expect(day).toHaveClass('rangeStart');
                     expect(day).toHaveClass('highlighted');
                     return;
                 }
 
-                expect(day.parentElement).toHaveClass('range');
+                expect(day).toHaveClass('range');
             });
         });
     });
@@ -376,7 +376,7 @@ describe('Calendar', () => {
                 <Calendar defaultMonth={defaultValue} selectedTo={selectedTo.getTime()} />,
             );
 
-            const days = container.querySelectorAll('button[data-date]');
+            const days = container.querySelectorAll('td[data-date]');
 
             expect(days).toHaveLength(30);
 
@@ -387,17 +387,17 @@ describe('Calendar', () => {
 
                 if (date < selectedDay || date > highlightedDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day.parentElement).not.toHaveClass('range');
+                    expect(day).not.toHaveClass('range');
                     return;
                 }
 
                 if (date === selectedDay) {
-                    expect(day.parentElement).toHaveClass('rangeStart');
+                    expect(day).toHaveClass('rangeStart');
                     expect(day).toHaveClass('selected');
                     return;
                 }
 
-                expect(day.parentElement).toHaveClass('range');
+                expect(day).toHaveClass('range');
             });
         });
     });
@@ -419,7 +419,7 @@ describe('Calendar', () => {
                 />,
             );
 
-            const days = container.querySelectorAll('button[data-date]');
+            const days = container.querySelectorAll('td[data-date]');
 
             expect(days).toHaveLength(30);
 
@@ -430,12 +430,12 @@ describe('Calendar', () => {
 
                 if (date < fromDay || date > toDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day.parentElement).not.toHaveClass('range');
+                    expect(day).not.toHaveClass('range');
                     return;
                 }
 
                 if (date === fromDay) {
-                    expect(day.parentElement).toHaveClass('rangeStart');
+                    expect(day).toHaveClass('rangeStart');
                     return;
                 }
 
@@ -448,7 +448,7 @@ describe('Calendar', () => {
                     expect(day).toHaveClass('highlighted');
                 }
 
-                expect(day.parentElement).toHaveClass('range');
+                expect(day).toHaveClass('range');
             });
         });
     });
@@ -466,9 +466,9 @@ describe('Calendar', () => {
                 />,
             );
 
-            const days = container.querySelectorAll('button[data-date]');
+            const days = container.querySelectorAll('td[data-date]');
 
-            expect(days[days.length - 1].parentElement).toHaveClass('transitRight');
+            expect(days[days.length - 1]).toHaveClass('transitRight');
         });
 
         it('should set transitLeft class to first day of selectedTo month', () => {
@@ -486,9 +486,9 @@ describe('Calendar', () => {
 
             getByLabelText('Следующий период').click();
 
-            const days = container.querySelectorAll('button[data-date]');
+            const days = container.querySelectorAll('td[data-date]');
 
-            expect(days[0].parentElement).toHaveClass('transitLeft');
+            expect(days[0]).toHaveClass('transitLeft');
         });
     });
 
@@ -708,7 +708,7 @@ describe('Calendar', () => {
 
                     expect(lastDateOfPrevMonth.getDate().toString()).toBe('31');
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
 
                     expect(getByText('Октябрь')).toBeInTheDocument();
 
@@ -783,7 +783,7 @@ describe('Calendar', () => {
 
                     expect(firstDateOfNextMonth.getDate().toString()).toBe('1');
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
 
                     expect(getByText('Декабрь')).toBeInTheDocument();
 
@@ -856,7 +856,7 @@ describe('Calendar', () => {
 
                     expect(targetDate.getDate().toString()).toBe('25');
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
 
                     expect(getByText('Октябрь')).toBeInTheDocument();
 
@@ -915,7 +915,7 @@ describe('Calendar', () => {
 
                     expect(targetDate.getDate().toString()).toBe('7');
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
 
                     expect(getByText('Декабрь')).toBeInTheDocument();
 
@@ -953,7 +953,7 @@ describe('Calendar', () => {
 
                     await waitForMonthChange();
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Декабрь')).toBeInTheDocument();
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -990,7 +990,7 @@ describe('Calendar', () => {
 
                     await waitForMonthChange();
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Октябрь')).toBeInTheDocument();
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -1027,7 +1027,7 @@ describe('Calendar', () => {
 
                     await waitForMonthChange();
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Октябрь')).toBeInTheDocument();
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -1064,7 +1064,7 @@ describe('Calendar', () => {
 
                     await waitForMonthChange();
 
-                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Декабрь')).toBeInTheDocument();
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });

@@ -13,7 +13,5 @@
         { "path": "../button" },
         { "path": "../icon-button" },
         { "path": "../modal" },
-        { "path": "../date-input" },
-        { "path": "../calendar-input" },
     ]
 }

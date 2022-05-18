@@ -20,6 +20,7 @@
     display: inline-block;
     box-sizing: border-box;
     border-radius: var(--calendar-input-popover-border-radius);
+    padding: 0 var(--gap-m);
 
     @media (max-width: 374px) {
         width: 100%;

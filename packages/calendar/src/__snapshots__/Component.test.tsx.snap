@@ -129,13 +129,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             <td />
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604188800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604188800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -149,13 +149,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604275200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604275200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -167,13 +167,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604361600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604361600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -185,13 +185,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604448000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604448000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -203,13 +203,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604534400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604534400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -221,13 +221,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604620800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604620800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -239,13 +239,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604707200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604707200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -257,13 +257,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604793600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604793600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -277,13 +277,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604880000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604880000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -295,13 +295,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604966400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604966400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -313,13 +313,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605052800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605052800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -331,13 +331,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605139200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605139200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -349,13 +349,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605225600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605225600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -367,13 +367,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605312000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605312000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -385,13 +385,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605398400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605398400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -405,13 +405,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605484800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605484800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -423,13 +423,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605571200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605571200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -441,13 +441,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605657600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605657600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -459,13 +459,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605744000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605744000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -477,13 +477,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605830400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605830400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -495,13 +495,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605916800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605916800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -513,13 +513,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606003200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606003200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -533,13 +533,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606089600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606089600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -551,13 +551,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606176000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606176000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -569,13 +569,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606262400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606262400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -587,13 +587,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606348800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606348800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -605,13 +605,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606435200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606435200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -623,13 +623,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606521600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606521600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -641,13 +641,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606608000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606608000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -661,13 +661,13 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="true"
               class="dayWrapper"
+              data-date="1606694400000"
+              tabindex="0"
             >
               <button
-                aria-selected="true"
                 class="component ghost xs component ghost day selected"
-                data-date="1606694400000"
-                tabindex="0"
                 type="button"
               >
                 <span
@@ -2439,13 +2439,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             <td />
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604188800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604188800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2459,13 +2459,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604275200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604275200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2477,13 +2477,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604361600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604361600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2495,13 +2495,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604448000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604448000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2513,13 +2513,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604534400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604534400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2531,13 +2531,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604620800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604620800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2549,13 +2549,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604707200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604707200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2567,13 +2567,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604793600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604793600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2587,13 +2587,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604880000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604880000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2605,13 +2605,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604966400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604966400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2623,13 +2623,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605052800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605052800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2641,13 +2641,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605139200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605139200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2659,13 +2659,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605225600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605225600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2677,13 +2677,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605312000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605312000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2695,13 +2695,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605398400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605398400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2715,13 +2715,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605484800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605484800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2733,13 +2733,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605571200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605571200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2751,13 +2751,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605657600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605657600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2769,13 +2769,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605744000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605744000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2787,13 +2787,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605830400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605830400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2805,13 +2805,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605916800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605916800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2823,13 +2823,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606003200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606003200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2843,13 +2843,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606089600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606089600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2861,13 +2861,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606176000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606176000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2879,13 +2879,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606262400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606262400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2897,13 +2897,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606348800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606348800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2915,13 +2915,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606435200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606435200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2933,13 +2933,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606521600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606521600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2951,13 +2951,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606608000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606608000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2971,13 +2971,13 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           <tr>
             <td
               align="center"
+              aria-selected="true"
               class="dayWrapper"
+              data-date="1606694400000"
+              tabindex="0"
             >
               <button
-                aria-selected="true"
                 class="component ghost xs component ghost day selected"
-                data-date="1606694400000"
-                tabindex="0"
                 type="button"
               >
                 <span
@@ -3131,13 +3131,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             <td />
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604188800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604188800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3151,13 +3151,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604275200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604275200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3169,13 +3169,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604361600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604361600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3187,13 +3187,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604448000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604448000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3205,13 +3205,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604534400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604534400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3223,13 +3223,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604620800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604620800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3241,13 +3241,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604707200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604707200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3259,13 +3259,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604793600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604793600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3279,13 +3279,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604880000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604880000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3297,13 +3297,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604966400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604966400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3315,13 +3315,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605052800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605052800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3333,13 +3333,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605139200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605139200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3351,13 +3351,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605225600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605225600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3369,13 +3369,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605312000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605312000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3387,13 +3387,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605398400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605398400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3407,13 +3407,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605484800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605484800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3425,13 +3425,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605571200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605571200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3443,13 +3443,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605657600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605657600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3461,13 +3461,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605744000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605744000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3479,13 +3479,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605830400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605830400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3497,13 +3497,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605916800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605916800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3515,13 +3515,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606003200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606003200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3535,13 +3535,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606089600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606089600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3553,13 +3553,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606176000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606176000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3571,13 +3571,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606262400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606262400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3589,13 +3589,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606348800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606348800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3607,13 +3607,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606435200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606435200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3625,13 +3625,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606521600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606521600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3643,13 +3643,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606608000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606608000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3663,13 +3663,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
           <tr>
             <td
               align="center"
+              aria-selected="true"
               class="dayWrapper"
+              data-date="1606694400000"
+              tabindex="0"
             >
               <button
-                aria-selected="true"
                 class="component ghost xs component ghost day selected"
-                data-date="1606694400000"
-                tabindex="0"
                 type="button"
               >
                 <span
@@ -3822,13 +3822,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             <td />
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604188800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604188800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3842,13 +3842,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604275200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604275200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3860,13 +3860,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604361600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604361600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3878,13 +3878,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604448000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604448000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3896,13 +3896,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604534400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604534400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3914,13 +3914,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604620800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604620800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3932,13 +3932,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604707200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604707200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3950,13 +3950,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604793600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604793600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3970,13 +3970,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604880000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604880000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3988,13 +3988,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1604966400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1604966400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4006,13 +4006,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605052800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605052800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4024,13 +4024,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605139200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605139200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4042,13 +4042,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605225600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605225600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4060,13 +4060,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605312000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605312000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4078,13 +4078,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605398400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605398400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4098,13 +4098,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605484800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605484800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4116,13 +4116,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605571200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605571200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4134,13 +4134,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605657600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605657600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4152,13 +4152,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605744000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605744000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4170,13 +4170,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605830400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605830400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4188,13 +4188,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1605916800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1605916800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4206,13 +4206,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606003200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606003200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4226,13 +4226,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606089600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606089600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4244,13 +4244,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606176000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606176000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4262,13 +4262,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606262400000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606262400000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4280,13 +4280,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606348800000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606348800000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4298,13 +4298,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606435200000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606435200000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4316,13 +4316,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606521600000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606521600000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4334,13 +4334,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
             <td
               align="center"
+              aria-selected="false"
               class="dayWrapper"
+              data-date="1606608000000"
+              tabindex="-1"
             >
               <button
-                aria-selected="false"
                 class="component ghost xs component ghost day"
-                data-date="1606608000000"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -4354,13 +4354,13 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           <tr>
             <td
               align="center"
+              aria-selected="true"
               class="dayWrapper"
+              data-date="1606694400000"
+              tabindex="0"
             >
               <button
-                aria-selected="true"
                 class="component ghost xs component ghost day selected"
-                data-date="1606694400000"
-                tabindex="0"
                 type="button"
               >
                 <span

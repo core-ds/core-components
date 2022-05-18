@@ -19,14 +19,14 @@ export type CalendarMobileProps = CalendarProps & {
     open: boolean;
 
     /**
-     * Обработчик закрытия модалки
-     */
-    onClose?: () => void;
-
-    /**
      * Заголовок календаря
      */
     title?: string;
+
+    /**
+     * Обработчик закрытия модалки
+     */
+    onClose?: () => void;
 };
 
 const MODAL_HEADER_HEIGHT = 48;
@@ -237,6 +237,47 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             [],
         );
 
+        const renderFooter = useCallback(() => {
+            if (selectedFrom || selectedTo) {
+                return (
+                    <>
+                        <Button
+                            view='primary'
+                            size='s'
+                            block={true}
+                            onClick={handleClose}
+                            disabled={!selectedFrom || !selectedTo}
+                        >
+                            Выбрать
+                        </Button>
+                        <Button
+                            view='secondary'
+                            size='s'
+                            block={true}
+                            onClick={() => onChange && onChange()}
+                        >
+                            Сбросить
+                        </Button>
+                    </>
+                );
+            }
+
+            if (value) {
+                return (
+                    <Button view='primary' size='s' block={true} onClick={handleClose}>
+                        Выбрать
+                    </Button>
+                );
+            }
+
+            return (
+                <Button view='secondary' size='s' block={true} onClick={handleClose}>
+                    Отмена
+                </Button>
+            );
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [value, selectedFrom, selectedTo]);
+
         return (
             <div className={className} ref={ref}>
                 <ModalMobile
@@ -298,15 +339,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         )}
                     </ModalMobile.Content>
                     <ModalMobile.Footer sticky={true} className={styles.modalFooter}>
-                        {value || selectedFrom || selectedTo ? (
-                            <Button view='primary' size='s' block={true} onClick={handleClose}>
-                                Выбрать
-                            </Button>
-                        ) : (
-                            <Button view='secondary' size='s' block={true} onClick={handleClose}>
-                                Отмена
-                            </Button>
-                        )}
+                        {renderFooter()}
                     </ModalMobile.Footer>
                 </ModalMobile>
             </div>

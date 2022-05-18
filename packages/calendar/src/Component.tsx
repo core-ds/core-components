@@ -91,7 +91,7 @@ export type CalendarProps = {
     /**
      * Обработчик выбора даты
      */
-    onChange?: (date: number) => void;
+    onChange?: (date?: number) => void;
 
     /**
      * Обработчик нажатия на кнопку месяца

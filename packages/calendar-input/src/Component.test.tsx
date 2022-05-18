@@ -468,7 +468,7 @@ describe('CalendarInput', () => {
                 />,
             );
 
-            const disabledDays = container.querySelectorAll('button[data-date]:disabled');
+            const disabledDays = container.querySelectorAll('td[data-date]:disabled');
 
             expect(disabledDays).toHaveLength(2);
             expect(disabledDays[0]).toHaveTextContent('10');
