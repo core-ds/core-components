@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [26.11.0](https://github.com/core-ds/core-components/compare/v26.10.0...v26.11.0) (2022-05-20)
+
+
+### Features
+
+* **badge:** added badge color outlines ([#19](https://github.com/core-ds/core-components/issues/19)) ([f1a0dfa](https://github.com/core-ds/core-components/commit/f1a0dfa0775451a6a163dbfd7f3f80fbd09e47c4))
+* **calendar-range:** default month position ([#11](https://github.com/core-ds/core-components/issues/11)) ([2e72064](https://github.com/core-ds/core-components/commit/2e720646c25b1008dcce1a2a7948b947273ed389))
+* **tooltip:** add inverted colors ([#2](https://github.com/core-ds/core-components/issues/2)) ([9f9f3eb](https://github.com/core-ds/core-components/commit/9f9f3eb69db3e4550d2bf53eb713c2d7196ec7a3))
+
+
+### Bug Fixes
+
+* clear button isn't accessible from the keyboard ([#49](https://github.com/core-ds/core-components/issues/49)) ([e751edc](https://github.com/core-ds/core-components/commit/e751edc8557cb4011ab352994c560287ded0f669))
+
 ## [26.10.0](https://github.com/core-ds/core-components/compare/v26.9.1...v26.10.0) (2022-05-17)
 
 
