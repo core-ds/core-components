@@ -23,11 +23,17 @@ import { useSelectionProps, useStaticViewMonthes } from '../hooks';
 
 import styles from './index.module.css';
 
-export type CalendarRangeStaticProps = Omit<CalendarRangeProps, 'calendarPosition'>;
+export type CalendarRangeStaticProps = Omit<CalendarRangeProps, 'calendarPosition'> & {
+    /**
+     * Отображать начальный месяц слева или справа (влияет только на начальный рендер)
+     */
+    defaultMonthPosition?: 'left' | 'right';
+};
 
 export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     className,
     defaultMonth = startOfMonth(new Date()).getTime(),
+    defaultMonthPosition = 'left',
     minDate,
     maxDate,
     valueFrom = '',
@@ -92,6 +98,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
             selectedFrom: period.selectedFrom,
             selectedTo: period.selectedTo,
             defaultMonth,
+            defaultMonthPosition,
         },
     );
 
