@@ -3,26 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.18...@alfalab/core-components-notification-manager@4.1.0) (2022-03-04)
+# [4.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.18...@alfalab/core-components-notification-manager@4.1.0) (2022-03-04)
 
 
 ### Features
 
-* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+* Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 
 
 
 
-## [4.0.18](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.17...@alfalab/core-components-notification-manager@4.0.18) (2022-02-17)
-
-**Note:** Version bump only for package @alfalab/core-components-notification-manager
-
-
-
-
-
-## [4.0.17](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.16...@alfalab/core-components-notification-manager@4.0.17) (2022-02-15)
+## [4.0.18](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.17...@alfalab/core-components-notification-manager@4.0.18) (2022-02-17)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -30,7 +22,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.15...@alfalab/core-components-notification-manager@4.0.16) (2022-02-09)
+## [4.0.17](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.16...@alfalab/core-components-notification-manager@4.0.17) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -38,7 +30,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.14...@alfalab/core-components-notification-manager@4.0.15) (2022-02-03)
+## [4.0.16](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.15...@alfalab/core-components-notification-manager@4.0.16) (2022-02-09)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -46,7 +38,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.13...@alfalab/core-components-notification-manager@4.0.14) (2022-02-02)
+## [4.0.15](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.14...@alfalab/core-components-notification-manager@4.0.15) (2022-02-03)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -54,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.12...@alfalab/core-components-notification-manager@4.0.13) (2021-12-29)
+## [4.0.14](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.13...@alfalab/core-components-notification-manager@4.0.14) (2022-02-02)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -62,7 +54,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.11...@alfalab/core-components-notification-manager@4.0.12) (2021-12-14)
+## [4.0.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.12...@alfalab/core-components-notification-manager@4.0.13) (2021-12-29)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -70,7 +62,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.10...@alfalab/core-components-notification-manager@4.0.11) (2021-12-08)
+## [4.0.12](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.11...@alfalab/core-components-notification-manager@4.0.12) (2021-12-14)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -78,7 +70,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.9...@alfalab/core-components-notification-manager@4.0.10) (2021-12-01)
+## [4.0.11](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.10...@alfalab/core-components-notification-manager@4.0.11) (2021-12-08)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -86,7 +78,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.8...@alfalab/core-components-notification-manager@4.0.9) (2021-11-26)
+## [4.0.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.9...@alfalab/core-components-notification-manager@4.0.10) (2021-12-01)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -94,7 +86,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.7...@alfalab/core-components-notification-manager@4.0.8) (2021-11-16)
+## [4.0.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.8...@alfalab/core-components-notification-manager@4.0.9) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -102,7 +94,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.6...@alfalab/core-components-notification-manager@4.0.7) (2021-10-25)
+## [4.0.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.7...@alfalab/core-components-notification-manager@4.0.8) (2021-11-16)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -110,7 +102,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.5...@alfalab/core-components-notification-manager@4.0.6) (2021-09-14)
+## [4.0.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.6...@alfalab/core-components-notification-manager@4.0.7) (2021-10-25)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -118,7 +110,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.4...@alfalab/core-components-notification-manager@4.0.5) (2021-08-27)
+## [4.0.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.5...@alfalab/core-components-notification-manager@4.0.6) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -126,7 +118,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.3...@alfalab/core-components-notification-manager@4.0.4) (2021-08-04)
+## [4.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.4...@alfalab/core-components-notification-manager@4.0.5) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -134,7 +126,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.2...@alfalab/core-components-notification-manager@4.0.3) (2021-07-23)
+## [4.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.3...@alfalab/core-components-notification-manager@4.0.4) (2021-08-04)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -142,7 +134,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.1...@alfalab/core-components-notification-manager@4.0.2) (2021-07-19)
+## [4.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.2...@alfalab/core-components-notification-manager@4.0.3) (2021-07-23)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -150,7 +142,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.0...@alfalab/core-components-notification-manager@4.0.1) (2021-07-09)
+## [4.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.1...@alfalab/core-components-notification-manager@4.0.2) (2021-07-19)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -158,22 +150,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@3.0.2...@alfalab/core-components-notification-manager@4.0.0) (2021-07-08)
+## [4.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@4.0.0...@alfalab/core-components-notification-manager@4.0.1) (2021-07-09)
+
+**Note:** Version bump only for package @alfalab/core-components-notification-manager
+
+
+
+
+
+# [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@3.0.2...@alfalab/core-components-notification-manager@4.0.0) (2021-07-08)
 
 
 ### Features
 
-* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+* upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
-## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@3.0.1...@alfalab/core-components-notification-manager@3.0.2) (2021-06-22)
-
-**Note:** Version bump only for package @alfalab/core-components-notification-manager
-
-
-
-
-
-## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@3.0.0...@alfalab/core-components-notification-manager@3.0.1) (2021-05-31)
+## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@3.0.1...@alfalab/core-components-notification-manager@3.0.2) (2021-06-22)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -181,12 +173,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@2.0.5...@alfalab/core-components-notification-manager@3.0.0) (2021-05-25)
+## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@3.0.0...@alfalab/core-components-notification-manager@3.0.1) (2021-05-31)
+
+**Note:** Version bump only for package @alfalab/core-components-notification-manager
+
+
+
+
+
+# [3.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@2.0.5...@alfalab/core-components-notification-manager@3.0.0) (2021-05-25)
 
 
 ### Features
 
-* **button:** add inverted ([#649](https://github.com/alfa-laboratory/core-components/issues/649)) ([be321b0](https://github.com/alfa-laboratory/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/alfa-laboratory/core-components/issues/658) [#657](https://github.com/alfa-laboratory/core-components/issues/657)
+* **button:** add inverted ([#649](https://github.com/core-ds/core-components/issues/649)) ([be321b0](https://github.com/core-ds/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/core-ds/core-components/issues/658) [#657](https://github.com/core-ds/core-components/issues/657)
 
 
 ### BREAKING CHANGES
@@ -197,7 +197,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@2.0.4...@alfalab/core-components-notification-manager@2.0.5) (2021-05-25)
+## [2.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@2.0.4...@alfalab/core-components-notification-manager@2.0.5) (2021-05-25)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -205,7 +205,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@2.0.3...@alfalab/core-components-notification-manager@2.0.4) (2021-05-18)
+## [2.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@2.0.3...@alfalab/core-components-notification-manager@2.0.4) (2021-05-18)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -213,7 +213,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@2.0.2...@alfalab/core-components-notification-manager@2.0.3) (2021-05-07)
+## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@2.0.2...@alfalab/core-components-notification-manager@2.0.3) (2021-05-07)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -221,7 +221,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@2.0.1...@alfalab/core-components-notification-manager@2.0.2) (2021-05-05)
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@2.0.1...@alfalab/core-components-notification-manager@2.0.2) (2021-05-05)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -229,7 +229,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@2.0.0...@alfalab/core-components-notification-manager@2.0.1) (2021-05-04)
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@2.0.0...@alfalab/core-components-notification-manager@2.0.1) (2021-05-04)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -237,12 +237,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@1.2.0...@alfalab/core-components-notification-manager@2.0.0) (2021-04-26)
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@1.2.0...@alfalab/core-components-notification-manager@2.0.0) (2021-04-26)
 
 
 ### Features
 
-* **stack:** add new component ([#612](https://github.com/alfa-laboratory/core-components/issues/612)) ([c520f91](https://github.com/alfa-laboratory/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
+* **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
 
 
 ### BREAKING CHANGES
@@ -301,26 +301,18 @@ remove z-index, add stack component
 
 
 
-# [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@1.1.3...@alfalab/core-components-notification-manager@1.2.0) (2021-04-26)
+# [1.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@1.1.3...@alfalab/core-components-notification-manager@1.2.0) (2021-04-26)
 
 
 ### Features
 
-* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+* **vars:** fresh colors ([10907ec](https://github.com/core-ds/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
 
 
 
 
 
-## [1.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@1.1.2...@alfalab/core-components-notification-manager@1.1.3) (2021-04-01)
-
-**Note:** Version bump only for package @alfalab/core-components-notification-manager
-
-
-
-
-
-## [1.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@1.1.1...@alfalab/core-components-notification-manager@1.1.2) (2021-03-30)
+## [1.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@1.1.2...@alfalab/core-components-notification-manager@1.1.3) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -328,7 +320,15 @@ remove z-index, add stack component
 
 
 
-## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@1.1.0...@alfalab/core-components-notification-manager@1.1.1) (2021-03-30)
+## [1.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@1.1.1...@alfalab/core-components-notification-manager@1.1.2) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-notification-manager
+
+
+
+
+
+## [1.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification-manager@1.1.0...@alfalab/core-components-notification-manager@1.1.1) (2021-03-30)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager
 
@@ -341,4 +341,4 @@ remove z-index, add stack component
 
 ### Features
 
-* **notification-manager:** add component ([#565](https://github.com/alfa-laboratory/core-components/issues/565)) ([ad6ffab](https://github.com/alfa-laboratory/core-components/commit/ad6ffabb0f9665cd453b862279e96b7a1a6f359b))
+* **notification-manager:** add component ([#565](https://github.com/core-ds/core-components/issues/565)) ([ad6ffab](https://github.com/core-ds/core-components/commit/ad6ffabb0f9665cd453b862279e96b7a1a6f359b))

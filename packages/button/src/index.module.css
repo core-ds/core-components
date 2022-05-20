@@ -284,7 +284,9 @@ a.loading {
 /* Nowrap */
 
 .nowrap {
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* IE min-height fix */

@@ -140,6 +140,26 @@ render(() => {
 });
 ```
 
+## Выбор года и месяца с шапкой PeriodSlider
+
+При клике на название месяца / года отображается выбор месяца / года
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState(new Date().setMonth(6));
+
+    return (
+        <Calendar
+            value={value}
+            onChange={setValue}
+            selectorView='month-only'
+            isMonthAndYearSelectable={true}
+            showCurrentYearSelector={true}
+        />
+    );
+});
+```
+
 ## PeriodSlider
 
 `PeriodSlider` представляет из себя шапку календаря, которую можно использовать отдельно.

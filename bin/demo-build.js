@@ -10,8 +10,8 @@ const parseGitUrl = require('git-url-parse');
 
 /** Config for github */
 const defaultConfig = {
-    gitUsername: 'alfa-bot',
-    gitEmail: 'ds@alfabank.ru',
+    gitUsername: 'core-ds-bot',
+    gitEmail: 'ds@gitmax.tech',
     commitMessage: 'Deploy Storybook to GitHub Pages',
     gitRemote: 'origin',
     targetBranch: 'gh-pages',
@@ -43,7 +43,7 @@ const gitPagesUrl = `https://${parsedGitUrl.owner}.github.io/${parsedGitUrl.name
 console.log('Publish storybook demo for github');
 console.log('=> Build storybook');
 shell.exec(`yarn build-storybook -o ${tempOutputDir}`, { fatal: true });
-shell.exec(`STORYBOOK_BUILD_DIR=${tempOutputDir} node bin/generate-docs-urls.js`)
+shell.exec(`STORYBOOK_BUILD_DIR=${tempOutputDir} node bin/generate-docs-urls.js`);
 
 // Prepare temporary gh-pages dir
 console.log('=> Prepare temporary dir');

@@ -3,51 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.3.0...@alfalab/core-components-slider@2.3.1) (2021-12-08)
+## [2.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@2.3.0...@alfalab/core-components-slider@2.3.1) (2021-12-08)
 
 
 ### Bug Fixes
 
-* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+* актуализируем @alfalab/utils ([#897](https://github.com/core-ds/core-components/issues/897)) ([30fb88e](https://github.com/core-ds/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
 
 
 
 
 
-# [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.2.0...@alfalab/core-components-slider@2.3.0) (2021-09-14)
-
-
-### Features
-
-* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
-
-
-
-
-
-# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.1.0...@alfalab/core-components-slider@2.2.0) (2021-08-04)
+# [2.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@2.2.0...@alfalab/core-components-slider@2.3.0) (2021-09-14)
 
 
 ### Features
 
-* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/core-ds/core-components/issues/803)) ([0d5b2a3](https://github.com/core-ds/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
 
 
 
 
 
-# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.0.1...@alfalab/core-components-slider@2.1.0) (2021-07-23)
+# [2.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@2.1.0...@alfalab/core-components-slider@2.2.0) (2021-08-04)
 
 
 ### Features
 
-* slider input mobile theme (PDS-242) ([#738](https://github.com/alfa-laboratory/core-components/issues/738)) ([6e924aa](https://github.com/alfa-laboratory/core-components/commit/6e924aa90b63b914b6f5690766e41cddabe18e19))
+* add mods colors ([#770](https://github.com/core-ds/core-components/issues/770)) ([fe985f4](https://github.com/core-ds/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
 
 
 
 
 
-## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.0.0...@alfalab/core-components-slider@2.0.1) (2021-07-09)
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@2.0.1...@alfalab/core-components-slider@2.1.0) (2021-07-23)
+
+
+### Features
+
+* slider input mobile theme (PDS-242) ([#738](https://github.com/core-ds/core-components/issues/738)) ([6e924aa](https://github.com/core-ds/core-components/commit/6e924aa90b63b914b6f5690766e41cddabe18e19))
+
+
+
+
+
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@2.0.0...@alfalab/core-components-slider@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-slider
 
@@ -55,14 +55,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.3.1...@alfalab/core-components-slider@2.0.0) (2021-07-08)
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.3.1...@alfalab/core-components-slider@2.0.0) (2021-07-08)
 
 
 ### Features
 
-* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+* upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
-## [1.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.3.0...@alfalab/core-components-slider@1.3.1) (2021-04-26)
+## [1.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.3.0...@alfalab/core-components-slider@1.3.1) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-slider
 
@@ -70,18 +70,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.2.5...@alfalab/core-components-slider@1.3.0) (2021-04-09)
+# [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.2.5...@alfalab/core-components-slider@1.3.0) (2021-04-09)
 
 
 ### Features
 
-* **slider:** click theme ([15c308a](https://github.com/alfa-laboratory/core-components/commit/15c308a50e9fbcd8e40a8681f32aefea5b3d5cf9))
+* **slider:** click theme ([15c308a](https://github.com/core-ds/core-components/commit/15c308a50e9fbcd8e40a8681f32aefea5b3d5cf9))
 
 
 
 
 
-## [1.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.2.4...@alfalab/core-components-slider@1.2.5) (2021-04-01)
+## [1.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.2.4...@alfalab/core-components-slider@1.2.5) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-slider
 
@@ -89,48 +89,40 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.2.2...@alfalab/core-components-slider@1.2.4) (2021-03-18)
+## [1.2.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.2.2...@alfalab/core-components-slider@1.2.4) (2021-03-18)
 
 
 ### Bug Fixes
 
-* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+* one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 
 
 
 
-## [1.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.2.0...@alfalab/core-components-slider@1.2.2) (2021-03-16)
+## [1.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.2.0...@alfalab/core-components-slider@1.2.2) (2021-03-16)
 
 
 ### Bug Fixes
 
-* border-radius in packages ([781749e](https://github.com/alfa-laboratory/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+* border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
 
 
 
 
 
-# [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.1.4...@alfalab/core-components-slider@1.2.0) (2021-03-15)
+# [1.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.1.4...@alfalab/core-components-slider@1.2.0) (2021-03-15)
 
 
 ### Features
 
-* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/core-ds/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
 
 
 
 
 
-## [1.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.1.3...@alfalab/core-components-slider@1.1.4) (2021-03-14)
-
-**Note:** Version bump only for package @alfalab/core-components-slider
-
-
-
-
-
-## [1.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.1.2...@alfalab/core-components-slider@1.1.3) (2021-03-04)
+## [1.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.1.3...@alfalab/core-components-slider@1.1.4) (2021-03-14)
 
 **Note:** Version bump only for package @alfalab/core-components-slider
 
@@ -138,6 +130,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.1.1...@alfalab/core-components-slider@1.1.2) (2021-03-03)
+## [1.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.1.2...@alfalab/core-components-slider@1.1.3) (2021-03-04)
+
+**Note:** Version bump only for package @alfalab/core-components-slider
+
+
+
+
+
+## [1.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.1.1...@alfalab/core-components-slider@1.1.2) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-slider

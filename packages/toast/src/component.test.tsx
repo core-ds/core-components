@@ -56,6 +56,21 @@ describe('Toast', () => {
 
             expect(baseElement).toMatchSnapshot();
         });
+
+        it('should math snapshot when prop `anchorElement` and `useAnchorWidth` is passed', () => {
+            const anchorElement = document.createElement('div');
+            anchorElement.style.width = '100px';
+
+            document.body.appendChild(anchorElement);
+
+            const { baseElement } = render(
+                <Toast {...baseProps} anchorElement={anchorElement} useAnchorWidth={true}>
+                    text
+                </Toast>,
+            );
+
+            expect(baseElement).toMatchSnapshot();
+        });
     });
 
     it('should set `className` class', () => {

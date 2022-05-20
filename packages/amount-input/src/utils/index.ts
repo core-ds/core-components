@@ -1,5 +1,5 @@
 /**
- * https://github.com/alfa-laboratory/utils
+ * https://github.com/core-ds/utils
  * TODO: нужно перенести утилиты в этот проект, когда он будет готов
  */
 

@@ -13,8 +13,7 @@ import mergeRefs from 'react-merge-refs';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
-import { AttachmentSBlackIcon } from '@alfalab/icons-classic/AttachmentSBlackIcon';
-import { AttachmentMBlackIcon } from '@alfalab/icons-classic/AttachmentMBlackIcon';
+import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 import { pluralize } from '@alfalab/utils';
 import { truncateFilename } from './utils';
 
@@ -146,6 +145,10 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                 if (uncontrolled && event.target.files) {
                     setFiles(filesArray);
                 }
+
+                if (inputRef.current) {
+                    inputRef.current.value = '';
+                }
             },
             [onChange, uncontrolled],
         );
@@ -168,10 +171,6 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
 
         const handleClearClick = useCallback(
             ev => {
-                if (inputRef.current) {
-                    inputRef.current.value = '';
-                }
-
                 if (uncontrolled) {
                     setFiles([]);
                 }
@@ -182,8 +181,6 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             },
             [onClear, uncontrolled],
         );
-
-        const Icon = size === 'xs' ? AttachmentSBlackIcon : AttachmentMBlackIcon;
 
         const statusTextContent =
             files.length === 1 ? (
@@ -217,7 +214,11 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     disabled={disabled}
                     view={(buttonProps && buttonProps.view) || 'tertiary'}
                     leftAddons={
-                        (buttonProps && buttonProps.leftAddons) || <Icon className={styles.icon} />
+                        (buttonProps && buttonProps.leftAddons) || size === 'xs' ? (
+                            <PaperclipMIcon className={cn(styles.icon, styles.size_xs)} />
+                        ) : (
+                            <PaperclipMIcon className={styles.icon} />
+                        )
                     }
                     onClick={handleButtonClick}
                     ref={buttonRef}

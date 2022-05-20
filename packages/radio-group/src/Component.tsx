@@ -81,7 +81,7 @@ export type RadioGroupProps = {
     /**
      * Value выбранного дочернего элемента
      */
-    value?: string;
+    value?: string | null;
 };
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
@@ -106,7 +106,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
 
         const renderRadio = (child: ReactElement) => {
             const { className: childClassName } = child.props;
-            const checked = (value || stateValue) === child.props.value;
+            const checked = value !== null && (value || stateValue) === child.props.value;
             const handleChange = (event: ChangeEvent) => {
                 setStateValue(child.props.value);
                 if (onChange) {
@@ -125,7 +125,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         };
 
         const renderTag = (child: ReactElement) => {
-            const checked = (value || stateValue) === child.props.value;
+            const checked = value !== null && (value || stateValue) === child.props.value;
             const handleChange = (event: ChangeEvent | MouseEvent) => {
                 setStateValue(child.props.value);
                 if (onChange) {

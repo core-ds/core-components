@@ -18,7 +18,7 @@ export const DropCssVars = ({ answers }: { answers: Answers }) => {
                 <Typography.Text>
                     Подключите тему в{' '}
                     <Link
-                        href='https://github.com/alfa-laboratory/arui-scripts/tree/master/packages/arui-scripts#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8'
+                        href='https://github.com/core-ds/arui-scripts/tree/master/packages/arui-scripts#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8'
                         view='default'
                         rel='noopener'
                         target='_blank'

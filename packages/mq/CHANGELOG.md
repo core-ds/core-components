@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@3.0.0...@alfalab/core-components-mq@3.0.1) (2021-07-09)
+## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@3.0.0...@alfalab/core-components-mq@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-mq
 
@@ -11,14 +11,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@2.0.1...@alfalab/core-components-mq@3.0.0) (2021-07-08)
+# [3.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@2.0.1...@alfalab/core-components-mq@3.0.0) (2021-07-08)
 
 
 ### Features
 
-* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+* upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
-## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@2.0.0...@alfalab/core-components-mq@2.0.1) (2021-04-26)
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@2.0.0...@alfalab/core-components-mq@2.0.1) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-mq
 
@@ -26,12 +26,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.6...@alfalab/core-components-mq@2.0.0) (2021-04-01)
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@1.1.6...@alfalab/core-components-mq@2.0.0) (2021-04-01)
 
 
 ### Features
 
-* **mq:** change mobile-s to mobile-xs ([9abf5ba](https://github.com/alfa-laboratory/core-components/commit/9abf5bada45287a786610dd6cce7cc047d779012))
+* **mq:** change mobile-s to mobile-xs ([9abf5ba](https://github.com/core-ds/core-components/commit/9abf5bada45287a786610dd6cce7cc047d779012))
 
 
 ### BREAKING CHANGES
@@ -42,26 +42,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.4...@alfalab/core-components-mq@1.1.6) (2021-03-18)
+## [1.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@1.1.4...@alfalab/core-components-mq@1.1.6) (2021-03-18)
 
 
 ### Bug Fixes
 
-* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+* one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 
 
 
 
-## [1.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.3...@alfalab/core-components-mq@1.1.4) (2021-03-14)
-
-**Note:** Version bump only for package @alfalab/core-components-mq
-
-
-
-
-
-## [1.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.2...@alfalab/core-components-mq@1.1.3) (2021-03-04)
+## [1.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@1.1.3...@alfalab/core-components-mq@1.1.4) (2021-03-14)
 
 **Note:** Version bump only for package @alfalab/core-components-mq
 
@@ -69,6 +61,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.1...@alfalab/core-components-mq@1.1.2) (2021-03-03)
+## [1.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@1.1.2...@alfalab/core-components-mq@1.1.3) (2021-03-04)
+
+**Note:** Version bump only for package @alfalab/core-components-mq
+
+
+
+
+
+## [1.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-mq@1.1.1...@alfalab/core-components-mq@1.1.2) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-mq
