@@ -4,8 +4,8 @@
 
     /* secondary */
     --button-secondary-base-bg-color: transparent;
-    --button-secondary-hover-bg-color: rgba(0, 0, 0, 0.07);
-    --button-secondary-active-bg-color: rgba(0, 0, 0, 0.15);
+    --button-secondary-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
+    --button-secondary-active-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
     --button-secondary-disabled-bg-color: transparent;
     --button-secondary-base-border-color: var(--color-light-border-underline-inverted);
     --button-secondary-disabled-border-color: var(--color-light-border-underline-inverted-alpha-30);
@@ -16,7 +16,7 @@
     --button-tertiary-base-bg-color: var(--color-light-specialbg-component);
     --button-tertiary-hover-bg-color: var(--color-light-specialbg-component-shade-7);
     --button-tertiary-active-bg-color: var(--color-light-specialbg-component-shade-15);
-    --button-tertiary-disabled-bg-color: rgba(11, 31, 53, 0.05);
+    --button-tertiary-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-5);
     --button-tertiary-base-border-color: transparent;
     --button-tertiary-disabled-border-color: transparent;
     --button-tertiary-color: var(--color-light-text-primary);
@@ -26,8 +26,8 @@
 
     /* TODO colod-mod */
     --button-inverted-secondary-base-bg-color: transparent;
-    --button-inverted-secondary-hover-bg-color: rgba(255, 255, 255, 0.15);
-    --button-inverted-secondary-active-bg-color: rgba(255, 255, 255, 0.2);
+    --button-inverted-secondary-hover-bg-color: var(--color-light-bg-primary-alpha-15);
+    --button-inverted-secondary-active-bg-color: var(--color-light-bg-primary-alpha-20);
     --button-inverted-secondary-disabled-bg-color: transparent;
     --button-inverted-secondary-base-border-color: var(--color-light-border-underline);
     --button-inverted-secondary-disabled-border-color: var(--color-light-border-underline-alpha-30);
@@ -42,7 +42,7 @@
     --button-inverted-tertiary-active-bg-color: var(
         --color-light-specialbg-component-inverted-tint-20
     );
-    --button-inverted-tertiary-disabled-bg-color: rgba(255, 255, 255, 0.07);
+    --button-inverted-tertiary-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
     --button-inverted-tertiary-base-border-color: transparent;
     --button-inverted-tertiary-disabled-border-color: transparent;
     --button-inverted-tertiary-color: var(--color-light-text-primary-inverted);

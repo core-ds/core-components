@@ -1,6 +1,7 @@
 {
     "light-bg-accent": {
         "alpha": [30],
+        "tint": [15, 20],
         "shade": [7, 10, 15, 30]
     },
     "light-bg-quaternary": {
@@ -12,10 +13,10 @@
         "tint": [15, 20]
     },
     "light-bg-primary": {
-        "alpha": [8, 40]
+        "alpha": [8, 15, 20, 40]
     },
     "light-bg-primary-inverted": {
-        "alpha": [3, 7, 10, 15, 20, 30, 40, 50],
+        "alpha": [3, 5, 7, 10, 15, 20, 30, 40, 50],
         "tint": [15, 20]
     },
     "light-bg-secondary": {

@@ -2,9 +2,9 @@
 
 :root {
     /* primary */
-    --button-inverted-primary-base-bg-color: var(--color-dark-bg-accent);
-    --button-inverted-primary-hover-bg-color: color-mod(var(--color-dark-bg-accent) tint(15%));
-    --button-inverted-primary-active-bg-color: color-mod(var(--color-dark-bg-accent) tint(20%));
+    --button-inverted-primary-base-bg-color: var(--color-light-bg-accent);
+    --button-inverted-primary-hover-bg-color: var(--color-light-bg-accent-tint-15);
+    --button-inverted-primary-active-bg-color: var(--color-light-bg-accent-tint-20);
     --button-inverted-primary-disabled-bg-color: color-mod(var(--color-dark-bg-accent) alpha(30%));
     --button-inverted-primary-disabled-color: var(--color-static-text-primary-light-alpha-30);
     --button-inverted-primary-color: var(--color-static-text-primary-light);
@@ -17,7 +17,7 @@
     --button-inverted-secondary-active-bg-color: var(
         --color-light-specialbg-component-inverted-tint-20
     );
-    --button-inverted-secondary-disabled-bg-color: rgba(255, 255, 255, 0.07);
+    --button-inverted-secondary-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
     --button-inverted-secondary-base-border-color: transparent;
     --button-inverted-secondary-disabled-border-color: transparent;
     --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
@@ -25,8 +25,8 @@
 
     /* tertiary */
     --button-inverted-tertiary-base-bg-color: transparent;
-    --button-inverted-tertiary-hover-bg-color: rgba(255, 255, 255, 0.15);
-    --button-inverted-tertiary-active-bg-color: rgba(255, 255, 255, 0.2);
+    --button-inverted-tertiary-hover-bg-color: var(--color-light-bg-primary-alpha-15);
+    --button-inverted-tertiary-active-bg-color: var(--color-light-bg-primary-alpha-20);
     --button-inverted-tertiary-disabled-bg-color: transparent;
     --button-inverted-tertiary-base-border-color: var(--color-light-border-underline);
     --button-inverted-tertiary-disabled-border-color: var(--color-light-border-underline-alpha-30);
@@ -139,12 +139,12 @@
     background-color: transparent;
 
     &:hover {
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: var(--color-light-bg-primary-alpha-15);
     }
 
     &:active {
         /* TODO: какой цвет? */
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: var(--color-light-bg-primary-alpha-20);
     }
 }
 
