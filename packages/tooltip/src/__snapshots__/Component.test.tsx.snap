@@ -95,7 +95,7 @@ Object {
         style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
       >
         <div
-          class="inner popper tooltip"
+          class="inner popper tooltip tooltip"
           style="transition-duration: 150ms;"
         >
           <div
@@ -110,7 +110,7 @@ Object {
             </div>
           </div>
           <div
-            class="arrow arrow"
+            class="arrow arrow arrow"
             style="position: absolute; top: 0px; transform: translate(0px, 0px);"
           />
         </div>
@@ -204,7 +204,7 @@ Object {
         style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
       >
         <div
-          class="inner popper hint"
+          class="inner popper hint hint"
           style="transition-duration: 150ms;"
         >
           <div
@@ -219,7 +219,7 @@ Object {
             </div>
           </div>
           <div
-            class="arrow arrow"
+            class="arrow arrow arrow"
             style="position: absolute; top: 0px; transform: translate(0px, 0px);"
           />
         </div>
