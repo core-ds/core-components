@@ -2,6 +2,7 @@ import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports, generateClassNameHash } from '@alfalab/rollup-plugin-postcss';
+import wildcardExternal from '@oat-sa/rollup-plugin-wildcard-external';
 import typescript from '@wessberg/rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
@@ -20,7 +21,7 @@ const currentPackageDir = process.cwd();
 
 const currentPkg = path.join(currentPackageDir, 'package.json');
 
-const rootPkg = require(path.resolve(currentPackageDir, '../../package.json'))
+const rootPkg = require(path.resolve(currentPackageDir, '../../package.json'));
 const pkg = require(currentPkg);
 
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
@@ -33,6 +34,7 @@ const baseConfig = {
         '!src/**/*.d.ts',
     ],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+    plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
 };
 
 const multiInputPlugin = multiInput();
@@ -72,6 +74,7 @@ const es5 = {
         },
     ],
     plugins: [
+        ...baseConfig.plugins,
         multiInputPlugin,
         typescript({
             tsconfig: resolvedConfig => ({
@@ -105,6 +108,7 @@ const modern = {
         },
     ],
     plugins: [
+        ...baseConfig.plugins,
         multiInputPlugin,
         typescript({
             outDir: 'dist/modern',
@@ -134,6 +138,7 @@ const cssm = {
         },
     ],
     plugins: [
+        ...baseConfig.plugins,
         multiInputPlugin,
         ignoreCss(),
         typescript({
@@ -165,6 +170,7 @@ const esm = {
         },
     ],
     plugins: [
+        ...baseConfig.plugins,
         multiInputPlugin,
         typescript({
             outDir: 'dist/esm',
@@ -188,6 +194,7 @@ const root = {
     input: ['dist/**/*.js'],
     external: baseConfig.external,
     plugins: [
+        ...baseConfig.plugins,
         multiInput({
             relative: 'dist',
         }),

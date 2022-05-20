@@ -93,6 +93,7 @@
         "@babel/preset-typescript": "^7.9.0",
         "@commitlint/config-conventional": "^8.3.4",
         "@commitlint/config-lerna-scopes": "^8.3.4",
+        "@oat-sa/rollup-plugin-wildcard-external": "^0.1.0",
         "@rollup/plugin-json": "^4.1.0",
         "@semantic-release/changelog": "^5.0.1",
         "@semantic-release/commit-analyzer": "^8.0.1",
