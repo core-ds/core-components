@@ -306,6 +306,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 aria-label='Очистить'
                                 className={styles.clearButton}
                                 onClick={handleClear}
+                                tabIndex={-1}
                             >
                                 <CrossCircleMIcon
                                     className={cn(styles.clearIcon, colorStyles[colors].clearIcon)}
