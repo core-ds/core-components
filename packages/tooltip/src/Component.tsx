@@ -16,6 +16,13 @@ import mergeRefs from 'react-merge-refs';
 import { Popover, Position, PopoverProps } from '@alfalab/core-components-popover';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 type Trigger = 'click' | 'hover';
 
@@ -144,6 +151,11 @@ export type TooltipProps = {
      *  Элемент, относительно которого будет позиционировать тултип.
      */
     anchor?: PopoverProps['anchorElement'];
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -171,6 +183,7 @@ export const Tooltip: FC<TooltipProps> = ({
     preventOverflow = true,
     availableHeight = false,
     anchor = null,
+    colors = 'default',
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -333,8 +346,8 @@ export const Tooltip: FC<TooltipProps> = ({
                 anchorElement={anchor || target}
                 open={show}
                 getPortalContainer={getPortalContainer}
-                arrowClassName={cn(arrowClassName, styles.arrow)}
-                popperClassName={cn(styles.popper, styles[view])}
+                arrowClassName={cn(arrowClassName, styles.arrow, colorStyles[colors].arrow)}
+                popperClassName={cn(styles.popper, styles[view], colorStyles[colors][view])}
                 className={popoverClassName}
                 offset={offset}
                 withArrow={true}

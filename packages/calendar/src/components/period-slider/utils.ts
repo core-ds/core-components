@@ -46,6 +46,20 @@ export const formatPeriod = (valueFrom: Date, valueTo: Date, periodType: PeriodT
     return `${formatDate(valueFrom)} - ${formatDate(valueTo)}`;
 };
 
+export const getYearSelectorValue = (valueFrom: Date | undefined, showCurrentYear: boolean) => {
+    if (!valueFrom) {
+        return '';
+    }
+
+    const year = getYear(valueFrom);
+
+    if (year === getYear(new Date())) {
+        return showCurrentYear ? year : '';
+    }
+
+    return year;
+};
+
 export const shiftValues = (
     valueFrom: Date,
     valueTo: Date,

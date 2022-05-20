@@ -11,7 +11,7 @@ const addPackagesDir = config => {
         if (rule.oneOf) {
             rule.oneOf.forEach(nestedRule => {
                 if (nestedRule.loader && nestedRule.loader.includes('babel-loader')) {
-                    nestedRule.include.push(`${process.cwd()}/packages`);
+                    nestedRule.include.push(path.resolve(__dirname, '../packages'));
                 }
             });
         }
@@ -96,18 +96,6 @@ module.exports = {
                 'postcss-loader',
             ],
         };
-
-        config.module.rules.push({
-            test: /\.tsx?$/,
-            use: [
-                {
-                    loader: require.resolve('react-docgen-typescript-loader'),
-                    options: {
-                        tsconfigPath: path.resolve(__dirname, '../tsconfig.json'),
-                    },
-                },
-            ],
-        });
 
         config.plugins.push(
             new MiniCssExtractPlugin(),

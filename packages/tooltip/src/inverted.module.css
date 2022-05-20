@@ -1,0 +1,31 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --tooltip-hint-inverted-bg-color: var(--color-light-bg-primary);
+    --tooltip-hint-inverted-text-color: var(--color-light-text-primary);
+    --tooltip-hint-inverted-box-shadow: var(--shadow-m);
+    --tooltip-inverted-text-color: var(--color-light-text-primary-inverted);
+    --tooltip-inverted-bg-color: var(--color-light-bg-primary-inverted);
+    --tooltip-inverted-box-shadow: var(--shadow-m-hard);
+}
+
+.tooltip {
+    background-color: var(--tooltip-inverted-bg-color);
+    color: var(--tooltip-inverted-text-color);
+    box-shadow: var(--tooltip-inverted-box-shadow);
+}
+
+.tooltip .arrow:after {
+    background-color: var(--tooltip-inverted-bg-color);
+}
+
+.hint {
+    border-radius: var(--border-radius-s);
+    background-color: var(--tooltip-hint-inverted-bg-color);
+    box-shadow: var(--tooltip-hint-inverted-box-shadow);
+    color: var(--tooltip-hint-inverted-text-color);
+}
+
+.hint .arrow:after {
+    background-color: var(--tooltip-hint-inverted-bg-color);
+}

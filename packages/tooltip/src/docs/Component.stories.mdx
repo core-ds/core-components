@@ -64,6 +64,7 @@ import styles from '!!raw-loader!../index.module.css';
                 onCloseDelay={number('onCloseDelay (in ms)', 300)}
                 onOpenDelay={number('onOpenDelay (in ms)', 300)}
                 view={select('view', ['tooltip', 'hint'], 'tooltip')}
+                colors={select('colors', ['default','inverted'], 'default')}
                 dataTestId='test-id'
             >
                 <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
