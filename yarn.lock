@@ -4570,6 +4570,13 @@
     node-gyp "^8.4.1"
     read-package-json-fast "^2.0.3"
 
+"@oat-sa/rollup-plugin-wildcard-external@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@oat-sa/rollup-plugin-wildcard-external/-/rollup-plugin-wildcard-external-0.1.0.tgz#3388bb5124a07bb09944f75a1d494ff9403bf4fe"
+  integrity sha512-bYSoeOwpjTe7mdMhNYD9fmH9UkzIkebR5NjIoh8u+GGs39zn1oEP4plsKiAvMS6+XmAzZgIw1Y4zZ1RtLVUEGg==
+  dependencies:
+    minimatch "^3.0.4"
+
 "@octokit/auth-token@^2.4.0", "@octokit/auth-token@^2.4.4":
   version "2.4.4"
   resolved "https://registry.npmjs.org/@octokit/auth-token/-/auth-token-2.4.4.tgz"
