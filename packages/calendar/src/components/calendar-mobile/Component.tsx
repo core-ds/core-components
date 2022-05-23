@@ -12,6 +12,8 @@ import { generateMonths, generateWeeks } from '../../utils';
 
 import styles from './index.module.css';
 
+type Side = 'start' | 'end';
+
 export type CalendarMobileProps = CalendarProps & {
     /**
      * Управление видимостью модалки
@@ -32,7 +34,6 @@ export type CalendarMobileProps = CalendarProps & {
 const MODAL_HEADER_HEIGHT = 48;
 const CALENDAR_HEADER_HEIGHT = 32;
 const CALENDAR_OFFSET = 46;
-const CALENDAR_MONTH_HEIGHT = 320;
 
 export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
     (
@@ -104,121 +105,128 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         });
 
         const [activeMonths, setActiveMonths] = useState(months);
+        const [firstMonth, setFirstMonth] = useState<Element | null>(null);
 
         const scrollToInitialMonth = useCallback(() => {
             const currentDate = new Date();
             const currentMonthNode = document.querySelector(`#${generateId(currentDate)}`);
 
-            if (currentMonthNode) {
+            if (currentMonthNode && modalRef.current) {
                 const currentMonthNodePosY = currentMonthNode.getBoundingClientRect().y;
+                const monthOffset = MODAL_HEADER_HEIGHT + CALENDAR_HEADER_HEIGHT + CALENDAR_OFFSET;
 
-                if (modalRef.current) {
-                    modalRef.current.scrollTo({
-                        top:
-                            currentMonthNodePosY -
-                            (MODAL_HEADER_HEIGHT + CALENDAR_HEADER_HEIGHT + CALENDAR_OFFSET),
-                    });
-                }
+                modalRef.current.scrollTo({
+                    top: currentMonthNodePosY - monthOffset,
+                });
             }
         }, []);
 
-        const scrollToCurrentMonth = useCallback((side: 'start' | 'end') => {
-            const elem = modalRef.current;
-
-            if (!elem) return false;
-
-            const monthListHeight = CALENDAR_MONTH_HEIGHT * 12;
-            const monthOffset = MODAL_HEADER_HEIGHT + CALENDAR_HEADER_HEIGHT + CALENDAR_OFFSET;
-
-            const scrollHeight = side === 'start' ? 0 : elem.scrollHeight;
-            const sumSign = side === 'start' ? 1 : -1;
-            const signedMonthOffset = side === 'start' ? -monthOffset : monthOffset;
-
-            elem.style.overflow = 'hidden';
-
-            elem.scrollTo({
-                top: scrollHeight + sumSign * (monthListHeight + signedMonthOffset),
-            });
-
-            return setTimeout(() => {
-                elem.style.overflow = 'auto';
-            }, 0);
-
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, []);
-
-        const extendCalendarPeriod = useCallback(
-            (side: 'start' | 'end') => {
-                const monthIndex = side === 'start' ? 0 : activeMonths.length - 1;
+        const extendCalendarPeriod = useCallback((side: Side) => {
+            setActiveMonths(prevState => {
+                const monthIndex = side === 'start' ? 0 : prevState.length - 1;
                 const shift = side === 'start' ? -1 : 1;
 
-                const scrolledMonth = activeMonths[monthIndex].date;
+                const scrolledMonth = prevState[monthIndex].date;
                 const scrolledMonthNode = document.querySelector(`#${generateId(scrolledMonth)}`);
 
                 if (scrolledMonthNode) {
                     const year = new Date().setFullYear(scrolledMonth.getFullYear() + shift);
                     const yearMonths = generateMonths(new Date(year), {});
 
-                    setActiveMonths(prevState =>
-                        side === 'start'
-                            ? [...yearMonths, ...prevState]
-                            : [...prevState, ...yearMonths],
-                    );
+                    return side === 'start'
+                        ? [...yearMonths, ...prevState]
+                        : [...prevState, ...yearMonths];
                 }
+
+                return prevState;
+            });
+        }, []);
+
+        const reduceCalendarPeriod = useCallback((side: Side) => {
+            setActiveMonths(prevState => {
+                if (prevState.length >= 36) {
+                    return side === 'start'
+                        ? [...prevState].slice(0, prevState.length - 12)
+                        : [...prevState].slice(12);
+                }
+
+                return prevState;
+            });
+        }, []);
+
+        const updateCalendarPeriod = useCallback(
+            (side: Side) => {
+                extendCalendarPeriod(side);
+                reduceCalendarPeriod(side);
             },
-            [activeMonths],
+            [extendCalendarPeriod, reduceCalendarPeriod],
         );
 
+        // eslint-disable-next-line consistent-return
+        const handleScroll = useCallback(() => {
+            const elem = modalRef.current;
+
+            if (!elem) return false;
+
+            const monthList = elem.querySelector('div[class*="daysTable"]')?.parentNode;
+
+            if (!monthList) return false;
+
+            if (elem.scrollTop === 0) {
+                setFirstMonth(monthList.firstElementChild);
+                updateCalendarPeriod('start');
+            }
+
+            if (elem.scrollTop + elem.clientHeight === elem.scrollHeight) {
+                updateCalendarPeriod('end');
+            }
+        }, [updateCalendarPeriod]);
+
+        const handleClose = useCallback(() => {
+            if (onClose) onClose();
+        }, [onClose]);
+
+        const handleClear = useCallback(() => {
+            if (onChange) onChange();
+        }, [onChange]);
+
+        const handleMount = useCallback(() => {
+            if (modalRef.current) {
+                modalRef.current.addEventListener('scroll', handleScroll);
+            }
+        }, [handleScroll]);
+
+        const handleUnmount = useCallback(() => {
+            if (modalRef.current) {
+                modalRef.current.removeEventListener('scroll', handleScroll);
+            }
+
+            setActiveMonths(months);
+        }, [months, handleScroll]);
+
         useEffect(() => {
-            if (open && monthOnlyView) {
+            if (open) {
                 setTimeout(scrollToInitialMonth, 0);
             }
-        }, [open, monthOnlyView, scrollToInitialMonth]);
+        }, [open, scrollToInitialMonth]);
 
         useEffect(() => {
             const elem = modalRef.current;
 
-            if (!elem) return undefined;
+            if (!elem) return;
 
-            const handleScroll = () => {
-                if (
-                    elem.scrollTop <=
-                    MODAL_HEADER_HEIGHT + CALENDAR_MONTH_HEIGHT + CALENDAR_HEADER_HEIGHT
-                ) {
-                    extendCalendarPeriod('start');
+            if (firstMonth) {
+                const monthOffset = CALENDAR_HEADER_HEIGHT + MODAL_HEADER_HEIGHT + CALENDAR_OFFSET;
+                const firstMonthPosY = firstMonth.getBoundingClientRect().y;
 
-                    if (activeMonths.length >= 36) {
-                        setActiveMonths(prevState =>
-                            [...prevState].slice(0, activeMonths.length - 12),
-                        );
-                    }
+                elem.scrollTo({
+                    top: firstMonthPosY - monthOffset,
+                });
 
-                    scrollToCurrentMonth('start');
-                } else if (elem.scrollHeight - elem.scrollTop <= 2 * CALENDAR_MONTH_HEIGHT) {
-                    extendCalendarPeriod('end');
-
-                    if (activeMonths.length >= 36) {
-                        setActiveMonths(prevState => [...prevState].slice(12));
-                    }
-
-                    scrollToCurrentMonth('end');
-                }
-            };
-
-            elem.addEventListener('scroll', handleScroll);
-
-            return () => {
-                elem.removeEventListener('scroll', handleScroll);
-            };
-
+                setFirstMonth(null);
+            }
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [modalRef.current, activeMonths, selectedFrom, selectedTo, extendCalendarPeriod]);
-
-        const handleClose = useCallback(() => {
-            if (onClose) onClose();
-
-            setActiveMonths(months);
-        }, [months, onClose]);
+        }, [activeMonths]);
 
         const renderHeader = useCallback(
             () => (
@@ -250,12 +258,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         >
                             Выбрать
                         </Button>
-                        <Button
-                            view='secondary'
-                            size='s'
-                            block={true}
-                            onClick={() => onChange && onChange()}
-                        >
+                        <Button view='secondary' size='s' block={true} onClick={handleClear}>
                             Сбросить
                         </Button>
                     </>
@@ -285,6 +288,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     onClose={handleClose}
                     dataTestId={dataTestId}
                     ref={modalRef}
+                    onMount={handleMount}
+                    onUnmount={handleUnmount}
                 >
                     <ModalMobile.Header
                         hasCloser={true}

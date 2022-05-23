@@ -101,6 +101,10 @@
         width: 100%;
         height: var(--calendar-day-size);
     }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .range {
@@ -115,9 +119,7 @@
 
 .rangeEnd {
     &:before {
-        border-bottom-right-radius: 50%;
-        border-top-right-radius: 50%;
-        width: var(--calendar-day-size);
+        width: 50%;
     }
 
     &:after {
@@ -129,9 +131,7 @@
     &:before {
         left: auto;
         right: 0;
-        border-bottom-left-radius: 50%;
-        border-top-left-radius: 50%;
-        width: var(--calendar-day-size);
+        width: 50%;
     }
 
     &:after {

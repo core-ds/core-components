@@ -292,7 +292,7 @@ describe('Calendar', () => {
                 <Calendar defaultMonth={defaultValue} selectedFrom={selectedFrom.getTime()} />,
             );
 
-            const days = container.querySelectorAll('td[data-date]');
+            const days = container.querySelectorAll('td[data-date] button');
 
             expect(days).toHaveLength(30);
 
@@ -308,7 +308,7 @@ describe('Calendar', () => {
                 }
 
                 if (date === selectedDay) {
-                    expect(day).toHaveClass('rangeStart');
+                    expect(day.parentElement).toHaveClass('rangeStart');
                     expect(day).toHaveClass('selected');
                     return;
                 }
@@ -318,7 +318,7 @@ describe('Calendar', () => {
                     return;
                 }
 
-                expect(day).toHaveClass('range');
+                expect(day.parentElement).toHaveClass('range');
             });
         });
 
@@ -333,7 +333,7 @@ describe('Calendar', () => {
                 <Calendar defaultMonth={defaultValue} selectedFrom={selectedFrom.getTime()} />,
             );
 
-            const days = container.querySelectorAll('td[data-date]');
+            const days = container.querySelectorAll('td[data-date] button');
 
             expect(days).toHaveLength(30);
 
@@ -344,7 +344,7 @@ describe('Calendar', () => {
 
                 if (date < highlightedDay || date > selectedDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day).not.toHaveClass('range');
+                    expect(day.parentElement).not.toHaveClass('range');
                     return;
                 }
 
@@ -354,12 +354,12 @@ describe('Calendar', () => {
                 }
 
                 if (date === highlightedDay) {
-                    expect(day).toHaveClass('rangeStart');
+                    expect(day.parentElement).toHaveClass('rangeStart');
                     expect(day).toHaveClass('highlighted');
                     return;
                 }
 
-                expect(day).toHaveClass('range');
+                expect(day.parentElement).toHaveClass('range');
             });
         });
     });
@@ -376,7 +376,7 @@ describe('Calendar', () => {
                 <Calendar defaultMonth={defaultValue} selectedTo={selectedTo.getTime()} />,
             );
 
-            const days = container.querySelectorAll('td[data-date]');
+            const days = container.querySelectorAll('td[data-date] button');
 
             expect(days).toHaveLength(30);
 
@@ -387,17 +387,17 @@ describe('Calendar', () => {
 
                 if (date < selectedDay || date > highlightedDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day).not.toHaveClass('range');
+                    expect(day.parentElement).not.toHaveClass('range');
                     return;
                 }
 
                 if (date === selectedDay) {
-                    expect(day).toHaveClass('rangeStart');
+                    expect(day.parentElement).toHaveClass('rangeStart');
                     expect(day).toHaveClass('selected');
                     return;
                 }
 
-                expect(day).toHaveClass('range');
+                expect(day.parentElement).toHaveClass('range');
             });
         });
     });
@@ -419,7 +419,7 @@ describe('Calendar', () => {
                 />,
             );
 
-            const days = container.querySelectorAll('td[data-date]');
+            const days = container.querySelectorAll('td[data-date] button');
 
             expect(days).toHaveLength(30);
 
@@ -430,12 +430,12 @@ describe('Calendar', () => {
 
                 if (date < fromDay || date > toDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day).not.toHaveClass('range');
+                    expect(day.parentElement).not.toHaveClass('range');
                     return;
                 }
 
                 if (date === fromDay) {
-                    expect(day).toHaveClass('rangeStart');
+                    expect(day.parentElement).toHaveClass('rangeStart');
                     return;
                 }
 
@@ -448,7 +448,7 @@ describe('Calendar', () => {
                     expect(day).toHaveClass('highlighted');
                 }
 
-                expect(day).toHaveClass('range');
+                expect(day.parentElement).toHaveClass('range');
             });
         });
     });

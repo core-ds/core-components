@@ -8,6 +8,7 @@ import React, {
     MouseEvent,
     KeyboardEvent,
     useEffect,
+    ElementType,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -115,6 +116,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     mobileMode?: 'native' | 'popover' | 'input';
 
     /**
+     * Компонент календаря
+     */
+    Calendar?: ElementType<CalendarProps>;
+
+    /**
      * Обработчик изменения значения
      */
     onChange?: (
@@ -178,6 +184,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onCalendarChange,
             onKeyDown,
             readOnly,
+            Calendar,
             popoverPosition = 'bottom-start',
             zIndexPopover,
             useAnchorWidth,
@@ -195,7 +202,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             'desktop',
         );
 
-        const Calendar = view === 'desktop' ? DefaultCalendar : DefaultCalendarMobile;
+        const CalendarComponent = view === 'desktop' ? DefaultCalendar : DefaultCalendarMobile;
 
         const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
         const shouldRenderOnlyInput = mobileMode === 'input';
@@ -359,7 +366,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             () => (
                 // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 <div onMouseDown={handleCalendarWrapperMouseDown}>
-                    <Calendar
+                    <CalendarComponent
                         {...calendarProps}
                         open={open}
                         onClose={handleCalendarClose}

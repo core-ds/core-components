@@ -113,14 +113,12 @@ describe('CalendarRange', () => {
             <CalendarRange defaultMonth={defaultMonth} minDate={minDate} />,
         );
 
-        const prevMonthButton = queryAllByLabelText(
-            'Предыдущий период',
-        )[0] as HTMLTableDataCellElement;
+        const prevMonthButton = queryAllByLabelText('Предыдущий период')[0] as HTMLButtonElement;
 
         const firstNonDisabledDayButton = container.querySelector(
-            '*[data-date]:not(:disabled)',
-        ) as HTMLTableDataCellElement;
-        const date = firstNonDisabledDayButton.dataset.date as string;
+            '*[data-date] button:not(:disabled)',
+        ) as HTMLButtonElement;
+        const date = firstNonDisabledDayButton.parentElement?.dataset.date as string;
 
         expect(prevMonthButton).toBeFalsy();
         expect(firstNonDisabledDayButton).toHaveTextContent('5');
@@ -135,12 +133,10 @@ describe('CalendarRange', () => {
             <CalendarRange defaultMonth={defaultMonth} maxDate={maxDate} />,
         );
 
-        const nextMonthButtons = queryAllByLabelText(
-            'Следующий период',
-        ) as HTMLTableDataCellElement[];
+        const nextMonthButtons = queryAllByLabelText('Следующий период') as HTMLButtonElement[];
 
-        const activeDays = container.querySelectorAll('*[data-date]:not(:disabled)');
-        const lastActiveDay = activeDays[activeDays.length - 1] as HTMLTableDataCellElement;
+        const activeDays = container.querySelectorAll('*[data-date] button:not(:disabled)');
+        const lastActiveDay = activeDays[activeDays.length - 1].parentElement as HTMLButtonElement;
         const date = lastActiveDay.dataset.date as string;
 
         expect(nextMonthButtons).toHaveLength(1);
@@ -154,10 +150,10 @@ describe('CalendarRange', () => {
         const { container } = render(<CalendarRange valueFrom={formatDate(valueFrom)} />);
 
         const selectedDay = container.querySelector(
-            '*[data-date].selected',
-        ) as HTMLTableDataCellElement;
+            '*[data-date] button.selected',
+        ) as HTMLButtonElement;
 
-        const date = selectedDay.dataset.date as string;
+        const date = selectedDay.parentElement?.dataset.date as string;
 
         expect(selectedDay).toHaveTextContent('10');
         expect(new Date(+date).getTime()).toBe(valueFrom);
@@ -169,10 +165,10 @@ describe('CalendarRange', () => {
         const { container } = render(<CalendarRange valueTo={formatDate(valueTo)} />);
 
         const selectedDay = container.querySelector(
-            '*[data-date].selected',
-        ) as HTMLTableDataCellElement;
+            '*[data-date] button.selected',
+        ) as HTMLButtonElement;
 
-        const date = selectedDay.dataset.date as string;
+        const date = selectedDay.parentElement?.dataset.date as string;
 
         expect(selectedDay).toHaveTextContent('10');
         expect(new Date(+date).getTime()).toBe(valueTo);
@@ -186,10 +182,10 @@ describe('CalendarRange', () => {
             <CalendarRange valueFrom={formatDate(valueFrom)} valueTo={formatDate(valueTo)} />,
         );
 
-        const selectedDays = container.querySelectorAll('*[data-date].selected');
+        const selectedDays = container.querySelectorAll('*[data-date] button.selected');
 
-        const dayFrom = selectedDays[0] as HTMLTableDataCellElement;
-        const dayTo = selectedDays[1] as HTMLTableDataCellElement;
+        const dayFrom = selectedDays[0].parentElement as HTMLTableDataCellElement;
+        const dayTo = selectedDays[1].parentElement as HTMLTableDataCellElement;
 
         const dateFrom = dayFrom.dataset.date as string;
         const dateTo = dayTo.dataset.date as string;
@@ -268,11 +264,11 @@ describe('CalendarRange', () => {
         it('should select day, fill inputFrom and start selection on first click', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             expect(days[0]).toHaveClass('selected');
@@ -280,23 +276,23 @@ describe('CalendarRange', () => {
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[0]).toHaveClass('rangeStart');
-            expect(days[1]).toHaveClass('range');
+            expect(days[0].parentElement).toHaveClass('rangeStart');
+            expect(days[1].parentElement).toHaveClass('range');
         });
 
         it('should select new day, fill inputTo and end selection if clicked on same day twice', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             expect(days[0]).toHaveClass('selected');
@@ -305,26 +301,26 @@ describe('CalendarRange', () => {
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[1]).not.toHaveClass('range');
+            expect(days[1].parentElement).not.toHaveClass('range');
         });
 
         it('should start selection if clicked on same day thrice', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             expect(days[0]).toHaveClass('selected');
@@ -333,22 +329,22 @@ describe('CalendarRange', () => {
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[1]).toHaveClass('range');
+            expect(days[1].parentElement).toHaveClass('range');
         });
 
         it('should select new day, change inputFrom and inputTo values if clicked date < start date', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
             act(() => {
-                (days[2] as HTMLTableDataCellElement).click();
+                (days[2] as HTMLButtonElement).click();
             });
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             expect(days[0]).toHaveClass('selected');
@@ -358,23 +354,23 @@ describe('CalendarRange', () => {
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[0]).toHaveClass('rangeStart');
-            expect(days[1]).not.toHaveClass('rangeStart');
-            expect(days[1]).toHaveClass('range');
+            expect(days[0].parentElement).toHaveClass('rangeStart');
+            expect(days[1].parentElement).not.toHaveClass('rangeStart');
+            expect(days[1].parentElement).toHaveClass('range');
         });
 
         it('should select day, fill inputTo and end selection if clicked date > start date', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
             act(() => {
-                (days[0] as HTMLTableDataCellElement).click();
+                (days[0] as HTMLButtonElement).click();
             });
 
             act(() => {
-                (days[days.length - 1] as HTMLTableDataCellElement).click();
+                (days[days.length - 1] as HTMLButtonElement).click();
             });
 
             expect(days[days.length - 1]).toHaveClass('selected');
@@ -382,16 +378,14 @@ describe('CalendarRange', () => {
 
             Array.from(days)
                 .slice(1, -1)
-                .forEach(day => expect(day).toHaveClass('range'));
+                .forEach(day => expect(day.parentElement).toHaveClass('range'));
         });
 
         it('should keep selection when month changed', async () => {
             const { container, queryAllByLabelText } = render(<CalendarRange />);
 
-            const firstDay = container.querySelector('*[data-date]') as HTMLTableDataCellElement;
-            const nextMonthButton = queryAllByLabelText(
-                'Следующий период',
-            )[0] as HTMLTableDataCellElement;
+            const firstDay = container.querySelector('*[data-date]') as HTMLButtonElement;
+            const nextMonthButton = queryAllByLabelText('Следующий период')[0] as HTMLButtonElement;
 
             act(() => {
                 firstDay.click();
@@ -401,7 +395,7 @@ describe('CalendarRange', () => {
             await new Promise(res => setTimeout(res, 1000));
 
             const days = container.querySelectorAll('*[data-date]');
-            const lastDay = days[days.length - 1] as HTMLTableDataCellElement;
+            const lastDay = days[days.length - 1] as HTMLButtonElement;
             const lastDayDate = new Date(+(lastDay.dataset.date as string));
 
             lastDay.click();
