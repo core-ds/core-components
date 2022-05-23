@@ -33,9 +33,8 @@ export const Amount: React.FC<AmountProps> = ({
     return (
         <span
             className={cn(styles.component, className, {
-                [styles.bold]: bold === 'full',
-                [styles.boldMajor]: bold === 'major',
-                [styles.default]: defaultStyles,
+                [styles.bold]: bold === 'full' || bold === 'major',
+                [styles.defaultStyles]: defaultStyles,
             })}
             data-test-id={dataTestId}
         >

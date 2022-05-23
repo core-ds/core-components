@@ -18,15 +18,11 @@
     font-weight: bold;
 }
 
-.boldMajor {
-    font-weight: bold;
-}
-
 .normalMinor {
     font-weight: normal;
 }
 
-.default {
+.defaultStyles {
     font-weight: var(--amount-major-part-font-weight);
 }
 
