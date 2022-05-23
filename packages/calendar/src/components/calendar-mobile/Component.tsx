@@ -34,6 +34,8 @@ export type CalendarMobileProps = CalendarProps & {
 const MODAL_HEADER_HEIGHT = 48;
 const CALENDAR_HEADER_HEIGHT = 32;
 const CALENDAR_OFFSET = 46;
+const MONTH_OFFSET = 27;
+const LAST_MONTH_SCROLL_TOP = 2965;
 
 export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
     (
@@ -106,6 +108,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
         const [activeMonths, setActiveMonths] = useState(months);
         const [firstMonth, setFirstMonth] = useState<Element | null>(null);
+        const [lastMonth, setLastMonth] = useState<Element | null>(null);
 
         const scrollToInitialMonth = useCallback(() => {
             const currentDate = new Date();
@@ -178,6 +181,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             }
 
             if (elem.scrollTop + elem.clientHeight === elem.scrollHeight) {
+                setLastMonth(monthList.lastElementChild);
                 updateCalendarPeriod('end');
             }
         }, [updateCalendarPeriod]);
@@ -216,14 +220,21 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (!elem) return;
 
             if (firstMonth) {
-                const monthOffset = CALENDAR_HEADER_HEIGHT + MODAL_HEADER_HEIGHT + CALENDAR_OFFSET;
+                const firstMonthOffset =
+                    CALENDAR_HEADER_HEIGHT + MODAL_HEADER_HEIGHT + MONTH_OFFSET;
                 const firstMonthPosY = firstMonth.getBoundingClientRect().y;
 
                 elem.scrollTo({
-                    top: firstMonthPosY - monthOffset,
+                    top: firstMonthPosY - firstMonthOffset,
                 });
 
                 setFirstMonth(null);
+            } else if (lastMonth) {
+                elem.scrollTo({
+                    top: LAST_MONTH_SCROLL_TOP,
+                });
+
+                setLastMonth(null);
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [activeMonths]);
