@@ -188,7 +188,11 @@ module.exports = {
                         plugins: [
                             require('postcss-discard-duplicates'),
                             ...(isIeMode
-                                ? [require('postcss-custom-properties').bind({ preserve: false })]
+                                ? [
+                                      require('postcss-custom-properties').bind(null, {
+                                          preserve: false,
+                                      }),
+                                  ]
                                 : []),
                         ],
                     }),
