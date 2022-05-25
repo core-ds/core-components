@@ -24,12 +24,12 @@ import { Field as DefaultField } from '../field';
 import { Arrow as DefaultArrow } from '../arrow';
 import { Option as DefaultOption } from '../option';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
-import { OptionsList } from './options-list';
+import { OptionsList } from '../select-mobile/options-list';
 
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { getDataTestId } from '../../../../utils/getDataTestId';
-import { Checkmark } from './checkmark';
+import { Checkmark } from '../select-mobile/checkmark';
 import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 
 import styles from './index.module.css';
