@@ -1,4 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import cn from "classnames";
+import ReactList from "react-list";
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfDay from 'date-fns/endOfDay';
@@ -7,12 +9,10 @@ import { Button } from '@alfalab/core-components-button';
 
 import { Calendar, CalendarProps, limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
 import { DaysTable } from '../days-table';
-import { generateId } from './utils';
 import { generateMonths, generateWeeks } from '../../utils';
+import { Month } from '../../typings';
 
 import styles from './index.module.css';
-
-type Side = 'start' | 'end';
 
 export type CalendarMobileProps = CalendarProps & {
     /**
@@ -29,13 +29,12 @@ export type CalendarMobileProps = CalendarProps & {
      * Обработчик закрытия модалки
      */
     onClose?: () => void;
-};
 
-const MODAL_HEADER_HEIGHT = 48;
-const CALENDAR_HEADER_HEIGHT = 32;
-const CALENDAR_OFFSET = 46;
-const MONTH_OFFSET = 27;
-const LAST_MONTH_SCROLL_TOP = 2965;
+    /**
+     * Количество лет для генерации в обе стороны от текущей даты
+     */
+    yearsAmount?: number;
+};
 
 export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
     (
@@ -61,10 +60,16 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             open,
             onClose,
             title = 'Календарь',
+            yearsAmount = 10,
         },
         ref,
     ) => {
         const modalRef = useRef<HTMLDivElement>(null);
+
+        const initialMonthIndex = useMemo(() => {
+            const currentMonthIndex = new Date().getMonth();
+            return yearsAmount * 12 + currentMonthIndex;
+        }, []);
 
         const monthOnlyView = useMemo(() => selectorView === 'month-only', [selectorView]);
 
@@ -87,7 +92,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             () =>
                 startOfMonth(
                     selected ||
-                        limitDate(defaultMonthTimestamp, minDateTimestamp, maxDateTimestamp),
+                    limitDate(defaultMonthTimestamp, minDateTimestamp, maxDateTimestamp),
                 ),
             // eslint-disable-next-line react-hooks/exhaustive-deps
             [],
@@ -107,84 +112,43 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         });
 
         const [activeMonths, setActiveMonths] = useState(months);
-        const [firstMonth, setFirstMonth] = useState<Element | null>(null);
-        const [lastMonth, setLastMonth] = useState<Element | null>(null);
 
-        const scrollToInitialMonth = useCallback(() => {
-            const currentDate = new Date();
-            const currentMonthNode = document.querySelector(`#${generateId(currentDate)}`);
-
-            if (currentMonthNode && modalRef.current) {
-                const currentMonthNodePosY = currentMonthNode.getBoundingClientRect().y;
-                const monthOffset = MODAL_HEADER_HEIGHT + CALENDAR_HEADER_HEIGHT + CALENDAR_OFFSET;
-
-                modalRef.current.scrollTo({
-                    top: currentMonthNodePosY - monthOffset,
-                });
-            }
+        useEffect(() => {
+            generateInitialMonths();
         }, []);
 
-        const extendCalendarPeriod = useCallback((side: Side) => {
-            setActiveMonths(prevState => {
-                const monthIndex = side === 'start' ? 0 : prevState.length - 1;
-                const shift = side === 'start' ? -1 : 1;
+        const generateInitialMonths = useCallback(() => {
+            const prevMonths: Month[] = [];
+            const nextMonths: Month[] = [];
 
-                const scrolledMonth = prevState[monthIndex].date;
-                const scrolledMonthNode = document.querySelector(`#${generateId(scrolledMonth)}`);
+            for (let i = 0; i < yearsAmount; i++) {
+                const prevYear = new Date().setFullYear(new Date().getFullYear() - (i + 1));
+                const nextYear = new Date().setFullYear(new Date().getFullYear() + (i + 1));
 
-                if (scrolledMonthNode) {
-                    const year = new Date().setFullYear(scrolledMonth.getFullYear() + shift);
-                    const yearMonths = generateMonths(new Date(year), {});
+                const prevYearMonths = generateMonths(new Date(prevYear), {});
+                const nextYearMonths = generateMonths(new Date(nextYear), {});
 
-                    return side === 'start'
-                        ? [...yearMonths, ...prevState]
-                        : [...prevState, ...yearMonths];
-                }
-
-                return prevState;
-            });
-        }, []);
-
-        const reduceCalendarPeriod = useCallback((side: Side) => {
-            setActiveMonths(prevState => {
-                if (prevState.length >= 36) {
-                    return side === 'start'
-                        ? [...prevState].slice(0, prevState.length - 12)
-                        : [...prevState].slice(12);
-                }
-
-                return prevState;
-            });
-        }, []);
-
-        const updateCalendarPeriod = useCallback(
-            (side: Side) => {
-                extendCalendarPeriod(side);
-                reduceCalendarPeriod(side);
-            },
-            [extendCalendarPeriod, reduceCalendarPeriod],
-        );
-
-        // eslint-disable-next-line consistent-return
-        const handleScroll = useCallback(() => {
-            const elem = modalRef.current;
-
-            if (!elem) return false;
-
-            const monthList = elem.querySelector('div[class*="daysTable"]')?.parentNode;
-
-            if (!monthList) return false;
-
-            if (elem.scrollTop === 0) {
-                setFirstMonth(monthList.firstElementChild);
-                updateCalendarPeriod('start');
+                prevMonths.unshift(...prevYearMonths);
+                nextMonths.push(...nextYearMonths);
             }
 
-            if (elem.scrollTop + elem.clientHeight === elem.scrollHeight) {
-                setLastMonth(monthList.lastElementChild);
-                updateCalendarPeriod('end');
+            setActiveMonths(prevState => [...prevMonths, ...prevState, ...nextMonths]);
+        }, []);
+
+        const getMonthHeight = useCallback((index: number) => {
+            const currentMonth = activeMonths[index];
+
+            if (!currentMonth?.date) {
+                return 244;
             }
-        }, [updateCalendarPeriod]);
+
+            const weeks = generateWeeks(currentMonth.date, {});
+
+            if (weeks.length === 4) return 200;
+            if (weeks.length === 5) return 244;
+            
+            return 288;
+        }, [activeMonths]);
 
         const handleClose = useCallback(() => {
             if (onClose) onClose();
@@ -193,51 +157,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         const handleClear = useCallback(() => {
             if (onChange) onChange();
         }, [onChange]);
-
-        const handleMount = useCallback(() => {
-            if (modalRef.current) {
-                modalRef.current.addEventListener('scroll', handleScroll);
-            }
-        }, [handleScroll]);
-
-        const handleUnmount = useCallback(() => {
-            if (modalRef.current) {
-                modalRef.current.removeEventListener('scroll', handleScroll);
-            }
-
-            setActiveMonths(months);
-        }, [months, handleScroll]);
-
-        useEffect(() => {
-            if (open) {
-                setTimeout(scrollToInitialMonth, 0);
-            }
-        }, [open, scrollToInitialMonth]);
-
-        useEffect(() => {
-            const elem = modalRef.current;
-
-            if (!elem) return;
-
-            if (firstMonth) {
-                const firstMonthOffset =
-                    CALENDAR_HEADER_HEIGHT + MODAL_HEADER_HEIGHT + MONTH_OFFSET;
-                const firstMonthPosY = firstMonth.getBoundingClientRect().y;
-
-                elem.scrollTo({
-                    top: firstMonthPosY - firstMonthOffset,
-                });
-
-                setFirstMonth(null);
-            } else if (lastMonth) {
-                elem.scrollTo({
-                    top: LAST_MONTH_SCROLL_TOP,
-                });
-
-                setLastMonth(null);
-            }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [activeMonths]);
 
         const renderHeader = useCallback(
             () => (
@@ -255,6 +174,95 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             ),
             [],
         );
+
+        const renderMonth = useCallback((index: number, key: number | string) => {
+            return (
+                <div
+                    className={styles.daysTable}
+                    id={`month-${index}`}
+                    key={key}
+                >
+                    <span className={styles.month}>{`${monthName(
+                        activeMonths[index].date,
+                    )} ${activeMonths[index].date.getFullYear()}`}</span>
+                    <DaysTable
+                        weeks={generateWeeks(activeMonths[index].date, {
+                            minDate,
+                            maxDate,
+                            selected,
+                        })}
+                        activeMonth={activeMonth}
+                        selectedFrom={selectedFrom}
+                        selectedTo={selectedTo}
+                        getDayProps={getDayProps}
+                        highlighted={highlighted}
+                        rangeComplete={rangeComplete}
+                        hasHeader={false}
+                    />
+                </div>
+            )
+        }, [
+            activeMonths,
+            minDate,
+            maxDate,
+            selected,
+            activeMonth,
+            selectedFrom,
+            selectedTo,
+            getDayProps,
+            highlighted,
+            rangeComplete,
+        ]);
+
+        const renderContent = useCallback(() => {
+            if (monthOnlyView) {
+                return (
+                    <div>
+                        <ReactList
+                            length={activeMonths.length}
+                            itemRenderer={renderMonth}
+                            initialIndex={initialMonthIndex}
+                            itemSizeGetter={getMonthHeight}
+                            type='variable'
+                            threshold={700}
+                        >
+                        </ReactList>
+                    </div>
+                )
+            }
+
+            return (
+                <Calendar
+                    value={value}
+                    onChange={onChange}
+                    offDays={offDays}
+                    events={events}
+                    defaultView={defaultView}
+                    selectorView={selectorView}
+                    className={styles.calendar}
+                    onMonthClick={onMonthClick}
+                    onYearClick={onYearClick}
+                    selectedFrom={selectedFrom}
+                    selectedTo={selectedTo}
+                />
+            )
+        }, [
+            monthOnlyView,
+            activeMonths,
+            activeMonth,
+            selectedFrom,
+            selectedTo,
+            value,
+            onChange,
+            offDays,
+            events,
+            defaultView,
+            selectorView,
+            onMonthClick,
+            onYearClick,
+            renderMonth,
+            getMonthHeight
+        ]);
 
         const renderFooter = useCallback(() => {
             if (selectedFrom || selectedTo) {
@@ -289,18 +297,17 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     Отмена
                 </Button>
             );
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [value, selectedFrom, selectedTo]);
+        }, [value, selectedFrom, selectedTo, handleClose, handleClear]);
 
         return (
-            <div className={className} ref={ref}>
+            <div className={cn(className, styles.component)} ref={ref}>
                 <ModalMobile
                     open={open}
                     onClose={handleClose}
                     dataTestId={dataTestId}
                     ref={modalRef}
-                    onMount={handleMount}
-                    onUnmount={handleUnmount}
+                    className={styles.modal}
+                    wrapperClassName={styles.wrapper}
                 >
                     <ModalMobile.Header
                         hasCloser={true}
@@ -311,48 +318,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         className={styles.modalHeader}
                     />
                     {monthOnlyView && renderHeader()}
-                    <ModalMobile.Content flex={true}>
-                        {monthOnlyView ? (
-                            activeMonths.map(month => (
-                                <div
-                                    className={styles.daysTable}
-                                    id={generateId(month.date)}
-                                    key={generateId(month.date)}
-                                >
-                                    <span className={styles.month}>{`${monthName(
-                                        month.date,
-                                    )} ${month.date.getFullYear()}`}</span>
-                                    <DaysTable
-                                        weeks={generateWeeks(month.date, {
-                                            minDate,
-                                            maxDate,
-                                            selected,
-                                        })}
-                                        activeMonth={activeMonth}
-                                        selectedFrom={selectedFrom}
-                                        selectedTo={selectedTo}
-                                        getDayProps={getDayProps}
-                                        highlighted={highlighted}
-                                        rangeComplete={rangeComplete}
-                                        hasHeader={false}
-                                    />
-                                </div>
-                            ))
-                        ) : (
-                            <Calendar
-                                value={value}
-                                onChange={onChange}
-                                offDays={offDays}
-                                events={events}
-                                defaultView={defaultView}
-                                selectorView={selectorView}
-                                className={styles.calendar}
-                                onMonthClick={onMonthClick}
-                                onYearClick={onYearClick}
-                                selectedFrom={selectedFrom}
-                                selectedTo={selectedTo}
-                            />
-                        )}
+                    <ModalMobile.Content flex={true} className={styles.modalContent}>
+                        {renderContent()}
                     </ModalMobile.Content>
                     <ModalMobile.Footer sticky={true} className={styles.modalFooter}>
                         {renderFooter()}

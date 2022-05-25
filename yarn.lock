@@ -149,6 +149,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.4.1.tgz#b4e23fd6c16bd265d547158684bd1d97b1597fb0"
   integrity sha512-TFHBw9FcZrr8G/LKUwIzHVg+DPmyKiak0FAe0THjdrSYrRttm0DDf5ljTe0+3FBJNgUu3hbGbEJUEFg2sGflig==
 
+"@alfalab/hooks@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.7.0.tgz#b1e15d660b544925fdaf1491f1259e6480739483"
+  integrity sha512-NQL8V90vwjCo8VPM8KncvB/3x5RskbRkQ+iAUSq3AaLdCKPS0K6Bu3Up30lFsqBiuVdr/Hne/HxBW7EBhUf5EQ==
+
 "@alfalab/icons-classic@^1.76.0":
   version "1.76.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.76.0.tgz#8f40bafc9d247084aececc249ffff93a8d10d7eb"
@@ -5525,6 +5530,13 @@
   integrity sha512-ItatOrnXDMAYpv6G8UCk2VhbYVTjZT9aorLtA/OzDN9XJ2GKcfam68jutoAcILdRjsRUO8qb7AmyObF77Q8QFw==
   dependencies:
     "@types/react" "^16"
+
+"@types/react-list@^0.8.7":
+  version "0.8.7"
+  resolved "https://registry.yarnpkg.com/@types/react-list/-/react-list-0.8.7.tgz#01aaa83c5bb8dc520c1e44b0c1ab581a42ae97b5"
+  integrity sha512-TaPwZNx+sNY2djMWPqf81SfimnWIob/jjZbQJkJRZMf/G6Zu+gFpUoou/70MkZhbKhREk1eTNZFmbokBwAmbBg==
+  dependencies:
+    "@types/react" "*"
 
 "@types/react-syntax-highlighter@11.0.5":
   version "11.0.5"
@@ -19313,6 +19325,15 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
+prop-types@15:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
@@ -19838,6 +19859,13 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-list@^0.8.17:
+  version "0.8.17"
+  resolved "https://registry.yarnpkg.com/react-list/-/react-list-0.8.17.tgz#49f55af2797cfdf3974ad2188a191e0ee919d254"
+  integrity sha512-pgmzGi0G5uGrdHzMhgO7KR1wx5ZXVvI3SsJUmkblSAKtewIhMwbQiMuQiTE83ozo04BQJbe0r3WIWzSO0dR1xg==
+  dependencies:
+    prop-types "15"
 
 react-live@^2.3.0:
   version "2.3.0"

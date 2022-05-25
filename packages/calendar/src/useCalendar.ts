@@ -308,10 +308,12 @@ export function useCalendar({
     const handleDayClick = useCallback(
         (event: MouseEvent<HTMLTableDataCellElement>) => {
             const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
-
+            
             if (date && onChange) {
                 onChange(+date);
             }
+
+            handleDayMouseLeave();
         },
         [onChange],
     );

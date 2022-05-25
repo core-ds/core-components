@@ -77,8 +77,10 @@
     }
 
     &.selected {
-        &:hover {
-            background: var(--calendar-selected-hover-background);
+        @media (hover) {
+            &:hover {
+                background: var(--calendar-selected-hover-background);
+            }
         }
     }
 
@@ -119,11 +121,9 @@
 
 .rangeEnd {
     &:before {
-        width: 50%;
-    }
-
-    &:after {
-        opacity: 0;
+        width: calc(50% + 20px);
+        border-top-right-radius: var(--calendar-day-border-radius);
+        border-bottom-right-radius: var(--calendar-day-border-radius);
     }
 }
 
@@ -131,11 +131,9 @@
     &:before {
         left: auto;
         right: 0;
-        width: 50%;
-    }
-
-    &:after {
-        opacity: 0;
+        width: calc(50% + 20px);
+        border-top-left-radius: var(--calendar-day-border-radius);
+        border-bottom-left-radius: var(--calendar-day-border-radius);
     }
 }
 

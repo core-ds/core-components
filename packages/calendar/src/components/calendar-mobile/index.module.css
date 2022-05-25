@@ -1,6 +1,14 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
+.wrapper {
+    background: var(--color-light-bg-primary);
+}
+
+.modalContent {
+    padding-bottom: 155px;
+}
+
 .modalHeader {
     z-index: 1000;
 }
