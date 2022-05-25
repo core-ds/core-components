@@ -1,0 +1,107 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import {boolean, select, number} from '@storybook/addon-knobs';
+import { ComponentHeader, CssVars, Tabs } from 'storybook/blocks';
+
+import {Scrollbar} from "../Component";
+import Description from './description.mdx';
+import { version } from '../../package.json';
+import styles from '!!raw-loader!../index.module.css';
+import colorsStyles from '!!raw-loader!../default.module.css';
+
+<Meta title='Компоненты/Scrollbar' component={Scrollbar} />
+
+<!-- Canvas -->
+
+<Story name='Scrollbar'>
+    {React.createElement(() => {
+        const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        const autoHide = boolean('autoHide', false);
+        const timeout = number('timeout', 1000);
+        const clickOnTrack= boolean('clickOnTrack', true);
+        const getChildVerticalStyle = (bgColor, color) => ({
+            height: 80,
+            textAlign: 'center',
+            lineHeight: '80px',
+            fontSize: 40,
+            fontWeight: 700,
+            color: `var(${color})`,
+            background: `var(${bgColor})`
+        });
+        const getChildHorizontalStyle = (bgColor, color) => ({
+            display: 'inline-block',
+            height: 200,
+            width: 80,
+            textAlign: 'center',
+            lineHeight: '80px',
+            fontSize: 40,
+            fontWeight: 700,
+            color: `var(${color})`,
+            background: `var(${bgColor})`
+        });
+        const bgColorMap = {
+            default: {
+                background: ['--color-light-bg-tertiary', '--color-light-bg-secondary'],
+                color: '--color-light-text-tertiary',
+            },
+            inverted: {
+                background: ['--color-light-bg-tertiary-inverted', '--color-light-bg-secondary-inverted'],
+                color: '--color-light-text-tertiary-inverted',
+            },
+        };
+        const getBgColor = (idx) => idx % 2 === 0 ? bgColorMap[colors].background[0] : bgColorMap[colors].background[1];
+        const textColor = bgColorMap[colors].color;
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                {direction === 'vertical' ?
+                    <Scrollbar
+                        style={{height: 200, width: 1000}}
+                        autoHide={autoHide}
+                        colors={colors}
+                        timeout={timeout}
+                        clickOnTrack={clickOnTrack}
+                    >
+                        {new Array(51).fill(null).map((_, idx) => <div key={idx} style={getChildVerticalStyle(getBgColor(idx), textColor)}>{idx}</div>)}
+                    </Scrollbar> :
+                    <Scrollbar
+                        style={{height: 200, width: 1000, whiteSpace: 'nowrap'}}
+                        autoHide={autoHide}
+                        colors={colors}
+                        timeout={timeout}
+                        clickOnTrack={clickOnTrack}
+                    >
+                        {new Array(51).fill(null).map((_, idx) => <div key={idx} style={getChildHorizontalStyle(getBgColor(idx), textColor)}>{idx}</div>)}
+                    </Scrollbar>
+                }
+            </div>
+        )
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Scrollbar'
+    version={version}
+    package='@alfalab/core-components/scrollbar'
+    stage={1}
+/>
+
+
+```tsx
+import { Scrollbar } from '@alfalab/core-components/scrollbar';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={Scrollbar} />}
+    cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
+/>

@@ -129,309 +129,368 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             class="optionsList m"
           >
             <div
-              class="scrollable"
-              style="height: 0px;"
+              class="component component scrollable"
+              data-simplebar="init"
+              style="min-width: 0px; height: 0px;"
             >
               <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-0"
-                role="option"
+                class="wrapper"
               >
                 <div
-                  class="content"
+                  class="heightAutoObserverWrapper"
                 >
                   <div
-                    class="container"
+                    class="heightAutoObserver"
+                  />
+                </div>
+                <div
+                  class="mask"
+                >
+                  <div
+                    class="offset"
+                    style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="content"
+                      aria-label="scrollable content"
+                      class="contentWrapper"
+                      role="region"
+                      style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                      tabindex="0"
                     >
-                      Neptunium
+                      <div
+                        class="content"
+                      >
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-0"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Neptunium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-1"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Plutonium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-2"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Americium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-3"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Curium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-4"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Berkelium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-5"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Californium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-6"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Einsteinium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-7"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Fermium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-8"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Mendelevium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-9"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Nobelium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-10"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Lawrencium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-11"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Rutherfordium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-12"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Dubnium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-13"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Seaborgium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-3-item-14"
+                          role="option"
+                        >
+                          <div
+                            class="content"
+                          >
+                            <div
+                              class="container"
+                            >
+                              <div
+                                class="content"
+                              >
+                                Bohrium
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div
+                  class="placeholder"
+                  style="width: 0px; height: 0px;"
+                />
               </div>
               <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-1"
-                role="option"
+                class="track horizontal"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Plutonium
-                    </div>
-                  </div>
-                </div>
+                  class="scrollbar"
+                  style="width: 0px; display: none;"
+                />
               </div>
               <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-2"
-                role="option"
+                class="track vertical"
+                style="visibility: hidden;"
               >
                 <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Americium
-                    </div>
-                  </div>
-                </div>
+                  class="scrollbar"
+                  style="height: 0px; display: none;"
+                />
               </div>
               <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-3"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Curium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-4"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Berkelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-5"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Californium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-6"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Einsteinium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-7"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Fermium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-8"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Mendelevium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-9"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Nobelium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-10"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Lawrencium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-11"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Rutherfordium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-12"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Dubnium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-13"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Seaborgium
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="option m option"
-                id="downshift-3-item-14"
-                role="option"
-              >
-                <div
-                  class="content"
-                >
-                  <div
-                    class="container"
-                  >
-                    <div
-                      class="content"
-                    >
-                      Bohrium
-                    </div>
-                  </div>
-                </div>
-              </div>
+                aria-hidden="true"
+                class="fakeContent"
+              />
             </div>
           </div>
         </div>

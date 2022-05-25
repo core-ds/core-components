@@ -3,13 +3,15 @@
 import React, { useRef, useEffect, useMemo, useState } from 'react';
 import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
+import { useMedia } from '@alfalab/hooks';
 import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
 
 import styles from './index.module.css';
 
-export type VirtualOptionsList = OptionsListProps & {
+export type VirtualOptionsList = Omit<OptionsListProps, 'optionsListWidth'> & {
     /**
      * Число отрисованных пунктов до\после видимого окна
      */
@@ -33,9 +35,11 @@ export const VirtualOptionsList = ({
     onScroll,
     header,
     footer,
+    nativeScrollbar: nativeScrollbarProp,
 }: VirtualOptionsList) => {
     const listRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
+    const scrollbarRef = useRef<HTMLDivElement>(null);
     const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState(0);
     const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
@@ -44,6 +48,9 @@ export const VirtualOptionsList = ({
         parentRef,
         overscan,
     });
+
+    let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+    nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
     // Сколл к выбранному пункту при открытии меню
     useEffect(() => {
@@ -94,7 +101,7 @@ export const VirtualOptionsList = ({
         visibleOptions,
         invalidate: visibleOptionsInvalidateKey,
         listRef,
-        styleTargetRef: parentRef,
+        styleTargetRef: nativeScrollbar ? parentRef : scrollbarRef,
         open,
     });
 
@@ -112,6 +119,77 @@ export const VirtualOptionsList = ({
         }, {});
     }, [options]);
 
+    const contentNodeProps = {
+        className: styles.inner,
+        style: { height: `${rowVirtualizer.totalSize}px` },
+        ref: listRef,
+    };
+
+    const renderList = () => {
+        return rowVirtualizer.virtualItems.map(virtualRow => {
+            const option = flatOptions[virtualRow.index];
+            const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+
+            return (
+                <div
+                    key={virtualRow.index}
+                    ref={virtualRow.measureRef}
+                    className={cn(styles.virtualRow, {
+                        [styles.highlighted]: highlightedIndex === virtualRow.index,
+                    })}
+                    style={{
+                        transform: `translateY(${virtualRow.start}px)`,
+                    }}
+                >
+                    {group && <Optgroup label={group.label} />}
+                    {!isGroup(option) && <Option {...getOptionProps(option, virtualRow.index)} />}
+                </div>
+            );
+        });
+    };
+
+    const renderWithCustomScrollbar = () => {
+        return (
+            <Scrollbar
+                className={styles.scrollable}
+                ref={scrollbarRef}
+                scrollableNodeProps={{ onScroll, ref: parentRef }}
+                contentNodeProps={contentNodeProps}
+            >
+                {rowVirtualizer.virtualItems.map(virtualRow => {
+                    const option = flatOptions[virtualRow.index];
+                    const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+
+                    return (
+                        <div
+                            key={virtualRow.index}
+                            ref={virtualRow.measureRef}
+                            className={cn(styles.virtualRow, {
+                                [styles.highlighted]: highlightedIndex === virtualRow.index,
+                            })}
+                            style={{
+                                transform: `translateY(${virtualRow.start}px)`,
+                            }}
+                        >
+                            {group && <Optgroup label={group.label} />}
+                            {!isGroup(option) && (
+                                <Option {...getOptionProps(option, virtualRow.index)} />
+                            )}
+                        </div>
+                    );
+                })}
+            </Scrollbar>
+        );
+    };
+
+    const renderWithNativeScrollbar = () => {
+        return (
+            <div className={styles.scrollable} ref={parentRef} onScroll={onScroll}>
+                <div {...contentNodeProps}>{renderList()}</div>
+            </div>
+        );
+    };
+
     return (
         <div
             className={cn(styles.virtualOptionsList, styles[size], className)}
@@ -119,38 +197,7 @@ export const VirtualOptionsList = ({
         >
             {header}
 
-            <div className={styles.scrollable} ref={parentRef} onScroll={onScroll}>
-                <div
-                    className={styles.inner}
-                    style={{
-                        height: `${rowVirtualizer.totalSize}px`,
-                    }}
-                    ref={listRef}
-                >
-                    {rowVirtualizer.virtualItems.map(virtualRow => {
-                        const option = flatOptions[virtualRow.index];
-                        const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
-
-                        return (
-                            <div
-                                key={virtualRow.index}
-                                ref={virtualRow.measureRef}
-                                className={cn(styles.virtualRow, {
-                                    [styles.highlighted]: highlightedIndex === virtualRow.index,
-                                })}
-                                style={{
-                                    transform: `translateY(${virtualRow.start}px)`,
-                                }}
-                            >
-                                {group && <Optgroup label={group.label} />}
-                                {!isGroup(option) && (
-                                    <Option {...getOptionProps(option, virtualRow.index)} />
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
+            {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
             {emptyPlaceholder && options.length === 0 && (
                 <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>

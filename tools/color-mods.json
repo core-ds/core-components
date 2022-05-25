@@ -63,12 +63,12 @@
         "shade": [10]
     },
     "light-graphic-primary": {
-        "alpha": [30, 40, 50],
+        "alpha": [30, 40, 50, 60],
         "tint": [15, 20, 30],
         "shade": [10, 30]
     },
     "light-graphic-primary-inverted": {
-        "alpha": [30, 40, 50],
+        "alpha": [30, 40, 50, 60],
         "shade": [7, 10, 15, 30]
     },
     "light-graphic-tertiary": {

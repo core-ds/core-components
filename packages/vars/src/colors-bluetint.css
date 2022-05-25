@@ -213,6 +213,7 @@
     --color-dark-graphic-primary-alpha-30: rgba(255, 255, 255, 0.3);
     --color-dark-graphic-primary-alpha-40: rgba(255, 255, 255, 0.4);
     --color-dark-graphic-primary-alpha-50: rgba(255, 255, 255, 0.5);
+    --color-dark-graphic-primary-alpha-60: rgba(255, 255, 255, 0.6);
     --color-dark-graphic-primary-shade-15: rgb(217, 217, 217);
     --color-dark-graphic-primary-shade-20: rgb(204, 204, 204);
     --color-dark-graphic-primary-shade-30: rgb(179, 179, 179);
@@ -226,6 +227,7 @@
     --color-dark-graphic-primary-inverted-tint-15: rgb(38, 38, 38);
     --color-dark-graphic-primary-inverted-tint-30: rgb(77, 77, 77);
     --color-dark-graphic-quaternary-tint-10: rgb(63, 63, 65);
+    --color-dark-graphic-primary-inverted-alpha-60: rgba(0, 0, 0, 0.6);
     --color-dark-graphic-secondary-alpha-30: rgba(141, 141, 147, 0.3);
     --color-dark-graphic-secondary-tint-30: rgb(175, 175, 179);
     --color-dark-graphic-secondary-tint-50: rgb(198, 198, 201);
@@ -334,6 +336,7 @@
     --color-light-graphic-primary-alpha-30: rgba(0, 0, 0, 0.3);
     --color-light-graphic-primary-alpha-40: rgba(0, 0, 0, 0.4);
     --color-light-graphic-primary-alpha-50: rgba(0, 0, 0, 0.5);
+    --color-light-graphic-primary-alpha-60: rgba(0, 0, 0, 0.6);
     --color-light-graphic-primary-tint-15: rgb(38, 38, 38);
     --color-light-graphic-primary-tint-20: rgb(51, 51, 51);
     --color-light-graphic-primary-tint-30: rgb(77, 77, 77);
@@ -347,6 +350,7 @@
     --color-light-graphic-primary-inverted-shade-15: rgb(217, 217, 217);
     --color-light-graphic-primary-inverted-shade-30: rgb(179, 179, 179);
     --color-light-graphic-quaternary-shade-10: rgb(198, 198, 199);
+    --color-light-graphic-primary-inverted-alpha-60: rgba(255, 255, 255, 0.6);
     --color-light-graphic-secondary-alpha-30: rgba(138, 138, 142, 0.3);
     --color-light-graphic-secondary-shade-30: rgb(97, 97, 99);
     --color-light-graphic-secondary-shade-50: rgb(69, 69, 71);

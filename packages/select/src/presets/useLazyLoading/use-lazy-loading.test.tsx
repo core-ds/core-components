@@ -99,7 +99,15 @@ describe('Select useLazyLoading hook', () => {
 
             return (
                 <div style={{ width: 320 }}>
-                    <Select dataTestId='select' {...optionsProps} OptionsList={CustomOptionsList} />
+                    <Select
+                        dataTestId='select'
+                        {...optionsProps}
+                        optionsListProps={{
+                            ...optionsProps.optionsListProps,
+                            nativeScrollbar: true,
+                        }}
+                        OptionsList={CustomOptionsList}
+                    />
                 </div>
             );
         };

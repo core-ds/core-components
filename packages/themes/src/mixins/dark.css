@@ -135,6 +135,7 @@
     --color-light-graphic-primary-alpha-30: var(--color-dark-graphic-primary-alpha-30);
     --color-light-graphic-primary-alpha-40: var(--color-dark-graphic-primary-alpha-40);
     --color-light-graphic-primary-alpha-50: var(--color-dark-graphic-primary-alpha-50);
+    --color-light-graphic-primary-alpha-60: var(--color-dark-graphic-primary-alpha-60);
     --color-light-graphic-primary-tint-15: var(--color-dark-graphic-primary-shade-15);
     --color-light-graphic-primary-tint-20: var(--color-dark-graphic-primary-shade-20);
     --color-light-graphic-primary-tint-30: var(--color-dark-graphic-primary-shade-30);
@@ -162,6 +163,9 @@
         --color-dark-graphic-primary-inverted-tint-30
     );
     --color-light-graphic-quaternary-shade-10: var(--color-dark-graphic-quaternary-tint-10);
+    --color-light-graphic-primary-inverted-alpha-60: var(
+        --color-dark-graphic-primary-inverted-alpha-60
+    );
     --color-light-graphic-secondary-alpha-30: var(--color-dark-graphic-secondary-alpha-30);
     --color-light-graphic-secondary-shade-30: var(--color-dark-graphic-secondary-tint-30);
     --color-light-graphic-secondary-shade-50: var(--color-dark-graphic-secondary-tint-50);
