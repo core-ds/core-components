@@ -44,7 +44,9 @@
         "shade": [10, 30]
     },
     "light-graphic-negative": {
-        "tint": [20, 30]
+        "alpha": [30],
+        "tint": [20, 30],
+        "shade": [7, 15, 30]
     },
     "light-graphic-quaternary": {
         "shade": [10]
@@ -54,9 +56,27 @@
         "tint": [15, 20, 30],
         "shade": [10, 30]
     },
+    "light-graphic-primary-inverted": {
+        "alpha": [30, 40, 50],
+        "shade": [7, 10, 15, 30]
+    },
+    "light-graphic-tertiary": {
+        "alpha": [30],
+        "tint": [15, 20],
+        "shade": [7, 15]
+    },
+    "light-graphic-tertiary-inverted": {
+        "alpha": [30],
+        "tint": [15, 20]
+    },
     "light-graphic-secondary": {
         "alpha": [30],
         "shade": [30, 50]
+    },
+    "light-graphic-secondary-inverted": {
+        "alpha": [30],
+        "tint": [15, 20],
+        "shade": [10, 30]
     },
     "light-text-link": {
         "tint": [30, 50],

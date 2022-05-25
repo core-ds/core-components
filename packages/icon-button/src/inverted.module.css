@@ -3,49 +3,58 @@
 :root {
     /* primary */
     --icon-button-inverted-primary-base-color: var(--color-light-graphic-primary-inverted);
-    --icon-button-inverted-primary-hover-color: color-mod(
-        var(--icon-button-inverted-primary-base-color) shade(10%)
+    --icon-button-inverted-primary-hover-color: var(--color-light-graphic-primary-inverted-shade-7);
+    --icon-button-inverted-primary-active-color: var(
+        --color-light-graphic-primary-inverted-shade-15
     );
-    --icon-button-inverted-primary-active-color: color-mod(
-        var(--icon-button-inverted-primary-base-color) shade(30%)
-    );
-    --icon-button-inverted-primary-disabled-color: color-mod(
-        var(--icon-button-inverted-primary-base-color) alpha(30%)
+    --icon-button-inverted-primary-disabled-color: var(
+        --color-light-graphic-primary-inverted-alpha-30
     );
 
     /* secondary */
     --icon-button-inverted-secondary-base-color: var(--color-light-graphic-secondary-inverted);
-    --icon-button-inverted-secondary-hover-color: color-mod(
-        var(--icon-button-inverted-secondary-base-color) shade(10%)
+    --icon-button-inverted-secondary-hover-color: var(
+        --color-light-graphic-secondary-inverted-tint-15
     );
-    --icon-button-inverted-secondary-active-color: color-mod(
-        var(--icon-button-inverted-secondary-base-color) shade(30%)
+    --icon-button-inverted-secondary-active-color: var(
+        --color-light-graphic-secondary-inverted-tint-20
     );
-    --icon-button-inverted-secondary-disabled-color: color-mod(
-        var(--icon-button-inverted-secondary-base-color) alpha(30%)
+    --icon-button-inverted-secondary-disabled-color: var(
+        --color-light-graphic-secondary-inverted-alpha-30
     );
 
     /* transparent */
-    --icon-button-inverted-transparent-base-color: color-mod(
-        var(--color-light-graphic-primary-inverted) alpha(30%)
+    --icon-button-inverted-transparent-base-color: var(
+        --color-light-graphic-primary-inverted-alpha-30
     );
-    --icon-button-inverted-transparent-hover-color: color-mod(
-        var(--icon-button-inverted-transparent-base-color) alpha(40%)
+    --icon-button-inverted-transparent-hover-color: var(
+        --color-light-graphic-primary-inverted-alpha-40
     );
-    --icon-button-inverted-transparent-active-color: color-mod(
-        var(--icon-button-inverted-transparent-base-color) alpha(50%)
+    --icon-button-inverted-transparent-active-color: var(
+        --color-light-graphic-primary-inverted-alpha-50
     );
-    --icon-button-inverted-transparent-disabled-color: color-mod(
-        var(--icon-button-inverted-transparent-base-color) alpha(40%)
+    --icon-button-inverted-transparent-disabled-color: var(
+        --color-light-graphic-primary-inverted-alpha-40
+    );
+
+    /* tertiary */
+    --icon-button-inverted-tertiary-base-color: var(--color-light-graphic-tertiary-inverted);
+    --icon-button-inverted-tertiary-hover-color: var(
+        --color-light-graphic-tertiary-inverted-tint-15
+    );
+    --icon-button-inverted-tertiary-active-color: var(
+        --color-light-graphic-tertiary-inverted-tint-20
+    );
+    --icon-button-inverted-tertiary-disabled-color: var(
+        --color-light-graphic-tertiary-inverted-alpha-30
     );
 
     /* negative */
     --icon-button-inverted-negative-base-color: var(--color-light-graphic-negative);
-    --icon-button-inverted-negative-hover-color: color-mod(
-        var(--icon-button-inverted-negative-base-color) shade(10%)
-    );
-    --icon-button-inverted-negative-active-color: color-mod(
-        var(--icon-button-inverted-negative-base-color) shade(30%)
+    --icon-button-inverted-negative-hover-color: var(--color-light-graphic-negative-shade-7);
+    --icon-button-inverted-negative-active-color: var(--color-light-graphic-negative-shade-15);
+    --icon-button-inverted-negative-disabled-color: var(
+        --color-light-graphic-negative-inverted-alpha-30
     );
 }
 
@@ -94,5 +103,17 @@
 
     &:active {
         color: var(--icon-button-inverted-negative-active-color);
+    }
+}
+
+.tertiary {
+    color: var(--icon-button-inverted-tertiary-base-color);
+
+    &:hover {
+        color: var(--icon-button-inverted-tertiary-hover-color);
+    }
+
+    &:active {
+        color: var(--icon-button-inverted-tertiary-active-color);
     }
 }
