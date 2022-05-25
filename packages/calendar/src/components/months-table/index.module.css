@@ -4,8 +4,8 @@
 .monthsTable {
     display: flex;
     flex-wrap: wrap;
-    width: var(--calendar-inner-width);
-    justify-content: flex-start;
+    width: 100%;
+    justify-content: space-between;
 
     @media (max-width: 374px) {
         width: var(--calendar-mobile-inner-width);
@@ -13,8 +13,7 @@
 }
 
 .button {
-    width: calc((var(--calendar-inner-width) / 3) - (var(--gap-xs) / 3));
-    margin-right: var(--gap-2xs);
+    width: 33%;
     margin-bottom: var(--gap-xs);
 
     &:nth-child(3n) {

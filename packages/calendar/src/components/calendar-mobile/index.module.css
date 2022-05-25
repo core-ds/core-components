@@ -1,0 +1,69 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.wrapper {
+    background: var(--color-light-bg-primary);
+}
+
+.modalContent {
+    padding-bottom: 155px;
+}
+
+.modalHeader {
+    z-index: 1000;
+}
+
+.modalFooter {
+    z-index: 1000;
+}
+
+.calendar {
+    width: unset;
+}
+
+.calendar th {
+    border-bottom: 1px solid var(--color-light-border-primary);
+}
+
+.calendarHeader {
+    padding: 0 var(--gap-m);
+    width: 100%;
+    position: sticky;
+    border-bottom: 1px solid var(--color-light-border-primary);
+    background: var(--modal-header-background);
+    top: 48px;
+    height: 32px;
+    z-index: 1000;
+}
+
+.calendarHeader th {
+    height: 100%;
+}
+
+.month {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    color: var(--color-light-text-primary);
+    margin-bottom: var(--gap-xs);
+}
+
+.daysTable {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--gap-2xl);
+}
+
+.dayName {
+    @mixin paragraph_primary_small;
+
+    height: var(--calendar-day-size);
+    color: var(--color-light-text-secondary);
+
+    @media (max-width: 374px) {
+        height: 36px;
+    }
+}

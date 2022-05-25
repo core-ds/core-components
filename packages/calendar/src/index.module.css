@@ -39,7 +39,7 @@
 }
 
 .period {
-    width: var(--calendar-inner-width);
+    width: 100%;
 
     @media (max-width: 374px) {
         justify-content: space-between;
@@ -49,7 +49,7 @@
 }
 
 .monthYear {
-    width: var(--calendar-inner-width);
+    width: 100%;
 
     @media (max-width: 374px) {
         justify-content: space-between;

@@ -5,6 +5,7 @@
     overflow: auto;
     overflow-x: hidden;
     width: 100%;
+    justify-content: space-between;
 }
 
 .inner {
@@ -14,7 +15,6 @@
     position: relative;
 
     /* (width - inner-width) / 2 */
-    left: 32px;
     overflow: hidden;
 
     @media (max-width: 374px) {
@@ -24,8 +24,7 @@
 
 .button {
     /* 3 колонки с равными отступами */
-    width: calc((var(--calendar-inner-width) / 3) - (var(--gap-xs) / 3));
-    margin-right: var(--gap-2xs);
+    width: 33%;
     margin-bottom: var(--gap-xs);
 
     &:nth-child(3n) {

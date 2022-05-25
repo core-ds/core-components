@@ -49,7 +49,14 @@ export type DaysTableProps = {
     /**
      * Доп. пропсы для переданного дня
      */
-    getDayProps: (day: Day) => Record<string, unknown> & { ref: RefCallback<HTMLButtonElement> };
+    getDayProps: (
+        day: Day,
+    ) => Record<string, unknown> & { ref: RefCallback<HTMLTableDataCellElement> };
+
+    /**
+     * Нужно ли рендерить шапку
+     */
+    hasHeader?: boolean;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -60,6 +67,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     selectedTo,
     rangeComplete = selectedFrom && selectedTo,
     getDayProps,
+    hasHeader = true,
 }) => {
     const activeMonthRef = useRef(activeMonth);
 
@@ -105,6 +113,7 @@ export const DaysTable: FC<DaysTableProps> = ({
 
         return (
             <td
+                {...dayProps}
                 key={day.date.getTime()}
                 className={cn(styles.dayWrapper, {
                     [styles.range]: inRange,
@@ -114,18 +123,18 @@ export const DaysTable: FC<DaysTableProps> = ({
                     [styles.rangeStart]: rangeStart,
                     [styles.rangeEnd]: rangeEnd,
                 })}
+                align='center'
+                ref={node => {
+                    /**
+                     * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
+                     * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
+                     */
+                    if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
+                        dayProps.ref(node as HTMLTableDataCellElement);
+                    }
+                }}
             >
                 <Button
-                    {...dayProps}
-                    ref={node => {
-                        /**
-                         * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
-                         * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
-                         */
-                        if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
-                            dayProps.ref(node as HTMLButtonElement);
-                        }
-                    }}
                     type='button'
                     view='ghost'
                     size='xs'
@@ -150,9 +159,11 @@ export const DaysTable: FC<DaysTableProps> = ({
 
     return (
         <table className={cn(styles.daysTable, direction && styles[direction])}>
-            <thead>
-                <tr>{renderHeader()}</tr>
-            </thead>
+            {hasHeader && (
+                <thead>
+                    <tr>{renderHeader()}</tr>
+                </thead>
+            )}
             <TransitionGroup component={null}>
                 <CSSTransition
                     key={activeMonth.getTime()}

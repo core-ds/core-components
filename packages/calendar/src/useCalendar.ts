@@ -296,8 +296,8 @@ export function useCalendar({
         dateRefs.current[index] = node;
     }, []);
 
-    const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLButtonElement>) => {
-        const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+    const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLTableDataCellElement>) => {
+        const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
         setHighlighted(date ? +date : undefined);
     }, []);
 
@@ -306,14 +306,16 @@ export function useCalendar({
     }, []);
 
     const handleDayClick = useCallback(
-        (event: MouseEvent<HTMLButtonElement>) => {
-            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+        (event: MouseEvent<HTMLTableDataCellElement>) => {
+            const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
 
             if (date && onChange) {
                 onChange(+date);
             }
+
+            handleDayMouseLeave();
         },
-        [onChange],
+        [onChange, handleDayMouseLeave],
     );
 
     const daysControls = useMemo(
@@ -389,7 +391,7 @@ export function useCalendar({
             return {
                 'data-date': day.date.getTime(),
                 'aria-selected': daySelected,
-                ref: (node: HTMLButtonElement) => {
+                ref: (node: HTMLTableDataCellElement) => {
                     handleDateRef(node, day.date.getDate() - 1);
                 },
                 tabIndex: canFocus ? 0 : -1,

@@ -1,31 +1,132 @@
-## Выбор даты из ограниченного интервала
-
-Календарь с заданными левой и правой границей.
-
-Позволяет выбрать дату из заданного диапазона.
-Например, дату встречи с банком для заключения кредитного договора.
-
-Задать границы можно с помощью свойств `minDate` и `maxDate`
+## Стандартные паттерны
 
 ```tsx live
 render(() => {
-    // import startOfDay from 'date-fns/startOfDay';
+    const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState();
 
-    const minDate = startOfDay(new Date());
-    minDate.setDate(10);
+    const [firstRadioValue, setFirstRadioValue] = React.useState("single");
+    const [secondRadioValue, setSecondRadioValue] = React.useState("single");
+    const [thirdRadioValue, setThirdRadioValue] = React.useState("desktop");
 
-    const maxDate = startOfDay(new Date());
-    maxDate.setDate(20);
+    const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
+
+    React.useEffect(() => {
+        if (secondRadioValue === 'single') {
+            setValue();
+        } else {
+            updatePeriod();
+        }
+    }, [firstRadioValue, secondRadioValue, thirdRadioValue])
+
+    const getDateString = React.useCallback((date) => {
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        return `${day}.${month}.${year}`;
+    }, []);
+
+    const selectedDate = React.useMemo(() => {
+        const date = new Date(value);
+        return getDateString(date);    
+    }, [value])
+
+    const selectedRange = React.useMemo(() => {
+        if (selectedFrom && selectedTo) {
+            const selectedFromDate = new Date(selectedFrom);
+            const selectedToDate = new Date(selectedTo);
+            return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
+        }
+    }, [selectedFrom, selectedTo]);
+
+    const onFirstRadioChange = React.useCallback((_, payload) => {
+        setFirstRadioValue(payload.value);
+    }, []);
+
+    const onSecondRadioChange = React.useCallback((_, payload) => {
+        setSecondRadioValue(payload.value);
+    }, []);
+
+    const onThirdRadioChange = React.useCallback((_, payload) => {
+        setThirdRadioValue(payload.value);
+    }, []);
 
     return (
-        <Calendar
-            value={value}
-            onChange={setValue}
-            selectorView='month-only'
-            minDate={minDate.getTime()}
-            maxDate={maxDate.getTime()}
-        />
+        <Row style={{ gap: '40px' }}>
+            <Col>
+                {thirdRadioValue === 'desktop' ? (
+                    <Calendar
+                        value={value}
+                        selectedFrom={selectedFrom}
+                        selectedTo={selectedTo}
+                        onChange={secondRadioValue === 'single' ? setValue : updatePeriod}
+                        selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
+                    />
+                ) : (
+                    <div style={{ width: '344px' }}>
+                        <Button onClick={() => setOpen(true)} style={{ margin: '15px' }}>
+                            Открыть календарь
+                        </Button>
+                        <CalendarMobile
+                            onClose={() => setOpen(false)}
+                            open={open}
+                            value={value}
+                            selectedFrom={selectedFrom}
+                            selectedTo={selectedTo}
+                            onChange={secondRadioValue === 'single' ? setValue : updatePeriod}
+                            selectorView='month-only'
+                            yearsAmount={firstRadioValue === 'single' ? 0 : 20}
+                        />
+                    </div>
+                )}
+            </Col>
+            <Col>
+                <p style={{ marginBottom: '40px' }}>
+                    Values: {
+                        secondRadioValue === 'single' && value && selectedDate ||
+                        secondRadioValue === 'range' && selectedFrom && selectedTo && selectedRange
+                    }
+                </p>
+
+                <div style={{ marginBottom: '40px' }}>
+                    <RadioGroup
+                        label="Где находятся предполагаемые даты"
+                        direction="vertical"
+                        name="radioGroup"
+                        onChange={onFirstRadioChange}
+                        value={firstRadioValue}
+                    >
+                        <Radio label="В пределах одного года" value="single" />
+                        <Radio label="В пределах нескольких лет" value="multiple" />
+                    </RadioGroup>
+                </div>
+
+                <div style={{ marginBottom: '40px' }}>
+                    <RadioGroup
+                        label="Режим"
+                        direction="vertical"
+                        name="radioGroup"
+                        onChange={onSecondRadioChange}
+                        value={secondRadioValue}
+                    >
+                        <Radio label="Принимает одну дату" value="single" />
+                        <Radio label="Принимает диапазон значений" value="range" />
+                    </RadioGroup>
+                </div>
+
+                <RadioGroup
+                    label="Версия"
+                    direction="vertical"
+                    name="radioGroup"
+                    onChange={onThirdRadioChange}
+                    value={thirdRadioValue}
+                >
+                    <Radio label="Десктопная" value="desktop" />
+                    <Radio label="Мобильная" value="mobile" />
+                </RadioGroup>
+            </Col>
+        </Row>
     );
 });
 ```
@@ -140,26 +241,6 @@ render(() => {
 });
 ```
 
-## Выбор года и месяца с шапкой PeriodSlider
-
-При клике на название месяца / года отображается выбор месяца / года
-
-```tsx live
-render(() => {
-    const [value, setValue] = React.useState(new Date().setMonth(6));
-
-    return (
-        <Calendar
-            value={value}
-            onChange={setValue}
-            selectorView='month-only'
-            isMonthAndYearSelectable={true}
-            showCurrentYearSelector={true}
-        />
-    );
-});
-```
-
 ## PeriodSlider
 
 `PeriodSlider` представляет из себя шапку календаря, которую можно использовать отдельно.
@@ -222,12 +303,6 @@ render(() => {
             />
 
             <br />
-
-            <PeriodSlider
-                periodType='day'
-                onPrevArrowClick={handler}
-                onNextArrowClick={handler}
-            />
 
             <PeriodSlider
                 periodType='day'

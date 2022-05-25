@@ -4,6 +4,7 @@ import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfDay from 'date-fns/endOfDay';
 import { useDidUpdateEffect } from '@alfalab/hooks';
+
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
@@ -12,9 +13,9 @@ import { PeriodSlider } from './components/period-slider';
 import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
 import { View, SelectorView } from './typings';
+import { MonthYearHeader } from './components/month-year-header';
 
 import styles from './index.module.css';
-import { MonthYearHeader } from './components/month-year-header';
 
 export type CalendarProps = {
     /**
@@ -31,16 +32,6 @@ export type CalendarProps = {
      * Вид шапки — месяц и год или только месяц
      */
     selectorView?: SelectorView;
-
-    /**
-     * Возможность выбора месяца и года, если selectorView 'month-only'
-     */
-    isMonthAndYearSelectable?: boolean;
-
-    /**
-     * Отображать ли текущий год, если isMonthAndYearSelectable true
-     */
-    showCurrentYearSelector?: boolean;
 
     /**
      * Выбранная дата (timestamp)
@@ -100,7 +91,7 @@ export type CalendarProps = {
     /**
      * Обработчик выбора даты
      */
-    onChange?: (date: number) => void;
+    onChange?: (date?: number) => void;
 
     /**
      * Обработчик нажатия на кнопку месяца
@@ -116,6 +107,11 @@ export type CalendarProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Нужно ли рендерить шапку календаря
+     */
+    hasHeader?: boolean;
 };
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
@@ -124,8 +120,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             className,
             defaultView = 'days',
             selectorView = 'full',
-            isMonthAndYearSelectable,
-            showCurrentYearSelector,
             value,
             month: monthTimestamp,
             minDate: minDateTimestamp,
@@ -141,6 +135,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             onMonthClick,
             onYearClick,
             dataTestId,
+            hasHeader = true,
         },
         ref,
     ) => {
@@ -265,31 +260,29 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 })}
                 data-test-id={dataTestId}
             >
-                <Header view={selectorView} withShadow={scrolled}>
-                    {selectorView === 'month-only' ? (
-                        <PeriodSlider
-                            className={styles.period}
-                            value={activeMonth}
-                            periodType='month'
-                            prevArrowDisabled={!canSetPrevMonth}
-                            nextArrowDisabled={!canSetNextMonth}
-                            hideDisabledArrows={true}
-                            isMonthAndYearSelectable={isMonthAndYearSelectable}
-                            showCurrentYearSelector={showCurrentYearSelector}
-                            onPrevArrowClick={handlePrevArrowClick}
-                            onNextArrowClick={handleNextArrowClick}
-                            onMonthClick={handleMonthClick}
-                            onYearClick={handleYearClick}
-                        />
-                    ) : (
-                        <MonthYearHeader
-                            className={styles.monthYear}
-                            value={activeMonth}
-                            onMonthClick={handleMonthClick}
-                            onYearClick={handleYearClick}
-                        />
-                    )}
-                </Header>
+                {hasHeader && (
+                    <Header view={selectorView} withShadow={scrolled}>
+                        {selectorView === 'month-only' ? (
+                            <PeriodSlider
+                                className={styles.period}
+                                value={activeMonth}
+                                periodType='month'
+                                prevArrowDisabled={!canSetPrevMonth}
+                                nextArrowDisabled={!canSetNextMonth}
+                                hideDisabledArrows={true}
+                                onPrevArrowClick={handlePrevArrowClick}
+                                onNextArrowClick={handleNextArrowClick}
+                            />
+                        ) : (
+                            <MonthYearHeader
+                                className={styles.monthYear}
+                                value={activeMonth}
+                                onMonthClick={handleMonthClick}
+                                onYearClick={handleYearClick}
+                            />
+                        )}
+                    </Header>
+                )}
 
                 <div className={cn(styles.container, styles[view])}>
                     {view === 'days' && (

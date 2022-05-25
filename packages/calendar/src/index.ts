@@ -2,6 +2,7 @@ export * from './Component';
 export { usePeriod, usePeriodWithReset } from './usePeriod';
 export { useCalendar } from './useCalendar';
 export * from './components/period-slider';
+export * from './components/calendar-mobile';
 export {
     russianWeekDay,
     dateInLimits,

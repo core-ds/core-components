@@ -12,6 +12,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import { useMedia } from '@alfalab/hooks';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 import {
@@ -24,12 +25,16 @@ import {
 
 import {
     Calendar as DefaultCalendar,
+    CalendarMobile as DefaultCalendarMobile,
     CalendarProps,
+    CalendarMobileProps,
     dateInLimits,
 } from '@alfalab/core-components-calendar';
 import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
 
 import styles from './index.module.css';
+
+type View = 'desktop' | 'mobile';
 
 export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
     /**
@@ -50,7 +55,9 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     /**
      * Доп. пропсы для календаря
      */
-    calendarProps?: CalendarProps & Record<string, unknown>;
+    calendarProps?:
+        | (CalendarProps & Record<string, unknown>)
+        | (CalendarMobileProps & Record<string, unknown>);
 
     /**
      * Значение инпута (используется и для календаря)
@@ -177,7 +184,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onCalendarChange,
             onKeyDown,
             readOnly,
-            Calendar = DefaultCalendar,
+            Calendar,
             popoverPosition = 'bottom-start',
             zIndexPopover,
             useAnchorWidth,
@@ -187,6 +194,16 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         },
         ref,
     ) => {
+        const [view] = useMedia<View>(
+            [
+                ['mobile', '(max-width: 1023px)'],
+                ['desktop', '(min-width: 1024px)'],
+            ],
+            'desktop',
+        );
+
+        const CalendarComponent = view === 'desktop' ? DefaultCalendar : DefaultCalendarMobile;
+
         const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
         const shouldRenderOnlyInput = mobileMode === 'input';
         const shouldRenderStatic = calendarPosition === 'static' && !shouldRenderOnlyInput;
@@ -239,22 +256,29 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const handleFocus = useCallback(
             (event: FocusEvent<HTMLDivElement>) => {
-                setOpen(true);
+                if (view === 'desktop') {
+                    setOpen(true);
 
-                if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
-                    calendarRef.current.focus();
+                    if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
+                        calendarRef.current.focus();
+                    }
                 }
             },
-            [open],
+            [open, view],
         );
 
-        const handleBlur = useCallback((event: FocusEvent<HTMLDivElement>) => {
-            const target = (event.relatedTarget || document.activeElement) as HTMLElement;
+        const handleBlur = useCallback(
+            (event: FocusEvent<HTMLDivElement>) => {
+                if (view === 'desktop') {
+                    const target = (event.relatedTarget || document.activeElement) as HTMLElement;
 
-            if (calendarRef.current && calendarRef.current.contains(target) === false) {
-                setOpen(false);
-            }
-        }, []);
+                    if (calendarRef.current && calendarRef.current.contains(target) === false) {
+                        setOpen(false);
+                    }
+                }
+            },
+            [view],
+        );
 
         const handleInputKeyDown = useCallback(
             (event: KeyboardEvent<HTMLInputElement>) => {
@@ -307,16 +331,25 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         );
 
         const handleCalendarChange = useCallback<Required<CalendarProps>['onChange']>(
-            date => {
-                changeHandler(null, formatDate(date), new Date(date), 'calendar');
-                setOpen(false);
+            (date?: number) => {
+                if (date) {
+                    changeHandler(null, formatDate(date), new Date(date), 'calendar');
+                }
+
+                if (view === 'desktop') {
+                    setOpen(false);
+                }
             },
-            [changeHandler],
+            [changeHandler, view],
         );
 
         const handleCalendarWrapperMouseDown = useCallback((event: MouseEvent<HTMLDivElement>) => {
             // Не дает инпуту терять фокус при выборе даты
             event.preventDefault();
+        }, []);
+
+        const handleCalendarClose = useCallback(() => {
+            setOpen(false);
         }, []);
 
         useEffect(() => {
@@ -333,8 +366,10 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             () => (
                 // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 <div onMouseDown={handleCalendarWrapperMouseDown}>
-                    <Calendar
+                    <CalendarComponent
                         {...calendarProps}
+                        open={open}
+                        onClose={handleCalendarClose}
                         ref={calendarRef}
                         defaultMonth={defaultMonth}
                         value={checkInputValueIsValid(inputValue) ? calendarValue : undefined}
@@ -352,6 +387,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 checkInputValueIsValid,
                 defaultMonth,
                 events,
+                open,
+                handleCalendarClose,
                 handleCalendarChange,
                 handleCalendarWrapperMouseDown,
                 inputValue,
