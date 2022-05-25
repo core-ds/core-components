@@ -1,4 +1,7 @@
 @define-mixin button-site {
     /* theme */
     --button-active-transform: scale(0.97);
+
+    /* secondary */
+    --button-secondary-base-bg-color: var(--color-light-specialbg-component);
 }
