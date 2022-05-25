@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { HTMLAttributes, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import SimpleBar from 'simplebar/dist/simplebar-core.esm';
@@ -18,10 +18,12 @@ export type ScrollbarProps = {
      * Оборачиваемый элемент.
      */
     children?: React.ReactNode;
+
     /**
      * Дополнительный класс на корневой элемент.
      */
     className?: string;
+
     /**
      * Набор цветов для компонента
      */
@@ -33,22 +35,26 @@ export type ScrollbarProps = {
     horizontalAutoStretch?: boolean;
 
     /**
-     * Включает автоскрытие ползунка..
+     * Включает автоскрытие ползунка.
      */
     autoHide?: boolean;
+
+    /**
+     * Время в мс, определяющее задержку до исчезновения полосы прокрутки (при включенной опции autoHide).
+     */
+    autoHideTimeout?: number;
+
     /**
      * Принудительное отображение полосы прокрутки.
      */
     forceVisible?: boolean | 'x' | 'y';
-    /**
-     * Задержка до скрытия полосы прокрутки (при включенной опции autoHide).
-     */
-    timeout?: number;
+
     /**
      * Управление поведением клика по треку.
      * Если true, то будет выполняться прокрутка к месту клика.
      */
     clickOnTrack?: boolean;
+
     /**
      * HTML-aтрибуты на прокручиваемый узел.
      */
@@ -56,6 +62,7 @@ export type ScrollbarProps = {
         React.HTMLAttributes<HTMLDivElement>,
         HTMLDivElement
     >;
+
     /**
      * HTML-aтрибуты на узел с контентом.
      */
@@ -93,7 +100,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             contentNodeProps = { ref: null },
             autoHide = true,
             forceVisible = false,
-            timeout = 1000,
+            autoHideTimeout = 1000,
             clickOnTrack = true,
             horizontalAutoStretch = false,
             ...htmlAttributes
@@ -103,33 +110,62 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
         const elRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement>(null);
         const contentNodeRef = useRef<HTMLDivElement>(null);
-        const fakeContentNodeRef = useRef<HTMLDivElement>(null);
+        const maskNodeRef = useRef<HTMLDivElement>(null);
 
         const colorStyles = colorStylesMap[colors];
 
-        useLayoutEffect(() => {
+        useEffect(() => {
+            let instance: SimpleBar | null;
+
+            if (elRef.current) {
+                instance = new SimpleBar(elRef.current, {
+                    autoHide,
+                    forceVisible,
+                    clickOnTrack,
+                    classNames,
+                    timeout: autoHideTimeout,
+                    direction: 'ltr',
+                    scrollbarMinSize: 40,
+                    scrollableNode: scrollableNodeRef.current,
+                    contentNode: contentNodeRef.current,
+                });
+            }
+
+            return () => {
+                if (instance) {
+                    instance.unMount();
+                    instance = null;
+                }
+            };
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
+
+        useEffect(() => {
             let mutationObserver: MutationObserver | null = null;
             const contentNode = contentNodeRef.current;
             const rootNode = elRef.current;
             const scrollableNode = scrollableNodeRef.current;
-            const fakeContentNode = fakeContentNodeRef.current;
+            const maskNode = maskNodeRef.current;
 
             const setMinWidth = throttle(() => {
-                if (contentNode && fakeContentNode && rootNode && scrollableNode) {
-                    const clonedContent = contentNode.cloneNode(true);
+                if (contentNode && rootNode && scrollableNode && maskNode) {
+                    /*
+                     * Устанавливаем min-width, чтобы максимально растянуть абсолютно позиционированный элемент.
+                     * Затем контенту устанавливаем display: inline-block, чтобы его ширина была равна ширине содержимого.
+                     */
+                    maskNode.style.minWidth = '4000px';
+                    contentNode.style.display = 'inline-block';
 
-                    fakeContentNode.appendChild(clonedContent);
-
-                    const newMinWidth = `${Math.ceil(
-                        fakeContentNode.getBoundingClientRect().width,
-                    )}px`;
+                    const contentRect = contentNode.getBoundingClientRect();
+                    const newMinWidth = `${Math.ceil(contentRect.width)}px`;
                     const prevMinWidth = rootNode.style.minWidth;
 
                     if (newMinWidth !== prevMinWidth) {
                         rootNode.style.minWidth = newMinWidth;
                     }
 
-                    fakeContentNode.removeChild(clonedContent);
+                    contentNode.style.display = '';
+                    maskNode.style.minWidth = '';
                 }
             }, 200);
 
@@ -154,32 +190,6 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             };
         }, [horizontalAutoStretch]);
 
-        useEffect(() => {
-            let instance: SimpleBar | null;
-
-            if (elRef.current) {
-                instance = new SimpleBar(elRef.current, {
-                    autoHide,
-                    forceVisible,
-                    timeout,
-                    clickOnTrack,
-                    classNames,
-                    direction: 'ltr',
-                    scrollbarMinSize: 40,
-                    scrollableNode: scrollableNodeRef.current,
-                    contentNode: contentNodeRef.current,
-                });
-            }
-
-            return () => {
-                if (instance) {
-                    instance.unMount();
-                    instance = null;
-                }
-            };
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, []);
-
         return (
             <div
                 {...htmlAttributes}
@@ -191,7 +201,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     <div className={classNames.heightAutoObserverWrapperEl}>
                         <div className={classNames.heightAutoObserverEl} />
                     </div>
-                    <div className={classNames.mask}>
+                    <div className={classNames.mask} ref={maskNodeRef}>
                         <div className={classNames.offset}>
                             <div
                                 {...scrollableNodeProps}
@@ -225,16 +235,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                 <div className={cn(classNames.track, classNames.vertical)}>
                     <div className={classNames.scrollbar} />
                 </div>
-                {horizontalAutoStretch && (
-                    <div
-                        className={cn(styles.fakeContent)}
-                        ref={fakeContentNodeRef}
-                        aria-hidden={true}
-                    />
-                )}
             </div>
         );
     },
 );
-
-Scrollbar.displayName = 'Scrollbar';

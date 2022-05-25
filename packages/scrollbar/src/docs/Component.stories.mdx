@@ -17,7 +17,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const colors = select('colors', ['default', 'inverted'], 'default');
         const autoHide = boolean('autoHide', false);
-        const timeout = number('timeout', 1000);
+        const autoHideTimeout = number('autoHideTimeout', 1000);
         const clickOnTrack= boolean('clickOnTrack', true);
         const getChildVerticalStyle = (bgColor, color) => ({
             height: 80,
@@ -66,7 +66,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
                         style={{height: 200, width: 1000}}
                         autoHide={autoHide}
                         colors={colors}
-                        timeout={timeout}
+                        autoHideTimeout={autoHideTimeout}
                         clickOnTrack={clickOnTrack}
                     >
                         {new Array(51).fill(null).map((_, idx) => <div key={idx} style={getChildVerticalStyle(getBgColor(idx), textColor)}>{idx}</div>)}
@@ -75,7 +75,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
                         style={{height: 200, width: 1000, whiteSpace: 'nowrap'}}
                         autoHide={autoHide}
                         colors={colors}
-                        timeout={timeout}
+                        autoHideTimeout={autoHideTimeout}
                         clickOnTrack={clickOnTrack}
                     >
                         {new Array(51).fill(null).map((_, idx) => <div key={idx} style={getChildHorizontalStyle(getBgColor(idx), textColor)}>{idx}</div>)}

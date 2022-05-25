@@ -156,28 +156,7 @@ export const VirtualOptionsList = ({
                 scrollableNodeProps={{ onScroll, ref: parentRef }}
                 contentNodeProps={contentNodeProps}
             >
-                {rowVirtualizer.virtualItems.map(virtualRow => {
-                    const option = flatOptions[virtualRow.index];
-                    const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
-
-                    return (
-                        <div
-                            key={virtualRow.index}
-                            ref={virtualRow.measureRef}
-                            className={cn(styles.virtualRow, {
-                                [styles.highlighted]: highlightedIndex === virtualRow.index,
-                            })}
-                            style={{
-                                transform: `translateY(${virtualRow.start}px)`,
-                            }}
-                        >
-                            {group && <Optgroup label={group.label} />}
-                            {!isGroup(option) && (
-                                <Option {...getOptionProps(option, virtualRow.index)} />
-                            )}
-                        </div>
-                    );
-                })}
+                {renderList()}
             </Scrollbar>
         );
     };

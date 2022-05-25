@@ -2,10 +2,11 @@
 
 :root {
     --scrollbar-rail-size: 12px;
-    --scrollbar-thumb-size: 4px;
-    --scrollbar-thumb-hovered-size: 6px;
+    --scrollbar-thumb-size: 6px;
     --scrollbar-thumb-border-radius: 3px;
-    --scrollbar-thumb-side-offset: 4px;
+    --scrollbar-thumb-side-outer-offset: 4px;
+    --scrollbar-thumb-side-inner-offset: 1px;
+    --scrollbar-scaling-factor: 1.5;
 }
 
 .component {
@@ -125,19 +126,21 @@
             width: var(--scrollbar-rail-size);
 
             &.hover {
-                & :global(.scrollbar) {
-                    width: var(--scrollbar-thumb-hovered-size);
+                & :global(.scrollbar):before {
+                    transform: scaleX(var(--scrollbar-scaling-factor));
                 }
             }
 
             & :global(.scrollbar) {
                 width: var(--scrollbar-thumb-size);
-                transition: width 0.2s ease-in-out;
                 margin: 0 auto;
 
                 &:before {
-                    top: var(--scrollbar-thumb-side-offset);
-                    bottom: calc(var(--scrollbar-thumb-side-offset) * 2);
+                    right: var(--scrollbar-thumb-side-inner-offset);
+                    left: var(--scrollbar-thumb-side-inner-offset);
+                    top: var(--scrollbar-thumb-side-outer-offset);
+                    bottom: var(--scrollbar-thumb-side-outer-offset);
+                    transition: opacity 0.2s linear, transform 0.2s ease-in-out;
                 }
             }
         }
@@ -147,31 +150,27 @@
             height: var(--scrollbar-rail-size);
 
             &.hover {
-                & :global(.scrollbar) {
-                    height: var(--scrollbar-thumb-hovered-size);
-                    bottom: calc(
-                        (var(--scrollbar-rail-size) - var(--scrollbar-thumb-hovered-size)) / 2
-                    );
+                & :global(.scrollbar):before {
+                    transform: scaleY(var(--scrollbar-scaling-factor));
                 }
-            }
-
-            & :global(.scrollbar):before {
-                height: 100%;
-                left: var(--scrollbar-thumb-side-offset);
-                right: calc(var(--scrollbar-thumb-side-offset) * 2);
             }
 
             & :global(.scrollbar) {
                 right: auto;
                 left: 0;
-                bottom: var(--scrollbar-thumb-side-offset);
+                bottom: var(--scrollbar-thumb-side-outer-offset);
                 height: var(--scrollbar-thumb-size);
                 min-height: 0;
                 min-width: 40px;
                 width: auto;
-                transition-property: height, bottom;
-                transition-duration: 0.2s;
-                transition-timing-function: ease-in-out;
+
+                &:before {
+                    left: var(--scrollbar-thumb-side-outer-offset);
+                    right: var(--scrollbar-thumb-side-outer-offset);
+                    top: var(--scrollbar-thumb-side-inner-offset);
+                    bottom: var(--scrollbar-thumb-side-inner-offset);
+                    transition: opacity 0.2s linear, transform 0.2s ease-in-out;
+                }
             }
         }
     }
@@ -189,13 +188,10 @@
             left: 0;
             right: 0;
             opacity: 0;
-            transition: opacity 0.2s linear;
         }
 
         &:global(.visible):before {
-            /* When hovered, remove all transitions from drag handle */
             opacity: 1;
-            transition: opacity 0s linear;
         }
     }
 
@@ -207,12 +203,14 @@
 
     &:global(.dragging .track) {
         pointer-events: all;
-    }
 
-    & .fakeContent {
-        position: absolute;
-        left: -10000px;
-        visibility: hidden;
+        &.vertical :global(.scrollbar):before {
+            transform: scaleX(var(--scrollbar-scaling-factor));
+        }
+
+        &.horizontal :global(.scrollbar):before {
+            transform: scaleY(var(--scrollbar-scaling-factor));
+        }
     }
 }
 
@@ -223,4 +221,9 @@
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
 }
