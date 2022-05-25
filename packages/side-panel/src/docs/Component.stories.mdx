@@ -1,0 +1,134 @@
+import { Meta, Props, Story } from '@storybook/addon-docs';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { Button } from '@alfalab/core-components-button';
+
+import { SidePanelMobile } from '../Component.mobile';
+import { SidePanelDesktop } from '../Component.desktop';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import vars from '!!raw-loader!../vars.css';
+
+
+<Meta
+    title='Компоненты/SidePanel'
+/>
+
+export const Text = () => (
+    <p style={{ margin: '0 0 16px' }}>
+        Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
+        Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
+        потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
+        полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+    </p>
+);
+
+export const Footer = () => (
+    <>
+        <Button size='s' view='primary'>Сохранить</Button>
+        <Button size='s' view='secondary'>Отмена</Button>
+    </>
+);
+
+export const Content = () => {
+    const [showMore, setShowMore] = React.useState(false);
+    return (
+        <>
+            <Text/>
+            {(showMore || boolean('showMore')) && (
+                <>
+                    <Text/>
+                    <Text/>
+                    <Text/>
+                    <Text/>
+                    <Text/>
+                </>
+            )}
+            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+                {showMore ? 'Скрыть' : 'Показать еще'}
+            </Button>
+        </>
+    );
+};
+
+<Story name='SidePanel'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        const component = select('SidePanelComponent', ['SidePanelDesktop', 'SidePanelMobile'], 'SidePanelDesktop');
+        const header = boolean('header', true);
+        const headerTitle = text('header.title');
+        const hasCloser = boolean('header.hasCloser', true);
+        const trim = boolean('header.trim', true);
+        const align = select('header.align', ['left', 'right', 'center'], 'left');
+        const stickyHeader = boolean('header.sticky', false);
+        const footer = boolean('footer', false);
+        const stickyFooter = boolean('footer.sticky', false);
+        const footerLayout = select('footer.layout', ['start', 'center', 'space-between', 'column'], 'start');
+        const footerGap = select('footer.gap', [false, 16, 24, 32], false);
+        const SidePanelComponent = React.useMemo(() => {
+            return {
+                'SidePanelDesktop': SidePanelDesktop,
+                'SidePanelMobile': SidePanelMobile,
+            }[component]
+        }, [component]);
+        const props = SidePanelComponent !== SidePanelMobile ? {
+            size: select('size', ['s'], 's'),
+        } : {};
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <SidePanelComponent
+                    open={open || boolean('open')}
+                    onClose={handleModalOpen}
+                    keepMounted={boolean('keepMounted', false)}
+                    {...props}
+                >
+                    {header && (
+                        <SidePanelComponent.Header
+                            sticky={stickyHeader}
+                            hasCloser={hasCloser}
+                            title={headerTitle}
+                            trim={trim}
+                            align={align}
+                        />
+                    )}
+                    <SidePanelComponent.Content>
+                        <Content />
+                    </SidePanelComponent.Content>
+                    {footer && (
+                        <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout} gap={footerGap}>
+                            <Footer />
+                        </SidePanelComponent.Footer>
+                    )}
+                </SidePanelComponent>
+            </React.Fragment>
+        );
+    })}
+</Story>
+
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SidePanel'
+    version={version}
+    package='@alfalab/core-components/side-panel'
+    stage={1}
+/>
+
+
+```tsx
+import { SidePanelDesktop } from '@alfalab/core-components/side-panel/desktop';
+import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    cssVars={<CssVars css={vars} />}
+    props={<Props components={{SidePanelDesktop, SidePanelMobile}} />}
+/>

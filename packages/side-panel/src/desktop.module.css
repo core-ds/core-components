@@ -1,0 +1,5 @@
+@import './vars.css';
+
+.s {
+    width: var(--side-panel-s-width);
+}
