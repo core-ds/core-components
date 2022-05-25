@@ -6,6 +6,7 @@ import { Button } from '@alfalab/core-components-button';
 
 import { SidePanelMobile } from '../Component.mobile';
 import { SidePanelDesktop } from '../Component.desktop';
+import { SidePanelResponsive } from '../Component.responsive';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -57,7 +58,7 @@ export const Content = () => {
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
-        const component = select('SidePanelComponent', ['SidePanelDesktop', 'SidePanelMobile'], 'SidePanelDesktop');
+        const component = select('SidePanelComponent', ['SidePanelResponsive', 'SidePanelDesktop', 'SidePanelMobile'], 'SidePanelDesktop');
         const header = boolean('header', true);
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
@@ -70,6 +71,7 @@ export const Content = () => {
         const footerGap = select('footer.gap', [false, 16, 24, 32], false);
         const SidePanelComponent = React.useMemo(() => {
             return {
+                'SidePanelResponsive': SidePanelResponsive,
                 'SidePanelDesktop': SidePanelDesktop,
                 'SidePanelMobile': SidePanelMobile,
             }[component]
@@ -122,6 +124,7 @@ export const Content = () => {
 
 
 ```tsx
+import { SidePanelResponsive } from '@alfalab/core-components/side-panel/responsive';
 import { SidePanelDesktop } from '@alfalab/core-components/side-panel/desktop';
 import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
 ```
@@ -130,5 +133,5 @@ import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
     description={<Description />}
     changelog={<Changelog />}
     cssVars={<CssVars css={vars} />}
-    props={<Props components={{SidePanelDesktop, SidePanelMobile}} />}
+    props={<Props components={{SidePanelDesktop, SidePanelMobile, SidePanelResponsive}} />}
 />

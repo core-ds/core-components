@@ -1,6 +1,5 @@
-import React, { cloneElement, forwardRef, isValidElement, useCallback, useRef } from 'react';
+import React, { cloneElement, forwardRef, isValidElement, useRef } from 'react';
 import cn from 'classnames';
-import { TransitionProps } from 'react-transition-group/Transition';
 
 import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 import mergeRefs from 'react-merge-refs';
@@ -19,12 +18,6 @@ export type SidePanelDesktopProps = DrawerProps & {
     size?: 's';
 
     /**
-     * Фиксирует позицию модального окна после открытия,
-     * предотвращая скачки, если контент внутри будет меняться
-     */
-    fixedPosition?: boolean;
-
-    /**
      * Управление наличием закрывающего крестика
      * @default false
      */
@@ -35,7 +28,6 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
     (
         {
             size = 's',
-            fixedPosition,
             children,
             className,
             wrapperClassName,
@@ -45,26 +37,6 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
         ref,
     ) => {
         const modalRef = useRef<HTMLElement>(null);
-
-        const handleEntered: TransitionProps['onEntered'] = useCallback(
-            (node, isAppearing) => {
-                if (fixedPosition && modalRef.current) {
-                    const content = modalRef.current.querySelector<HTMLElement>(
-                        `.${styles.component}`,
-                    );
-
-                    if (content) {
-                        const { marginTop } = window.getComputedStyle(content);
-                        content.style.marginTop = marginTop;
-                    }
-                }
-
-                if (contentTransitionProps.onEntered) {
-                    contentTransitionProps.onEntered(node, isAppearing);
-                }
-            },
-            [fixedPosition, contentTransitionProps],
-        );
 
         return (
             <Drawer
@@ -78,7 +50,6 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
                 contentTransitionProps={{
                     classNames: transitions,
                     ...contentTransitionProps,
-                    onEntered: handleEntered,
                 }}
             >
                 {React.Children.map(children, child =>

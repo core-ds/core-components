@@ -1,4 +1,2 @@
-// export * from './responsive';
-export * from './desktop';
-
+export * from './responsive';
 export * from './Context';
