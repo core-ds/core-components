@@ -205,7 +205,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         totalCount={activeMonths.length}
                         itemContent={renderMonth}
                         initialTopMostItemIndex={initialMonthIndex}
-                        overscan={{ main: 244 * 6, reverse: 244 * 6 }}
+                        overscan={{ main: 1000, reverse: 1000 }}
                         itemSize={(el) => el.getBoundingClientRect().height + 32}
                     />
                 );
