@@ -30,7 +30,13 @@ const CSS_TRANSITION_CLASS_NAMES = {
 export type ToastProps = ToastPlateProps &
     Pick<
         PopoverProps,
-        'position' | 'offset' | 'open' | 'getPortalContainer' | 'preventFlip' | 'transition'
+        | 'position'
+        | 'offset'
+        | 'open'
+        | 'getPortalContainer'
+        | 'preventFlip'
+        | 'transition'
+        | 'useAnchorWidth'
     > & {
         /**
          * Элемент, относительного которого появляется тост.
@@ -88,6 +94,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             onTouchStart,
             onClose,
             getPortalContainer,
+            useAnchorWidth,
             ...restProps
         },
         ref,
@@ -173,6 +180,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     transition={{ timeout: 150 }}
                     getPortalContainer={getPortalContainer}
                     zIndex={zIndex}
+                    useAnchorWidth={useAnchorWidth}
                 >
                     <ToastPlate {...restProps} style={style} className={className} {...props} />
                 </Popover>

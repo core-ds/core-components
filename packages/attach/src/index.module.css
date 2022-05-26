@@ -31,6 +31,11 @@
     }
 }
 
+.size_xs {
+    width: 18px;
+    height: 18px;
+}
+
 /* TODO обновить типографику на новую, когда ее зарелизят */
 .xs .file,
 .xs .noFile {

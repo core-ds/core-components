@@ -169,7 +169,6 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     [styles.focused]: focused,
                     [styles.block]: block,
                     [styles.iconOnly]: iconOnly,
-                    [styles.nowrap]: nowrap,
                     [styles.loading]: showLoader,
                     [styles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
                     [styles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
@@ -186,6 +185,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {children && (
                     <span
                         className={cn(styles.text, {
+                            [styles.nowrap]: nowrap,
                             [styles.stretchText]: !(leftAddons || rightAddons),
                         })}
                     >

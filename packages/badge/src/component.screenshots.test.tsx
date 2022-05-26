@@ -58,3 +58,29 @@ describe(
         },
     }),
 );
+
+describe(
+    'Badge color outline| screenshots view=`icon`',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Badge',
+            knobs: {
+                view: ['icon'],
+                visibleColorOutline: [true, false],
+                iconColor: [
+                    'positive',
+                    'attention',
+                    'negative',
+                    'tertiary',
+                    'secondary',
+                    'primary',
+                    'link',
+                ],
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 50, height: 50 },
+        },
+    }),
+);
