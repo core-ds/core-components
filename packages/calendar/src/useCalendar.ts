@@ -307,7 +307,12 @@ export function useCalendar({
 
     const handleDayClick = useCallback(
         (event: MouseEvent<HTMLTableDataCellElement>) => {
-            const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
+            const target = event.currentTarget as HTMLTableDataCellElement;
+            const dayDisabled = target.ariaDisabled;
+
+            if (dayDisabled) return;
+
+            const { date } = target.dataset;
 
             if (date && onChange) {
                 onChange(+date);

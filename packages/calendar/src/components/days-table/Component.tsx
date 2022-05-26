@@ -112,8 +112,8 @@ export const DaysTable: FC<DaysTableProps> = ({
         const rangeStart = selection && isSameDay(day.date, selection.start);
         const rangeEnd = selection && isSameDay(day.date, selection.end);
 
-        const sharpTransitLeft = firstDayOfWeek && firstDayOfMonth && inRange && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
-        const sharpTransitRight = lastDayOfWeek && lastDayOfMonth && inRange && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
+        const sharpTransitLeft = firstDayOfWeek && firstDayOfMonth && inRange && selection && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
+        const sharpTransitRight = lastDayOfWeek && lastDayOfMonth && inRange && selection && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
 
         const dayProps = getDayProps(day);
 
@@ -141,6 +141,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                         dayProps.ref(node as HTMLTableDataCellElement);
                     }
                 }}
+                aria-disabled={day.disabled}
             >
                 <Button
                     type='button'

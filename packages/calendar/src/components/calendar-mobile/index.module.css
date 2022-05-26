@@ -5,10 +5,6 @@
     background: var(--color-light-bg-primary);
 }
 
-.modalContent {
-    padding-bottom: 155px;
-}
-
 .modalHeader {
     z-index: 1000;
 }

@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
-import ReactList from 'react-list';
+import { Virtuoso } from 'react-virtuoso';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfDay from 'date-fns/endOfDay';
@@ -131,24 +131,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             setActiveMonths(prevState => [...prevMonths, ...prevState, ...nextMonths]);
         }, [yearsAmount]);
 
-        const getMonthHeight = useCallback(
-            (index: number) => {
-                const currentMonth = activeMonths[index];
-
-                if (!currentMonth?.date) {
-                    return 244;
-                }
-
-                const weeks = generateWeeks(currentMonth.date, {});
-
-                if (weeks.length === 4) return 200;
-                if (weeks.length === 5) return 244;
-
-                return 288;
-            },
-            [activeMonths],
-        );
-
         const handleClose = useCallback(() => {
             if (onClose) onClose();
         }, [onClose]);
@@ -219,13 +201,12 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         const renderContent = useCallback(() => {
             if (monthOnlyView) {
                 return (
-                    <ReactList
-                        length={activeMonths.length}
-                        itemRenderer={renderMonth}
-                        initialIndex={initialMonthIndex}
-                        itemSizeGetter={getMonthHeight}
-                        type='variable'
-                        threshold={700}
+                    <Virtuoso
+                        totalCount={activeMonths.length}
+                        itemContent={renderMonth}
+                        initialTopMostItemIndex={initialMonthIndex}
+                        overscan={{ main: 244 * 6, reverse: 244 * 6 }}
+                        itemSize={(el) => el.getBoundingClientRect().height + 32}
                     />
                 );
             }
@@ -259,7 +240,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             onMonthClick,
             onYearClick,
             renderMonth,
-            getMonthHeight,
             initialMonthIndex,
         ]);
 
@@ -299,11 +279,10 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         }, [value, selectedFrom, selectedTo, handleClose, handleClear]);
 
         return (
-            <div className={cn(className, styles.component)} ref={ref}>
+            <div className={cn(className, styles.component)} ref={ref} data-test-id={dataTestId}>
                 <ModalMobile
                     open={open}
                     onClose={handleClose}
-                    dataTestId={dataTestId}
                     ref={modalRef}
                     className={styles.modal}
                     wrapperClassName={styles.wrapper}
