@@ -113,6 +113,11 @@ export type TabProps = {
      * Слот справа
      */
     rightAddons?: ReactNode;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type TabListProps = Pick<

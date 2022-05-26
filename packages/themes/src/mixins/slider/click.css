@@ -1,11 +1,11 @@
 @define-mixin slider-click {
     /* progress */
-    --slider-progress-background: var(--color-light-graphic-neutral);
+    --slider-progress-background: var(--color-light-graphic-quaternary);
     --slider-progress-color: var(--color-light-graphic-positive);
     --slider-progress-border-radius: var(--border-radius-s);
     --slider-progress-height: 6px;
     --slider-progress-hover-color: var(--color-light-graphic-positive-shade-10);
-    --slider-progress-hover-background: var(--color-light-graphic-neutral-shade-10);
+    --slider-progress-hover-background: var(--color-light-graphic-quaternary-shade-10);
 
     /* thumb */
     --slider-thumb-color: var(--color-light-graphic-positive);

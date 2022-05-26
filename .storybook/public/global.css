@@ -834,7 +834,7 @@ table.docblock-argstable thead.docblock-argstable-head th {
 }
 
 table.docblock-argstable tbody.docblock-argstable-body {
-    box-shadow: 0 0 1px var(--color-light-border-tertiary-inverted);
+    box-shadow: 0 0 1px var(--color-light-border-underline-inverted);
 }
 
 table.docblock-argstable tbody.docblock-argstable-body tr:not(:first-child) {
