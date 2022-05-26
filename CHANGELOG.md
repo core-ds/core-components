@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [26.12.0](https://github.com/core-ds/core-components/compare/v26.11.0...v26.12.0) (2022-05-26)
+
+
+### Features
+
+* **amount:** add styling props ([#44](https://github.com/core-ds/core-components/issues/44)) ([539268a](https://github.com/core-ds/core-components/commit/539268a60a44db29f159d16cca6ad343deeef58d))
+* **tabs:** add dataTestId prop to Tab component ([bfa4604](https://github.com/core-ds/core-components/commit/bfa46043d0e62f1839b15c478ee72397a9843155))
+
 ## [26.11.0](https://github.com/core-ds/core-components/compare/v26.10.0...v26.11.0) (2022-05-20)
 
 
