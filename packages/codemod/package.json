@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-codemod",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "Codemod tools for code transforms",
     "keywords": [],
     "license": "MIT",
@@ -23,5 +23,5 @@
         "@codeshift/cli": "^0.10.0",
         "@codeshift/test-utils": "^0.2.0",
         "jscodeshift": "^0.13.1"
-      }
+    }
 }
