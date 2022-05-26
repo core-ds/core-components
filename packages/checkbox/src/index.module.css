@@ -24,14 +24,14 @@
     /* disabled */
     --checkbox-disabled-color: var(--color-light-text-secondary);
     --checkbox-disabled-bg-color: var(--color-light-graphic-primary-inverted);
-    --checkbox-disabled-border-color: var(--color-light-graphic-neutral);
+    --checkbox-disabled-border-color: var(--color-light-graphic-quaternary);
 
     /* inactive */
-    --checkbox-inactive-border-color: var(--color-light-border-secondary-inverted);
+    --checkbox-inactive-border-color: var(--color-light-border-underline);
     --checkbox-checked-inactive-color: var(--color-light-graphic-tertiary);
 
     /* disabled and checked */
-    --checkbox-checked-disabled-bg-color: var(--color-light-bg-neutral);
+    --checkbox-checked-disabled-bg-color: var(--color-light-bg-quaternary);
     --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
