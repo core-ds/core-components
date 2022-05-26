@@ -1,4 +1,6 @@
-## Стандартные паттерны
+## Примеры
+
+### Стандартные паттерны
 
 ```tsx live
 render(() => {
@@ -12,11 +14,8 @@ render(() => {
     const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
 
     React.useEffect(() => {
-        if (secondRadioValue === 'single') {
-            setValue();
-        } else {
-            updatePeriod();
-        }
+        setValue();
+        updatePeriod();
     }, [firstRadioValue, secondRadioValue, thirdRadioValue])
 
     const getDateString = React.useCallback((date) => {
@@ -64,7 +63,7 @@ render(() => {
                         selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
                     />
                 ) : (
-                    <div style={{ width: '344px' }}>
+                    <div style={{ position: 'relative', width: '344px' }}>
                         <Button onClick={() => setOpen(true)} style={{ margin: '15px' }}>
                             Открыть календарь
                         </Button>
@@ -129,119 +128,272 @@ render(() => {
         </Row>
     );
 });
+
 ```
 
-## Скрытие выбора года и месяца
+
+### Где используется
+
+Используется в <a view="default" href="https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-calendarinput--calendar-input">CalendarInput</a>, <a view="default" href="https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-calendarrange--calendar-range">CalendarRange</a>.
+
+
+## Механики
+
+### Указание диапазона
 
 ```tsx live
 render(() => {
-    // import startOfDay from 'date-fns/startOfDay';
+    const [open, setOpen] = React.useState(false);
 
-    const [value, setValue] = React.useState(new Date().setMonth(6));
+    const [firstRadioValue, setFirstRadioValue] = React.useState("clarification");
+    const [secondRadioValue, setSecondRadioValue] = React.useState("desktop");
 
-    const minDate = startOfDay(new Date());
-    minDate.setMonth(5);
+    const {
+        selectedFrom: selectedFromClarification,
+        selectedTo: selectedToClarification,
+        updatePeriod: updatePeriodClarification
+    } = usePeriod();
 
-    const maxDate = startOfDay(new Date());
-    maxDate.setMonth(7);
+    const {
+        selectedFrom: selectedFromReset,
+        selectedTo: selectedToReset,
+        updatePeriod: updatePeriodReset
+    } = usePeriodWithReset();
+
+    React.useEffect(() => {
+        updatePeriodClarification();
+        updatePeriodReset();
+    }, [firstRadioValue, secondRadioValue]);
+
+    const isClarification = React.useMemo(() => firstRadioValue === 'clarification', [firstRadioValue]);
+
+    const updatePeriod = React.useMemo(() => {
+        return isClarification ? updatePeriodClarification : updatePeriodReset;
+    }, [isClarification, updatePeriodClarification, updatePeriodReset]);
+
+    const getDateString = React.useCallback((date) => {
+        if (!date) return '';
+
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        return `${day}.${month}.${year}`;
+    }, []);
+
+    const selectedFrom = React.useMemo(() => {
+        return isClarification ? selectedFromClarification : selectedFromReset;
+    }, [isClarification, selectedFromClarification, selectedFromReset]);
+
+    const selectedTo = React.useMemo(() => {
+        return isClarification ? selectedToClarification : selectedToReset;
+    }, [isClarification, selectedToClarification, selectedToReset]);
+
+    const selectedRange = React.useMemo(() => {
+        const selectedFromDate = new Date(selectedFrom);
+        const selectedToDate = new Date(selectedTo);
+
+        return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
+    }, [selectedFrom, selectedTo]);
+
+    const onFirstRadioChange = React.useCallback((_, payload) => {
+        setFirstRadioValue(payload.value);
+    }, []);
+
+    const onSecondRadioChange = React.useCallback((_, payload) => {
+        setSecondRadioValue(payload.value);
+    }, []);
 
     return (
-        <Calendar
-            value={value}
-            onChange={setValue}
-            selectorView='month-only'
-            minDate={minDate.getTime()}
-            maxDate={maxDate.getTime()}
-        />
+        <Row style={{ gap: '40px' }}>
+            <Col>
+                {secondRadioValue === 'desktop' ? (
+                    <Calendar
+                        selectedFrom={selectedFrom}
+                        selectedTo={selectedTo}
+                        onChange={updatePeriod}
+                        selectorView={'month-only'}
+                    />
+                ) : (
+                    <div style={{ position: 'relative', width: '344px' }}>
+                        <Button onClick={() => setOpen(true)} style={{ margin: '15px' }}>
+                            Открыть календарь
+                        </Button>
+                        <CalendarMobile
+                            onClose={() => setOpen(false)}
+                            open={open}
+                            selectedFrom={selectedFrom}
+                            selectedTo={selectedTo}
+                            onChange={updatePeriod}
+                            selectorView='month-only'
+                        />
+                    </div>
+                )}
+            </Col>
+            <Col>
+                <p style={{ marginBottom: '40px' }}>
+                    Values: { selectedFrom && selectedTo && selectedRange }
+                </p>
+
+                <div style={{ marginBottom: '40px' }}>
+                    <RadioGroup
+                        label="Режим"
+                        direction="vertical"
+                        name="radioGroupFirst"
+                        onChange={onFirstRadioChange}
+                        value={firstRadioValue}
+                    >
+                        <Radio label="Уточнение границ" value="clarification" />
+                        <Radio label="Сброс границ" value="reset" />
+                    </RadioGroup>
+                </div>
+
+                <RadioGroup
+                    label="Версия"
+                    direction="vertical"
+                    name="radioGroupSecond"
+                    onChange={onSecondRadioChange}
+                    value={secondRadioValue}
+                >
+                    <Radio label="Десктопная" value="desktop" />
+                    <Radio label="Мобильная" value="mobile" />
+                </RadioGroup>
+            </Col>
+        </Row>
     );
 });
+
 ```
 
-## Недоступные даты
 
-Случается, что некоторые даты нельзя выбрать. Например, выходные или праздники.
-
-Задать недоступные даты можно, передав массив дат в свойство `offDays`
-
-```tsx live
-render(() => {
-    const [value, setValue] = React.useState();
-
-    const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
-
-    return <Calendar value={value} onChange={setValue} offDays={offDays} />;
-});
-```
-
-## Отметка о событии
-
-К календарю могут быть привязаны события или мероприятия: запланированные платежи, даты сдачи отчётности в налоговую и т.д.
-
-Задать события можно, передав массив дат в свойство `events`
+### События и недоступные даты
+Задать недоступные даты можно, передав массив дат в свойство [offDays]. <br />
+Задать события можно, передав массив дат в свойство [events]
 
 ```tsx live
 render(() => {
     const [value, setValue] = React.useState();
 
     const events = [
-        new Date().setDate(3),
-        new Date().setDate(15),
-        new Date().setDate(17),
+        new Date().setDate(2),
+        new Date().setDate(12),
         new Date().setDate(21),
     ];
 
-    return <Calendar value={value} onChange={setValue} events={events} />;
+    const offDays = [
+        new Date().setDate(1),
+        new Date().setDate(7),
+        new Date().setDate(8),
+        new Date().setDate(14),
+        new Date().setDate(15),
+        new Date().setDate(21),
+        new Date().setDate(22),
+        new Date().setDate(28),
+        new Date().setDate(29),
+    ];
+
+    const getDateString = React.useCallback((date) => {
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        return `${day}.${month}.${year}`;
+    }, []);
+
+    const selectedDate = React.useMemo(() => {
+        const date = new Date(value);
+        return getDateString(date);    
+    }, [value]);
+
+    return (
+        <Row style={{ gap: '40px' }}>
+            <Col>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    selectorView={'month-only'}
+                    events={events}
+                    offDays={offDays}
+                />
+            </Col>
+            <Col>
+                <p>Values: {value && selectedDate}</p>
+            </Col>
+        </Row>
+    );
 });
+
 ```
 
-## Выделение периода
 
-С помощью свойств `selectedFrom` и `selectedTo` можно подсвечивать определенный период дат на календаре.
-
-Если свойство `selectedTo` не задано, то подсвечивается период между `selectedFrom` и датой под курсором.
-
-Компонент содержит два хука, для автоматического управления выделением:
-
-### usePeriod
-
-Используется для одиночных календарей:
-
--   Сначала выбираются обе даты, затем меняется та, которая ближе к одному из концов выделения.
--   Клик по выбранной дате снимает с нее выделение
+### Границы
+Можно ограничить выбор дат, задав допустимый диапазон с помощью свойств [minDate] и [maxDate]
 
 ```tsx live
 render(() => {
-    // import { usePeriod } from '@alfalab/core-components/calendar';
+    // import startOfDay from 'date-fns/startOfDay';
 
-    const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
+    const [value, setValue] = React.useState(new Date().setMonth(4));
 
-    React.useEffect(() => {
-        console.log('period', selectedFrom, selectedTo);
-    }, [selectedFrom, selectedTo]);
+    const minDate = startOfDay(new Date());
 
-    return <Calendar selectedFrom={selectedFrom} selectedTo={selectedTo} onChange={updatePeriod} />;
+    minDate.setDate(6);
+    minDate.setMonth(3);
+
+    const maxDate = startOfDay(new Date());
+
+    maxDate.setDate(23);
+    maxDate.setMonth(5);
+
+    const getDateString = React.useCallback((date) => {
+        if (!date) return '';
+
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        return `${day}.${month}.${year}`;
+    }, []);
+
+    const selectedDate = React.useMemo(() => {
+        const date = new Date(value);
+        return getDateString(date);    
+    }, [value]);
+
+    const rangeBounds = React.useMemo(() => {
+        const minDateBound = new Date(minDate);
+        const maxDateBound = new Date(maxDate);
+
+        return `${getDateString(minDateBound)} - ${getDateString(maxDateBound)}`;
+    }, [minDate, maxDate]);
+
+    return (
+        <Row style={{ gap: '40px' }}>
+            <Col>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    selectorView={'month-only'}
+                    minDate={minDate.getTime()}
+                    maxDate={maxDate.getTime()}
+                />
+            </Col>
+            <Col>
+                <p style={{ marginBottom: '40px', lineHeight: '24px' }}>
+                    Допустимый диапазон: <br />
+                    с {rangeBounds}
+                </p>
+                <p>Values: {value && selectedDate}</p>
+            </Col>
+        </Row>
+    );
 });
+
 ```
 
-### usePeriodWithReset
+## Вспомогательные конструкции
 
-- Каждое третье нажатие начинает выделение сначала
-
-```tsx live
-render(() => {
-    // import { usePeriodWithReset } from '@alfalab/core-components/calendar';
-
-    const { selectedFrom, selectedTo, updatePeriod } = usePeriodWithReset();
-
-    React.useEffect(() => {
-        console.log('period', selectedFrom, selectedTo);
-    }, [selectedFrom, selectedTo]);
-
-    return <Calendar selectedFrom={selectedFrom} selectedTo={selectedTo} onChange={updatePeriod} />;
-});
-```
-
-## PeriodSlider
+### PeriodSlider
 
 `PeriodSlider` представляет из себя шапку календаря, которую можно использовать отдельно.
 

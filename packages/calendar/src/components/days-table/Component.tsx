@@ -10,7 +10,7 @@ import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfMonth from 'date-fns/startOfMonth';
 import { usePrevious } from '@alfalab/hooks';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { WEEKDAYS, getSelectionRange } from '../../utils';
+import { WEEKDAYS, getSelectionRange, russianWeekDay } from '../../utils';
 import { Day } from '../../typings';
 
 import styles from './index.module.css';
@@ -100,14 +100,20 @@ export const DaysTable: FC<DaysTableProps> = ({
         const dayHighlighted = highlighted && isEqual(day.date, highlighted);
         const inRange = selection && isWithinInterval(day.date, selection);
 
-        const firstDay = day.date.getDate() === 1;
-        const lastDay = isLastDayOfMonth(day.date);
+        const firstDayOfMonth = day.date.getDate() === 1;
+        const lastDayOfMonth = isLastDayOfMonth(day.date);
 
-        const transitLeft = firstDay && inRange && selection && day.date > selection.start;
-        const transitRight = lastDay && inRange && selection && day.date < selection.end;
+        const firstDayOfWeek = russianWeekDay(day.date) === 0;
+        const lastDayOfWeek = russianWeekDay(day.date) === 6;
+
+        const transitLeft = firstDayOfMonth && inRange && selection && day.date > selection.start;
+        const transitRight = lastDayOfMonth && inRange && selection && day.date < selection.end;
 
         const rangeStart = selection && isSameDay(day.date, selection.start);
         const rangeEnd = selection && isSameDay(day.date, selection.end);
+
+        const sharpTransitLeft = firstDayOfWeek && firstDayOfMonth && inRange && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
+        const sharpTransitRight = lastDayOfWeek && lastDayOfMonth && inRange && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
 
         const dayProps = getDayProps(day);
 
@@ -120,6 +126,8 @@ export const DaysTable: FC<DaysTableProps> = ({
                     [styles.rangeComplete]: inRange && rangeComplete,
                     [styles.transitLeft]: transitLeft,
                     [styles.transitRight]: transitRight,
+                    [styles.sharpTransitLeft]: sharpTransitLeft,
+                    [styles.sharpTransitRight]: sharpTransitRight,
                     [styles.rangeStart]: rangeStart,
                     [styles.rangeEnd]: rangeEnd,
                 })}

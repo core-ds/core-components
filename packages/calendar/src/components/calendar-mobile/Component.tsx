@@ -219,16 +219,14 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         const renderContent = useCallback(() => {
             if (monthOnlyView) {
                 return (
-                    <div>
-                        <ReactList
-                            length={activeMonths.length}
-                            itemRenderer={renderMonth}
-                            initialIndex={initialMonthIndex}
-                            itemSizeGetter={getMonthHeight}
-                            type='variable'
-                            threshold={700}
-                        />
-                    </div>
+                    <ReactList
+                        length={activeMonths.length}
+                        itemRenderer={renderMonth}
+                        initialIndex={initialMonthIndex}
+                        itemSizeGetter={getMonthHeight}
+                        type='variable'
+                        threshold={700}
+                    />
                 );
             }
 
