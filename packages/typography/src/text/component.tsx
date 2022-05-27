@@ -65,7 +65,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
         {
             view = 'primary-medium',
             tag: Component = 'span',
-            weight = 'regular',
+            weight,
             monospaceNumbers = false,
             color,
             className,
@@ -81,7 +81,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
                 className,
                 color && colors[color],
                 styles[view],
-                styles[weight],
+                weight && styles[weight],
             )}
             data-test-id={dataTestId}
             ref={ref as never}
