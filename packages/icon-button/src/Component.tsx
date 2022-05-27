@@ -21,7 +21,7 @@ export type IconButtonProps = {
     /**
      * Тип кнопки
      */
-    view?: 'primary' | 'secondary' | 'transparent' | 'negative';
+    view?: 'primary' | 'secondary' | 'transparent' | 'tertiary' | 'negative';
 
     /**
      * Размер компонента
@@ -56,7 +56,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                 {...restProps}
                 ref={ref}
                 view='ghost'
-                className={cn(className, colorStyles[colors][view])}
+                className={cn(
+                    className,
+                    colorStyles[colors][view],
+                    colorStyles[colors].component,
+                    colorStyles[colors].loader,
+                )}
                 size='s'
                 leftAddons={
                     <span className={cn(styles.iconWrapper, styles[size])}>

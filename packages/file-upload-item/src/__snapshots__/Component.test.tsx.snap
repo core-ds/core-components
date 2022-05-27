@@ -50,7 +50,7 @@ Object {
         </div>
         <a
           aria-label="скачать"
-          class="component ghost s component ghost iconOnly download primary"
+          class="component ghost s component ghost iconOnly download primary component loader"
           download="новое_название_файла"
           href="/link"
         >
@@ -78,7 +78,7 @@ Object {
         </a>
         <button
           aria-label="удалить"
-          class="component ghost s component ghost iconOnly delete primary"
+          class="component ghost s component ghost iconOnly delete primary component loader"
           type="button"
         >
           <span
@@ -152,7 +152,7 @@ Object {
       </div>
       <a
         aria-label="скачать"
-        class="component ghost s component ghost iconOnly download primary"
+        class="component ghost s component ghost iconOnly download primary component loader"
         download="новое_название_файла"
         href="/link"
       >
@@ -180,7 +180,7 @@ Object {
       </a>
       <button
         aria-label="удалить"
-        class="component ghost s component ghost iconOnly delete primary"
+        class="component ghost s component ghost iconOnly delete primary component loader"
         type="button"
       >
         <span

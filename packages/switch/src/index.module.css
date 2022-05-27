@@ -12,11 +12,11 @@
 
     /* disabled */
     --switch-disabled-color: var(--color-light-text-secondary);
-    --switch-disabled-bg-color: var(--color-light-graphic-neutral);
-    --switch-disabled-border-color: var(--color-light-graphic-neutral);
+    --switch-disabled-bg-color: var(--color-light-graphic-quaternary);
+    --switch-disabled-border-color: var(--color-light-graphic-quaternary);
 
     /* inactive */
-    --switch-inactive-color: var(--color-light-border-secondary-inverted);
+    --switch-inactive-color: var(--color-light-border-underline);
 }
 
 .component {
