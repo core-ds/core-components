@@ -51,7 +51,10 @@ export type DaysTableProps = {
      */
     getDayProps: (
         day: Day,
-    ) => Record<string, unknown> & { ref: RefCallback<HTMLTableDataCellElement> };
+    ) => Record<string, unknown> & {
+        ref: RefCallback<HTMLTableDataCellElement>;
+        onClick: (e: React.MouseEvent<HTMLTableDataCellElement>) => void;
+    };
 
     /**
      * Нужно ли рендерить шапку
@@ -117,7 +120,14 @@ export const DaysTable: FC<DaysTableProps> = ({
 
         const dayProps = getDayProps(day);
 
+        const { onClick } = dayProps;
+
+        const handleDayClick = (e: React.MouseEvent<HTMLTableDataCellElement>) => {
+            if (!day.disabled) onClick(e);
+        }
+
         return (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
             <td
                 {...dayProps}
                 key={day.date.getTime()}
@@ -141,7 +151,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                         dayProps.ref(node as HTMLTableDataCellElement);
                     }
                 }}
-                aria-disabled={day.disabled}
+                onClick={handleDayClick}
             >
                 <Button
                     type='button'

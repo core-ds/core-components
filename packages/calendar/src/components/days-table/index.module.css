@@ -30,6 +30,8 @@
 .day {
     @mixin paragraph_primary_medium;
 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     position: relative;
     width: var(--calendar-day-size);
     height: var(--calendar-day-size);
@@ -84,6 +86,10 @@
         }
     }
 
+    &:not(.selected):hover {
+        color: var(--color-light-text-primary);
+    }
+
     &:focus {
         z-index: 1;
     }
@@ -92,6 +98,7 @@
 /* RANGE */
 
 .dayWrapper {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     position: relative;
 
     &:before {
@@ -244,9 +251,13 @@
 
 /* SLIDE ANIMATION */
 
+.daysEnter .dayWrapper {
+    width: 100px;
+}
+
 .left {
     & .daysEnter {
-        transform: translateX(var(--calendar-day-size));
+        transform: translateX(100px);
     }
 
     & .daysEnterActive {
@@ -258,13 +269,13 @@
     }
 
     & .daysExitActive {
-        transform: translateX(calc(-1 * var(--calendar-day-size)));
+        transform: translateX(100px);
     }
 }
 
 .right {
     & .daysEnter {
-        transform: translateX(calc(-1 * var(--calendar-day-size)));
+        transform: translateX(-100px);
     }
 
     & .daysEnterActive {
@@ -276,7 +287,7 @@
     }
 
     & .daysExitActive {
-        transform: translateX(var(--calendar-day-size));
+        transform: translateX(100px);
     }
 }
 
