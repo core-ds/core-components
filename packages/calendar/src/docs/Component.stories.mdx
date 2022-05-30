@@ -29,8 +29,8 @@ import vars from '!!raw-loader!../vars.css';
         const [open, setOpen] = React.useState(false);
         const [value, setValue] = React.useState();
         const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
-        const selectorView = select('selectorView', ['full', 'month-only'], 'full');
         const device = select('device', ['desktop', 'mobile'], 'desktop');
+        const selectorView = select('selectorView', ['full', 'month-only'], 'full');
         const defaultView = select('defaultView', ['days', 'months', 'years'], 'days');
         const renderContent = () => {
             if (device === 'desktop') {
@@ -96,7 +96,7 @@ import vars from '!!raw-loader!../vars.css';
 />
 
 ```tsx
-import { Calendar } from '@alfalab/core-components/calendar';
+import { Calendar, CalendarMobile } from '@alfalab/core-components/calendar';
 ```
 
 <Tabs
