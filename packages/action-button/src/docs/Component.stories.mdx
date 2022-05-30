@@ -1,0 +1,53 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import StarLineMIcon from '@alfalab/icons-glyph/StarLineMIcon';
+
+import { ActionButton } from '../';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+
+
+<Meta
+    title='Компоненты/ActionButton'
+    component={ActionButton}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='ActionButton'>
+    {React.createElement(() => (
+        <ActionButton
+            href={ text('href', '') }
+            icon={ <StarLineMIcon /> }
+            size={ select('size', ['s', 'm'], 'm') }
+            disabled={ boolean('disabled', false) }
+            loading={ boolean('loading', false) }
+            palette={ select('palette', ['light', 'static'], 'light') }
+        >
+            { text('children', 'Пополнить карту') }
+        </ActionButton>
+    ))}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='ActionButton'
+    version={version}
+    package='@alfalab/core-components/action-button'
+    stage={2}
+/>
+
+
+```tsx
+import { ActionButton } from '@alfalab/core-components/action-button';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props components={{ ActionButton }} />}
+/>

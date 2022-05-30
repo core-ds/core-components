@@ -1,0 +1,106 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: inline-flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    vertical-align: top;
+    width: 112px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: color 0.2s ease;
+    user-select: none;
+    font-family: inherit;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+
+    &.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    &.loading {
+        cursor: auto;
+        pointer-events: none;
+    }
+
+    &.m {
+        @mixin action_component;
+    }
+
+    &.s {
+        @mixin action_primary_small;
+    }
+
+    &.light {
+        color: var(--color-light-text-primary);
+    }
+
+    &.light:visited {
+        color: var(--color-light-text-primary);
+    }
+
+    &.static {
+        color: var(--color-static-text-primary-light);
+    }
+
+    &.static:visited {
+        color: var(--color-static-text-primary-light);
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: var(--gap-s);
+    border-radius: var(--border-radius-circle);
+    transition: background-color 0.2s ease;
+    line-height: 0;
+
+    &.m {
+        width: 56px;
+        height: 56px;
+    }
+
+    &.s {
+        width: 48px;
+        height: 48px;
+    }
+
+    &.light {
+        color: var(--color-light-graphic-primary-inverted);
+        background-color: var(--color-light-bg-primary-inverted);
+    }
+
+    &.static {
+        color: var(--color-light-graphic-primary);
+        background-color: var(--color-static-bg-primary-light);
+    }
+}
+
+.label {
+    display: block;
+    max-height: 48px;
+    overflow: hidden;
+}
+
+.focused {
+    @mixin focus-outline;
+}
