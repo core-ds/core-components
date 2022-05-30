@@ -21,7 +21,7 @@
     }
 
     &:active:not(:disabled) {
-        background-color: var(--color-light-bg-neutral);
+        background-color: var(--color-light-bg-quaternary);
     }
 
     &.checked {

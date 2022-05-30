@@ -1,6 +1,10 @@
 Компонент для отображения суммы, согласно гайдлайну:
 https://design.alfabank.ru/patterns/amount
 
+По умолчанию внешний вид компонента зависит от темизации продукта. Также можно использовать пропсы, чтобы задать внешний вид вручную.
+
+
+
 ```tsx live
 // import { Typography } from '@alfalab/core-components/typography';
 
@@ -61,7 +65,6 @@ https://design.alfabank.ru/patterns/amount
 </Typography.Text>
 ```
 
-
 - Внутри заголовка
 
 ```tsx live
@@ -70,24 +73,10 @@ https://design.alfabank.ru/patterns/amount
 </h3>
 ```
 
-- Внутри параграфа
-
-```tsx live
-<p>
-    <Amount value={1234500} currency='RUR' minority={100} />
-</p>
-```
-
 - Внутри красного текста
 
 ```tsx live
 <span style={{ color: 'red' }}>
     <Amount value={1234500} currency='RUR' minority={100} />
 </span>
-```
-
-- Без стилей
-
-```tsx live
-<Amount.Pure value={1234500} currency='RUR' minority={100} />
 ```
