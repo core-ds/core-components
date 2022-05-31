@@ -77,8 +77,6 @@ export const Pagination: FC<PaginationProps> = ({
         [onPageChange, wrapperRef],
     );
 
-    if (pagesCount <= 1) return null;
-
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <Select
@@ -92,12 +90,13 @@ export const Pagination: FC<PaginationProps> = ({
                 optionClassName={styles.option}
                 Field={CustomSelectField}
             />
-
-            <CorePagination
-                pagesCount={pagesCount}
-                onPageChange={handlePageChange}
-                {...restPaginationProps}
-            />
+            {pagesCount > 1 && (
+                <CorePagination
+                    pagesCount={pagesCount}
+                    onPageChange={handlePageChange}
+                    {...restPaginationProps}
+                />
+            )}
         </div>
     );
 };
