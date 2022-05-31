@@ -3,7 +3,10 @@ import React, {
     ButtonHTMLAttributes,
     forwardRef,
     Fragment,
+    useEffect,
+    useMemo,
     useRef,
+    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -12,8 +15,23 @@ import { Loader } from '@alfalab/core-components-loader';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+import staticColors from './static.module.css';
 
-type ActionButtonProps = {
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+    static: staticColors,
+};
+
+/**
+ * Минимальное время отображения лоадера - 500мс,
+ * чтобы при быстрых ответах от сервера кнопка не «моргала».
+ */
+const LOADER_MIN_DISPLAY_INTERVAL = 500;
+
+type ComponentProps = {
     /**
      * Иконка кнопки
      */
@@ -21,9 +39,13 @@ type ActionButtonProps = {
 
     /**
      *  Размер кнопки
-     * @default 'm'
      */
-    size?: 's' | 'm';
+    size?: 's';
+
+    /**
+     * Тип кнопки
+     */
+    view?: 'primary' | 'secondary';
 
     /**
      * Дополнительный класс
@@ -57,45 +79,67 @@ type ActionButtonProps = {
 
     /**
      * Палитра, в контексте которой используется кнопка
-     * @default 'light'
      */
-    palette?: 'light' | 'static';
+    colors?: 'default' | 'inverted' | 'static';
 };
 
-type AnchorProps = ActionButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type ButtonProps = ActionButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
-export type ComponentProps = Partial<AnchorProps | ButtonProps>;
+type AnchorProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type ButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+export type ActionButtonProps = Partial<AnchorProps | ButtonProps>;
 
-export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, ComponentProps>(
+export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, ActionButtonProps>(
     (
         {
             className,
             icon,
             children,
             href,
-            size = 'm',
+            size = 's',
+            view = 'primary',
             type = 'button',
             iconWrapperClassName,
             disabled,
             loading,
             dataTestId,
-            palette = 'light',
+            colors = 'default',
             ...rest
         },
         ref,
     ) => {
         const componentRef = useRef<HTMLElement>(null);
+        const timerId = useRef(0);
+
         const [focused] = useFocus(componentRef, 'keyboard');
+
+        const [loaderTimePassed, setLoaderTimePassed] = useState(true);
+
+        const showLoader = useMemo(() => loading || !loaderTimePassed, [loading, loaderTimePassed]);
+
+        useEffect(() => {
+            if (loading) {
+                setLoaderTimePassed(false);
+
+                timerId.current = window.setTimeout(() => {
+                    setLoaderTimePassed(true);
+                }, LOADER_MIN_DISPLAY_INTERVAL);
+            }
+        }, [loading]);
+
+        useEffect(() => {
+            return () => {
+                window.clearTimeout(timerId.current);
+            };
+        }, []);
 
         const componentProps = {
             className: cn(
                 styles.component,
+                colorStyles[colors][view],
                 styles[size],
-                styles[palette],
                 {
                     [styles.focused]: focused,
                     [styles.disabled]: disabled,
-                    [styles.loading]: loading,
+                    [styles.loading]: showLoader,
                 },
                 className,
             ),
@@ -106,14 +150,9 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Co
             <Fragment>
                 <span
                     role='img'
-                    className={cn(
-                        styles.iconWrapper,
-                        styles[size],
-                        styles[palette],
-                        iconWrapperClassName,
-                    )}
+                    className={cn(styles.iconWrapper, styles[size], iconWrapperClassName)}
                 >
-                    {loading ? <Loader dataTestId='loader' /> : icon}
+                    {showLoader ? <Loader dataTestId='loader' /> : icon}
                 </span>
                 <span className={styles.label}>{children}</span>
             </Fragment>

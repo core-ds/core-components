@@ -17,18 +17,32 @@ import Description from './description.mdx';
 <!-- Canvas -->
 
 <Story name='ActionButton'>
-    {React.createElement(() => (
-        <ActionButton
-            href={ text('href', '') }
-            icon={ <StarLineMIcon /> }
-            size={ select('size', ['s', 'm'], 'm') }
-            disabled={ boolean('disabled', false) }
-            loading={ boolean('loading', false) }
-            palette={ select('palette', ['light', 'static'], 'light') }
-        >
-            { text('children', 'Пополнить карту') }
-        </ActionButton>
-    ))}
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted', 'static'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <ActionButton
+                    colors={ colors }
+                    view={ select('view', ['primary', 'secondary'], 'primary') }
+                    href={ text('href', '') }
+                    icon={ <StarLineMIcon /> }
+                    size={ select('size', ['s'], 's') }
+                    disabled={ boolean('disabled', false) }
+                    loading={ boolean('loading', false) }
+                >
+                    { text('children', 'Пополнить карту') }
+                </ActionButton>
+            </div>
+        );
+    })}
 </Story>
 
 

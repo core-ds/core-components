@@ -21,10 +21,10 @@ describe('ActionButton', () => {
         expect(screen.getByRole('button')).toHaveClass('s');
     });
 
-    it('should use "size" prop "m" by default', () => {
+    it('should use "size" prop "s" by default', () => {
         render(<ActionButton />);
 
-        expect(screen.getByRole('button')).toHaveClass('m');
+        expect(screen.getByRole('button')).toHaveClass('s');
     });
 
     it('should use "iconWrapperClassName" prop', () => {
@@ -93,20 +93,6 @@ describe('ActionButton', () => {
         render(<ActionButton dataTestId={testId} />);
 
         expect(screen.getByRole('button')).toHaveAttribute('data-test-id', testId);
-    });
-
-    it('should use "palette" prop', () => {
-        const palette = 'static';
-
-        render(<ActionButton palette={palette} />);
-
-        expect(screen.getByRole('img')).toHaveClass(palette);
-    });
-
-    it('should use "palette" prop "light" by default', () => {
-        render(<ActionButton />);
-
-        expect(screen.getByRole('img')).toHaveClass('light');
     });
 
     it('should use "children" prop', () => {

@@ -1,0 +1,31 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* primary */
+    --action-button-primary-base-color: var(--color-light-text-primary);
+    --action-button-primary-base-icon-color: var(--color-light-graphic-primary-inverted);
+    --action-button-primary-base-bg-color: var(--color-light-bg-primary-inverted);
+
+    /* secondary */
+    --action-button-secondary-base-color: var(--color-light-text-primary);
+    --action-button-secondary-base-icon-color: var(--color-light-graphic-primary);
+    --action-button-secondary-base-bg-color: var(--color-light-bg-secondary);
+}
+
+.primary {
+    color: var(--action-button-primary-base-color);
+
+    & span:first-of-type {
+        color: var(--action-button-primary-base-icon-color);
+        background-color: var(--action-button-primary-base-bg-color);
+    }
+}
+
+.secondary {
+    color: var(--action-button-secondary-base-color);
+
+    & span:first-of-type {
+        color: var(--action-button-secondary-base-icon-color);
+        background-color: var(--action-button-secondary-base-bg-color);
+    }
+}
