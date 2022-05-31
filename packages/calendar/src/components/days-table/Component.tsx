@@ -115,8 +115,19 @@ export const DaysTable: FC<DaysTableProps> = ({
         const rangeStart = selection && isSameDay(day.date, selection.start);
         const rangeEnd = selection && isSameDay(day.date, selection.end);
 
-        const sharpTransitLeft = firstDayOfWeek && firstDayOfMonth && inRange && selection && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
-        const sharpTransitRight = lastDayOfWeek && lastDayOfMonth && inRange && selection && (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
+        const sharpTransitLeft =
+            firstDayOfWeek &&
+            firstDayOfMonth &&
+            inRange &&
+            selection &&
+            (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
+
+        const sharpTransitRight =
+            lastDayOfWeek &&
+            lastDayOfMonth &&
+            inRange &&
+            selection &&
+            (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
 
         const dayProps = getDayProps(day);
 
@@ -124,7 +135,7 @@ export const DaysTable: FC<DaysTableProps> = ({
 
         const handleDayClick = (e: React.MouseEvent<HTMLTableDataCellElement>) => {
             if (!day.disabled) onClick(e);
-        }
+        };
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
@@ -186,7 +197,7 @@ export const DaysTable: FC<DaysTableProps> = ({
             <TransitionGroup component={null}>
                 <CSSTransition
                     key={activeMonth.getTime()}
-                    timeout={300}
+                    timeout={250}
                     classNames={{
                         enter: styles.daysEnter,
                         enterActive: styles.daysEnterActive,

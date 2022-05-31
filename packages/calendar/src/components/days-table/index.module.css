@@ -100,6 +100,7 @@
 .dayWrapper {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     position: relative;
+    cursor: pointer;
 
     &:before {
         content: '';
@@ -257,7 +258,7 @@
 
 .left {
     & .daysEnter {
-        transform: translateX(100px);
+        transform: translateX(var(--calendar-day-size));
     }
 
     & .daysEnterActive {
@@ -269,13 +270,13 @@
     }
 
     & .daysExitActive {
-        transform: translateX(100px);
+        transform: translateX(-1 * var(--calendar-day-size));
     }
 }
 
 .right {
     & .daysEnter {
-        transform: translateX(-100px);
+        transform: translateX(-1 * var(--calendar-day-size));
     }
 
     & .daysEnterActive {
@@ -287,7 +288,7 @@
     }
 
     & .daysExitActive {
-        transform: translateX(100px);
+        transform: translateX(var(--calendar-day-size));
     }
 }
 
@@ -328,5 +329,5 @@
 
 .daysEnterActive,
 .daysExitActive {
-    transition: opacity 300ms, transform 300ms;
+    transition: opacity 250ms, transform 250ms;
 }
