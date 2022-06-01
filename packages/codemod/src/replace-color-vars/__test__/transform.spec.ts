@@ -15,6 +15,9 @@ const inputCss = `
 
 .a {
   color: var(--color-light-border-secondary-inverted);
+  color: var(--color-light-border-secondary-inverted-tint-10);
+  color: var(--color-light-border-secondary-inverted-shade-20);
+  color: var(--color-light-border-secondary-inverted-alpha-30);
   background-color: var(--color-light-border-tertiary-inverted);
   border: 1px solid var(--color-light-graphic-neutral);
   background: var(--color-light-bg-neutral);
@@ -39,6 +42,9 @@ const expectedCss = `
 
 .a {
   color: var(--color-light-border-underline);
+  color: var(--color-light-border-underline-tint-10);
+  color: var(--color-light-border-underline-shade-20);
+  color: var(--color-light-border-underline-alpha-30);
   background-color: var(--color-light-border-underline-inverted);
   border: 1px solid var(--color-light-graphic-quaternary);
   background: var(--color-light-bg-quaternary);

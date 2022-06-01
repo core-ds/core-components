@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [27.1.0](https://github.com/core-ds/core-components/compare/v27.0.0...v27.1.0) (2022-05-30)
+
+
+### Bug Fixes
+
+* **codemod:** fix shade|alpha modificators bug ([#60](https://github.com/core-ds/core-components/issues/60)) ([bfc0104](https://github.com/core-ds/core-components/commit/bfc0104c1a15066d878ca27d3ae8c5903f6ca9ad))
+* **typography:** removed default weight prop from Typography.Text ([#61](https://github.com/core-ds/core-components/issues/61)) ([7a80cbb](https://github.com/core-ds/core-components/commit/7a80cbb935c013886b4aa28e56ab982f7fe54ac1))
+
 ## [27.0.0](https://github.com/core-ds/core-components/compare/v26.12.0...v27.0.0) (2022-05-26)
 
 
