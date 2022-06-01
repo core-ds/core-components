@@ -1,9 +1,9 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import { text, boolean, select, number } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Typography } from '../component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import { colors } from '../colors';
@@ -108,7 +108,7 @@ import { colors } from '../colors';
         ];
         const color = select('color', colors, '');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
-        const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
+        const weight = select('weight', ['regular', 'medium', 'bold', undefined], 'regular');
         const monospace = boolean('monospaceNumbers', false);
         return VIEW_TYPES.map(view => (
             <Typography.Text view={view} color={color} tag={tag} weight={weight} monospaceNumbers={monospace} key={view}>
