@@ -69,7 +69,7 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass('pseudo');
     });
 
-    it('should set `withoutUnderline` class if prop `pseudo` is presented as `false`', () => {
+    it('should set `withoutUnderline` class if prop `underline` is presented as `false`', () => {
         const { container } = render(
             <Link href='' underline={false}>
                 Link
