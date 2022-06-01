@@ -5,6 +5,7 @@ import React, {
     createRef,
     useState,
     FocusEventHandler,
+    useEffect,
     useImperativeHandle,
 } from 'react';
 import cn from 'classnames';
@@ -61,6 +62,14 @@ export type CustomInputRef = {
     reset: () => void;
     unselect: () => void;
 };
+
+interface CredentialRequestOtpOptions extends CredentialRequestOptions {
+    otp: { transport: Array<'sms'> };
+}
+
+interface CredentialOtp extends Credential {
+    code?: string;
+}
 
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
     (
@@ -126,14 +135,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             }
         };
 
-        const handleChange: InputProps['onChange'] = (event, { index }) => {
-            const {
-                target: {
-                    value,
-                    validity: { valid },
-                },
-            } = event;
-
+        const handleChange = (value: string, index: number, valid: boolean) => {
             const newValue = value.replace(/\D/g, '');
 
             if (newValue === '' || !valid) {
@@ -175,6 +177,17 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             }
 
             triggerChange(newValues);
+        };
+
+        const handleChangeFromEvent: InputProps['onChange'] = (event, { index }) => {
+            const {
+                target: {
+                    value,
+                    validity: { valid },
+                },
+            } = event;
+
+            handleChange(value, index, valid);
         };
 
         const handleKeyDown: InputProps['onKeyDown'] = (event, { index }) => {
@@ -239,6 +252,33 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             });
         };
 
+        useEffect(() => {
+            let ac: AbortController | null = null;
+
+            if ('OTPCredential' in window) {
+                ac = new AbortController();
+                const options: CredentialRequestOtpOptions = {
+                    otp: { transport: ['sms'] },
+                    signal: ac.signal,
+                };
+
+                navigator.credentials
+                    .get(options)
+                    .then((res: CredentialOtp | null) => {
+                        if (res?.code) handleChange(res.code, 0, true);
+                    })
+                    .catch(err => {
+                        // eslint-disable-next-line no-console
+                        console.error(err);
+                    });
+            }
+
+            return () => {
+                if (ac) ac.abort();
+            };
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
+
         return (
             <div className={cn(styles.component, className)} data-test-id={dataTestId}>
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
@@ -250,7 +290,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                             value={values[index]}
                             disabled={disabled}
                             error={!!error}
-                            onChange={handleChange}
+                            onChange={handleChangeFromEvent}
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             className={styles.input}
