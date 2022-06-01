@@ -5,6 +5,13 @@
 
 * **table:** pagination_disappearance ([#64](https://github.com/core-ds/core-components/issues/64)) ([7aa4c53](https://github.com/core-ds/core-components/commit/7aa4c536923ecb0aee5d80f4ba2e72bde06730dd))
 
+## [27.1.1](https://github.com/core-ds/core-components/compare/v27.1.0...v27.1.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* **table:** pagination_disappearance ([#64](https://github.com/core-ds/core-components/issues/64)) ([7aa4c53](https://github.com/core-ds/core-components/commit/7aa4c536923ecb0aee5d80f4ba2e72bde06730dd))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
