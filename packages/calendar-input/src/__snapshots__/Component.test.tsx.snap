@@ -51,7 +51,6 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
           </svg>
         </div>
       </div>
-      
     </div>
   </div>
 </div>
@@ -121,7 +120,6 @@ Object {
               </svg>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -183,7 +181,6 @@ Object {
             </svg>
           </div>
         </div>
-        
       </div>
     </div>
   </div>,
@@ -301,7 +298,6 @@ Object {
               </svg>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -359,7 +355,6 @@ Object {
             </svg>
           </div>
         </div>
-        
       </div>
     </div>
   </div>,
