@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, { FC, Fragment } from 'react';
 import { useMedia } from '@alfalab/hooks';
 
@@ -52,6 +53,8 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     onClose,
     actionButtonTitle = 'Понятно',
     hasCloser,
+    targetRef,
+    targetClassName,
     ...restProps
 }) => {
     const [view] = useMedia<View>(
@@ -99,13 +102,23 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
             </BottomSheet>
             {/** TODO: проверить тултип на доступность */}
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-            <div onClick={handleOpen} className={styles.target}>
+            <div
+                ref={targetRef as React.Ref<HTMLDivElement>}
+                onClick={handleOpen}
+                className={cn(styles.target, targetClassName)}
+            >
                 {children?.props.disabled && <div className={styles.overlap} />}
                 {children}
             </div>
         </Fragment>
     ) : (
-        <Tooltip {...restProps} content={content} onOpen={handleOpen}>
+        <Tooltip
+            {...restProps}
+            content={content}
+            onOpen={handleOpen}
+            targetClassName={targetClassName}
+            targetRef={targetRef}
+        >
             {children}
         </Tooltip>
     );
