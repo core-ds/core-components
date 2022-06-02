@@ -1,3 +1,10 @@
+# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-02)
+
+
+### Features
+
+* **date-input:** removed date validation ([#69](https://github.com/core-ds/core-components/issues/69)) ([ca56ec9](https://github.com/core-ds/core-components/commit/ca56ec97db0d966233bd4312fdddabd59ed427ae))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
