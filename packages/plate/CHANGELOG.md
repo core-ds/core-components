@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@4.0.11...@alfalab/core-components-plate@4.1.0) (2022-06-03)
+
+
+### Features
+
+* **plate:** update buttons prop in Plate component ([#81](https://github.com/core-ds/core-components/issues/81)) ([0db6283](https://github.com/core-ds/core-components/commit/0db628390bfa91290b5a6529fab2653f06b4e629))
+
+
+
+
+
 ## [4.0.11](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@4.0.10...@alfalab/core-components-plate@4.0.11) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-plate
