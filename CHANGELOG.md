@@ -1,22 +1,16 @@
-# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-02)
+# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-03)
+
+
+### Bug Fixes
+
+* **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
 
 
 ### Features
 
 * **date-input:** removed date validation ([#69](https://github.com/core-ds/core-components/issues/69)) ([ca56ec9](https://github.com/core-ds/core-components/commit/ca56ec97db0d966233bd4312fdddabd59ed427ae))
 
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
 ### [27.1.2](https://github.com/core-ds/core-components/compare/v27.1.0...v27.1.2) (2022-06-01)
-
-
-### Bug Fixes
-
-* **table:** pagination_disappearance ([#64](https://github.com/core-ds/core-components/issues/64)) ([7aa4c53](https://github.com/core-ds/core-components/commit/7aa4c536923ecb0aee5d80f4ba2e72bde06730dd))
-
-## [27.1.1](https://github.com/core-ds/core-components/compare/v27.1.0...v27.1.1) (2022-06-01)
 
 
 ### Bug Fixes
