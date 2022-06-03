@@ -26,6 +26,9 @@ jobs:
         env:
           BUILD_CONCURRENCY: 5
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - name: Set NPM Token
         uses: filipstefansson/set-npm-token-action@v1
         with:
