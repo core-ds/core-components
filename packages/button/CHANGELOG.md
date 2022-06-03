@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@5.1.5...@alfalab/core-components-button@5.1.6) (2022-06-03)
+
+
+### Bug Fixes
+
+* **button:** fix border-radius ([#63](https://github.com/core-ds/core-components/issues/63)) ([e09991e](https://github.com/core-ds/core-components/commit/e09991e07215b1ca19d4e66d189a1504be52aefd))
+
+
+
+
+
 ## [5.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@5.1.0...@alfalab/core-components-button@5.1.1) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-button
