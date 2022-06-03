@@ -3,6 +3,20 @@
 
 ### Bug Fixes
 
+* **attach:** added size xxs and changed default view prop ([#59](https://github.com/core-ds/core-components/issues/59)) ([f6e297d](https://github.com/core-ds/core-components/commit/f6e297d3af39470b09c9cba26d8d1c47dc72d0da))
+* **button:** fix border-radius ([#63](https://github.com/core-ds/core-components/issues/63)) ([e09991e](https://github.com/core-ds/core-components/commit/e09991e07215b1ca19d4e66d189a1504be52aefd))
+* **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
+
+
+### Features
+
+* **date-input:** removed date validation ([#69](https://github.com/core-ds/core-components/issues/69)) ([ca56ec9](https://github.com/core-ds/core-components/commit/ca56ec97db0d966233bd4312fdddabd59ed427ae))
+
+# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-03)
+
+
+### Bug Fixes
+
 * **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
 
 
