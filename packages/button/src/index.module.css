@@ -6,7 +6,7 @@
     --button-border-radius: var(--border-radius-m);
     --button-active-transform: scale(0.97);
     --button-font-weight: 500;
-    --button-size-border-radius: calc(var(--border-radius-m) - var(--border-radius-xs));
+    --button-size-border-radius: 6px;
 }
 
 .component {
