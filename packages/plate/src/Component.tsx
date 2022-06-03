@@ -183,7 +183,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             [onClose],
         );
 
-        const renderButtons = useCallback(() => {
+        const renderButtons = () => {
             if (buttonsIsArray) {
                 return (
                     <div className={cn(styles.buttons, buttonsClassName)}>
@@ -203,7 +203,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             }
 
             return <div className={cn(styles.buttons, buttonsClassName)}>{buttons}</div>;
-        }, [buttons, buttonsClassName, buttonsIsArray]);
+        };
 
         return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
