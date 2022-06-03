@@ -59,7 +59,7 @@ export type PlateProps = {
     /**
      * Набор действий
      */
-    buttons?: Array<ReactElement<ButtonProps>>;
+    buttons?: ReactNode | Array<ReactElement<ButtonProps>>;
 
     /**
      * Дополнительный класс
@@ -109,7 +109,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             defaultFolded = true,
             leftAddons,
             children,
-            buttons = [],
+            buttons,
             title,
             view = 'common',
             className,
@@ -135,8 +135,10 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         const foldable = !!title && !!children && foldableProp;
         const folded = uncontrolled ? foldedState : foldedProp;
 
-        const hasButtons = Array.isArray(buttons) && buttons.length > 0;
+        const hasButtons = !!buttons && typeof buttons !== 'boolean';
         const hasContent = children || hasButtons;
+
+        const buttonsIsArray = Array.isArray(buttons) && buttons.length > 0;
 
         const handleClick = useCallback(
             event => {
@@ -181,24 +183,27 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             [onClose],
         );
 
-        const renderButtons = useCallback(
-            () => (
-                <div className={cn(styles.buttons, buttonsClassName)}>
-                    {buttons.map((button, index) =>
-                        button
-                            ? React.cloneElement(button, {
-                                  // eslint-disable-next-line react/no-array-index-key
-                                  key: index,
-                                  size: 'xs',
-                                  view: index === 0 ? 'outlined' : 'link',
-                                  className: cn(button.props.className, styles.button),
-                              })
-                            : null,
-                    )}
-                </div>
-            ),
-            [buttons, buttonsClassName],
-        );
+        const renderButtons = useCallback(() => {
+            if (buttonsIsArray) {
+                return (
+                    <div className={cn(styles.buttons, buttonsClassName)}>
+                        {(buttons as Array<ReactElement<ButtonProps>>).map((button, index) =>
+                            button
+                                ? React.cloneElement(button, {
+                                      // eslint-disable-next-line react/no-array-index-key
+                                      key: index,
+                                      size: 'xs',
+                                      view: index === 0 ? 'outlined' : 'link',
+                                      className: cn(button.props.className, styles.button),
+                                  })
+                                : null,
+                        )}
+                    </div>
+                );
+            }
+
+            return <div className={cn(styles.buttons, buttonsClassName)}>{buttons}</div>;
+        }, [buttons, buttonsClassName, buttonsIsArray]);
 
         return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
