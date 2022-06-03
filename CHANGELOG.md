@@ -1,3 +1,10 @@
+# [27.3.0](https://github.com/core-ds/core-components/compare/v27.2.0...v27.3.0) (2022-06-03)
+
+
+### Features
+
+* **plate:** update buttons prop in Plate component ([#81](https://github.com/core-ds/core-components/issues/81)) ([0db6283](https://github.com/core-ds/core-components/commit/0db628390bfa91290b5a6529fab2653f06b4e629))
+
 # [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-03)
 
 
