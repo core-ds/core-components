@@ -3,7 +3,7 @@
 exports[`Snapshots tests should display correctly 1`] = `
 <div>
   <span
-    class="spinner s"
+    class="spinner default s"
   />
 </div>
 `;

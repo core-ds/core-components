@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+
 import styles from './index.module.css';
 
 export type SpinnerProps = {
@@ -11,7 +12,7 @@ export type SpinnerProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm';
+    size?: 'xs' | 's' | 'm';
 
     /**
      * Дополнительный класс
@@ -27,12 +28,24 @@ export type SpinnerProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Палитра, в контексте которой используется спиннер
+     */
+    colors?: 'default' | 'inverted';
 };
 
-export const Spinner: FC<SpinnerProps> = ({ size = 's', visible, id, className, dataTestId }) => {
+export const Spinner: FC<SpinnerProps> = ({
+    size = 's',
+    colors = 'default',
+    visible,
+    id,
+    className,
+    dataTestId,
+}) => {
     return (
         <span
-            className={cn(className, styles.spinner, styles[size], {
+            className={cn(className, styles.spinner, styles[colors], styles[size], {
                 [styles.visible]: visible,
             })}
             id={id}

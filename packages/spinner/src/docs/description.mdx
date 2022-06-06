@@ -1,7 +1,25 @@
-Компонент спиннера.
+## Компонент спиннера
+
+Default
 
 ```tsx live
 <Spinner visible={true} size='s' />
+```
+
+Inverted
+
+```tsx live
+<div style={{
+    backgroundColor: 'var(--color-light-bg-primary-inverted)',
+    padding: '18px 20px',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+}}>
+    <Spinner visible={true} size='s' colors='inverted' />
+</div>
 ```
 
 <!-- Spacer -->
@@ -17,6 +35,12 @@
 -   --spinner-animation-timing-function
 
 ## Примеры
+
+Spinner `size=xs`:
+
+```tsx live
+<Spinner size='xs' visible={true} />
+```
 
 Spinner `size=s`:
 
