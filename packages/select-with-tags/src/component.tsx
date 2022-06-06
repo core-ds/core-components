@@ -30,7 +30,6 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             allowUnselect = true,
             collapseTagList = false,
             moveInputToNewLine = true,
-            emptyListPlaceholder = 'Ничего не найдено.',
             transformCollapsedTagText,
             transformTagText,
             Tag,
@@ -78,9 +77,9 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         );
 
         const handleChange = useCallback<Required<BaseSelectProps>['onChange']>(
-            ({ selectedMultiple, name }) => {
+            ({ selectedMultiple, name, initiator }) => {
                 if (onChange) {
-                    onChange({ selectedMultiple, name });
+                    onChange({ selectedMultiple, name, initiator });
                 }
 
                 if (!controlled) {
@@ -133,9 +132,6 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     transformTagText,
                     handleUpdatePopover,
                     isPopoverOpen,
-                }}
-                optionsListProps={{
-                    emptyPlaceholder: emptyListPlaceholder,
                 }}
                 selected={selected || selectedTags}
                 autocomplete={isAutocomplete}
