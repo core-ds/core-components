@@ -22,7 +22,7 @@
         "@alfalab/core-components-loader": "^2.0.4",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/icons-glyph": "^2.16.0",
-        "@alfalab/utils": "^1.5.1",
+        "@alfalab/utils": "^1.9.0",
         "classnames": "2.2.6"
     },
     "peerDependencies": {
