@@ -104,6 +104,11 @@ export type FileUploadItemProps = {
     onRestore?: (id: string) => void;
 
     /**
+     * Управление возможностью удаления файла
+     */
+    disableDelete?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -127,6 +132,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     onDelete,
     onDownload,
     onRestore,
+    disableDelete,
     dataTestId,
 }) => {
     const handleDownload = useCallback(
@@ -246,6 +252,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                     size='xxs'
                     icon={CrossMIcon}
                     onClick={handleDelete}
+                    disabled={disableDelete}
                     className={styles.delete}
                     aria-label='удалить'
                 />
