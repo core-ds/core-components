@@ -18,10 +18,14 @@
 }
 
 .sheet {
-    overflow: auto;
+    overflow: hidden;
 }
 
 .sheetContent {
+    padding: 0;
+}
+
+.sheetContainer {
     padding: 0;
 }
 
@@ -29,11 +33,6 @@
     width: 100%;
 }
 
-.sticky {
-    z-index: 1;
-}
-
-/* width: max-content; fix for IE */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .component {
         float: left;
