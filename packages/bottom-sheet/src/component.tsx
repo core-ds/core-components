@@ -164,6 +164,11 @@ export type BottomSheetProps = {
     disableOverlayClick?: boolean;
 
     /**
+     * Не анимировать шторку при изменении размера вьюпорта
+     */
+    ignoreSrceenChange?: boolean;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -215,6 +220,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             transitionProps = {},
             dataTestId,
             swipeable = true,
+            ignoreSrceenChange = false,
             onClose,
             onBack,
         },
@@ -229,6 +235,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollableContainerScrollValue = useRef(0);
 
         const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
+
+        const [transitionClassName, setTransitionClassName] = useState(styles.withTransition);
 
         // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
         const fullHeight = use100vh()!;
@@ -319,6 +327,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleSheetSwiping: SwipeCallback = ({ deltaY, initial }) => {
+            setTransitionClassName(styles.withTransition);
             const offsetY = initial[1];
 
             if (shouldSkipSwiping(offsetY)) {
@@ -383,7 +392,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (!open) {
                 setSheetOffset(0);
             }
-        }, [open]);
+
+            if (ignoreSrceenChange && open) {
+                setTransitionClassName(styles.withZeroTransition);
+            }
+        }, [open, ignoreSrceenChange]);
 
         const getSwipeStyles = (): CSSProperties => ({
             transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
@@ -422,7 +435,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             >
                 <div
                     className={cn(styles.component, className, {
-                        [styles.withTransition]: !sheetOffset,
+                        [transitionClassName]: !sheetOffset,
                     })}
                     style={{
                         ...getSwipeStyles(),
