@@ -84,6 +84,12 @@ export type CalendarRangeProps = {
      * Определяет, как рендерить календарь — в поповере или снизу инпута
      */
     calendarPosition?: 'static' | 'popover';
+
+    /**
+     * calendarPosition = static
+     * Отображать начальный месяц слева или справа (влияет только на начальный рендер)
+     */
+    defaultMonthPosition?: 'left' | 'right';
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({

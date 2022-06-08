@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.2.1...@alfalab/core-components-calendar-with-skeleton@4.2.2) (2022-06-03)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-with-skeleton
+
+
+
+
+
 ## [4.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.1.1...@alfalab/core-components-calendar-with-skeleton@4.1.2) (2022-03-18)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-with-skeleton

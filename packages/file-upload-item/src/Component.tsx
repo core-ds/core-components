@@ -170,24 +170,22 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
         }
     }, [showRestore, uploadStatus]);
 
-    const renderInfoSection = useCallback(
-        () => {
-            const errorContent = (uploadStatus === 'ERROR' && !error) ? 'Не удалось загрузить файл' : error;
+    const renderInfoSection = useCallback(() => {
+        const errorContent =
+            uploadStatus === 'ERROR' && !error ? 'Не удалось загрузить файл' : error;
 
-            return (
-                <div className={styles.infoSection}>
-                    <div className={styles.name}>{name}</div>
+        return (
+            <div className={styles.infoSection}>
+                <div className={styles.name}>{name}</div>
 
-                    { error && (
+                {error && (
                     <div className={styles.errorWrapper} role='alert'>
-                        { errorContent }
+                        {errorContent}
                     </div>
                 )}
-                </div>
-            );
-        },
-        [name, uploadStatus, error],
-    );
+            </div>
+        );
+    }, [name, uploadStatus, error]);
 
     const showMeta = !showRestore && (!uploadStatus || uploadStatus === 'SUCCESS');
     const showDownload = Boolean(downloadLink) && !showRestore;

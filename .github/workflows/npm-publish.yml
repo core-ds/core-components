@@ -36,9 +36,9 @@ jobs:
         with:
           name: 'semantic-release-bot'
           email: 'semantic-release-bot@martynus.net'
-          token: '${{ secrets.PERMISSION_GITHUB_TOKEN }}'
+          token: '${{ secrets.GH_TOKEN }}'
 
       - name: Publish
         run: yarn pub:ci
         env:
-          GITHUB_TOKEN: ${{ secrets.PERMISSION_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

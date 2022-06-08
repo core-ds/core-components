@@ -63,16 +63,18 @@ export function useStaticViewMonthes({
     selectedFrom,
     selectedTo,
     defaultMonth,
+    defaultMonthPosition,
 }: {
     selectedFrom?: number;
     selectedTo?: number;
     defaultMonth: number;
+    defaultMonthPosition?: 'left' | 'right';
 }) {
     /**
      * Если указана начальная дата — левый месяц равен ей, иначе используется дата конца.
      * Если обе даты не указаны, то используется дефолтный месяц
      */
-    const initialMonthFrom = useMemo(
+    let initialMonthFrom = useMemo(
         () => startOfMonth(selectedFrom || selectedTo || defaultMonth).getTime(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [],
@@ -81,7 +83,7 @@ export function useStaticViewMonthes({
     /**
      * Правый месяц должен быть как минимум на 1 месяц больше левого
      */
-    const initialMonthTo = useMemo(
+    let initialMonthTo = useMemo(
         () =>
             max([
                 selectedTo ? startOfMonth(selectedTo) : 0,
@@ -90,6 +92,11 @@ export function useStaticViewMonthes({
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [],
     );
+
+    if (defaultMonthPosition === 'right') {
+        initialMonthTo = initialMonthFrom;
+        initialMonthFrom = subMonths(initialMonthFrom, 1).getTime();
+    }
 
     const [monthFrom, setMonthFrom] = useState<number>(initialMonthFrom);
     const [monthTo, setMonthTo] = useState<number>(initialMonthTo);

@@ -34,7 +34,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             class="contentWrap"
           >
             <div
-              class="toastContent content"
+              class="toastContent content hasCloser"
             >
               <div>
                 <div
@@ -44,28 +44,37 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                 </div>
               </div>
             </div>
-            <button
-              aria-label="закрыть"
-              class="component ghost m component ghost iconOnly closeButton"
-              type="button"
+            <div
+              class="closeButtonWrapper"
             >
-              <span
-                class="addons"
+              <button
+                aria-label="закрыть"
+                class="component ghost s component ghost iconOnly closeButton primary component loader"
+                type="button"
               >
-                <svg
-                  fill="currentColor"
-                  focusable="false"
-                  height="24"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width="24"
+                <span
+                  class="addons"
                 >
-                  <path
-                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <span
+                    class="iconWrapper s"
+                  >
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -80,7 +89,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             class="contentWrap"
           >
             <div
-              class="toastContent content"
+              class="toastContent content hasCloser"
             >
               <div>
                 <div
@@ -90,28 +99,37 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                 </div>
               </div>
             </div>
-            <button
-              aria-label="закрыть"
-              class="component ghost m component ghost iconOnly closeButton"
-              type="button"
+            <div
+              class="closeButtonWrapper"
             >
-              <span
-                class="addons"
+              <button
+                aria-label="закрыть"
+                class="component ghost s component ghost iconOnly closeButton primary component loader"
+                type="button"
               >
-                <svg
-                  fill="currentColor"
-                  focusable="false"
-                  height="24"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width="24"
+                <span
+                  class="addons"
                 >
-                  <path
-                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <span
+                    class="iconWrapper s"
+                  >
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -126,7 +144,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             class="contentWrap"
           >
             <div
-              class="toastContent content"
+              class="toastContent content hasCloser"
             >
               <div>
                 <div
@@ -136,28 +154,37 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                 </div>
               </div>
             </div>
-            <button
-              aria-label="закрыть"
-              class="component ghost m component ghost iconOnly closeButton"
-              type="button"
+            <div
+              class="closeButtonWrapper"
             >
-              <span
-                class="addons"
+              <button
+                aria-label="закрыть"
+                class="component ghost s component ghost iconOnly closeButton primary component loader"
+                type="button"
               >
-                <svg
-                  fill="currentColor"
-                  focusable="false"
-                  height="24"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width="24"
+                <span
+                  class="addons"
                 >
-                  <path
-                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <span
+                    class="iconWrapper s"
+                  >
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
