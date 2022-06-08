@@ -74,11 +74,10 @@
 .wrapper {
     border-radius: 50%;
     box-sizing: border-box;
-    display: inline-flex;
 
     &.s {
         padding: 2px;
-        min-width: 18px;
+        width: 18px;
         height: 18px;
     }
 
