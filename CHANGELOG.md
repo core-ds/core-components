@@ -4,6 +4,14 @@
 ### Features
 
 * **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+* **select-with-tags:** add support useSelectWithApply hook ([#85](https://github.com/core-ds/core-components/issues/85)) ([461f3bc](https://github.com/core-ds/core-components/commit/461f3bc2cdd498a6cc362809dbd7b44a4cd5fd79))
+
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
 
 # [27.3.0](https://github.com/core-ds/core-components/compare/v27.2.0...v27.3.0) (2022-06-03)
 
