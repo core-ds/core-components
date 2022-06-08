@@ -1,0 +1,35 @@
+{
+    "name": "@alfalab/core-components-scrollbar",
+    "version": "1.0.0",
+    "description": "Scrollbar component",
+    "keywords": [],
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "./dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6",
+        "react-merge-refs": "1.1.0",
+        "@juggle/resize-observer": "^3.3.1",
+        "lodash.debounce": "^4.0.8",
+        "lodash.throttle": "^4.1.1",
+        "lodash.memoize": "^4.1.2",
+        "can-use-dom": "^0.1.0",
+        "core-js": "^3.0.1"
+    },
+    "devDependencies": {
+      "@types/lodash.throttle": "^4.1.7"
+    }
+}
