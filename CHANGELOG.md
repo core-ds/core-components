@@ -1,3 +1,10 @@
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+
 # [27.3.0](https://github.com/core-ds/core-components/compare/v27.2.0...v27.3.0) (2022-06-03)
 
 
