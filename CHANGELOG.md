@@ -1,3 +1,10 @@
+# [27.5.0](https://github.com/core-ds/core-components/compare/v27.4.1...v27.5.0) (2022-06-09)
+
+
+### Features
+
+* **select-with-tags:** add calling onOpen handler ([#91](https://github.com/core-ds/core-components/issues/91)) ([b48b05c](https://github.com/core-ds/core-components/commit/b48b05c2ad2660e3a6a00a5d8c25a077189c1891))
+
 ## [27.4.1](https://github.com/core-ds/core-components/compare/v27.4.0...v27.4.1) (2022-06-09)
 
 
