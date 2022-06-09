@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-badge@3.2.0...@alfalab/core-components-badge@3.2.1) (2022-06-09)
+
+
+### Bug Fixes
+
+* **badge:** fix box-sizing ([#90](https://github.com/core-ds/core-components/issues/90)) ([b052b9b](https://github.com/core-ds/core-components/commit/b052b9b15831229104bd25d1231f27ec41d2acb8))
+
+
+
+
+
 # [3.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-badge@3.0.0...@alfalab/core-components-badge@3.1.0) (2021-07-09)
 
 
