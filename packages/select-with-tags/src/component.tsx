@@ -22,6 +22,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             value,
             selected,
             size = 'xl',
+            onOpen,
             onInput,
             onChange,
             options,
@@ -94,13 +95,16 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         );
 
         const handleOpen = useCallback<Required<BaseSelectProps>['onOpen']>(
-            ({ open }) => {
+            payload => {
+                const { open } = payload;
                 if (!open && value) {
                     resetValue();
                 }
                 setPopoverOpen(open);
+
+                if (onOpen) onOpen(payload);
             },
-            [resetValue, value],
+            [onOpen, resetValue, value],
         );
 
         const filteredOptions = filterOptions(options, value, match);
