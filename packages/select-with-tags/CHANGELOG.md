@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.3.0...@alfalab/core-components-select-with-tags@5.4.0) (2022-06-09)
+
+
+### Features
+
+* **select-with-tags:** add calling onOpen handler ([#91](https://github.com/core-ds/core-components/issues/91)) ([b48b05c](https://github.com/core-ds/core-components/commit/b48b05c2ad2660e3a6a00a5d8c25a077189c1891))
+
+
+
+
+
 # [5.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.2.7...@alfalab/core-components-select-with-tags@5.3.0) (2022-06-08)
 
 
