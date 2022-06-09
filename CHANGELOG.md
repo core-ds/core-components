@@ -1,3 +1,10 @@
+## [27.4.1](https://github.com/core-ds/core-components/compare/v27.4.0...v27.4.1) (2022-06-09)
+
+
+### Bug Fixes
+
+* **badge:** fix box-sizing ([#90](https://github.com/core-ds/core-components/issues/90)) ([b052b9b](https://github.com/core-ds/core-components/commit/b052b9b15831229104bd25d1231f27ec41d2acb8))
+
 # [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
 
 
