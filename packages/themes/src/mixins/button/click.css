@@ -4,10 +4,12 @@
     --button-active-transform: none;
 
     /* secondary */
-    --button-secondary-base-bg-color: var(--color-light-bg-quaternary);
-    --button-secondary-hover-bg-color: var(--color-light-bg-quaternary-shade-10);
-    --button-secondary-active-bg-color: var(--color-light-bg-quaternary-shade-30);
-    --button-secondary-disabled-bg-color: var(--color-light-bg-quaternary-alpha-30);
+    --button-secondary-base-bg-color: var(--color-light-bg-primary-inverted-alpha-16);
+    --button-secondary-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-12);
+    --button-secondary-active-bg-color: var(--color-light-bg-primary-inverted-alpha-8);
+    --button-secondary-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-4);
+    --button-secondary-color: var(--color-light-text-primary);
+    --button-secondary-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* inverted-secondary */
     --button-inverted-secondary-base-bg-color: var(--color-light-bg-quaternary-inverted);
