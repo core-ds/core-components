@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.2.0...@alfalab/core-components-amount@2.2.1) (2022-06-08)
+
+**Note:** Version bump only for package @alfalab/core-components-amount
+
+
+
+
+
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.0.3...@alfalab/core-components-amount@2.1.0) (2022-02-02)
 
 

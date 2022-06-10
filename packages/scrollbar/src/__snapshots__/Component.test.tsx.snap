@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scrollbar Display tests should display correctly 1`] = `
+<div>
+  <div
+    class="component component"
+    data-simplebar="init"
+    style="height: 200px;"
+  >
+    <div
+      class="wrapper"
+    >
+      <div
+        class="heightAutoObserverWrapper"
+      >
+        <div
+          class="heightAutoObserver"
+        />
+      </div>
+      <div
+        class="mask"
+      >
+        <div
+          class="offset"
+          style="right: 0px; bottom: 0px;"
+        >
+          <div
+            aria-label="scrollable content"
+            class="contentWrapper"
+            data-test-id="scrollable-node"
+            role="region"
+            style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+            tabindex="0"
+          >
+            <div
+              class="content"
+            >
+              <div
+                style="height: 500px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="placeholder"
+        style="width: 0px; height: 0px;"
+      />
+    </div>
+    <div
+      class="track horizontal"
+      style="visibility: hidden;"
+    >
+      <div
+        class="scrollbar visible"
+        style="width: 0px; display: none;"
+      />
+    </div>
+    <div
+      class="track vertical"
+      style="visibility: hidden;"
+    >
+      <div
+        class="scrollbar visible"
+        style="height: 0px; display: none;"
+      />
+    </div>
+  </div>
+</div>
+`;

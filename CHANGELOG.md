@@ -1,3 +1,32 @@
+# [27.5.0](https://github.com/core-ds/core-components/compare/v27.4.1...v27.5.0) (2022-06-09)
+
+
+### Features
+
+* **select-with-tags:** add calling onOpen handler ([#91](https://github.com/core-ds/core-components/issues/91)) ([b48b05c](https://github.com/core-ds/core-components/commit/b48b05c2ad2660e3a6a00a5d8c25a077189c1891))
+
+## [27.4.1](https://github.com/core-ds/core-components/compare/v27.4.0...v27.4.1) (2022-06-09)
+
+
+### Bug Fixes
+
+* **badge:** fix box-sizing ([#90](https://github.com/core-ds/core-components/issues/90)) ([b052b9b](https://github.com/core-ds/core-components/commit/b052b9b15831229104bd25d1231f27ec41d2acb8))
+
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+* **select-with-tags:** add support useSelectWithApply hook ([#85](https://github.com/core-ds/core-components/issues/85)) ([461f3bc](https://github.com/core-ds/core-components/commit/461f3bc2cdd498a6cc362809dbd7b44a4cd5fd79))
+
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+
 # [27.3.0](https://github.com/core-ds/core-components/compare/v27.2.0...v27.3.0) (2022-06-03)
 
 

@@ -124,15 +124,10 @@
     react-virtual "^2.2.0"
     resize-observer "^1.0.0"
 
-"@alfalab/data@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.npmjs.org/@alfalab/data/-/data-0.4.3.tgz"
-  integrity sha512-L3MHYEU23ysZ3y68gM5dSVknV4k+t1fzJ5T0j8E0IF8ArZFdP/7UVsz8Az+B2aV5pflcnrMYtIDAbGGab4JfTw==
-
-"@alfalab/data@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@alfalab/data/-/data-1.0.1.tgz"
-  integrity sha512-y+vuNeF7ey6vWLrIBhJvfeG9gFXrwkp5DqjNYBDkFyjjZJNYxhWMBJMPrUpXi6q6/RZMnSeRcGsqRIz2e8I1bg==
+"@alfalab/data@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.2.tgz#3052b75f6e9857bbfa97a0b511b69167cbb9e89c"
+  integrity sha512-Sj56c4bZBjm98PEaIiWyB0oDHNQIfPFYMxj1N0eh6WhPgmOz09Zm3oG5+9wZ2fkktVH8sElCHIUkjL2ztFPCbA==
 
 "@alfalab/hooks@^1.0.0":
   version "1.1.1"
@@ -205,20 +200,10 @@
   resolved "https://registry.npmjs.org/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.4.0.tgz"
   integrity sha512-6BOJJppFlPTsA/m53zjlBDTm49PF1O+wcrSDL7s3uOdMkChc0F/NXKTq+Oz/k4tI4yG5ZnyACcmD8g7vbjvVag==
 
-"@alfalab/utils@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@alfalab/utils/-/utils-1.3.0.tgz"
-  integrity sha512-+BEJYXjWyl6mdBomoH80lGFsVjLHHGwAU3H+SZvbGsnyL3M8gVwkMTYvUTEtddxEHKLlTTo6IGmzfAXT/UPaNg==
-
-"@alfalab/utils@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/@alfalab/utils/-/utils-1.5.1.tgz"
-  integrity sha512-DYsi4XvaMdh5K17OXvsPRFruzxRcJTeA+QlZ4jDMF7JtY5Fimq5jK7ZEA+ZhUNsnMOsFxb299ny8WqDIylDR0A==
-
-"@alfalab/utils@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.npmjs.org/@alfalab/utils/-/utils-1.8.0.tgz"
-  integrity sha512-4hK9exo4fXCoCd4/rZNTVjzY/VfrMCGAVO9+aItpwnPh6maL1v+VeD+WRlKLmBukqMJLcsf/PmH/Uguu+SfWGA==
+"@alfalab/utils@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.9.0.tgz#855ba05113b1a265ed8ee3479fa95cfe8312d804"
+  integrity sha512-VoowJpklMnPhnzuLogljFnpQ8Adv8DbInb1MzqJomC7SHHvKb+YT/AIvtWT0TW3Q2HSghEyTgllWtq5lo3CcZw==
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
@@ -3626,6 +3611,11 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@juggle/resize-observer@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
+  integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.npmjs.org/@lerna/add/-/add-3.21.0.tgz"
@@ -4799,7 +4789,7 @@
 
 "@rollup/pluginutils@^3.0.8":
   version "3.1.0"
-  resolved "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-3.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
   integrity sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==
   dependencies:
     "@types/estree" "0.0.39"
@@ -6008,6 +5998,13 @@
   version "4.1.6"
   resolved "https://registry.npmjs.org/@types/lodash.kebabcase/-/lodash.kebabcase-4.1.6.tgz"
   integrity sha512-+RAD9pCAa8kuVyCYTeDNiwBXwD/0u0p+hos3NSqD+tXTjJextbfF3farfYB+ssAKgEssoewXEtBsfwBpsI7gsA==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash.throttle@^4.1.7":
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash.throttle/-/lodash.throttle-4.1.7.tgz#4ef379eb4f778068022310ef166625f420b6ba58"
+  integrity sha512-znwGDpjCHQ4FpLLx19w4OXDqq8+OvREa05H89obtSyXyOFKL3dDjCslsmfBz0T2FU8dmf5Wx1QvogbINiGIu9g==
   dependencies:
     "@types/lodash" "*"
 
@@ -8523,6 +8520,11 @@ camelcase@^6.0.0:
   version "6.2.0"
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-6.2.0.tgz"
   integrity sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
+
+can-use-dom@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/can-use-dom/-/can-use-dom-0.1.0.tgz#22cc4a34a0abc43950f42c6411024a3f6366b45a"
+  integrity sha512-ceOhN1DL7Y4O6M0j9ICgmTYziV89WMd96SvSl0REd8PMgrY0B/WBOPoed5S1KUmJqXgUXh8gzSe6E3ae27upsQ==
 
 caniuse-api@^3.0.0:
   version "3.0.0"
@@ -22409,6 +22411,18 @@ simple-swizzle@^0.2.2:
   integrity sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo=
   dependencies:
     is-arrayish "^0.3.1"
+
+simplebar@^5.3.6:
+  version "5.3.6"
+  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-5.3.6.tgz#d9383576a09a6fd09e19543f8e9906a3e87c3896"
+  integrity sha512-FJUMbV+hNDd/m+1/fvD41TXKd5mSdlI5zgBygkaQIV3SffNbcLhSbJT6ufTs8ZNRLJ6i+qc/KCFMqWmvlGWMhA==
+  dependencies:
+    "@juggle/resize-observer" "^3.3.1"
+    can-use-dom "^0.1.0"
+    core-js "^3.0.1"
+    lodash.debounce "^4.0.8"
+    lodash.memoize "^4.1.2"
+    lodash.throttle "^4.1.1"
 
 sisteransi@^1.0.5:
   version "1.0.5"

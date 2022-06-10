@@ -33,7 +33,11 @@ const baseConfig = {
         '!src/**/*.mdx',
         '!src/**/*.d.ts',
     ],
-    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+    external: [
+        ...Object.keys(pkg.dependencies || {}),
+        ...Object.keys(pkg.peerDependencies || {}),
+        /(core-js).+/,
+    ],
     plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
 };
 

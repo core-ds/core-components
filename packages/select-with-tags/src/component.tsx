@@ -22,6 +22,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             value,
             selected,
             size = 'xl',
+            onOpen,
             onInput,
             onChange,
             options,
@@ -30,7 +31,6 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             allowUnselect = true,
             collapseTagList = false,
             moveInputToNewLine = true,
-            emptyListPlaceholder = 'Ничего не найдено.',
             transformCollapsedTagText,
             transformTagText,
             Tag,
@@ -78,9 +78,9 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         );
 
         const handleChange = useCallback<Required<BaseSelectProps>['onChange']>(
-            ({ selectedMultiple, name }) => {
+            ({ selectedMultiple, name, initiator }) => {
                 if (onChange) {
-                    onChange({ selectedMultiple, name });
+                    onChange({ selectedMultiple, name, initiator });
                 }
 
                 if (!controlled) {
@@ -95,13 +95,16 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         );
 
         const handleOpen = useCallback<Required<BaseSelectProps>['onOpen']>(
-            ({ open }) => {
+            payload => {
+                const { open } = payload;
                 if (!open && value) {
                     resetValue();
                 }
                 setPopoverOpen(open);
+
+                if (onOpen) onOpen(payload);
             },
-            [resetValue, value],
+            [onOpen, resetValue, value],
         );
 
         const filteredOptions = filterOptions(options, value, match);
@@ -133,9 +136,6 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     transformTagText,
                     handleUpdatePopover,
                     isPopoverOpen,
-                }}
-                optionsListProps={{
-                    emptyPlaceholder: emptyListPlaceholder,
                 }}
                 selected={selected || selectedTags}
                 autocomplete={isAutocomplete}
