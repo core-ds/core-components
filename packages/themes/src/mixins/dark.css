@@ -80,8 +80,11 @@
     --color-light-bg-accent-shade-10: var(--color-dark-bg-accent-tint-10);
     --color-light-bg-accent-shade-15: var(--color-dark-bg-accent-tint-15);
     --color-light-bg-accent-shade-30: var(--color-dark-bg-accent-tint-30);
+    --color-light-bg-primary-alpha-4: var(--color-dark-bg-primary-alpha-4);
     --color-light-bg-primary-alpha-8: var(--color-dark-bg-primary-alpha-8);
+    --color-light-bg-primary-alpha-12: var(--color-dark-bg-primary-alpha-12);
     --color-light-bg-primary-alpha-15: var(--color-dark-bg-primary-alpha-15);
+    --color-light-bg-primary-alpha-16: var(--color-dark-bg-primary-alpha-16);
     --color-light-bg-primary-alpha-20: var(--color-dark-bg-primary-alpha-20);
     --color-light-bg-primary-alpha-40: var(--color-dark-bg-primary-alpha-40);
     --color-light-bg-primary-inverted-alpha-3: var(--color-dark-bg-primary-inverted-alpha-3);
