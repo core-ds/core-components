@@ -31,3 +31,4 @@ storybook-static
 .yalc/
 yalc.lock
 lerna-debug.log
+.npmrc

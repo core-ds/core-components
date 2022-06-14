@@ -66,7 +66,7 @@ export type AttachProps = Omit<
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l';
 
     /**
      * Возможность прикрепления нескольких файлов
@@ -212,12 +212,15 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     {...buttonProps}
                     size={size}
                     disabled={disabled}
-                    view={(buttonProps && buttonProps.view) || 'tertiary'}
+                    view={buttonProps?.view || 'secondary'}
                     leftAddons={
-                        (buttonProps && buttonProps.leftAddons) || size === 'xs' ? (
-                            <PaperclipMIcon className={cn(styles.icon, styles.size_xs)} />
-                        ) : (
-                            <PaperclipMIcon className={styles.icon} />
+                        buttonProps?.leftAddons || (
+                            <PaperclipMIcon
+                                className={cn(styles.icon, {
+                                    [styles.icon_size_xs]: size === 'xs',
+                                    [styles.icon_size_xxs]: size === 'xxs',
+                                })}
+                            />
                         )
                     }
                     onClick={handleButtonClick}

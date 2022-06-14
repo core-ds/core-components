@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount-input@5.4.6...@alfalab/core-components-amount-input@5.4.7) (2022-06-08)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
+## [5.4.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount-input@5.4.5...@alfalab/core-components-amount-input@5.4.6) (2022-06-03)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
 # [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount-input@5.3.15...@alfalab/core-components-amount-input@5.4.0) (2022-03-04)
 
 

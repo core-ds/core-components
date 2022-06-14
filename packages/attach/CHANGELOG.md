@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-attach@4.1.8...@alfalab/core-components-attach@4.1.9) (2022-06-08)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [4.1.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-attach@4.1.7...@alfalab/core-components-attach@4.1.8) (2022-06-03)
+
+
+### Bug Fixes
+
+* **attach:** added size xxs and changed default view prop ([#59](https://github.com/core-ds/core-components/issues/59)) ([f6e297d](https://github.com/core-ds/core-components/commit/f6e297d3af39470b09c9cba26d8d1c47dc72d0da))
+
+
+
+
+
 ## [4.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-attach@4.1.0...@alfalab/core-components-attach@4.1.1) (2022-03-24)
 
 
