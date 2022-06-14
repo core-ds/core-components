@@ -135,7 +135,7 @@ export const ImageViewer: FC = () => {
     const showControls = !singleSlide && !fullScreen;
 
     const swiperWidth = swiper?.width || 1;
-    const swiperHeight = swiper?.height || 1;
+    const swiperHeight = swiper?.height || swiper?.width;
 
     const swiperAspectRatio = swiperWidth / swiperHeight;
 
