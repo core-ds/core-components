@@ -80,6 +80,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         ref,
     ) => {
         const [countryIso2, setCountryIso2] = useState(defaultCountryIso2.toLowerCase());
+        const [fieldWidth, setFieldWidth] = useState(0);
 
         const inputRef = useRef<HTMLInputElement>(null);
         const [inputWrapperRef, setInputWrapperRef] = useState<HTMLDivElement | null>(null);
@@ -248,6 +249,12 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
         usePreventCaretReset({ inputRef, countryCodeLength, clearableCountryCode });
 
+        useEffect(() => {
+            if (inputWrapperRef) {
+                setFieldWidth(inputWrapperRef.getBoundingClientRect().width);
+            }
+        }, [inputWrapperRef]);
+
         return (
             <InputAutocomplete
                 {...restProps}
@@ -268,9 +275,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                             selected={countryIso2}
                             countries={countries}
                             onChange={handleSelectChange}
-                            fieldWidth={
-                                inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
-                            }
+                            fieldWidth={fieldWidth}
                             preventFlip={preventFlip}
                         />
                     ),
