@@ -1,7 +1,7 @@
 import React, { forwardRef, HTMLAttributes, ReactNode, MouseEvent, useCallback } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
 import { Badge } from '@alfalab/core-components-badge';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -23,9 +23,19 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     className?: string;
 
     /**
+     * Дополнительный класс для заголовка
+     */
+    titleClassName?: string;
+
+    /**
      * Дополнительный класс для контентной области
      */
     contentClassName?: string;
+
+    /**
+     * Дополнительный класс для области с кнопкой действия
+     */
+    actionSectionClassName?: string;
 
     /**
      * Дочерние элементы
@@ -89,7 +99,9 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
         {
             dataTestId,
             className,
+            titleClassName,
             contentClassName,
+            actionSectionClassName,
             hasCloser,
             leftAddons,
             badge,
@@ -130,7 +142,12 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                 {...restProps}
             >
                 <div className={styles.contentWrap}>
-                    <div className={cn(contentClassName, styles.content)}>
+                    <div
+                        className={cn(contentClassName, styles.content, {
+                            [styles.hasCloser]: hasCloser,
+                            [styles.hasActionButton]: !!actionButton,
+                        })}
+                    >
                         {needRenderLeftAddons && (
                             <div className={styles.leftAddons}>
                                 {leftAddons || (
@@ -146,14 +163,16 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                         )}
 
                         <div>
-                            {title && <div className={styles.title}>{title}</div>}
+                            {title && (
+                                <div className={cn(titleClassName, styles.title)}>{title}</div>
+                            )}
                             {children && <div className={styles.children}>{children}</div>}
                         </div>
                     </div>
 
                     {actionButton && (
                         <div
-                            className={cn(styles.actionSection, {
+                            className={cn(actionSectionClassName, styles.actionSection, {
                                 [styles.hasCloser]: hasCloser,
                             })}
                         >
@@ -162,14 +181,15 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                     )}
 
                     {hasCloser && (
-                        <Button
-                            colors='inverted'
-                            className={cn(styles.closeButton)}
-                            view='ghost'
-                            onClick={handleClose}
-                            aria-label='закрыть'
-                            leftAddons={<CrossMIcon />}
-                        />
+                        <div className={styles.closeButtonWrapper}>
+                            <IconButton
+                                icon={CrossMIcon}
+                                colors='inverted'
+                                className={cn(styles.closeButton)}
+                                onClick={handleClose}
+                                aria-label='закрыть'
+                            />
+                        </div>
                     )}
                 </div>
             </div>

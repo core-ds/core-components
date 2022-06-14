@@ -25,7 +25,7 @@ const plugin = (): Plugin => {
             if (decl.value.includes('--color-')) {
                 const fullVars = decl.value.match(/--color[\w-]+/g) || [];
                 const values = fullVars.map(
-                    color => color.match(/([\w-]+?)(?=-tint|alpha|shade|$)/g)[0],
+                    color => color.match(/([\w-]+?)(?=-tint|-alpha|-shade|$)/g)[0],
                 );
                 values.forEach(value => {
                     if (replacement[value]) {

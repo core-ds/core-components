@@ -33,8 +33,12 @@ const baseConfig = {
         '!src/**/*.mdx',
         '!src/**/*.d.ts',
     ],
-    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
+    external: [
+        ...Object.keys(pkg.dependencies || {}),
+        ...Object.keys(pkg.peerDependencies || {}),
+        /(core-js).+/,
+    ],
 };
 
 const multiInputPlugin = multiInput();

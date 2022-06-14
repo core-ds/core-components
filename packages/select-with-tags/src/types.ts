@@ -33,7 +33,11 @@ export type SelectWithTagsProps = Omit<
     /**
      * Обработчик выбора
      */
-    onChange?: (payload: { selectedMultiple: Array<OptionShape | string>; name?: string }) => void;
+    onChange?: (payload: {
+        selectedMultiple: Array<OptionShape | string>;
+        initiator?: OptionShape | null;
+        name?: string;
+    }) => void;
 
     /**
      * Режим автокомплита
@@ -44,11 +48,6 @@ export type SelectWithTagsProps = Omit<
      * Функция сравнения при поиске
      */
     match?: OptionMatcher;
-
-    /**
-     * Будет отображаться, если компонент списка пустой
-     */
-    emptyListPlaceholder?: string;
 
     /**
      * Компонент Тэг

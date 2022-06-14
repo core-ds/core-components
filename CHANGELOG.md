@@ -1,6 +1,90 @@
+# [27.5.0](https://github.com/core-ds/core-components/compare/v27.4.1...v27.5.0) (2022-06-09)
+
+
+### Features
+
+* **select-with-tags:** add calling onOpen handler ([#91](https://github.com/core-ds/core-components/issues/91)) ([b48b05c](https://github.com/core-ds/core-components/commit/b48b05c2ad2660e3a6a00a5d8c25a077189c1891))
+
+## [27.4.1](https://github.com/core-ds/core-components/compare/v27.4.0...v27.4.1) (2022-06-09)
+
+
+### Bug Fixes
+
+* **badge:** fix box-sizing ([#90](https://github.com/core-ds/core-components/issues/90)) ([b052b9b](https://github.com/core-ds/core-components/commit/b052b9b15831229104bd25d1231f27ec41d2acb8))
+
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+* **select-with-tags:** add support useSelectWithApply hook ([#85](https://github.com/core-ds/core-components/issues/85)) ([461f3bc](https://github.com/core-ds/core-components/commit/461f3bc2cdd498a6cc362809dbd7b44a4cd5fd79))
+
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+
+# [27.3.0](https://github.com/core-ds/core-components/compare/v27.2.0...v27.3.0) (2022-06-03)
+
+
+### Features
+
+* **plate:** update buttons prop in Plate component ([#81](https://github.com/core-ds/core-components/issues/81)) ([0db6283](https://github.com/core-ds/core-components/commit/0db628390bfa91290b5a6529fab2653f06b4e629))
+
+# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-03)
+
+
+### Bug Fixes
+
+* **attach:** added size xxs and changed default view prop ([#59](https://github.com/core-ds/core-components/issues/59)) ([f6e297d](https://github.com/core-ds/core-components/commit/f6e297d3af39470b09c9cba26d8d1c47dc72d0da))
+* **button:** fix border-radius ([#63](https://github.com/core-ds/core-components/issues/63)) ([e09991e](https://github.com/core-ds/core-components/commit/e09991e07215b1ca19d4e66d189a1504be52aefd))
+* **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
+
+
+### Features
+
+* **date-input:** removed date validation ([#69](https://github.com/core-ds/core-components/issues/69)) ([ca56ec9](https://github.com/core-ds/core-components/commit/ca56ec97db0d966233bd4312fdddabd59ed427ae))
+
+# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-03)
+
+
+### Bug Fixes
+
+* **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
+
+
+### Features
+
+* **date-input:** removed date validation ([#69](https://github.com/core-ds/core-components/issues/69)) ([ca56ec9](https://github.com/core-ds/core-components/commit/ca56ec97db0d966233bd4312fdddabd59ed427ae))
+
+### [27.1.2](https://github.com/core-ds/core-components/compare/v27.1.0...v27.1.2) (2022-06-01)
+
+
+### Bug Fixes
+
+* **table:** pagination_disappearance ([#64](https://github.com/core-ds/core-components/issues/64)) ([7aa4c53](https://github.com/core-ds/core-components/commit/7aa4c536923ecb0aee5d80f4ba2e72bde06730dd))
+
+## [27.1.1](https://github.com/core-ds/core-components/compare/v27.1.0...v27.1.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* **table:** pagination_disappearance ([#64](https://github.com/core-ds/core-components/issues/64)) ([7aa4c53](https://github.com/core-ds/core-components/commit/7aa4c536923ecb0aee5d80f4ba2e72bde06730dd))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [27.1.0](https://github.com/core-ds/core-components/compare/v27.0.0...v27.1.0) (2022-05-30)
+
+
+### Bug Fixes
+
+* **codemod:** fix shade|alpha modificators bug ([#60](https://github.com/core-ds/core-components/issues/60)) ([bfc0104](https://github.com/core-ds/core-components/commit/bfc0104c1a15066d878ca27d3ae8c5903f6ca9ad))
+* **typography:** removed default weight prop from Typography.Text ([#61](https://github.com/core-ds/core-components/issues/61)) ([7a80cbb](https://github.com/core-ds/core-components/commit/7a80cbb935c013886b4aa28e56ab982f7fe54ac1))
 
 ## [27.0.0](https://github.com/core-ds/core-components/compare/v26.12.0...v27.0.0) (2022-05-26)
 

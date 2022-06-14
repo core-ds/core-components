@@ -519,6 +519,17 @@ export type OptionsListProps = {
     showFooter?: boolean;
 
     /**
+     * Нужно ли использовать нативный скроллбар
+     */
+    nativeScrollbar?: boolean;
+
+    /**
+     * Управляет шириной выпадающего меню.
+     * Ширину определяет контент, либо ширина равна ширине поля
+     */
+    optionsListWidth?: BaseSelectProps['optionsListWidth'];
+
+    /**
      * Обработчик подтверждения изменений
      */
     onApply?: () => void;

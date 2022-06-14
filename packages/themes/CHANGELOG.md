@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.1.5...@alfalab/core-components-themes@8.2.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+
+
+
+
+
+## [8.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.1.4...@alfalab/core-components-themes@8.1.5) (2022-06-03)
+
+
+### Bug Fixes
+
+* **button:** fix border-radius ([#63](https://github.com/core-ds/core-components/issues/63)) ([e09991e](https://github.com/core-ds/core-components/commit/e09991e07215b1ca19d4e66d189a1504be52aefd))
+
+
+
+
+
 # [8.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.0.1...@alfalab/core-components-themes@8.1.0) (2022-03-28)
 
 
