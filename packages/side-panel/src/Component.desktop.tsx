@@ -32,6 +32,7 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
             className,
             wrapperClassName,
             contentTransitionProps = {},
+            backdropProps,
             ...restProps
         },
         ref,
@@ -43,10 +44,8 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
                 {...restProps}
                 ref={mergeRefs([ref, modalRef])}
                 wrapperClassName={wrapperClassName}
-                className={cn(className, styles[size])}
-                backdropProps={{
-                    ...restProps.backdropProps,
-                }}
+                className={cn(className, styles[size], styles.hidden)}
+                backdropProps={backdropProps}
                 contentTransitionProps={{
                     classNames: transitions,
                     ...contentTransitionProps,

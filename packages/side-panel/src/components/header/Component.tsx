@@ -71,7 +71,7 @@ export const Header: FC<HeaderProps> = ({
 }) => {
     const { headerHighlighted, setHasHeader } = useContext(ModalContext);
 
-    const hasContent = title || Boolean(children);
+    const hasContent = Boolean(title || children);
 
     useEffect(() => {
         setHasHeader(true);

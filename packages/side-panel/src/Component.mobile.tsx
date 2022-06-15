@@ -19,14 +19,14 @@ export type SidePanelMobileProps = BaseModalProps & {
 };
 
 const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps>(
-    ({ children, className, ...restProps }, ref) => {
+    ({ children, className, transitionProps, ...restProps }, ref) => {
         return (
             <BaseModal
                 {...restProps}
                 ref={ref}
                 transitionProps={{
                     classNames: transitions,
-                    ...restProps.transitionProps,
+                    ...transitionProps,
                 }}
                 className={cn(className, styles.component)}
             >

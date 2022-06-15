@@ -3,3 +3,7 @@
 .s {
     width: var(--side-panel-s-width);
 }
+
+.hidden {
+    overflow-x: hidden;
+}

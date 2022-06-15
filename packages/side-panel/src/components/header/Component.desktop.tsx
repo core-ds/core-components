@@ -29,7 +29,8 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     children,
     ...restProps
 }) => {
-    const hasContent = title || Boolean(children);
+    const hasContent = Boolean(title || children);
+
     return (
         <Header
             className={cn(className, size && styles[size], {
