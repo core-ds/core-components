@@ -29,7 +29,7 @@
 }
 
 .withZeroTransition {
-    transition: 0 linear;
+    transition: 0s linear;
 }
 
 .scrollableContainer {
