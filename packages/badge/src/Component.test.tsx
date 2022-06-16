@@ -82,13 +82,13 @@ describe('Badge', () => {
                 <Badge view='count' content={0} dataTestId={dataTestId} />,
             );
 
-            expect(getByTestId(dataTestId)).toHaveClass('isHidden');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('isHidden');
         });
 
         it('should set `dot` class without `content` prop', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Badge view='count' dataTestId={dataTestId} />);
-            expect(getByTestId(dataTestId)).toHaveClass('dot');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('dot');
         });
     });
 
