@@ -1,3 +1,10 @@
+## [27.6.1](https://github.com/core-ds/core-components/compare/v27.6.0...v27.6.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing open parameter to tooltip component ([#99](https://github.com/core-ds/core-components/issues/99)) ([885a11f](https://github.com/core-ds/core-components/commit/885a11f7f5e40033622dda5e86ed1c8ea03e7534))
+
 # [27.6.0](https://github.com/core-ds/core-components/compare/v27.5.0...v27.6.0) (2022-06-16)
 
 
