@@ -1,3 +1,10 @@
+# [27.6.0](https://github.com/core-ds/core-components/compare/v27.5.0...v27.6.0) (2022-06-16)
+
+
+### Features
+
+* **BottonSheet:** prop for controlling animation on screen size chan… ([#89](https://github.com/core-ds/core-components/issues/89)) ([a69e178](https://github.com/core-ds/core-components/commit/a69e17891d1fd91ba6f35bfc097ae1fc9cbf92df))
+
 # [27.5.0](https://github.com/core-ds/core-components/compare/v27.4.1...v27.5.0) (2022-06-09)
 
 
