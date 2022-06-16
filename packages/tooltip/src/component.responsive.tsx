@@ -114,6 +114,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     ) : (
         <Tooltip
             {...restProps}
+            open={open}
             content={content}
             onOpen={handleOpen}
             targetClassName={targetClassName}
