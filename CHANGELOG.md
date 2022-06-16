@@ -1,3 +1,24 @@
+## [27.6.2](https://github.com/core-ds/core-components/compare/v27.6.1...v27.6.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing onClose parameter to tooltip component ([#101](https://github.com/core-ds/core-components/issues/101)) ([216e80f](https://github.com/core-ds/core-components/commit/216e80f2c1f91ae9bdb0dceea2a4db0039c91ec3))
+
+## [27.6.1](https://github.com/core-ds/core-components/compare/v27.6.0...v27.6.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing open parameter to tooltip component ([#99](https://github.com/core-ds/core-components/issues/99)) ([885a11f](https://github.com/core-ds/core-components/commit/885a11f7f5e40033622dda5e86ed1c8ea03e7534))
+
+# [27.6.0](https://github.com/core-ds/core-components/compare/v27.5.0...v27.6.0) (2022-06-16)
+
+
+### Features
+
+* **BottonSheet:** prop for controlling animation on screen size chan… ([#89](https://github.com/core-ds/core-components/issues/89)) ([a69e178](https://github.com/core-ds/core-components/commit/a69e17891d1fd91ba6f35bfc097ae1fc9cbf92df))
+
 # [27.5.0](https://github.com/core-ds/core-components/compare/v27.4.1...v27.5.0) (2022-06-09)
 
 
