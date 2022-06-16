@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import { Slider } from './index';
 
 describe('Slider', () => {
     it('should match snapshot', () => {
-        const { container } = render(<Slider />);
+        const { container } = render(<Slider step={1} />);
         expect(container).toMatchSnapshot();
     });
 
@@ -14,15 +14,6 @@ describe('Slider', () => {
         const { getByTestId } = render(<Slider dataTestId={dataTestId} />);
 
         expect(getByTestId(dataTestId)).toBeTruthy();
-    });
-
-    it('should forward ref to input element', () => {
-        const ref = jest.fn();
-        const dataTestId = 'test-id';
-
-        render(<Slider ref={ref} dataTestId={dataTestId} />);
-
-        expect(ref.mock.calls[0][0].tagName).toBe('INPUT');
     });
 
     it('should set `className` class to root', () => {
@@ -38,23 +29,9 @@ describe('Slider', () => {
         const max = 50;
         const { getByRole } = render(<Slider min={min} max={max} dataTestId={dataTestId} />);
         const slider = getByRole('slider') as HTMLInputElement;
-        const progress = getByRole('progressbar') as HTMLProgressElement;
 
-        expect(slider.min).toBe(min.toString());
-        expect(slider.max).toBe(max.toString());
-
-        expect(progress.max).toBe(max - min);
-    });
-
-    it('should set step = 1 if (max - min) % step !== 0', () => {
-        const dataTestId = 'test-id';
-        const step = 3;
-        const { getByRole } = render(
-            <Slider min={0} max={7} step={step} dataTestId={dataTestId} />,
-        );
-        const slider = getByRole('slider') as HTMLInputElement;
-
-        expect(slider.step).toBeFalsy();
+        expect(slider).toHaveAttribute('aria-valueMin', min.toFixed(1));
+        expect(slider).toHaveAttribute('aria-valueMax', max.toFixed(1));
     });
 
     it('should set value correctly', () => {
@@ -67,8 +44,7 @@ describe('Slider', () => {
             <Slider value={value} min={min} max={max} step={step} dataTestId={dataTestId} />,
         );
 
-        expect((getByRole('slider') as HTMLInputElement).value).toBe(value.toString());
-        expect((getByRole('progressbar') as HTMLProgressElement).value).toBe(value - min);
+        expect(getByRole('slider')).toHaveAttribute('aria-valuenow', value.toFixed(1));
     });
 
     it('should set out of bounds value in range [min, max]', () => {
@@ -82,26 +58,11 @@ describe('Slider', () => {
             <Slider value={valueBelowMinimum} min={min} max={max} dataTestId={dataTestId} />,
         );
 
-        expect((getByRole('slider') as HTMLInputElement).value).toBe(min.toString());
-        expect((getByRole('progressbar') as HTMLProgressElement).value).toBe(0);
+        expect(getByRole('slider')).toHaveAttribute('aria-valuenow', min.toFixed(1));
 
         rerender(<Slider value={valueAboveMaximum} min={min} max={max} dataTestId={dataTestId} />);
 
-        expect((getByRole('slider') as HTMLInputElement).value).toBe(max.toString());
-        expect((getByRole('progressbar') as HTMLProgressElement).value).toBe(max - min);
-    });
-
-    it('should call `onChange` prop', () => {
-        const cb = jest.fn();
-        const dataTestId = 'test-id';
-        const value = 10;
-        const { getByRole } = render(<Slider onChange={cb} dataTestId={dataTestId} />);
-
-        const input = getByRole('slider') as HTMLInputElement;
-
-        fireEvent.change(input, { target: { value } });
-
-        expect(cb).toBeCalledTimes(1);
+        expect(getByRole('slider')).toHaveAttribute('aria-valuenow', max.toFixed(1));
     });
 
     it('should unmount without errors', () => {

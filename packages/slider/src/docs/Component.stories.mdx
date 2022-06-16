@@ -20,7 +20,7 @@ import styles from '!!raw-loader!../index.module.css';
 <Story name='Slider'>
     {React.createElement(() => {
         const [value, setValue] = React.useState(50);
-        const handleChange = (event, { value }) => setValue(value);
+        const handleChange = ({ value }) => setValue(value);
         return (
             <Slider
                 value={value}

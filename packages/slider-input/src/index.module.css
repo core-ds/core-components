@@ -16,9 +16,8 @@
 }
 
 .slider {
-    position: absolute;
-    margin-top: -1px;
-    transform: translateY(-50%);
+    margin-top: calc(var(--slider-progress-height) / -2);
+    transform: translateY(-1px);
 
     & + * {
         margin-top: var(--gap-xs);

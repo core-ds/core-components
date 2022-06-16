@@ -4,7 +4,10 @@
 const min = 0;
 const max = 10;
 const step = 1;
-const steps = ['0', '5', '10'];
+const pips = {
+    mode: 'values',
+    values: [0, 5, 10],
+};
 
 const normalizeValue = (value, min, max) =>
     value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
@@ -22,7 +25,7 @@ render(() => {
             step={step}
             onChange={handleChange}
             block={true}
-            steps={steps}
+            pips={pips}
         />
     );
 });
@@ -37,7 +40,13 @@ const SuffixInput = withSuffix(Input);
 const min = 36;
 const max = 360;
 const step = 1;
-const steps = ['36 мес', '180 мес', '360 мес'];
+const pips = {
+    mode: 'values',
+    values: [36, 180, 360],
+    format: {
+        to: value => `${value} мес`,
+    },
+};
 
 const normalizeValue = (value, min, max) =>
     value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
@@ -57,7 +66,7 @@ render(() => {
             onChange={handleChange}
             block={true}
             label='Оставшийся срок по кредиту'
-            steps={steps}
+            pips={pips}
             Input={SuffixInput}
             customInputProps={{
                 suffix: ' мес',
@@ -73,20 +82,37 @@ render(() => {
 
 const SuffixInput = withSuffix(Input);
 
+const getSuffix = value => {
+    if (value <= 0) return '';
+
+    if (value.toString().endsWith('1')) {
+        return ' год';
+    }
+
+    if (
+        value.toString().endsWith('2') ||
+        value.toString().endsWith('3') ||
+        value.toString().endsWith('4')
+    ) {
+        return ' года';
+    }
+
+    return ' лет';
+};
+
 const min = 1;
 const max = 5;
 const step = 1;
-const steps = ['1 год', '2 года', '3 года', '4 года', '5 лет'];
+const pips = {
+    mode: 'values',
+    values: [1, 2, 3, 4, 5],
+    format: {
+        to: value => `${value}${getSuffix(value)}`,
+    },
+};
 
 const normalizeValue = (value, min, max) =>
     value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
-
-const getSuffix = years => {
-    if (years <= 0) return '';
-    if (years === 1) return ' год';
-    if (years > 1 && years < 5) return ' года';
-    if (years >= 5) return ' лет';
-};
 
 render(() => {
     const [value, setValue] = React.useState('');
@@ -102,7 +128,7 @@ render(() => {
             onChange={handleChange}
             block={true}
             label='Срок кредита'
-            steps={steps}
+            pips={pips}
             Input={SuffixInput}
             customInputProps={{
                 suffix: getSuffix(value),
@@ -121,12 +147,11 @@ const SuffixInput = withSuffix(Input);
 const min = 0;
 const max = 100;
 const step = 1;
-const steps = [
-    <span style={{ flexBasis: '19%' }}>0%</span>,
-    <span style={{ flexBasis: '62%' }}>20%</span>,
-    <span style={{ flexBasis: '18%' }}>80%</span>,
-    <span style={{}}>100%</span>,
-];
+const range = {
+    min: [0],
+    '50%': [20, 5],
+    max: [100],
+};
 
 const normalizeValue = (value, min, max) =>
     value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
@@ -145,7 +170,10 @@ render(() => {
             onChange={handleChange}
             block={true}
             label='Процент по кредиту'
-            steps={steps}
+            range={range}
+            pips={{
+                mode: 'range',
+            }}
             Input={SuffixInput}
             customInputProps={{
                 suffix: ' %',
@@ -163,7 +191,13 @@ render(() => {
 const min = 100000;
 const max = 600000;
 const step = 1000;
-const steps = ['100 тыс.', '600 тыс.'];
+const pips = {
+    mode: 'values',
+    values: [100000, 600000],
+    format: {
+        to: value => `${Math.floor(value / 1000)} тыс.`,
+    },
+};
 
 render(() => {
     const [value, setValue] = React.useState('');
@@ -172,7 +206,7 @@ render(() => {
         setValue(value !== '' ? (+value / 100).toString() : '');
     };
 
-    const handleSliderChange = (event, { value }) => {
+    const handleSliderChange = ({ value }) => {
         setValue(value);
     };
 
@@ -193,7 +227,7 @@ render(() => {
             max={max}
             step={step}
             Input={AmountInput}
-            steps={steps}
+            pips={pips}
             label='Сумма кредита'
         />
     );
@@ -203,9 +237,16 @@ render(() => {
 ```tsx live
 // import { AmountInput } from '@alfalab/core-components/amount-input';
 
-const min = 100000;
-const max = 22000000;
+const min = 50000;
+const max = 100000000;
 const step = 1000;
+const range = {
+    min: [min],
+    '25%': [100000, 10000],
+    '50%': [1000000, 100000],
+    '75%': [10000000, 1000000],
+    max: [max],
+};
 
 render(() => {
     const [value, setValue] = React.useState('');
@@ -214,7 +255,7 @@ render(() => {
         setValue(value !== '' ? (+value / 100).toString() : '');
     };
 
-    const handleSliderChange = (event, { value }) => {
+    const handleSliderChange = ({ value }) => {
         setValue(value);
     };
 
@@ -233,6 +274,7 @@ render(() => {
             onBlur={handleBlur}
             min={min}
             max={max}
+            range={range}
             step={step}
             label='Первоначальный взнос'
             Input={AmountInput}

@@ -28,25 +28,40 @@ exports[`SliderInput should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="component slider"
+        class="component slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
       >
         <div
-          class="rangeWrapper"
+          class="noUi-base"
         >
-          <input
-            class="range"
-            max="100"
-            min="0"
-            step="1"
-            type="range"
-            value="0"
-          />
+          <div
+            class="noUi-connects"
+          >
+            <div
+              class="noUi-connect"
+              style="transform: translate(0%, 0) scale(0, 1);"
+            />
+          </div>
+          <div
+            class="noUi-origin"
+            style="transform: translate(-100%, 0); z-index: 4;"
+          >
+            <div
+              aria-orientation="horizontal"
+              aria-valuemax="100.0"
+              aria-valuemin="0.0"
+              aria-valuenow="0.0"
+              aria-valuetext="0.00"
+              class="noUi-handle noUi-handle-lower"
+              data-handle="0"
+              role="slider"
+              tabindex="0"
+            >
+              <div
+                class="noUi-touch-area"
+              />
+            </div>
+          </div>
         </div>
-        <progress
-          class="progress"
-          max="100"
-          value="0"
-        />
       </div>
     </div>
   </div>
