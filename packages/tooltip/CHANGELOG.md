@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.5...@alfalab/core-components-tooltip@5.1.6) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing onClose parameter to tooltip component ([#101](https://github.com/core-ds/core-components/issues/101)) ([216e80f](https://github.com/core-ds/core-components/commit/216e80f2c1f91ae9bdb0dceea2a4db0039c91ec3))
+
+
+
+
+
 ## [5.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.4...@alfalab/core-components-tooltip@5.1.5) (2022-06-16)
 
 
