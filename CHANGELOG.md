@@ -1,3 +1,10 @@
+## [27.6.2](https://github.com/core-ds/core-components/compare/v27.6.1...v27.6.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing onClose parameter to tooltip component ([#101](https://github.com/core-ds/core-components/issues/101)) ([216e80f](https://github.com/core-ds/core-components/commit/216e80f2c1f91ae9bdb0dceea2a4db0039c91ec3))
+
 ## [27.6.1](https://github.com/core-ds/core-components/compare/v27.6.0...v27.6.1) (2022-06-16)
 
 
