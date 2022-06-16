@@ -164,6 +164,11 @@ export type BottomSheetProps = {
     disableOverlayClick?: boolean;
 
     /**
+     * Не анимировать шторку при изменении размера вьюпорта
+     */
+    ignoreScreenChange?: boolean;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -215,6 +220,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             transitionProps = {},
             dataTestId,
             swipeable = true,
+            ignoreScreenChange = false,
             onClose,
             onBack,
         },
@@ -229,6 +235,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollableContainerScrollValue = useRef(0);
 
         const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
+
+        const [transitionClassName, setTransitionClassName] = useState(styles.withTransition);
 
         // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
         const fullHeight = use100vh()!;
@@ -308,6 +316,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (shouldClose) {
                 onClose();
             } else {
+                /**
+                 * Установить мгновенную анимацию шторке если она не закрыта при свайпе и установлен проп ignoreScreenChange
+                 */
+                if (ignoreScreenChange) {
+                    setTransitionClassName(styles.withZeroTransition);
+                }
                 setSheetOffset(0);
                 setBackdropOpacity(1);
             }
@@ -319,6 +333,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleSheetSwiping: SwipeCallback = ({ deltaY, initial }) => {
+            /**
+             * Вернуть плавную анимацию шторке при свайпе
+             */
+            if (transitionClassName === styles.withZeroTransition) {
+                setTransitionClassName(styles.withTransition);
+            }
             const offsetY = initial[1];
 
             if (shouldSkipSwiping(offsetY)) {
@@ -383,7 +403,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (!open) {
                 setSheetOffset(0);
             }
-        }, [open]);
+
+            if (ignoreScreenChange && open) {
+                setTransitionClassName(styles.withZeroTransition);
+            }
+        }, [open, ignoreScreenChange]);
 
         const getSwipeStyles = (): CSSProperties => ({
             transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
@@ -422,7 +446,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             >
                 <div
                     className={cn(styles.component, className, {
-                        [styles.withTransition]: !sheetOffset,
+                        [transitionClassName]: !sheetOffset,
                     })}
                     style={{
                         ...getSwipeStyles(),
