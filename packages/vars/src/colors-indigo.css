@@ -200,7 +200,9 @@
     --color-dark-border-underline-inverted-alpha-30: rgba(182, 188, 195, 0.3);
     --color-dark-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
     --color-dark-graphic-accent-shade-15: rgb(203, 42, 31);
+    --color-dark-graphic-accent-tint-7: rgb(240, 63, 51);
     --color-dark-graphic-accent-tint-10: rgb(241, 70, 58);
+    --color-dark-graphic-accent-tint-15: rgb(241, 80, 69);
     --color-dark-graphic-accent-tint-30: rgb(244, 111, 102);
     --color-dark-graphic-negative-alpha-30: rgba(241, 80, 69, 0.3);
     --color-dark-graphic-negative-shade-20: rgb(193, 64, 55);
@@ -323,7 +325,9 @@
     --color-light-border-underline-inverted-alpha-30: rgba(109, 121, 134, 0.3);
     --color-light-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
     --color-light-graphic-accent-tint-15: rgb(241, 80, 69);
+    --color-light-graphic-accent-shade-7: rgb(222, 46, 33);
     --color-light-graphic-accent-shade-10: rgb(215, 44, 32);
+    --color-light-graphic-accent-shade-15: rgb(203, 42, 31);
     --color-light-graphic-accent-shade-30: rgb(167, 34, 25);
     --color-light-graphic-negative-alpha-30: rgba(241, 80, 69, 0.3);
     --color-light-graphic-negative-tint-20: rgb(244, 115, 106);

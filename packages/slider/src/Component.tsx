@@ -69,6 +69,11 @@ export type SliderProps = {
     className?: string;
 
     /**
+     * Размер
+     */
+    size?: 's' | 'm';
+
+    /**
      * Обработчик поля ввода
      */
     onChange?: (payload: { value: number }) => void;
@@ -87,6 +92,7 @@ export const Slider: FC<SliderProps> = ({
     disabled,
     pips,
     range = { min, max },
+    size = 's',
     className,
     onChange,
     dataTestId,
@@ -152,7 +158,7 @@ export const Slider: FC<SliderProps> = ({
 
     return (
         <div
-            className={cn(styles.component, className)}
+            className={cn(styles.component, className, styles[size])}
             ref={sliderRef}
             data-test-id={dataTestId}
             {...{ disabled }}

@@ -28,7 +28,7 @@ exports[`SliderInput should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="component slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
+        class="component slider s noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
       >
         <div
           class="noUi-base"

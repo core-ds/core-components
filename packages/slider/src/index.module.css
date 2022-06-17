@@ -4,14 +4,17 @@
     --slider-progress-color: var(--color-red-dark);
     --slider-progress-hover-color: var(--color-red-dark);
     --slider-thumb-color: var(--color-light-graphic-accent);
-    --slider-thumb-hover-color: var(--color-light-graphic-accent);
-    --slider-thumb-size: 18px;
-    --slider-thumb-border: 0;
-    --slider-thumb-box-shadow: 0 2px 10px var(--color-light-graphic-accent-alpha-30);
-    --slider-progress-height: 2px;
+    --slider-thumb-hover-color: var(--color-light-graphic-accent-shade-7);
+    --slider-thumb-active-color: var(--color-light-graphic-accent-shade-15);
+    --slider-thumb-size: 20px;
+    --slider-thumb-border: 2px solid transparent;
+    --slider-thumb-box-shadow: none;
+    --slider-progress-s-height: 2px;
+    --slider-progress-m-height: 4px;
+    --slider-progress-s-border-radius: 0;
+    --slider-progress-m-border-radius: var(--border-radius-s);
     --slider-progress-background: var(--color-light-border-underline);
     --slider-progress-hover-background: var(--color-light-border-underline);
-    --slider-progress-border-radius: 0;
 
     /* Отступы по бокам — на мобилке thumb не должен заходить за края контрола */
     --slider-origin-width: 100%;
@@ -27,17 +30,19 @@
         & :global(.noUi-connect) {
             background: var(--slider-progress-hover-color);
         }
+    }
 
-        & :global(.noUi-handle) {
-            background: var(--slider-thumb-hover-color);
-        }
+    & :global(.noUi-handle:hover .noUi-touch-area) {
+        background: var(--slider-thumb-hover-color);
+    }
+
+    & :global(.noUi-handle:active .noUi-touch-area) {
+        background: var(--slider-thumb-active-color);
     }
 
     & :global(.noUi-base) {
         position: relative;
         width: 100%;
-        height: var(--slider-progress-height);
-        border-radius: var(--slider-progress-border-radius);
         background: var(--slider-progress-background);
         transition: background 0.15s;
         cursor: pointer;
@@ -56,7 +61,6 @@
         height: 100%;
         position: relative;
         z-index: 1;
-        border-radius: var(--slider-progress-border-radius);
         overflow: hidden;
     }
 
@@ -76,12 +80,10 @@
     & :global(.noUi-handle) {
         position: absolute;
         right: calc(var(--slider-thumb-size) / 2 * -1);
-        top: calc((var(--slider-thumb-size) / 2 - var(--slider-progress-height) / 2) * -1);
         width: var(--slider-thumb-size);
         height: var(--slider-thumb-size);
 
         box-sizing: border-box;
-        background: var(--slider-thumb-color);
         border-radius: var(--border-radius-circle);
         box-shadow: var(--slider-thumb-box-shadow);
         border: var(--slider-thumb-border);
@@ -92,13 +94,14 @@
 
     & :global(.noUi-touch-area) {
         border-radius: 50%;
+        background: var(--slider-thumb-color);
         width: 100%;
         height: 100%;
     }
 
     & :global(.noUi-pips) {
         @mixin system_14-18_regular;
-        margin-top: var(--gap-xs);
+        margin-top: 6px;
         height: 18px;
         color: var(--color-light-text-secondary);
         position: relative;
@@ -123,5 +126,35 @@
         &:last-child {
             transform: translateX(-100%);
         }
+    }
+}
+
+.s {
+    & :global(.noUi-base) {
+        height: var(--slider-progress-s-height);
+        border-radius: var(--slider-progress-s-border-radius);
+    }
+
+    & :global(.noUi-connects) {
+        border-radius: var(--slider-progress-s-border-radius);
+    }
+
+    & :global(.noUi-handle) {
+        top: calc((var(--slider-thumb-size) / 2 - var(--slider-progress-s-height) / 2) * -1);
+    }
+}
+
+.m {
+    & :global(.noUi-base) {
+        height: var(--slider-progress-m-height);
+        border-radius: var(--slider-progress-m-border-radius);
+    }
+
+    & :global(.noUi-connects) {
+        border-radius: var(--slider-progress-m-border-radius);
+    }
+
+    & :global(.noUi-handle) {
+        top: calc((var(--slider-thumb-size) / 2 - var(--slider-progress-m-height) / 2) * -1);
     }
 }

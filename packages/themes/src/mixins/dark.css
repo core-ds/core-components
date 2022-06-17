@@ -122,7 +122,9 @@
     );
     --color-light-graphic-accent-alpha-30: var(--color-dark-graphic-accent-alpha-30);
     --color-light-graphic-accent-tint-15: var(--color-dark-graphic-accent-shade-15);
+    --color-light-graphic-accent-shade-7: var(--color-dark-graphic-accent-tint-7);
     --color-light-graphic-accent-shade-10: var(--color-dark-graphic-accent-tint-10);
+    --color-light-graphic-accent-shade-15: var(--color-dark-graphic-accent-tint-15);
     --color-light-graphic-accent-shade-30: var(--color-dark-graphic-accent-tint-30);
     --color-light-graphic-negative-alpha-30: var(--color-dark-graphic-negative-alpha-30);
     --color-light-graphic-negative-tint-20: var(--color-dark-graphic-negative-shade-20);
