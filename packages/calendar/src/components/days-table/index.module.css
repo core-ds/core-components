@@ -258,37 +258,37 @@
 
 .left {
     & .daysEnter {
-        transform: translateX(var(--calendar-day-size));
+        transform: translateX(50px);
     }
 
     & .daysEnterActive {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
 
     & .daysExit {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
 
     & .daysExitActive {
-        transform: translateX(-1 * var(--calendar-day-size));
+        transform: translateX(-50px);
     }
 }
 
 .right {
     & .daysEnter {
-        transform: translateX(-1 * var(--calendar-day-size));
+        transform: translateX(-50px);
     }
 
     & .daysEnterActive {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
 
     & .daysExit {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
 
     & .daysExitActive {
-        transform: translateX(var(--calendar-day-size));
+        transform: translateX(50px);
     }
 }
 
@@ -329,5 +329,5 @@
 
 .daysEnterActive,
 .daysExitActive {
-    transition: opacity 300ms, transform 350ms;
+    transition: opacity 200ms, transform 300ms;
 }
