@@ -44,8 +44,14 @@
     }
 }
 
-.primary.component:disabled.loader {
-    color: var(--icon-button-primary-base-color);
+.component:disabled {
+    &.primary {
+        color: var(--icon-button-primary-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-primary-base-color);
+        }
+    }
 }
 
 .secondary {
@@ -60,8 +66,14 @@
     }
 }
 
-.secondary.component:disabled.loader {
-    color: var(--icon-button-secondary-base-color);
+.component:disabled {
+    &.secondary {
+        color: var(--icon-button-secondary-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-secondary-base-color);
+        }
+    }
 }
 
 .transparent {
@@ -88,8 +100,14 @@
     }
 }
 
-.negative.component:disabled.loader {
-    color: var(--icon-button-negative-base-color);
+.component:disabled {
+    &.negative {
+        color: var(--icon-button-negative-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-negative-base-color);
+        }
+    }
 }
 
 .tertiary {
@@ -104,6 +122,12 @@
     }
 }
 
-.tertiary.component:disabled.loader {
-    color: var(--icon-button-tertiary-base-color);
+.component:disabled {
+    &.tertiary {
+        color: var(--icon-button-tertiary-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-tertiary-base-color);
+        }
+    }
 }
