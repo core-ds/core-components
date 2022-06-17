@@ -184,7 +184,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onCalendarChange,
             onKeyDown,
             readOnly,
-            Calendar,
+            Calendar = DefaultCalendar,
             popoverPosition = 'bottom-start',
             zIndexPopover,
             useAnchorWidth,
@@ -202,7 +202,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             'desktop',
         );
 
-        const CalendarComponent = view === 'desktop' ? DefaultCalendar : DefaultCalendarMobile;
+        const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
 
         const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
         const shouldRenderOnlyInput = mobileMode === 'input';

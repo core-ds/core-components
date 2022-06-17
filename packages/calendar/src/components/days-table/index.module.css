@@ -329,5 +329,5 @@
 
 .daysEnterActive,
 .daysExitActive {
-    transition: opacity 250ms, transform 250ms;
+    transition: opacity 300ms, transform 350ms;
 }
