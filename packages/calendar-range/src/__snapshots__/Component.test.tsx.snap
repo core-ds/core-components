@@ -47,11 +47,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component loader"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"
@@ -79,11 +79,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component loader"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"
@@ -713,11 +713,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component loader"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"
@@ -745,11 +745,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component loader"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"
