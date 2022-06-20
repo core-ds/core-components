@@ -9,8 +9,10 @@
     justify-content: center;
 }
 
-.button {
-    border-radius: var(--border-radius-s);
+:global(.cc-calendar) {
+    & .button {
+        border-radius: var(--border-radius-s);
+    }
 }
 
 .month {

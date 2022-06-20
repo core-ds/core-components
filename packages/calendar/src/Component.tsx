@@ -260,7 +260,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         return (
             <div
                 {...getRootProps({ ref })}
-                className={cn(styles.component, className, {
+                className={cn('cc-calendar', styles.component, className, {
                     [styles.sixWeeks]: weeks.length === 6,
                 })}
                 data-test-id={dataTestId}
