@@ -2,8 +2,10 @@
 
 .title {
     composes: title from 'index.module.css';
+}
 
-    & + .title {
+.mobile {
+    & .title + .title {
         margin-left: var(--secondary-tablist-mobile-gaps);
     }
 }
