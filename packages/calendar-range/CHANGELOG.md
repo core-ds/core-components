@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.4.0...@alfalab/core-components-calendar-range@5.4.1) (2022-06-20)
+
+
+### Bug Fixes
+
+* **calendar:** increased specificity of the button css class ([#103](https://github.com/core-ds/core-components/issues/103)) ([3d20c11](https://github.com/core-ds/core-components/commit/3d20c112a1c161951afa2e1c6fca8d3c048501e7))
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+
+
+
+
+
 # [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.3.1...@alfalab/core-components-calendar-range@5.4.0) (2022-06-03)
 
 

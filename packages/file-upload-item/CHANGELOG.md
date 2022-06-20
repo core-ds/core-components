@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@3.6.5...@alfalab/core-components-file-upload-item@3.7.0) (2022-06-20)
+
+
+### Bug Fixes
+
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+
+
+### Features
+
+* **file-upload-item:** add ability to disable file delete button ([#86](https://github.com/core-ds/core-components/issues/86)) ([daa8775](https://github.com/core-ds/core-components/commit/daa877591736598ef6f9f0237c40ac8759258eeb))
+
+
+
+
+
 ## [3.6.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@3.6.4...@alfalab/core-components-file-upload-item@3.6.5) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-file-upload-item

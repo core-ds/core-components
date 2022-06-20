@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.2.6...@alfalab/core-components-tabs@6.2.7) (2022-06-20)
+
+
+### Bug Fixes
+
+* **tabs:** increased specificity of the mobile css class ([#102](https://github.com/core-ds/core-components/issues/102)) ([8f212f1](https://github.com/core-ds/core-components/commit/8f212f114d63d83bb7e7340e2ff13b89349bf353))
+
+
+
+
+
 ## [6.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.2.0...@alfalab/core-components-tabs@6.2.1) (2022-03-28)
 
 **Note:** Version bump only for package @alfalab/core-components-tabs
