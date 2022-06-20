@@ -81,13 +81,19 @@ export const Badge = ({
 
     return (
         <div
-            className={cn(!isCountView && styles.wrapper, iconColor && styles[iconColor], {
-                [styles[size]]: !isCountView,
-                [styles.outline]: !isCountView && visibleIconOutline,
-                [styles.outlineColor]: visibleColorOutline,
-                [styles.outlineCount]: isCountView && visibleIconOutline,
-                [styles.count]: isCountView,
-            })}
+            className={cn(
+                !isCountView && styles.wrapper,
+                iconColor && styles[iconColor],
+                {
+                    [styles[size]]: !isCountView,
+                    [styles.outline]: !isCountView && visibleIconOutline,
+                    [styles.outlineColor]: visibleColorOutline,
+                    [styles.outlineCount]: isCountView && visibleIconOutline,
+                    [styles.count]: isCountView,
+                },
+                className,
+            )}
+            data-test-id={dataTestId}
         >
             <div
                 className={cn(
@@ -104,12 +110,10 @@ export const Badge = ({
                         [styles.isHidden]: isHidden,
                         [styles.dot]: !content,
                     },
-                    className,
                 )}
                 style={{
                     ...(isCountView && content && { height, minWidth: height }),
                 }}
-                data-test-id={dataTestId}
             >
                 {componentContent}
             </div>
