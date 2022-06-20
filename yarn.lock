@@ -19376,6 +19376,13 @@ postcss-env-function@^2.0.2:
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
+postcss-export-custom-variables@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-export-custom-variables/-/postcss-export-custom-variables-1.0.0.tgz#8cee371f2b21769ed7f1a01cf89cfebd23d7a131"
+  integrity sha1-jO43Hyshdp7X8aAc+Jz+vSPXoTE=
+  dependencies:
+    postcss "^6.0.1"
+
 postcss-flexbugs-fixes@4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-4.1.0.tgz"
