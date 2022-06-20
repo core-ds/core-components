@@ -21,7 +21,6 @@ type Pips = {
         to: (value: number) => string | number;
         from?: (value: string) => number | false;
     };
-    density?: number;
     stepped?: boolean;
 };
 
@@ -102,11 +101,6 @@ export const Slider: FC<SliderProps> = ({
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
-    if (pips && Array.isArray(pips.values) && !pips.density) {
-        // eslint-disable-next-line no-param-reassign
-        pips.density = Math.floor(100 / pips.values.length);
-    }
-
     useEffect(() => {
         if (!sliderRef.current) return;
 
@@ -114,7 +108,10 @@ export const Slider: FC<SliderProps> = ({
             start: [value],
             connect: [true, false],
             step,
-            pips: pips as Options['pips'],
+            pips: {
+                ...pips,
+                density: 100,
+            } as Options['pips'],
             range,
         });
 
@@ -142,7 +139,10 @@ export const Slider: FC<SliderProps> = ({
 
         const newOptions = {
             step,
-            pips: pips as Options['pips'],
+            pips: {
+                ...pips,
+                density: 100,
+            } as Options['pips'],
             range,
         };
 
