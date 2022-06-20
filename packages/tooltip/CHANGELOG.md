@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.7...@alfalab/core-components-tooltip@5.1.8) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
 ## [5.1.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.6...@alfalab/core-components-tooltip@5.1.7) (2022-06-20)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip
