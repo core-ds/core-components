@@ -1,3 +1,15 @@
+# [27.8.0](https://github.com/core-ds/core-components/compare/v27.7.0...v27.8.0) (2022-06-20)
+
+
+### Bug Fixes
+
+* fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+
+
+### Features
+
+* **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+
 # [27.7.0](https://github.com/core-ds/core-components/compare/v27.6.2...v27.7.0) (2022-06-20)
 
 
