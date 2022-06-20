@@ -102,6 +102,11 @@ export const Slider: FC<SliderProps> = ({
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
+    if (pips && Array.isArray(pips.values) && !pips.density) {
+        // eslint-disable-next-line no-param-reassign
+        pips.density = Math.floor(100 / pips.values.length);
+    }
+
     useEffect(() => {
         if (!sliderRef.current) return;
 
