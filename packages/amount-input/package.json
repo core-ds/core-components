@@ -22,7 +22,7 @@
         "@alfalab/core-components-input": "^8.1.6",
         "@alfalab/core-components-with-suffix": "^3.2.6",
         "@alfalab/data": "^1.2.2",
-        "@alfalab/utils": "^1.9.0",
+        "@alfalab/utils": "^1.11.0",
         "classnames": "2.2.6"
     }
 }

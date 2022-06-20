@@ -129,6 +129,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.2.tgz#3052b75f6e9857bbfa97a0b511b69167cbb9e89c"
   integrity sha512-Sj56c4bZBjm98PEaIiWyB0oDHNQIfPFYMxj1N0eh6WhPgmOz09Zm3oG5+9wZ2fkktVH8sElCHIUkjL2ztFPCbA==
 
+"@alfalab/data@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.3.tgz#b4cc25542ecef657c6f0b64608eb6f9e37f35524"
+  integrity sha512-BWzAJkjxg/+ksajaTv2z35ElFh/jNZE3d+hlOWKfO9uxWITeKKEDs10yPWIlZRcY33q0QtgBlPfp5mQ6BdtnWg==
+
 "@alfalab/hooks@^1.0.0":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@alfalab/hooks/-/hooks-1.1.1.tgz"
@@ -199,6 +204,14 @@
   version "1.4.0"
   resolved "https://registry.npmjs.org/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.4.0.tgz"
   integrity sha512-6BOJJppFlPTsA/m53zjlBDTm49PF1O+wcrSDL7s3uOdMkChc0F/NXKTq+Oz/k4tI4yG5ZnyACcmD8g7vbjvVag==
+
+"@alfalab/utils@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.11.0.tgz#2bfcb5d8f21864263fed4907c1d35b6108e5b3fe"
+  integrity sha512-X4WXuNHfHbmkgJNv1+c1ehCELwuirY3VSazveU46bnLo/KtizNVkM2BOl71gtqn9SvABoLdXe9Mi933Gp6crMw==
+  dependencies:
+    "@alfalab/data" "^1.2.3"
+    fast-redact "^3.1.1"
 
 "@alfalab/utils@^1.9.0":
   version "1.9.0"
@@ -12121,6 +12134,11 @@ fast-levenshtein@~2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+
+fast-redact@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-3.1.1.tgz#790fcff8f808c2e12fabbfb2be5cb2deda448fa0"
+  integrity sha512-odVmjC8x8jNeMZ3C+rPMESzXVSEU8tSWSHv9HFxP2mm89G/1WwqhrerJDQm9Zus8X6aoRgQDThKqptdNA6bt+A==
 
 fastest-levenshtein@^1.0.12:
   version "1.0.12"
