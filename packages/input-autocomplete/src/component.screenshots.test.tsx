@@ -42,3 +42,42 @@ describe('InputAutocomplete | interactions tests', () => {
         }
     });
 });
+
+describe('InputAutocompleteMobile | interactions tests', () => {
+    test('Fill value', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'Inputautocomplete',
+            subComponentName: 'InputAutocompleteMobile',
+            testStory: false,
+            knobs: {
+                block: true,
+            },
+        });
+
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+
+        const matchImageSnapshotOptions: MatchImageSnapshotOptions = {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.1,
+        };
+
+        try {
+            await matchHtml({ page, expect, css, matchImageSnapshotOptions });
+
+            await page.click('[role="combobox"]');
+
+            await matchHtml({ page, expect, css, matchImageSnapshotOptions });
+
+            await page.fill('input', 'D');
+
+            await page.click('button[data-test-id="continue"]');
+
+            await matchHtml({ page, expect, css, matchImageSnapshotOptions });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error.message);
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});

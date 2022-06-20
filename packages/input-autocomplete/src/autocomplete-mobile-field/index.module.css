@@ -1,0 +1,37 @@
+@import '../../../themes/src/default.css';
+
+.component {
+    width: 100%;
+    outline: none;
+}
+
+.field:not(.disabled) {
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: var(--disabled-cursor);
+}
+
+.placeholder {
+    color: var(--color-light-text-secondary);
+}
+
+.contentWrapper {
+    @mixin system_16-20_regular;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.focusVisible {
+    @mixin focus-outline;
+}
