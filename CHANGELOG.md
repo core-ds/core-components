@@ -1,3 +1,20 @@
+# [27.7.0](https://github.com/core-ds/core-components/compare/v27.6.2...v27.7.0) (2022-06-20)
+
+
+### Bug Fixes
+
+* **badge:** fix classname ([#100](https://github.com/core-ds/core-components/issues/100)) ([4b5f2bc](https://github.com/core-ds/core-components/commit/4b5f2bc9ab17daf865a5515828d178eaff94bd2d))
+* **calendar:** increased specificity of the button css class ([#103](https://github.com/core-ds/core-components/issues/103)) ([3d20c11](https://github.com/core-ds/core-components/commit/3d20c112a1c161951afa2e1c6fca8d3c048501e7))
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+* **tabs:** increased specificity of the mobile css class ([#102](https://github.com/core-ds/core-components/issues/102)) ([8f212f1](https://github.com/core-ds/core-components/commit/8f212f114d63d83bb7e7340e2ff13b89349bf353))
+
+
+### Features
+
+* **code-input:** autocomplete sms in android ([#67](https://github.com/core-ds/core-components/issues/67)) ([b32f734](https://github.com/core-ds/core-components/commit/b32f73403d5ccce9812368e5f186952a67dca57c))
+* **file-upload-item:** add ability to disable file delete button ([#86](https://github.com/core-ds/core-components/issues/86)) ([daa8775](https://github.com/core-ds/core-components/commit/daa877591736598ef6f9f0237c40ac8759258eeb))
+* **vars:** export CSS custom properties as JS vars ([#45](https://github.com/core-ds/core-components/issues/45)) ([dbb1f78](https://github.com/core-ds/core-components/commit/dbb1f78795247fa09797c05f134b21a7774e6898))
+
 ## [27.6.2](https://github.com/core-ds/core-components/compare/v27.6.1...v27.6.2) (2022-06-16)
 
 
