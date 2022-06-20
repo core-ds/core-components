@@ -34,7 +34,7 @@ describe('PickerButton', () => {
             try {
                 await page.goto(pageUrl);
 
-                await page.click('button');
+                await page.click('button[class^=component]');
 
                 await matchHtml({
                     page,
