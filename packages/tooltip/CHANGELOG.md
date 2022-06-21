@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.5...@alfalab/core-components-tooltip@5.1.6) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing onClose parameter to tooltip component ([#101](https://github.com/core-ds/core-components/issues/101)) ([216e80f](https://github.com/core-ds/core-components/commit/216e80f2c1f91ae9bdb0dceea2a4db0039c91ec3))
+
+
+
+
+
+## [5.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.4...@alfalab/core-components-tooltip@5.1.5) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing open parameter to tooltip component ([#99](https://github.com/core-ds/core-components/issues/99)) ([885a11f](https://github.com/core-ds/core-components/commit/885a11f7f5e40033622dda5e86ed1c8ea03e7534))
+
+
+
+
+
+## [5.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.3...@alfalab/core-components-tooltip@5.1.4) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [5.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.2...@alfalab/core-components-tooltip@5.1.3) (2022-06-03)
+
+
+### Bug Fixes
+
+* **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
+
+
+
+
+
 ## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.0.1...@alfalab/core-components-tooltip@5.0.2) (2022-03-30)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

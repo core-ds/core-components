@@ -6,6 +6,7 @@
     --button-border-radius: var(--border-radius-m);
     --button-active-transform: scale(0.97);
     --button-font-weight: 500;
+    --button-xxs-size-border-radius: 6px;
 }
 
 .component {
@@ -71,6 +72,7 @@ a.loading {
     min-height: var(--size-xs-height);
     padding: 0 var(--gap-m);
     font-size: 14px;
+    border-radius: var(--button-xxs-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-xs-height);
@@ -284,7 +286,9 @@ a.loading {
 /* Nowrap */
 
 .nowrap {
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* IE min-height fix */

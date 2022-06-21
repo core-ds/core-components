@@ -61,10 +61,10 @@
 
 .meta {
     display: flex;
-    align-items: center;
     white-space: nowrap;
     margin-right: var(--gap-2xs);
     margin-left: var(--gap-xl);
+    padding: var(--gap-2xs) 0;
 
     & > * {
         margin-right: var(--gap-s);

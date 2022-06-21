@@ -13,8 +13,7 @@ import mergeRefs from 'react-merge-refs';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
-import { AttachmentSBlackIcon } from '@alfalab/icons-classic/AttachmentSBlackIcon';
-import { AttachmentMBlackIcon } from '@alfalab/icons-classic/AttachmentMBlackIcon';
+import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 import { pluralize } from '@alfalab/utils';
 import { truncateFilename } from './utils';
 
@@ -67,7 +66,7 @@ export type AttachProps = Omit<
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l';
 
     /**
      * Возможность прикрепления нескольких файлов
@@ -183,8 +182,6 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             [onClear, uncontrolled],
         );
 
-        const Icon = size === 'xs' ? AttachmentSBlackIcon : AttachmentMBlackIcon;
-
         const statusTextContent =
             files.length === 1 ? (
                 truncateFilename(files[0].name, maxFilenameLength)
@@ -215,9 +212,16 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     {...buttonProps}
                     size={size}
                     disabled={disabled}
-                    view={(buttonProps && buttonProps.view) || 'tertiary'}
+                    view={buttonProps?.view || 'secondary'}
                     leftAddons={
-                        (buttonProps && buttonProps.leftAddons) || <Icon className={styles.icon} />
+                        buttonProps?.leftAddons || (
+                            <PaperclipMIcon
+                                className={cn(styles.icon, {
+                                    [styles.icon_size_xs]: size === 'xs',
+                                    [styles.icon_size_xxs]: size === 'xxs',
+                                })}
+                            />
+                        )
                     }
                     onClick={handleButtonClick}
                     ref={buttonRef}

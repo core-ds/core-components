@@ -18,7 +18,6 @@ import {
     format,
     isCompleteDateInput,
     isInputDateSupported,
-    DATE_MASK,
     isValid,
 } from './utils';
 
@@ -67,18 +66,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         const [shouldRenderNative, setShouldRenderNative] = useState(false);
 
         const [value, setValue] = useState(propValue || defaultValue);
-
-        const [stateError, setStateError] = useState(!isValid(propValue));
-
-        const handleValueValidity = useCallback((inputValue: string) => {
-            // Валидируем незаполненное значение только если инпут не в фокусе (блюр, либо установка значения снаружи)
-            const validateIncomplete =
-                inputRef.current && document.activeElement !== inputRef.current;
-
-            if (!inputValue || validateIncomplete || inputValue.length >= DATE_MASK.length) {
-                setStateError(!isValid(inputValue));
-            }
-        }, []);
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -130,11 +117,9 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
 
         const handleBlur = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
-                handleValueValidity(value);
-
                 if (onBlur) onBlur(event);
             },
-            [handleValueValidity, onBlur, value],
+            [onBlur],
         );
 
         useEffect(() => {
@@ -150,10 +135,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [propValue]);
 
-        useEffect(() => {
-            handleValueValidity(value);
-        }, [handleValueValidity, value]);
-
         return (
             <Input
                 {...restProps}
@@ -164,7 +145,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder='ДД.ММ.ГГГГ'
-                error={error || stateError}
+                error={error}
                 rightAddons={
                     <React.Fragment>
                         {rightAddons}

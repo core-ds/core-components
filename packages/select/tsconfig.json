@@ -18,5 +18,6 @@
         { "path": "../checkbox" },
         { "path": "../bottom-sheet" },
         { "path": "../base-modal" },
+        { "path": "../scrollbar" }
     ]
 }

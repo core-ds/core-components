@@ -86,8 +86,8 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
                 })}
                 className={cn(styles.component, className, styles[componentSize])}
                 backdropProps={{
-                    ...restProps.backdropProps,
                     invisible: componentSize === 'fullscreen',
+                    ...restProps.backdropProps,
                 }}
                 transitionProps={{
                     classNames: transitions,

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.8.0...@alfalab/core-components-select@10.8.1) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [10.8.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.7.4...@alfalab/core-components-select@10.8.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+
+
+
+
+
+## [10.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.7.3...@alfalab/core-components-select@10.7.4) (2022-06-03)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 ## [10.6.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.6.3...@alfalab/core-components-select@10.6.4) (2022-03-29)
 
 **Note:** Version bump only for package @alfalab/core-components-select

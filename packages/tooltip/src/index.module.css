@@ -1,10 +1,5 @@
 @import '../../themes/src/default.css';
 
-:root {
-    --tooltip-border-color: var(--color-light-border-primary);
-    --tooltip-hint-bg-color: var(--color-static-bg-primary-dark);
-}
-
 .component {
     @mixin paragraph_primary_small;
     padding: var(--gap-m);
@@ -14,21 +9,9 @@
     border-radius: var(--border-radius-m);
 }
 
-.hint {
-    border-radius: var(--border-radius-s);
-    background-color: var(--tooltip-hint-bg-color);
-    box-shadow: none;
-}
-
 .hint .component {
     @mixin paragraph_secondary_large;
     padding: var(--gap-xs);
-    color: var(--color-light-text-primary-inverted);
-}
-
-.hint .arrow:after {
-    background-color: var(--tooltip-hint-bg-color);
-    border-color: var(--tooltip-hint-bg-color);
 }
 
 .target {

@@ -30,7 +30,14 @@ export const Option: FC<OptionProps> = ({
             })}
             data-test-id={dataTestId}
         >
-            {Checkmark && <Checkmark selected={selected} multiple={multiple} position='before' />}
+            {Checkmark && (
+                <Checkmark
+                    disabled={disabled}
+                    selected={selected}
+                    multiple={multiple}
+                    position='before'
+                />
+            )}
 
             <div
                 className={cn(styles.content, {
@@ -41,7 +48,14 @@ export const Option: FC<OptionProps> = ({
             </div>
 
             {/** Workaround чтобы для клика показывать отметку справа и всегда в виде иконки */}
-            {Checkmark && <Checkmark selected={selected} multiple={multiple} position='after' />}
+            {Checkmark && (
+                <Checkmark
+                    disabled={disabled}
+                    selected={selected}
+                    multiple={multiple}
+                    position='after'
+                />
+            )}
         </div>
     );
 };

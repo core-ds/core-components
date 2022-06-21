@@ -33,6 +33,16 @@ export type CalendarProps = {
     selectorView?: SelectorView;
 
     /**
+     * Возможность выбора месяца и года, если selectorView 'month-only'
+     */
+    isMonthAndYearSelectable?: boolean;
+
+    /**
+     * Отображать ли текущий год, если isMonthAndYearSelectable true
+     */
+    showCurrentYearSelector?: boolean;
+
+    /**
      * Выбранная дата (timestamp)
      */
     value?: number;
@@ -114,6 +124,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             className,
             defaultView = 'days',
             selectorView = 'full',
+            isMonthAndYearSelectable,
+            showCurrentYearSelector,
             value,
             month: monthTimestamp,
             minDate: minDateTimestamp,
@@ -262,8 +274,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             prevArrowDisabled={!canSetPrevMonth}
                             nextArrowDisabled={!canSetNextMonth}
                             hideDisabledArrows={true}
+                            isMonthAndYearSelectable={isMonthAndYearSelectable}
+                            showCurrentYearSelector={showCurrentYearSelector}
                             onPrevArrowClick={handlePrevArrowClick}
                             onNextArrowClick={handleNextArrowClick}
+                            onMonthClick={handleMonthClick}
+                            onYearClick={handleYearClick}
                         />
                     ) : (
                         <MonthYearHeader

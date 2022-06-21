@@ -95,6 +95,9 @@ describe('SelectWithTags | interactions tests', () => {
             await page.click('[role="option"]:nth-child(5)');
             await page.click('[role="option"]:nth-child(6)');
 
+            // Ждем пока исчезнет скролл.
+            await page.waitForTimeout(1000);
+
             await matchHtml({
                 page,
                 expect,

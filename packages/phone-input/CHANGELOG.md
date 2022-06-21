@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.3.5...@alfalab/core-components-phone-input@5.3.6) (2022-06-03)
+
+**Note:** Version bump only for package @alfalab/core-components-phone-input
+
+
+
+
+
 # [5.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.2.14...@alfalab/core-components-phone-input@5.3.0) (2022-03-04)
 
 

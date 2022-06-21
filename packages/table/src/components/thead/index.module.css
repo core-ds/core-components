@@ -15,7 +15,7 @@
         right: 0;
         top: 12px;
         bottom: 8px;
-        background-color: var(--color-light-graphic-neutral);
+        background-color: var(--color-light-graphic-quaternary);
     }
 
     & th:after {

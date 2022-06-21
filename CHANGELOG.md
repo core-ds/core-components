@@ -1,3 +1,242 @@
+## [27.6.2](https://github.com/core-ds/core-components/compare/v27.6.1...v27.6.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing onClose parameter to tooltip component ([#101](https://github.com/core-ds/core-components/issues/101)) ([216e80f](https://github.com/core-ds/core-components/commit/216e80f2c1f91ae9bdb0dceea2a4db0039c91ec3))
+
+## [27.6.1](https://github.com/core-ds/core-components/compare/v27.6.0...v27.6.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing open parameter to tooltip component ([#99](https://github.com/core-ds/core-components/issues/99)) ([885a11f](https://github.com/core-ds/core-components/commit/885a11f7f5e40033622dda5e86ed1c8ea03e7534))
+
+# [27.6.0](https://github.com/core-ds/core-components/compare/v27.5.0...v27.6.0) (2022-06-16)
+
+
+### Features
+
+* **BottonSheet:** prop for controlling animation on screen size chan… ([#89](https://github.com/core-ds/core-components/issues/89)) ([a69e178](https://github.com/core-ds/core-components/commit/a69e17891d1fd91ba6f35bfc097ae1fc9cbf92df))
+
+# [27.5.0](https://github.com/core-ds/core-components/compare/v27.4.1...v27.5.0) (2022-06-09)
+
+
+### Features
+
+* **select-with-tags:** add calling onOpen handler ([#91](https://github.com/core-ds/core-components/issues/91)) ([b48b05c](https://github.com/core-ds/core-components/commit/b48b05c2ad2660e3a6a00a5d8c25a077189c1891))
+
+## [27.4.1](https://github.com/core-ds/core-components/compare/v27.4.0...v27.4.1) (2022-06-09)
+
+
+### Bug Fixes
+
+* **badge:** fix box-sizing ([#90](https://github.com/core-ds/core-components/issues/90)) ([b052b9b](https://github.com/core-ds/core-components/commit/b052b9b15831229104bd25d1231f27ec41d2acb8))
+
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+* **select-with-tags:** add support useSelectWithApply hook ([#85](https://github.com/core-ds/core-components/issues/85)) ([461f3bc](https://github.com/core-ds/core-components/commit/461f3bc2cdd498a6cc362809dbd7b44a4cd5fd79))
+
+# [27.4.0](https://github.com/core-ds/core-components/compare/v27.3.0...v27.4.0) (2022-06-08)
+
+
+### Features
+
+* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+
+# [27.3.0](https://github.com/core-ds/core-components/compare/v27.2.0...v27.3.0) (2022-06-03)
+
+
+### Features
+
+* **plate:** update buttons prop in Plate component ([#81](https://github.com/core-ds/core-components/issues/81)) ([0db6283](https://github.com/core-ds/core-components/commit/0db628390bfa91290b5a6529fab2653f06b4e629))
+
+# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-03)
+
+
+### Bug Fixes
+
+* **attach:** added size xxs and changed default view prop ([#59](https://github.com/core-ds/core-components/issues/59)) ([f6e297d](https://github.com/core-ds/core-components/commit/f6e297d3af39470b09c9cba26d8d1c47dc72d0da))
+* **button:** fix border-radius ([#63](https://github.com/core-ds/core-components/issues/63)) ([e09991e](https://github.com/core-ds/core-components/commit/e09991e07215b1ca19d4e66d189a1504be52aefd))
+* **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
+
+
+### Features
+
+* **date-input:** removed date validation ([#69](https://github.com/core-ds/core-components/issues/69)) ([ca56ec9](https://github.com/core-ds/core-components/commit/ca56ec97db0d966233bd4312fdddabd59ed427ae))
+
+# [27.2.0](https://github.com/core-ds/core-components/compare/v27.1.2...v27.2.0) (2022-06-03)
+
+
+### Bug Fixes
+
+* **tooltip:** added missing props ([#72](https://github.com/core-ds/core-components/issues/72)) ([3f83040](https://github.com/core-ds/core-components/commit/3f83040a32ae6280abebaaddb1b8886a02663096))
+
+
+### Features
+
+* **date-input:** removed date validation ([#69](https://github.com/core-ds/core-components/issues/69)) ([ca56ec9](https://github.com/core-ds/core-components/commit/ca56ec97db0d966233bd4312fdddabd59ed427ae))
+
+### [27.1.2](https://github.com/core-ds/core-components/compare/v27.1.0...v27.1.2) (2022-06-01)
+
+
+### Bug Fixes
+
+* **table:** pagination_disappearance ([#64](https://github.com/core-ds/core-components/issues/64)) ([7aa4c53](https://github.com/core-ds/core-components/commit/7aa4c536923ecb0aee5d80f4ba2e72bde06730dd))
+
+## [27.1.1](https://github.com/core-ds/core-components/compare/v27.1.0...v27.1.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* **table:** pagination_disappearance ([#64](https://github.com/core-ds/core-components/issues/64)) ([7aa4c53](https://github.com/core-ds/core-components/commit/7aa4c536923ecb0aee5d80f4ba2e72bde06730dd))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [27.1.0](https://github.com/core-ds/core-components/compare/v27.0.0...v27.1.0) (2022-05-30)
+
+
+### Bug Fixes
+
+* **codemod:** fix shade|alpha modificators bug ([#60](https://github.com/core-ds/core-components/issues/60)) ([bfc0104](https://github.com/core-ds/core-components/commit/bfc0104c1a15066d878ca27d3ae8c5903f6ca9ad))
+* **typography:** removed default weight prop from Typography.Text ([#61](https://github.com/core-ds/core-components/issues/61)) ([7a80cbb](https://github.com/core-ds/core-components/commit/7a80cbb935c013886b4aa28e56ab982f7fe54ac1))
+
+## [27.0.0](https://github.com/core-ds/core-components/compare/v26.12.0...v27.0.0) (2022-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* change color tokens
+
+* feat(codemod): add css-codemod
+
+### Features
+
+* change color tokens ([#5](https://github.com/core-ds/core-components/issues/5)) ([ddf7c3f](https://github.com/core-ds/core-components/commit/ddf7c3f7be5bc578645ffb6e56958c9bf8fa6ab2)), closes [#20](https://github.com/core-ds/core-components/issues/20) [#21](https://github.com/core-ds/core-components/issues/21)
+
+## [26.12.0](https://github.com/core-ds/core-components/compare/v26.11.0...v26.12.0) (2022-05-26)
+
+
+### Features
+
+* **amount:** add styling props ([#44](https://github.com/core-ds/core-components/issues/44)) ([539268a](https://github.com/core-ds/core-components/commit/539268a60a44db29f159d16cca6ad343deeef58d))
+* **tabs:** add dataTestId prop to Tab component ([bfa4604](https://github.com/core-ds/core-components/commit/bfa46043d0e62f1839b15c478ee72397a9843155))
+
+## [26.11.0](https://github.com/core-ds/core-components/compare/v26.10.0...v26.11.0) (2022-05-20)
+
+
+### Features
+
+* **badge:** added badge color outlines ([#19](https://github.com/core-ds/core-components/issues/19)) ([f1a0dfa](https://github.com/core-ds/core-components/commit/f1a0dfa0775451a6a163dbfd7f3f80fbd09e47c4))
+* **calendar-range:** default month position ([#11](https://github.com/core-ds/core-components/issues/11)) ([2e72064](https://github.com/core-ds/core-components/commit/2e720646c25b1008dcce1a2a7948b947273ed389))
+* **tooltip:** add inverted colors ([#2](https://github.com/core-ds/core-components/issues/2)) ([9f9f3eb](https://github.com/core-ds/core-components/commit/9f9f3eb69db3e4550d2bf53eb713c2d7196ec7a3))
+
+
+### Bug Fixes
+
+* clear button isn't accessible from the keyboard ([#49](https://github.com/core-ds/core-components/issues/49)) ([e751edc](https://github.com/core-ds/core-components/commit/e751edc8557cb4011ab352994c560287ded0f669))
+
+## [26.10.0](https://github.com/core-ds/core-components/compare/v26.9.1...v26.10.0) (2022-05-17)
+
+
+### Features
+
+* **icon-view:** adding 40 size for circle and super ellipse ([#42](https://github.com/core-ds/core-components/issues/42)) ([2e717cc](https://github.com/core-ds/core-components/commit/2e717ccec46c40e15fb4f6c1051ef33b1faa4c51))
+* **radio-group:** make radio group value prop nullable ([#33](https://github.com/core-ds/core-components/issues/33)) ([501d41c](https://github.com/core-ds/core-components/commit/501d41c06147843dc02de63ae5dc35023d112b05))
+* add lint-pr action ([#34](https://github.com/core-ds/core-components/issues/34)) ([477a464](https://github.com/core-ds/core-components/commit/477a464c97221b04c5fc8011e2164644d86788bb))
+
+
+### Bug Fixes
+
+* **chart:** chart stories restored ([#46](https://github.com/core-ds/core-components/issues/46)) ([b3bca85](https://github.com/core-ds/core-components/commit/b3bca858af37dc7e1cb6878e8e1c114ca218a998))
+* **modal:** rewrite invisible prop from backdropProps ([#38](https://github.com/core-ds/core-components/issues/38)) ([436e833](https://github.com/core-ds/core-components/commit/436e83346d2d35f02f94da0b67de7918d090e53a))
+* change package paths in storybook webpack config ([#27](https://github.com/core-ds/core-components/issues/27)) ([e7ff0b4](https://github.com/core-ds/core-components/commit/e7ff0b49e6c473d42f2695ed4a1f919c43e9c5ca))
+
+### [26.9.1](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.1) (2022-05-13)
+
+
+### Features
+
+* **attach:** add new icon ([#15](https://github.com/core-ds/core-components/issues/15)) ([4643792](https://github.com/core-ds/core-components/commit/46437929e503b8a1f22afb34f8fe6ad961211d86))
+* **toast:** add use anchor width for popover ([#39](https://github.com/core-ds/core-components/issues/39)) ([747e1e2](https://github.com/core-ds/core-components/commit/747e1e26b82bc98dfd245dd4b427cd319f729b71))
+
+# [26.9.0](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.0) (2022-05-13)
+
+
+### Features
+
+* **attach:** add new icon ([#15](https://github.com/core-ds/core-components/issues/15)) ([4643792](https://github.com/core-ds/core-components/commit/46437929e503b8a1f22afb34f8fe6ad961211d86))
+* **toast:** add use anchor width for popover ([#39](https://github.com/core-ds/core-components/issues/39)) ([747e1e2](https://github.com/core-ds/core-components/commit/747e1e26b82bc98dfd245dd4b427cd319f729b71))
+
+# [26.9.0](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.0) (2022-05-11)
+
+
+### Features
+
+* **attach:** add new icon ([#15](https://github.com/core-ds/core-components/issues/15)) ([4643792](https://github.com/core-ds/core-components/commit/46437929e503b8a1f22afb34f8fe6ad961211d86))
+
+# [26.9.0](https://github.com/core-ds/core-components/compare/v26.8.0...v26.9.0) (2022-05-06)
+
+
+### Features
+
+* **attach:** add new icon ([#15](https://github.com/core-ds/core-components/issues/15)) ([4643792](https://github.com/core-ds/core-components/commit/46437929e503b8a1f22afb34f8fe6ad961211d86))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [26.8.0](https://github.com/core-ds/core-components/compare/v26.7.0...v26.8.0) (2022-05-05)
+
+
+### Features
+
+* **calendar:** add selectable year and month for PeriodSlider ([#18](https://github.com/core-ds/core-components/issues/18)) ([918767c](https://github.com/core-ds/core-components/commit/918767ce06e5dec1ba094a57282e88fc4cd2de66))
+
+
+### Bug Fixes
+
+* add disabled props to checkbox ([#32](https://github.com/core-ds/core-components/issues/32)) ([b64adff](https://github.com/core-ds/core-components/commit/b64adffb8439a64bbf85e30864d1b932fc4dd2eb))
+
+## [26.7.0](https://github.com/core-ds/core-components/compare/v26.5.3...v26.7.0) (2022-05-04)
+
+
+### Features
+
+* **button:** add overflow hidden and text overflow ellipsis for nowrap ([#17](https://github.com/core-ds/core-components/issues/17)) ([7d9669a](https://github.com/core-ds/core-components/commit/7d9669a56c6b134caae9a0317ffc2c0206928a27))
+* **toast:** break text in toast ([#25](https://github.com/core-ds/core-components/issues/25)) ([5356ce6](https://github.com/core-ds/core-components/commit/5356ce685e35b9414a465fb023382535f150abf5))
+
+
+### Bug Fixes
+
+* **code-input:** auto-fill styles ([#24](https://github.com/core-ds/core-components/issues/24)) ([7e83e02](https://github.com/core-ds/core-components/commit/7e83e02b4aae0aeefe91a2526744ca10d7577290))
+* **confirmation:** fix countdown timer ([#23](https://github.com/core-ds/core-components/issues/23)) ([2752723](https://github.com/core-ds/core-components/commit/2752723bdbf71e42cfb1e8c6e9009c719663ec09))
+
+# [26.6.0](https://github.com/core-ds/core-components/compare/v26.5.3...v26.6.0) (2022-05-04)
+
+
+### Bug Fixes
+
+* **code-input:** auto-fill styles ([#24](https://github.com/core-ds/core-components/issues/24)) ([7e83e02](https://github.com/core-ds/core-components/commit/7e83e02b4aae0aeefe91a2526744ca10d7577290))
+* **confirmation:** fix countdown timer ([#23](https://github.com/core-ds/core-components/issues/23)) ([2752723](https://github.com/core-ds/core-components/commit/2752723bdbf71e42cfb1e8c6e9009c719663ec09))
+
+
+### Features
+
+* **button:** add overflow hidden and text overflow ellipsis for nowrap ([#17](https://github.com/core-ds/core-components/issues/17)) ([7d9669a](https://github.com/core-ds/core-components/commit/7d9669a56c6b134caae9a0317ffc2c0206928a27))
+* **toast:** break text in toast ([#25](https://github.com/core-ds/core-components/issues/25)) ([5356ce6](https://github.com/core-ds/core-components/commit/5356ce685e35b9414a465fb023382535f150abf5))
+
+
+### Reverts
+
+* Revert "исправление (управление формы): исправление высоты метки линии (#14)" (#16) ([a4b70d1](https://github.com/core-ds/core-components/commit/a4b70d1ca36294fbc114486d65eef9fdb0543ad8)), closes [#14](https://github.com/core-ds/core-components/issues/14) [#16](https://github.com/core-ds/core-components/issues/16)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

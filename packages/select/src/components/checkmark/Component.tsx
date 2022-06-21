@@ -7,6 +7,7 @@ import styles from './index.module.css';
 
 export const Checkmark = ({
     selected,
+    disabled = false,
     className,
     multiple,
     position = 'before',
@@ -29,6 +30,7 @@ export const Checkmark = ({
     ) : (
         <Checkbox
             checked={selected}
+            disabled={disabled}
             className={checkmarkClassNames}
             size='m'
             onClick={handleCheckboxClick}

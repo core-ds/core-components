@@ -39,6 +39,53 @@ exports[`Toast Snapshots tests should match snapshot when open 1`] = `
 </body>
 `;
 
+exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` and \`useAnchorWidth\` is passed 1`] = `
+<body>
+  <div
+    alfa-portal-container=""
+  >
+    <div
+      class="component"
+      style="z-index: 1000; width: 0px; position: absolute; left: 0px; top: 0px;"
+    >
+      <div
+        class="inner popoverInner"
+        style="transition-duration: 150ms;"
+      >
+        <div
+          class=""
+        >
+          <div
+            class="component"
+          >
+            <div
+              class="contentWrap"
+            >
+              <div
+                class="content"
+              >
+                <div>
+                  <div
+                    class="children"
+                  >
+                    text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div />
+  <div
+    style="width: 100px;"
+  />
+  <div />
+</body>
+`;
+
 exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` is passed 1`] = `
 <body>
   <div
