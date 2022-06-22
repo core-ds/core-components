@@ -31,8 +31,7 @@ render (() => {
         bottomBadgeColor='attention' 
         bottomBadgeName='glyph_arrow-up-circle_m'
         indicatorTopBadge={2}
-        backgroundColor='grey'
-        bottomBadgeBackground='attention'
+        backgroundColor='secondary'
         />
         <PureCell.Content>
           <PureCell.Main isReverse={revert}>
@@ -58,7 +57,7 @@ render (() => {
              <InformationCircleMIcon  style={{color: '#c5c5c7'}}/>
           </PureCell.Addon>
           <PureCell.Footer footerPadding='default'>
-                <PureCell.FooterTitle color='secondary'>Status</PureCell.FooterTitle>
+                <PureCell.ExtraSubtitle color='secondary'>Status</PureCell.ExtraSubtitle>
           </PureCell.Footer>
         </PureCell.Content>
       </PureCell>
@@ -823,7 +822,7 @@ render (() => (
                     </PureCell.Text>
                 </PureCell.Addon>
                 <PureCell.Footer>
-                    <PureCell.FooterTitle>Status</PureCell.FooterTitle>
+                    <PureCell.ExtraSubtitle>Status</PureCell.ExtraSubtitle>
                     <PureCell.FooterButton>Button</PureCell.FooterButton>
                 </PureCell.Footer>
             </PureCell.Content>
@@ -847,7 +846,7 @@ render (() => (
                     </PureCell.Text>
                 </PureCell.Addon>
                 <PureCell.Footer>
-                    <PureCell.FooterTitle color="attention">Status</PureCell.FooterTitle>
+                    <PureCell.ExtraSubtitle color="attention">Status</PureCell.ExtraSubtitle>
                     <PureCell.FooterButton>Button</PureCell.FooterButton>
                 </PureCell.Footer>
             </PureCell.Content>

@@ -187,7 +187,7 @@ export const PureCell = Object.assign(PureCellComponent, {
     AmountTitle,
     Addon,
     Footer,
-    FooterTitle: FooterText,
+    ExtraSubtitle: FooterText,
     FooterButton,
     Comment,
     Category,

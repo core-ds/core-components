@@ -156,7 +156,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     />
                 </PureCell.Main>
                 <PureCell.Footer>
-                    <PureCell.FooterTitle>Status</PureCell.FooterTitle>
+                    <PureCell.ExtraSubtitle>Status</PureCell.ExtraSubtitle>
                     <PureCell.FooterButton>Button</PureCell.FooterButton>
                 </PureCell.Footer>
             </PureCell.Content>
@@ -393,7 +393,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         />
                     </PureCell.Main>
                     <PureCell.Footer footerPadding={footerPadding}>
-                        <PureCell.FooterTitle>Status</PureCell.FooterTitle>
+                        <PureCell.ExtraSubtitle>Status</PureCell.ExtraSubtitle>
                         <PureCell.FooterButton>Button</PureCell.FooterButton>
                     </PureCell.Footer>
                 </PureCell.Content>
@@ -441,7 +441,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     })}
 </Story>
 
-<Story name='PureCell.FooterTitle'>
+<Story name='PureCell.ExtraSubtitle'>
     {React.createElement(() => {
     const footerPadding = select('footerPadding', ['default', 'none'], 'default');
     const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
@@ -474,7 +474,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         />
                     </PureCell.Main>
                     <PureCell.Footer footerPadding={footerPadding}>
-                        <PureCell.FooterTitle color={ color }>Status</PureCell.FooterTitle>
+                        <PureCell.ExtraSubtitle color={ color }>Status</PureCell.ExtraSubtitle>
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
@@ -585,7 +585,7 @@ import { PureCell } from '@alfalab/core-components/pure-cell';
             'Content': PureCell.Content,
             'Footer': PureCell.Footer,
             'FooterButton': PureCell.FooterButton,
-            'FooterTitle': PureCell.FooterTitle,
+            'ExtraSubtitle': PureCell.ExtraSubtitle,
             'Graphics': PureCell.Graphics,
             'Main': PureCell.Main,
             'Text': PureCell.Text,
