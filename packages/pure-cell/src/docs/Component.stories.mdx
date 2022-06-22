@@ -25,11 +25,12 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');
     const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const wight = select('wight', ['bold', 'normal'], 'normal');
     const view = select('view', ['component', 'primary-small'], 'component');
-    const viewAount = select('viewAount', ['default' , 'withZeroMinorPart'], 'default');
+    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'default');
     const color = select('color', 
     [
     'tertiary',
@@ -53,7 +54,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         <div style={{
                 display: 'flex', gap: '20px', flexWrap: 'nowrap', flexDirection: 'column'
             }}>
-        <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Graphics>
                 <StarMIcon />
             </PureCell.Graphics>
@@ -68,14 +69,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 </PureCell.Main>
             </PureCell.Content>
         </PureCell>
-        <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Content>
             <PureCell.Main>
                 <PureCell.Text color="secondary" view="primary-small">
                     Product Name ··0000
                 </PureCell.Text>
                 <PureCell.Amount 
-                amount={ { view: viewAount, value: value, minorUnits: 100, currency: 'RUR' } } 
+                amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } } 
                 wight={ wight } color={ color } view={ view }/>
             </PureCell.Main>
             <PureCell.Footer>
@@ -86,14 +87,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell.Footer>
         </PureCell.Content>
         </PureCell>
-        <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Content>
                 <PureCell.Main>
                     <PureCell.Text color="secondary" view="primary-small">
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.AmountTitle
-                        amount={ { view: viewAount, value: value, minorUnits: 100, currency: 'RUR' } } 
+                        amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } } 
                         color={ color }
                     />
                 </PureCell.Main>
@@ -106,7 +107,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         <div style={{
                 display: 'flex', gap: '20px', flexWrap: 'nowrap', flexDirection: 'column'
             }}>
-        <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Content>
                 <PureCell.Main>
                     <PureCell.Text color="primary" view="component" rowLimit={ 1 }>
@@ -122,7 +123,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 </PureCell.Footer>
             </PureCell.Content>
         </PureCell>
-        <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Graphics>
                 <Circle />
             </PureCell.Graphics>
@@ -140,7 +141,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 </PureCell.Addon>
             </PureCell.Content>
         </PureCell>
-        <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Graphics>
                 <Circle/>
             </PureCell.Graphics>
@@ -168,13 +169,15 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Addon'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');
+    const addonPadding = select('addonPadding', ['default', 'none'], 'default');
     const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
         <div style={{
                 width: '400px',
             }}>
-        <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Graphics>
                 <Circle />
             </PureCell.Graphics>
@@ -187,7 +190,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                                 Additional Info
                             </PureCell.Text>
                         </PureCell.Main>
-                        <PureCell.Addon verticalAlign="center">
+                        <PureCell.Addon verticalAlign="center" addonPadding={addonPadding}>
                             <InformationCircleMIcon  style={{color: '#c5c5c7'}}/>
                         </PureCell.Addon>
                     </PureCell.Content>
@@ -199,11 +202,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Amount'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const wight = select('wight', ['bold', 'normal'], 'normal');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const weight = select('weight', ['bold', 'normal'], 'normal');
     const view = select('view', ['component', 'primary-small'], 'component');
-    const viewAount = select('viewAount', ['default' , 'withZeroMinorPart'], 'default');
+    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'default');
     const color = select('color', 
     [
     'tertiary',
@@ -221,15 +224,15 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     ], 'primary');
     const value = text('value', '100000000');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                  <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text color="secondary" view="primary-small">
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount 
-                        amount={ { view: viewAount, value: value, minorUnits: 100, currency: 'RUR' } } 
-                        wight={ wight } color={ color } view={ view }/>
+                        amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } } 
+                        weight={ weight } color={ color } view={ view }/>
                     </PureCell.Main>
                     <PureCell.Footer>
                         <Typography.Text color="secondary" view="primary-small">
@@ -245,9 +248,9 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.AmountTitle'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const viewAount = select('viewAount', ['default' , 'withZeroMinorPart'], 'default');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'default');
     const color = select('color', 
     [
     'tertiary',
@@ -265,14 +268,14 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     ], 'primary');
     const value = text('value', '100000000');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text color="secondary" view="primary-small">
                             Общий баланс
                         </PureCell.Text>
                         <PureCell.AmountTitle
-                            amount={ { view: viewAount, value: value, minorUnits: 100, currency: 'RUR' } } 
+                            amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } } 
                          color={ color }
                         />
                     </PureCell.Main>
@@ -287,12 +290,12 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Category'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     const categoryName = text('categoryName', 'Кафе, рестораны, столовые, бары');
     const categoryPercent = text('categoryPercent', '10');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Graphics>
                     <Circle />
                 </PureCell.Graphics>
@@ -314,10 +317,10 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Comment'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text color="primary" view="component" rowLimit={ 1 }>
@@ -339,13 +342,13 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Content'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
         <div style={{
                 width: '400px',
             }}>
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Graphics>
                     <Circle  />
                 </PureCell.Graphics>
@@ -371,10 +374,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Footer'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Graphics>
                     <Circle/>
                 </PureCell.Graphics>
@@ -388,7 +392,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             categoryPercent={ 10 }
                         />
                     </PureCell.Main>
-                    <PureCell.Footer>
+                    <PureCell.Footer footerPadding={footerPadding}>
                         <PureCell.FooterTitle>Status</PureCell.FooterTitle>
                         <PureCell.FooterButton>Button</PureCell.FooterButton>
                     </PureCell.Footer>
@@ -400,11 +404,12 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.FooterButton'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     const colors = select('colors', ['default', 'inverted'], 'default');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text color="primary" view="component" rowLimit={ 1 }>
@@ -415,7 +420,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             categoryPercent={ 10 }
                         />
                     </PureCell.Main>
-                    <PureCell.Footer>
+                    <PureCell.Footer footerPadding={footerPadding}>
                         <PureCell.FooterButton
                             view={select('view', VIEWS, 'primary')}
                             colors={colors}
@@ -438,8 +443,9 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.FooterTitle'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const color = select('color', 
     [
     'tertiary',
@@ -456,7 +462,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     'negative',
     ], 'secondary');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text color="primary" view="component" rowLimit={ 1 }>
@@ -467,7 +473,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             categoryPercent={ 10 }
                         />
                     </PureCell.Main>
-                    <PureCell.Footer>
+                    <PureCell.Footer footerPadding={footerPadding}>
                         <PureCell.FooterTitle color={ color }>Status</PureCell.FooterTitle>
                     </PureCell.Footer>
                 </PureCell.Content>
@@ -478,10 +484,10 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Graphics'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Graphics>
                     <Circle/>
                 </PureCell.Graphics>
@@ -492,10 +498,10 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Main'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Graphics>
                     <Circle  />
                 </PureCell.Graphics>
@@ -522,13 +528,13 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Text'>
     {React.createElement(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     const rowLimit = select('rowLimit', ['1', '2'], '1');
     const view = select('view', ['primary-small', 'component'], 'component');
     const color = select('color', ['secondary', 'primary'], 'primary');
     return (
-            <PureCell href={ text('href', '') } padding={ padding } direction={ direction }>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
                 <PureCell.Graphics>
                     <Circle />
                 </PureCell.Graphics>

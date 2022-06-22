@@ -1,6 +1,10 @@
-@import '../../vars.css';
 @import '../../../../themes/src/default.css';
 
 .component {
     flex-basis: auto;
+}
+
+.iconCdn {
+    height: 18px;
+    width: 18px;
 }

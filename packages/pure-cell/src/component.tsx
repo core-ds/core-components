@@ -39,30 +39,40 @@ export type PureCellProps = {
      * Направление
      */
     direction?: 'horizontal' | 'vertical';
+
     /**
      * Сss класс для стилизации общей обёртки
      */
     className?: string;
-    /**
-     * Id компонента для тестов
-     */
-    dataTestId?: string;
-    /**
-     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
-     */
-    Component?: ElementType;
+
     /**
      * Выводит ссылку в виде ячейки
      */
     href?: string;
+
     /**
-     * Отступы
+     * Вертикальные отступы
      */
-    padding?: 'airy' | 'default' | 'compact' | 'tiny';
+    verticalPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+
+    /**
+     * Горизонтальные отступы
+     */
+    horizontalPadding?: 'left' | 'right' | 'both' | 'none';
+
+    /**
+     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
+     */
+    tag?: ElementType;
     /**
      * Компоненты
      */
     children: PureCellElement;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 type AnchorPureCellProps = PureCellProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonPureCellProps = PureCellProps & ButtonHTMLAttributes<HTMLButtonElement>;
@@ -76,9 +86,10 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             dataTestId,
             onClick,
             href,
-            Component = (href && 'a') || (onClick && 'button') || 'section',
+            tag: Component = (href && 'a') || (onClick && 'button') || 'section',
             children,
-            padding,
+            horizontalPadding = 'default',
+            verticalPadding = 'none',
             direction = 'horizontal',
             ...restProps
         },
@@ -104,7 +115,13 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     {...hrefProps}
                     ref={mergeRefs([cellRef, ref])}
-                    className={cn(styles.link, addClasses, padding && styles[padding], className)}
+                    className={cn(
+                        styles.link,
+                        addClasses,
+                        className,
+                        styles[horizontalPadding],
+                        styles[verticalPadding],
+                    )}
                     data-test-id={dataTestId}
                 >
                     <PureCellContext.Provider value={{ direction }}>
@@ -119,7 +136,13 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                 <Component
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     ref={mergeRefs([cellRef, ref])}
-                    className={cn(styles.button, addClasses, padding && styles[padding], className)}
+                    className={cn(
+                        styles.button,
+                        addClasses,
+                        styles[horizontalPadding],
+                        styles[verticalPadding],
+                        className,
+                    )}
                     data-test-id={dataTestId}
                     onClick={onClick}
                 >
@@ -134,7 +157,12 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             <Component
                 ref={ref}
                 tabIndex={0}
-                className={cn(addClasses, padding && styles[padding], className)}
+                className={cn(
+                    addClasses,
+                    styles[horizontalPadding],
+                    styles[verticalPadding],
+                    className,
+                )}
                 data-test-id={dataTestId}
             >
                 <PureCellContext.Provider value={{ direction }}>

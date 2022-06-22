@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Typography } from '@alfalab/core-components-typography';
-import { Color } from '@alfalab/core-components-typography/src/colors';
+import { Typography, Color } from '@alfalab/core-components-typography';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
 export type Props = {
@@ -9,6 +8,7 @@ export type Props = {
      * Цвет текста
      */
     color?: Color;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */

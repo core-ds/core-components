@@ -1,5 +1,6 @@
 import React from 'react';
 
+import cn from 'classnames';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 import { FooterElement } from '../types';
 
@@ -10,14 +11,23 @@ type Props = {
      * Компоненты
      */
     children: FooterElement;
+
+    /**
+     * Вертикальные отступы
+     */
+    footerPadding?: 'default' | 'none';
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
-export const Footer: React.FC<Props> = ({ children, dataTestId }) => (
-    <footer className={styles.component} data-test-id={getDataTestId(dataTestId, 'footer')}>
+export const Footer: React.FC<Props> = ({ children, footerPadding = 'default', dataTestId }) => (
+    <footer
+        className={cn(styles.component, styles[footerPadding])}
+        data-test-id={getDataTestId(dataTestId, 'footer')}
+    >
         {children}
     </footer>
 );

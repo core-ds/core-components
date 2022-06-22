@@ -13,10 +13,10 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component'>
                             Title
                         </PureCell.Text>
-                        <PureCell.Text color='secondary' view='primary-small'>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Label
                         </PureCell.Text>
                     </PureCell.Main>
@@ -37,10 +37,10 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component'>
                             Title
                         </PureCell.Text>
-                        <PureCell.Text color='secondary' view='primary-small'>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Label
                         </PureCell.Text>
                     </PureCell.Main>
@@ -61,10 +61,10 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component'>
                             Title
                         </PureCell.Text>
-                        <PureCell.Text color='secondary' view='primary-small'>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Label
                         </PureCell.Text>
                     </PureCell.Main>
@@ -77,16 +77,16 @@ describe('PureCell', () => {
 
     it('should use `Component` prop', () => {
         render(
-            <PureCell Component='div' dataTestId='cell-pure'>
+            <PureCell tag='div' dataTestId='cell-pure'>
                 <PureCell.Graphics>
                     <StarMIcon />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component'>
                             Title
                         </PureCell.Text>
-                        <PureCell.Text color='secondary' view='primary-small'>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Label
                         </PureCell.Text>
                     </PureCell.Main>
@@ -105,10 +105,10 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component'>
                             Title
                         </PureCell.Text>
-                        <PureCell.Text color='secondary' view='primary-small'>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Label
                         </PureCell.Text>
                     </PureCell.Main>
@@ -119,18 +119,18 @@ describe('PureCell', () => {
         expect(screen.getByTestId('cell-pure').tagName).toBe('A');
     });
 
-    it('should use `padding` prop', () => {
+    it('should use `verticalPadding` prop', () => {
         render(
-            <PureCell padding='airy' dataTestId='cell-pure'>
+            <PureCell verticalPadding='airy' dataTestId='cell-pure'>
                 <PureCell.Graphics>
                     <StarMIcon />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component'>
                             Title
                         </PureCell.Text>
-                        <PureCell.Text color='secondary' view='primary-small'>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Label
                         </PureCell.Text>
                     </PureCell.Main>
@@ -139,6 +139,28 @@ describe('PureCell', () => {
         );
 
         expect(screen.getByTestId('cell-pure')).toHaveClass('airy');
+    });
+
+    it('should use `horizontalPadding` prop', () => {
+        render(
+            <PureCell horizontalPadding='both' dataTestId='cell-pure'>
+                <PureCell.Graphics>
+                    <StarMIcon />
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='primary' view='component'>
+                            Title
+                        </PureCell.Text>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                            Label
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>,
+        );
+
+        expect(screen.getByTestId('cell-pure')).toHaveClass('both');
     });
 
     it('should render `button` if it has `onClick` prop', () => {
@@ -151,10 +173,10 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component'>
                             Title
                         </PureCell.Text>
-                        <PureCell.Text color='secondary' view='primary-small'>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Label
                         </PureCell.Text>
                     </PureCell.Main>

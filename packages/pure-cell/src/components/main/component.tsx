@@ -12,18 +12,26 @@ type Props = {
      * Компоненты
      */
     children: MainElement;
+
+    /**
+     * Позволяет изменить расположение блоков внутри main
+     */
+    isReverse?: boolean;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
-export const Main: React.FC<Props> = ({ children, dataTestId }) => {
+export const Main: React.FC<Props> = ({ children, isReverse, dataTestId }) => {
     const { direction = 'horizontal' } = useContext(PureCellContext);
 
     return (
         <main
-            className={cn(styles.component, [styles[direction]])}
+            className={cn(styles.component, styles[direction], {
+                [styles.reverse]: isReverse,
+            })}
             data-test-id={getDataTestId(dataTestId, 'main')}
         >
             {children}

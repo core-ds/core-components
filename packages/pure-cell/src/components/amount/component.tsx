@@ -1,10 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
-import { Color } from '@alfalab/core-components-typography/src/colors';
+import { Typography, Color } from '@alfalab/core-components-typography';
 
-import { Amount as CorAmount } from '@alfalab/core-components-amount';
+import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { AmountProps as AmountType } from '../typesProps';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
@@ -15,18 +14,22 @@ type Props = {
      * Props свойственные для компонента Amount
      */
     amount: AmountType;
+
     /**
      * Начертание шрифта денежного значения
      */
-    wight?: 'bold' | 'normal';
+    weight?: 'bold' | 'normal';
+
     /**
      * Размер денежного значения
      */
     view?: 'component' | 'primary-small';
+
     /**
      * Цвет денежного значения
      */
     color?: Color;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
@@ -35,7 +38,7 @@ type Props = {
 
 export const Amount: React.FC<Props> = ({
     amount,
-    wight = 'normal',
+    weight = 'normal',
     view = 'component',
     color = 'primary',
     dataTestId,
@@ -48,16 +51,16 @@ export const Amount: React.FC<Props> = ({
         rightAddons,
         showPlus,
         className,
-        view: viewAount,
+        view: viewAmount,
     } = amount;
     return (
         <Typography.Text
             view={view}
-            dataTestId={getDataTestId(dataTestId, 'amount')}
-            className={cn(styles.component, styles[wight])}
+            dataTestId={getDataTestId(dataTestId, 'amount-text')}
+            className={cn(styles.component, styles[weight])}
             color={color}
         >
-            <CorAmount
+            <CoreAmount
                 minority={minority === undefined ? minorUnits : minority}
                 value={value}
                 rightAddons={rightAddons}
@@ -65,7 +68,7 @@ export const Amount: React.FC<Props> = ({
                 className={className}
                 currency={currency}
                 dataTestId={getDataTestId(dataTestId, 'amount')}
-                view={viewAount}
+                view={viewAmount}
             />
         </Typography.Text>
     );

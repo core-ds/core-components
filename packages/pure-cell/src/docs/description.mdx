@@ -1,5 +1,72 @@
 import { Container, Row, Col } from 'storybook/blocks';
 
+```tsx live
+render (() => {
+    const [multiline, setMultiline] = React.useState(false);
+    const [revert, setRevert] = React.useState(false);
+
+    const handleMultiline = () => setMultiline(!multiline);
+    const handleRevert = () => setRevert(!revert);
+
+  return (
+    <div style={{ width: "450px" }}>
+    <Row>
+        <Col>
+            <Button type='button' size='xs' onClick={handleMultiline}>
+                    multiline
+            </Button>
+        </Col>
+        <Col>
+            <Button type='button' size='xs' onClick={handleRevert}>
+                    revert
+            </Button>
+        </Col>
+      </Row>
+      <PureCell href={text("href", "")} padding='default' direction='horizontal'>
+        <PureCell.Graphics 
+        iconName='glyph_debt_m'
+        iconColor='black' 
+        bottomBadgeSource 
+        topBadgeSource 
+        bottomBadgeColor='attention' 
+        bottomBadgeName='glyph_arrow-up-circle_m'
+        indicatorTopBadge={2}
+        backgroundColor='grey'
+        bottomBadgeBackground='attention'
+        />
+        <PureCell.Content>
+          <PureCell.Main isReverse={revert}>
+            <PureCell.Text titleColor="primary" valueColor="secondary" isMultiline={multiline} value="Value" view="component">
+              Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона 115-ФЗ «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма».
+Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны предотвращать проведение таких операций и поэтому могут запросить дополнительную информацию и документы, ограничить доступ к платежам через интернет-банк или даже отказать в исполнении платежа
+            </PureCell.Text>
+            <PureCell.Text titleColor="positive" valueColor="negative" value="SubValue" view="primary-small">
+              Сейчас много говорят об отказах банков в проведении операций,
+              блокировках интернет-банка. Это связано с тем, что Центральный
+              банк РФ обязывает банки выявлять операции своих клиентов,
+              потенциально нарушающие требования Федерального закона 115-ФЗ «О
+              противодействии легализации (отмыванию) доходов, полученных
+              преступным путем, и финансированию терроризма». Ознакомиться с
+              требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+              предотвращать проведение таких операций и поэтому могут запросить
+              дополнительную информацию и документы, ограничить доступ к
+              платежам через интернет-банк или даже отказать в исполнении
+              платежа
+            </PureCell.Text>
+          </PureCell.Main>
+          <PureCell.Addon verticalAlign="center">
+             <InformationCircleMIcon  style={{color: '#c5c5c7'}}/>
+          </PureCell.Addon>
+          <PureCell.Footer footerPadding='default'>
+                <PureCell.FooterTitle color='secondary'>Status</PureCell.FooterTitle>
+          </PureCell.Footer>
+        </PureCell.Content>
+      </PureCell>
+    </div>
+  );
+});
+```
+
 ### PureCell
 Универсальный конструктор для сборки любой ячейки
 

@@ -1,16 +1,22 @@
-@import '../../vars.css';
 @import '../../../../themes/src/default.css';
 
 .component {
     grid-column: 2/3;
-    justify-self: end;
     padding-left: var(--gap-m);
 
     & > * {
         justify-content: flex-end;
     }
-}
 
-.center {
-    align-self: center;
+    &.none {
+        padding-left: 0;
+    }
+
+    &.default {
+        padding-left: var(--gap-m);
+    }
+
+    &.center {
+        align-self: center;
+    }
 }

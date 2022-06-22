@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { Typography } from '@alfalab/core-components-typography';
+import { Typography, Color } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../component';
 import { getDataTestId } from '../../../../utils/getDataTestId';
@@ -13,34 +13,81 @@ type Props = {
      * Количество строк
      */
     rowLimit?: 1 | 2;
+
+    /**
+     * Многострочный ли компонент
+     */
+    isMultiline?: boolean;
+
     /**
      * Размер текста
      */
     view: 'primary-small' | 'component';
+
     /**
-     * Цвет текста
+     * Цвет title
      */
-    color: 'secondary' | 'primary';
+    titleColor: Color;
+
+    /**
+     * Value ячейки
+     */
+    value?: string;
+
+    /**
+     * Цвет value
+     */
+    valueColor?: Color;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
-export const Text: React.FC<Props> = ({ children, rowLimit, view, color, dataTestId }) => {
+export const Text: React.FC<Props> = ({
+    children,
+    value,
+    rowLimit,
+    isMultiline,
+    view = 'component',
+    titleColor,
+    valueColor,
+    dataTestId,
+}) => {
     const { direction = 'horizontal' } = useContext(PureCellContext);
 
     return (
-        <Typography.Text
-            view={view}
-            color={color}
-            className={cn(
-                direction === 'horizontal' && styles[direction],
-                rowLimit && styles[`rowLimit${rowLimit}`],
-            )}
-            data-test-id={getDataTestId(dataTestId, 'text')}
+        <div
+            className={cn(styles.component, {
+                [styles.vertical]: direction !== 'horizontal',
+            })}
         >
-            {children}
-        </Typography.Text>
+            <span className={cn(styles.title)}>
+                <Typography.Text
+                    view={view}
+                    color={titleColor}
+                    className={cn(rowLimit && styles[`rowLimit${rowLimit}`], {
+                        [styles.rowLimit1]: !isMultiline,
+                    })}
+                    data-test-id={getDataTestId(dataTestId, 'text')}
+                >
+                    {children}
+                </Typography.Text>
+            </span>
+            <span>
+                <Typography.Text
+                    view={view}
+                    color={valueColor}
+                    className={cn({
+                        [styles[`rowLimit${rowLimit}`]]: rowLimit,
+                        [styles.multiline]: isMultiline,
+                    })}
+                    data-test-id={getDataTestId(dataTestId, 'text')}
+                >
+                    {value}
+                </Typography.Text>
+            </span>
+        </div>
     );
 };

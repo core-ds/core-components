@@ -1,5 +1,3 @@
-@import './vars.css';
-
 .component {
     text-align: unset;
 }
@@ -49,6 +47,9 @@
         opacity: 0.6;
     }
 }
+.none {
+    padding: 0;
+}
 
 .airy {
     padding: var(--gap-m) 0;
@@ -64,6 +65,19 @@
 
 .tiny {
     padding: var(--gap-2xs) 0;
+}
+
+.left {
+    padding-left: var(--gap-m);
+}
+
+.right {
+    padding-right: var(--gap-m);
+}
+
+.both {
+    padding-right: var(--gap-m);
+    padding-left: var(--gap-m);
 }
 
 .focused {

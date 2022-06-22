@@ -1,18 +1,22 @@
-@import '../../vars.css';
 @import '../../../../themes/src/default.css';
 
 .component {
-    grid-column: 1/2;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-self: center;
 
     /* can use /r/n */
     white-space: pre-line;
-}
 
-.vertical {
-    grid-row-gap: var(--gap-3xs);
+    &.vertical {
+        grid-row-gap: var(--gap-3xs);
+        justify-content: center;
 
-    /* for button */
-    text-align: center;
+        /* for button */
+        text-align: center;
+    }
+
+    &.reverse {
+        flex-direction: column-reverse;
+    }
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Typography } from '@alfalab/core-components-typography';
-import { Color } from '@alfalab/core-components-typography/src/colors';
+import { Typography, Color } from '@alfalab/core-components-typography';
 
-import { Amount as CorAmount } from '@alfalab/core-components-amount';
+import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { AmountProps as AmountType } from '../typesProps';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
@@ -13,10 +12,12 @@ type Props = {
      * Props свойственные для компонента Amount
      */
     amount: AmountType;
+
     /**
      * Цвет денежного значения
      */
     color?: Color;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
@@ -33,14 +34,14 @@ export const AmountTitle: React.FC<Props> = ({ amount, color = 'primary', dataTe
             className={styles.component}
             color={color}
         >
-            <CorAmount
+            <CoreAmount
                 minority={minority === undefined ? minorUnits : minority}
                 value={value}
                 rightAddons={rightAddons}
                 showPlus={showPlus}
                 className={className}
                 currency={currency}
-                dataTestId={getDataTestId(dataTestId, 'amount-title')}
+                dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
                 view='withZeroMinorPart'
             />
         </Typography.Title>
