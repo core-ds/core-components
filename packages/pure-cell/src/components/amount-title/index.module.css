@@ -1,6 +1,9 @@
 @import '../../../../themes/src/default.css';
 
 .component {
-    font-weight: inherit;
     display: flex;
+}
+
+.weight {
+    font-weight: inherit;
 }

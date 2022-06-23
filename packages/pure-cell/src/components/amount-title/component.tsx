@@ -41,7 +41,7 @@ export const AmountTitle: React.FC<Props> = ({ amount, color = 'primary', dataTe
                 value={value}
                 rightAddons={rightAddons}
                 showPlus={showPlus}
-                className={cn(styles.component, className)}
+                className={cn(styles.weight, className)}
                 currency={currency}
                 dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
                 view='withZeroMinorPart'

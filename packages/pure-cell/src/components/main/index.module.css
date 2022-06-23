@@ -11,6 +11,7 @@
     &.vertical {
         grid-row-gap: var(--gap-3xs);
         justify-content: center;
+        align-items: center;
 
         /* for button */
         text-align: center;
