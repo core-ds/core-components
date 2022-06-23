@@ -50,12 +50,12 @@ Object {
         </div>
         <a
           aria-label="скачать"
-          class="component ghost s component ghost iconOnly download primary component"
+          class="component ghost s component ghost download primary component"
           download="новое_название_файла"
           href="/link"
         >
           <span
-            class="addons"
+            class="text stretchText"
           >
             <span
               class="iconWrapper xxs"
@@ -78,11 +78,11 @@ Object {
         </a>
         <button
           aria-label="удалить"
-          class="component ghost s component ghost iconOnly delete primary component"
+          class="component ghost s component ghost delete primary component"
           type="button"
         >
           <span
-            class="addons"
+            class="text stretchText"
           >
             <span
               class="iconWrapper xxs"
@@ -152,12 +152,12 @@ Object {
       </div>
       <a
         aria-label="скачать"
-        class="component ghost s component ghost iconOnly download primary component"
+        class="component ghost s component ghost download primary component"
         download="новое_название_файла"
         href="/link"
       >
         <span
-          class="addons"
+          class="text stretchText"
         >
           <span
             class="iconWrapper xxs"
@@ -180,11 +180,11 @@ Object {
       </a>
       <button
         aria-label="удалить"
-        class="component ghost s component ghost iconOnly delete primary component"
+        class="component ghost s component ghost delete primary component"
         type="button"
       >
         <span
-          class="addons"
+          class="text stretchText"
         >
           <span
             class="iconWrapper xxs"

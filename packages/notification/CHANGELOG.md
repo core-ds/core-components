@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification@5.2.8...@alfalab/core-components-notification@5.2.9) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.2.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification@5.2.7...@alfalab/core-components-notification@5.2.8) (2022-06-20)
+
+
+### Bug Fixes
+
+* **badge:** fix classname ([#100](https://github.com/core-ds/core-components/issues/100)) ([4b5f2bc](https://github.com/core-ds/core-components/commit/4b5f2bc9ab17daf865a5515828d178eaff94bd2d))
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+
+
+
+
+
 ## [5.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification@5.2.6...@alfalab/core-components-notification@5.2.7) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

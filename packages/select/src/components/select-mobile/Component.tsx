@@ -12,7 +12,7 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import {
     useMultipleSelection,
     useCombobox,
@@ -37,14 +37,20 @@ import styles from './index.module.css';
 export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
     /**
      * Футер
+     * @deprecated Используйте bottomSheetProps.actionButton
      */
     footer?: ReactNode;
 
     /**
      * Будет ли свайпаться шторка
-     *
+     * @deprecated Используйте bottomSheetProps.swipeable
      */
     swipeable?: boolean;
+
+    /**
+     * Дополнительные пропсы шторки
+     */
+    bottomSheetProps?: Partial<BottomSheetProps>;
 };
 
 export const SelectMobile = forwardRef(
@@ -88,6 +94,7 @@ export const SelectMobile = forwardRef(
             Option = DefaultOption,
             swipeable,
             footer,
+            bottomSheetProps,
         }: SelectMobileProps,
         ref,
     ) => {
@@ -403,6 +410,7 @@ export const SelectMobile = forwardRef(
                     stickyHeader={true}
                     hasCloser={true}
                     swipeable={swipeable}
+                    {...bottomSheetProps}
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
                         <OptionsListWithApply

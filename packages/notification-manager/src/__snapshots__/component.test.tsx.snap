@@ -49,11 +49,11 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component ghost s component ghost iconOnly closeButton primary component"
+                class="component ghost s component ghost closeButton primary component"
                 type="button"
               >
                 <span
-                  class="addons"
+                  class="text stretchText"
                 >
                   <span
                     class="iconWrapper s"
@@ -104,11 +104,11 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component ghost s component ghost iconOnly closeButton primary component"
+                class="component ghost s component ghost closeButton primary component"
                 type="button"
               >
                 <span
-                  class="addons"
+                  class="text stretchText"
                 >
                   <span
                     class="iconWrapper s"
@@ -159,11 +159,11 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component ghost s component ghost iconOnly closeButton primary component"
+                class="component ghost s component ghost closeButton primary component"
                 type="button"
               >
                 <span
-                  class="addons"
+                  class="text stretchText"
                 >
                   <span
                     class="iconWrapper s"
