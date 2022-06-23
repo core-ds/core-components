@@ -55,7 +55,7 @@ Object {
           href="/link"
         >
           <span
-            class="addons"
+            class="text stretchText"
           >
             <span
               class="iconWrapper xxs"
@@ -82,7 +82,7 @@ Object {
           type="button"
         >
           <span
-            class="addons"
+            class="text stretchText"
           >
             <span
               class="iconWrapper xxs"
@@ -157,7 +157,7 @@ Object {
         href="/link"
       >
         <span
-          class="addons"
+          class="text stretchText"
         >
           <span
             class="iconWrapper xxs"
@@ -184,7 +184,7 @@ Object {
         type="button"
       >
         <span
-          class="addons"
+          class="text stretchText"
         >
           <span
             class="iconWrapper xxs"

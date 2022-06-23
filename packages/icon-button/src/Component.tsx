@@ -60,12 +60,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                     [colorStyles[colors].loader]: restProps.loading,
                 })}
                 size='s'
-                leftAddons={
-                    <span className={cn(styles.iconWrapper, styles[size])}>
-                        <Icon className={styles.icon} />
-                    </span>
-                }
-            />
+            >
+                <span className={cn(styles.iconWrapper, styles[size])}>
+                    <Icon className={styles.icon} />
+                </span>
+            </Button>
         );
     },
 );

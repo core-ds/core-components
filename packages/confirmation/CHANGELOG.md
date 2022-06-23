@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@10.1.9...@alfalab/core-components-confirmation@10.1.10) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [10.1.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@10.1.8...@alfalab/core-components-confirmation@10.1.9) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
 ## [10.1.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@10.1.7...@alfalab/core-components-confirmation@10.1.8) (2022-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-confirmation

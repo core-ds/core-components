@@ -11,7 +11,7 @@ Object {
         href="http://example.com"
       >
         <span
-          class="addons"
+          class="text stretchText"
         >
           <span
             class="iconWrapper s"
@@ -41,7 +41,7 @@ Object {
       href="http://example.com"
     >
       <span
-        class="addons"
+        class="text stretchText"
       >
         <span
           class="iconWrapper s"
@@ -127,7 +127,7 @@ Object {
         type="button"
       >
         <span
-          class="addons"
+          class="text stretchText"
         >
           <span
             class="iconWrapper s"
@@ -156,7 +156,7 @@ Object {
       type="button"
     >
       <span
-        class="addons"
+        class="text stretchText"
       >
         <span
           class="iconWrapper s"

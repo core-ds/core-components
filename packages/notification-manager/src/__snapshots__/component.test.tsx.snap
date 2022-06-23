@@ -53,7 +53,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                 type="button"
               >
                 <span
-                  class="addons"
+                  class="text stretchText"
                 >
                   <span
                     class="iconWrapper s"
@@ -108,7 +108,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                 type="button"
               >
                 <span
-                  class="addons"
+                  class="text stretchText"
                 >
                   <span
                     class="iconWrapper s"
@@ -163,7 +163,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                 type="button"
               >
                 <span
-                  class="addons"
+                  class="text stretchText"
                 >
                   <span
                     class="iconWrapper s"

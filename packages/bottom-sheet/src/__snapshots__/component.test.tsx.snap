@@ -52,13 +52,17 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                   class="marker"
                 />
                 <div
-                  class="header"
+                  class="headerWrapper"
                 >
-                  <span
-                    class="title titleLeft primary primary-large bold"
+                  <div
+                    class="header"
                   >
-                    Bottom sheet title
-                  </span>
+                    <span
+                      class="title titleLeft primary primary-large bold"
+                    >
+                      Bottom sheet title
+                    </span>
+                  </div>
                 </div>
                 <div
                   class="content noFooter"
@@ -133,13 +137,17 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                   class="marker"
                 />
                 <div
-                  class="header"
+                  class="headerWrapper"
                 >
-                  <span
-                    class="title titleLeft primary primary-large bold"
+                  <div
+                    class="header"
                   >
-                    Bottom sheet title
-                  </span>
+                    <span
+                      class="title titleLeft primary primary-large bold"
+                    >
+                      Bottom sheet title
+                    </span>
+                  </div>
                 </div>
                 <div
                   class="content"

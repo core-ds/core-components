@@ -1,0 +1,14 @@
+@import '../../themes/src/default.css';
+
+.bottomSheetInput {
+    padding: 0 var(--gap-xs) var(--gap-xs);
+    box-sizing: border-box;
+}
+
+.footer {
+    display: flex;
+
+    & > button + button {
+        margin-left: var(--gap-m);
+    }
+}

@@ -30,7 +30,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
             type="button"
           >
             <span
-              class="addons"
+              class="text stretchText"
             >
               <span
                 class="iconWrapper s"
