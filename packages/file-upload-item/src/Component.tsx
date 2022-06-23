@@ -239,7 +239,9 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 <IconButton
                     size='xxs'
                     icon={PointerDownMIcon}
-                    className={styles.download}
+                    className={cn(styles.download, {
+                        [styles.disabled]: disableButtons,
+                    })}
                     aria-label='скачать'
                     href={downloadLink}
                     onClick={handleDownload}
@@ -254,7 +256,9 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                     icon={CrossMIcon}
                     onClick={handleDelete}
                     disabled={disableButtons}
-                    className={styles.delete}
+                    className={cn(styles.delete, {
+                        [styles.disabled]: disableButtons,
+                    })}
                     aria-label='удалить'
                 />
             )}

@@ -91,6 +91,11 @@
     }
 }
 
+.disabled .delete,
+.disabled .download {
+    opacity: 0.3;
+}
+
 .errorWrapper {
     margin-top: var(--gap-s);
     color: var(--color-light-text-accent);
