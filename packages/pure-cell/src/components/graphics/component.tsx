@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Typography, Color } from '@alfalab/core-components-typography';
 import { CDNIcon } from '@alfalab/core-components-cdn-icon';
-import { Badge } from '@alfalab/core-components-badge';
 import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
-import cn from 'classnames';
 import { GraphicsElement } from '../types';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
@@ -43,56 +41,12 @@ export type Props = {
     /**
      * Слот снизу
      */
-    bottomBadgeSource?: boolean;
-
-    /**
-     * Название слота снизу
-     */
-    bottomBadgeName?: string;
-
-    /**
-     * Индикатор слота снизу
-     */
-    indicatorBottomBadge?: number;
-
-    /**
-     * Цвет слота снизу
-     */
-    bottomBadgeColor?:
-        | 'positive'
-        | 'attention'
-        | 'link'
-        | 'negative'
-        | 'tertiary'
-        | 'secondary'
-        | 'primary';
+    bottomAddons?: ReactNode;
 
     /**
      * Слот cверху
      */
-    topBadgeSource?: boolean;
-
-    /**
-     * Индикатор слота cверху
-     */
-    indicatorTopBadge?: number;
-
-    /**
-     * Название слота cверху
-     */
-    topBadgeName?: string;
-
-    /**
-     * Цвет слота cверху
-     */
-    topBadgeColor?:
-        | 'positive'
-        | 'attention'
-        | 'link'
-        | 'negative'
-        | 'tertiary'
-        | 'secondary'
-        | 'primary';
+    topAddons?: ReactNode;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -106,29 +60,11 @@ export const Graphics: React.FC<Props> = ({
     iconColor,
     title,
     titleColor,
-    bottomBadgeSource,
-    topBadgeSource,
-    bottomBadgeColor,
-    bottomBadgeName = '',
-    topBadgeName = '',
-    indicatorBottomBadge,
-    indicatorTopBadge,
+    bottomAddons,
+    topAddons,
     backgroundColor,
-    topBadgeColor,
     dataTestId,
 }) => {
-    const bottomBadgeChildren = indicatorBottomBadge ? (
-        <Badge view='count' height={16} content={indicatorBottomBadge} />
-    ) : (
-        <CDNIcon className={cn(styles.iconCdn)} name={bottomBadgeName} color={bottomBadgeColor} />
-    );
-
-    const topBadgeChildren = indicatorTopBadge ? (
-        <Badge view='count' height={16} content={indicatorTopBadge} />
-    ) : (
-        <CDNIcon className={cn(styles.iconCdn)} name={topBadgeName} color={topBadgeColor} />
-    );
-
     return (
         <section className={styles.component} data-test-id={getDataTestId(dataTestId, 'graphics')}>
             {!title && !iconName ? (
@@ -137,8 +73,8 @@ export const Graphics: React.FC<Props> = ({
                 <SuperEllipse
                     backgroundColor={backgroundColor}
                     size={48}
-                    bottomAddons={bottomBadgeSource && bottomBadgeChildren}
-                    topAddons={topBadgeSource && topBadgeChildren}
+                    bottomAddons={bottomAddons}
+                    topAddons={topAddons}
                 >
                     {title ? (
                         <Typography.TitleMobile

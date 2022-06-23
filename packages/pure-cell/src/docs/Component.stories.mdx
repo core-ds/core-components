@@ -28,7 +28,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
     const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');
     const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-        const wight = select('wight', ['bold', 'normal'], 'normal');
+        const weight = select('weight', ['bold', 'normal'], 'normal');
     const view = select('view', ['component', 'primary-small'], 'component');
     const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'default');
     const color = select('color', 
@@ -77,7 +77,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 </PureCell.Text>
                 <PureCell.Amount 
                 amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } } 
-                wight={ wight } color={ color } view={ view }/>
+                weight={ weight } color={ color } view={ view }/>
             </PureCell.Main>
             <PureCell.Footer>
                 <Typography.Text color="secondary" view="primary-small">

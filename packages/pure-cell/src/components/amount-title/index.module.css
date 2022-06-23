@@ -1,7 +1,6 @@
 @import '../../../../themes/src/default.css';
 
 .component {
-    --amount-major-part-font-weight: 500;
-    --amount-minor-part-font-weight: 500;
+    font-weight: inherit;
     display: flex;
 }

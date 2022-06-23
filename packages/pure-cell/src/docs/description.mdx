@@ -1,5 +1,8 @@
 import { Container, Row, Col } from 'storybook/blocks';
 
+### ☝️ Компонент не поддерживает IE
+Пример для компонента Динамическое поле
+
 ```tsx live
 render (() => {
     const [multiline, setMultiline] = React.useState(false);
@@ -26,12 +29,8 @@ render (() => {
         <PureCell.Graphics 
         iconName='glyph_debt_m'
         iconColor='black' 
-        bottomBadgeSource 
-        topBadgeSource 
-        bottomBadgeColor='attention' 
-        bottomBadgeName='glyph_arrow-up-circle_m'
-        indicatorTopBadge={2}
-        backgroundColor='secondary'
+        bottomAddons={<CDNIcon name='glyph_arrow-up-circle_m' color='attention' } 
+        topAddons={<Badge view='count' height={16} content={2} />} 
         />
         <PureCell.Content>
           <PureCell.Main isReverse={revert}>
@@ -728,7 +727,7 @@ render (() => (
                     </PureCell.Text>
                     <PureCell.Amount
                         amount={ { value: 100000099, currency: 'RUR' as const, minorUnits: 100 } }
-                        wight="bold"
+                        weight="bold"
                     />
                 </PureCell.Main>
                 <PureCell.Addon verticalAlign="center">

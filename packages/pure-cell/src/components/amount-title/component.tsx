@@ -1,4 +1,6 @@
 import React from 'react';
+import cn from 'classnames';
+
 import { Typography, Color } from '@alfalab/core-components-typography';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
@@ -39,7 +41,7 @@ export const AmountTitle: React.FC<Props> = ({ amount, color = 'primary', dataTe
                 value={value}
                 rightAddons={rightAddons}
                 showPlus={showPlus}
-                className={className}
+                className={cn(styles.component, className)}
                 currency={currency}
                 dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
                 view='withZeroMinorPart'
