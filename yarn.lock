@@ -9,30 +9,6 @@
   dependencies:
     classnames "^2.2.6"
 
-"@alfalab/core-components-button@^1.10.0":
-  version "1.15.4"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-button/-/core-components-button-1.15.4.tgz"
-  integrity sha512-2dWvaDaPzC2F8V8/SA5LQ1VGSp0FUToyN5hiP+l3MnVfIUtkZ7lApzsCBbiZDZQ8YV9R2qYJpnUsCLRBsxSkdw==
-  dependencies:
-    "@alfalab/core-components-loader" "^1.1.1"
-    "@alfalab/hooks" "^1.0.0"
-    classnames "^2.2.6"
-    react-merge-refs "^1.1.0"
-
-"@alfalab/core-components-form-control@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz"
-  integrity sha512-ZDx5k5TVKKYQL1Q9Ar7kL5xcROxKT/Xes3RiWbcdVBQulJmvyk0bwTHxNaUDYhIwWRGaYEZiIxkPmPneFrxKuw==
-  dependencies:
-    classnames "^2.2.6"
-
-"@alfalab/core-components-form-control@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-form-control/-/core-components-form-control-4.0.0.tgz"
-  integrity sha512-TbYiOltjf/Mz/BvZpSX8ZWlpDPYVT2PIfta4vU7RXN6B9JYtLEUZXLmWkHgIZqVCf1T/RHxVbjmtbneFDdEYQg==
-  dependencies:
-    classnames "^2.2.6"
-
 "@alfalab/core-components-input-autocomplete@7.0.4":
   version "7.0.4"
   resolved "https://registry.npmjs.org/@alfalab/core-components-input-autocomplete/-/core-components-input-autocomplete-7.0.4.tgz"
@@ -41,18 +17,6 @@
     "@alfalab/core-components-input" "^7.1.0"
     "@alfalab/core-components-select" "^9.2.2"
     classnames "^2.2.6"
-
-"@alfalab/core-components-input@^3.2.2":
-  version "3.2.2"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-input/-/core-components-input-3.2.2.tgz"
-  integrity sha512-1LMCCX50ia2MQpcAcifQJsca6fVel+/heITmSSNzmSPEjffw57f3rTFhNCAN2LQfwJg5B2nW0lj0TiFfzWMJgw==
-  dependencies:
-    "@alfalab/core-components-button" "^1.10.0"
-    "@alfalab/core-components-form-control" "^3.1.5"
-    "@alfalab/hooks" "^1.0.0"
-    "@alfalab/icons-glyph" "^1.26.0"
-    classnames "^2.2.6"
-    react-merge-refs "^1.1.0"
 
 "@alfalab/core-components-input@^7.1.0", "@alfalab/core-components-input@^7.3.2":
   version "7.3.6"
@@ -66,47 +30,10 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
-"@alfalab/core-components-loader@^1.1.1":
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-loader/-/core-components-loader-1.1.6.tgz"
-  integrity sha512-qWLKIwsQRLFGqW1QEhKsKPRu+HHzhW9gsN0lrvwBFu7v1Ko0B3QY+usbyQ71tUK8j/Qytw0Fyulo5yvL5qdFHQ==
-  dependencies:
-    classnames "^2.2.6"
-
 "@alfalab/core-components-mq@1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@alfalab/core-components-mq/-/core-components-mq-1.0.0.tgz"
   integrity sha512-8IzpRffooGggKdfIU82I5kv1mmlIE7u/PYLsjABINJ24+QI49WBHeGM4Rz7GnP+dVfBGxPWSaWMWSrzaUNdCyQ==
-
-"@alfalab/core-components-popover@^1.3.1":
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-popover/-/core-components-popover-1.4.0.tgz"
-  integrity sha512-Rt75fwznzyCMDTsq/UxAXbac8TmJS4V7D/YGReSU5t1VjDS/MQV7editwR+bYhtkcnmzTq/JjK+dKQuCKoBY5g==
-  dependencies:
-    "@alfalab/core-components-portal" "^1.4.0"
-    "@popperjs/core" "^2.3.3"
-    classnames "^2.2.6"
-    react-popper "^2.2.2"
-    react-transition-group "^4.3.0"
-
-"@alfalab/core-components-portal@^1.4.0":
-  version "1.4.6"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-portal/-/core-components-portal-1.4.6.tgz"
-  integrity sha512-92GqAuebFzd4jqS11BzL0HugYYZu2aXkQHN4tk1faUPBCKctQSJqU8wXpOKsTawd3qeCSEsYXgR2SQWORv7ihQ==
-
-"@alfalab/core-components-select@^4.3.1":
-  version "4.4.0"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-select/-/core-components-select-4.4.0.tgz"
-  integrity sha512-y7SmH85mHhtylBiwaZoEfmqFnkWYNj3IpO8ihMJmfi0Qysbi/sS5uF3jbRm78elZTvfJhB9OuEXE9/bf9GUUAA==
-  dependencies:
-    "@alfalab/core-components-form-control" "^3.1.5"
-    "@alfalab/core-components-input" "^3.2.2"
-    "@alfalab/core-components-popover" "^1.3.1"
-    "@alfalab/hooks" "^1.0.0"
-    classnames "^2.2.6"
-    downshift "5.4.7"
-    react-merge-refs "^1.1.0"
-    react-virtual "^2.2.0"
 
 "@alfalab/core-components-select@^9.2.2":
   version "9.7.1"
@@ -158,11 +85,6 @@
   version "1.190.0"
   resolved "https://registry.npmjs.org/@alfalab/icons-glyph/-/icons-glyph-1.190.0.tgz"
   integrity sha512-WrlfVP30XdUIH/La/qy9YcIRY22NluYl90rCg8thtcDXt1Rp+QPuRQ89/l40QrMCtpleHtRV2Sxdn6BmyDC8FQ==
-
-"@alfalab/icons-glyph@^1.26.0":
-  version "1.150.0"
-  resolved "https://registry.npmjs.org/@alfalab/icons-glyph/-/icons-glyph-1.150.0.tgz"
-  integrity sha512-+l2n+VAZZ34llOaGnP67TI5mSjeMiSQmrWNflZOXm1ujE6qmi+aY1wg+XmwLxaZ3h7f7gqsasWrX81z7rDPFqg==
 
 "@alfalab/icons-glyph@^2.16.0":
   version "2.16.0"
@@ -4528,13 +4450,6 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@oat-sa/rollup-plugin-wildcard-external@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@oat-sa/rollup-plugin-wildcard-external/-/rollup-plugin-wildcard-external-0.1.0.tgz#3388bb5124a07bb09944f75a1d494ff9403bf4fe"
-  integrity sha512-bYSoeOwpjTe7mdMhNYD9fmH9UkzIkebR5NjIoh8u+GGs39zn1oEP4plsKiAvMS6+XmAzZgIw1Y4zZ1RtLVUEGg==
-  dependencies:
-    minimatch "^3.0.4"
-
 "@npmcli/move-file@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@npmcli/move-file/-/move-file-2.0.0.tgz#417f585016081a0184cef3e38902cd917a9bbd02"
@@ -4576,6 +4491,13 @@
     "@npmcli/promise-spawn" "^3.0.0"
     node-gyp "^8.4.1"
     read-package-json-fast "^2.0.3"
+
+"@oat-sa/rollup-plugin-wildcard-external@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@oat-sa/rollup-plugin-wildcard-external/-/rollup-plugin-wildcard-external-0.1.0.tgz#3388bb5124a07bb09944f75a1d494ff9403bf4fe"
+  integrity sha512-bYSoeOwpjTe7mdMhNYD9fmH9UkzIkebR5NjIoh8u+GGs39zn1oEP4plsKiAvMS6+XmAzZgIw1Y4zZ1RtLVUEGg==
+  dependencies:
+    minimatch "^3.0.4"
 
 "@octokit/auth-token@^2.4.0", "@octokit/auth-token@^2.4.4":
   version "2.4.4"
@@ -4754,11 +4676,6 @@
   version "2.3.3"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.3.3.tgz"
   integrity sha512-yEvVC8RfhRPkD9TUn7cFcLcgoJePgZRAOR7T21rcRY5I8tpuhzeWfGa7We7tB14fe9R7wENdqUABcMdwD4SQLw==
-
-"@popperjs/core@^2.3.3":
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.6.0.tgz"
-  integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
 
 "@popperjs/core@^2.5.4", "@popperjs/core@^2.6.0":
   version "2.9.2"
@@ -20862,7 +20779,7 @@ react-popper-tooltip@^3.1.1:
     "@popperjs/core" "^2.5.4"
     react-popper "^2.2.4"
 
-react-popper@2.2.5, react-popper@^2.2.2, react-popper@^2.2.4:
+react-popper@2.2.5, react-popper@^2.2.4:
   version "2.2.5"
   resolved "https://registry.npmjs.org/react-popper/-/react-popper-2.2.5.tgz"
   integrity sha512-kxGkS80eQGtLl18+uig1UIf9MKixFSyPxglsgLBxlYnyDf65BiY9B3nZSc6C9XUNDgStROB0fMQlTEz1KxGddw==
