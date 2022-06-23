@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-button@4.1.12...@alfalab/core-components-icon-button@4.1.13) (2022-06-23)
+
+
+### Bug Fixes
+
+* fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+
+
+
+
+
 ## [4.1.12](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-button@4.1.11...@alfalab/core-components-icon-button@4.1.12) (2022-06-20)
 
 
