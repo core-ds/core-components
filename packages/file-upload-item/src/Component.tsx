@@ -104,6 +104,11 @@ export type FileUploadItemProps = {
     onRestore?: (id: string) => void;
 
     /**
+     * Управление активностью кнопок
+     */
+    disableButtons?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -127,6 +132,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     onDelete,
     onDownload,
     onRestore,
+    disableButtons,
     dataTestId,
 }) => {
     const handleDownload = useCallback(
@@ -237,6 +243,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                     aria-label='скачать'
                     href={downloadLink}
                     onClick={handleDownload}
+                    disabled={disableButtons}
                     download={download}
                 />
             )}
@@ -246,6 +253,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                     size='xxs'
                     icon={CrossMIcon}
                     onClick={handleDelete}
+                    disabled={disableButtons}
                     className={styles.delete}
                     aria-label='удалить'
                 />

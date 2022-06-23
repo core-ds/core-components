@@ -1,6 +1,7 @@
 import React, {
     CSSProperties,
     forwardRef,
+    HTMLAttributes,
     ReactNode,
     useCallback,
     useEffect,
@@ -51,6 +52,11 @@ export type BottomSheetProps = {
      * Дополнительный класс
      */
     contentClassName?: string;
+
+    /**
+     * Дополнительные пропсы на контейнер.
+     */
+    containerProps?: HTMLAttributes<HTMLDivElement>;
 
     /**
      * Дополнительный класс
@@ -114,6 +120,11 @@ export type BottomSheetProps = {
     rightAddons?: ReactNode;
 
     /**
+     * Слот снизу
+     */
+    bottomAddons?: ReactNode;
+
+    /**
      * Наличие компонента крестика
      */
     hasCloser?: boolean;
@@ -164,6 +175,11 @@ export type BottomSheetProps = {
     disableOverlayClick?: boolean;
 
     /**
+     * Не анимировать шторку при изменении размера вьюпорта
+     */
+    ignoreScreenChange?: boolean;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -192,6 +208,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             actionButton,
             contentClassName,
             containerClassName,
+            containerProps,
             headerClassName,
             footerClassName,
             addonClassName,
@@ -200,6 +217,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             className,
             leftAddons,
             rightAddons,
+            bottomAddons,
             hasCloser,
             hasBacker,
             titleAlign = 'left',
@@ -215,6 +233,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             transitionProps = {},
             dataTestId,
             swipeable = true,
+            ignoreScreenChange = false,
             onClose,
             onBack,
         },
@@ -230,6 +249,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
 
+        const [transitionClassName, setTransitionClassName] = useState(styles.withTransition);
+
         // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
         const fullHeight = use100vh()!;
         const targetHeight = `${fullHeight - HEADER_OFFSET}px`;
@@ -242,6 +263,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backerClassName,
             leftAddons,
             rightAddons,
+            bottomAddons,
             hasCloser,
             hasBacker,
             titleAlign,
@@ -308,6 +330,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (shouldClose) {
                 onClose();
             } else {
+                /**
+                 * Установить мгновенную анимацию шторке если она не закрыта при свайпе и установлен проп ignoreScreenChange
+                 */
+                if (ignoreScreenChange) {
+                    setTransitionClassName(styles.withZeroTransition);
+                }
                 setSheetOffset(0);
                 setBackdropOpacity(1);
             }
@@ -336,6 +364,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
              */
             if (offset > 0) {
                 setScrollLocked(true);
+
+                /**
+                 * Вернуть плавную анимацию шторке при свайпе
+                 */
+                if (transitionClassName === styles.withZeroTransition) {
+                    setTransitionClassName(styles.withTransition);
+                }
             }
         };
 
@@ -383,7 +418,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (!open) {
                 setSheetOffset(0);
             }
-        }, [open]);
+
+            if (ignoreScreenChange && open) {
+                setTransitionClassName(styles.withZeroTransition);
+            }
+        }, [open, ignoreScreenChange]);
 
         const getSwipeStyles = (): CSSProperties => ({
             transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
@@ -422,7 +461,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             >
                 <div
                     className={cn(styles.component, className, {
-                        [styles.withTransition]: !sheetOffset,
+                        [transitionClassName]: !sheetOffset,
                     })}
                     style={{
                         ...getSwipeStyles(),
@@ -431,9 +470,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     {...sheetSwipeablehandlers}
                 >
                     <div
-                        className={cn(styles.scrollableContainer, containerClassName, {
-                            [styles.scrollLocked]: scrollLocked,
-                        })}
+                        {...containerProps}
+                        className={cn(
+                            styles.scrollableContainer,
+                            containerProps?.className,
+                            containerClassName,
+                            {
+                                [styles.scrollLocked]: scrollLocked,
+                            },
+                        )}
                         ref={scrollableContainer}
                     >
                         {swipeable && <div className={cn(styles.marker)} />}

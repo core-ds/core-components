@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.12](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-button@4.1.11...@alfalab/core-components-icon-button@4.1.12) (2022-06-20)
+
+
+### Bug Fixes
+
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+
+
+
+
+
 ## [4.1.11](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-button@4.1.10...@alfalab/core-components-icon-button@4.1.11) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button

@@ -88,6 +88,10 @@ div.sidebar-header img {
     max-height: 32px;
 }
 
+a[href='#storybook-preview-wrapper'] {
+    display: none;
+}
+
 .search-field {
     margin-left: var(--gap-l-neg);
     margin-right: -10px;

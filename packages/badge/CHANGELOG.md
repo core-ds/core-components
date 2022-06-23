@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-badge@3.2.1...@alfalab/core-components-badge@3.2.2) (2022-06-20)
+
+
+### Bug Fixes
+
+* **badge:** fix classname ([#100](https://github.com/core-ds/core-components/issues/100)) ([4b5f2bc](https://github.com/core-ds/core-components/commit/4b5f2bc9ab17daf865a5515828d178eaff94bd2d))
+
+
+
+
+
 ## [3.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-badge@3.2.0...@alfalab/core-components-badge@3.2.1) (2022-06-09)
 
 

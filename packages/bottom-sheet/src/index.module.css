@@ -28,6 +28,10 @@
     transition: var(--bottom-sheet-out-transition);
 }
 
+.withZeroTransition {
+    transition: 0s linear;
+}
+
 .scrollableContainer {
     overflow: auto;
     display: flex;

@@ -10,5 +10,11 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../select" }, { "path": "../input" }]
+    "references": [
+      { "path": "../select" },
+      { "path": "../input" },
+      { "path": "../button" },
+      { "path": "../form-control" },
+      { "path": "../bottom-sheet" }
+    ]
 }

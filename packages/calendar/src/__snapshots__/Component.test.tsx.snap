@@ -3,7 +3,7 @@
 exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
 <div>
   <div
-    class="component sixWeeks"
+    class="cc-calendar component sixWeeks"
     tabindex="-1"
   >
     <div
@@ -664,7 +664,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
 exports[`Calendar Display tests should match defaultView="months" snapshot 1`] = `
 <div>
   <div
-    class="component sixWeeks"
+    class="cc-calendar component sixWeeks"
     tabindex="-1"
   >
     <div
@@ -906,7 +906,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
 exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = `
 <div>
   <div
-    class="component sixWeeks"
+    class="cc-calendar component sixWeeks"
     tabindex="-1"
   >
     <div
@@ -2283,7 +2283,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
 exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = `
 <div>
   <div
-    class="component sixWeeks"
+    class="cc-calendar component sixWeeks"
     tabindex="-1"
   >
     <div
@@ -2944,7 +2944,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
 exports[`Calendar Display tests should match selectorView="month-only" snapshot 1`] = `
 <div>
   <div
-    class="component sixWeeks"
+    class="cc-calendar component sixWeeks"
     tabindex="-1"
   >
     <div
@@ -2957,11 +2957,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost s component ghost iconOnly arrow primary component loader"
+          class="component ghost s component ghost arrow primary component loader"
           type="button"
         >
           <span
-            class="addons"
+            class="text stretchText"
           >
             <span
               class="iconWrapper xs"
@@ -2989,11 +2989,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component ghost s component ghost iconOnly arrow primary component loader"
+          class="component ghost s component ghost arrow primary component loader"
           type="button"
         >
           <span
-            class="addons"
+            class="text stretchText"
           >
             <span
               class="iconWrapper xs"
@@ -3606,7 +3606,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
 exports[`Calendar Display tests should match snapshot 1`] = `
 <div>
   <div
-    class="component sixWeeks"
+    class="cc-calendar component sixWeeks"
     tabindex="-1"
   >
     <div
