@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification@5.2.9...@alfalab/core-components-notification@5.2.10) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
 ## [5.2.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-notification@5.2.8...@alfalab/core-components-notification@5.2.9) (2022-06-23)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

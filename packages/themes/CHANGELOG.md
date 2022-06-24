@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.2.1...@alfalab/core-components-themes@8.2.2) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
 ## [8.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.2.0...@alfalab/core-components-themes@8.2.1) (2022-06-23)
 
 

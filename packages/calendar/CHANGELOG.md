@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar@5.3.4...@alfalab/core-components-calendar@5.3.5) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
 ## [5.3.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar@5.3.3...@alfalab/core-components-calendar@5.3.4) (2022-06-23)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar
