@@ -22,7 +22,7 @@
         "@alfalab/core-components-calendar": "^5.3.5",
         "@alfalab/core-components-calendar-input": "^6.3.3",
         "@alfalab/core-components-date-input": "^2.2.2",
-        "classnames": "2.2.6",
-        "date-fns": "2.16.1"
+        "classnames": "^2.2.6",
+        "date-fns": "^2.16.1"
     }
 }
