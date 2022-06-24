@@ -23,7 +23,7 @@
         "@alfalab/core-components-icon-button": "^4.1.13",
         "@alfalab/core-components-tag": "^4.2.4",
         "@alfalab/hooks": "^1.4.1",
-        "@alfalab/utils": "^1.9.0",
+        "@alfalab/utils": "^1.11.0",
         "classnames": "2.2.6"
     }
 }
