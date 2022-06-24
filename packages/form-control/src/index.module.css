@@ -11,7 +11,7 @@
     /* paddings */
     --form-control-paddings: 0 var(--gap-s);
     --form-control-xl-paddings: 0 var(--gap-m);
-    --form-control-labeled-s-paddings: 23px var(--gap-s) 5px;
+    --form-control-labeled-s-paddings: 24px var(--gap-s) 4px;
     --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
     --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
     --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
@@ -111,7 +111,9 @@
     @mixin system_14-18_regular;
 
     display: block;
-    margin-top: var(--gap-2xs);
+
+    /* adjusting overall height 👌 */
+    margin-top: 6px;
     padding: var(--form-control-sub-paddings);
 }
 
@@ -130,7 +132,7 @@
 }
 
 .s .label {
-    top: calc(var(--form-control-s-min-height) / 2 + 1px);
+    top: calc(var(--form-control-s-min-height) / 2);
 }
 
 .m .inner {
@@ -193,12 +195,8 @@
     padding-right: var(--gap-s);
 }
 
-.xl .sub {
-    margin-top: var(--gap-xs);
-}
-
 .xl .label {
-    top: calc(var(--form-control-xl-min-height) / 2 - 1px);
+    top: calc(var(--form-control-xl-min-height) / 2);
 }
 
 /* DISABLED STATE */
@@ -216,6 +214,14 @@
 
 .filled .label {
     transform: translateY(-100%) scale(0.875);
+
+    /* adjusting position 👌 */
+    margin-top: 1px;
+}
+
+.xl .filled .label {
+    /* adjusting position 👌 */
+    margin-top: -1px;
 }
 
 .hiddenLabel {
