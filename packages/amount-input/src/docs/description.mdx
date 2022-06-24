@@ -2,7 +2,7 @@
 
 ☝️ В приложениях Клика используйте обёртку [newclick-composite-components/amount-input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-amountinput--basic).
 
-```tsx live
+```jsx live
 <AmountInput bold={false} />
 ```
 
@@ -11,7 +11,7 @@
 По умолчанию в качестве суффикса отображается символ выбранной валюты.
 Компонент позволяет как скрыть суффикс, так и вывести произвольный текст.
 
-```tsx live
+```jsx live
 <Space>
     <AmountInput value={9999} />
     <AmountInput value={9999} suffix='' />
@@ -23,7 +23,7 @@
 
 Можно ничего не передавать в компонент и реагировать на 'onChange'
 
-```tsx live
+```jsx live
 <AmountInput />
 ```
 
@@ -31,7 +31,7 @@
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
-```tsx live
+```jsx live
 render(() => {
   const [value, setValue] = React.useState(10000);
   const [valueString, setValueString] = React.useState('10000');

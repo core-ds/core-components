@@ -9,7 +9,7 @@ import { InputAutocomplete } from '../Component';
 
 Компонент поля для ввода с автокомплитом
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -59,7 +59,7 @@ render(() => {
 
 ### Кейс с очисткой поля
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -119,7 +119,7 @@ render(() => {
 
 ### Автокомплит с тэгами
 
-```tsx live
+```jsx live
 // import { Tag } from '@alfalab/core-components/tag';
 
 render(() => {
@@ -195,7 +195,7 @@ render(() => {
 
 ### Ошибка при пустом значении
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -248,7 +248,7 @@ render(() => {
 
 ### Поле с маской
 
-```tsx live
+```jsx live
 render(() => {
     const matchOption = (option, inputValue) =>
         option.content.toLowerCase().includes((inputValue || '').toLowerCase());
@@ -341,7 +341,7 @@ render(() => {
 
 ### Multiple
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -414,7 +414,7 @@ render(() => {
 
 ### Автокомплит со стрелкой
 
-```tsx live
+```jsx live
 // import { Arrow } from '@alfalab/core-components/select';
 
 render(<InputAutocomplete options={[]} Arrow={Arrow} />);
@@ -426,7 +426,7 @@ render(<InputAutocomplete options={[]} Arrow={Arrow} />);
 
 Мобильная версия InputAutocomplete.
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: '1', content: 'Neptunium' },

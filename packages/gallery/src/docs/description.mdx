@@ -18,7 +18,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
     </Plate>
 </div>
 
-```tsx live
+```jsx live
 const Example = () => {
     const [open, setOpen] = React.useState(false);
 
@@ -44,7 +44,7 @@ const Example = () => {
             src: 'https://clipart-best.com/img/bush/bush-clip-art-22.png'
         }
     ]
-    
+
     return (
         <div>
             <Button view="primary" onClick={() => { setOpen(true) }}>Открыть галерею</Button>
@@ -65,7 +65,7 @@ render(<Example />)
 
 Галерея с одним изображением:
 
-```tsx live
+```jsx live
 const Example = () => {
     const [open, setOpen] = React.useState(false);
 
@@ -96,7 +96,7 @@ render(<Example />)
 
 Еще одна галерея:
 
-```tsx live
+```jsx live
 const Example = () => {
     const [open, setOpen] = React.useState(false);
     const [initialSlide, setInitialSlide] = React.useState(0);

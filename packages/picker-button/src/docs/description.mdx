@@ -1,6 +1,6 @@
 Компонент используется для скрытия редких или одинаковых по контексту действий.
 
-```tsx live
+```jsx live
 const options = [
     { key: 'Название опции 1' },
     { key: 'Название опции 2' },
@@ -26,7 +26,7 @@ render(
 PickerButton это <a href="/docs/компоненты-select--select">Select</a> с <a href="/docs/компоненты-button--button">Button</a> вместо стандартного `field`.
 Поэтому PickerButton доступен во всех `size` и `view`, которые есть у <a href="/docs/компоненты-button--button">Button</a>.
 
-```tsx live
+```jsx live
 const options = [
     { key: 'Название опции 1' },
     { key: 'Название опции 2' },
@@ -48,7 +48,7 @@ render(
 
 Если места достаточно, список открывается под контролом, если недостасточно над ним.
 
-```tsx live
+```jsx live
 const options = [
     { key: 'Пример длинного названия' },
     { key: 'Название опции' },
@@ -71,7 +71,7 @@ render(
 Обычно ширину выпадающего списка задает контент.
 Если контент слишком длинный, то можно изменить это поведение.
 
-```tsx live
+```jsx live
 const options = [
     { key: 'Пример длинного названия' },
     { key: 'Название опции' },
@@ -86,7 +86,7 @@ render(<PickerButton options={options} view='primary' label='Picker button' />);
 Можно использовать `optionsListWidth='field'`
 — в этом случае ширина выпадающего меню будет равна ширине контрола, а лишний контент обрежется.
 
-```tsx live
+```jsx live
 const LongContent = ({ text }) => (
     <span style={{ whiteSpace: 'nowrap' }} title={text}>
         {text}
@@ -113,7 +113,7 @@ render(
 
 Кастомную ширину можно задать с помощью стилей и `optionsListClassName`
 
-```tsx
+```jsx
 /*
 css
 .customWidth {
@@ -134,7 +134,7 @@ css
 Если в списке менее шести элементов — он отображается полноразмерно.
 Если элементов больше — высота списка устанавливается равной 5,5 ячейкам и появляется скролл.
 
-```tsx live
+```jsx live
 const options = [
     { key: 'Название опции 1' },
     { key: 'Название опции 2' },
@@ -163,7 +163,7 @@ render(
 
 Используется кастомная ячейка высотой 48рх.
 
-```tsx live
+```jsx live
 const options = [
     { key: 'Название опции 1' },
     { key: 'Название опции 2' },
@@ -188,7 +188,7 @@ render(
 
 Компонент позволяет использовать html в качестве `content` у вариантов выбора.
 
-```tsx live
+```jsx live
 const Card = ({ name, balance }) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
         <div
