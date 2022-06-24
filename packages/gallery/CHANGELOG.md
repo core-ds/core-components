@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.20](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.19...@alfalab/core-components-gallery@3.1.20) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.19](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.18...@alfalab/core-components-gallery@3.1.19) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.18](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.17...@alfalab/core-components-gallery@3.1.18) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.17](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.16...@alfalab/core-components-gallery@3.1.17) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
 ## [3.1.16](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.15...@alfalab/core-components-gallery@3.1.16) (2022-06-16)
 
 **Note:** Version bump only for package @alfalab/core-components-gallery

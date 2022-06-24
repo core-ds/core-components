@@ -1,6 +1,7 @@
 import React, {
     CSSProperties,
     forwardRef,
+    HTMLAttributes,
     ReactNode,
     useCallback,
     useEffect,
@@ -51,6 +52,11 @@ export type BottomSheetProps = {
      * Дополнительный класс
      */
     contentClassName?: string;
+
+    /**
+     * Дополнительные пропсы на контейнер.
+     */
+    containerProps?: HTMLAttributes<HTMLDivElement>;
 
     /**
      * Дополнительный класс
@@ -112,6 +118,11 @@ export type BottomSheetProps = {
      * Слот справа
      */
     rightAddons?: ReactNode;
+
+    /**
+     * Слот снизу
+     */
+    bottomAddons?: ReactNode;
 
     /**
      * Наличие компонента крестика
@@ -197,6 +208,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             actionButton,
             contentClassName,
             containerClassName,
+            containerProps,
             headerClassName,
             footerClassName,
             addonClassName,
@@ -205,6 +217,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             className,
             leftAddons,
             rightAddons,
+            bottomAddons,
             hasCloser,
             hasBacker,
             titleAlign = 'left',
@@ -250,6 +263,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backerClassName,
             leftAddons,
             rightAddons,
+            bottomAddons,
             hasCloser,
             hasBacker,
             titleAlign,
@@ -333,12 +347,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleSheetSwiping: SwipeCallback = ({ deltaY, initial }) => {
-            /**
-             * Вернуть плавную анимацию шторке при свайпе
-             */
-            if (transitionClassName === styles.withZeroTransition) {
-                setTransitionClassName(styles.withTransition);
-            }
             const offsetY = initial[1];
 
             if (shouldSkipSwiping(offsetY)) {
@@ -356,6 +364,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
              */
             if (offset > 0) {
                 setScrollLocked(true);
+
+                /**
+                 * Вернуть плавную анимацию шторке при свайпе
+                 */
+                if (transitionClassName === styles.withZeroTransition) {
+                    setTransitionClassName(styles.withTransition);
+                }
             }
         };
 
@@ -455,9 +470,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     {...sheetSwipeablehandlers}
                 >
                     <div
-                        className={cn(styles.scrollableContainer, containerClassName, {
-                            [styles.scrollLocked]: scrollLocked,
-                        })}
+                        {...containerProps}
+                        className={cn(
+                            styles.scrollableContainer,
+                            containerProps?.className,
+                            containerClassName,
+                            {
+                                [styles.scrollLocked]: scrollLocked,
+                            },
+                        )}
                         ref={scrollableContainer}
                     >
                         {swipeable && <div className={cn(styles.marker)} />}

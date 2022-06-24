@@ -16,7 +16,7 @@ describe(
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
-                view: ['primary', 'secondary', 'transparent', 'negative'],
+                view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                 size: ['xxs', 'xs', 's'],
             },
             testStory: false,
@@ -33,7 +33,7 @@ describe(
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
-                view: ['primary', 'secondary', 'transparent', 'negative'],
+                view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                 colors: 'inverted',
             },
             testStory: false,
@@ -50,13 +50,14 @@ describe(
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
-                view: ['primary', 'secondary', 'transparent', 'negative'],
+                view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                 colors: ['default', 'inverted'],
                 size: 's',
             },
             testStory: false,
         }),
-        evaluate: (page: Page) => page.hover('button').then(() => page.waitForTimeout(500)),
+        evaluate: (page: Page) =>
+            page.hover('button[class^=component]').then(() => page.waitForTimeout(500)),
         screenshotOpts: {
             clip,
         },
@@ -69,7 +70,7 @@ describe(
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
-                view: ['primary', 'secondary', 'transparent', 'negative'],
+                view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
                 colors: ['default', 'inverted'],
                 size: 's',
             },
@@ -80,6 +81,25 @@ describe(
                 .move(30, 30)
                 .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
         },
+        screenshotOpts: {
+            clip,
+        },
+    }),
+);
+
+describe(
+    'IconButton | screenshots disabled',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconButton',
+            knobs: {
+                view: ['primary', 'secondary', 'transparent', 'tertiary', 'negative'],
+                colors: ['default', 'inverted'],
+                size: 's',
+                disabled: 'true',
+            },
+            testStory: false,
+        }),
         screenshotOpts: {
             clip,
         },

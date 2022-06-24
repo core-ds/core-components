@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bank-card@4.2.6...@alfalab/core-components-bank-card@4.2.7) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-bank-card
+
+
+
+
+
 ## [4.2.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bank-card@4.2.5...@alfalab/core-components-bank-card@4.2.6) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-bank-card
