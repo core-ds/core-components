@@ -31,12 +31,15 @@ render (() => {
         </Col>
       </Row>
       <PureCell href={text("href", "")} padding='default' direction='horizontal'>
-        <PureCell.Graphics 
-        iconName='glyph_debt_m'
-        iconColor='black' 
-        bottomAddons={<CDNIcon name='glyph_arrow-up-circle_m' color='attention' } 
-        topAddons={<Badge view='count' height={16} content={2} />} 
-        />
+        <PureCell.Graphics>
+        <SuperEllipse 
+        size='48'
+        bottomAddons={<CDNIcon name="glyph_arrow-up-circle_m" color="attention" />}
+        topAddons={<Badge view="count" height={16} content={2} />}
+        >
+           <CDNIcon name="glyph_debt_m" color='black'/>
+        </SuperEllipse>
+      </PureCell.Graphics>
         <PureCell.Content>
           <PureCell.Main isReverse={revert}>
             <PureCell.Text titleColor="primary" valueColor="secondary" isMultiline={multiline} value="Value" view="component">
@@ -85,10 +88,10 @@ render (() => {
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text color="primary" view="component">
+                    <PureCell.Text titleColor="primary" view="component">
                         Title
                     </PureCell.Text>
-                    <PureCell.Text color="secondary" view="primary-small">
+                    <PureCell.Text titleColor="secondary" view="primary-small">
                         Label
                     </PureCell.Text>
                 </PureCell.Main>
@@ -111,7 +114,7 @@ render (() => (
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color="secondary" view="primary-small">
+                        <PureCell.Text titleColor="secondary" view="primary-small">
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount
@@ -135,7 +138,7 @@ render (() => (
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text color="secondary" view="primary-small">
+                        <PureCell.Text titleColor="secondary" view="primary-small">
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount
@@ -172,7 +175,7 @@ render (() =>
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Card Name
                             </PureCell.Text>
                         </PureCell.Main>
@@ -196,10 +199,10 @@ render (() =>
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Card Name
                             </PureCell.Text>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Additional Info
                             </PureCell.Text>
                         </PureCell.Main>
@@ -215,10 +218,10 @@ render (() =>
                 >
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Card Name
                             </PureCell.Text>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Additional Info
                             </PureCell.Text>
                         </PureCell.Main>
@@ -265,10 +268,10 @@ render (() => (
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text view="component" color="primary" rowLimit={ 1 }>
+                            <PureCell.Text view="component" titleColor="primary" rowLimit={ 1 }>
                                 Альфа-карта с преимуществами
                             </PureCell.Text>
-                            <PureCell.Text view="primary-small" color="secondary">
+                            <PureCell.Text view="primary-small" titleColor="secondary">
                                 Не активирована
                             </PureCell.Text>
                         </PureCell.Main>
@@ -298,10 +301,10 @@ render (() => (
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Title
                             </PureCell.Text>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Label
                             </PureCell.Text>
                         </PureCell.Main>
@@ -321,10 +324,10 @@ render (() => (
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Идейные соображения высшего порядка Идейные соображения высшего порядка
                             </PureCell.Text>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Идейные соображения высшего порядка Идейные соображения высшего порядка
                             </PureCell.Text>
                         </PureCell.Main>
@@ -342,7 +345,7 @@ render (() => (
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text color="primary" view="component">
+                                <PureCell.Text titleColor="primary" view="component">
                                     Идейные соображения высшего порядка{ ' ' }
                                 </PureCell.Text>
                             </PureCell.Main>
@@ -372,7 +375,7 @@ render (() => (
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text color="primary" view="component">
+                                <PureCell.Text titleColor="primary" view="component">
                                     { 'Новый\r\nперевод' }
                                 </PureCell.Text>
                             </PureCell.Main>
@@ -390,7 +393,7 @@ render (() => (
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text color="primary" view="component">
+                                <PureCell.Text titleColor="primary" view="component">
                                     Имя Отчество Ф.
                                 </PureCell.Text>
                             </PureCell.Main>
@@ -408,7 +411,7 @@ render (() => (
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text color="primary" view="component">
+                                <PureCell.Text titleColor="primary" view="component">
                                     { 'Себе в другой\r\nбанк' }
                                 </PureCell.Text>
                             </PureCell.Main>
@@ -437,10 +440,10 @@ render (() => (
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Caption Secondary
                             </PureCell.Text>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Title Primary
                             </PureCell.Text>
                         </PureCell.Main>
@@ -459,7 +462,7 @@ render (() => (
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
@@ -478,7 +481,7 @@ render (() => (
                 >
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
@@ -492,7 +495,7 @@ render (() => (
                 <PureCell padding={ select('padding', ['airy', 'default', 'compact', 'tiny'], 'default') }>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
@@ -529,10 +532,10 @@ render (() => (
                 >
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Caption Secondary
                             </PureCell.Text>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Title Primary
                             </PureCell.Text>
                         </PureCell.Main>
@@ -550,10 +553,10 @@ render (() => (
                 >
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Caption Secondary
                             </PureCell.Text>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Title Primary
                             </PureCell.Text>
                         </PureCell.Main>
@@ -571,7 +574,7 @@ render (() => (
                 >
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="secondary" view="primary-small">
+                            <PureCell.Text titleColor="secondary" view="primary-small">
                                 Account Name ··0000
                             </PureCell.Text>
                             <PureCell.Amount
@@ -593,7 +596,7 @@ render (() => (
                 >
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text color="primary" view="component">
+                            <PureCell.Text titleColor="primary" view="component">
                                 Title Primary
                             </PureCell.Text>
                         </PureCell.Main>
@@ -619,10 +622,10 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text rowLimit={ 1 } color="primary" view="component">
+                    <PureCell.Text rowLimit={ 1 } titleColor="primary" view="component">
                         Item Title
                     </PureCell.Text>
-                    <PureCell.Text color="secondary" view="primary-small">
+                    <PureCell.Text titleColor="secondary" view="primary-small">
                         Description
                     </PureCell.Text>
                 </PureCell.Main>
@@ -646,11 +649,11 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text color="primary" view="component">
+                    <PureCell.Text titleColor="primary" view="component">
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
-                    <PureCell.Text color="secondary" view="primary-small">
+                    <PureCell.Text titleColor="secondary" view="primary-small">
                         Description
                     </PureCell.Text>
                 </PureCell.Main>
@@ -682,7 +685,7 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text color="primary" view="component" rowLimit={ 1 }>
+                    <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
                         Яндекс Лавка
                     </PureCell.Text>
                     <PureCell.Category
@@ -710,7 +713,7 @@ render (() => (
         >
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text color="secondary" view="primary-small">
+                    <PureCell.Text titleColor="secondary" view="primary-small">
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.AmountTitle
@@ -727,7 +730,7 @@ render (() => (
         >
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text color="secondary" view="primary-small">
+                    <PureCell.Text titleColor="secondary" view="primary-small">
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.Amount
@@ -748,33 +751,11 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text rowLimit={ 2 } color="primary" view="component">
+                    <PureCell.Text rowLimit={ 2 } titleColor="primary" view="component">
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
-                    <PureCell.Text rowLimit={ 2 } color="secondary" view="primary-small">
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign="center">
-                    <ChevronForwardMIcon />
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell
-            padding={ select('padding', ['airy', 'default', 'compact', 'tiny'], 'default') }
-        >
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={ 1 } color="primary" view="component">
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                    <PureCell.Text rowLimit={ 1 } color="secondary" view="primary-small">
+                    <PureCell.Text rowLimit={ 2 } titleColor="secondary" view="primary-small">
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
@@ -792,11 +773,33 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text color="primary" view="component">
+                    <PureCell.Text rowLimit={ 1 } titleColor="primary" view="component">
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
-                    <PureCell.Text color="secondary" view="primary-small">
+                    <PureCell.Text rowLimit={ 1 } titleColor="secondary" view="primary-small">
+                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
+                        отображаем сколько влезло
+                    </PureCell.Text>
+                </PureCell.Main>
+                <PureCell.Addon verticalAlign="center">
+                    <ChevronForwardMIcon />
+                </PureCell.Addon>
+            </PureCell.Content>
+        </PureCell>
+        <PureCell
+            padding={ select('padding', ['airy', 'default', 'compact', 'tiny'], 'default') }
+        >
+            <PureCell.Graphics>
+                <Circle />
+            </PureCell.Graphics>
+            <PureCell.Content>
+                <PureCell.Main>
+                    <PureCell.Text titleColor="primary" view="component">
+                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
+                        отображаем сколько влезло
+                    </PureCell.Text>
+                    <PureCell.Text titleColor="secondary" view="primary-small">
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
@@ -815,13 +818,13 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text rowLimit={ 1 } color="primary" view="component">
+                    <PureCell.Text rowLimit={ 1 } titleColor="primary" view="component">
                         Яндекс Лавка
                     </PureCell.Text>
                     <PureCell.Category categoryName="Кафе, рестораны, столовые, бары" />
                 </PureCell.Main>
                 <PureCell.Addon>
-                    <PureCell.Text color="secondary" view="component">
+                    <PureCell.Text titleColor="secondary" view="component">
                         22.11.2021
                     </PureCell.Text>
                 </PureCell.Addon>
@@ -839,13 +842,13 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text rowLimit={ 1 } color="primary" view="component">
+                    <PureCell.Text rowLimit={ 1 } titleColor="primary" view="component">
                         Яндекс Лавка
                     </PureCell.Text>
                     <PureCell.Category categoryName="Кафе, рестораны, столовые, бары" />
                 </PureCell.Main>
                 <PureCell.Addon>
-                    <PureCell.Text color="secondary" view="component">
+                    <PureCell.Text titleColor="secondary" view="component">
                         22.11.2021
                     </PureCell.Text>
                 </PureCell.Addon>
@@ -865,12 +868,12 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text rowLimit={ 1 } color="primary" view="component">
+                    <PureCell.Text rowLimit={ 1 } titleColor="primary" view="component">
                         Детские товары
                     </PureCell.Text>
                 </PureCell.Main>
                 <PureCell.Addon verticalAlign="center">
-                    <PureCell.Text color="secondary" view="component">
+                    <PureCell.Text titleColor="secondary" view="component">
                         22
                     </PureCell.Text>
                 </PureCell.Addon>
@@ -884,7 +887,7 @@ render (() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text rowLimit={ 1 } color="primary" view="component">
+                    <PureCell.Text rowLimit={ 1 } titleColor="primary" view="component">
                         Яндекс Лавка
                     </PureCell.Text>
                     <PureCell.Category categoryName="Кафе, рестораны, столовые, бары" />

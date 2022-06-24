@@ -32,7 +32,7 @@ export const Category: React.FC<Props> = ({ categoryName, categoryPercent, dataT
         >
             {categoryName}
         </Typography.Text>
-        {categoryPercent && (
+        {categoryPercent !== undefined && (
             <Typography.Text
                 tag='div'
                 view='primary-small'

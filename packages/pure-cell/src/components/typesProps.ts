@@ -23,6 +23,11 @@ export type AmountProps = {
     minority: number;
 
     /**
+     * Делает минорную часть полупрозрачной
+     */
+    transparentMinor?: boolean;
+
+    /**
      * Количество минорных единиц в валюте для Клика
      */
     minorUnits: number;

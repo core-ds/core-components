@@ -51,18 +51,21 @@ export const Amount: React.FC<Props> = ({
         rightAddons,
         showPlus,
         className,
+        transparentMinor,
         view: viewAmount,
     } = amount;
     return (
         <Typography.Text
             view={view}
             dataTestId={getDataTestId(dataTestId, 'amount-text')}
-            className={cn(styles.component, styles[weight])}
+            className={cn(styles.component)}
             color={color}
         >
             <CoreAmount
                 minority={minority === undefined ? minorUnits : minority}
                 value={value}
+                transparentMinor={transparentMinor}
+                bold={weight === 'bold' ? 'full' : 'none'}
                 rightAddons={rightAddons}
                 showPlus={showPlus}
                 className={className}

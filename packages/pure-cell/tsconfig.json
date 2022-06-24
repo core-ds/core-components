@@ -10,5 +10,5 @@
             "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../typography" }, { "path": "../amount" }, { "path": "../icon-view" }, { "path": "../cdn-icon" }]
+    "references": [{ "path": "../button" }, { "path": "../typography" }, { "path": "../amount" }]
 }
