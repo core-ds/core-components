@@ -36,7 +36,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
 Можно вручную указать, в каких позициях он будет отображаться,
 в случае нехватки места, через свойство `fallbackPlacements`.
 
-```tsx live
+```jsx live
 <div
     style={{
         width: '100%',
@@ -66,7 +66,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
 В случае если тултип не помещается в видимой области экрана, можно передать параметр availableHeight, чтобы компонент подстроил свою высоту под край экрана
 Для position left и right необходимо дополнительно передать параметр preventOverflow = false.
 
-```tsx live
+```jsx live
 <div
     style={{
         width: '100%',
@@ -96,7 +96,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
 
 ### Также возможен вид `Hint`.
 
-```tsx live
+```jsx live
 <div
     style={{
         width: '100%',
@@ -120,11 +120,11 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
 
 Адаптивный тултип (на мобильных устройствах отобразится BottomSheet).
 
-```tsx
+```jsx
 import { TooltipResponsive } from '@alfalab/core-components/tooltip/responsive';
 ```
 
-```tsx live
+```jsx live
 const Example = () => {
     const [open, setOpen] = React.useState(false);
 
@@ -167,7 +167,7 @@ render(<Example />);
 
 Адаптивный тултип с крестиком на мобильных устройствах.
 
-```tsx live
+```jsx live
 const Example = () => {
     const [open, setOpen] = React.useState(false);
 

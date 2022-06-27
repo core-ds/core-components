@@ -7,7 +7,7 @@
 
 Задать границы можно с помощью свойств `minDate` и `maxDate`
 
-```tsx live
+```jsx live
 render(() => {
     // import startOfDay from 'date-fns/startOfDay';
     const [value, setValue] = React.useState();
@@ -32,7 +32,7 @@ render(() => {
 
 ## Скрытие выбора года и месяца
 
-```tsx live
+```jsx live
 render(() => {
     // import startOfDay from 'date-fns/startOfDay';
 
@@ -62,7 +62,7 @@ render(() => {
 
 Задать недоступные даты можно, передав массив дат в свойство `offDays`
 
-```tsx live
+```jsx live
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -78,7 +78,7 @@ render(() => {
 
 Задать события можно, передав массив дат в свойство `events`
 
-```tsx live
+```jsx live
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -108,7 +108,7 @@ render(() => {
 -   Сначала выбираются обе даты, затем меняется та, которая ближе к одному из концов выделения.
 -   Клик по выбранной дате снимает с нее выделение
 
-```tsx live
+```jsx live
 render(() => {
     // import { usePeriod } from '@alfalab/core-components/calendar';
 
@@ -126,7 +126,7 @@ render(() => {
 
 - Каждое третье нажатие начинает выделение сначала
 
-```tsx live
+```jsx live
 render(() => {
     // import { usePeriodWithReset } from '@alfalab/core-components/calendar';
 
@@ -144,7 +144,7 @@ render(() => {
 
 При клике на название месяца / года отображается выбор месяца / года
 
-```tsx live
+```jsx live
 render(() => {
     const [value, setValue] = React.useState(new Date().setMonth(6));
 
@@ -166,7 +166,7 @@ render(() => {
 
 С помощью компонента можно смещать выбранный период назад и вперед.
 
-```tsx live
+```jsx live
 render(() => {
     const [values, setValues] = React.useState({
         value: new Date(),

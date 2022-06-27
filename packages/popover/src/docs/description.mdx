@@ -1,6 +1,6 @@
 Компонент `Popover`. Под капотом использует `popper.js` и `react-transition-group`.
 
-```tsx live
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -39,7 +39,7 @@ render(() => {
 В редких случаях, если положение поповера не пересчитывается (например, при измененнии размера элемента-якоря),
 то можно воспользоваться методом `update`:
 
-```tsx live
+```jsx live
 render(() => {
     const [count, setCount] = React.useState(1);
     const [buttonElement, setButtonElement] = React.useState(null);

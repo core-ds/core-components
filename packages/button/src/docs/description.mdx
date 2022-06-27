@@ -5,7 +5,7 @@ import { Button } from '../';
 Кнопка используется как триггер для выполнения определённого действия.
 Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
 
-```tsx live
+```jsx live
 <Container>
     <Row align='middle'>
         <Col>
@@ -33,7 +33,7 @@ import { Button } from '../';
 
 - <b>Primary</b>. Обозначает ключевое действие. На экране может быть только одна главная кнопка.
 
-```tsx live
+```jsx live
 const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
@@ -53,7 +53,7 @@ render(
 
 - <b>Secondary</b>. Второстепенная кнопка. Может использоваться для любых действий.
 
-```tsx live
+```jsx live
 const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
@@ -73,7 +73,7 @@ render(
 
 - <b>Tertiary</b>. Дополнительная кнопка.
 
-```tsx live
+```jsx live
 const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
@@ -93,7 +93,7 @@ render(
 
 - <b>Link</b>. Прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`.
 
-```tsx live
+```jsx live
 const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
@@ -113,7 +113,7 @@ render(
 
 - <b>Ghost</b>. Прозрачная кнопка без отступов.
 
-```tsx live
+```jsx live
 const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
@@ -135,7 +135,7 @@ render(
 
 Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
 
-```tsx live
+```jsx live
 <Container>
     <Row align="middle">
         <Col>
@@ -156,7 +156,7 @@ render(
 
 С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
 
-```tsx live
+```jsx live
 <Button block={true} size="s" >
     Кнопка
 </Button>
@@ -168,7 +168,7 @@ render(
 
 Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
 
-```tsx live
+```jsx live
 render(() => {
     const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
@@ -210,7 +210,7 @@ render(() => {
 
 Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
 
-```tsx live expanded
+```jsx live expanded
 render(() => {
     const [loading, setLoading] = React.useState({
         primary: false,
@@ -255,7 +255,7 @@ render(() => {
 
 С помощью свойства `nowrap` можно запретить перенос строки в кнопке.
 
-```tsx live
+```jsx live
 <div style={{ width: '240px' }}>
     <Row align="middle">
         <Col>

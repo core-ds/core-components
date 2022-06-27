@@ -4,9 +4,9 @@
 
 ### Вертикальный скролл
 
-```tsx live
+```jsx live
 render(() => {
-    const getChildStyle = (bgColor: string): React.CSSProperties =>({
+    const getChildStyle = (bgColor) => ({
       height: 80,
       textAlign: 'center',
       lineHeight: '80px',
@@ -24,21 +24,21 @@ render(() => {
                     })}
               </Scrollbar>
         </div>
-    )
-}
+    );
+})
 ```
 
 ### Горизонтальный скролл
 
-```tsx live
+```jsx live
 render(() => {
-    const scrollbarStyle: React.CSSProperties = {
+    const scrollbarStyle = {
         width: '100%',
         margin: '10px 0px',
         whiteSpace: 'nowrap',
         overflow: 'auto',
     };
-    const getChildStyle = (bgColor: string): React.CSSProperties => ({
+    const getChildStyle = (bgColor) => ({
         display: 'inline-block',
         width: 80,
         height: 200,

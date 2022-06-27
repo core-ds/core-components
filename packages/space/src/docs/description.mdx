@@ -4,7 +4,7 @@
 
 Просто карточки.
 
-```tsx live
+```jsx live
 <Space>
     <CardImage cardId='EG' />
     <CardImage cardId='GQ' />
@@ -14,7 +14,7 @@
 
 Пользовательское расстояние между карточками.
 
-```tsx live
+```jsx live
 <Space direction='horizontal' size={32}>
     <CardImage cardId='EG' />
     <CardImage cardId='GQ' />
@@ -24,7 +24,7 @@
 
 Пользовательское расстояние между карточками в виде массива [64, 32].
 
-```tsx live
+```jsx live
 <div style={{ width: '700px' }}>
     <Space direction='horizontal' size={[64, 32]} wrap>
         <CardImage cardId='EG' />
@@ -36,7 +36,7 @@
 
 С адаптивом.
 
-```tsx live
+```jsx live
 <Space direction='horizontal' size={32} wrap>
     <CardImage cardId='EG' />
     <CardImage cardId='GQ' />
@@ -46,7 +46,7 @@
 
 С разделителем.
 
-```tsx live
+```jsx live
 <Space direction='vertical' divider={<Divider />} size='l'>
     <CardImage cardId='EG' />
     <CardImage cardId='GQ' />
@@ -56,7 +56,7 @@
 
 Группа для полей ввода. Каждое поле ввода с аттрибутом block. Space c fullWidth.
 
-```tsx live
+```jsx live
 <Space direction='horizontal' fullWidth>
     <Input block placeholder='Над вишней в цвету' />
     <Input block placeholder='Спряталась за облака' />
@@ -67,7 +67,7 @@
 
 Автоматический перенос строки.
 
-```tsx live
+```jsx live
 <Space direction='horizontal' wrap>
     <Button>Над вишней в цвету</Button>
     <Button>Спряталась за облака</Button>
@@ -84,7 +84,7 @@
 
 Выравнивание.
 
-```tsx live
+```jsx live
 <Space direction='horizontal'>
     <Space align='center'>
         <Button>Над вишней в цвету</Button>
@@ -99,7 +99,7 @@
 </Space>
 ```
 
-```tsx live
+```jsx live
 <Space direction='vertical'>
     <Space direction='horizontal' align='start'>
         <Button>Над вишней в цвету</Button>

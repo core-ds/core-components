@@ -2,7 +2,7 @@
 
 Компонент, представляющим собой заготовку для реализации сайд-панелей. В основе компонента лежит `BaseModal`.
 
-```tsx live
+```jsx live
 function Content() {
     const { contentRef } = React.useContext(DrawerContext);
     const [showMore, setShowMore] = React.useState(false);
@@ -52,7 +52,7 @@ render(() => {
 
 ## Кастомные шапка и футер
 
-```tsx live
+```jsx live
 function Header() {
     const { headerHighlighted, onClose, setHasHeader } = React.useContext(DrawerContext);
     React.useEffect(() => setHasHeader(true), [setHasHeader]);

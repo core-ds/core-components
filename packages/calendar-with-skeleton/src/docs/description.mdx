@@ -1,6 +1,6 @@
 Календарь с возможностью скелетной загрузки
 
-```tsx live
+```jsx live
 render(() => {
     const [visible, setVisible] = React.useState(false);
     return (
@@ -17,11 +17,11 @@ render(() => {
 
 ## Использование с другими компонентами
 
-```tsx live
+```jsx live
 <CalendarInput Calendar={CalendarWithSkeleton} calendarProps={{ calendarVisible: false }} />
 ```
 
-```tsx live
+```jsx live
 <CalendarRange
     inputFromProps={{
         Calendar: CalendarWithSkeleton,

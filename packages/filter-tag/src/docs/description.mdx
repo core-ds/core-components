@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'storybook/blocks';
 
 Компонент используется для отображения фильтров с различными вариантами фильтрации.
 
-```tsx live
+```jsx live
 render(() => {
 const checkedContent = <span>Время года:<b> Весна</b></span>;
 const content = <span>Время года</span>;
@@ -10,8 +10,8 @@ const content = <span>Время года</span>;
 const [checked, setChecked] = React.useState(false);
 
 return (
-        <FilterTag 
-            size='xxs' 
+        <FilterTag
+            size='xxs'
             onClick={() => setChecked(true)}
             onClear={() => setChecked(false)}
             checked={checked}
@@ -23,7 +23,7 @@ return (
 ```
 
 ## Архитектура
-Компонент используется в комбинациях с <a href="/docs/компоненты-select--select">Select</a>, <a href="/docs/компоненты-calendar--calendar">Сalendar</a>, 
+Компонент используется в комбинациях с <a href="/docs/компоненты-select--select">Select</a>, <a href="/docs/компоненты-calendar--calendar">Сalendar</a>,
 и другими кастомными контролами вместо стандартного field.
 
 ## Примеры
@@ -31,7 +31,7 @@ return (
 ### Размеры
 Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
 
-```tsx live
+```jsx live
 render(() => {
 const SIZES = ['s', 'xs', 'xxs'];
 const checkedContent = <span>Время года:<b> Весна</b></span>;
@@ -47,7 +47,7 @@ return (
                         size={size}
                         onClick={() => setCheckedFilterTag([...checkedFilterTag, size])}
                         onClear={() => setCheckedFilterTag(checkedFilterTag.filter((item) => item !== size))}
-                        checked={checkedFilterTag.includes(size)} 
+                        checked={checkedFilterTag.includes(size)}
                      >
                         {checkedFilterTag === size ? checkedContent : content}
                     </FilterTag>
@@ -62,7 +62,7 @@ return (
 ### Варианты
 Доступны два варианта компонента в рамках одной темы: `variant=default`, `variant=alt`.
 
-```tsx live
+```jsx live
 render(() => {
 const variants = ['default', 'alt'];
 const checkedContent = <span>Время года:<b> Весна</b></span>;
@@ -78,8 +78,8 @@ return (
                         size='xxs'
                         onClick={() => setCheckedFilterTag([...checkedFilterTag, variant])}
                         onClear={() => setCheckedFilterTag(checkedFilterTag.filter((item) => item !== variant))}
-                        checked={checkedFilterTag.includes(variant)} 
-                        variant={variant} 
+                        checked={checkedFilterTag.includes(variant)}
+                        variant={variant}
                      >
                         {checkedFilterTag.includes(variant) ? checkedContent : content}
                     </FilterTag>
@@ -95,7 +95,7 @@ return (
 
 В зависимости от контекста может быть использован один из следующих паттернов с отображением и скрытием лейбла в выбранном состоянии:
 
-```tsx live
+```jsx live
 render(() => {
 const label = <span>Время года</span>;
 const content = {
@@ -115,7 +115,7 @@ return (
                         size='xxs'
                         onClick={() => setCheckedFilterTag([...checkedFilterTag, key])}
                         onClear={() => setCheckedFilterTag(checkedFilterTag.filter((item) => item !== key))}
-                        checked={checkedFilterTag.includes(key)} 
+                        checked={checkedFilterTag.includes(key)}
                      >
                         {checkedFilterTag.includes(key) ? value : label}
                     </FilterTag>

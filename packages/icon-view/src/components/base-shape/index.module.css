@@ -43,6 +43,7 @@
     align-items: center;
     flex-shrink: 0;
     position: absolute;
+    line-height: 0;
 
     & svg {
         width: 100%;

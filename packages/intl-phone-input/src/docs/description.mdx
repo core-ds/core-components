@@ -8,23 +8,16 @@
 
 ### Кейс с очисткой поля
 
-```tsx live
+```jsx live
 render(() => {
     const [value, setValue] = React.useState('+7');
     const [selectedCountry, setSelectedCountry] = React.useState('RU');
 
-    const handleChange = React.useCallback(
-        newValue => {
-            setValue(newValue);
-        },
-        [setValue],
-    );
+    const handleChange = newValue => setValue(newValue);
 
-    const handleCountryChange = React.useCallback(countryCode => {
-        setSelectedCountry(countryCode);
-    });
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
 
-    const handleClear = React.useCallback(() => setValue(''));
+    const handleClear = () => setValue('');
 
     return (
         <div style={{ width: '320px' }}>
@@ -38,7 +31,6 @@ render(() => {
                 block={true}
                 label='Номер телефона'
                 defaultCountryIso2='RU'
-                readOnly={boolean('readOnly', false)}
                 onCountryChange={handleCountryChange}
             />
             <br />
@@ -50,7 +42,7 @@ render(() => {
 
 ### Кейс с автокомплитом
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: '+7 921 681 53 98' },
@@ -66,18 +58,9 @@ render(() => {
     const [value, setValue] = React.useState('+7');
     const [selectedCountry, setSelectedCountry] = React.useState('RU');
 
-    const handleChange = React.useCallback(
-        newValue => {
-            setValue(newValue);
-        },
-        [setValue],
-    );
+    const handleChange = newValue => setValue(newValue);
 
-    const handleCountryChange = React.useCallback(countryCode => {
-        setSelectedCountry(countryCode);
-    });
-
-    const handleClear = React.useCallback(() => setValue(''));
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
 
     const filteredOptions = options.filter(option => matchOption(option, value));
 
@@ -90,7 +73,7 @@ render(() => {
                 block={true}
                 label='Номер телефона'
                 defaultCountryIso2='RU'
-                readOnly={boolean('readOnly', false)}
+                readOnly={false}
                 onCountryChange={handleCountryChange}
             />
             <br />

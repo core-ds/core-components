@@ -3,7 +3,12 @@ import React, { ChangeEvent, useState, useRef, useMemo, RefObject } from 'react'
 import mergeRefs from 'react-merge-refs';
 import throttle from 'lodash.throttle';
 
-import { BaseSelectProps, SelectMobile, SelectMobileProps } from '@alfalab/core-components-select';
+import {
+    BaseSelectProps,
+    SelectMobile,
+    SelectMobileProps,
+    BaseSelectChangePayload,
+} from '@alfalab/core-components-select';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { Input } from '@alfalab/core-components-input';
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
@@ -25,24 +30,24 @@ export type InputAutocompleteMobileProps = Omit<
     | 'allowUnselect'
 > & {
     /**
-     * Значение поля ввода
-     */
-    value: string;
-
-    /**
-     * Значение фильтра.
-     */
-    filter: string;
-
-    /**
      * Обработчик выбора
      */
-    onChange: (payload: string | BaseSelectProps['onChange']) => void;
+    onChange: (payload: string | BaseSelectChangePayload) => void;
 
     /**
      * Обработчик ввода фильтра.
      */
     onFilter: (event: ChangeEvent<HTMLInputElement>) => void;
+
+    /**
+     * Значение поля ввода
+     */
+    value?: string;
+
+    /**
+     * Значение фильтра.
+     */
+    filter?: string;
 
     /**
      * Обработчик нажатия на кнопку "Отмена".
@@ -83,9 +88,9 @@ export const InputAutocompleteMobile = React.forwardRef(
             bottomSheetProps = {},
             bottomSheetHeaderAddonsProps = {},
             value = '',
+            filter = '',
             name,
             Arrow = null,
-            filter,
             label,
             placeholder,
             size = 's',

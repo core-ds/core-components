@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@3.7.1...@alfalab/core-components-file-upload-item@3.7.2) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
+## [3.7.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@3.7.0...@alfalab/core-components-file-upload-item@3.7.1) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-file-upload-item
+
+
+
+
+
 # [3.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@3.6.5...@alfalab/core-components-file-upload-item@3.7.0) (2022-06-20)
 
 
