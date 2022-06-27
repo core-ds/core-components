@@ -493,7 +493,7 @@ export type OptionsListProps = {
     /**
      * Будет отображаться, если компонент пустой
      */
-    emptyPlaceholder?: string;
+    emptyPlaceholder?: ReactNode;
 
     /**
      * Количество видимых пунктов меню (5 = 5.5)
