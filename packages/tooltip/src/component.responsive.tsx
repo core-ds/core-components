@@ -26,12 +26,12 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
     /**
      * Обработчик открытия
      */
-    onOpen?: () => void;
+    onOpen?: (event?: React.MouseEvent<HTMLElement>) => void;
 
     /**
      * Обработчик закрытия
      */
-    onClose?: () => void;
+    onClose?: (event?: React.MouseEvent<HTMLElement>) => void;
 
     /**
      * Заголовок кнопки в футере
@@ -67,17 +67,17 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
 
     const [openValue, setOpenValueIfUncontrolled] = useControlled(open, false);
 
-    const handleOpen = () => {
+    const handleOpen = (event?: React.MouseEvent<HTMLElement>) => {
         if (onOpen) {
-            onOpen();
+            onOpen(event);
         } else {
             setOpenValueIfUncontrolled(true);
         }
     };
 
-    const handleClose = () => {
+    const handleClose = (event?: React.MouseEvent<HTMLElement>) => {
         if (onClose) {
-            onClose();
+            onClose(event);
         } else {
             setOpenValueIfUncontrolled(false);
         }
