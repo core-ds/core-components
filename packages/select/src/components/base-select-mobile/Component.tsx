@@ -449,7 +449,6 @@ export const BaseSelectMobile = forwardRef(
                     <ModalMobile
                         open={open}
                         onClose={handleClose}
-                        className={styles.sheet}
                         contentClassName={styles.sheetContent}
                         hasCloser={true}
                     >
