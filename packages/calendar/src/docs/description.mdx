@@ -2,7 +2,7 @@
 
 ### Стандартные паттерны
 
-```tsx live
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState();
@@ -141,7 +141,7 @@ render(() => {
 
 ### Указание диапазона
 
-```tsx live
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -270,7 +270,7 @@ render(() => {
 Задать недоступные даты можно, передав массив дат в свойство [offDays]. <br />
 Задать события можно, передав массив дат в свойство [events]
 
-```tsx live
+```jsx live
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -329,7 +329,7 @@ render(() => {
 ### Границы
 Можно ограничить выбор дат, задав допустимый диапазон с помощью свойств [minDate] и [maxDate]
 
-```tsx live
+```jsx live
 render(() => {
     // import startOfDay from 'date-fns/startOfDay';
 
@@ -399,7 +399,7 @@ render(() => {
 
 С помощью компонента можно смещать выбранный период назад и вперед.
 
-```tsx live
+```jsx live
 render(() => {
     const [values, setValues] = React.useState({
         value: new Date(),

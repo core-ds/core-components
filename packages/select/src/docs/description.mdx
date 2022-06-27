@@ -1,6 +1,6 @@
 Компонент выпадающего списка.
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -15,7 +15,7 @@ const options = [
 render(<Select options={options} placeholder='Выберите элемент' />);
 ```
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -44,7 +44,7 @@ render(<SelectMobile options={options} placeholder='SelectMobile' />);
 По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
 Изменить это поведение можно с помощью `closeOnSelect`.
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -70,7 +70,7 @@ render(
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium', disabled: true },
@@ -104,7 +104,7 @@ render(() => {
 
 #### Управление открытием
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -144,7 +144,7 @@ render(() => {
 Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
 В этом случае просто передавайте их через свойство `selected`.
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -180,7 +180,7 @@ render(() => {
 
 Чтобы использовать селект внутри формы - следует указать атрибут `name`
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -231,7 +231,7 @@ render(() => {
 
 Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
 
-```tsx live
+```jsx live
 const Card = ({ name, balance }) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
         <div
@@ -277,7 +277,7 @@ render(() => {
 
 Стандартный компонент **Field** позволяет управлять рендером выбранных пунктов с помощью `valueRenderer`
 
-```tsx live
+```jsx live
 const OptionWithIcon = ({ content }) => (
     <span style={{ display: 'flex', alignItems: 'center' }} key={content}>
         <StarMIcon />
@@ -298,7 +298,7 @@ render(<Select options={options} valueRenderer={valueRenderer} size='m' label='�
 
 Селект позволяет заменять или кастомизировать компоненты **Field**, **Option**, **OptionsList**, **Optgroup**, **Arrow**
 
-```tsx live
+```jsx live
 const BoldOption = props => (
     <Option {...props}>
         <b>{props.option.content}</b>
@@ -314,7 +314,7 @@ const options = [
 render(<Select options={options} label='Bold options' Option={BoldOption} />);
 ```
 
-```tsx live
+```jsx live
 const CustomField = props => <Field {...props} leftAddons={props.selected && <StarMIcon />} />;
 
 const options = [
@@ -329,7 +329,7 @@ render(<Select label='With addons' options={options} Field={CustomField} />);
 Для корректой работы выпадающего списка с компонентом `Button`,
 необходимо сделать обертку над компонентом кнопки и передать обертке `ref`
 
-```tsx live
+```jsx live
 const CustomField = ({ selected, innerProps: { ref, ...restInnerProps }, ...restProps }) => (
     <div ref={ref}>
         <Button {...restInnerProps} {...restProps} size='xs'>
@@ -358,7 +358,7 @@ render(
 
 По умолчанию размер пунктов меню совпадает с размером селекта, но с помощью свойства `optionsSize` можно задать размер отдельно.
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -370,7 +370,7 @@ render(<Select size='l' options={options} label='optionsSize' optionsSize='s' />
 
 ## Селект с заголовком меню и футером
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -396,7 +396,7 @@ render(
 
 Это можно сделать с помощью свойства `optionsListWidth='field'` — в этом случае ширина выпадающего меню будет равна ширине поля, а лишний контент обрежется.
 
-```tsx live
+```jsx live
 const LongContent = ({ text }) => (
     <span style={{ whiteSpace: 'nowrap' }} title={text}>
         {text}
@@ -419,7 +419,7 @@ render(
 
 ## Группированный селект
 
-```tsx live
+```jsx live
 const groups = [
     {
         label: 'Группа №1',
@@ -444,7 +444,7 @@ render(<Select options={groups} label='Группированный селект
 
 Рендерит нативный селект вместо выпадающего меню. (стоит использовать только для мобильных устройств)
 
-```tsx live
+```jsx live
 const groups = [
     {
         label: 'Группа №1',
@@ -469,7 +469,7 @@ render(<Select options={groups} label='Нативный селект' nativeSele
 
 Используйте `OptionsList={VirtualOptionsList}` для рендера большого количества данных
 
-```tsx live
+```jsx live
 const options = new Array(10000).fill().map((_, index) => {
     const variableSizeText = `Вы восхитительны! `.repeat(Math.round(Math.random() * 10));
 
@@ -494,7 +494,7 @@ render(
 );
 ```
 
-```tsx live
+```jsx live
 const groups = new Array(100).fill().reduce((acc, _, groupIndex) => {
     return acc.concat({
         label: `Группа №${groupIndex + 1}`,
@@ -528,7 +528,7 @@ render(
 
 С помощью свойства `showSelectAll` можно добавить пункт "Выбрать все".
 
-```tsx live
+```jsx live
 const options = [
     { key: "40708810300024636781", content: "Валютный счёт $ ··6781", value: "USD ··6781" },
     { key: "40701810200000000593", content: "Рублёвый счёт ₽ ··0593", value: "RUB ··0593" },
@@ -565,7 +565,7 @@ render(() => {
 
 ### Селект со скелетной загрузкой
 
-```tsx live
+```jsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -608,7 +608,7 @@ render(() => {
 
 #### Простая ленивая загрузка
 
-```tsx live
+```jsx live
 const LIMIT = 10;
 
 const sleep = () => new Promise(r => setTimeout(r, 2000));
@@ -648,7 +648,7 @@ render(() => {
 
 #### Ленивая загрузка с поддержкой поиска по строке
 
-```tsx live
+```jsx live
 const LIMIT = 15;
 
 const sleep = () => new Promise(r => setTimeout(r, 2000));

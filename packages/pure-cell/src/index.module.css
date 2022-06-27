@@ -1,0 +1,85 @@
+.component {
+    text-align: unset;
+}
+
+.horizontal {
+    display: flex;
+    width: 100%;
+    grid-column-gap: var(--gap-m);
+}
+
+.vertical {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    grid-row-gap: var(--gap-s);
+}
+
+.button {
+    font-family: inherit;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+    padding: 0;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}
+.none {
+    padding: 0;
+}
+
+.airy {
+    padding: var(--gap-m) 0;
+}
+
+.default {
+    padding: var(--gap-s) 0;
+}
+
+.compact {
+    padding: var(--gap-xs) 0;
+}
+
+.tiny {
+    padding: var(--gap-2xs) 0;
+}
+
+.left {
+    padding-left: var(--gap-m);
+}
+
+.right {
+    padding-right: var(--gap-m);
+}
+
+.both {
+    padding-right: var(--gap-m);
+    padding-left: var(--gap-m);
+}
+
+.focused {
+    @mixin focus-outline;
+}

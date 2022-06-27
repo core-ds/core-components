@@ -39,6 +39,7 @@ const baseConfig = {
         ...Object.keys(pkg.peerDependencies || {}),
         /(core-js).+/,
     ],
+    plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
 };
 
 const multiInputPlugin = multiInput();

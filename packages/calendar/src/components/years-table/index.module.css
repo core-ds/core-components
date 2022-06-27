@@ -22,26 +22,27 @@
     }
 }
 
-.button {
-    /* 3 колонки с равными отступами */
-    width: 33%;
-    margin-bottom: var(--gap-xs);
-
-    &:nth-child(3n) {
-        margin-right: 0;
-    }
-
-    @media (max-width: 374px) {
-        width: calc((var(--calendar-mobile-inner-width) / 2) - (var(--gap-2xs) / 2));
+:global(.cc-calendar) {
+    & .button {
+        width: 33%;
+        margin-bottom: var(--gap-xs);
 
         &:nth-child(3n) {
-            margin-right: var(--gap-2xs);
-        }
-
-        &:nth-child(2n) {
             margin-right: 0;
         }
 
-        height: 36px;
+        @media (max-width: 374px) {
+            width: calc((var(--calendar-mobile-inner-width) / 2) - (var(--gap-2xs) / 2));
+
+            &:nth-child(3n) {
+                margin-right: var(--gap-2xs);
+            }
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            height: 36px;
+        }
     }
 }

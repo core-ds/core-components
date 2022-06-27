@@ -50,7 +50,7 @@ describe('Attach | interactions tests', () => {
         try {
             const [fileChooser] = await Promise.all([
                 page.waitForEvent('filechooser'),
-                page.click('button'),
+                page.click('button[class^=component]'),
             ]);
 
             await fileChooser.setFiles({

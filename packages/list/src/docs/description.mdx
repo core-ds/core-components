@@ -1,4 +1,4 @@
-```tsx live
+```jsx live
 <Space>
     <List tag='ul'>
         <Typography.Text view='primary-medium'>Накопительные счета</Typography.Text>
@@ -31,11 +31,11 @@
 Чтобы избежать дублирования и упростить ипользование компонента — можно создать на основе `List` преднастроенный компонент в своей локальной библиотеке.
 
 
-```tsx live
+```jsx live
 // import { Space } from '@alfalab/core-components/space';
 // import { Typography, typographyPresets } from '@alfalab/core-components/typography';
 // import { listPres } from '@alfalab/core-components/list';
- 
+
 <List {...listPresets.mobile}>
     <Space size={2}>
         <Typography.Text {...typographyPresets.mobile.list.text.primary}>

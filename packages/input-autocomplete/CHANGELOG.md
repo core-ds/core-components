@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.1...@alfalab/core-components-input-autocomplete@7.3.2) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
+## [7.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.0...@alfalab/core-components-input-autocomplete@7.3.1) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
+# [7.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.7...@alfalab/core-components-input-autocomplete@7.3.0) (2022-06-20)
+
+
+### Features
+
+* **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+
+
+
+
+
+## [7.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.6...@alfalab/core-components-input-autocomplete@7.2.7) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
+## [7.2.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.5...@alfalab/core-components-input-autocomplete@7.2.6) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
 ## [7.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.4...@alfalab/core-components-input-autocomplete@7.2.5) (2022-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-input-autocomplete

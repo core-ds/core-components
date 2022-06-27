@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.8.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.8.4...@alfalab/core-components-picker-button@7.8.5) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.8.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.8.3...@alfalab/core-components-picker-button@7.8.4) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.8.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.8.2...@alfalab/core-components-picker-button@7.8.3) (2022-06-20)
+
+
+### Bug Fixes
+
+* fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+
+
+
+
+
+## [7.8.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.8.1...@alfalab/core-components-picker-button@7.8.2) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.8.0...@alfalab/core-components-picker-button@7.8.1) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
 # [7.8.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.7.4...@alfalab/core-components-picker-button@7.8.0) (2022-06-08)
 
 

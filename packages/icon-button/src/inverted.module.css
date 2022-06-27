@@ -53,9 +53,7 @@
     --icon-button-inverted-negative-base-color: var(--color-light-graphic-negative);
     --icon-button-inverted-negative-hover-color: var(--color-light-graphic-negative-shade-7);
     --icon-button-inverted-negative-active-color: var(--color-light-graphic-negative-shade-15);
-    --icon-button-inverted-negative-disabled-color: var(
-        --color-light-graphic-negative-inverted-alpha-30
-    );
+    --icon-button-inverted-negative-disabled-color: var(--color-light-graphic-negative-alpha-30);
 }
 
 .primary {
@@ -115,5 +113,39 @@
 
     &:active {
         color: var(--icon-button-inverted-tertiary-active-color);
+    }
+}
+
+.component:disabled {
+    &.primary {
+        color: var(--icon-button-inverted-primary-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-inverted-primary-base-color);
+        }
+    }
+
+    &.secondary {
+        color: var(--icon-button-inverted-secondary-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-inverted-secondary-base-color);
+        }
+    }
+
+    &.negative {
+        color: var(--icon-button-inverted-negative-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-inverted-negative-base-color);
+        }
+    }
+
+    &.tertiary {
+        color: var(--icon-button-inverted-tertiary-disabled-color);
+
+        &.loader {
+            color: var(--icon-button-inverted-tertiary-base-color);
+        }
     }
 }

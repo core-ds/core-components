@@ -2,7 +2,7 @@
 
 ☝️ В приложениях Клика используйте обёртку [newclick-composite-components/amount-input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-amountinput--basic).
 
-```tsx live
+```jsx live
 <AmountInput bold={false} />
 ```
 
@@ -11,7 +11,7 @@
 По умолчанию в качестве суффикса отображается символ выбранной валюты.
 Компонент позволяет как скрыть суффикс, так и вывести произвольный текст.
 
-```tsx live
+```jsx live
 <Space>
     <AmountInput value={9999} />
     <AmountInput value={9999} suffix='' />
@@ -23,7 +23,7 @@
 
 Можно ничего не передавать в компонент и реагировать на 'onChange'
 
-```tsx live
+```jsx live
 <AmountInput />
 ```
 
@@ -31,33 +31,38 @@
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
-```tsx live
+```jsx live
 render(() => {
-    const [value, setValue] = React.useState(10000);
+  const [value, setValue] = React.useState(10000);
+  const [valueString, setValueString] = React.useState('10000');
+  const [suggests] = React.useState([
+    { currency: "RUR", minorUnits: 100, value: -1000, valueString: '-10' },
+    { currency: "RUR", minorUnits: 100, value: 0, valueString: '0' },
+    { currency: "RUR", minorUnits: 100, value: 500, valueString: '5' },
+    { currency: "RUR", minorUnits: 100, value: 156000, valueString: '1560' },
+    { currency: "RUR", minorUnits: 100, value: null, valueString: '' },
+  ]);
+  const handleChange = (event, payload) => {
+    setValue(payload.value);
+    setValueString(payload.valueString);
+  };
+  return (
+    <Space>
+      <AmountInput
+        value={value}
+        onChange={handleChange}
+        hint={`value: ${value} | valueString: ${valueString}`}
+        positiveOnly={false}
+      />
 
-    const [suggests] = React.useState([
-        { currency: 'RUR', minorUnits: 100, value: 15600 },
-        { currency: 'RUR', minorUnits: 100, value: 500 },
-        { currency: 'RUR', minorUnits: 100, value: null },
-        { currency: 'RUR', minorUnits: 100, value: 0 },
-    ]);
-
-    const handleChange = (event, payload) => {
-        setValue(payload.value);
-    };
-
-    return (
-        <Space>
-            <AmountInput value={value} onChange={handleChange} hint={`value: ${value}`} />
-
-            <Space direction="horizontal">
-                {suggests.map(s => (
-                    <Button size='xs' onClick={() => setValue(s.value)}>
-                        Установить {String(s.value)}
-                    </Button>
-                ))}
-            </Space>
-        </Space>
-    );
+      <Space direction="horizontal">
+        {suggests.map((s) => (
+          <Button size="xs" onClick={() => handleChange(null, {value: s.value, valueString: s.valueString})}>
+            Установить {String(s.value)}
+          </Button>
+        ))}
+      </Space>
+    </Space>
+  );
 });
 ```

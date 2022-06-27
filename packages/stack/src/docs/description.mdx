@@ -11,7 +11,7 @@
 У компонента Tooltip установлен z-index равный 50, у Modal z-index равен 100, все они рендерятся в Portal.
 Если поместить Tooltip в Modal, то Modal будет перекрывать Tooltip, тем самым пользователь не увидит подсказку.
 
-```tsx live
+```jsx live
 render(() => {
     const [modalOpen, setModalOpen] = React.useState(false);
 
@@ -113,7 +113,7 @@ render(() => {
 
 Все вышеперечисленные проблемы решаются с помощью компонента Stack.
 
-```tsx live
+```jsx live
 render(() => {
     const [modalOpen, setModalOpen] = React.useState(false);
 

@@ -5,7 +5,7 @@ https://design.alfabank.ru/patterns/amount
 
 
 
-```tsx live
+```jsx live
 // import { Typography } from '@alfalab/core-components/typography';
 
 <Typography.Title font='system'>
@@ -19,7 +19,7 @@ https://design.alfabank.ru/patterns/amount
 
 - `view="withZeroMinorPart"`: показывает минорную часть, даже если её значение равно 0
 
-```tsx live
+```jsx live
 <Container>
     <Row>
         <Col>
@@ -51,7 +51,7 @@ https://design.alfabank.ru/patterns/amount
 
 - Без валюты и с кастомной иконкой валюты
 
-```tsx live
+```jsx live
 <Typography.Title font='system'>
     <Amount value={1234599} minority={100} rightAddons={<StarMIcon />} />
 </Typography.Title>
@@ -59,7 +59,7 @@ https://design.alfabank.ru/patterns/amount
 
 - Показывать + для положительных значений
 
-```tsx live
+```jsx live
 <Typography.Text font='system' color='positive'>
     <Amount value={1234599} showPlus={true} minority={100} />
 </Typography.Text>
@@ -67,7 +67,7 @@ https://design.alfabank.ru/patterns/amount
 
 - Внутри заголовка
 
-```tsx live
+```jsx live
 <h3>
     <Amount value={1234500} currency='RUR' minority={100} />
 </h3>
@@ -75,7 +75,7 @@ https://design.alfabank.ru/patterns/amount
 
 - Внутри красного текста
 
-```tsx live
+```jsx live
 <span style={{ color: 'red' }}>
     <Amount value={1234500} currency='RUR' minority={100} />
 </span>

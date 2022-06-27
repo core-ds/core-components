@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'storybook/blocks';
 вариантов выбора в <a href="/docs/компоненты-radiogroup--radio-group">RadioGroup</a>,
 и <a href="/docs/компоненты-tabs--tabs">Tabs secondary</a>.
 
-```tsx live
+```jsx live
 render(() => {
     const [checked, setChecked] = React.useState(false);
     const handleClick = () => setChecked(!checked);
@@ -25,7 +25,7 @@ render(() => {
 ### Размеры
 Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
 
-```tsx live
+```jsx live
 render(() => {
     const SIZES = ['s', 'xs', 'xxs'];
 
@@ -54,7 +54,7 @@ render(() => {
 ### Скругления
 Доступны два варианта компонента в рамках одной темы: `variant=default`, `variant=alt`.
 
-```tsx live
+```jsx live
 render(() => (
     <Container>
         <Row>
@@ -70,16 +70,16 @@ render(() => (
             </Col>
         </Row>
     </Container>
-)
+));
 ```
 
 ### Слоты
 С помощью слотов leftAddons и rightAddons можно кастомизировать тэг. Например, добавить иконку.
-Переданный контент будет отрисован слева или справа от лейбла. 
+Переданный контент будет отрисован слева или справа от лейбла.
 
-```tsx live
+```jsx live
 render(() => {
-    const addon = <div style={{ 
+    const addon = <div style={{
             background: 'rgba(55, 120, 251, 0.1)',
             border: '1px dashed #3778FB',
             height: '24px',
@@ -87,7 +87,7 @@ render(() => {
             boxSizing: 'border-box',
         }} />;
 
-    return ( 
+    return (
         <Container>
             <Row>
                 <Col>
@@ -113,22 +113,22 @@ render(() => {
             </Row>
         </Container>
     );
-}
+});
 ```
 
 ### Кастомные слоты
-В некоторых случаях допустимо дополнительно настраивать отступ внутри аддона, см. пример с Amount. 
+В некоторых случаях допустимо дополнительно настраивать отступ внутри аддона, см. пример с Amount.
 
-```tsx live
+```jsx live
 render(() => {
-    const addon = <div style={{ 
+    const addon = <div style={{
         background: 'rgba(55, 120, 251, 0.1)',
         border: '1px dashed #3778FB',
         height: '24px',
         width: '24px',
         }} />;
 
-    const amountAddon = ( 
+    const amountAddon = (
         <div style={{ paddingRight: '4px' }}>
             <Amount
                 view="withZeroMinorPart"
@@ -136,10 +136,10 @@ render(() => {
                 currency="RUR"
                 minority={100}
             />
-        </div>   
+        </div>
     );
 
-    return ( 
+    return (
         <Container>
             <Row>
                 <Col>
@@ -158,8 +158,8 @@ render(() => {
                     </Tag>
                 </Col>
                 <Col>
-                    <Tag 
-                        size='xxs' 
+                    <Tag
+                        size='xxs'
                         rightAddons={amountAddon}
                     >
                         Label
@@ -168,5 +168,5 @@ render(() => {
             </Row>
         </Container>
     );
-}
+});
 ```

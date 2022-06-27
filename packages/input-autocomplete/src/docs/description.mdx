@@ -9,7 +9,7 @@ import { InputAutocomplete } from '../Component';
 
 Компонент поля для ввода с автокомплитом
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -59,7 +59,7 @@ render(() => {
 
 ### Кейс с очисткой поля
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -119,7 +119,7 @@ render(() => {
 
 ### Автокомплит с тэгами
 
-```tsx live
+```jsx live
 // import { Tag } from '@alfalab/core-components/tag';
 
 render(() => {
@@ -195,7 +195,7 @@ render(() => {
 
 ### Ошибка при пустом значении
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -248,7 +248,7 @@ render(() => {
 
 ### Поле с маской
 
-```tsx live
+```jsx live
 render(() => {
     const matchOption = (option, inputValue) =>
         option.content.toLowerCase().includes((inputValue || '').toLowerCase());
@@ -341,7 +341,7 @@ render(() => {
 
 ### Multiple
 
-```tsx live
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -414,8 +414,78 @@ render(() => {
 
 ### Автокомплит со стрелкой
 
-```tsx live
+```jsx live
 // import { Arrow } from '@alfalab/core-components/select';
 
 render(<InputAutocomplete options={[]} Arrow={Arrow} />);
+```
+
+
+
+### Компонент `InputAutocompleteMobile`.
+
+Мобильная версия InputAutocomplete.
+
+```jsx live
+render(() => {
+    const options = [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+        { key: '3', content: 'Americium' },
+        { key: '4', content: 'Curium' },
+        { key: '5', content: 'Berkelium' },
+        { key: '6', content: 'Californium' },
+        { key: '7', content: 'Einsteinium' },
+        { key: '8', content: 'Fermium' },
+        { key: '9', content: 'Hydrogenium' },
+        { key: '10', content: 'Helium' },
+        { key: '11', content: 'Lithium' },
+        { key: '12', content: 'Beryllium' },
+        { key: '13', content: 'Borum' },
+        { key: '14', content: 'Carboneum' },
+        { key: '15', content: 'Nitrogenium' },
+        { key: '16', content: 'Oxygenium' },
+    ];
+
+    const matchOption = (option, inputValue) =>
+        option.content.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+    const [filter, setFilter] = React.useState('');
+
+    const handleFilter = event => {
+        setFilter(event.target.value);
+    };
+
+    const handleChange = (payload) => {
+        const newValue = payload ? isOptionShape(payload.selected) ? payload.selected.content : payload : '';
+
+        setValue(newValue);
+        setFilter(newValue);
+    };
+
+    const filteredOptions = options.filter(option => matchOption(option, filter));
+
+    return (
+        <div style={{width: 201}}>
+            <InputAutocompleteMobile
+                block={true}
+                value={value}
+                filter={filter}
+                options={filteredOptions}
+                placeholder='Выберите элемент'
+                label='Элемент'
+                onChange={handleChange}
+                onFilter={handleFilter}
+                onClearFilter={() => setFilter('')}
+                // Если нужно, то можно подставить значение в фильтр при открытии шторки.
+                bottomSheetProps={{
+                    transitionProps: {
+                        onEnter: () => setFilter(value),
+                    }
+                }}
+            />
+        </div>
+    );
+});
 ```

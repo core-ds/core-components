@@ -27,6 +27,7 @@ storybook-static
 
 # IDE
 .idea
+.vscode
 
 .yalc/
 yalc.lock

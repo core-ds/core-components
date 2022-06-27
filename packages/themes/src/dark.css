@@ -166,4 +166,46 @@
     --color-light-text-primary-inverted-shade-50: var(--color-dark-text-primary-inverted-tint-50);
     --color-light-bg-primary-inverted-alpha-5: var(--color-dark-bg-primary-inverted-alpha-5);
     --color-light-bg-primary-alpha-8: var(--color-dark-bg-primary-alpha-8);
+    --color-light-graphic-tertiary-shade-7: var(--color-dark-graphic-tertiary-tint-7);
+    --color-light-graphic-tertiary-shade-15: var(--color-dark-graphic-tertiary-tint-15);
+    --color-light-graphic-tertiary-alpha-30: var(--color-dark-graphic-tertiary-alpha-30);
+    --color-light-graphic-negative-alpha-30: var(--color-dark-graphic-negative-alpha-30);
+    --color-light-graphic-negative-shade-7: var(--color-dark-graphic-negative-tint-7);
+    --color-light-graphic-negative-shade-15: var(--color-dark-graphic-negative-tint-15);
+    --color-light-graphic-primary-inverted-shade-15: var(
+        --color-dark-graphic-primary-inverted-tint-15
+    );
+    --color-light-graphic-primary-inverted-shade-7: var(
+        --color-dark-graphic-primary-inverted-tint-7
+    );
+    --color-light-graphic-secondary-inverted-tint-15: var(
+        --color-dark-graphic-secondary-inverted-shade-15
+    );
+    --color-light-graphic-secondary-inverted-tint-20: var(
+        --color-dark-graphic-secondary-inverted-shade-20
+    );
+    --color-light-graphic-secondary-inverted-alpha-30: var(
+        --color-dark-graphic-secondary-inverted-alpha-30
+    );
+    --color-light-graphic-tertiary-inverted: var(--color-dark-graphic-tertiary-inverted);
+    --color-light-graphic-tertiary-inverted-alpha-30: var(
+        --color-dark-graphic-tertiary-inverted-alpha-30
+    );
+    --color-light-graphic-tertiary-inverted-tint-15: var(
+        --color-dark-graphic-tertiary-inverted-shade-15
+    );
+    --color-light-graphic-tertiary-inverted-tint-20: var(
+        --color-dark-graphic-tertiary-inverted-shade-20
+    );
+    --color-light-bg-primary-alpha-4: var(--color-dark-bg-primary-alpha-4);
+    --color-light-bg-primary-alpha-12: var(--color-dark-bg-primary-alpha-12);
+    --color-light-bg-primary-alpha-16: var(--color-dark-bg-primary-alpha-16);
+    --color-light-bg-primary-inverted-alpha-4: var(--color-dark-bg-primary-inverted-alpha-4);
+    --color-light-bg-primary-inverted-alpha-8: var(--color-dark-bg-primary-inverted-alpha-8);
+    --color-light-bg-primary-inverted-alpha-12: var(--color-dark-bg-primary-inverted-alpha-12);
+    --color-light-bg-primary-inverted-alpha-16: var(--color-dark-bg-primary-inverted-alpha-16);
+    --color-light-bg-primary-inverted-alpha-24: var(--color-dark-bg-primary-inverted-alpha-24);
+    --color-light-bg-primary-inverted-alpha-32: var(--color-dark-bg-primary-inverted-alpha-32);
+    --color-light-bg-primary-alpha-32: var(--color-dark-bg-primary-alpha-32);
+    --color-light-bg-primary-alpha-37: var(--color-dark-bg-primary-alpha-37);
 }
