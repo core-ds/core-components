@@ -1,3 +1,20 @@
+# [27.10.0](https://github.com/core-ds/core-components/compare/v27.9.0...v27.10.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **icon-view:** fix line-height ([#111](https://github.com/core-ds/core-components/issues/111)) ([b16e0ea](https://github.com/core-ds/core-components/commit/b16e0ea206c819ba4370ed8c1662804a83648e0f))
+* **input-autocomplete:** fixed onChange type ([#110](https://github.com/core-ds/core-components/issues/110)) ([c994661](https://github.com/core-ds/core-components/commit/c9946615af9aecb3f1974c887bdd6686708ac18e))
+* **intl-phone-input:** fixed caret jumps ([#107](https://github.com/core-ds/core-components/issues/107)) ([177bf56](https://github.com/core-ds/core-components/commit/177bf5659e79beb08b2ee6ed4c9257215861f904))
+* **pure-cell:** fix stories ([#113](https://github.com/core-ds/core-components/issues/113)) ([01f6138](https://github.com/core-ds/core-components/commit/01f6138615b1b7268510e012c314650c084c9ef0))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+* fixed form-control/input/select label and hint margins ([#97](https://github.com/core-ds/core-components/issues/97)) ([abd2f15](https://github.com/core-ds/core-components/commit/abd2f15f210bb63bafe0cee341f0a66b5f2071d7))
+* **pure cell:** new component ([#10](https://github.com/core-ds/core-components/issues/10)) ([4e95c57](https://github.com/core-ds/core-components/commit/4e95c573aaa6f99197292ea4bae12cbbcc3207c9))
+
 # [27.9.0](https://github.com/core-ds/core-components/compare/v27.8.1...v27.9.0) (2022-06-24)
 
 
