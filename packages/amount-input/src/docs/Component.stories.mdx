@@ -25,6 +25,7 @@ import styles from '!!raw-loader!../index.module.css';
         integerLength={number('integerLength', 9)}
         minority={number('minority', 100)}
         integersOnly={boolean('integersOnly', false)}
+        positiveOnly={boolean('positiveOnly', true)}
         bold={boolean('bold', true)}
         block={boolean('block', false)}
         size={select('size', ['s', 'm', 'l', 'xl'], 's')}
@@ -49,7 +50,7 @@ import styles from '!!raw-loader!../index.module.css';
     stage={2}
 />
 
-```tsx
+```jsx
 import { AmountInput } from '@alfalab/core-components/amount-input';
 ```
 

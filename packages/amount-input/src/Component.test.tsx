@@ -94,6 +94,11 @@ describe('AmountInput', () => {
         expect(input.value).toBe(`12${THINSP}345,67`);
     });
 
+    it('should render passed negative amount', () => {
+        const input = renderAmountInput(-1234567);
+        expect(input.value).toBe(`-12${THINSP}345,67`);
+    });
+
     it('should render passed amount without zero minor part', () => {
         const input = renderAmountInput(1234500);
         expect(input.value).toBe(`12${THINSP}345`);
@@ -124,28 +129,47 @@ describe('AmountInput', () => {
         expect(input.value).toBe(`12${THINSP}345,67`);
     });
 
+    it("should replace entered '.' with ','", () => {
+        const input = renderAmountInput(null, null, { positiveOnly: false });
+
+        fireEvent.change(input, { target: { value: '-0.' } });
+        expect(input.value).toBe('-0,');
+
+        fireEvent.change(input, { target: { value: '0.' } });
+        expect(input.value).toBe('0,');
+
+        fireEvent.change(input, { target: { value: '-123.' } });
+        expect(input.value).toBe('-123,');
+
+        fireEvent.change(input, { target: { value: '123.4' } });
+        expect(input.value).toBe('123,4');
+
+        fireEvent.change(input, { target: { value: '-123.45' } });
+        expect(input.value).toBe('-123,45');
+
+        fireEvent.change(input, { target: { value: '123456789.12' } });
+        expect(input.value).toBe(`123${THINSP}456${THINSP}789,12`);
+    });
+
     it('should allow input correct amounts', () => {
         const input = renderAmountInput(0);
 
         fireEvent.change(input, { target: { value: '123456' } });
         expect(input.value).toBe(`123${THINSP}456`);
 
-        fireEvent.change(input, { target: { value: '123,' } });
-        expect(input.value).toBe('123,');
+        fireEvent.change(input, { target: { value: '0,' } });
+        expect(input.value).toBe('0,');
 
-        fireEvent.change(input, { target: { value: '123.' } });
+        fireEvent.change(input, { target: { value: '0,2' } });
+        expect(input.value).toBe('0,2');
+
+        fireEvent.change(input, { target: { value: '123,' } });
         expect(input.value).toBe('123,');
 
         fireEvent.change(input, { target: { value: '123,4' } });
         expect(input.value).toBe('123,4');
 
-        fireEvent.change(input, { target: { value: '123.4' } });
-        expect(input.value).toBe('123,4');
-
         fireEvent.change(input, { target: { value: '123,45' } });
-        expect(input.value).toBe('123,45');
-
-        fireEvent.change(input, { target: { value: '123.45' } });
         expect(input.value).toBe('123,45');
 
         fireEvent.change(input, { target: { value: '123456789' } });
@@ -153,12 +177,78 @@ describe('AmountInput', () => {
 
         fireEvent.change(input, { target: { value: '123456789,12' } });
         expect(input.value).toBe(`123${THINSP}456${THINSP}789,12`);
+    });
 
-        fireEvent.change(input, { target: { value: '123456789.12' } });
+    it('should allow input correct amounts when positiveOnly is false', () => {
+        const input = renderAmountInput(0, null, { positiveOnly: false });
+
+        fireEvent.change(input, { target: { value: '-' } });
+        expect(input.value).toBe('-');
+
+        fireEvent.change(input, { target: { value: '-0,' } });
+        expect(input.value).toBe('-0,');
+
+        fireEvent.change(input, { target: { value: '-0,2' } });
+        expect(input.value).toBe('-0,2');
+
+        fireEvent.change(input, { target: { value: '-123456' } });
+        expect(input.value).toBe(`-123${THINSP}456`);
+
+        fireEvent.change(input, { target: { value: '-123,' } });
+        expect(input.value).toBe('-123,');
+
+        fireEvent.change(input, { target: { value: '-123,4' } });
+        expect(input.value).toBe('-123,4');
+
+        fireEvent.change(input, { target: { value: '-123,45' } });
+        expect(input.value).toBe('-123,45');
+
+        fireEvent.change(input, { target: { value: '-123456789' } });
+        expect(input.value).toBe(`-123${THINSP}456${THINSP}789`);
+
+        fireEvent.change(input, { target: { value: '-123456789,12' } });
+        expect(input.value).toBe(`-123${THINSP}456${THINSP}789,12`);
+
+        fireEvent.change(input, { target: { value: '123456' } });
+        expect(input.value).toBe(`123${THINSP}456`);
+
+        fireEvent.change(input, { target: { value: '0,' } });
+        expect(input.value).toBe('0,');
+
+        fireEvent.change(input, { target: { value: '0,2' } });
+        expect(input.value).toBe('0,2');
+
+        fireEvent.change(input, { target: { value: '123,' } });
+        expect(input.value).toBe('123,');
+
+        fireEvent.change(input, { target: { value: '123,4' } });
+        expect(input.value).toBe('123,4');
+
+        fireEvent.change(input, { target: { value: '123,45' } });
+        expect(input.value).toBe('123,45');
+
+        fireEvent.change(input, { target: { value: '123456789' } });
+        expect(input.value).toBe(`123${THINSP}456${THINSP}789`);
+
+        fireEvent.change(input, { target: { value: '123456789,12' } });
         expect(input.value).toBe(`123${THINSP}456${THINSP}789,12`);
     });
 
-    it('should prevent input of incorrect amounts', () => {
+    it("should infer 0 if only ',' is entered", () => {
+        const input = renderAmountInput(null);
+
+        fireEvent.change(input, { target: { value: ',' } });
+        expect(input.value).toBe('0,');
+    });
+
+    it("should infer 0 if '-,' is entered", async () => {
+        const input = renderAmountInput(null, null, { positiveOnly: false });
+
+        fireEvent.change(input, { target: { value: '-,' } });
+        expect(input.value).toBe('-0,');
+    });
+
+    it('should prevent input of incorrect values', () => {
         const input = renderAmountInput(1234567);
 
         fireEvent.change(input, { target: { value: 'f' } });
@@ -166,6 +256,19 @@ describe('AmountInput', () => {
 
         fireEvent.change(input, { target: { value: '!' } });
         expect(input.value).toBe(`12${THINSP}345,67`);
+
+        fireEvent.change(input, { target: { value: 'e' } });
+        expect(input.value).toBe(`12${THINSP}345,67`);
+    });
+
+    it('should prevent input of negative values when onlyPositive is true', () => {
+        const input = renderAmountInput(null);
+
+        fireEvent.change(input, { target: { value: '-' } });
+        expect(input.value).toBe('');
+
+        fireEvent.change(input, { target: { value: '-17700' } });
+        expect(input.value).toBe('');
     });
 
     it('should allow enter only integer values when integersOnly is true', async () => {
@@ -216,7 +319,7 @@ describe('AmountInput', () => {
         expect(input.value).toBe(`12${THINSP}345,86`);
     });
 
-    it('should allow to past value with spaces', async () => {
+    it('should allow to paste value with spaces', async () => {
         const input = renderAmountInput(null);
 
         await userEvent.paste(input, '1 23');
@@ -233,7 +336,7 @@ describe('AmountInput', () => {
         expect(input.value).toBe('13,45');
     });
 
-    it('should allow set carret in the middle and enter decimal divider symbol', async () => {
+    it('should allow set caret in the middle and enter decimal divider symbol', async () => {
         const input = renderAmountInput(null);
 
         await userEvent.type(input, '123456');

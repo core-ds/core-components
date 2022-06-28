@@ -1,6 +1,6 @@
 Компонент подтверждения операции по коду.
 
-```tsx live
+```jsx live
 render(() => {
     const variants = [
         { key: 'success', content: 'Успешный сценарий' },
@@ -111,7 +111,7 @@ render(() => {
 
 Компонент содержит в себе несколько экранов и может быть в нескольких состояниях:
 
-```tsx
+```jsx
 export type ConfirmationScreen =
     | 'INITIAL' // начальный экран
     | 'HINT' // экран "Не приходит смс?"
@@ -127,7 +127,7 @@ export type ConfirmationState =
 
 Для управления экранами и состояниями можно воспользоваться хуком:
 
-```tsx
+```jsx
 import { Confirmation, useConfirmation } from '@alfalab/core-components/confirmation';
 
 const Example = () => {
@@ -167,7 +167,7 @@ const Example = () => {
 
 На каждом экране можно кастомизировать тексты. Для этого есть специальное свойство `texts`:
 
-```tsx
+```jsx
 export type ConfirmationTexts = {
     /**
      * Экран INITIAL
@@ -204,7 +204,7 @@ export type ConfirmationTexts = {
 
 Также есть возможность добавить кастомные экраны:
 
-```tsx
+```jsx
 const Example = () => {
     const {
         confirmationState,

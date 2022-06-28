@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-card-image@2.0.3...@alfalab/core-components-card-image@2.0.4) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-card-image
+
+
+
+
+
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-card-image@2.0.0...@alfalab/core-components-card-image@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-card-image

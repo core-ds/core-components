@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-vars@6.1.0...@alfalab/core-components-vars@6.2.0) (2022-06-23)
+
+
+### Bug Fixes
+
+* **button:** fix color secondary ([#92](https://github.com/core-ds/core-components/issues/92)) ([57b8e66](https://github.com/core-ds/core-components/commit/57b8e661b8f54acdfd0c235f58ebd59d66c116a4))
+
+
+### Features
+
+* **vars:** export CSS custom properties as JS vars ([#45](https://github.com/core-ds/core-components/issues/45)) ([dbb1f78](https://github.com/core-ds/core-components/commit/dbb1f78795247fa09797c05f134b21a7774e6898))
+
+
+
+
+
 # [6.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-vars@6.0.0...@alfalab/core-components-vars@6.1.0) (2022-06-08)
 
 

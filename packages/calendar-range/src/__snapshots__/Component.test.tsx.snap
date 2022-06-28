@@ -34,7 +34,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="component calendar"
+        class="cc-calendar component calendar"
         tabindex="-1"
       >
         <div
@@ -47,11 +47,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"
@@ -79,11 +79,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"
@@ -700,7 +700,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
         
       </div>
       <div
-        class="component calendar sixWeeks"
+        class="cc-calendar component calendar sixWeeks"
         tabindex="-1"
       >
         <div
@@ -713,11 +713,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"
@@ -745,11 +745,11 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component ghost s component ghost iconOnly arrow primary component loader"
+              class="component ghost s component ghost arrow primary component"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper xs"

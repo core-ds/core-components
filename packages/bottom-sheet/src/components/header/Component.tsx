@@ -18,7 +18,7 @@ export type HeaderProps = {
     /**
      * Дополнительный класс
      */
-     headerClassName?: string;
+    headerClassName?: string;
 
     /**
      * Дополнительный класс для аддонов
@@ -44,6 +44,11 @@ export type HeaderProps = {
      * Слот справа
      */
     rightAddons?: ReactNode;
+
+    /**
+     * Слот снизу
+     */
+    bottomAddons?: ReactNode;
 
     /**
      * Наличие компонента крестика
@@ -84,6 +89,7 @@ export const Header: FC<HeaderProps> = ({
     backerClassName,
     leftAddons,
     rightAddons,
+    bottomAddons,
     hasCloser,
     hasBacker,
     titleAlign,
@@ -120,52 +126,59 @@ export const Header: FC<HeaderProps> = ({
 
     return (
         <div
-            className={cn(styles.header, headerClassName, {
-                [styles.justifyEnd]: !title,
+            className={cn(styles.headerWrapper, headerClassName, {
                 [styles.highlighted]: headerHighlighted && sticky,
                 [styles.sticky]: sticky,
             })}
         >
-            {hasLeftPart && (
-                <div
-                    className={cn(styles.addon, addonClassName, {
-                        [styles.addonFixed]: !sticky,
-                        [styles.addonLeft]: !sticky,
-                    })}
-                >
-                    {hasBacker ? (
-                        <Backer className={backerClassName} onClick={onBack} />
-                    ) : (
-                        leftAddons
-                    )}
-                </div>
-            )}
+            <div
+                className={cn(styles.header, headerClassName, {
+                    [styles.justifyEnd]: !title,
+                })}
+            >
+                {hasLeftPart && (
+                    <div
+                        className={cn(styles.addon, addonClassName, {
+                            [styles.addonFixed]: !sticky,
+                            [styles.addonLeft]: !sticky,
+                        })}
+                    >
+                        {hasBacker ? (
+                            <Backer className={backerClassName} onClick={onBack} />
+                        ) : (
+                            leftAddons
+                        )}
+                    </div>
+                )}
 
-            {hasHeaderContent && (
-                <Typography.Text
-                    view='primary-large'
-                    weight='bold'
-                    className={cn(styles.title, getTitleIndent(), {
-                        [styles.titleCenter]: titleAlign === 'center',
-                        [styles.titleLeft]: titleAlign === 'left',
-                        [styles.trimTitle]: trimTitle,
-                    })}
-                    color='primary'
-                >
-                    {title}
-                </Typography.Text>
-            )}
+                {hasHeaderContent && (
+                    <Typography.Text
+                        view='primary-large'
+                        weight='bold'
+                        className={cn(styles.title, getTitleIndent(), {
+                            [styles.titleCenter]: titleAlign === 'center',
+                            [styles.titleLeft]: titleAlign === 'left',
+                            [styles.trimTitle]: trimTitle,
+                        })}
+                        color='primary'
+                    >
+                        {title}
+                    </Typography.Text>
+                )}
 
-            {hasRightPart && (
-                <div
-                    className={cn(styles.addon, addonClassName, {
-                        [styles.addonFixed]: !sticky,
-                        [styles.addonRight]: !sticky,
-                    })}
-                >
-                    {hasCloser ? <Closer className={closerClassName} /> : rightAddons}
-                </div>
-            )}
+                {hasRightPart && (
+                    <div
+                        className={cn(styles.addon, addonClassName, {
+                            [styles.addonFixed]: !sticky,
+                            [styles.addonRight]: !sticky,
+                        })}
+                    >
+                        {hasCloser ? <Closer className={closerClassName} /> : rightAddons}
+                    </div>
+                )}
+            </div>
+
+            {bottomAddons}
         </div>
     );
 };

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.2.1...@alfalab/core-components-amount@2.3.0) (2022-06-24)
+
+
+### Features
+
+* **amount-input:** added functionality to enter negative values ([#106](https://github.com/core-ds/core-components/issues/106)) ([d6b6ca7](https://github.com/core-ds/core-components/commit/d6b6ca71d87b5c4c62d2e87cdbe9d1ff035852c4))
+
+
+
+
+
 ## [2.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.2.0...@alfalab/core-components-amount@2.2.1) (2022-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-amount

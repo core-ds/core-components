@@ -5,9 +5,10 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Tag } from '@alfalab/core-components-tag';
 import { Input } from '@alfalab/core-components-input';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { Arrow, Option } from '@alfalab/core-components-select';
+import { Arrow, Option, isOptionShape } from '@alfalab/core-components-select';
 
 import { InputAutocomplete } from '../Component';
+import { InputAutocompleteMobile } from '../mobile';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -76,6 +77,72 @@ export const matchOption = (option, inputValue) =>
     })}
 </Story>
 
+<Story name='InputAutocompleteMobile'>
+    {React.createElement(() => {
+        const options = [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+            { key: '9', content: 'Hydrogenium' },
+            { key: '10', content: 'Helium' },
+            { key: '11', content: 'Lithium' },
+            { key: '12', content: 'Beryllium' },
+            { key: '13', content: 'Borum' },
+            { key: '14', content: 'Carboneum' },
+            { key: '15', content: 'Nitrogenium' },
+            { key: '16', content: 'Oxygenium' },
+        ];
+        const matchOption = (option, inputValue) =>
+            option.content.toLowerCase().includes((inputValue || '').toLowerCase());
+        const [value, setValue] = React.useState('');
+        const [filter, setFilter] = React.useState('');
+        const handleFilter = event => {
+            setFilter(event.target.value);
+        };
+        const handleChange = (payload) => {
+            const newValue = payload ? isOptionShape(payload.selected) ? payload.selected.content : payload : '';
+            setValue(newValue);
+            setFilter(newValue);
+        };
+        const filteredOptions = options.filter(option => matchOption(option, filter));
+        return (
+            <InputAutocompleteMobile
+                dataTestId={'asfa fs asf afa'}
+                block={boolean('block', false)}
+                size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                disabled={boolean('disabled', false)}
+                error={text('error', '')}
+                hint={text('hint', '')}
+                closeOnSelect={boolean('closeOnSelect', true)}
+                value={value}
+                filter={filter}
+                options={filteredOptions}
+                placeholder={text('placeholder', 'Выберите элемент')}
+                label={text('label', 'Элемент')}
+                onChange={handleChange}
+                onFilter={handleFilter}
+                onClearFilter={() => setFilter('')}
+                continueButtonProps={{
+                    dataTestId: 'continue'
+                }}
+                cancelButtonProps={{
+                    dataTestId: 'cancel'
+                }}
+                bottomSheetProps={{
+                    transitionProps: {
+                        onEnter: () => setFilter(value),
+                    }
+                }}
+            />
+        );
+    })}
+</Story>
+
 
 <!-- Docs -->
 
@@ -86,7 +153,7 @@ export const matchOption = (option, inputValue) =>
     stage={2}
 />
 
-```tsx
+```jsx
 import { InputAutocomplete } from '@alfalab/core-components/input-autocomplete';
 ```
 

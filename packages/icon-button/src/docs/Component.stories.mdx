@@ -37,6 +37,8 @@ import styles from '!!raw-loader!../index.module.css';
                     view={select('view', ['primary', 'secondary', 'tertiary', 'negative', 'transparent'], 'primary')}
                     icon={StarMIcon}
                     colors={colors}
+                    disabled={boolean('disabled', false)}
+                    loading={boolean('loading', false)}
                 />
             </div>
         )
@@ -53,7 +55,7 @@ import styles from '!!raw-loader!../index.module.css';
     stage={2}
 />
 
-```tsx
+```jsx
 import { IconButton } from '@alfalab/core-components/icon-button';
 ```
 

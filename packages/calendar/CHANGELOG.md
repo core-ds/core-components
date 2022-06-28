@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar@5.3.4...@alfalab/core-components-calendar@5.3.5) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
+## [5.3.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar@5.3.3...@alfalab/core-components-calendar@5.3.4) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar
+
+
+
+
+
+## [5.3.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar@5.3.2...@alfalab/core-components-calendar@5.3.3) (2022-06-20)
+
+
+### Bug Fixes
+
+* **calendar:** increased specificity of the button css class ([#103](https://github.com/core-ds/core-components/issues/103)) ([3d20c11](https://github.com/core-ds/core-components/commit/3d20c112a1c161951afa2e1c6fca8d3c048501e7))
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+
+
+
+
+
 ## [5.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar@5.3.1...@alfalab/core-components-calendar@5.3.2) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar

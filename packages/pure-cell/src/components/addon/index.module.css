@@ -1,0 +1,22 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    grid-column: 2/3;
+    padding-left: var(--gap-m);
+
+    & > * {
+        justify-content: flex-end;
+    }
+
+    &.none {
+        padding-left: 0;
+    }
+
+    &.default {
+        padding-left: var(--gap-m);
+    }
+
+    &.center {
+        align-self: center;
+    }
+}

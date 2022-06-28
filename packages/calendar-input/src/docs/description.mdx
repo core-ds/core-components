@@ -2,7 +2,7 @@ import styles from '../stories.module.css';
 
 Компонент для ввода даты.
 
-```tsx live
+```jsx live
 render(() => {
     const defaultMonth = new Date('December 1, 2010 00:00:00');
 
@@ -14,7 +14,7 @@ render(() => {
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
-```tsx live
+```jsx live
 render(() => {
     const [value, setValue] = React.useState('');
 
@@ -35,7 +35,7 @@ render(() => {
 
 Календарь может рендериться как в поповере, так и под инпутом
 
-```tsx live
+```jsx live
 render(() => {
     const [value, setValue] = React.useState('');
 
@@ -56,7 +56,7 @@ render(() => {
 
 Календарь может рендериться как в поповере, так и под инпутом
 
-```tsx live
+```jsx live
 // import { startOfDay, subMonths, addMonths } from 'date-fns';
 // import { parseDateString } from '@alfalab/core-components/calendar-input';
 
@@ -100,7 +100,7 @@ render(() => {
 
 Используя css-переменную `--calendar-width` можно задать инпуту такую же ширину, как у компонента календаря
 
-```tsx
+```jsx
 /*
 .calendarWidth {
     width: var(--calendar-width);

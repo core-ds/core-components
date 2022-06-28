@@ -2,7 +2,7 @@
 
 Предоставляет стандартные компоненты `Header`, `Closer`, `Content`, `Footer`, а также доступ к контексту.
 
-```tsx live
+```jsx live
 // import { Typography } from '@alfalab/core-components/typography';
 
 render(() => {
@@ -50,7 +50,7 @@ render(() => {
 
 ### Настройка шапки (HeaderMobile)
 
-```tsx live
+```jsx live
 // import { Typography } from '@alfalab/core-components/typography';
 
 render(() => {
@@ -129,7 +129,7 @@ render(() => {
 
 ### Фиксации верхнего края
 
-```tsx live
+```jsx live
 // import { Spinner } from '@alfalab/core-components/spinner';
 
 const Text = () => (
@@ -198,7 +198,7 @@ render(() => {
 
 Компонент модального окна предоставляет доступ к контекту, что позволяет гибко настраивать и расширять компонент, а также упрощает использование.
 
-```tsx
+```jsx
 export type ModalContext = {
     // Указывает, используется ли футер
     hasFooter?: boolean;
@@ -221,7 +221,7 @@ export type ModalContext = {
 };
 ```
 
-```tsx live
+```jsx live
 const Header = () => {
     const { setHasHeader } = React.useContext(ModalContext);
 

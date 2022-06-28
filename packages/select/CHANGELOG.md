@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.9.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.1...@alfalab/core-components-select@10.9.2) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.9.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.0...@alfalab/core-components-select@10.9.1) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [10.9.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.8.2...@alfalab/core-components-select@10.9.0) (2022-06-20)
+
+
+### Features
+
+* **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+
+
+
+
+
+## [10.8.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.8.1...@alfalab/core-components-select@10.8.2) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.8.0...@alfalab/core-components-select@10.8.1) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 # [10.8.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.7.4...@alfalab/core-components-select@10.8.0) (2022-06-08)
 
 

@@ -9,7 +9,7 @@
 **При реализации функции onRemoveNotification, актуальный массив нотификаций следует брать
 из аргументов функции обновления состояния:**
 
-```tsx
+```jsx
 const removeNotification = React.useCallback(id => {
     /**
      * Обратите внимание, что актуальный массив нотификаций
@@ -21,7 +21,7 @@ const removeNotification = React.useCallback(id => {
 }, []);
 ```
 
-```tsx live
+```jsx live
 render(() => {
     const [notifications, setNotifications] = React.useState([]);
 

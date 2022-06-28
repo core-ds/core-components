@@ -13,15 +13,27 @@ import { CurrencyCodes } from '@alfalab/data';
  * @param minority количество минорных единиц
  */
 export function getFormattedValue(enteredValue: string, currency: CurrencyCodes, minority: number) {
-    const [head, tail] = enteredValue.split(',');
-    const { majorPart } = formatAmount({
+    if (!enteredValue || enteredValue === '-') {
+        return enteredValue;
+    }
+
+    // eslint-disable-next-line prefer-const
+    let [head, tail] = enteredValue.split(',');
+    // При вводе "-," указываем, что имеется в виду "-0,"
+    if (head === '-') {
+        head = '-0';
+    }
+
+    let { majorPart } = formatAmount({
         value: Number(head) * minority,
         currency,
         minority,
+        negativeSymbol: 'hyphen-minus',
     });
 
-    if (!enteredValue) {
-        return enteredValue;
+    // Так как -0 === 0, formatAmount возвращает положительное значение. Исправляем это здесь
+    if (/^-(,|0),?/.test(enteredValue) && majorPart === '0') {
+        majorPart = `-${majorPart}`;
     }
 
     if (!tail && enteredValue.includes(',')) {
@@ -36,7 +48,9 @@ export function getFormattedValue(enteredValue: string, currency: CurrencyCodes,
 }
 
 export function getAmountValueFromStr(str: string, minority: number) {
-    return str === ''
-        ? null
-        : Math.round(Number(str.replace(',', '.').replace(/[^0-9.]/g, '')) * minority);
+    if (str === '' || str === '-') {
+        return null;
+    }
+
+    return Math.round(Number(str.replace(',', '.').replace(/[^0-9.-]/g, '')) * minority);
 }
