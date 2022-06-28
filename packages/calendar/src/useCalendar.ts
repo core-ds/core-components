@@ -57,9 +57,14 @@ export type UseCalendarProps = {
     events?: Array<Date | number>;
 
     /**
-     * Список выходных дней
+     * Список отключенных для выбора дней
      */
     offDays?: Array<Date | number>;
+
+    /**
+     * Список выходных дней
+     */
+    holidays?: Array<Date | number>;
 
     /**
      * Обработчик изменения месяца (или года)
@@ -81,6 +86,7 @@ export function useCalendar({
     selected,
     events,
     offDays,
+    holidays,
     onMonthChange,
     onChange,
 }: UseCalendarProps) {
@@ -104,9 +110,19 @@ export function useCalendar({
 
     const offDaysMap = useMemo(() => dateArrayToHashTable(offDays || []), [offDays]);
 
+    const holidaysMap = useMemo(() => dateArrayToHashTable(holidays || []), [holidays]);
+
     const weeks = useMemo(
-        () => generateWeeks(activeMonth, { minDate, maxDate, selected, eventsMap, offDaysMap }),
-        [maxDate, minDate, selected, activeMonth, eventsMap, offDaysMap],
+        () =>
+            generateWeeks(activeMonth, {
+                minDate,
+                maxDate,
+                selected,
+                eventsMap,
+                offDaysMap,
+                holidaysMap,
+            }),
+        [maxDate, minDate, selected, activeMonth, eventsMap, offDaysMap, holidaysMap],
     );
 
     const months = useMemo(() => generateMonths(activeMonth, { minMonth, maxMonth }), [

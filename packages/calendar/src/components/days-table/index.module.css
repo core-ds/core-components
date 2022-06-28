@@ -5,7 +5,10 @@
     border-collapse: separate;
     border-spacing: 0;
     position: relative;
-    width: 100%;
+
+    &.mobile {
+        width: 100%;
+    }
 
     & th {
         padding: 0;
@@ -55,6 +58,10 @@
         background: var(--calendar-highlighted-background);
     }
 
+    &.holiday {
+        color: var(--calendar-holiday-color);
+    }
+
     &.disabled {
         pointer-events: none;
         color: var(--calendar-disabled-color);
@@ -100,7 +107,6 @@
 .dayWrapper {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     position: relative;
-    cursor: pointer;
 
     &:before {
         content: '';
@@ -114,6 +120,10 @@
 
     &:focus {
         outline: none;
+    }
+
+    &.cursorPointer {
+        cursor: pointer;
     }
 }
 

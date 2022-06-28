@@ -39,7 +39,7 @@
 }
 
 .period {
-    width: 100%;
+    width: var(--calendar-inner-width);
 
     @media (max-width: 374px) {
         justify-content: space-between;
@@ -49,11 +49,21 @@
 }
 
 .monthYear {
-    width: 100%;
+    width: var(--calendar-inner-width);
 
     @media (max-width: 374px) {
         justify-content: space-between;
         width: var(--calendar-mobile-inner-width);
         margin: 0 auto;
+    }
+}
+
+.mobile {
+    & .period {
+        width: 100%;
+    }
+
+    & .monthYear {
+        width: 100%;
     }
 }

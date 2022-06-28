@@ -5,12 +5,8 @@
     background: var(--color-light-bg-primary);
 }
 
-.modalHeader {
-    z-index: 1000;
-}
-
-.modalFooter {
-    z-index: 1000;
+.withZIndex {
+    z-index: 2;
 }
 
 .calendar {
@@ -21,18 +17,21 @@
     border-bottom: 1px solid var(--color-light-border-primary);
 }
 
-.calendarHeader {
+.dayNames {
     padding: 0 var(--gap-m);
     width: 100%;
     position: sticky;
     border-bottom: 1px solid var(--color-light-border-primary);
     background: var(--modal-header-background);
-    top: 48px;
+    top: 0;
     height: 32px;
-    z-index: 1000;
+
+    &.withHeader {
+        top: 48px;
+    }
 }
 
-.calendarHeader th {
+.dayNames th {
     height: 100%;
 }
 

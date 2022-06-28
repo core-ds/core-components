@@ -79,9 +79,14 @@ export type CalendarProps = {
     events?: Array<Date | number>;
 
     /**
-     * Список выходных
+     * Список отключенных для выбора дней.
      */
     offDays?: Array<Date | number>;
+
+    /**
+     * Список выходных
+     */
+    holidays?: Array<Date | number>;
 
     /**
      * Обработчик изменения месяца (или года)
@@ -112,6 +117,11 @@ export type CalendarProps = {
      * Нужно ли рендерить шапку календаря
      */
     hasHeader?: boolean;
+
+    /**
+     * Используется ли мобильная версия календаря
+     */
+    mobile?: boolean;
 };
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
@@ -130,12 +140,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             rangeComplete,
             offDays,
             events,
+            holidays,
             onChange,
             onMonthChange,
             onMonthClick,
             onYearClick,
             dataTestId,
             hasHeader = true,
+            mobile,
         },
         ref,
     ) => {
@@ -191,6 +203,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             selected,
             offDays,
             events,
+            holidays,
             onChange,
             onMonthChange,
         });
@@ -257,6 +270,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 {...getRootProps({ ref })}
                 className={cn('cc-calendar', styles.component, className, {
                     [styles.sixWeeks]: weeks.length === 6,
+                    [styles.mobile]: mobile,
                 })}
                 data-test-id={dataTestId}
             >
@@ -294,6 +308,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             getDayProps={getDayProps}
                             highlighted={highlighted}
                             rangeComplete={rangeComplete}
+                            mobile={mobile}
                         />
                     )}
 
@@ -302,6 +317,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             selectedMonth={activeMonth}
                             months={months}
                             getMonthProps={getMonthProps}
+                            mobile={mobile}
                         />
                     )}
 
@@ -311,6 +327,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             years={years}
                             getYearProps={getYearProps}
                             onScroll={handleScroll}
+                            mobile={mobile}
                         />
                     )}
                 </div>

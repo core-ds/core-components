@@ -64,6 +64,7 @@ export function generateWeeks(
         selected?: Date;
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
+        holidaysMap?: SpecialDays;
     },
 ) {
     const newWeek = () => Array(DAYS_IN_WEEK).fill(null);
@@ -117,9 +118,17 @@ export function buildDay(
         selected?: Date;
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
+        holidaysMap?: SpecialDays;
     },
 ): Day {
-    const { minDate, maxDate, selected, eventsMap = {}, offDaysMap = {} } = options;
+    const {
+        minDate,
+        maxDate,
+        selected,
+        eventsMap = {},
+        offDaysMap = {},
+        holidaysMap = {},
+    } = options;
     const off = offDaysMap[day.getTime()];
     const disabled = (minDate && isBefore(day, minDate)) || (maxDate && isAfter(day, maxDate));
 
@@ -127,6 +136,7 @@ export function buildDay(
         date: day,
         disabled: disabled || off,
         event: eventsMap[day.getTime()],
+        holiday: holidaysMap[day.getTime()],
         selected: selected && isSameDay(day, selected),
     };
 }

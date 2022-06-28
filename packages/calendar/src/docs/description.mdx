@@ -13,6 +13,8 @@ render(() => {
 
     const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
 
+    const allowSelectionFromEmptyRange = secondRadioValue === 'singleAndRange';
+
     React.useEffect(() => {
         setValue();
         updatePeriod();
@@ -28,7 +30,7 @@ render(() => {
 
     const selectedDate = React.useMemo(() => {
         const date = new Date(value);
-        return getDateString(date);    
+        return getDateString(date);
     }, [value])
 
     const selectedRange = React.useMemo(() => {
@@ -37,7 +39,19 @@ render(() => {
             const selectedToDate = new Date(selectedTo);
             return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
         }
-    }, [selectedFrom, selectedTo]);
+
+        if (allowSelectionFromEmptyRange) {
+            if (selectedFrom) {
+                const selectedFromDate = new Date(selectedFrom);
+                return `${getDateString(selectedFromDate)}`
+            } else if (selectedTo) {
+                const selectedToDate = new Date(selectedTo);
+                return `${getDateString(selectedToDate)}`
+            }
+        }
+
+        return '';
+    }, [allowSelectionFromEmptyRange, selectedFrom, selectedTo]);
 
     const onFirstRadioChange = React.useCallback((_, payload) => {
         setFirstRadioValue(payload.value);
@@ -51,6 +65,22 @@ render(() => {
         setThirdRadioValue(payload.value);
     }, []);
 
+    const events = React.useMemo(() => ([
+        new Date().setDate(2),
+        new Date().setDate(3),
+        new Date().setDate(5),
+    ]), []);
+
+    const offDays = React.useMemo(() => ([
+        new Date().setDate(3),
+        new Date().setDate(4),
+    ]), []);
+
+    const holidays = React.useMemo(() => ([
+        new Date().setDate(1),
+        new Date().setDate(2),
+    ]), [])
+
     return (
         <Row style={{ gap: '40px' }}>
             <Col>
@@ -61,6 +91,9 @@ render(() => {
                         selectedTo={selectedTo}
                         onChange={secondRadioValue === 'single' ? setValue : updatePeriod}
                         selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
+                        offDays={offDays}
+                        events={events}
+                        holidays={holidays}
                     />
                 ) : (
                     <div style={{ position: 'relative', width: '344px' }}>
@@ -68,6 +101,7 @@ render(() => {
                             Открыть календарь
                         </Button>
                         <CalendarMobile
+                            allowSelectionFromEmptyRange={allowSelectionFromEmptyRange}
                             onClose={() => setOpen(false)}
                             open={open}
                             value={value}
@@ -76,6 +110,9 @@ render(() => {
                             onChange={secondRadioValue === 'single' ? setValue : updatePeriod}
                             selectorView='month-only'
                             yearsAmount={firstRadioValue === 'single' ? 0 : 20}
+                            offDays={offDays}
+                            events={events}
+                            holidays={holidays}
                         />
                     </div>
                 )}
@@ -84,7 +121,7 @@ render(() => {
                 <p style={{ marginBottom: '40px' }}>
                     Values: {
                         secondRadioValue === 'single' && value && selectedDate ||
-                        secondRadioValue === 'range' && selectedFrom && selectedTo && selectedRange
+                        secondRadioValue !== 'single' && selectedRange
                     }
                 </p>
 
@@ -111,6 +148,7 @@ render(() => {
                     >
                         <Radio label="Принимает одну дату" value="single" />
                         <Radio label="Принимает диапазон значений" value="range" />
+                        <Radio label="Может принимать и диапазон и дату" value="singleAndRange" />
                     </RadioGroup>
                 </div>
 
@@ -302,7 +340,7 @@ render(() => {
 
     const selectedDate = React.useMemo(() => {
         const date = new Date(value);
-        return getDateString(date);    
+        return getDateString(date);
     }, [value]);
 
     return (
@@ -357,7 +395,7 @@ render(() => {
 
     const selectedDate = React.useMemo(() => {
         const date = new Date(value);
-        return getDateString(date);    
+        return getDateString(date);
     }, [value]);
 
     const rangeBounds = React.useMemo(() => {

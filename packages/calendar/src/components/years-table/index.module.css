@@ -1,30 +1,44 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
-.yearsTable {
-    overflow: auto;
-    overflow-x: hidden;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    position: relative;
-
-    /* (width - inner-width) / 2 */
-    overflow: hidden;
-
-    @media (max-width: 374px) {
-        left: 16px;
-    }
-}
-
 :global(.cc-calendar) {
+    & .yearsTable {
+        overflow: auto;
+        overflow-x: hidden;
+        width: 100%;
+
+        &.mobile {
+            justify-content: space-between;
+
+            & .inner {
+                left: auto;
+            }
+
+            & .button {
+                width: 33%;
+                margin-right: 0;
+            }
+        }
+    }
+
+    & .inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        position: relative;
+
+        /* (width - inner-width) / 2 */
+        left: 32px;
+        overflow: hidden;
+
+        @media (max-width: 374px) {
+            left: 16px;
+        }
+    }
+
     & .button {
-        width: 33%;
+        width: var(--calendar-select-button-width);
+        margin-right: var(--gap-2xs);
         margin-bottom: var(--gap-xs);
 
         &:nth-child(3n) {
@@ -32,7 +46,7 @@
         }
 
         @media (max-width: 374px) {
-            width: calc((var(--calendar-mobile-inner-width) / 2) - (var(--gap-2xs) / 2));
+            width: var(--calendar-mobile-select-button-width);
 
             &:nth-child(3n) {
                 margin-right: var(--gap-2xs);

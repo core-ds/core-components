@@ -1,20 +1,31 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
-.monthsTable {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-between;
-
-    @media (max-width: 374px) {
-        width: var(--calendar-mobile-inner-width);
-    }
-}
-
 :global(.cc-calendar) {
+    & .monthsTable {
+        display: flex;
+        flex-wrap: wrap;
+        width: var(--calendar-inner-width);
+        justify-content: flex-start;
+
+        @media (max-width: 374px) {
+            width: var(--calendar-mobile-inner-width);
+        }
+
+        &.mobile {
+            width: 100%;
+            justify-content: space-between;
+
+            & .button {
+                width: 33%;
+                margin-right: 0;
+            }
+        }
+    }
+
     & .button {
-        width: 33%;
+        width: var(--calendar-select-button-width);
+        margin-right: var(--gap-2xs);
         margin-bottom: var(--gap-xs);
 
         &:nth-child(3n) {
@@ -22,7 +33,7 @@
         }
 
         @media (max-width: 374px) {
-            width: calc((var(--calendar-mobile-inner-width) / 2) - (var(--gap-2xs) / 2));
+            width: var(--calendar-mobile-select-button-width);
 
             &:nth-child(3n) {
                 margin-right: var(--gap-2xs);

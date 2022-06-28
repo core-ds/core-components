@@ -60,6 +60,11 @@ export type DaysTableProps = {
      * Нужно ли рендерить шапку
      */
     hasHeader?: boolean;
+
+    /**
+     * Используется ли мобильная версия календаря
+     */
+    mobile?: boolean;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -71,6 +76,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     rangeComplete = selectedFrom && selectedTo,
     getDayProps,
     hasHeader = true,
+    mobile,
 }) => {
     const activeMonthRef = useRef(activeMonth);
 
@@ -151,6 +157,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                     [styles.sharpTransitRight]: sharpTransitRight,
                     [styles.rangeStart]: rangeStart,
                     [styles.rangeEnd]: rangeEnd,
+                    [styles.cursorPointer]: !day.disabled,
                 })}
                 align='center'
                 ref={node => {
@@ -173,6 +180,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                         [styles.selected]: daySelected,
                         [styles.today]: isToday(day.date),
                         [styles.disabled]: day.disabled,
+                        [styles.holiday]: !day.disabled && day.holiday,
                         [styles.highlighted]: dayHighlighted,
                     })}
                 >
@@ -188,7 +196,11 @@ export const DaysTable: FC<DaysTableProps> = ({
     );
 
     return (
-        <table className={cn(styles.daysTable, direction && styles[direction])}>
+        <table
+            className={cn(styles.daysTable, direction && styles[direction], {
+                [styles.mobile]: mobile,
+            })}
+        >
             {hasHeader && (
                 <thead>
                     <tr>{renderHeader()}</tr>
