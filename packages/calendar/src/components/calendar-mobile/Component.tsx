@@ -116,7 +116,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
             return (
                 <Calendar
-                    mobile={true}
+                    responsive={true}
                     className={styles.calendar}
                     {...commonProps}
                     {...restProps}
@@ -306,7 +306,7 @@ const CalendarMonthOnlyView = ({
                     highlighted={highlighted}
                     rangeComplete={rangeComplete}
                     hasHeader={false}
-                    mobile={true}
+                    responsive={true}
                 />
             </div>
         );

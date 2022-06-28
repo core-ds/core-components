@@ -25,16 +25,16 @@ export type MonthsTableProps = {
     getMonthProps: (day: Month) => Record<string, unknown>;
 
     /**
-     * Используется ли мобильная версия календаря
+     * Должен ли календарь подстраиваться под ширину родителя.
      */
-    mobile?: boolean;
+    responsive?: boolean;
 };
 
 export const MonthsTable: FC<MonthsTableProps> = ({
     selectedMonth,
     months = [],
     getMonthProps,
-    mobile,
+    responsive,
 }) => {
     const view = useCallback(
         (month: Month): SelectButtonProps['view'] => {
@@ -46,7 +46,7 @@ export const MonthsTable: FC<MonthsTableProps> = ({
     );
 
     return (
-        <div className={cn(styles.monthsTable, { [styles.mobile]: mobile })}>
+        <div className={cn(styles.monthsTable, { [styles.responsive]: responsive })}>
             {months.map(month => (
                 <SelectButton
                     {...getMonthProps(month)}

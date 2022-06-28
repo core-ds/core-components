@@ -12,7 +12,7 @@
             width: var(--calendar-mobile-inner-width);
         }
 
-        &.mobile {
+        &.responsive {
             width: 100%;
             justify-content: space-between;
 

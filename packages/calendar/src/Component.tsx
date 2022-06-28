@@ -119,9 +119,9 @@ export type CalendarProps = {
     hasHeader?: boolean;
 
     /**
-     * Используется ли мобильная версия календаря
+     * Должен ли календарь подстраиваться под ширину родителя.
      */
-    mobile?: boolean;
+    responsive?: boolean;
 };
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
@@ -147,7 +147,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             onYearClick,
             dataTestId,
             hasHeader = true,
-            mobile,
+            responsive,
         },
         ref,
     ) => {
@@ -270,7 +270,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 {...getRootProps({ ref })}
                 className={cn('cc-calendar', styles.component, className, {
                     [styles.sixWeeks]: weeks.length === 6,
-                    [styles.mobile]: mobile,
+                    [styles.responsive]: responsive,
                 })}
                 data-test-id={dataTestId}
             >
@@ -308,7 +308,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             getDayProps={getDayProps}
                             highlighted={highlighted}
                             rangeComplete={rangeComplete}
-                            mobile={mobile}
+                            responsive={responsive}
                         />
                     )}
 
@@ -317,7 +317,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             selectedMonth={activeMonth}
                             months={months}
                             getMonthProps={getMonthProps}
-                            mobile={mobile}
+                            responsive={responsive}
                         />
                     )}
 
@@ -327,7 +327,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             years={years}
                             getYearProps={getYearProps}
                             onScroll={handleScroll}
-                            mobile={mobile}
+                            responsive={responsive}
                         />
                     )}
                 </div>

@@ -7,7 +7,7 @@
         overflow-x: hidden;
         width: 100%;
 
-        &.mobile {
+        &.responsive {
             justify-content: space-between;
 
             & .inner {

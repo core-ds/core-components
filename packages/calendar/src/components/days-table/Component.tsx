@@ -62,9 +62,9 @@ export type DaysTableProps = {
     hasHeader?: boolean;
 
     /**
-     * Используется ли мобильная версия календаря
+     * Должен ли календарь подстраиваться под ширину родителя.
      */
-    mobile?: boolean;
+    responsive?: boolean;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -76,7 +76,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     rangeComplete = selectedFrom && selectedTo,
     getDayProps,
     hasHeader = true,
-    mobile,
+    responsive,
 }) => {
     const activeMonthRef = useRef(activeMonth);
 
@@ -198,7 +198,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     return (
         <table
             className={cn(styles.daysTable, direction && styles[direction], {
-                [styles.mobile]: mobile,
+                [styles.responsive]: responsive,
             })}
         >
             {hasHeader && (

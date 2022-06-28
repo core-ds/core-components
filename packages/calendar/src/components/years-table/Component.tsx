@@ -28,9 +28,9 @@ export type YearsTableProps = {
     onScroll: (scrollTop: number) => void;
 
     /**
-     * Используется ли мобильная версия календаря
+     * Должен ли календарь подстраиваться под ширину родителя.
      */
-    mobile?: boolean;
+    responsive?: boolean;
 };
 
 export const YearsTable: FC<YearsTableProps> = ({
@@ -38,7 +38,7 @@ export const YearsTable: FC<YearsTableProps> = ({
     years = [],
     getYearProps,
     onScroll,
-    mobile,
+    responsive,
 }) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -74,7 +74,7 @@ export const YearsTable: FC<YearsTableProps> = ({
 
     return (
         <div
-            className={cn(styles.yearsTable, { [styles.mobile]: mobile })}
+            className={cn(styles.yearsTable, { [styles.responsive]: responsive })}
             onScroll={handleScroll}
             ref={ref}
         >

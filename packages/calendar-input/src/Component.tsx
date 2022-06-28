@@ -204,6 +204,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
 
+        const calendarResponsive = calendarProps?.responsive ?? true;
         const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
         const shouldRenderOnlyInput = mobileMode === 'input';
         const shouldRenderStatic = calendarPosition === 'static' && !shouldRenderOnlyInput;
@@ -368,6 +369,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 <div onMouseDown={handleCalendarWrapperMouseDown}>
                     <CalendarComponent
                         {...calendarProps}
+                        responsive={calendarResponsive}
                         open={open}
                         onClose={handleCalendarClose}
                         ref={calendarRef}
@@ -440,7 +442,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         open={open}
                         useAnchorWidth={useAnchorWidth}
                         anchorElement={inputWrapperRef.current as HTMLElement}
-                        popperClassName={styles.calendarContainer}
+                        popperClassName={cn(styles.calendarContainer, {
+                            [styles.calendarResponsive]: calendarResponsive,
+                        })}
                         className={popoverClassName}
                         position={popoverPosition}
                         offset={[0, 8]}
