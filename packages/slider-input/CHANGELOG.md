@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@4.4.7...@alfalab/core-components-slider-input@4.5.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+* fixed form-control/input/select label and hint margins ([#97](https://github.com/core-ds/core-components/issues/97)) ([abd2f15](https://github.com/core-ds/core-components/commit/abd2f15f210bb63bafe0cee341f0a66b5f2071d7))
+
+
+
+
+
 ## [4.4.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@4.4.6...@alfalab/core-components-slider-input@4.4.7) (2022-06-23)
 
 **Note:** Version bump only for package @alfalab/core-components-slider-input

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@3.1.6...@alfalab/core-components-alert@3.2.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 ## [3.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@3.1.5...@alfalab/core-components-alert@3.1.6) (2022-06-23)
 
 **Note:** Version bump only for package @alfalab/core-components-alert

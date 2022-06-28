@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-typography@2.5.3...@alfalab/core-components-typography@2.6.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+* **pure cell:** new component ([#10](https://github.com/core-ds/core-components/issues/10)) ([4e95c57](https://github.com/core-ds/core-components/commit/4e95c573aaa6f99197292ea4bae12cbbcc3207c9))
+
+
+
+
+
 # [2.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-typography@2.4.1...@alfalab/core-components-typography@2.5.0) (2022-03-30)
 
 

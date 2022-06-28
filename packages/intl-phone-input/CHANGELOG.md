@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.4.0...@alfalab/core-components-intl-phone-input@6.5.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** fixed caret jumps ([#107](https://github.com/core-ds/core-components/issues/107)) ([177bf56](https://github.com/core-ds/core-components/commit/177bf5659e79beb08b2ee6ed4c9257215861f904))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 # [6.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.3.9...@alfalab/core-components-intl-phone-input@6.4.0) (2022-06-24)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.2...@alfalab/core-components-input-autocomplete@7.3.3) (2022-06-28)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** fixed onChange type ([#110](https://github.com/core-ds/core-components/issues/110)) ([c994661](https://github.com/core-ds/core-components/commit/c9946615af9aecb3f1974c887bdd6686708ac18e))
+
+
+
+
+
 ## [7.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.1...@alfalab/core-components-input-autocomplete@7.3.2) (2022-06-24)
 
 
