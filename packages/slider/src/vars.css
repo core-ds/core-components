@@ -13,8 +13,8 @@
     --slider-progress-m-height: 4px;
     --slider-progress-s-border-radius: 0;
     --slider-progress-m-border-radius: var(--border-radius-s);
-    --slider-progress-background: var(--color-light-border-underline);
-    --slider-progress-hover-background: var(--color-light-border-underline);
+    --slider-progress-background: var(--color-light-bg-quaternary);
+    --slider-progress-hover-background: var(--color-light-bg-quaternary);
 
     /* Отступы по бокам — на мобилке thumb не должен заходить за края контрола */
     --slider-origin-width: 100%;
