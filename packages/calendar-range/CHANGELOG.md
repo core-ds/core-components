@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.4.3...@alfalab/core-components-calendar-range@5.5.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **icon-view:** fix line-height ([#111](https://github.com/core-ds/core-components/issues/111)) ([b16e0ea](https://github.com/core-ds/core-components/commit/b16e0ea206c819ba4370ed8c1662804a83648e0f))
+* **pure-cell:** fix stories ([#113](https://github.com/core-ds/core-components/issues/113)) ([01f6138](https://github.com/core-ds/core-components/commit/01f6138615b1b7268510e012c314650c084c9ef0))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 ## [5.4.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.4.2...@alfalab/core-components-calendar-range@5.4.3) (2022-06-24)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.10.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.2...@alfalab/core-components-select@10.10.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** fixed onChange type ([#110](https://github.com/core-ds/core-components/issues/110)) ([c994661](https://github.com/core-ds/core-components/commit/c9946615af9aecb3f1974c887bdd6686708ac18e))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+* fixed form-control/input/select label and hint margins ([#97](https://github.com/core-ds/core-components/issues/97)) ([abd2f15](https://github.com/core-ds/core-components/commit/abd2f15f210bb63bafe0cee341f0a66b5f2071d7))
+
+
+
+
+
 ## [10.9.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.1...@alfalab/core-components-select@10.9.2) (2022-06-24)
 
 **Note:** Version bump only for package @alfalab/core-components-select

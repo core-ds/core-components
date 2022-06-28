@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-loader@2.0.4...@alfalab/core-components-loader@2.1.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-loader@2.0.1...@alfalab/core-components-loader@2.0.2) (2022-02-03)
 
 
