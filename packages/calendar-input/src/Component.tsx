@@ -363,41 +363,24 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             }
         }, [value]);
 
-        const renderCalendar = useCallback(
-            () => (
-                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-                <div onMouseDown={handleCalendarWrapperMouseDown}>
-                    <CalendarComponent
-                        {...calendarProps}
-                        responsive={calendarResponsive}
-                        open={open}
-                        onClose={handleCalendarClose}
-                        ref={calendarRef}
-                        defaultMonth={defaultMonth}
-                        value={checkInputValueIsValid(inputValue) ? calendarValue : undefined}
-                        onChange={handleCalendarChange}
-                        minDate={minDate}
-                        maxDate={maxDate}
-                        offDays={offDays}
-                        events={events}
-                    />
-                </div>
-            ),
-            [
-                calendarProps,
-                calendarValue,
-                checkInputValueIsValid,
-                defaultMonth,
-                events,
-                open,
-                handleCalendarClose,
-                handleCalendarChange,
-                handleCalendarWrapperMouseDown,
-                inputValue,
-                maxDate,
-                minDate,
-                offDays,
-            ],
+        const renderCalendar = () => (
+            // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+            <div onMouseDown={handleCalendarWrapperMouseDown}>
+                <CalendarComponent
+                    {...calendarProps}
+                    responsive={calendarResponsive}
+                    open={open}
+                    onClose={handleCalendarClose}
+                    ref={calendarRef}
+                    defaultMonth={defaultMonth}
+                    value={checkInputValueIsValid(inputValue) ? calendarValue : undefined}
+                    onChange={handleCalendarChange}
+                    minDate={minDate}
+                    maxDate={maxDate}
+                    offDays={offDays}
+                    events={events}
+                />
+            </div>
         );
 
         return (
