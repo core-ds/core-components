@@ -9,10 +9,6 @@
     z-index: 2;
 }
 
-.calendar {
-    width: unset;
-}
-
 .calendar th {
     border-bottom: 1px solid var(--color-light-border-primary);
 }
