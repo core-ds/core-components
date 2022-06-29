@@ -87,6 +87,7 @@
         "resize-observer": "^1.0.0",
         "simplebar": "^5.3.6",
         "swiper": "^6.8.2",
+        "react-virtuoso": "^2.12.0",
         "text-mask-core": "^5.1.2",
         "ui-primitives": "^3.38.0"
     },

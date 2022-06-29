@@ -1,13 +1,14 @@
 {
-    "include": ["src", "../../typings"],
+    "include": ["src", "../../typings", "src/*.json"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
+            "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../calendar" }, { "path": "../skeleton" }]
+    "references": [{ "path": "../calendar" }, { "path": "../skeleton" }, { "path": "../modal" }]
 }

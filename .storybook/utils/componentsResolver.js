@@ -12,8 +12,8 @@ module.exports = componentResolver = {
         resolver.plugin('module', function(init, callback) {
             if (init.request.startsWith(componentsPrefix)) {
                 const [componentName, entrypoint] = init.request
-                .replace(componentsPrefix, '')
-                .split('/');
+                    .replace(componentsPrefix, '')
+                    .split('/');
 
                 this.doResolve(
                     'resolve',
@@ -22,7 +22,7 @@ module.exports = componentResolver = {
                         request: [componentsDir, componentName, 'src', entrypoint]
                             .filter(Boolean)
                             .join('/'),
-                    },                    
+                    },
                     `Resolve ${init.request}`,
                     callback,
                 );
