@@ -1,7 +1,7 @@
 @import '../../vars.css';
 
 :root {
-    ----side-panel-closer-bg-color: var(--color-light-bg-primary-alpha-40);
+    --side-panel-closer-bg-color: var(--color-light-bg-primary-alpha-40);
 }
 
 .closer {
