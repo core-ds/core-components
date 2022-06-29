@@ -1,4 +1,4 @@
-import { useCallback, useEffect, RefObject } from 'react';
+import { useEffect, RefObject } from 'react';
 
 type Args = {
     inputRef: RefObject<HTMLInputElement>;
@@ -11,35 +11,37 @@ export function useCaretAvoidCountryCode({
     countryCodeLength,
     clearableCountryCode,
 }: Args) {
-    const input = inputRef.current;
+    useEffect(() => {
+        const input = inputRef.current;
 
-    const moveCaretFromCountryCode = useCallback(() => {
-        if (!input) return;
+        if (!input || clearableCountryCode) return;
 
-        const selectionStart = input.selectionStart || 0;
+        const moveCaretFromCountryCode = () => {
+            const selectionStart = input.selectionStart || 0;
 
-        if (selectionStart < countryCodeLength) {
-            input.focus();
-            input.setSelectionRange(countryCodeLength, countryCodeLength);
-        }
-    }, [input, countryCodeLength]);
+            if (selectionStart < countryCodeLength) {
+                input.focus();
+                input.setSelectionRange(countryCodeLength, countryCodeLength);
+            }
+        };
 
-    const preventCaretMovingOnCountryCode = useCallback(
-        (event: KeyboardEvent) => {
-            if (!input) return;
-
+        const preventCaretMovingOnCountryCode = (event: KeyboardEvent) => {
             const selectionStart = input.selectionStart || 0;
             const toLeftKey = event.keyCode === 37;
 
-            if (toLeftKey && selectionStart <= countryCodeLength) {
-                event.preventDefault();
-            }
-        },
-        [input, countryCodeLength],
-    );
+            if (toLeftKey) {
+                if (selectionStart <= countryCodeLength) {
+                    event.preventDefault();
+                }
 
-    useEffect(() => {
-        if (!input || clearableCountryCode) return;
+                // Если нажали ctrl + arrowLeft, то восстанавливаем положение каретки.
+                if (event.metaKey || event.ctrlKey) {
+                    requestAnimationFrame(() => {
+                        moveCaretFromCountryCode();
+                    });
+                }
+            }
+        };
 
         input.addEventListener('click', moveCaretFromCountryCode);
         input.addEventListener('keydown', preventCaretMovingOnCountryCode);
@@ -49,5 +51,5 @@ export function useCaretAvoidCountryCode({
             input.removeEventListener('click', moveCaretFromCountryCode);
             input.removeEventListener('keydown', preventCaretMovingOnCountryCode);
         };
-    }, [clearableCountryCode, input, preventCaretMovingOnCountryCode, moveCaretFromCountryCode]);
+    }, [clearableCountryCode, countryCodeLength, inputRef]);
 }

@@ -11,6 +11,7 @@ import {
 } from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
+import { calculateCaretPos } from './utils/calculateCaretPos';
 import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
 
 import styles from './index.module.css';
@@ -21,9 +22,11 @@ const MAX_DIAL_CODE_LENGTH = 4;
 
 const MASK_SYMBOLS = [' ', '-', '(', ')'];
 
-const DEFAULT_MAX_PHONE_LEN: MaxPhoneLen = { RU: 11 };
+const MAX_PHONE_LEN = 15;
 
-type MaxPhoneLen = Record<string, number>;
+const DEFAULT_MAX_PHONE_LEN_BY_COUNTRY: MaxPhoneLenByCountry = { RU: 11 };
+
+type MaxPhoneLenByCountry = Record<string, number>;
 
 export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
     Pick<SelectProps, 'preventFlip'> & {
@@ -65,7 +68,7 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
         /**
          * Ограничение длин вводимых номеров по странам.
          */
-        maxPhoneLen?: MaxPhoneLen;
+        maxPhoneLen?: MaxPhoneLenByCountry;
     };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
@@ -85,7 +88,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             defaultCountryIso2 = 'ru',
             preventFlip,
             inputProps,
-            maxPhoneLen = DEFAULT_MAX_PHONE_LEN,
+            maxPhoneLen = DEFAULT_MAX_PHONE_LEN_BY_COUNTRY,
             ...restProps
         },
         ref,
@@ -218,9 +221,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         ) => {
             const input = event.target as HTMLInputElement;
             const currentValue = input.value;
-            const maxLen = maxPhoneLen?.[countryIso2.toUpperCase()];
-            // Если задана длина номера и номер полностью заполнен, то перезатираем цифры, если каретка не в самом конце.
-            const shouldReplace = !!maxLen && maxLen === currentValue.replace(/\D/g, '').length;
+            const maxPhoneLength = maxPhoneLen?.[countryIso2.toUpperCase()] || MAX_PHONE_LEN;
+            // Если номер полностью заполнен, то перезатираем цифры, если каретка не в самом конце.
+            const shouldReplace = maxPhoneLength === currentValue.replace(/\D/g, '').length;
 
             let endPhonePart = currentValue.slice(caretPosition);
 
@@ -236,55 +239,21 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             let newValue = currentValue.slice(0, caretPosition) + event.key + endPhonePart;
 
-            // Запрещаем ввод, если указана длина номера и номер уже заполнен.
-            if (maxLen && newValue.replace(/\D/g, '').length > maxLen) {
+            // Запрещаем ввод, если номер уже заполнен.
+            if (newValue.replace(/\D/g, '').length > maxPhoneLength) {
                 newValue = newValue.slice(0, -1);
             }
 
             newValue = formatPhone(addCountryCode(newValue));
 
-            let newCaretPosition;
-            const isFormatJumps = !shouldReplace && newValue.length - currentValue.length <= 0;
+            let phonePartWithoutMask =
+                currentValue.slice(0, caretPosition).replace(/\D/g, '') + event.key;
 
-            // Ситуация, когда происходят скачки номера из-за форматирования, например +7 999 999 99 99 -> +799999999999
-            if (isFormatJumps) {
-                let phonePart = currentValue.slice(0, caretPosition) + event.key;
-                let cursor = 0;
-
-                while (cursor < phonePart.length && cursor <= newValue.length) {
-                    const currChar = phonePart.charAt(cursor);
-                    const newValChar = newValue.charAt(cursor);
-
-                    if (currChar !== newValChar) {
-                        if (MASK_SYMBOLS.includes(currChar)) {
-                            phonePart = phonePart.slice(0, cursor) + phonePart.slice(cursor + 1);
-                            // eslint-disable-next-line no-continue
-                            continue;
-                        } else {
-                            phonePart =
-                                phonePart.slice(0, cursor) + newValChar + phonePart.slice(cursor);
-                        }
-                    }
-                    cursor += 1;
-                }
-
-                newCaretPosition = cursor;
-            } else {
-                let cursor = 0;
-
-                while (
-                    newValue.charAt(caretPosition + cursor) &&
-                    newValue.charAt(caretPosition + cursor) !== event.key
-                ) {
-                    cursor += 1;
-                }
-
-                cursor += 1;
-
-                newCaretPosition = caretPosition + cursor;
+            if (shouldReplace && phonePartWithoutMask.length > maxPhoneLength) {
+                phonePartWithoutMask = phonePartWithoutMask.slice(0, -1);
             }
 
-            setCaretPos(newCaretPosition);
+            setCaretPos(calculateCaretPos(phonePartWithoutMask, newValue));
             setCountryByDialCodeWithLengthCheck(newValue);
             onChange(newValue);
         };
@@ -298,56 +267,43 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             if (!clearableCountryCode && caretPosition <= countryCodeLength) return;
 
             const currentValue = input.value;
+
+            const isMaskSymbol = (count: number) => {
+                const isMask = MASK_SYMBOLS.includes(currentValue.charAt(caretPosition - count));
+                const isPossibleToRemove = clearableCountryCode
+                    ? caretPosition - count > 0
+                    : caretPosition - count > countryCodeLength;
+
+                return isMask && isPossibleToRemove;
+            };
+
             let deletedCharsCount = 1;
 
-            // Высчитываем новое положение каретки с учетом символов маски.
-            while (
-                caretPosition - deletedCharsCount > 0 &&
-                MASK_SYMBOLS.includes(currentValue.charAt(caretPosition - deletedCharsCount))
-            ) {
+            // Высчитываем кол-во символов, которые нужно удалить.
+            while (isMaskSymbol(deletedCharsCount)) {
                 deletedCharsCount += 1;
             }
 
-            let newCaretPosition = caretPosition - deletedCharsCount;
-
+            const phonePart = currentValue.slice(0, caretPosition - deletedCharsCount);
             const newValue = formatPhone(
-                addCountryCode(
-                    currentValue.slice(0, newCaretPosition) + currentValue.slice(caretPosition),
-                ),
+                addCountryCode(phonePart + currentValue.slice(caretPosition)),
             );
 
-            const isFormatJumps = newValue.length - currentValue.length >= 0;
-            // Обрабатываем ситуацию, когда происходят скачки номера из-за форматирования, например +799999999999 => +7 999 999 99 99
-            if (isFormatJumps) {
-                let phonePart = currentValue.slice(0, newCaretPosition);
-                let cursor = 0;
+            const phonePartWithoutMask = phonePart.replace(/[^0-9+]+/g, '');
 
-                while (cursor < phonePart.length) {
-                    const currChar = newValue.charAt(cursor);
-
-                    if (currChar !== phonePart.charAt(cursor)) {
-                        phonePart = phonePart.slice(0, cursor) + currChar + phonePart.slice(cursor);
-                    }
-                    cursor += 1;
-                }
-
-                newCaretPosition = cursor;
-            }
-
-            setCaretPos(newCaretPosition);
+            setCaretPos(calculateCaretPos(phonePartWithoutMask, newValue));
             setCountryByDialCodeWithLengthCheck(newValue);
             onChange(newValue);
         };
 
         const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
             const input = event.target as HTMLInputElement;
-            const caretPosition = input.selectionStart;
+            const caretPosition = input.selectionStart || 0;
 
-            if (!caretPosition) {
-                return;
-            }
+            // Нажат только Backspace, не сочетание клавиш с ним.
+            if (!event.shiftKey && !event.ctrlKey && !event.metaKey && event.key === 'Backspace') {
+                if (!caretPosition) return;
 
-            if (event.key === 'Backspace') {
                 event.preventDefault();
 
                 handleDeleteChar(event, caretPosition);
