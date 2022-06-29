@@ -93,10 +93,6 @@
         }
     }
 
-    &:not(.selected):hover {
-        color: var(--color-light-text-primary);
-    }
-
     &:focus {
         z-index: 1;
     }
@@ -128,7 +124,7 @@
 }
 
 .range {
-    & .day:not(.selected):not(.disabled):not(.today) {
+    & .day:not(.selected):not(.disabled):not(.today):not(.holiday) {
         color: var(--calendar-range-color);
     }
 
