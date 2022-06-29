@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-input@6.4.0...@alfalab/core-components-calendar-input@6.5.0) (2022-06-29)
+
+
+### Features
+
+* **calendar:** implement calendar mobile ([#54](https://github.com/core-ds/core-components/issues/54)) ([730f51d](https://github.com/core-ds/core-components/commit/730f51d35823273f122fe84a0369f95745fd2878))
+
+
+
+
+
 # [6.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-input@6.3.3...@alfalab/core-components-calendar-input@6.4.0) (2022-06-28)
 
 
