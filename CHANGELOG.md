@@ -1,3 +1,10 @@
+# [27.11.0](https://github.com/core-ds/core-components/compare/v27.10.0...v27.11.0) (2022-06-29)
+
+
+### Features
+
+* change types for OptionList and add event for handlers to Tooltip ([#114](https://github.com/core-ds/core-components/issues/114)) ([4b23107](https://github.com/core-ds/core-components/commit/4b2310742165035e8841225b699aae4efcdc8958))
+
 # [27.10.0](https://github.com/core-ds/core-components/compare/v27.9.0...v27.10.0) (2022-06-28)
 
 
