@@ -116,9 +116,9 @@ describe('CalendarRange', () => {
         const prevMonthButton = queryAllByLabelText('Предыдущий период')[0] as HTMLButtonElement;
 
         const firstNonDisabledDayButton = container.querySelector(
-            '*[data-date]:not(:disabled)',
+            '*[data-date] button:not(:disabled)',
         ) as HTMLButtonElement;
-        const date = firstNonDisabledDayButton.dataset.date as string;
+        const date = firstNonDisabledDayButton.parentElement?.dataset.date as string;
 
         expect(prevMonthButton).toBeFalsy();
         expect(firstNonDisabledDayButton).toHaveTextContent('5');
@@ -135,8 +135,8 @@ describe('CalendarRange', () => {
 
         const nextMonthButtons = queryAllByLabelText('Следующий период') as HTMLButtonElement[];
 
-        const activeDays = container.querySelectorAll('*[data-date]:not(:disabled)');
-        const lastActiveDay = activeDays[activeDays.length - 1] as HTMLButtonElement;
+        const activeDays = container.querySelectorAll('*[data-date] button:not(:disabled)');
+        const lastActiveDay = activeDays[activeDays.length - 1].parentElement as HTMLButtonElement;
         const date = lastActiveDay.dataset.date as string;
 
         expect(nextMonthButtons).toHaveLength(1);
@@ -149,9 +149,11 @@ describe('CalendarRange', () => {
 
         const { container } = render(<CalendarRange valueFrom={formatDate(valueFrom)} />);
 
-        const selectedDay = container.querySelector('*[data-date].selected') as HTMLButtonElement;
+        const selectedDay = container.querySelector(
+            '*[data-date] button.selected',
+        ) as HTMLButtonElement;
 
-        const date = selectedDay.dataset.date as string;
+        const date = selectedDay.parentElement?.dataset.date as string;
 
         expect(selectedDay).toHaveTextContent('10');
         expect(new Date(+date).getTime()).toBe(valueFrom);
@@ -162,9 +164,11 @@ describe('CalendarRange', () => {
 
         const { container } = render(<CalendarRange valueTo={formatDate(valueTo)} />);
 
-        const selectedDay = container.querySelector('*[data-date].selected') as HTMLButtonElement;
+        const selectedDay = container.querySelector(
+            '*[data-date] button.selected',
+        ) as HTMLButtonElement;
 
-        const date = selectedDay.dataset.date as string;
+        const date = selectedDay.parentElement?.dataset.date as string;
 
         expect(selectedDay).toHaveTextContent('10');
         expect(new Date(+date).getTime()).toBe(valueTo);
@@ -178,10 +182,10 @@ describe('CalendarRange', () => {
             <CalendarRange valueFrom={formatDate(valueFrom)} valueTo={formatDate(valueTo)} />,
         );
 
-        const selectedDays = container.querySelectorAll('*[data-date].selected');
+        const selectedDays = container.querySelectorAll('*[data-date] button.selected');
 
-        const dayFrom = selectedDays[0] as HTMLButtonElement;
-        const dayTo = selectedDays[1] as HTMLButtonElement;
+        const dayFrom = selectedDays[0].parentElement as HTMLTableDataCellElement;
+        const dayTo = selectedDays[1].parentElement as HTMLTableDataCellElement;
 
         const dateFrom = dayFrom.dataset.date as string;
         const dateTo = dayTo.dataset.date as string;
@@ -260,7 +264,7 @@ describe('CalendarRange', () => {
         it('should select day, fill inputFrom and start selection on first click', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
 
             act(() => {
@@ -279,7 +283,7 @@ describe('CalendarRange', () => {
         it('should select new day, fill inputTo and end selection if clicked on same day twice', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
@@ -303,7 +307,7 @@ describe('CalendarRange', () => {
         it('should start selection if clicked on same day thrice', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
@@ -331,7 +335,7 @@ describe('CalendarRange', () => {
         it('should select new day, change inputFrom and inputTo values if clicked date < start date', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
@@ -358,7 +362,7 @@ describe('CalendarRange', () => {
         it('should select day, fill inputTo and end selection if clicked date > start date', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
-            const days = container.querySelectorAll('*[data-date]');
+            const days = container.querySelectorAll('*[data-date] button');
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
             act(() => {
@@ -402,7 +406,7 @@ describe('CalendarRange', () => {
 
             Array.from(days)
                 .slice(0, -1)
-                .forEach(day => expect(day.parentElement).toHaveClass('range'));
+                .forEach(day => expect(day).toHaveClass('range'));
         });
     });
 

@@ -1,4 +1,5 @@
 import React, { FC, useCallback } from 'react';
+import cn from 'classnames';
 import isSameMonth from 'date-fns/isSameMonth';
 import isThisMonth from 'date-fns/isThisMonth';
 import { SelectButton, SelectButtonProps } from '../select-button';
@@ -22,12 +23,18 @@ export type MonthsTableProps = {
      * Доп пропсы для переданного месяца
      */
     getMonthProps: (day: Month) => Record<string, unknown>;
+
+    /**
+     * Должен ли календарь подстраиваться под ширину родителя.
+     */
+    responsive?: boolean;
 };
 
 export const MonthsTable: FC<MonthsTableProps> = ({
     selectedMonth,
     months = [],
     getMonthProps,
+    responsive,
 }) => {
     const view = useCallback(
         (month: Month): SelectButtonProps['view'] => {
@@ -39,7 +46,7 @@ export const MonthsTable: FC<MonthsTableProps> = ({
     );
 
     return (
-        <div className={styles.monthsTable}>
+        <div className={cn(styles.monthsTable, { [styles.responsive]: responsive })}>
             {months.map(month => (
                 <SelectButton
                     {...getMonthProps(month)}

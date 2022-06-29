@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tag@4.2.4...@alfalab/core-components-tag@4.3.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 # [4.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tag@4.1.0...@alfalab/core-components-tag@4.2.0) (2022-03-28)
 
 

@@ -3,8 +3,18 @@
     --calendar-width: 344px;
     --calendar-inner-width: 280px;
     --calendar-mobile-inner-width: 256px;
+    --calendar-inner-third-part-width: calc(var(--calendar-inner-width) / 3);
+    --calendar-mobile-inner-half-width: calc(var(--calendar-mobile-inner-width) / 2);
 
     /* Кнопки выбора месяцев и годов */
+    --calendar-select-button-gap: calc(var(--gap-xs) / 3);
+    --calendar-mobile-select-button-gap: calc(var(--gap-2xs) / 2);
+    --calendar-mobile-select-button-width: calc(
+        var(--calendar-mobile-inner-half-width) - var(--calendar-mobile-select-button-gap)
+    );
+    --calendar-select-button-width: calc(
+        var(--calendar-inner-third-part-width) - var(--calendar-select-button-gap)
+    );
     --calendar-select-button-today-border-color: var(--color-light-border-key);
     --calendar-select-button-selected-background: var(--color-light-bg-primary-inverted);
 
@@ -23,6 +33,9 @@
     /* highlighted */
     --calendar-highlighted-color: var(--color-light-text-primary);
     --calendar-highlighted-background: var(--color-light-graphic-quaternary);
+
+    /* holidays */
+    --calendar-holiday-color: var(--color-light-text-accent);
 
     /* range */
     --calendar-range-color: var(--color-light-text-primary);

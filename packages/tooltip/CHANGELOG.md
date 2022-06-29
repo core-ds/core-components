@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.2.0...@alfalab/core-components-tooltip@5.3.0) (2022-06-29)
+
+
+### Features
+
+* change types for OptionList and add event for handlers to Tooltip ([#114](https://github.com/core-ds/core-components/issues/114)) ([4b23107](https://github.com/core-ds/core-components/commit/4b2310742165035e8841225b699aae4efcdc8958))
+
+
+
+
+
+# [5.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.10...@alfalab/core-components-tooltip@5.2.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 ## [5.1.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.9...@alfalab/core-components-tooltip@5.1.10) (2022-06-24)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

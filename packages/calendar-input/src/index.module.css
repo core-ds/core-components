@@ -27,6 +27,11 @@
     }
 }
 
+.calendarResponsive {
+    width: var(--calendar-width);
+    padding: 0 var(--gap-m);
+}
+
 .calendarIcon {
     width: 24px;
     height: 24px;

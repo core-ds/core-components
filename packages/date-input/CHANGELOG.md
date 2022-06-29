@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-date-input@2.2.2...@alfalab/core-components-date-input@2.3.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **pure-cell:** fix stories ([#113](https://github.com/core-ds/core-components/issues/113)) ([01f6138](https://github.com/core-ds/core-components/commit/01f6138615b1b7268510e012c314650c084c9ef0))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 ## [2.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-date-input@2.2.1...@alfalab/core-components-date-input@2.2.2) (2022-06-23)
 
 **Note:** Version bump only for package @alfalab/core-components-date-input

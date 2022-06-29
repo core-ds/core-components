@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.3.0...@alfalab/core-components-calendar-with-skeleton@4.4.0) (2022-06-29)
+
+
+### Features
+
+* **calendar:** implement calendar mobile ([#54](https://github.com/core-ds/core-components/issues/54)) ([730f51d](https://github.com/core-ds/core-components/commit/730f51d35823273f122fe84a0369f95745fd2878))
+
+
+
+
+
+# [4.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.2.5...@alfalab/core-components-calendar-with-skeleton@4.3.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 ## [4.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.2.4...@alfalab/core-components-calendar-with-skeleton@4.2.5) (2022-06-24)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-with-skeleton

@@ -8,6 +8,8 @@ export type Day = {
     event?: boolean;
 
     selected?: boolean;
+
+    holiday?: boolean;
 };
 
 export type Month = {
