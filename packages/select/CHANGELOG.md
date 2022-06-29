@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.11.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.10.0...@alfalab/core-components-select@10.11.0) (2022-06-29)
+
+
+### Features
+
+* change types for OptionList and add event for handlers to Tooltip ([#114](https://github.com/core-ds/core-components/issues/114)) ([4b23107](https://github.com/core-ds/core-components/commit/4b2310742165035e8841225b699aae4efcdc8958))
+
+
+
+
+
 # [10.10.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.2...@alfalab/core-components-select@10.10.0) (2022-06-28)
 
 
