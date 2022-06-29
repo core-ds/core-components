@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { FC, Fragment } from 'react';
 import { useMedia } from '@alfalab/hooks';
 
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { Button } from '@alfalab/core-components-button';
 
 import { Tooltip, TooltipProps } from '.';
@@ -40,8 +40,14 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
 
     /**
      * Наличие компонента крестика
+     * @deprecated(используйте bottomSheetProps.hasCloser)
      */
     hasCloser?: boolean;
+
+    /**
+     *  Дополнительные пропсы компонента BottomSheet
+     */
+    bottomSheetProps?: Partial<BottomSheetProps>;
 };
 
 export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
@@ -55,6 +61,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     hasCloser,
     targetRef,
     targetClassName,
+    bottomSheetProps,
     ...restProps
 }) => {
     const [view] = useMedia<View>(
@@ -88,7 +95,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     return isMobile ? (
         <Fragment>
             <BottomSheet
-                {...restProps}
+                {...bottomSheetProps}
                 open={Boolean(openValue)}
                 onClose={handleClose}
                 hasCloser={hasCloser}
