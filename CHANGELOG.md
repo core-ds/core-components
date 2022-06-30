@@ -1,3 +1,11 @@
+## [27.13.1](https://github.com/core-ds/core-components/compare/v27.13.0...v27.13.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
+* **intl-phone-input:** fixed caret jumps ([#112](https://github.com/core-ds/core-components/issues/112)) ([1d219e7](https://github.com/core-ds/core-components/commit/1d219e7663b8b19d64d3f099bbea01cf76defcd8))
+
 # [27.13.0](https://github.com/core-ds/core-components/compare/v27.12.0...v27.13.0) (2022-06-30)
 
 
