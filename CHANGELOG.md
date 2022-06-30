@@ -1,3 +1,10 @@
+# [27.13.0](https://github.com/core-ds/core-components/compare/v27.12.0...v27.13.0) (2022-06-30)
+
+
+### Features
+
+* **tooltip:** add bottomSheetProps for TooltipResponsive ([#119](https://github.com/core-ds/core-components/issues/119)) ([3e7690c](https://github.com/core-ds/core-components/commit/3e7690c55df998577183b0d51e4069e1131632f4))
+
 # [27.12.0](https://github.com/core-ds/core-components/compare/v27.11.0...v27.12.0) (2022-06-29)
 
 
