@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.0...@alfalab/core-components-bottom-sheet@4.4.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
+
+
+
+
+
 # [4.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.3.2...@alfalab/core-components-bottom-sheet@4.4.0) (2022-06-28)
 
 
