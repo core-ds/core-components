@@ -95,6 +95,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     return isMobile ? (
         <Fragment>
             <BottomSheet
+                {...restProps}
                 open={Boolean(openValue)}
                 onClose={handleClose}
                 hasCloser={hasCloser}
