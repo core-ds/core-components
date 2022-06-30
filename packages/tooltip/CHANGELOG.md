@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.3.0...@alfalab/core-components-tooltip@5.4.0) (2022-06-30)
+
+
+### Features
+
+* **tooltip:** add bottomSheetProps for TooltipResponsive ([#119](https://github.com/core-ds/core-components/issues/119)) ([3e7690c](https://github.com/core-ds/core-components/commit/3e7690c55df998577183b0d51e4069e1131632f4))
+
+
+
+
+
 # [5.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.2.0...@alfalab/core-components-tooltip@5.3.0) (2022-06-29)
 
 
