@@ -179,7 +179,8 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper dataTestId={dataTestId} />,
             );
 
-            fireEvent.click(getByTestId(dataTestId));
+            fireEvent.mouseDown(getByTestId(dataTestId));
+            fireEvent.mouseUp(getByTestId(dataTestId));
 
             await waitForElementToBeRemoved(() => getByTestId(dataTestId));
 
@@ -194,10 +195,11 @@ describe('Bottom sheet', () => {
             const content = getByTestId(dataTestId).firstElementChild as HTMLElement;
 
             if (content) {
-                fireEvent.click(content);
+                fireEvent.mouseDown(content);
+                fireEvent.mouseUp(content);
             }
 
-            await new Promise((res) => setTimeout(res, 1000));
+            await new Promise(res => setTimeout(res, 1000));
 
             expect(queryByTestId(dataTestId)).toBeInTheDocument();
         });

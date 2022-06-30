@@ -80,7 +80,8 @@ describe('BaseModal', () => {
             const onClose = jest.fn();
             const { getByRole } = render(modal({ onClose }));
 
-            fireEvent.click(getByRole('dialog'));
+            fireEvent.mouseDown(getByRole('dialog'));
+            fireEvent.mouseUp(getByRole('dialog'));
 
             expect(onClose.mock.calls.length).toBe(1);
         });
@@ -89,7 +90,8 @@ describe('BaseModal', () => {
             const onClose = jest.fn();
             const { getByRole } = render(modal({ onClose, disableBackdropClick: true }));
 
-            fireEvent.click(getByRole('dialog'));
+            fireEvent.mouseDown(getByRole('dialog'));
+            fireEvent.mouseUp(getByRole('dialog'));
 
             expect(onClose.mock.calls.length).toBe(0);
         });
@@ -98,7 +100,8 @@ describe('BaseModal', () => {
             const onBackdropClick = jest.fn();
             const { getByRole } = render(modal({ onBackdropClick }));
 
-            fireEvent.click(getByRole('dialog'));
+            fireEvent.mouseDown(getByRole('dialog'));
+            fireEvent.mouseUp(getByRole('dialog'));
 
             expect(onBackdropClick.mock.calls.length).toBe(1);
         });

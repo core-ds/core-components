@@ -240,6 +240,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
         const restoreContainerStylesRef = useRef<null | Function>(null);
+        const mouseDownTarget = useRef<HTMLElement>();
 
         const checkToHasScrollBar = () => {
             if (scrollableNodeRef.current) {
@@ -315,8 +316,18 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             [onBackdropClick, onClose, onEscapeKeyDown],
         );
 
-        const handleBackdropClick = (event: MouseEvent<HTMLElement>) => {
-            if (!disableBackdropClick && event.target === wrapperRef.current) {
+        const handleBackdropMouseDown = (event: MouseEvent<HTMLElement>) => {
+            if (!disableBackdropClick) {
+                mouseDownTarget.current = event.target as HTMLElement;
+            }
+        };
+
+        const handleBackdropMouseUp = (event: MouseEvent<HTMLElement>) => {
+            if (
+                !disableBackdropClick &&
+                event.target === wrapperRef.current &&
+                mouseDownTarget.current === wrapperRef.current
+            ) {
                 handleClose(event, 'backdropClick');
             }
         };
@@ -472,7 +483,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     })}
                                     ref={mergeRefs([ref, wrapperRef])}
                                     onKeyDown={handleKeyDown}
-                                    onClick={handleBackdropClick}
+                                    onMouseDown={handleBackdropMouseDown}
+                                    onMouseUp={handleBackdropMouseUp}
                                     tabIndex={-1}
                                     data-test-id={dataTestId}
                                     style={{
