@@ -1,11 +1,116 @@
-Компонент слайдера
+Компонент используется для указания значения из заданного диапазона. Может быть использован в составных компонентах.
+
+Компонент внутри себя использует **nouislider**. Более подробно изучить настройки можно в [документации](https://refreshless.com/nouislider/pips/)
+
+### Примеры
+
+#### Сегменты и шаг слайдера
+
+Можно настроить количество сегментов и шаг внутри сегмента
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState(50);
+    const [value, setValue] = React.useState(0);
 
     const handleChange = ({ value }) => setValue(value);
 
-    return <Slider value={value} onChange={handleChange} />;
+    return (
+        <>
+            <Slider
+                value={value}
+                onChange={handleChange}
+                pips={{
+                    mode: 'values',
+                    values: [0, 10, 100],
+                }}
+                range={{
+                    min: [0],
+                    '50%': [10, 10],
+                    max: [100],
+                }}
+            />
+            <span>Value: {value}</span>
+        </>
+    );
+});
+```
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = ({ value }) => setValue(value);
+
+    return (
+        <>
+            <Slider
+                value={value}
+                onChange={handleChange}
+                min={1}
+                max={8}
+                pips={{
+                    mode: 'steps',
+                }}
+            />
+            <span>Value: {value}</span>
+        </>
+    );
+});
+```
+
+#### Подписи
+
+Слайдер может использоваться с подписями и без
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = ({ value }) => setValue(value);
+
+    return (
+        <>
+            <Slider value={value} onChange={handleChange} />
+            <span>Value: {value}</span>
+        </>
+    );
+});
+```
+
+#### Размеры
+
+Доступны M и S размеры компонента
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = ({ value }) => setValue(value);
+
+    return (
+        <>
+            <Slider
+                size='s'
+                min={1}
+                max={3}
+                pips={{
+                    mode: 'steps',
+                }}
+                value={value}
+                onChange={handleChange}
+            />
+            <br />
+            <Slider
+                size='m'
+                min={1}
+                max={3}
+                pips={{
+                    mode: 'steps',
+                }}
+                value={value}
+                onChange={handleChange}
+            />
+        </>
+    );
 });
 ```
