@@ -15,7 +15,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { ResizeObserver } from 'resize-observer';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 import FocusLock from 'react-focus-lock';
@@ -196,6 +196,8 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     setHasFooter: () => null,
     onClose: () => null,
 });
+
+const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
 
 export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
     (

@@ -15,7 +15,7 @@ import { usePopper } from 'react-popper';
 import { BasePlacement, VariationPlacement, Obj, ModifierArguments } from '@popperjs/core';
 import maxSize from 'popper-max-size-modifier';
 import mergeRefs from 'react-merge-refs';
-import { ResizeObserver } from 'resize-observer';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
@@ -174,6 +174,8 @@ const availableHieghtModifier = {
         }
     },
 };
+
+const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
 
 /**
  * Минимальный размер anchorElement,

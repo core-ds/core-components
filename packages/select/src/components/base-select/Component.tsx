@@ -9,7 +9,7 @@ import React, {
     useEffect,
     useLayoutEffect,
 } from 'react';
-import { ResizeObserver } from 'resize-observer';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
@@ -25,6 +25,8 @@ import { processOptions } from '../../utils';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
+
+const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
 
 export const BaseSelect = forwardRef(
     (
