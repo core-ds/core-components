@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
@@ -35,26 +35,20 @@ export const OptionsList = ({
         setHasFooter(true);
     }, [setHasFooter]);
 
-    const renderOption = useCallback(
-        (option: OptionShape, index: number) => (
-            <Option key={option.key} {...getOptionProps(option, index)} />
-        ),
-        [getOptionProps],
+    const renderOption = (option: OptionShape, index: number) => (
+        <Option key={option.key} {...getOptionProps(option, index)} />
     );
 
     const counter = createCounter();
-    const renderGroup = useCallback(
-        (group: GroupShape) => (
-            <Optgroup
-                className={optionGroupClassName}
-                label={group.label}
-                key={group.label}
-                size={size}
-            >
-                {group.options.map(option => renderOption(option, counter()))}
-            </Optgroup>
-        ),
-        [optionGroupClassName, counter, renderOption, size],
+    const renderGroup = (group: GroupShape) => (
+        <Optgroup
+            className={optionGroupClassName}
+            label={group.label}
+            key={group.label}
+            size={size}
+        >
+            {group.options.map(option => renderOption(option, counter()))}
+        </Optgroup>
     );
 
     if (options.length === 0 && !emptyPlaceholder) {

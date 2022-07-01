@@ -1,6 +1,5 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 
-import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { BaseSelectMobile } from '../base-select-mobile';
 
 import { Field as DefaultField } from '../field';
@@ -10,26 +9,12 @@ import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import { BaseSelectProps } from '../../typings';
 
-export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
-    /**
-     * Футер
-     * @deprecated Используйте bottomSheetProps.actionButton
-     */
-    footer?: ReactNode;
+export type SelectModalMobileProps = Omit<
+    BaseSelectProps,
+    'OptionsList' | 'Checkmark' | 'onScroll'
+>;
 
-    /**
-     * Будет ли свайпаться шторка
-     * @deprecated Используйте bottomSheetProps.swipeable
-     */
-    swipeable?: boolean;
-
-    /**
-     * Дополнительные пропсы шторки
-     */
-    bottomSheetProps?: Partial<BottomSheetProps>;
-};
-
-export const SelectMobile = forwardRef(
+export const SelectModalMobile = forwardRef(
     (
         {
             autocomplete = false,
@@ -49,7 +34,7 @@ export const SelectMobile = forwardRef(
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             ...restProps
-        }: SelectMobileProps,
+        }: SelectModalMobileProps,
         ref,
     ) => {
         return (
@@ -71,7 +56,7 @@ export const SelectMobile = forwardRef(
                 Field={Field}
                 Optgroup={Optgroup}
                 Option={Option}
-                isBottomSheet={true}
+                isBottomSheet={false}
                 {...restProps}
             />
         );
