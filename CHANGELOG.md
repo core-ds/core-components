@@ -1,3 +1,16 @@
+# [27.14.0](https://github.com/core-ds/core-components/compare/v27.13.1...v27.14.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+* **side-panel:** add new component side-panel ([#56](https://github.com/core-ds/core-components/issues/56)) ([0f9365a](https://github.com/core-ds/core-components/commit/0f9365ab22597cc230ac19ab19032f63d72a816e))
+
+
+### Performance Improvements
+
+* refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
+
 ## [27.13.1](https://github.com/core-ds/core-components/compare/v27.13.0...v27.13.1) (2022-06-30)
 
 
