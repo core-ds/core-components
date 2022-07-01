@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-toast@3.6.0...@alfalab/core-components-toast@3.6.1) (2022-07-01)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
 # [3.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-toast@3.5.4...@alfalab/core-components-toast@3.6.0) (2022-06-28)
 
 

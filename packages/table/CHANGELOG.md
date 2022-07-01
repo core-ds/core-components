@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.4.2...@alfalab/core-components-table@1.5.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+
+
+
+
+
 ## [1.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.4.1...@alfalab/core-components-table@1.4.2) (2022-06-30)
 
 **Note:** Version bump only for package @alfalab/core-components-table

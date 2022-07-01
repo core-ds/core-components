@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.12.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.11.1...@alfalab/core-components-select@10.12.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+
+
+### Performance Improvements
+
+* refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
+
+
+
+
+
 ## [10.11.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.11.0...@alfalab/core-components-select@10.11.1) (2022-06-30)
 
 **Note:** Version bump only for package @alfalab/core-components-select
