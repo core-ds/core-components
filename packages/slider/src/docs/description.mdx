@@ -1,6 +1,8 @@
-Компонент используется для указания значения из заданного диапазона. Может быть использован в составных компонентах.
+Компонент используется для указания значения из заданного диапазона. Внутри себя использует nouislider, подробно изучить его настройки можно в [документации](https://refreshless.com/nouislider/pips/)
 
-Компонент внутри себя использует **nouislider**. Более подробно изучить настройки можно в [документации](https://refreshless.com/nouislider/pips/)
+### Где используется
+
+Используется в [SliderInput](?path=/docs/компоненты-sliderinput--slider-input)
 
 ### Примеры
 
@@ -29,6 +31,7 @@ render(() => {
                     max: [100],
                 }}
             />
+            <br />
             <span>Value: {value}</span>
         </>
     );
@@ -52,6 +55,7 @@ render(() => {
                     mode: 'steps',
                 }}
             />
+            <br />
             <span>Value: {value}</span>
         </>
     );
@@ -71,6 +75,7 @@ render(() => {
     return (
         <>
             <Slider value={value} onChange={handleChange} />
+            <br />
             <span>Value: {value}</span>
         </>
     );

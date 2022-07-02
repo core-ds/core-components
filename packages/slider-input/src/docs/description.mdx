@@ -1,5 +1,7 @@
 Компонент используется для указания значения из заданного диапазона.
 
+### Архитектура
+
 Представляет из себя [Input](?path=/docs/компоненты-input--input) совмещенный со [Slider](?path=/docs/компоненты-slider--slider)
 
 ### Примеры
@@ -52,14 +54,14 @@ render(() => {
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
 
     return (
-        <>
+        <div style={{ width: 320 }}>
             <SliderInput
+                block={true}
                 value={value}
                 min={min}
                 max={max}
                 step={step}
                 onChange={handleChange}
-                block={true}
                 label='Срок кредита'
                 pips={pips}
                 Input={SuffixInput}
@@ -69,7 +71,7 @@ render(() => {
             />
             <br />
             <span>Value: {value}</span>
-        </>
+        </div>
     );
 });
 ```
@@ -100,15 +102,15 @@ render(() => {
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
 
     return (
-        <>
+        <div style={{ width: 320 }}>
             <SliderInput
+                block={true}
                 value={value}
                 min={min}
                 max={max}
                 step={step}
                 onChange={handleChange}
-                block={true}
-                label='Процент по кредиту'
+                label='Label'
                 range={range}
                 pips={{
                     mode: 'range',
@@ -120,14 +122,14 @@ render(() => {
             />
             <br />
             <span>Value: {value}</span>
-        </>
+        </div>
     );
 });
 ```
 
 #### Подпись
 
-В задисебйленном состоянии допустимо использовать стандартный Hint
+В задисейбленном состоянии допустимо использовать стандартный Hint
 
 ```jsx live
 const pips = {
@@ -136,7 +138,17 @@ const pips = {
 };
 
 render(() => {
-    return <SliderInput label='Срок кредита' pips={pips} hint='Hint' disabled={true} />;
+    return (
+        <div style={{ width: 320 }}>
+            <SliderInput
+                block={true}
+                label='Срок кредита'
+                pips={pips}
+                hint='Hint'
+                disabled={true}
+            />
+        </div>
+    );
 });
 ```
 
@@ -145,14 +157,24 @@ render(() => {
 ```jsx live
 // import { AmountInput } from '@alfalab/core-components/amount-input';
 
-const min = 100000;
-const max = 600000;
+const min = 50000;
+const max = 10000000;
 const step = 1000;
+const range = {
+    min: [min],
+    '25%': [100000, 10000],
+    '50%': [1000000, 100000],
+    '75%': [10000000, 1000000],
+    max: [max],
+};
 const pips = {
     mode: 'values',
-    values: [100000, 600000],
+    values: [min, max],
     format: {
-        to: value => `${Math.floor(value / 1000)} тыс.`,
+        to: value => {
+            if (value < 1000000) return `${value / 1000} тыс`;
+            return `${value / 1000000} млн`;
+        },
     },
 };
 
@@ -174,74 +196,24 @@ render(() => {
     };
 
     return (
-        <SliderInput
-            value={value !== '' ? value * 100 : ''}
-            sliderValue={value}
-            onInputChange={handleInputChange}
-            onSliderChange={handleSliderChange}
-            onBlur={handleBlur}
-            min={min}
-            max={max}
-            step={step}
-            Input={AmountInput}
-            pips={pips}
-            label='Сумма кредита'
-        />
-    );
-});
-```
-
-```jsx live
-// import { AmountInput } from '@alfalab/core-components/amount-input';
-
-const min = 50000;
-const max = 100000000;
-const step = 1000;
-const range = {
-    min: [min],
-    '25%': [100000, 10000],
-    '50%': [1000000, 100000],
-    '75%': [10000000, 1000000],
-    max: [max],
-};
-
-render(() => {
-    const [value, setValue] = React.useState('');
-
-    const handleInputChange = (event, { value }) => {
-        setValue(value !== '' ? (+value / 100).toString() : '');
-    };
-
-    const handleSliderChange = ({ value }) => {
-        setValue(value);
-    };
-
-    const handleBlur = () => {
-        if (value !== '') {
-            setValue(Math.max(min, Math.min(max, +value)));
-        }
-    };
-
-    return (
-        <SliderInput
-            value={value !== '' ? value * 100 : ''}
-            sliderValue={value}
-            onInputChange={handleInputChange}
-            onSliderChange={handleSliderChange}
-            onBlur={handleBlur}
-            min={min}
-            max={max}
-            range={range}
-            step={step}
-            label='Первоначальный взнос'
-            Input={AmountInput}
-            size='l'
-            hint={
-                <span style={{ color: '#6D7986', fontSize: '14px', lineHeight: '18px' }}>
-                    Снизьте ставку 8,49% ➝ 6,19%, увеличив первоначальный взнос до 22 млн ₽
-                </span>
-            }
-        />
+        <div style={{ width: 320 }}>
+            <SliderInput
+                block={true}
+                value={value !== '' ? value * 100 : ''}
+                sliderValue={value}
+                onInputChange={handleInputChange}
+                onSliderChange={handleSliderChange}
+                onBlur={handleBlur}
+                min={min}
+                max={max}
+                range={range}
+                pips={pips}
+                step={step}
+                label='Первоначальный взнос'
+                Input={AmountInput}
+                size='l'
+            />
+        </div>
     );
 });
 ```
