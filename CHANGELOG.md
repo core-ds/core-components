@@ -1,3 +1,9 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [28.0.0](https://github.com/core-ds/core-components/compare/v27.15.0...v28.0.0) (2022-07-04)
+
 # [27.15.0](https://github.com/core-ds/core-components/compare/v27.14.0...v27.15.0) (2022-07-04)
 
 
