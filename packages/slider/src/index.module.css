@@ -1,219 +1,140 @@
 @import '../../themes/src/default.css';
-
-:root {
-    --slider-progress-color: var(--color-red-dark);
-    --slider-progress-hover-color: var(--color-red-dark);
-    --slider-thumb-color: var(--color-light-graphic-accent);
-    --slider-thumb-hover-color: var(--color-light-graphic-accent);
-    --slider-thumb-size: 18px;
-    --slider-thumb-border: 0;
-    --slider-thumb-box-shadow: 0 2px 10px var(--color-light-graphic-accent-alpha-30);
-    --slider-progress-height: 2px;
-    --slider-progress-background: transparent;
-    --slider-progress-hover-background: transparent;
-    --slider-progress-border-radius: 0;
-    --slider-range-offest: calc(var(--slider-thumb-size) / 2 * -1);
-}
-
-/* Не работают префиксные селекторы через запятую - пришлось вынести в миксины */
-@define-mixin _slider-range {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    display: block;
-    width: 100%;
-    height: var(--slider-thumb-size);
-    box-sizing: border-box;
-    appearance: none;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-    cursor: pointer;
-}
-
-@define-mixin _slider-thumb {
-    width: var(--slider-thumb-size);
-    height: var(--slider-thumb-size);
-    border: 0;
-    appearance: none;
-    box-sizing: border-box;
-    background: var(--slider-thumb-color);
-    border-radius: var(--border-radius-circle);
-    box-shadow: var(--slider-thumb-box-shadow);
-    border: var(--slider-thumb-border);
-    cursor: grab;
-    transition: background 0.15s;
-}
-
-@define-mixin _slider-progress {
-    background: var(--slider-progress-color);
-    border-radius: var(--slider-progress-border-radius);
-    transition: background 0.15s;
-}
+@import './vars.css';
 
 .component {
-    position: relative;
     width: 100%;
-    height: var(--slider-thumb-size);
-    box-sizing: border-box;
-}
 
-.progress {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    transform: translateY(-50%);
-    display: block;
-    width: 100%;
-    height: var(--slider-progress-height);
-    border-radius: var(--slider-progress-border-radius);
-    border: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: var(--slider-progress-background);
-    transition: background 0.15s;
-}
-
-.progress::-moz-progress-bar {
-    @mixin _slider-progress;
-}
-
-.progress::-ms-fill {
-    @mixin _slider-progress;
-}
-
-.progress::-webkit-progress-value {
-    @mixin _slider-progress;
-}
-
-.progress::-webkit-progress-bar {
-    background: transparent;
-}
-
-.rangeWrapper {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: var(--slider-range-offest);
-    left: var(--slider-range-offest);
-}
-
-.range,
-.range:focus {
-    @mixin _slider-range;
-}
-
-.range::-ms-track {
-    @mixin _slider-range;
-}
-
-.range::-ms-fill-lower {
-    background: transparent;
-}
-
-.range::-ms-fill-upper {
-    background: transparent;
-}
-
-.range::-moz-focus-outer {
-    border: 0;
-}
-
-.range::-webkit-slider-runnable-track,
-.range::-moz-range-track {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-.range::-ms-tooltip {
-    display: none;
-}
-
-.range:focus {
-    outline: none;
-}
-
-.range::-webkit-slider-thumb {
-    @mixin _slider-thumb;
-}
-
-.range::-ms-thumb {
-    @mixin _slider-thumb;
-}
-
-.range::-moz-range-thumb {
-    @mixin _slider-thumb;
-}
-
-.focused::-webkit-slider-thumb {
-    @mixin focus-outline;
-}
-
-.focused::-ms-thumb {
-    @mixin focus-outline;
-}
-
-.range:active::-webkit-slider-thumb {
-    cursor: grabbing;
-}
-
-.range:active::-ms-thumb {
-    cursor: grabbing;
-}
-
-.range:active::-moz-range-thumb {
-    cursor: grabbing;
-}
-
-.range:disabled {
-    cursor: var(--disabled-cursor);
-}
-
-.range:disabled::-webkit-slider-thumb {
-    cursor: var(--disabled-cursor);
-}
-
-.range:disabled::-ms-thumb {
-    cursor: var(--disabled-cursor);
-}
-
-.range:disabled::-moz-range-thumb {
-    cursor: var(--disabled-cursor);
-}
-
-/* hover */
-
-.component:hover {
-    & .progress {
+    & :global(.noUi-base:hover) {
         background: var(--slider-progress-hover-background);
 
-        &::-moz-progress-bar {
-            background: var(--slider-progress-hover-color);
-        }
-
-        &::-ms-fill {
-            background: var(--slider-progress-hover-color);
-        }
-
-        &::-webkit-progress-value {
+        & :global(.noUi-connect) {
             background: var(--slider-progress-hover-color);
         }
     }
 
-    & .range {
-        &::-webkit-slider-thumb {
-            background: var(--slider-thumb-hover-color);
+    & :global(.noUi-handle:hover .noUi-touch-area) {
+        background: var(--slider-thumb-hover-color);
+    }
+
+    & :global(.noUi-handle:active .noUi-touch-area) {
+        background: var(--slider-thumb-active-color);
+    }
+
+    & :global(.noUi-base) {
+        position: relative;
+        width: 100%;
+        background: var(--slider-progress-background);
+        transition: background 0.15s;
+        cursor: pointer;
+    }
+
+    & :global(.noUi-origin) {
+        width: var(--slider-origin-width);
+        position: absolute;
+        top: 0;
+        right: var(--slider-origin-right);
+        height: 0;
+    }
+
+    & :global(.noUi-connects) {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    & :global(.noUi-connect) {
+        background: var(--slider-progress-color);
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transform-style: flat;
+        will-change: transform;
+        transform-origin: 0 0;
+    }
+
+    & :global(.noUi-handle) {
+        position: absolute;
+        right: calc(var(--slider-thumb-size) / 2 * -1);
+        width: var(--slider-thumb-size);
+        height: var(--slider-thumb-size);
+
+        box-sizing: border-box;
+        border-radius: var(--border-radius-circle);
+        box-shadow: var(--slider-thumb-box-shadow);
+        border: var(--slider-thumb-border);
+        cursor: grab;
+        outline: none;
+        transition: background 0.15s;
+    }
+
+    & :global(.noUi-touch-area) {
+        border-radius: 50%;
+        background: var(--slider-thumb-color);
+        width: 100%;
+        height: 100%;
+    }
+
+    & :global(.noUi-pips) {
+        @mixin system_14-18_regular;
+        margin-top: 6px;
+        height: 18px;
+        color: var(--color-light-text-secondary);
+        position: relative;
+        width: 100%;
+    }
+
+    & :global(.noUi-marker) {
+        display: none;
+    }
+
+    & :global(.noUi-value) {
+        position: absolute;
+        white-space: nowrap;
+        text-align: center;
+        top: 0;
+        transform: translateX(-50%);
+
+        &:nth-child(2) {
+            transform: none;
         }
 
-        &::-ms-thumb {
-            background: var(--slider-thumb-hover-color);
+        &:last-child {
+            transform: translateX(-100%);
         }
+    }
+}
 
-        &::-moz-range-thumb {
-            background: var(--slider-thumb-hover-color);
-        }
+.s {
+    & :global(.noUi-base) {
+        height: var(--slider-progress-s-height);
+        border-radius: var(--slider-progress-s-border-radius);
+    }
+
+    & :global(.noUi-connects) {
+        border-radius: var(--slider-progress-s-border-radius);
+    }
+
+    & :global(.noUi-handle) {
+        top: calc((var(--slider-thumb-size) / 2 - var(--slider-progress-s-height) / 2) * -1);
+    }
+}
+
+.m {
+    & :global(.noUi-base) {
+        height: var(--slider-progress-m-height);
+        border-radius: var(--slider-progress-m-border-radius);
+    }
+
+    & :global(.noUi-connects) {
+        border-radius: var(--slider-progress-m-border-radius);
+    }
+
+    & :global(.noUi-handle) {
+        top: calc((var(--slider-thumb-size) / 2 - var(--slider-progress-m-height) / 2) * -1);
     }
 }

@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../slider/src/vars.css';
 
 :root {
     --slider-input-steps-color: var(--color-light-text-secondary);
@@ -16,9 +17,8 @@
 }
 
 .slider {
-    position: absolute;
-    margin-top: -1px;
-    transform: translateY(-50%);
+    margin-top: calc(var(--slider-progress-s-height) / -2);
+    transform: translateY(-1px);
 
     & + * {
         margin-top: var(--gap-xs);

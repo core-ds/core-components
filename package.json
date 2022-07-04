@@ -74,6 +74,7 @@
         "intersection-observer": "^0.12.0",
         "libphonenumber-js": "^1.10.7",
         "lodash.debounce": "^4.0.8",
+        "nouislider": "^15.6.0",
         "popper-max-size-modifier": "^0.2.0",
         "react-div-100vh": "^0.7.0",
         "react-focus-lock": "^2.5.0",
