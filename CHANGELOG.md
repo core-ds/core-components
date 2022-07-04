@@ -1,3 +1,10 @@
+# [27.15.0](https://github.com/core-ds/core-components/compare/v27.14.0...v27.15.0) (2022-07-04)
+
+
+### Features
+
+* **slider:** migrate to noui-slider ([#98](https://github.com/core-ds/core-components/issues/98)) ([8056e60](https://github.com/core-ds/core-components/commit/8056e605f2eeef2f7e348a4ddeb4a2fc83e1dbd7))
+
 # [27.14.0](https://github.com/core-ds/core-components/compare/v27.13.1...v27.14.0) (2022-07-01)
 
 
