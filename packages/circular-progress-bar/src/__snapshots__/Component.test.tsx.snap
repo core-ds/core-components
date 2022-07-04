@@ -7,37 +7,32 @@ exports[`ProgressBar Snapshots tests should match custom title & subtitle snapsh
   >
     <svg
       class="svg"
-      viewBox="0 0 120 120"
+      viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
-        class="backgroundCircle"
-        cx="60"
-        cy="60"
-        r="56"
+        class="backgroundCircle m"
+        cx="32"
+        cy="32"
+        r="29"
       />
       <circle
-        class="progressCircle negative"
-        cx="60"
-        cy="60"
-        r="56"
-        stroke-dasharray="351.858"
-        stroke-dashoffset="281.487"
-        transform="rotate(-90 60 60)"
+        class="progressCircle negative m"
+        cx="32"
+        cy="32"
+        r="29"
+        stroke-dasharray="182.212"
+        stroke-dashoffset="145.770"
+        transform="rotate(-90 32 32)"
       />
     </svg>
     <div
-      class="label"
+      class="labelWrapper"
     >
       <span
         style="color: red;"
       >
         title
-      </span>
-      <span
-        style="color: green;"
-      >
-        subtitle
       </span>
     </div>
   </div>
@@ -51,30 +46,30 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
   >
     <svg
       class="svg"
-      viewBox="0 0 120 120"
+      viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
-        class="backgroundCircle"
-        cx="60"
-        cy="60"
-        r="56"
+        class="backgroundCircle m"
+        cx="32"
+        cy="32"
+        r="29"
       />
       <circle
-        class="progressCircle positive"
-        cx="60"
-        cy="60"
-        r="56"
-        stroke-dasharray="351.858"
-        stroke-dashoffset="281.487"
-        transform="rotate(-90 60 60)"
+        class="progressCircle positive m"
+        cx="32"
+        cy="32"
+        r="29"
+        stroke-dasharray="182.212"
+        stroke-dashoffset="145.770"
+        transform="rotate(-90 32 32)"
       />
     </svg>
     <div
-      class="label"
+      class="labelWrapper"
     >
       <div
-        class="component title styrene-xsmall medium secondary"
+        class="title secondary secondary-large bold"
       >
         20
       </div>
@@ -90,30 +85,30 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
   >
     <svg
       class="svg"
-      viewBox="0 0 120 120"
+      viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
-        class="backgroundCircle"
-        cx="60"
-        cy="60"
-        r="56"
+        class="backgroundCircle m"
+        cx="32"
+        cy="32"
+        r="29"
       />
       <circle
-        class="progressCircle negative"
-        cx="60"
-        cy="60"
-        r="56"
-        stroke-dasharray="351.858"
-        stroke-dashoffset="281.487"
-        transform="rotate(-90 60 60)"
+        class="progressCircle negative m"
+        cx="32"
+        cy="32"
+        r="29"
+        stroke-dasharray="182.212"
+        stroke-dashoffset="145.770"
+        transform="rotate(-90 32 32)"
       />
     </svg>
     <div
-      class="label"
+      class="labelWrapper"
     >
       <div
-        class="component title styrene-xsmall medium secondary"
+        class="title secondary secondary-large bold"
       >
         20
       </div>

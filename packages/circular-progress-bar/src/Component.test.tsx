@@ -37,11 +37,11 @@ describe('ProgressBar', () => {
         });
 
         it('should use passed `value`', () => {
-            const { container } = render(<CircularProgressBar value={72} />);
+            const { container } = render(<CircularProgressBar value={72} size='l' />);
 
             expect(container.querySelector('.progressCircle')).toHaveAttribute(
                 'stroke-dashoffset',
-                '98.520',
+                '63.335',
             );
         });
 
@@ -61,7 +61,9 @@ describe('ProgressBar', () => {
 
         it('should use passed `subtitle`', () => {
             const text = 'test-text';
-            const { container } = render(<CircularProgressBar value={72} subtitle={text} />);
+            const { container } = render(
+                <CircularProgressBar value={72} size='l' subtitle={text} />,
+            );
 
             expect(container.querySelector('.subtitle')).toHaveTextContent(text);
         });
@@ -75,7 +77,7 @@ describe('ProgressBar', () => {
                 </CircularProgressBar>,
             );
 
-            expect(container.querySelector('.label')).toHaveTextContent(text);
+            expect(container.querySelector('.labelWrapper')).toHaveTextContent(text);
             expect(container.querySelector('.subtitle')).not.toBeInTheDocument();
         });
     });

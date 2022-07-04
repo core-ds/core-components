@@ -1,5 +1,79 @@
 Отображает круговой индикатор прогресса (0-100%).
 
+## Размеры
+
+Доступны XXL, XL, L, M, S, XS размеры компонента
+
 ```jsx live
-<CircularProgressBar value={40} />
+<Container>
+    <Row align='middle'>
+        <Col>
+            <CircularProgressBar value={25} size='xxl' />
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='xl' />
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='l' />
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='m' />
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='s' />
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='xs' icon={CheckmarkSIcon}/>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Атрибуты
+
+У компонента есть два состояния — в процессе заполнения и полностью заполненный. 
+Управляя атрибутами можно задать направление заполнения, цвет прогрессбара, наличие желоба и контент для обоих состояний.
+
+```jsx live
+<Container>
+    <Row align='middle'>
+        <Col>
+            <CircularProgressBar value={0} size='l' subtitle='Caption' />
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='l' subtitle='Caption'/>
+        </Col>
+        <Col>
+            <CircularProgressBar value={100} size='l' icon={CheckmarkMIcon} completeIconColor='positive'/>
+        </Col>
+    </Row>
+    <Row align='middle'>
+        <Col>
+            <CircularProgressBar value={0} size='l' icon={CheckmarkMIcon} stroke={false}/>
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='l' icon={CheckmarkMIcon} stroke={false} />
+        </Col>
+        <Col>
+            <CircularProgressBar 
+                value={100} 
+                size='l' 
+                icon={CheckmarkMIcon} 
+                completeIconColor='primary-inverted'
+                fillComplete={true}
+                />
+        </Col>
+    </Row>
+    <Row align='middle'>
+        <Col>
+            <CircularProgressBar value={25} size='l' />
+        </Col>
+        <Col>
+            <CircularProgressBar value={25} size='l' view='negative'/>
+        </Col>
+        <Col>
+            <CircularProgressBar value={100} size='l' view='negative' completeTextColor='negative'/>
+        </Col>
+    </Row>
+</Container>
 ```

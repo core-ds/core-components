@@ -20,7 +20,7 @@ describe(
                         title: ['', 'Title'],
                         subtitle: ['', 'SubTitle'],
                         view: ['positive', 'negative'],
-                        size: ['s', 'm', 'l'],
+                        size: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
                     },
                     size: { width: 200, height: 200 },
                 }),
