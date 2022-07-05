@@ -22,6 +22,24 @@ const STROKE = {
     xxl: 12,
 };
 
+const VIEW_TITLE = {
+    xs: 'small',
+    s: 'small',
+    m: 'small',
+    l: 'xsmall',
+    xl: 'medium',
+    xxl: 'medium',
+} as const;
+
+const VIEW_TEXT = {
+    xs: 'secondary-small',
+    s: 'secondary-small',
+    m: 'secondary-large',
+    l: 'secondary-large',
+    xl: 'secondary-large',
+    xxl: 'secondary-large',
+} as const;
+
 export type CircularProgressBarProps = {
     /**
      * Уровень прогресса, %
@@ -94,9 +112,21 @@ export type CircularProgressBarProps = {
     iconComplete?: ElementType<{ className?: string }>;
 
     /**
-     * Направление прогресса (true - справа налево, false - слева направо)
+     * Направление прогресса (clockwise - по часовой стрелке, counter-clockwise - против часовой стрелки)
      */
-    direction?: 'ClockWise' | 'ClockOtherwise';
+    direction?: 'clockwise' | 'counter-clockwise';
+
+    /**
+     * Высота компонента, min = 24; max = 144
+     * использовать совместно с size :
+     * xxl от 144
+     * xl  от 128 до 143
+     * l   от 80 до 127
+     * m   от 64 до 79
+     * s   от 48 до 63
+     * xs  от 24 до 47
+     */
+    height?: number;
 
     /**
      * Id компонента для тестов
@@ -123,16 +153,17 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     iconComplete: IconComplete,
     completeTextColor,
     completeIconColor = 'tertiary',
-    direction = 'ClockWise',
+    direction = 'clockwise',
+    height,
     children,
 }) => {
     const memorized = useMemo(() => {
         const strokeWidth = STROKE[size];
         const maxProgress = 100;
         const minProgress = 0;
-        const width = SIZES[size];
-        const height = SIZES[size];
-        const center = width / 2;
+        const widthSVG = SIZES[size];
+        const heightSVG = SIZES[size];
+        const center = widthSVG / 2;
         const radius = center - strokeWidth / 2;
         const circumference = Math.PI * radius * 2;
         const progress = Math.min(Math.max(value, minProgress), maxProgress);
@@ -140,8 +171,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         const strokeDashoffset = (((100 - progress) / 100) * circumference).toFixed(3);
 
         return {
-            width,
-            height,
+            widthSVG,
+            heightSVG,
             center,
             radius,
             strokeDasharray,
@@ -150,84 +181,82 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     }, [value, size]);
 
     const isComplete = value === 100;
+    const isCompleteTextColor = isComplete && completeTextColor;
+    const titleContent = titleComplete && isComplete ? titleComplete : title;
+    const subtitleContent = subtitleComplete && isComplete ? subtitleComplete : subtitle;
+    const IconComponent = IconComplete && isComplete ? IconComplete : Icon;
 
-    const renderTitle = () => {
-        /* eslint-disable */
+    const renderTitleString = () => {
         return (
             <React.Fragment>
-                {typeof title === 'string' ? (
-                    SIZES[size] > 64 ? (
-                        <Typography.TitleMobile
-                            className={styles.title}
-                            color={isComplete ? completeTextColor : 'secondary'}
-                            tag='div'
-                            font='system'
-                            view={size === 'l' ? 'xsmall' : 'medium'}
-                        >
-                            {titleComplete && isComplete ? titleComplete : title}
-                        </Typography.TitleMobile>
-                    ) : (
-                        <Typography.Text
-                            className={styles.title}
-                            color={isComplete ? completeTextColor : 'secondary'}
-                            tag='div'
-                            weight='bold'
-                            view={size === 'm' ? 'secondary-large' : 'secondary-small'}
-                        >
-                            {titleComplete && isComplete ? titleComplete : title}
-                        </Typography.Text>
-                    )
-                ) : titleComplete && isComplete ? (
-                    titleComplete
+                {SIZES[size] > 64 ? (
+                    <Typography.TitleMobile
+                        className={styles.title}
+                        color={isCompleteTextColor ? completeTextColor : 'secondary'}
+                        tag='div'
+                        font='system'
+                        view={VIEW_TITLE[size]}
+                    >
+                        {titleContent}
+                    </Typography.TitleMobile>
                 ) : (
-                    title
+                    <Typography.Text
+                        className={styles.title}
+                        color={isCompleteTextColor ? completeTextColor : 'secondary'}
+                        tag='div'
+                        weight='bold'
+                        view={VIEW_TEXT[size]}
+                    >
+                        {titleContent}
+                    </Typography.Text>
                 )}
             </React.Fragment>
         );
     };
 
+    const renderTitle = () => {
+        return (
+            <React.Fragment>
+                {typeof title === 'string' ? renderTitleString() : titleContent}
+            </React.Fragment>
+        );
+    };
+
     const renderSubTitle = () => {
-        /* eslint-disable */
         return (
             <React.Fragment>
                 {typeof subtitle === 'string' ? (
                     <Typography.Text
                         tag='div'
                         className={styles.subtitle}
-                        color={isComplete ? completeTextColor : 'primary'}
+                        color={isCompleteTextColor ? completeTextColor : 'primary'}
                         view='primary-small'
                     >
-                        {subtitleComplete && isComplete ? subtitleComplete : subtitle}
+                        {subtitleContent}
                     </Typography.Text>
-                ) : subtitleComplete && isComplete ? (
-                    subtitleComplete
                 ) : (
-                    subtitle
+                    subtitleContent
                 )}
             </React.Fragment>
         );
     };
 
-    const renderIcon = (Icon: ElementType) => {
+    const renderIcon = () => {
         return (
             <span
                 className={cn(styles.iconWrapper, styles[size], styles.tertiary, {
                     [styles[`icon-${completeIconColor}`]]: completeIconColor,
                 })}
             >
-                {IconComplete && isComplete ? (
-                    <IconComplete className={styles.icon} />
-                ) : (
-                    <Icon className={styles.icon} />
-                )}
+                {IconComponent && <IconComponent className={styles.icon} />}
             </span>
         );
     };
-    const renderContentText = () => {
+    const renderContent = () => {
         return (
             <React.Fragment>
-                {Icon ? (
-                    renderIcon(Icon)
+                {Icon || (IconComplete && isComplete) ? (
+                    renderIcon()
                 ) : (
                     <React.Fragment>
                         {SIZES[size] > 24 && renderTitle()}
@@ -239,9 +268,15 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     };
 
     return (
-        <div className={cn(styles.component, styles[size], className)} data-test-id={dataTestId}>
+        <div
+            className={cn(styles.component, styles[size], className)}
+            style={{
+                ...(height && { height, width: height }),
+            }}
+            data-test-id={dataTestId}
+        >
             <svg
-                viewBox={`0 0 ${memorized.width} ${memorized.height}`}
+                viewBox={`0 0 ${memorized.widthSVG} ${memorized.heightSVG}`}
                 className={styles.svg}
                 xmlns='http://www.w3.org/2000/svg'
             >
@@ -252,6 +287,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     cx={memorized.center}
                     cy={memorized.center}
                     r={memorized.radius}
+                    strokeWidth={STROKE[size]}
                 />
                 <circle
                     className={cn(styles.progressCircle, styles[view], styles[size], {
@@ -260,9 +296,10 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     cx={memorized.center}
                     cy={memorized.center}
                     r={memorized.radius}
+                    strokeWidth={STROKE[size]}
                     strokeDasharray={memorized.strokeDasharray}
                     strokeDashoffset={
-                        direction === 'ClockOtherwise'
+                        direction === 'counter-clockwise'
                             ? -memorized.strokeDashoffset
                             : memorized.strokeDashoffset
                     }
@@ -271,10 +308,10 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             </svg>
             <div
                 className={cn(styles.labelWrapper, {
-                    [styles.label]: Icon,
+                    [styles.label]: Icon || IconComplete,
                 })}
             >
-                {children || renderContentText()}
+                {children || renderContent()}
             </div>
         </div>
     );

@@ -9,6 +9,7 @@ module.exports = {
         },
     ],
     rules: {
-        'multiline-comment-style': ['error', 'starred-block']
+        'multiline-comment-style': ['error', 'starred-block'],
+        'no-nested-ternary': 'off'
     }
 };

@@ -9,12 +9,6 @@
 
     /* negative */
     --circular-progress-bar-negative-color: var(--color-light-graphic-negative);
-
-    /* primary-inverted */
-    --circular-progress-bar-primary-inverted-color: var(--color-light-graphic-primary-inverted);
-
-    /* tertiary */
-    --circular-progress-bar-tertiary-color: var(--color-light-graphic-tertiary);
 }
 
 .component {
@@ -133,30 +127,6 @@
     width: 100%;
     height: 100%;
     fill: transparent;
-
-    &.xxl {
-        stroke-width: 12;
-    }
-
-    &.xl {
-        stroke-width: 10;
-    }
-
-    &.l {
-        stroke-width: 8;
-    }
-
-    &.m {
-        stroke-width: 6;
-    }
-
-    &.s {
-        stroke-width: 4;
-    }
-
-    &.xs {
-        stroke-width: 4;
-    }
 }
 
 .positive {
@@ -227,11 +197,11 @@
     }
 
     &.icon-positive {
-        color: var(--circular-progress-bar-positive-color);
+        color: var(--color-light-graphic-positive);
     }
 
     &.icon-negative {
-        color: var(--circular-progress-bar-negative-color);
+        color: var(--color-light-graphic-negative);
     }
 
     &.icon-primary-inverted {

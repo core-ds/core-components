@@ -15,6 +15,7 @@ exports[`ProgressBar Snapshots tests should match custom title & subtitle snapsh
         cx="32"
         cy="32"
         r="29"
+        stroke-width="6"
       />
       <circle
         class="progressCircle negative m"
@@ -23,6 +24,7 @@ exports[`ProgressBar Snapshots tests should match custom title & subtitle snapsh
         r="29"
         stroke-dasharray="182.212"
         stroke-dashoffset="145.770"
+        stroke-width="6"
         transform="rotate(-90 32 32)"
       />
     </svg>
@@ -54,6 +56,7 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
         cx="32"
         cy="32"
         r="29"
+        stroke-width="6"
       />
       <circle
         class="progressCircle positive m"
@@ -62,6 +65,7 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
         r="29"
         stroke-dasharray="182.212"
         stroke-dashoffset="145.770"
+        stroke-width="6"
         transform="rotate(-90 32 32)"
       />
     </svg>
@@ -93,6 +97,7 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
         cx="32"
         cy="32"
         r="29"
+        stroke-width="6"
       />
       <circle
         class="progressCircle negative m"
@@ -101,6 +106,7 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
         r="29"
         stroke-dasharray="182.212"
         stroke-dashoffset="145.770"
+        stroke-width="6"
         transform="rotate(-90 32 32)"
       />
     </svg>

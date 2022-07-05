@@ -36,9 +36,10 @@ import styles from '!!raw-loader!../index.module.css';
                     subtitle={subtitle}
                     subtitleComplete={subtitleComplete}
                     stroke={boolean('stroke', true)}
-                    direction={boolean('direction', false)}
+                    direction={select('direction', ['clockwise', 'counter-clockwise'], 'clockwise')}
                     fillComplete={boolean('fillComplete', false)}
                     completeTextColor={completeTextColor}
+                    height={number('height', 0)}
                     size={select('size', ['xs', 's', 'm', 'l', 'xl', 'xxl'], 'l')}
                 />
                 <p>Без атрибута title значение для title берётся из value</p>
