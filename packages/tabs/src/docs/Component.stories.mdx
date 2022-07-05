@@ -34,7 +34,7 @@ import vars from '!!raw-loader!../vars.css';
         );
         const props = TabsComponent !== TabsMobile ? {
             size: select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm'),
-        } : {};
+        } : { fullWidth: boolean('fullWidth', false)};
         return (
             <TabsComponent
                 {...props}
