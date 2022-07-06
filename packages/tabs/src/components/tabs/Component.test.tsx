@@ -3,7 +3,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
 import { TabsDesktop } from './Component.desktop';
-import { TabsMobile } from './Component.mobile';
+import { TabsMobile } from './mobile/Component.mobile';
 import { TabsResponsive } from './Component.responsive';
 import { Tab } from '../tab';
 import { TabsProps } from '../../typings';

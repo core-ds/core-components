@@ -23,11 +23,8 @@ export const TabsMobile = ({
     scrollable = true,
     fullWidth = false,
     ...restProps
-}: TabsMobileProps) =>
-    fullWidth ? (
-        <div className={styles.wrapper}>
-            <Tabs TabList={views[view]} scrollable={scrollable} {...restProps} />
-        </div>
-    ) : (
-        <Tabs TabList={views[view]} scrollable={scrollable} {...restProps} />
-    );
+}: TabsMobileProps) => {
+    const Component = <Tabs TabList={views[view]} scrollable={scrollable} {...restProps} />;
+
+    return fullWidth ? <div className={styles.wrapper}>{Component}</div> : Component;
+};

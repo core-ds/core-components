@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import cn from 'classnames';
 import { Styles, TabListProps } from '../../typings';
@@ -25,7 +25,7 @@ export const PrimaryTabList = ({
         onChange,
     });
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (selectedTab && lineRef.current) {
             lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
             lineRef.current.style.transform = `translateX(${selectedTab.offsetLeft}px)`;
