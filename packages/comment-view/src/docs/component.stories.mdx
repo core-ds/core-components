@@ -1,0 +1,43 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { CommentView } from '../Сomponent';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+<Meta
+    title='Компоненты/CommentView'
+    component={CommentView}
+/>
+
+<!-- Canvas -->
+
+<Story name='CommentView'>
+    <div>
+        <div style={{height: 24, margin: '8px 0', backgroundColor: '#eeeff1'}} />
+        <CommentView>Comment</CommentView>
+        <div style={{height: 24, margin: '8px 0', backgroundColor: '#eeeff1'}} />
+    </div>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CommentView'
+    version={version}
+    package='@alfalab/core-components/comment-view'
+    stage={2}
+/>
+
+```jsx
+import { CommentView } from '@alfalab/core-components/comment-view';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={CommentView} />}
+    cssVars={<CssVars css={styles} />}
+/>
