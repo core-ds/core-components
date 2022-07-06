@@ -175,8 +175,6 @@ const availableHieghtModifier = {
     },
 };
 
-const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-
 /**
  * Минимальный размер anchorElement,
  * при котором возможно смещение стрелочки относительно центра
@@ -290,6 +288,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
         useEffect(() => {
             if (useAnchorWidth) {
+                const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
                 const observer = new ResizeObserver(updatePopoverWidth);
 
                 if (anchorElement) {
