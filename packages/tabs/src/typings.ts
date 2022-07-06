@@ -141,6 +141,7 @@ export type TabListProps = Pick<
         rightAddons?: ReactNode;
         hidden?: boolean;
     }>;
+    isFullScroll?: boolean;
 };
 
 export type SecondaryTabListProps = TabListProps & {

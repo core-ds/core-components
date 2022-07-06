@@ -4,6 +4,7 @@ import { Tag } from '@alfalab/core-components-tag';
 import { ScrollableContainer } from '../scrollable-container';
 import { SecondaryTabListProps, Styles } from '../../typings';
 import { useTabs } from '../../useTabs';
+import { useFullWidthScroll } from '../../useFullWidthScroll';
 
 export const SecondaryTabList = ({
     styles = {},
@@ -14,6 +15,7 @@ export const SecondaryTabList = ({
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     tagSize = 'xs',
+    isFullScroll = false,
     onChange,
     dataTestId,
 }: SecondaryTabListProps & Styles) => {
@@ -22,6 +24,8 @@ export const SecondaryTabList = ({
         selectedId,
         onChange,
     });
+
+    const { containerRef, scrollableContainerRef, handleScroll } = useFullWidthScroll(isFullScroll);
 
     const renderContent = () =>
         titles
@@ -44,9 +48,12 @@ export const SecondaryTabList = ({
             role='tablist'
             data-test-id={dataTestId}
             className={cn(styles.component, className, size && styles[size])}
+            ref={containerRef}
         >
             {scrollable ? (
                 <ScrollableContainer
+                    ref={scrollableContainerRef}
+                    onScroll={handleScroll}
                     activeChild={focusedTab || selectedTab}
                     containerClassName={containerClassName}
                 >

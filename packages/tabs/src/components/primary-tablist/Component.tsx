@@ -5,6 +5,7 @@ import { Styles, TabListProps } from '../../typings';
 
 import { ScrollableContainer } from '../scrollable-container';
 import { useTabs } from '../../useTabs';
+import { useFullWidthScroll } from '../../useFullWidthScroll';
 
 export const PrimaryTabList = ({
     size,
@@ -16,6 +17,7 @@ export const PrimaryTabList = ({
     scrollable = true,
     onChange,
     dataTestId,
+    isFullScroll = false,
 }: TabListProps & Styles) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -24,6 +26,8 @@ export const PrimaryTabList = ({
         selectedId,
         onChange,
     });
+
+    const { containerRef, scrollableContainerRef, handleScroll } = useFullWidthScroll(isFullScroll);
 
     useEffect(() => {
         if (selectedTab && lineRef.current) {
@@ -66,14 +70,17 @@ export const PrimaryTabList = ({
 
     return (
         <div
+            ref={containerRef}
             role='tablist'
             data-test-id={dataTestId}
             className={cn(styles.component, className, size && styles[size])}
         >
             {scrollable ? (
                 <ScrollableContainer
+                    ref={scrollableContainerRef}
                     activeChild={focusedTab || selectedTab}
                     containerClassName={containerClassName}
+                    onScroll={handleScroll}
                 >
                     {renderContent()}
                 </ScrollableContainer>

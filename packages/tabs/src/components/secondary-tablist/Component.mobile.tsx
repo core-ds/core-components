@@ -22,5 +22,6 @@ export const SecondaryTabListMobile = ({
         styles={styles}
         className={cn(className, styles.mobile)}
         tagSize='xs'
+        isFullScroll={true}
     />
 );

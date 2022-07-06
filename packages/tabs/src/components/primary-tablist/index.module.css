@@ -3,6 +3,7 @@
 
 .component {
     position: relative;
+    transition: margin 0.3s ease-out;
 
     &:before {
         content: '';
