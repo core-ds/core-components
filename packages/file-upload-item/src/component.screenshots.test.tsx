@@ -22,7 +22,7 @@ describe(
         }),
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
-            failureThreshold: 20,
+            failureThreshold: 50,
         },
         screenshotOpts: { clip },
     }),
