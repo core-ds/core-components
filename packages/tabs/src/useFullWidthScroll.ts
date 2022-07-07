@@ -1,8 +1,11 @@
-import { UIEvent, useEffect, useRef } from 'react';
+import { UIEvent, useEffect, useRef, useState } from 'react';
 
 export const useFullWidthScroll = (isFullScroll: boolean) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const scrollableContainerRef = useRef<HTMLDivElement>(null);
+
+    const [isLeftOut, setIsLeftOut] = useState(false);
+    const [isRightOut, setIsRightOut] = useState(false);
 
     const handleScroll = (e: UIEvent<HTMLDivElement>) => {
         const node = e.currentTarget;
@@ -10,12 +13,14 @@ export const useFullWidthScroll = (isFullScroll: boolean) => {
 
         if (containerNode) {
             if (node.scrollLeft) {
-                containerNode.style.marginLeft = '-16px';
-            } else containerNode.style.marginLeft = '0';
-            if (node.scrollLeft + node.clientWidth >= node.scrollWidth - 2) {
-                containerNode.style.marginRight = '0';
+                setIsLeftOut(true);
             } else {
-                containerNode.style.marginRight = '-16px';
+                setIsLeftOut(false);
+            }
+            if (node.scrollLeft + node.clientWidth >= node.scrollWidth - 2) {
+                setIsRightOut(false);
+            } else {
+                setIsRightOut(true);
             }
         }
     };
@@ -27,10 +32,14 @@ export const useFullWidthScroll = (isFullScroll: boolean) => {
         if (containerNode && isFullScroll) {
             if (scrollableContainerNode) {
                 const { scrollWidth, clientWidth } = scrollableContainerNode;
-                if (scrollWidth > clientWidth) containerNode.style.marginRight = '-16px';
+                if (scrollWidth > clientWidth) {
+                    setIsRightOut(true);
+                }
             } else {
                 const { scrollWidth, clientWidth } = containerNode;
-                if (scrollWidth > clientWidth) containerNode.style.marginRight = '-16px';
+                if (scrollWidth > clientWidth) {
+                    setIsRightOut(true);
+                }
             }
         }
     }, [isFullScroll]);
@@ -41,5 +50,7 @@ export const useFullWidthScroll = (isFullScroll: boolean) => {
         containerRef,
         scrollableContainerRef,
         handleScroll: isHandleScroll ? handleScroll : undefined,
+        isRightOut,
+        isLeftOut,
     };
 };

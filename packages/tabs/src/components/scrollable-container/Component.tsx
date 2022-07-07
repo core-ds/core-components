@@ -39,7 +39,7 @@ export const ScrollableContainer = forwardRef<HTMLDivElement, ScrollableContaine
                 // TODO: animate?
                 actions.forEach(({ el, left }) => {
                     // eslint-disable-next-line no-param-reassign
-                    el.scrollLeft = left;
+                    el.scrollLeft = el.scrollLeft > left ? left - 40 : left + 40;
                 });
             }
         }, [activeChild]);

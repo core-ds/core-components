@@ -25,7 +25,13 @@ export const SecondaryTabList = ({
         onChange,
     });
 
-    const { containerRef, scrollableContainerRef, handleScroll } = useFullWidthScroll(isFullScroll);
+    const {
+        isLeftOut,
+        isRightOut,
+        containerRef,
+        scrollableContainerRef,
+        handleScroll,
+    } = useFullWidthScroll(isFullScroll);
 
     const renderContent = () =>
         titles
@@ -47,7 +53,10 @@ export const SecondaryTabList = ({
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size])}
+            className={cn(styles.component, className, size && styles[size], {
+                [styles.rightOut]: isRightOut,
+                [styles.leftOut]: isLeftOut,
+            })}
             ref={containerRef}
         >
             {scrollable ? (

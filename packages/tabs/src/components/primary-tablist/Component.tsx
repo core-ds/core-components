@@ -27,7 +27,13 @@ export const PrimaryTabList = ({
         onChange,
     });
 
-    const { containerRef, scrollableContainerRef, handleScroll } = useFullWidthScroll(isFullScroll);
+    const {
+        isLeftOut,
+        isRightOut,
+        containerRef,
+        scrollableContainerRef,
+        handleScroll,
+    } = useFullWidthScroll(isFullScroll);
 
     useEffect(() => {
         if (selectedTab && lineRef.current) {
@@ -73,7 +79,10 @@ export const PrimaryTabList = ({
             ref={containerRef}
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size])}
+            className={cn(styles.component, className, size && styles[size], {
+                [styles.rightOut]: isRightOut,
+                [styles.leftOut]: isLeftOut,
+            })}
         >
             {scrollable ? (
                 <ScrollableContainer

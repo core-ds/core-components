@@ -5,7 +5,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    transition: margin 0.3s ease-out;
+    transition: margin 200ms ease-in;
 }
 
 .container {
@@ -15,6 +15,15 @@
 
 .title {
     white-space: nowrap;
+}
+
+.rightOut {
+    right: var(--gap-m-neg);
+    margin-left: var(--gap-m-neg);
+}
+
+.leftOut {
+    margin-left: var(--gap-2xl-neg);
 }
 
 /* sizes */
