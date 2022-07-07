@@ -1,3 +1,10 @@
+## [28.1.1](https://github.com/core-ds/core-components/compare/v28.1.0...v28.1.1) (2022-07-07)
+
+
+### Bug Fixes
+
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
 # [28.1.0](https://github.com/core-ds/core-components/compare/v28.0.0...v28.1.0) (2022-07-07)
 
 
