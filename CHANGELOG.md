@@ -1,3 +1,10 @@
+# [28.1.0](https://github.com/core-ds/core-components/compare/v28.0.0...v28.1.0) (2022-07-07)
+
+
+### Features
+
+* **spinner:** new size & inverted theme ([#123](https://github.com/core-ds/core-components/issues/123)) ([5568ab5](https://github.com/core-ds/core-components/commit/5568ab5183badaded723ebc5a608b20bf471c6bc))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
