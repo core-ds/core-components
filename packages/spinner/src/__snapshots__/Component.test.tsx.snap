@@ -2,8 +2,61 @@
 
 exports[`Snapshots tests should display correctly 1`] = `
 <div>
-  <span
-    class="spinner s"
-  />
+  <svg
+    class="spinner default s"
+    fill="none"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <lineargradient
+        id="1_top"
+        x1="0.05"
+      >
+        <stop
+          offset="0.1"
+          stop-color="currentColor"
+          stop-opacity="0"
+        />
+        <stop
+          offset="1"
+          stop-color="currentColor"
+          stop-opacity="0.3"
+        />
+      </lineargradient>
+      <lineargradient
+        id="1_bottom"
+        x1="0.05"
+      >
+        <stop
+          offset="0"
+          stop-color="currentColor"
+          stop-opacity="1"
+        />
+        <stop
+          offset="1"
+          stop-color="currentColor"
+          stop-opacity="0.3"
+        />
+      </lineargradient>
+    </defs>
+    <g
+      stroke-width="2"
+    >
+      <path
+        d="M3,12 A9,9 0 0 1 21,12"
+        stroke="url(#1_top)"
+      />
+      <path
+        d="M21,12 A9,9 0 0 1 3,12"
+        stroke="url(#1_bottom)"
+      />
+      <path
+        d="M3,12 A9,9 0 0 1 3 12"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </g>
+  </svg>
 </div>
 `;

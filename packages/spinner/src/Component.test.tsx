@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 
 import { Spinner } from './index';
 
+jest.mock('@alfalab/hooks', () => ({ useId: () => 1 }));
+
 const testId = 'spinner';
 
 describe('Snapshots tests', () => {
