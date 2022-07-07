@@ -197,8 +197,6 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     onClose: () => null,
 });
 
-const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-
 export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
     (
         {
@@ -258,7 +256,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             return (container ? container() : document.body) as HTMLElement;
         }, [container]);
 
-        const resizeObserver = useMemo(() => new ResizeObserver(checkToHasScrollBar), []);
+        const resizeObserver = useMemo(() => {
+            const ResizeObserver = window?.ResizeObserver || ResizeObserverPolyfill;
+
+            return new ResizeObserver(checkToHasScrollBar);
+        }, []);
 
         const addResizeHandle = useCallback(() => {
             if (scrollableNodeRef.current) resizeObserver.observe(scrollableNodeRef.current);

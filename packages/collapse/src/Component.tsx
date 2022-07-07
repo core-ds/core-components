@@ -65,8 +65,6 @@ export type CollapseProps = {
     dataTestId?: string;
 };
 
-const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-
 export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
     (
         {
@@ -127,6 +125,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
         }, [recalculate]);
 
         useEffect(() => {
+            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
             const observer = new ResizeObserver(recalculate);
             if (contentCaseRef.current) {
                 observer.observe(contentCaseRef.current);
