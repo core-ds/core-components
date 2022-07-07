@@ -1,7 +1,7 @@
 Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу
 или вызова нового информационного слоя.
 
-```tsx live
+```jsx live
 <Typography.Text view='primary-medium'>
     <Link
         view='default'
@@ -20,7 +20,7 @@
 
 Нестареющая классика. Ссылка может вести как на страницу внутри системы, так и на внешний ресурс.
 
-```tsx live
+```jsx live
 <Space>
     <Link view='primary'>Primary</Link>
     <Link view='secondary'>Secondary</Link>
@@ -32,7 +32,7 @@
 
 Вызывает информационный слой (collapse, dropdown, popup) без перехода на другую страницу.
 
-```tsx live
+```jsx live
 <Space>
     <Link view='primary' pseudo={true}>
         Primary
@@ -51,7 +51,7 @@
 Добавляет слоты `leftAddons` и `rightAddons` для кастомизации ссылок.
 Переданный контент будет отрисован слева или справа от текста ссылки.
 
-```tsx live
+```jsx live
 <Space>
     <Link view='primary' leftAddons={<StarMIcon />}>
         Ссылка с иконкой слева

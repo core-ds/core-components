@@ -48,6 +48,12 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     integersOnly?: boolean;
 
     /**
+     * @default - true. Нельзя вводить отрицательные значения.
+     * Возможность вводить только положительные значения
+     */
+    positiveOnly?: boolean;
+
+    /**
      * Жир
      */
     bold?: boolean;
@@ -91,6 +97,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 suffix === currency ? getCurrencySymbol(currency) || '' : suffix
             }`,
             integersOnly = false,
+            positiveOnly = true,
             bold = true,
             colors = 'default',
             className,
@@ -104,13 +111,14 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         ref,
     ) => {
         const getFormattedAmount = useCallback(() => {
-            if (value === '' || value === null) return '';
+            if (value === '' || value === null || value === '-') return '';
 
             return formatAmount({
                 value: +value,
                 currency,
                 minority,
                 view: 'default',
+                negativeSymbol: 'hyphen-minus',
             }).formatted;
         }, [currency, minority, value]);
 
@@ -135,9 +143,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             if (integersOnly) {
                 [enteredValue] = enteredValue.split(',');
             }
-
+            // Сокращение минимальной длины мажорной части числа до 0 позволяет ввести "," => "0,"
             const isCorrectEnteredValue = RegExp(
-                `(^[0-9]{1,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
+                `(^${positiveOnly ? '' : '-?'}[0-9]{0,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
             ).test(enteredValue);
 
             if (isCorrectEnteredValue) {

@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.5...@alfalab/core-components-input-autocomplete@7.4.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+
+
+
+
+
+## [7.3.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.4...@alfalab/core-components-input-autocomplete@7.3.5) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
+## [7.3.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.3...@alfalab/core-components-input-autocomplete@7.3.4) (2022-06-29)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
+## [7.3.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.2...@alfalab/core-components-input-autocomplete@7.3.3) (2022-06-28)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** fixed onChange type ([#110](https://github.com/core-ds/core-components/issues/110)) ([c994661](https://github.com/core-ds/core-components/commit/c9946615af9aecb3f1974c887bdd6686708ac18e))
+
+
+
+
+
+## [7.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.1...@alfalab/core-components-input-autocomplete@7.3.2) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
+## [7.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.3.0...@alfalab/core-components-input-autocomplete@7.3.1) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
+# [7.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.7...@alfalab/core-components-input-autocomplete@7.3.0) (2022-06-20)
+
+
+### Features
+
+* **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+
+
+
+
+
+## [7.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.6...@alfalab/core-components-input-autocomplete@7.2.7) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
+## [7.2.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.5...@alfalab/core-components-input-autocomplete@7.2.6) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
 ## [7.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.2.4...@alfalab/core-components-input-autocomplete@7.2.5) (2022-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-input-autocomplete

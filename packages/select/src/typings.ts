@@ -45,6 +45,13 @@ export type GroupShape = {
     options: OptionShape[];
 };
 
+export type BaseSelectChangePayload = {
+    selected: OptionShape | null;
+    selectedMultiple: OptionShape[];
+    initiator: OptionShape | null;
+    name?: string;
+};
+
 export type BaseSelectProps = {
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -257,12 +264,7 @@ export type BaseSelectProps = {
     /**
      * Обработчик выбора
      */
-    onChange?: (payload: {
-        selected: OptionShape | null;
-        selectedMultiple: OptionShape[];
-        initiator: OptionShape | null;
-        name?: string;
-    }) => void;
+    onChange?: (payload: BaseSelectChangePayload) => void;
 
     /**
      * Обработчик открытия\закрытия селекта
@@ -491,7 +493,7 @@ export type OptionsListProps = {
     /**
      * Будет отображаться, если компонент пустой
      */
-    emptyPlaceholder?: string;
+    emptyPlaceholder?: ReactNode;
 
     /**
      * Количество видимых пунктов меню (5 = 5.5)

@@ -18,10 +18,26 @@ import styles from '!!raw-loader!../index.module.css';
 <!-- Canvas -->
 
 <Story name='Spinner'>
-    <Spinner
-        size={ select('size', ['s', 'm']) }
-        visible={ boolean('visible', true) }
-    />
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <Spinner
+                    size={ select('size', ['xs', 's', 'm'], 's') }
+                    visible={ boolean('visible', true) }
+                    colors={ colors }
+                />
+            </div>
+        );
+    })}
 </Story>
 
 
@@ -34,7 +50,7 @@ import styles from '!!raw-loader!../index.module.css';
     stage={2}
 />
 
-```tsx
+```jsx
 import { Spinner } from '@alfalab/core-components/spinner';
 ```
 

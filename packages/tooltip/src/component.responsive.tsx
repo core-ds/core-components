@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { FC, Fragment } from 'react';
 import { useMedia } from '@alfalab/hooks';
 
-import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { Button } from '@alfalab/core-components-button';
 
 import { Tooltip, TooltipProps } from '.';
@@ -26,12 +26,12 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
     /**
      * Обработчик открытия
      */
-    onOpen?: () => void;
+    onOpen?: (event?: React.MouseEvent<HTMLElement>) => void;
 
     /**
      * Обработчик закрытия
      */
-    onClose?: () => void;
+    onClose?: (event?: React.MouseEvent<HTMLElement>) => void;
 
     /**
      * Заголовок кнопки в футере
@@ -40,8 +40,14 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
 
     /**
      * Наличие компонента крестика
+     * @deprecated(используйте bottomSheetProps.hasCloser)
      */
     hasCloser?: boolean;
+
+    /**
+     *  Дополнительные пропсы компонента BottomSheet
+     */
+    bottomSheetProps?: Partial<BottomSheetProps>;
 };
 
 export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
@@ -55,6 +61,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     hasCloser,
     targetRef,
     targetClassName,
+    bottomSheetProps,
     ...restProps
 }) => {
     const [view] = useMedia<View>(
@@ -67,17 +74,17 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
 
     const [openValue, setOpenValueIfUncontrolled] = useControlled(open, false);
 
-    const handleOpen = () => {
+    const handleOpen = (event?: React.MouseEvent<HTMLElement>) => {
         if (onOpen) {
-            onOpen();
+            onOpen(event);
         } else {
             setOpenValueIfUncontrolled(true);
         }
     };
 
-    const handleClose = () => {
+    const handleClose = (event?: React.MouseEvent<HTMLElement>) => {
         if (onClose) {
-            onClose();
+            onClose(event);
         } else {
             setOpenValueIfUncontrolled(false);
         }
@@ -97,6 +104,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
                         {actionButtonTitle}
                     </Button>
                 }
+                {...bottomSheetProps}
             >
                 {content}
             </BottomSheet>
@@ -114,8 +122,10 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     ) : (
         <Tooltip
             {...restProps}
+            open={open}
             content={content}
             onOpen={handleOpen}
+            onClose={handleClose}
             targetClassName={targetClassName}
             targetRef={targetRef}
         >

@@ -1,15 +1,6 @@
-import React, {
-    forwardRef,
-    useCallback,
-    ChangeEvent,
-    FC,
-    Fragment,
-    ReactNode,
-    isValidElement,
-    cloneElement,
-} from 'react';
+import React, { forwardRef, useCallback, ChangeEvent, FC, Fragment, ReactNode } from 'react';
 import cn from 'classnames';
-import { Slider } from '@alfalab/core-components-slider';
+import { Slider, SliderProps } from '@alfalab/core-components-slider';
 import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
 
 import styles from './index.module.css';
@@ -34,9 +25,16 @@ export type SliderInputProps = Omit<
     step?: number;
 
     /**
-     * Массив подписей к слайдеру
+     * Отображение подписей
+     * https://refreshless.com/nouislider/pips/
      */
-    steps?: ReactNode[];
+    pips?: SliderProps['pips'];
+
+    /**
+     * Настройка шагов
+     * https://refreshless.com/nouislider/pips/#section-range
+     */
+    range?: SliderProps['range'];
 
     /**
      * Значение инпута
@@ -74,14 +72,12 @@ export type SliderInputProps = Omit<
     sliderClassName?: string;
 
     /**
-     * Класс для шагов
-     */
-    stepsClassName?: string;
-
-    /**
      * Обработчик изменения значения через слайдер или поле ввода
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number | '' }) => void;
+    onChange?: (
+        event: ChangeEvent<HTMLInputElement> | null,
+        payload: { value: number | '' },
+    ) => void;
 
     /**
      * Обработчик ввода
@@ -91,7 +87,7 @@ export type SliderInputProps = Omit<
     /**
      * Обработчик изменения слайдера
      */
-    onSliderChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number }) => void;
+    onSliderChange?: (payload: { value: number }) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -105,7 +101,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             className,
             inputClassName,
             sliderClassName,
-            stepsClassName,
             focusedClassName,
             fieldClassName,
             value = '',
@@ -114,7 +109,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             step = 1,
             block,
             sliderValue = +value,
-            steps = [],
             size = 's',
             label,
             info,
@@ -126,8 +120,11 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             rightAddons,
             Input = DefaultInput,
             customInputProps = {},
-            dataTestId,
             error,
+            hint,
+            pips,
+            range,
+            dataTestId,
             ...restProps
         },
         ref,
@@ -138,9 +135,9 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         }, []);
 
         const handleSliderChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>, payload) => {
-                if (onChange) onChange(event, payload);
-                if (onSliderChange) onSliderChange(event, payload);
+            payload => {
+                if (onChange) onChange(null, payload);
+                if (onSliderChange) onSliderChange(payload);
             },
             [onChange, onSliderChange],
         );
@@ -186,6 +183,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     inputMode='numeric'
                     pattern='[0-9]*'
                     error={error}
+                    hint={hint}
                     bottomAddons={
                         !disabled && (
                             <Slider
@@ -193,10 +191,13 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                 max={max}
                                 step={step}
                                 onChange={handleSliderChange}
-                                ref={ref}
-                                value={Number.isNaN(sliderValue) ? 0 : sliderValue}
+                                value={
+                                    Number.isNaN(sliderValue) || !sliderValue ? min : sliderValue
+                                }
                                 disabled={disabled || readOnly}
                                 className={cn(styles.slider, sliderClassName)}
+                                pips={!error && !hint ? pips : undefined}
+                                range={range}
                             />
                         )
                     }
@@ -209,19 +210,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         )
                     }
                 />
-
-                {steps.length > 0 && !error && (
-                    <div className={cn(styles.steps, stepsClassName)}>
-                        {steps.map((stepLabel, i) =>
-                            isValidElement(stepLabel) ? (
-                                cloneElement(stepLabel, { key: i })
-                            ) : (
-                                // eslint-disable-next-line react/no-array-index-key
-                                <span key={i}>{stepLabel}</span>
-                            ),
-                        )}
-                    </div>
-                )}
             </div>
         );
     },
@@ -235,7 +223,6 @@ SliderInput.defaultProps = {
     min: 0,
     max: 100,
     step: 1,
-    steps: [],
     size: 's',
     Input: DefaultInput,
     customInputProps: {},

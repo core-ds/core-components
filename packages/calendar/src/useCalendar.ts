@@ -57,9 +57,14 @@ export type UseCalendarProps = {
     events?: Array<Date | number>;
 
     /**
-     * Список выходных дней
+     * Список отключенных для выбора дней
      */
     offDays?: Array<Date | number>;
+
+    /**
+     * Список выходных дней
+     */
+    holidays?: Array<Date | number>;
 
     /**
      * Обработчик изменения месяца (или года)
@@ -81,6 +86,7 @@ export function useCalendar({
     selected,
     events,
     offDays,
+    holidays,
     onMonthChange,
     onChange,
 }: UseCalendarProps) {
@@ -104,9 +110,19 @@ export function useCalendar({
 
     const offDaysMap = useMemo(() => dateArrayToHashTable(offDays || []), [offDays]);
 
+    const holidaysMap = useMemo(() => dateArrayToHashTable(holidays || []), [holidays]);
+
     const weeks = useMemo(
-        () => generateWeeks(activeMonth, { minDate, maxDate, selected, eventsMap, offDaysMap }),
-        [maxDate, minDate, selected, activeMonth, eventsMap, offDaysMap],
+        () =>
+            generateWeeks(activeMonth, {
+                minDate,
+                maxDate,
+                selected,
+                eventsMap,
+                offDaysMap,
+                holidaysMap,
+            }),
+        [maxDate, minDate, selected, activeMonth, eventsMap, offDaysMap, holidaysMap],
     );
 
     const months = useMemo(() => generateMonths(activeMonth, { minMonth, maxMonth }), [
@@ -296,8 +312,8 @@ export function useCalendar({
         dateRefs.current[index] = node;
     }, []);
 
-    const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLButtonElement>) => {
-        const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+    const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLTableDataCellElement>) => {
+        const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
         setHighlighted(date ? +date : undefined);
     }, []);
 
@@ -306,14 +322,16 @@ export function useCalendar({
     }, []);
 
     const handleDayClick = useCallback(
-        (event: MouseEvent<HTMLButtonElement>) => {
-            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+        (event: MouseEvent<HTMLTableDataCellElement>) => {
+            const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
 
             if (date && onChange) {
                 onChange(+date);
             }
+
+            handleDayMouseLeave();
         },
-        [onChange],
+        [onChange, handleDayMouseLeave],
     );
 
     const daysControls = useMemo(
@@ -389,7 +407,7 @@ export function useCalendar({
             return {
                 'data-date': day.date.getTime(),
                 'aria-selected': daySelected,
-                ref: (node: HTMLButtonElement) => {
+                ref: (node: HTMLTableDataCellElement) => {
                     handleDateRef(node, day.date.getDate() - 1);
                 },
                 tabIndex: canFocus ? 0 : -1,

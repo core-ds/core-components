@@ -21,11 +21,11 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
               class="leftAddons"
             >
               <div
-                class="wrapper positive m"
+                class="wrapper positive m badge"
+                data-test-id="badge"
               >
                 <div
-                  class="component m icon positive badge"
-                  data-test-id="badge"
+                  class="component m icon positive"
                 >
                   <svg
                     class="badgeIcon"
@@ -63,11 +63,11 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
           >
             <button
               aria-label="закрыть"
-              class="component ghost s component ghost iconOnly closeButton primary component loader"
+              class="component ghost s component ghost closeButton primary component"
               type="button"
             >
               <span
-                class="addons"
+                class="text stretchText"
               >
                 <span
                   class="iconWrapper s"

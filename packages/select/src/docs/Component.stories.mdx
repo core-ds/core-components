@@ -6,6 +6,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Select } from '../Component';
 import { SelectMobile } from '../components/select-mobile';
+import { SelectModalMobile } from '../components/select-modal-mobile';
 import { name, version } from '../../package.json';
 import { Arrow } from '../components/arrow';
 import Description from './description.mdx';
@@ -25,6 +26,11 @@ export const options = [
     { key: '10', content: 'Manganese' },
     { key: '11', content: 'Silicon' },
     { key: '12', content: 'Titanium' },
+    { key: '13', content: 'Neptunium' },
+    { key: '14', content: 'Plutonium' },
+    { key: '15', content: 'Americium' },
+    { key: '16', content: 'Curium' },
+    { key: '17', content: 'Berkelium' },
 ];
 
 export const POSITION_OPTIONS = [
@@ -42,12 +48,10 @@ export const POSITION_OPTIONS = [
     'left-end',
 ];
 
-
-<Meta
-    title='Компоненты/Select'
-    component={Select}
+<Meta 
+    title='Компоненты/Select'  
+    component={Select} 
 />
-
 
 <!-- Canvas -->
 
@@ -94,6 +98,24 @@ export const POSITION_OPTIONS = [
     />
 </Story>
 
+<Story name='SelectModalMobile'>
+    <SelectModalMobile
+        block={boolean('block', false)}
+        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        error={text('error', '')}
+        hint={text('hint', '')}
+        options={options}
+        multiple={boolean('multiple', true)}
+        allowUnselect={boolean('allowUnselect', true)}
+        closeOnSelect={boolean('closeOnSelect', true)}
+        Arrow={boolean('Arrow', true) ? Arrow : () => null}
+        circularNavigation={boolean('circularNavigation', false)}
+        placeholder={text('placeholder', 'Выберите элемент')}
+        label={text('label', 'Элемент')}
+        defaultOpen={boolean('defaultOpen', false)}
+    />
+</Story>
 
 <!-- Docs -->
 
@@ -104,7 +126,7 @@ export const POSITION_OPTIONS = [
     stage={2}
 />
 
-```tsx
+```jsx
 import { Select } from '@alfalab/core-components/select';
 ```
 

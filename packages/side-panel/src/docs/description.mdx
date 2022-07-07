@@ -1,0 +1,124 @@
+Компонент SidePanel, построенный как Compound Components.
+
+Предоставляет стандартные компоненты `Header`, `Closer`, `Content`, `Footer`, а также доступ к контексту.
+
+```tsx live
+// import { Typography } from '@alfalab/core-components/typography';
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleModalOpen = () => setOpen(!open);
+
+    return (
+        <React.Fragment>
+            <Button type='button' size='xs' onClick={handleModalOpen}>
+                Открыть
+            </Button>
+            <SidePanelDesktop open={open} onClose={handleModalOpen} size='s'>
+                <SidePanelDesktop.Header hasCloser={true} title ='Почему банк проверяет мои операции?'/>
+                <SidePanelDesktop.Content>
+                    <Typography.Text tag='p'>
+                        Сейчас много говорят об отказах банков в проведении операций, блокировках
+                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+                        выявлять операции своих клиентов, потенциально нарушающие требования
+                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+                        доходов, полученных преступным путем, и финансированию терроризма».
+                    </Typography.Text>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+                        предотвращать проведение таких операций и поэтому могут запросить
+                        дополнительную информацию и документы, ограничить доступ к платежам через
+                        интернет-банк или даже отказать в исполнении платежа.
+                    </Typography.Text>
+                </SidePanelDesktop.Content>
+                <SidePanelDesktop.Footer>
+                    <Button view='primary' size='s' onClick={handleModalOpen}>
+                        Понятно
+                    </Button>
+                </SidePanelDesktop.Footer>
+            </SidePanelDesktop>
+        </React.Fragment>
+    );
+});
+```
+
+### Настройка шапки (HeaderMobile)
+
+```tsx live
+// import { Typography } from '@alfalab/core-components/typography';
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [trim, setTrim] = React.useState(true);
+    const [leftAddons, setLeftAddons] = React.useState(false);
+    const [hasCloser, setHasCloser] = React.useState(true);
+
+    const handleModalOpen = () => setOpen(!open);
+
+    return (
+        <React.Fragment>
+            <Space>
+                <Button type='button' size='xs' onClick={handleModalOpen}>
+                    Открыть модалку
+                </Button>
+                <Checkbox
+                    onChange={() => setTrim(!trim)}
+                    checked={trim}
+                    label='Обрезка заголовка'
+                />
+                <Checkbox
+                    onChange={() => setHasCloser(!hasCloser)}
+                    checked={hasCloser}
+                    label='Крестик'
+                />
+                <Checkbox
+                    onChange={() => setLeftAddons(!leftAddons)}
+                    checked={leftAddons}
+                    label='Левый аддон'
+                />
+            </Space>
+            <SidePanelMobile open={open} onClose={handleModalOpen} size='m'>
+                <SidePanelMobile.Header
+                    hasCloser={hasCloser}
+                    title='Пример очень-очень длинного заголовка в шапке'
+                    trim={trim}
+                    leftAddons={
+                        leftAddons ? (
+                            <div
+                                style={{
+                                    width: 48,
+                                    height: 48,
+                                    background: 'rgba(207, 112, 255, 0.1)',
+                                }}
+                            />
+                        ) : null
+                    }
+                />
+                <SidePanelMobile.Content>
+                    <Typography.Text tag='p'>
+                        Сейчас много говорят об отказах банков в проведении операций, блокировках
+                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+                        выявлять операции своих клиентов, потенциально нарушающие требования
+                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+                        доходов, полученных преступным путем, и финансированию терроризма».
+                    </Typography.Text>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+                        предотвращать проведение таких операций и поэтому могут запросить
+                        дополнительную информацию и документы, ограничить доступ к платежам через
+                        интернет-банк или даже отказать в исполнении платежа.
+                    </Typography.Text>
+                </SidePanelMobile.Content>
+                <SidePanelMobile.Footer>
+                    <Button view='primary' size='s' onClick={handleModalOpen}>
+                        Понятно
+                    </Button>
+                </SidePanelMobile.Footer>
+            </SidePanelMobile>
+        </React.Fragment>
+    );
+});
+```

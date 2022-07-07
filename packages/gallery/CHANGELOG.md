@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.3...@alfalab/core-components-gallery@3.2.4) (2022-07-01)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.2.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.2...@alfalab/core-components-gallery@3.2.3) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.1...@alfalab/core-components-gallery@3.2.2) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.0...@alfalab/core-components-gallery@3.2.1) (2022-06-29)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+# [3.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.20...@alfalab/core-components-gallery@3.2.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [3.1.20](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.19...@alfalab/core-components-gallery@3.1.20) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.19](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.18...@alfalab/core-components-gallery@3.1.19) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.18](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.17...@alfalab/core-components-gallery@3.1.18) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.17](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.16...@alfalab/core-components-gallery@3.1.17) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.16](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.15...@alfalab/core-components-gallery@3.1.16) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.15](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.14...@alfalab/core-components-gallery@3.1.15) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.1.14](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.13...@alfalab/core-components-gallery@3.1.14) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
 ## [3.1.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.1.12...@alfalab/core-components-gallery@3.1.13) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-gallery

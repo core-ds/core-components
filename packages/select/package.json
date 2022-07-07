@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "10.8.0",
+    "version": "10.12.0",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -20,20 +20,21 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^4.0.2",
-        "@alfalab/core-components-bottom-sheet": "^4.1.5",
-        "@alfalab/core-components-button": "^5.1.6",
-        "@alfalab/core-components-checkbox": "^2.7.3",
-        "@alfalab/core-components-form-control": "^7.4.3",
-        "@alfalab/core-components-input": "^8.1.6",
-        "@alfalab/core-components-popover": "^5.6.3",
-        "@alfalab/core-components-scrollbar": "^1.1.0",
-        "@alfalab/core-components-skeleton": "^3.1.2",
+        "@alfalab/core-components-base-modal": "^4.1.2",
+        "@alfalab/core-components-bottom-sheet": "^4.4.2",
+        "@alfalab/core-components-button": "^5.2.0",
+        "@alfalab/core-components-checkbox": "^2.8.0",
+        "@alfalab/core-components-form-control": "^7.5.0",
+        "@alfalab/core-components-input": "^8.2.0",
+        "@alfalab/core-components-modal": "^5.2.2",
+        "@alfalab/core-components-popover": "^5.7.1",
+        "@alfalab/core-components-scrollbar": "^1.1.1",
+        "@alfalab/core-components-skeleton": "^3.2.0",
         "@alfalab/hooks": "^1.4.1",
-        "classnames": "2.2.6",
-        "downshift": "5.4.7",
-        "react-merge-refs": "1.1.0",
-        "react-virtual": "2.3.2",
-        "resize-observer": "1.0.0"
+        "@juggle/resize-observer": "^3.3.1",
+        "classnames": "^2.2.6",
+        "downshift": "^5.4.7",
+        "react-merge-refs": "^1.1.0",
+        "react-virtual": "^2.3.2"
     }
 }

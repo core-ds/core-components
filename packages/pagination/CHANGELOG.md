@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pagination@1.2.8...@alfalab/core-components-pagination@1.3.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [1.2.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pagination@1.2.7...@alfalab/core-components-pagination@1.2.8) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-pagination
+
+
+
+
+
 ## [1.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pagination@1.2.6...@alfalab/core-components-pagination@1.2.7) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-pagination

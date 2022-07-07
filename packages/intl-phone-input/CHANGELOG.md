@@ -3,6 +3,95 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.5.2...@alfalab/core-components-intl-phone-input@6.6.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+
+
+
+
+
+## [6.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.5.1...@alfalab/core-components-intl-phone-input@6.5.2) (2022-06-30)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** fixed caret jumps ([#112](https://github.com/core-ds/core-components/issues/112)) ([1d219e7](https://github.com/core-ds/core-components/commit/1d219e7663b8b19d64d3f099bbea01cf76defcd8))
+
+
+
+
+
+## [6.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.5.0...@alfalab/core-components-intl-phone-input@6.5.1) (2022-06-29)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+# [6.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.4.0...@alfalab/core-components-intl-phone-input@6.5.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** fixed caret jumps ([#107](https://github.com/core-ds/core-components/issues/107)) ([177bf56](https://github.com/core-ds/core-components/commit/177bf5659e79beb08b2ee6ed4c9257215861f904))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+# [6.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.3.9...@alfalab/core-components-intl-phone-input@6.4.0) (2022-06-24)
+
+
+### Features
+
+* **amount-input:** added functionality to enter negative values ([#106](https://github.com/core-ds/core-components/issues/106)) ([d6b6ca7](https://github.com/core-ds/core-components/commit/d6b6ca71d87b5c4c62d2e87cdbe9d1ff035852c4))
+
+
+
+
+
+## [6.3.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.3.8...@alfalab/core-components-intl-phone-input@6.3.9) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+## [6.3.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.3.7...@alfalab/core-components-intl-phone-input@6.3.8) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+## [6.3.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.3.6...@alfalab/core-components-intl-phone-input@6.3.7) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+## [6.3.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.3.5...@alfalab/core-components-intl-phone-input@6.3.6) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
 ## [6.3.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.3.4...@alfalab/core-components-intl-phone-input@6.3.5) (2022-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-intl-phone-input

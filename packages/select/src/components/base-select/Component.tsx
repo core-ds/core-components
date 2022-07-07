@@ -9,7 +9,7 @@ import React, {
     useEffect,
     useLayoutEffect,
 } from 'react';
-import { ResizeObserver } from 'resize-observer';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
@@ -331,6 +331,7 @@ export const BaseSelect = forwardRef(
         }, [optionsListWidth]);
 
         useEffect(() => {
+            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
             const observer = new ResizeObserver(calcOptionsListWidth);
             if (rootRef.current) {
                 observer.observe(rootRef.current);

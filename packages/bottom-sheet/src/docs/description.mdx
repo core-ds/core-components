@@ -1,6 +1,6 @@
 Компонент построен с использованием слотов. Общая структура выглядит так:
 
-```tsx live
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -33,7 +33,7 @@ render(() => {
 
 Все слоты кроме контентного — опциональны. Самих слотов или контента в них может не быть.
 
-```tsx live
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -63,7 +63,7 @@ render(() => {
 
 ### Мало контента
 
-```tsx live
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [fullHeight, setFullHeight] = React.useState(false);
@@ -137,7 +137,7 @@ render(() => {
 
 ### Много контента
 
-```tsx live
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
     const [withTitleAndClose, setWithTitleAndCloser] = React.useState(false);

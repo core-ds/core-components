@@ -6,7 +6,7 @@ import { CalendarInput } from './index';
 
 describe('CalendarInput', () => {
     const getSelectedDay = () =>
-        document.querySelector('button[aria-selected="true"]') as HTMLButtonElement;
+        document.querySelector('td[aria-selected="true"]') as HTMLButtonElement;
 
     describe('Display tests', () => {
         it('should match snapshot', () => {
@@ -192,7 +192,9 @@ describe('CalendarInput', () => {
                 rerender(<CalendarInput value={value2} />);
             });
 
-            expect(document.querySelector('button[aria-selected="true"]')).toHaveTextContent('2');
+            expect(document.querySelector('td[aria-selected="true"] button')).toHaveTextContent(
+                '2',
+            );
         });
 
         it('should not change calendar if passed invalid value', async () => {
@@ -322,7 +324,9 @@ describe('CalendarInput', () => {
                 />,
             );
 
-            const nonDisabledDays = container.querySelectorAll('button[data-date]:not(:disabled)');
+            const nonDisabledDays = container.querySelectorAll(
+                'td[data-date] button:not(:disabled)',
+            );
 
             expect(nonDisabledDays).toHaveLength(16);
             expect(nonDisabledDays[0]).toHaveTextContent('10');
@@ -344,7 +348,9 @@ describe('CalendarInput', () => {
                 />,
             );
 
-            const nonDisabledDays = container.querySelectorAll('button[data-date]:not(:disabled)');
+            const nonDisabledDays = container.querySelectorAll(
+                'td[data-date] button:not(:disabled)',
+            );
 
             expect(nonDisabledDays).toHaveLength(16);
             expect(nonDisabledDays[0]).toHaveTextContent('10');
@@ -445,7 +451,7 @@ describe('CalendarInput', () => {
                 />,
             );
 
-            const disabledDays = container.querySelectorAll('button[data-date]:disabled');
+            const disabledDays = container.querySelectorAll('td[data-date] button:disabled');
 
             expect(disabledDays).toHaveLength(2);
             expect(disabledDays[0]).toHaveTextContent('10');
@@ -468,7 +474,7 @@ describe('CalendarInput', () => {
                 />,
             );
 
-            const disabledDays = container.querySelectorAll('button[data-date]:disabled');
+            const disabledDays = container.querySelectorAll('td[data-date] button:disabled');
 
             expect(disabledDays).toHaveLength(2);
             expect(disabledDays[0]).toHaveTextContent('10');

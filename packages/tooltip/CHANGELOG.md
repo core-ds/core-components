@@ -3,6 +3,117 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.4.1...@alfalab/core-components-tooltip@5.4.2) (2022-07-01)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [5.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.4.0...@alfalab/core-components-tooltip@5.4.1) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+# [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.3.0...@alfalab/core-components-tooltip@5.4.0) (2022-06-30)
+
+
+### Features
+
+* **tooltip:** add bottomSheetProps for TooltipResponsive ([#119](https://github.com/core-ds/core-components/issues/119)) ([3e7690c](https://github.com/core-ds/core-components/commit/3e7690c55df998577183b0d51e4069e1131632f4))
+
+
+
+
+
+# [5.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.2.0...@alfalab/core-components-tooltip@5.3.0) (2022-06-29)
+
+
+### Features
+
+* change types for OptionList and add event for handlers to Tooltip ([#114](https://github.com/core-ds/core-components/issues/114)) ([4b23107](https://github.com/core-ds/core-components/commit/4b2310742165035e8841225b699aae4efcdc8958))
+
+
+
+
+
+# [5.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.10...@alfalab/core-components-tooltip@5.2.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [5.1.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.9...@alfalab/core-components-tooltip@5.1.10) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [5.1.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.8...@alfalab/core-components-tooltip@5.1.9) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [5.1.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.7...@alfalab/core-components-tooltip@5.1.8) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [5.1.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.6...@alfalab/core-components-tooltip@5.1.7) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [5.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.5...@alfalab/core-components-tooltip@5.1.6) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing onClose parameter to tooltip component ([#101](https://github.com/core-ds/core-components/issues/101)) ([216e80f](https://github.com/core-ds/core-components/commit/216e80f2c1f91ae9bdb0dceea2a4db0039c91ec3))
+
+
+
+
+
+## [5.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.4...@alfalab/core-components-tooltip@5.1.5) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing open parameter to tooltip component ([#99](https://github.com/core-ds/core-components/issues/99)) ([885a11f](https://github.com/core-ds/core-components/commit/885a11f7f5e40033622dda5e86ed1c8ea03e7534))
+
+
+
+
+
+## [5.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.3...@alfalab/core-components-tooltip@5.1.4) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
 ## [5.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.1.2...@alfalab/core-components-tooltip@5.1.3) (2022-06-03)
 
 

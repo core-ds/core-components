@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-custom-button@1.2.7...@alfalab/core-components-custom-button@1.3.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [1.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-custom-button@1.2.6...@alfalab/core-components-custom-button@1.2.7) (2022-06-23)
+
+
+### Bug Fixes
+
+* fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+
+
+
+
+
 ## [1.2.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-custom-button@1.2.5...@alfalab/core-components-custom-button@1.2.6) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-custom-button

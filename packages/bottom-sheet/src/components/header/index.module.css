@@ -10,14 +10,17 @@
     --bottom-sheet-title-margin-vertical: var(--gap-2xs);
 }
 
-.header {
-    display: flex;
+.headerWrapper {
     padding: var(--gap-xs);
     padding-bottom: 0;
     background-color: var(--color-light-bg-primary);
     border-top-right-radius: var(--border-radius-xl);
     border-top-left-radius: var(--border-radius-xl);
     z-index: 1;
+}
+
+.header {
+    display: flex;
 }
 
 .sticky {

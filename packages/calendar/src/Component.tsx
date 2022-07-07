@@ -4,6 +4,7 @@ import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfDay from 'date-fns/endOfDay';
 import { useDidUpdateEffect } from '@alfalab/hooks';
+
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
@@ -12,9 +13,9 @@ import { PeriodSlider } from './components/period-slider';
 import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
 import { View, SelectorView } from './typings';
+import { MonthYearHeader } from './components/month-year-header';
 
 import styles from './index.module.css';
-import { MonthYearHeader } from './components/month-year-header';
 
 export type CalendarProps = {
     /**
@@ -31,16 +32,6 @@ export type CalendarProps = {
      * Вид шапки — месяц и год или только месяц
      */
     selectorView?: SelectorView;
-
-    /**
-     * Возможность выбора месяца и года, если selectorView 'month-only'
-     */
-    isMonthAndYearSelectable?: boolean;
-
-    /**
-     * Отображать ли текущий год, если isMonthAndYearSelectable true
-     */
-    showCurrentYearSelector?: boolean;
 
     /**
      * Выбранная дата (timestamp)
@@ -88,9 +79,14 @@ export type CalendarProps = {
     events?: Array<Date | number>;
 
     /**
-     * Список выходных
+     * Список отключенных для выбора дней.
      */
     offDays?: Array<Date | number>;
+
+    /**
+     * Список выходных
+     */
+    holidays?: Array<Date | number>;
 
     /**
      * Обработчик изменения месяца (или года)
@@ -100,7 +96,7 @@ export type CalendarProps = {
     /**
      * Обработчик выбора даты
      */
-    onChange?: (date: number) => void;
+    onChange?: (date?: number) => void;
 
     /**
      * Обработчик нажатия на кнопку месяца
@@ -116,6 +112,16 @@ export type CalendarProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Нужно ли рендерить шапку календаря
+     */
+    hasHeader?: boolean;
+
+    /**
+     * Должен ли календарь подстраиваться под ширину родителя.
+     */
+    responsive?: boolean;
 };
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
@@ -124,8 +130,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             className,
             defaultView = 'days',
             selectorView = 'full',
-            isMonthAndYearSelectable,
-            showCurrentYearSelector,
             value,
             month: monthTimestamp,
             minDate: minDateTimestamp,
@@ -136,11 +140,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             rangeComplete,
             offDays,
             events,
+            holidays,
             onChange,
             onMonthChange,
             onMonthClick,
             onYearClick,
             dataTestId,
+            hasHeader = true,
+            responsive,
         },
         ref,
     ) => {
@@ -196,6 +203,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             selected,
             offDays,
             events,
+            holidays,
             onChange,
             onMonthChange,
         });
@@ -260,36 +268,35 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         return (
             <div
                 {...getRootProps({ ref })}
-                className={cn(styles.component, className, {
+                className={cn('cc-calendar', styles.component, className, {
                     [styles.sixWeeks]: weeks.length === 6,
+                    [styles.responsive]: responsive,
                 })}
                 data-test-id={dataTestId}
             >
-                <Header view={selectorView} withShadow={scrolled}>
-                    {selectorView === 'month-only' ? (
-                        <PeriodSlider
-                            className={styles.period}
-                            value={activeMonth}
-                            periodType='month'
-                            prevArrowDisabled={!canSetPrevMonth}
-                            nextArrowDisabled={!canSetNextMonth}
-                            hideDisabledArrows={true}
-                            isMonthAndYearSelectable={isMonthAndYearSelectable}
-                            showCurrentYearSelector={showCurrentYearSelector}
-                            onPrevArrowClick={handlePrevArrowClick}
-                            onNextArrowClick={handleNextArrowClick}
-                            onMonthClick={handleMonthClick}
-                            onYearClick={handleYearClick}
-                        />
-                    ) : (
-                        <MonthYearHeader
-                            className={styles.monthYear}
-                            value={activeMonth}
-                            onMonthClick={handleMonthClick}
-                            onYearClick={handleYearClick}
-                        />
-                    )}
-                </Header>
+                {hasHeader && (
+                    <Header view={selectorView} withShadow={scrolled}>
+                        {selectorView === 'month-only' ? (
+                            <PeriodSlider
+                                className={styles.period}
+                                value={activeMonth}
+                                periodType='month'
+                                prevArrowDisabled={!canSetPrevMonth}
+                                nextArrowDisabled={!canSetNextMonth}
+                                hideDisabledArrows={true}
+                                onPrevArrowClick={handlePrevArrowClick}
+                                onNextArrowClick={handleNextArrowClick}
+                            />
+                        ) : (
+                            <MonthYearHeader
+                                className={styles.monthYear}
+                                value={activeMonth}
+                                onMonthClick={handleMonthClick}
+                                onYearClick={handleYearClick}
+                            />
+                        )}
+                    </Header>
+                )}
 
                 <div className={cn(styles.container, styles[view])}>
                     {view === 'days' && (
@@ -301,6 +308,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             getDayProps={getDayProps}
                             highlighted={highlighted}
                             rangeComplete={rangeComplete}
+                            responsive={responsive}
                         />
                     )}
 
@@ -309,6 +317,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             selectedMonth={activeMonth}
                             months={months}
                             getMonthProps={getMonthProps}
+                            responsive={responsive}
                         />
                     )}
 
@@ -318,6 +327,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             years={years}
                             getYearProps={getYearProps}
                             onScroll={handleScroll}
+                            responsive={responsive}
                         />
                     )}
                 </div>

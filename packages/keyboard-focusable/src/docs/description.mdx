@@ -7,7 +7,7 @@
 
 ## Компонент KeyboardFocusable
 
-```tsx live
+```jsx live
 <KeyboardFocusable>
     {(ref, focused) => {
         const focusOutlineStyles = {
@@ -24,7 +24,7 @@
 </KeyboardFocusable>
 ```
 
-```tsx
+```jsx
 // Нативный элемент
 <KeyboardFocusable>
     {(ref, focused) => <button type='button' ref={ref} className={cn({ [styles.focused]: focused })} />}
@@ -47,7 +47,7 @@
 
 ## Хук @alfalab/hooks/useFocus
 
-```tsx
+```jsx
 // import { useFocus } from '@alfalab/hooks';
 
 const ref = React.useRef<HTMLButtonElement>(null);

@@ -1,23 +1,30 @@
-import React, {
-    forwardRef,
-    useRef,
-    InputHTMLAttributes,
-    useCallback,
-    ChangeEvent,
-    ReactNode,
-} from 'react';
+import React, { useRef, useEffect, FC } from 'react';
 import cn from 'classnames';
-import mergeRefs from 'react-merge-refs';
-import { useFocus } from '@alfalab/hooks';
+import noUiSlider, { API, Options } from 'nouislider';
 
 import styles from './index.module.css';
 
-type NativeProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange'
->;
+type SubRange = number | [number] | [number, number];
+interface Range {
+    min: SubRange;
+    max: SubRange;
+    [key: string]: SubRange;
+}
 
-export type SliderProps = NativeProps & {
+type PipsType = -1 | 0 | 1 | 2;
+
+type Pips = {
+    mode: 'range' | 'steps' | 'positions' | 'count' | 'values';
+    values: number | number[];
+    filter?: (value: number, type: PipsType) => PipsType;
+    format?: {
+        to: (value: number) => string | number;
+        from?: (value: string) => number | false;
+    };
+    stepped?: boolean;
+};
+
+export type SliderProps = {
     /**
      * Мин. допустимое число
      */
@@ -34,9 +41,16 @@ export type SliderProps = NativeProps & {
     step?: number;
 
     /**
-     * Слот для возможности рендера шагов
+     * Отображение подписей
+     * https://refreshless.com/nouislider/pips/
      */
-    steps?: ReactNode;
+    pips?: Pips;
+
+    /**
+     * Настройка шагов
+     * https://refreshless.com/nouislider/pips/#section-range
+     */
+    range?: Range;
 
     /**
      * Значение инпута
@@ -44,9 +58,24 @@ export type SliderProps = NativeProps & {
     value?: number;
 
     /**
+     * Заблокированное состояние
+     */
+    disabled?: boolean;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Размер
+     */
+    size?: 's' | 'm';
+
+    /**
      * Обработчик поля ввода
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number }) => void;
+    onChange?: (payload: { value: number }) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -54,76 +83,90 @@ export type SliderProps = NativeProps & {
     dataTestId?: string;
 };
 
-export const Slider = forwardRef<HTMLInputElement, SliderProps>(
-    (
-        {
-            min = 0,
-            max = 100,
-            step = 1,
-            value = 0,
-            steps,
-            className,
-            onChange,
-            dataTestId,
-            ...restProps
-        },
-        ref,
-    ) => {
-        const inputRef = useRef<HTMLInputElement>(null);
+export const Slider: FC<SliderProps> = ({
+    min = 0,
+    max = 100,
+    step = 1,
+    value = 0,
+    disabled,
+    pips,
+    range = { min, max },
+    size = 's',
+    className,
+    onChange,
+    dataTestId,
+}) => {
+    const sliderRef = useRef<HTMLDivElement & { noUiSlider: API }>(null);
+    const busyRef = useRef<boolean>(false);
 
-        const [focused] = useFocus(inputRef, 'keyboard');
+    const getSlider = () => sliderRef.current?.noUiSlider;
 
-        const range = max - min;
-        const dividedWithoutRemainder = range % step === 0;
-        const validValue = Math.max(min, Math.min(value, max));
+    useEffect(() => {
+        if (!sliderRef.current) return;
 
-        const rangeProps = {
-            className: cn(styles.range, { [styles.focused]: focused }),
-            type: 'range',
-            min,
-            max,
-            value: validValue,
-            step: dividedWithoutRemainder ? step : undefined,
+        const slider = noUiSlider.create(sliderRef.current, {
+            start: [value],
+            connect: [true, false],
+            step,
+            pips: {
+                ...pips,
+                density: 100,
+            } as Options['pips'],
+            range,
+        });
+
+        slider.on('start', () => {
+            busyRef.current = true;
+        });
+
+        slider.on('change', () => {
+            busyRef.current = false;
+        });
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        const slider = getSlider();
+
+        // Пропускаем обновление, если происходит взаимодействие со слайдером
+        if (slider && busyRef.current === false) slider.set(value, false);
+    }, [value]);
+
+    useEffect(() => {
+        const slider = getSlider();
+        if (!slider) return;
+
+        const newOptions = {
+            step,
+            pips: {
+                ...pips,
+                density: 100,
+            } as Options['pips'],
+            range,
         };
 
-        const progressProps = {
-            className: styles.progress,
-            max: range,
-            value: validValue - min,
-        };
+        slider.updateOptions(newOptions, true);
+    }, [pips, range, step]);
 
-        const handleInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                if (onChange) {
-                    onChange(event, { value: +event.target.value });
-                }
-            },
-            [onChange],
-        );
+    useEffect(() => {
+        const slider = getSlider();
+        if (!slider) return;
 
-        return (
-            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-                <div className={styles.rangeWrapper}>
-                    <input
-                        {...rangeProps}
-                        {...restProps}
-                        ref={mergeRefs([ref, inputRef])}
-                        onChange={handleInputChange}
-                    />
-                    {steps}
-                </div>
-                <progress {...progressProps} />
-            </div>
-        );
-    },
-);
+        slider.off('update.onChange');
+        slider.on('update.onChange', () => {
+            if (onChange && busyRef.current) {
+                onChange({ value: Number(slider.get()) });
+            }
+        });
+    }, [onChange]);
 
-/**
- * Для отображения в сторибуке
- */
-Slider.defaultProps = {
-    min: 0,
-    max: 100,
-    step: 1,
-    value: 0,
+    return (
+        <div
+            className={cn(styles.component, className, styles[size])}
+            ref={sliderRef}
+            data-test-id={dataTestId}
+            {...{ disabled }}
+        />
+    );
 };

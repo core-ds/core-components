@@ -28,7 +28,10 @@ import styles from '!!raw-loader!../index.module.css';
             min={number('min', 0)}
             max={number('max', 100)}
             step={number('step', 1)}
-            steps={boolean('steps', false) && ['36 мес', '180 мес', '360 мес']}
+            pips={boolean('pips', false) && ({
+                mode: 'values',
+                values: [0, 50, 100]
+            })}
             block={boolean('block', false)}
             size={select('size', ['s', 'm', 'l', 'xl'], 's')}
             disabled={boolean('disabled', false)}
@@ -53,7 +56,7 @@ import styles from '!!raw-loader!../index.module.css';
     stage={2}
 />
 
-```tsx
+```jsx
 import { SliderInput } from '@alfalab/core-components/slider-input';
 ```
 

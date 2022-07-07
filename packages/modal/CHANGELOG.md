@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.2.1...@alfalab/core-components-modal@5.2.2) (2022-07-01)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
+## [5.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.2.0...@alfalab/core-components-modal@5.2.1) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
+# [5.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.1.5...@alfalab/core-components-modal@5.2.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [5.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.1.4...@alfalab/core-components-modal@5.1.5) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
+## [5.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.1.3...@alfalab/core-components-modal@5.1.4) (2022-06-23)
+
+
+### Bug Fixes
+
+* **button:** fix color secondary ([#92](https://github.com/core-ds/core-components/issues/92)) ([57b8e66](https://github.com/core-ds/core-components/commit/57b8e661b8f54acdfd0c235f58ebd59d66c116a4))
+
+
+
+
+
+## [5.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.1.2...@alfalab/core-components-modal@5.1.3) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
 ## [5.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.1.1...@alfalab/core-components-modal@5.1.2) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-modal

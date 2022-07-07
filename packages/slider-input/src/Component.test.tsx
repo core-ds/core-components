@@ -47,15 +47,6 @@ describe('SliderInput', () => {
             expect(container.getElementsByClassName(className).length).toBe(1);
         });
 
-        it('should set `stepsClassName` class to input', () => {
-            const className = 'test-class';
-            const { container } = render(
-                <SliderInput stepsClassName={className} steps={['1', '2']} />,
-            );
-
-            expect(container.getElementsByClassName(className).length).toBe(1);
-        });
-
         it('should set `focusedClassName` class to slider', () => {
             const className = 'test-class';
             const { container, queryByRole } = render(<SliderInput focusedClassName={className} />);
@@ -86,9 +77,8 @@ describe('SliderInput', () => {
             );
             const slider = getByRole('slider') as HTMLInputElement;
 
-            expect(slider.min).toBe(min.toString());
-            expect(slider.max).toBe(max.toString());
-            expect(slider.step).toBe(step.toString());
+            expect(slider).toHaveAttribute('aria-valueMin', min.toFixed(1));
+            expect(slider).toHaveAttribute('aria-valueMax', max.toFixed(1));
         });
 
         it('should set value to input', () => {
@@ -102,21 +92,25 @@ describe('SliderInput', () => {
             const value = 10;
             const { getByRole } = render(<SliderInput sliderValue={value} />);
 
-            expect((getByRole('slider') as HTMLInputElement).value).toBe(value.toString());
+            expect(getByRole('slider')).toHaveAttribute('aria-valueNow', value.toFixed(1));
         });
 
         it('should set sliderValue same as value by default', () => {
             const value = 10;
             const { getByRole } = render(<SliderInput value={value} />);
 
-            expect((getByRole('slider') as HTMLInputElement).value).toBe(value.toString());
+            expect(getByRole('slider')).toHaveAttribute('aria-valueNow', value.toFixed(1));
         });
 
-        it('should render steps', () => {
-            const steps = ['1', '2', '3'];
-            const { queryByText } = render(<SliderInput steps={steps} />);
+        it('should render pips', () => {
+            const pips = {
+                mode: 'values' as const,
+                values: [1, 2, 3],
+            };
 
-            steps.map(step => expect(queryByText(step)).toBeInTheDocument());
+            const { queryByText } = render(<SliderInput pips={pips} />);
+
+            pips.values.map(value => expect(queryByText(value.toString())).toBeInTheDocument());
         });
 
         it('should render info', () => {
@@ -134,15 +128,10 @@ describe('SliderInput', () => {
         const { getByRole } = render(<SliderInput onChange={cb} dataTestId={dataTestId} />);
 
         const input = getByRole('textbox') as HTMLInputElement;
-        const slider = getByRole('slider') as HTMLInputElement;
 
         fireEvent.change(input, { target: { value } });
 
         expect(cb).toBeCalledTimes(1);
-
-        fireEvent.change(slider, { target: { value } });
-
-        expect(cb).toBeCalledTimes(2);
     });
 
     it('should call `onInputChange` prop', () => {
@@ -158,7 +147,7 @@ describe('SliderInput', () => {
         expect(cb).toBeCalledTimes(1);
     });
 
-    it('should call `onSliderChange` prop', () => {
+    it.skip('should call `onSliderChange` prop', () => {
         const cb = jest.fn();
         const dataTestId = 'test-id';
         const value = 10;

@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.6.1...@alfalab/core-components-calendar-range@5.6.2) (2022-07-01)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
+## [5.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.6.0...@alfalab/core-components-calendar-range@5.6.1) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
+# [5.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.5.0...@alfalab/core-components-calendar-range@5.6.0) (2022-06-29)
+
+
+### Features
+
+* **calendar:** implement calendar mobile ([#54](https://github.com/core-ds/core-components/issues/54)) ([730f51d](https://github.com/core-ds/core-components/commit/730f51d35823273f122fe84a0369f95745fd2878))
+
+
+
+
+
+# [5.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.4.3...@alfalab/core-components-calendar-range@5.5.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **icon-view:** fix line-height ([#111](https://github.com/core-ds/core-components/issues/111)) ([b16e0ea](https://github.com/core-ds/core-components/commit/b16e0ea206c819ba4370ed8c1662804a83648e0f))
+* **pure-cell:** fix stories ([#113](https://github.com/core-ds/core-components/issues/113)) ([01f6138](https://github.com/core-ds/core-components/commit/01f6138615b1b7268510e012c314650c084c9ef0))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [5.4.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.4.2...@alfalab/core-components-calendar-range@5.4.3) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+
+
+
+## [5.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.4.1...@alfalab/core-components-calendar-range@5.4.2) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
+## [5.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.4.0...@alfalab/core-components-calendar-range@5.4.1) (2022-06-20)
+
+
+### Bug Fixes
+
+* **calendar:** increased specificity of the button css class ([#103](https://github.com/core-ds/core-components/issues/103)) ([3d20c11](https://github.com/core-ds/core-components/commit/3d20c112a1c161951afa2e1c6fca8d3c048501e7))
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+
+
+
+
+
 # [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@5.3.1...@alfalab/core-components-calendar-range@5.4.0) (2022-06-03)
 
 

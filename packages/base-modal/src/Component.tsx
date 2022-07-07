@@ -15,7 +15,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { ResizeObserver } from 'resize-observer';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 import FocusLock from 'react-focus-lock';
@@ -240,6 +240,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
         const restoreContainerStylesRef = useRef<null | Function>(null);
+        const mouseDownTarget = useRef<HTMLElement>();
 
         const checkToHasScrollBar = () => {
             if (scrollableNodeRef.current) {
@@ -255,7 +256,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             return (container ? container() : document.body) as HTMLElement;
         }, [container]);
 
-        const resizeObserver = useMemo(() => new ResizeObserver(checkToHasScrollBar), []);
+        const resizeObserver = useMemo(() => {
+            const ResizeObserver = window?.ResizeObserver || ResizeObserverPolyfill;
+
+            return new ResizeObserver(checkToHasScrollBar);
+        }, []);
 
         const addResizeHandle = useCallback(() => {
             if (scrollableNodeRef.current) resizeObserver.observe(scrollableNodeRef.current);
@@ -315,8 +320,18 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             [onBackdropClick, onClose, onEscapeKeyDown],
         );
 
-        const handleBackdropClick = (event: MouseEvent<HTMLElement>) => {
-            if (!disableBackdropClick && event.target === wrapperRef.current) {
+        const handleBackdropMouseDown = (event: MouseEvent<HTMLElement>) => {
+            if (!disableBackdropClick) {
+                mouseDownTarget.current = event.target as HTMLElement;
+            }
+        };
+
+        const handleBackdropMouseUp = (event: MouseEvent<HTMLElement>) => {
+            if (
+                !disableBackdropClick &&
+                event.target === wrapperRef.current &&
+                mouseDownTarget.current === wrapperRef.current
+            ) {
                 handleClose(event, 'backdropClick');
             }
         };
@@ -472,7 +487,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     })}
                                     ref={mergeRefs([ref, wrapperRef])}
                                     onKeyDown={handleKeyDown}
-                                    onClick={handleBackdropClick}
+                                    onMouseDown={handleBackdropMouseDown}
+                                    onMouseUp={handleBackdropMouseUp}
                                     tabIndex={-1}
                                     data-test-id={dataTestId}
                                     style={{

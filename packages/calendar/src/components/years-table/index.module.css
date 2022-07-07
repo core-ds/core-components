@@ -1,48 +1,62 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
-.yearsTable {
-    overflow: auto;
-    overflow-x: hidden;
-    width: 100%;
-}
+:global(.cc-calendar) {
+    & .yearsTable {
+        overflow: auto;
+        overflow-x: hidden;
+        width: 100%;
 
-.inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    position: relative;
+        &.responsive {
+            justify-content: space-between;
 
-    /* (width - inner-width) / 2 */
-    left: 32px;
-    overflow: hidden;
+            & .inner {
+                left: auto;
+            }
 
-    @media (max-width: 374px) {
-        left: 16px;
-    }
-}
-
-.button {
-    /* 3 колонки с равными отступами */
-    width: calc((var(--calendar-inner-width) / 3) - (var(--gap-xs) / 3));
-    margin-right: var(--gap-2xs);
-    margin-bottom: var(--gap-xs);
-
-    &:nth-child(3n) {
-        margin-right: 0;
+            & .button {
+                width: 33%;
+                margin-right: 0;
+            }
+        }
     }
 
-    @media (max-width: 374px) {
-        width: calc((var(--calendar-mobile-inner-width) / 2) - (var(--gap-2xs) / 2));
+    & .inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        position: relative;
+
+        /* (width - inner-width) / 2 */
+        left: 32px;
+        overflow: hidden;
+
+        @media (max-width: 374px) {
+            left: 16px;
+        }
+    }
+
+    & .button {
+        width: var(--calendar-select-button-width);
+        margin-right: var(--gap-2xs);
+        margin-bottom: var(--gap-xs);
 
         &:nth-child(3n) {
-            margin-right: var(--gap-2xs);
-        }
-
-        &:nth-child(2n) {
             margin-right: 0;
         }
 
-        height: 36px;
+        @media (max-width: 374px) {
+            width: var(--calendar-mobile-select-button-width);
+
+            &:nth-child(3n) {
+                margin-right: var(--gap-2xs);
+            }
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            height: 36px;
+        }
     }
 }

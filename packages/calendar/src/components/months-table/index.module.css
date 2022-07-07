@@ -1,37 +1,49 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
-.monthsTable {
-    display: flex;
-    flex-wrap: wrap;
-    width: var(--calendar-inner-width);
-    justify-content: flex-start;
+:global(.cc-calendar) {
+    & .monthsTable {
+        display: flex;
+        flex-wrap: wrap;
+        width: var(--calendar-inner-width);
+        justify-content: flex-start;
 
-    @media (max-width: 374px) {
-        width: var(--calendar-mobile-inner-width);
-    }
-}
-
-.button {
-    width: calc((var(--calendar-inner-width) / 3) - (var(--gap-xs) / 3));
-    margin-right: var(--gap-2xs);
-    margin-bottom: var(--gap-xs);
-
-    &:nth-child(3n) {
-        margin-right: 0;
-    }
-
-    @media (max-width: 374px) {
-        width: calc((var(--calendar-mobile-inner-width) / 2) - (var(--gap-2xs) / 2));
-
-        &:nth-child(3n) {
-            margin-right: var(--gap-2xs);
+        @media (max-width: 374px) {
+            width: var(--calendar-mobile-inner-width);
         }
 
-        &:nth-child(2n) {
+        &.responsive {
+            width: 100%;
+            justify-content: space-between;
+
+            & .button {
+                width: 33%;
+                margin-right: 0;
+            }
+        }
+    }
+
+    & .button {
+        width: var(--calendar-select-button-width);
+        margin-right: var(--gap-2xs);
+        margin-bottom: var(--gap-xs);
+
+        &:nth-child(3n) {
             margin-right: 0;
         }
 
-        height: 36px;
+        @media (max-width: 374px) {
+            width: var(--calendar-mobile-select-button-width);
+
+            &:nth-child(3n) {
+                margin-right: var(--gap-2xs);
+            }
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            height: 36px;
+        }
     }
 }

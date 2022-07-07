@@ -10,7 +10,7 @@ import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfMonth from 'date-fns/startOfMonth';
 import { usePrevious } from '@alfalab/hooks';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { WEEKDAYS, getSelectionRange } from '../../utils';
+import { WEEKDAYS, getSelectionRange, russianWeekDay } from '../../utils';
 import { Day } from '../../typings';
 
 import styles from './index.module.css';
@@ -49,7 +49,22 @@ export type DaysTableProps = {
     /**
      * Доп. пропсы для переданного дня
      */
-    getDayProps: (day: Day) => Record<string, unknown> & { ref: RefCallback<HTMLButtonElement> };
+    getDayProps: (
+        day: Day,
+    ) => Record<string, unknown> & {
+        ref: RefCallback<HTMLTableDataCellElement>;
+        onClick: (e: React.MouseEvent<HTMLTableDataCellElement>) => void;
+    };
+
+    /**
+     * Нужно ли рендерить шапку
+     */
+    hasHeader?: boolean;
+
+    /**
+     * Должен ли календарь подстраиваться под ширину родителя.
+     */
+    responsive?: boolean;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -60,6 +75,8 @@ export const DaysTable: FC<DaysTableProps> = ({
     selectedTo,
     rangeComplete = selectedFrom && selectedTo,
     getDayProps,
+    hasHeader = true,
+    responsive,
 }) => {
     const activeMonthRef = useRef(activeMonth);
 
@@ -92,40 +109,69 @@ export const DaysTable: FC<DaysTableProps> = ({
         const dayHighlighted = highlighted && isEqual(day.date, highlighted);
         const inRange = selection && isWithinInterval(day.date, selection);
 
-        const firstDay = day.date.getDate() === 1;
-        const lastDay = isLastDayOfMonth(day.date);
+        const firstDayOfMonth = day.date.getDate() === 1;
+        const lastDayOfMonth = isLastDayOfMonth(day.date);
 
-        const transitLeft = firstDay && inRange && selection && day.date > selection.start;
-        const transitRight = lastDay && inRange && selection && day.date < selection.end;
+        const firstDayOfWeek = russianWeekDay(day.date) === 0;
+        const lastDayOfWeek = russianWeekDay(day.date) === 6;
+
+        const transitLeft = firstDayOfMonth && inRange && selection && day.date > selection.start;
+        const transitRight = lastDayOfMonth && inRange && selection && day.date < selection.end;
 
         const rangeStart = selection && isSameDay(day.date, selection.start);
         const rangeEnd = selection && isSameDay(day.date, selection.end);
 
+        const sharpTransitLeft =
+            firstDayOfWeek &&
+            firstDayOfMonth &&
+            inRange &&
+            selection &&
+            (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
+
+        const sharpTransitRight =
+            lastDayOfWeek &&
+            lastDayOfMonth &&
+            inRange &&
+            selection &&
+            (isSameDay(day.date, selection.start) || isSameDay(day.date, selection.end));
+
         const dayProps = getDayProps(day);
 
+        const { onClick } = dayProps;
+
+        const handleDayClick = (e: React.MouseEvent<HTMLTableDataCellElement>) => {
+            if (!day.disabled) onClick(e);
+        };
+
         return (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
             <td
+                {...dayProps}
                 key={day.date.getTime()}
                 className={cn(styles.dayWrapper, {
                     [styles.range]: inRange,
                     [styles.rangeComplete]: inRange && rangeComplete,
                     [styles.transitLeft]: transitLeft,
                     [styles.transitRight]: transitRight,
+                    [styles.sharpTransitLeft]: sharpTransitLeft,
+                    [styles.sharpTransitRight]: sharpTransitRight,
                     [styles.rangeStart]: rangeStart,
                     [styles.rangeEnd]: rangeEnd,
+                    [styles.cursorPointer]: !day.disabled,
                 })}
+                align='center'
+                ref={node => {
+                    /**
+                     * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
+                     * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
+                     */
+                    if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
+                        dayProps.ref(node as HTMLTableDataCellElement);
+                    }
+                }}
+                onClick={handleDayClick}
             >
                 <Button
-                    {...dayProps}
-                    ref={node => {
-                        /**
-                         * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
-                         * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
-                         */
-                        if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
-                            dayProps.ref(node as HTMLButtonElement);
-                        }
-                    }}
                     type='button'
                     view='ghost'
                     size='xs'
@@ -134,6 +180,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                         [styles.selected]: daySelected,
                         [styles.today]: isToday(day.date),
                         [styles.disabled]: day.disabled,
+                        [styles.holiday]: !day.disabled && day.holiday,
                         [styles.highlighted]: dayHighlighted,
                     })}
                 >
@@ -149,10 +196,16 @@ export const DaysTable: FC<DaysTableProps> = ({
     );
 
     return (
-        <table className={cn(styles.daysTable, direction && styles[direction])}>
-            <thead>
-                <tr>{renderHeader()}</tr>
-            </thead>
+        <table
+            className={cn(styles.daysTable, direction && styles[direction], {
+                [styles.responsive]: responsive,
+            })}
+        >
+            {hasHeader && (
+                <thead>
+                    <tr>{renderHeader()}</tr>
+                </thead>
+            )}
             <TransitionGroup component={null}>
                 <CSSTransition
                     key={activeMonth.getTime()}

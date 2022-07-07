@@ -1,3 +1,159 @@
+## [28.1.1](https://github.com/core-ds/core-components/compare/v28.1.0...v28.1.1) (2022-07-07)
+
+
+### Bug Fixes
+
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
+# [28.1.0](https://github.com/core-ds/core-components/compare/v28.0.0...v28.1.0) (2022-07-07)
+
+
+### Features
+
+* **spinner:** new size & inverted theme ([#123](https://github.com/core-ds/core-components/issues/123)) ([5568ab5](https://github.com/core-ds/core-components/commit/5568ab5183badaded723ebc5a608b20bf471c6bc))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [28.0.0](https://github.com/core-ds/core-components/compare/v27.15.0...v28.0.0) (2022-07-04)
+
+# [27.15.0](https://github.com/core-ds/core-components/compare/v27.14.0...v27.15.0) (2022-07-04)
+
+
+### Features
+
+* **slider:** migrate to noui-slider ([#98](https://github.com/core-ds/core-components/issues/98)) ([8056e60](https://github.com/core-ds/core-components/commit/8056e605f2eeef2f7e348a4ddeb4a2fc83e1dbd7))
+
+# [27.14.0](https://github.com/core-ds/core-components/compare/v27.13.1...v27.14.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+* **side-panel:** add new component side-panel ([#56](https://github.com/core-ds/core-components/issues/56)) ([0f9365a](https://github.com/core-ds/core-components/commit/0f9365ab22597cc230ac19ab19032f63d72a816e))
+
+
+### Performance Improvements
+
+* refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
+
+## [27.13.1](https://github.com/core-ds/core-components/compare/v27.13.0...v27.13.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
+* **intl-phone-input:** fixed caret jumps ([#112](https://github.com/core-ds/core-components/issues/112)) ([1d219e7](https://github.com/core-ds/core-components/commit/1d219e7663b8b19d64d3f099bbea01cf76defcd8))
+
+# [27.13.0](https://github.com/core-ds/core-components/compare/v27.12.0...v27.13.0) (2022-06-30)
+
+
+### Features
+
+* **tooltip:** add bottomSheetProps for TooltipResponsive ([#119](https://github.com/core-ds/core-components/issues/119)) ([3e7690c](https://github.com/core-ds/core-components/commit/3e7690c55df998577183b0d51e4069e1131632f4))
+
+# [27.12.0](https://github.com/core-ds/core-components/compare/v27.11.0...v27.12.0) (2022-06-29)
+
+
+### Features
+
+* **calendar:** implement calendar mobile ([#54](https://github.com/core-ds/core-components/issues/54)) ([730f51d](https://github.com/core-ds/core-components/commit/730f51d35823273f122fe84a0369f95745fd2878))
+
+# [27.11.0](https://github.com/core-ds/core-components/compare/v27.10.0...v27.11.0) (2022-06-29)
+
+
+### Features
+
+* change types for OptionList and add event for handlers to Tooltip ([#114](https://github.com/core-ds/core-components/issues/114)) ([4b23107](https://github.com/core-ds/core-components/commit/4b2310742165035e8841225b699aae4efcdc8958))
+
+# [27.10.0](https://github.com/core-ds/core-components/compare/v27.9.0...v27.10.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **icon-view:** fix line-height ([#111](https://github.com/core-ds/core-components/issues/111)) ([b16e0ea](https://github.com/core-ds/core-components/commit/b16e0ea206c819ba4370ed8c1662804a83648e0f))
+* **input-autocomplete:** fixed onChange type ([#110](https://github.com/core-ds/core-components/issues/110)) ([c994661](https://github.com/core-ds/core-components/commit/c9946615af9aecb3f1974c887bdd6686708ac18e))
+* **intl-phone-input:** fixed caret jumps ([#107](https://github.com/core-ds/core-components/issues/107)) ([177bf56](https://github.com/core-ds/core-components/commit/177bf5659e79beb08b2ee6ed4c9257215861f904))
+* **pure-cell:** fix stories ([#113](https://github.com/core-ds/core-components/issues/113)) ([01f6138](https://github.com/core-ds/core-components/commit/01f6138615b1b7268510e012c314650c084c9ef0))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+* fixed form-control/input/select label and hint margins ([#97](https://github.com/core-ds/core-components/issues/97)) ([abd2f15](https://github.com/core-ds/core-components/commit/abd2f15f210bb63bafe0cee341f0a66b5f2071d7))
+* **pure cell:** new component ([#10](https://github.com/core-ds/core-components/issues/10)) ([4e95c57](https://github.com/core-ds/core-components/commit/4e95c573aaa6f99197292ea4bae12cbbcc3207c9))
+
+# [27.9.0](https://github.com/core-ds/core-components/compare/v27.8.1...v27.9.0) (2022-06-24)
+
+
+### Bug Fixes
+
+* **icon-button:** fix disabled colors ([#104](https://github.com/core-ds/core-components/issues/104)) ([3f03849](https://github.com/core-ds/core-components/commit/3f038495bb63f72cd81ceeedbe55b52119581d57))
+
+
+### Features
+
+* **amount-input:** added functionality to enter negative values ([#106](https://github.com/core-ds/core-components/issues/106)) ([d6b6ca7](https://github.com/core-ds/core-components/commit/d6b6ca71d87b5c4c62d2e87cdbe9d1ff035852c4))
+
+## [27.8.1](https://github.com/core-ds/core-components/compare/v27.8.0...v27.8.1) (2022-06-23)
+
+
+### Bug Fixes
+
+* **button:** fix color secondary ([#92](https://github.com/core-ds/core-components/issues/92)) ([57b8e66](https://github.com/core-ds/core-components/commit/57b8e661b8f54acdfd0c235f58ebd59d66c116a4))
+* **scrollbar:** add missing deps ([#108](https://github.com/core-ds/core-components/issues/108)) ([fef70be](https://github.com/core-ds/core-components/commit/fef70be83c00308d90d5de1468e22ae5c6d959fe))
+
+# [27.8.0](https://github.com/core-ds/core-components/compare/v27.7.0...v27.8.0) (2022-06-20)
+
+
+### Bug Fixes
+
+* fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+
+
+### Features
+
+* **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+
+# [27.7.0](https://github.com/core-ds/core-components/compare/v27.6.2...v27.7.0) (2022-06-20)
+
+
+### Bug Fixes
+
+* **badge:** fix classname ([#100](https://github.com/core-ds/core-components/issues/100)) ([4b5f2bc](https://github.com/core-ds/core-components/commit/4b5f2bc9ab17daf865a5515828d178eaff94bd2d))
+* **calendar:** increased specificity of the button css class ([#103](https://github.com/core-ds/core-components/issues/103)) ([3d20c11](https://github.com/core-ds/core-components/commit/3d20c112a1c161951afa2e1c6fca8d3c048501e7))
+* **icon-button:** fix loading ([#105](https://github.com/core-ds/core-components/issues/105)) ([0b133f0](https://github.com/core-ds/core-components/commit/0b133f042e86702ec2861915f2cdbcdbad9ca905))
+* **tabs:** increased specificity of the mobile css class ([#102](https://github.com/core-ds/core-components/issues/102)) ([8f212f1](https://github.com/core-ds/core-components/commit/8f212f114d63d83bb7e7340e2ff13b89349bf353))
+
+
+### Features
+
+* **code-input:** autocomplete sms in android ([#67](https://github.com/core-ds/core-components/issues/67)) ([b32f734](https://github.com/core-ds/core-components/commit/b32f73403d5ccce9812368e5f186952a67dca57c))
+* **file-upload-item:** add ability to disable file delete button ([#86](https://github.com/core-ds/core-components/issues/86)) ([daa8775](https://github.com/core-ds/core-components/commit/daa877591736598ef6f9f0237c40ac8759258eeb))
+* **vars:** export CSS custom properties as JS vars ([#45](https://github.com/core-ds/core-components/issues/45)) ([dbb1f78](https://github.com/core-ds/core-components/commit/dbb1f78795247fa09797c05f134b21a7774e6898))
+
+## [27.6.2](https://github.com/core-ds/core-components/compare/v27.6.1...v27.6.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing onClose parameter to tooltip component ([#101](https://github.com/core-ds/core-components/issues/101)) ([216e80f](https://github.com/core-ds/core-components/commit/216e80f2c1f91ae9bdb0dceea2a4db0039c91ec3))
+
+## [27.6.1](https://github.com/core-ds/core-components/compare/v27.6.0...v27.6.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* **tooltip:** passing open parameter to tooltip component ([#99](https://github.com/core-ds/core-components/issues/99)) ([885a11f](https://github.com/core-ds/core-components/commit/885a11f7f5e40033622dda5e86ed1c8ea03e7534))
+
+# [27.6.0](https://github.com/core-ds/core-components/compare/v27.5.0...v27.6.0) (2022-06-16)
+
+
+### Features
+
+* **BottonSheet:** prop for controlling animation on screen size chan… ([#89](https://github.com/core-ds/core-components/issues/89)) ([a69e178](https://github.com/core-ds/core-components/commit/a69e17891d1fd91ba6f35bfc097ae1fc9cbf92df))
+
 # [27.5.0](https://github.com/core-ds/core-components/compare/v27.4.1...v27.5.0) (2022-06-09)
 
 

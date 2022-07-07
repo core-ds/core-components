@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@5.1.7...@alfalab/core-components-button@5.2.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [5.1.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@5.1.6...@alfalab/core-components-button@5.1.7) (2022-06-23)
+
+
+### Bug Fixes
+
+* **button:** fix color secondary ([#92](https://github.com/core-ds/core-components/issues/92)) ([57b8e66](https://github.com/core-ds/core-components/commit/57b8e661b8f54acdfd0c235f58ebd59d66c116a4))
+* fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+
+
+
+
+
 ## [5.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@5.1.5...@alfalab/core-components-button@5.1.6) (2022-06-03)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-base-modal",
-    "version": "4.0.2",
+    "version": "4.1.2",
     "description": "BaseModal component",
     "keywords": [],
     "license": "MIT",
@@ -15,15 +15,15 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-backdrop": "^2.0.3",
+        "@alfalab/core-components-backdrop": "^2.1.0",
         "@alfalab/core-components-global-store": "^1.1.1",
-        "@alfalab/core-components-portal": "^2.0.2",
-        "@alfalab/core-components-stack": "^3.0.2",
-        "classnames": "2.2.6",
-        "react-focus-lock": "2.5.0",
-        "react-merge-refs": "1.1.0",
-        "react-transition-group": "4.4.1",
-        "resize-observer": "1.0.0"
+        "@alfalab/core-components-portal": "^2.0.3",
+        "@alfalab/core-components-stack": "^3.0.3",
+        "@juggle/resize-observer": "^3.3.1",
+        "classnames": "^2.2.6",
+        "react-focus-lock": "^2.5.0",
+        "react-merge-refs": "^1.1.0",
+        "react-transition-group": "^4.4.1"
     },
     "devDependencies": {
         "@types/react-transition-group": "^4.2.4"

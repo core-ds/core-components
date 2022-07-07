@@ -3,6 +3,101 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.12.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.11.1...@alfalab/core-components-select@10.12.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+
+
+### Performance Improvements
+
+* refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
+
+
+
+
+
+## [10.11.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.11.0...@alfalab/core-components-select@10.11.1) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [10.11.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.10.0...@alfalab/core-components-select@10.11.0) (2022-06-29)
+
+
+### Features
+
+* change types for OptionList and add event for handlers to Tooltip ([#114](https://github.com/core-ds/core-components/issues/114)) ([4b23107](https://github.com/core-ds/core-components/commit/4b2310742165035e8841225b699aae4efcdc8958))
+
+
+
+
+
+# [10.10.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.2...@alfalab/core-components-select@10.10.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** fixed onChange type ([#110](https://github.com/core-ds/core-components/issues/110)) ([c994661](https://github.com/core-ds/core-components/commit/c9946615af9aecb3f1974c887bdd6686708ac18e))
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+* fixed form-control/input/select label and hint margins ([#97](https://github.com/core-ds/core-components/issues/97)) ([abd2f15](https://github.com/core-ds/core-components/commit/abd2f15f210bb63bafe0cee341f0a66b5f2071d7))
+
+
+
+
+
+## [10.9.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.1...@alfalab/core-components-select@10.9.2) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.9.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.9.0...@alfalab/core-components-select@10.9.1) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [10.9.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.8.2...@alfalab/core-components-select@10.9.0) (2022-06-20)
+
+
+### Features
+
+* **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+
+
+
+
+
+## [10.8.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.8.1...@alfalab/core-components-select@10.8.2) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.8.0...@alfalab/core-components-select@10.8.1) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 # [10.8.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.7.4...@alfalab/core-components-select@10.8.0) (2022-06-08)
 
 

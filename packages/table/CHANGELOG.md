@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.4.2...@alfalab/core-components-table@1.5.0) (2022-07-01)
+
+
+### Features
+
+* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+
+
+
+
+
+## [1.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.4.1...@alfalab/core-components-table@1.4.2) (2022-06-30)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [1.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.4.0...@alfalab/core-components-table@1.4.1) (2022-06-29)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+# [1.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.3.11...@alfalab/core-components-table@1.4.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [1.3.11](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.3.10...@alfalab/core-components-table@1.3.11) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [1.3.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.3.9...@alfalab/core-components-table@1.3.10) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [1.3.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.3.8...@alfalab/core-components-table@1.3.9) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [1.3.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.3.7...@alfalab/core-components-table@1.3.8) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [1.3.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.3.6...@alfalab/core-components-table@1.3.7) (2022-06-16)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
 ## [1.3.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.3.5...@alfalab/core-components-table@1.3.6) (2022-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-table

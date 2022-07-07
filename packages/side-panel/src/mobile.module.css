@@ -1,0 +1,6 @@
+@import './vars.css';
+
+.component {
+    flex: 1;
+    width: 100%;
+}

@@ -154,7 +154,8 @@ describe(
             },
         }),
         screenshotOpts: { clip },
-        evaluate: (page: Page) => page.hover('button').then(() => page.waitForTimeout(500)),
+        evaluate: (page: Page) =>
+            page.hover('button[class^=component]').then(() => page.waitForTimeout(500)),
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
         },

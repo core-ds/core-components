@@ -1,4 +1,5 @@
 import React, { FC, MouseEvent, useCallback, useLayoutEffect, useRef } from 'react';
+import cn from 'classnames';
 import isSameYear from 'date-fns/isSameYear';
 import isThisYear from 'date-fns/isThisYear';
 import { SelectButton, SelectButtonProps } from '../select-button';
@@ -25,6 +26,11 @@ export type YearsTableProps = {
      * Обработчик скролла
      */
     onScroll: (scrollTop: number) => void;
+
+    /**
+     * Должен ли календарь подстраиваться под ширину родителя.
+     */
+    responsive?: boolean;
 };
 
 export const YearsTable: FC<YearsTableProps> = ({
@@ -32,6 +38,7 @@ export const YearsTable: FC<YearsTableProps> = ({
     years = [],
     getYearProps,
     onScroll,
+    responsive,
 }) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -66,7 +73,11 @@ export const YearsTable: FC<YearsTableProps> = ({
     }, [onScroll, selectedYear]);
 
     return (
-        <div className={styles.yearsTable} onScroll={handleScroll} ref={ref}>
+        <div
+            className={cn(styles.yearsTable, { [styles.responsive]: responsive })}
+            onScroll={handleScroll}
+            ref={ref}
+        >
             <div className={styles.inner}>
                 {years.map(year => (
                     <SelectButton

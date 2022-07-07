@@ -1,0 +1,22 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --slider-progress-color: var(--color-red-dark);
+    --slider-progress-hover-color: var(--color-red-dark);
+    --slider-thumb-color: var(--color-light-graphic-accent);
+    --slider-thumb-hover-color: var(--color-light-graphic-accent-shade-7);
+    --slider-thumb-active-color: var(--color-light-graphic-accent-shade-15);
+    --slider-thumb-size: 20px;
+    --slider-thumb-border: 2px solid transparent;
+    --slider-thumb-box-shadow: none;
+    --slider-progress-s-height: 2px;
+    --slider-progress-m-height: 4px;
+    --slider-progress-s-border-radius: 0;
+    --slider-progress-m-border-radius: var(--border-radius-s);
+    --slider-progress-background: var(--color-light-bg-quaternary);
+    --slider-progress-hover-background: var(--color-light-bg-quaternary);
+
+    /* Отступы по бокам — на мобилке thumb не должен заходить за края контрола */
+    --slider-origin-width: 100%;
+    --slider-origin-right: 0;
+}

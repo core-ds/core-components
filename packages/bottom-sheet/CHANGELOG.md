@@ -3,6 +3,82 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.1...@alfalab/core-components-bottom-sheet@4.4.2) (2022-07-01)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+## [4.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.0...@alfalab/core-components-bottom-sheet@4.4.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
+
+
+
+
+
+# [4.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.3.2...@alfalab/core-components-bottom-sheet@4.4.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
+## [4.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.3.1...@alfalab/core-components-bottom-sheet@4.3.2) (2022-06-24)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+## [4.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.3.0...@alfalab/core-components-bottom-sheet@4.3.1) (2022-06-23)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+# [4.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.2.1...@alfalab/core-components-bottom-sheet@4.3.0) (2022-06-20)
+
+
+### Features
+
+* **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+
+
+
+
+
+## [4.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.2.0...@alfalab/core-components-bottom-sheet@4.2.1) (2022-06-20)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+# [4.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.1.5...@alfalab/core-components-bottom-sheet@4.2.0) (2022-06-16)
+
+
+### Features
+
+* **BottonSheet:** prop for controlling animation on screen size chan… ([#89](https://github.com/core-ds/core-components/issues/89)) ([a69e178](https://github.com/core-ds/core-components/commit/a69e17891d1fd91ba6f35bfc097ae1fc9cbf92df))
+
+
+
+
+
 ## [4.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.1.4...@alfalab/core-components-bottom-sheet@4.1.5) (2022-06-03)
 
 **Note:** Version bump only for package @alfalab/core-components-bottom-sheet

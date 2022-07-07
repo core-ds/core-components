@@ -22,7 +22,7 @@ describe(
         }),
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
-            failureThreshold: 20,
+            failureThreshold: 50,
         },
         screenshotOpts: { clip },
     }),
@@ -61,7 +61,7 @@ describe(
         }),
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
-            failureThreshold: 20,
+            failureThreshold: 50,
         },
         screenshotOpts: { clip },
     }),
@@ -83,14 +83,15 @@ describe(
     }),
 );
 
-
 describe(
     'FileUploadItem | ellipsis',
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'FileUploadItem',
             knobs: {
-                name: ['very-long-file-name-123-very-long-file-name-123-very-long-file-name-123.jpg'],
+                name: [
+                    'very-long-file-name-123-very-long-file-name-123-very-long-file-name-123.jpg',
+                ],
                 uploadDate: ['22.01.2018'],
                 size: [45000],
                 showRestore: [true],

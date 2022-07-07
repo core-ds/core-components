@@ -18,7 +18,9 @@
         "declaration": true,
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["packages/*/src"]
+            "@alfalab/core-components-modal/*": ["packages/modal/src/*"],
+            "@alfalab/core-components-*": ["packages/*/src"],
+            "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

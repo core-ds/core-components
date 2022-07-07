@@ -7,9 +7,9 @@
 Счётчик действий, уведомлений или сообщений. Если `content` не передан, то отображается точка.
 Если `content` больше 99, то отображается 99+.
 
-```tsx live
+```jsx live
 <Container>
-    <Row style={{ padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' borderRadius: '16px 16px 0 0 ' }}>
+    <Row style={{ padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '16px 16px 0 0 ' }}>
         <Col>
             <Badge view='count' />
         </Col>
@@ -20,7 +20,7 @@
             <Badge view='count' content={100} />
         </Col>
     </Row>
-    <Row style={{ marginTop: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' borderRadius: '0 0 16px 16px'}}>
+    <Row style={{ marginTop: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '0 0 16px 16px'}}>
         <Col>
             <Badge view='count' visibleIconOutline='true' />
         </Col>
@@ -40,9 +40,9 @@
 
 Размеры иконки 's', 'm', 'xl' с белой и цветной обводкой.
 
-```tsx live
+```jsx live
 <Container>
-    <Row style={{ padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' borderRadius: '16px 16px 0 0 '  }}>
+    <Row style={{ padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '16px 16px 0 0 '  }}>
         <Col>
             <Badge view='icon' size='s' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />
         </Col>
@@ -64,7 +64,7 @@
             <Badge view='icon' size='xl' iconColor='positive' content={<CheckmarkOnCircleMIcon />} visibleIconOutline='true'/>
         </Col>
     </Row>
-     <Row style={{ marginTop: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' borderRadius: '0 0 16px 16px '  }}>
+     <Row style={{ marginTop: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '0 0 16px 16px '  }}>
         <Col>
             <Badge view='icon' size='s' iconColor='positive' content={<CheckmarkOnCircleMIcon />} visibleColorOutline='true' />
         </Col>
@@ -82,11 +82,11 @@
 Для управления цветом иконки используется проп `iconColor`, для управления цветом подложки используется css-переменная
 `--badge-icon-bg-color` (по дефолту белый).
 
-```tsx live
+```jsx live
 // import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph/CheckmarkOnCircleMIcon';
 
 <Container>
-    <Row style={{ margin: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' borderRadius: '16px 16px 0 0 ' }}>
+    <Row style={{ margin: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '16px 16px 0 0 ' }}>
         <Col>
             <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />
         </Col>
@@ -178,7 +178,7 @@
             />
         </Col>
     </Row>
-    <Row style={{ margin: 0, padding: 12, paddingTop: 0, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' borderRadius: '0 0 16px 16px ' }}>
+    <Row style={{ margin: 0, padding: 12, paddingTop: 0, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '0 0 16px 16px ' }}>
         <Col>
             <Badge
                 view='icon'

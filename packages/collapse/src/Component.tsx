@@ -8,7 +8,7 @@ import React, {
     useState,
 } from 'react';
 import cn from 'classnames';
-import { ResizeObserver } from 'resize-observer';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { ArrowUpMBlackIcon } from '@alfalab/icons-classic/ArrowUpMBlackIcon';
 import { Link } from '@alfalab/core-components-link';
@@ -125,6 +125,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
         }, [recalculate]);
 
         useEffect(() => {
+            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
             const observer = new ResizeObserver(recalculate);
             if (contentCaseRef.current) {
                 observer.observe(contentCaseRef.current);

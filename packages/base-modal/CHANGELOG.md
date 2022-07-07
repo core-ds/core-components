@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.1...@alfalab/core-components-base-modal@4.1.2) (2022-07-01)
+
+
+### Performance Improvements
+
+* refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
+
+
+
+
+
+## [4.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.0...@alfalab/core-components-base-modal@4.1.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
+
+
+
+
+
+# [4.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.0.2...@alfalab/core-components-base-modal@4.1.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 # [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@3.2.0...@alfalab/core-components-base-modal@4.0.0) (2022-03-24)
 
 

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-popover@5.7.0...@alfalab/core-components-popover@5.7.1) (2022-07-01)
+
+
+### Performance Improvements
+
+* refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
+
+
+
+
+
+# [5.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-popover@5.6.3...@alfalab/core-components-popover@5.7.0) (2022-06-28)
+
+
+### Features
+
+* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+
+
+
+
+
 ## [5.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-popover@5.6.0...@alfalab/core-components-popover@5.6.1) (2022-02-15)
 
 
