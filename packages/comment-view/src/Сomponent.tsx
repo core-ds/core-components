@@ -8,6 +8,7 @@ import styles from './index.module.css';
 export type CommentViewProps = {
     /** Сss класс для стилизации общей обёртки */
     className?: string;
+    
     /** Id компонента для тестов */
     dataTestId?: string;
 };
