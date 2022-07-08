@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -10,17 +10,12 @@ const screenshotTesting = setupScreenshotTesting({
 describe(
     'Comment view | main prop',
     screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'CommentView',
-                    size: { width: 150, height: 40 },
-                    knobs: {
-                        children: 'Comment',
-                    },
-                }),
-            ],
-        ],
+        cases: generateTestCases({
+            componentName: 'Comment view',
+            testStory: false,
+            knobs: {
+              children: 'Comment'
+            },
+        }),
     }),
 );
