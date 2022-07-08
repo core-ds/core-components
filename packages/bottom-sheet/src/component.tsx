@@ -89,6 +89,11 @@ export type BottomSheetProps = {
     backerClassName?: string;
 
     /**
+     * Дополнительный класс для компонента модального окна
+     */
+    modalClassName?: string;
+
+    /**
      * TransitionProps, прокидываются в компонент CSSTransitionProps.
      */
     transitionProps?: Partial<TransitionProps>;
@@ -214,6 +219,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             addonClassName,
             closerClassName,
             backerClassName,
+            modalClassName,
             className,
             leftAddons,
             rightAddons,
@@ -449,7 +455,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     invisible: initialHeight === 'full' ? false : hideOverlay,
                 }}
                 disableBackdropClick={hideOverlay ? true : disableOverlayClick}
-                className={styles.modal}
+                className={cn(styles.modal, modalClassName)}
                 transitionProps={{
                     appear: true,
                     timeout: TIMEOUT,
