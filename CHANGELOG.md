@@ -9,6 +9,19 @@
 ### Features
 
 * **bottom-sheet:** add prop to set modal classname ([#133](https://github.com/core-ds/core-components/issues/133)) ([8305c0e](https://github.com/core-ds/core-components/commit/8305c0e50b4fe6ebc8bb1f532d33157c63514915))
+* **tooltip:** change media query for TooltipResponsive ([#131](https://github.com/core-ds/core-components/issues/131)) ([87e44aa](https://github.com/core-ds/core-components/commit/87e44aa499dcac3832e6bdd4894c829c64487c29))
+
+# [28.2.0](https://github.com/core-ds/core-components/compare/v28.1.1...v28.2.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **select:** added comment for IE ([#127](https://github.com/core-ds/core-components/issues/127)) ([31fb5f6](https://github.com/core-ds/core-components/commit/31fb5f69c57acbf71e897b8c261068a24c883ecc))
+
+
+### Features
+
+* **bottom-sheet:** add prop to set modal classname ([#133](https://github.com/core-ds/core-components/issues/133)) ([8305c0e](https://github.com/core-ds/core-components/commit/8305c0e50b4fe6ebc8bb1f532d33157c63514915))
 
 ## [28.1.1](https://github.com/core-ds/core-components/compare/v28.1.0...v28.1.1) (2022-07-07)
 
