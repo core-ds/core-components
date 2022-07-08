@@ -4,6 +4,11 @@ import computeScrollIntoView from 'compute-scroll-into-view';
 
 import styles from './index.module.css';
 
+/**
+ * Дополнительная прокрутка при клике на не поместившийся таб
+ */
+const ADDITIONAL_SCROLLLEFT_VALUE = 40;
+
 export type ScrollableContainerProps = {
     /**
      * Дополнительный класс контейнера
@@ -39,7 +44,10 @@ export const ScrollableContainer = forwardRef<HTMLDivElement, ScrollableContaine
                 // TODO: animate?
                 actions.forEach(({ el, left }) => {
                     // eslint-disable-next-line no-param-reassign
-                    el.scrollLeft = el.scrollLeft > left ? left - 40 : left + 40;
+                    el.scrollLeft =
+                        el.scrollLeft > left
+                            ? left - ADDITIONAL_SCROLLLEFT_VALUE
+                            : left + ADDITIONAL_SCROLLLEFT_VALUE;
                 });
             }
         }, [activeChild]);
