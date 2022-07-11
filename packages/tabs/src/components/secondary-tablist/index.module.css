@@ -3,9 +3,7 @@
 
 .component {
     position: relative;
-    display: flex;
-    align-items: center;
-    transition: margin 200ms ease-in;
+    display: inline-flex;
 }
 
 .fullWidthScroll {
@@ -13,8 +11,7 @@
 }
 
 .container {
-    display: flex;
-    align-items: center;
+    overflow: hidden;
 }
 
 .title {

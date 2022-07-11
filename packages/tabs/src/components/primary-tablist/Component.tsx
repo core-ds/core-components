@@ -33,50 +33,42 @@ export const PrimaryTabList = ({
         }
     }, [selectedTab]);
 
-    const renderContent = () => {
-        const tabs = titles.map((item, index) => {
-            if (item.hidden) return null;
+    const renderContent = () => (
+        <div
+            role='tablist'
+            data-test-id={dataTestId}
+            className={cn(styles.component, className, size && styles[size], {
+                [styles.fullWidthScroll]: fullWidthScroll,
+            })}
+        >
+            {titles.map((item, index) => {
+                if (item.hidden) return null;
 
-            return (
-                <KeyboardFocusable key={item.id}>
-                    {(ref, focused) => (
-                        <button
-                            {...getTabListItemProps(index, ref)}
-                            type='button'
-                            className={cn(styles.title, {
-                                [styles.selected]: item.id === selectedId,
-                                [styles.disabled]: item.disabled,
-                            })}
-                        >
-                            <span className={focused ? styles.focused : undefined}>
-                                {item.title}
-                            </span>
-                            {item.rightAddons && (
-                                <span className={styles.rightAddons}>{item.rightAddons}</span>
-                            )}
-                        </button>
-                    )}
-                </KeyboardFocusable>
-            );
-        });
-
-        return (
-            <div
-                role='tablist'
-                data-test-id={dataTestId}
-                className={cn(styles.component, className, size && styles[size], {
-                    [styles.fullWidthScroll]: fullWidthScroll,
-                })}
-            >
-                {scrollable ? (
-                    tabs
-                ) : (
-                    <div className={cn(styles.container, containerClassName)}>{tabs}</div>
-                )}
-                <div className={styles.line} ref={lineRef} />
-            </div>
-        );
-    };
+                return (
+                    <KeyboardFocusable key={item.id}>
+                        {(ref, focused) => (
+                            <button
+                                {...getTabListItemProps(index, ref)}
+                                type='button'
+                                className={cn(styles.title, {
+                                    [styles.selected]: item.id === selectedId,
+                                    [styles.disabled]: item.disabled,
+                                })}
+                            >
+                                <span className={focused ? styles.focused : undefined}>
+                                    {item.title}
+                                </span>
+                                {item.rightAddons && (
+                                    <span className={styles.rightAddons}>{item.rightAddons}</span>
+                                )}
+                            </button>
+                        )}
+                    </KeyboardFocusable>
+                );
+            })}
+            <div className={styles.line} ref={lineRef} />
+        </div>
+    );
 
     return scrollable ? (
         <ScrollableContainer
@@ -87,6 +79,6 @@ export const PrimaryTabList = ({
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        renderContent()
+        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
     );
 };

@@ -3,8 +3,9 @@
 
 .component {
     position: relative;
-    display: flex;
-    flex-grow: 1;
+    display: inline-flex;
+    min-width: 100%;
+
     &:before {
         content: '';
         display: block;
@@ -17,12 +18,13 @@
 }
 
 .fullWidthScroll {
+    min-width: calc(100% - 2 * var(--gap-m));
     margin: 0 var(--gap-m);
 }
 
 .container {
     position: relative;
-    display: flex;
+    overflow: hidden;
 }
 
 .title {

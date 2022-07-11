@@ -24,37 +24,30 @@ export const SecondaryTabList = ({
         onChange,
     });
 
-    const renderContent = () => {
-        const tabs = titles
-            .filter(item => !item.hidden)
-            .map((item, index) => (
-                <Tag
-                    {...getTabListItemProps(index)}
-                    key={item.id}
-                    className={styles.title}
-                    checked={item.id === selectedId}
-                    size={tagSize}
-                    rightAddons={item.rightAddons}
-                >
-                    {item.title}
-                </Tag>
-            ));
-        return (
-            <div
-                role='tablist'
-                data-test-id={dataTestId}
-                className={cn(styles.component, className, size && styles[size], {
-                    [styles.fullWidthScroll]: fullWidthScroll,
-                })}
-            >
-                {scrollable ? (
-                    tabs
-                ) : (
-                    <div className={cn(styles.container, containerClassName)}>{tabs}</div>
-                )}
-            </div>
-        );
-    };
+    const renderContent = () => (
+        <div
+            role='tablist'
+            data-test-id={dataTestId}
+            className={cn(styles.component, className, size && styles[size], {
+                [styles.fullWidthScroll]: fullWidthScroll,
+            })}
+        >
+            {titles
+                .filter(item => !item.hidden)
+                .map((item, index) => (
+                    <Tag
+                        {...getTabListItemProps(index)}
+                        key={item.id}
+                        className={styles.title}
+                        checked={item.id === selectedId}
+                        size={tagSize}
+                        rightAddons={item.rightAddons}
+                    >
+                        {item.title}
+                    </Tag>
+                ))}
+        </div>
+    );
 
     return scrollable ? (
         <ScrollableContainer
@@ -65,6 +58,6 @@ export const SecondaryTabList = ({
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        renderContent()
+        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
     );
 };
