@@ -35,9 +35,13 @@ import vars from '!!raw-loader!../vars.css';
         const props = TabsComponent !== TabsMobile ? {
             size: select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm'),
         } : {};
+        const responsiveAndMobileProps = TabsComponent !== TabsDesktop ? {
+            fullWidthScroll: boolean('fullWidthScroll', false)
+        } : {}
         return (
             <TabsComponent
                 {...props}
+                {...responsiveAndMobileProps}
                 view={select('view', ['primary', 'secondary'], 'primary')}
                 selectedId={selectedId}
                 keepMounted={boolean('keepMounted')}
@@ -56,7 +60,7 @@ import vars from '!!raw-loader!../vars.css';
                 <Tab title='Таб 4' id='tab-4'>
                     Таб 4
                 </Tab>
-                <Tab title='Таб 5' id='tab-5' disabled>
+                <Tab title='Очень длинное название таба' id='tab-5' disabled>
                     Таб 5
                 </Tab>
                 <Tab title='Таб 6' id='tab-6'>

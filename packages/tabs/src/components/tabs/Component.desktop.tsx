@@ -9,7 +9,7 @@ const views = {
     secondary: SecondaryTabListDesktop,
 };
 
-export type TabsDesktopProps = Omit<TabsProps, 'TabList'>;
+export type TabsDesktopProps = Omit<TabsProps, 'TabList' | 'fullWidthScroll'>;
 
 export const TabsDesktop = ({
     view = 'primary',

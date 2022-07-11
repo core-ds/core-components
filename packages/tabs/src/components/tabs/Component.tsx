@@ -11,6 +11,7 @@ export const Tabs = ({
     children,
     selectedId,
     scrollable,
+    fullWidthScroll = false,
     keepMounted = false,
     dataTestId,
     onChange,
@@ -38,6 +39,7 @@ export const Tabs = ({
                 onChange={onChange}
                 dataTestId={dataTestId}
                 defaultMatch={defaultMatch}
+                fullWidthScroll={fullWidthScroll}
             />
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}

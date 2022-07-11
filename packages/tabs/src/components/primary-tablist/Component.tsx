@@ -5,7 +5,6 @@ import { Styles, TabListProps } from '../../typings';
 
 import { ScrollableContainer } from '../scrollable-container';
 import { useTabs } from '../../useTabs';
-import { useFullWidthScroll } from '../../useFullWidthScroll';
 
 export const PrimaryTabList = ({
     size,
@@ -15,9 +14,9 @@ export const PrimaryTabList = ({
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
+    fullWidthScroll,
     onChange,
     dataTestId,
-    isFullScroll = false,
 }: TabListProps & Styles) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -27,14 +26,6 @@ export const PrimaryTabList = ({
         onChange,
     });
 
-    const {
-        isLeftOut,
-        isRightOut,
-        containerRef,
-        scrollableContainerRef,
-        handleScroll,
-    } = useFullWidthScroll(isFullScroll);
-
     useEffect(() => {
         if (selectedTab && lineRef.current) {
             lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
@@ -42,60 +33,60 @@ export const PrimaryTabList = ({
         }
     }, [selectedTab]);
 
-    const renderContent = () => (
-        <React.Fragment>
-            {titles.map((item, index) => {
-                if (item.hidden) return null;
+    const renderContent = () => {
+        const tabs = titles.map((item, index) => {
+            if (item.hidden) return null;
 
-                return (
-                    <KeyboardFocusable key={item.id}>
-                        {(ref, focused) => (
-                            <button
-                                {...getTabListItemProps(index, ref)}
-                                type='button'
-                                className={cn(styles.title, {
-                                    [styles.selected]: item.id === selectedId,
-                                    [styles.disabled]: item.disabled,
-                                })}
-                            >
-                                <span className={focused ? styles.focused : undefined}>
-                                    {item.title}
-                                </span>
-                                {item.rightAddons && (
-                                    <span className={styles.rightAddons}>{item.rightAddons}</span>
-                                )}
-                            </button>
-                        )}
-                    </KeyboardFocusable>
-                );
-            })}
+            return (
+                <KeyboardFocusable key={item.id}>
+                    {(ref, focused) => (
+                        <button
+                            {...getTabListItemProps(index, ref)}
+                            type='button'
+                            className={cn(styles.title, {
+                                [styles.selected]: item.id === selectedId,
+                                [styles.disabled]: item.disabled,
+                            })}
+                        >
+                            <span className={focused ? styles.focused : undefined}>
+                                {item.title}
+                            </span>
+                            {item.rightAddons && (
+                                <span className={styles.rightAddons}>{item.rightAddons}</span>
+                            )}
+                        </button>
+                    )}
+                </KeyboardFocusable>
+            );
+        });
 
-            <div className={styles.line} ref={lineRef} />
-        </React.Fragment>
-    );
+        return (
+            <div
+                role='tablist'
+                data-test-id={dataTestId}
+                className={cn(styles.component, className, size && styles[size], {
+                    [styles.fullWidthScroll]: fullWidthScroll,
+                })}
+            >
+                {scrollable ? (
+                    tabs
+                ) : (
+                    <div className={cn(styles.container, containerClassName)}>{tabs}</div>
+                )}
+                <div className={styles.line} ref={lineRef} />
+            </div>
+        );
+    };
 
-    return (
-        <div
-            ref={containerRef}
-            role='tablist'
-            data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size], {
-                [styles.rightOut]: isRightOut,
-                [styles.leftOut]: isLeftOut,
-            })}
+    return scrollable ? (
+        <ScrollableContainer
+            activeChild={focusedTab || selectedTab}
+            containerClassName={containerClassName}
+            fullWidthScroll={fullWidthScroll}
         >
-            {scrollable ? (
-                <ScrollableContainer
-                    ref={scrollableContainerRef}
-                    activeChild={focusedTab || selectedTab}
-                    containerClassName={containerClassName}
-                    onScroll={handleScroll}
-                >
-                    {renderContent()}
-                </ScrollableContainer>
-            ) : (
-                <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
-            )}
-        </div>
+            {renderContent()}
+        </ScrollableContainer>
+    ) : (
+        renderContent()
     );
 };

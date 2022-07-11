@@ -8,6 +8,10 @@
     transition: margin 200ms ease-in;
 }
 
+.fullWidthScroll {
+    margin: 0 var(--gap-m);
+}
+
 .container {
     display: flex;
     align-items: center;

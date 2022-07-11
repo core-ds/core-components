@@ -7,6 +7,7 @@ import { SecondaryTabListProps, TabsMatchMedia } from '../../typings';
 export const SecondaryTabListResponsive = ({
     size,
     defaultMatch = 'desktop',
+    fullWidthScroll,
     ...restProps
 }: SecondaryTabListProps) => {
     const [view] = useMedia<TabsMatchMedia>(
@@ -20,6 +21,6 @@ export const SecondaryTabListResponsive = ({
     return view === 'desktop' ? (
         <SecondaryTabListDesktop size={size} {...restProps} />
     ) : (
-        <SecondaryTabListMobile {...restProps} />
+        <SecondaryTabListMobile fullWidthScroll={fullWidthScroll} {...restProps} />
     );
 };
