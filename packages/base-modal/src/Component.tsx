@@ -241,6 +241,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
         const restoreContainerStylesRef = useRef<null | Function>(null);
         const mouseDownTarget = useRef<HTMLElement>();
+        const resizeObserverRef = useRef<ResizeObserver>();
 
         const checkToHasScrollBar = () => {
             if (scrollableNodeRef.current) {
@@ -256,31 +257,28 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             return (container ? container() : document.body) as HTMLElement;
         }, [container]);
 
-        const resizeObserver = useMemo(() => {
-            const ResizeObserver = window?.ResizeObserver || ResizeObserverPolyfill;
+        const addResizeHandle = useCallback(() => {
+            if (!resizeObserverRef.current) return;
 
-            return new ResizeObserver(checkToHasScrollBar);
+            if (scrollableNodeRef.current) {
+                resizeObserverRef.current.observe(scrollableNodeRef.current);
+            }
+            if (contentNodeRef.current) {
+                resizeObserverRef.current.observe(contentNodeRef.current);
+            }
         }, []);
 
-        const addResizeHandle = useCallback(() => {
-            if (scrollableNodeRef.current) resizeObserver.observe(scrollableNodeRef.current);
-            if (contentNodeRef.current) resizeObserver.observe(contentNodeRef.current);
-        }, [resizeObserver]);
+        const removeResizeHandle = useCallback(() => resizeObserverRef.current?.disconnect(), []);
 
-        const removeResizeHandle = useCallback(() => {
-            resizeObserver.disconnect();
-        }, [resizeObserver]);
-
-        const contentRef = useCallback(
-            (node: HTMLDivElement) => {
-                if (node !== null) {
-                    contentNodeRef.current = node;
-                    resizeObserver.observe(node);
-                    checkToHasScrollBar();
+        const contentRef = useCallback((node: HTMLDivElement) => {
+            if (node !== null) {
+                contentNodeRef.current = node;
+                if (resizeObserverRef.current) {
+                    resizeObserverRef.current.observe(node);
                 }
-            },
-            [resizeObserver],
-        );
+                checkToHasScrollBar();
+            }
+        }, []);
 
         const handleScroll = useCallback(() => {
             if (!scrollableNodeRef.current || !componentNodeRef.current) return;
@@ -421,14 +419,19 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         }, [open]);
 
         useEffect(() => {
+            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
+
+            resizeObserverRef.current = new ResizeObserver(checkToHasScrollBar);
+
             return () => {
                 if (restoreContainerStylesRef.current) {
                     restoreContainerStylesRef.current();
                 }
 
-                resizeObserver.disconnect();
+                if (resizeObserverRef.current) {
+                    resizeObserverRef.current.disconnect();
+                }
             };
-            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
         const contextValue = useMemo<BaseModalContext>(
