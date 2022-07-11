@@ -28,7 +28,7 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState<string | null>('one');
+    const [value, setValue] = React.useState('one');
 
     const onChange = (_, payload) => {
         setValue(payload.value);
@@ -36,7 +36,7 @@ render(() => {
 
     const onReset = () => {
         setValue(null);
-    }
+    };
 
     return (
         <React.Fragment>
@@ -53,12 +53,7 @@ render(() => {
                 <Tag value='three'>Третий вариант</Tag>
             </RadioGroup>
             <br />
-            <Button
-                onClick={ onReset }
-                size="s"
-                view="tertiary"
-                disabled={ value === null }
-            >
+            <Button onClick={onReset} size='s' view='tertiary' disabled={value === null}>
                 Сбросить выбор
             </Button>
         </React.Fragment>
