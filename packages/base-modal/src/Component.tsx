@@ -257,7 +257,13 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         }, [container]);
 
         const resizeObserver = useMemo(() => {
-            const ResizeObserver = window?.ResizeObserver || ResizeObserverPolyfill;
+            let ResizeObserver;
+
+            if (typeof window !== 'undefined' && 'ResizeObserver' in window) {
+                ResizeObserver = window.ResizeObserver;
+            } else {
+                ResizeObserver = ResizeObserverPolyfill;
+            }
 
             return new ResizeObserver(checkToHasScrollBar);
         }, []);
