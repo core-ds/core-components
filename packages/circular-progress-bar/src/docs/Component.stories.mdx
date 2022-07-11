@@ -21,10 +21,11 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         const value = number('value', 50);
         const view = select('view', ['positive', 'negative']);
-        const completeTextColor = select('completeTextColor',['primary-inverted', 'positive', 'negative', 'secondary' ], 'secondary');
+        const completeTextColor = select('completeTextColor',['primary','primary-inverted', 'positive', 'negative', 'secondary' ], 'secondary');
         const title = text('title', 'title');
         const titleComplete = text('titleComplete');
         const subtitle = text('subtitle', 'subtitle');
+        const contentColor = select('contentColor',['primary', 'secondary', 'tertiary', 'positive', 'negative' ], 'secondary');
         const subtitleComplete = text('subtitleComplete');
         return (
             <React.Fragment>
@@ -34,6 +35,7 @@ import styles from '!!raw-loader!../index.module.css';
                     title={title}
                     titleComplete={titleComplete}
                     subtitle={subtitle}
+                    contentColor={contentColor}
                     subtitleComplete={subtitleComplete}
                     stroke={boolean('stroke', true)}
                     direction={select('direction', ['clockwise', 'counter-clockwise'], 'clockwise')}

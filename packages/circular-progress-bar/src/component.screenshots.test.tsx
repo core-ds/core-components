@@ -33,6 +33,32 @@ describe(
 );
 
 describe(
+    'CircularProgressBar | contentColor',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'CircularProgressBar',
+                    knobs: {
+                        value: 60,
+                        title: ['', 'Title'],
+                        subtitle: ['', 'SubTitle'],
+                        contentColor: ['primary', 'secondary', 'tertiary', 'positive', 'negative'],
+                        view: 'positive',
+                        size: 'l',
+                    },
+                    size: { width: 200, height: 200 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
     'CircularProgressBar | icon, stroke, fillComplete, completeIconColor',
     screenshotTesting({
         cases: [

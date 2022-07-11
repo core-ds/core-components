@@ -57,6 +57,11 @@ export type CircularProgressBarProps = {
     title?: ReactNode;
 
     /**
+     * Цвет контента
+     */
+    contentColor?: 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative';
+
+    /**
      * Дополнительный текст
      */
     subtitle?: ReactNode;
@@ -94,7 +99,7 @@ export type CircularProgressBarProps = {
     /**
      * Цвет текста при 100%
      */
-    completeTextColor?: 'primary-inverted' | 'positive' | 'negative';
+    completeTextColor?: 'primary' | 'primary-inverted' | 'positive' | 'negative';
 
     /**
      * Цвет иконки при 100%
@@ -143,9 +148,10 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     size = 'm',
     className,
     dataTestId,
-    title = value.toString(),
+    title = value ? value.toString() : '0',
     titleComplete,
     subtitle,
+    contentColor = 'secondary',
     subtitleComplete,
     stroke = true,
     fillComplete,
@@ -192,7 +198,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 {SIZES[size] > 64 ? (
                     <Typography.TitleMobile
                         className={styles.title}
-                        color={isCompleteTextColor ? completeTextColor : 'secondary'}
+                        color={isCompleteTextColor ? completeTextColor : contentColor}
                         tag='div'
                         font='system'
                         view={VIEW_TITLE[size]}
@@ -202,7 +208,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 ) : (
                     <Typography.Text
                         className={styles.title}
-                        color={isCompleteTextColor ? completeTextColor : 'secondary'}
+                        color={isCompleteTextColor ? completeTextColor : contentColor}
                         tag='div'
                         weight='bold'
                         view={VIEW_TEXT[size]}
@@ -229,7 +235,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     <Typography.Text
                         tag='div'
                         className={styles.subtitle}
-                        color={isCompleteTextColor ? completeTextColor : 'primary'}
+                        color={isCompleteTextColor ? completeTextColor : contentColor}
                         view='primary-small'
                     >
                         {subtitleContent}
@@ -244,9 +250,15 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     const renderIcon = () => {
         return (
             <span
-                className={cn(styles.iconWrapper, styles[size], styles.tertiary, {
-                    [styles[`icon-${completeIconColor}`]]: completeIconColor,
-                })}
+                className={cn(
+                    styles.iconWrapper,
+                    styles[size],
+                    styles.tertiary,
+                    styles[`icon-${contentColor}`],
+                    {
+                        [styles[`icon-${completeIconColor}`]]: completeIconColor,
+                    },
+                )}
             >
                 {IconComponent && <IconComponent className={styles.icon} />}
             </span>

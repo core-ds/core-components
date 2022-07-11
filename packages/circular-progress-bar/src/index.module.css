@@ -27,6 +27,9 @@
 .subtitle {
     overflow: hidden;
     word-break: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 6px;
 }
 
 .subtitle {
@@ -97,6 +100,7 @@
 
     & .title {
         max-height: 16px;
+        margin: 0;
     }
 }
 
@@ -110,6 +114,7 @@
 
     & .title {
         max-height: 16px;
+        margin: 0;
     }
 }
 
@@ -206,6 +211,14 @@
 
     &.icon-primary-inverted {
         color: var(--color-light-graphic-primary-inverted);
+    }
+
+    &.icon-primary {
+        color: var(--color-light-graphic-primary);
+    }
+
+    &.icon-secondary {
+        color: var(--color-light-graphic-secondary);
     }
 }
 

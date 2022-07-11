@@ -23,7 +23,7 @@
             <CircularProgressBar value={25} size='s' />
         </Col>
         <Col>
-            <CircularProgressBar value={25} size='xs' icon={CheckmarkSIcon}/>
+            <CircularProgressBar value={25} size='xs' icon={CheckmarkSIcon} contentColor='tertiary'/>
         </Col>
     </Row>
 </Container>
@@ -44,21 +44,22 @@
             <CircularProgressBar value={25} size='l' subtitle='Caption'/>
         </Col>
         <Col>
-            <CircularProgressBar value={100} size='l' icon={CheckmarkMIcon} completeIconColor='positive'/>
+            <CircularProgressBar value={100} size='l' icon={CheckmarkMIcon} contentColor='tertiary' completeIconColor='positive'/>
         </Col>
     </Row>
     <Row align='middle'>
         <Col>
-            <CircularProgressBar value={0} size='l' icon={CheckmarkMIcon} stroke={false}/>
+            <CircularProgressBar value={0} size='l' icon={CheckmarkMIcon} contentColor='tertiary' stroke={false}/>
         </Col>
         <Col>
-            <CircularProgressBar value={25} size='l' icon={CheckmarkMIcon} stroke={false} />
+            <CircularProgressBar value={25} size='l' icon={CheckmarkMIcon} contentColor='tertiary' stroke={false} />
         </Col>
         <Col>
             <CircularProgressBar 
                 value={100} 
                 size='l' 
                 icon={CheckmarkMIcon} 
+                contentColor='tertiary'
                 completeIconColor='primary-inverted'
                 fillComplete={true}
                 />
