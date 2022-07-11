@@ -102,7 +102,17 @@ module.exports = {
         '@storybook/preset-create-react-app',
         './addons/theme-switcher/register.js',
         './addons/mode-switcher/register.js',
+        '@storybook/addon-controls',
     ],
+    typescript: {
+        check: false,
+        checkOptions: {},
+        reactDocgen: 'react-docgen-typescript',
+        reactDocgenTypescriptOptions: {
+          shouldExtractLiteralValuesFromEnum: true,
+          propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+        },
+      },
     webpackFinal: async config => {
         addPackagesDir(config);
 

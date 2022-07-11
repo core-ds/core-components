@@ -1,0 +1,245 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* primary */
+    --button-inverted-primary-base-bg-color: var(--color-light-bg-accent);
+    --button-inverted-primary-hover-bg-color: var(--color-light-bg-accent-tint-15);
+    --button-inverted-primary-active-bg-color: var(--color-light-bg-accent-tint-20);
+    --button-inverted-primary-disabled-bg-color: color-mod(var(--color-dark-bg-accent) alpha(30%));
+    --button-inverted-primary-disabled-color: var(--color-static-text-primary-light-alpha-30);
+    --button-inverted-primary-color: var(--color-static-text-primary-light);
+
+    /* secondary */
+    --button-inverted-secondary-base-bg-color: var(--color-light-specialbg-component-inverted);
+    --button-inverted-secondary-hover-bg-color: var(
+        --color-light-specialbg-component-inverted-tint-15
+    );
+    --button-inverted-secondary-active-bg-color: var(
+        --color-light-specialbg-component-inverted-tint-20
+    );
+    --button-inverted-secondary-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
+    --button-inverted-secondary-base-border-color: transparent;
+    --button-inverted-secondary-disabled-border-color: transparent;
+    --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-secondary-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
+
+    /* tertiary */
+    --button-inverted-tertiary-base-bg-color: transparent;
+    --button-inverted-tertiary-hover-bg-color: var(--color-light-bg-primary-alpha-15);
+    --button-inverted-tertiary-active-bg-color: var(--color-light-bg-primary-alpha-20);
+    --button-inverted-tertiary-disabled-bg-color: transparent;
+    --button-inverted-tertiary-base-border-color: var(--color-light-border-underline);
+    --button-inverted-tertiary-disabled-border-color: var(--color-light-border-underline-alpha-30);
+    --button-inverted-tertiary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-tertiary-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
+
+    /* outlined */
+    --button-inverted-outlined-base-bg-color: transparent;
+    --button-inverted-outlined-hover-bg-color: rgba(255, 255, 255, 0.15);
+    --button-inverted-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
+    --button-inverted-outlined-disabled-bg-color: transparent;
+    --button-inverted-outlined-base-border-color: var(--color-light-border-underline-inverted);
+    --button-inverted-outlined-disabled-border-color: color-mod(
+        var(--color-dark-border-tertiary) alpha(30%)
+    );
+    --button-inverted-outlined-color: var(--color-dark-text-primary);
+    --button-inverted-outlined-disabled-color: color-mod(var(--color-dark-text-primary) alpha(30%));
+
+    /* ghost */
+    --button-inverted-ghost-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-ghost-hover-color: var(--color-light-text-primary-inverted-shade-30);
+    --button-inverted-ghost-active-color: var(--color-light-text-primary-inverted-shade-50);
+    --button-inverted-ghost-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
+}
+
+.primary {
+    color: var(--button-inverted-primary-color);
+    background-color: var(--button-inverted-primary-base-bg-color);
+
+    &:hover {
+        background-color: var(--button-inverted-primary-hover-bg-color);
+    }
+
+    &:active {
+        background-color: var(--button-inverted-primary-active-bg-color);
+    }
+}
+
+.secondary {
+    color: var(--button-inverted-secondary-color);
+    background-color: var(--button-inverted-secondary-base-bg-color);
+    border: 1px solid var(--button-inverted-secondary-base-border-color);
+
+    &:hover {
+        background-color: var(--button-inverted-secondary-hover-bg-color);
+    }
+
+    &:active {
+        background-color: var(--button-inverted-secondary-active-bg-color);
+    }
+}
+
+.outlined {
+    color: var(--button-inverted-outlined-color);
+    background-color: var(--button-inverted-outlined-base-bg-color);
+    border: 1px solid var(--button-inverted-outlined-base-border-color);
+
+    &:hover {
+        background-color: var(--button-inverted-outlined-hover-bg-color);
+    }
+
+    &:active {
+        background-color: var(--button-inverted-outlined-active-bg-color);
+    }
+}
+
+.tertiary {
+    color: var(--button-inverted-tertiary-color);
+    background-color: var(--button-inverted-tertiary-base-bg-color);
+    border: 1px solid var(--button-inverted-tertiary-base-border-color);
+
+    &:hover {
+        background-color: var(--button-inverted-tertiary-hover-bg-color);
+    }
+
+    &:active {
+        background-color: var(--button-inverted-tertiary-active-bg-color);
+    }
+}
+
+.filled {
+    color: var(--color-dark-text-primary);
+    background-color: var(--color-dark-bg-quaternary);
+
+    &:hover {
+        background-color: color-mod(var(--color-dark-bg-quaternary) tint(15%));
+    }
+
+    &:active {
+        background-color: color-mod(var(--color-dark-bg-quaternary) shade(15%));
+    }
+}
+
+.transparent {
+    color: var(--color-light-text-primary-inverted);
+    background-color: color-mod(var(--color-light-bg-primary) alpha(10%));
+
+    &:hover {
+        background-color: color-mod(var(--color-light-bg-primary) alpha(20%));
+    }
+
+    &:active {
+        /* TODO: какой цвет? */
+        background-color: color-mod(var(--color-light-bg-primary) alpha(5%));
+    }
+}
+
+.link {
+    color: var(--color-light-text-primary-inverted);
+    background-color: transparent;
+
+    &:hover {
+        background-color: var(--color-light-bg-primary-alpha-15);
+    }
+
+    &:active {
+        /* TODO: какой цвет? */
+        background-color: var(--color-light-bg-primary-alpha-20);
+    }
+}
+
+.ghost {
+    color: var(--button-inverted-ghost-base-color);
+
+    &:hover {
+        color: var(--button-inverted-ghost-hover-color);
+    }
+
+    &:active {
+        color: var(--button-inverted-ghost-active-color);
+    }
+}
+
+.component:disabled {
+    &.primary {
+        color: var(--button-inverted-primary-disabled-color);
+        background-color: var(--button-inverted-primary-disabled-bg-color);
+
+        &.loading {
+            background-color: var(--button-inverted-primary-base-bg-color);
+        }
+    }
+
+    &.secondary {
+        color: var(--button-inverted-secondary-disabled-color);
+        background-color: var(--button-inverted-secondary-disabled-bg-color);
+        border-color: var(--button-inverted-secondary-disabled-border-color);
+
+        &.loading {
+            color: var(--button-inverted-secondary-color);
+            background-color: var(--button-inverted-secondary-base-bg-color);
+            border-color: var(--button-inverted-secondary-base-border-color);
+        }
+    }
+
+    &.outlined {
+        color: var(--button-inverted-outlined-disabled-color);
+        background-color: var(--button-inverted-outlined-disabled-bg-color);
+        border-color: var(--button-inverted-outlined-disabled-border-color);
+
+        &.loading {
+            color: var(--button-inverted-outlined-color);
+            border-color: var(--button-inverted-outlined-border-color);
+        }
+    }
+
+    &.tertiary {
+        color: var(--button-inverted-tertiary-disabled-color);
+        background-color: var(--button-inverted-tertiary-disabled-bg-color);
+        border-color: var(--button-inverted-tertiary-disabled-border-color);
+
+        &.loading {
+            color: var(--button-inverted-tertiary-color);
+            border-color: var(--button-inverted-tertiary-border-color);
+        }
+    }
+
+    &.filled {
+        color: color-mod(var(--color-dark-text-primary) alpha(30%));
+        background-color: color-mod(var(--color-dark-bg-quaternary) alpha(30%));
+        border-color: transparent;
+
+        &.loading {
+            color: var(--color-dark-text-primary);
+            background-color: var(--color-dark-bg-quaternary);
+            border-color: transparent;
+        }
+    }
+
+    &.transparent {
+        color: color-mod(var(--color-light-text-primary-inverted) alpha(30%));
+        background-color: color-mod(var(--color-light-bg-primary) alpha(3%));
+
+        &.loading {
+            color: var(--color-light-text-primary-inverted);
+            background-color: color-mod(var(--color-light-bg-primary) alpha(10%));
+        }
+    }
+
+    &.link {
+        color: var(--color-light-text-primary-inverted-alpha-30);
+        background-color: transparent;
+
+        &.loading {
+            color: var(--color-light-text-primary-inverted);
+        }
+    }
+
+    &.ghost {
+        color: var(--button-inverted-ghost-disabled-color);
+
+        &.loading {
+            color: var(--button-inverted-ghost-base-color);
+        }
+    }
+}

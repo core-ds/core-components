@@ -1,0 +1,310 @@
+import { Container, Row, Col } from 'storybook/blocks';
+import { ButtonTest } from '../';
+
+
+Кнопка используется как триггер для выполнения определённого действия.
+Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
+
+```jsx live
+<Container>
+    <Row align='middle'>
+        <Col>
+            <ButtonTest view='primary'>Primary</ButtonTest>
+        </Col>
+        <Col>
+            <ButtonTest view='secondary'>Secondary</ButtonTest>
+        </Col>
+        <Col>
+            <ButtonTest view='tertiary'>Tertiary</ButtonTest>
+        </Col>
+        <Col>
+            <ButtonTest view='link'>Link</ButtonTest>
+        </Col>
+        <Col>
+            <ButtonTest view='ghost'>Ghost</ButtonTest>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Виды кнопок
+
+В библиотеке доступно несколько видов кнопок (view).
+
+- <b>Primary</b>. Обозначает ключевое действие. На экране может быть только одна главная кнопка.
+
+```jsx live
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <ButtonTest size={size} view="primary">
+                        Кнопка
+                    </ButtonTest>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Secondary</b>. Второстепенная кнопка. Может использоваться для любых действий.
+
+```jsx live
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <ButtonTest size={size} view="secondary">
+                        Кнопка
+                    </ButtonTest>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Tertiary</b>. Дополнительная кнопка.
+
+```jsx live
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <ButtonTest size={size} view="tertiary">
+                        Кнопка
+                    </ButtonTest>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Link</b>. Прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`.
+
+```jsx live
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <ButtonTest size={size} view="link">
+                        Кнопка
+                    </ButtonTest>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Ghost</b>. Прозрачная кнопка без отступов.
+
+```jsx live
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <ButtonTest size={size} view="ghost">
+                        Кнопка
+                    </ButtonTest>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+## Ссылка
+
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
+
+```jsx live
+<Container>
+    <Row align="middle">
+        <Col>
+            <ButtonTest href="https://alfabank.ru" target="_blank" >
+                Ссылка
+            </ButtonTest>
+        </Col>
+        <Col>
+            <ButtonTest view="tertiary" href="https://alfabank.ru" target="_blank" >
+                Ссылка
+            </ButtonTest>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Ширина кнопки
+
+С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
+
+```jsx live
+<ButtonTest block={true} size="s" >
+    Кнопка
+</ButtonTest>
+```
+
+## Слоты для кастомизации
+
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
+
+Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
+
+```jsx live
+render(() => {
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+    return (
+        <Container>
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <ButtonTest rightAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
+                            Кнопка
+                        </ButtonTest>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <ButtonTest leftAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
+                            Кнопка
+                        </ButtonTest>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                <Col>
+                    <ButtonTest rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs" />
+                </Col>
+            </Row>
+        </Container>
+    )
+})
+```
+
+## Состояние загрузки
+
+С помощью свойства `loading` можно отобразить состояние загрузки.
+
+Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+
+```jsx live expanded
+render(() => {
+    const [loading, setLoading] = React.useState({
+        primary: false,
+        secondary: false
+    });
+
+    const handleClick = (buttonName, timeout) => {
+        setLoading({...loading, [buttonName]: true});
+        setTimeout(() => {
+            setLoading({...loading, [buttonName]: false});
+        }, timeout)
+    }
+
+    return (
+        <Container>
+            <Row align="middle">
+                <Col>
+                    <ButtonTest
+                        view="primary"
+                        loading={loading.primary}
+                        onClick={() => handleClick('primary', 30)}
+                    >
+                        Отправить быстрый запрос (30мс)
+                    </ButtonTest>
+                </Col>
+                <Col>
+                    <ButtonTest
+                        view="secondary"
+                        loading={loading.secondary}
+                        onClick={() => handleClick('secondary', 1500)}
+                    >
+                        Отправить долгий запрос (1500мс)
+                    </ButtonTest>
+                </Col>
+            </Row>
+        </Container>
+    );
+});
+```
+
+## Перенос текста
+
+С помощью свойства `nowrap` можно запретить перенос строки в кнопке.
+
+```jsx live
+<div style={{ width: '240px' }}>
+    <Row align="middle">
+        <Col>
+            <ButtonTest view="secondary" nowrap={true}>
+                Кнопка без переноса текста
+            </ButtonTest>
+        </Col>
+        <Col>
+            <ButtonTest view="ghost">
+                Кнопка с{'\u00A0'}переносом текста
+            </ButtonTest>
+        </Col>
+    </Row>
+</div>
+```
+
+## Темы
+
+`site`
+
+<div style={{border: '1px solid #e5e5e5', borderRadius: '4px', overflow: 'hidden'}}>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#fff'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <ButtonTest view='primary'>Primary</ButtonTest>
+                </Col>
+                <Col>
+                    <ButtonTest view='secondary'>Secondary</ButtonTest>
+                </Col>
+                <Col>
+                    <ButtonTest view='tertiary'>Tertiary</ButtonTest>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#0b1f35'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <ButtonTest colors='inverted' view='primary'>Primary</ButtonTest>
+                </Col>
+                <Col>
+                    <ButtonTest colors='inverted' view='secondary'>Secondary</ButtonTest>
+                </Col>
+                <Col>
+                    <ButtonTest colors='inverted' view='tertiary'>Tertiary</ButtonTest>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+</div>
