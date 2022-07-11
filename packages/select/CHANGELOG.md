@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.12.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.0...@alfalab/core-components-select@10.12.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* **select:** added comment for IE ([#127](https://github.com/core-ds/core-components/issues/127)) ([31fb5f6](https://github.com/core-ds/core-components/commit/31fb5f69c57acbf71e897b8c261068a24c883ecc))
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
+
+
+
+
 # [10.12.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.11.1...@alfalab/core-components-select@10.12.0) (2022-07-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.2...@alfalab/core-components-bottom-sheet@4.5.0) (2022-07-11)
+
+
+### Features
+
+* **bottom-sheet:** add prop to set modal classname ([#133](https://github.com/core-ds/core-components/issues/133)) ([8305c0e](https://github.com/core-ds/core-components/commit/8305c0e50b4fe6ebc8bb1f532d33157c63514915))
+
+
+
+
+
 ## [4.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.1...@alfalab/core-components-bottom-sheet@4.4.2) (2022-07-01)
 
 **Note:** Version bump only for package @alfalab/core-components-bottom-sheet

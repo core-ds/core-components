@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-spinner@2.1.0...@alfalab/core-components-spinner@2.2.0) (2022-07-11)
+
+
+### Features
+
+* **spinner:** new size & inverted theme ([#123](https://github.com/core-ds/core-components/issues/123)) ([5568ab5](https://github.com/core-ds/core-components/commit/5568ab5183badaded723ebc5a608b20bf471c6bc))
+
+
+
+
+
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-spinner@2.0.3...@alfalab/core-components-spinner@2.1.0) (2022-06-28)
 
 

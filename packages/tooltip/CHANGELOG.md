@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.4.2...@alfalab/core-components-tooltip@5.5.0) (2022-07-11)
+
+
+### Features
+
+* **tooltip:** change media query for TooltipResponsive ([#131](https://github.com/core-ds/core-components/issues/131)) ([87e44aa](https://github.com/core-ds/core-components/commit/87e44aa499dcac3832e6bdd4894c829c64487c29))
+
+
+
+
+
 ## [5.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.4.1...@alfalab/core-components-tooltip@5.4.2) (2022-07-01)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

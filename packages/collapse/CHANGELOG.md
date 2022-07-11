@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.2.1...@alfalab/core-components-collapse@2.2.2) (2022-07-11)
+
+
+### Bug Fixes
+
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
+
+
+
+
 ## [2.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@2.2.0...@alfalab/core-components-collapse@2.2.1) (2022-07-01)
 
 

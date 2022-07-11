@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.2...@alfalab/core-components-base-modal@4.1.3) (2022-07-11)
+
+
+### Bug Fixes
+
+* **base-modal:** fix using resize observer ([#136](https://github.com/core-ds/core-components/issues/136)) ([cb8f03c](https://github.com/core-ds/core-components/commit/cb8f03ca55394316189d1d4529ee3fdb691538d9))
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
+
+
+
+
 ## [4.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.1...@alfalab/core-components-base-modal@4.1.2) (2022-07-01)
 
 
