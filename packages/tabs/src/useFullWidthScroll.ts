@@ -11,7 +11,7 @@ export const useFullWidthScroll = (isFullScroll: boolean) => {
         const node = e.currentTarget;
 
         setIsLeftOut(node.scrollLeft !== 0);
-        setIsRightOut(node.scrollLeft + node.clientWidth >= node.scrollWidth);
+        setIsRightOut(!(node.scrollLeft + node.clientWidth >= node.scrollWidth));
     };
 
     useEffect(() => {
