@@ -32,9 +32,10 @@ export const SecondaryTabList = ({
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
-            {titles
-                .filter(item => !item.hidden)
-                .map((item, index) => (
+            {titles.map((item, index) => {
+                if (item.hidden) return null;
+
+                return (
                     <Tag
                         {...getTabListItemProps(index)}
                         key={item.id}
@@ -45,7 +46,8 @@ export const SecondaryTabList = ({
                     >
                         {item.title}
                     </Tag>
-                ))}
+                );
+            })}
         </div>
     );
 
