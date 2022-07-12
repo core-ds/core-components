@@ -1,3 +1,10 @@
+## [28.2.2](https://github.com/core-ds/core-components/compare/v28.2.1...v28.2.2) (2022-07-12)
+
+
+### Bug Fixes
+
+* **cdn-icon:** edited icon size fit svg ([#141](https://github.com/core-ds/core-components/issues/141)) ([54098bf](https://github.com/core-ds/core-components/commit/54098bff366b8a3715b986d7c3e37556b60bb2bf))
+
 # [28.2.1](https://github.com/core-ds/core-components/compare/v28.1.1...v28.2.0) (2022-07-11)
 
 
