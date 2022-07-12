@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import SimpleBar from 'simplebar/dist/simplebar-core.esm';
+import SimpleBar from 'simplebar/src/simplebar';
 import throttle from 'lodash.throttle';
 
 import styles from './index.module.css';

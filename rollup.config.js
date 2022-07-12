@@ -34,12 +34,7 @@ const baseConfig = {
         '!src/**/*.d.ts',
     ],
     plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
-    external: [
-        ...Object.keys(pkg.dependencies || {}),
-        ...Object.keys(pkg.peerDependencies || {}),
-        /(core-js).+/,
-    ],
-    plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
 
 const multiInputPlugin = multiInput();
