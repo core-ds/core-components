@@ -5,6 +5,9 @@
     "keywords": [],
     "license": "MIT",
     "main": "dist/index.js",
+    "exports": {
+      "./mobile": "./dist/mobile.js"
+    },
     "files": [
         "dist"
     ],
