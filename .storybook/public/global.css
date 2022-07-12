@@ -67,7 +67,7 @@ body.sb-show-main {
 /* Скрываем Story из Docs */
 
 div[id*='story--'] {
-    display: none;
+    /* display: none; */
 }
 
 /* Manager */
