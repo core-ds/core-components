@@ -9,6 +9,7 @@
     /* experimental animation switcher */
     --skeleton-gradient-animation-display: block;
     --skeleton-bg-animation-display: none;
+    --skeleton-bg-animation-color: transparent;
 }
 
 .component {
@@ -19,6 +20,7 @@
     border-radius: var(--skeleton-border-radius);
     overflow: hidden;
     backdrop-filter: var(--skeleton-backdrop-filter);
+    background: var(--skeleton-default-color);
 
     /* Safari overflow fix https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -35,7 +37,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--skeleton-default-color);
+    background: var(--skeleton-bg-animation-color);
 }
 
 .animate:before {
@@ -68,7 +70,6 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    background: var(--skeleton-default-color);
     background-image: linear-gradient(
         to left,
         rgba(0, 0, 0, 0),
