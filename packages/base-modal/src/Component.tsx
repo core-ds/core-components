@@ -88,6 +88,12 @@ export type BaseModalProps = {
     disableBackdropClick?: boolean;
 
     /**
+     * Отключает блокировку скролла при открытии модального окна
+     * @default false
+     */
+    disableBlockingScroll?: boolean;
+
+    /**
      * Содержимое модалки всегда в DOM
      * @default false
      */
@@ -212,6 +218,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             disableFocusLock = false,
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
+            disableBlockingScroll = false,
             keepMounted = false,
             className,
             contentClassName,
@@ -405,8 +412,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         useEffect(() => {
-            if (open) {
-                if (isExited) {
+            if (open && isExited) {
+                if (!disableBlockingScroll) {
                     const el = getContainer();
 
                     handleContainer(el);
@@ -415,11 +422,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                         restoreContainerStylesRef.current = null;
                         restoreContainerStyles(el);
                     };
-
-                    setExited(false);
                 }
+
+                setExited(false);
             }
-        }, [getContainer, open, isExited]);
+        }, [getContainer, open, disableBlockingScroll, isExited]);
 
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
