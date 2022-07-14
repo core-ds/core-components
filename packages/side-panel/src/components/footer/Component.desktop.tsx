@@ -12,7 +12,7 @@ export type FooterDesktopProps = FooterProps & {
 };
 
 export const FooterDesktop: FC<FooterDesktopProps> = ({
-    size,
+    size = 's',
     className,
     sticky,
     ...restProps

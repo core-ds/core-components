@@ -11,6 +11,8 @@ export type ContentDesktopProps = ContentProps & {
     size?: 's';
 };
 
-export const ContentDesktop: FC<ContentDesktopProps> = ({ size, className, ...restProps }) => (
-    <Content className={cn(className, size && styles[size])} {...restProps} />
-);
+export const ContentDesktop: FC<ContentDesktopProps> = ({
+    size = 's',
+    className,
+    ...restProps
+}) => <Content className={cn(className, size && styles[size])} {...restProps} />;

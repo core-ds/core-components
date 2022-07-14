@@ -18,7 +18,7 @@ export type HeaderDesktopProps = Omit<HeaderProps, 'closer'> & {
 };
 
 export const HeaderDesktop: FC<HeaderDesktopProps> = ({
-    size,
+    size = 's',
     className,
     contentClassName,
     hasCloser = true,
