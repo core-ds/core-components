@@ -1,5 +1,5 @@
 /* eslint-disable */
-declare module 'simplebar/dist/simplebar-core.esm' {
+declare module 'simplebar/src/simplebar' {
     declare namespace SimpleBar {
         interface KnownClassNamesOptions {
             contentEl?: string;
