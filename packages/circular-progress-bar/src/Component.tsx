@@ -197,7 +197,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             <React.Fragment>
                 {SIZES[size] > 64 ? (
                     <Typography.TitleMobile
-                        className={styles.title}
+                        className={cn(styles.typography, styles.title)}
                         color={isCompleteTextColor ? completeTextColor : contentColor}
                         tag='div'
                         font='system'

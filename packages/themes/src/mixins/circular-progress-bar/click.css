@@ -1,0 +1,4 @@
+@define-mixin circular-progress-bar-click {
+    /* theme */
+    --circular-progress-bar-font-family: var(--font-family-styrene);
+}

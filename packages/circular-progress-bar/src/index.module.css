@@ -1,4 +1,6 @@
 @import '../../vars/src/colors-indigo.css';
+@import '../../vars/src/typography.css';
+@import '../../themes/src/default.css';
 
 :root {
     /* bg */
@@ -9,6 +11,9 @@
 
     /* negative */
     --circular-progress-bar-negative-color: var(--color-light-graphic-negative);
+
+    /* theme */
+    --circular-progress-bar-font-family: var(--font-family-system);
 }
 
 .component {
@@ -49,6 +54,11 @@
         align-items: center;
         justify-content: center;
     }
+}
+
+.typography {
+    font-feature-settings: 'ss01';
+    font-family: var(--circular-progress-bar-font-family);
 }
 
 .xxl {
