@@ -21439,14 +21439,9 @@ react-docgen-typescript@^1.22.0:
   resolved "https://registry.npmjs.org/react-docgen-typescript/-/react-docgen-typescript-1.22.0.tgz"
   integrity sha512-MPLbF8vzRwAG3GcjdL+OHQlhgtWsLTXs+7uJiHfEeT3Ur7IsZaNYqRTLQ9sj2nB6M6jylcPCeCmH7qbszJmecg==
 
-react-docgen-typescript@^2.1.1:
+react-docgen-typescript@^2.1.1, react-docgen-typescript@^2.2.2:
   version "2.2.2"
   resolved "https://registry.npmjs.org/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz"
-  integrity sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==
-
-react-docgen-typescript@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz#4611055e569edc071204aadb20e1c93e1ab1659c"
   integrity sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==
 
 react-docgen@^5.0.0:
@@ -23670,10 +23665,10 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.12.0.tgz"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@^0.0.25:
-  version "0.0.25"
-  resolved "https://registry.npmjs.org/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.25.tgz"
-  integrity sha512-JJzaLhR+8t7pIGP6VyiEVuXfTbxmyx3/TGxt5SabGwxM88b/b6giFzggzTHqeDcrBwlJehj8PixYmPQMNG4m9A==
+storybook-addon-live-examples@^0.0.26:
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.26.tgz#6cb74f1d98a6fb4fed58f834fa4e7b9c5ce21a2f"
+  integrity sha512-EkvMRCS5BJq75pVT9J+hBUhvvjS5/h0PJowViniRn7DDUBlMsDAU+K2swfRyr+TewVnPTXLnTP5GpYTBDV2UVA==
   dependencies:
     prettier "^2.4.0"
     react-live "^2.3.0"

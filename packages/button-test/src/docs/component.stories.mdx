@@ -35,7 +35,7 @@ import { ButtonTest } from '../';
 
 export const Template = (args) => <ButtonTest {...args}>{args.children}</ButtonTest>;
 
-<Story name="Primary" defaultCanvas>
+<Story name="Primary" parameters={{ expanded: true, readOnly: true }}>
     {Template.bind({})}
 </Story>
 
