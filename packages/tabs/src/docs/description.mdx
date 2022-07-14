@@ -174,6 +174,8 @@ render(() => {
     const handleViewChange = (event, { value }) => setView(value);
     const handleComponentChange = (event, { value }) => setComponent(value);
 
+    const props = TabsComponent !== TabsDesktop && { fullWidthScroll: true };
+
     const TabsComponent = React.useMemo(
         () =>
             ({
@@ -187,7 +189,13 @@ render(() => {
     return (
         <>
             <div style={{ width: width }}>
-                <TabsComponent selectedId={selectedId} onChange={handleChange} view={view}>
+                <TabsComponent
+                    {...props}
+                    scrollable={true}
+                    selectedId={selectedId}
+                    onChange={handleChange}
+                    view={view}
+                >
                     {tabs.slice(0, +count).map(({ id, title }) => (
                         <Tab title={title} id={id} />
                     ))}
