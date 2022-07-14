@@ -227,7 +227,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         },
         ref,
     ) => {
-        const [exited, setExited] = useState(!open);
+        const [exited, setExited] = useState<boolean | null>(null);
         const [hasScroll, setHasScroll] = useState(false);
         const [hasHeader, setHasHeader] = useState(false);
         const [hasFooter, setHasFooter] = useState(false);
@@ -251,7 +251,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             }
         };
 
-        const shouldRender = keepMounted || open || !exited;
+        const isExited = exited || exited === null;
+        const shouldRender = keepMounted || open || !isExited;
 
         const getContainer = useCallback(() => {
             return (container ? container() : document.body) as HTMLElement;
@@ -405,18 +406,20 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         useEffect(() => {
             if (open) {
-                handleContainer(getContainer());
+                if (isExited) {
+                    const el = getContainer();
 
-                restoreContainerStylesRef.current = () => {
-                    restoreContainerStylesRef.current = null;
-                    restoreContainerStyles(getContainer());
-                };
+                    handleContainer(el);
+
+                    restoreContainerStylesRef.current = () => {
+                        restoreContainerStylesRef.current = null;
+                        restoreContainerStyles(el);
+                    };
+
+                    setExited(false);
+                }
             }
-        }, [getContainer, open]);
-
-        useEffect(() => {
-            if (open) setExited(false);
-        }, [open]);
+        }, [getContainer, open, isExited]);
 
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
@@ -486,7 +489,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 <div
                                     role='dialog'
                                     className={cn(styles.wrapper, wrapperClassName, {
-                                        [styles.hidden]: !open && exited,
+                                        [styles.hidden]: !open && isExited,
                                     })}
                                     ref={mergeRefs([ref, wrapperRef])}
                                     onKeyDown={handleKeyDown}
