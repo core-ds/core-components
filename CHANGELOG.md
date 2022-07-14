@@ -1,3 +1,10 @@
+## [28.2.5](https://github.com/core-ds/core-components/compare/v28.2.4...v28.2.5) (2022-07-14)
+
+
+### Bug Fixes
+
+* fixed separate packages build ([#152](https://github.com/core-ds/core-components/issues/152)) ([56da602](https://github.com/core-ds/core-components/commit/56da6023946316e7c4a0af3805db962574cc3f0a))
+
 ## [28.2.4](https://github.com/core-ds/core-components/compare/v28.2.3...v28.2.4) (2022-07-14)
 
 
