@@ -1,3 +1,10 @@
+## [28.2.3](https://github.com/core-ds/core-components/compare/v28.2.2...v28.2.3) (2022-07-14)
+
+
+### Bug Fixes
+
+* **scrollbar:** removed core-js dependency ([#145](https://github.com/core-ds/core-components/issues/145)) ([72da859](https://github.com/core-ds/core-components/commit/72da859555de203e1f4c75a316227738b4b981f2))
+
 ## [28.2.2](https://github.com/core-ds/core-components/compare/v28.2.1...v28.2.2) (2022-07-12)
 
 
