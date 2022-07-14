@@ -1,3 +1,10 @@
+## [28.2.4](https://github.com/core-ds/core-components/compare/v28.2.3...v28.2.4) (2022-07-14)
+
+
+### Bug Fixes
+
+* **base-modal:** fix overflow hidden bug ([#128](https://github.com/core-ds/core-components/issues/128)) ([eb953b9](https://github.com/core-ds/core-components/commit/eb953b9866dae8c28bf8265d6884cdf1544ae63c))
+
 ## [28.2.3](https://github.com/core-ds/core-components/compare/v28.2.2...v28.2.3) (2022-07-14)
 
 
