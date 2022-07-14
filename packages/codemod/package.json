@@ -8,7 +8,8 @@
         "postinstall": "npm i -g jscodeshift @types/jscodeshift lodash > /dev/null 2>&1 || exit 0"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "bin": "./bin/index.js",
     "dependencies": {

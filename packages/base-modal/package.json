@@ -4,15 +4,13 @@
     "description": "BaseModal component",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
     "scripts": {
-        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+        "postinstall": "node ./send-stats.js > /dev/null 2>&1 || exit 0"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "dependencies": {
         "@alfalab/core-components-backdrop": "^2.1.0",
