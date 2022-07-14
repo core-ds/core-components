@@ -1,7 +1,10 @@
 import React, { cloneElement, forwardRef, isValidElement, useRef } from 'react';
 import cn from 'classnames';
 
-import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
+import { Drawer } from '@alfalab/core-components-drawer';
+import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { TransitionProps } from 'react-transition-group/Transition';
+
 import mergeRefs from 'react-merge-refs';
 import { HeaderDesktop } from './components/header/Component.desktop';
 import { ContentDesktop } from './components/content/Component.desktop';
@@ -10,7 +13,12 @@ import { FooterDesktop } from './components/footer/Component.desktop';
 import styles from './desktop.module.css';
 import transitions from './transitions.desktop.module.css';
 
-export type SidePanelDesktopProps = DrawerProps & {
+export type SidePanelDesktopProps = BaseModalProps & {
+    /**
+     * Пропсы для анимации контента (CSSTransition)
+     */
+    contentTransitionProps?: Partial<TransitionProps>;
+
     /**
      * Ширина модального окна
      * @default "s"

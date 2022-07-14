@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { Footer, FooterProps } from './Component';
-import { SidePanelDesktopProps } from '../../Component.desktop';
 
 import styles from './desktop.module.css';
 
@@ -9,7 +8,7 @@ export type FooterDesktopProps = FooterProps & {
     /**
      * Размер
      */
-    size?: SidePanelDesktopProps['size'];
+    size?: 's';
 };
 
 export const FooterDesktop: FC<FooterDesktopProps> = ({
