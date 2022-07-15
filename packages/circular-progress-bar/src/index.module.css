@@ -14,7 +14,7 @@
 
     /* theme */
     --circular-progress-bar-font-family: var(--font-family-system);
-    --circular-progress-bar-font-weight: 700;
+    --circular-progress-bar-font-weight: 600;
 }
 
 .component {
