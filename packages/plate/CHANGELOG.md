@@ -481,4 +481,5 @@ This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 
 ### Bug Fixes
 
+
 * update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))

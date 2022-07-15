@@ -520,4 +520,5 @@ remove z-index, add stack component
 
 ## [1.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@1.6.0...@alfalab/core-components-tooltip@1.6.1) (2021-03-03)
 
+
 **Note:** Version bump only for package @alfalab/core-components-tooltip

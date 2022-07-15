@@ -132,4 +132,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+
 * **dropzone:** add component ([#566](https://github.com/core-ds/core-components/issues/566)) ([693a720](https://github.com/core-ds/core-components/commit/693a720202d78d47e39954edff7b72335904d714))

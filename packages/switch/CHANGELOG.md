@@ -175,4 +175,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+
 * **switch:** improved theming ([b4ecc39](https://github.com/core-ds/core-components/commit/b4ecc399c706e1de7086e255e57219e3907414e0))

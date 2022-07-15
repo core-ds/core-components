@@ -393,4 +393,5 @@ This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 
 ### Features
 
+
 * **gallery:** add component ([#815](https://github.com/core-ds/core-components/issues/815)) ([7ffd20e](https://github.com/core-ds/core-components/commit/7ffd20e2d007f658223d29aa943639c13ad51342)), closes [#774](https://github.com/core-ds/core-components/issues/774) [#795](https://github.com/core-ds/core-components/issues/795)

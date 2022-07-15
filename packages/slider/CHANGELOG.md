@@ -167,4 +167,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@1.1.1...@alfalab/core-components-slider@1.1.2) (2021-03-03)
 
+
 **Note:** Version bump only for package @alfalab/core-components-slider

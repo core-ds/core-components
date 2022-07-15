@@ -341,4 +341,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+
 * **tabs:** disabled view ([#513](https://github.com/core-ds/core-components/issues/513)) ([8bdb1a7](https://github.com/core-ds/core-components/commit/8bdb1a789f720c6ccd98ebed3f0ae3c84dbbf52e))

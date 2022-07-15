@@ -54,6 +54,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+
 * **icon-view:** add draft component ([f0ab46f](https://github.com/core-ds/core-components/commit/f0ab46fc5241c3856962f19315213c3e45b6c05b))
 * **icon-view:** add tests, some refactoring ([4fee755](https://github.com/core-ds/core-components/commit/4fee755b826024a02f2dab9e9573088284185380))
 * **icon-view:** refactoring ([2579bb0](https://github.com/core-ds/core-components/commit/2579bb016cfdeef0ff0e177f231a1d1a4715b0af))

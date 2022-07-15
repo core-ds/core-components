@@ -398,4 +398,5 @@ remove z-index, add stack component
 
 ### Features
 
+
 * **notification-manager:** add component ([#565](https://github.com/core-ds/core-components/issues/565)) ([ad6ffab](https://github.com/core-ds/core-components/commit/ad6ffabb0f9665cd453b862279e96b7a1a6f359b))

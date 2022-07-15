@@ -250,4 +250,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+
 * **table:** компоненты для построения таблиц  ([#911](https://github.com/core-ds/core-components/issues/911)) ([4ac648a](https://github.com/core-ds/core-components/commit/4ac648abd4de08bf68babc2f122f432d5b14080e))

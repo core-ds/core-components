@@ -170,6 +170,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+
 * fix eslint ([c4f5261](https://github.com/core-ds/core-components/commit/c4f5261ec4ed63f285e0cb7dc0bdbc17e94dc38d))
 * **core-components-amount:** add boilerplate for amount ([5614885](https://github.com/core-ds/core-components/commit/5614885237a9a4843fb312c22c6b5810a3509e63))
 * **core-components-amount:** add click theme ([b4b0699](https://github.com/core-ds/core-components/commit/b4b0699dcffd2f505935489d66fd0d48b633ecf7))

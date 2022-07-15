@@ -452,4 +452,5 @@ Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
 
 ### Features
 
+
 * **calendar-with-skeleton:** add component ([e940c88](https://github.com/core-ds/core-components/commit/e940c88703a7434e0db4ce0efc27a234455b449c))
