@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@1.1.3...@alfalab/core-components-side-panel@1.1.4) (2022-07-15)
+
+
+### Bug Fixes
+
+* **side-panel:** fix ts ([#149](https://github.com/core-ds/core-components/issues/149)) ([6ec7063](https://github.com/core-ds/core-components/commit/6ec706359d95bf7e55845aa0b24a7fd5190d0932))
+
+
+
+
+
 ## [1.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@1.1.2...@alfalab/core-components-side-panel@1.1.3) (2022-07-15)
 
 

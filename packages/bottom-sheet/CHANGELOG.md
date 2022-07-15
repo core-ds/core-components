@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.5.2...@alfalab/core-components-bottom-sheet@4.6.0) (2022-07-15)
+
+
+### Features
+
+* **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
+
+
+
+
+
 ## [4.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.5.1...@alfalab/core-components-bottom-sheet@4.5.2) (2022-07-15)
 
 

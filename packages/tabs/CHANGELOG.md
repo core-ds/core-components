@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.3.2...@alfalab/core-components-tabs@6.4.0) (2022-07-15)
+
+
+### Features
+
+* **tabs:** add className fro tab button and tab children ([#132](https://github.com/core-ds/core-components/issues/132)) ([a1b19d2](https://github.com/core-ds/core-components/commit/a1b19d282d27159103f13205f9ea694489d65c51))
+
+
+
+
+
 ## [6.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.3.1...@alfalab/core-components-tabs@6.3.2) (2022-07-15)
 
 
