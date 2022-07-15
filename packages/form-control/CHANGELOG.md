@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@7.5.1...@alfalab/core-components-form-control@7.5.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [7.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@7.5.0...@alfalab/core-components-form-control@7.5.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-form-control
+
+
+
+
+
 # [7.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@7.4.3...@alfalab/core-components-form-control@7.5.0) (2022-06-28)
 
 
@@ -205,5 +224,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Bug Fixes
+
 
 * slightly better and safer ie fixes ([0e34b4f](https://github.com/core-ds/core-components/commit/0e34b4fb9800a435c05dc8f83146ce5617cf99a5))

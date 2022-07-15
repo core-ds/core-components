@@ -66,8 +66,8 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
 }) => {
     const [view] = useMedia<View>(
         [
-            ['mobile', '(max-width: 767px)'],
-            ['desktop', '(min-width: 768px)'],
+            ['mobile', '(max-width: 1024px)'],
+            ['desktop', '(min-width: 1025px)'],
         ],
         defaultMatch,
     );

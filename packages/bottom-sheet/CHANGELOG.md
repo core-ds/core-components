@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.5.2...@alfalab/core-components-bottom-sheet@4.6.0) (2022-07-15)
+
+
+### Features
+
+* **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
+
+
+
+
+
+## [4.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.5.1...@alfalab/core-components-bottom-sheet@4.5.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [4.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.5.0...@alfalab/core-components-bottom-sheet@4.5.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+# [4.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.2...@alfalab/core-components-bottom-sheet@4.5.0) (2022-07-11)
+
+
+### Features
+
+* **bottom-sheet:** add prop to set modal classname ([#133](https://github.com/core-ds/core-components/issues/133)) ([8305c0e](https://github.com/core-ds/core-components/commit/8305c0e50b4fe6ebc8bb1f532d33157c63514915))
+
+
+
+
+
 ## [4.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.1...@alfalab/core-components-bottom-sheet@4.4.2) (2022-07-01)
 
 **Note:** Version bump only for package @alfalab/core-components-bottom-sheet
@@ -258,5 +299,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **bottom-sheet:** new component (PDS-228) ([#645](https://github.com/core-ds/core-components/issues/645)) ([1f7391d](https://github.com/core-ds/core-components/commit/1f7391df16a270d8a3a28b8ebaf98d0ed0928bc8)), closes [#642](https://github.com/core-ds/core-components/issues/642) [#642](https://github.com/core-ds/core-components/issues/642) [#646](https://github.com/core-ds/core-components/issues/646) [#646](https://github.com/core-ds/core-components/issues/646) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#648](https://github.com/core-ds/core-components/issues/648) [#647](https://github.com/core-ds/core-components/issues/647) [#630](https://github.com/core-ds/core-components/issues/630) [#648](https://github.com/core-ds/core-components/issues/648) [#630](https://github.com/core-ds/core-components/issues/630) [#669](https://github.com/core-ds/core-components/issues/669)

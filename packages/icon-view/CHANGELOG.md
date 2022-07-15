@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-view@1.3.1...@alfalab/core-components-icon-view@1.3.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [1.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-view@1.3.0...@alfalab/core-components-icon-view@1.3.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-view
+
+
+
+
+
 # [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-icon-view@1.2.0...@alfalab/core-components-icon-view@1.3.0) (2022-06-28)
 
 
@@ -45,6 +64,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **icon-view:** add draft component ([f0ab46f](https://github.com/core-ds/core-components/commit/f0ab46fc5241c3856962f19315213c3e45b6c05b))
 * **icon-view:** add tests, some refactoring ([4fee755](https://github.com/core-ds/core-components/commit/4fee755b826024a02f2dab9e9573088284185380))

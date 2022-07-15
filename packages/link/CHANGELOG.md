@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-link@3.3.1...@alfalab/core-components-link@3.3.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [3.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-link@3.3.0...@alfalab/core-components-link@3.3.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-link
+
+
+
+
+
 # [3.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-link@3.2.4...@alfalab/core-components-link@3.3.0) (2022-06-28)
 
 
@@ -152,5 +171,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **link:** set rel='noopener noreferrer' if target='_blank' ([#520](https://github.com/core-ds/core-components/issues/520)) ([08c556e](https://github.com/core-ds/core-components/commit/08c556ecc0944d121b23566ae54319a1a33899ba)), closes [#519](https://github.com/core-ds/core-components/issues/519)

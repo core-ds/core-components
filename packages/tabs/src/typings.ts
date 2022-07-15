@@ -90,9 +90,14 @@ export type TabProps = {
     title: string;
 
     /**
-     * Дополнительный класс
+     * Дополнительный класс для контейнера содержимого таба
      */
     className?: string;
+
+    /**
+     * Дополнительный класс для кнопки таба
+     */
+    toggleClassName?: string;
 
     /**
      * Блокирует таб
@@ -146,6 +151,7 @@ export type TabListProps = Pick<
         disabled?: boolean;
         rightAddons?: ReactNode;
         hidden?: boolean;
+        toggleClassName?: string;
     }>;
 };
 

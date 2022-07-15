@@ -15,15 +15,21 @@ export type ContentProps = {
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
-export const Content: FC<ContentProps> = ({ children, className }) => {
+export const Content: FC<ContentProps> = ({ children, className, dataTestId }) => {
     const { contentRef } = useContext(ModalContext);
 
     return (
         <div
             className={cn(styles.content, className, styles.flex)}
             ref={contentRef as Ref<HTMLDivElement>}
+            data-test-id={dataTestId}
         >
             {children}
         </div>

@@ -39,7 +39,7 @@ export const SecondaryTabList = ({
                     <Tag
                         {...getTabListItemProps(index)}
                         key={item.id}
-                        className={styles.title}
+                        className={cn(styles.title, item.toggleClassName)}
                         checked={item.id === selectedId}
                         size={tagSize}
                         rightAddons={item.rightAddons}

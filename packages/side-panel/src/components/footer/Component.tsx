@@ -31,9 +31,21 @@ export type FooterProps = {
      * Отступы между элементами футера
      */
     gap?: 16 | 24 | 32;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
-export const Footer: FC<FooterProps> = ({ children, className, sticky, layout = 'start', gap }) => {
+export const Footer: FC<FooterProps> = ({
+    children,
+    className,
+    sticky,
+    layout = 'start',
+    gap,
+    dataTestId,
+}) => {
     const { footerHighlighted, setHasFooter } = useContext(ModalContext);
 
     useEffect(() => {
@@ -52,6 +64,7 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky, layout = 
                     [styles.sticky]: sticky,
                 },
             )}
+            data-test-id={dataTestId}
         >
             {children}
         </div>

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.4.1...@alfalab/core-components-code-input@1.4.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [1.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.4.0...@alfalab/core-components-code-input@1.4.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-code-input
+
+
+
+
+
 # [1.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.3.0...@alfalab/core-components-code-input@1.4.0) (2022-06-28)
 
 
@@ -45,5 +64,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **code-input:** add component ([#932](https://github.com/core-ds/core-components/issues/932)) ([dc40cb5](https://github.com/core-ds/core-components/commit/dc40cb5b28322b4a2dc5735b354a7d45cf34adb9))

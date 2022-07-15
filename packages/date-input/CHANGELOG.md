@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-date-input@2.3.1...@alfalab/core-components-date-input@2.3.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [2.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-date-input@2.3.0...@alfalab/core-components-date-input@2.3.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-date-input
+
+
+
+
+
 # [2.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-date-input@2.2.2...@alfalab/core-components-date-input@2.3.0) (2022-06-28)
 
 
@@ -297,6 +316,7 @@ Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
 
 
 ### Features
+
 
 * **calendar-input:** uses date-input ([#752](https://github.com/core-ds/core-components/issues/752)) ([509dba2](https://github.com/core-ds/core-components/commit/509dba26913ccf6df859a200aa476eeef1df2ddc))
 * **date-input:** add component ([#751](https://github.com/core-ds/core-components/issues/751)) ([4b94bee](https://github.com/core-ds/core-components/commit/4b94beec36acc73ac6c62cf37f87061c0ada4b35))

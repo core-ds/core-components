@@ -23,6 +23,7 @@ const addPackagesDir = config => {
             rule.oneOf.forEach(nestedRule => {
                 if (nestedRule.loader && nestedRule.loader.includes('babel-loader')) {
                     nestedRule.include.push(path.resolve(__dirname, '../packages'));
+                    nestedRule.include.push(path.resolve(__dirname, '../node_modules/simplebar'));
 
                     if (isIeMode && nestedRule.options && nestedRule.options.presets) {
                         nestedRule.options.sourceType = 'unambiguous';

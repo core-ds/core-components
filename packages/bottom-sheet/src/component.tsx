@@ -12,7 +12,7 @@ import cn from 'classnames';
 import { use100vh } from 'react-div-100vh';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
-import { BaseModal } from '@alfalab/core-components-base-modal';
+import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
 import { Header, HeaderProps } from './components/header/Component';
 import { Footer } from './components/footer/Component';
@@ -87,6 +87,16 @@ export type BottomSheetProps = {
      * Дополнительный класс для компонента стрелки назад
      */
     backerClassName?: string;
+
+    /**
+     * Дополнительный класс для компонента модального окна
+     */
+    modalClassName?: string;
+
+    /**
+     * Дополнительный класс для обертки модального окна
+     */
+    modalWrapperClassName?: string;
 
     /**
      * TransitionProps, прокидываются в компонент CSSTransitionProps.
@@ -175,9 +185,19 @@ export type BottomSheetProps = {
     disableOverlayClick?: boolean;
 
     /**
+     * Отключает блокировку скролла при открытии модального окна
+     */
+    disableBlockingScroll?: boolean;
+
+    /**
      * Не анимировать шторку при изменении размера вьюпорта
      */
     ignoreScreenChange?: boolean;
+
+    /**
+     * Свойства для Бэкдропа
+     */
+    backdropProps?: BaseModalProps['backdropProps'];
 
     /**
      * Обработчик закрытия
@@ -214,6 +234,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             addonClassName,
             closerClassName,
             backerClassName,
+            modalClassName,
+            modalWrapperClassName,
             className,
             leftAddons,
             rightAddons,
@@ -228,12 +250,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideOverlay,
             hideHeader,
             disableOverlayClick,
+            disableBlockingScroll,
             children,
             zIndex,
             transitionProps = {},
             dataTestId,
             swipeable = true,
             ignoreScreenChange = false,
+            backdropProps,
             onClose,
             onBack,
         },
@@ -443,13 +467,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 scrollHandler={scrollableContainer}
                 Backdrop={SwipeableBackdrop}
                 backdropProps={{
+                    ...backdropProps,
                     opacity: backdropOpacity,
                     handlers: swipeable ? backdropSwipeablehandlers : false,
                     opacityTimeout: TIMEOUT,
                     invisible: initialHeight === 'full' ? false : hideOverlay,
                 }}
                 disableBackdropClick={hideOverlay ? true : disableOverlayClick}
-                className={styles.modal}
+                className={cn(styles.modal, modalClassName)}
+                wrapperClassName={modalWrapperClassName}
+                disableBlockingScroll={disableBlockingScroll}
                 transitionProps={{
                     appear: true,
                     timeout: TIMEOUT,

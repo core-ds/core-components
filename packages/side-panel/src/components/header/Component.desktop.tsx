@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import { Header, HeaderProps } from './Component';
 import { Closer } from '../closer/Component';
-import { SidePanelDesktopProps } from '../../Component.desktop';
 
 import styles from './desktop.module.css';
 
@@ -10,7 +9,7 @@ export type HeaderDesktopProps = Omit<HeaderProps, 'closer'> & {
     /**
      * Размер
      */
-    size?: SidePanelDesktopProps['size'];
+    size?: 's';
 
     /**
      * Наличие крестика
@@ -19,7 +18,7 @@ export type HeaderDesktopProps = Omit<HeaderProps, 'closer'> & {
 };
 
 export const HeaderDesktop: FC<HeaderDesktopProps> = ({
-    size,
+    size = 's',
     className,
     contentClassName,
     hasCloser = true,

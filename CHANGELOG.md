@@ -1,3 +1,81 @@
+# [28.3.0](https://github.com/core-ds/core-components/compare/v28.2.6...v28.3.0) (2022-07-15)
+
+
+### Bug Fixes
+
+* **pure-cell:** fix content ([#144](https://github.com/core-ds/core-components/issues/144)) ([5fdd5b0](https://github.com/core-ds/core-components/commit/5fdd5b0f4f71969deac12b96438d29ec956eed3c))
+* **side-panel:** fix ts ([#149](https://github.com/core-ds/core-components/issues/149)) ([6ec7063](https://github.com/core-ds/core-components/commit/6ec706359d95bf7e55845aa0b24a7fd5190d0932))
+* test timeout time up ([#154](https://github.com/core-ds/core-components/issues/154)) ([17678fc](https://github.com/core-ds/core-components/commit/17678fc948b91769318f5cf8fc76b8a547414b5d))
+
+
+### Features
+
+* **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
+* **tabs:** add className fro tab button and tab children ([#132](https://github.com/core-ds/core-components/issues/132)) ([a1b19d2](https://github.com/core-ds/core-components/commit/a1b19d282d27159103f13205f9ea694489d65c51))
+
+## [28.2.6](https://github.com/core-ds/core-components/compare/v28.2.5...v28.2.6) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+## [28.2.5](https://github.com/core-ds/core-components/compare/v28.2.4...v28.2.5) (2022-07-14)
+
+
+### Bug Fixes
+
+* fixed separate packages build ([#152](https://github.com/core-ds/core-components/issues/152)) ([56da602](https://github.com/core-ds/core-components/commit/56da6023946316e7c4a0af3805db962574cc3f0a))
+
+## [28.2.4](https://github.com/core-ds/core-components/compare/v28.2.3...v28.2.4) (2022-07-14)
+
+
+### Bug Fixes
+
+* **base-modal:** fix overflow hidden bug ([#128](https://github.com/core-ds/core-components/issues/128)) ([eb953b9](https://github.com/core-ds/core-components/commit/eb953b9866dae8c28bf8265d6884cdf1544ae63c))
+
+## [28.2.3](https://github.com/core-ds/core-components/compare/v28.2.2...v28.2.3) (2022-07-14)
+
+
+### Bug Fixes
+
+* **scrollbar:** removed core-js dependency ([#145](https://github.com/core-ds/core-components/issues/145)) ([72da859](https://github.com/core-ds/core-components/commit/72da859555de203e1f4c75a316227738b4b981f2))
+
+## [28.2.2](https://github.com/core-ds/core-components/compare/v28.2.1...v28.2.2) (2022-07-12)
+
+
+### Bug Fixes
+
+* **cdn-icon:** edited icon size fit svg ([#141](https://github.com/core-ds/core-components/issues/141)) ([54098bf](https://github.com/core-ds/core-components/commit/54098bff366b8a3715b986d7c3e37556b60bb2bf))
+
+# [28.2.1](https://github.com/core-ds/core-components/compare/v28.1.1...v28.2.0) (2022-07-11)
+
+
+### Bug Fixes
+
+* **base-modal:** fix using resize observer ([#136](https://github.com/core-ds/core-components/issues/136)) ([cb8f03c](https://github.com/core-ds/core-components/commit/cb8f03ca55394316189d1d4529ee3fdb691538d9))
+* **select:** added comment for IE ([#127](https://github.com/core-ds/core-components/issues/127)) ([31fb5f6](https://github.com/core-ds/core-components/commit/31fb5f69c57acbf71e897b8c261068a24c883ecc))
+
+
+### Features
+
+* **bottom-sheet:** add prop to set modal classname ([#133](https://github.com/core-ds/core-components/issues/133)) ([8305c0e](https://github.com/core-ds/core-components/commit/8305c0e50b4fe6ebc8bb1f532d33157c63514915))
+* **tooltip:** change media query for TooltipResponsive ([#131](https://github.com/core-ds/core-components/issues/131)) ([87e44aa](https://github.com/core-ds/core-components/commit/87e44aa499dcac3832e6bdd4894c829c64487c29))
+
+## [28.1.1](https://github.com/core-ds/core-components/compare/v28.1.0...v28.1.1) (2022-07-07)
+
+
+### Bug Fixes
+
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
+# [28.1.0](https://github.com/core-ds/core-components/compare/v28.0.0...v28.1.0) (2022-07-07)
+
+
+### Features
+
+* **spinner:** new size & inverted theme ([#123](https://github.com/core-ds/core-components/issues/123)) ([5568ab5](https://github.com/core-ds/core-components/commit/5568ab5183badaded723ebc5a608b20bf471c6bc))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
