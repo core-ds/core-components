@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.6.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.6.3...@alfalab/core-components-intl-phone-input@6.6.4) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
 ## [6.6.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-intl-phone-input@6.6.2...@alfalab/core-components-intl-phone-input@6.6.3) (2022-07-14)
 
 **Note:** Version bump only for package @alfalab/core-components-intl-phone-input
