@@ -1,3 +1,18 @@
+# [28.3.0](https://github.com/core-ds/core-components/compare/v28.2.6...v28.3.0) (2022-07-15)
+
+
+### Bug Fixes
+
+* **pure-cell:** fix content ([#144](https://github.com/core-ds/core-components/issues/144)) ([5fdd5b0](https://github.com/core-ds/core-components/commit/5fdd5b0f4f71969deac12b96438d29ec956eed3c))
+* **side-panel:** fix ts ([#149](https://github.com/core-ds/core-components/issues/149)) ([6ec7063](https://github.com/core-ds/core-components/commit/6ec706359d95bf7e55845aa0b24a7fd5190d0932))
+* test timeout time up ([#154](https://github.com/core-ds/core-components/issues/154)) ([17678fc](https://github.com/core-ds/core-components/commit/17678fc948b91769318f5cf8fc76b8a547414b5d))
+
+
+### Features
+
+* **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
+* **tabs:** add className fro tab button and tab children ([#132](https://github.com/core-ds/core-components/issues/132)) ([a1b19d2](https://github.com/core-ds/core-components/commit/a1b19d282d27159103f13205f9ea694489d65c51))
+
 ## [28.2.6](https://github.com/core-ds/core-components/compare/v28.2.5...v28.2.6) (2022-07-15)
 
 
