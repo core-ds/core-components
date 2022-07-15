@@ -3,6 +3,7 @@
 .component {
     flex-basis: 100%;
     display: grid;
+    grid-template-columns: 1fr auto;
 
     &.horizontal {
         /* for button */

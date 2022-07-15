@@ -118,7 +118,7 @@ render (() => (
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount
-                            amount={ { view: 'withZeroMinorPart' value: 100000000, currency: 'RUR' as const, minorUnits: 100 } }
+                            amount={ { view: 'withZeroMinorPart', value: 100000000, currency: 'RUR', minorUnits: 100 } }
                         />
                     </PureCell.Main>
                     <PureCell.Footer>
@@ -142,7 +142,7 @@ render (() => (
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount
-                            amount={ { value: 100000000, currency: 'RUR' as const, minorUnits: 100 } }
+                            amount={ { value: 100000000, currency: 'RUR', minorUnits: 100 } }
                         />
                     </PureCell.Main>
                 </PureCell.Content>
@@ -155,7 +155,7 @@ render (() => (
 ### Card Cell
 
 ```jsx live
-render (() =>
+render (() => (
     <Container align='stretch' >
         <Row align='top'>
             <Col>
@@ -466,7 +466,7 @@ render (() => (
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={ { value: 100000000, currency: 'RUR' as const, minorUnits: 100 } }
+                                amount={ { value: 100000000, currency: 'RUR' , minorUnits: 100 } }
                             />
                         </PureCell.Main>
                     </PureCell.Content>
@@ -485,7 +485,7 @@ render (() => (
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={ { value: 100000000, currency: 'RUR' as const, minorUnits: 100 } }
+                                amount={ { value: 100000000, currency: 'RUR' , minorUnits: 100 } }
                             />
                         </PureCell.Main>
                     </PureCell.Content>
@@ -499,7 +499,7 @@ render (() => (
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={ { value: 100000000, currency: 'RUR' as const, minorUnits: 100 } }
+                                amount={ { value: 100000000, currency: 'RUR' , minorUnits: 100 } }
                             />
                         </PureCell.Main>
                         <PureCell.Addon verticalAlign="center">
@@ -578,7 +578,7 @@ render (() => (
                                 Account Name ··0000
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={ { value: 0, currency: 'RUR' as const, minorUnits: 100 } }
+                                amount={ { value: 0, currency: 'RUR' , minorUnits: 100 } }
                             />
                         </PureCell.Main>
                         <PureCell.Addon verticalAlign="center">
@@ -631,7 +631,7 @@ render (() => (
                 </PureCell.Main>
                 <PureCell.Addon>
                     <PureCell.Amount
-                        amount={ { value: 100000000, currency: 'RUR' as const, minorUnits: 100 } }
+                        amount={ { value: 100000000, currency: 'RUR' , minorUnits: 100 } }
                     />
                 </PureCell.Addon>
                 <PureCell.Footer>
@@ -659,7 +659,7 @@ render (() => (
                 </PureCell.Main>
                 <PureCell.Addon>
                     <PureCell.Amount
-                        amount={ { value: 100000000, currency: 'RUR' as const, minorUnits: 100 } }
+                        amount={ { value: 100000000, currency: 'RUR' , minorUnits: 100 } }
                     />
                 </PureCell.Addon>
                 <PureCell.Footer>
@@ -717,7 +717,7 @@ render (() => (
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.AmountTitle
-                        amount={ { value: 100000099, currency: 'RUR' as const, minorUnits: 100 } }
+                        amount={ { value: 100000099, currency: 'RUR' , minorUnits: 100 } }
                     />
                 </PureCell.Main>
                 <PureCell.Addon verticalAlign="center">
@@ -734,7 +734,7 @@ render (() => (
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.Amount
-                        amount={ { value: 100000099, currency: 'RUR' as const, minorUnits: 100 } }
+                        amount={ { value: 100000099, currency: 'RUR' , minorUnits: 100 } }
                         weight="bold"
                     />
                 </PureCell.Main>
