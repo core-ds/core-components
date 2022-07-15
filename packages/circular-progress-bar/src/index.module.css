@@ -14,6 +14,7 @@
 
     /* theme */
     --circular-progress-bar-font-family: var(--font-family-system);
+    --circular-progress-bar-font-weight: 700;
 }
 
 .component {
@@ -58,6 +59,7 @@
 
 .typography {
     font-feature-settings: 'ss01';
+    font-weight: var(--circular-progress-bar-font-weight);
     font-family: var(--circular-progress-bar-font-family);
 }
 
