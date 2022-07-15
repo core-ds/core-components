@@ -306,4 +306,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+
 * **password-input:** add password input (PDS-233) ([#691](https://github.com/core-ds/core-components/issues/691)) ([d872e4d](https://github.com/core-ds/core-components/commit/d872e4dd18fd5db472864fbc2676749b812da00f))

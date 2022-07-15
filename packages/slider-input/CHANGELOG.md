@@ -504,4 +504,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@2.2.0...@alfalab/core-components-slider-input@2.2.1) (2021-02-18)
 
+
 **Note:** Version bump only for package @alfalab/core-components-slider-input

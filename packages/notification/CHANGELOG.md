@@ -557,6 +557,7 @@ remove z-index, add stack component
 * Betters toasts (#521) ([628b032](https://github.com/core-ds/core-components/commit/628b032f00dc36a71563f62238bd3f559968f320)), closes [#521](https://github.com/core-ds/core-components/issues/521)
 
 
+
 ### BREAKING CHANGES
 
 * --notification-desktop-width var removed

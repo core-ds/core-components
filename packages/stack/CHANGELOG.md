@@ -90,6 +90,7 @@ This reverts commit fcae901c6ec58311701cd491296a7b04016a9a65.
 * feat(base-modal): remove z-index, add stack component
 
 remove z-index, add stack component
+
 * **stack:** remove z-index, add stack component
 
 * test(file-upload-item): update snapshot

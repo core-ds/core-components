@@ -144,4 +144,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@1.2.4...@alfalab/core-components-keyboard-focusable@1.2.5) (2021-03-03)
 
+
 **Note:** Version bump only for package @alfalab/core-components-keyboard-focusable

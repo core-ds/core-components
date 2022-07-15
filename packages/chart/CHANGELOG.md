@@ -152,8 +152,3 @@ Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
 
 * **chart:** add component ([#835](https://github.com/core-ds/core-components/issues/835)) ([17d840b](https://github.com/core-ds/core-components/commit/17d840b9f9f64474491d3ec58d3cda53ad07f0ca))
 
-
-
-
-
-# Change Log

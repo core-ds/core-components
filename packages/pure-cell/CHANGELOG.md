@@ -23,8 +23,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **pure cell:** new component ([#10](https://github.com/core-ds/core-components/issues/10)) ([4e95c57](https://github.com/core-ds/core-components/commit/4e95c573aaa6f99197292ea4bae12cbbcc3207c9))
 
-
-
-
-
-# Change Log

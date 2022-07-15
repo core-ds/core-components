@@ -150,4 +150,5 @@ This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 
 ## [1.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-cdn-icon@1.0.0...@alfalab/core-components-cdn-icon@1.0.1) (2021-02-18)
 
+
 **Note:** Version bump only for package @alfalab/core-components-cdn-icon

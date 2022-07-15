@@ -370,4 +370,5 @@ remove z-index, add stack component
 
 ### Features
 
+
 * **drawer:** add component ([#497](https://github.com/core-ds/core-components/issues/497)) ([5943188](https://github.com/core-ds/core-components/commit/594318886d581e6afca99fcebe9088c222aa3d52))
