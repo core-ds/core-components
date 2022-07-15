@@ -43,10 +43,14 @@ export const PrimaryTabList = ({
                             <button
                                 {...getTabListItemProps(index, ref)}
                                 type='button'
-                                className={cn(styles.title, {
-                                    [styles.selected]: item.id === selectedId,
-                                    [styles.disabled]: item.disabled,
-                                })}
+                                className={cn(
+                                    styles.title,
+                                    {
+                                        [styles.selected]: item.id === selectedId,
+                                        [styles.disabled]: item.disabled,
+                                    },
+                                    item.toggleClassName,
+                                )}
                             >
                                 <span className={focused ? styles.focused : undefined}>
                                     {item.title}
