@@ -19,5 +19,5 @@ module.exports = {
     },
     testMatch: ['**/*.screenshots.test.ts?(x)'],
     maxWorkers: 5,
-    testTimeout: 20000,
+    testTimeout: 200000,
 };
