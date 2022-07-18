@@ -156,6 +156,11 @@ export type TooltipProps = {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Использовать ширину родительского элемента
+     */
+    useAnchorWidth?: boolean;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -184,6 +189,7 @@ export const Tooltip: FC<TooltipProps> = ({
     availableHeight = false,
     anchor = null,
     colors = 'default',
+    useAnchorWidth,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -357,6 +363,7 @@ export const Tooltip: FC<TooltipProps> = ({
                 fallbackPlacements={fallbackPlacements}
                 preventOverflow={preventOverflow}
                 availableHeight={availableHeight}
+                useAnchorWidth={useAnchorWidth}
             >
                 <div {...getContentProps()}>{content}</div>
             </Popover>
