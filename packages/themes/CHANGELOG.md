@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.3.1...@alfalab/core-components-themes@8.3.2) (2022-07-18)
+
+
+### Bug Fixes
+
+* **skeleton:** fixed skeleton animation flickering(safari) ([#142](https://github.com/core-ds/core-components/issues/142)) ([40fb389](https://github.com/core-ds/core-components/commit/40fb389316d2a12492ea6a1827947ac71bf7d081))
+
+
+
+
+
 ## [8.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.3.0...@alfalab/core-components-themes@8.3.1) (2022-07-14)
 
 **Note:** Version bump only for package @alfalab/core-components-themes
