@@ -6,10 +6,14 @@ import { Typography } from '@alfalab/core-components-typography';
 import styles from './index.module.css';
 
 export type CommentViewProps = {
-    /** Сss класс для стилизации общей обёртки */
+    /**
+     *  Сss класс для стилизации общей обёртки
+     */
     className?: string;
-    
-    /** Id компонента для тестов */
+
+    /**
+     * Id компонента для тестов
+     */
     dataTestId?: string;
 };
 
