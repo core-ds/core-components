@@ -14,6 +14,7 @@ export const PrimaryTabList = ({
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
+    fullWidthScroll,
     onChange,
     dataTestId,
 }: TabListProps & Styles) => {
@@ -30,10 +31,16 @@ export const PrimaryTabList = ({
             lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
             lineRef.current.style.transform = `translateX(${selectedTab.offsetLeft}px)`;
         }
-    });
+    }, [selectedTab]);
 
     const renderContent = () => (
-        <React.Fragment>
+        <div
+            role='tablist'
+            data-test-id={dataTestId}
+            className={cn(styles.component, className, size && styles[size], {
+                [styles.fullWidthScroll]: fullWidthScroll,
+            })}
+        >
             {titles.map((item, index) => {
                 if (item.hidden) return null;
 
@@ -63,27 +70,19 @@ export const PrimaryTabList = ({
                     </KeyboardFocusable>
                 );
             })}
-
             <div className={styles.line} ref={lineRef} />
-        </React.Fragment>
+        </div>
     );
 
-    return (
-        <div
-            role='tablist'
-            data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size])}
+    return scrollable ? (
+        <ScrollableContainer
+            activeChild={focusedTab || selectedTab}
+            containerClassName={containerClassName}
+            fullWidthScroll={fullWidthScroll}
         >
-            {scrollable ? (
-                <ScrollableContainer
-                    activeChild={focusedTab || selectedTab}
-                    containerClassName={containerClassName}
-                >
-                    {renderContent()}
-                </ScrollableContainer>
-            ) : (
-                <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
-            )}
-        </div>
+            {renderContent()}
+        </ScrollableContainer>
+    ) : (
+        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
     );
 };

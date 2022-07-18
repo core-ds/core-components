@@ -4,11 +4,11 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
 <div>
   <div>
     <div
-      class="component m"
-      role="tablist"
+      class="container"
     >
       <div
-        class="container"
+        class="component m"
+        role="tablist"
       >
         <button
           aria-selected="false"
@@ -91,11 +91,11 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
 <div>
   <div>
     <div
-      class="component s"
-      role="tablist"
+      class="container"
     >
       <div
-        class="container"
+        class="component s"
+        role="tablist"
       >
         <button
           aria-selected="false"
@@ -174,11 +174,11 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
 <div>
   <div>
     <div
-      class=""
-      role="tablist"
+      class="container"
     >
       <div
-        class="container"
+        class=""
+        role="tablist"
       >
         <button
           aria-selected="false"
@@ -258,11 +258,11 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
 <div>
   <div>
     <div
-      class=""
-      role="tablist"
+      class="container"
     >
       <div
-        class="container"
+        class=""
+        role="tablist"
       >
         <button
           aria-selected="false"
@@ -341,11 +341,11 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
 <div>
   <div>
     <div
-      class="component m"
-      role="tablist"
+      class="container"
     >
       <div
-        class="container"
+        class="component m"
+        role="tablist"
       >
         <button
           aria-selected="false"
@@ -428,11 +428,11 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
 <div>
   <div>
     <div
-      class="component s"
-      role="tablist"
+      class="container"
     >
       <div
-        class="container"
+        class="component s"
+        role="tablist"
       >
         <button
           aria-selected="false"

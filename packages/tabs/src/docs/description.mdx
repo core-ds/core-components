@@ -1,175 +1,260 @@
-Компоненты для построения табов.
+## Примеры
 
-### Tab
+### Виды табов
 
-Данный компонент используется для семантики в клиентском коде.
-
-Свойство `title` будет использовано для генерации заголовков, а `id` для переключения табов.
-
-С помощью свойства `disabled` таб можно заблокировать для выбора.
-
-По умолчанию в DOM рендерится контент только активного таба, с помощью `keepMounted` можно указать, контент каких табов нужно рендерить в любом случае.
-Контент в таком случае останется невидимым, но всегда будет находиться в DOM.
-
-### TabsDesktop
+У табов есть два вида отображения: primary и secondary
 
 ```jsx live
 render(() => {
     const [selectedId, setSelectedId] = React.useState('tab-1');
+    const [selectSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');
 
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+    const handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);
 
     return (
-        <TabsDesktop selectedId={selectedId} onChange={handleChange}>
-            <Tab title='Таб 1' id='tab-1'>
-                Таб 1
-            </Tab>
-            <Tab title='Таб 2' id='tab-2'>
-                Таб 2
-            </Tab>
-            <Tab title='Таб 3' id='tab-3'>
-                Таб 3
-            </Tab>
-            <Tab title='Таб 4' id='tab-4'>
-                Таб 4
-            </Tab>
-            <Tab title='Таб 5' id='tab-5'>
-                Таб 5
-            </Tab>
-        </TabsDesktop>
+        <>
+            <TabsResponsive selectedId={selectedId} onChange={handleChange}>
+                <Tab title='Aurum' id='tab-1' />
+                <Tab title='Bercelium' id='tab-2' />
+                <Tab title='Curium' id='tab-3' />
+                <Tab title='Neptunium' id='tab-4' />
+                <Tab title='Plutonuim' id='tab-5' />
+                <Tab title='Rubidium' id='tab-6' />
+                <Tab title='Californium' id='tab-7' />
+            </TabsResponsive>
+            <div style={{ marginTop: 20 }}>
+                <TabsResponsive
+                    selectedId={selectSecondaryId}
+                    onChange={handleSecondaryChange}
+                    view='secondary'
+                >
+                    <Tab title='Aurum' id='tab-1' />
+                    <Tab title='Bercelium' id='tab-2' />
+                    <Tab title='Curium' id='tab-3' />
+                    <Tab title='Neptunium' id='tab-4' />
+                    <Tab title='Plutonuim' id='tab-5' />
+                    <Tab title='Rubidium' id='tab-6' />
+                    <Tab title='Californium' id='tab-7' />
+                </TabsResponsive>
+            </div>
+        </>
     );
 });
 ```
 
-### TabsMobile
+### Размеры
+
+Для secondary табов есть возможность управлять размером вложенных компонентов <a href='/docs/компоненты-tag--tag'>Tag</a>.
+
+```jsx live
+render(() => {
+    const [selectedSId, setSelectedSId] = React.useState('tab-1');
+    const [selectedXSId, setSelectedXSId] = React.useState('tab-1');
+    const [selectedXXSId, setSelectedXXSId] = React.useState('tab-1');
+
+    const handleSChange = (event, { selectedId }) => setSelectedSId(selectedId);
+    const handleXSChange = (event, { selectedId }) => setSelectedXSId(selectedId);
+    const handlesXXSChange = (event, { selectedId }) => setSelectedXXSId(selectedId);
+
+    return (
+        <>
+            <TabsDesktop
+                selectedId={selectedSId}
+                size='s'
+                onChange={handleSChange}
+                view='secondary'
+            >
+                <Tab title='Aurum' id='tab-1' />
+                <Tab title='Bercelium' id='tab-2' />
+                <Tab title='Curium' id='tab-3' />
+                <Tab title='Neptunium' id='tab-4' />
+                <Tab title='Plutonuim' id='tab-5' />
+                <Tab title='Rubidium' id='tab-6' />
+                <Tab title='Californium' id='tab-7' />
+            </TabsDesktop>
+            <div style={{ marginTop: 20 }}>
+                <TabsDesktop
+                    selectedId={selectedXSId}
+                    size='xs'
+                    onChange={handleXSChange}
+                    view='secondary'
+                >
+                    <Tab title='Aurum' id='tab-1' />
+                    <Tab title='Bercelium' id='tab-2' />
+                    <Tab title='Curium' id='tab-3' />
+                    <Tab title='Neptunium' id='tab-4' />
+                    <Tab title='Plutonuim' id='tab-5' />
+                    <Tab title='Rubidium' id='tab-6' />
+                    <Tab title='Californium' id='tab-7' />
+                </TabsDesktop>
+            </div>
+            <div style={{ marginTop: 20 }}>
+                <TabsDesktop
+                    selectedId={selectedXXSId}
+                    size='xxs'
+                    onChange={handlesXXSChange}
+                    view='secondary'
+                >
+                    <Tab title='Aurum' id='tab-1' />
+                    <Tab title='Bercelium' id='tab-2' />
+                    <Tab title='Curium' id='tab-3' />
+                    <Tab title='Neptunium' id='tab-4' />
+                    <Tab title='Plutonuim' id='tab-5' />
+                    <Tab title='Rubidium' id='tab-6' />
+                    <Tab title='Californium' id='tab-7' />
+                </TabsDesktop>
+            </div>
+        </>
+    );
+});
+```
+
+### Слоты
+
+В заголовки табов можно добавлять дополнительные элементы с помощью свойства rightAddons.
 
 ```jsx live
 render(() => {
     const [selectedId, setSelectedId] = React.useState('tab-1');
+    const [selectedSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');
 
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+    const handleSecondaryChange = (event, { selectedId }) => setSelectedSecondaryId(selectedId);
 
     return (
-        <TabsMobile selectedId={selectedId} onChange={handleChange}>
-            <Tab title='Таб 1' id='tab-1'>
-                Таб 1
-            </Tab>
-            <Tab title='Таб 2' id='tab-2'>
-                Таб 2
-            </Tab>
-            <Tab title='Таб 3' id='tab-3'>
-                Таб 3
-            </Tab>
-            <Tab title='Таб 4' id='tab-4'>
-                Таб 4
-            </Tab>
-            <Tab title='Таб 5' id='tab-5'>
-                Таб 5
-            </Tab>
-        </TabsMobile>
+        <>
+            <TabsResponsive selectedId={selectedId} onChange={handleChange}>
+                <Tab title='Aurum' id='tab-1' rightAddons={<StarMIcon />} />
+                <Tab title='Bercelium' id='tab-2' rightAddons={<StarMIcon />} />
+                <Tab title='Curium' id='tab-3' rightAddons={<StarMIcon />} />
+                <Tab title='Neptunium' id='tab-4' rightAddons={<StarMIcon />} />
+            </TabsResponsive>
+            <div style={{ marginTop: 20 }}>
+                <TabsResponsive
+                    selectedId={selectedSecondaryId}
+                    onChange={handleSecondaryChange}
+                    view='secondary'
+                >
+                    <Tab title='Aurum' id='tab-1' rightAddons={<StarMIcon />} />
+                    <Tab title='Bercelium' id='tab-2' rightAddons={<StarMIcon />} />
+                    <Tab title='Curium' id='tab-3' rightAddons={<StarMIcon />} />
+                    <Tab title='Neptunium' id='tab-4' rightAddons={<StarMIcon />} />
+                </TabsResponsive>
+            </div>
+        </>
     );
 });
 ```
 
-### TabsResponsive
+### Адаптивность
 
-Адаптивная версия табов, перестраивается при 768px
+Можно использовать десктопные, мобильные и адаптивные табы. Адаптивная версия табов перестраивается при 768px.
 
 ```jsx live
+const tabs = [
+    { title: 'Auurum', id: 'tab-1' },
+    { title: 'Bercelium', id: 'tab-2' },
+    { title: 'Curium', id: 'tab-3' },
+    { title: 'Neptunium', id: 'tab-4' },
+    { title: 'Plutonuim', id: 'tab-5' },
+    { title: 'Rubidium', id: 'tab-6' },
+    { title: 'Californium', id: 'tab-7' },
+];
 render(() => {
     const [selectedId, setSelectedId] = React.useState('tab-1');
+    const [view, setView] = React.useState('primary');
+    const [width, setWidth] = React.useState('100%');
+    const [count, setCount] = React.useState('7');
+    const [component, setComponent] = React.useState('TabsResponsive');
 
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+    const handleWidthChange = (event, { value }) => setWidth(value);
+    const handleCountChange = (event, { value }) => setCount(value);
+    const handleViewChange = (event, { value }) => setView(value);
+    const handleComponentChange = (event, { value }) => setComponent(value);
+
+    const props = TabsComponent !== TabsDesktop && { fullWidthScroll: true };
+
+    const TabsComponent = React.useMemo(
+        () =>
+            ({
+                TabsDesktop: TabsDesktop,
+                TabsMobile: TabsMobile,
+                TabsResponsive: TabsResponsive,
+            }[component]),
+        [component],
+    );
 
     return (
-        <TabsResponsive selectedId={selectedId} onChange={handleChange}>
-            <Tab title='Таб 1' id='tab-1'>
-                Таб 1
-            </Tab>
-            <Tab title='Таб 2' id='tab-2'>
-                Таб 2
-            </Tab>
-            <Tab title='Таб 3' id='tab-3'>
-                Таб 3
-            </Tab>
-            <Tab title='Таб 4' id='tab-4'>
-                Таб 4
-            </Tab>
-            <Tab title='Таб 5' id='tab-5'>
-                Таб 5
-            </Tab>
-        </TabsResponsive>
+        <>
+            <div style={{ width: width }}>
+                <TabsComponent
+                    {...props}
+                    scrollable={true}
+                    selectedId={selectedId}
+                    onChange={handleChange}
+                    view={view}
+                >
+                    {tabs.slice(0, +count).map(({ id, title }) => (
+                        <Tab title={title} id={id} />
+                    ))}
+                </TabsComponent>
+            </div>
+            <div style={{ marginTop: 12 }}>
+                <Space size={40}>
+                    <RadioGroup
+                        name='widthGroup'
+                        direction='vertical'
+                        label='Контейнер'
+                        value={width}
+                        onChange={handleWidthChange}
+                    >
+                        <Radio label='max width' value='100%' />
+                        <Radio label='375 px' value='375px' />
+                    </RadioGroup>
+                    <RadioGroup
+                        name='countGroup'
+                        direction='vertical'
+                        label='Количество табов'
+                        value={count}
+                        onChange={handleCountChange}
+                    >
+                        <Radio label='7' value='7' />
+                        <Radio label='2' value='2' />
+                    </RadioGroup>
+                    <RadioGroup
+                        name='viewGroup'
+                        direction='vertical'
+                        label='Вид'
+                        value={view}
+                        onChange={handleViewChange}
+                    >
+                        <Radio label='Primary' value='primary' />
+                        <Radio label='Secondary' value='secondary' />
+                    </RadioGroup>
+                    <RadioGroup
+                        name='componentGroup'
+                        direction='vertical'
+                        label='Адаптивность'
+                        value={component}
+                        onChange={handleComponentChange}
+                    >
+                        <Radio label='Desktop' value='TabsDesktop' />
+                        <Radio label='Mobile' value='TabsMobile' />
+                        <Radio label='Responsive' value='TabsResponsive' />
+                    </RadioGroup>
+                </Space>
+            </div>
+        </>
     );
 });
 ```
 
-### Табы со слотом справа
+### Tips & Trics
 
-В заголовки табов можно добавлять дополнительные элементы с помощью свойства `rightAddons`
+-   Свойство title будет использовано для генерации заголовков, а id для переключения табов.
 
-```jsx live
-render(() => {
-    const [selectedId, setSelectedId] = React.useState('tab-1');
+-   С помощью свойства disabled таб можно заблокировать для выбора.
 
-    const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
-
-    return (
-        <TabsDesktop selectedId={selectedId} onChange={handleChange}>
-            <Tab title='Таб 1' id='tab-1' rightAddons={<StarMIcon />}>
-                Таб 1
-            </Tab>
-            <Tab title='Таб 2' id='tab-2' rightAddons={<StarMIcon />}>
-                Таб 2
-            </Tab>
-            <Tab title='Таб 3' id='tab-3' rightAddons={<StarMIcon />}>
-                Таб 3
-            </Tab>
-        </TabsDesktop>
-    );
-});
-```
-
-### Табы со скроллом
-
-```jsx live
-render(() => {
-    const [selectedId, setSelectedId] = React.useState('tab-1');
-
-    const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
-
-    return (
-        <TabsDesktop selectedId={selectedId} onChange={handleChange} scrollable={true}>
-            <Tab title='Первый таб с длинным заголовком' id='tab-1'>
-                Таб 1
-            </Tab>
-            <Tab title='Второй таб с длинным заголовком' id='tab-2'>
-                Таб 2
-            </Tab>
-            <Tab title='Третий таб с длинным заголовком' id='tab-3'>
-                Таб 3
-            </Tab>
-            <Tab title='Четвёртый таб с длинным заголовком' id='tab-4'>
-                Таб 4
-            </Tab>
-            <Tab title='Пятый таб с длинным заголовком' id='tab-5'>
-                Таб 5
-            </Tab>
-            <Tab title='Шестой таб с длинным заголовком' id='tab-6'>
-                Таб 6
-            </Tab>
-            <Tab title='Седьмой таб с длинным заголовком' id='tab-7'>
-                Таб 7
-            </Tab>
-            <Tab title='Восьмой таб с длинным заголовком' id='tab-8'>
-                Таб 8
-            </Tab>
-            <Tab title='Девятый таб с длинным заголовком' id='tab-9'>
-                Таб 9
-            </Tab>
-            <Tab title='Десятый таб с длинным заголовком' id='tab-10'>
-                Таб 10
-            </Tab>
-        </TabsDesktop>
-    );
-});
-```
+-   По умолчанию в DOM рендерится контент только активного таба, с помощью keepMounted можно указать, контент каких табов нужно рендерить в любом случае. Контент в таком случае останется невидимым, но всегда будет находиться в DOM.

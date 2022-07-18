@@ -53,6 +53,11 @@ export type TabsProps = {
     scrollable?: boolean;
 
     /**
+     * При скроле табы будут уходить в край экрана
+     */
+    fullWidthScroll?: boolean;
+
+    /**
      * Компоненты табов
      */
     children: Array<ReactElement<TabProps>>;
@@ -135,6 +140,7 @@ export type TabListProps = Pick<
     | 'scrollable'
     | 'onChange'
     | 'dataTestId'
+    | 'fullWidthScroll'
 > & {
     /**
      * Заголовки табов

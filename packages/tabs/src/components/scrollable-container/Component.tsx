@@ -3,6 +3,12 @@ import cn from 'classnames';
 import computeScrollIntoView from 'compute-scroll-into-view';
 
 import styles from './index.module.css';
+import { TabsProps } from '../../typings';
+
+/**
+ * Дополнительная прокрутка при клике на не поместившийся таб
+ */
+const ADDITIONAL_SCROLLLEFT_VALUE = 40;
 
 export type ScrollableContainerProps = {
     /**
@@ -25,7 +31,8 @@ export const ScrollableContainer = ({
     containerClassName,
     children,
     activeChild,
-}: ScrollableContainerProps) => {
+    fullWidthScroll,
+}: ScrollableContainerProps & Pick<TabsProps, 'fullWidthScroll'>) => {
     useEffect(() => {
         if (activeChild) {
             const actions = computeScrollIntoView(activeChild, {
@@ -37,10 +44,21 @@ export const ScrollableContainer = ({
             // TODO: animate?
             actions.forEach(({ el, left }) => {
                 // eslint-disable-next-line no-param-reassign
-                el.scrollLeft = left;
+                el.scrollLeft =
+                    el.scrollLeft > left
+                        ? left - ADDITIONAL_SCROLLLEFT_VALUE
+                        : left + ADDITIONAL_SCROLLLEFT_VALUE;
             });
         }
     }, [activeChild]);
 
-    return <div className={cn(styles.container, containerClassName)}>{children}</div>;
+    return (
+        <div
+            className={cn(styles.container, containerClassName, {
+                [styles.fullWidthScroll]: fullWidthScroll,
+            })}
+        >
+            {children}
+        </div>
+    );
 };
