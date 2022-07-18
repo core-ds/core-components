@@ -220,32 +220,21 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         );
     };
 
-    const renderTitle = () => {
-        return (
-            <React.Fragment>
-                {typeof title === 'string' ? renderTitleString() : titleContent}
-            </React.Fragment>
-        );
-    };
+    const renderTitle = () => (typeof title === 'string' ? renderTitleString() : titleContent);
 
-    const renderSubTitle = () => {
-        return (
-            <React.Fragment>
-                {typeof subtitle === 'string' ? (
-                    <Typography.Text
-                        tag='div'
-                        className={styles.subtitle}
-                        color={isCompleteTextColor ? completeTextColor : contentColor}
-                        view='primary-small'
-                    >
-                        {subtitleContent}
-                    </Typography.Text>
-                ) : (
-                    subtitleContent
-                )}
-            </React.Fragment>
+    const renderSubTitle = () =>
+        typeof subtitle === 'string' ? (
+            <Typography.Text
+                tag='div'
+                className={styles.subtitle}
+                color={isCompleteTextColor ? completeTextColor : contentColor}
+                view='primary-small'
+            >
+                {subtitleContent}
+            </Typography.Text>
+        ) : (
+            subtitleContent
         );
-    };
 
     const renderIcon = () => {
         return (
@@ -264,20 +253,16 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             </span>
         );
     };
-    const renderContent = () => {
-        return (
+
+    const renderContent = () =>
+        Icon || (IconComplete && isComplete) ? (
+            renderIcon()
+        ) : (
             <React.Fragment>
-                {Icon || (IconComplete && isComplete) ? (
-                    renderIcon()
-                ) : (
-                    <React.Fragment>
-                        {SIZES[size] > 24 && renderTitle()}
-                        {SIZES[size] > 64 && renderSubTitle()}
-                    </React.Fragment>
-                )}
+                {SIZES[size] > 24 && renderTitle()}
+                {SIZES[size] > 64 && renderSubTitle()}
             </React.Fragment>
         );
-    };
 
     return (
         <div
