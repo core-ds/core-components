@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.4.0...@alfalab/core-components-tabs@6.5.0) (2022-07-18)
+
+
+### Features
+
+* **tabs:** full width TabsMobile ([#124](https://github.com/core-ds/core-components/issues/124)) ([659763a](https://github.com/core-ds/core-components/commit/659763abefd2b3762713958e32272c762bb116c6))
+
+
+
+
+
 # [6.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.3.2...@alfalab/core-components-tabs@6.4.0) (2022-07-15)
 
 

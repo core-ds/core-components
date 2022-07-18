@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.5.3...@alfalab/core-components-tooltip@5.6.0) (2022-07-18)
+
+
+### Features
+
+* **tooltip:** add use anchor width for popover ([#151](https://github.com/core-ds/core-components/issues/151)) ([1f6991c](https://github.com/core-ds/core-components/commit/1f6991c6ae67471a32b74f7295dd0288ee83c05b))
+
+
+
+
+
 ## [5.5.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.5.2...@alfalab/core-components-tooltip@5.5.3) (2022-07-15)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip
