@@ -7,7 +7,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "scripts": {
-        "postinstall": "node ./send-stats.js > /dev/null 2>&1 || exit 0"
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
         "access": "public",
