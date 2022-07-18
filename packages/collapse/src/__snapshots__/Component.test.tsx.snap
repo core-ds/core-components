@@ -17,7 +17,7 @@ exports[`Collapse Display tests should display radio group with one child correc
         </p>
       </div>
     </div>
-    <a
+    <button
       class="component primary pseudo withAddons"
     >
       <span>
@@ -52,7 +52,7 @@ exports[`Collapse Display tests should display radio group with one child correc
           </g>
         </svg>
       </span>
-    </a>
+    </button>
   </div>
 </div>
 `;

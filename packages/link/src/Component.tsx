@@ -101,6 +101,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
         const viewClassName = view === 'default' ? 'defaultView' : view;
 
+        const LinkComponent = pseudo ? 'button' : Component;
+
         const componentProps = {
             className: cn(
                 styles.component,
@@ -116,11 +118,11 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             'data-test-id': dataTestId,
             rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
             // Для совместимости с react-router-dom, меняем href на to
-            [typeof Component === 'string' ? 'href' : 'to']: href,
+            [typeof LinkComponent === 'string' ? 'href' : 'to']: href,
         };
 
         return (
-            <Component {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
+            <LinkComponent {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
                 {leftAddons || rightAddons ? (
                     <React.Fragment>
                         {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
@@ -134,7 +136,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
                 ) : (
                     <span className={styles.text}>{children}</span>
                 )}
-            </Component>
+            </LinkComponent>
         );
     },
 );
