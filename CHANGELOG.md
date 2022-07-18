@@ -1,3 +1,10 @@
+## [28.3.1](https://github.com/core-ds/core-components/compare/v28.3.0...v28.3.1) (2022-07-18)
+
+
+### Bug Fixes
+
+* **skeleton:** fixed skeleton animation flickering(safari) ([#142](https://github.com/core-ds/core-components/issues/142)) ([40fb389](https://github.com/core-ds/core-components/commit/40fb389316d2a12492ea6a1827947ac71bf7d081))
+
 # [28.3.0](https://github.com/core-ds/core-components/compare/v28.2.6...v28.3.0) (2022-07-15)
 
 
