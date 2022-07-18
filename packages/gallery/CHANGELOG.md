@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.7...@alfalab/core-components-gallery@3.2.8) (2022-07-15)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [3.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.6...@alfalab/core-components-gallery@3.2.7) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [3.2.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.5...@alfalab/core-components-gallery@3.2.6) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
 ## [3.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.4...@alfalab/core-components-gallery@3.2.5) (2022-07-11)
 
 **Note:** Version bump only for package @alfalab/core-components-gallery
@@ -384,5 +411,6 @@ This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 
 
 ### Features
+
 
 * **gallery:** add component ([#815](https://github.com/core-ds/core-components/issues/815)) ([7ffd20e](https://github.com/core-ds/core-components/commit/7ffd20e2d007f658223d29aa943639c13ad51342)), closes [#774](https://github.com/core-ds/core-components/issues/774) [#795](https://github.com/core-ds/core-components/issues/795)

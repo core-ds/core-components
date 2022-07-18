@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-backdrop@2.1.1...@alfalab/core-components-backdrop@2.1.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-backdrop@2.1.0...@alfalab/core-components-backdrop@2.1.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-backdrop
+
+
+
+
+
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-backdrop@2.0.3...@alfalab/core-components-backdrop@2.1.0) (2022-06-28)
 
 
@@ -55,5 +74,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **backdrop:** add component ([2b87958](https://github.com/core-ds/core-components/commit/2b87958e51449645c58bbd02552ce7a908c6bab8))

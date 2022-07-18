@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@4.2.1...@alfalab/core-components-plate@4.2.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [4.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@4.2.0...@alfalab/core-components-plate@4.2.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
 # [4.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@4.1.1...@alfalab/core-components-plate@4.2.0) (2022-06-28)
 
 
@@ -472,5 +491,6 @@ This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 
 
 ### Bug Fixes
+
 
 * update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))

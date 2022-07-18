@@ -1,19 +1,17 @@
 {
     "name": "@alfalab/core-components-card-image",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "Card Image component",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "module": "./dist/esm/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
+    "module": "./esm/index.js",
     "scripts": {
-        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "peerDependencies": {
         "classnames": "^2.2.6",

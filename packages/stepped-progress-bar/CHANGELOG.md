@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-stepped-progress-bar@1.3.1...@alfalab/core-components-stepped-progress-bar@1.3.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [1.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-stepped-progress-bar@1.3.0...@alfalab/core-components-stepped-progress-bar@1.3.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-stepped-progress-bar
+
+
+
+
+
 # [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-stepped-progress-bar@1.2.6...@alfalab/core-components-stepped-progress-bar@1.3.0) (2022-06-28)
 
 
@@ -81,6 +100,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **calendar-input:** uses date-input ([#752](https://github.com/core-ds/core-components/issues/752)) ([509dba2](https://github.com/core-ds/core-components/commit/509dba26913ccf6df859a200aa476eeef1df2ddc))
 * **stepped-progress-bar:** add component ([#747](https://github.com/core-ds/core-components/issues/747)) ([f82e9af](https://github.com/core-ds/core-components/commit/f82e9af075e12e5a34751efc5c7f427283e75c1b))

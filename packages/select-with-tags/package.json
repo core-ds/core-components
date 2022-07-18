@@ -1,27 +1,25 @@
 {
     "name": "@alfalab/core-components-select-with-tags",
-    "version": "5.6.1",
+    "version": "5.6.6",
     "description": "",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "module": "./dist/esm/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
+    "module": "./esm/index.js",
     "scripts": {
-        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^7.4.3",
-        "@alfalab/core-components-select": "^10.12.1",
-        "@alfalab/core-components-tag": "^4.3.0",
+        "@alfalab/core-components-form-control": "^7.5.2",
+        "@alfalab/core-components-select": "^10.12.6",
+        "@alfalab/core-components-tag": "^4.3.2",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/icons-glyph": "^2.16.0",
         "classnames": "^2.2.6"

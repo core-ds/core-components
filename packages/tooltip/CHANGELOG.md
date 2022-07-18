@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.5.2...@alfalab/core-components-tooltip@5.5.3) (2022-07-15)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [5.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.5.1...@alfalab/core-components-tooltip@5.5.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [5.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.5.0...@alfalab/core-components-tooltip@5.5.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
 # [5.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.4.2...@alfalab/core-components-tooltip@5.5.0) (2022-07-11)
 
 
@@ -511,5 +538,6 @@ remove z-index, add stack component
 
 
 ## [1.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@1.6.0...@alfalab/core-components-tooltip@1.6.1) (2021-03-03)
+
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

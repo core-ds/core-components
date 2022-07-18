@@ -70,7 +70,9 @@ export const setupScreenshotTesting = ({
 
         it.each(cases)('%s', async (_, link: string) => {
             // TODO
-            await page?.goto(encodeURI(link + (theme ? `&theme=${theme}` : '')));
+            await page?.goto(encodeURI(link + (theme ? `&theme=${theme}` : '')), {
+                timeout: 200000,
+            });
 
             await matchHtml({
                 page,

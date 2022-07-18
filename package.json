@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "28.2.1",
+    "version": "28.3.1",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -39,7 +39,8 @@
         "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
         "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
         "pub:ci": "./bin/publish-ci.sh",
-        "postinstall": "node ./send-stats.js > /dev/null 2>&1 || exit 0"
+        "pub:beta-ci": "./bin/publish-beta-ci.sh",
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')}\""
     },
     "browserslist": {
         "production": [
@@ -67,7 +68,6 @@
         "@popperjs/core": "^2.3.3",
         "classnames": "^2.2.6",
         "compute-scroll-into-view": "^1.0.13",
-        "core-js": "^3.0.1",
         "date-fns": "^2.16.1",
         "downshift": "^5.4.7",
         "element-closest": "^3.0.2",
@@ -86,7 +86,7 @@
         "react-transition-group": "^4.4.1",
         "react-virtual": "^2.3.2",
         "recharts": "^2.1.2",
-        "simplebar": "^5.3.6",
+        "simplebar": "^5.3.8",
         "swiper": "^6.8.2",
         "react-virtuoso": "^2.12.0",
         "text-mask-core": "^5.1.2",
