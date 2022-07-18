@@ -1,3 +1,11 @@
+# [28.4.0](https://github.com/core-ds/core-components/compare/v28.3.1...v28.4.0) (2022-07-18)
+
+
+### Features
+
+* **tabs:** full width TabsMobile ([#124](https://github.com/core-ds/core-components/issues/124)) ([659763a](https://github.com/core-ds/core-components/commit/659763abefd2b3762713958e32272c762bb116c6))
+* **tooltip:** add use anchor width for popover ([#151](https://github.com/core-ds/core-components/issues/151)) ([1f6991c](https://github.com/core-ds/core-components/commit/1f6991c6ae67471a32b74f7295dd0288ee83c05b))
+
 ## [28.3.1](https://github.com/core-ds/core-components/compare/v28.3.0...v28.3.1) (2022-07-18)
 
 
