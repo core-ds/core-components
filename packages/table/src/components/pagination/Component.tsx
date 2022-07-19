@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useCallback, useContext } from 'react';
 import cn from 'classnames';
 
-import { Select, SelectProps } from '@alfalab/core-components-select';
+import { BaseSelectChangePayload, Select, SelectProps } from '@alfalab/core-components-select';
 import {
     Pagination as CorePagination,
     PaginationProps as CorePaginationProps,
@@ -58,7 +58,7 @@ export const Pagination: FC<PaginationProps> = ({
     );
 
     const handlePerPageChange: SelectProps['onChange'] = useCallback(
-        ({ selected }) => {
+        ({ selected }: BaseSelectChangePayload) => {
             onPerPageChange(Number(selected?.key));
         },
         [onPerPageChange],

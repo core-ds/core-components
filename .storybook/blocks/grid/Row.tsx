@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useCallback, ChangeEvent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
 import styles from './Row.module.css';
@@ -12,7 +12,7 @@ type RowProps = {
 
 export const Row: React.FC<RowProps> = ({ align, flex, className, children, ...restProps }) => (
     <div
-        className={cn(styles.row, className, styles[align], {
+        className={cn(styles.row, className, align && styles[align], {
             [styles.flex]: flex,
         })}
         {...restProps}

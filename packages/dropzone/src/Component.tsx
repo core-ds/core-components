@@ -1,4 +1,4 @@
-import React, { ComponentType, FC, useCallback, useRef, useState } from 'react';
+import React, { ComponentType, FC, ReactNode, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 import { preventAndStopEvent } from './utils';
 import { Overlay as DefaultOverlay, OverlayProps } from './components';
@@ -66,6 +66,11 @@ export type DropzoneProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const Dropzone: FC<DropzoneProps> = ({

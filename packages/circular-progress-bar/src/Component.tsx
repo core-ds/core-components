@@ -45,6 +45,11 @@ export type CircularProgressBarProps = {
      * Id компонента для тестов
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 /**
