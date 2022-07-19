@@ -2,8 +2,13 @@
 
 :root {
     /* border */
+    --plate-border-left: 2px solid;
     --plate-border: 1px solid;
     --plate-border-radius: var(--border-radius-m);
+
+    /* custom view */
+    --plate-background: transparent;
+    --plate-border-color: none;
 
     /* icons */
     --plate-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
@@ -14,8 +19,7 @@
     position: relative;
     display: inline-flex;
     box-sizing: border-box;
-    border-radius: var(--plate-border-radius);
-    border: var(--plate-border);
+    border-left: var(--plate-border-left);
     color: var(--color-light-text-primary);
     width: 100%;
     min-height: 56px;
@@ -42,6 +46,19 @@
     justify-content: space-between;
 }
 
+.borderRadius {
+    border-radius: var(--plate-border-radius);
+    border: var(--plate-border);
+}
+
+.noBorder {
+    border: 0;
+}
+
+.shadow {
+    box-shadow: var(--shadow-s);
+}
+
 .common {
     background-color: var(--color-light-bg-secondary);
     border-color: var(--color-static-status-grey);
@@ -62,6 +79,11 @@
     border-color: var(--color-static-status-orange);
 }
 
+.custom {
+    background: var(--plate-background) center no-repeat;
+    border-color: var(--plate-border-color);
+}
+
 .isHidden {
     display: none;
 }
@@ -70,6 +92,16 @@
     flex-shrink: 0;
     min-width: 24px;
     margin-right: var(--gap-s);
+}
+
+.subAddons {
+    margin: var(--gap-3xs-neg) 0 0 var(--gap-2xs);
+}
+
+.subAddonsButton {
+    &:not(:last-child) {
+        margin-right: var(--gap-2xs);
+    }
 }
 
 .title {
@@ -96,12 +128,15 @@
 
 .contentContainer {
     flex: 1;
-    max-width: 586px;
     margin-right: auto;
 
     &.withoutTitle {
         padding-top: var(--gap-3xs);
     }
+}
+
+.limitWidth {
+    max-width: 586px;
 }
 
 .title + .content > .contentInner {

@@ -7,6 +7,7 @@ import React, {
     useRef,
     ReactElement,
     KeyboardEvent,
+    isValidElement,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -42,6 +43,31 @@ export type PlateProps = {
     leftAddons?: ReactNode;
 
     /**
+     * Слот для субаддонов (слева от крестика)
+     */
+    subAddons?: ReactNode;
+
+    /**
+     * Включить/выключить скругление
+     */
+    borderRadius?: boolean;
+
+    /**
+     * Включить/Выключить обводку
+     */
+    border?: boolean;
+
+    /**
+     * Включить/выключить тени
+     */
+    shadow?: boolean;
+
+    /**
+     * Включить/выключить ограничение максимальной ширины контента в 560px
+     */
+    maxWidth?: boolean;
+
+    /**
      * Дочерние элементы
      */
     children?: ReactNode;
@@ -54,7 +80,7 @@ export type PlateProps = {
     /**
      * Вид компонента
      */
-    view?: 'common' | 'negative' | 'positive' | 'attention';
+    view?: 'common' | 'negative' | 'positive' | 'attention' | 'custom';
 
     /**
      * Набор действий
@@ -75,6 +101,11 @@ export type PlateProps = {
      * Дополнительный класс для контента
      */
     contentClassName?: string;
+
+    /**
+     * Дополнительный класс для субаддонов
+     */
+    subAddonsClassName?: string;
 
     /**
      * Обработчик клика по плашке
@@ -107,14 +138,20 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             foldable: foldableProp = false,
             folded: foldedProp,
             defaultFolded = true,
+            borderRadius = true,
+            shadow = false,
+            maxWidth = true,
             leftAddons,
+            subAddons,
             children,
             buttons,
             title,
             view = 'common',
+            border = view !== 'custom',
             className,
             buttonsClassName,
             contentClassName,
+            subAddonsClassName,
             dataTestId,
             onClick,
             onClose,
@@ -205,6 +242,25 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             return <div className={cn(styles.buttons, buttonsClassName)}>{buttons}</div>;
         };
 
+        const renderSubAddons = () => {
+            if (Array.isArray(subAddons)) {
+                return (
+                    <div className={subAddonsClassName}>
+                        {subAddons.map((button, index) =>
+                            isValidElement(button)
+                                ? React.cloneElement(button, {
+                                      // eslint-disable-next-line react/no-array-index-key
+                                      key: index,
+                                      className: cn(button.props.className, styles.subAddonsButton),
+                                  })
+                                : null,
+                        )}
+                    </div>
+                );
+            }
+            return <div className={subAddonsClassName}>{subAddons}</div>;
+        };
+
         return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
@@ -216,6 +272,9 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                         [styles.focused]: focused,
                         [styles.isHidden]: hasCloser && isHidden,
                         [styles.isFolded]: foldable && folded,
+                        [styles.borderRadius]: borderRadius,
+                        [styles.noBorder]: !border,
+                        [styles.shadow]: shadow,
                     },
                     className,
                 )}
@@ -232,6 +291,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     <div
                         className={cn(styles.contentContainer, contentClassName, {
                             [styles.withoutTitle]: !title,
+                            [styles.limitWidth]: !maxWidth,
                         })}
                     >
                         {title && <div className={styles.title}>{title}</div>}
@@ -249,6 +309,8 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                             </div>
                         )}
                     </div>
+
+                    {subAddons && <div className={styles.subAddons}>{renderSubAddons()}</div>}
 
                     {foldable && (
                         <div

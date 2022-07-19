@@ -3,7 +3,7 @@
 exports[`Plate Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component positive"
+    class="component positive borderRadius"
     role="alert"
     tabindex="-1"
   >
