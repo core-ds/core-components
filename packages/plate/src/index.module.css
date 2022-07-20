@@ -27,7 +27,7 @@
     color: var(--color-light-text-primary);
     width: 100%;
     min-height: 56px;
-    padding: var(--gap-m);
+    padding: var(--gap-s);
     outline: none;
 }
 
