@@ -27,10 +27,11 @@ import { version } from '../../package.json';
                 title={text('title', 'Поздравляем, полный успех')}
                 foldable={boolean('foldable', false)}
                 hasCloser={boolean('hasCloser', false)}
-                borderRadius={boolean('borderRadius', true)}
+                rounded={boolean('rounded', true)}
                 border={boolean('border', view !== 'custom')}
                 shadow={boolean('shadow', false)}
-                maxWidth={boolean('maxWidth', true)}
+                limitContentWidth={boolean('limitContentWidth', true)}
+                titleView={select('titleView', ['bold', 'light'])}
                 leftAddons={boolean('leftAddons', true) ? <CheckmarkOnCircleMIcon /> : null}
                 buttons={boolean('buttons', false) ? [
                     <Button view='primary'>Хорошо</Button>,

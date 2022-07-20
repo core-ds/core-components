@@ -21,7 +21,7 @@
                 Подробнее
             </Button>,
         ]}
-        leftAddons={<CheckmarkOnCircleMIcon />}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
     />
     <Plate
         view='positive'
@@ -31,7 +31,7 @@
                 Подробнее
             </Button>,
         ]}
-        leftAddons={<CheckmarkOnCircleMIcon />}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
     />
     <Plate
         view='positive'
@@ -39,11 +39,11 @@
         borderRadius={false}
         border={false}
         subAddons={[
-            <Button view='secondary' size='xxs'>
+            <Button view='secondary' size='xxs' onClick={() => console.log(1)}>
                 Подробнее
             </Button>,
         ]}
-        leftAddons={<CheckmarkOnCircleMIcon />}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
     />
     <Plate
         view='positive'
@@ -54,7 +54,7 @@
                 Подробнее
             </Button>,
         ]}
-        leftAddons={<CheckmarkOnCircleMIcon />}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
     />
 </Space>
 ```
@@ -138,28 +138,41 @@
 Collapsed / Expanded
 
 ```jsx live
-<Space fullWidth>
-    <Plate
-        view='negative'
-        hasCloser
-        title='Компонент плашки'
-        foldable
-        folded
-        leftAddons={<Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />}
-        buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
-    >
-        Самая обыкновенная плашка
-    </Plate>
-    <Plate
-        view='negative'
-        hasCloser
-        title='Компонент плашки'
-        foldable
-        folded={false}
-        leftAddons={<Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />}
-        buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
-    >
-        Самая обыкновенная плашка
-    </Plate>
-</Space>
+render(() => {
+    const [folded1, setFolded1] = React.useState(true);
+    const [folded2, setFolded2] = React.useState(false);
+
+    return (
+        <Space fullWidth>
+            <Plate
+                view='negative'
+                hasCloser
+                title='Компонент плашки'
+                foldable
+                folded={folded1}
+                onToggle={() => setFolded1(!folded1)}
+                leftAddons={
+                    <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />
+                }
+                buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
+            >
+                Самая обыкновенная плашка
+            </Plate>
+            <Plate
+                view='negative'
+                hasCloser
+                title='Компонент плашки'
+                foldable
+                folded={folded2}
+                onToggle={() => setFolded2(!folded2)}
+                leftAddons={
+                    <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />
+                }
+                buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Space>
+    );
+});
 ```

@@ -6,6 +6,10 @@
     --plate-border: 1px solid;
     --plate-border-radius: var(--border-radius-m);
 
+    /* width limit */
+
+    --plate-width-limit: 560px;
+
     /* custom view */
     --plate-background: transparent;
     --plate-border-color: none;
@@ -46,7 +50,7 @@
     justify-content: space-between;
 }
 
-.borderRadius {
+.rounded {
     border-radius: var(--plate-border-radius);
     border: var(--plate-border);
 }
@@ -88,14 +92,20 @@
     display: none;
 }
 
+.leftAddons,
+.rightAddons {
+    padding: var(--gap-2xs);
+}
+
 .leftAddons {
     flex-shrink: 0;
     min-width: 24px;
-    margin-right: var(--gap-s);
+    margin-right: var(--gap-2xs);
 }
 
 .subAddons {
-    margin: var(--gap-3xs-neg) 0 0 var(--gap-2xs);
+    cursor: default;
+    align-self: flex-start;
 }
 
 .subAddonsButton {
@@ -104,10 +114,19 @@
     }
 }
 
-.title {
-    @mixin accent_primary_large;
-
+.bold,
+.light {
     word-break: break-word;
+}
+
+.bold {
+    @mixin headline-system_xsmall;
+    padding: 5px var(--gap-s) 5px var(--gap-2xs);
+}
+
+.light {
+    @mixin paragraph_primary_small;
+    padding: 6px var(--gap-s) 6px var(--gap-2xs);
 }
 
 .content {
@@ -116,8 +135,6 @@
     max-height: 300vh;
     overflow: hidden;
     transition: max-height 2s ease-in-out;
-    padding: var(--gap-2xs);
-    margin: var(--gap-2xs-neg);
     cursor: default;
 
     &.isFolded {
@@ -136,11 +153,16 @@
 }
 
 .limitWidth {
-    max-width: 586px;
+    max-width: var(--plate-width-limit);
 }
 
-.title + .content > .contentInner {
-    padding-top: var(--gap-xs);
+.description {
+    @mixin paragraph_primary_small;
+    padding: var(--gap-2xs) var(--gap-s) var(--gap-2xs) var(--gap-2xs);
+}
+
+.footer {
+    padding: var(--gap-l) 0 var(--gap-2xs) var(--gap-2xs);
 }
 
 .closer,
@@ -151,7 +173,7 @@
     opacity: 1;
     transition: opacity 0.2s ease;
     cursor: pointer;
-    margin-left: var(--gap-m);
+    margin-left: var(--gap-s);
 
     &:hover {
         opacity: 0.7;
@@ -176,14 +198,8 @@
     }
 }
 
-.buttons {
-    margin-top: var(--gap-xl);
-}
-
 .button {
-    margin-right: var(--gap-s);
-
-    &:last-child {
-        margin-right: 0;
+    &:not(:last-child) {
+        margin-right: var(--gap-xs);
     }
 }

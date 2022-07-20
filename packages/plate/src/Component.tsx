@@ -7,7 +7,6 @@ import React, {
     useRef,
     ReactElement,
     KeyboardEvent,
-    isValidElement,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -45,12 +44,12 @@ export type PlateProps = {
     /**
      * Слот для субаддонов (слева от крестика)
      */
-    subAddons?: ReactNode;
+    subAddons?: ReactNode | Array<ReactElement<ButtonProps>>;
 
     /**
      * Включить/выключить скругление
      */
-    borderRadius?: boolean;
+    rounded?: boolean;
 
     /**
      * Включить/Выключить обводку
@@ -65,7 +64,7 @@ export type PlateProps = {
     /**
      * Включить/выключить ограничение максимальной ширины контента в 560px
      */
-    maxWidth?: boolean;
+    limitContentWidth?: boolean;
 
     /**
      * Дочерние элементы
@@ -76,6 +75,11 @@ export type PlateProps = {
      * Заголовок компонента
      */
     title?: ReactNode;
+
+    /**
+     * Вид заголовка
+     */
+    titleView?: 'bold' | 'light';
 
     /**
      * Вид компонента
@@ -138,14 +142,15 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             foldable: foldableProp = false,
             folded: foldedProp,
             defaultFolded = true,
-            borderRadius = true,
+            rounded = true,
             shadow = false,
-            maxWidth = true,
+            limitContentWidth = true,
             leftAddons,
             subAddons,
             children,
             buttons,
             title,
+            titleView = 'bold',
             view = 'common',
             border = view !== 'custom',
             className,
@@ -161,6 +166,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
         const contentRef = useRef<HTMLDivElement>(null);
+        const subAddonsRef = useRef<HTMLDivElement>(null);
 
         const [focused] = useFocus(plateRef, 'keyboard');
 
@@ -174,8 +180,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const hasButtons = !!buttons && typeof buttons !== 'boolean';
         const hasContent = children || hasButtons;
-
-        const buttonsIsArray = Array.isArray(buttons) && buttons.length > 0;
+        const hasSubAddons = !!subAddons && typeof subAddons !== 'boolean';
 
         const handleClick = useCallback(
             event => {
@@ -185,11 +190,15 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 const eventInsideContent =
                     contentRef.current && contentRef.current.contains(event.target);
 
+                const eventInsideSubAddons =
+                    subAddonsRef.current && subAddonsRef.current.contains(event.target);
+
                 const clickSimilarKeys = ['Enter', ' '].includes(event.key);
 
                 const shouldChangeIsFolded =
                     eventInsideComponent &&
                     !eventInsideContent &&
+                    !eventInsideSubAddons &&
                     (event.type === 'click' || clickSimilarKeys);
 
                 if (foldable && shouldChangeIsFolded) {
@@ -220,18 +229,25 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             [onClose],
         );
 
-        const renderButtons = () => {
+        const renderButtons = (_buttons: ReactNode) => {
+            const buttonsIsArray = Array.isArray(_buttons) && _buttons.length > 0;
+
+            const isSubAddons = _buttons === subAddons;
+
+            const containerClassName = isSubAddons ? subAddonsClassName : buttonsClassName;
+            const buttonClassName = isSubAddons ? styles.subAddonsButton : styles.button;
+
             if (buttonsIsArray) {
                 return (
-                    <div className={cn(styles.buttons, buttonsClassName)}>
-                        {(buttons as Array<ReactElement<ButtonProps>>).map((button, index) =>
+                    <div className={containerClassName}>
+                        {(_buttons as Array<ReactElement<ButtonProps>>).map((button, index) =>
                             button
                                 ? React.cloneElement(button, {
                                       // eslint-disable-next-line react/no-array-index-key
                                       key: index,
-                                      size: 'xs',
-                                      view: index === 0 ? 'outlined' : 'link',
-                                      className: cn(button.props.className, styles.button),
+                                      size: 'xxs',
+                                      view: index === 0 ? 'secondary' : 'link',
+                                      className: cn(button.props.className, buttonClassName),
                                   })
                                 : null,
                         )}
@@ -239,26 +255,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 );
             }
 
-            return <div className={cn(styles.buttons, buttonsClassName)}>{buttons}</div>;
-        };
-
-        const renderSubAddons = () => {
-            if (Array.isArray(subAddons)) {
-                return (
-                    <div className={subAddonsClassName}>
-                        {subAddons.map((button, index) =>
-                            isValidElement(button)
-                                ? React.cloneElement(button, {
-                                      // eslint-disable-next-line react/no-array-index-key
-                                      key: index,
-                                      className: cn(button.props.className, styles.subAddonsButton),
-                                  })
-                                : null,
-                        )}
-                    </div>
-                );
-            }
-            return <div className={subAddonsClassName}>{subAddons}</div>;
+            return <div className={containerClassName}>{buttons}</div>;
         };
 
         return (
@@ -272,7 +269,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                         [styles.focused]: focused,
                         [styles.isHidden]: hasCloser && isHidden,
                         [styles.isFolded]: foldable && folded,
-                        [styles.borderRadius]: borderRadius,
+                        [styles.rounded]: rounded,
                         [styles.noBorder]: !border,
                         [styles.shadow]: shadow,
                     },
@@ -291,10 +288,10 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     <div
                         className={cn(styles.contentContainer, contentClassName, {
                             [styles.withoutTitle]: !title,
-                            [styles.limitWidth]: !maxWidth,
+                            [styles.limitWidth]: !limitContentWidth,
                         })}
                     >
-                        {title && <div className={styles.title}>{title}</div>}
+                        {title && <div className={styles[titleView]}>{title}</div>}
                         {hasContent && (
                             <div
                                 ref={contentRef}
@@ -302,31 +299,45 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                     [styles.isFolded]: foldable && folded,
                                 })}
                             >
-                                <div className={styles.contentInner}>
+                                <div className={styles.description}>{children}</div>
+
+                                {hasButtons && (
+                                    <div className={styles.footer}>{renderButtons(buttons)}</div>
+                                )}
+
+                                {/* <div className={styles.contentInner}>
                                     {children}
                                     {hasButtons ? renderButtons() : null}
-                                </div>
+                                </div> */}
                             </div>
                         )}
                     </div>
 
-                    {subAddons && <div className={styles.subAddons}>{renderSubAddons()}</div>}
+                    {hasSubAddons && (
+                        <div ref={subAddonsRef} className={styles.subAddons}>
+                            {renderButtons(subAddons)}
+                        </div>
+                    )}
 
                     {foldable && (
-                        <div
-                            className={cn(styles.folder, {
-                                [styles.isFolded]: folded,
-                            })}
-                        />
+                        <div className={styles.rightAddons}>
+                            <div
+                                className={cn(styles.folder, {
+                                    [styles.isFolded]: folded,
+                                })}
+                            />
+                        </div>
                     )}
 
                     {hasCloser && !foldable && (
-                        <Button
-                            className={styles.closer}
-                            aria-label='закрыть'
-                            view='ghost'
-                            onClick={handleClose}
-                        />
+                        <div className={styles.rightAddons}>
+                            <Button
+                                className={styles.closer}
+                                aria-label='закрыть'
+                                view='ghost'
+                                onClick={handleClose}
+                            />
+                        </div>
                     )}
                 </div>
             </div>

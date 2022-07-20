@@ -3,7 +3,7 @@
 exports[`Plate Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component positive borderRadius"
+    class="component positive rounded"
     role="alert"
     tabindex="-1"
   >
@@ -32,7 +32,7 @@ exports[`Plate Snapshots tests should match snapshot 1`] = `
         class="contentContainer"
       >
         <div
-          class="title"
+          class="bold"
         >
           title
         </div>
@@ -40,7 +40,7 @@ exports[`Plate Snapshots tests should match snapshot 1`] = `
           class="content"
         >
           <div
-            class="contentInner"
+            class="description"
           >
             text
           </div>
