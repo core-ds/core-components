@@ -181,6 +181,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         const hasButtons = !!buttons && typeof buttons !== 'boolean';
         const hasContent = children || hasButtons;
         const hasSubAddons = !!subAddons && typeof subAddons !== 'boolean';
+        const hasAnyAddons = leftAddons || subAddons || foldable || hasCloser;
 
         const handleClick = useCallback(
             event => {
@@ -286,7 +287,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
                     <div
                         className={cn(styles.contentContainer, contentClassName, {
-                            [styles.withoutTitle]: !title,
+                            [styles.withoutTitle]: !title && hasAnyAddons,
                             [styles.limitWidth]: !limitContentWidth,
                         })}
                     >
@@ -298,7 +299,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                     [styles.isFolded]: foldable && folded,
                                 })}
                             >
-                                <div className={styles.description}>{children}</div>
+                                {children && <div className={styles.description}>{children}</div>}
 
                                 {hasButtons && (
                                     <div className={styles.footer}>
@@ -309,11 +310,6 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                         )}
                                     </div>
                                 )}
-
-                                {/* <div className={styles.contentInner}>
-                                    {children}
-                                    {hasButtons ? renderButtons() : null}
-                                </div> */}
                             </div>
                         )}
                     </div>
