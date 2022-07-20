@@ -229,13 +229,12 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             [onClose],
         );
 
-        const renderButtons = (_buttons: ReactNode) => {
+        const renderButtons = (
+            _buttons: ReactNode,
+            containerClassName: string,
+            buttonClassName: string,
+        ) => {
             const buttonsIsArray = Array.isArray(_buttons) && _buttons.length > 0;
-
-            const isSubAddons = _buttons === subAddons;
-
-            const containerClassName = isSubAddons ? subAddonsClassName : buttonsClassName;
-            const buttonClassName = isSubAddons ? styles.subAddonsButton : styles.button;
 
             if (buttonsIsArray) {
                 return (
@@ -302,7 +301,13 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                 <div className={styles.description}>{children}</div>
 
                                 {hasButtons && (
-                                    <div className={styles.footer}>{renderButtons(buttons)}</div>
+                                    <div className={styles.footer}>
+                                        {renderButtons(
+                                            buttons,
+                                            buttonsClassName || '',
+                                            styles.button,
+                                        )}
+                                    </div>
                                 )}
 
                                 {/* <div className={styles.contentInner}>
@@ -315,7 +320,11 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
                     {hasSubAddons && (
                         <div ref={subAddonsRef} className={styles.subAddons}>
-                            {renderButtons(subAddons)}
+                            {renderButtons(
+                                subAddons,
+                                subAddonsClassName || '',
+                                styles.subAddonsButton,
+                            )}
                         </div>
                     )}
 
