@@ -13,7 +13,7 @@ type Props = {
 };
 
 const rootBlockRegexp = /:root {([^}]*)}/g;
-const mixinRegexp = /(?<=@define-mixin).*{([^}]*)}/g;
+const mixinRegexp = /(?:@define-mixin)(.*{[^}]*})/g;
 
 export const CssVars: FC<Props> = ({ css, title, expandable, type = 'vars' }) => {
     const [vars, setVars] = useState('');
@@ -27,7 +27,7 @@ export const CssVars: FC<Props> = ({ css, title, expandable, type = 'vars' }) =>
         const rootBlocks = [];
 
         while (rootBlockMatch) {
-            rootBlocks.push(rootBlockMatch[isVars ? 1 : 0]);
+            rootBlocks.push(rootBlockMatch[1]);
             rootBlockMatch = regexp.exec(css);
         }
 
