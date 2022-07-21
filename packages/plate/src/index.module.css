@@ -84,7 +84,7 @@
 }
 
 .custom {
-    background: var(--plate-background) center no-repeat;
+    background: var(--plate-background);
     border-color: var(--plate-border-color);
 }
 

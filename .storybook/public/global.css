@@ -860,3 +860,7 @@ table.docblock-argstable tbody.docblock-argstable-body td div:only-child span {
     border-color: var(--color-light-border-secondary);
     background: var(--color-light-bg-secondary);
 }
+
+.plateGlobal {
+    --plate-background: url('./images/docs-background.png');
+}
