@@ -219,6 +219,9 @@
 }
 
 .clear {
+    --icon-button-tertiary-hover-color: var(--color-light-graphic-primary-inverted);
+    --icon-button-tertiary-active-color: var(--color-light-graphic-primary-inverted);
+
     position: relative;
     background-color: var(--tag-background-color-checked);
 

@@ -130,7 +130,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     <IconButton
                         className={cn(styles.clear, styles[size], styles[variantClassName])}
                         icon={size === 'xxs' ? CrossCircleSIcon : CrossCircleMIcon}
-                        colors='inverted'
+                        view='tertiary'
                         size='xxs'
                         onClick={handleClear}
                     />
