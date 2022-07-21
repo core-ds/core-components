@@ -26,8 +26,6 @@ import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
 
-const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-
 export const BaseSelect = forwardRef(
     (
         {
@@ -333,6 +331,7 @@ export const BaseSelect = forwardRef(
         }, [optionsListWidth]);
 
         useEffect(() => {
+            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
             const observer = new ResizeObserver(calcOptionsListWidth);
             if (rootRef.current) {
                 observer.observe(rootRef.current);

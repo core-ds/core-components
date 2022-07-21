@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@2.3.2...@alfalab/core-components-password-input@2.3.3) (2022-07-18)
+
+**Note:** Version bump only for package @alfalab/core-components-password-input
+
+
+
+
+
+## [2.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@2.3.1...@alfalab/core-components-password-input@2.3.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [2.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@2.3.0...@alfalab/core-components-password-input@2.3.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-password-input
+
+
+
+
+
 # [2.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@2.2.9...@alfalab/core-components-password-input@2.3.0) (2022-06-28)
 
 
@@ -297,5 +324,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **password-input:** add password input (PDS-233) ([#691](https://github.com/core-ds/core-components/issues/691)) ([d872e4d](https://github.com/core-ds/core-components/commit/d872e4dd18fd5db472864fbc2676749b812da00f))

@@ -1,7 +1,20 @@
-Компонент спиннера.
+## Компонент спиннера
+
+Default
 
 ```jsx live
 <Spinner visible={true} size='s' />
+```
+
+Inverted
+
+```jsx live
+<div style={{
+    backgroundColor: 'var(--color-light-bg-primary-inverted)',
+    padding: '18px 20px',
+}}>
+    <Spinner visible={true} size='s' colors='inverted' />
+</div>
 ```
 
 <!-- Spacer -->
@@ -15,8 +28,16 @@
 -   --spinner-display-visible
 -   --spinner-animation-duration
 -   --spinner-animation-timing-function
+-   --spinner-default-color
+-   --spinner-inverted-color
 
 ## Примеры
+
+Spinner `size=xs`:
+
+```jsx live
+<Spinner size='xs' visible={true} />
+```
 
 Spinner `size=s`:
 

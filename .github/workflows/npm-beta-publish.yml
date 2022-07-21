@@ -1,0 +1,41 @@
+name: Beta release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Бета версия в виде x.x.x-beta.x'
+        required: true
+        default: ''
+        type: string
+
+jobs:
+  build:
+    env:
+      CI: true
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: yarn --pure-lockfile
+
+      - name: Build app
+        run: yarn build
+        env:
+          BUILD_CONCURRENCY: 5
+
+      - name: Set NPM Token
+        uses: filipstefansson/set-npm-token-action@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish
+        run: npm run pub:beta-ci
+        env:
+          VERSION: ${{ github.event.inputs.version }}

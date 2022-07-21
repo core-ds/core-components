@@ -1,18 +1,16 @@
 {
     "name": "@alfalab/core-components-backdrop",
-    "version": "2.1.0",
+    "version": "2.1.3",
     "description": "Backdrop component",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
     "scripts": {
-        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "dependencies": {
         "classnames": "^2.2.6",

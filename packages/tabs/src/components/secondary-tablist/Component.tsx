@@ -13,6 +13,7 @@ export const SecondaryTabList = ({
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
+    fullWidthScroll,
     tagSize = 'xs',
     onChange,
     dataTestId,
@@ -23,38 +24,42 @@ export const SecondaryTabList = ({
         onChange,
     });
 
-    const renderContent = () =>
-        titles
-            .filter(item => !item.hidden)
-            .map((item, index) => (
-                <Tag
-                    {...getTabListItemProps(index)}
-                    key={item.id}
-                    className={styles.title}
-                    checked={item.id === selectedId}
-                    size={tagSize}
-                    rightAddons={item.rightAddons}
-                >
-                    {item.title}
-                </Tag>
-            ));
-
-    return (
+    const renderContent = () => (
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size])}
+            className={cn(styles.component, className, size && styles[size], {
+                [styles.fullWidthScroll]: fullWidthScroll,
+            })}
         >
-            {scrollable ? (
-                <ScrollableContainer
-                    activeChild={focusedTab || selectedTab}
-                    containerClassName={containerClassName}
-                >
-                    {renderContent()}
-                </ScrollableContainer>
-            ) : (
-                <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
-            )}
+            {titles.map((item, index) => {
+                if (item.hidden) return null;
+
+                return (
+                    <Tag
+                        {...getTabListItemProps(index)}
+                        key={item.id}
+                        className={cn(styles.title, item.toggleClassName)}
+                        checked={item.id === selectedId}
+                        size={tagSize}
+                        rightAddons={item.rightAddons}
+                    >
+                        {item.title}
+                    </Tag>
+                );
+            })}
         </div>
+    );
+
+    return scrollable ? (
+        <ScrollableContainer
+            activeChild={focusedTab || selectedTab}
+            containerClassName={containerClassName}
+            fullWidthScroll={fullWidthScroll}
+        >
+            {renderContent()}
+        </ScrollableContainer>
+    ) : (
+        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
     );
 };

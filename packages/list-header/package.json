@@ -1,22 +1,20 @@
 {
     "name": "@alfalab/core-components-list-header",
-    "version": "2.2.0",
+    "version": "2.2.3",
     "description": "ListHeader component",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "module": "./dist/esm/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
+    "module": "./esm/index.js",
     "scripts": {
-        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^2.6.0",
+        "@alfalab/core-components-typography": "^2.6.3",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

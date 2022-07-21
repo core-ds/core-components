@@ -3,13 +3,15 @@
 
 .component {
     position: relative;
-    display: flex;
-    align-items: center;
+    display: inline-flex;
+}
+
+.fullWidthScroll {
+    margin: 0 var(--gap-m);
 }
 
 .container {
-    display: flex;
-    align-items: center;
+    overflow: hidden;
 }
 
 .title {

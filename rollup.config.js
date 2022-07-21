@@ -34,12 +34,7 @@ const baseConfig = {
         '!src/**/*.d.ts',
     ],
     plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
-    external: [
-        ...Object.keys(pkg.dependencies || {}),
-        ...Object.keys(pkg.peerDependencies || {}),
-        /(core-js).+/,
-    ],
-    plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
 
 const multiInputPlugin = multiInput();
@@ -93,6 +88,7 @@ const es5 = {
         copy({
             targets: [{ src: ['../../bin/send-stats.js'], dest: 'dist' }],
         }),
+        copy({ targets: [{ src: ['package.json', 'CHANGELOG.md'], dest: 'dist' }] }),
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };
@@ -108,7 +104,7 @@ const modern = {
             format: 'esm',
             plugins: [
                 addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'dist/modern' }),
+                coreComponentsResolver({ importFrom: 'modern' }),
             ],
         },
     ],
@@ -139,7 +135,7 @@ const cssm = {
         {
             dir: 'dist/cssm',
             format: 'cjs',
-            plugins: [coreComponentsResolver({ importFrom: 'dist/cssm' })],
+            plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
         },
     ],
     plugins: [
@@ -170,7 +166,7 @@ const esm = {
             format: 'esm',
             plugins: [
                 addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'dist/esm' }),
+                coreComponentsResolver({ importFrom: 'esm' }),
             ],
         },
     ],

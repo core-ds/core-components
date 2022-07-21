@@ -3,10 +3,9 @@
 
 .container {
     position: relative;
-    display: flex;
-    align-items: center;
     overflow-x: auto;
     overflow-y: hidden;
+    scroll-behavior: smooth;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
@@ -16,4 +15,8 @@
     & > * {
         flex-shrink: 0;
     }
+}
+
+.fullWidthScroll {
+    margin: 0 var(--gap-m-neg);
 }

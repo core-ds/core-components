@@ -35,29 +35,42 @@ import vars from '!!raw-loader!../vars.css';
         const props = TabsComponent !== TabsMobile ? {
             size: select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm'),
         } : {};
+        const responsiveAndMobileProps = TabsComponent !== TabsDesktop ? {
+            fullWidthScroll: boolean('fullWidthScroll', false)
+        } : {}
         return (
             <TabsComponent
                 {...props}
+                {...responsiveAndMobileProps}
                 view={select('view', ['primary', 'secondary'], 'primary')}
                 selectedId={selectedId}
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
                 scrollable={boolean('scrollable', false)}
             >
-                <Tab title='Таб 1' id='tab-1'>
-                    Таб 1
+                <Tab title='Aurum' id='tab-1'>
+                    Aurum
                 </Tab>
-                <Tab title='Таб 2' id='tab-2' disabled>
-                    Таб 2
+                <Tab title='Bercelium' id='tab-2' disabled>
+                    Bercelium
                 </Tab>
                 <Tab title='Таб 3 (hidden)' id='tab-3' hidden>
                     Таб 3
                 </Tab>
-                <Tab title='Таб 4' id='tab-4'>
-                    Таб 4
+                <Tab title='Curium' id='tab-4'>
+                    Curium
                 </Tab>
-                <Tab title='Таб 5' id='tab-5' disabled>
-                    Таб 5
+                <Tab title='Neptunium' id='tab-5'>
+                    Neptunium
+                </Tab>
+                <Tab title='Plutonuim' id='tab-6'>
+                    Plutonuim
+                </Tab>
+                <Tab title='Rubidium' id='tab-7'>
+                    Rubidium
+                </Tab>
+                <Tab title='Californium' id='tab-8'>
+                    Californium
                 </Tab>
             </TabsComponent>
         );

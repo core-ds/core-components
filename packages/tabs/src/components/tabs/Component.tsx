@@ -11,18 +11,23 @@ export const Tabs = ({
     children,
     selectedId,
     scrollable,
+    fullWidthScroll = false,
     keepMounted = false,
     dataTestId,
     onChange,
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
-    const titles = tabsArray.map(({ props: { title, id, rightAddons, disabled, hidden } }) => ({
-        title,
-        id,
-        disabled,
-        rightAddons,
-        hidden,
-    }));
+    const titles = tabsArray.map(
+        ({ props: { title, id, rightAddons, disabled, hidden, toggleClassName } }) => ({
+            title,
+            id,
+            disabled,
+            rightAddons,
+            hidden,
+            toggleClassName,
+        }),
+    );
+
     const tabs = tabsArray.filter(
         tab => tab.props.id === selectedId || tab.props.keepMounted || keepMounted,
     );
@@ -38,6 +43,7 @@ export const Tabs = ({
                 onChange={onChange}
                 dataTestId={dataTestId}
                 defaultMatch={defaultMatch}
+                fullWidthScroll={fullWidthScroll}
             />
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}

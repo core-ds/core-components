@@ -53,6 +53,11 @@ export type TabsProps = {
     scrollable?: boolean;
 
     /**
+     * При скроле табы будут уходить в край экрана
+     */
+    fullWidthScroll?: boolean;
+
+    /**
      * Компоненты табов
      */
     children: Array<ReactElement<TabProps>>;
@@ -85,9 +90,14 @@ export type TabProps = {
     title: string;
 
     /**
-     * Дополнительный класс
+     * Дополнительный класс для контейнера содержимого таба
      */
     className?: string;
+
+    /**
+     * Дополнительный класс для кнопки таба
+     */
+    toggleClassName?: string;
 
     /**
      * Блокирует таб
@@ -130,6 +140,7 @@ export type TabListProps = Pick<
     | 'scrollable'
     | 'onChange'
     | 'dataTestId'
+    | 'fullWidthScroll'
 > & {
     /**
      * Заголовки табов
@@ -140,6 +151,7 @@ export type TabListProps = Pick<
         disabled?: boolean;
         rightAddons?: ReactNode;
         hidden?: boolean;
+        toggleClassName?: string;
     }>;
 };
 

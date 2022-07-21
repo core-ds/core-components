@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.12.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.6...@alfalab/core-components-select@10.12.7) (2022-07-18)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.12.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.5...@alfalab/core-components-select@10.12.6) (2022-07-18)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.12.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.4...@alfalab/core-components-select@10.12.5) (2022-07-15)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.12.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.3...@alfalab/core-components-select@10.12.4) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [10.12.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.2...@alfalab/core-components-select@10.12.3) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.12.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.1...@alfalab/core-components-select@10.12.2) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.12.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.0...@alfalab/core-components-select@10.12.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* **select:** added comment for IE ([#127](https://github.com/core-ds/core-components/issues/127)) ([31fb5f6](https://github.com/core-ds/core-components/commit/31fb5f69c57acbf71e897b8c261068a24c883ecc))
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
+
+
+
+
 # [10.12.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.11.1...@alfalab/core-components-select@10.12.0) (2022-07-01)
 
 
@@ -924,5 +987,6 @@ remove z-index, add stack component
 
 
 ### Bug Fixes
+
 
 * update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))

@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.2.0...@alfalab/core-components-base-modal@4.2.1) (2022-07-18)
+
+**Note:** Version bump only for package @alfalab/core-components-base-modal
+
+
+
+
+
+# [4.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.5...@alfalab/core-components-base-modal@4.2.0) (2022-07-15)
+
+
+### Features
+
+* **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
+
+
+
+
+
+## [4.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.4...@alfalab/core-components-base-modal@4.1.5) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [4.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.3...@alfalab/core-components-base-modal@4.1.4) (2022-07-14)
+
+
+### Bug Fixes
+
+* **base-modal:** fix overflow hidden bug ([#128](https://github.com/core-ds/core-components/issues/128)) ([eb953b9](https://github.com/core-ds/core-components/commit/eb953b9866dae8c28bf8265d6884cdf1544ae63c))
+
+
+
+
+
+## [4.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.2...@alfalab/core-components-base-modal@4.1.3) (2022-07-11)
+
+
+### Bug Fixes
+
+* **base-modal:** fix using resize observer ([#136](https://github.com/core-ds/core-components/issues/136)) ([cb8f03c](https://github.com/core-ds/core-components/commit/cb8f03ca55394316189d1d4529ee3fdb691538d9))
+* fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+
+
+
+
+
 ## [4.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.1...@alfalab/core-components-base-modal@4.1.2) (2022-07-01)
 
 
@@ -238,5 +291,6 @@ remove z-index, add stack component
 
 
 ### Features
+
 
 * **backdrop:** add component ([948a6c2](https://github.com/core-ds/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))

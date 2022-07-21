@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.8.2...@alfalab/core-components-checkbox@2.8.3) (2022-07-18)
+
+**Note:** Version bump only for package @alfalab/core-components-checkbox
+
+
+
+
+
+## [2.8.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.8.1...@alfalab/core-components-checkbox@2.8.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [2.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.8.0...@alfalab/core-components-checkbox@2.8.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-checkbox
+
+
+
+
+
 # [2.8.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.7.3...@alfalab/core-components-checkbox@2.8.0) (2022-06-28)
 
 
@@ -272,5 +299,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **checkbox:** improved theming ([cb1d196](https://github.com/core-ds/core-components/commit/cb1d196ade34622d5b92fc0ec5c20af5f5e27d3c))

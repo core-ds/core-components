@@ -7,6 +7,7 @@ import { TabListProps, TabsMatchMedia } from '../../typings';
 export const PrimaryTabListResponsive = ({
     size,
     defaultMatch = 'desktop',
+    fullWidthScroll,
     ...restProps
 }: TabListProps) => {
     const [view] = useMedia<TabsMatchMedia>(
@@ -20,6 +21,6 @@ export const PrimaryTabListResponsive = ({
     return view === 'desktop' ? (
         <PrimaryTabListDesktop size={size} {...restProps} />
     ) : (
-        <PrimaryTabListMobile {...restProps} />
+        <PrimaryTabListMobile fullWidthScroll={fullWidthScroll} {...restProps} />
     );
 };

@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.4.0...@alfalab/core-components-tabs@6.5.0) (2022-07-18)
+
+
+### Features
+
+* **tabs:** full width TabsMobile ([#124](https://github.com/core-ds/core-components/issues/124)) ([659763a](https://github.com/core-ds/core-components/commit/659763abefd2b3762713958e32272c762bb116c6))
+
+
+
+
+
+# [6.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.3.2...@alfalab/core-components-tabs@6.4.0) (2022-07-15)
+
+
+### Features
+
+* **tabs:** add className fro tab button and tab children ([#132](https://github.com/core-ds/core-components/issues/132)) ([a1b19d2](https://github.com/core-ds/core-components/commit/a1b19d282d27159103f13205f9ea694489d65c51))
+
+
+
+
+
+## [6.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.3.1...@alfalab/core-components-tabs@6.3.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+
+
+
+
+
+## [6.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.3.0...@alfalab/core-components-tabs@6.3.1) (2022-07-14)
+
+**Note:** Version bump only for package @alfalab/core-components-tabs
+
+
+
+
+
 # [6.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tabs@6.2.7...@alfalab/core-components-tabs@6.3.0) (2022-06-28)
 
 
@@ -332,5 +373,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 ### Features
+
 
 * **tabs:** disabled view ([#513](https://github.com/core-ds/core-components/issues/513)) ([8bdb1a7](https://github.com/core-ds/core-components/commit/8bdb1a789f720c6ccd98ebed3f0ae3c84dbbf52e))
