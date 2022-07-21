@@ -1,4 +1,4 @@
-BottomSheet построен как Compound Components.  
+BottomSheet построен с использованием слотов..  
 Компонент не имеет десктопной версии
 
 ## Архитектура
@@ -9,46 +9,46 @@ BottomSheet построен как Compound Components.
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [firstRadioValue, setFirstRadioValue] = React.useState("yes");
-    const [secondRadioValue, setSecondRadioValue] = React.useState("no");
-    const [thirdRadioValue, setThirdRadioValue] = React.useState("closer");
-    const [fourthRadioValue, setFourthRadioValue] = React.useState("small");
-    const [fifthRadioValue, setFifthRadioValue] = React.useState("yes");
-    const [sixthRadioValue, setSixthRadioValue] = React.useState("default");
-    const [seventhRadioValue, setSeventhRadioValue] = React.useState("yes");
-    const [eighthRadioValue, setEighthRadioValue] = React.useState("yes");
+    const [fixedСontent, setFixedСontent] = React.useState("yes");
+    const [header, setHeader] = React.useState("no");
+    const [navigation, setNavigation] = React.useState("closer");
+    const [sizeContent, setSizeContent] = React.useState("small");
+    const [footerContent, setFooterContent] = React.useState("yes");
+    const [initialHeight, setInitialHeight] = React.useState("default");
+    const [swipeable, setSwipeable] = React.useState("yes");
+    const [overlay, setOverlay] = React.useState("yes");
 
-     const onFirstRadioChange = (_, payload) => {
-        setFirstRadioValue(payload.value);
+     const onFixedСontentChange = (_, payload) => {
+        setFixedСontent(payload.value);
     };
 
-    const onSecondRadioChange = (_, payload) => {
-        setSecondRadioValue(payload.value);
+    const onHeaderChange = (_, payload) => {
+        setHeader(payload.value);
     };
 
-    const onThirdRadioChange = (_, payload) => {
-        setThirdRadioValue(payload.value);
+    const onNavigationChange = (_, payload) => {
+        setNavigation(payload.value);
     };
 
     
-    const onFourthRadioChange = (_, payload) => {
-        setFourthRadioValue(payload.value);
+    const onSizeContentChange = (_, payload) => {
+        setSizeContent(payload.value);
     };
 
-    const onFifthRadioChange = (_, payload) => {
-        setFifthRadioValue(payload.value);
+    const onFooterContentChange = (_, payload) => {
+        setFooterContent(payload.value);
     };
 
-    const onSixthRadioChange = (_, payload) => {
-        setSixthRadioValue(payload.value);
+    const onInitialHeightChange = (_, payload) => {
+        setInitialHeight(payload.value);
     };
 
-    const onSeventhRadioChange = (_, payload) => {
-        setSeventhRadioValue(payload.value);
+    const onSwipeableChange = (_, payload) => {
+        setSwipeable(payload.value);
     };
 
-    const onEighthRadioChange = (_, payload) => {
-        setEighthRadioValue(payload.value);
+    const onOverlayChange = (_, payload) => {
+        setOverlay(payload.value);
     };
 
     return (
@@ -59,25 +59,25 @@ render(() => {
                 open={open}
                 title='Заголовок'
                 actionButton={
-                    fifthRadioValue === 'yes' && <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
+                    footerContent === 'yes' && <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
                         Понятно
                     </Button>
                 }
-                initialHeight={ sixthRadioValue }
-                hideOverlay={eighthRadioValue === 'no'}
-                hideHeader={secondRadioValue === 'no'}
-                swipeable={seventhRadioValue === 'yes'}
-                stickyHeader={firstRadioValue === 'yes'}
-                stickyFooter={firstRadioValue === 'yes' }
-                hasCloser={thirdRadioValue === 'closer'}
-                hasBacker={thirdRadioValue === 'back'}
-                titleAlign={secondRadioValue !== 'no' && secondRadioValue}
+                initialHeight={ initialHeight }
+                hideOverlay={overlay === 'no'}
+                hideHeader={header === 'no'}
+                swipeable={swipeable === 'yes'}
+                stickyHeader={fixedСontent === 'yes'}
+                stickyFooter={fixedСontent === 'yes' }
+                hasCloser={navigation === 'closer'}
+                hasBacker={navigation === 'back'}
+                titleAlign={header !== 'no' && header}
                 onClose={() => setOpen(false)}
             >
                 <div style={{ lineHeight: '24px' }}>
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    {fourthRadioValue === 'big' && <p>Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    {sizeContent === 'big' && <p>Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
@@ -91,115 +91,115 @@ render(() => {
             </BottomSheet>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Футер и хедер"
-                        direction="vertical"
-                        name="radioGroupFirst"
-                        onChange={onFirstRadioChange}
-                        value={firstRadioValue}
-                    >
-                        <Radio label="Фиксированные" value="yes" />
-                        <Radio label="Нефиксированные" value="no" />
-                    </RadioGroup>
+                <RadioGroup
+                    label="Футер и хедер"
+                    direction="vertical"
+                    name="radioGroupFirst"
+                    onChange={onFixedСontentChange}
+                    value={fixedСontent}
+                >
+                    <Radio label="Фиксированные" value="yes" />
+                    <Radio label="Нефиксированные" value="no" />
+                </RadioGroup>
 
-                    <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер и хедер без контента не могут быть закреплёнными.</Typography.Text>
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер и хедер без контента не могут быть закреплёнными.</Typography.Text>
             </div>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Заголовок"
-                        direction="vertical"
-                        name="radioGroupSecond"
-                        onChange={onSecondRadioChange}
-                        value={secondRadioValue}
-                    >
-                        <Radio label="Без заголовка" value="no" />
-                        <Radio label="Центрирован" value="center" />
-                        <Radio label="По левому краю" value="left" />
-                    </RadioGroup>                    
+                <RadioGroup
+                    label="Заголовок"
+                    direction="vertical"
+                    name="radioGroupSecond"
+                    onChange={onHeaderChange}
+                    value={header}
+                >
+                    <Radio label="Без заголовка" value="no" />
+                    <Radio label="Центрирован" value="center" />
+                    <Radio label="По левому краю" value="left" />
+                </RadioGroup>                    
             </div>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Навигация"
-                        direction="vertical"
-                        name="radioGroupThird"
-                        onChange={onThirdRadioChange}
-                        value={thirdRadioValue}
-                    >
-                        <Radio label="Закрыть" value="closer" />
-                        <Radio label="Назад" value="back" />
-                        <Radio label="Без навигации" value="no" />
-                    </RadioGroup>
+                <RadioGroup
+                    label="Навигация"
+                    direction="vertical"
+                    name="radioGroupThird"
+                    onChange={onNavigationChange}
+                    value={navigation}
+                >
+                    <Radio label="Закрыть" value="closer" />
+                    <Radio label="Назад" value="back" />
+                    <Radio label="Без навигации" value="no" />
+                </RadioGroup>
 
-                    <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Не рекомендуется использовать кнопку “назад” с левым выравниванием заголовка в шапке.</Typography.Text>
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Не рекомендуется использовать кнопку “назад” с левым выравниванием заголовка в шапке.</Typography.Text>
             </div>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Объём контента"
-                        direction="vertical"
-                        name="radioGroupFourth"
-                        onChange={onFourthRadioChange}
-                        value={fourthRadioValue}
-                    >
-                        <Radio label="Мало" value="small" />
-                        <Radio label="Больше чем на один экран" value="big" />
-                    </RadioGroup>                    
+                <RadioGroup
+                    label="Объём контента"
+                    direction="vertical"
+                    name="radioGroupFourth"
+                    onChange={onSizeContentChange}
+                    value={sizeContent}
+                >
+                    <Radio label="Мало" value="small" />
+                    <Radio label="Больше чем на один экран" value="big" />
+                </RadioGroup>                    
             </div>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Контент футера"
-                        direction="vertical"
-                        name="radioGroupFifth"
-                        onChange={onFifthRadioChange}
-                        value={fifthRadioValue}
-                    >
-                        <Radio label="Кнопка" value="yes" />
-                        <Radio label="Нет контента" value="no" />
-                    </RadioGroup>
-                    
-                    <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
+                <RadioGroup
+                    label="Контент футера"
+                    direction="vertical"
+                    name="radioGroupFifth"
+                    onChange={onFooterContentChange}
+                    value={footerContent}
+                >
+                    <Radio label="Кнопка" value="yes" />
+                    <Radio label="Нет контента" value="no" />
+                </RadioGroup>
+                
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
             </div>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Высота шторки"
-                        direction="vertical"
-                        name="radioGroupSixth"
-                        onChange={onSixthRadioChange}
-                        value={sixthRadioValue}
-                    >
-                        <Radio label="По размеру контента" value="default" />
-                        <Radio label="На весь экран" value="full" />
-                    </RadioGroup>                    
+                <RadioGroup
+                    label="Высота шторки"
+                    direction="vertical"
+                    name="radioGroupSixth"
+                    onChange={onInitialHeightChange}
+                    value={initialHeight}
+                >
+                    <Radio label="По размеру контента" value="default" />
+                    <Radio label="На весь экран" value="full" />
+                </RadioGroup>                    
             </div>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Закрытие свайпом"
-                        direction="vertical"
-                        name="radioGroupSevent"
-                        onChange={onSeventhRadioChange}
-                        value={seventhRadioValue}
-                    >
-                        <Radio label="Разрешено" value="yes" />
-                        <Radio label="Запрещено" value="no" />
-                    </RadioGroup>                    
+                <RadioGroup
+                    label="Закрытие свайпом"
+                    direction="vertical"
+                    name="radioGroupSevent"
+                    onChange={onSwipeableChange}
+                    value={swipeable}
+                >
+                    <Radio label="Разрешено" value="yes" />
+                    <Radio label="Запрещено" value="no" />
+                </RadioGroup>                    
             </div>
 
             <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Оверлей"
-                        direction="vertical"
-                        name="radioGroupEighth"
-                        onChange={onEighthRadioChange}
-                        value={eighthRadioValue}
-                    >
-                        <Radio label="С оверлеем" value="yes" />
-                        <Radio label="Без оверлея" value="no" />
-                    </RadioGroup>                    
+                <RadioGroup
+                    label="Оверлей"
+                    direction="vertical"
+                    name="radioGroupEighth"
+                    onChange={onOverlayChange}
+                    value={overlay}
+                >
+                    <Radio label="С оверлеем" value="yes" />
+                    <Radio label="Без оверлея" value="no" />
+                </RadioGroup>                    
             </div>
         </>
     );
