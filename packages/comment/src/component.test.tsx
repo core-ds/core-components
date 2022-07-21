@@ -1,28 +1,28 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { CommentView } from '.';
+import { Comment } from '.';
 
-describe('comment view', () => {
+describe('comment', () => {
     it('should use a dataTestId prop', () => {
         const testId = 'test-identifier';
-        const { container } = render(<CommentView dataTestId={testId} />);
+        const { container } = render(<Comment dataTestId={testId} />);
 
         expect(container.firstElementChild).toHaveAttribute('data-test-id', testId);
     });
 
     it('should use a className prop', () => {
         const className = 'test-class';
-        const { container } = render(<CommentView className={className} />);
+        const { container } = render(<Comment className={className} />);
 
         expect(container.firstElementChild).toHaveClass(className);
     });
 
     it('should have children', () => {
         render(
-            <CommentView>
+            <Comment>
                 <div data-test-id='test-children'>comment</div>
-            </CommentView>,
+            </Comment>,
         );
 
         expect(screen.getByTestId('test-children')).toBeInTheDocument();

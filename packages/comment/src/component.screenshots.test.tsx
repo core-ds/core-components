@@ -8,13 +8,13 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 describe(
-    'Comment view | main prop',
+    'Comment | main prop',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'Comment view',
+            componentName: 'Comment',
             testStory: false,
             knobs: {
-              children: 'Comment'
+                children: 'Comment',
             },
         }),
     }),
