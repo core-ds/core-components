@@ -9,47 +9,21 @@ BottomSheet построен с использованием слотов.
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [fixedСontent, setFixedСontent] = React.useState("yes");
-    const [header, setHeader] = React.useState("no");
-    const [navigation, setNavigation] = React.useState("closer");
-    const [sizeContent, setSizeContent] = React.useState("small");
-    const [footerContent, setFooterContent] = React.useState("yes");
-    const [initialHeight, setInitialHeight] = React.useState("default");
-    const [swipeable, setSwipeable] = React.useState("yes");
-    const [overlay, setOverlay] = React.useState("yes");
 
-     const onFixedСontentChange = (_, payload) => {
-        setFixedСontent(payload.value);
-    };
+    const [state, setState] = React.useState({
+        fixedСontent: 'yes',
+        header: 'no',
+        navigation: 'closer',
+        sizeContent: 'small',
+        footerContent: 'yes',
+        initialHeight: 'default',
+        swipeable: 'yes',
+        overlay: 'yes'
+    });
 
-    const onHeaderChange = (_, payload) => {
-        setHeader(payload.value);
-    };
-
-    const onNavigationChange = (_, payload) => {
-        setNavigation(payload.value);
-    };
-
-    
-    const onSizeContentChange = (_, payload) => {
-        setSizeContent(payload.value);
-    };
-
-    const onFooterContentChange = (_, payload) => {
-        setFooterContent(payload.value);
-    };
-
-    const onInitialHeightChange = (_, payload) => {
-        setInitialHeight(payload.value);
-    };
-
-    const onSwipeableChange = (_, payload) => {
-        setSwipeable(payload.value);
-    };
-
-    const onOverlayChange = (_, payload) => {
-        setOverlay(payload.value);
-    };
+    const handleStateChange = (key, _, payload) => {
+        setState(state => ({ ...state, [key]: payload.value }));
+    }
 
     return (
         <>
@@ -59,25 +33,25 @@ render(() => {
                 open={open}
                 title='Заголовок'
                 actionButton={
-                    footerContent === 'yes' && <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
+                    state.footerContent === 'yes' && <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
                         Понятно
                     </Button>
                 }
-                initialHeight={ initialHeight }
-                hideOverlay={overlay === 'no'}
-                hideHeader={header === 'no'}
-                swipeable={swipeable === 'yes'}
-                stickyHeader={fixedСontent === 'yes'}
-                stickyFooter={fixedСontent === 'yes' }
-                hasCloser={navigation === 'closer'}
-                hasBacker={navigation === 'back'}
-                titleAlign={header !== 'no' && header}
+                initialHeight={ state.initialHeight }
+                hideOverlay={state.overlay === 'no'}
+                hideHeader={state.header === 'no'}
+                swipeable={state.swipeable === 'yes'}
+                stickyHeader={state.fixedСontent === 'yes'}
+                stickyFooter={state.fixedСontent === 'yes' }
+                hasCloser={state.navigation === 'closer'}
+                hasBacker={state.navigation === 'back'}
+                titleAlign={state.header !== 'no' && state.header}
                 onClose={() => setOpen(false)}
             >
                 <div style={{ lineHeight: '24px' }}>
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    {sizeContent === 'big' && <p>Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    {state.sizeContent === 'big' && <p>Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
@@ -95,8 +69,8 @@ render(() => {
                     label="Футер и хедер"
                     direction="vertical"
                     name="radioGroupFirst"
-                    onChange={onFixedСontentChange}
-                    value={fixedСontent}
+                    onChange={handleStateChange.bind(null, 'fixedСontent')}
+                    value={state.fixedСontent}
                 >
                     <Radio label="Фиксированные" value="yes" />
                     <Radio label="Нефиксированные" value="no" />
@@ -110,8 +84,8 @@ render(() => {
                     label="Заголовок"
                     direction="vertical"
                     name="radioGroupSecond"
-                    onChange={onHeaderChange}
-                    value={header}
+                    onChange={handleStateChange.bind(null, 'header')}
+                    value={state.header}
                 >
                     <Radio label="Без заголовка" value="no" />
                     <Radio label="Центрирован" value="center" />
@@ -124,8 +98,8 @@ render(() => {
                     label="Навигация"
                     direction="vertical"
                     name="radioGroupThird"
-                    onChange={onNavigationChange}
-                    value={navigation}
+                    onChange={handleStateChange.bind(null, 'navigation')}
+                    value={state.navigation}
                 >
                     <Radio label="Закрыть" value="closer" />
                     <Radio label="Назад" value="back" />
@@ -140,8 +114,8 @@ render(() => {
                     label="Объём контента"
                     direction="vertical"
                     name="radioGroupFourth"
-                    onChange={onSizeContentChange}
-                    value={sizeContent}
+                    onChange={handleStateChange.bind(null, 'sizeContent')}
+                    value={state.sizeContent}
                 >
                     <Radio label="Мало" value="small" />
                     <Radio label="Больше чем на один экран" value="big" />
@@ -153,8 +127,8 @@ render(() => {
                     label="Контент футера"
                     direction="vertical"
                     name="radioGroupFifth"
-                    onChange={onFooterContentChange}
-                    value={footerContent}
+                    onChange={handleStateChange.bind(null, 'footerContent')}
+                    value={state.footerContent}
                 >
                     <Radio label="Кнопка" value="yes" />
                     <Radio label="Нет контента" value="no" />
@@ -168,8 +142,8 @@ render(() => {
                     label="Высота шторки"
                     direction="vertical"
                     name="radioGroupSixth"
-                    onChange={onInitialHeightChange}
-                    value={initialHeight}
+                    onChange={handleStateChange.bind(null, 'initialHeight')}
+                    value={state.initialHeight}
                 >
                     <Radio label="По размеру контента" value="default" />
                     <Radio label="На весь экран" value="full" />
@@ -181,8 +155,8 @@ render(() => {
                     label="Закрытие свайпом"
                     direction="vertical"
                     name="radioGroupSevent"
-                    onChange={onSwipeableChange}
-                    value={swipeable}
+                    onChange={handleStateChange.bind(null, 'swipeable')}
+                    value={state.swipeable}
                 >
                     <Radio label="Разрешено" value="yes" />
                     <Radio label="Запрещено" value="no" />
@@ -194,8 +168,8 @@ render(() => {
                     label="Оверлей"
                     direction="vertical"
                     name="radioGroupEighth"
-                    onChange={onOverlayChange}
-                    value={overlay}
+                    onChange={handleStateChange.bind(null, 'overlay')}
+                    value={state.overlay}
                 >
                     <Radio label="С оверлеем" value="yes" />
                     <Radio label="Без оверлея" value="no" />
