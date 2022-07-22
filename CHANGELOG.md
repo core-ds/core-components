@@ -1,3 +1,10 @@
+# [28.5.0](https://github.com/core-ds/core-components/compare/v28.4.0...v28.5.0) (2022-07-22)
+
+
+### Features
+
+* **circular-progress-bar:** added new sizes and props ([#122](https://github.com/core-ds/core-components/issues/122)) ([9b1c412](https://github.com/core-ds/core-components/commit/9b1c4126aabc516349655a51c6302d6af84aa129))
+
 # [28.4.0](https://github.com/core-ds/core-components/compare/v28.3.1...v28.4.0) (2022-07-18)
 
 
