@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.3.3...@alfalab/core-components-themes@8.4.0) (2022-07-22)
+
+
+### Features
+
+* **circular-progress-bar:** added new sizes and props ([#122](https://github.com/core-ds/core-components/issues/122)) ([9b1c412](https://github.com/core-ds/core-components/commit/9b1c4126aabc516349655a51c6302d6af84aa129))
+
+
+
+
+
 ## [8.3.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.3.2...@alfalab/core-components-themes@8.3.3) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-themes
