@@ -14,6 +14,11 @@ describe('ProgressBar', () => {
             const { container } = render(<ProgressBar value={20} view='negative' />);
             expect(container).toMatchSnapshot();
         });
+
+        it('should fill all width of progress bar and match view snapshot', () => {
+            const { container } = render(<ProgressBar value={150} view='negative' />);
+            expect(container).toMatchSnapshot();
+        });
     });
 
     describe('Attributes tests', () => {
@@ -29,7 +34,7 @@ describe('ProgressBar', () => {
         const value = 72;
         const { container } = render(<ProgressBar value={value} />);
 
-        expect(container.querySelector('.filled')).toHaveStyle('transform: translateX(-28%)');
+        expect(container.querySelector('.filled')).toHaveStyle('width: 72%');
     });
 
     describe('Classes tests', () => {
