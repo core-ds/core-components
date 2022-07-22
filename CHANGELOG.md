@@ -1,3 +1,10 @@
+# [28.6.0](https://github.com/core-ds/core-components/compare/v28.5.0...v28.6.0) (2022-07-22)
+
+
+### Features
+
+* **comment-view:** add comment view component ([#134](https://github.com/core-ds/core-components/issues/134)) ([f1e0b69](https://github.com/core-ds/core-components/commit/f1e0b695ad9bd17f6a3503aa3ceed03e09112dbd))
+
 # [28.5.0](https://github.com/core-ds/core-components/compare/v28.4.0...v28.5.0) (2022-07-22)
 
 
