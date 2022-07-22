@@ -7,6 +7,12 @@ import { Button } from '@alfalab/core-components-button';
 import { SidePanelMobile } from '../Component.mobile';
 import { SidePanelDesktop } from '../Component.desktop';
 import { SidePanelResponsive } from '../Component.responsive';
+import { HeaderMobile } from '../components/header/Component.mobile';
+import { HeaderDesktop } from '../components/header/Component.desktop';
+import { FooterMobile } from '../components/footer/Component.mobile';
+import { FooterDesktop } from '../components/footer/Component.desktop';
+import { ContentMobile } from '../components/content/Component.mobile';
+import { ContentDesktop } from '../components/content/Component.desktop';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -63,12 +69,9 @@ export const Content = () => {
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
         const trim = boolean('header.trim', true);
-        const align = select('header.align', ['left', 'right', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
-        const footer = boolean('footer', false);
         const stickyFooter = boolean('footer.sticky', false);
         const footerLayout = select('footer.layout', ['start', 'center', 'space-between', 'column'], 'start');
-        const footerGap = select('footer.gap', [false, 16, 24, 32], false);
         const SidePanelComponent = React.useMemo(() => {
             return {
                 'SidePanelResponsive': SidePanelResponsive,
@@ -81,11 +84,10 @@ export const Content = () => {
         } : {};
         return (
             <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть сайд-панель</Button>
                 <SidePanelComponent
                     open={open || boolean('open')}
                     onClose={handleModalOpen}
-                    keepMounted={boolean('keepMounted', false)}
                     {...props}
                 >
                     {header && (
@@ -94,14 +96,14 @@ export const Content = () => {
                             hasCloser={hasCloser}
                             title={headerTitle}
                             trim={trim}
-                            align={align}
+                            align='left'
                         />
                     )}
                     <SidePanelComponent.Content>
                         <Content />
                     </SidePanelComponent.Content>
-                    {footer && (
-                        <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout} gap={footerGap}>
+                    {stickyFooter && (
+                        <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout} >
                             <Footer />
                         </SidePanelComponent.Footer>
                     )}
@@ -133,5 +135,5 @@ import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
     description={<Description />}
     changelog={<Changelog />}
     cssVars={<CssVars css={vars} />}
-    props={<Props components={{SidePanelDesktop, SidePanelMobile, SidePanelResponsive}} />}
+    props={<Props components={{SidePanelDesktop, SidePanelMobile, SidePanelResponsive, HeaderDesktop, ContentDesktop, FooterDesktop, HeaderMobile, ContentMobile, FooterMobile }} />}
 />
