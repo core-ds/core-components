@@ -12,7 +12,7 @@
 
     /* custom view */
     --plate-background: transparent;
-    --plate-border-color: none;
+    --plate-border-color: var(--color-static-status-grey);
 
     /* icons */
     --plate-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
@@ -23,12 +23,20 @@
     position: relative;
     display: inline-flex;
     box-sizing: border-box;
-    border-left: var(--plate-border-left);
     color: var(--color-light-text-primary);
     width: 100%;
     min-height: 56px;
     padding: var(--gap-s);
     outline: none;
+
+    &:before {
+        content: '';
+        width: 2px;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
 }
 
 .foldable {
@@ -50,13 +58,20 @@
     justify-content: space-between;
 }
 
+.rounded,
+.noBorder {
+    &:before {
+        display: none;
+    }
+}
+
 .rounded {
     border-radius: var(--plate-border-radius);
-    border: var(--plate-border);
+    outline: var(--plate-border);
 }
 
 .noBorder {
-    border: 0;
+    outline: 0;
 }
 
 .shadow {
@@ -65,27 +80,42 @@
 
 .common {
     background-color: var(--color-light-bg-secondary);
-    border-color: var(--color-static-status-grey);
+    outline-color: var(--color-static-status-grey);
+    &:before {
+        background-color: var(--color-static-status-grey);
+    }
 }
 
 .negative {
     background-color: var(--color-light-bg-negative-muted);
-    border-color: var(--color-static-status-red);
+    outline-color: var(--color-static-status-red);
+    &:before {
+        background-color: var(--color-static-status-red);
+    }
 }
 
 .positive {
     background-color: var(--color-light-bg-positive-muted);
-    border-color: var(--color-static-status-green);
+    outline-color: var(--color-static-status-green);
+    &:before {
+        background-color: var(--color-static-status-green);
+    }
 }
 
 .attention {
     background-color: var(--color-light-bg-attention-muted);
-    border-color: var(--color-static-status-orange);
+    outline-color: var(--color-static-status-orange);
+    &:before {
+        background-color: var(--color-static-status-orange);
+    }
 }
 
 .custom {
     background: var(--plate-background);
-    border-color: var(--plate-border-color);
+    outline-color: var(--plate-border-color);
+    &:before {
+        background-color: var(--plate-border-color);
+    }
 }
 
 .isHidden {
