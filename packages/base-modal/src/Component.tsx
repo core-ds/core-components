@@ -25,6 +25,7 @@ import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-compon
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import {
+    getScrollbarSize,
     handleContainer,
     hasScrollbar,
     isScrolledToBottom,
@@ -327,7 +328,16 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         const handleBackdropMouseDown = (event: MouseEvent<HTMLElement>) => {
-            if (!disableBackdropClick) {
+            let clickedOnScrollbar = false;
+            const clientWidth = (event.target as HTMLElement)?.clientWidth;
+
+            if (event.clientX && clientWidth) {
+                // Устанавливаем смещение для абсолютно спозиционированного скроллбара в OSX в 17px.
+                const offset = getScrollbarSize() === 0 ? 17 : 0;
+                clickedOnScrollbar = event.clientX + offset > clientWidth;
+            }
+
+            if (!disableBackdropClick && !clickedOnScrollbar) {
                 mouseDownTarget.current = event.target as HTMLElement;
             }
         };
@@ -340,6 +350,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             ) {
                 handleClose(event, 'backdropClick');
             }
+
+            mouseDownTarget.current = undefined;
         };
 
         const handleKeyDown = useCallback(
