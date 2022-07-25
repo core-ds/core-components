@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.8...@alfalab/core-components-select@11.0.0) (2022-07-25)
+
+
+### Features
+
+* Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru
+data: 'self'`
+
+* chore(screenshot-utils): change cdn
+
+* feat(cdn-icon): add prop baseUrl
+
+
+
+
+
 ## [10.12.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@10.12.7...@alfalab/core-components-select@10.12.8) (2022-07-25)
 
 **Note:** Version bump only for package @alfalab/core-components-select
