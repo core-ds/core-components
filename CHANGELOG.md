@@ -1,3 +1,17 @@
+# [28.7.0](https://github.com/core-ds/core-components/compare/v28.6.0...v28.7.0) (2022-07-25)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed click on scrollbar bug ([#165](https://github.com/core-ds/core-components/issues/165)) ([c9df897](https://github.com/core-ds/core-components/commit/c9df8977a6f2e30d753a1f825bb6bad061179a6e))
+* **bottom-sheet:** fix component border-radius ([#157](https://github.com/core-ds/core-components/issues/157)) ([57b767e](https://github.com/core-ds/core-components/commit/57b767e43e40e9170967e3a53481e21f92cb0190))
+* **bottom-sheet:** fix doc ([#163](https://github.com/core-ds/core-components/issues/163)) ([cbf3282](https://github.com/core-ds/core-components/commit/cbf32828bc2fe472d59d52c1e5644e7934262d73))
+
+
+### Features
+
+* **codemod:** codemode to remove dist from imports ([#164](https://github.com/core-ds/core-components/issues/164)) ([ceab8b8](https://github.com/core-ds/core-components/commit/ceab8b82c34d3429e366a2c8b7ebda37fd3c9237))
+
 # [28.6.0](https://github.com/core-ds/core-components/compare/v28.5.0...v28.6.0) (2022-07-22)
 
 
