@@ -1,3 +1,20 @@
+# [29.0.0](https://github.com/core-ds/core-components/compare/v28.7.0...v29.0.0) (2022-07-25)
+
+
+### Features
+
+* Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru
+data: 'self'`
+
+* chore(screenshot-utils): change cdn
+
+* feat(cdn-icon): add prop baseUrl
+
 # [28.7.0](https://github.com/core-ds/core-components/compare/v28.6.0...v28.7.0) (2022-07-25)
 
 
