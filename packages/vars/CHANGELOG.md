@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-vars@6.4.2...@alfalab/core-components-vars@6.4.3) (2022-07-25)
+
+
+### Bug Fixes
+
+* **bottom-sheet:** fix component border-radius ([#157](https://github.com/core-ds/core-components/issues/157)) ([57b767e](https://github.com/core-ds/core-components/commit/57b767e43e40e9170967e3a53481e21f92cb0190))
+
+
+
+
+
 ## [6.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-vars@6.4.1...@alfalab/core-components-vars@6.4.2) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-vars

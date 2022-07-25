@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.2.1...@alfalab/core-components-base-modal@4.2.2) (2022-07-25)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed click on scrollbar bug ([#165](https://github.com/core-ds/core-components/issues/165)) ([c9df897](https://github.com/core-ds/core-components/commit/c9df8977a6f2e30d753a1f825bb6bad061179a6e))
+
+
+
+
+
 ## [4.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.2.0...@alfalab/core-components-base-modal@4.2.1) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-base-modal

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.9...@alfalab/core-components-gallery@3.2.10) (2022-07-25)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
 ## [3.2.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.8...@alfalab/core-components-gallery@3.2.9) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-gallery
