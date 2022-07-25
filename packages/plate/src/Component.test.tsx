@@ -61,16 +61,18 @@ describe('Plate', () => {
     describe('Classes tests', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
-            const { container } = render(<Plate className={className} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Plate className={className} dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass(className);
+            expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
         it('should set `positive` class if `view` prop is `positive`', () => {
             const view = 'positive';
-            const { container } = render(<Plate view={view} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Plate view={view} dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass(view);
+            expect(getByTestId(dataTestId)).toHaveClass(view);
         });
     });
 

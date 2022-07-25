@@ -259,91 +259,100 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         };
 
         return (
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
-                className={cn(
-                    styles.component,
-                    styles[view],
-                    {
-                        [styles.foldable]: foldable,
-                        [styles.focused]: focused,
-                        [styles.isHidden]: hasCloser && isHidden,
-                        [styles.isFolded]: foldable && folded,
-                        [styles.rounded]: rounded,
-                        [styles.noBorder]: !border,
-                        [styles.shadow]: shadow,
-                    },
-                    className,
-                )}
-                onClick={handleClick}
-                onKeyDown={handleClick}
-                role='alert'
-                ref={mergeRefs([plateRef, ref])}
-                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
-                tabIndex={foldable ? 0 : -1}
-                data-test-id={dataTestId}
+                className={cn({
+                    [styles.shadow]: shadow,
+                    [styles.rounded]: rounded,
+                })}
             >
-                <div className={styles.inner}>
-                    {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
-                    <div
-                        className={cn(styles.contentContainer, contentClassName, {
-                            [styles.withoutTitle]: !title && hasAnyAddons,
-                            [styles.limitWidth]: !limitContentWidth,
-                        })}
-                    >
-                        {title && <div className={styles[titleView]}>{title}</div>}
-                        {hasContent && (
-                            <div
-                                ref={contentRef}
-                                className={cn(styles.content, {
-                                    [styles.isFolded]: foldable && folded,
-                                })}
-                            >
-                                {children && <div className={styles.description}>{children}</div>}
+                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                <div
+                    className={cn(
+                        styles.component,
+                        styles[view],
+                        {
+                            [styles.foldable]: foldable,
+                            [styles.focused]: focused,
+                            [styles.isHidden]: hasCloser && isHidden,
+                            [styles.isFolded]: foldable && folded,
+                            [styles.rounded]: rounded,
+                            [styles.rect]: !rounded,
+                            [styles.noBorder]: !border,
+                        },
+                        className,
+                    )}
+                    onClick={handleClick}
+                    onKeyDown={handleClick}
+                    role='alert'
+                    ref={mergeRefs([plateRef, ref])}
+                    /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                    tabIndex={foldable ? 0 : -1}
+                    data-test-id={dataTestId}
+                >
+                    <div className={styles.inner}>
+                        {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
+                        <div
+                            className={cn(styles.contentContainer, contentClassName, {
+                                [styles.withoutTitle]: !title && hasAnyAddons,
+                                [styles.limitWidth]: limitContentWidth,
+                            })}
+                        >
+                            {title && <div className={styles[titleView]}>{title}</div>}
+                            {hasContent && (
+                                <div
+                                    ref={contentRef}
+                                    className={cn(styles.content, {
+                                        [styles.isFolded]: foldable && folded,
+                                    })}
+                                >
+                                    {children && (
+                                        <div className={styles.description}>{children}</div>
+                                    )}
 
-                                {hasButtons && (
-                                    <div className={styles.footer}>
-                                        {renderButtons(
-                                            buttons,
-                                            buttonsClassName || '',
-                                            styles.button,
-                                        )}
-                                    </div>
+                                    {hasButtons && (
+                                        <div className={styles.footer}>
+                                            {renderButtons(
+                                                buttons,
+                                                buttonsClassName || '',
+                                                styles.button,
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        {hasSubAddons && (
+                            <div ref={subAddonsRef} className={styles.subAddons}>
+                                {renderButtons(
+                                    subAddons,
+                                    subAddonsClassName || '',
+                                    styles.subAddonsButton,
                                 )}
                             </div>
                         )}
+
+                        {foldable && (
+                            <div className={styles.rightAddons}>
+                                <div
+                                    className={cn(styles.folder, {
+                                        [styles.isFolded]: folded,
+                                    })}
+                                />
+                            </div>
+                        )}
+
+                        {hasCloser && !foldable && (
+                            <div className={styles.rightAddons}>
+                                <Button
+                                    className={styles.closer}
+                                    aria-label='закрыть'
+                                    view='ghost'
+                                    onClick={handleClose}
+                                />
+                            </div>
+                        )}
                     </div>
-
-                    {hasSubAddons && (
-                        <div ref={subAddonsRef} className={styles.subAddons}>
-                            {renderButtons(
-                                subAddons,
-                                subAddonsClassName || '',
-                                styles.subAddonsButton,
-                            )}
-                        </div>
-                    )}
-
-                    {foldable && (
-                        <div className={styles.rightAddons}>
-                            <div
-                                className={cn(styles.folder, {
-                                    [styles.isFolded]: folded,
-                                })}
-                            />
-                        </div>
-                    )}
-
-                    {hasCloser && !foldable && (
-                        <div className={styles.rightAddons}>
-                            <Button
-                                className={styles.closer}
-                                aria-label='закрыть'
-                                view='ghost'
-                                onClick={handleClose}
-                            />
-                        </div>
-                    )}
                 </div>
             </div>
         );
