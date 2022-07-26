@@ -47,7 +47,7 @@ export const Closer: FC<CloserProps> = ({
     const { onClose } = useContext(ModalContext);
 
     const handleClick = useCallback(
-        event => {
+        (event: React.MouseEvent<HTMLButtonElement>) => {
             onClose(event, 'closerClick');
         },
         [onClose],

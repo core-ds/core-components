@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { Typography, Color } from '@alfalab/core-components-typography';
@@ -43,6 +43,11 @@ type Props = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const Text: React.FC<Props> = ({

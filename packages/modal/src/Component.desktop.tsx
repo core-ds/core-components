@@ -1,6 +1,5 @@
 import React, { cloneElement, forwardRef, isValidElement, useCallback, useRef } from 'react';
 import cn from 'classnames';
-import { TransitionProps } from 'react-transition-group/Transition';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 import mergeRefs from 'react-merge-refs';
@@ -57,8 +56,8 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
 
         const modalRef = useRef<HTMLElement>(null);
 
-        const handleEntered: TransitionProps['onEntered'] = useCallback(
-            (node, isAppearing) => {
+        const handleEntered = useCallback(
+            (node: HTMLElement, isAppearing: boolean) => {
                 if (fixedPosition && modalRef.current) {
                     const content = modalRef.current.querySelector<HTMLElement>(
                         `.${styles.component}`,

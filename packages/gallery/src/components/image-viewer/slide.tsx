@@ -1,4 +1,4 @@
-import React, { FC, SyntheticEvent } from 'react';
+import React, { FC, ReactNode, SyntheticEvent } from 'react';
 import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
@@ -70,6 +70,7 @@ type SlideInnerProps = {
     broken: boolean;
     withPlaceholder: boolean;
     loading: boolean;
+    children: ReactNode;
 };
 
 const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceholder }) => {

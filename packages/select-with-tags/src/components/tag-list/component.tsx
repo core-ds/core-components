@@ -100,7 +100,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         [],
     );
 
-    const handleMouseDown = useCallback(event => {
+    const handleMouseDown = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
         event.preventDefault();
     }, []);
 
@@ -127,7 +127,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         [onClick],
     );
 
-    const handleKeyDown = useCallback<KeyboardEventHandler<HTMLInputElement>>(
+    const handleKeyDown = useCallback<KeyboardEventHandler<HTMLDivElement>>(
         event => {
             const lastSelectedTag = selectedMultiple[selectedMultiple.length - 1];
 
@@ -139,11 +139,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     );
 
     const toggleShowMoreLessButton = useCallback(
-        event => {
-            event.stopPropagation();
-            setShowMoreEnabled(v => !v);
-            if (handleUpdatePopover) {
-                handleUpdatePopover();
+        (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            if (event) {
+                event.stopPropagation();
+                setShowMoreEnabled(v => !v);
+                if (handleUpdatePopover) {
+                    handleUpdatePopover();
+                }
             }
         },
         [handleUpdatePopover],

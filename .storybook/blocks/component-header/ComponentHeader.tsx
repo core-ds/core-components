@@ -41,14 +41,17 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
                     </a>
                 </div>
                 <div
-                    className={cn(
-                        styles.design,
-                        {
-                            [styles.commonLink]: !design,
-                        },
-                    )}
+                    className={cn(styles.design, {
+                        [styles.commonLink]: !design,
+                    })}
                 >
-                    <a href={design || 'https://www.figma.com/file/JnpPl4gvg2Zjr7zvTz8mUk/Web-%3A%3A-Core-Default-Components'} target='_blank'>
+                    <a
+                        href={
+                            design ||
+                            'https://www.figma.com/file/JnpPl4gvg2Zjr7zvTz8mUk/Web-%3A%3A-Core-Default-Components'
+                        }
+                        target='_blank'
+                    >
                         Figma
                     </a>
                 </div>

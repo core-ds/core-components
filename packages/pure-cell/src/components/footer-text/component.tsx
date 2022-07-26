@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Typography, Color } from '@alfalab/core-components-typography';
 import { getDataTestId } from '../../../../utils/getDataTestId';
@@ -13,6 +13,11 @@ export type Props = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const FooterText: React.FC<Props> = ({ children, color = 'secondary', dataTestId }) => (

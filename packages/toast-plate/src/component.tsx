@@ -122,7 +122,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             : iconDefaultComponents;
 
         const handleClose = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLButtonElement>) => {
                 if (onClose) {
                     onClose(event);
                 }

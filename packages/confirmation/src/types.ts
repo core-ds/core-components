@@ -90,6 +90,11 @@ export type ConfirmationProps = {
      * Возввращает объект, где ключ - название экрана (screen), значение - компонент для экрана
      */
     getScreensMap?: (defaulScreensMap: ScreensMap) => ScreensMap;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export type TConfirmationContext = Required<

@@ -1,6 +1,6 @@
 import { KeyboardEvent, MouseEvent, MutableRefObject, useCallback, useRef, useState } from 'react';
 
-import { UseTabsProps } from './typings';
+import { TabListTitle, UseTabsProps } from './typings';
 
 export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
     const [selectedTab, setSelectedTab] = useState<HTMLButtonElement | null>(null);
@@ -8,7 +8,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
     const itemRefs = useRef<HTMLButtonElement[]>([]);
 
     const handleItemRef = useCallback(
-        (node, item, index) => {
+        (node: HTMLButtonElement, item: TabListTitle, index: number) => {
             if (node && item.id === selectedId) setSelectedTab(node);
             itemRefs.current[index] = node;
         },
@@ -16,7 +16,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
     );
 
     const handleItemClick = useCallback(
-        (event, item) => {
+        (event: MouseEvent, item: TabListTitle) => {
             if (onChange && item.id !== selectedId) {
                 onChange(event, { selectedId: item.id });
             }
@@ -112,7 +112,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
                 handleItemRef(node, item, index);
             },
             onKeyDown: handleKeyDown,
-            onClick: (event?: MouseEvent) => handleItemClick(event, item),
+            onClick: (event?: MouseEvent) => handleItemClick(event as MouseEvent, item),
         };
     };
 

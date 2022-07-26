@@ -33,7 +33,7 @@ export const AutocompleteField = ({
     const inputDisabled = disabled || readOnly;
 
     const handleClick = useCallback(
-        event => {
+        (event: React.MouseEvent<HTMLDivElement>) => {
             if (onClick) onClick(event);
 
             if (inputRef.current) {

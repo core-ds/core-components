@@ -229,7 +229,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         }, [setNextMonth]);
 
         const handleMonthClick = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLButtonElement>) => {
                 toggleView('months');
 
                 if (onMonthClick) {
@@ -240,7 +240,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         );
 
         const handleYearClick = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLButtonElement>) => {
                 toggleView('years');
 
                 if (onYearClick) {

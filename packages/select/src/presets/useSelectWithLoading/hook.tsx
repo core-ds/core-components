@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { Option } from '../../components/option';
-import { BaseSelectProps, OptionShape } from '../../typings';
+import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
 
@@ -15,7 +15,7 @@ export function useSelectWithLoading({
     visibleOptions = 6,
 }: useSelectWithLoadingProps) {
     const renderOption = useCallback(
-        props => (
+        (props: OptionProps) => (
             <Option {...props} Checkmark={null} highlighted={loading ? false : props.highlighted} />
         ),
         [loading],

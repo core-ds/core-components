@@ -30,7 +30,7 @@ const Group = ({ label, options }: GroupShape) => (
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     ({ className, disabled, multiple, value, name, options, onChange, ...restProps }, ref) => {
-        const handleClick = useCallback(event => {
+        const handleClick = useCallback((event: React.MouseEvent<HTMLSelectElement>) => {
             event.stopPropagation();
         }, []);
 

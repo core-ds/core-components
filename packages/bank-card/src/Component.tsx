@@ -94,7 +94,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         );
 
         const handleInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>, payload) => {
+            (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => {
                 if (uncontrolled) {
                     setBrandIcon(getBrandIcon(event.target.value));
                 }

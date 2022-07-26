@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useEffect } from 'react';
+import React, { FC, Fragment, ReactNode, useEffect } from 'react';
 import { useMatchMedia } from './useMatchMedia';
 import { isPointerEventsSupported, isTouchSupported } from './utils';
 
@@ -15,6 +15,11 @@ export type MqProps = {
      * Запрос на поддержку тач-событий
      */
     touch?: boolean;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 
     /**
      * Обработчик изменений в совпадении запросов

@@ -223,7 +223,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
                 const dateValue = parseDateString(newInputValue).getTime();
 
-                return (
+                return !!(
                     dateValue &&
                     isCompleteDateInput(newInputValue) &&
                     dateInLimits(dateValue, minDate, maxDate) &&
