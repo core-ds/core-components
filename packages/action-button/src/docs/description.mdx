@@ -1,0 +1,61 @@
+## Виды кнопок
+
+Primary, secondary
+
+```tsx live
+render(() => {
+    return (
+        <>
+            <ActionButton
+                icon={ <StarLineMIcon /> }
+                view="primary"
+            >
+                Primary
+            </ActionButton>
+
+            <ActionButton
+                icon={ <StarLineMIcon /> }
+                view="secondary"
+            >
+                Secondary
+            </ActionButton>
+        </>
+    );
+});
+```
+
+
+## Состояние загрузки
+
+С помощью свойства loading можно отобразить состояние загрузки. Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+
+```tsx live
+render(() => {
+    return (
+        <ActionButton
+            icon={ <StarLineMIcon /> }
+            loading={true}
+        >
+            Loading
+        </ActionButton>
+    );
+});
+```
+
+
+## Ссылка
+
+Любую кнопку можно превратить в ссылку, передав компоненту пропс href.
+
+```tsx live
+render(() => {
+    return (
+        <ActionButton
+            icon={ <StarLineMIcon /> }
+            href="http://www.alfabank.ru"
+        >
+            Ссылка
+        </ActionButton>
+    );
+});
+```

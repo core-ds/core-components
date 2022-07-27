@@ -1,0 +1,14 @@
+{
+    "include": ["src", "../../typings", "src/*.json"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-icon-view/circle": ["../icon-view/src/circle"]
+        }
+    },
+    "references": [{ "path": "../loader" }, { "path": "../icon-view/circle" }]
+}

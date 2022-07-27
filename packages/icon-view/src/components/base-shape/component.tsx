@@ -102,6 +102,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         viewBox={`0 0 ${size} ${size}`}
                         xmlns='http://www.w3.org/2000/svg'
                         focusable={false}
+                        role='figure'
                     >
                         {imagePattern}
 
