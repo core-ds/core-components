@@ -40,7 +40,7 @@ export type ProgressBarProps = {
 
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
     ({ className, value, view = 'positive', size = 'm', dataTestId }, ref) => {
-        const restrictedValue = value < 0 ? 0 : value;
+        const restrictedMaxValue = value < 0 ? 0 : value;
 
         return (
             <div
@@ -54,7 +54,7 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
             >
                 <div
                     className={cn(styles.filled, styles[view])}
-                    style={{ width: `${restrictedValue}%` }}
+                    style={{ width: `${restrictedMaxValue}%` }}
                 />
             </div>
         );
