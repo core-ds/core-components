@@ -14,6 +14,7 @@ import { useFocus } from '@alfalab/hooks';
 import { Button, ComponentProps as ButtonProps } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
+import { ButtonList } from './components/button-list/component';
 
 export type PlateProps = {
     /**
@@ -135,6 +136,7 @@ export type PlateProps = {
     dataTestId?: string;
 };
 
+/* eslint-disable complexity */
 export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     (
         {
@@ -230,34 +232,6 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             [onClose],
         );
 
-        const renderButtons = (
-            _buttons: ReactNode,
-            containerClassName: string,
-            buttonClassName: string,
-        ) => {
-            const buttonsIsArray = Array.isArray(_buttons) && _buttons.length > 0;
-
-            if (buttonsIsArray) {
-                return (
-                    <div className={containerClassName}>
-                        {(_buttons as Array<ReactElement<ButtonProps>>).map((button, index) =>
-                            button
-                                ? React.cloneElement(button, {
-                                      // eslint-disable-next-line react/no-array-index-key
-                                      key: index,
-                                      size: 'xxs',
-                                      view: index === 0 ? 'secondary' : 'link',
-                                      className: cn(button.props.className, buttonClassName),
-                                  })
-                                : null,
-                        )}
-                    </div>
-                );
-            }
-
-            return <div className={containerClassName}>{buttons}</div>;
-        };
-
         return (
             <div
                 className={cn({
@@ -311,11 +285,11 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
                                     {hasButtons && (
                                         <div className={styles.footer}>
-                                            {renderButtons(
-                                                buttons,
-                                                buttonsClassName || '',
-                                                styles.button,
-                                            )}
+                                            <ButtonList
+                                                buttons={buttons}
+                                                containerClassName={buttonsClassName}
+                                                buttonClassName={styles.button}
+                                            />
                                         </div>
                                     )}
                                 </div>
@@ -324,11 +298,11 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
                         {hasSubAddons && (
                             <div ref={subAddonsRef} className={styles.subAddons}>
-                                {renderButtons(
-                                    subAddons,
-                                    subAddonsClassName || '',
-                                    styles.subAddonsButton,
-                                )}
+                                <ButtonList
+                                    buttons={subAddons}
+                                    containerClassName={subAddonsClassName}
+                                    buttonClassName={styles.subAddons}
+                                />
                             </div>
                         )}
 
@@ -358,6 +332,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         );
     },
 );
+/* eslint-enable complexity */
 
 /**
  * Для отображения в сторибуке
