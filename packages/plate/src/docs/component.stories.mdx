@@ -19,19 +19,33 @@ import { version } from '../../package.json';
 <!-- Canvas -->
 
 <Story name='Plate'>
-    <Plate
-        view={select('view', ['common', 'negative', 'positive', 'attention'], 'positive')}
-        title={text('title', 'Поздравляем, полный успех')}
-        foldable={boolean('foldable', false)}
-        hasCloser={boolean('hasCloser', false)}
-        leftAddons={boolean('leftAddons', true) ? <CheckmarkOnCircleMIcon /> : null}
-        buttons={boolean('buttons', false) ? [
-            <Button>Хорошо</Button>,
-            <Button>Подробнее</Button>
-        ] : null}
-    >
-        {text('children', 'Вам одобрено. Согласитесь на предложение')}
-    </Plate>
+    {React.createElement(() => {
+        const view = select('view', ['common', 'negative', 'positive', 'attention', 'custom'], 'positive');
+        return (
+            <Plate
+                view={view}
+                title={text('title', 'Поздравляем, полный успех')}
+                foldable={boolean('foldable', false)}
+                hasCloser={boolean('hasCloser', false)}
+                rounded={boolean('rounded', true)}
+                border={boolean('border', view !== 'custom')}
+                shadow={boolean('shadow', false)}
+                limitContentWidth={boolean('limitContentWidth', true)}
+                titleView={select('titleView', ['bold', 'light'])}
+                leftAddons={boolean('leftAddons', true) ? <CheckmarkOnCircleMIcon /> : null}
+                buttons={boolean('buttons', false) ? [
+                    <Button view='primary'>Хорошо</Button>,
+                    <Button>Подробнее</Button>,
+                ] : null}
+                subAddons={boolean('subAddons', false) ? [
+                    <Button view='link' size='xxs'>Хорошо</Button>,
+                    <Button view='secondary' size='xxs'>Подробнее</Button>,
+                ] : null}
+            >
+                {text('children', 'Вам одобрено. Согласитесь на предложение')}
+            </Plate>
+        )
+    })}
 </Story>
 
 <!-- Docs -->
