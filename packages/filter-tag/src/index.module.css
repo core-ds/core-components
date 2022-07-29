@@ -219,10 +219,11 @@
 }
 
 .clear {
-    --icon-button-tertiary-hover-color: var(--color-light-graphic-primary-inverted);
-    --icon-button-tertiary-active-color: var(--color-light-graphic-primary-inverted);
-
     position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--color-light-graphic-tertiary);
     background-color: var(--tag-background-color-checked);
 
     &.defaultVariant {
@@ -255,10 +256,12 @@
 
     &:hover {
         background-color: var(--tag-background-color-checked-hover);
+        color: var(--color-light-graphic-primary-inverted);
     }
 
     &:active {
         background-color: var(--tag-background-color-checked-active);
+        color: var(--color-light-graphic-primary-inverted);
     }
 
     &.s {

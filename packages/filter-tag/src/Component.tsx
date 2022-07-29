@@ -1,6 +1,5 @@
-import React, { forwardRef, MouseEvent, ReactNode, useRef } from 'react';
+import React, { forwardRef, KeyboardEvent, MouseEvent, ReactNode, useRef } from 'react';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
 import { useFocus } from '@alfalab/hooks';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
@@ -63,6 +62,11 @@ export type FilterTagProps = {
     className?: string;
 };
 
+const isKeyBoardEvent = (
+    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
+): event is KeyboardEvent<HTMLDivElement> =>
+    (event as KeyboardEvent<HTMLDivElement>).key !== undefined;
+
 export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
     (
         {
@@ -84,8 +88,15 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
 
         const [focused] = useFocus(valueRef, 'keyboard');
 
-        const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
+        const handleClear = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
             event.stopPropagation();
+
+            if (isKeyBoardEvent(event)) {
+                const clickSimilarKeys = ['Enter'].includes(event.key);
+                if (clickSimilarKeys) onClear();
+                return;
+            }
+
             onClear();
         };
 
@@ -127,13 +138,15 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                 </button>
 
                 {checked && !disabled && (
-                    <IconButton
+                    <div
+                        role='button'
                         className={cn(styles.clear, styles[size], styles[variantClassName])}
-                        icon={size === 'xxs' ? CrossCircleSIcon : CrossCircleMIcon}
-                        view='tertiary'
-                        size='xxs'
                         onClick={handleClear}
-                    />
+                        onKeyDown={handleClear}
+                        tabIndex={0}
+                    >
+                        {size === 'xxs' ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
+                    </div>
                 )}
             </div>
         );
