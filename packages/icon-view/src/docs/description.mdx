@@ -46,28 +46,34 @@ render(
 
 ## Фон
 
-Заливка и изображение с обводкой / без обводки
+Можно передавать заливку и изображение, включать и выключать обводку.
 
 ```jsx live
 <Container>
     <Row>
         <Col>
-            <SuperEllipse size='80' />
-        </Col>
-
-        <Col>
-            <SuperEllipse size='80' border={true} />
-        </Col>
-
-        <Col>
-            <SuperEllipse size='80' imageUrl='https://picsum.photos/id/1081/5512/3708' />
+            <SuperEllipse
+                size='80'
+                imageUrl="./images/smile.png"
+                backgroundColor='transparent'
+                border={true}
+            />
         </Col>
 
         <Col>
             <SuperEllipse
                 size='80'
+                imageUrl="./images/smile.png"
+                backgroundColor="#EBF9F1"
                 border={true}
-                imageUrl='https://picsum.photos/id/1081/5512/3708'
+            />
+        </Col>
+
+        <Col>
+            <SuperEllipse
+                size='80'
+                imageUrl="./images/smile.png"
+                backgroundColor="#EBF9F1"
             />
         </Col>
     </Row>
