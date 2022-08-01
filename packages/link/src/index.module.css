@@ -6,7 +6,6 @@
     font-family: var(--font-family);
     cursor: pointer;
     outline: none;
-    align-items: center;
 
     &:hover .text,
     &:active .text {
