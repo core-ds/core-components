@@ -6,6 +6,7 @@
     font-family: var(--font-family);
     cursor: pointer;
     outline: none;
+    align-items: center;
 
     &:hover .text,
     &:active .text {
@@ -32,6 +33,10 @@
     border-bottom-style: dashed;
 }
 
+.withoutUnderline .text {
+    border-bottom: none;
+}
+
 .addons {
     display: flex;
     align-items: center;
@@ -43,7 +48,7 @@
 }
 
 .addons:last-child {
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-2xs);
 }
 
 .addons:only-child {

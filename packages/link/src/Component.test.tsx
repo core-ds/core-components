@@ -68,6 +68,26 @@ describe('Classes tests', () => {
 
         expect(container.firstElementChild).toHaveClass('pseudo');
     });
+
+    it('should set `withoutUnderline` class if prop `underline` is presented as `false`', () => {
+        const { container } = render(
+            <Link href='' underline={false}>
+                Link
+            </Link>,
+        );
+
+        expect(container.firstElementChild).toHaveClass('withoutUnderline');
+    });
+
+    it('should set `pseudo` class if props `pseudo` and `underline` is presented as `true` and `false` respectively', () => {
+        const { container } = render(
+            <Link href='' pseudo={true} underline={false}>
+                Link
+            </Link>,
+        );
+
+        expect(container.firstElementChild).toHaveClass('pseudo');
+    });
 });
 
 describe('Attributes tests', () => {
