@@ -23,7 +23,7 @@ describe('SidePanelMobile', () => {
                     header: true,
                     'header.title': 'Заголовок',
                     'header.hasCloser': true,
-                    footer: true,
+                    'footer.sticky': true,
                     SidePanelComponent: 'SidePanelMobile',
                 },
             }),
@@ -102,7 +102,7 @@ describe(
             knobs: {
                 open: true,
                 header: true,
-                footer: true,
+                'footer.sticky': true,
                 'header.title': 'Заголовок',
                 'content.flex': true,
                 SidePanelComponent: 'SidePanelMobile',
@@ -128,7 +128,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    footer: true,
+                    'footer.sticky': true,
                     'header.title': 'Заголовок',
                     'footer.layout': ['start', 'center', 'space-between', 'column'],
                     SidePanelComponent: 'SidePanelMobile',
@@ -154,7 +154,6 @@ describe(
             knobs: {
                 open: true,
                 header: true,
-                footer: true,
                 'header.title': 'Заголовок',
                 'header.sticky': true,
                 'footer.sticky': true,
@@ -185,7 +184,7 @@ describe('SidePanelDesktop', () => {
                     header: true,
                     'header.title': 'Заголовок',
                     'header.hasCloser': true,
-                    footer: true,
+                    'footer.sticky': true,
                     size: 's',
                     SidePanelComponent: 'SidePanelDesktop',
                 },
@@ -219,7 +218,7 @@ describe(
                 header: true,
                 'header.title': 'Заголовок',
                 'header.hasCloser': true,
-                footer: true,
+                'footer.sticky': true,
                 size: 's',
                 SidePanelComponent: 'SidePanelDesktop',
             },
@@ -291,7 +290,7 @@ describe(
             knobs: {
                 open: true,
                 header: true,
-                footer: true,
+                'footer.sticky': true,
                 'header.title': 'Заголовок',
                 'content.flex': true,
                 SidePanelComponent: 'SidePanelDesktop',
@@ -317,7 +316,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    footer: true,
+                    'footer.sticky': true,
                     'header.title': 'Заголовок',
                     'footer.layout': ['start', 'center', 'space-between', 'column'],
                     SidePanelComponent: 'SidePanelDesktop',
@@ -343,7 +342,6 @@ describe(
             knobs: {
                 open: true,
                 header: true,
-                footer: true,
                 'header.title': 'Заголовок',
                 'header.sticky': true,
                 'footer.sticky': true,

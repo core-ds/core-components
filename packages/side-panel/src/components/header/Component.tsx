@@ -57,6 +57,11 @@ export type HeaderProps = {
     sticky?: boolean;
 
     /**
+     * Фоновое изображение
+     */
+    imageUrl?: string;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -73,6 +78,7 @@ export const Header: FC<HeaderProps> = ({
     title,
     closer,
     sticky,
+    imageUrl,
     dataTestId,
 }) => {
     const { headerHighlighted, setHasHeader } = useContext(ModalContext);
@@ -91,6 +97,9 @@ export const Header: FC<HeaderProps> = ({
                 [styles.hasContent]: hasContent,
             })}
             data-test-id={dataTestId}
+            style={{
+                ...(imageUrl && { backgroundImage: `url(${imageUrl})` }),
+            }}
         >
             {leftAddons && <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>}
 
