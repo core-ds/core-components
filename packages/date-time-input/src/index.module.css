@@ -1,0 +1,25 @@
+.component {
+    display: inline-block;
+    outline: none;
+    position: relative;
+}
+
+.input {
+    width: 354px;
+}
+
+.calendarContainer {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: var(--calendar-input-popover-border-radius);
+
+    @media (max-width: 374px) {
+        width: 100%;
+        min-width: 288px;
+    }
+}
+
+.calendarResponsive {
+    width: var(--calendar-width);
+    padding: 0 var(--gap-m);
+}
