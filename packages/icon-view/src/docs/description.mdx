@@ -113,27 +113,37 @@ render(
 Без, правый верхний, правый нижний, оба.
 
 ```jsx live
-<Container>
-    <Row>
-        <Col>
-            <SuperEllipse size='80' />
-        </Col>
+const badge = <Badge
+    view='icon'
+    size='m'
+    iconColor='positive'
+    visibleColorOutline={true}
+    content={<CheckmarkCircleMIcon />}
+/>;
 
-        <Col>
-            <SuperEllipse size='80' topAddons={<CheckmarkCircleMIcon color='#2fc26e' />} />
-        </Col>
+render(
+    <Container>
+        <Row>
+            <Col>
+                <SuperEllipse size='80' />
+            </Col>
 
-        <Col>
-            <SuperEllipse size='80' bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />} />
-        </Col>
+            <Col>
+                <SuperEllipse size='80' topAddons={badge} />
+            </Col>
 
-        <Col>
-            <SuperEllipse
-                size='80'
-                topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-            />
-        </Col>
-    </Row>
-</Container>
+            <Col>
+                <SuperEllipse size='80' bottomAddons={badge} />
+            </Col>
+
+            <Col>
+                <SuperEllipse
+                    size='80'
+                    topAddons={badge}
+                    bottomAddons={badge}
+                />
+            </Col>
+        </Row>
+    </Container>,
+);
 ```
