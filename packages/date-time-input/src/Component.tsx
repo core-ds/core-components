@@ -27,10 +27,10 @@ import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import {
     format,
+    getDateWithoutTime,
     getFullDateTime,
     isCompleteDateInput,
     isValid,
-    parseDateString,
     parseTimestampToDate,
     setTimeToDate,
 } from './utils';
@@ -185,7 +185,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
         const [value, setValue] = useState(propValue || defaultValue);
         const [open, setOpen] = useState(false);
 
-        const calendarValue = value ? parseDateString(value).getTime() : undefined;
+        const calendarValue = value ? getDateWithoutTime(value).getTime() : undefined;
 
         const inputDisabled = disabled || readOnly;
 
@@ -201,11 +201,10 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             (newInputValue?: string) => {
                 if (!newInputValue || error) return false;
 
-                const dateValue = parseDateString(newInputValue).getTime();
+                const dateValue = getDateWithoutTime(newInputValue).getTime();
 
                 return (
                     dateValue &&
-                    newInputValue.length === 10 &&
                     dateInLimits(dateValue, minDate, maxDate) &&
                     !offDays.includes(dateValue)
                 );

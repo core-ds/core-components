@@ -94,6 +94,26 @@ export const parseTimestampToDate = (timestamp: number): string => {
     return `${day}.${month}.${year}`;
 };
 
+export const getDateWithoutTime = (value: string): Date => {
+    const valueArr = value.split(', ');
+
+    let day;
+    let month;
+    let year;
+
+    if (valueArr[0]) {
+        const date = valueArr[0].split('.');
+        [day, month, year] = date;
+    }
+
+    const date = new Date();
+
+    date.setFullYear(Number(year), Number(month) - 1, Number(day));
+    date.setHours(0, 0, 0, 0);
+
+    return date;
+};
+
 export const getFullDateTime = (value: string): Date => {
     const valueArr = value.split(', ');
 

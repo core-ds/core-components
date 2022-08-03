@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-escape */
 
 import React, { ChangeEvent, useCallback, useState } from 'react';
+import cn from 'classnames';
 import { Input, InputProps } from '@alfalab/core-components-input';
 
 import { format, isCompleteTimeInput, isValidInputValue } from './utils';
@@ -26,7 +27,10 @@ export type TimeInputProps = Omit<InputProps, 'onChange'> & {
 };
 
 export const TimeInput = React.forwardRef<HTMLInputElement, TimeInputProps>(
-    ({ defaultValue = '', value: propValue, onChange, onComplete, ...restProps }, ref) => {
+    (
+        { defaultValue = '', value: propValue, onChange, onComplete, className, ...restProps },
+        ref,
+    ) => {
         const [value, setValue] = useState(propValue || defaultValue);
 
         const handleChange = useCallback(
@@ -79,7 +83,7 @@ export const TimeInput = React.forwardRef<HTMLInputElement, TimeInputProps>(
                 {...restProps}
                 ref={ref}
                 value={value}
-                className={styles.component}
+                className={cn(styles.component, className)}
                 onChange={handleChange}
                 onClear={handleClearClick}
             />

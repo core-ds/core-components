@@ -12,6 +12,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import dateFnsIsValid from 'date-fns/isValid';
 import { useMedia } from '@alfalab/hooks';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import {
@@ -254,6 +255,14 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                 const dateFrom = parseDateString(dateArr[0]);
                 const dateTo = parseDateString(dateArr[1]);
 
+                if (dateFnsIsValid(dateFrom) && dateArr[0]?.length === 10) {
+                    updatePeriod(dateFrom.getTime());
+                } else if (dateFnsIsValid(dateTo) && dateArr[1]?.length === 10) {
+                    updatePeriod(dateTo.getTime());
+                } else {
+                    updatePeriod(undefined);
+                }
+
                 setValue(formattedValue);
 
                 if (onChange) onChange(event, { dateFrom, dateTo, value: formattedValue });
@@ -268,6 +277,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                     }
                 }
             },
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             [onChange, onComplete],
         );
 
