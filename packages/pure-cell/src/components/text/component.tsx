@@ -49,7 +49,7 @@ export const Text: React.FC<Props> = ({
     children,
     value,
     rowLimit,
-    isMultiline,
+    isMultiline = true,
     view = 'component',
     titleColor,
     valueColor,
