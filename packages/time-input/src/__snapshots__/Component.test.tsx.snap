@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateInput Display tests should match snapshot 1`] = `
+exports[`TimeInput Display tests should match snapshot 1`] = `
 <div>
   <div
     class="component component component s"
