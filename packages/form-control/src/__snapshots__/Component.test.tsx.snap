@@ -759,7 +759,7 @@ Object {
           </span>
         </span>
         <div
-          class="inner inner hasLabel"
+          class="inner inner"
         >
           <div
             class="inputWrapper"
@@ -784,7 +784,7 @@ Object {
         </span>
       </span>
       <div
-        class="inner inner hasLabel"
+        class="inner inner"
       >
         <div
           class="inputWrapper"
