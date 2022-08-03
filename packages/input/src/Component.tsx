@@ -80,6 +80,11 @@ export type InputProps = Omit<
     label?: React.ReactNode;
 
     /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
+
+    /**
      * Атрибут type
      */
     type?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
@@ -192,6 +197,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             focusedClassName,
             filledClassName,
             label,
+            labelView,
             leftAddons,
             onFocus,
             onBlur,
@@ -344,6 +350,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 focused={focused}
                 error={error}
                 label={label}
+                labelView={labelView}
                 hint={hint}
                 leftAddons={leftAddons}
                 rightAddons={renderRightAddons()}

@@ -117,6 +117,13 @@
     padding: var(--form-control-sub-paddings);
 }
 
+.above {
+    @mixin paragraph_component_secondary;
+
+    display: block;
+    margin-bottom: calc(var(--gap-s) / 2);
+}
+
 .block {
     width: 100%;
 }

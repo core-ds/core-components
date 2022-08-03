@@ -16,8 +16,14 @@ describe('FormControl', () => {
             expect(ref.mock.calls[0][0].className).toMatch(/inner/);
         });
 
-        it('should render label', () => {
+        it('should render inner label', () => {
             expect(render(<FormControl label={<span>This is label</span>} />)).toMatchSnapshot();
+        });
+
+        it('should render outer label', () => {
+            expect(
+                render(<FormControl label={<span>This is label</span>} labelView='outer' />),
+            ).toMatchSnapshot();
         });
 
         it('should render hint', () => {
