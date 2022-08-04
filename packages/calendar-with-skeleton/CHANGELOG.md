@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.4.9...@alfalab/core-components-calendar-with-skeleton@4.5.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
 ## [4.4.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-with-skeleton@4.4.8...@alfalab/core-components-calendar-with-skeleton@4.4.9) (2022-07-25)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-with-skeleton

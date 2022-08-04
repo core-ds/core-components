@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bank-card@4.3.4...@alfalab/core-components-bank-card@4.4.0) (2022-08-04)
+
+
+### Bug Fixes
+
+* purgecss fixes ([#179](https://github.com/core-ds/core-components/issues/179)) ([ca52bab](https://github.com/core-ds/core-components/commit/ca52bab7ca82dd45c5693e46fbcec493943b3bbb))
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
 ## [4.3.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bank-card@4.3.3...@alfalab/core-components-bank-card@4.3.4) (2022-07-25)
 
 **Note:** Version bump only for package @alfalab/core-components-bank-card

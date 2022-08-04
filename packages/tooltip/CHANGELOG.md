@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.6.1...@alfalab/core-components-tooltip@5.7.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
 ## [5.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-tooltip@5.6.0...@alfalab/core-components-tooltip@5.6.1) (2022-07-25)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

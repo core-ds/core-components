@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-progress-bar@2.2.3...@alfalab/core-components-progress-bar@2.3.0) (2022-08-04)
+
+
+### Bug Fixes
+
+* **progress-bar:** mechanics of progress line fixed ([#169](https://github.com/core-ds/core-components/issues/169)) ([4b46836](https://github.com/core-ds/core-components/commit/4b4683628ea4fd9da178799dfca8b287c0776ff1))
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
 ## [2.2.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-progress-bar@2.2.2...@alfalab/core-components-progress-bar@2.2.3) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-progress-bar
