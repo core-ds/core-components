@@ -18,6 +18,6 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^5.2.3",
-        "classnames": "^2.2.6"
+        "classnames": "^2.3.1"
     }
 }
