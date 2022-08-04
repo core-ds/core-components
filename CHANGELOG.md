@@ -1,3 +1,20 @@
+# [29.1.0](https://github.com/core-ds/core-components/compare/v29.0.0...v29.1.0) (2022-08-04)
+
+
+### Bug Fixes
+
+* **comment:** add missing types ([95888d8](https://github.com/core-ds/core-components/commit/95888d8f87934140c8c6f113aee413a11579c7b6))
+* **progress-bar:** mechanics of progress line fixed ([#169](https://github.com/core-ds/core-components/issues/169)) ([4b46836](https://github.com/core-ds/core-components/commit/4b4683628ea4fd9da178799dfca8b287c0776ff1))
+* purgecss fixes ([#179](https://github.com/core-ds/core-components/issues/179)) ([ca52bab](https://github.com/core-ds/core-components/commit/ca52bab7ca82dd45c5693e46fbcec493943b3bbb))
+* **slider:** заменил interface на type ([#176](https://github.com/core-ds/core-components/issues/176)) ([d19e3cb](https://github.com/core-ds/core-components/commit/d19e3cb3a728feb6a0dc46a6a0691f72fc90e10f))
+
+
+### Features
+
+* **modal:** add props breakpoint for modal responsive ([#173](https://github.com/core-ds/core-components/issues/173)) ([e835052](https://github.com/core-ds/core-components/commit/e835052c45b4fa2d9d1c8c6401929b0be7088f48))
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+* **themes:** Добавлена возможность подключать styleMobile через js файл ([#178](https://github.com/core-ds/core-components/issues/178)) ([aa00d4b](https://github.com/core-ds/core-components/commit/aa00d4bc88d601f1af2ccc3ef15f729c35351252))
+
 # [29.0.0](https://github.com/core-ds/core-components/compare/v28.7.0...v29.0.0) (2022-07-25)
 
 
