@@ -138,12 +138,6 @@
     align-self: flex-start;
 }
 
-.subAddonsButton {
-    &:not(:last-child) {
-        margin-right: var(--gap-2xs);
-    }
-}
-
 .bold,
 .light {
     word-break: break-word;

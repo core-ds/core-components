@@ -288,7 +288,10 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                             <ButtonList
                                                 buttons={buttons}
                                                 containerClassName={buttonsClassName}
-                                                buttonClassName={styles.button}
+                                                buttonClassName={cn(
+                                                    styles.button,
+                                                    buttonsClassName,
+                                                )}
                                             />
                                         </div>
                                     )}
@@ -301,7 +304,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                 <ButtonList
                                     buttons={subAddons}
                                     containerClassName={subAddonsClassName}
-                                    buttonClassName={styles.subAddons}
+                                    buttonClassName={styles.button}
                                 />
                             </div>
                         )}
