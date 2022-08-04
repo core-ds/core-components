@@ -141,14 +141,16 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         const buttonsIsArray = Array.isArray(buttons) && buttons.length > 0;
 
         const handleClick = useCallback(
-            event => {
-                const eventInsideComponent =
-                    plateRef.current && plateRef.current.contains(event.target);
+            (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
+                const target = event.target as HTMLDivElement;
+                const eventInsideComponent = plateRef.current && plateRef.current.contains(target);
 
                 const eventInsideContent =
-                    contentRef.current && contentRef.current.contains(event.target);
+                    contentRef.current && contentRef.current.contains(target);
 
-                const clickSimilarKeys = ['Enter', ' '].includes(event.key);
+                const clickSimilarKeys = ['Enter', ' '].includes(
+                    (event as React.KeyboardEvent<HTMLDivElement>).key,
+                );
 
                 const shouldChangeIsFolded =
                     eventInsideComponent &&
@@ -166,14 +168,14 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 }
 
                 if (onClick) {
-                    onClick(event);
+                    onClick(event as React.MouseEvent<HTMLDivElement>);
                 }
             },
             [foldable, onClick, uncontrolled, onToggle, foldedState, foldedProp],
         );
 
         const handleClose = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLButtonElement>) => {
                 setIsHidden(true);
 
                 if (onClose) {

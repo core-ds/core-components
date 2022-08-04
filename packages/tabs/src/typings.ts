@@ -1,4 +1,4 @@
-import { FC, ReactElement, ReactNode } from 'react';
+import { MouseEvent, FC, ReactElement, ReactNode } from 'react';
 
 import { TagProps } from '@alfalab/core-components-tag';
 
@@ -130,6 +130,15 @@ export type TabProps = {
     dataTestId?: string;
 };
 
+export type TabListTitle = {
+    title: string;
+    id: SelectedId;
+    disabled?: boolean;
+    rightAddons?: ReactNode;
+    hidden?: boolean;
+    toggleClassName?: string;
+};
+
 export type TabListProps = Pick<
     TabsProps,
     | 'className'
@@ -145,14 +154,7 @@ export type TabListProps = Pick<
     /**
      * Заголовки табов
      */
-    titles?: Array<{
-        title: string;
-        id: SelectedId;
-        disabled?: boolean;
-        rightAddons?: ReactNode;
-        hidden?: boolean;
-        toggleClassName?: string;
-    }>;
+    titles?: TabListTitle[];
 };
 
 export type SecondaryTabListProps = TabListProps & {

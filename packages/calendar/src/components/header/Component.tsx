@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 import { SelectorView } from '../../typings';
 
@@ -14,6 +14,11 @@ export type HeaderProps = {
      * Отображать тень? (нужна при прокрутке)
      */
     withShadow?: boolean;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const Header: FC<HeaderProps> = ({ view = 'full', withShadow, children }) => {

@@ -413,7 +413,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         });
 
         const handleExited = useCallback(
-            node => {
+            (node: HTMLElement) => {
                 setBackdropOpacity(1);
 
                 if (transitionProps.onExited) {
@@ -424,7 +424,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         );
 
         const handleEntered = useCallback(
-            (node, isAppearing) => {
+            (node: HTMLElement, isAppearing: boolean) => {
                 if (!sheetHeight.current) {
                     sheetHeight.current = node.getBoundingClientRect().height;
                 }

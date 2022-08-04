@@ -52,6 +52,11 @@ export type BaseShapeProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
