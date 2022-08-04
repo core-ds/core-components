@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProgressBar Snapshots tests should fill all width of progress bar and match view snapshot 1`] = `
+exports[`ProgressBar Snapshots tests should fill all progress bar and match view snapshot 1`] = `
 <div>
   <div
     aria-valuemax="100"
@@ -11,7 +11,7 @@ exports[`ProgressBar Snapshots tests should fill all width of progress bar and m
   >
     <div
       class="filled negative"
-      style="width: 150%;"
+      style="transform: translateX(0%);"
     />
   </div>
 </div>
@@ -28,7 +28,7 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
   >
     <div
       class="filled positive"
-      style="width: 20%;"
+      style="transform: translateX(-80%);"
     />
   </div>
 </div>
@@ -45,7 +45,7 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
   >
     <div
       class="filled negative"
-      style="width: 20%;"
+      style="transform: translateX(-80%);"
     />
   </div>
 </div>

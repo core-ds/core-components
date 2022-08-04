@@ -15,7 +15,7 @@ describe('ProgressBar', () => {
             expect(container).toMatchSnapshot();
         });
 
-        it('should fill all width of progress bar and match view snapshot', () => {
+        it('should fill all progress bar and match view snapshot', () => {
             const { container } = render(<ProgressBar value={150} view='negative' />);
             expect(container).toMatchSnapshot();
         });
@@ -34,7 +34,21 @@ describe('ProgressBar', () => {
         const value = 72;
         const { container } = render(<ProgressBar value={value} />);
 
-        expect(container.querySelector('.filled')).toHaveStyle('width: 72%');
+        expect(container.querySelector('.filled')).toHaveStyle('transform: translateX(-28%)');
+    });
+
+    it('should constrain passed `value` more then 100', () => {
+        const value = 120;
+        const { container } = render(<ProgressBar value={value} />);
+
+        expect(container.querySelector('.filled')).toHaveStyle('transform: translateX(0%)');
+    });
+
+    it('should constrain passed `value` less then 0', () => {
+        const value = -120;
+        const { container } = render(<ProgressBar value={value} />);
+
+        expect(container.querySelector('.filled')).toHaveStyle('transform: translateX(-100%)');
     });
 
     describe('Classes tests', () => {
