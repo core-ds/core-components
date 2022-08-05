@@ -194,11 +194,11 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     contentRef.current && contentRef.current.contains(target);
 
                 const eventInsideSubAddons =
-                    subAddonsRef.current && subAddonsRef.current.contains(event.target);
-                
+                    subAddonsRef.current && subAddonsRef.current.contains(target);
+
                 const clickSimilarKeys = ['Enter', ' '].includes(
-                        (event as React.KeyboardEvent<HTMLDivElement>).key,
-                    );
+                    (event as React.KeyboardEvent<HTMLDivElement>).key,
+                );
 
                 const shouldChangeIsFolded =
                     eventInsideComponent &&
