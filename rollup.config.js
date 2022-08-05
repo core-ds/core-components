@@ -88,7 +88,7 @@ const es5 = {
         copy({
             targets: [{ src: ['../../bin/send-stats.js'], dest: 'dist' }],
         }),
-        copy({ targets: [{ src: ['package.json', 'CHANGELOG.md'], dest: 'dist' }] }),
+        copy({ targets: [{ src: ['package.json'], dest: 'dist' }] }),
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };
