@@ -23,24 +23,20 @@
     appearance: none;
     -webkit-tap-highlight-color: transparent;
 
-    &:hover,
-    &:active {
-        opacity: 0.8;
-    }
-
-    &.disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-    }
-
-    &.loading {
-        cursor: auto;
-        pointer-events: none;
-    }
-
     &.s {
         @mixin action_primary_small;
     }
+}
+
+.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.loading {
+    cursor: auto;
+    pointer-events: none;
 }
 
 .iconWrapper {

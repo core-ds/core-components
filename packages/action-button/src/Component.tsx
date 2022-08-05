@@ -3,10 +3,7 @@ import React, {
     ButtonHTMLAttributes,
     forwardRef,
     Fragment,
-    useEffect,
-    useMemo,
     useRef,
-    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -18,6 +15,7 @@ import styles from './index.module.css';
 import defaultColors from './default.module.css';
 import invertedColors from './inverted.module.css';
 import staticColors from './static.module.css';
+import { useLoader } from './hooks';
 
 const colorStyles = {
     default: defaultColors,
@@ -30,6 +28,8 @@ const colorStyles = {
  * чтобы при быстрых ответах от сервера кнопка не «моргала».
  */
 const LOADER_MIN_DISPLAY_INTERVAL = 500;
+
+type Colors = 'default' | 'inverted' | 'static';
 
 type ComponentProps = {
     /**
@@ -60,7 +60,7 @@ type ComponentProps = {
     /**
      * Значение href для ссылки
      */
-    href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
+    href?: string;
 
     /**
      * Заблокировать кнопку
@@ -80,7 +80,7 @@ type ComponentProps = {
     /**
      * Палитра, в контексте которой используется кнопка
      */
-    colors?: 'default' | 'inverted' | 'static';
+    colors?: Colors;
 };
 
 type AnchorProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -107,29 +107,10 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         ref,
     ) => {
         const componentRef = useRef<HTMLElement>(null);
-        const timerId = useRef(0);
 
         const [focused] = useFocus(componentRef, 'keyboard');
 
-        const [loaderTimePassed, setLoaderTimePassed] = useState(true);
-
-        const showLoader = useMemo(() => loading || !loaderTimePassed, [loading, loaderTimePassed]);
-
-        useEffect(() => {
-            if (loading) {
-                setLoaderTimePassed(false);
-
-                timerId.current = window.setTimeout(() => {
-                    setLoaderTimePassed(true);
-                }, LOADER_MIN_DISPLAY_INTERVAL);
-            }
-        }, [loading]);
-
-        useEffect(() => {
-            return () => {
-                window.clearTimeout(timerId.current);
-            };
-        }, []);
+        const { showLoader } = useLoader(!!loading, LOADER_MIN_DISPLAY_INTERVAL);
 
         const componentProps = {
             className: cn(
@@ -150,7 +131,12 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
             <Fragment>
                 <span
                     role='img'
-                    className={cn(styles.iconWrapper, styles[size], iconWrapperClassName)}
+                    className={cn(
+                        styles.iconWrapper,
+                        colorStyles[colors].iconWrapper,
+                        styles[size],
+                        iconWrapperClassName,
+                    )}
                 >
                     {showLoader ? <Loader dataTestId='loader' /> : icon}
                 </span>

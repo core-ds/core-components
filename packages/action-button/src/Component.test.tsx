@@ -10,7 +10,7 @@ describe('ActionButton', () => {
 
         render(<ActionButton icon={<React.Fragment>{icon}</React.Fragment>} />);
 
-        expect(screen.getByRole('img')).toHaveTextContent(icon);
+        expect(screen.getByText(icon)).toBeInTheDocument();
     });
 
     it('should use "size" prop', () => {
@@ -29,10 +29,9 @@ describe('ActionButton', () => {
 
     it('should use "iconWrapperClassName" prop', () => {
         const iconClassName = 'test-class';
+        const { container } = render(<ActionButton iconWrapperClassName={iconClassName} />);
 
-        render(<ActionButton iconWrapperClassName={iconClassName} />);
-
-        expect(screen.getByRole('img')).toHaveClass(iconClassName);
+        expect(container.querySelector(`.${iconClassName}`)).toBeInTheDocument();
     });
 
     it('should use "href" prop and become a link', () => {
@@ -111,12 +110,12 @@ describe('ActionButton', () => {
         expect(screen.getByRole('button')).toHaveClass(className);
     });
 
-    it('should call "onClick" prop', () => {
+    it('should call "onClick" prop', async () => {
         const cb = jest.fn();
 
         render(<ActionButton onClick={cb} />);
 
-        userEvent.click(screen.getByRole('button'));
+        await userEvent.click(screen.getByRole('button'));
 
         expect(cb).toBeCalledTimes(1);
     });

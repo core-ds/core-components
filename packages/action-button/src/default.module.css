@@ -5,27 +5,47 @@
     --action-button-primary-base-color: var(--color-light-text-primary);
     --action-button-primary-base-icon-color: var(--color-light-graphic-primary-inverted);
     --action-button-primary-base-bg-color: var(--color-light-bg-primary-inverted);
+    --action-button-primary-hover-color: var(--color-light-bg-primary-inverted-tint-15);
+    --action-button-primary-active-color: var(--color-light-bg-primary-inverted-tint-20);
 
     /* secondary */
     --action-button-secondary-base-color: var(--color-light-text-primary);
     --action-button-secondary-base-icon-color: var(--color-light-graphic-primary);
     --action-button-secondary-base-bg-color: var(--color-light-bg-secondary);
+    --action-button-secondary-hover-color: var(--color-light-bg-secondary-shade-7);
+    --action-button-secondary-active-color: var(--color-light-bg-secondary-shade-15);
 }
 
 .primary {
     color: var(--action-button-primary-base-color);
 
-    & span:first-of-type {
+    & .iconWrapper {
         color: var(--action-button-primary-base-icon-color);
         background-color: var(--action-button-primary-base-bg-color);
+    }
+
+    &:hover .iconWrapper {
+        background-color: var(--action-button-primary-hover-color);
+    }
+
+    &:active .iconWrapper {
+        background-color: var(--action-button-primary-active-color);
     }
 }
 
 .secondary {
     color: var(--action-button-secondary-base-color);
 
-    & span:first-of-type {
+    & .iconWrapper {
         color: var(--action-button-secondary-base-icon-color);
         background-color: var(--action-button-secondary-base-bg-color);
+    }
+
+    &:hover .iconWrapper {
+        background-color: var(--action-button-secondary-hover-color);
+    }
+
+    &:active .iconWrapper {
+        background-color: var(--action-button-secondary-active-color);
     }
 }

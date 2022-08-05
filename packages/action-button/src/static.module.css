@@ -15,7 +15,7 @@
 .primary {
     color: var(--action-button-static-primary-base-color);
 
-    & span:first-of-type {
+    & .iconWrapper {
         color: var(--action-button-static-primary-base-icon-color);
         background-color: var(--action-button-static-primary-base-bg-color);
     }
@@ -24,7 +24,7 @@
 .secondary {
     color: var(--action-button-static-secondary-base-color);
 
-    & span:first-of-type {
+    & .iconWrapper {
         color: var(--action-button-static-secondary-base-icon-color);
         background-color: var(--action-button-static-secondary-base-bg-color);
     }
