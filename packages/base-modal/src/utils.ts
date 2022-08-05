@@ -12,20 +12,28 @@ export function hasScrollbar(target: HTMLElement) {
     return target.scrollHeight > target.clientHeight;
 }
 
-const getScrollbarSize = () => {
-    const scrollDiv = document.createElement('div');
-    scrollDiv.style.width = '99px';
-    scrollDiv.style.height = '99px';
-    scrollDiv.style.position = 'absolute';
-    scrollDiv.style.top = '-9999px';
-    scrollDiv.style.overflow = 'scroll';
+export const getScrollbarSize = (() => {
+    let cachedSize: number;
 
-    document.body.appendChild(scrollDiv);
-    const scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-    document.body.removeChild(scrollDiv);
+    return () => {
+        if (cachedSize !== undefined) return cachedSize;
 
-    return scrollbarSize;
-};
+        const scrollDiv = document.createElement('div');
+        scrollDiv.style.width = '99px';
+        scrollDiv.style.height = '99px';
+        scrollDiv.style.position = 'absolute';
+        scrollDiv.style.top = '-9999px';
+        scrollDiv.style.overflow = 'scroll';
+
+        document.body.appendChild(scrollDiv);
+        const scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+        document.body.removeChild(scrollDiv);
+
+        cachedSize = scrollbarSize;
+
+        return scrollbarSize;
+    };
+})();
 
 const isOverflowing = (container: Element) => {
     if (document.body === container) {

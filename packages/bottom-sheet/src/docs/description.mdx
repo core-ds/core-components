@@ -1,202 +1,180 @@
-Компонент построен с использованием слотов. Общая структура выглядит так:
+BottomSheet построен с использованием слотов.  
+Компонент не имеет десктопной версии
 
-```jsx live
-render(() => {
-    const [open, setOpen] = React.useState(false);
-
-    return (
-        <>
-            <Button view='primary' onClick={() => setOpen(true)}>Пример</Button>
-
-            <BottomSheet
-                open={open}
-                title='Заголовок'
-                actionButton={
-                    <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
-                        Понятно
-                    </Button>
-                }
-                onClose={() => setOpen(false)}
-            >
-                <div style={{ lineHeight: '24px' }}>
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                </div>
-            </BottomSheet>
-        </>
-    );
-});
-```
-
-
-Все слоты кроме контентного — опциональны. Самих слотов или контента в них может не быть.
-
-```jsx live
-render(() => {
-    const [open, setOpen] = React.useState(false);
-
-    return (
-        <>
-            <Button view='primary' onClick={() => setOpen(true)}>Пример</Button>
-
-            <BottomSheet
-                open={open}
-                title='Заголовок'
-                onClose={() => setOpen(false)}
-                hideHeader
-            >
-                <div style={{ lineHeight: '24px' }}>
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                </div>
-            </BottomSheet>
-        </>
-    );
-});
-```
+## Архитектура
+Содержит компоненты Header, Content, Footer, содержащие в себе кастомизируемые слоты.
 
 ## Примеры
 
-### Мало контента
-
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [fullHeight, setFullHeight] = React.useState(false);
-    const [withTitleAndClose, setWithTitleAndCloser] = React.useState(false);
-    const [unfixedHeaderWithoutContent, setUnfixedHeaderWithoutContent] = React.useState(false);
-    const [overlayEnabled, setOverlayEnabled] = React.useState(false);
-    const [disableSwiping, setDisableSwiping] = React.useState(false);
+
+    const [state, setState] = React.useState({
+        fixedСontent: 'yes',
+        header: 'no',
+        navigation: 'closer',
+        sizeContent: 'small',
+        footerContent: 'yes',
+        initialHeight: 'default',
+        swipeable: 'yes',
+        overlay: 'yes'
+    });
+
+    const handleStateChange = (key, _, payload) => {
+        setState(state => ({ ...state, [key]: payload.value }));
+    }
 
     return (
         <>
-            <Space>
-                <Button view='primary' onClick={() => setOpen(true)}>Пример</Button>
-                <Switch
-                    onChange={() => setFullHeight(!fullHeight)}
-                    checked={fullHeight}
-                    label='Открывать на весь экран'
-                />
-                <Switch
-                    onChange={() => setWithTitleAndCloser(!withTitleAndClose)}
-                    checked={withTitleAndClose}
-                    label='Шапка с заголовком и крестиком'
-                    disabled={unfixedHeaderWithoutContent}
-                />
-                <Switch
-                    onChange={() => setUnfixedHeaderWithoutContent(!unfixedHeaderWithoutContent)}
-                    checked={unfixedHeaderWithoutContent}
-                    label='Нефиксированная шапка без контента'
-                    disabled={withTitleAndClose}
-                />
-                <Switch
-                    onChange={() => setOverlayEnabled(!overlayEnabled)}
-                    checked={overlayEnabled || fullHeight}
-                    label='Включить оверлей'
-                />
-                <Switch
-                    onChange={() => setDisableSwiping(!disableSwiping)}
-                    checked={disableSwiping}
-                    label='Запретить закрытие свайпом'
-                />
-            </Space>
+            <Button view='secondary' onClick={() => setOpen(true)}>Открыть модалку</Button>
 
             <BottomSheet
                 open={open}
-                swipeable={!disableSwiping}
-                hasCloser={withTitleAndClose}
-                title={withTitleAndClose ? 'О статье 115-Ф3' : null}
-                stickyHeader
-                rightAddons={unfixedHeaderWithoutContent ? null : true}
-                leftAddons={null}
-                initialHeight={fullHeight ? 'full' : 'default'}
-                hideHeader={!withTitleAndClose && !unfixedHeaderWithoutContent}
-                hideOverlay={!overlayEnabled}
-                onClose={() => setOpen(false)}
+                title='Заголовок'
                 actionButton={
-                    <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
+                    state.footerContent === 'yes' && <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
                         Понятно
                     </Button>
                 }
-            >
-                <div style={{ lineHeight: '24px' }}>
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
-                    Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-                    потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
-                    полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                </div>
-            </BottomSheet>
-        </>
-    );
-});
-```
-
-### Много контента
-
-```jsx live
-render(() => {
-    const [open, setOpen] = React.useState(false);
-    const [withTitleAndClose, setWithTitleAndCloser] = React.useState(false);
-    const [unfixedHeaderWithoutContent, setUnfixedHeaderWithoutContent] = React.useState(false);
-    const [fixedFooter, setFixedFooter] = React.useState(false);
-    const [disableSwiping, setDisableSwiping] = React.useState(false);
-
-    return (
-        <>
-            <Space>
-                <Button view='primary' onClick={() => setOpen(true)}>Пример</Button>
-                <Switch
-                    onChange={() => setWithTitleAndCloser(!withTitleAndClose)}
-                    checked={withTitleAndClose}
-                    label='Шапка с заголовком и крестиком'
-                    disabled={unfixedHeaderWithoutContent}
-                />
-                <Switch
-                    onChange={() => setUnfixedHeaderWithoutContent(!unfixedHeaderWithoutContent)}
-                    checked={unfixedHeaderWithoutContent}
-                    label='Нефиксированная шапка без контента'
-                    disabled={withTitleAndClose}
-                />
-                <Switch
-                    onChange={() => setFixedFooter(!fixedFooter)}
-                    checked={fixedFooter}
-                    label='Фиксированный футер'
-                />
-                <Switch
-                    onChange={() => setDisableSwiping(!disableSwiping)}
-                    checked={disableSwiping}
-                    label='Запретить закрытие свайпом'
-                />
-            </Space>
-
-            <BottomSheet
-                open={open}
-                title="О статье 115-Ф3"
-                swipeable={!disableSwiping}
-                hasCloser={withTitleAndClose}
-                stickyFooter={fixedFooter}
-                title={withTitleAndClose ? 'Заголовок' : null}
-                rightAddons={unfixedHeaderWithoutContent ? null : true}
-                leftAddons={null}
-                hideHeader={!withTitleAndClose && !unfixedHeaderWithoutContent}
+                initialHeight={ state.initialHeight }
+                hideOverlay={state.overlay === 'no'}
+                hideHeader={state.header === 'no'}
+                swipeable={state.swipeable === 'yes'}
+                stickyHeader={state.fixedСontent === 'yes'}
+                stickyFooter={state.fixedСontent === 'yes' }
+                hasCloser={state.navigation === 'closer'}
+                hasBacker={state.navigation === 'back'}
+                titleAlign={state.header !== 'no' && state.header}
                 onClose={() => setOpen(false)}
-                actionButton={
-                    <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
-                        Понятно
-                    </Button>
-                }
             >
                 <div style={{ lineHeight: '24px' }}>
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-                    Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    {state.sizeContent === 'big' && <p>Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+                    Cейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ</p>}
                 </div>
             </BottomSheet>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Футер и хедер"
+                    direction="vertical"
+                    name="radioGroupFirst"
+                    onChange={handleStateChange.bind(null, 'fixedСontent')}
+                    value={state.fixedСontent}
+                >
+                    <Radio label="Фиксированные" value="yes" />
+                    <Radio label="Нефиксированные" value="no" />
+                </RadioGroup>
+
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер и хедер без контента не могут быть закреплёнными.</Typography.Text>
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Заголовок"
+                    direction="vertical"
+                    name="radioGroupSecond"
+                    onChange={handleStateChange.bind(null, 'header')}
+                    value={state.header}
+                >
+                    <Radio label="Без заголовка" value="no" />
+                    <Radio label="Центрирован" value="center" />
+                    <Radio label="По левому краю" value="left" />
+                </RadioGroup>                    
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Навигация"
+                    direction="vertical"
+                    name="radioGroupThird"
+                    onChange={handleStateChange.bind(null, 'navigation')}
+                    value={state.navigation}
+                >
+                    <Radio label="Закрыть" value="closer" />
+                    <Radio label="Назад" value="back" />
+                    <Radio label="Без навигации" value="no" />
+                </RadioGroup>
+
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Не рекомендуется использовать кнопку “назад” с левым выравниванием заголовка в шапке.</Typography.Text>
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Объём контента"
+                    direction="vertical"
+                    name="radioGroupFourth"
+                    onChange={handleStateChange.bind(null, 'sizeContent')}
+                    value={state.sizeContent}
+                >
+                    <Radio label="Мало" value="small" />
+                    <Radio label="Больше чем на один экран" value="big" />
+                </RadioGroup>                    
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Контент футера"
+                    direction="vertical"
+                    name="radioGroupFifth"
+                    onChange={handleStateChange.bind(null, 'footerContent')}
+                    value={state.footerContent}
+                >
+                    <Radio label="Кнопка" value="yes" />
+                    <Radio label="Нет контента" value="no" />
+                </RadioGroup>
+                
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Высота шторки"
+                    direction="vertical"
+                    name="radioGroupSixth"
+                    onChange={handleStateChange.bind(null, 'initialHeight')}
+                    value={state.initialHeight}
+                >
+                    <Radio label="По размеру контента" value="default" />
+                    <Radio label="На весь экран" value="full" />
+                </RadioGroup>                    
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Закрытие свайпом"
+                    direction="vertical"
+                    name="radioGroupSevent"
+                    onChange={handleStateChange.bind(null, 'swipeable')}
+                    value={state.swipeable}
+                >
+                    <Radio label="Разрешено" value="yes" />
+                    <Radio label="Запрещено" value="no" />
+                </RadioGroup>                    
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Оверлей"
+                    direction="vertical"
+                    name="radioGroupEighth"
+                    onChange={handleStateChange.bind(null, 'overlay')}
+                    value={state.overlay}
+                >
+                    <Radio label="С оверлеем" value="yes" />
+                    <Radio label="Без оверлея" value="no" />
+                </RadioGroup>                    
+            </div>
         </>
     );
 });

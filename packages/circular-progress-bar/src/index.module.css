@@ -1,4 +1,4 @@
-@import '../../vars/src/colors-indigo.css';
+@import '../../themes/src/default.css';
 
 :root {
     /* bg */
@@ -9,6 +9,10 @@
 
     /* negative */
     --circular-progress-bar-negative-color: var(--color-light-graphic-negative);
+
+    /* theme */
+    --circular-progress-bar-font-family: var(--font-family-system);
+    --circular-progress-bar-font-weight: 600;
 }
 
 .component {
@@ -27,18 +31,42 @@
 .subtitle {
     overflow: hidden;
     word-break: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 6px;
 }
 
 .subtitle {
     max-height: 40px;
 }
 
-.l {
+.labelWrapper {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+
+    &.label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.typography {
+    font-feature-settings: 'ss01';
+    font-weight: var(--circular-progress-bar-font-weight);
+    font-family: var(--circular-progress-bar-font-family);
+}
+
+.xxl {
     width: 144px;
     height: 144px;
 
-    & .label {
-        max-width: 120px;
+    & .labelWrapper {
+        max-width: 128px;
     }
 
     & .title {
@@ -46,39 +74,67 @@
     }
 }
 
-.m {
-    width: 120px;
-    height: 120px;
+.xl {
+    width: 128px;
+    height: 128px;
 
-    & .label {
-        max-width: 96px;
+    & .labelWrapper {
+        max-width: 108px;
+    }
+
+    & .title {
+        max-height: 32px;
+    }
+}
+
+.l {
+    width: 80px;
+    height: 80px;
+
+    & .labelWrapper {
+        max-width: 64px;
     }
 
     & .title {
         max-height: 24px;
+    }
+}
+
+.m {
+    width: 64px;
+    height: 64px;
+
+    & .labelWrapper {
+        max-width: 48px;
+    }
+
+    & .title {
+        max-height: 16px;
+        margin: 0;
     }
 }
 
 .s {
-    width: 96px;
-    height: 96px;
+    width: 48px;
+    height: 48px;
 
-    & .label {
-        max-width: 72px;
+    & .labelWrapper {
+        max-width: 40px;
     }
 
     & .title {
-        max-height: 24px;
+        max-height: 16px;
+        margin: 0;
     }
 }
 
-.label {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
+.xs {
+    width: 24px;
+    height: 24px;
+
+    & .labelWrapper {
+        max-width: 24px;
+    }
 }
 
 .backgroundCircle,
@@ -86,7 +142,6 @@
     width: 100%;
     height: 100%;
     fill: transparent;
-    stroke-width: 8;
 }
 
 .positive {
@@ -99,4 +154,85 @@
 
 .backgroundCircle {
     stroke: var(--circular-progress-bar-bg-color);
+
+    &.stroke {
+        stroke: transparent;
+    }
+}
+
+.progressCircle {
+    stroke-linecap: round;
+
+    &.bg-positive {
+        fill: var(--circular-progress-bar-positive-color);
+    }
+
+    &.bg-negative {
+        fill: var(--circular-progress-bar-negative-color);
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.xxl {
+        max-width: 64px;
+        max-height: 64px;
+    }
+
+    &.xl {
+        max-width: 64px;
+        max-height: 64px;
+    }
+
+    &.l {
+        max-width: 48px;
+        max-height: 48px;
+    }
+
+    &.m {
+        max-width: 36px;
+        max-height: 36px;
+    }
+
+    &.s {
+        max-width: 24px;
+        max-height: 24px;
+    }
+
+    &.xs {
+        max-width: 16px;
+        max-height: 16px;
+    }
+
+    &.icon-tertiary {
+        color: var(--color-light-graphic-tertiary);
+    }
+
+    &.icon-positive {
+        color: var(--color-light-graphic-positive);
+    }
+
+    &.icon-negative {
+        color: var(--color-light-graphic-negative);
+    }
+
+    &.icon-primary-inverted {
+        color: var(--color-light-graphic-primary-inverted);
+    }
+
+    &.icon-primary {
+        color: var(--color-light-graphic-primary);
+    }
+
+    &.icon-secondary {
+        color: var(--color-light-graphic-secondary);
+    }
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
 }

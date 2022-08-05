@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@4.0.0...@alfalab/core-components-gallery@4.1.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
+# [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.10...@alfalab/core-components-gallery@4.0.0) (2022-07-25)
+
+
+### Features
+
+* Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru
+data: 'self'`
+
+* chore(screenshot-utils): change cdn
+
+* feat(cdn-icon): add prop baseUrl
+
+
+
+
+
+## [3.2.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.9...@alfalab/core-components-gallery@3.2.10) (2022-07-25)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
 ## [3.2.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@3.2.8...@alfalab/core-components-gallery@3.2.9) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-gallery

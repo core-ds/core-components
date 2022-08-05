@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-backdrop",
-    "version": "2.1.3",
+    "version": "2.2.0",
     "description": "Backdrop component",
     "keywords": [],
     "license": "MIT",
@@ -13,13 +13,13 @@
         "directory": "dist"
     },
     "dependencies": {
-        "classnames": "^2.2.6",
+        "classnames": "^2.3.1",
         "react-transition-group": "^4.4.1"
     },
     "devDependencies": {
         "@types/react-transition-group": "^4.2.4"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     }
 }

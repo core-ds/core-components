@@ -15,8 +15,8 @@
     --plate-border-color: var(--color-static-status-grey);
 
     /* icons */
-    --plate-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
-    --plate-arrow-icon: url('https://alfabank.gcdn.co/icons/glyph_chevron-down_m.svg');
+    --plate-closer-icon: url('https://alfabank.servicecdn.ru/icons/glyph_cross_m.svg');
+    --plate-arrow-icon: url('https://alfabank.servicecdn.ru/icons/glyph_chevron-down_m.svg');
 }
 
 .component {

@@ -5,11 +5,11 @@ import noUiSlider, { API, Options } from 'nouislider';
 import styles from './index.module.css';
 
 type SubRange = number | [number] | [number, number];
-interface Range {
+type RangeOptions = {
     min: SubRange;
     max: SubRange;
     [key: string]: SubRange;
-}
+};
 
 type PipsType = -1 | 0 | 1 | 2;
 
@@ -50,7 +50,7 @@ export type SliderProps = {
      * Настройка шагов
      * https://refreshless.com/nouislider/pips/#section-range
      */
-    range?: Range;
+    range?: RangeOptions;
 
     /**
      * Значение инпута

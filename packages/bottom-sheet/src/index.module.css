@@ -18,8 +18,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border-top-right-radius: var(--border-radius-xl);
-    border-top-left-radius: var(--border-radius-xl);
+    border-top-right-radius: var(--border-radius-3xl);
+    border-top-left-radius: var(--border-radius-3xl);
     background: var(--color-light-bg-primary);
     transform: translateY(100%);
 }

@@ -87,8 +87,8 @@ export const matchHtml = async ({
 }: MatchHtmlParams) => {
     let pageHtml = await getPageHtml(page, css);
 
-    // FIXME: gcdn.co недоступен на playwright сервере
-    pageHtml = pageHtml.replace(/alfabank\.gcdn\.co/g, 'alfabank.st');
+    // FIXME: servicecdn.ru недоступен на playwright сервере
+    pageHtml = pageHtml.replace(/alfabank\.servicecdn\.ru/g, 'alfabank.st');
 
     const image = await axios.post(
         playwrightUrl,

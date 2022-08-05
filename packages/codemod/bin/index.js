@@ -46,7 +46,11 @@ function main() {
 
         try {
             console.log(chalk.green(`Запускаем ${transformerName}:`));
-            shell.exec(`jscodeshift --parser=tsx --transform=${transformer} ${argv._.join(' ')}`);
+            shell.exec(
+                `jscodeshift --parser=tsx --transform=${transformer} ${argv._.join(' ')} ${
+                    argv.packages ? `--packages=${argv.packages.replace(/\s/g, '')}` : ''
+                }`,
+            );
         } catch (error) {
             console.log(chalk.red(error));
         }

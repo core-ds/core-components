@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.2...@alfalab/core-components-bottom-sheet@4.7.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
+## [4.6.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.1...@alfalab/core-components-bottom-sheet@4.6.2) (2022-07-25)
+
+
+### Bug Fixes
+
+* **bottom-sheet:** fix component border-radius ([#157](https://github.com/core-ds/core-components/issues/157)) ([57b767e](https://github.com/core-ds/core-components/commit/57b767e43e40e9170967e3a53481e21f92cb0190))
+* **bottom-sheet:** fix doc ([#163](https://github.com/core-ds/core-components/issues/163)) ([cbf3282](https://github.com/core-ds/core-components/commit/cbf32828bc2fe472d59d52c1e5644e7934262d73))
+
+
+
+
+
 ## [4.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.0...@alfalab/core-components-bottom-sheet@4.6.1) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-bottom-sheet

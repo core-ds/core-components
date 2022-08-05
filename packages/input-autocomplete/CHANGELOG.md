@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.4.9...@alfalab/core-components-input-autocomplete@7.5.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
+## [7.4.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.4.8...@alfalab/core-components-input-autocomplete@7.4.9) (2022-07-25)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
+## [7.4.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.4.7...@alfalab/core-components-input-autocomplete@7.4.8) (2022-07-25)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
 ## [7.4.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.4.6...@alfalab/core-components-input-autocomplete@7.4.7) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-input-autocomplete
