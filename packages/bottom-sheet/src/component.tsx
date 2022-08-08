@@ -190,11 +190,6 @@ export type BottomSheetProps = {
     disableBlockingScroll?: boolean;
 
     /**
-     * Не анимировать шторку при изменении размера вьюпорта
-     */
-    ignoreScreenChange?: boolean;
-
-    /**
      * Свойства для Бэкдропа
      */
     backdropProps?: BaseModalProps['backdropProps'];
@@ -256,7 +251,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             transitionProps = {},
             dataTestId,
             swipeable = true,
-            ignoreScreenChange = false,
             backdropProps,
             onClose,
             onBack,
@@ -272,8 +266,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollableContainerScrollValue = useRef(0);
 
         const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
-
-        const [transitionClassName, setTransitionClassName] = useState(styles.withTransition);
 
         // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
         const fullHeight = use100vh()!;
@@ -354,12 +346,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (shouldClose) {
                 onClose();
             } else {
-                /**
-                 * Установить мгновенную анимацию шторке если она не закрыта при свайпе и установлен проп ignoreScreenChange
-                 */
-                if (ignoreScreenChange) {
-                    setTransitionClassName(styles.withZeroTransition);
-                }
                 setSheetOffset(0);
                 setBackdropOpacity(1);
             }
@@ -388,13 +374,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
              */
             if (offset > 0) {
                 setScrollLocked(true);
-
-                /**
-                 * Вернуть плавную анимацию шторке при свайпе
-                 */
-                if (transitionClassName === styles.withZeroTransition) {
-                    setTransitionClassName(styles.withTransition);
-                }
             }
         };
 
@@ -442,11 +421,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (!open) {
                 setSheetOffset(0);
             }
-
-            if (ignoreScreenChange && open) {
-                setTransitionClassName(styles.withZeroTransition);
-            }
-        }, [open, ignoreScreenChange]);
+        }, [open]);
 
         const getSwipeStyles = (): CSSProperties => ({
             transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
@@ -486,46 +461,47 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     onEntered: handleEntered,
                 }}
             >
-                <div
-                    className={cn(styles.component, className, {
-                        [transitionClassName]: !sheetOffset,
-                    })}
-                    style={{
-                        ...getSwipeStyles(),
-                        ...getHeightStyles(),
-                    }}
-                    {...sheetSwipeablehandlers}
-                >
+                <div style={{...getHeightStyles()}}>
                     <div
-                        {...containerProps}
-                        className={cn(
-                            styles.scrollableContainer,
-                            containerProps?.className,
-                            containerClassName,
-                            {
-                                [styles.scrollLocked]: scrollLocked,
-                            },
-                        )}
-                        ref={scrollableContainer}
+                        className={cn(styles.component, className, {
+                            [styles.withTransition]: !sheetOffset,
+                        })}
+                        style={{
+                            ...getSwipeStyles(),
+                        }}
+                        {...sheetSwipeablehandlers}
                     >
-                        {swipeable && <div className={cn(styles.marker)} />}
-
-                        {!hideHeader && !emptyHeader && <Header {...headerProps} />}
-
                         <div
-                            className={cn(styles.content, contentClassName, {
-                                [styles.noHeader]: hideHeader || emptyHeader,
-                                [styles.noFooter]: !actionButton,
-                            })}
+                            {...containerProps}
+                            className={cn(
+                                styles.scrollableContainer,
+                                containerProps?.className,
+                                containerClassName,
+                                {
+                                    [styles.scrollLocked]: scrollLocked,
+                                },
+                            )}
+                            ref={scrollableContainer}
                         >
-                            {children}
-                        </div>
+                            {swipeable && <div className={cn(styles.marker)} />}
 
-                        {actionButton && (
-                            <Footer sticky={stickyFooter} className={footerClassName}>
-                                {actionButton}
-                            </Footer>
-                        )}
+                            {!hideHeader && !emptyHeader && <Header {...headerProps} />}
+
+                            <div
+                                className={cn(styles.content, contentClassName, {
+                                    [styles.noHeader]: hideHeader || emptyHeader,
+                                    [styles.noFooter]: !actionButton,
+                                })}
+                            >
+                                {children}
+                            </div>
+
+                            {actionButton && (
+                                <Footer sticky={stickyFooter} className={footerClassName}>
+                                    {actionButton}
+                                </Footer>
+                            )}
+                        </div>
                     </div>
                 </div>
             </BaseModal>
