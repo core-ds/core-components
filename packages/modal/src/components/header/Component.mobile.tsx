@@ -3,6 +3,7 @@ import cn from 'classnames';
 import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
 import { Header, HeaderProps } from './Component';
 import { Closer } from '../closer/Component';
+import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './mobile.module.css';
 
@@ -18,6 +19,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
     contentClassName,
     hasCloser = true,
     sticky,
+    dataTestId,
     ...restProps
 }) => (
     <Header
@@ -25,8 +27,17 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
             [styles.sticky]: sticky,
         })}
         contentClassName={cn(styles.content, contentClassName)}
-        closer={hasCloser ? <Closer icon={CrossMIcon} size='xs' /> : null}
+        closer={
+            hasCloser ? (
+                <Closer
+                    icon={CrossMIcon}
+                    size='xs'
+                    dataTestId={getDataTestId(dataTestId, 'closer')}
+                />
+            ) : null
+        }
         sticky={sticky}
+        dataTestId={dataTestId}
         {...restProps}
     />
 );
