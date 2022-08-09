@@ -153,12 +153,14 @@ export const Slider: FC<SliderProps> = ({
         const slider = getSlider();
         if (!slider) return;
 
-        slider.off('update.onChange');
-        slider.on('update.onChange', () => {
-            if (onChange && busyRef.current) {
+        const handler = () => {
+            if (onChange) {
                 onChange({ value: Number(slider.get()) });
             }
-        });
+        };
+
+        slider.off('slide');
+        slider.on('slide', handler);
     }, [onChange]);
 
     return (
