@@ -19,6 +19,7 @@ import { Footer } from './components/footer/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
+import { getDataTestId } from '../../utils';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
@@ -291,6 +292,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleAlign,
             trimTitle,
             sticky: stickyHeader,
+            dataTestId: getDataTestId(dataTestId, 'header'),
             onBack,
         };
 

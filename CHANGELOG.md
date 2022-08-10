@@ -1,3 +1,11 @@
+# [29.2.0](https://github.com/core-ds/core-components/compare/v29.1.0...v29.2.0) (2022-08-09)
+
+
+### Features
+
+* **bottom-sheet:** добавлен dataTestId для элементов компонента ([f90c76b](https://github.com/core-ds/core-components/commit/f90c76bf539542957dc0aea7be28089e5c919859))
+* **modal:** добавлен dataTestId для элементов компонента ([151ff8c](https://github.com/core-ds/core-components/commit/151ff8c5220d794719f90c1bdabedb905db841a7))
+
 # [29.1.0](https://github.com/core-ds/core-components/compare/v29.0.0...v29.1.0) (2022-08-04)
 
 

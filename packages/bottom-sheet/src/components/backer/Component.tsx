@@ -22,6 +22,11 @@ export type BackerProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     icon?: ElementType;
 
     /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
      * Обработчик нажатия
      */
     onClick?: () => void;
@@ -31,6 +36,7 @@ export const Backer: React.FC<BackerProps> = ({
     className,
     size = 'xs',
     icon = ArrowBackMIcon,
+    dataTestId,
     onClick,
     ...restProps
 }) => {
@@ -42,6 +48,7 @@ export const Backer: React.FC<BackerProps> = ({
                 aria-label='назад'
                 onClick={onClick}
                 icon={icon}
+                dataTestId={dataTestId}
                 {...restProps}
             />
         </div>

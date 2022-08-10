@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.3.0...@alfalab/core-components-modal@5.4.0) (2022-08-09)
+
+
+### Features
+
+* **modal:** добавлен dataTestId для элементов компонента ([151ff8c](https://github.com/core-ds/core-components/commit/151ff8c5220d794719f90c1bdabedb905db841a7))
+
+
+
+
+
 # [5.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.2.8...@alfalab/core-components-modal@5.3.0) (2022-08-04)
 
 

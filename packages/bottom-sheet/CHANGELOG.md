@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.8.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.7.0...@alfalab/core-components-bottom-sheet@4.8.0) (2022-08-09)
+
+
+### Features
+
+* **bottom-sheet:** добавлен dataTestId для элементов компонента ([f90c76b](https://github.com/core-ds/core-components/commit/f90c76bf539542957dc0aea7be28089e5c919859))
+
+
+
+
+
 # [4.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.2...@alfalab/core-components-bottom-sheet@4.7.0) (2022-08-04)
 
 
