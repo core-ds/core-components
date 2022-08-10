@@ -63,7 +63,7 @@ describe('SelectWithTags | interactions tests', () => {
 
                 await match();
 
-                await page.click('[class^=tagCross]');
+                await page.click('[class*=tagCross]');
 
                 await match();
             } catch (error) {
@@ -105,7 +105,7 @@ describe('SelectWithTags | interactions tests', () => {
                 viewport,
                 evaluate: remotePage =>
                     remotePage
-                        .hover('[class^=tagCross]')
+                        .hover('[class*=tagCross]')
                         .then(() => remotePage.mouse.down())
                         .then(() => remotePage.waitForTimeout(500)),
             });
