@@ -27,5 +27,9 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.05,
+        },
     }),
 );

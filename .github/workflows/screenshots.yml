@@ -25,7 +25,7 @@ jobs:
         - uses: microsoft/playwright-github-action@v1
 
         - name: Build storybook
-          run: yarn build-storybook
+          run: yarn build-storybook-from-dist
 
         - name: Serve storybook
           run: yarn serve-storybook &
