@@ -1,0 +1,97 @@
+## Примеры
+
+### Горизонтальный
+
+```jsx live
+render(() => {
+    const [ordered, setOrdered] = React.useState(true);
+    const [step, setStep] = React.useState(2);
+
+    const handleStepsChange = (stepNumber) => {
+        setStep(stepNumber);
+    }
+
+    const handleOrderChange = () => {
+        setOrdered(prev => !prev);
+    }
+
+    const handleReset = () => {
+        setOrdered(false);
+        setStep(1);
+    }
+
+    return (
+        <div style={{ width: 500 }}>
+            <Steps
+                value={step}
+                defaultValue={2}
+                ordered={ordered}
+                onChange={handleStepsChange}
+            >
+                <div>Шаг 1</div>
+                <div>Шаг 2</div>
+                <div>Шаг 3</div>
+                <div>Шаг 4</div>
+            </Steps>
+            <div style={{ margin: '20px 0' }}>Выбран шаг {step}</div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Switch checked={ordered} onChange={handleOrderChange} />
+                <span style={{ marginLeft: 12 }}>Номера шагов</span>
+            </div>
+            <Button style={{ marginTop: 14 }} view='secondary' onClick={handleReset} size='xxs'>
+                Сбросить
+            </Button>
+        </div>
+    );
+});
+```
+
+
+### Вертикальный
+
+```jsx live
+render(() => {
+    const [ordered, setOrdered] = React.useState(true);
+    const [step, setStep] = React.useState(2);
+
+    const handleStepsChange = (stepNumber) => {
+        setStep(stepNumber);
+    }
+
+    const handleOrderChange = () => {
+        setOrdered(prev => !prev);
+    }
+
+    const handleReset = () => {
+        setOrdered(false);
+        setStep(1);
+    }
+
+    return (
+        <div style={{ display: 'flex', gap: 250 }}>
+            <Steps
+                value={step}
+                defaultValue={2}
+                ordered={ordered}
+                onChange={handleStepsChange}
+                isVerticalAlign={true}
+            >
+                <div>Шаг 1</div>
+                <div>Шаг 2</div>
+                <div>Шаг 3</div>
+                <div>Шаг 4</div>
+            </Steps>
+            <div>
+                <div style={{ marginBottom: 20 }}>Выбран шаг {step}</div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <Switch checked={ordered} onChange={handleOrderChange} />
+                    <span style={{ marginLeft: 12 }}>Номера шагов</span>
+                </div>
+                <Button style={{ marginTop: 14 }} view='secondary' onClick={handleReset} size='xxs'>
+                    Сбросить
+                </Button>
+            </div>
+        </div>
+    );
+});
+```

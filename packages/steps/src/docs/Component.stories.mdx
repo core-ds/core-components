@@ -1,0 +1,39 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { text, number, select } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Steps } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+
+<Meta
+    title='Компоненты/Steps'
+    component={Steps}
+/>
+
+<!-- Canvas -->
+
+<Story name='Steps'>
+    <Steps
+        value={text('value', '')}
+    />
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Steps'
+    version={version}
+    package='@alfalab/core-components/steps'
+    stage={1}
+/>
+
+```jsx
+import { Steps } from '@alfalab/core-components/steps';
+```
+
+<Tabs
+    props={<Props of={Steps} />}
+    description={<Description />}
+/>
+

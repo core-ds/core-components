@@ -11,6 +11,7 @@
 @import './filter-tag/mobile.css';
 @import './bottom-sheet/mobile.css';
 @import './select/mobile.css';
+@import './steps/mobile.css';
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
@@ -26,4 +27,5 @@
     @mixin filter-tag-mobile;
     @mixin bottom-sheet-mobile;
     @mixin select-mobile;
+    @mixin steps-mobile;
 }

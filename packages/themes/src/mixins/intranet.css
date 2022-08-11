@@ -11,6 +11,7 @@
 @import './calendar-input/intranet.css';
 @import './bottom-sheet/intranet.css';
 @import './select/intranet.css';
+@import './steps/intranet.css';
 
 @define-mixin theme-intranet {
     @mixin button-intranet;
@@ -26,4 +27,5 @@
     @mixin calendar-input-intranet;
     @mixin bottom-sheet-intranet;
     @mixin select-intranet;
+    @mixin steps-intranet;
 }
