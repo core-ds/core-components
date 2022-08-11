@@ -191,7 +191,7 @@ export type BottomSheetProps = {
     disableBlockingScroll?: boolean;
 
     /**
-     * DEPRECATED: данный проп больше не используется, временно оставлен для обратной совместимости
+     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
      * Не анимировать шторку при изменении размера вьюпорта
      */
     ignoreScreenChange?: boolean;
@@ -476,6 +476,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         })}
                         style={{
                             ...getSwipeStyles(),
+                            ...getHeightStyles(),
                         }}
                         {...sheetSwipeablehandlers}
                     >
