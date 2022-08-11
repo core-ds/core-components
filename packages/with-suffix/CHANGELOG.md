@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.4.0...@alfalab/core-components-with-suffix@3.4.1) (2022-08-11)
+
+**Note:** Version bump only for package @alfalab/core-components-with-suffix
+
+
+
+
+
 # [3.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.3.4...@alfalab/core-components-with-suffix@3.4.0) (2022-08-04)
 
 

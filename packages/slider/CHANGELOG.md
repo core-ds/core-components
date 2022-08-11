@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@3.1.0...@alfalab/core-components-slider@3.1.1) (2022-08-11)
+
+
+### Bug Fixes
+
+* **slider:** handle slide ([#187](https://github.com/core-ds/core-components/issues/187)) ([709f8df](https://github.com/core-ds/core-components/commit/709f8df47c82c905225dfd4645e345cf14e9f844))
+
+
+
+
+
 # [3.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider@3.0.4...@alfalab/core-components-slider@3.1.0) (2022-08-04)
 
 
