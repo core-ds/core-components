@@ -1,7 +1,8 @@
 const path = require('path');
-const componentsResolver = require('./utils/componentsResolver');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const ComponentResolverPlugin = require('./utils/componentsResolver');
+const webpack = require('webpack');
 
 const cssModuleRegex = /\.module\.css$/;
 const cssRegex = /\.css$/;
@@ -108,7 +109,7 @@ module.exports = {
         addPackagesDir(config);
 
         config.resolve = {
-            plugins: [componentsResolver],
+            plugins: [new ComponentResolverPlugin()],
             alias: {
                 storybook: path.resolve(__dirname),
             },
@@ -195,9 +196,16 @@ module.exports = {
                                       }),
                                   ]
                                 : []),
+                            // Минифицируем css для prod сторибука.
+                            ...(process.env.BUILD_FROM_DIST === 'true'
+                                ? require('cssnano-preset-default')().plugins
+                                : []),
                         ],
                     }),
                 },
+            }),
+            new webpack.DefinePlugin({
+                'process.env.BUILD_FROM_DIST': JSON.stringify(process.env.BUILD_FROM_DIST),
             }),
         );
 

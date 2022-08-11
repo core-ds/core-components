@@ -57,7 +57,7 @@ describe(
             testStory: false,
         }),
         evaluate: (page: Page) =>
-            page.hover('button[class^=component]').then(() => page.waitForTimeout(500)),
+            page.hover('button[class*=component]').then(() => page.waitForTimeout(500)),
         screenshotOpts: {
             clip,
         },
