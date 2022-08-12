@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.5.2...@alfalab/core-components-input-autocomplete@7.6.0) (2022-08-12)
+
+
+### Features
+
+* **BottonSheet:** improved bottomSheet component ([#185](https://github.com/core-ds/core-components/issues/185)) ([ba5fa06](https://github.com/core-ds/core-components/commit/ba5fa06d5f342ac5e04adadb72fd21e1f699c00a))
+
+
+
+
+
 ## [7.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@7.5.1...@alfalab/core-components-input-autocomplete@7.5.2) (2022-08-11)
 
 **Note:** Version bump only for package @alfalab/core-components-input-autocomplete
