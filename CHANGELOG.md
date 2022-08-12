@@ -1,3 +1,10 @@
+# [29.4.0](https://github.com/core-ds/core-components/compare/v29.3.0...v29.4.0) (2022-08-12)
+
+
+### Features
+
+* **plate:** subAddons slot, on/off border&shadow&borderRadius, new view 'custom' ([#158](https://github.com/core-ds/core-components/issues/158)) ([b2fc570](https://github.com/core-ds/core-components/commit/b2fc5703f083d493f0e5222d9a1f752cac190dbf)), closes [#161](https://github.com/core-ds/core-components/issues/161)
+
 # [29.3.0](https://github.com/core-ds/core-components/compare/v29.2.1...v29.3.0) (2022-08-12)
 
 
