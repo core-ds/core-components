@@ -16,7 +16,7 @@ export type PickerButtonMobileProps = Omit<
 > &
     AdditionalMobileProps;
 
-export const PickerButtonMobile = forwardRef<HTMLDivElement, PickerButtonMobileProps>(
+export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobileProps>(
     (
         {
             options,

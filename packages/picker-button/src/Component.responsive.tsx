@@ -9,9 +9,9 @@ import { PickerButtonMobile } from './Component.mobile';
 export type PickerButtonMatchMedia = 'desktop' | 'mobile';
 
 export const PickerButtonResponsive = forwardRef<
-    HTMLDivElement,
+    HTMLInputElement,
     PickerButtonProps & AdditionalMobileProps
->(({ OptionsList, onScroll, footer, swipeable, bottomSheetProps, ...restProps }) => {
+>(({ OptionsList, onScroll, footer, swipeable, bottomSheetProps, ...restProps }, ref) => {
     const [view] = useMedia(
         [
             ['mobile', '(max-width: 767px)'],
@@ -21,9 +21,10 @@ export const PickerButtonResponsive = forwardRef<
     );
 
     return view === 'desktop' ? (
-        <PickerButton OptionsList={OptionsList} onScroll={onScroll} {...restProps} />
+        <PickerButton ref={ref} OptionsList={OptionsList} onScroll={onScroll} {...restProps} />
     ) : (
         <PickerButtonMobile
+            ref={ref}
             footer={footer}
             swipeable={swipeable}
             bottomSheetProps={bottomSheetProps}
