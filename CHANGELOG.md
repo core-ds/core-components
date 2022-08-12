@@ -1,3 +1,10 @@
+## [29.2.1](https://github.com/core-ds/core-components/compare/v29.2.0...v29.2.1) (2022-08-11)
+
+
+### Bug Fixes
+
+* **slider:** handle slide ([#187](https://github.com/core-ds/core-components/issues/187)) ([709f8df](https://github.com/core-ds/core-components/commit/709f8df47c82c905225dfd4645e345cf14e9f844))
+
 # [29.2.0](https://github.com/core-ds/core-components/compare/v29.1.0...v29.2.0) (2022-08-09)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.4.0...@alfalab/core-components-modal@5.4.1) (2022-08-11)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
 # [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-modal@5.3.0...@alfalab/core-components-modal@5.4.0) (2022-08-09)
 
 
