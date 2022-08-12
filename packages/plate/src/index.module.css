@@ -2,7 +2,7 @@
 
 :root {
     /* border */
-    --plate-border-left: 2px solid;
+    --plate-border-left: 2px;
     --plate-border: 0 0 0 1px;
     --plate-border-radius: var(--border-radius-m);
 
@@ -31,7 +31,7 @@
 
     &:before {
         content: '';
-        width: 2px;
+        width: var(--plate-border-left);
         position: absolute;
         height: 100%;
         top: 0;
