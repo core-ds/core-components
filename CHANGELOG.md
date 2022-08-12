@@ -1,3 +1,10 @@
+# [29.3.0](https://github.com/core-ds/core-components/compare/v29.2.1...v29.3.0) (2022-08-12)
+
+
+### Features
+
+* **BottonSheet:** improved bottomSheet component ([#185](https://github.com/core-ds/core-components/issues/185)) ([ba5fa06](https://github.com/core-ds/core-components/commit/ba5fa06d5f342ac5e04adadb72fd21e1f699c00a))
+
 ## [29.2.1](https://github.com/core-ds/core-components/compare/v29.2.0...v29.2.1) (2022-08-11)
 
 
