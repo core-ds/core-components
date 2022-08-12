@@ -1,63 +1,139 @@
-Компонент плашки.
+Компонент может использоваться самостоятельно или в составе более сложных компонентов
+
+## Архитектура
+
+Компонент состоит из слотов. Часто используемые конфигурации слотов могут быть сохранены как пресеты.
+
+## Примеры
+
+### Скругление и обводка
+
+Для плашки можно включить скругление и обводку. Наличие скругления влияет на формат обводки.
 
 ```jsx live
-// import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
+<Space fullWidth>
+    <Plate
+        view='positive'
+        title='Компонент плашки'
+        border={false}
+        subAddons={[<Button>Подробнее</Button>]}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+    />
+    <Plate
+        view='positive'
+        title='Компонент плашки'
+        subAddons={[<Button>Подробнее</Button>]}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+    />
+    <Plate
+        view='positive'
+        title='Компонент плашки'
+        rounded={false}
+        border={false}
+        subAddons={[<Button>Подробнее</Button>]}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+    />
+    <Plate
+        view='positive'
+        title='Компонент плашки'
+        rounded={false}
+        subAddons={[<Button>Подробнее</Button>]}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+    />
+</Space>
+```
 
-<Space fullWidth={true}>
+### Фон
+
+Компоненту может быть задан произвольный фон с использованием токенов из набора bg или передано фоновое изображение. При необходимости для плашки может быть включена тень.
+
+```jsx live
+<Space fullWidth>
+    <Plate
+        view='positive'
+        hasCloser
+        title='Компонент плашки'
+        subAddons={[<Button>Подробнее</Button>, <Button>Хорошо</Button>]}
+        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+    />
+
+    <Plate
+        view='negative'
+        hasCloser
+        title='Компонент плашки'
+        subAddons={[<Button>Хорошо</Button>]}
+        leftAddons={<Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />}
+    />
+
+    <Plate
+        view='attention'
+        hasCloser
+        title='Компонент плашки'
+        leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}
+    />
     <Plate
         view='common'
+        hasCloser
         title='Компонент плашки'
         leftAddons={
             <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
         }
-    >
-        Самая обыкновенная плашка
-    </Plate>
-
+    />
     <Plate
-        view='positive'
+        view='custom'
+        hasCloser
         title='Компонент плашки'
-        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-    >
-        Самая обыкновенная плашка
-    </Plate>
-
+        leftAddons={
+            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
+        }
+    />
     <Plate
-        view='negative'
+        view='custom'
+        hasCloser
         title='Компонент плашки'
-        leftAddons={<Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />}
-    >
-        Самая обыкновенная плашка
-    </Plate>
-
-    <Plate
-        view='attention'
-        title='Компонент плашки'
-        leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}
-    >
-        Самая обыкновенная плашка
-    </Plate>
+        className='plateGlobal'
+        leftAddons={
+            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
+        }
+    />
 </Space>
 ```
 
-### Управление сворачиванием
+### Механики
+
+Классическая
+
+```jsx live
+<Plate
+    view='positive'
+    hasCloser
+    title='Компонент плашки'
+    leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+    buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
+>
+    Самая обыкновенная плашка
+</Plate>
+```
+
+Collapsed / Expanded
 
 ```jsx live
 render(() => {
     const [folded, setFolded] = React.useState(true);
 
-    const onToggle = (_, { folded }) => setFolded(folded);
-
     return (
-        <Space>
-            <Button onClick={() => setFolded(!folded)}>{folded ? 'Открыть' : 'Закрыть'}</Button>
-
+        <Space fullWidth>
             <Plate
-                view='common'
+                view='negative'
+                hasCloser
                 title='Компонент плашки'
-                foldable={true}
+                foldable
                 folded={folded}
-                onToggle={onToggle}
+                onToggle={() => setFolded(!folded)}
+                leftAddons={
+                    <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />
+                }
+                buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
             >
                 Самая обыкновенная плашка
             </Plate>
