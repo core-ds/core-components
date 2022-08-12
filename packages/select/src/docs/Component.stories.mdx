@@ -1,14 +1,13 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
 
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { Select } from '@alfalab/core-components-select';
+import { SelectMobile } from '@alfalab/core-components-select/components/select-mobile';
+import { SelectModalMobile } from '@alfalab/core-components-select/components/select-modal-mobile';
+import { Arrow } from '@alfalab/core-components-select/components/arrow';
 
-import { Select } from '../Component';
-import { SelectMobile } from '../components/select-mobile';
-import { SelectModalMobile } from '../components/select-modal-mobile';
 import { name, version } from '../../package.json';
-import { Arrow } from '../components/arrow';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
@@ -48,9 +47,9 @@ export const POSITION_OPTIONS = [
     'left-end',
 ];
 
-<Meta 
-    title='Компоненты/Select'  
-    component={Select} 
+<Meta
+    title='Компоненты/Select'
+    component={Select}
 />
 
 <!-- Canvas -->

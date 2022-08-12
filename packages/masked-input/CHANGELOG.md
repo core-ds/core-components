@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.5.0...@alfalab/core-components-masked-input@4.5.1) (2022-08-11)
+
+**Note:** Version bump only for package @alfalab/core-components-masked-input
+
+
+
+
+
 # [4.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.4.4...@alfalab/core-components-masked-input@4.5.0) (2022-08-04)
 
 

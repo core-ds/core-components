@@ -206,7 +206,6 @@ export const InputAutocompleteMobile = React.forwardRef(
                     />
                 ),
                 initialHeight: 'full',
-                ignoreScreenChange: true,
                 ...bottomSheetProps,
                 containerProps: {
                     onTouchMove: handleOptionsListTouchMove,

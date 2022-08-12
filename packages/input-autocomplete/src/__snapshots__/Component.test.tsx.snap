@@ -117,159 +117,163 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
             class="content"
           >
             <div
-              class="component sheet withZeroTransition"
               style="height: 744px; max-height: 744px;"
             >
               <div
-                class="scrollableContainer sheetContainer"
+                class="component sheet withTransition"
+                style="height: 744px; max-height: 744px;"
               >
                 <div
-                  class="marker"
-                />
-                <div
-                  class="headerWrapper sticky"
+                  class="scrollableContainer sheetContainer"
                 >
                   <div
-                    class="header justifyEnd"
+                    class="marker"
+                  />
+                  <div
+                    class="headerWrapper sticky"
                   >
-                    <span
-                      class="title titleLeft primary primary-large bold"
-                    />
                     <div
-                      class="addon"
+                      class="header justifyEnd"
                     >
+                      <span
+                        class="title titleLeft primary primary-large bold"
+                      />
                       <div
-                        class="closer"
+                        class="addon"
                       >
-                        <button
-                          aria-label="закрыть"
-                          class="component ghost s component ghost button primary component"
-                          type="button"
+                        <div
+                          class="closer"
                         >
-                          <span
-                            class="text stretchText"
+                          <button
+                            aria-label="закрыть"
+                            class="component ghost s component ghost button primary component"
+                            type="button"
                           >
                             <span
-                              class="iconWrapper xs"
+                              class="text stretchText"
                             >
-                              <svg
-                                class="icon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
+                              <span
+                                class="iconWrapper xs"
                               >
-                                <path
-                                  d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                                />
-                              </svg>
+                                <svg
+                                  class="icon"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
-                          </span>
-                        </button>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="component component bottomSheetInput s block"
+                    >
+                      <div
+                        class="inner inner"
+                      >
+                        <div
+                          class="inputWrapper"
+                        >
+                          <div
+                            class="input"
+                          >
+                            <input
+                              class="input input"
+                              type="text"
+                              value=""
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div
-                    class="component component bottomSheetInput s block"
+                    class="content sheetContent"
                   >
                     <div
-                      class="inner inner"
+                      aria-labelledby="downshift-5-label"
+                      class="optionsList"
+                      id="downshift-5-menu"
+                      role="listbox"
                     >
                       <div
-                        class="inputWrapper"
+                        class="optionsList s"
                       >
                         <div
-                          class="input"
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-5-item-0"
+                          role="option"
                         >
-                          <input
-                            class="input input"
-                            type="text"
-                            value=""
+                          <span
+                            class="checkmark"
+                          />
+                          <div
+                            class="content textContent"
+                          >
+                            Neptunium
+                          </div>
+                          <span
+                            class="checkmark"
+                          />
+                        </div>
+                        <div
+                          aria-selected="false"
+                          class="option m option"
+                          id="downshift-5-item-1"
+                          role="option"
+                        >
+                          <span
+                            class="checkmark"
+                          />
+                          <div
+                            class="content textContent"
+                          >
+                            Plutonium
+                          </div>
+                          <span
+                            class="checkmark"
                           />
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  class="content sheetContent"
-                >
                   <div
-                    aria-labelledby="downshift-5-label"
-                    class="optionsList"
-                    id="downshift-5-menu"
-                    role="listbox"
+                    class="footer sticky"
                   >
                     <div
-                      class="optionsList s"
+                      class="footer"
                     >
-                      <div
-                        aria-selected="false"
-                        class="option m option"
-                        id="downshift-5-item-0"
-                        role="option"
+                      <button
+                        class="component primary s component primary block"
+                        type="button"
                       >
                         <span
-                          class="checkmark"
-                        />
-                        <div
-                          class="content textContent"
+                          class="text stretchText"
                         >
-                          Neptunium
-                        </div>
-                        <span
-                          class="checkmark"
-                        />
-                      </div>
-                      <div
-                        aria-selected="false"
-                        class="option m option"
-                        id="downshift-5-item-1"
-                        role="option"
+                          Продолжить
+                        </span>
+                      </button>
+                      <button
+                        class="component secondary s component secondary block"
+                        type="button"
                       >
                         <span
-                          class="checkmark"
-                        />
-                        <div
-                          class="content textContent"
+                          class="text stretchText"
                         >
-                          Plutonium
-                        </div>
-                        <span
-                          class="checkmark"
-                        />
-                      </div>
+                          Отмена
+                        </span>
+                      </button>
                     </div>
-                  </div>
-                </div>
-                <div
-                  class="footer sticky"
-                >
-                  <div
-                    class="footer"
-                  >
-                    <button
-                      class="component primary s component primary block"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        Продолжить
-                      </span>
-                    </button>
-                    <button
-                      class="component secondary s component secondary block"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        Отмена
-                      </span>
-                    </button>
                   </div>
                 </div>
               </div>

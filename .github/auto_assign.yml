@@ -1,15 +1,11 @@
 addReviewers: true
 
 reviewers:
-    - EGNKupava
     - blackraydev
+    - Valeri8888
+    - AlexZJScript
+    - CrybabyDanChan
     - Oladii
-    - Heymdall
-    - Artess999
-    - stepancar
-    - NatalyaZ
-    - YozhEzhi
-    - denisx
 
 skipKeywords:
     - wip
