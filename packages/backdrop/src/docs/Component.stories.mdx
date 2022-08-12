@@ -3,6 +3,7 @@ import {boolean, text} from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Backdrop } from '@alfalab/core-components-backdrop';
 
+import { Backdrop as BackdropTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -43,7 +44,7 @@ import { Backdrop } from '@alfalab/core-components/backdrop';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={Backdrop} />}
+    props={<Props of={BackdropTS} />}
     cssVars={<CssVars css={styles}/>}
 />
 

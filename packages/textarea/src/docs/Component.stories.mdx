@@ -4,6 +4,7 @@ import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { Textarea } from '@alfalab/core-components-textarea';
 
+import { Textarea as TextareaTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -61,6 +62,6 @@ import { Textarea } from '@alfalab/core-components/textarea';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={Textarea} />}
+    props={<Props of={TextareaTS} />}
     cssVars={<CssVars css={styles} />}
 />

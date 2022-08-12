@@ -4,6 +4,7 @@ import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { PhoneInput } from '@alfalab/core-components-phone-input';
 
+import { PhoneInput as PhoneInputTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -49,7 +50,7 @@ import { PhoneInput } from '@alfalab/core-components/phone-input';
 
 <Tabs
     description={<Description />}
-    props={<Props of={PhoneInput} />}
+    props={<Props of={PhoneInputTS} />}
     changelog={<Changelog />}
 />
 

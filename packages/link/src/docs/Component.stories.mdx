@@ -6,6 +6,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Typography } from '@alfalab/core-components-typography';
 import { Link } from '@alfalab/core-components-link';
 
+import { Link as LinkTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -71,7 +72,7 @@ import { Link } from '@alfalab/core-components/link';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={Link} />}
+    props={<Props of={LinkTS} />}
     cssVars={<CssVars css={`${styles}${defaultStyles}${invertedStyles}`} />}
 />
 

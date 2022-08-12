@@ -4,6 +4,7 @@ import { Button } from '@alfalab/core-components-button';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 
+import { BottomSheet as BottomSheetTS } from '../component';
 import { name, version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
@@ -100,7 +101,7 @@ import { BottomSheet } from '@alfalab/core-components/bottom-sheet';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={BottomSheet} />}
+    props={<Props of={BottomSheetTS} />}
     cssVars={<CssVars css={vars}/>}
 />
 

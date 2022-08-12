@@ -7,6 +7,7 @@ import { SelectMobile } from '@alfalab/core-components-select/components/select-
 import { SelectModalMobile } from '@alfalab/core-components-select/components/select-modal-mobile';
 import { Arrow } from '@alfalab/core-components-select/components/arrow';
 
+import { Select as SelectTS } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -131,7 +132,7 @@ import { Select } from '@alfalab/core-components/select';
 
 <Tabs
     description={<Description />}
-    props={<Props of={Select} />}
+    props={<Props of={SelectTS} />}
     cssVars={<CssVars css={vars} />}
     changelog={<Changelog />}
 />

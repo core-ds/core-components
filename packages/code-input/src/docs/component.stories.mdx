@@ -1,9 +1,10 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { text, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
-
 import { CodeInput } from '@alfalab/core-components-code-input';
-import { name, version } from '../../package.json';
+
+import { CodeInput as CodeInputTS } from '../component';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../vars.css';
@@ -41,6 +42,6 @@ import { CodeInput } from '@alfalab/core-components/code-input';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={CodeInput} />}
+    props={<Props of={CodeInputTS} />}
     cssVars={<CssVars css={styles}/>}
 />

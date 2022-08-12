@@ -6,6 +6,7 @@ import { Button } from '@alfalab/core-components-button';
 import { Space } from '@alfalab/core-components-space';
 import { Portal } from '@alfalab/core-components-portal';
 
+import { Portal as PortalTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -66,6 +67,6 @@ import { Portal } from '@alfalab/core-components/portal';
 
 <Tabs
     description={<Description />}
-    props={<Props of={Portal} />}
+    props={<Props of={PortalTS} />}
     changelog={<Changelog />}
 />

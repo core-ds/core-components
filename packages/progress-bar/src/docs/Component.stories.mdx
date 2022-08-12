@@ -3,6 +3,7 @@ import { select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 
+import { ProgressBar as ProgressBarTS } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -41,7 +42,7 @@ import { ProgressBar } from '@alfalab/core-components/progress-bar';
 
 <Tabs
     description={<Description />}
-    props={<Props of={ProgressBar} />}
+    props={<Props of={ProgressBarTS} />}
     cssVars={<CssVars css={styles} />}
     changelog={<Changelog />}
 />

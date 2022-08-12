@@ -7,6 +7,8 @@ import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
+import { SuperEllipse as SuperEllipseTS } from '../components/super-ellipse';
+import { Circle as CircleTS } from '../components/circle';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -70,8 +72,8 @@ import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
 ```
 
 export const Shapes = {
-    Circle,
-    SuperEllipse,
+    Circle: CircleTS,
+    SuperEllipse: SuperEllipseTS,
 }
 
 <Tabs

@@ -4,6 +4,7 @@ import { formatDate } from '@alfalab/core-components-date-input';
 import { CalendarInput } from '@alfalab/core-components-calendar-input';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
+import { CalendarInput as CalendarInputTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -57,6 +58,6 @@ import { CalendarInput } from '@alfalab/core-components/calendar-input';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={CalendarInput} />}
+    props={<Props of={CalendarInputTS} />}
     cssVars={<CssVars css={styles} />}
 />

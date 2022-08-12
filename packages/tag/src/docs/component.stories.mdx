@@ -4,6 +4,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { CopyMIcon } from '@alfalab/icons-glyph/CopyMIcon';
 import { Tag } from '@alfalab/core-components-tag';
 
+import { Tag as TagTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -64,7 +65,7 @@ import { Tag } from '@alfalab/core-components/tag';
 
 <Tabs
     description={<Description />}
-    props={<Props of={Tag} />}
+    props={<Props of={TagTS} />}
     cssVars={<CssVars css={styles} />}
     changelog={<Changelog />}
 />
