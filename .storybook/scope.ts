@@ -6,11 +6,15 @@ import * as grid from './blocks/grid';
 let componentsContext;
 
 if (process.env.BUILD_FROM_DIST === 'true') {
-    componentsContext = require.context(
-        '../dist',
-        true,
-        /^\.\/(.*)\/esm\/(index|desktop|mobile|responsive|circle|super-ellipse).js$/,
-    );
+    try {
+        componentsContext = require.context(
+            '../dist',
+            true,
+            /^\.\/(.*)\/esm\/(index|desktop|mobile|responsive|circle|super-ellipse).js$/,
+        );
+    } catch (e) {
+        console.error('Отсутствует директория dist (.storybook/scope.ts)');
+    }
 } else {
     componentsContext = require.context(
         '../packages',
@@ -33,7 +37,7 @@ const requireComponents = (context: __WebpackModuleApi.RequireContext) =>
     }, {});
 
 export default {
-    ...requireComponents(componentsContext),
+    ...(componentsContext ? requireComponents(componentsContext) : {}),
     ...requireComponents(glyphContext),
     ...grid,
     ...dateUtils,
