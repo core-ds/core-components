@@ -8,6 +8,7 @@ import { Typography } from '@alfalab/core-components-typography';
 import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
+import { PureCell as PureCellTS } from '../component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -593,18 +594,18 @@ import { PureCell } from '@alfalab/core-components/pure-cell';
     changelog={<Changelog />}
     props={
         <Props components={{
-            PureCell,
-            'Addon': PureCell.Addon,
-            'Amount': PureCell.Amount,
-            'AmountTitle': PureCell.AmountTitle,
-            'Category': PureCell.Category,
-            'Comment': PureCell.Comment,
-            'Content': PureCell.Content,
-            'Footer': PureCell.Footer,
-            'FooterButton': PureCell.FooterButton,
-            'ExtraSubtitle': PureCell.ExtraSubtitle,
-            'Graphics': PureCell.Graphics,
-            'Main': PureCell.Main,
-            'Text': PureCell.Text,
+            PureCell: PureCellTS,
+            'Addon': PureCellTS.Addon,
+            'Amount': PureCellTS.Amount,
+            'AmountTitle': PureCellTS.AmountTitle,
+            'Category': PureCellTS.Category,
+            'Comment': PureCellTS.Comment,
+            'Content': PureCellTS.Content,
+            'Footer': PureCellTS.Footer,
+            'FooterButton': PureCellTS.FooterButton,
+            'ExtraSubtitle': PureCellTS.ExtraSubtitle,
+            'Graphics': PureCellTS.Graphics,
+            'Main': PureCellTS.Main,
+            'Text': PureCellTS.Text,
         }} />}
 />

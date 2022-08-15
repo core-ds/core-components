@@ -43,7 +43,7 @@ const gitPagesUrl = `https://${parsedGitUrl.owner}.github.io/${parsedGitUrl.name
 console.log('Publish storybook demo for github');
 
 console.log('=> Build packages');
-shell.exec('yarn build', { fatal: true });
+shell.exec('BUILD_FROM_DIST=true yarn build', { fatal: true });
 
 console.log('=> Build storybook', { fatal: true });
 shell.exec(`BUILD_FROM_DIST=true yarn build-storybook -o ${tempOutputDir}`, { fatal: true });

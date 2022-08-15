@@ -3,6 +3,7 @@ import { text, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { ListHeader } from '@alfalab/core-components-list-header';
 
+import { ListHeader as ListHeaderTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -42,6 +43,6 @@ import { ListHeader } from '@alfalab/core-components/list-header';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={ListHeader} />}
+    props={<Props of={ListHeaderTS} />}
     cssVars={<CssVars css={styles} />}
 />

@@ -25,7 +25,7 @@ class ComponentResolverPlugin {
                         .split('/');
 
                     const request = (process.env.BUILD_FROM_DIST === 'true'
-                        ? [distDir, componentName, entrypoint]
+                        ? [distDir, componentName, 'esm', entrypoint]
                         : [packagesDir, componentName, 'src', entrypoint]
                     )
                         .filter(Boolean)

@@ -220,6 +220,9 @@ const root = {
     ],
 };
 
-const configs = [es5, modern, esm, currentComponentName !== 'themes' && cssm, root].filter(Boolean);
+const configs = (process.env.BUILD_FROM_DIST === 'true'
+    ? [esm, root]
+    : [es5, modern, esm, currentComponentName !== 'themes' && cssm, root]
+).filter(Boolean);
 
 export default configs;

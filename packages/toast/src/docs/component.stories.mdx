@@ -4,6 +4,7 @@ import { Button } from '@alfalab/core-components-button';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Toast } from '@alfalab/core-components-toast';
 
+import { Toast as ToastTS } from '../component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -146,6 +147,6 @@ import { Toast } from '@alfalab/core-components/toast';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={Toast} />}
+    props={<Props of={ToastTS} />}
     cssVars={<CssVars css={styles} />}
 />

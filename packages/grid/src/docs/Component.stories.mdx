@@ -2,6 +2,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Grid } from '@alfalab/core-components-grid';
 
+import { Grid as GridTS } from '../Component';
 import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
@@ -54,5 +55,5 @@ import { Grid } from '@alfalab/core-components/grid';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props components={Grid} />}
+    props={<Props components={GridTS} />}
 />

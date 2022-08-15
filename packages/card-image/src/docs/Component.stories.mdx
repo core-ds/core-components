@@ -3,6 +3,7 @@ import { text, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { CardImage } from '@alfalab/core-components-card-image';
 
+import { CardImage as CardImageTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -44,6 +45,6 @@ import { CardImage } from '@alfalab/core-components/card-image';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={CardImage} />}
+    props={<Props of={CardImageTS} />}
     cssVars={<CssVars css={styles} />}
 />

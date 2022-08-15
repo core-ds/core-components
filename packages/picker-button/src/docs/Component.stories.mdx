@@ -6,6 +6,7 @@ import { CardTransferMIcon } from '@alfalab/icons-glyph/CardTransferMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { PickerButton } from '@alfalab/core-components-picker-button';
 
+import { PickerButton as PickerButtonTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -49,6 +50,6 @@ import { PickerButton } from '@alfalab/core-components/picker-button';
 
 <Tabs
     description={<Description />}
-    props={<Props of={PickerButton} />}
+    props={<Props of={PickerButtonTS} />}
     changelog={<Changelog />}
 />

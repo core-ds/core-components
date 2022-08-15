@@ -1,6 +1,7 @@
 import format from 'date-fns/format';
 import { Chart } from '@alfalab/core-components-chart';
 
+import { Chart as ChartTS } from '../Component';
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { number, boolean, select, text, object } from '@storybook/addon-knobs';
@@ -1392,6 +1393,6 @@ import { Chart } from '@alfalab/core-components/chart';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={Chart} />}
+    props={<Props of={ChartTS} />}
 />
 
