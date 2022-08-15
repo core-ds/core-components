@@ -49,6 +49,17 @@ body.sb-show-main {
     overflow-x: hidden;
 }
 
+body.sb-show-preparing-story.sb-main-padded > div#root {
+    display: block;
+}
+
+/* Сторибук в момент загрузки скрывает все вложенные в body элементы.
+ Это ломает библиотеку react-textarea-autosize. */
+
+body > textarea {
+    display: inline-block !important;
+}
+
 #docs-root > .sbdocs-wrapper {
     padding: var(--gap-5xl) var(--gap-m);
 }
