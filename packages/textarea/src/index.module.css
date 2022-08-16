@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../form-control/src/vars.css';
 
 :root {
     /* min-height */
@@ -145,19 +146,19 @@
 /* Паддинги взяты из стилей form-control */
 .scrollableWithLabel {
     &.s .textarea {
-        padding: 24px var(--gap-s) 4px;
+        padding: var(--form-control-labeled-s-paddings);
     }
 
     &.m .textarea {
-        padding: 28px var(--gap-s) 8px;
+        padding: var(--form-control-labeled-m-paddings);
     }
 
     &.l .textarea {
-        padding: 32px var(--gap-s) 12px;
+        padding: var(--form-control-labeled-l-paddings);
     }
 
     &.xl .textarea {
-        padding: 38px var(--gap-m) 14px;
+        padding: var(--form-control-labeled-xl-paddings);
     }
 }
 
