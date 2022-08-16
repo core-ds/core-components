@@ -1,0 +1,9 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --spinner-default-color: var(--color-light-graphic-primary);
+}
+
+.spinner {
+    color: var(--spinner-default-color);
+}

@@ -9,7 +9,7 @@
         margin-top: 0;
     }
 
-    &.default {
+    &.classic {
         margin-top: var(--gap-xs);
     }
 }

@@ -15,7 +15,7 @@ type Props = {
     /**
      * Горизонтальные отступы
      */
-    addonPadding?: 'default' | 'none';
+    addonPadding?: 'classic' | 'none';
 
     /**
      * Компоненты
@@ -31,7 +31,7 @@ type Props = {
 export const Addon: React.FC<Props> = ({
     children,
     verticalAlign,
-    addonPadding = 'default',
+    addonPadding = 'classic',
     dataTestId,
 }) => (
     <section

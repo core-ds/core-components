@@ -53,7 +53,7 @@ export type PureCellProps = {
     /**
      * Вертикальные отступы
      */
-    verticalPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+    verticalPadding?: 'airy' | 'default' | 'classic' | 'tiny' | 'none';
 
     /**
      * Горизонтальные отступы
@@ -88,7 +88,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             href,
             tag: Component = (href && 'a') || (onClick && 'button') || 'section',
             children,
-            horizontalPadding = 'default',
+            horizontalPadding = 'none',
             verticalPadding = 'none',
             direction = 'horizontal',
             ...restProps

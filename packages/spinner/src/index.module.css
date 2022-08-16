@@ -4,22 +4,12 @@
     --spinner-display-visible: inline-block;
     --spinner-animation-duration: 0.8s;
     --spinner-animation-timing-function: linear;
-    --spinner-default-color: var(--color-light-graphic-primary);
-    --spinner-inverted-color: var(--color-light-graphic-primary-inverted);
 }
 
 .spinner {
     display: none;
     animation: spin_animation var(--spinner-animation-duration) infinite
         var(--spinner-animation-timing-function);
-}
-
-.default {
-    color: var(--spinner-default-color);
-}
-
-.inverted {
-    color: var(--spinner-inverted-color);
 }
 
 .visible {
