@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@2.4.1...@alfalab/core-components-password-input@2.4.2) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
 ## [2.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@2.4.0...@alfalab/core-components-password-input@2.4.1) (2022-08-11)
 
 **Note:** Version bump only for package @alfalab/core-components-password-input

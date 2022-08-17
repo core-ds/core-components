@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@7.6.0...@alfalab/core-components-form-control@7.6.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
 # [7.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@7.5.3...@alfalab/core-components-form-control@7.6.0) (2022-08-04)
 
 
