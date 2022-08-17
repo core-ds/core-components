@@ -5,14 +5,14 @@ set -e
 git config lfs.allowincompletepush true
 
 # Релизим рут-пакет с помощью semantic-release
-semantic_output=$(yarn semantic-release --debug)
+#semantic_output=$(yarn semantic-release --debug)
 
 # Выводим логи семантика
-echo $semantic_output
+#echo $semantic_output
 
 # Проверяем, что semantic-release зарелизил рут-пакет (пока не знаю, как это можно сделать по-другому)
-if [[ $semantic_output =~ "Publishing version" ]]
-then
+#if [[ $semantic_output =~ "Publishing version" ]]
+#then
     git remote set-url origin https://core-ds-bot:$GITHUB_TOKEN@github.com/core-ds/core-components.git
     git checkout master
     git pull origin master --rebase
@@ -26,9 +26,9 @@ then
         git push origin master
 
         # Копируем package.json в dist после того как подняли версию пакета, чтобы опубликовалась актуальная версия.
-        lerna exec -- yarn copyfiles package.json dist
+        # lerna exec -- yarn copyfiles package.json dist
         lerna publish from-git --yes
     fi
-else
-    exit 0
-fi
+#else
+#    exit 0
+#fi

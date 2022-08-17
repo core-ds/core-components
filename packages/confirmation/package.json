@@ -4,14 +4,16 @@
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
-    "main": "index.js",
-    "module": "./esm/index.js",
+    "main": "dist/index.js",
+    "module": "./dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
     "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
+        "postinstall": "node -e \"if (require('fs').existsSync('./dist/send-stats.js')){require('./dist/send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+        "access": "public"
     },
     "dependencies": {
         "@alfalab/core-components-button": "^5.3.1",
