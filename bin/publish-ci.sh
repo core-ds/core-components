@@ -26,7 +26,7 @@ git config lfs.allowincompletepush true
         git push origin master
 
         # Копируем package.json в dist после того как подняли версию пакета, чтобы опубликовалась актуальная версия.
-        # lerna exec -- yarn copyfiles package.json dist
+        lerna exec -- yarn copyfiles package.json dist
         lerna publish from-git --yes
     fi
 #else
