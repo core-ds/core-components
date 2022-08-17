@@ -15,14 +15,14 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 350, height: 150 };
 
-describe('Input | screenshots main props', () => {
+describe('FormControl | screenshots main props', () => {
     const testCase = (theme: string, colors: string) =>
         screenshotTesting({
             cases: [
                 [
                     `${theme} theme`,
                     createSpriteStorybookUrl({
-                        componentName: 'Input',
+                        componentName: 'FormControl',
                         knobs: {
                             label: 'Label',
                             labelView: ['inner', 'outer'],
@@ -47,14 +47,14 @@ describe('Input | screenshots main props', () => {
     });
 });
 
-describe('Input | screenshots hint and error', () => {
+describe('FormControl | screenshots hint and error', () => {
     const testCase = (theme: string, colors: string) =>
         screenshotTesting({
             cases: [
                 [
                     `${theme} theme`,
                     createSpriteStorybookUrl({
-                        componentName: 'Input',
+                        componentName: 'FormControl',
                         knobs: {
                             size: 'm',
                             hint: ['', 'Hint'],
@@ -77,14 +77,14 @@ describe('Input | screenshots hint and error', () => {
     });
 });
 
-describe('Input | clear icon', () => {
+describe('FormControl | clear icon', () => {
     const testCase = (theme: string, colors: string) =>
         screenshotTesting({
             cases: [
                 [
                     `${theme} theme`,
                     createSpriteStorybookUrl({
-                        componentName: 'Input',
+                        componentName: 'FormControl',
                         knobs: {
                             size: 'm',
                             clear: true,
@@ -105,13 +105,13 @@ describe('Input | clear icon', () => {
 });
 
 describe(
-    'Input | screenshots addons',
+    'FormControl | screenshots addons',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
-                    componentName: 'Input',
+                    componentName: 'FormControl',
                     knobs: {
                         rightAddons: ['right', false],
                         leftAddons: ['left', false],
@@ -130,10 +130,10 @@ describe(
 );
 
 describe(
-    'Input | hover state',
+    'FormControl | hover state',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'Input',
+            componentName: 'FormControl',
             knobs: {
                 label: ['Label'],
             },

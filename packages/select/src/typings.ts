@@ -150,6 +150,11 @@ export type BaseSelectProps = {
     label?: ReactNode;
 
     /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
+
+    /**
      * Плейсхолдер поля
      */
     placeholder?: string;
@@ -353,6 +358,11 @@ export type FieldProps = {
      * Лейбл поля
      */
     label?: ReactNode;
+
+    /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
 
     /**
      * Плейсхолдер поля

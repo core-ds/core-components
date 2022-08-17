@@ -35,7 +35,7 @@
     transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.hasLabel::placeholder {
+.hasInnerLabel::placeholder {
     opacity: 0;
 }
 
@@ -98,7 +98,7 @@
 
 /* FOCUS STATE */
 
-.input:focus.hasLabel::placeholder {
+.input:focus.hasInnerLabel::placeholder {
     opacity: 1;
 }
 
@@ -108,7 +108,7 @@
 
 /* READ-ONLY STATE */
 
-.hasLabel:read-only:focus::placeholder {
+.hasInnerLabel:read-only:focus::placeholder {
     opacity: 0;
 }
 

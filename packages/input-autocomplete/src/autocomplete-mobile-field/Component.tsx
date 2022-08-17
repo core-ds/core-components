@@ -18,6 +18,7 @@ export const AutocompleteMobileField = ({
     hint,
     disabled,
     label,
+    labelView = 'inner',
     placeholder,
     value,
     innerProps,
@@ -37,7 +38,7 @@ export const AutocompleteMobileField = ({
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
 
     const filled = Boolean(value);
-    const showLabel = !!label && (filled || !placeholder);
+    const showLabel = !!label && (filled || !placeholder || labelView === 'outer');
 
     return (
         <div
@@ -57,6 +58,7 @@ export const AutocompleteMobileField = ({
                 disabled={disabled}
                 filled={filled}
                 label={showLabel && label}
+                labelView={labelView}
                 error={error}
                 hint={hint}
                 data-test-id={dataTestId}

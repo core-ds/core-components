@@ -70,6 +70,11 @@ export type TextareaProps = Omit<
     label?: React.ReactNode;
 
     /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
+
+    /**
      * Слот слева
      */
     leftAddons?: React.ReactNode;
@@ -175,6 +180,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             hint,
             textareaClassName,
             label,
+            labelView = 'inner',
             leftAddons,
             onFocus,
             onBlur,
@@ -271,7 +277,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 colorStyles[colors].textarea,
                 styles[size],
                 {
-                    [styles.hasLabel]: label,
+                    [styles.hasInnerLabel]: label && labelView === 'inner',
                     [colorStyles[colors].hasLabel]: label,
                     [styles.filled]: filled,
                     [styles.resizeVertical]: resize === 'vertical',
@@ -304,6 +310,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 focused={focused}
                 error={error}
                 label={label}
+                labelView={labelView}
                 hint={getHint()}
                 leftAddons={leftAddons}
                 rightAddons={rightAddons}

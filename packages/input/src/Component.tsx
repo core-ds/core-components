@@ -197,7 +197,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             focusedClassName,
             filledClassName,
             label,
-            labelView,
+            labelView = 'inner',
             leftAddons,
             onFocus,
             onBlur,
@@ -367,7 +367,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         {
                             [styles.error]: error,
                             [colorStyles[colors].error]: error,
-                            [styles.hasLabel]: label,
+                            [styles.hasInnerLabel]: label && labelView === 'inner',
                             [colorStyles[colors].hasLabel]: label,
                         },
                         inputClassName,

@@ -32,6 +32,7 @@ import styles from '!!raw-loader!../index.module.css';
                 maxRows={number('maxRows', undefined)}
                 maxHeight={number('maxHeight', undefined)}
                 label={text('label', '')}
+                labelView={select('labelView', ['inner', 'outer'], 'inner')}
                 hint={text('hint', '')}
                 error={text('error', '')}
                 rightAddons={boolean('rightAddons', false) && !text('error') && <StarMIcon />}
