@@ -5,13 +5,13 @@ import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { CardTransferMIcon } from '@alfalab/icons-glyph/CardTransferMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { PickerButton } from '@alfalab/core-components-picker-button';
+import { PickerButtonMobile } from '@alfalab/core-components-picker-button/mobile';
+import { PickerButtonDesktop } from '@alfalab/core-components-picker-button/desktop';
 
 import { PickerButton as PickerButtonTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md'; import {PickerButtonMobile} from "../Component.mobile"; import {
-    PickerButtonResponsive
-} from "../Component.responsive";
+import Changelog from '../../CHANGELOG.md';
 
 export const options = [
     { key: 'Заказать карту' },
@@ -38,11 +38,29 @@ export const options = [
 </Story>
 
 <Story name='PickerButtonMobile'>
-    <PickerButtonMobile options={[]} />
+    <PickerButtonMobile
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        variant={select('variant', ['default', 'compact'])}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}
+    />
 </Story>
 
-<Story name='PickerButtonResponsive'>
-    <PickerButtonResponsive options={[]} />
+<Story name='PickerButtonDesktop'>
+    <PickerButtonMobile
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        variant={select('variant', ['default', 'compact'])}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}
+    />
 </Story>
 
 <!-- Docs -->
