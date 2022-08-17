@@ -37,6 +37,7 @@ Object {
                   <div
                     class="suffix"
                   >
+                    
                     <span
                       class="minorPartAndCurrency"
                     >
@@ -85,6 +86,7 @@ Object {
                 <div
                   class="suffix"
                 >
+                  
                   <span
                     class="minorPartAndCurrency"
                   >
@@ -190,6 +192,7 @@ Object {
                   <div
                     class="suffix"
                   >
+                    
                     <span
                       class="minorPartAndCurrency"
                     >

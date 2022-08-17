@@ -9,7 +9,7 @@
         margin-top: 0;
     }
 
-    &.classic {
+    &.defaultPadding {
         margin-top: var(--gap-xs);
     }
 }

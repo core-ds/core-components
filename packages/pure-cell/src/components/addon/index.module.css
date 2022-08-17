@@ -12,7 +12,7 @@
         padding-left: 0;
     }
 
-    &.classic {
+    &.defaultPadding {
         padding-left: var(--gap-m);
     }
 

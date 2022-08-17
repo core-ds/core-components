@@ -53,7 +53,7 @@ export type PureCellProps = {
     /**
      * Вертикальные отступы
      */
-    verticalPadding?: 'airy' | 'default' | 'classic' | 'tiny' | 'none';
+    verticalPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
 
     /**
      * Горизонтальные отступы
@@ -121,6 +121,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                         className,
                         styles[horizontalPadding],
                         styles[verticalPadding],
+                        { [styles.defaultPadding]: verticalPadding === 'default' },
                     )}
                     data-test-id={dataTestId}
                 >
@@ -142,6 +143,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                         styles[horizontalPadding],
                         styles[verticalPadding],
                         className,
+                        { [styles.defaultPadding]: verticalPadding === 'default' },
                     )}
                     data-test-id={dataTestId}
                     onClick={onClick}
@@ -162,6 +164,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     styles[horizontalPadding],
                     styles[verticalPadding],
                     className,
+                    { [styles.defaultPadding]: verticalPadding === 'default' },
                 )}
                 data-test-id={dataTestId}
             >
