@@ -88,7 +88,7 @@ const es5 = {
         copy({
             targets: [{ src: ['../../bin/send-stats.js'], dest: 'dist' }],
         }),
-        copy({ targets: [{ src: ['package.json'], dest: 'dist' }] }),
+        // copy({ targets: [{ src: ['package.json'], dest: 'dist' }] }),
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };
@@ -104,7 +104,7 @@ const modern = {
             format: 'esm',
             plugins: [
                 addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'modern' }),
+                coreComponentsResolver({ importFrom: 'dist/modern' }),
             ],
         },
     ],
@@ -135,7 +135,7 @@ const cssm = {
         {
             dir: 'dist/cssm',
             format: 'cjs',
-            plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
+            plugins: [coreComponentsResolver({ importFrom: 'dist/cssm' })],
         },
     ],
     plugins: [
@@ -166,7 +166,7 @@ const esm = {
             format: 'esm',
             plugins: [
                 addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'esm' }),
+                coreComponentsResolver({ importFrom: 'dist/esm' }),
             ],
         },
     ],

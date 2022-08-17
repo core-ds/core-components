@@ -14,10 +14,11 @@ mkdir -p dist
 
 # собираю css пакеты
 copy_css="yarn copyfiles -u 1 \"src/**/*.{css,js}\" dist"
+copy_package="yarn copyfiles package.json dist"
 lerna exec \
     --scope @alfalab/core-components-vars \
     --scope @alfalab/core-components-themes \
-    -- "$copy_css"
+    -- "$copy_css && $copy_package"
 
 # собираю пакет themes
 lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
