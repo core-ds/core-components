@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Step } from './components/step';
@@ -20,12 +20,12 @@ export type StepsProps = {
      * Активный шаг, указанный по умолчанию
      * @default 1
      */
-    defaultValue?: number;
+    defaultActiveStep?: number;
 
     /**
      * Активный шаг
      */
-    value?: number;
+    activeStep?: number;
 
     /**
      * Управление возможностью отключения пометки пройденного шага
@@ -68,44 +68,39 @@ export type StepsProps = {
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
-    'data-test-id'?: string;
+    dataTestId?: string;
 };
 
 export const Steps: React.FC<StepsProps> = ({
     className,
     children,
-    defaultValue = 1,
-    value: propValue,
+    defaultActiveStep = 1,
+    activeStep: activeStepProp,
     isMarkCompletedSteps = true,
     isVerticalAlign = false,
     ordered = true,
     checkIsStepDisabled,
     checkIsStepError,
     onChange,
-    'data-test-id': dataTestId,
+    dataTestId,
 }) => {
-    const [value, setValue] = useState(propValue || defaultValue);
+    const [activeStep, setActiveStep] = useState(activeStepProp || defaultActiveStep);
 
-    const stepsLength = useMemo(() => {
-        return React.Children.count(children);
-    }, [children]);
+    const stepsLength = React.Children.count(children);
 
     useEffect(() => {
-        if (propValue) {
-            setValue(propValue);
+        if (activeStepProp) {
+            setActiveStep(activeStepProp);
         }
-    }, [propValue]);
+    }, [activeStepProp]);
 
-    const handleStepClick = useCallback(
-        (stepNumber: number) => {
-            setValue(stepNumber);
+    const handleStepClick = (stepNumber: number) => {
+        setActiveStep(stepNumber);
 
-            if (onChange) {
-                onChange(stepNumber);
-            }
-        },
-        [onChange],
-    );
+        if (onChange) {
+            onChange(stepNumber);
+        }
+    };
 
     if (!stepsLength) return null;
 
@@ -118,10 +113,10 @@ export const Steps: React.FC<StepsProps> = ({
         >
             {React.Children.map(children, (step, index) => {
                 const stepNumber = index + 1;
-                const isSelected = stepNumber === value;
-                const isStepCompleted = isMarkCompletedSteps && stepNumber < value;
-                const disabled = checkIsStepDisabled ? !!checkIsStepDisabled(stepNumber) : false;
-                const isError = checkIsStepError ? !!checkIsStepError(stepNumber) : false;
+                const isSelected = stepNumber === activeStep;
+                const isStepCompleted = isMarkCompletedSteps && stepNumber < activeStep;
+                const disabled = checkIsStepDisabled ? checkIsStepDisabled(stepNumber) : false;
+                const isError = checkIsStepError ? checkIsStepError(stepNumber) : false;
                 const isNotLastElement = stepsLength !== stepNumber;
 
                 return (

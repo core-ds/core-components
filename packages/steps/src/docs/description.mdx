@@ -23,8 +23,8 @@ render(() => {
     return (
         <div style={{ width: 500 }}>
             <Steps
-                value={step}
-                defaultValue={2}
+                activeStep={step}
+                defaultActiveStep={2}
                 ordered={ordered}
                 onChange={handleStepsChange}
             >
@@ -70,8 +70,8 @@ render(() => {
     return (
         <div style={{ display: 'flex', gap: 250 }}>
             <Steps
-                value={step}
-                defaultValue={2}
+                activeStep={step}
+                defaultActiveStep={2}
                 ordered={ordered}
                 onChange={handleStepsChange}
                 isVerticalAlign={true}

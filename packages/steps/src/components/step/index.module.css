@@ -27,7 +27,7 @@
 .text {
     @mixin paragraph_primary_medium;
 
-    transition: 0.2s;
+    transition: background 0.2s;
     padding: var(--gap-xs);
     color: var(--color-light-text-primary);
     border-radius: var(--gap-xs);
@@ -41,6 +41,11 @@
             background: rgba(0, 0, 0, 0.15);
         }
     }
+}
+
+.focused {
+    outline: var(--gap-3xs) solid var(--focus-color);
+    outline-offset: var(--gap-3xs);
 }
 
 .selected {

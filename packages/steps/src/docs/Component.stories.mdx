@@ -1,10 +1,11 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import { text, number, select } from '@storybook/addon-knobs';
+import { number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Steps } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 <Meta
     title='Компоненты/Steps'
@@ -15,8 +16,16 @@ import Description from './description.mdx';
 
 <Story name='Steps'>
     <Steps
-        value={text('value', '')}
-    />
+        activeStep={number('activeStep', 1)}
+        defaultActiveStep={number('defaultActiveStep', 2)}
+        isVerticalAlign={boolean('isVerticalAlign', false)}
+        ordered={boolean('ordered', false)}
+    >
+        <div>Шаг 1</div>
+        <div>Шаг 2</div>
+        <div>Шаг 3</div>
+        <div>Шаг 4</div>
+    </Steps>
 </Story>
 
 <!-- Docs -->
@@ -35,5 +44,5 @@ import { Steps } from '@alfalab/core-components/steps';
 <Tabs
     props={<Props of={Steps} />}
     description={<Description />}
+    changelog={<Changelog />}
 />
-
