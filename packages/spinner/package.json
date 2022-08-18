@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-spinner",
-    "version": "2.2.3",
+    "version": "3.0.0",
     "description": "Spinner component",
     "keywords": [],
     "license": "MIT",
@@ -14,11 +14,11 @@
         "directory": "dist"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1",
-        "react-dom": "^16.9.0 || ^17.0.1"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
         "@alfalab/hooks": "^1.11.0",
-        "classnames": "^2.2.6"
+        "classnames": "^2.3.1"
     }
 }

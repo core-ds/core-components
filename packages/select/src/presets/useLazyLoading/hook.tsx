@@ -4,7 +4,7 @@ import React, { Reducer, useCallback, useEffect, useMemo, useReducer, useRef } f
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { InputProps } from '@alfalab/core-components-input';
 import { Option } from '../../components/option';
-import { OptionShape } from '../../typings';
+import { OptionProps, OptionShape } from '../../typings';
 import styles from './index.module.css';
 
 const DEBOUNCE_TIMEOUT = 300;
@@ -259,7 +259,9 @@ export function useLazyLoading({
     );
 
     const renderOption = useCallback(
-        props => <Option {...props} highlighted={loading ? false : props.highlighted} />,
+        (props: OptionProps) => (
+            <Option {...props} highlighted={loading ? false : props.highlighted} />
+        ),
         [loading],
     );
 

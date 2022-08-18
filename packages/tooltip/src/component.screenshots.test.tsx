@@ -41,7 +41,7 @@ describe('Tooltip', () => {
             try {
                 await page.goto(pageUrl);
 
-                await page.hover('*[class^=target]');
+                await page.hover('*[class*=target]');
 
                 await matchHtml({
                     page,
@@ -83,7 +83,7 @@ describe('Tooltip', () => {
             try {
                 await page.goto(pageUrl);
 
-                await page.hover('*[class^=target]');
+                await page.hover('*[class*=target]');
 
                 await matchHtml({
                     page,
@@ -125,7 +125,7 @@ describe('Tooltip', () => {
             try {
                 await page.goto(pageUrl);
 
-                await page.hover('*[class^=target]');
+                await page.hover('*[class*=target]');
 
                 await matchHtml({
                     page,

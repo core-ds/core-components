@@ -41,8 +41,12 @@ const parsedGitUrl = parseGitUrl(gitUrl);
 const gitPagesUrl = `https://${parsedGitUrl.owner}.github.io/${parsedGitUrl.name}`;
 
 console.log('Publish storybook demo for github');
-console.log('=> Build storybook');
-shell.exec(`yarn build-storybook -o ${tempOutputDir}`, { fatal: true });
+
+console.log('=> Build packages');
+shell.exec('BUILD_FROM_DIST=true yarn build', { fatal: true });
+
+console.log('=> Build storybook', { fatal: true });
+shell.exec(`BUILD_FROM_DIST=true yarn build-storybook -o ${tempOutputDir}`, { fatal: true });
 shell.exec(`STORYBOOK_BUILD_DIR=${tempOutputDir} node bin/generate-docs-urls.js`);
 
 // Prepare temporary gh-pages dir

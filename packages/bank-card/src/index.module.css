@@ -1,5 +1,6 @@
 @import '../../themes/src/default.css';
 
+/* purgecss ignore */
 .component {
     /* TODO: как это будет собираться и работать в webView */
     --form-control-border-radius: 0;

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.0.0...@alfalab/core-components-themes@9.1.0) (2022-08-04)
+
+
+### Features
+
+* **themes:** Добавлена возможность подключать styleMobile через js файл ([#178](https://github.com/core-ds/core-components/issues/178)) ([aa00d4b](https://github.com/core-ds/core-components/commit/aa00d4bc88d601f1af2ccc3ef15f729c35351252))
+
+
+
+
+
 # [9.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.4.0...@alfalab/core-components-themes@9.0.0) (2022-07-25)
 
 

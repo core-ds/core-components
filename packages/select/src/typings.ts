@@ -623,7 +623,7 @@ export type OptionProps = {
     /**
      * Компонент пункта меню
      */
-    Checkmark?: FC<CheckmarkProps>;
+    Checkmark?: FC<CheckmarkProps> | null;
 
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.

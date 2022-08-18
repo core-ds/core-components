@@ -2,8 +2,9 @@ import { Meta, Story, Props } from '@storybook/addon-docs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { text, select, boolean, color } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
+import { CustomButton } from '@alfalab/core-components-custom-button';
 
-import { CustomButton } from '../';
+import { CustomButton as CustomButtonTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -68,6 +69,6 @@ import { CustomButton } from '@alfalab/core-components/сustom-button';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={CustomButton} /> }
+    props={<Props of={CustomButtonTS} /> }
     cssVars={<CssVars css={`${styles}`} />}
 />

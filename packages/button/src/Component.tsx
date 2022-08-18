@@ -2,6 +2,7 @@ import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
     ElementType,
+    ReactNode,
     useEffect,
     useRef,
     useState,
@@ -38,12 +39,12 @@ export type ComponentProps = {
     /**
      * Слот слева
      */
-    leftAddons?: React.ReactNode;
+    leftAddons?: ReactNode;
 
     /**
      * Слот справа
      */
-    rightAddons?: React.ReactNode;
+    rightAddons?: ReactNode;
 
     /**
      * Размер компонента
@@ -89,6 +90,11 @@ export type ComponentProps = {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;

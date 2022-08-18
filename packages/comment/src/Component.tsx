@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
@@ -15,6 +15,11 @@ export type CommentProps = {
      * Id компонента для тестов
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const Comment: React.FC<CommentProps> = ({ className, dataTestId, children }) => (

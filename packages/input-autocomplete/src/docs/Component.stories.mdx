@@ -6,10 +6,12 @@ import { Tag } from '@alfalab/core-components-tag';
 import { Input } from '@alfalab/core-components-input';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { Arrow, Option, isOptionShape } from '@alfalab/core-components-select';
+import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
+import { InputAutocompleteMobile } from '@alfalab/core-components-input-autocomplete/mobile';
 
-import { InputAutocomplete } from '../Component';
-import { InputAutocompleteMobile } from '../mobile';
-import { name, version } from '../../package.json';
+import { InputAutocomplete as InputAutocompleteTS } from '../Component';
+import { InputAutocompleteMobile as InputAutocompleteMobileTS } from '../Component.mobile';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
@@ -162,5 +164,5 @@ import { InputAutocomplete } from '@alfalab/core-components/input-autocomplete';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={InputAutocomplete} />}
+    props={<Props components={{InputAutocomplete: InputAutocompleteTS, InputAutocompleteMobile: InputAutocompleteMobileTS}} />}
 />

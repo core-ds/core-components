@@ -1,12 +1,13 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import { select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { CalendarRange } from '@alfalab/core-components-calendar-range';
 
-import { CalendarRange } from '../Component';
-import { CalendarRangePopover } from '../views/popover';
-import { CalendarRangeStatic } from '../views/static';
+import { CalendarRange as CalendarRangeTS } from '../Component';
+import { CalendarRangePopover as CalendarRangePopoverTS } from '../views/popover';
+import { CalendarRangeStatic as CalendarRangeStaticTS } from '../views/static';
 
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
@@ -40,5 +41,5 @@ import { CalendarRange } from '@alfalab/core-components/calendar-range';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props components={{ CalendarRange, CalendarRangePopover, CalendarRangeStatic }} />}
+    props={<Props components={{ CalendarRange: CalendarRangeTS, CalendarRangePopover: CalendarRangePopoverTS, CalendarRangeStatic: CalendarRangeStaticTS }} />}
 />

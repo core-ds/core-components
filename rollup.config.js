@@ -88,7 +88,7 @@ const es5 = {
         copy({
             targets: [{ src: ['../../bin/send-stats.js'], dest: 'dist' }],
         }),
-        copy({ targets: [{ src: ['package.json', 'CHANGELOG.md'], dest: 'dist' }] }),
+        copy({ targets: [{ src: ['package.json'], dest: 'dist' }] }),
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };
@@ -220,6 +220,9 @@ const root = {
     ],
 };
 
-const configs = [es5, modern, esm, currentComponentName !== 'themes' && cssm, root].filter(Boolean);
+const configs = (process.env.BUILD_FROM_DIST === 'true'
+    ? [esm, root]
+    : [es5, modern, esm, currentComponentName !== 'themes' && cssm, root]
+).filter(Boolean);
 
 export default configs;

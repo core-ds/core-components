@@ -264,9 +264,9 @@ export const BaseSelect = forwardRef(
         };
 
         const handleNativeSelectChange = useCallback(
-            event => {
+            (event: React.ChangeEvent<HTMLSelectElement>) => {
                 setSelectedItems(
-                    [...event.target.options].reduce(
+                    [...(event.target.options as any)].reduce(
                         (acc, option, index) =>
                             option.selected ? acc.concat(flatOptions[index]) : acc,
                         [],

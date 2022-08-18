@@ -3,8 +3,9 @@ import { select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Select } from '@alfalab/core-components-select';
+import { Confirmation, useConfirmation } from '@alfalab/core-components-confirmation';
 
-import { Confirmation, useConfirmation } from '..'
+import { Confirmation as ConfirmationTS } from '../component';
 import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
@@ -138,6 +139,6 @@ import { Confirmation } from '@alfalab/core-components/confirmation';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={Confirmation} />}
+    props={<Props of={ConfirmationTS} />}
     cssVars={<CssVars css={vars} />}
 />
