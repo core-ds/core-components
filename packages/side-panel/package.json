@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-side-panel",
-    "version": "1.2.1",
+    "version": "2.0.0",
     "description": "SidePanel component",
     "keywords": [],
     "license": "MIT",
@@ -17,10 +17,10 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^4.3.0",
-        "@alfalab/core-components-button": "^5.3.1",
-        "@alfalab/core-components-drawer": "^3.3.0",
-        "@alfalab/core-components-icon-button": "^4.3.1",
+        "@alfalab/core-components-base-modal": "^5.0.0",
+        "@alfalab/core-components-button": "^6.0.0",
+        "@alfalab/core-components-drawer": "^4.0.0",
+        "@alfalab/core-components-icon-button": "^5.0.0",
         "classnames": "^2.3.1"
     }
 }

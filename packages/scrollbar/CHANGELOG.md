@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-scrollbar@1.2.1...@alfalab/core-components-scrollbar@2.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [1.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-scrollbar@1.2.0...@alfalab/core-components-scrollbar@1.2.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
 # [1.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-scrollbar@1.1.5...@alfalab/core-components-scrollbar@1.2.0) (2022-08-04)
 
 
