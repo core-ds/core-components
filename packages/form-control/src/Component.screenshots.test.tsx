@@ -77,58 +77,6 @@ describe('FormControl | screenshots hint and error', () => {
     });
 });
 
-describe('FormControl | clear icon', () => {
-    const testCase = (theme: string, colors: string) =>
-        screenshotTesting({
-            cases: [
-                [
-                    `${theme} theme`,
-                    createSpriteStorybookUrl({
-                        componentName: 'FormControl',
-                        knobs: {
-                            size: 'm',
-                            clear: true,
-                            value: 'value',
-                            colors,
-                        },
-                        size: { width: 350, height: 150 },
-                    }),
-                ],
-            ],
-            screenshotOpts: {
-                fullPage: true,
-            },
-            theme,
-        })();
-
-    ['default', 'inverted'].forEach(colors => testCase('default', colors));
-});
-
-describe(
-    'FormControl | screenshots addons',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'FormControl',
-                    knobs: {
-                        rightAddons: ['right', false],
-                        leftAddons: ['left', false],
-                        bottomAddons: ['bottom', false],
-                        success: [false, true],
-                        value: ['', 'Value'],
-                    },
-                    size: { width: 350, height: 150 },
-                }),
-            ],
-        ],
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
-
 describe(
     'FormControl | hover state',
     screenshotTesting({
