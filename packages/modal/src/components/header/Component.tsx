@@ -2,6 +2,7 @@ import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { ModalContext } from '../../Context';
+import { getDataTestId } from '../../../../utils';
 
 import styles from './index.module.css';
 
@@ -55,6 +56,11 @@ export type HeaderProps = {
      * Фиксирует шапку
      */
     sticky?: boolean;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export const Header: FC<HeaderProps> = ({
@@ -68,6 +74,7 @@ export const Header: FC<HeaderProps> = ({
     title,
     closer,
     sticky,
+    dataTestId,
 }) => {
     const { headerHighlighted, setHasHeader } = useContext(ModalContext);
 
@@ -84,6 +91,7 @@ export const Header: FC<HeaderProps> = ({
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
             })}
+            data-test-id={getDataTestId(dataTestId)}
         >
             {leftAddons && <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>}
 
@@ -94,7 +102,14 @@ export const Header: FC<HeaderProps> = ({
                     })}
                 >
                     {children}
-                    {title && <div className={styles.title}>{title}</div>}
+                    {title && (
+                        <div
+                            className={styles.title}
+                            data-test-id={getDataTestId(dataTestId, 'title')}
+                        >
+                            {title}
+                        </div>
+                    )}
                 </div>
             )}
 

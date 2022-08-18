@@ -97,7 +97,7 @@ export function useCalendar({
 
     const activeMonth = uncontrolled ? monthState : (month as Date);
 
-    const dateRefs = useRef<HTMLButtonElement[]>([]);
+    const dateRefs = useRef<HTMLElement[]>([]);
     const rootRef = useRef<HTMLDivElement>(null);
 
     const minMonth = useMemo(() => minDate && startOfMonth(minDate), [minDate]);
@@ -308,7 +308,7 @@ export function useCalendar({
         [activeMonth, setMonthByDate],
     );
 
-    const handleDateRef = useCallback((node, index: number) => {
+    const handleDateRef = useCallback((node: HTMLElement, index: number) => {
         dateRefs.current[index] = node;
     }, []);
 

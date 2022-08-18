@@ -5,7 +5,14 @@ import { ModalDesktop, ModalDesktopProps } from './Component.desktop';
 import { ModalMobile, ModalMobileProps } from './Component.mobile';
 import { Closer } from './components/closer/Component';
 
-export type ModalResponsiveProps = ModalMobileProps & ModalDesktopProps;
+export type ModalResponsiveProps = ModalMobileProps &
+    ModalDesktopProps & {
+        /**
+         * Контрольная точка, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
+    };
 
 type View = 'desktop' | 'mobile';
 
@@ -33,11 +40,11 @@ function createResponsive<DesktopType extends FC, MobileType extends FC>(
 }
 
 const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps>(
-    ({ children, ...restProps }, ref) => {
+    ({ children, breakpoint = 1024, ...restProps }, ref) => {
         const [view] = useMedia<View>(
             [
-                ['mobile', '(max-width: 1023px)'],
-                ['desktop', '(min-width: 1024px)'],
+                ['mobile', `(max-width: ${breakpoint - 1}px)`],
+                ['desktop', `(min-width: ${breakpoint}px)`],
             ],
             'desktop',
         );

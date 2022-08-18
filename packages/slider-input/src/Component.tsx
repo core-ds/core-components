@@ -135,7 +135,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         }, []);
 
         const handleSliderChange = useCallback(
-            payload => {
+            (payload: { value: number }) => {
                 if (onChange) onChange(null, payload);
                 if (onSliderChange) onSliderChange(payload);
             },
@@ -143,7 +143,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         );
 
         const handleInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>, payload) => {
+            (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => {
                 if (onChange) onChange(event, { value: getValidInputValue(payload.value) });
                 if (onInputChange)
                     onInputChange(event, { value: getValidInputValue(payload.value) });

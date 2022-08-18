@@ -5,11 +5,11 @@ import noUiSlider, { API, Options } from 'nouislider';
 import styles from './index.module.css';
 
 type SubRange = number | [number] | [number, number];
-interface Range {
+type RangeOptions = {
     min: SubRange;
     max: SubRange;
     [key: string]: SubRange;
-}
+};
 
 type PipsType = -1 | 0 | 1 | 2;
 
@@ -50,7 +50,7 @@ export type SliderProps = {
      * Настройка шагов
      * https://refreshless.com/nouislider/pips/#section-range
      */
-    range?: Range;
+    range?: RangeOptions;
 
     /**
      * Значение инпута
@@ -153,12 +153,14 @@ export const Slider: FC<SliderProps> = ({
         const slider = getSlider();
         if (!slider) return;
 
-        slider.off('update.onChange');
-        slider.on('update.onChange', () => {
-            if (onChange && busyRef.current) {
+        const handler = () => {
+            if (onChange) {
                 onChange({ value: Number(slider.get()) });
             }
-        });
+        };
+
+        slider.off('slide');
+        slider.on('slide', handler);
     }, [onChange]);
 
     return (

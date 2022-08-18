@@ -5,8 +5,9 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Radio } from '@alfalab/core-components-radio';
 import { Tag } from '@alfalab/core-components-tag';
 import { Button } from '@alfalab/core-components-button';
+import { RadioGroup } from '@alfalab/core-components-radio-group';
 
-import { RadioGroup } from '../Component';
+import { RadioGroup as RadioGroupTS } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -63,6 +64,6 @@ import { RadioGroup } from '@alfalab/core-components/radio-group';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={RadioGroup} />}
+    props={<Props of={RadioGroupTS} />}
     cssVars={<CssVars css={styles} />}
 />

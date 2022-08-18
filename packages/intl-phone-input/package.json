@@ -1,11 +1,11 @@
 {
     "name": "@alfalab/core-components-intl-phone-input",
-    "version": "6.6.9",
+    "version": "7.0.0",
     "description": "Phone input for international phones",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
-    "module": "./dist/modern/index.js",
+    "module": "./dist/esm/index.js",
     "scripts": {
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
@@ -14,15 +14,15 @@
         "directory": "dist"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^9.0.0",
+        "@alfalab/core-components-input": "^10.0.0",
         "@alfalab/core-components-input-autocomplete": "7.0.4",
-        "@alfalab/core-components-select": "^11.0.0",
+        "@alfalab/core-components-select": "^12.0.0",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/utils": "^1.11.0",
-        "classnames": "^2.2.6",
+        "classnames": "^2.3.1",
         "libphonenumber-js": "^1.10.7",
         "react-merge-refs": "1.1.0"
     }

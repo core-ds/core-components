@@ -1,26 +1,24 @@
 {
     "name": "@alfalab/core-components-comment",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "description": "Comment",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "module": "./dist/esm/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
+    "module": "./esm/index.js",
     "scripts": {
-        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1",
-        "react-dom": "^16.9.0 || ^17.0.1"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^2.6.3",
-        "classnames": "^2.2.6"
+        "@alfalab/core-components-typography": "^3.0.0",
+        "classnames": "^2.3.1"
     }
 }

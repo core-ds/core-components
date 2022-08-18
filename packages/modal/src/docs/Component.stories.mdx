@@ -3,10 +3,13 @@ import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
+import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
+import { ModalDesktop } from '@alfalab/core-components-modal/Component.desktop';
+import { ModalResponsive } from '@alfalab/core-components-modal/Component.responsive';
 
-import { ModalMobile } from '../Component.mobile';
-import { ModalDesktop } from '../Component.desktop';
-import { ModalResponsive } from '../Component.responsive';
+import { ModalMobile as ModalMobileTS } from '../Component.mobile';
+import { ModalDesktop as ModalDesktopTS } from '../Component.desktop';
+import { ModalResponsive as ModalResponsiveTS } from '../Component.responsive';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -132,5 +135,5 @@ import { ModalMobile } from '@alfalab/core-components/modal/mobile';
     description={<Description />}
     changelog={<Changelog />}
     cssVars={<CssVars css={vars} />}
-    props={<Props components={{ModalDesktop, ModalMobile, ModalResponsive}} />}
+    props={<Props components={{ModalDesktop: ModalDesktopTS, ModalMobile: ModalMobileTS, ModalResponsive: ModalResponsiveTS}} />}
 />
