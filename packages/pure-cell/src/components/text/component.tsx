@@ -1,4 +1,4 @@
-import React, { useContext, ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { Typography, Color } from '@alfalab/core-components-typography';
@@ -10,14 +10,14 @@ import styles from './index.module.css';
 
 type Props = {
     /**
+     * Контент
+     */
+    children?: ReactNode;
+
+    /**
      * Количество строк
      */
     rowLimit?: 1 | 2;
-
-    /**
-     * Многострочный ли компонент
-     */
-    isMultiline?: boolean;
 
     /**
      * Размер текста
@@ -43,18 +43,12 @@ type Props = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-
-    /**
-     * Дочерние элементы.
-     */
-    children?: ReactNode;
 };
 
 export const Text: React.FC<Props> = ({
     children,
     value,
     rowLimit,
-    isMultiline = true,
     view = 'component',
     titleColor,
     valueColor,
@@ -72,9 +66,7 @@ export const Text: React.FC<Props> = ({
                 <Typography.Text
                     view={view}
                     color={titleColor}
-                    className={cn(rowLimit && styles[`rowLimit${rowLimit}`], {
-                        [styles.rowLimit1]: !isMultiline,
-                    })}
+                    className={cn(rowLimit && styles[`rowLimit${rowLimit}`])}
                     data-test-id={getDataTestId(dataTestId, 'text')}
                 >
                     {children}
@@ -86,7 +78,7 @@ export const Text: React.FC<Props> = ({
                     color={valueColor}
                     className={cn({
                         [styles[`rowLimit${rowLimit}`]]: rowLimit,
-                        [styles.multiline]: isMultiline,
+                        [styles.multiline]: !rowLimit,
                     })}
                     data-test-id={getDataTestId(dataTestId, 'text')}
                 >
