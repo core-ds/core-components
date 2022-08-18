@@ -85,9 +85,15 @@ export const Spinner: FC<SpinnerProps> = ({
             viewBox={`0 0 ${size} ${size}`}
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            className={cn(styles.spinner, colorStyles[colors].spinner, styles[sizeProp], className, {
-                [styles.visible]: visible,
-            })}
+            className={cn(
+                styles.spinner,
+                colorStyles[colors].component,
+                styles[sizeProp],
+                className,
+                {
+                    [styles.visible]: visible,
+                },
+            )}
             data-test-id={dataTestId}
             id={id}
         >

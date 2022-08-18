@@ -4,6 +4,6 @@
     --spinner-inverted-color: var(--color-light-graphic-primary-inverted);
 }
 
-.spinner {
+.component {
     color: var(--spinner-inverted-color);
 }

@@ -26,6 +26,7 @@ type Props = {
 export const Footer: React.FC<Props> = ({ children, footerPadding = 'default', dataTestId }) => (
     <footer
         className={cn(styles.component, styles[footerPadding], {
+            [styles.none]: footerPadding === 'none',
             [styles.defaultPadding]: footerPadding === 'default',
         })}
         data-test-id={getDataTestId(dataTestId, 'footer')}

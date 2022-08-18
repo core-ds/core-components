@@ -115,14 +115,10 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     {...hrefProps}
                     ref={mergeRefs([cellRef, ref])}
-                    className={cn(
-                        styles.link,
-                        addClasses,
-                        className,
-                        styles[horizontalPadding],
-                        styles[verticalPadding],
-                        { [styles.defaultPadding]: verticalPadding === 'default' },
-                    )}
+                    className={cn(styles.link, addClasses, className, styles[horizontalPadding], {
+                        [styles.defaultPadding]: verticalPadding === 'default',
+                        [styles[verticalPadding]]: verticalPadding !== 'default',
+                    })}
                     data-test-id={dataTestId}
                 >
                     <PureCellContext.Provider value={{ direction }}>

@@ -37,6 +37,7 @@ export const Addon: React.FC<Props> = ({
     <section
         className={cn(styles.component, styles[addonPadding], {
             [styles.center]: verticalAlign,
+            [styles.none]: addonPadding === 'none',
             [styles.defaultPadding]: addonPadding === 'default',
         })}
         data-test-id={getDataTestId(dataTestId, 'addon')}

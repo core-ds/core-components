@@ -4,6 +4,6 @@
     --spinner-default-color: var(--color-light-graphic-primary);
 }
 
-.spinner {
+.component {
     color: var(--spinner-default-color);
 }
