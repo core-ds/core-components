@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-link": "^4.0.1",
-        "@alfalab/icons-classic": "^1.76.0",
+        "@alfalab/icons-classic": "^2.3.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.3.1",
         "lodash.debounce": "^4.0.8"
