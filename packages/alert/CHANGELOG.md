@@ -11,6 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
 # [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@3.4.0...@alfalab/core-components-alert@4.0.0) (2022-08-17)
 
 
