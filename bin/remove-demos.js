@@ -31,18 +31,20 @@ const branchesList = remoteBranches.split('\n').map(branch =>
         .replace(/[^a-zA-Z0-9]/g, '_'),
 );
 
+// Fetch gh-pages branch
+console.log('=> Fetch gh-pages branch');
+shell.exec(`git fetch ${defaultConfig.gitRemote} ${defaultConfig.targetBranch}`, execOptions);
+
 // Checkout to gh-pages
 console.log('=> Checkout to gh-pages');
 shell.exec(`git checkout ${defaultConfig.targetBranch}`, execOptions);
 
-// Pull gh-page file
-console.log('=> Pull gh-pages branch');
-shell.exec(`git pull -f ${defaultConfig.gitRemote} ${defaultConfig.targetBranch}`, execOptions);
-
 /** Current git branch */
 const currentBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
+const currentBranch2 = shell.exec('git name-rev --name-only HEAD', execOptions).stdout.trim();
 
 console.log('currentBranch', currentBranch);
+console.log('currentBranch2', currentBranch2);
 console.log('targetBranch', defaultConfig.targetBranch);
 
 console.log('isEqual', currentBranch === defaultConfig.targetBranch);
