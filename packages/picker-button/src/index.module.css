@@ -4,18 +4,20 @@
     min-width: auto;
 }
 
-.optionsPopover {
-    padding: var(--gap-xs) 0;
+:global(.cc-picker-button) {
+    &.optionsPopover {
+        padding: var(--gap-xs) 0;
 
-    &.sideGap {
-        padding: 0 var(--gap-xs);
+        &.sideGap {
+            padding: 0 var(--gap-xs);
+        }
     }
-}
 
-.optionsListContainer {
-    border-radius: var(--border-radius-s);
-}
+    & .optionsListContainer {
+        border-radius: var(--border-radius-s);
+    }
 
-.option {
-    padding: 0 var(--gap-m);
+    & .option {
+        padding: 0 var(--gap-m);
+    }
 }
