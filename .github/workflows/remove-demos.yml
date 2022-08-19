@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: 'master'
           fetch-depth: 0
 
       - name: Install dependencies
