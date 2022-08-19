@@ -11,7 +11,7 @@
     --form-control-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
     --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-underline);
     --form-control-disabled-color: var(--color-light-text-secondary);
-    --form-control-disabled-border: none;
+    --form-control-disabled-shadow: none;
 
     /* focus */
     --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
@@ -53,7 +53,7 @@
 .disabled {
     background-color: var(--form-control-disabled-bg-color);
     color: var(--form-control-disabled-color);
-    border: var(--form-control-disabled-border);
+    box-shadow: var(--form-control-disabled-shadow);
 }
 
 .disabled:before {
