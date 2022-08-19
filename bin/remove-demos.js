@@ -42,6 +42,11 @@ shell.exec(`git pull -f ${defaultConfig.gitRemote} ${defaultConfig.targetBranch}
 /** Current git branch */
 const currentBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
 
+console.log('currentBranch', currentBranch);
+console.log('targetBranch', defaultConfig.targetBranch);
+
+console.log('isEqual', currentBranch === defaultConfig.targetBranch);
+
 if (currentBranch === defaultConfig.targetBranch) {
     const directories = shell
         .exec(`ls -d */`, execOptions)
