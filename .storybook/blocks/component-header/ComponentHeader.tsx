@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
+import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 import { Space } from '@alfalab/core-components-space';
 import { pluralize } from '@alfalab/utils';
@@ -42,8 +43,17 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
 
                 {usages[name]?.projects > 0 && (
                     <Typography.Text>
-                        Используется в <b>~{usages[name]?.projects}</b>{' '}
-                        {pluralize(usages[name]?.projects, 'проекте', 'проектах', 'проектах')}
+                        Используется в{' '}
+                        <Link
+                            href={`http://digital/design-system-usage/usage-chart?component=${name}`}
+                            target='_blank'
+                            view='default'
+                            title='Необходимо подключение к VPN'
+                            className={styles.usageLink}
+                        >
+                            <b>~{usages[name]?.projects}</b>{' '}
+                            {pluralize(usages[name]?.projects, 'проекте', 'проектах', 'проектах')}
+                        </Link>
                         {' и '}
                         <b>~{usages[name]?.imports}</b>{' '}
                         {pluralize(usages[name]?.imports, 'файле', 'файлах', 'файлах')}
