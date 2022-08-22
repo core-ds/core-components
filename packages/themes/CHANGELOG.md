@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.0.0...@alfalab/core-components-themes@9.1.0) (2022-08-04)
+
+
+### Features
+
+* **themes:** Добавлена возможность подключать styleMobile через js файл ([#178](https://github.com/core-ds/core-components/issues/178)) ([aa00d4b](https://github.com/core-ds/core-components/commit/aa00d4bc88d601f1af2ccc3ef15f729c35351252))
+
+
+
+
+
+# [9.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.4.0...@alfalab/core-components-themes@9.0.0) (2022-07-25)
+
+
+### Features
+
+* Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru
+data: 'self'`
+
+* chore(screenshot-utils): change cdn
+
+* feat(cdn-icon): add prop baseUrl
+
+
+
+
+
+# [8.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.3.3...@alfalab/core-components-themes@8.4.0) (2022-07-22)
+
+
+### Features
+
+* **circular-progress-bar:** added new sizes and props ([#122](https://github.com/core-ds/core-components/issues/122)) ([9b1c412](https://github.com/core-ds/core-components/commit/9b1c4126aabc516349655a51c6302d6af84aa129))
+
+
+
+
+
 ## [8.3.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@8.3.2...@alfalab/core-components-themes@8.3.3) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-themes

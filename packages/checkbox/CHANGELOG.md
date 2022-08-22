@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@3.0.0...@alfalab/core-components-checkbox@3.0.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* omit enterKeyHint prop ([#197](https://github.com/core-ds/core-components/issues/197)) ([72f4946](https://github.com/core-ds/core-components/commit/72f494623c282f61b45539fa1c13d5c45bc5180c))
+
+
+
+
+
+# [3.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.9.1...@alfalab/core-components-checkbox@3.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [2.9.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.9.0...@alfalab/core-components-checkbox@2.9.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
+# [2.9.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.8.3...@alfalab/core-components-checkbox@2.9.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
 ## [2.8.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-checkbox@2.8.2...@alfalab/core-components-checkbox@2.8.3) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-checkbox

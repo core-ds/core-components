@@ -1,14 +1,44 @@
 import cn from 'classnames';
-import React, { ReactNode, useMemo } from 'react';
+import React, { ReactNode, useMemo, ElementType } from 'react';
 import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
 const SIZES = {
-    s: 96,
-    m: 120,
-    l: 144,
+    xs: 24,
+    s: 48,
+    m: 64,
+    l: 80,
+    xl: 128,
+    xxl: 144,
 };
+
+const STROKE = {
+    xs: 4,
+    s: 4,
+    m: 6,
+    l: 8,
+    xl: 10,
+    xxl: 12,
+};
+
+const VIEW_TITLE = {
+    xs: 'small',
+    s: 'small',
+    m: 'small',
+    l: 'xsmall',
+    xl: 'medium',
+    xxl: 'medium',
+} as const;
+
+const VIEW_TEXT = {
+    xs: 'secondary-small',
+    s: 'secondary-small',
+    m: 'secondary-large',
+    l: 'secondary-large',
+    xl: 'secondary-large',
+    xxl: 'secondary-large',
+} as const;
 
 export type CircularProgressBarProps = {
     /**
@@ -27,9 +57,24 @@ export type CircularProgressBarProps = {
     title?: ReactNode;
 
     /**
+     * Цвет контента
+     */
+    contentColor?: 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative';
+
+    /**
      * Дополнительный текст
      */
     subtitle?: ReactNode;
+
+    /**
+     * Основной текст при 100%
+     */
+    titleComplete?: ReactNode;
+
+    /**
+     * Дополнительный текст при 100%
+     */
+    subtitleComplete?: ReactNode;
 
     /**
      * Цвет заполнения
@@ -37,14 +82,66 @@ export type CircularProgressBarProps = {
     view?: 'positive' | 'negative';
 
     /**
-     * Размер (l — 144×144px, m — 120×120px, s — 96×96px)
+     * Размер (xxl — 144×144px, xl — 128×128px, l — 80×80px, m — 64×64px, s — 48×48px, xs — 24×24px)
      */
-    size?: 'l' | 'm' | 's';
+    size?: 'xxl' | 'xl' | 'l' | 'm' | 's' | 'xs';
+
+    /**
+     * Наличие желоба
+     */
+    stroke?: boolean;
+
+    /**
+     * Заливка при 100%
+     */
+    fillComplete?: boolean;
+
+    /**
+     * Цвет текста при 100%
+     */
+    completeTextColor?: 'primary' | 'primary-inverted' | 'positive' | 'negative';
+
+    /**
+     * Цвет иконки при 100%
+     */
+    completeIconColor?: 'primary-inverted' | 'positive' | 'negative' | 'tertiary';
+
+    /**
+     * Компонент иконки
+     */
+    icon?: ElementType<{ className?: string }>;
+
+    /**
+     * Компонент иконки при 100%
+     */
+    iconComplete?: ElementType<{ className?: string }>;
+
+    /**
+     * Направление прогресса (clockwise - по часовой стрелке, counter-clockwise - против часовой стрелки)
+     */
+    direction?: 'clockwise' | 'counter-clockwise';
+
+    /**
+     * Высота компонента, min = 24; max = 144
+     * использовать совместно с size :
+     * xxl от 144
+     * xl  от 128 до 143
+     * l   от 80 до 127
+     * m   от 64 до 79
+     * s   от 48 до 63
+     * xs  от 24 до 47
+     */
+    height?: number;
 
     /**
      * Id компонента для тестов
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 /**
@@ -56,17 +153,28 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     size = 'm',
     className,
     dataTestId,
-    title = value.toString(),
+    title = value ? value.toString() : '0',
+    titleComplete,
     subtitle,
+    contentColor = 'secondary',
+    subtitleComplete,
+    stroke = true,
+    fillComplete,
+    icon: Icon,
+    iconComplete: IconComplete,
+    completeTextColor,
+    completeIconColor = 'tertiary',
+    direction = 'clockwise',
+    height,
     children,
 }) => {
     const memorized = useMemo(() => {
-        const strokeWidth = 8;
+        const strokeWidth = STROKE[size];
         const maxProgress = 100;
         const minProgress = 0;
-        const width = SIZES[size];
-        const height = SIZES[size];
-        const center = width / 2;
+        const widthSVG = SIZES[size];
+        const heightSVG = SIZES[size];
+        const center = widthSVG / 2;
         const radius = center - strokeWidth / 2;
         const circumference = Math.PI * radius * 2;
         const progress = Math.min(Math.max(value, minProgress), maxProgress);
@@ -74,8 +182,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         const strokeDashoffset = (((100 - progress) / 100) * circumference).toFixed(3);
 
         return {
-            width,
-            height,
+            widthSVG,
+            heightSVG,
             center,
             radius,
             strokeDasharray,
@@ -83,58 +191,129 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         };
     }, [value, size]);
 
+    const isComplete = value === 100;
+    const isCompleteTextColor = isComplete && completeTextColor;
+    const titleContent = titleComplete && isComplete ? titleComplete : title;
+    const subtitleContent = subtitleComplete && isComplete ? subtitleComplete : subtitle;
+    const IconComponent = IconComplete && isComplete ? IconComplete : Icon;
+
+    const renderTitleString = () => {
+        return (
+            <React.Fragment>
+                {SIZES[size] > 64 ? (
+                    <Typography.TitleMobile
+                        className={cn(styles.typography, styles.title)}
+                        color={isCompleteTextColor ? completeTextColor : contentColor}
+                        tag='div'
+                        font='system'
+                        view={VIEW_TITLE[size]}
+                    >
+                        {titleContent}
+                    </Typography.TitleMobile>
+                ) : (
+                    <Typography.Text
+                        className={styles.title}
+                        color={isCompleteTextColor ? completeTextColor : contentColor}
+                        tag='div'
+                        weight='bold'
+                        view={VIEW_TEXT[size]}
+                    >
+                        {titleContent}
+                    </Typography.Text>
+                )}
+            </React.Fragment>
+        );
+    };
+
+    const renderTitle = () => (typeof title === 'string' ? renderTitleString() : titleContent);
+
+    const renderSubTitle = () =>
+        typeof subtitle === 'string' ? (
+            <Typography.Text
+                tag='div'
+                className={styles.subtitle}
+                color={isCompleteTextColor ? completeTextColor : contentColor}
+                view='primary-small'
+            >
+                {subtitleContent}
+            </Typography.Text>
+        ) : (
+            subtitleContent
+        );
+
+    const renderIcon = () => {
+        return (
+            <span
+                className={cn(
+                    styles.iconWrapper,
+                    styles[size],
+                    styles.tertiary,
+                    styles[`icon-${contentColor}`],
+                    {
+                        [styles[`icon-${completeIconColor}`]]: completeIconColor,
+                    },
+                )}
+            >
+                {IconComponent && <IconComponent className={styles.icon} />}
+            </span>
+        );
+    };
+
+    const renderContent = () =>
+        Icon || (IconComplete && isComplete) ? (
+            renderIcon()
+        ) : (
+            <React.Fragment>
+                {SIZES[size] > 24 && renderTitle()}
+                {SIZES[size] > 64 && renderSubTitle()}
+            </React.Fragment>
+        );
+
     return (
-        <div className={cn(styles.component, styles[size], className)} data-test-id={dataTestId}>
+        <div
+            className={cn(styles.component, styles[size], className)}
+            style={{
+                ...(height && { height, width: height }),
+            }}
+            data-test-id={dataTestId}
+        >
             <svg
-                viewBox={`0 0 ${memorized.width} ${memorized.height}`}
+                viewBox={`0 0 ${memorized.widthSVG} ${memorized.heightSVG}`}
                 className={styles.svg}
                 xmlns='http://www.w3.org/2000/svg'
             >
                 <circle
-                    className={styles.backgroundCircle}
+                    className={cn(styles.backgroundCircle, styles[size], {
+                        [styles.stroke]: !stroke,
+                    })}
                     cx={memorized.center}
                     cy={memorized.center}
                     r={memorized.radius}
+                    strokeWidth={STROKE[size]}
                 />
                 <circle
-                    className={cn(styles.progressCircle, styles[view])}
+                    className={cn(styles.progressCircle, styles[view], styles[size], {
+                        [styles[`bg-${view}`]]: fillComplete && isComplete,
+                    })}
                     cx={memorized.center}
                     cy={memorized.center}
                     r={memorized.radius}
+                    strokeWidth={STROKE[size]}
                     strokeDasharray={memorized.strokeDasharray}
-                    strokeDashoffset={memorized.strokeDashoffset}
+                    strokeDashoffset={
+                        direction === 'counter-clockwise'
+                            ? -memorized.strokeDashoffset
+                            : memorized.strokeDashoffset
+                    }
                     transform={`rotate(${-90} ${memorized.center} ${memorized.center})`}
                 />
             </svg>
-            <div className={styles.label}>
-                {children || (
-                    <React.Fragment>
-                        {typeof title === 'string' ? (
-                            <Typography.Title
-                                className={styles.title}
-                                color='secondary'
-                                tag='div'
-                                view={size === 'l' ? 'small' : 'xsmall'}
-                            >
-                                {title}
-                            </Typography.Title>
-                        ) : (
-                            title
-                        )}
-                        {typeof subtitle === 'string' ? (
-                            <Typography.Text
-                                tag='div'
-                                className={styles.subtitle}
-                                color='primary'
-                                view='primary-small'
-                            >
-                                {subtitle}
-                            </Typography.Text>
-                        ) : (
-                            subtitle
-                        )}
-                    </React.Fragment>
-                )}
+            <div
+                className={cn(styles.labelWrapper, {
+                    [styles.label]: Icon || IconComplete,
+                })}
+            >
+                {children || renderContent()}
             </div>
         </div>
     );

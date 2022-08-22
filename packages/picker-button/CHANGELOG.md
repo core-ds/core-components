@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.0.0...@alfalab/core-components-picker-button@8.0.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* **picker-button:** increased css specificity ([#190](https://github.com/core-ds/core-components/issues/190)) ([e089871](https://github.com/core-ds/core-components/commit/e08987199825fa5d0dc4b4f1e158849155bb34dc))
+
+
+
+
+
+# [8.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.4...@alfalab/core-components-picker-button@8.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [7.11.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.3...@alfalab/core-components-picker-button@7.11.4) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
+## [7.11.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.2...@alfalab/core-components-picker-button@7.11.3) (2022-08-12)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.11.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.1...@alfalab/core-components-picker-button@7.11.2) (2022-08-11)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.11.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.0...@alfalab/core-components-picker-button@7.11.1) (2022-08-09)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+# [7.11.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.10.9...@alfalab/core-components-picker-button@7.11.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
+## [7.10.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.10.8...@alfalab/core-components-picker-button@7.10.9) (2022-07-25)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.10.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.10.7...@alfalab/core-components-picker-button@7.10.8) (2022-07-25)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
 ## [7.10.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.10.6...@alfalab/core-components-picker-button@7.10.7) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

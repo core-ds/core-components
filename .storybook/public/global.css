@@ -6,26 +6,28 @@
 /* stylelint-disable */
 @font-face {
     font-family: 'Styrene UI';
-    src: url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_regular.woff2')
+    src: url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_regular.woff2')
             format('woff2'),
-        url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_regular.woff')
+        url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_regular.woff')
             format('woff');
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: 'Styrene UI';
-    src: url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_medium.woff2')
+    src: url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_medium.woff2')
             format('woff2'),
-        url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_medium.woff') format('woff');
+        url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_medium.woff')
+            format('woff');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: 'Styrene UI';
-    src: url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_bold.woff2')
+    src: url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_bold.woff2')
             format('woff2'),
-        url('https://alfabank.gcdn.co/media/fonts/styrene-ui/styrene-ui_bold.woff') format('woff');
+        url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_bold.woff')
+            format('woff');
     font-weight: 700;
     font-style: normal;
 }
@@ -45,6 +47,17 @@ body.sb-show-main {
     margin: 0;
     padding: var(--gap-xs);
     overflow-x: hidden;
+}
+
+body.sb-show-preparing-story.sb-main-padded > div#root {
+    display: block;
+}
+
+/* Сторибук в момент загрузки скрывает все вложенные в body элементы.
+ Это ломает библиотеку react-textarea-autosize. */
+
+body > textarea {
+    display: inline-block !important;
 }
 
 #docs-root > .sbdocs-wrapper {
@@ -205,7 +218,7 @@ select.select {
     padding-right: var(--gap-xl);
     -webkit-appearance: none;
     appearance: none;
-    background-image: url(https://alfabank.gcdn.co/icons/glyph_chevron-down-compact_m.svg);
+    background-image: url(https://alfabank.servicecdn.ru/icons/glyph_chevron-down-compact_m.svg);
     background-repeat: no-repeat;
     background-position: right center;
 }
@@ -859,4 +872,8 @@ table.docblock-argstable tbody.docblock-argstable-body td div:only-child span {
     color: var(--color-light-text-secondary);
     border-color: var(--color-light-border-secondary);
     background: var(--color-light-bg-secondary);
+}
+
+.plateGlobal {
+    --plate-background: url('./images/docs-background.png');
 }

@@ -32,6 +32,11 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      * Иконка
      */
     icon?: ElementType;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 /**
@@ -42,12 +47,13 @@ export const Closer: FC<CloserProps> = ({
     size = 's',
     sticky,
     icon = CrossHeavyMIcon,
+    dataTestId,
     ...restProps
 }) => {
     const { onClose } = useContext(ModalContext);
 
     const handleClick = useCallback(
-        event => {
+        (event: React.MouseEvent<HTMLButtonElement>) => {
             onClose(event, 'closerClick');
         },
         [onClose],
@@ -65,6 +71,7 @@ export const Closer: FC<CloserProps> = ({
                 aria-label='закрыть'
                 onClick={handleClick}
                 icon={icon}
+                dataTestId={dataTestId}
                 {...restProps}
             />
         </div>

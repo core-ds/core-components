@@ -1,9 +1,10 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import { text, select, number } from '@storybook/addon-knobs';
+import { text, select, number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
 
-import { CircularProgressBar } from '../Component';
-import { name, version } from '../../package.json';
+import { CircularProgressBar as CircularProgressBarTS } from '../Component';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -21,16 +22,28 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         const value = number('value', 50);
         const view = select('view', ['positive', 'negative']);
+        const completeTextColor = select('completeTextColor',['primary','primary-inverted', 'positive', 'negative', 'secondary' ], 'secondary');
         const title = text('title', 'title');
+        const titleComplete = text('titleComplete');
         const subtitle = text('subtitle', 'subtitle');
+        const contentColor = select('contentColor',['primary', 'secondary', 'tertiary', 'positive', 'negative' ], 'secondary');
+        const subtitleComplete = text('subtitleComplete');
         return (
             <React.Fragment>
                 <CircularProgressBar
                     value={value}
                     view={view}
                     title={title}
+                    titleComplete={titleComplete}
                     subtitle={subtitle}
-                    size={select('size', ['s', 'm', 'l'], 'm')}
+                    contentColor={contentColor}
+                    subtitleComplete={subtitleComplete}
+                    stroke={boolean('stroke', true)}
+                    direction={select('direction', ['clockwise', 'counter-clockwise'], 'clockwise')}
+                    fillComplete={boolean('fillComplete', false)}
+                    completeTextColor={completeTextColor}
+                    height={number('height', 0)}
+                    size={select('size', ['xs', 's', 'm', 'l', 'xl', 'xxl'], 'l')}
                 />
                 <p>Без атрибута title значение для title берётся из value</p>
                 <CircularProgressBar
@@ -71,6 +84,6 @@ import { CircularProgressBar } from '@alfalab/core-components/circular-progress-
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={CircularProgressBar} />}
+    props={<Props of={CircularProgressBarTS} />}
     cssVars={<CssVars css={styles} />}
 />

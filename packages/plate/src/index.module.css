@@ -2,25 +2,41 @@
 
 :root {
     /* border */
-    --plate-border: 1px solid;
+    --plate-border-left: 2px;
+    --plate-border: 0 0 0 1px;
     --plate-border-radius: var(--border-radius-m);
 
+    /* width limit */
+
+    --plate-width-limit: 560px;
+
+    /* custom view */
+    --plate-background: transparent;
+    --plate-border-color: var(--color-static-status-grey);
+
     /* icons */
-    --plate-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
-    --plate-arrow-icon: url('https://alfabank.gcdn.co/icons/glyph_chevron-down_m.svg');
+    --plate-closer-icon: url('https://alfabank.servicecdn.ru/icons/glyph_cross_m.svg');
+    --plate-arrow-icon: url('https://alfabank.servicecdn.ru/icons/glyph_chevron-down_m.svg');
 }
 
 .component {
     position: relative;
     display: inline-flex;
     box-sizing: border-box;
-    border-radius: var(--plate-border-radius);
-    border: var(--plate-border);
     color: var(--color-light-text-primary);
     width: 100%;
     min-height: 56px;
-    padding: var(--gap-m);
+    padding: var(--gap-s);
     outline: none;
+
+    &:before {
+        content: '';
+        width: var(--plate-border-left);
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
 }
 
 .foldable {
@@ -42,40 +58,99 @@
     justify-content: space-between;
 }
 
+.rounded,
+.noBorder {
+    &:before {
+        display: none;
+    }
+}
+
+.rounded {
+    border-radius: var(--plate-border-radius);
+}
+
+.shadow {
+    box-shadow: var(--shadow-s);
+}
+
 .common {
     background-color: var(--color-light-bg-secondary);
-    border-color: var(--color-static-status-grey);
+    box-shadow: var(--plate-border) var(--color-static-status-grey);
+    &:before {
+        background-color: var(--color-static-status-grey);
+    }
 }
 
 .negative {
     background-color: var(--color-light-bg-negative-muted);
-    border-color: var(--color-static-status-red);
+    box-shadow: var(--plate-border) var(--color-static-status-red);
+    &:before {
+        background-color: var(--color-static-status-red);
+    }
 }
 
 .positive {
     background-color: var(--color-light-bg-positive-muted);
-    border-color: var(--color-static-status-green);
+    box-shadow: var(--plate-border) var(--color-static-status-green);
+    &:before {
+        background-color: var(--color-static-status-green);
+    }
 }
 
 .attention {
     background-color: var(--color-light-bg-attention-muted);
-    border-color: var(--color-static-status-orange);
+    box-shadow: var(--plate-border) var(--color-static-status-orange);
+    &:before {
+        background-color: var(--color-static-status-orange);
+    }
+}
+
+.custom {
+    background: var(--plate-background);
+    box-shadow: var(--plate-border) var(--plate-border-color);
+    &:before {
+        background-color: var(--plate-border-color);
+    }
+}
+
+.rect,
+.noBorder {
+    box-shadow: none;
 }
 
 .isHidden {
     display: none;
 }
 
+.leftAddons,
+.rightAddons {
+    padding: var(--gap-2xs);
+}
+
 .leftAddons {
     flex-shrink: 0;
     min-width: 24px;
-    margin-right: var(--gap-s);
+    margin-right: var(--gap-2xs);
 }
 
-.title {
-    @mixin accent_primary_large;
+.subAddons {
+    cursor: default;
+    align-self: flex-start;
+}
 
+.bold,
+.light {
     word-break: break-word;
+}
+
+.bold {
+    @mixin headline-system_xsmall;
+    padding: 5px var(--gap-s) 5px var(--gap-2xs);
+}
+
+.light {
+    @mixin paragraph_primary_small;
+    padding: 6px var(--gap-s) 6px var(--gap-2xs);
 }
 
 .content {
@@ -84,8 +159,6 @@
     max-height: 300vh;
     overflow: hidden;
     transition: max-height 2s ease-in-out;
-    padding: var(--gap-2xs);
-    margin: var(--gap-2xs-neg);
     cursor: default;
 
     &.isFolded {
@@ -96,7 +169,6 @@
 
 .contentContainer {
     flex: 1;
-    max-width: 586px;
     margin-right: auto;
 
     &.withoutTitle {
@@ -104,8 +176,17 @@
     }
 }
 
-.title + .content > .contentInner {
-    padding-top: var(--gap-xs);
+.limitWidth {
+    max-width: var(--plate-width-limit);
+}
+
+.description {
+    @mixin paragraph_primary_small;
+    padding: var(--gap-2xs) var(--gap-s) var(--gap-2xs) var(--gap-2xs);
+}
+
+.footer {
+    padding: var(--gap-l) 0 var(--gap-2xs) var(--gap-2xs);
 }
 
 .closer,
@@ -116,7 +197,7 @@
     opacity: 1;
     transition: opacity 0.2s ease;
     cursor: pointer;
-    margin-left: var(--gap-m);
+    margin-left: var(--gap-s);
 
     &:hover {
         opacity: 0.7;
@@ -141,14 +222,8 @@
     }
 }
 
-.buttons {
-    margin-top: var(--gap-xl);
-}
-
 .button {
-    margin-right: var(--gap-s);
-
-    &:last-child {
-        margin-right: 0;
+    &:not(:last-child) {
+        margin-right: var(--gap-xs);
     }
 }

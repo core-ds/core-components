@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { Fragment, forwardRef, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { getPath, PathsMap } from './utils';
@@ -52,6 +52,11 @@ export type BaseShapeProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
@@ -76,19 +81,6 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
         const hasBottomAddons = Boolean(bottomAddons);
 
-        const imagePattern = imagePatternId && (
-            <defs>
-                <pattern id={imagePatternId} width='100%' height='100%'>
-                    <image
-                        href={imageUrl}
-                        width='100%'
-                        height='100%'
-                        preserveAspectRatio='xMidYMid slice'
-                    />
-                </pattern>
-            </defs>
-        );
-
         return (
             <div
                 className={cn(styles.componentWrapper, styles[`size_${size}`], className)}
@@ -103,12 +95,10 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         xmlns='http://www.w3.org/2000/svg'
                         focusable={false}
                     >
-                        {imagePattern}
-
                         <path
                             className={styles.bg}
                             style={{
-                                fill: imagePatternId ? `url(#${imagePatternId})` : backgroundColor,
+                                fill: backgroundColor,
                             }}
                             d={getPath({
                                 size,
@@ -117,6 +107,33 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                 pathsMap: pathsMap.shape,
                             })}
                         />
+
+                        {imagePatternId && (
+                            <Fragment>
+                                <defs>
+                                    <pattern id={imagePatternId} width='100%' height='100%'>
+                                        <image
+                                            href={imageUrl}
+                                            width='100%'
+                                            height='100%'
+                                            preserveAspectRatio='xMidYMid slice'
+                                        />
+                                    </pattern>
+                                </defs>
+
+                                <path
+                                    style={{
+                                        fill: `url(#${imagePatternId})`,
+                                    }}
+                                    d={getPath({
+                                        size,
+                                        hasTopAddons,
+                                        hasBottomAddons,
+                                        pathsMap: pathsMap.shape,
+                                    })}
+                                />
+                            </Fragment>
+                        )}
 
                         {border && (
                             <path

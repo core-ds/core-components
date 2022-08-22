@@ -1,13 +1,16 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { select, boolean, text } from '@storybook/addon-knobs';
+import { Badge } from '@alfalab/core-components-badge';
 import { SfTouchIdXxlIcon } from '@alfalab/icons-glyph/SfTouchIdXxlIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
+import { Circle } from '@alfalab/core-components-icon-view/circle';
+import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
-import { Circle, CircleProps } from '../circle';
-import { SuperEllipse, SuperEllipseProps } from '../super-ellipse';
-import { name, version } from '../../package.json';
+import { SuperEllipse as SuperEllipseTS } from '../components/super-ellipse';
+import { Circle as CircleTS } from '../components/circle';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
@@ -70,8 +73,8 @@ import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
 ```
 
 export const Shapes = {
-    Circle,
-    SuperEllipse,
+    Circle: CircleTS,
+    SuperEllipse: SuperEllipseTS,
 }
 
 <Tabs

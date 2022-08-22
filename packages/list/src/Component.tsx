@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { Children } from 'react';
+import React, { Children, ReactNode } from 'react';
 
 import styles from './index.module.css';
 
@@ -14,7 +14,7 @@ export type ListProps = {
      * Маркер
      * @default '—' for ul and 'decimal' for ol
      */
-    marker?: 'lower-alpha' | 'decimal' | string | React.ReactNode;
+    marker?: 'lower-alpha' | 'decimal' | string | ReactNode;
 
     /**
      * Css-класс для стилизации
@@ -25,6 +25,11 @@ export type ListProps = {
      * Id компонента для тестов
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const List: React.FC<ListProps> = ({

@@ -127,7 +127,7 @@ describe('IconView', () => {
 
             const image = baseElement.querySelector('image') as SVGImageElement;
             const imagePattern = baseElement.querySelector('pattern') as SVGPatternElement;
-            const path = baseElement.querySelector('path') as SVGPathElement;
+            const path = baseElement.querySelector('path:not(.bg)') as SVGPathElement;
 
             const patternId = imagePattern.getAttribute('id');
 

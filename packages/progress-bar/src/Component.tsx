@@ -39,20 +39,24 @@ export type ProgressBarProps = {
 };
 
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
-    ({ className, value, view = 'positive', size = 'm', dataTestId }, ref) => (
-        <div
-            role='progressbar'
-            aria-valuenow={Math.round(value)}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            className={cn(styles.container, styles[size], className)}
-            data-test-id={dataTestId}
-            ref={ref}
-        >
+    ({ className, value, view = 'positive', size = 'm', dataTestId }, ref) => {
+        const translateX = Math.max(-100, Math.min(0, value - 100));
+
+        return (
             <div
-                className={cn(styles.filled, styles[view])}
-                style={{ transform: `translateX(${value - 100}%)` }}
-            />
-        </div>
-    ),
+                role='progressbar'
+                aria-valuenow={Math.round(value)}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                className={cn(styles.container, styles[size], className)}
+                data-test-id={dataTestId}
+                ref={ref}
+            >
+                <div
+                    className={cn(styles.filled, styles[view])}
+                    style={{ transform: `translateX(${translateX}%)` }}
+                />
+            </div>
+        );
+    },
 );

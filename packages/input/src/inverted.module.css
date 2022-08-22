@@ -5,8 +5,8 @@
     --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted-transparent);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
     --input-inverted-with-label-placeholder-color: var(--color-light-text-tertiary-inverted);
-    --input-inverted-error-icon: url('https://alfabank.gcdn.co/icons/glyph_alert-circle_m_negative.svg');
-    --input-inverted-success-icon: url('https://alfabank.gcdn.co/icons/icon_ok_s_color.svg');
+    --input-inverted-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
+    --input-inverted-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
     --input-inverted-caret-color: var(--input-inverted-color);
 
     /* disabled */

@@ -1,3 +1,123 @@
+## [30.0.1](https://github.com/core-ds/core-components/compare/v30.0.0...v30.0.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* **icon-view:** add aditional path to image and change icon size in addons ([#170](https://github.com/core-ds/core-components/issues/170)) ([51c8259](https://github.com/core-ds/core-components/commit/51c825975296bed2c5461c8b96d7ef527684d7b0))
+* omit enterKeyHint prop ([#197](https://github.com/core-ds/core-components/issues/197)) ([72f4946](https://github.com/core-ds/core-components/commit/72f494623c282f61b45539fa1c13d5c45bc5180c))
+* **picker-button:** increased css specificity ([#190](https://github.com/core-ds/core-components/issues/190)) ([e089871](https://github.com/core-ds/core-components/commit/e08987199825fa5d0dc4b4f1e158849155bb34dc))
+
+# [30.0.0](https://github.com/core-ds/core-components/compare/v29.4.0...v30.0.0) (2022-08-18)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+# [29.4.0](https://github.com/core-ds/core-components/compare/v29.3.0...v29.4.0) (2022-08-12)
+
+
+### Features
+
+* **plate:** subAddons slot, on/off border&shadow&borderRadius, new view 'custom' ([#158](https://github.com/core-ds/core-components/issues/158)) ([b2fc570](https://github.com/core-ds/core-components/commit/b2fc5703f083d493f0e5222d9a1f752cac190dbf)), closes [#161](https://github.com/core-ds/core-components/issues/161)
+
+# [29.3.0](https://github.com/core-ds/core-components/compare/v29.2.1...v29.3.0) (2022-08-12)
+
+
+### Features
+
+* **BottonSheet:** improved bottomSheet component ([#185](https://github.com/core-ds/core-components/issues/185)) ([ba5fa06](https://github.com/core-ds/core-components/commit/ba5fa06d5f342ac5e04adadb72fd21e1f699c00a))
+
+## [29.2.1](https://github.com/core-ds/core-components/compare/v29.2.0...v29.2.1) (2022-08-11)
+
+
+### Bug Fixes
+
+* **slider:** handle slide ([#187](https://github.com/core-ds/core-components/issues/187)) ([709f8df](https://github.com/core-ds/core-components/commit/709f8df47c82c905225dfd4645e345cf14e9f844))
+
+# [29.2.0](https://github.com/core-ds/core-components/compare/v29.1.0...v29.2.0) (2022-08-09)
+
+
+### Features
+
+* **bottom-sheet:** добавлен dataTestId для элементов компонента ([f90c76b](https://github.com/core-ds/core-components/commit/f90c76bf539542957dc0aea7be28089e5c919859))
+* **modal:** добавлен dataTestId для элементов компонента ([151ff8c](https://github.com/core-ds/core-components/commit/151ff8c5220d794719f90c1bdabedb905db841a7))
+
+# [29.1.0](https://github.com/core-ds/core-components/compare/v29.0.0...v29.1.0) (2022-08-04)
+
+
+### Bug Fixes
+
+* **comment:** add missing types ([95888d8](https://github.com/core-ds/core-components/commit/95888d8f87934140c8c6f113aee413a11579c7b6))
+* **progress-bar:** mechanics of progress line fixed ([#169](https://github.com/core-ds/core-components/issues/169)) ([4b46836](https://github.com/core-ds/core-components/commit/4b4683628ea4fd9da178799dfca8b287c0776ff1))
+* purgecss fixes ([#179](https://github.com/core-ds/core-components/issues/179)) ([ca52bab](https://github.com/core-ds/core-components/commit/ca52bab7ca82dd45c5693e46fbcec493943b3bbb))
+* **slider:** заменил interface на type ([#176](https://github.com/core-ds/core-components/issues/176)) ([d19e3cb](https://github.com/core-ds/core-components/commit/d19e3cb3a728feb6a0dc46a6a0691f72fc90e10f))
+
+
+### Features
+
+* **modal:** add props breakpoint for modal responsive ([#173](https://github.com/core-ds/core-components/issues/173)) ([e835052](https://github.com/core-ds/core-components/commit/e835052c45b4fa2d9d1c8c6401929b0be7088f48))
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+* **themes:** Добавлена возможность подключать styleMobile через js файл ([#178](https://github.com/core-ds/core-components/issues/178)) ([aa00d4b](https://github.com/core-ds/core-components/commit/aa00d4bc88d601f1af2ccc3ef15f729c35351252))
+
+# [29.0.0](https://github.com/core-ds/core-components/compare/v28.7.0...v29.0.0) (2022-07-25)
+
+
+### Features
+
+* Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru
+data: 'self'`
+
+* chore(screenshot-utils): change cdn
+
+* feat(cdn-icon): add prop baseUrl
+
+# [28.7.0](https://github.com/core-ds/core-components/compare/v28.6.0...v28.7.0) (2022-07-25)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed click on scrollbar bug ([#165](https://github.com/core-ds/core-components/issues/165)) ([c9df897](https://github.com/core-ds/core-components/commit/c9df8977a6f2e30d753a1f825bb6bad061179a6e))
+* **bottom-sheet:** fix component border-radius ([#157](https://github.com/core-ds/core-components/issues/157)) ([57b767e](https://github.com/core-ds/core-components/commit/57b767e43e40e9170967e3a53481e21f92cb0190))
+* **bottom-sheet:** fix doc ([#163](https://github.com/core-ds/core-components/issues/163)) ([cbf3282](https://github.com/core-ds/core-components/commit/cbf32828bc2fe472d59d52c1e5644e7934262d73))
+
+
+### Features
+
+* **codemod:** codemode to remove dist from imports ([#164](https://github.com/core-ds/core-components/issues/164)) ([ceab8b8](https://github.com/core-ds/core-components/commit/ceab8b82c34d3429e366a2c8b7ebda37fd3c9237))
+
+# [28.6.0](https://github.com/core-ds/core-components/compare/v28.5.0...v28.6.0) (2022-07-22)
+
+
+### Features
+
+* **comment-view:** add comment view component ([#134](https://github.com/core-ds/core-components/issues/134)) ([f1e0b69](https://github.com/core-ds/core-components/commit/f1e0b695ad9bd17f6a3503aa3ceed03e09112dbd))
+
+# [28.5.0](https://github.com/core-ds/core-components/compare/v28.4.0...v28.5.0) (2022-07-22)
+
+
+### Features
+
+* **circular-progress-bar:** added new sizes and props ([#122](https://github.com/core-ds/core-components/issues/122)) ([9b1c412](https://github.com/core-ds/core-components/commit/9b1c4126aabc516349655a51c6302d6af84aa129))
+
 # [28.4.0](https://github.com/core-ds/core-components/compare/v28.3.1...v28.4.0) (2022-07-18)
 
 

@@ -1,8 +1,9 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import { boolean, select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { Typography } from '@alfalab/core-components-typography';
 
-import { Typography } from '../component';
+import { Typography as TypographyTS } from '../component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -138,5 +139,5 @@ import { Typography } from '@alfalab/core-components/typography';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props components={Typography} />}
+    props={<Props components={TypographyTS} />}
 />
