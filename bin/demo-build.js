@@ -23,10 +23,12 @@ const execOptions = {
     silent: true,
     fatal: true,
 };
-/** Temporary dir for builded file = last git commit hash */
-const tempOutputDir = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
+
+const lastCommitHash = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
 /** Current git branch */
 const sourceBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
+/** Temporary dir for builded file = branch name + last git commit hash */
+const tempOutputDir = sourceBranch.replace(/[^a-zA-Z0-9]/g, '_') + '_' + lastCommitHash;
 /** Try to get affected component name from last commit message **/
 const lastCommitMessage = shell.exec('git show-branch --no-name HEAD', execOptions).stdout.trim();
 /** Parse affected component from last commit message */

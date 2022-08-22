@@ -21,7 +21,7 @@ import styles from './index.module.css';
 
 export type AttachProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'multiple'
+    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'multiple' | 'enterKeyHint'
 > & {
     /**
      * Содержимое кнопки для выбора файла

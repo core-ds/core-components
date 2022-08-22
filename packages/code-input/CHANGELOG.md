@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.0...@alfalab/core-components-code-input@2.0.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* omit enterKeyHint prop ([#197](https://github.com/core-ds/core-components/issues/197)) ([72f4946](https://github.com/core-ds/core-components/commit/72f494623c282f61b45539fa1c13d5c45bc5180c))
+
+
+
+
+
 # [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.5.1...@alfalab/core-components-code-input@2.0.0) (2022-08-17)
 
 

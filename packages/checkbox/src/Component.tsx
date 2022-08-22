@@ -10,7 +10,7 @@ import styles from './index.module.css';
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 type Align = 'start' | 'center';
 
-export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
+export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHint'> & {
     /**
      * Управление состоянием вкл/выкл чекбокса (native prop)
      */
