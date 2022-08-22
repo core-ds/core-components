@@ -69,6 +69,7 @@
     cursor: pointer;
     outline: none;
     white-space: nowrap;
+    font-family: var(--font-family);
     color: var(--tag-text-color);
     background-color: var(--tag-background-color);
     border-width: var(--tag-border-width);
