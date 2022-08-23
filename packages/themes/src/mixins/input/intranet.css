@@ -3,7 +3,7 @@
     --input-error-color: var(--color-light-text-primary);
     --input-inverted-error-color: var(--color-light-text-accent);
     --input-error-icon-display: block;
-    --input-disabled-color: var(--color-light-text-primary);
+    --input-disabled-color: var(--color-light-text-secondary);
     --input-inverted-disabled-color: var(--color-light-text-primary-inverted);
     --input-focus-placeholder-color: var(--color-light-text-tertiary-transparent);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted-transparent);

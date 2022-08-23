@@ -7,7 +7,8 @@
     --form-control-inverted-bg-color: var(--color-light-bg-secondary-inverted);
 
     /* disabled */
-    --form-control-disabled-opacity: 0.5;
+    --form-control-disabled-opacity: 1;
+    --form-control-disabled-label-color: var(--color-light-text-tertiary);
     --form-control-disabled-border-bottom: 0;
     --form-control-inverted-disabled-border-bottom: 0;
     --form-control-disabled-bg-color: var(--color-light-bg-primary);
