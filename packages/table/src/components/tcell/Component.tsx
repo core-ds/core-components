@@ -30,19 +30,21 @@ export const TCell = ({
     index,
     ...restProps
 }: TCellProps) => {
-    const { columnsConfiguration, compactView } = useContext(TableContext);
+    const { columnsConfiguration, compactView, compactHorizontal } = useContext(TableContext);
     const column = index === undefined ? null : columnsConfiguration[index];
     const width = column?.width;
     const textAlign = column?.textAlign;
     const hidden = column?.hidden || false;
+
+    if (hidden) return null;
 
     return (
         <td
             className={cn(
                 styles.component,
                 className,
-                hidden && styles.hidden,
                 compactView && styles.compact,
+                compactHorizontal && styles.compactHorizontal,
             )}
             style={{ ...style, width, textAlign }}
             data-test-id={dataTestId}
