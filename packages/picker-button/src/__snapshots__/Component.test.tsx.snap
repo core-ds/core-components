@@ -666,7 +666,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
     style="z-index: 50; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
-      class="inner popoverInner optionsPopover"
+      class="inner popoverInner cc-picker-button optionsPopover"
     >
       <div
         class=""
@@ -1109,7 +1109,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
     style="z-index: 50; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
-      class="inner popoverInner optionsPopover"
+      class="inner popoverInner cc-picker-button optionsPopover"
     >
       <div
         class=""
