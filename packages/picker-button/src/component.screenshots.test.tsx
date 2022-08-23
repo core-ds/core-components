@@ -1,7 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 import {
-    generateTestCases,
     openBrowserPage,
     closeBrowser,
     matchHtml,
@@ -20,46 +19,44 @@ describe('PickerButton', () => {
     it('desktop opened', async () => {
         jest.setTimeout(120000);
 
-        const cases = generateTestCases({
+        const pageUrl = createStorybookUrl({
             componentName: 'PickerButton',
             knobs: {
                 options: JSON.stringify(options),
                 label: 'Открыть',
-                block: [true, false],
+                block: true,
             },
         });
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        for (const [_, pageUrl] of cases) {
-            const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
-            try {
-                await page.goto(pageUrl);
+        try {
+            await page.goto(pageUrl);
 
-                await page.click('button[class*=component]');
+            await page.click('button[class*=component]');
 
-                await matchHtml({
-                    page,
-                    expect,
-                    css,
-                });
-            } catch (error) {
-                // eslint-disable-next-line no-console
-                console.error(error.message);
-            } finally {
-                await closeBrowser({ browser, context, page });
-            }
+            await matchHtml({
+                page,
+                expect,
+                css,
+            });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error.message);
+        } finally {
+            await closeBrowser({ browser, context, page });
         }
     });
 });
 
-describe.skip('PickerButton', () => {
+describe('PickerButton', () => {
     it('mobile opened', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'Pickerbutton',
             subComponentName: 'PickerButtonMobile',
             testStory: false,
             knobs: {
+                block: true,
                 options: JSON.stringify(options),
                 label: 'Открыть',
             },
