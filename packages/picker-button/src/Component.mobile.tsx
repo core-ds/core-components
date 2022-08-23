@@ -20,6 +20,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
     (
         {
             options,
+            label,
             Option = DefaultOption,
             Optgroup = DefaultOptgroup,
             view,
@@ -28,6 +29,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             leftAddons,
             rightAddons,
             size,
+            bottomSheetProps,
             ...restProps
         },
         ref,
@@ -35,7 +37,13 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
         return (
             <SelectMobile
                 {...restProps}
+                label={label}
                 Option={Option}
+                bottomSheetProps={{
+                    title: label,
+                    stickyHeader: true,
+                    ...bottomSheetProps,
+                }}
                 Field={DefaultField}
                 Optgroup={Optgroup}
                 size={size === 'm' ? 'm' : 's'}
