@@ -145,7 +145,9 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                         onKeyDown={handleClear}
                         tabIndex={0}
                     >
-                        {size === 'xxs' ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
+                        <span className={styles.iconWrapper}>
+                            {size === 'xxs' ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
+                        </span>
                     </div>
                 )}
             </div>
