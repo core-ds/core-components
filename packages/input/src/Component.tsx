@@ -27,7 +27,14 @@ const colorStyles = {
 
 export type InputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'onClick' | 'onMouseDown'
+    | 'size'
+    | 'type'
+    | 'value'
+    | 'defaultValue'
+    | 'onChange'
+    | 'onClick'
+    | 'onMouseDown'
+    | 'enterKeyHint'
 > & {
     /**
      * Значение поля ввода
