@@ -1,7 +1,8 @@
 import { Meta, Props, Story } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
 
-import { MaskedInput } from '../Component';
+import { MaskedInput as MaskedInputTS } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -37,6 +38,6 @@ import { MaskedInput } from '@alfalab/core-components/masked-input';
 
 <Tabs
     description={<Description />}
-    props={<Props of={MaskedInput} />}
+    props={<Props of={MaskedInputTS} />}
     changelog={<Changelog />}
 />

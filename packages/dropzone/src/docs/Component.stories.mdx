@@ -1,9 +1,10 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
 import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { Dropzone } from '@alfalab/core-components-dropzone';
 
-import { Dropzone } from '../Component';
-import { name, version } from '../../package.json';
+import { Dropzone as DropzoneTS } from '../Component';
+import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
@@ -74,6 +75,6 @@ import { Dropzone } from '@alfalab/core-components/dropzone';
 
 <Tabs
     description={<Description />}
-    props={<Props of={Dropzone} />}
+    props={<Props of={DropzoneTS} />}
     changelog={<Changelog />}
 />

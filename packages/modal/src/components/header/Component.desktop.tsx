@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { Header, HeaderProps } from './Component';
 import { Closer } from '../closer/Component';
 import { ModalDesktopProps } from '../../Component.desktop';
+import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './desktop.module.css';
 
@@ -27,6 +28,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     leftAddons = <span />,
     title,
     children,
+    dataTestId,
     ...restProps
 }) => {
     const hasContent = title || Boolean(children);
@@ -37,10 +39,11 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
                 [styles.hasContent]: hasContent,
             })}
             contentClassName={cn(styles.content, contentClassName)}
-            closer={hasCloser ? <Closer /> : null}
+            closer={hasCloser ? <Closer dataTestId={getDataTestId(dataTestId, 'closer')} /> : null}
             leftAddons={leftAddons}
             sticky={sticky}
             title={title}
+            dataTestId={dataTestId}
             {...restProps}
         >
             {children}

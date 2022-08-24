@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@6.0.0...@alfalab/core-components-plate@6.0.1) (2022-08-19)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
+# [6.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@5.2.0...@alfalab/core-components-plate@6.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+# [5.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@5.1.1...@alfalab/core-components-plate@5.2.0) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+### Features
+
+* **plate:** subAddons slot, on/off border&shadow&borderRadius, new view 'custom' ([#158](https://github.com/core-ds/core-components/issues/158)) ([b2fc570](https://github.com/core-ds/core-components/commit/b2fc5703f083d493f0e5222d9a1f752cac190dbf)), closes [#161](https://github.com/core-ds/core-components/issues/161)
+
+
+
+
+
+## [5.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@5.1.0...@alfalab/core-components-plate@5.1.1) (2022-08-11)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
 # [5.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-plate@5.0.0...@alfalab/core-components-plate@5.1.0) (2022-08-04)
 
 

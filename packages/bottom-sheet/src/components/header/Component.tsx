@@ -6,6 +6,7 @@ import { Typography } from '@alfalab/core-components-typography';
 import { BottomSheetTitleAlign, HEADER_OFFSET } from '../..';
 import { Closer } from '../closer/Component';
 import { Backer } from '../backer/Component';
+import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
 
@@ -76,6 +77,11 @@ export type HeaderProps = {
     sticky?: boolean;
 
     /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
      * Обработчик нажатия на стрелку назад
      */
     onBack?: () => void;
@@ -95,6 +101,7 @@ export const Header: FC<HeaderProps> = ({
     titleAlign,
     trimTitle,
     sticky,
+    dataTestId,
     onBack,
 }) => {
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
@@ -130,6 +137,7 @@ export const Header: FC<HeaderProps> = ({
                 [styles.highlighted]: headerHighlighted && sticky,
                 [styles.sticky]: sticky,
             })}
+            data-test-id={getDataTestId(dataTestId)}
         >
             <div
                 className={cn(styles.header, headerClassName, {
@@ -144,7 +152,11 @@ export const Header: FC<HeaderProps> = ({
                         })}
                     >
                         {hasBacker ? (
-                            <Backer className={backerClassName} onClick={onBack} />
+                            <Backer
+                                className={backerClassName}
+                                onClick={onBack}
+                                dataTestId={getDataTestId(dataTestId, 'backer')}
+                            />
                         ) : (
                             leftAddons
                         )}
@@ -161,6 +173,7 @@ export const Header: FC<HeaderProps> = ({
                             [styles.trimTitle]: trimTitle,
                         })}
                         color='primary'
+                        dataTestId={getDataTestId(dataTestId, 'title')}
                     >
                         {title}
                     </Typography.Text>
@@ -173,7 +186,14 @@ export const Header: FC<HeaderProps> = ({
                             [styles.addonRight]: !sticky,
                         })}
                     >
-                        {hasCloser ? <Closer className={closerClassName} /> : rightAddons}
+                        {hasCloser ? (
+                            <Closer
+                                className={closerClassName}
+                                dataTestId={getDataTestId(dataTestId, 'closer')}
+                            />
+                        ) : (
+                            rightAddons
+                        )}
                     </div>
                 )}
             </div>
