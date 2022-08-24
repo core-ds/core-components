@@ -1,10 +1,4 @@
-import { Page } from 'playwright';
-
-import {
-    setupScreenshotTesting,
-    generateTestCases,
-    createSpriteStorybookUrl,
-} from '../../screenshot-utils';
+import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -12,8 +6,6 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
-
-const clip = { x: 0, y: 0, width: 350, height: 150 };
 
 describe('FormControl | screenshots main props', () => {
     const testCase = (theme: string, colors: string) =>
@@ -76,19 +68,3 @@ describe('FormControl | screenshots hint and error', () => {
         ['default', 'click', 'site', 'mobile'].forEach(theme => testCase(theme, colors));
     });
 });
-
-describe(
-    'FormControl | hover state',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'FormControl',
-            knobs: {
-                label: ['Label'],
-            },
-        }),
-        evaluate: (page: Page) => page.hover('input').then(() => page.waitForTimeout(500)),
-        screenshotOpts: {
-            clip,
-        },
-    }),
-);
