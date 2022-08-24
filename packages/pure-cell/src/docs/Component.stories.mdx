@@ -171,7 +171,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     {React.createElement(() => {
     const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
     const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');
-    const addonPadding = select('addonPadding', ['default', 'none'], 'default');
+    const addonPadding = boolean('addonPadding', true);
     const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
         <div style={{
@@ -374,7 +374,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.Footer'>
     {React.createElement(() => {
-    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+    const footerPadding = boolean('footerPadding', true);
     const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
     const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     return (
@@ -404,7 +404,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.FooterButton'>
     {React.createElement(() => {
-    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+    const footerPadding = boolean('footerPadding', true);
     const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
     const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     const colors = select('colors', ['default', 'inverted'], 'default');
@@ -443,7 +443,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Story name='PureCell.ExtraSubtitle'>
     {React.createElement(() => {
-    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+    const footerPadding = boolean('footerPadding', true);
     const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
     const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const color = select('color',

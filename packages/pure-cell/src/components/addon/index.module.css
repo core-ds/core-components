@@ -2,17 +2,12 @@
 
 .component {
     grid-column: 2/3;
-    padding-left: var(--gap-m);
 
     & > * {
         justify-content: flex-end;
     }
 
-    &.none {
-        padding-left: 0;
-    }
-
-    &.defaultPadding {
+    &.addonPadding {
         padding-left: var(--gap-m);
     }
 

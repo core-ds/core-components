@@ -15,7 +15,7 @@ type Props = {
     /**
      * Вертикальные отступы
      */
-    footerPadding?: 'default' | 'none';
+    footerPadding?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -23,11 +23,10 @@ type Props = {
     dataTestId?: string;
 };
 
-export const Footer: React.FC<Props> = ({ children, footerPadding = 'default', dataTestId }) => (
+export const Footer: React.FC<Props> = ({ children, footerPadding = true, dataTestId }) => (
     <footer
-        className={cn(styles.component, styles[footerPadding], {
-            [styles.none]: footerPadding === 'none',
-            [styles.defaultPadding]: footerPadding === 'default',
+        className={cn(styles.component, {
+            [styles.footerPadding]: footerPadding,
         })}
         data-test-id={getDataTestId(dataTestId, 'footer')}
     >
