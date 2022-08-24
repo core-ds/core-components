@@ -1,6 +1,7 @@
 import React, { ReactNode, useRef } from 'react';
 import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
+import { Badge } from '@alfalab/core-components-badge';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 
 import styles from './index.module.css';
@@ -76,7 +77,15 @@ export const Step: React.FC<StepProps> = ({
 
     const getStepContent = () => {
         if (isStepCompleted && !isError) {
-            return <CheckmarkCircleMIcon />;
+            return (
+                <Badge
+                    size='l'
+                    view='icon'
+                    iconColor='positive'
+                    className={styles.badge}
+                    content={<CheckmarkCircleMIcon />}
+                />
+            );
         }
         if (isError && !isSelected) {
             return '!';

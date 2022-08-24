@@ -118,3 +118,7 @@
 .option.unordered {
     background: unset;
 }
+
+.badge {
+    padding: 0;
+}
