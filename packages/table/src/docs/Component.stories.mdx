@@ -4,8 +4,9 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Amount } from '@alfalab/core-components-amount';
 import { Typography } from '@alfalab/core-components-typography';
+import { Table } from '@alfalab/core-components-table';
 
-import { Table } from '../index';
+import { Table as TableTS } from '../component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -93,14 +94,14 @@ import { Table } from '@alfalab/core-components/table';
     changelog={<Changelog />}
     props={
         <Props components={{
-            Table,
-            'Wrapper': Table.Wrapper,
-            'Pagination': Table.Pagination,
-            'TCell': Table.TCell,
-            'THead': Table.THead,
-            'THeadCell': Table.THeadCell,
-            'TSortableHeadCell': Table.TSortableHeadCell,
-            'TRow': Table.TRow,
+            Table:TableTS,
+            'Wrapper': TableTS.Wrapper,
+            'Pagination': TableTS.Pagination,
+            'TCell': TableTS.TCell,
+            'THead': TableTS.THead,
+            'THeadCell': TableTS.THeadCell,
+            'TSortableHeadCell': TableTS.TSortableHeadCell,
+            'TRow': TableTS.TRow,
         }}/>
     }
 />

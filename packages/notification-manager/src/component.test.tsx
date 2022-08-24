@@ -39,6 +39,53 @@ describe('NotificationManager', () => {
         });
     });
 
+    describe('Callbacks tests', () => {
+        it('should call `onRemoveNotification` prop by timeout with notification id', () => {
+            const cb = jest.fn();
+            const notificationId = 'notification-1';
+
+            render(
+                <NotificationManager
+                    onRemoveNotification={cb}
+                    notifications={[
+                        <Notification
+                            title='title'
+                            key={1}
+                            id={notificationId}
+                            autoCloseDelay={0}
+                        />,
+                    ]}
+                />,
+            );
+
+            jest.runAllTimers();
+
+            expect(cb).toBeCalledWith(notificationId);
+        });
+
+        it('should call `onRemoveNotification` prop by closer click', () => {
+            const cb = jest.fn();
+            const notificationId = 'notification-1';
+
+            const { baseElement } = render(
+                <NotificationManager
+                    onRemoveNotification={cb}
+                    notifications={[
+                        <Notification title='title' key={1} id={notificationId} />,
+                        <Notification title='title' key={2} id='notification-2' />,
+                    ]}
+                />,
+            );
+
+            const closer = baseElement.querySelector('button');
+            if (closer) {
+                fireEvent.click(closer);
+            }
+
+            expect(cb).toBeCalledWith(notificationId);
+        });
+    });
+
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(
@@ -88,46 +135,5 @@ describe('NotificationManager', () => {
         );
 
         expect(unmount).not.toThrowError();
-    });
-
-    it('should call `onRemoveNotification` prop by timeout with notification id', () => {
-        const cb = jest.fn();
-        const notificationId = 'notification-1';
-
-        render(
-            <NotificationManager
-                onRemoveNotification={cb}
-                notifications={[
-                    <Notification title='title' key={1} id={notificationId} autoCloseDelay={0} />,
-                ]}
-            />,
-        );
-
-        jest.runAllTimers();
-
-        expect(cb).toBeCalledWith(notificationId);
-    });
-
-    it('hould call `onRemoveNotification` prop by closer click', () => {
-        const cb = jest.fn();
-        const notificationId = 'notification-1';
-
-        const { baseElement } = render(
-            <NotificationManager
-                onRemoveNotification={cb}
-                notifications={[
-                    <Notification title='title' key={1} id={notificationId} />,
-                    <Notification title='title' key={2} id='notification-2' />,
-                ]}
-            />,
-        );
-
-        const closer = baseElement.querySelector('button');
-
-        if (closer) {
-            fireEvent.click(closer);
-        }
-
-        expect(cb).toBeCalledWith(notificationId);
     });
 });

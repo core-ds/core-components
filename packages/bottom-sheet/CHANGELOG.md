@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.0.0...@alfalab/core-components-bottom-sheet@5.0.1) (2022-08-19)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+# [5.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.9.1...@alfalab/core-components-bottom-sheet@5.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [4.9.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.9.0...@alfalab/core-components-bottom-sheet@4.9.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
+# [4.9.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.8.1...@alfalab/core-components-bottom-sheet@4.9.0) (2022-08-12)
+
+
+### Features
+
+* **BottonSheet:** improved bottomSheet component ([#185](https://github.com/core-ds/core-components/issues/185)) ([ba5fa06](https://github.com/core-ds/core-components/commit/ba5fa06d5f342ac5e04adadb72fd21e1f699c00a))
+
+
+
+
+
+## [4.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.8.0...@alfalab/core-components-bottom-sheet@4.8.1) (2022-08-11)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+# [4.8.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.7.0...@alfalab/core-components-bottom-sheet@4.8.0) (2022-08-09)
+
+
+### Features
+
+* **bottom-sheet:** добавлен dataTestId для элементов компонента ([f90c76b](https://github.com/core-ds/core-components/commit/f90c76bf539542957dc0aea7be28089e5c919859))
+
+
+
+
+
+# [4.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.2...@alfalab/core-components-bottom-sheet@4.7.0) (2022-08-04)
+
+
+### Features
+
+* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+
+
+
+
+
 ## [4.6.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.1...@alfalab/core-components-bottom-sheet@4.6.2) (2022-07-25)
 
 

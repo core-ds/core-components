@@ -13,7 +13,7 @@ import styles from './index.module.css';
 
 export type InputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'onKeyDown'
+    'value' | 'onChange' | 'onKeyDown' | 'enterKeyHint'
 > & {
     index: number;
     value: string;

@@ -2,8 +2,9 @@ import { Meta, Story, Props } from '@storybook/addon-docs';
 import { select, boolean, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Input } from '@alfalab/core-components-input';
+import { Space } from '@alfalab/core-components-space';
 
-import { Space } from '../Component';
+import { Space as SpaceTS } from '../Component';
 import { name, version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
@@ -54,5 +55,5 @@ import { Space } from '@alfalab/core-components/space';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={Space} />}
+    props={<Props of={SpaceTS} />}
 />

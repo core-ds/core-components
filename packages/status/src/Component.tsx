@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -25,6 +25,11 @@ export type StatusProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
 };
 
 export const Status: FC<StatusProps> = ({

@@ -134,7 +134,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         }, [startAutoCloseTimer, stopAutoCloseTimer, visible]);
 
         const handleMouseEnter = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLDivElement>) => {
                 stopAutoCloseTimer();
 
                 if (onMouseEnter) {
@@ -145,7 +145,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         );
 
         const handleMouseLeave = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLDivElement>) => {
                 stopAutoCloseTimer();
                 startAutoCloseTimer();
 
@@ -157,15 +157,17 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         );
 
         const handleOutsideClick = useCallback(
-            event => {
-                const isTargetNotification = !!event.target.closest(notificationClassNameSelector);
+            (event: React.MouseEvent | React.TouchEvent) => {
+                const isTargetNotification = !!(event.target as Element).closest(
+                    notificationClassNameSelector,
+                );
 
                 /*
-                 *  проверка isTargetNotification нужна для предотвращения срабатывания handleOutsideClick
-                 *  при клике на другие нотификации, если их несколько на странице
+                 * проверка isTargetNotification нужна для предотвращения срабатывания handleOutsideClick
+                 * при клике на другие нотификации, если их несколько на странице
                  */
                 if (onClickOutside && visible && !isTargetNotification) {
-                    onClickOutside(event);
+                    onClickOutside(event as React.MouseEvent);
                 }
             },
             [onClickOutside, visible],

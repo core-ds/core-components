@@ -21,7 +21,7 @@ import styles from './index.module.css';
 
 export type AttachProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'multiple'
+    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'multiple' | 'enterKeyHint'
 > & {
     /**
      * Содержимое кнопки для выбора файла
@@ -154,7 +154,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         );
 
         const handleButtonClick = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLButtonElement>) => {
                 if (labelRef.current) {
                     labelRef.current.click();
                 }
@@ -170,7 +170,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         );
 
         const handleClearClick = useCallback(
-            ev => {
+            (ev: React.MouseEvent<HTMLButtonElement>) => {
                 if (uncontrolled) {
                     setFiles([]);
                 }

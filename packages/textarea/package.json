@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-textarea",
-    "version": "6.2.3",
+    "version": "7.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,13 +14,13 @@
         "directory": "dist"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^7.5.3",
+        "@alfalab/core-components-form-control": "^8.0.1",
         "@alfalab/hooks": "^1.4.1",
-        "classnames": "^2.2.6",
+        "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",
-        "react-textarea-autosize": "^8.3.0"
+        "react-textarea-autosize": "^8.3.4"
     }
 }

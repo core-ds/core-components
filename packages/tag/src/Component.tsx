@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef, useRef } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode, forwardRef, useRef } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
@@ -26,14 +26,19 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
+     * Дочерние элементы.
+     */
+    children?: ReactNode;
+
+    /**
      * Слот слева
      */
-    leftAddons?: React.ReactNode;
+    leftAddons?: ReactNode;
 
     /**
      * Слот справа
      */
-    rightAddons?: React.ReactNode;
+    rightAddons?: ReactNode;
 
     /**
      * Идентификатор для систем автоматизированного тестирования

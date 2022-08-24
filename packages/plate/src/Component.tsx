@@ -14,6 +14,7 @@ import { useFocus } from '@alfalab/hooks';
 import { Button, ComponentProps as ButtonProps } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
+import { ButtonList } from './components/button-list/component';
 
 export type PlateProps = {
     /**
@@ -42,6 +43,31 @@ export type PlateProps = {
     leftAddons?: ReactNode;
 
     /**
+     * Слот для субаддонов (слева от крестика)
+     */
+    subAddons?: ReactNode | Array<ReactElement<ButtonProps>>;
+
+    /**
+     * Включить/выключить скругление
+     */
+    rounded?: boolean;
+
+    /**
+     * Включить/Выключить обводку
+     */
+    border?: boolean;
+
+    /**
+     * Включить/выключить тени
+     */
+    shadow?: boolean;
+
+    /**
+     * Включить/выключить ограничение максимальной ширины контента в 560px
+     */
+    limitContentWidth?: boolean;
+
+    /**
      * Дочерние элементы
      */
     children?: ReactNode;
@@ -52,9 +78,14 @@ export type PlateProps = {
     title?: ReactNode;
 
     /**
+     * Вид заголовка
+     */
+    titleView?: 'bold' | 'light';
+
+    /**
      * Вид компонента
      */
-    view?: 'common' | 'negative' | 'positive' | 'attention';
+    view?: 'common' | 'negative' | 'positive' | 'attention' | 'custom';
 
     /**
      * Набор действий
@@ -75,6 +106,11 @@ export type PlateProps = {
      * Дополнительный класс для контента
      */
     contentClassName?: string;
+
+    /**
+     * Дополнительный класс для субаддонов
+     */
+    subAddonsClassName?: string;
 
     /**
      * Обработчик клика по плашке
@@ -100,6 +136,7 @@ export type PlateProps = {
     dataTestId?: string;
 };
 
+/* eslint-disable complexity */
 export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     (
         {
@@ -107,14 +144,21 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             foldable: foldableProp = false,
             folded: foldedProp,
             defaultFolded = true,
+            rounded = true,
+            limitContentWidth = true,
             leftAddons,
+            subAddons,
             children,
             buttons,
             title,
+            titleView = 'bold',
             view = 'common',
+            border = view !== 'custom',
+            shadow = view === 'custom',
             className,
             buttonsClassName,
             contentClassName,
+            subAddonsClassName,
             dataTestId,
             onClick,
             onClose,
@@ -124,6 +168,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
         const contentRef = useRef<HTMLDivElement>(null);
+        const subAddonsRef = useRef<HTMLDivElement>(null);
 
         const [focused] = useFocus(plateRef, 'keyboard');
 
@@ -137,22 +182,28 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const hasButtons = !!buttons && typeof buttons !== 'boolean';
         const hasContent = children || hasButtons;
-
-        const buttonsIsArray = Array.isArray(buttons) && buttons.length > 0;
+        const hasSubAddons = !!subAddons && typeof subAddons !== 'boolean';
+        const hasAnyAddons = leftAddons || subAddons || foldable || hasCloser;
 
         const handleClick = useCallback(
-            event => {
-                const eventInsideComponent =
-                    plateRef.current && plateRef.current.contains(event.target);
+            (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
+                const target = event.target as HTMLDivElement;
+                const eventInsideComponent = plateRef.current && plateRef.current.contains(target);
 
                 const eventInsideContent =
-                    contentRef.current && contentRef.current.contains(event.target);
+                    contentRef.current && contentRef.current.contains(target);
 
-                const clickSimilarKeys = ['Enter', ' '].includes(event.key);
+                const eventInsideSubAddons =
+                    subAddonsRef.current && subAddonsRef.current.contains(target);
+
+                const clickSimilarKeys = ['Enter', ' '].includes(
+                    (event as React.KeyboardEvent<HTMLDivElement>).key,
+                );
 
                 const shouldChangeIsFolded =
                     eventInsideComponent &&
                     !eventInsideContent &&
+                    !eventInsideSubAddons &&
                     (event.type === 'click' || clickSimilarKeys);
 
                 if (foldable && shouldChangeIsFolded) {
@@ -166,14 +217,14 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 }
 
                 if (onClick) {
-                    onClick(event);
+                    onClick(event as React.MouseEvent<HTMLDivElement>);
                 }
             },
             [foldable, onClick, uncontrolled, onToggle, foldedState, foldedProp],
         );
 
         const handleClose = useCallback(
-            event => {
+            (event: React.MouseEvent<HTMLButtonElement>) => {
                 setIsHidden(true);
 
                 if (onClose) {
@@ -183,94 +234,110 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             [onClose],
         );
 
-        const renderButtons = () => {
-            if (buttonsIsArray) {
-                return (
-                    <div className={cn(styles.buttons, buttonsClassName)}>
-                        {(buttons as Array<ReactElement<ButtonProps>>).map((button, index) =>
-                            button
-                                ? React.cloneElement(button, {
-                                      // eslint-disable-next-line react/no-array-index-key
-                                      key: index,
-                                      size: 'xs',
-                                      view: index === 0 ? 'outlined' : 'link',
-                                      className: cn(button.props.className, styles.button),
-                                  })
-                                : null,
-                        )}
-                    </div>
-                );
-            }
-
-            return <div className={cn(styles.buttons, buttonsClassName)}>{buttons}</div>;
-        };
-
         return (
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
-                className={cn(
-                    styles.component,
-                    styles[view],
-                    {
-                        [styles.foldable]: foldable,
-                        [styles.focused]: focused,
-                        [styles.isHidden]: hasCloser && isHidden,
-                        [styles.isFolded]: foldable && folded,
-                    },
-                    className,
-                )}
-                onClick={handleClick}
-                onKeyDown={handleClick}
-                role='alert'
-                ref={mergeRefs([plateRef, ref])}
-                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
-                tabIndex={foldable ? 0 : -1}
-                data-test-id={dataTestId}
+                className={cn({
+                    [styles.shadow]: shadow,
+                    [styles.rounded]: rounded,
+                })}
             >
-                <div className={styles.inner}>
-                    {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
-                    <div
-                        className={cn(styles.contentContainer, contentClassName, {
-                            [styles.withoutTitle]: !title,
-                        })}
-                    >
-                        {title && <div className={styles.title}>{title}</div>}
-                        {hasContent && (
-                            <div
-                                ref={contentRef}
-                                className={cn(styles.content, {
-                                    [styles.isFolded]: foldable && folded,
-                                })}
-                            >
-                                <div className={styles.contentInner}>
-                                    {children}
-                                    {hasButtons ? renderButtons() : null}
+                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                <div
+                    className={cn(
+                        styles.component,
+                        styles[view],
+                        {
+                            [styles.foldable]: foldable,
+                            [styles.focused]: focused,
+                            [styles.isHidden]: hasCloser && isHidden,
+                            [styles.isFolded]: foldable && folded,
+                            [styles.rounded]: rounded,
+                            [styles.rect]: !rounded,
+                            [styles.noBorder]: !border,
+                        },
+                        className,
+                    )}
+                    onClick={handleClick}
+                    onKeyDown={handleClick}
+                    role='alert'
+                    ref={mergeRefs([plateRef, ref])}
+                    /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                    tabIndex={foldable ? 0 : -1}
+                    data-test-id={dataTestId}
+                >
+                    <div className={styles.inner}>
+                        {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
+                        <div
+                            className={cn(styles.contentContainer, contentClassName, {
+                                [styles.withoutTitle]: !title && hasAnyAddons,
+                                [styles.limitWidth]: limitContentWidth,
+                            })}
+                        >
+                            {title && <div className={styles[titleView]}>{title}</div>}
+                            {hasContent && (
+                                <div
+                                    ref={contentRef}
+                                    className={cn(styles.content, {
+                                        [styles.isFolded]: foldable && folded,
+                                    })}
+                                >
+                                    {children && (
+                                        <div className={styles.description}>{children}</div>
+                                    )}
+
+                                    {hasButtons && (
+                                        <div className={styles.footer}>
+                                            <ButtonList
+                                                buttons={buttons}
+                                                containerClassName={buttonsClassName}
+                                                buttonClassName={cn(
+                                                    styles.button,
+                                                    buttonsClassName,
+                                                )}
+                                            />
+                                        </div>
+                                    )}
                                 </div>
+                            )}
+                        </div>
+
+                        {hasSubAddons && (
+                            <div ref={subAddonsRef} className={styles.subAddons}>
+                                <ButtonList
+                                    buttons={subAddons}
+                                    containerClassName={subAddonsClassName}
+                                    buttonClassName={styles.button}
+                                />
+                            </div>
+                        )}
+
+                        {foldable && (
+                            <div className={styles.rightAddons}>
+                                <div
+                                    className={cn(styles.folder, {
+                                        [styles.isFolded]: folded,
+                                    })}
+                                />
+                            </div>
+                        )}
+
+                        {hasCloser && !foldable && (
+                            <div className={styles.rightAddons}>
+                                <Button
+                                    className={styles.closer}
+                                    aria-label='закрыть'
+                                    view='ghost'
+                                    onClick={handleClose}
+                                />
                             </div>
                         )}
                     </div>
-
-                    {foldable && (
-                        <div
-                            className={cn(styles.folder, {
-                                [styles.isFolded]: folded,
-                            })}
-                        />
-                    )}
-
-                    {hasCloser && !foldable && (
-                        <Button
-                            className={styles.closer}
-                            aria-label='закрыть'
-                            view='ghost'
-                            onClick={handleClose}
-                        />
-                    )}
                 </div>
             </div>
         );
     },
 );
+/* eslint-enable complexity */
 
 /**
  * Для отображения в сторибуке

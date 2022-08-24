@@ -34,7 +34,7 @@ describe('Plate', () => {
         expect(getByTestId(dataTestId).tagName).toBe('DIV');
     });
 
-    it('should render buttons size=xs, first view=outlined, others view=link', () => {
+    it('should render buttons size=xxs, first view=secondary, others view=link', () => {
         const { queryByTestId } = render(
             <Plate
                 buttons={[
@@ -49,11 +49,11 @@ describe('Plate', () => {
         expect(queryByTestId('button-2')).toBeInTheDocument();
         expect(queryByTestId('button-3')).toBeInTheDocument();
 
-        expect(queryByTestId('button-1')).toHaveClass('xs');
-        expect(queryByTestId('button-2')).toHaveClass('xs');
-        expect(queryByTestId('button-3')).toHaveClass('xs');
+        expect(queryByTestId('button-1')).toHaveClass('xxs');
+        expect(queryByTestId('button-2')).toHaveClass('xxs');
+        expect(queryByTestId('button-3')).toHaveClass('xxs');
 
-        expect(queryByTestId('button-1')).toHaveClass('outlined');
+        expect(queryByTestId('button-1')).toHaveClass('secondary');
         expect(queryByTestId('button-2')).toHaveClass('link');
         expect(queryByTestId('button-3')).toHaveClass('link');
     });
@@ -61,16 +61,18 @@ describe('Plate', () => {
     describe('Classes tests', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
-            const { container } = render(<Plate className={className} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Plate className={className} dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass(className);
+            expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
         it('should set `positive` class if `view` prop is `positive`', () => {
             const view = 'positive';
-            const { container } = render(<Plate view={view} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Plate view={view} dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass(view);
+            expect(getByTestId(dataTestId)).toHaveClass(view);
         });
     });
 
