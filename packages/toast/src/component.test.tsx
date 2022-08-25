@@ -1,22 +1,14 @@
-import React, { forwardRef, ForwardRefRenderFunction, ReactElement } from 'react';
-import { fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
+import React, { forwardRef, ForwardRefRenderFunction } from 'react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as popoverModule from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { Toast, ToastProps } from './index';
 
+import { asyncRender } from '../../utils/test-utils';
+
 type PopoverComponent = {
     render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
-};
-
-const asyncRender = async (ui: ReactElement): Promise<RenderResult> => {
-    let result;
-
-    await act(async () => {
-        result = await render(ui);
-    });
-
-    return result;
 };
 
 describe('Toast', () => {
