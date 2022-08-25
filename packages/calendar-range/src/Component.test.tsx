@@ -70,7 +70,7 @@ describe('CalendarRange', () => {
         expect(container).toHaveTextContent('Июнь');
     });
 
-    it('should navigate months by arrows', () => {
+    it('should navigate months by arrows', async () => {
         const defaultMonth = setMonth(startOfMonth(new Date()), 4).getTime();
 
         const { container, queryAllByLabelText } = render(
@@ -84,22 +84,22 @@ describe('CalendarRange', () => {
             'Следующий период',
         ) as HTMLButtonElement[];
 
-        leftPrevMonthButton.click();
+        fireEvent.click(leftPrevMonthButton);
 
         expect(container).toHaveTextContent('Апрель');
         expect(container).toHaveTextContent('Июнь');
 
-        rightPrevMonthButton.click();
+        fireEvent.click(rightPrevMonthButton);
 
         expect(container).toHaveTextContent('Апрель');
         expect(container).toHaveTextContent('Май');
 
-        leftNextMonthButton.click();
+        fireEvent.click(leftNextMonthButton);
 
         expect(container).toHaveTextContent('Май');
         expect(container).toHaveTextContent('Июнь');
 
-        rightNextMonthButton.click();
+        fireEvent.click(rightNextMonthButton);
 
         expect(container).toHaveTextContent('Май');
         expect(container).toHaveTextContent('Июль');
@@ -251,9 +251,7 @@ describe('CalendarRange', () => {
 
             const days = document.querySelectorAll('*[data-date]');
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
             expect(inputTo.value).not.toBe('');
             expect(inputFrom.value).toBe('');
@@ -267,9 +265,7 @@ describe('CalendarRange', () => {
             const days = container.querySelectorAll('*[data-date] button');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
             expect(days[0]).toHaveClass('selected');
             expect(inputFrom).toHaveValue(formatDate(currentMonth));
@@ -287,13 +283,9 @@ describe('CalendarRange', () => {
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
             expect(days[0]).toHaveClass('selected');
             expect(inputFrom).toHaveValue(formatDate(currentMonth));
@@ -311,17 +303,11 @@ describe('CalendarRange', () => {
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
             expect(days[0]).toHaveClass('selected');
             expect(inputFrom).toHaveValue(formatDate(currentMonth));
@@ -339,13 +325,9 @@ describe('CalendarRange', () => {
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
-            act(() => {
-                (days[2] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[2] as HTMLButtonElement);
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
             expect(days[0]).toHaveClass('selected');
             expect(days[2]).toHaveClass('selected');
@@ -365,13 +347,9 @@ describe('CalendarRange', () => {
             const days = container.querySelectorAll('*[data-date] button');
             const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
-            act(() => {
-                (days[0] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[0] as HTMLButtonElement);
 
-            act(() => {
-                (days[days.length - 1] as HTMLButtonElement).click();
-            });
+            fireEvent.click(days[days.length - 1] as HTMLButtonElement);
 
             expect(days[days.length - 1]).toHaveClass('selected');
             expect(inputTo).toHaveValue(formatDate(endOfMonth(nextMonth)));
@@ -387,18 +365,19 @@ describe('CalendarRange', () => {
             const firstDay = container.querySelector('*[data-date]') as HTMLButtonElement;
             const nextMonthButton = queryAllByLabelText('Следующий период')[0] as HTMLButtonElement;
 
-            act(() => {
-                firstDay.click();
-            });
+            fireEvent.click(firstDay);
 
-            nextMonthButton.click();
-            await new Promise(res => setTimeout(res, 1000));
+            fireEvent.click(nextMonthButton);
+
+            await act(async () => {
+                await new Promise(res => setTimeout(res, 1000));
+            });
 
             const days = container.querySelectorAll('*[data-date]');
             const lastDay = days[days.length - 1] as HTMLButtonElement;
             const lastDayDate = new Date(+(lastDay.dataset.date as string));
 
-            lastDay.click();
+            fireEvent.click(lastDay);
 
             expect(lastDayDate.getTime()).toBe(
                 startOfDay(endOfMonth(addMonths(currentMonth, 2))).getTime(),
@@ -416,12 +395,10 @@ describe('CalendarRange', () => {
             const { container } = render(<CalendarRange onDateFromChange={cb} />);
 
             const calendars = container.querySelectorAll('table');
-            (calendars[0].querySelector('*[data-date]') as HTMLButtonElement).click();
-            (calendars[1].querySelector('*[data-date]') as HTMLButtonElement).click();
+            fireEvent.click(calendars[0].querySelector('*[data-date]') as HTMLButtonElement);
+            fireEvent.click(calendars[1].querySelector('*[data-date]') as HTMLButtonElement);
 
-            await waitFor(() => {
-                expect(cb).toBeCalledTimes(1);
-            });
+            expect(cb).toBeCalledTimes(1);
 
             const { date } = cb.mock.calls[0][0];
 
@@ -434,12 +411,10 @@ describe('CalendarRange', () => {
 
             const calendars = container.querySelectorAll('table');
 
-            (calendars[0].querySelector('*[data-date]') as HTMLButtonElement).click();
-            (calendars[1].querySelector('*[data-date]') as HTMLButtonElement).click();
+            fireEvent.click(calendars[0].querySelector('*[data-date]') as HTMLButtonElement);
+            fireEvent.click(calendars[1].querySelector('*[data-date]') as HTMLButtonElement);
 
-            await waitFor(() => {
-                expect(cb).toBeCalledTimes(1);
-            });
+            expect(cb).toBeCalledTimes(1);
 
             const { date } = cb.mock.calls[0][0];
 

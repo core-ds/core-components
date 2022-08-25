@@ -22,7 +22,7 @@ describe('Calendar', () => {
     const defaultMonth = monthName(defaultDate).toString();
     const defaultYear = defaultDate.getFullYear().toString();
 
-    const waitForMonthChange = async () => new Promise(res => setTimeout(res, 1000));
+    const waitForMonthChange = async () => act(() => new Promise(res => setTimeout(res, 1000)));
 
     describe('Display tests', () => {
         it('should match snapshot', () => {
@@ -130,7 +130,7 @@ describe('Calendar', () => {
     });
 
     describe('when minDate is set', () => {
-        it('should disable all days before minDate', () => {
+        it('should disable all days before minDate', async () => {
             const prevMonthMinDate = subDays(defaultDate, 30).getTime();
 
             const { container, getByLabelText } = render(
@@ -143,7 +143,7 @@ describe('Calendar', () => {
 
             expect(container.querySelectorAll('table button:disabled')).toHaveLength(0);
 
-            getByLabelText('Предыдущий период').click();
+            fireEvent.click(getByLabelText('Предыдущий период'));
 
             const nonDisabledDays = container.querySelectorAll('table button:not(:disabled)');
 
@@ -151,7 +151,7 @@ describe('Calendar', () => {
             expect(nonDisabledDays[0]).toHaveTextContent('31');
         });
 
-        it('should hide prev arrow if min date in active month', () => {
+        it('should hide prev arrow if min date in active month', async () => {
             const currentMonthMinDate = subDays(defaultDate, 10).getTime();
             const prevMonthMinDate = subDays(defaultDate, 30).getTime();
 
@@ -177,19 +177,19 @@ describe('Calendar', () => {
 
             expect(prevMonthButton()).toBeInTheDocument();
 
-            prevMonthButton().click();
+            fireEvent.click(prevMonthButton());
 
             expect(prevMonthButton()).not.toBeInTheDocument();
         });
 
-        it('should disable previous months', () => {
+        it('should disable previous months', async () => {
             const prevMonthMinDate = subDays(defaultDate, 40).getTime();
 
             const { getByText, container } = render(
                 <Calendar value={defaultValue} minDate={prevMonthMinDate} />,
             );
 
-            getByText('Ноябрь').click();
+            fireEvent.click(getByText('Ноябрь'));
 
             const months = container.querySelectorAll('button[data-date]');
 
@@ -202,14 +202,14 @@ describe('Calendar', () => {
             });
         });
 
-        it('should not show previous years', () => {
+        it('should not show previous years', async () => {
             const prevYearMinDate = subDays(defaultDate, 365).getTime();
 
             const { getByText, container } = render(
                 <Calendar value={defaultValue} minDate={prevYearMinDate} />,
             );
 
-            getByText('2020').click();
+            fireEvent.click(getByText('2020'));
 
             const years = container.querySelectorAll('button[data-date]');
 
@@ -226,7 +226,7 @@ describe('Calendar', () => {
 
             expect(container.querySelectorAll('table button:disabled')).toHaveLength(0);
 
-            getByLabelText('Следующий период').click();
+            fireEvent.click(getByLabelText('Следующий период'));
 
             await waitForMonthChange();
 
@@ -237,7 +237,7 @@ describe('Calendar', () => {
             expect(lastNonDisabledDay).toHaveTextContent('10');
         });
 
-        it('should hide next arrow if max date in active month', () => {
+        it('should hide next arrow if max date in active month', async () => {
             const maxDate = addDays(defaultDate, 10).getTime();
 
             const { queryByLabelText } = render(
@@ -248,7 +248,7 @@ describe('Calendar', () => {
 
             expect(nextMonthButton()).toBeInTheDocument();
 
-            nextMonthButton().click();
+            fireEvent.click(nextMonthButton());
 
             expect(nextMonthButton()).not.toBeInTheDocument();
         });
@@ -264,17 +264,17 @@ describe('Calendar', () => {
                 />,
             );
 
-            getByText('Ноябрь').click();
+            fireEvent.click(getByText('Ноябрь'));
 
             expect(container.querySelectorAll('button[data-date]:disabled')).toHaveLength(0);
 
-            getByText(defaultDate.getFullYear().toString()).click();
+            fireEvent.click(getByText(defaultDate.getFullYear().toString()));
 
-            getByText(nextYearDate.getFullYear().toString()).click();
+            fireEvent.click(getByText(nextYearDate.getFullYear().toString()));
 
             await waitForMonthChange();
 
-            getByText('Январь').click();
+            fireEvent.click(getByText('Январь'));
 
             expect(container.querySelectorAll('button[data-date]:not(:disabled)')).toHaveLength(1);
         });
@@ -471,7 +471,7 @@ describe('Calendar', () => {
             expect(days[days.length - 1]).toHaveClass('transitRight');
         });
 
-        it('should set transitLeft class to first day of selectedTo month', () => {
+        it('should set transitLeft class to first day of selectedTo month', async () => {
             const selectedFrom = setDate(defaultValue, 20);
             const selectedTo = addDays(defaultValue, 10);
 
@@ -484,7 +484,7 @@ describe('Calendar', () => {
                 />,
             );
 
-            getByLabelText('Следующий период').click();
+            fireEvent.click(getByLabelText('Следующий период'));
 
             const days = container.querySelectorAll('td[data-date]');
 
@@ -527,12 +527,12 @@ describe('Calendar', () => {
             const cb = jest.fn();
             const { getByText } = render(<Calendar onChange={cb} />);
 
-            getByText('10').click();
+            fireEvent.click(getByText('10'));
 
             expect(cb).toBeCalledTimes(1);
         });
 
-        it('should call onMonthChange callback in full view', () => {
+        it('should call onMonthChange callback in full view', async () => {
             const cb = jest.fn();
             const { getByText } = render(
                 <Calendar
@@ -543,16 +543,14 @@ describe('Calendar', () => {
             );
 
             // открытие
-            getByText('Ноябрь').click();
-            act(() => {
-                // изменение
-                getByText('Октябрь').click();
-            });
+            fireEvent.click(getByText('Ноябрь'));
 
-            getByText('2020').click();
-            act(() => {
-                getByText('2019').click();
-            });
+            // изменение
+            fireEvent.click(getByText('Октябрь'));
+
+            fireEvent.click(getByText('2020'));
+
+            fireEvent.click(getByText('2019'));
 
             expect(cb).toBeCalledTimes(2);
         });
@@ -567,8 +565,8 @@ describe('Calendar', () => {
                 />,
             );
 
-            getByLabelText('Следующий период').click();
-            getByLabelText('Предыдущий период').click();
+            fireEvent.click(getByLabelText('Следующий период'));
+            fireEvent.click(getByLabelText('Предыдущий период'));
 
             expect(cb).toBeCalledTimes(2);
         });
@@ -583,7 +581,7 @@ describe('Calendar', () => {
                 />,
             );
 
-            getByText('Ноябрь').click();
+            fireEvent.click(getByText('Ноябрь'));
             expect(cb).toBeCalledTimes(1);
         });
 
@@ -597,7 +595,7 @@ describe('Calendar', () => {
                 />,
             );
 
-            getByText('2020').click();
+            fireEvent.click(getByText('2020'));
             expect(cb).toBeCalledTimes(1);
         });
     });
@@ -624,10 +622,10 @@ describe('Calendar', () => {
         const getActiveElement = () => document.activeElement as Element;
 
         describe('when tab pressed', () => {
-            it('should focus first focusable button', () => {
+            it('should focus first focusable button', async () => {
                 const { container } = render(<Calendar />);
 
-                act(userEvent.tab);
+                await act(userEvent.tab);
 
                 const activeElement = getActiveElement();
 
@@ -640,7 +638,7 @@ describe('Calendar', () => {
         describe('DaysTable', () => {
             it.each(Object.keys(keyCodes))(
                 '%s should focus first non-disabled day of month if there is not focused day',
-                key => {
+                async key => {
                     const { container } = render(
                         <Calendar
                             defaultMonth={defaultDate.getTime()}
@@ -648,7 +646,7 @@ describe('Calendar', () => {
                         />,
                     );
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     const dayTable = container.querySelector('table') as Element;
 
@@ -664,10 +662,10 @@ describe('Calendar', () => {
 
             it.each(Object.keys(keyCodes))(
                 '%s should focus selected day if there is not focused day',
-                key => {
+                async key => {
                     render(<Calendar value={defaultDate.getTime()} />);
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), key);
 
@@ -676,13 +674,14 @@ describe('Calendar', () => {
             );
 
             describe('ArrowLeft', () => {
-                it('should move focus to prev day', () => {
+                it('should move focus to prev day', async () => {
                     const prevDayOfMonth = (+defaultDateOfMonth - 1).toString();
 
                     render(<Calendar value={defaultValue} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowLeft');
                         keyDown(getActiveElement(), 'ArrowLeft');
                     });
@@ -696,8 +695,9 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={firstDateOfMonth.getTime()} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowLeft');
                         keyDown(getActiveElement(), 'ArrowLeft');
                     });
@@ -734,8 +734,9 @@ describe('Calendar', () => {
                         />,
                     );
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowLeft');
                         keyDown(getActiveElement(), 'ArrowLeft');
                     });
@@ -752,8 +753,9 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         keyDown(getActiveElement(), 'ArrowRight');
                     });
@@ -771,8 +773,8 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={lastDateOfMonth.getTime()} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         keyDown(getActiveElement(), 'ArrowRight');
                     });
@@ -809,8 +811,8 @@ describe('Calendar', () => {
                         />,
                     );
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         keyDown(getActiveElement(), 'ArrowRight');
                     });
@@ -822,15 +824,15 @@ describe('Calendar', () => {
             });
 
             describe('ArrowUp', () => {
-                it('should move focus to prev week', () => {
+                it('should move focus to prev week', async () => {
                     const prevWeekDate = subDays(defaultValue, 7)
                         .getDate()
                         .toString();
 
                     render(<Calendar value={defaultValue} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         keyDown(getActiveElement(), 'ArrowUp');
                     });
@@ -844,8 +846,8 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={firstDateOfMonth.getTime()} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         keyDown(getActiveElement(), 'ArrowUp');
                     });
@@ -863,13 +865,13 @@ describe('Calendar', () => {
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
 
-                it('should jump over disabled days', () => {
+                it('should jump over disabled days', async () => {
                     const targetDate = subDays(defaultValue, 8);
 
                     render(<Calendar value={defaultValue} offDays={[subDays(defaultValue, 7)]} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         keyDown(getActiveElement(), 'ArrowUp');
                     });
@@ -886,8 +888,8 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         keyDown(getActiveElement(), 'ArrowDown');
                     });
@@ -903,8 +905,8 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={lastDateOfMonth.getTime()} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         keyDown(getActiveElement(), 'ArrowDown');
                     });
@@ -927,8 +929,8 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[addDays(defaultValue, 7)]} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         keyDown(getActiveElement(), 'ArrowDown');
                     });
@@ -945,8 +947,8 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={defaultValue} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'End');
                         keyDown(getActiveElement(), 'End');
                     });
@@ -963,8 +965,8 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[addDays(defaultValue, 6)]} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'End');
                         keyDown(getActiveElement(), 'End');
                     });
@@ -982,8 +984,8 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={value.getTime()} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'Home');
                         keyDown(getActiveElement(), 'Home');
                     });
@@ -1001,8 +1003,8 @@ describe('Calendar', () => {
 
                     render(<Calendar value={value.getTime()} offDays={[subDays(value, 7)]} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'Home');
                         keyDown(getActiveElement(), 'Home');
                     });
@@ -1019,8 +1021,8 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={defaultValue} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'PageUp');
                         keyDown(getActiveElement(), 'PageUp');
                     });
@@ -1038,8 +1040,8 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[prevMonthDate]} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'PageUp');
                         keyDown(getActiveElement(), 'PageUp');
                     });
@@ -1056,8 +1058,8 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={defaultValue} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'PageDown');
                         keyDown(getActiveElement(), 'PageDown');
                     });
@@ -1075,8 +1077,8 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[prevMonthDate]} />);
 
-                    act(() => {
-                        userEvent.tab();
+                    await userEvent.tab();
+                    await act(() => {
                         keyDown(getActiveElement(), 'PageDown');
                         keyDown(getActiveElement(), 'PageDown');
                     });
@@ -1091,14 +1093,14 @@ describe('Calendar', () => {
         describe('MonthsTable', () => {
             it.each(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'])(
                 '%s should focus selected or current month if there is not focused month',
-                key => {
+                async key => {
                     const { getByText, container } = render(
                         <Calendar defaultMonth={defaultDate.getTime()} />,
                     );
 
-                    getByText(defaultMonth).click();
+                    fireEvent.click(getByText(defaultMonth));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     const monthsTable = container.querySelector('.monthsTable') as Element;
 
@@ -1113,12 +1115,12 @@ describe('Calendar', () => {
             );
 
             describe('ArrowLeft', () => {
-                it('should focus prev month', () => {
+                it('should focus prev month', async () => {
                     const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
 
-                    getByText(defaultMonth).click();
+                    fireEvent.click(getByText(defaultMonth));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowLeft');
 
@@ -1130,12 +1132,12 @@ describe('Calendar', () => {
             });
 
             describe('ArrowRight', () => {
-                it('should focus next month', () => {
+                it('should focus next month', async () => {
                     const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
 
-                    getByText(defaultMonth).click();
+                    fireEvent.click(getByText(defaultMonth));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowRight');
 
@@ -1147,12 +1149,12 @@ describe('Calendar', () => {
             });
 
             describe('ArrowUp', () => {
-                it('should focus n - 3 month', () => {
+                it('should focus n - 3 month', async () => {
                     const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
 
-                    getByText(defaultMonth).click();
+                    fireEvent.click(getByText(defaultMonth));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowUp');
 
@@ -1164,14 +1166,14 @@ describe('Calendar', () => {
             });
 
             describe('ArrowDown', () => {
-                it('should focus n + 3 month', () => {
+                it('should focus n + 3 month', async () => {
                     const { getByText } = render(
                         <Calendar defaultMonth={setMonth(defaultDate, 0).getTime()} />,
                     );
 
-                    getByText('Январь').click();
+                    fireEvent.click(getByText('Январь'));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowDown');
 
@@ -1186,14 +1188,14 @@ describe('Calendar', () => {
         describe('YearsTable', () => {
             it.each(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'])(
                 '%s should focus selected or current year if there is not focused year',
-                key => {
+                async key => {
                     const { getByText, container } = render(
                         <Calendar defaultMonth={defaultDate.getTime()} />,
                     );
 
-                    getByText(defaultYear).click();
+                    fireEvent.click(getByText(defaultYear));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     const yearsTable = container.querySelector('.yearsTable') as Element;
 
@@ -1208,12 +1210,12 @@ describe('Calendar', () => {
             );
 
             describe('ArrowRight', () => {
-                it('should focus prev year', () => {
+                it('should focus prev year', async () => {
                     const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
 
-                    getByText(defaultYear).click();
+                    fireEvent.click(getByText(defaultYear));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowRight');
 
@@ -1225,12 +1227,12 @@ describe('Calendar', () => {
             });
 
             describe('ArrowLeft', () => {
-                it('should focus next year', () => {
+                it('should focus next year', async () => {
                     const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
 
-                    getByText(defaultYear).click();
+                    fireEvent.click(getByText(defaultYear));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowRight');
                     keyDown(getActiveElement(), 'ArrowRight');
@@ -1244,12 +1246,12 @@ describe('Calendar', () => {
             });
 
             describe('ArrowUp', () => {
-                it('should focus n + 3 year', () => {
+                it('should focus n + 3 year', async () => {
                     const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
 
-                    getByText(defaultYear).click();
+                    fireEvent.click(getByText(defaultYear));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowUp');
                     keyDown(getActiveElement(), 'ArrowDown');
@@ -1263,12 +1265,12 @@ describe('Calendar', () => {
             });
 
             describe('ArrowDown', () => {
-                it('should focus n - 3 month', () => {
+                it('should focus n - 3 month', async () => {
                     const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
 
-                    getByText(defaultYear).click();
+                    fireEvent.click(getByText(defaultYear));
 
-                    act(userEvent.tab);
+                    await act(userEvent.tab);
 
                     keyDown(getActiveElement(), 'ArrowDown');
 
