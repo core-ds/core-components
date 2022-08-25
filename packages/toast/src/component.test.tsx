@@ -1,11 +1,22 @@
-import React, { forwardRef, ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import React, { forwardRef, ForwardRefRenderFunction, ReactElement } from 'react';
+import { fireEvent, render, RenderResult, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as popoverModule from '@alfalab/core-components-popover';
+import { act } from 'react-dom/test-utils';
 import { Toast, ToastProps } from './index';
 
 type PopoverComponent = {
     render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
+};
+
+const asyncRender = async (ui: ReactElement): Promise<RenderResult> => {
+    let result;
+
+    await act(async () => {
+        result = await render(ui);
+    });
+
+    return result;
 };
 
 describe('Toast', () => {
@@ -44,11 +55,11 @@ describe('Toast', () => {
             expect(baseElement).toMatchSnapshot();
         });
 
-        it('should math snapshot when prop `anchorElement` is passed', () => {
+        it('should math snapshot when prop `anchorElement` is passed', async () => {
             const anchorElement = document.createElement('div');
             document.body.appendChild(anchorElement);
 
-            const { baseElement } = render(
+            const { baseElement } = await asyncRender(
                 <Toast {...baseProps} anchorElement={anchorElement}>
                     text
                 </Toast>,
@@ -57,13 +68,13 @@ describe('Toast', () => {
             expect(baseElement).toMatchSnapshot();
         });
 
-        it('should math snapshot when prop `anchorElement` and `useAnchorWidth` is passed', () => {
+        it('should math snapshot when prop `anchorElement` and `useAnchorWidth` is passed', async () => {
             const anchorElement = document.createElement('div');
             anchorElement.style.width = '100px';
 
             document.body.appendChild(anchorElement);
 
-            const { baseElement } = render(
+            const { baseElement } = await asyncRender(
                 <Toast {...baseProps} anchorElement={anchorElement} useAnchorWidth={true}>
                     text
                 </Toast>,
@@ -83,7 +94,7 @@ describe('Toast', () => {
         expect(getPortalContainer().firstElementChild).toHaveClass(className);
     });
 
-    it('should pass props to Popover', () => {
+    it('should pass props to Popover', async () => {
         const PopoverComponent = popoverModule.Popover as PopoverComponent;
 
         const popoverComponentSpy = jest.spyOn(PopoverComponent, 'render');
@@ -104,7 +115,9 @@ describe('Toast', () => {
              */
         };
 
-        render(<Toast {...baseProps} anchorElement={anchorElement} {...popoverProps} />);
+        await act(async () => {
+            await render(<Toast {...baseProps} anchorElement={anchorElement} {...popoverProps} />);
+        });
 
         const popoverLastCall =
             popoverComponentSpy.mock.calls[popoverComponentSpy.mock.calls.length - 1];
@@ -129,14 +142,14 @@ describe('Toast', () => {
     });
 
     describe('Callback tests', () => {
-        it('should call onClose when click outside', () => {
+        it('should call onClose when click outside', async () => {
             const onClose = jest.fn();
             render(<Toast onClose={onClose} open={true} getPortalContainer={getPortalContainer} />);
 
-            userEvent.click(getPortalContainer().firstElementChild as HTMLElement);
+            fireEvent.click(getPortalContainer().firstElementChild as HTMLElement);
             expect(onClose).not.toBeCalled();
 
-            userEvent.click(document.body);
+            await userEvent.setup({ delay: null }).click(document.body);
             expect(onClose).toBeCalled();
         });
 
@@ -151,7 +164,7 @@ describe('Toast', () => {
             expect(onClose).toBeCalled();
         });
 
-        it('should not call onClose if mouse is over ToastPlate', () => {
+        it('should not call onClose if mouse is over ToastPlate', async () => {
             const onClose = jest.fn();
             render(
                 <Toast
@@ -165,7 +178,7 @@ describe('Toast', () => {
             const toastPlate = getPortalContainer().firstElementChild as HTMLElement;
 
             jest.advanceTimersByTime(2500);
-            userEvent.hover(toastPlate);
+            await userEvent.setup({ delay: null }).hover(toastPlate);
             jest.advanceTimersByTime(5000);
 
             expect(onClose).not.toBeCalled();
@@ -216,8 +229,8 @@ describe('Toast', () => {
             const dataTestId = 'testId';
             const onClose = jest.fn();
 
-            const CustomToastPlate: ToastProps['ToastPlate'] = forwardRef((props, ref) => (
-                <div {...props} ref={ref} data-test-id={dataTestId} />
+            const CustomToastPlate: ToastProps['ToastPlate'] = forwardRef((_, ref: any) => (
+                <div ref={ref} data-test-id={dataTestId} />
             ));
 
             const { getByTestId } = render(
