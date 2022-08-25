@@ -1,20 +1,18 @@
 {
     "name": "@alfalab/core-components-keyboard-focusable",
-    "version": "3.2.1",
+    "version": "4.0.1",
     "description": "Component and hook for keyboard only focus",
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "module": "./dist/esm/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
+    "module": "./esm/index.js",
     "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./dist/send-stats.js')){require('./dist/send-stats.js')} \""
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"

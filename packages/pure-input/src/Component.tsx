@@ -5,7 +5,10 @@ import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
-export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> & {
+export type PureInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'size' | 'type' | 'enterKeyHint'
+> & {
     /**
      * Растягивает компонент на ширину контейнера
      */

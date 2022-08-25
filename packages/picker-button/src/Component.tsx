@@ -100,7 +100,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
                 className={cn(styles.container, className)}
-                popperClassName={cn(styles.optionsPopover, popperClassName, {
+                popperClassName={cn('cc-picker-button', styles.optionsPopover, popperClassName, {
                     [styles.sideGap]: isSideGap,
                 })}
                 optionsListClassName={cn(styles.optionsListContainer, optionsListClassName)}

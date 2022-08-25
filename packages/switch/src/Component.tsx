@@ -16,7 +16,7 @@ type Align = 'start' | 'center';
 
 export type SwitchProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'hint' | 'onChange' | 'disabled'
+    'type' | 'hint' | 'onChange' | 'disabled' | 'enterKeyHint'
 > & {
     /**
      * Управление состоянием вкл/выкл компонента

@@ -1,25 +1,23 @@
 {
     "name": "@alfalab/core-components-textarea",
-    "version": "6.3.1",
+    "version": "7.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
-    "main": "dist/index.js",
-    "module": "./dist/esm/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "index.js",
+    "module": "./esm/index.js",
     "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./dist/send-stats.js')){require('./dist/send-stats.js')} \""
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^7.6.1",
+        "@alfalab/core-components-form-control": "^8.0.1",
         "@alfalab/hooks": "^1.4.1",
         "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",

@@ -10,7 +10,7 @@ type Align = 'start' | 'center';
 
 export type RadioProps = Omit<
     NativeProps,
-    'size' | 'type' | 'onChange' | 'checked' | 'disabled' | 'name' | 'className'
+    'size' | 'type' | 'onChange' | 'checked' | 'disabled' | 'name' | 'className' | 'enterKeyHint'
 > & {
     /**
      * Идентификатор для систем автоматизированного тестирования
