@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.1...@alfalab/core-components-code-input@2.0.2) (2022-08-26)
+
+
+### Bug Fixes
+
+* **code-input:** fixed "cannot read properties of undefined (reading get)" error ([#226](https://github.com/core-ds/core-components/issues/226)) ([8383613](https://github.com/core-ds/core-components/commit/838361388979acc184fb213f96c9e4ab43333fbc))
+
+
+
+
+
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.0...@alfalab/core-components-code-input@2.0.1) (2022-08-19)
 
 
