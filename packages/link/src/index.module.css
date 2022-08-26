@@ -32,6 +32,10 @@
     border-bottom-style: dashed;
 }
 
+.withoutUnderline .text {
+    border-bottom: none;
+}
+
 .addons {
     display: flex;
     align-items: center;
@@ -43,7 +47,7 @@
 }
 
 .addons:last-child {
-    margin-left: var(--gap-xs);
+    margin-left: var(--gap-2xs);
 }
 
 .addons:only-child {

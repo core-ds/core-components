@@ -1,3 +1,16 @@
+# [30.1.0](https://github.com/core-ds/core-components/compare/v30.0.1...v30.1.0) (2022-08-25)
+
+
+### Bug Fixes
+
+* **link:** fix addons size for underline mode in description ([15c796b](https://github.com/core-ds/core-components/commit/15c796b1f5a99122ba7e3ba638490517eb985c6e))
+
+
+### Features
+
+* **link:** implemented new view & updated styles ([3873619](https://github.com/core-ds/core-components/commit/38736190773e2aa199ca544ee976efb1ba5a88d3))
+* **link:** updated styles ([b5296f2](https://github.com/core-ds/core-components/commit/b5296f26a8271c2b3c2f34195dd3997308877bbe))
+
 ## [30.0.1](https://github.com/core-ds/core-components/compare/v30.0.0...v30.0.1) (2022-08-19)
 
 
