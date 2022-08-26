@@ -1,10 +1,12 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
+import { act } from 'react-dom/test-utils';
 import { Backdrop } from './Component';
 
 describe('Backdrop', () => {
-    const waitForTransition = async () => new Promise(res => setTimeout(res, 1000));
+    // TODO: jest.useFakeTimers();
+    const waitForTransition = () => act(() => new Promise(res => setTimeout(res, 300)));
 
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
