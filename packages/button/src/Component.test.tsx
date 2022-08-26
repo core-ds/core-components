@@ -199,11 +199,11 @@ describe('Button', () => {
 
             const start = Date.now();
 
-            fireEvent.click(button);
+            await fireEvent.click(button);
 
             await waitFor(() => expect(getLoader()).toBeInTheDocument());
 
-            await waitForElementToBeRemoved(getLoader());
+            await waitForElementToBeRemoved(getLoader(), { timeout: 5000 });
 
             const duration = Date.now() - start;
 
@@ -226,7 +226,7 @@ describe('Button', () => {
 
             await waitFor(() => expect(getLoader()).toBeInTheDocument());
 
-            await waitForElementToBeRemoved(getLoader());
+            await waitForElementToBeRemoved(getLoader(), { timeout: 5000 });
 
             const duration = Date.now() - start;
 
