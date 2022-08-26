@@ -1,6 +1,5 @@
 @define-mixin tabs-click {
     /* theme */
-    --primary-tablist-mobile-padding: var(--gap-s) 0;
     --primary-tablist-s-font-size: 18px;
     --primary-tablist-s-font-weight: 500;
     --primary-tablist-s-font-family: var(--font-family-system);
@@ -17,4 +16,11 @@
     --primary-tablist-xl-font-weight: 500;
     --primary-tablist-xl-font-family: var(--font-family-styrene);
     --primary-tablist-xl-padding: var(--gap-l) 0;
+
+    /* mobile */
+    --primary-tablist-mobile-padding: var(--gap-s) 0;
+    --primary-tablist-mobile-font-weight: 500;
+    --primary-tablist-mobile-font-family: var(--font-family-styrene);
+    --primary-tablist-mobile-font-size: 20px;
+    --primary-tablist-mobile-line-height: 28px;
 }
