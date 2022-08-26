@@ -22,14 +22,6 @@
 .compactHorizontal {
     padding-left: 6px;
     padding-right: 6px;
-
-    &:first-child {
-        padding-left: var(--gap-xs);
-    }
-
-    &:last-child {
-        padding-right: var(--gap-xs);
-    }
 }
 
 .compact {
