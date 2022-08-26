@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState, FC } from 'react';
+import React, { MouseEvent, useState, FC, forwardRef } from 'react';
 import {
     render,
     fireEvent,
@@ -239,7 +239,7 @@ describe('Button', () => {
             const cb = jest.fn();
             cb.mockReturnValue(null);
 
-            render(<Button Component={cb} dataTestId={dataTestId} />);
+            render(<Button Component={forwardRef(cb)} dataTestId={dataTestId} />);
 
             expect(cb).toBeCalled();
 
@@ -251,7 +251,7 @@ describe('Button', () => {
             const cb = jest.fn();
             cb.mockReturnValue(null);
 
-            render(<Button Component={cb} href='test' />);
+            render(<Button Component={forwardRef(cb)} href='test' />);
 
             expect(cb).toBeCalled();
 
