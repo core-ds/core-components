@@ -514,7 +514,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     onKeyDown={handleKeyDown}
                                     onMouseDown={handleBackdropMouseDown}
                                     onMouseUp={handleBackdropMouseUp}
-                                    tabIndex={-1}
+                                    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                                    tabIndex={0}
                                     data-test-id={dataTestId}
                                     style={{
                                         zIndex: computedZIndex,
