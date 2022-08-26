@@ -1,3 +1,10 @@
+## [30.2.1](https://github.com/core-ds/core-components/compare/v30.2.0...v30.2.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* **code-input:** fixed "cannot read properties of undefined (reading get)" error ([#226](https://github.com/core-ds/core-components/issues/226)) ([8383613](https://github.com/core-ds/core-components/commit/838361388979acc184fb213f96c9e4ab43333fbc))
+
 # [30.2.0](https://github.com/core-ds/core-components/compare/v30.1.0...v30.2.0) (2022-08-26)
 
 
