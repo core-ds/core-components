@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pure-cell@2.0.1...@alfalab/core-components-pure-cell@2.0.2) (2022-08-26)
+
+
+### Bug Fixes
+
+* **pure-cell:** fix subcomponent addon and category ([#172](https://github.com/core-ds/core-components/issues/172)) ([461ee92](https://github.com/core-ds/core-components/commit/461ee920b9fc7ebaa72b355b2678388f35d49b1f))
+
+
+
+
+
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pure-cell@2.0.0...@alfalab/core-components-pure-cell@2.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-pure-cell
