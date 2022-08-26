@@ -59,6 +59,8 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     isPopoverOpen,
     handleUpdatePopover,
     Tag = DefaultTag,
+    setSelectedItems,
+    toggleMenu,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
