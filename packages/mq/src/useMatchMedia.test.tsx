@@ -27,12 +27,11 @@ describe('useMatchMedia', () => {
             return <div>{JSON.stringify(matches)}</div>;
         };
 
-        const { unmount, rerender, container } = render(<Example />);
+        const { rerender, container } = render(<Example />);
 
         expect(container.firstElementChild).toHaveTextContent('false');
         expect(React.useEffect).toHaveBeenCalledTimes(1);
 
-        unmount();
         rerender(<Example />);
 
         expect(container.firstElementChild).toHaveTextContent('false');
