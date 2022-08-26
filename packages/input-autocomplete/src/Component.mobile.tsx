@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { ChangeEvent, useState, useRef, useMemo, RefObject } from 'react';
+import React, { ChangeEvent, useState, useRef, useMemo, RefObject, ElementType } from 'react';
 import mergeRefs from 'react-merge-refs';
 import throttle from 'lodash.throttle';
 
@@ -78,6 +78,16 @@ export type InputAutocompleteMobileProps = Omit<
      * Дополнительные пропсы на кнопку "отмена"
      */
     cancelButtonProps?: ButtonProps;
+
+    /**
+     * Кастомный инпут
+     */
+    InputCustom?: ElementType;
+
+    /**
+     * Дополнительные пропсы на кастомный инпут
+     */
+    inputCustomProps?: Record<string, unknown>;
 };
 
 const SELECTED: string[] = [];
@@ -85,6 +95,8 @@ const SELECTED: string[] = [];
 export const InputAutocompleteMobile = React.forwardRef(
     (
         {
+            InputCustom,
+            inputCustomProps = {},
             bottomSheetProps = {},
             bottomSheetHeaderAddonsProps = {},
             value = '',
@@ -161,6 +173,8 @@ export const InputAutocompleteMobile = React.forwardRef(
         };
 
         const getBottomSheetProps = (): InputAutocompleteMobileProps['bottomSheetProps'] => {
+            const Component = InputCustom || Input;
+
             return {
                 actionButton: (
                     <div className={styles.footer}>
@@ -186,7 +200,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 ),
                 title: label || placeholder,
                 bottomAddons: (
-                    <Input
+                    <Component
                         block={true}
                         clear={!!onClearFilter}
                         onClear={onClearFilter}
@@ -194,6 +208,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         onInput={onFilter}
                         placeholder={placeholder}
                         onFocus={handleInputFocus}
+                        {...inputCustomProps}
                         {...bottomSheetHeaderAddonsProps}
                         className={cn(
                             styles.bottomSheetInput,

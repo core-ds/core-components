@@ -489,3 +489,94 @@ render(() => {
     );
 });
 ```
+
+
+### Компонент `InputAutocompleteMobile` с кастомным инпутом.
+
+Мобильная версия InputAutocomplete с кастомным инпутом.
+
+```jsx live
+render(() => {
+    const options = [
+        { key: '1', content: '+7 921 681 53 98' },
+        { key: '2', content: '+7 921 681 52 96' },
+        { key: '3', content: '+7 921 681 52 95' },
+        { key: '4', content: '+7 921 681 52 94' },
+        { key: '5', content: '+7 912 972 52 98' },
+        { key: '6', content: '+7 903 587 23 12' },
+        { key: '7', content: '+7 905 234 34 99' },
+        { key: '8', content: '+7 912 543 78 96' },
+        { key: '9', content: '+7 912 901 88 97' },
+        { key: '10', content: '+7 905 901 43 34' },
+        { key: '11', content: '+7 905 917 32 55' },
+        { key: '12', content: '+7 913 917 21 21' },
+        { key: '13', content: '+7 923 917 65 12' },
+        { key: '14', content: '+7 913 504 71 90' },
+        { key: '15', content: '+7 923 504 64 58' },
+        { key: '16', content: '+61 2 1234 5678' },
+    ];
+
+    const matchOption = (option, inputValue) =>
+        option.content.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+    const [filter, setFilter] = React.useState('');
+
+    const [selectedCountry, setSelectedCountry] = React.useState('RU');
+
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+
+   const handleClear = () => {
+        setFilter('')
+        setValue('');
+    }
+
+    const handleFilter = event => {
+        setFilter(event.target.value);
+    };
+
+    const handleChange = (payload) => {
+        const newValue = payload ? isOptionShape(payload.selected) ? payload.selected.content : payload : '';
+
+        setValue(newValue);
+        setFilter(newValue);
+    };
+
+    const filteredOptions = options.filter(option => matchOption(option, filter));
+
+    return (
+        <div style={{width: 201}}>
+            <InputAutocompleteMobile
+                InputCustom={IntlPhoneInput}
+                block={true}
+                value={value}
+                filter={filter}
+                options={filteredOptions}
+                placeholder='Выберите элемент'
+                label='Элемент'
+                onChange={handleChange}
+                onFilter={handleFilter}
+                onClearFilter={() => setFilter('')}
+                inputCustomProps={{
+                    inputProps: {
+                    clear: true,
+                    onClear: handleClear,
+                },
+                value: value,
+                onChange: handleChange,
+                block: true,
+                label: 'Номер телефона',
+                defaultCountryIso2: 'RU',
+                onCountryChange: handleCountryChange,
+                }}
+                // Если нужно, то можно подставить значение в фильтр при открытии шторки.
+                bottomSheetProps={{
+                    transitionProps: {
+                        onEnter: () => setFilter(value),
+                    }
+                }}
+            />
+        </div>
+    );
+});
+```
