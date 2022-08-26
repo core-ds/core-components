@@ -1,0 +1,39 @@
+name: "Checking non-existing css vars"
+
+on: [push]
+
+jobs:
+  search-vars:
+    name: run checking non-existent css vars
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn --pure-lockfile
+
+      - name: Run build
+        run: BUILD_WITHOUT_CSS_VARS=true BUILD_ESM_ONLY=true yarn build
+
+      - name: run search non-existent css vars
+        id: search_vars
+        run: node ./bin/non-existent-css-vars.js
+
+      - name: show checking result
+        if: ${{ steps.search_vars.outputs.has-non-existent-vars != 'false' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const output = '${{ steps.search_vars.outputs.non-existent-css-vars }}';
+            const nonExistentVars = JSON.parse(output);
+
+            core.setFailed('Found non-existent css vars: \n' + Object.keys(nonExistentVars).reduce((acc, key) => {
+              acc += key + '\n';
+
+              const vars = nonExistentVars[key];
+              vars.forEach(cssVar => acc += '    ' + cssVar + '\n')
+
+              return acc;
+            }, ''));
