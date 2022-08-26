@@ -15,6 +15,8 @@ import { View, SelectorView } from './typings';
 
 import { Calendar } from './index';
 
+jest.useFakeTimers();
+
 describe('Calendar', () => {
     const defaultDate = new Date('November 30, 2020 00:00:00');
     const defaultValue = defaultDate.getTime();
@@ -22,7 +24,10 @@ describe('Calendar', () => {
     const defaultMonth = monthName(defaultDate).toString();
     const defaultYear = defaultDate.getFullYear().toString();
 
-    const waitForMonthChange = async () => act(() => new Promise(res => setTimeout(res, 1000)));
+    const waitForTransition = () =>
+        act(() => {
+            jest.advanceTimersByTime(300);
+        });
 
     describe('Display tests', () => {
         it('should match snapshot', () => {
@@ -228,7 +233,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByLabelText('Следующий период'));
 
-            await waitForMonthChange();
+            waitForTransition();
 
             const nonDisabledDays = container.querySelectorAll('table button:not(:disabled)');
             const lastNonDisabledDay = nonDisabledDays[nonDisabledDays.length - 1];
@@ -272,7 +277,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText(nextYearDate.getFullYear().toString()));
 
-            await waitForMonthChange();
+            waitForTransition();
 
             fireEvent.click(getByText('Январь'));
 
@@ -619,13 +624,15 @@ describe('Calendar', () => {
             });
         };
 
+        const pressTab = async () => act(userEvent.setup({ delay: null }).tab);
+
         const getActiveElement = () => document.activeElement as Element;
 
         describe('when tab pressed', () => {
             it('should focus first focusable button', async () => {
                 const { container } = render(<Calendar />);
 
-                await act(userEvent.tab);
+                await pressTab();
 
                 const activeElement = getActiveElement();
 
@@ -646,7 +653,7 @@ describe('Calendar', () => {
                         />,
                     );
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     const dayTable = container.querySelector('table') as Element;
 
@@ -665,7 +672,7 @@ describe('Calendar', () => {
                 async key => {
                     render(<Calendar value={defaultDate.getTime()} />);
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), key);
 
@@ -679,7 +686,7 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} />);
 
-                    await userEvent.tab();
+                    await pressTab();
 
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowLeft');
@@ -695,14 +702,14 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={firstDateOfMonth.getTime()} />);
 
-                    await userEvent.tab();
+                    await pressTab();
 
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowLeft');
                         keyDown(getActiveElement(), 'ArrowLeft');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(firstDateOfMonth.getDate().toString()).toBe('1');
 
@@ -734,14 +741,14 @@ describe('Calendar', () => {
                         />,
                     );
 
-                    await userEvent.tab();
+                    await pressTab();
 
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowLeft');
                         keyDown(getActiveElement(), 'ArrowLeft');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -753,14 +760,14 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} />);
 
-                    await userEvent.tab();
+                    await pressTab();
 
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         keyDown(getActiveElement(), 'ArrowRight');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(
                         nextDateOfMonth.getDate().toString(),
@@ -773,13 +780,13 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={lastDateOfMonth.getTime()} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         keyDown(getActiveElement(), 'ArrowRight');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(lastDateOfMonth.getDate().toString()).toBe('30');
 
@@ -811,13 +818,13 @@ describe('Calendar', () => {
                         />,
                     );
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         keyDown(getActiveElement(), 'ArrowRight');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -831,7 +838,7 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         keyDown(getActiveElement(), 'ArrowUp');
@@ -846,13 +853,13 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={firstDateOfMonth.getTime()} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         keyDown(getActiveElement(), 'ArrowUp');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(firstDateOfMonth.getDate().toString()).toBe('1');
 
@@ -870,7 +877,7 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[subDays(defaultValue, 7)]} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         keyDown(getActiveElement(), 'ArrowUp');
@@ -888,13 +895,13 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         keyDown(getActiveElement(), 'ArrowDown');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(nextWeekDate);
                 });
@@ -905,13 +912,13 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={lastDateOfMonth.getTime()} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         keyDown(getActiveElement(), 'ArrowDown');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(lastDateOfMonth.getDate().toString()).toBe('30');
 
@@ -929,13 +936,13 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[addDays(defaultValue, 7)]} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         keyDown(getActiveElement(), 'ArrowDown');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -947,13 +954,13 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={defaultValue} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'End');
                         keyDown(getActiveElement(), 'End');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Декабрь')).toBeInTheDocument();
@@ -965,13 +972,13 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[addDays(defaultValue, 6)]} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'End');
                         keyDown(getActiveElement(), 'End');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -984,13 +991,13 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={value.getTime()} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'Home');
                         keyDown(getActiveElement(), 'Home');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Октябрь')).toBeInTheDocument();
@@ -1003,13 +1010,13 @@ describe('Calendar', () => {
 
                     render(<Calendar value={value.getTime()} offDays={[subDays(value, 7)]} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'Home');
                         keyDown(getActiveElement(), 'Home');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -1021,13 +1028,13 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={defaultValue} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'PageUp');
                         keyDown(getActiveElement(), 'PageUp');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Октябрь')).toBeInTheDocument();
@@ -1040,13 +1047,13 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[prevMonthDate]} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'PageUp');
                         keyDown(getActiveElement(), 'PageUp');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -1058,13 +1065,13 @@ describe('Calendar', () => {
 
                     const { getByText } = render(<Calendar value={defaultValue} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'PageDown');
                         keyDown(getActiveElement(), 'PageDown');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().tagName).toBe('TD');
                     expect(getByText('Декабрь')).toBeInTheDocument();
@@ -1077,13 +1084,13 @@ describe('Calendar', () => {
 
                     render(<Calendar value={defaultValue} offDays={[prevMonthDate]} />);
 
-                    await userEvent.tab();
+                    await pressTab();
                     await act(() => {
                         keyDown(getActiveElement(), 'PageDown');
                         keyDown(getActiveElement(), 'PageDown');
                     });
 
-                    await waitForMonthChange();
+                    waitForTransition();
 
                     expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
                 });
@@ -1100,7 +1107,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultMonth));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     const monthsTable = container.querySelector('.monthsTable') as Element;
 
@@ -1120,7 +1127,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultMonth));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowLeft');
 
@@ -1137,7 +1144,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultMonth));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowRight');
 
@@ -1154,7 +1161,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultMonth));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowUp');
 
@@ -1173,7 +1180,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText('Январь'));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowDown');
 
@@ -1195,7 +1202,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultYear));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     const yearsTable = container.querySelector('.yearsTable') as Element;
 
@@ -1215,7 +1222,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultYear));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowRight');
 
@@ -1232,7 +1239,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultYear));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowRight');
                     keyDown(getActiveElement(), 'ArrowRight');
@@ -1251,7 +1258,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultYear));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowUp');
                     keyDown(getActiveElement(), 'ArrowDown');
@@ -1270,7 +1277,7 @@ describe('Calendar', () => {
 
                     fireEvent.click(getByText(defaultYear));
 
-                    await act(userEvent.tab);
+                    await pressTab();
 
                     keyDown(getActiveElement(), 'ArrowDown');
 

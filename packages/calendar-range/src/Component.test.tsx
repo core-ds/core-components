@@ -12,6 +12,8 @@ import { formatDate } from '../../calendar-input/src/utils';
 
 import { CalendarRange } from './index';
 
+jest.useFakeTimers();
+
 describe('CalendarRange', () => {
     const defaultDate = new Date('October 01, 2020 00:00:00');
     const currentDate = new Date();
@@ -19,6 +21,11 @@ describe('CalendarRange', () => {
     const nextMonth = addMonths(currentMonth, 1);
     const currentMonthName = MONTHS[currentMonth.getMonth()];
     const nextMonthName = MONTHS[nextMonth.getMonth()];
+
+    const waitForTransition = () =>
+        act(() => {
+            jest.advanceTimersByTime(300);
+        });
 
     describe('Display tests', () => {
         it('should match snapshot', () => {
@@ -369,9 +376,7 @@ describe('CalendarRange', () => {
 
             fireEvent.click(nextMonthButton);
 
-            await act(async () => {
-                await new Promise(res => setTimeout(res, 1000));
-            });
+            await waitForTransition();
 
             const days = container.querySelectorAll('*[data-date]');
             const lastDay = days[days.length - 1] as HTMLButtonElement;
