@@ -1,3 +1,16 @@
+# [30.2.0](https://github.com/core-ds/core-components/compare/v30.1.0...v30.2.0) (2022-08-26)
+
+
+### Bug Fixes
+
+* **filter-tag:** добавил font family  ([#212](https://github.com/core-ds/core-components/issues/212)) ([34dd253](https://github.com/core-ds/core-components/commit/34dd253c5c7dcdc03443212c7dd1c2b3b8ca9e1b))
+* **pure-cell:** fix subcomponent addon and category ([#172](https://github.com/core-ds/core-components/issues/172)) ([461ee92](https://github.com/core-ds/core-components/commit/461ee920b9fc7ebaa72b355b2678388f35d49b1f))
+
+
+### Features
+
+* **picker-button:** new component picker-button-mobile ([#193](https://github.com/core-ds/core-components/issues/193)) ([6074d38](https://github.com/core-ds/core-components/commit/6074d38861c28cf796699cb3e6ec6304303c4481))
+
 # [30.1.0](https://github.com/core-ds/core-components/compare/v30.0.1...v30.1.0) (2022-08-25)
 
 
