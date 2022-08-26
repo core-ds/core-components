@@ -5,6 +5,8 @@ import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { CardTransferMIcon } from '@alfalab/icons-glyph/CardTransferMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { PickerButton } from '@alfalab/core-components-picker-button';
+import { PickerButtonMobile } from '@alfalab/core-components-picker-button/mobile';
+import { PickerButtonDesktop } from '@alfalab/core-components-picker-button/desktop';
 
 import { PickerButton as PickerButtonTS } from '../Component';
 import { version } from '../../package.json';
@@ -24,6 +26,32 @@ export const options = [
 
 <Story name='PickerButton'>
     <PickerButton
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        variant={select('variant', ['default', 'compact'])}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}
+    />
+</Story>
+
+<Story name='PickerButtonMobile'>
+    <PickerButtonMobile
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        variant={select('variant', ['default', 'compact'])}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}
+    />
+</Story>
+
+<Story name='PickerButtonDesktop'>
+    <PickerButtonDesktop
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
