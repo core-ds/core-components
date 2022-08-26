@@ -123,6 +123,10 @@
     display: block;
     margin-bottom: calc(var(--gap-s) / 2);
     padding: var(--form-control-sub-paddings);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .block {
