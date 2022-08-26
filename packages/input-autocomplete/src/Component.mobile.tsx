@@ -10,7 +10,7 @@ import {
     BaseSelectChangePayload,
 } from '@alfalab/core-components-select';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { Input } from '@alfalab/core-components-input';
+import { Input as CoreInput } from '@alfalab/core-components-input';
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 
 import { AutocompleteMobileField } from './autocomplete-mobile-field';
@@ -82,12 +82,7 @@ export type InputAutocompleteMobileProps = Omit<
     /**
      * Кастомный инпут
      */
-    InputCustom?: ElementType;
-
-    /**
-     * Дополнительные пропсы на кастомный инпут
-     */
-    inputCustomProps?: Record<string, unknown>;
+    Input?: ElementType;
 };
 
 const SELECTED: string[] = [];
@@ -95,8 +90,7 @@ const SELECTED: string[] = [];
 export const InputAutocompleteMobile = React.forwardRef(
     (
         {
-            InputCustom,
-            inputCustomProps = {},
+            Input,
             bottomSheetProps = {},
             bottomSheetHeaderAddonsProps = {},
             value = '',
@@ -173,7 +167,7 @@ export const InputAutocompleteMobile = React.forwardRef(
         };
 
         const getBottomSheetProps = (): InputAutocompleteMobileProps['bottomSheetProps'] => {
-            const Component = InputCustom || Input;
+            const Component = Input || CoreInput;
 
             return {
                 actionButton: (
@@ -208,7 +202,6 @@ export const InputAutocompleteMobile = React.forwardRef(
                         onInput={onFilter}
                         placeholder={placeholder}
                         onFocus={handleInputFocus}
-                        {...inputCustomProps}
                         {...bottomSheetHeaderAddonsProps}
                         className={cn(
                             styles.bottomSheetInput,

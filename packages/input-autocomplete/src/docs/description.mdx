@@ -557,7 +557,10 @@ render(() => {
                 onChange={handleChange}
                 onFilter={handleFilter}
                 onClearFilter={() => setFilter('')}
-                inputCustomProps={{
+                bottomSheetHeaderAddonsProps={{
+                    transitionProps: {
+                        onEnter: () => setFilter(value),
+                    },
                     inputProps: {
                     clear: true,
                     onClear: handleClear,
@@ -568,12 +571,6 @@ render(() => {
                 label: 'Номер телефона',
                 defaultCountryIso2: 'RU',
                 onCountryChange: handleCountryChange,
-                }}
-                // Если нужно, то можно подставить значение в фильтр при открытии шторки.
-                bottomSheetProps={{
-                    transitionProps: {
-                        onEnter: () => setFilter(value),
-                    }
                 }}
             />
         </div>
