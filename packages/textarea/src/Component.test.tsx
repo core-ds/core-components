@@ -7,14 +7,19 @@ import { Textarea } from './index';
 describe('Textarea', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
-            const { container } = render(<Textarea value='value' />);
+            const { container } = render(<Textarea value='value' nativeScrollbar={true} />);
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with default counter', () => {
             const { container } = render(
-                <Textarea value='value' showCounter={true} maxLength={500} />,
+                <Textarea
+                    value='value'
+                    showCounter={true}
+                    maxLength={500}
+                    nativeScrollbar={true}
+                />,
             );
 
             expect(container).toMatchSnapshot();
@@ -23,12 +28,19 @@ describe('Textarea', () => {
         it('should match snapshot with custom counter', () => {
             const { container } = render(
                 <Textarea
+                    nativeScrollbar={true}
                     value='value'
                     showCounter={true}
                     maxLength={500}
                     getCounterText={() => 'Custom counter'}
                 />,
             );
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with custom scrollbar', () => {
+            const { container } = render(<Textarea nativeScrollbar={false} value='value' />);
 
             expect(container).toMatchSnapshot();
         });
@@ -70,7 +82,7 @@ describe('Textarea', () => {
             it('should set `filled` class when value passed', () => {
                 const dataTestId = 'test-id';
                 const { getByTestId } = render(
-                    <Textarea value='some value' dataTestId={dataTestId} />,
+                    <Textarea value='some value' dataTestId={dataTestId} nativeScrollbar={true} />,
                 );
 
                 expect(getByTestId(dataTestId)).toHaveClass('filled');
@@ -99,7 +111,11 @@ describe('Textarea', () => {
             it('should set `filled` class when defaultValue passed', () => {
                 const dataTestId = 'test-id';
                 const { getByTestId } = render(
-                    <Textarea defaultValue='some value' dataTestId={dataTestId} />,
+                    <Textarea
+                        defaultValue='some value'
+                        dataTestId={dataTestId}
+                        nativeScrollbar={true}
+                    />,
                 );
 
                 expect(getByTestId(dataTestId)).toHaveClass('filled');
@@ -107,7 +123,9 @@ describe('Textarea', () => {
 
             it('should not set `filled` class if the value is empty', () => {
                 const dataTestId = 'test-id';
-                const { getByTestId } = render(<Textarea dataTestId={dataTestId} />);
+                const { getByTestId } = render(
+                    <Textarea dataTestId={dataTestId} nativeScrollbar={true} />,
+                );
 
                 expect(getByTestId(dataTestId)).not.toHaveClass('filled');
             });
@@ -115,7 +133,11 @@ describe('Textarea', () => {
             it('should unset `filled` class if value becomes empty', async () => {
                 const dataTestId = 'test-id';
                 const { getByTestId } = render(
-                    <Textarea defaultValue='some value' dataTestId={dataTestId} />,
+                    <Textarea
+                        defaultValue='some value'
+                        dataTestId={dataTestId}
+                        nativeScrollbar={true}
+                    />,
                 );
 
                 const textarea = getByTestId(dataTestId) as HTMLInputElement;
@@ -154,7 +176,12 @@ describe('Textarea', () => {
         it('should set `maxHeight` style with autosize on', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <Textarea autosize={true} maxHeight={100} dataTestId={dataTestId} />,
+                <Textarea
+                    nativeScrollbar={true}
+                    autosize={true}
+                    maxHeight={100}
+                    dataTestId={dataTestId}
+                />,
             );
 
             expect(getByTestId(dataTestId)).toHaveStyle('max-height: 100px');
@@ -163,7 +190,12 @@ describe('Textarea', () => {
         it('should set `maxHeight` style with autosize off', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <Textarea autosize={false} maxHeight={100} dataTestId={dataTestId} />,
+                <Textarea
+                    nativeScrollbar={true}
+                    autosize={false}
+                    maxHeight={100}
+                    dataTestId={dataTestId}
+                />,
             );
 
             expect(getByTestId(dataTestId)).toHaveStyle('max-height: 100px');

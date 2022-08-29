@@ -35,6 +35,11 @@ export type ScrollbarProps = {
     horizontalAutoStretch?: boolean;
 
     /**
+     * Название css свойства, которое устанавливается на контейнер при horizontalAutoStretch.
+     */
+    widthPropName?: 'minWidth' | 'width' | 'maxWidth';
+
+    /**
      * Включает автоскрытие ползунка.
      */
     autoHide?: boolean;
@@ -103,6 +108,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
             autoHideTimeout = 1000,
             clickOnTrack = true,
             horizontalAutoStretch = false,
+            widthPropName = 'minWidth',
             ...htmlAttributes
         },
         ref,
@@ -157,11 +163,11 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     contentNode.style.display = 'inline-block';
 
                     const contentRect = contentNode.getBoundingClientRect();
-                    const newMinWidth = `${Math.ceil(contentRect.width)}px`;
-                    const prevMinWidth = rootNode.style.minWidth;
+                    const newWidth = `${Math.ceil(contentRect.width)}px`;
+                    const prevWidth = rootNode.style[widthPropName];
 
-                    if (newMinWidth !== prevMinWidth) {
-                        rootNode.style.minWidth = newMinWidth;
+                    if (newWidth !== prevWidth) {
+                        rootNode.style[widthPropName] = newWidth;
                     }
 
                     contentNode.style.display = '';
@@ -188,7 +194,7 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                     mutationObserver.disconnect();
                 }
             };
-        }, [horizontalAutoStretch]);
+        }, [widthPropName, horizontalAutoStretch]);
 
         return (
             <div
@@ -220,7 +226,10 @@ export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
                                         contentNodeRef,
                                         ...(contentNodeProps.ref ? [contentNodeProps.ref] : []),
                                     ])}
-                                    className={classNames.contentEl}
+                                    className={cn(
+                                        classNames.contentEl,
+                                        contentNodeProps?.className,
+                                    )}
                                 >
                                     {children}
                                 </div>
