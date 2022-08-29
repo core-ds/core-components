@@ -20,7 +20,7 @@
         "start:IE": "cross-env STORYBOOK_IE_MODE=true yarn start",
         "start:quick": "cross-env RDTL=off yarn start",
         "build-storybook": "build-storybook -o build -s ./.storybook/public --quiet",
-        "build-storybook-from-dist": "cross-env BUILD_FROM_DIST=true yarn build && cross-env BUILD_FROM_DIST=true yarn build-storybook",
+        "build-storybook-from-dist": "cross-env BUILD_ESM_ONLY=true yarn build && cross-env BUILD_STORYBOOK_FROM_DIST=true yarn build-storybook",
         "serve-storybook": "http-server build -p 9009",
         "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix && prettier --write \"./packages/{themes,vars}/**/*.css\"",
         "update-typography": "node ./tools/update-typography.js",

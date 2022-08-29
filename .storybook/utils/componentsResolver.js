@@ -24,7 +24,7 @@ class ComponentResolverPlugin {
                         .replace(componentsPrefix, '')
                         .split('/');
 
-                    const request = (process.env.BUILD_FROM_DIST === 'true'
+                    const request = (process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
                         ? [distDir, componentName, 'esm', entrypoint]
                         : [packagesDir, componentName, 'src', entrypoint]
                     )
