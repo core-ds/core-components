@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.0.1...@alfalab/core-components-picker-button@8.1.0) (2022-08-26)
+
+
+### Features
+
+* **picker-button:** new component picker-button-mobile ([#193](https://github.com/core-ds/core-components/issues/193)) ([6074d38](https://github.com/core-ds/core-components/commit/6074d38861c28cf796699cb3e6ec6304303c4481))
+
+
+
+
+
 ## [8.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.0.0...@alfalab/core-components-picker-button@8.0.1) (2022-08-19)
 
 

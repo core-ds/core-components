@@ -2,7 +2,7 @@
 const shell = require('shelljs');
 
 const execOptions = {
-    silent: false,
+    silent: true,
     fatal: true,
 };
 
@@ -32,7 +32,7 @@ const branchesList = remoteBranches.split('\n').map(branch =>
 );
 
 // Checkout to gh-pages
-console.log('=> Checkout to gh-pages');
+console.log('=> Switch to gh-pages branch');
 shell.exec(`git checkout ${defaultConfig.targetBranch}`, execOptions);
 
 // Pull gh-page file
@@ -41,23 +41,14 @@ shell.exec(`git pull -f ${defaultConfig.gitRemote} ${defaultConfig.targetBranch}
 
 /** Current git branch */
 const currentBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
-const currentBranch2 = shell.exec('git name-rev --name-only HEAD', execOptions).stdout.trim();
-
-console.log('currentBranch', currentBranch);
-console.log('currentBranch2', currentBranch2);
-console.log('targetBranch', defaultConfig.targetBranch);
-
-console.log('isEqual', currentBranch === defaultConfig.targetBranch);
-
-const directories = shell
-    .exec(`ls -d */`, execOptions)
-    .stdout.trim()
-    .replace(/\//g, '')
-    .split('\n');
-
-console.log('directories', directories);
 
 if (currentBranch === defaultConfig.targetBranch) {
+    const directories = shell
+        .exec(`ls -d */`, execOptions)
+        .stdout.trim()
+        .replace(/\//g, '')
+        .split('\n');
+
     const shouldRemove = directories.filter(
         directory =>
             !defaultConfig.excluded_directories.includes(directory) &&
