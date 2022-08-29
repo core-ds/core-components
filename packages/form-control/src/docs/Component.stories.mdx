@@ -9,7 +9,6 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../vars.css';
-import colorsStyles from '!!raw-loader!../default.module.css';
 
 
 <Meta
@@ -70,5 +69,5 @@ import { FormControl } from '@alfalab/core-components/form-control';
     description={<Description />}
     changelog={<Changelog />}
     props={<Props of={FormControlTS} />}
-    cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
+    cssVars={<CssVars css={`${styles}`} />}
 />

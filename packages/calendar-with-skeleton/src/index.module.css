@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../calendar/src/vars.css';
 
 .component {
     width: var(--calendar-width);
