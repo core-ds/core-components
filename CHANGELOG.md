@@ -1,3 +1,10 @@
+# [30.3.0](https://github.com/core-ds/core-components/compare/v30.2.1...v30.3.0) (2022-08-29)
+
+
+### Features
+
+* **textarea:** custom scrollbar ([#196](https://github.com/core-ds/core-components/issues/196)) ([c0d956c](https://github.com/core-ds/core-components/commit/c0d956cc7bf0a5440a66602ca77de2942a268be2))
+
 ## [30.2.1](https://github.com/core-ds/core-components/compare/v30.2.0...v30.2.1) (2022-08-26)
 
 
