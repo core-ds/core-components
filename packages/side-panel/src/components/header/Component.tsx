@@ -92,6 +92,7 @@ export const Header: FC<HeaderProps> = ({
     return (
         <div
             className={cn(styles.header, className, {
+                [styles.backgroundImage]: imageUrl,
                 [styles.highlighted]: hasContent && sticky && headerHighlighted,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
