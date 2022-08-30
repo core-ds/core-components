@@ -1,3 +1,10 @@
+# [30.4.0](https://github.com/core-ds/core-components/compare/v30.3.0...v30.4.0) (2022-08-30)
+
+
+### Features
+
+* **table:** change paddings, new compactHorizontal prop ([#214](https://github.com/core-ds/core-components/issues/214)) ([788eebe](https://github.com/core-ds/core-components/commit/788eebe2bb0cd9951fd1d8c2e41a065c3dda25c8))
+
 # [30.3.0](https://github.com/core-ds/core-components/compare/v30.2.1...v30.3.0) (2022-08-29)
 
 
