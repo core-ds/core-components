@@ -47,6 +47,7 @@
 }
 
 .compact {
-    width: 28px;
-    height: 40px;
+    width: 32px;
+    height: 48px;
+    margin-right: var(--gap-2xs);
 }
