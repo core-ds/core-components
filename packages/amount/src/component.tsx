@@ -49,7 +49,7 @@ export const Amount: React.FC<AmountProps> = ({
             >
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
-                {currency ? `${THINSP}${currencySymbol}` : null}
+                {currency ? `${THINSP}${currencySymbol ?? currency}` : null}
                 {rightAddons}
             </span>
         </span>

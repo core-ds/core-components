@@ -9,6 +9,23 @@
   dependencies:
     classnames "^2.2.6"
 
+"@alfalab/core-components-button@^5.0.1":
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-5.3.2.tgz#3c03c976158b70594301f61dca420ad3b1bcd3ab"
+  integrity sha512-Y+FVOYVElL3pxdlovt4pqaPm6carBKngFYCfJ1GtOkYXOK1ziARQeTMeYBRBNSfWMeB6ooPxxH64mxe09FMdpw==
+  dependencies:
+    "@alfalab/core-components-loader" "^2.2.1"
+    "@alfalab/hooks" "^1.4.1"
+    classnames "^2.3.1"
+    react-merge-refs "^1.1.0"
+
+"@alfalab/core-components-form-control@^7.4.0":
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-7.6.1.tgz#a802ce91da03804f502193eac9938f187b2f1d47"
+  integrity sha512-lxtka4f8ZAHW6cPFl1zdNXsgSD1dmXH4QYsjKrMkM/M2PCYik+QoIx9oMSCmxHkQhdFh9CH60Kvo/PBEOQSzyQ==
+  dependencies:
+    classnames "^2.3.1"
+
 "@alfalab/core-components-input-autocomplete@7.0.4":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-input-autocomplete/-/core-components-input-autocomplete-7.0.4.tgz#a12b2ddfc9f615d32f89c318f0cec969ea880e11"
@@ -30,10 +47,37 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
+"@alfalab/core-components-loader@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-loader/-/core-components-loader-2.2.1.tgz#80192c2d5fac17235a3ad5747b7337a745e65331"
+  integrity sha512-dmvzEneNbsH2K2XIvkYzOb+milBNXG5LfAqLHvRhSM6S5aXzvuvKcYV+h86d5h3i7bodX77P2muCOTUpmmuedg==
+  dependencies:
+    classnames "^2.3.1"
+
 "@alfalab/core-components-mq@^1.0.0":
   version "1.1.6"
   resolved "https://registry.npmjs.org/@alfalab/core-components-mq/-/core-components-mq-1.1.6.tgz#cfef373b35442c8282ca7d4ecd5d92a39cb94357"
   integrity sha512-MqyBq4v3B6w75D5vSfSQXqalbDgvB3DwCZL0IA+Sy75Hj6vBf8SLUgpH2HDLNX4O0cr+3F5y5HQmhoqgEO4Pdg==
+
+"@alfalab/core-components-popover@^5.5.0":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-popover/-/core-components-popover-5.8.1.tgz#70fc96412b3003d70be276aabee0fb47753e3994"
+  integrity sha512-Ulhhn4ow7+RgOjrm0bUd45ogRM2nWogpifvlxCX+D/ZSVevQ7lZKz2dXlZXV0+QD3dygLYMWnPga6YrXWZfxVg==
+  dependencies:
+    "@alfalab/core-components-portal" "^2.1.1"
+    "@alfalab/core-components-stack" "^3.1.1"
+    "@juggle/resize-observer" "^3.3.1"
+    "@popperjs/core" "^2.3.3"
+    classnames "^2.3.1"
+    popper-max-size-modifier "^0.2.0"
+    react-merge-refs "^1.1.0"
+    react-popper "^2.2.5"
+    react-transition-group "^4.4.1"
+
+"@alfalab/core-components-portal@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-portal/-/core-components-portal-2.1.1.tgz#6bab690a2a3f862e9f5f84b152a969850a219fac"
+  integrity sha512-+6P0YxzHJP9cF16uvI36s99MvRmz7QOgbfLGdRWri4nnBd13C61aBgsdDYzEu85LYHXHPgW14TymnkrbT/Wf5Q==
 
 "@alfalab/core-components-select@^9.2.2":
   version "9.7.1"
@@ -51,6 +95,18 @@
     react-virtual "^2.2.0"
     resize-observer "^1.0.0"
 
+"@alfalab/core-components-skeleton@^3.0.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-skeleton/-/core-components-skeleton-3.3.1.tgz#47b6c925e979acf045c2c05b95f9a2991feb2e04"
+  integrity sha512-LJbefjstwGWsbOF+cmOOLo7L9CowJWEO3P8WJXmZXe+3iqMVd0iB7fZZxsPKaZ+rq/X+77z9JOg4Q6zp32hClw==
+  dependencies:
+    classnames "^2.3.1"
+
+"@alfalab/core-components-stack@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-stack/-/core-components-stack-3.1.1.tgz#c9888190588b53007f03accfe84a52290936635a"
+  integrity sha512-R8IciFbHcCZNMeim1XCGplWTcAhEwOGfs8uvGZ1K+9uGLZg3+0YRMtcGoHSgIhCDbJ0nd8jRMtLWhP0Qe3j26A==
+
 "@alfalab/data@^1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.2.tgz#3052b75f6e9857bbfa97a0b511b69167cbb9e89c"
@@ -60,6 +116,11 @@
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.3.tgz#b4cc25542ecef657c6f0b64608eb6f9e37f35524"
   integrity sha512-BWzAJkjxg/+ksajaTv2z35ElFh/jNZE3d+hlOWKfO9uxWITeKKEDs10yPWIlZRcY33q0QtgBlPfp5mQ6BdtnWg==
+
+"@alfalab/data@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.4.1.tgz#6d9f8983edd69eb22f574a21070e47ccedc678be"
+  integrity sha512-OqkFMUJ7La8tTNkXP/T3RyohPptzigaPc15IVNyQxbMuFa8oIepcfCZEC6R7WdBYkHUh3R8C+8HKodzMnmsCew==
 
 "@alfalab/hooks@^1.0.0":
   version "1.1.1"
@@ -150,6 +211,16 @@
   dependencies:
     "@alfalab/data" "^1.2.3"
     fast-redact "^3.1.1"
+
+"@alfalab/utils@^1.13.0":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.1.tgz#0b67be504d6176152e9d830e844f363639ddddc9"
+  integrity sha512-KJYeNgfh7nXmCA3b3jgXH9iaZKWi3ahCPa9C/rrRxBHC1numPrl0yqLGs1ytx4L8d+ByeH69iiNRXT+jMv+oAA==
+  dependencies:
+    "@alfalab/data" "^1.4.1"
+    lodash "4.17.21"
+    stream-chain "2.2.5"
+    stream-json "1.7.4"
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
@@ -17318,15 +17389,15 @@ lodash@4.17.15:
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.15.tgz"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
+lodash@4.17.21, lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 "lodash@>=3.5 <5", lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1:
   version "4.17.20"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.20.tgz"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
-
-lodash@^4.17.21:
-  version "4.17.21"
-  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
-  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -23520,6 +23591,11 @@ stream-browserify@^2.0.1:
     inherits "~2.0.1"
     readable-stream "^2.0.2"
 
+stream-chain@2.2.5, stream-chain@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/stream-chain/-/stream-chain-2.2.5.tgz#b30967e8f14ee033c5b9a19bbe8a2cba90ba0d09"
+  integrity sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA==
+
 stream-combiner2@~1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/stream-combiner2/-/stream-combiner2-1.1.1.tgz"
@@ -23546,6 +23622,13 @@ stream-http@^2.7.2:
     readable-stream "^2.3.6"
     to-arraybuffer "^1.0.0"
     xtend "^4.0.0"
+
+stream-json@1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-1.7.4.tgz#e41637f93c5aca7267009ca8a3f6751e62331e69"
+  integrity sha512-ja2dde1v7dOlx5/vmavn8kLrxvNfs7r2oNc5DYmNJzayDDdudyCSuTB1gFjH4XBVTIwxiMxL4i059HX+ZiouXg==
+  dependencies:
+    stream-chain "^2.2.5"
 
 stream-shift@^1.0.0:
   version "1.0.1"
