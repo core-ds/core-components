@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pure-cell@2.0.2...@alfalab/core-components-pure-cell@2.0.3) (2022-08-31)
+
+
+### Bug Fixes
+
+* **pure-cell:** onClick fix ([#217](https://github.com/core-ds/core-components/issues/217)) ([2f08187](https://github.com/core-ds/core-components/commit/2f08187cce6aef3ca0609d183890a8968f054f52))
+* fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+
+
+
+
+
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-pure-cell@2.0.1...@alfalab/core-components-pure-cell@2.0.2) (2022-08-26)
 
 
