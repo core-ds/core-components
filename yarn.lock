@@ -212,7 +212,7 @@
     "@alfalab/data" "^1.2.3"
     fast-redact "^3.1.1"
 
-"@alfalab/utils@^1.13.0":
+"@alfalab/utils@^1.13.1":
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.1.tgz#0b67be504d6176152e9d830e844f363639ddddc9"
   integrity sha512-KJYeNgfh7nXmCA3b3jgXH9iaZKWi3ahCPa9C/rrRxBHC1numPrl0yqLGs1ytx4L8d+ByeH69iiNRXT+jMv+oAA==
