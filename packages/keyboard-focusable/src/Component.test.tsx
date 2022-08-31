@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { KeyboardFocusable } from './index';
