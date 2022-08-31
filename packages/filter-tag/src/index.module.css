@@ -220,6 +220,10 @@
 
 .clear {
     position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--color-light-graphic-tertiary);
     background-color: var(--tag-background-color-checked);
 
     &.defaultVariant {
@@ -252,10 +256,12 @@
 
     &:hover {
         background-color: var(--tag-background-color-checked-hover);
+        color: var(--color-light-graphic-primary-inverted);
     }
 
     &:active {
         background-color: var(--tag-background-color-checked-active);
+        color: var(--color-light-graphic-primary-inverted);
     }
 
     &.s {
@@ -281,4 +287,12 @@
             height: 20px;
         }
     }
+}
+
+.iconWrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
