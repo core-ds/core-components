@@ -210,7 +210,7 @@
 }
 
 .xl .hiddenLabel {
-    padding: var(--form-control-l-paddings);
+    padding: var(--form-control-xl-paddings);
 }
 
 /* min-height and width: max-content; fix for IE */

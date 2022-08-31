@@ -1,4 +1,5 @@
 @import '../../../../themes/src/default.css';
+@import '../../../../tag/src/vars.css';
 
 .tag {
     padding: 0;
