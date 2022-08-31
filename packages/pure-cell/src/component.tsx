@@ -123,6 +123,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                         styles[verticalPadding],
                     )}
                     data-test-id={dataTestId}
+                    onClick={onClick}
                 >
                     <PureCellContext.Provider value={{ direction }}>
                         {children}
