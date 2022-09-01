@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as popoverModule from '@alfalab/core-components-popover';
@@ -549,19 +549,19 @@ describe('Select', () => {
             expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
         });
 
-        it('should show checkmark by default', () => {
-            const { getByTestId } = render(
-                <Select {...baseProps} options={options} dataTestId='select' />,
-            );
+        it('should show checkmark by default', async () => {
+            render(<Select {...baseProps} options={options} dataTestId='select' />);
 
-            getByTestId('select-field').click();
+            userEvent.click(await screen.findByTestId('select-field'));
 
             expect(
-                getByTestId('select-options-list').getElementsByClassName('checkmark').length,
+                (await screen.findByTestId('select-options-list')).getElementsByClassName(
+                    'checkmark',
+                ).length,
             ).toBe(16);
         });
 
-        it('should hide checkmark', () => {
+        it('should hide checkmark', async () => {
             const optionsWithHidedCheckMark = [
                 { key: '1', showCheckMark: false, content: 'Neptunium' },
                 { key: '2', showCheckMark: false, content: 'Plutonium' },
@@ -573,14 +573,16 @@ describe('Select', () => {
                 { key: '8', showCheckMark: false, content: 'Fermium' },
             ];
 
-            const { getByTestId } = render(
+            render(
                 <Select {...baseProps} options={optionsWithHidedCheckMark} dataTestId='select' />,
             );
 
-            getByTestId('select-field').click();
+            userEvent.click(await screen.findByTestId('select-field'));
 
             expect(
-                getByTestId('select-options-list').getElementsByClassName('checkmark').length,
+                (await screen.findByTestId('select-options-list')).getElementsByClassName(
+                    'checkmark',
+                ).length,
             ).toBe(0);
         });
     });
