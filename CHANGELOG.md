@@ -1,3 +1,11 @@
+# [30.5.0](https://github.com/core-ds/core-components/compare/v30.4.1...v30.5.0) (2022-09-01)
+
+
+### Features
+
+* **side-panel:** add props imageUrl  and fix doc ([#168](https://github.com/core-ds/core-components/issues/168)) ([9ca0f00](https://github.com/core-ds/core-components/commit/9ca0f0094b993bdd302765db79bcf8f91fae2a12))
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
 ## [30.4.1](https://github.com/core-ds/core-components/compare/v30.4.0...v30.4.1) (2022-08-31)
 
 
