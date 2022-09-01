@@ -220,16 +220,14 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                 case 'Delete':
                     event.preventDefault();
 
-                    if (values[nextIndex]) {
-                        newValues[index] = '';
-                        focusOnInput(nextRef);
-                    } else {
-                        newValues[index] = '';
-                        focusOnInput(curtRef);
+                    newValues[index] = '';
 
-                        if (nextRef) {
-                            focusOnInput(nextRef);
-                        }
+                    if (!values[nextIndex]) {
+                        focusOnInput(curtRef);
+                    }
+
+                    if (nextRef) {
+                        focusOnInput(nextRef);
                     }
 
                     setValues(newValues);
