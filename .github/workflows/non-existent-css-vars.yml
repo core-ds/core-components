@@ -1,10 +1,10 @@
-name: "Checking non-existing css vars"
+name: "Css vars"
 
 on: [push]
 
 jobs:
   search-vars:
-    name: run checking non-existent css vars
+    name: search non-existent css vars
 
     runs-on: ubuntu-latest
 

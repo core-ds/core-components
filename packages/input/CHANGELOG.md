@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input@10.0.2...@alfalab/core-components-input@10.0.3) (2022-08-31)
+
+
+### Bug Fixes
+
+* fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+
+
+
+
+
 ## [10.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input@10.0.1...@alfalab/core-components-input@10.0.2) (2022-08-29)
 
 **Note:** Version bump only for package @alfalab/core-components-input

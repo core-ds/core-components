@@ -1,5 +1,6 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
+@import '../../../../modal/src/vars.css';
 
 .wrapper {
     background: var(--color-light-bg-primary);

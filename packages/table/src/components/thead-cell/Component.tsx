@@ -1,9 +1,10 @@
-import React, { ThHTMLAttributes } from 'react';
+import React, { ThHTMLAttributes, useContext } from 'react';
 import cn from 'classnames';
 
 import { TextAlignProperty } from '../../typings';
 
 import styles from './index.module.css';
+import { TableContext } from '../table-context';
 
 export type THeadCellProps = ThHTMLAttributes<HTMLHeadingElement> & {
     /**
@@ -41,13 +42,23 @@ export const THeadCell = ({
     textAlign,
     hidden,
     ...restProps
-}: THeadCellProps) => (
-    <th
-        className={cn(styles.component, className, hidden && styles.hidden)}
-        style={{ ...style, width, textAlign }}
-        data-test-id={dataTestId}
-        {...restProps}
-    >
-        {children}
-    </th>
-);
+}: THeadCellProps) => {
+    const { compactHorizontal } = useContext(TableContext);
+
+    if (hidden) return null;
+
+    return (
+        <th
+            className={cn(
+                styles.component,
+                className,
+                compactHorizontal && styles.compactHorizontal,
+            )}
+            style={{ ...style, width, textAlign }}
+            data-test-id={dataTestId}
+            {...restProps}
+        >
+            {children}
+        </th>
+    );
+};

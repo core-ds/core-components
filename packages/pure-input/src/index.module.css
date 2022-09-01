@@ -1,5 +1,6 @@
 @import '../../themes/src/default.css';
 @import '../../input/src/default.module.css';
+@import '../../form-control/src/vars.css';
 
 .component {
     @mixin system_16-20_regular;
@@ -43,13 +44,13 @@
 
 .l {
     height: var(--form-control-l-min-height);
-    padding: var(--form-control-l-paddings);
+    padding: var(--form-control-paddings);
     padding-top: 1px;
 }
 
 .xl {
     height: var(--form-control-xl-min-height);
-    padding: var(--form-control-l-paddings);
+    padding: var(--form-control-xl-paddings);
     padding-top: 1px;
 }
 
@@ -66,7 +67,6 @@
 
 .component:not(:disabled):focus {
     border-bottom: var(--form-control-focus-border-bottom);
-    box-shadow: var(--form-control-focus-shadow);
 
     &::placeholder {
         color: var(--input-focus-placeholder-color);

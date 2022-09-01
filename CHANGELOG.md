@@ -1,3 +1,22 @@
+## [30.4.1](https://github.com/core-ds/core-components/compare/v30.4.0...v30.4.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* **amount:** fix undefined symbol ([#231](https://github.com/core-ds/core-components/issues/231)) ([07a93ab](https://github.com/core-ds/core-components/commit/07a93abefd530532cdacb530baf27d239b7f7174))
+* **filter-tag:** поправлены цвета у иконки крестика ([#167](https://github.com/core-ds/core-components/issues/167)) ([28eb49e](https://github.com/core-ds/core-components/commit/28eb49e012b5b6f8a8e4f07e2214ecb65fae0564))
+* fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+* **loader:** убран лишний отступ у последнего элемента, мешающий выравниванию ([#218](https://github.com/core-ds/core-components/issues/218)) ([e064754](https://github.com/core-ds/core-components/commit/e064754bfa1d4fbd85f5a9569790da4eef0d237c))
+* **pure-cell:** onClick fix ([#217](https://github.com/core-ds/core-components/issues/217)) ([2f08187](https://github.com/core-ds/core-components/commit/2f08187cce6aef3ca0609d183890a8968f054f52))
+* **toast:** word breaking rule ([#228](https://github.com/core-ds/core-components/issues/228)) ([b329c88](https://github.com/core-ds/core-components/commit/b329c88475501bf4ad2285f3804ada83134b51da))
+
+# [30.4.0](https://github.com/core-ds/core-components/compare/v30.3.0...v30.4.0) (2022-08-30)
+
+
+### Features
+
+* **table:** change paddings, new compactHorizontal prop ([#214](https://github.com/core-ds/core-components/issues/214)) ([788eebe](https://github.com/core-ds/core-components/commit/788eebe2bb0cd9951fd1d8c2e41a065c3dda25c8))
+
 # [30.3.0](https://github.com/core-ds/core-components/compare/v30.2.1...v30.3.0) (2022-08-29)
 
 

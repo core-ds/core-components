@@ -189,7 +189,6 @@
 
         &.loading {
             color: var(--button-inverted-outlined-color);
-            border-color: var(--button-inverted-outlined-border-color);
         }
     }
 
@@ -200,7 +199,6 @@
 
         &.loading {
             color: var(--button-inverted-tertiary-color);
-            border-color: var(--button-inverted-tertiary-border-color);
         }
     }
 

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.1.0...@alfalab/core-components-table@2.1.1) (2022-08-31)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.0.3...@alfalab/core-components-table@2.1.0) (2022-08-30)
+
+
+### Features
+
+* **table:** change paddings, new compactHorizontal prop ([#214](https://github.com/core-ds/core-components/issues/214)) ([788eebe](https://github.com/core-ds/core-components/commit/788eebe2bb0cd9951fd1d8c2e41a065c3dda25c8))
+
+
+
+
+
 ## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.0.2...@alfalab/core-components-table@2.0.3) (2022-08-29)
 
 **Note:** Version bump only for package @alfalab/core-components-table
