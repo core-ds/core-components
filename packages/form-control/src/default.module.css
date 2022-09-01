@@ -27,6 +27,11 @@
 .disabled {
     background-color: var(--form-control-disabled-bg-color);
     color: var(--form-control-disabled-color);
+    box-shadow: var(--form-control-disabled-shadow);
+}
+
+.disabled.filled .label {
+    color: var(--form-control-disabled-filed-label-color);
 }
 
 .disabled:before {
