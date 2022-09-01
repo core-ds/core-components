@@ -8,10 +8,10 @@
     --form-control-hint-color: var(--color-light-text-secondary);
 
     /* disabled */
-    --form-control-disabled-label-color: var(--form-control-label-color);
     --form-control-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
     --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-underline);
     --form-control-disabled-color: var(--color-light-text-secondary);
+    --form-control-disabled-filed-label-color: var(--form-control-disabled-color);
     --form-control-disabled-shadow: none;
 
     /* focus */

@@ -8,12 +8,12 @@
 
     /* disabled */
     --form-control-disabled-opacity: 1;
-    --form-control-disabled-label-color: var(--color-light-text-tertiary);
     --form-control-disabled-border-bottom: 0;
     --form-control-inverted-disabled-border-bottom: 0;
     --form-control-disabled-bg-color: var(--color-light-bg-primary);
     --form-control-inverted-disabled-bg-color: var(--color-light-bg-secondary-inverted);
     --form-control-disabled-shadow: inset 0 0 0 1px var(--color-light-border-secondary);
+    --form-control-disabled-filed-label-color: var(--color-light-text-tertiary);
 
     /* focus */
     --form-control-focus-border-bottom: 0;

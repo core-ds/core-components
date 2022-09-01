@@ -205,6 +205,10 @@
     opacity: var(--form-control-disabled-opacity);
 }
 
+.disabled.filled .label {
+    color: var(--form-control-disabled-filed-label-color);
+}
+
 /* FOCUS STATE */
 
 .focused:not(.disabled):before,
