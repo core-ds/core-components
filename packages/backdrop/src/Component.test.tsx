@@ -1,10 +1,16 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
+import { act } from 'react-dom/test-utils';
 import { Backdrop } from './Component';
 
+jest.useFakeTimers();
+
 describe('Backdrop', () => {
-    const waitForTransition = async () => new Promise(res => setTimeout(res, 1000));
+    const waitForTransition = () =>
+        act(() => {
+            jest.advanceTimersByTime(300);
+        });
 
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
@@ -24,7 +30,7 @@ describe('Backdrop', () => {
         expect(queryByTestId('Backdrop')).toMatchSnapshot();
 
         // appear done
-        await waitForTransition();
+        waitForTransition();
 
         expect(queryByTestId('Backdrop')).toMatchSnapshot();
 
@@ -39,7 +45,7 @@ describe('Backdrop', () => {
         expect(queryByTestId('Backdrop')).toMatchSnapshot();
 
         // exit done, unmount
-        await waitForTransition();
+        waitForTransition();
 
         expect(queryByTestId('Backdrop')).toMatchSnapshot();
     });
@@ -70,7 +76,7 @@ describe('Backdrop', () => {
         expect(queryByTestId('Backdrop')).toHaveClass(classNames.appear, classNames.appearActive);
 
         // appear done
-        await waitForTransition();
+        waitForTransition();
 
         expect(queryByTestId('Backdrop')).toHaveClass(classNames.appearDone, classNames.enterDone);
 
@@ -88,7 +94,7 @@ describe('Backdrop', () => {
         expect(queryByTestId('Backdrop')).toHaveClass(classNames.exit, classNames.exitActive);
 
         // exit done
-        await waitForTransition();
+        waitForTransition();
 
         expect(queryByTestId('Backdrop')).toHaveClass(classNames.exitDone);
 
@@ -106,7 +112,7 @@ describe('Backdrop', () => {
         expect(queryByTestId('Backdrop')).toHaveClass(classNames.enter, classNames.enterActive);
 
         // enter done
-        await waitForTransition();
+        waitForTransition();
 
         expect(queryByTestId('Backdrop')).toHaveClass(classNames.enterDone);
     });

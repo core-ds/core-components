@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { KeyboardFocusable } from './index';
@@ -34,9 +34,7 @@ describe('KeyboardFocusable', () => {
     it('should pass `focused=true` when child gets focus', async () => {
         const { queryByText } = renderComponent();
 
-        await act(async () => {
-            userEvent.tab();
-        });
+        await userEvent.tab();
 
         expect(queryByText('focused')).toBeInTheDocument();
     });
@@ -44,15 +42,11 @@ describe('KeyboardFocusable', () => {
     it('should pass `focused=false` when child loses focus', async () => {
         const { queryByText } = renderComponent();
 
-        await act(async () => {
-            userEvent.tab();
-        });
+        await userEvent.tab();
 
         expect(queryByText('focused')).toBeInTheDocument();
 
-        await act(async () => {
-            userEvent.tab();
-        });
+        await userEvent.tab();
 
         expect(queryByText('focused')).not.toBeInTheDocument();
     });
@@ -64,9 +58,7 @@ describe('KeyboardFocusable', () => {
             </KeyboardFocusable>,
         );
 
-        await act(async () => {
-            userEvent.tab();
-        });
+        await userEvent.tab();
 
         expect(queryByText('focused')).not.toBeInTheDocument();
     });

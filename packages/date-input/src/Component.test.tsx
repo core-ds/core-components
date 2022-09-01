@@ -68,15 +68,17 @@ describe('DateInput', () => {
     });
 
     describe('Callback tests', () => {
-        it('should call onChange callback', () => {
+        it('should call onChange callback', async () => {
             const onChange = jest.fn();
             const onComplete = jest.fn();
             const value = '01.01.2020';
-            const { queryByRole } = render(<DateInput onChange={onChange} onComplete={onComplete} />);
+            const { queryByRole } = render(
+                <DateInput onChange={onChange} onComplete={onComplete} />,
+            );
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
 
             expect(onComplete).toBeCalledTimes(1);
             expect(onChange).toBeCalledTimes(value.length);
