@@ -1,0 +1,5 @@
+@import '../../../vars.css';
+
+.codeInput {
+    margin-bottom: var(--gap-3xl);
+}

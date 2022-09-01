@@ -12,6 +12,11 @@ export type ConfirmationProps = {
     state: ConfirmationState | string;
 
     /**
+     * Экран комddddddewfrtrgythryhwrtgпeeонента
+     */
+    confirmationScreens?: ConfirmationScreens;
+
+    /**
      * Позиционирование контента
      */
     alignContent?: 'left' | 'center';
@@ -184,4 +189,8 @@ export const defaultTexts = {
     tempBlockDescription: 'Повторное подтверждение кодом будет возможно через 24\xa0часа',
     codeSended: 'Код выслан',
     countdown: 'Запросить повторно можно через',
+};
+
+export type ConfirmationScreens = {
+    [key: string]: ComponentType;
 };

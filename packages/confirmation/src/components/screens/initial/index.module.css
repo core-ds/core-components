@@ -7,22 +7,19 @@
 }
 
 .header {
-    @mixin _confirmation-title;
+    margin-bottom: var(--gap-xl);
 }
 
 .phone {
-    margin-bottom: var(--gap-2xl);
-    color: var(--color-light-text-primary);
-}
-
-.inputContainer {
-    display: flex;
-    flex-direction: column;
     margin-bottom: var(--gap-2xl);
 }
 
 .compact {
     margin-bottom: var(--gap-xl);
+}
+
+.codeInputWrap {
+    margin-bottom: var(--gap-2xl);
 }
 
 .loaderWrap {
@@ -45,7 +42,7 @@
 }
 
 .smsComeLink {
-    @mixin paragraph_primary_small;
+    @mixin action_primary_small;
 }
 
 .countdownContainer {

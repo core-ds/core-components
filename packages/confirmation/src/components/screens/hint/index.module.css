@@ -15,21 +15,20 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    & span:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 .title {
-    @mixin _confirmation-title;
+    margin-bottom: var(--gap-xl);
 }
 
 .text {
-    @mixin _confirmation-text;
-
     margin-bottom: var(--gap-xl);
 }
 
 .phonesWrap {
-    @mixin _confirmation-text;
-
     display: flex;
     flex-direction: column;
     margin-bottom: var(--gap-xl);
@@ -45,14 +44,6 @@
 
 .phoneLink {
     @mixin action_primary_medium;
-
-    & > span {
-        border-bottom: none;
-    }
-}
-
-.phoneDescription {
-    color: var(--confirmation-text-color);
 }
 
 .hintButton {

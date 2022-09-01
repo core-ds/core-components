@@ -18,6 +18,7 @@
         "@alfalab/core-components-code-input": "^2.0.2",
         "@alfalab/core-components-link": "^4.1.0",
         "@alfalab/core-components-loader": "^3.0.1",
+        "@alfalab/core-components-typography": "^3.0.1",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/icons-glyph": "^2.16.0",
         "@alfalab/utils": "^1.11.0",

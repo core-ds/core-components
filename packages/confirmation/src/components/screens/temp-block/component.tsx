@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, Fragment } from 'react';
+import React, { useContext, useEffect, Fragment, FC } from 'react';
+
+import { Typography } from '@alfalab/core-components-typography';
 
 import { CountdownLoader } from '../../countdown-loader';
 
@@ -7,7 +9,14 @@ import { formatMsAsMinutes, useCountdown } from '../../../utils';
 
 import styles from './index.module.css';
 
-export const TempBlock = () => {
+export type TempBlockProps = {
+    /**
+     * Отображать в мобильной версии экран компонента
+     */
+    mobile?: boolean;
+};
+
+export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
     const { texts, tempBlockDuration, onChangeScreen, onTempBlockFinished } = useContext(
         ConfirmationContext,
     );
@@ -26,9 +35,19 @@ export const TempBlock = () => {
 
     return (
         <Fragment>
-            <h3 className={styles.header}>{texts.tempBlockTitle}</h3>
+            <Typography.Title
+                tag='h3'
+                font='system'
+                view={mobile ? 'xsmall' : 'small'}
+                color='primary'
+                className={styles.header}
+            >
+                {texts.tempBlockTitle}
+            </Typography.Title>
 
-            <div className={styles.description}>{texts.tempBlockDescription}</div>
+            <Typography.Text view='primary-medium' color='primary' className={styles.description}>
+                {texts.tempBlockDescription}
+            </Typography.Text>
 
             <div className={styles.countdownWrap}>
                 <CountdownLoader

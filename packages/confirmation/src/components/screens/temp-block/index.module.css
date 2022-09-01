@@ -2,13 +2,11 @@
 @import '../../../vars.css';
 
 .header {
-    @mixin _confirmation-title;
+    margin-bottom: var(--gap-xl);
 }
 
 .description {
-    @mixin _confirmation-text;
-
-    margin-bottom: var(--gap-2xl);
+    margin-bottom: var(--gap-xs);
 }
 
 .countdownWrap {
