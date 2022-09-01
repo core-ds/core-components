@@ -18,7 +18,6 @@
     --primary-tablist-xl-padding: var(--gap-l) 0;
 
     /* mobile */
-    --primary-tablist-mobile-padding: var(--gap-s) 0;
     --primary-tablist-mobile-font-weight: 500;
     --primary-tablist-mobile-font-family: var(--font-family-styrene);
     --primary-tablist-mobile-font-size: 20px;
