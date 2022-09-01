@@ -1,4 +1,13 @@
-import React, { forwardRef, useCallback, ChangeEvent, FC, Fragment, ReactNode } from 'react';
+import React, {
+    forwardRef,
+    useCallback,
+    ChangeEvent,
+    FC,
+    Fragment,
+    ReactNode,
+    isValidElement,
+    cloneElement,
+} from 'react';
 import cn from 'classnames';
 import { Slider, SliderProps } from '@alfalab/core-components-slider';
 import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
@@ -18,6 +27,12 @@ export type SliderInputProps = Omit<
      * Макс. допустимое число
      */
     max?: number;
+
+    /**
+     * Массив подписей к слайдеру
+     * @deprecated Используйте pips
+     */
+    steps?: ReactNode[];
 
     /**
      * Шаг (должен нацело делить отрезок между мин и макс)
@@ -72,6 +87,11 @@ export type SliderInputProps = Omit<
     sliderClassName?: string;
 
     /**
+     * Класс для шагов
+     */
+    stepsClassName?: string;
+
+    /**
      * Обработчик изменения значения через слайдер или поле ввода
      */
     onChange?: (
@@ -101,6 +121,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             className,
             inputClassName,
             sliderClassName,
+            stepsClassName,
             focusedClassName,
             fieldClassName,
             value = '',
@@ -108,6 +129,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             max = 100,
             step = 1,
             block,
+            steps = [],
             sliderValue = +value,
             size = 's',
             label,
@@ -210,6 +232,18 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         )
                     }
                 />
+
+                {steps.length > 0 && !error && (
+                    <div className={cn(styles.steps, stepsClassName)}>
+                        {steps.map((stepLabel, i) =>
+                            isValidElement(stepLabel) ? (
+                                cloneElement(stepLabel, { key: i })
+                            ) : (
+                                <span key={i.toString()}>{stepLabel}</span>
+                            ),
+                        )}
+                    </div>
+                )}
             </div>
         );
     },
@@ -225,5 +259,6 @@ SliderInput.defaultProps = {
     step: 1,
     size: 's',
     Input: DefaultInput,
+    steps: [],
     customInputProps: {},
 };
