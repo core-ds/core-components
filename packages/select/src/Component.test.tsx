@@ -548,6 +548,41 @@ describe('Select', () => {
             );
             expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
         });
+
+        it('should show checkmark by default', () => {
+            const { getByTestId } = render(
+                <Select {...baseProps} options={options} dataTestId='select' />,
+            );
+
+            getByTestId('select-field').click();
+
+            expect(
+                getByTestId('select-options-list').getElementsByClassName('checkmark').length,
+            ).toBe(16);
+        });
+
+        it('should hide checkmark', () => {
+            const optionsWithHidedCheckMark = [
+                { key: '1', showCheckMark: false, content: 'Neptunium' },
+                { key: '2', showCheckMark: false, content: 'Plutonium' },
+                { key: '3', showCheckMark: false, content: 'Americium' },
+                { key: '4', showCheckMark: false, content: 'Curium' },
+                { key: '5', showCheckMark: false, content: 'Berkelium' },
+                { key: '6', showCheckMark: false, content: 'Californium' },
+                { key: '7', showCheckMark: false, content: 'Einsteinium' },
+                { key: '8', showCheckMark: false, content: 'Fermium' },
+            ];
+
+            const { getByTestId } = render(
+                <Select {...baseProps} options={optionsWithHidedCheckMark} dataTestId='select' />,
+            );
+
+            getByTestId('select-field').click();
+
+            expect(
+                getByTestId('select-options-list').getElementsByClassName('checkmark').length,
+            ).toBe(0);
+        });
     });
 
     describe('Callback tests', () => {
