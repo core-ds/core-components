@@ -1,0 +1,37 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --input-color: var(--color-light-text-primary);
+    --input-placeholder-color: var(--color-light-text-secondary);
+    --input-focus-placeholder-color: var(--color-light-text-tertiary);
+    --input-with-label-placeholder-color: var(--color-light-text-tertiary);
+    --input-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
+    --input-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
+    --input-caret-color: var(--input-color);
+    --input-inverted-color: var(--color-light-text-primary-inverted);
+    --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted-transparent);
+    --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
+    --input-inverted-with-label-placeholder-color: var(--color-light-text-tertiary-inverted);
+    --input-inverted-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
+    --input-inverted-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
+    --input-inverted-caret-color: var(--input-inverted-color);
+
+    /* disabled */
+    --input-disabled-color: var(--color-light-text-secondary);
+    --input-inverted-disabled-color: var(--color-light-text-secondary-inverted-transparent);
+
+    /* read-only */
+    --input-read-only-color: var(--color-light-text-secondary);
+    --input-inverted-read-only-color: var(--color-light-text-secondary-inverted-transparent);
+
+    /* error */
+    --input-error-color: var(--color-light-text-primary);
+    --input-inverted-error-color: var(--color-light-text-primary-inverted);
+
+    /* display */
+    --input-error-icon-display: block;
+    --input-success-icon-display: block;
+
+    /* управляет видимостью иконки ошибки, если она стоит рядом с другой иконкой */
+    --input-error-icon-not-alone-display: block;
+}

@@ -5,7 +5,7 @@ const shell = require('shelljs');
 
 const distDir = '/dist/';
 
-const IGNORE_PATTERNS = ['**/themes/**/*.css', '**/vars/**/*.css'];
+const IGNORE_PATTERNS = ['**/themes/**/*.css', '**/vars/**/*.css', '**/bank-card/**/*.css'];
 
 glob(
     path.join(path.resolve(__dirname, `..${distDir}`), '**/*.css'),
