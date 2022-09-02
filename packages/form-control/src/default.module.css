@@ -30,12 +30,16 @@
     box-shadow: var(--form-control-disabled-shadow);
 }
 
-.disabled.filled .label {
-    color: var(--form-control-disabled-filed-label-color);
+.disabled.hasError {
+    box-shadow: var(--form-control-error-disabled-shadow);
 }
 
 .disabled:before {
     border-bottom: var(--form-control-disabled-border-bottom);
+}
+
+.disabled.filled .label {
+    color: var(--form-control-disabled-filled-label-color);
 }
 
 /* FOCUS STATE */

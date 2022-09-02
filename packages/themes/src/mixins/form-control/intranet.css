@@ -14,8 +14,8 @@
     --form-control-disabled-shadow: inset 0 0 0 1px var(--color-light-border-secondary);
     --form-control-inverted-disabled-shadow: inset 0 0 0 1px
         var(--color-light-border-secondary-inverted);
-    --form-control-disabled-filed-label-color: var(--color-light-text-tertiary);
-    --form-control-inverted-disabled-filed-label-color: var(--color-light-text-tertiary-inverted);
+    --form-control-disabled-filled-label-color: var(--color-light-text-tertiary);
+    --form-control-inverted-disabled-filled-label-color: var(--color-light-text-tertiary-inverted);
 
     /* focus */
     --form-control-focus-border-bottom: 0;
@@ -29,6 +29,7 @@
     --form-control-error-label-color: var(--color-light-text-secondary);
     --form-control-inverted-error-label-color: var(--color-light-bg-secondary-inverted);
     --form-control-error-shadow: none;
+    --form-control-error-disabled-shadow: var(--form-control-disabled-shadow);
     --form-control-inverted-error-shadow: none;
     --form-control-error-border-bottom: 0;
     --form-control-inverted-error-border-bottom: 0;
