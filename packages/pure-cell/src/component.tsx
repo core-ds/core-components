@@ -9,6 +9,9 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ButtonProps } from '@alfalab/core-components-button';
+
 import { useFocus } from '@alfalab/hooks';
 
 import { Addon } from './components/addon';

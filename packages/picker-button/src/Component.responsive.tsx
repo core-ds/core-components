@@ -3,6 +3,9 @@ import React, { forwardRef } from 'react';
 import { AdditionalMobileProps } from '@alfalab/core-components-select';
 import { useMedia } from '@alfalab/hooks';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ButtonProps } from '@alfalab/core-components-button';
+
 import { PickerButtonDesktop, PickerButtonProps as PickerButtonDesktopProps } from './Component';
 import { PickerButtonMobile } from './Component.mobile';
 

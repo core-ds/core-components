@@ -97,8 +97,8 @@ export type ComponentProps = {
     children?: ReactNode;
 };
 
-type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+export type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+export type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
