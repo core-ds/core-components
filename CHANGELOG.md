@@ -1,3 +1,10 @@
+# [30.6.0](https://github.com/core-ds/core-components/compare/v30.5.1...v30.6.0) (2022-09-02)
+
+
+### Features
+
+* **select:** add showCheckMark to option shape ([#235](https://github.com/core-ds/core-components/issues/235)) ([5339071](https://github.com/core-ds/core-components/commit/53390718a89300184fd82016b02ce40223eca687))
+
 ## [30.5.1](https://github.com/core-ds/core-components/compare/v30.5.0...v30.5.1) (2022-09-02)
 
 
