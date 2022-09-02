@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as popoverModule from '@alfalab/core-components-popover';
@@ -554,6 +554,43 @@ describe('Select', () => {
                 <Select {...baseProps} optionsListClassName={optionsListClassName} />,
             );
             expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
+        });
+
+        it('should show checkmark by default', async () => {
+            render(<Select {...baseProps} options={options} dataTestId='select' />);
+
+            userEvent.click(await screen.findByTestId('select-field'));
+
+            expect(
+                (await screen.findByTestId('select-options-list')).getElementsByClassName(
+                    'checkmark',
+                ).length,
+            ).toBe(16);
+        });
+
+        it('should hide checkmark', async () => {
+            const optionsWithHidedCheckMark = [
+                { key: '1', showCheckMark: false, content: 'Neptunium' },
+                { key: '2', showCheckMark: false, content: 'Plutonium' },
+                { key: '3', showCheckMark: false, content: 'Americium' },
+                { key: '4', showCheckMark: false, content: 'Curium' },
+                { key: '5', showCheckMark: false, content: 'Berkelium' },
+                { key: '6', showCheckMark: false, content: 'Californium' },
+                { key: '7', showCheckMark: false, content: 'Einsteinium' },
+                { key: '8', showCheckMark: false, content: 'Fermium' },
+            ];
+
+            render(
+                <Select {...baseProps} options={optionsWithHidedCheckMark} dataTestId='select' />,
+            );
+
+            userEvent.click(await screen.findByTestId('select-field'));
+
+            expect(
+                (await screen.findByTestId('select-options-list')).getElementsByClassName(
+                    'checkmark',
+                ).length,
+            ).toBe(0);
         });
     });
 
