@@ -1,3 +1,10 @@
+## [30.5.1](https://github.com/core-ds/core-components/compare/v30.5.0...v30.5.1) (2022-09-02)
+
+
+### Bug Fixes
+
+* temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+
 # [30.5.0](https://github.com/core-ds/core-components/compare/v30.4.1...v30.5.0) (2022-09-01)
 
 
