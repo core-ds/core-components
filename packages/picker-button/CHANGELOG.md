@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.2.0...@alfalab/core-components-picker-button@8.2.1) (2022-09-02)
+
+
+### Bug Fixes
+
+* temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+
+
+
+
+
 # [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.1.2...@alfalab/core-components-picker-button@8.2.0) (2022-09-01)
 
 
