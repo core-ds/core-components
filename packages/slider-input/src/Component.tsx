@@ -218,7 +218,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                 }
                                 disabled={disabled || readOnly}
                                 className={cn(styles.slider, sliderClassName)}
-                                pips={pips}
+                                pips={!error && !hint ? pips : undefined}
                                 range={range}
                             />
                         )
