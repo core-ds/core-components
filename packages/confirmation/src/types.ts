@@ -12,7 +12,7 @@ export type ConfirmationProps = {
     state: ConfirmationState | string;
 
     /**
-     * Экран комddddddewfrtrgythryhwrtgпeeонента
+     * Объект, где ключ - название экрана (screen), значение - компонент для экрана
      */
     confirmationScreens?: ConfirmationScreens;
 

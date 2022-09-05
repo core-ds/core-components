@@ -1,4 +1,5 @@
-export * from './component';
+// export * from './component';
+export * from './responsive';
 export * from './components';
 export * from './context';
 export * from './types';

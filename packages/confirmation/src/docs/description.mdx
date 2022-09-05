@@ -88,7 +88,7 @@ render(() => {
                     boxSizing: 'border-box',
                 }}
             >
-                <Confirmation
+                <ConfirmationDesktop
                     screen={confirmationScreen}
                     state={confirmationState}
                     alignContent='center'
@@ -128,7 +128,8 @@ export type ConfirmationState =
 Для управления экранами и состояниями можно воспользоваться хуком:
 
 ```jsx
-import { Confirmation, useConfirmation } from '@alfalab/core-components/confirmation';
+import { useConfirmation } from '@alfalab/core-components-confirmation';
+import { ConfirmationDesktop } from '@alfalab/core-components/confirmation/desktop';
 
 const Example = () => {
     const {
@@ -153,7 +154,7 @@ const Example = () => {
     };
 
     return (
-        <Confirmation
+        <ConfirmationDesktop
             screen={confirmationScreen}
             state={confirmationState}
             onChangeState={setConfirmationState}
@@ -214,7 +215,7 @@ const Example = () => {
     } = useConfirmation();
 
     return (
-        <Confirmation
+        <ConfirmationDesktop
             screen={confirmationScreen}
             state={confirmationState}
             onChangeState={setConfirmationState}

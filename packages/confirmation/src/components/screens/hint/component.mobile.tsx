@@ -5,6 +5,6 @@ import styles from './mobile.module.css';
 
 export type HintMobileProps = HintProps;
 
-export const HintMobile: FC<HintMobileProps> = ({ phoneClassName, mobile, ...restProps }) => (
-    <Hint mobile={true} phoneClassName={styles.phone} {...restProps} />
+export const HintMobile: FC<HintMobileProps> = ({ mobile, phoneClassName, ...restProps }) => (
+    <Hint mobile={true} phoneClassName={styles.phoneContent} {...restProps} />
 );

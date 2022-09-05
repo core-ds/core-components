@@ -2,10 +2,6 @@
 @import '../../../vars.css';
 
 .center {
-    & .phoneHintWrap {
-        align-items: center;
-    }
-
     & .hintWrap {
         align-items: center;
     }
@@ -20,7 +16,7 @@
     }
 }
 
-.title {
+.header {
     margin-bottom: var(--gap-xl);
 }
 

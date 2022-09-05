@@ -3,6 +3,6 @@ import { TempBlock, TempBlockProps } from './component';
 
 export type TempBlockMobileProps = TempBlockProps;
 
-export const HintMobile: FC<TempBlockMobileProps> = ({ mobile, ...restProps }) => (
+export const TempBlockMobile: FC<TempBlockMobileProps> = ({ mobile, ...restProps }) => (
     <TempBlock mobile={true} {...restProps} />
 );

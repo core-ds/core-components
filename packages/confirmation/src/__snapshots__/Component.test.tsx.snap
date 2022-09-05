@@ -19,7 +19,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInputWrap"
+        class="component codeInput codeInput"
       >
         <div
           class=""
@@ -62,7 +62,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="countdownContainer primary-medium"
+        class="countdown countdownContainer primary-medium"
       >
         Запросить повторно можно через
          
@@ -101,7 +101,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInputWrap"
+        class="component codeInput codeInput"
       >
         <div
           class=""
@@ -195,7 +195,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInputWrap"
+        class="component codeInput codeInput"
       >
         <div
           class="shake"
@@ -244,7 +244,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         </div>
       </div>
       <div
-        class="countdownContainer primary-medium"
+        class="countdown countdownContainer primary-medium"
       >
         Запросить повторно можно через
          
@@ -283,7 +283,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInputWrap"
+        class="component codeInput codeInput"
       >
         <div
           class=""
@@ -439,7 +439,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
         class="hintWrap"
       >
         <h3
-          class="component title system-small bold primary"
+          class="component header system-small bold primary"
         >
           Не приходит сообщение?
         </h3>

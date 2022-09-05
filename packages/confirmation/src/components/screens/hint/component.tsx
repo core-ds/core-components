@@ -36,7 +36,7 @@ export const Hint: FC<HintProps> = ({ mobile, phoneClassName }) => {
                     font='system'
                     view={mobile ? 'xsmall' : 'small'}
                     color='primary'
-                    className={styles.title}
+                    className={styles.header}
                 >
                     Не&nbsp;приходит сообщение?
                 </Typography.Title>

@@ -8,8 +8,10 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
+// DESKTOP
+
 describe(
-    'Confirmation | code, charAmount, align',
+    'ConfirmationDesktop | code, charAmount, align',
     screenshotTesting({
         cases: [
             [
@@ -23,6 +25,7 @@ describe(
                         alignContent: ['left', 'center'],
                         requiredCharAmount: [5, 7],
                         phone: '+7 ··· ··· 07-24',
+                        ConfirmationComponent: 'ConfirmationDesktop',
                     },
                 }),
             ],
@@ -38,7 +41,7 @@ describe(
 );
 
 describe(
-    'Confirmation | CODE_CHECKING, CODE_SENDING, CODE_ERROR states',
+    'ConfirmationDesktop | CODE_CHECKING, CODE_SENDING, CODE_ERROR states',
     screenshotTesting({
         cases: [
             [
@@ -49,6 +52,7 @@ describe(
                     knobs: {
                         screen: ['INITIAL'],
                         state: ['INITIAL', 'CODE_CHECKING', 'CODE_SENDING', 'CODE_ERROR'],
+                        ConfirmationComponent: 'ConfirmationDesktop',
                     },
                 }),
             ],
@@ -65,7 +69,7 @@ describe(
 );
 
 describe(
-    'Confirmation | HINT, FATAL_ERROR, TEMP_BLOCK screens',
+    'ConfirmationDesktop | HINT, FATAL_ERROR, TEMP_BLOCK screens',
     screenshotTesting({
         cases: [
             [
@@ -76,6 +80,7 @@ describe(
                     knobs: {
                         screen: ['HINT', 'FATAL_ERROR', 'TEMP_BLOCK'],
                         state: ['INITIAL'],
+                        ConfirmationComponent: 'ConfirmationDesktop',
                     },
                 }),
             ],
@@ -92,7 +97,7 @@ describe(
 );
 
 describe(
-    'Confirmation | noAttemptsLeftMessage',
+    'ConfirmationDesktop | noAttemptsLeftMessage',
     screenshotTesting({
         cases: [
             [
@@ -104,6 +109,124 @@ describe(
                         screen: 'INITIAL',
                         state: 'INITIAL',
                         blockSmsRetry: true,
+                        ConfirmationComponent: 'ConfirmationDesktop',
+                    },
+                }),
+            ],
+        ],
+        evaluate: (page: Page) => page.waitForTimeout(300),
+        screenshotOpts: {
+            fullPage: true,
+        },
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.005,
+        },
+    }),
+);
+
+// MOBILE
+
+describe(
+    'ConfirmationMobile | code, charAmount, align',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Confirmation',
+                    size: { width: 450, height: 450 },
+                    knobs: {
+                        screen: 'INITIAL',
+                        state: 'INITIAL',
+                        alignContent: ['left', 'center'],
+                        requiredCharAmount: [5, 7],
+                        phone: '+7 ··· ··· 07-24',
+                        ConfirmationComponent: 'ConfirmationMobile',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.0005,
+        },
+    }),
+);
+
+describe(
+    'ConfirmationMobile | CODE_CHECKING, CODE_SENDING, CODE_ERROR states',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Confirmation',
+                    size: { width: 450, height: 450 },
+                    knobs: {
+                        screen: ['INITIAL'],
+                        state: ['INITIAL', 'CODE_CHECKING', 'CODE_SENDING', 'CODE_ERROR'],
+                        ConfirmationComponent: 'ConfirmationMobile',
+                    },
+                }),
+            ],
+        ],
+        evaluate: (page: Page) => page.waitForTimeout(300),
+        screenshotOpts: {
+            fullPage: true,
+        },
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.005,
+        },
+    }),
+);
+
+describe(
+    'ConfirmationMobile | HINT, FATAL_ERROR, TEMP_BLOCK screens',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Confirmation',
+                    size: { width: 450, height: 450 },
+                    knobs: {
+                        screen: ['HINT', 'FATAL_ERROR', 'TEMP_BLOCK'],
+                        state: ['INITIAL'],
+                        ConfirmationComponent: 'ConfirmationMobile',
+                    },
+                }),
+            ],
+        ],
+        evaluate: (page: Page) => page.waitForTimeout(300),
+        screenshotOpts: {
+            fullPage: true,
+        },
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.005,
+        },
+    }),
+);
+
+describe(
+    'ConfirmationMobile | noAttemptsLeftMessage',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Confirmation',
+                    size: { width: 450, height: 450 },
+                    knobs: {
+                        screen: 'INITIAL',
+                        state: 'INITIAL',
+                        blockSmsRetry: true,
+                        ConfirmationComponent: 'ConfirmationMobile',
                     },
                 }),
             ],

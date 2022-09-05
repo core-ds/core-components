@@ -150,7 +150,7 @@ export const Initial: FC<InitialProps> = ({ mobile, inputClassName }) => {
                 error={getCodeInputError()}
                 ref={inputRef}
                 fields={requiredCharAmount}
-                className={cn(styles.codeInput, styles.codeInputWrap, inputClassName)}
+                className={cn(styles.codeInput, inputClassName)}
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}
             />

@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Confirmation, ConfirmationProps } from './index';
+import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
 
 /**
  * TODO: сделать тесты на все callbacks
  * TODO: сделать тесты на все таймеры
  */
 describe('Confirmation', () => {
-    const baseProps: ConfirmationProps = {
+    const baseProps: DesktopConfirmationProps = {
         screen: 'INITIAL',
         state: 'INITIAL',
         onChangeScreen: jest.fn(),
@@ -18,43 +18,51 @@ describe('Confirmation', () => {
 
     describe('Snapshot tests', () => {
         it('should match snapshot', () => {
-            const { container } = render(<Confirmation {...baseProps} />);
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with CODE_CHECKING state', () => {
-            const { container } = render(<Confirmation {...baseProps} state='CODE_CHECKING' />);
+            const { container } = render(
+                <ConfirmationDesktop {...baseProps} state='CODE_CHECKING' />,
+            );
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with CODE_SENDING state', () => {
-            const { container } = render(<Confirmation {...baseProps} state='CODE_SENDING' />);
+            const { container } = render(
+                <ConfirmationDesktop {...baseProps} state='CODE_SENDING' />,
+            );
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with CODE_ERROR state', () => {
-            const { container } = render(<Confirmation {...baseProps} state='CODE_ERROR' />);
+            const { container } = render(<ConfirmationDesktop {...baseProps} state='CODE_ERROR' />);
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with FATAL_ERROR screen', () => {
-            const { container } = render(<Confirmation {...baseProps} screen='FATAL_ERROR' />);
+            const { container } = render(
+                <ConfirmationDesktop {...baseProps} screen='FATAL_ERROR' />,
+            );
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with HINT screen', () => {
-            const { container } = render(<Confirmation {...baseProps} screen='TEMP_BLOCK' />);
+            const { container } = render(
+                <ConfirmationDesktop {...baseProps} screen='TEMP_BLOCK' />,
+            );
 
             expect(container).toMatchSnapshot();
         });
 
         it('should match snapshot with HINT screen', () => {
-            const { container } = render(<Confirmation {...baseProps} screen='HINT' />);
+            const { container } = render(<ConfirmationDesktop {...baseProps} screen='HINT' />);
 
             expect(container).toMatchSnapshot();
         });
@@ -73,20 +81,20 @@ describe('Confirmation', () => {
 
             const props = { ...baseProps, texts };
 
-            const { getByText, rerender } = render(<Confirmation {...props} />);
+            const { getByText, rerender } = render(<ConfirmationDesktop {...props} />);
 
             expect(getByText(texts.title)).toBeInTheDocument();
             expect(getByText(texts.linkToHint)).toBeInTheDocument();
 
-            rerender(<Confirmation {...props} state='CODE_CHECKING' />);
+            rerender(<ConfirmationDesktop {...props} state='CODE_CHECKING' />);
 
             expect(getByText(texts.codeChecking)).toBeInTheDocument();
 
-            rerender(<Confirmation {...props} state='CODE_SENDING' />);
+            rerender(<ConfirmationDesktop {...props} state='CODE_SENDING' />);
 
             expect(getByText(texts.codeSending)).toBeInTheDocument();
 
-            rerender(<Confirmation {...props} state='CODE_ERROR' />);
+            rerender(<ConfirmationDesktop {...props} state='CODE_ERROR' />);
 
             expect(getByText(texts.codeError)).toBeInTheDocument();
         });
@@ -98,7 +106,7 @@ describe('Confirmation', () => {
 
             const props = { ...baseProps, texts };
 
-            const { getByText } = render(<Confirmation {...props} screen='HINT' />);
+            const { getByText } = render(<ConfirmationDesktop {...props} screen='HINT' />);
 
             expect(getByText(texts.hintButton)).toBeInTheDocument();
         });
@@ -112,7 +120,7 @@ describe('Confirmation', () => {
 
             const props = { ...baseProps, texts };
 
-            const { getByText } = render(<Confirmation {...props} screen='FATAL_ERROR' />);
+            const { getByText } = render(<ConfirmationDesktop {...props} screen='FATAL_ERROR' />);
 
             expect(getByText(texts.fatalErrorTitle)).toBeInTheDocument();
             expect(getByText(texts.fatalErrorDescription)).toBeInTheDocument();
@@ -127,7 +135,7 @@ describe('Confirmation', () => {
 
             const props = { ...baseProps, texts };
 
-            const { getByText } = render(<Confirmation {...props} screen='TEMP_BLOCK' />);
+            const { getByText } = render(<ConfirmationDesktop {...props} screen='TEMP_BLOCK' />);
 
             expect(getByText(texts.tempBlockTitle)).toBeInTheDocument();
             expect(getByText(texts.tempBlockDescription)).toBeInTheDocument();
@@ -135,14 +143,18 @@ describe('Confirmation', () => {
 
         it('should set `data-test-id` attribute', () => {
             const testId = 'test-id';
-            const { getByTestId } = render(<Confirmation {...baseProps} dataTestId={testId} />);
+            const { getByTestId } = render(
+                <ConfirmationDesktop {...baseProps} dataTestId={testId} />,
+            );
 
             expect(getByTestId(testId)).toBeInTheDocument();
         });
 
         it('should set custom class', () => {
             const className = 'custom-class';
-            const { container } = render(<Confirmation {...baseProps} className={className} />);
+            const { container } = render(
+                <ConfirmationDesktop {...baseProps} className={className} />,
+            );
 
             expect(container.firstElementChild).toHaveClass(className);
         });
@@ -151,7 +163,7 @@ describe('Confirmation', () => {
             const requiredCharAmount = 2;
 
             const { container } = render(
-                <Confirmation {...baseProps} requiredCharAmount={requiredCharAmount} />,
+                <ConfirmationDesktop {...baseProps} requiredCharAmount={requiredCharAmount} />,
             );
 
             const inputs = container.querySelectorAll('input');
@@ -162,7 +174,7 @@ describe('Confirmation', () => {
         it('should render passed phone', () => {
             const phone = '+7 (999) 999 99-99';
 
-            const { getByText } = render(<Confirmation {...baseProps} phone={phone} />);
+            const { getByText } = render(<ConfirmationDesktop {...baseProps} phone={phone} />);
 
             expect(getByText(`Код отправлен на ${phone}`)).toBeInTheDocument();
         });
@@ -185,19 +197,19 @@ describe('Confirmation', () => {
             }),
         };
 
-        const { getByText, rerender } = render(<Confirmation {...props} />);
+        const { getByText, rerender } = render(<ConfirmationDesktop {...props} />);
 
         expect(getByText(initialScreenTitlle)).toBeInTheDocument();
 
-        rerender(<Confirmation {...props} screen='HINT' />);
+        rerender(<ConfirmationDesktop {...props} screen='HINT' />);
 
         expect(getByText(hintScreenTitlle)).toBeInTheDocument();
 
-        rerender(<Confirmation {...props} screen='FATAL_ERROR' />);
+        rerender(<ConfirmationDesktop {...props} screen='FATAL_ERROR' />);
 
         expect(getByText(fatalErrorScreenTitlle)).toBeInTheDocument();
 
-        rerender(<Confirmation {...props} screen='TEMP_BLOCK' />);
+        rerender(<ConfirmationDesktop {...props} screen='TEMP_BLOCK' />);
 
         expect(getByText(tempBlockScreenTitlle)).toBeInTheDocument();
     });
@@ -206,7 +218,7 @@ describe('Confirmation', () => {
         const getActiveElement = () => document.activeElement as Element;
 
         it('should focus input on first render', () => {
-            const { container } = render(<Confirmation {...baseProps} />);
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
 
             expect(getActiveElement()).toBe(container.querySelector('input'));
         });
@@ -215,7 +227,7 @@ describe('Confirmation', () => {
             const onInputFinished = jest.fn();
 
             const { container } = render(
-                <Confirmation
+                <ConfirmationDesktop
                     {...baseProps}
                     onInputFinished={onInputFinished}
                     requiredCharAmount={2}
@@ -234,7 +246,7 @@ describe('Confirmation', () => {
             const onFatalErrorOkButtonClick = jest.fn();
 
             const { container } = render(
-                <Confirmation
+                <ConfirmationDesktop
                     {...baseProps}
                     onFatalErrorOkButtonClick={onFatalErrorOkButtonClick}
                     screen='FATAL_ERROR'

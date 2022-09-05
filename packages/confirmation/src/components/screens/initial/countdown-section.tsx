@@ -78,7 +78,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
 
     return (
         <Typography.Text
-            className={styles.countdownContainer}
+            className={cn(styles.countdown, styles.countdownContainer)}
             view={mobile ? 'primary-small' : 'primary-medium'}
             tag='div'
         >
