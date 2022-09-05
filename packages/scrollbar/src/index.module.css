@@ -6,7 +6,8 @@
     --scrollbar-thumb-border-radius: 3px;
     --scrollbar-thumb-side-outer-offset: 4px;
     --scrollbar-thumb-side-inner-offset: 1px;
-    --scrollbar-scaling-factor: 1.5;
+    --scrollbar-horizontal-scaling-factor: 1.5;
+    --scrollbar-vertical-scaling-factor: 1.4, 1.2;
 }
 
 .component {
@@ -127,7 +128,7 @@
 
             &.hover {
                 & :global(.scrollbar):before {
-                    transform: scaleX(var(--scrollbar-scaling-factor));
+                    transform: scale(var(--scrollbar-vertical-scaling-factor));
                 }
             }
 
@@ -151,7 +152,7 @@
 
             &.hover {
                 & :global(.scrollbar):before {
-                    transform: scaleY(var(--scrollbar-scaling-factor));
+                    transform: scaleY(var(--scrollbar-horizontal-scaling-factor));
                 }
             }
 
@@ -205,11 +206,11 @@
         pointer-events: all;
 
         &.vertical :global(.scrollbar):before {
-            transform: scaleX(var(--scrollbar-scaling-factor));
+            transform: scale(var(--scrollbar-vertical-scaling-factor));
         }
 
         &.horizontal :global(.scrollbar):before {
-            transform: scaleY(var(--scrollbar-scaling-factor));
+            transform: scaleY(var(--scrollbar-horizontal-scaling-factor));
         }
     }
 }
