@@ -1,3 +1,10 @@
+## [30.6.1](https://github.com/core-ds/core-components/compare/v30.6.0...v30.6.1) (2022-09-05)
+
+
+### Bug Fixes
+
+* **skeleton:** added className for visible === false ([29a1280](https://github.com/core-ds/core-components/commit/29a12809730bd49e5d2c47c66840642fff359f4c))
+
 # [30.6.0](https://github.com/core-ds/core-components/compare/v30.5.1...v30.6.0) (2022-09-02)
 
 
