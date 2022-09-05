@@ -30,7 +30,6 @@ export type SliderInputProps = Omit<
 
     /**
      * Массив подписей к слайдеру
-     * @deprecated Используйте pips
      */
     steps?: ReactNode[];
 
