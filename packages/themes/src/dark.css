@@ -209,4 +209,5 @@
     --color-light-bg-primary-inverted-alpha-32: var(--color-dark-bg-primary-inverted-alpha-32);
     --color-light-bg-primary-alpha-32: var(--color-dark-bg-primary-alpha-32);
     --color-light-bg-primary-alpha-37: var(--color-dark-bg-primary-alpha-37);
+    --color-light-border-secondary-inverted: var(--color-dark-border-secondary-inverted);
 }
