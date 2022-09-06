@@ -1,9 +1,8 @@
-name: Release(Semantic)
+name: Release
 
-on:
-  push:
-    branches:
-      - master
+on: workflow_dispatch
+
+concurrency: ${{ github.workflow }}
 
 jobs:
   build:
@@ -14,8 +13,9 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
+          ref: 'master'
           fetch-depth: 0
 
       - name: Install dependencies
@@ -31,14 +31,8 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
-      - name: Set Github credentials
-        uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          name: 'semantic-release-bot'
-          email: 'semantic-release-bot@martynus.net'
-          token: '${{ secrets.GH_TOKEN }}'
-
-      - name: Publish
-        run: yarn pub:ci
+      - name: Release
+        run: npm run pub:ci
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
