@@ -1,3 +1,18 @@
+# [31.0.0](https://github.com/core-ds/core-components/compare/v30.7.0...v31.0.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **link:** replace component with a button in pseudo mode ([#156](https://github.com/core-ds/core-components/issues/156)) ([6f24cbb](https://github.com/core-ds/core-components/commit/6f24cbb433c4ced85986d5f0e0b3bc1289e0fb8d))
+
+
+### BREAKING CHANGES
+
+* **link:** В компоненте Link с пропсом pseudo заменяется дефолтный html-элемент "a" на
+"button"
+
+Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
+
 # [30.7.0](https://github.com/core-ds/core-components/compare/v30.6.1...v30.7.0) (2022-09-06)
 
 
