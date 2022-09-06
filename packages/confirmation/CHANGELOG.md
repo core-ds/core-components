@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@11.0.5...@alfalab/core-components-confirmation@12.0.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **link:** replace component with a button in pseudo mode ([#156](https://github.com/core-ds/core-components/issues/156)) ([6f24cbb](https://github.com/core-ds/core-components/commit/6f24cbb433c4ced85986d5f0e0b3bc1289e0fb8d))
+
+
+### BREAKING CHANGES
+
+* **link:** В компоненте Link с пропсом pseudo заменяется дефолтный html-элемент "a" на
+"button"
+
+Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
+
+
+
+
+
 ## [11.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@11.0.4...@alfalab/core-components-confirmation@11.0.5) (2022-09-02)
 
 **Note:** Version bump only for package @alfalab/core-components-confirmation
