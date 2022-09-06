@@ -90,7 +90,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             children,
             colors = 'default',
             href,
-            Component = 'a',
+            Component = pseudo ? 'button' : 'a',
             ...restProps
         },
         ref,
