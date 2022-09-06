@@ -23,6 +23,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'ConfirmationV1',
+                    packageName: 'confirmation-v-1',
                     size: { width: 450, height: 450 },
                     knobs: {
                         code: ['', '1234'],
@@ -50,6 +51,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'ConfirmationV1',
+                    packageName: 'confirmation-v-1',
                     size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
@@ -78,6 +80,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'ConfirmationV1',
+                    packageName: 'confirmation-v-1',
                     size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
@@ -106,6 +109,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'ConfirmationV1',
+                    packageName: 'confirmation-v-1',
                     size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
@@ -135,6 +139,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'ConfirmationV1',
+                    packageName: 'confirmation-v-1',
                     size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
@@ -160,6 +165,7 @@ describe('ConfirmationV1 | interactions tests', () => {
     test('Open don`t receive sms', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'ConfirmationV1',
+            packageName: 'confirmation-v-1',
             testStory: false,
         });
 
