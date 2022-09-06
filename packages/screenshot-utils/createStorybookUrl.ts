@@ -71,7 +71,9 @@ export function createSpriteStorybookUrl({
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
 
     // TODO: укоротить (переписать на qs.stringify)
-    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&knobs=${JSON.stringify(
+    const result = `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&knobs=${JSON.stringify(
         knobs,
     )}&mockDate=${mockDate || ''}`;
+    console.log('result url: ', result);
+    return url;
 }
