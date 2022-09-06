@@ -1,3 +1,10 @@
+# [30.7.0](https://github.com/core-ds/core-components/compare/v30.6.1...v30.7.0) (2022-09-06)
+
+
+### Features
+
+* **slider-input:** revert steps ([#234](https://github.com/core-ds/core-components/issues/234)) ([d5e312b](https://github.com/core-ds/core-components/commit/d5e312bb7a54e53414e205a57081159033d53efe))
+
 ## [30.6.1](https://github.com/core-ds/core-components/compare/v30.6.0...v30.6.1) (2022-09-05)
 
 
