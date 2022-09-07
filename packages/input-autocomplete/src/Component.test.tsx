@@ -97,7 +97,7 @@ describe('InputAutocompleteMobile', () => {
                 />,
             );
 
-            await waitFor(() => expect(handleEntered).toHaveBeenCalledTimes(1), { timeout: 1000 });
+            await waitFor(() => expect(handleEntered).toHaveBeenCalledTimes(1), { timeout: 1500 });
 
             fireEvent.click(getByTestId(closeButtonId));
 
