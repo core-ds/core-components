@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-skeleton@4.0.1...@alfalab/core-components-skeleton@4.0.2) (2022-09-05)
+
+
+### Bug Fixes
+
+* **skeleton:** added className for visible === false ([29a1280](https://github.com/core-ds/core-components/commit/29a12809730bd49e5d2c47c66840642fff359f4c))
+
+
+
+
+
 ## [4.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-skeleton@4.0.0...@alfalab/core-components-skeleton@4.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-skeleton

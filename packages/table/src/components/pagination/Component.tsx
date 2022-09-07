@@ -12,7 +12,7 @@ import { TableContext } from '../table-context';
 
 import styles from './index.module.css';
 
-type PaginationProps = CorePaginationProps & {
+export type PaginationProps = CorePaginationProps & {
     /**
      * Количество строк на страницу
      */

@@ -1,8 +1,11 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as popoverModule from '@alfalab/core-components-popover';
+
+import { act } from 'react-dom/test-utils';
+import { asyncRender } from '../../utils/test-utils';
 
 import { FieldProps as BaseFieldProps, Select, OptionsListProps, OptionProps } from './index';
 
@@ -46,8 +49,8 @@ describe('Select', () => {
             expect(container).toMatchSnapshot();
         });
 
-        it('should match snapshot with visibleOptions', () => {
-            const { container } = render(
+        it('should match snapshot with visibleOptions', async () => {
+            const { container } = await asyncRender(
                 <Select {...baseProps} options={options} visibleOptions={2} defaultOpen={true} />,
             );
 
@@ -148,17 +151,21 @@ describe('Select', () => {
         const optionContent = options[1].content;
 
         const pressArrowDownNTimes = async (target: HTMLElement, n: number) => {
-            fireEvent.keyDown(target, { key: 'ArrowDown', code: 'ArrowDown' });
+            await act(async () => {
+                await fireEvent.keyDown(target, { key: 'ArrowDown', code: 'ArrowDown' });
+            });
+
             await new Promise(res => {
                 setTimeout(res, 100);
-                if (n > 0) {
-                    pressArrowDownNTimes(target, n - 1);
-                }
             });
+
+            if (n > 0) {
+                await pressArrowDownNTimes(target, n - 1);
+            }
         };
 
         it('should be open by default with `defaultOpen==true`', async () => {
-            const { getByRole } = render(
+            const { getByRole } = await asyncRender(
                 <Select {...baseProps} options={options} defaultOpen={true} />,
             );
 
@@ -182,8 +189,8 @@ describe('Select', () => {
 
             const clickOption = async (index: number) =>
                 waitFor(() => {
-                    getByTestId('select-field').click();
-                    getByText(optionsToSelect[index]).click();
+                    fireEvent.click(getByTestId('select-field'));
+                    fireEvent.click(getByText(optionsToSelect[index]));
                 });
 
             await clickOption(0);
@@ -193,8 +200,8 @@ describe('Select', () => {
             expect(getByText(expectedResult)).toBeInTheDocument();
 
             await waitFor(() => {
-                getByTestId('select-field').click();
-                getByText(optionsToSelect[2]).click();
+                fireEvent.click(getByTestId('select-field'));
+                fireEvent.click(getByText(optionsToSelect[2]));
             });
 
             expect(getByText(expectedResultTruncated)).toBeInTheDocument();
@@ -207,14 +214,14 @@ describe('Select', () => {
 
             const field = getByTestId('select-field');
 
-            field.click();
-            getByText(optionContent).click();
+            fireEvent.click(field);
+            fireEvent.click(getByText(optionContent));
 
             expect(getByText(optionContent)).toBeInTheDocument();
 
-            field.click();
+            fireEvent.click(field);
             const option = await findByText(optionContent, { selector: '[role="option"] *' });
-            option.click();
+            fireEvent.click(option);
 
             expect(getByText(optionContent)).toBeInTheDocument();
         });
@@ -232,19 +239,19 @@ describe('Select', () => {
 
             const field = getByTestId('select-field');
 
-            field.click();
-            getByText(optionContent).click();
+            fireEvent.click(field);
+            fireEvent.click(getByText(optionContent));
 
             expect(getByText(optionContent)).toBeInTheDocument();
 
-            field.click();
+            fireEvent.click(field);
             const option = await findByText(optionContent, { selector: '[role="option"] *' });
-            option.click();
+            fireEvent.click(option);
 
             expect(queryByText(optionContent)).not.toBeInTheDocument();
         });
 
-        it('should not close on select', () => {
+        it('should not close on select', async () => {
             const { getByText, getByTestId, getByRole } = render(
                 <Select
                     {...baseProps}
@@ -254,8 +261,9 @@ describe('Select', () => {
                     dataTestId='select'
                 />,
             );
-            getByTestId('select-field').click();
-            getByText(optionContent).click();
+
+            await userEvent.click(getByTestId('select-field'));
+            await userEvent.click(getByText(optionContent));
 
             expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
         });
@@ -310,10 +318,10 @@ describe('Select', () => {
                     />,
                 );
 
-                getByTestId('select-field').click();
+                fireEvent.click(getByTestId('select-field'));
                 expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument();
 
-                userEvent.click(document.firstElementChild as HTMLElement);
+                await userEvent.click(document.firstElementChild as HTMLElement);
                 expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
             });
 
@@ -328,7 +336,7 @@ describe('Select', () => {
                     />,
                 );
 
-                getByTestId('select-field').click();
+                fireEvent.click(getByTestId('select-field'));
                 expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
             });
 
@@ -356,12 +364,14 @@ describe('Select', () => {
         });
 
         describe('tests with autocomplete', () => {
-            it('should open list on focus', () => {
+            it('should open list on focus', async () => {
                 const { getByRole } = render(
                     <Select {...baseProps} options={options} autocomplete={true} />,
                 );
 
-                fireEvent.focus(document.querySelector('.field') as HTMLElement);
+                await act(async () => {
+                    await fireEvent.focus(document.querySelector('.field') as HTMLElement);
+                });
 
                 expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
             });
@@ -391,7 +401,7 @@ describe('Select', () => {
             expect(container.getElementsByClassName(className).length).toBe(1);
         });
 
-        it('should transfer props to Field', () => {
+        it('should transfer props to Field', async () => {
             const spy = jest.spyOn(fieldModule, 'Field');
 
             const propPrefix = 'field';
@@ -408,18 +418,14 @@ describe('Select', () => {
                 error: `${propPrefix}-error`,
                 hint: `${propPrefix}-hint`,
                 dataTestId: `${propPrefix}-data-test-id`,
-                innerProps: {
-                    id: `${propPrefix}-id`,
-                    tabIndex: 0,
-                },
             };
 
-            render(<Select {...baseProps} fieldProps={fieldProps} />);
+            await asyncRender(<Select {...baseProps} fieldProps={fieldProps} />);
 
             expect(spy.mock.calls[0][0]).toMatchObject(fieldProps);
         });
 
-        it('should transfer props to OptionsList', () => {
+        it('should transfer props to OptionsList', async () => {
             const spy = jest.spyOn(optionsListModule.OptionsList, 'render' as never);
 
             const optionsListProps: Partial<OptionsListProps> = {
@@ -436,7 +442,7 @@ describe('Select', () => {
                 ...optionsListProps,
             };
 
-            render(
+            await asyncRender(
                 <Select
                     {...baseProps}
                     defaultOpen={true}
@@ -452,7 +458,7 @@ describe('Select', () => {
             expect(lastMockCall[0]).toMatchObject(expectedProps);
         });
 
-        it('should transfer optionProps to Option', () => {
+        it('should transfer optionProps to Option', async () => {
             const spy = jest.spyOn(optionModule, 'Option');
 
             const optionProps: Partial<Omit<OptionProps, 'innerProps'> & {
@@ -463,7 +469,7 @@ describe('Select', () => {
                 },
             };
 
-            render(
+            await asyncRender(
                 <Select
                     {...baseProps}
                     defaultOpen={true}
@@ -477,9 +483,10 @@ describe('Select', () => {
             expect(lastMockCall[0]).toMatchObject(optionProps);
         });
 
-        it('should set `optionClassName` class to each option', () => {
+        it('should set `optionClassName` class to each option', async () => {
             const optionClassName = 'option-class';
-            render(
+
+            await asyncRender(
                 <Select
                     {...baseProps}
                     options={options}
@@ -491,7 +498,7 @@ describe('Select', () => {
             expect(document.getElementsByClassName(optionClassName).length).toBe(options.length);
         });
 
-        it('should transfer props to Popover', () => {
+        it('should transfer props to Popover', async () => {
             const PopoverComponent = popoverModule.Popover as PopoverComponent;
             const spy = jest.spyOn(PopoverComponent, 'render');
 
@@ -506,7 +513,7 @@ describe('Select', () => {
                 open: true,
             };
 
-            render(
+            await asyncRender(
                 <Select
                     {...baseProps}
                     defaultOpen={true}
@@ -547,6 +554,43 @@ describe('Select', () => {
                 <Select {...baseProps} optionsListClassName={optionsListClassName} />,
             );
             expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
+        });
+
+        it('should show checkmark by default', async () => {
+            render(<Select {...baseProps} options={options} dataTestId='select' />);
+
+            userEvent.click(await screen.findByTestId('select-field'));
+
+            expect(
+                (await screen.findByTestId('select-options-list')).getElementsByClassName(
+                    'checkmark',
+                ).length,
+            ).toBe(16);
+        });
+
+        it('should hide checkmark', async () => {
+            const optionsWithHidedCheckMark = [
+                { key: '1', showCheckMark: false, content: 'Neptunium' },
+                { key: '2', showCheckMark: false, content: 'Plutonium' },
+                { key: '3', showCheckMark: false, content: 'Americium' },
+                { key: '4', showCheckMark: false, content: 'Curium' },
+                { key: '5', showCheckMark: false, content: 'Berkelium' },
+                { key: '6', showCheckMark: false, content: 'Californium' },
+                { key: '7', showCheckMark: false, content: 'Einsteinium' },
+                { key: '8', showCheckMark: false, content: 'Fermium' },
+            ];
+
+            render(
+                <Select {...baseProps} options={optionsWithHidedCheckMark} dataTestId='select' />,
+            );
+
+            userEvent.click(await screen.findByTestId('select-field'));
+
+            expect(
+                (await screen.findByTestId('select-options-list')).getElementsByClassName(
+                    'checkmark',
+                ).length,
+            ).toBe(0);
         });
     });
 
@@ -626,8 +670,8 @@ describe('Select', () => {
                 />,
             );
 
-            getByTestId('select-field').click();
-            getByText(options[0].content).click();
+            fireEvent.click(getByTestId('select-field'));
+            fireEvent.click(getByText(options[0].content));
 
             expect(valueRenderer).toBeCalled();
         });
@@ -651,8 +695,8 @@ describe('Select', () => {
                 selectedMultiple: [optionToSelect],
             };
 
-            getByTestId('select-field').click();
-            getByText(optionToSelect.content).click();
+            fireEvent.click(getByTestId('select-field'));
+            fireEvent.click(getByText(optionToSelect.content));
 
             expect(valueRenderer).toHaveBeenLastCalledWith(expectedCallArgument);
         });

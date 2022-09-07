@@ -53,7 +53,7 @@ describe('SliderInput', () => {
 
             const input = queryByRole('textbox');
 
-            if (input) input.focus();
+            if (input) fireEvent.focus(input);
 
             expect(container.getElementsByClassName(className).length).toBe(1);
         });

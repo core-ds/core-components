@@ -1,6 +1,5 @@
 import React, {
     useState,
-    useCallback,
     useEffect,
     useRef,
     TextareaHTMLAttributes,
@@ -11,7 +10,8 @@ import React, {
 import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
 import mergeRefs from 'react-merge-refs';
-import { useFocus } from '@alfalab/hooks';
+import { useFocus, useMedia } from '@alfalab/hooks';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
@@ -158,6 +158,11 @@ export type TextareaProps = Omit<
      * Функция, возвращающая текст для счетчика
      */
     getCounterText?: (textLength: number, maxLength?: number) => string;
+
+    /**
+     * Нужно ли использовать нативный скроллбар.
+     */
+    nativeScrollbar?: boolean;
 };
 
 export const getDefaultCounterText = (textLength: number, maxLength = 0): string =>
@@ -197,16 +202,21 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             showCounter = false,
             getCounterText = getDefaultCounterText,
             maxLength,
+            nativeScrollbar: nativeScrollbarProp,
             ...restProps
         },
         ref,
     ) => {
         const uncontrolled = value === undefined;
 
+        let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+        nativeScrollbar = resize !== 'none' || Boolean(nativeScrollbarProp ?? nativeScrollbar);
+
         const textareaRef = useRef<HTMLTextAreaElement>(null);
 
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
+        const [scrollableHeight, setScrollableHeight] = useState<number>();
 
         const [focusVisible] = useFocus(textareaRef, 'keyboard');
 
@@ -214,45 +224,46 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize && maxHeight && textareaRef.current && textareaRef.current.style) {
-                textareaRef.current.style.maxHeight = `${maxHeight}px`;
+            if (autosize) {
+                if (
+                    nativeScrollbar &&
+                    maxHeight &&
+                    textareaRef.current &&
+                    textareaRef.current.style
+                ) {
+                    textareaRef.current.style.maxHeight = `${maxHeight}px`;
+                }
+            } else if (!nativeScrollbar && textareaRef.current) {
+                const textareaHeight = textareaRef.current.scrollHeight;
+                setScrollableHeight(textareaHeight);
             }
-        }, [textareaRef, autosize, maxHeight]);
+        }, [autosize, maxHeight, nativeScrollbar]);
 
-        const handleTextareaFocus = useCallback(
-            (event: React.FocusEvent<HTMLTextAreaElement>) => {
-                setFocused(true);
+        const handleTextareaFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
+            setFocused(true);
 
-                if (onFocus) {
-                    onFocus(event);
-                }
-            },
-            [onFocus],
-        );
+            if (onFocus) {
+                onFocus(event);
+            }
+        };
 
-        const handleTextareaBlur = useCallback(
-            (event: React.FocusEvent<HTMLTextAreaElement>) => {
-                setFocused(false);
+        const handleTextareaBlur = (event: React.FocusEvent<HTMLTextAreaElement>) => {
+            setFocused(false);
 
-                if (onBlur) {
-                    onBlur(event);
-                }
-            },
-            [onBlur],
-        );
+            if (onBlur) {
+                onBlur(event);
+            }
+        };
 
-        const handleTextareaChange = useCallback(
-            (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-                if (onChange) {
-                    onChange(event, { value: event.target.value });
-                }
+        const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+            if (onChange) {
+                onChange(event, { value: event.target.value });
+            }
 
-                if (uncontrolled) {
-                    setStateValue(event.target.value);
-                }
-            },
-            [onChange, uncontrolled],
-        );
+            if (uncontrolled) {
+                setStateValue(event.target.value);
+            }
+        };
 
         const getValueLength = (): number => {
             if (uncontrolled) {
@@ -277,9 +288,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 colorStyles[colors].textarea,
                 styles[size],
                 {
-                    [styles.hasInnerLabel]: label && labelView === 'inner',
+                    [styles.hasInnerLabel]: nativeScrollbar && label && labelView === 'inner',
                     [colorStyles[colors].hasLabel]: label,
-                    [styles.filled]: filled,
+                    [styles.filled]: nativeScrollbar && filled,
                     [styles.resizeVertical]: resize === 'vertical',
                 },
                 textareaClassName,
@@ -294,6 +305,56 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             ref: mergeRefs([ref, textareaRef]),
             'data-test-id': dataTestId,
             maxLength,
+        };
+
+        const renderWithNativeScrollbar = () => {
+            return autosize ? (
+                <TextareaAutosize
+                    {...textareaProps}
+                    maxRows={maxRows}
+                    minRows={minRows}
+                    onHeightChange={onHeightChange}
+                />
+            ) : (
+                <textarea {...textareaProps} style={{ maxHeight }} />
+            );
+        };
+
+        const renderWithCustomScrollbar = () => {
+            const minRowsValue = autosize ? minRows : rows;
+
+            return (
+                <Scrollbar
+                    style={{ maxHeight, height: scrollableHeight, padding: 0 }}
+                    className={cn(styles.scrollable, styles[size], {
+                        [styles.scrollableWithLabel]: label,
+                        [styles.filled]: filled,
+                    })}
+                    horizontalAutoStretch={!block}
+                    widthPropName='width'
+                    contentNodeProps={{ className: styles.scrollableWrapper }}
+                >
+                    <TextareaAutosize {...textareaProps} minRows={minRowsValue} />
+
+                    {/* Используется только для вычисления размера контейнера */}
+                    <TextareaAutosize
+                        className={cn(textareaProps.className, styles.textareaHidden)}
+                        rows={textareaProps.rows}
+                        maxRows={maxRows}
+                        minRows={minRowsValue}
+                        value={textareaProps.value}
+                        onHeightChange={height => {
+                            if (autosize) {
+                                setScrollableHeight(height);
+
+                                if (onHeightChange) {
+                                    onHeightChange(height);
+                                }
+                            }
+                        }}
+                    />
+                </Scrollbar>
+            );
         };
 
         return (
@@ -316,16 +377,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 rightAddons={rightAddons}
                 bottomAddons={bottomAddons}
             >
-                {autosize ? (
-                    <TextareaAutosize
-                        {...textareaProps}
-                        maxRows={maxRows}
-                        minRows={minRows}
-                        onHeightChange={onHeightChange}
-                    />
-                ) : (
-                    <textarea {...textareaProps} style={{ maxHeight }} />
-                )}
+                {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
             </FormControl>
         );
     },

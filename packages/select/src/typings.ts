@@ -27,6 +27,11 @@ export type OptionShape = {
     disabled?: boolean;
 
     /**
+     * Разрешает показ компонента Checkmark, иногда нужно его убирать для показа контента ошибки или пустого состояния
+     */
+    showCheckMark?: boolean;
+
+    /**
      * Дополнительные данные
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,3 +1,113 @@
+# [31.0.0](https://github.com/core-ds/core-components/compare/v30.7.0...v31.0.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **link:** replace component with a button in pseudo mode ([#156](https://github.com/core-ds/core-components/issues/156)) ([6f24cbb](https://github.com/core-ds/core-components/commit/6f24cbb433c4ced85986d5f0e0b3bc1289e0fb8d))
+
+
+### BREAKING CHANGES
+
+* **link:** В компоненте Link с пропсом pseudo заменяется дефолтный html-элемент "a" на
+"button"
+
+Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
+
+# [30.7.0](https://github.com/core-ds/core-components/compare/v30.6.1...v30.7.0) (2022-09-06)
+
+
+### Features
+
+* **slider-input:** revert steps ([#234](https://github.com/core-ds/core-components/issues/234)) ([d5e312b](https://github.com/core-ds/core-components/commit/d5e312bb7a54e53414e205a57081159033d53efe))
+
+## [30.6.1](https://github.com/core-ds/core-components/compare/v30.6.0...v30.6.1) (2022-09-05)
+
+
+### Bug Fixes
+
+* **skeleton:** added className for visible === false ([29a1280](https://github.com/core-ds/core-components/commit/29a12809730bd49e5d2c47c66840642fff359f4c))
+
+# [30.6.0](https://github.com/core-ds/core-components/compare/v30.5.1...v30.6.0) (2022-09-02)
+
+
+### Features
+
+* **select:** add showCheckMark to option shape ([#235](https://github.com/core-ds/core-components/issues/235)) ([5339071](https://github.com/core-ds/core-components/commit/53390718a89300184fd82016b02ce40223eca687))
+
+## [30.5.1](https://github.com/core-ds/core-components/compare/v30.5.0...v30.5.1) (2022-09-02)
+
+
+### Bug Fixes
+
+* temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+
+# [30.5.0](https://github.com/core-ds/core-components/compare/v30.4.1...v30.5.0) (2022-09-01)
+
+
+### Features
+
+* **side-panel:** add props imageUrl  and fix doc ([#168](https://github.com/core-ds/core-components/issues/168)) ([9ca0f00](https://github.com/core-ds/core-components/commit/9ca0f0094b993bdd302765db79bcf8f91fae2a12))
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
+## [30.4.1](https://github.com/core-ds/core-components/compare/v30.4.0...v30.4.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* **amount:** fix undefined symbol ([#231](https://github.com/core-ds/core-components/issues/231)) ([07a93ab](https://github.com/core-ds/core-components/commit/07a93abefd530532cdacb530baf27d239b7f7174))
+* **filter-tag:** поправлены цвета у иконки крестика ([#167](https://github.com/core-ds/core-components/issues/167)) ([28eb49e](https://github.com/core-ds/core-components/commit/28eb49e012b5b6f8a8e4f07e2214ecb65fae0564))
+* fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+* **loader:** убран лишний отступ у последнего элемента, мешающий выравниванию ([#218](https://github.com/core-ds/core-components/issues/218)) ([e064754](https://github.com/core-ds/core-components/commit/e064754bfa1d4fbd85f5a9569790da4eef0d237c))
+* **pure-cell:** onClick fix ([#217](https://github.com/core-ds/core-components/issues/217)) ([2f08187](https://github.com/core-ds/core-components/commit/2f08187cce6aef3ca0609d183890a8968f054f52))
+* **toast:** word breaking rule ([#228](https://github.com/core-ds/core-components/issues/228)) ([b329c88](https://github.com/core-ds/core-components/commit/b329c88475501bf4ad2285f3804ada83134b51da))
+
+# [30.4.0](https://github.com/core-ds/core-components/compare/v30.3.0...v30.4.0) (2022-08-30)
+
+
+### Features
+
+* **table:** change paddings, new compactHorizontal prop ([#214](https://github.com/core-ds/core-components/issues/214)) ([788eebe](https://github.com/core-ds/core-components/commit/788eebe2bb0cd9951fd1d8c2e41a065c3dda25c8))
+
+# [30.3.0](https://github.com/core-ds/core-components/compare/v30.2.1...v30.3.0) (2022-08-29)
+
+
+### Features
+
+* **textarea:** custom scrollbar ([#196](https://github.com/core-ds/core-components/issues/196)) ([c0d956c](https://github.com/core-ds/core-components/commit/c0d956cc7bf0a5440a66602ca77de2942a268be2))
+
+## [30.2.1](https://github.com/core-ds/core-components/compare/v30.2.0...v30.2.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* **code-input:** fixed "cannot read properties of undefined (reading get)" error ([#226](https://github.com/core-ds/core-components/issues/226)) ([8383613](https://github.com/core-ds/core-components/commit/838361388979acc184fb213f96c9e4ab43333fbc))
+
+# [30.2.0](https://github.com/core-ds/core-components/compare/v30.1.0...v30.2.0) (2022-08-26)
+
+
+### Bug Fixes
+
+* **filter-tag:** добавил font family  ([#212](https://github.com/core-ds/core-components/issues/212)) ([34dd253](https://github.com/core-ds/core-components/commit/34dd253c5c7dcdc03443212c7dd1c2b3b8ca9e1b))
+* **pure-cell:** fix subcomponent addon and category ([#172](https://github.com/core-ds/core-components/issues/172)) ([461ee92](https://github.com/core-ds/core-components/commit/461ee920b9fc7ebaa72b355b2678388f35d49b1f))
+
+
+### Features
+
+* **picker-button:** new component picker-button-mobile ([#193](https://github.com/core-ds/core-components/issues/193)) ([6074d38](https://github.com/core-ds/core-components/commit/6074d38861c28cf796699cb3e6ec6304303c4481))
+
+# [30.1.0](https://github.com/core-ds/core-components/compare/v30.0.1...v30.1.0) (2022-08-25)
+
+
+### Bug Fixes
+
+* **link:** fix addons size for underline mode in description ([15c796b](https://github.com/core-ds/core-components/commit/15c796b1f5a99122ba7e3ba638490517eb985c6e))
+
+
+### Features
+
+* **link:** implemented new view & updated styles ([3873619](https://github.com/core-ds/core-components/commit/38736190773e2aa199ca544ee976efb1ba5a88d3))
+* **link:** updated styles ([b5296f2](https://github.com/core-ds/core-components/commit/b5296f26a8271c2b3c2f34195dd3997308877bbe))
+
 ## [30.0.1](https://github.com/core-ds/core-components/compare/v30.0.0...v30.0.1) (2022-08-19)
 
 

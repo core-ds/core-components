@@ -12,12 +12,12 @@ describe('PhoneInput', () => {
     });
 
     describe('should right delete number', () => {
-        it('"+7 1" -> press backspace -> "+7 "', () => {
+        it('"+7 1" -> press backspace -> "+7 "', async () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
             fireEvent.change(inputElement, { target: { value: '+7 1' } });
-            userEvent.type(inputElement, '{backspace}');
+            await userEvent.type(inputElement, '{backspace}');
             expect(inputElement.value).toBe('+7 ');
         });
         /*
@@ -71,19 +71,19 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 ');
         });
 
-        it('input "8" -> "+7 "', () => {
+        it('input "8" -> "+7 "', async () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
-            userEvent.type(inputElement, '8');
+            await userEvent.type(inputElement, '8');
             expect(inputElement.value).toBe('+7 ');
         });
 
-        it('input "1" -> "+7 1"', () => {
+        it('input "1" -> "+7 1"', async () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
-            userEvent.type(inputElement, '1');
+            await userEvent.type(inputElement, '1');
             expect(inputElement.value).toBe('+7 1');
         });
 

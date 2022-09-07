@@ -1,12 +1,6 @@
 @import '../../themes/src/default.css';
-
-:root {
-    --input-error-icon-display: block;
-    --input-success-icon-display: block;
-
-    /* управляет видимостью иконки ошибки, если она стоит рядом с другой иконкой */
-    --input-error-icon-not-alone-display: block;
-}
+@import '../../form-control/src/vars.css';
+@import './vars.css';
 
 @define-mixin _input-icon {
     width: 24px;
