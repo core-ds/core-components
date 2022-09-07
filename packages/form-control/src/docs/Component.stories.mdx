@@ -40,6 +40,7 @@ import styles from '!!raw-loader!../index.module.css';
                     filled={boolean('filled', false)}
                     focused={boolean('focused', false)}
                     label={text('label', '')}
+                    labelView={select('labelView', ['inner', 'outer'], 'inner')}
                     hint={text('hint', '')}
                     error={text('error', '')}
                     rightAddons={boolean('rightAddons', false) && <StarMIcon />}
