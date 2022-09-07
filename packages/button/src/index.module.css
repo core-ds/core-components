@@ -4,7 +4,11 @@
     /* misc */
     --button-font-family: var(--font-family);
     --button-border-radius: var(--border-radius-m);
-    --button-active-transform: scale(0.97);
+    --button-active-transform-scale-factor: 0.97;
+    --button-active-transform: scale(var(--button-active-transform-scale-factor));
+
+    /* увеличиваем зону клика у активной кнопки, чтобы по краям срабатывал клик  */
+    --button-active-before-transform: scale(calc(1 / var(--button-active-transform-scale-factor)));
     --button-font-weight: 500;
     --button-xxs-size-border-radius: 6px;
 }
@@ -38,6 +42,20 @@
 
     &:active {
         transform: var(--button-active-transform);
+
+        &:before {
+            transform: var(--button-active-before-transform);
+        }
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        right: -1px;
+        top: -1px;
+        bottom: -1px;
+        transition: none;
     }
 }
 
