@@ -1,0 +1,47 @@
+name: Update screenshots
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: true
+          token: ${{ secrets.BOT_AUTH_TOKEN }}
+
+      - name: Checkout LFS objects
+        run: git lfs checkout
+
+      - name: Install dependencies
+        run: yarn --pure-lockfile
+
+      - uses: microsoft/playwright-github-action@v1
+
+      - name: Build storybook
+        run: yarn build-storybook-from-dist
+
+      - name: Serve storybook
+        run: yarn serve-storybook &
+
+      - name: Update screenshots tests
+        run: yarn test:screenshots -u
+        env:
+          CI: true
+          CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
+          CI_USER_PASSWORD: ${{ secrets.CI_USER_PASSWORD }}
+
+      - name: Check git status
+        id: git_status
+        run: echo "::set-output name=porcelain::$(git status --porcelain)"
+
+      - name: Change commit
+        if: ${{ steps.git_status.outputs.porcelain }} == 'MM'
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: core-ds-bot,
+          author_email: ds@gitmax.tech,
+          message: 'test: update screenshots'
