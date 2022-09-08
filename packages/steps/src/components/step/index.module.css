@@ -165,7 +165,7 @@
 
 .badge {
     padding: 0;
-    
+
     & > [class*='positive'] {
         color: var(--steps-option-svg-color);
         background-color: var(--steps-option-svg-color);
