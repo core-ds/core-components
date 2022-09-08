@@ -288,9 +288,11 @@ describe('AmountInput', () => {
         await userEvent.type(input, '.50');
         expect(input.value).toBe(`12${THINSP}350`);
 
-        input.focus();
-        input.setSelectionRange(0, 3);
-        await userEvent.paste(input, '123.456');
+        await userEvent.click(input);
+        await act(() => {
+            input.setSelectionRange(0, 3);
+        });
+        await userEvent.paste('123.456');
         expect(input.value).toBe('123');
     });
 
@@ -298,12 +300,17 @@ describe('AmountInput', () => {
         const input = renderAmountInput(null);
         await userEvent.type(input, '0');
         expect(input.value).toBe('0');
+
         await userEvent.type(input, '1234');
         expect(input.value).toBe(`1${THINSP}234`);
-        input.focus();
-        input.setSelectionRange(0, 0);
-        await userEvent.type(input, '0', { initialSelectionStart: 0, initialSelectionEnd: 0 });
+
+        await userEvent.type(input, '0', {
+            initialSelectionStart: 0,
+            initialSelectionEnd: 0,
+            delay: 10,
+        });
         expect(input.value).toBe(`1${THINSP}234`);
+
         fireEvent.change(input, { target: { value: '' } });
         await userEvent.type(input, '0');
         expect(input.value).toBe('0');
@@ -312,17 +319,21 @@ describe('AmountInput', () => {
     it('should allow replace minor part without deleting', async () => {
         const input = renderAmountInput(1234567);
 
-        input.focus();
-        input.setSelectionRange(7, 7);
+        await userEvent.click(input);
 
-        await userEvent.type(input, '8', { initialSelectionStart: 7, initialSelectionEnd: 7 });
+        await userEvent.type(input, '8', {
+            initialSelectionStart: 7,
+            initialSelectionEnd: 7,
+            delay: 10,
+        });
         expect(input.value).toBe(`12${THINSP}345,86`);
     });
 
     it('should allow to paste value with spaces', async () => {
         const input = renderAmountInput(null);
 
-        await userEvent.paste(input, '1 23');
+        await userEvent.click(input);
+        await userEvent.paste('1 23');
         expect(input.value).toBe('123');
     });
 
@@ -330,9 +341,12 @@ describe('AmountInput', () => {
         const input = renderAmountInput(null);
 
         await userEvent.type(input, '123,45');
-        input.focus();
-        input.setSelectionRange(1, 1);
-        await userEvent.type(input, '{del}', { initialSelectionStart: 1, initialSelectionEnd: 1 });
+        await userEvent.click(input);
+        await userEvent.type(input, '{Delete}', {
+            initialSelectionStart: 1,
+            initialSelectionEnd: 1,
+            delay: 10,
+        });
         expect(input.value).toBe('13,45');
     });
 
@@ -341,25 +355,20 @@ describe('AmountInput', () => {
 
         await userEvent.type(input, '123456');
 
-        input.setSelectionRange(4, 4);
+        await userEvent.type(input, ',', {
+            initialSelectionStart: 4,
+            initialSelectionEnd: 4,
+            delay: 10,
+        });
 
-        await userEvent.type(input, ',');
-        /**
-         * TODO: проверить положение карeтки
-         * expect(input.selectionStart).toBe(4);
-         */
         expect(input.value).toBe('123,45');
 
-        // userEvent.type коряво внутри работает с кареткой поэтому после каждого ввода восстанавливаем каретку
-        input.setSelectionRange(4, 4);
-        await userEvent.type(input, '{backspace}');
+        await userEvent.type(input, '.', {
+            initialSelectionStart: 4,
+            initialSelectionEnd: 4,
+            delay: 10,
+        });
 
-        input.setSelectionRange(4, 4);
-        await userEvent.type(input, '.');
-        /**
-         * TODO: проверить положение карeтки
-         * expect(input.selectionStart).toBe(4);
-         */
         expect(input.value).toBe('123,45');
     });
 
@@ -368,8 +377,12 @@ describe('AmountInput', () => {
 
         await userEvent.type(input, '1234');
         expect(input.value).toBe(`1${THINSP}234`);
-        input.setSelectionRange(2, 2);
-        await userEvent.type(input, '{backspace}');
+
+        await userEvent.type(input, '{backspace}', {
+            initialSelectionStart: 2,
+            initialSelectionEnd: 2,
+            delay: 10,
+        });
 
         expect(input.value).toBe(`1${THINSP}234`);
     });
@@ -476,7 +489,11 @@ describe('AmountInput', () => {
                     />,
                 );
                 const input = getByTestId(dataTestId) as HTMLInputElement;
-                await userEvent.paste(input, userInput);
+
+                await userEvent.click(input);
+
+                await userEvent.paste(userInput);
+
                 expect(handleChangeMock).toBeCalledWith(expect.anything(), {
                     value: expectedValue,
                     valueString: userInput,

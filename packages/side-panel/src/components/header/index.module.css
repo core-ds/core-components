@@ -26,6 +26,11 @@
     }
 }
 
+.header.backgroundImage {
+    background: center no-repeat;
+    background-size: cover;
+}
+
 .content {
     flex-grow: 1;
 }

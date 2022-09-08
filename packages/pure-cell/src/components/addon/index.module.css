@@ -1,7 +1,8 @@
 @import '../../../../themes/src/default.css';
 
 .component {
-    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
     padding-left: var(--gap-m);
 
     & > * {

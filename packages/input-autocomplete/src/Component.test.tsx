@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import { InputAutocompleteMobile, InputAutocompleteMobileProps } from './mobile';
 
 const dataTestId = 'test-id';
@@ -172,7 +173,9 @@ describe('InputAutocompleteMobile', () => {
 
             const closeButton = getByTestId(closeButtonId);
 
-            fireEvent.click(closeButton);
+            await act(async () => {
+                await fireEvent.click(closeButton);
+            });
 
             expect(cb).toBeCalledTimes(1);
         });

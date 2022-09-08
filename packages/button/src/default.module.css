@@ -183,7 +183,6 @@
 
         &.loading {
             color: var(--button-outlined-color);
-            border-color: var(--button-outlined-border-color);
         }
     }
 
@@ -194,7 +193,6 @@
 
         &.loading {
             color: var(--button-tertiary-color);
-            border-color: var(--button-tertiary-border-color);
         }
     }
 

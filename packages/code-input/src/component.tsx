@@ -255,7 +255,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
         useEffect(() => {
             let ac: AbortController | null = null;
 
-            if ('OTPCredential' in window) {
+            if ('OTPCredential' in window && navigator?.credentials?.get) {
                 ac = new AbortController();
                 const options: CredentialRequestOtpOptions = {
                     otp: { transport: ['sms'] },

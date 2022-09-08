@@ -62,18 +62,6 @@ exports[`SliderInput should match snapshot 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="noUi-pips noUi-pips-horizontal"
-        >
-          <div
-            class="noUi-marker noUi-marker-horizontal noUi-marker-normal"
-            style="left: 0.00000%;"
-          />
-          <div
-            class="noUi-marker noUi-marker-horizontal noUi-marker-normal"
-            style="left: 100.00000%;"
-          />
-        </div>
       </div>
     </div>
   </div>

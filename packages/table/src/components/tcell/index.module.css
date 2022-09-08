@@ -4,15 +4,24 @@
     @mixin paragraph_primary_small;
 
     color: var(--color-light-text-primary);
-    padding: var(--gap-xl) var(--gap-m);
+    padding: var(--gap-xl) var(--gap-s);
     height: 72px;
     border-top: 1px solid var(--color-light-border-primary);
     vertical-align: top;
     box-sizing: border-box;
+
+    &:first-child {
+        padding-left: var(--gap-m);
+    }
+
+    &:last-child {
+        padding-right: var(--gap-m);
+    }
 }
 
-.hidden {
-    display: none;
+.compactHorizontal {
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .compact {

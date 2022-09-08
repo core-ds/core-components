@@ -20,7 +20,7 @@ import Changelog from '../../CHANGELOG.md';
 <!-- Canvas -->
 
 <Story name='Table'>
-    <Table>
+    <Table compactHorizontal={boolean('compact horizontal')}>
         <Table.THead>
             <Table.THeadCell width='122px' id='date' title='Дата'>
                 Дата
@@ -67,6 +67,8 @@ import Changelog from '../../CHANGELOG.md';
                     <Amount
                         value={20179800}
                         currency='RUR'
+                        bold='full'
+                        transparentMinor={true}
                         minority={100}
                         view='withZeroMinorPart'
                     />
