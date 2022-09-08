@@ -1,9 +1,5 @@
 @import '../../themes/src/default.css';
 
-:root {
-    --steps-hyphen-border: 2px solid var(--color-light-graphic-positive);
-}
-
 .component {
     display: flex;
     align-items: center;

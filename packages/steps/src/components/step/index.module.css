@@ -2,6 +2,7 @@
 
 :root {
     --steps-option-svg-color: var(--color-light-graphic-positive);
+    --steps-hyphen-border: 2px solid var(--color-light-graphic-positive);
 }
 
 .step {
@@ -164,4 +165,9 @@
 
 .badge {
     padding: 0;
+    
+    & > [class*='positive'] {
+        color: var(--steps-option-svg-color);
+        background-color: var(--steps-option-svg-color);
+    }
 }
