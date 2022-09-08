@@ -168,12 +168,13 @@ export const Step: React.FC<StepProps> = ({
                 </div>
                 {isNotLastStep && isVerticalAlign && renderHyphen()}
             </div>
-            <div
-                className={cn(styles.text, { 
+            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+            <div 
+                className={cn(styles.text, {
                     [styles.interactive]: interactive
                 })}
                 onClick={handleTextClick}
-             >
+            >
                 {children}
             </div>
             {isNotLastStep && !isVerticalAlign && renderHyphen()}
