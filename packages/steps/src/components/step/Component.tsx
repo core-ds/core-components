@@ -33,6 +33,11 @@ export type StepProps = {
     ordered?: boolean;
 
     /**
+     * Включение / отключение интерактивности шагов
+     */
+    interactive?: boolean;
+
+    /**
      * Маркер того, что на текущем шаге есть ошибка
      */
     isError: boolean;
@@ -41,6 +46,17 @@ export type StepProps = {
      * Маркер того, что текущий шаг нужно пометить как завершенный
      */
     isStepCompleted: boolean;
+
+    /**
+     * Управление ориентацией компонента
+     * @default false
+     */
+    isVerticalAlign?: boolean;
+
+    /**
+     * Указывает, является ли текущий шаг последним в списке
+     */
+    isNotLastStep?: boolean;
 
     /**
      * Обработчик нажатия на текущей шаг
@@ -58,20 +74,29 @@ export const Step: React.FC<StepProps> = ({
     isError,
     isStepCompleted,
     onClick,
+    interactive,
+    isVerticalAlign,
+    isNotLastStep
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
     const [focused] = useFocus(stepRef, 'keyboard');
 
-    const handleClick = () => {
+    const handleButtonClick = () => {
         if (!disabled && onClick) {
             onClick(stepNumber);
         }
     };
 
+    const handleTextClick = (e: React.MouseEvent<HTMLElement>) => {
+        if (!interactive) {
+            e.stopPropagation();
+        }
+    }
+
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
-            handleClick();
+            handleButtonClick();
         }
     };
 
@@ -101,6 +126,15 @@ export const Step: React.FC<StepProps> = ({
         return stepNumber;
     };
 
+    const renderHyphen = () => (
+        <div
+            className={cn(styles.hyphen, {
+                [styles.vertical]: isVerticalAlign,
+                [styles.completed]: isStepCompleted,
+            })}
+        />
+    )
+
     return (
         <div
             role='button'
@@ -112,14 +146,37 @@ export const Step: React.FC<StepProps> = ({
                 [styles.selected]: isSelected,
                 [styles.disabled]: disabled,
                 [styles.focused]: focused,
+                [styles.vertical]: isVerticalAlign,
+                [styles.interactive]: interactive,
             })}
-            onClick={handleClick}
+            onClick={handleButtonClick}
             onKeyDown={handleKeyDown}
         >
-            <div className={cn(styles.option, { [styles.unordered]: !ordered })}>
-                {getStepContent()}
+            <div
+                className={cn(styles.indicator, {
+                    [styles.vertical]: isVerticalAlign,
+                    [styles.interactive]: interactive,
+                })}
+            >
+                <div
+                    className={cn(styles.option, {
+                        [styles.unordered]: !ordered,
+                        [styles.vertical]: isVerticalAlign
+                    })}
+                >
+                    {getStepContent()}
+                </div>
+                {isNotLastStep && isVerticalAlign && renderHyphen()}
             </div>
-            <div className={cn(styles.text)}>{children}</div>
+            <div
+                className={cn(styles.text, { 
+                    [styles.interactive]: interactive
+                })}
+                onClick={handleTextClick}
+             >
+                {children}
+            </div>
+            {isNotLastStep && !isVerticalAlign && renderHyphen()}
         </div>
     );
 };

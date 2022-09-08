@@ -14,25 +14,3 @@
         align-items: flex-start;
     }
 }
-
-.hyphen {
-    flex: 1 1 auto;
-    min-width: 16px;
-    margin: 0 var(--gap-xs);
-    border-top: 2px solid var(--color-light-border-primary);
-
-    &.completed {
-        border-top: var(--steps-hyphen-border);
-    }
-
-    &.vertical {
-        min-height: 16px;
-        margin: 0 11px;
-        border-left: 2px solid var(--color-light-border-primary);
-        border-top: none;
-    }
-
-    &.completed.vertical {
-        border-left: var(--steps-hyphen-border);
-    }
-}

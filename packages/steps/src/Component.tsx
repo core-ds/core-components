@@ -45,6 +45,11 @@ export type StepsProps = {
     ordered?: boolean;
 
     /**
+     * Включение / отключение интерактивности шагов
+     */
+    interactive?: boolean;
+
+    /**
      * Кастомный метод для управления состоянием disabled шага и
      * возможностью перехода на этот шаг
      * @param stepNumber - номер шага
@@ -79,6 +84,7 @@ export const Steps: React.FC<StepsProps> = ({
     isMarkCompletedSteps = true,
     isVerticalAlign = false,
     ordered = true,
+    interactive = true,
     checkIsStepDisabled,
     checkIsStepError,
     onChange,
@@ -117,7 +123,7 @@ export const Steps: React.FC<StepsProps> = ({
                 const isStepCompleted = isMarkCompletedSteps && stepNumber < activeStep;
                 const disabled = checkIsStepDisabled ? checkIsStepDisabled(stepNumber) : false;
                 const isError = checkIsStepError ? checkIsStepError(stepNumber) : false;
-                const isNotLastElement = stepsLength !== stepNumber;
+                const isNotLastStep = stepsLength !== stepNumber;
 
                 return (
                     <React.Fragment key={stepNumber}>
@@ -129,17 +135,12 @@ export const Steps: React.FC<StepsProps> = ({
                             isError={isError}
                             onClick={handleStepClick}
                             ordered={ordered}
+                            interactive={interactive}
+                            isVerticalAlign={isVerticalAlign}
+                            isNotLastStep={isNotLastStep}
                         >
                             {step}
                         </Step>
-                        {isNotLastElement && (
-                            <div
-                                className={cn(styles.hyphen, {
-                                    [styles.vertical]: isVerticalAlign,
-                                    [styles.completed]: isStepCompleted,
-                                })}
-                            />
-                        )}
                     </React.Fragment>
                 );
             })}

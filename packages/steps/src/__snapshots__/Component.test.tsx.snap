@@ -9,38 +9,46 @@ Object {
         class="component"
       >
         <div
-          class="step selected"
+          class="step selected interactive"
           role="button"
           tabindex="0"
         >
           <div
-            class="option"
+            class="indicator interactive"
           >
-            1
+            <div
+              class="option"
+            >
+              1
+            </div>
           </div>
           <div
-            class="text"
+            class="text interactive"
           >
             <div>
               Шаг 1
             </div>
           </div>
+          <div
+            class="hyphen"
+          />
         </div>
         <div
-          class="hyphen"
-        />
-        <div
-          class="step"
+          class="step interactive"
           role="button"
           tabindex="0"
         >
           <div
-            class="option"
+            class="indicator interactive"
           >
-            2
+            <div
+              class="option"
+            >
+              2
+            </div>
           </div>
           <div
-            class="text"
+            class="text interactive"
           >
             <div>
               Шаг 2
@@ -55,38 +63,46 @@ Object {
       class="component"
     >
       <div
-        class="step selected"
+        class="step selected interactive"
         role="button"
         tabindex="0"
       >
         <div
-          class="option"
+          class="indicator interactive"
         >
-          1
+          <div
+            class="option"
+          >
+            1
+          </div>
         </div>
         <div
-          class="text"
+          class="text interactive"
         >
           <div>
             Шаг 1
           </div>
         </div>
+        <div
+          class="hyphen"
+        />
       </div>
       <div
-        class="hyphen"
-      />
-      <div
-        class="step"
+        class="step interactive"
         role="button"
         tabindex="0"
       >
         <div
-          class="option"
+          class="indicator interactive"
         >
-          2
+          <div
+            class="option"
+          >
+            2
+          </div>
         </div>
         <div
-          class="text"
+          class="text interactive"
         >
           <div>
             Шаг 2

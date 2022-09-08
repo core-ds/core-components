@@ -73,19 +73,86 @@ render(() => {
                 ordered={ordered}
                 onChange={handleStepsChange}
                 isVerticalAlign={true}
+                interactive={false}
             >
-                <div>Шаг 1</div>
-                <div>Шаг 2</div>
-                <div>Шаг 3</div>
-                <div>Шаг 4</div>
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 1
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 2
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                        <PureCell.Footer>
+                            <div style={{ display: "flex", gap: 12 }}>
+                                <PureCell.FooterButton view="primary">
+                                    Primary
+                                </PureCell.FooterButton>
+                                <PureCell.FooterButton view="secondary">
+                                    Secondary
+                                </PureCell.FooterButton>
+                            </div>
+                        </PureCell.Footer>
+                    </PureCell.Content>
+                </PureCell>
+
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 3
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 4
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
             </Steps>
             <div>
                 <div style={{ marginBottom: 20 }}>Выбран шаг {step}</div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
                     <Switch checked={ordered} onChange={handleOrderChange} />
                     <span style={{ marginLeft: 12 }}>Номера шагов</span>
                 </div>
-                <Button style={{ marginTop: 14 }} view='secondary' onClick={handleReset} size='xxs'>
+                <Button
+                    style={{ marginTop: 14 }}
+                    view="secondary"
+                    onClick={handleReset}
+                    size="xxs"
+                >
                     Сбросить
                 </Button>
             </div>

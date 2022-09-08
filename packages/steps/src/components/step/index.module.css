@@ -6,8 +6,33 @@
 
 .step {
     display: flex;
-    align-items: center;
     outline: none;
+
+    &:not(.vertical) {
+        align-items: center;
+    }
+}
+
+.step.interactive:not(.disabled):hover {
+    cursor: pointer;
+}
+
+.step.disabled:hover {
+    & .text {
+        background: unset;
+    }
+}
+
+.indicator {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: var(--gap-2xs);
+
+    &.vertical {
+        flex-direction: column;
+        margin-right: var(--gap-xs);
+    }
 }
 
 .option {
@@ -21,7 +46,34 @@
     min-width: 24px;
     height: 24px;
     border-radius: 50%;
-    margin-right: var(--gap-2xs);
+
+    &.vertical {
+        margin-top: var(--gap-xs);
+    }
+}
+
+.hyphen {
+    flex: 1 1 auto;
+    min-width: 24px;
+    border-top: 2px solid var(--color-light-border-primary);
+    margin-right: var(--gap-xs);
+
+    &.completed {
+        border-top: var(--steps-hyphen-border);
+    }
+
+    &.vertical {
+        min-width: unset;
+        min-height: 24px;
+        margin-right: 0;
+        margin-top: var(--gap-xs);
+        border-left: 2px solid var(--color-light-border-primary);
+        border-top: none;
+    }
+
+    &.completed.vertical {
+        border-left: var(--steps-hyphen-border);
+    }
 }
 
 .text {
@@ -31,8 +83,9 @@
     padding: var(--gap-xs);
     color: var(--color-light-text-primary);
     border-radius: var(--gap-xs);
+    height: min-content;
 
-    &:not(.disabled) {
+    &.interactive:not(.disabled) {
         &:hover {
             background: rgba(0, 0, 0, 0.07);
         }
@@ -77,16 +130,6 @@
         & svg {
             fill: var(--steps-option-svg-color);
         }
-    }
-}
-
-.step:not(.disabled):hover {
-    cursor: pointer;
-}
-
-.step.disabled:hover {
-    & .text {
-        background: unset;
     }
 }
 
