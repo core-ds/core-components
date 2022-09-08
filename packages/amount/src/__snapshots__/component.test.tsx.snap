@@ -52,6 +52,21 @@ exports[`Amount should not render plus sign when showPlus and value <= 0 1`] = `
 </div>
 `;
 
+exports[`Amount should not render undefined 1`] = `
+<div>
+  <span
+    class="component defaultStyles"
+  >
+    0
+    <span
+      class="minorPartAndCurrency defaultMinor"
+    >
+       THT
+    </span>
+  </span>
+</div>
+`;
+
 exports[`Amount should render plus sign when showPlus and value > 0 1`] = `
 <div>
   <span

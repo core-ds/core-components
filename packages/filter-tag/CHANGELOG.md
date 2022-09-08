@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.3...@alfalab/core-components-filter-tag@2.0.4) (2022-09-02)
+
+**Note:** Version bump only for package @alfalab/core-components-filter-tag
+
+
+
+
+
+## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.2...@alfalab/core-components-filter-tag@2.0.3) (2022-08-31)
+
+
+### Bug Fixes
+
+* **filter-tag:** поправлены цвета у иконки крестика ([#167](https://github.com/core-ds/core-components/issues/167)) ([28eb49e](https://github.com/core-ds/core-components/commit/28eb49e012b5b6f8a8e4f07e2214ecb65fae0564))
+
+
+
+
+
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.1...@alfalab/core-components-filter-tag@2.0.2) (2022-08-26)
+
+
+### Bug Fixes
+
+* **filter-tag:** добавил font family  ([#212](https://github.com/core-ds/core-components/issues/212)) ([34dd253](https://github.com/core-ds/core-components/commit/34dd253c5c7dcdc03443212c7dd1c2b3b8ca9e1b))
+
+
+
+
+
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.0...@alfalab/core-components-filter-tag@2.0.1) (2022-08-19)
+
+**Note:** Version bump only for package @alfalab/core-components-filter-tag
+
+
+
+
+
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@1.4.2...@alfalab/core-components-filter-tag@2.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [1.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@1.4.1...@alfalab/core-components-filter-tag@1.4.2) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
 ## [1.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@1.4.0...@alfalab/core-components-filter-tag@1.4.1) (2022-08-11)
 
 **Note:** Version bump only for package @alfalab/core-components-filter-tag

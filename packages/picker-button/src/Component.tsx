@@ -57,7 +57,7 @@ export type PickerButtonProps = Omit<
         variant?: PickerButtonVariant;
     };
 
-export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
+export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonProps>(
     (
         {
             OptionsList = DefaultOptionsList,
@@ -100,7 +100,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
                 className={cn(styles.container, className)}
-                popperClassName={cn(styles.optionsPopover, popperClassName, {
+                popperClassName={cn('cc-picker-button', styles.optionsPopover, popperClassName, {
                     [styles.sideGap]: isSideGap,
                 })}
                 optionsListClassName={cn(styles.optionsListContainer, optionsListClassName)}

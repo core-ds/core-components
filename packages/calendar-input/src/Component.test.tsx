@@ -421,14 +421,16 @@ describe('CalendarInput', () => {
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
             await waitFor(() => expect(input).toHaveValue(value));
 
             expect(queryByText('Ноябрь')).toBeInTheDocument();
 
-            input.setSelectionRange(0, input.value.length);
-            await userEvent.type(input, '{backspace}');
-            userEvent.type(input, value2);
+            await userEvent.type(input, value2, {
+                initialSelectionStart: 0,
+                initialSelectionEnd: value.length,
+            });
+
             await waitFor(() => expect(input).toHaveValue(value2));
 
             expect(queryByText('Октябрь')).not.toBeInTheDocument();

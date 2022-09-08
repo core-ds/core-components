@@ -2,6 +2,8 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
 import { PickerButton } from './index';
+import { PickerButtonDesktop } from './Component';
+import { PickerButtonMobile } from './Component.mobile';
 
 const testId = 'picker-button-test-id';
 const className = 'pickerButtonClassName';
@@ -24,14 +26,16 @@ const options = [
     { key: '15', content: 'Bohrium' },
 ];
 
+const pickerButtonVariants = [PickerButton, PickerButtonDesktop, PickerButtonMobile];
+
 const clickPickerButton = () => {
     const button = document.querySelector('button') as HTMLButtonElement;
     fireEvent.click(button);
 };
 
-describe('Snapshots tests', () => {
+describe.each(pickerButtonVariants)('Snapshots tests', Component => {
     it('should display correctly', () => {
-        const { container } = render(<PickerButton label={label} options={options} />);
+        const { container } = render(<Component label={label} options={options} />);
 
         expect(container).toMatchSnapshot();
     });
@@ -51,8 +55,8 @@ describe('Snapshots tests', () => {
 });
 
 describe('Attributes tests', () => {
-    it('should set data-test-id attribute', async () => {
-        render(<PickerButton className={className} dataTestId={testId} options={options} />);
+    it.each(pickerButtonVariants)('should set data-test-id attribute', async Component => {
+        render(<Component className={className} dataTestId={testId} options={options} />);
 
         const container = document.querySelector(`.${className}`);
 
@@ -61,8 +65,8 @@ describe('Attributes tests', () => {
         expect(testIdAttr).toBe(testId);
     });
 
-    it('should have disabled attribute', async () => {
-        render(<PickerButton disabled={true} options={options} />);
+    it.each(pickerButtonVariants)('should have disabled attribute', async Component => {
+        render(<Component disabled={true} options={options} />);
 
         const button = document.querySelector('button');
 
@@ -71,44 +75,47 @@ describe('Attributes tests', () => {
 });
 
 describe('Render tests', () => {
-    it('should unmount without errors', async () => {
-        const { unmount } = render(<PickerButton options={options} />);
+    it.each(pickerButtonVariants)('should unmount without errors', async Component => {
+        const { unmount } = render(<Component options={options} />);
 
         expect(unmount).not.toThrowError();
     });
 
-    it('should have loading class', async () => {
-        render(<PickerButton options={options} loading={true} />);
+    it.each(pickerButtonVariants)('should have loading class', async Component => {
+        render(<Component options={options} loading={true} />);
         const button = document.querySelector('button');
 
         expect(button).toHaveClass('loading');
     });
 
-    it('should have primary class', async () => {
+    it.each(pickerButtonVariants)('should have primary class', async Component => {
         const view = 'primary';
-        render(<PickerButton options={options} view={view} />);
+        render(<Component options={options} view={view} />);
         const button = document.querySelector('button');
 
         expect(button).toHaveClass(view);
     });
 
-    it('should have m class, icon size = 24, secondary class by default', async () => {
-        const iconSize = '24';
-        const { getByTestId } = render(<PickerButton options={options} />);
-        const button = document.querySelector('button');
-        const icon = getByTestId('picker-button-icon');
+    it.each(pickerButtonVariants)(
+        'should have m class, icon size = 24, secondary class by default',
+        async Component => {
+            const iconSize = '24';
+            const { getByTestId } = render(<Component options={options} />);
+            const button = document.querySelector('button');
+            const icon = getByTestId('picker-button-icon');
 
-        expect(button).toHaveClass('m');
-        expect(button).toHaveClass('secondary');
-        expect(icon.getAttribute('width')).toBe(iconSize);
-        expect(icon.getAttribute('height')).toBe(iconSize);
-    });
+            expect(button).toHaveClass('m');
+            expect(button).toHaveClass('secondary');
+            expect(icon.getAttribute('width')).toBe(iconSize);
+            expect(icon.getAttribute('height')).toBe(iconSize);
+        },
+    );
 
-    it('should have xxs class and small icon', async () => {
+    it.each(pickerButtonVariants)('should have xxs class and small icon', async Component => {
         const size = 'xxs';
         const iconSize = '18';
 
-        const { getByTestId } = render(<PickerButton options={options} size={size} />);
+        const { getByTestId } = render(<Component options={options} size={size} />);
         const button = document.querySelector('button');
         const icon = getByTestId('picker-button-icon');
 
@@ -117,8 +124,8 @@ describe('Render tests', () => {
         expect(icon.getAttribute('height')).toBe(iconSize);
     });
 
-    it('should have open class if opened', async () => {
-        render(<PickerButton label={label} options={options} />);
+    it.each(pickerButtonVariants)('should have open class if opened', async Component => {
+        render(<Component label={label} options={options} />);
 
         clickPickerButton();
 
@@ -128,8 +135,8 @@ describe('Render tests', () => {
         });
     });
 
-    it('should have options if opened', async () => {
-        render(<PickerButton label={label} options={options} />);
+    it.each(pickerButtonVariants)('should have options if opened', async Component => {
+        render(<Component label={label} options={options} />);
 
         clickPickerButton();
 
@@ -139,11 +146,14 @@ describe('Render tests', () => {
         });
     });
 
-    it('options container should have sideGap & optionsPopover  class', async () => {
-        const { container } = render(
-            <PickerButton options={options} loading={true} popoverPosition='right' />,
-        );
-        expect(container.getElementsByClassName('optionsPopover')).not.toBeNull();
-        expect(container.getElementsByClassName('sideGap')).not.toBeNull();
-    });
+    it.each(pickerButtonVariants)(
+        'options container should have sideGap & optionsPopover  class',
+        async Component => {
+            const { container } = render(
+                <Component options={options} loading={true} popoverPosition='right' />,
+            );
+            expect(container.getElementsByClassName('optionsPopover')).not.toBeNull();
+            expect(container.getElementsByClassName('sideGap')).not.toBeNull();
+        },
+    );
 });

@@ -10,7 +10,7 @@ import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import { BaseSelectProps } from '../../typings';
 
-export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
+export type AdditionalMobileProps = {
     /**
      * Футер
      * @deprecated Используйте bottomSheetProps.actionButton
@@ -28,6 +28,9 @@ export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark
      */
     bottomSheetProps?: Partial<BottomSheetProps>;
 };
+
+export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> &
+    AdditionalMobileProps;
 
 export const SelectMobile = forwardRef(
     (

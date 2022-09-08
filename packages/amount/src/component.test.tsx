@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { Amount } from '.';
+import { Amount, CurrencyCodes } from '.';
 
 describe('Amount', () => {
     it('should match snapshots for base and Pure components', () => {
@@ -42,6 +42,12 @@ describe('Amount', () => {
                 <Amount.Pure value={0} showPlus={true} minority={100} />
                 <Amount.Pure value={-100} showPlus={true} minority={100} />
             </React.Fragment>,
+        );
+        expect(container).toMatchSnapshot();
+    });
+    it('should not render undefined', () => {
+        const { container } = render(
+            <Amount value={0} minority={100} currency={'THT' as CurrencyCodes} />,
         );
         expect(container).toMatchSnapshot();
     });

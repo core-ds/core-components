@@ -3,6 +3,114 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.1.4...@alfalab/core-components-table@2.1.5) (2022-09-05)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [2.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.1.3...@alfalab/core-components-table@2.1.4) (2022-09-02)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [2.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.1.2...@alfalab/core-components-table@2.1.3) (2022-09-02)
+
+
+### Bug Fixes
+
+* temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+
+
+
+
+
+## [2.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.1.1...@alfalab/core-components-table@2.1.2) (2022-09-01)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.1.0...@alfalab/core-components-table@2.1.1) (2022-08-31)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.0.3...@alfalab/core-components-table@2.1.0) (2022-08-30)
+
+
+### Features
+
+* **table:** change paddings, new compactHorizontal prop ([#214](https://github.com/core-ds/core-components/issues/214)) ([788eebe](https://github.com/core-ds/core-components/commit/788eebe2bb0cd9951fd1d8c2e41a065c3dda25c8))
+
+
+
+
+
+## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.0.2...@alfalab/core-components-table@2.0.3) (2022-08-29)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.0.1...@alfalab/core-components-table@2.0.2) (2022-08-26)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@2.0.0...@alfalab/core-components-table@2.0.1) (2022-08-19)
+
+**Note:** Version bump only for package @alfalab/core-components-table
+
+
+
+
+
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.6.4...@alfalab/core-components-table@2.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [1.6.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.6.3...@alfalab/core-components-table@1.6.4) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
 ## [1.6.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-table@1.6.2...@alfalab/core-components-table@1.6.3) (2022-08-12)
 
 **Note:** Version bump only for package @alfalab/core-components-table

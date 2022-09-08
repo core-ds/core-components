@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@2.1.0...@alfalab/core-components-side-panel@2.1.1) (2022-09-02)
+
+**Note:** Version bump only for package @alfalab/core-components-side-panel
+
+
+
+
+
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@2.0.2...@alfalab/core-components-side-panel@2.1.0) (2022-09-01)
+
+
+### Features
+
+* **side-panel:** add props imageUrl  and fix doc ([#168](https://github.com/core-ds/core-components/issues/168)) ([9ca0f00](https://github.com/core-ds/core-components/commit/9ca0f0094b993bdd302765db79bcf8f91fae2a12))
+
+
+
+
+
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@2.0.1...@alfalab/core-components-side-panel@2.0.2) (2022-08-31)
+
+**Note:** Version bump only for package @alfalab/core-components-side-panel
+
+
+
+
+
+## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@2.0.0...@alfalab/core-components-side-panel@2.0.1) (2022-08-19)
+
+**Note:** Version bump only for package @alfalab/core-components-side-panel
+
+
+
+
+
+# [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@1.2.2...@alfalab/core-components-side-panel@2.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [1.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@1.2.1...@alfalab/core-components-side-panel@1.2.2) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
 ## [1.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@1.2.0...@alfalab/core-components-side-panel@1.2.1) (2022-08-11)
 
 **Note:** Version bump only for package @alfalab/core-components-side-panel

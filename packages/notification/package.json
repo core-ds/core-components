@@ -1,11 +1,11 @@
 {
     "name": "@alfalab/core-components-notification",
-    "version": "5.4.1",
+    "version": "6.0.3",
     "description": "",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
-    "module": "./dist/modern/index.js",
+    "module": "./esm/index.js",
     "scripts": {
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
@@ -17,9 +17,9 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "^2.1.0",
-        "@alfalab/core-components-stack": "^3.1.0",
-        "@alfalab/core-components-toast-plate": "^4.4.1",
+        "@alfalab/core-components-portal": "^3.0.1",
+        "@alfalab/core-components-stack": "^4.0.1",
+        "@alfalab/core-components-toast-plate": "^5.0.3",
         "classnames": "^2.3.1",
         "element-closest": "^3.0.2",
         "react-merge-refs": "^1.1.0",

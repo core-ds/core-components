@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.0...@alfalab/core-components-themes@9.1.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+
+
+
+
+
 # [9.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.0.0...@alfalab/core-components-themes@9.1.0) (2022-08-04)
 
 

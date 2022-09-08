@@ -3,6 +3,112 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.2.2...@alfalab/core-components-picker-button@8.2.3) (2022-09-05)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [8.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.2.1...@alfalab/core-components-picker-button@8.2.2) (2022-09-02)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [8.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.2.0...@alfalab/core-components-picker-button@8.2.1) (2022-09-02)
+
+
+### Bug Fixes
+
+* temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+
+
+
+
+
+# [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.1.2...@alfalab/core-components-picker-button@8.2.0) (2022-09-01)
+
+
+### Features
+
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
+
+
+
+
+## [8.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.1.1...@alfalab/core-components-picker-button@8.1.2) (2022-08-31)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [8.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.1.0...@alfalab/core-components-picker-button@8.1.1) (2022-08-29)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+# [8.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.0.1...@alfalab/core-components-picker-button@8.1.0) (2022-08-26)
+
+
+### Features
+
+* **picker-button:** new component picker-button-mobile ([#193](https://github.com/core-ds/core-components/issues/193)) ([6074d38](https://github.com/core-ds/core-components/commit/6074d38861c28cf796699cb3e6ec6304303c4481))
+
+
+
+
+
+## [8.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.0.0...@alfalab/core-components-picker-button@8.0.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* **picker-button:** increased css specificity ([#190](https://github.com/core-ds/core-components/issues/190)) ([e089871](https://github.com/core-ds/core-components/commit/e08987199825fa5d0dc4b4f1e158849155bb34dc))
+
+
+
+
+
+# [8.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.4...@alfalab/core-components-picker-button@8.0.0) (2022-08-17)
+
+
+### Features
+
+* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+
+
+### BREAKING CHANGES
+
+* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+директория dist)
+
+Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
+
+
+
+
+
+## [7.11.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.3...@alfalab/core-components-picker-button@7.11.4) (2022-08-17)
+
+
+### Bug Fixes
+
+* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+
+
+
+
+
 ## [7.11.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.2...@alfalab/core-components-picker-button@7.11.3) (2022-08-12)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button
