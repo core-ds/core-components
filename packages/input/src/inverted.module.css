@@ -15,7 +15,7 @@
     color: var(--input-inverted-placeholder-color);
 }
 
-.hasLabel::placeholder {
+.hasInnerLabel::placeholder {
     color: var(--input-inverted-with-label-placeholder-color);
 }
 

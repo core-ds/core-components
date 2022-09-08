@@ -514,7 +514,7 @@ Object {
         class="component component s"
       >
         <div
-          class="inner inner hasLabel"
+          class="inner inner hasInnerLabel"
         >
           <div
             class="inputWrapper"
@@ -551,7 +551,7 @@ Object {
       class="component component s"
     >
       <div
-        class="inner inner hasLabel"
+        class="inner inner hasInnerLabel"
       >
         <div
           class="inputWrapper"

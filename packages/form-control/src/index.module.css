@@ -116,7 +116,7 @@
     min-height: var(--form-control-s-min-height);
 }
 
-.s .hasLabel .input > * {
+.s .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-s-paddings);
 }
 
@@ -128,7 +128,7 @@
     min-height: var(--form-control-m-min-height);
 }
 
-.m .hasLabel .input > * {
+.m .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-m-paddings);
 }
 
@@ -140,7 +140,7 @@
     min-height: var(--form-control-l-min-height);
 }
 
-.l .hasLabel .input > * {
+.l .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-l-paddings);
 }
 
@@ -160,7 +160,7 @@
     padding: var(--form-control-xl-paddings);
 }
 
-.xl .hasLabel .input > * {
+.xl .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-xl-paddings);
 }
 

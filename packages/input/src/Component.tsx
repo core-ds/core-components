@@ -237,6 +237,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         // отображаем крестик только для заполненного и активного инпута
         const clearButtonVisible = clear && filled && !disabled && !readOnly;
+        const hasInnerLabel = label && labelView === 'inner';
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
@@ -374,8 +375,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         {
                             [styles.error]: error,
                             [colorStyles[colors].error]: error,
-                            [styles.hasInnerLabel]: label && labelView === 'inner',
-                            [colorStyles[colors].hasLabel]: label,
+                            [styles.hasInnerLabel]: hasInnerLabel,
+                            [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },
                         inputClassName,
                     )}

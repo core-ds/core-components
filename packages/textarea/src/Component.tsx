@@ -221,6 +221,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const [focusVisible] = useFocus(textareaRef, 'keyboard');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
+        const hasInnerLabel = label && labelView === 'inner';
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
@@ -288,8 +289,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 colorStyles[colors].textarea,
                 styles[size],
                 {
-                    [styles.hasInnerLabel]: nativeScrollbar && label && labelView === 'inner',
-                    [colorStyles[colors].hasLabel]: label,
+                    [styles.hasInnerLabel]: nativeScrollbar && hasInnerLabel,
+                    [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                     [styles.filled]: nativeScrollbar && filled,
                     [styles.resizeVertical]: resize === 'vertical',
                 },
