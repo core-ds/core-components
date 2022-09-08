@@ -3,10 +3,17 @@
 .component {
     display: flex;
     flex-direction: column;
-    padding-left: var(--gap-m);
 
     & > * {
         justify-content: flex-end;
+    }
+
+    &.none {
+        padding-left: 0;
+    }
+
+    &.default {
+        padding-left: var(--gap-m);
     }
 
     &.addonPadding {

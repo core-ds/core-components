@@ -5,7 +5,11 @@
     display: grid;
     grid-row-gap: var(--gap-xs);
 
-    &.footerPadding {
+    &.none {
+        margin-top: 0;
+    }
+
+    &.default {
         margin-top: var(--gap-xs);
     }
 }
