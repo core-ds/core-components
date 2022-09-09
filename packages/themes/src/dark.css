@@ -161,6 +161,8 @@
     --color-light-text-primary-inverted-alpha-30: var(--color-dark-text-primary-inverted-alpha-30);
     --color-light-bg-primary-alpha-15: var(--color-dark-bg-primary-alpha-15);
     --color-light-bg-primary-alpha-20: var(--color-dark-bg-primary-alpha-20);
+    --color-light-bg-primary-shade-7: var(--color-dark-bg-primary-tint-7);
+    --color-light-bg-primary-shade-15: var(--color-dark-bg-primary-tint-15);
     --color-light-bg-primary-inverted-alpha-7: var(--color-dark-bg-primary-inverted-alpha-7);
     --color-light-bg-primary-inverted-alpha-15: var(--color-dark-bg-primary-inverted-alpha-15);
     --color-light-text-primary-inverted-shade-30: var(--color-dark-text-primary-inverted-tint-30);
