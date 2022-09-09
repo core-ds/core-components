@@ -469,7 +469,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     onEntered: handleEntered,
                 }}
             >
-                <div style={{...getHeightStyles()}}>
+                <div style={{ ...getHeightStyles() }}>
                     <div
                         className={cn(styles.component, className, {
                             [styles.withTransition]: !sheetOffset,

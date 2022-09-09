@@ -19,6 +19,7 @@ export const Option: FC<OptionProps> = ({
     dataTestId,
 }) => {
     const content = children || option.content || option.key;
+    const { showCheckMark = true } = option;
 
     return (
         <div
@@ -30,7 +31,7 @@ export const Option: FC<OptionProps> = ({
             })}
             data-test-id={dataTestId}
         >
-            {Checkmark && (
+            {Checkmark && showCheckMark && (
                 <Checkmark
                     disabled={disabled}
                     selected={selected}
@@ -48,7 +49,7 @@ export const Option: FC<OptionProps> = ({
             </div>
 
             {/** Workaround чтобы для клика показывать отметку справа и всегда в виде иконки */}
-            {Checkmark && (
+            {Checkmark && showCheckMark && (
                 <Checkmark
                     disabled={disabled}
                     selected={selected}

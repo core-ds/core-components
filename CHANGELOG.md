@@ -1,3 +1,67 @@
+# [31.1.0](https://github.com/core-ds/core-components/compare/v31.0.0...v31.1.0) (2022-09-09)
+
+
+### Bug Fixes
+
+* **action-button:** review fixes ([8c4b419](https://github.com/core-ds/core-components/commit/8c4b4193b2959e99f2b0f6de836f3f3d63ca0b18))
+
+
+### Features
+
+* new component action-button ([b8b009c](https://github.com/core-ds/core-components/commit/b8b009cc63071b9766c8a23884eac95fdbf6d658))
+* updated colors prop & added tests ([08170e6](https://github.com/core-ds/core-components/commit/08170e6fa6e33e7785477ff41b833f75809e9f60))
+
+# [31.0.0](https://github.com/core-ds/core-components/compare/v30.7.0...v31.0.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **link:** replace component with a button in pseudo mode ([#156](https://github.com/core-ds/core-components/issues/156)) ([6f24cbb](https://github.com/core-ds/core-components/commit/6f24cbb433c4ced85986d5f0e0b3bc1289e0fb8d))
+
+
+### BREAKING CHANGES
+
+* **link:** В компоненте Link с пропсом pseudo заменяется дефолтный html-элемент "a" на
+"button"
+
+Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
+
+# [30.7.0](https://github.com/core-ds/core-components/compare/v30.6.1...v30.7.0) (2022-09-06)
+
+
+### Features
+
+* **slider-input:** revert steps ([#234](https://github.com/core-ds/core-components/issues/234)) ([d5e312b](https://github.com/core-ds/core-components/commit/d5e312bb7a54e53414e205a57081159033d53efe))
+
+## [30.6.1](https://github.com/core-ds/core-components/compare/v30.6.0...v30.6.1) (2022-09-05)
+
+
+### Bug Fixes
+
+* **skeleton:** added className for visible === false ([29a1280](https://github.com/core-ds/core-components/commit/29a12809730bd49e5d2c47c66840642fff359f4c))
+
+# [30.6.0](https://github.com/core-ds/core-components/compare/v30.5.1...v30.6.0) (2022-09-02)
+
+
+### Features
+
+* **select:** add showCheckMark to option shape ([#235](https://github.com/core-ds/core-components/issues/235)) ([5339071](https://github.com/core-ds/core-components/commit/53390718a89300184fd82016b02ce40223eca687))
+
+## [30.5.1](https://github.com/core-ds/core-components/compare/v30.5.0...v30.5.1) (2022-09-02)
+
+
+### Bug Fixes
+
+* temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+
+# [30.5.0](https://github.com/core-ds/core-components/compare/v30.4.1...v30.5.0) (2022-09-01)
+
+
+### Features
+
+* **side-panel:** add props imageUrl  and fix doc ([#168](https://github.com/core-ds/core-components/issues/168)) ([9ca0f00](https://github.com/core-ds/core-components/commit/9ca0f0094b993bdd302765db79bcf8f91fae2a12))
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
 ## [30.4.1](https://github.com/core-ds/core-components/compare/v30.4.0...v30.4.1) (2022-08-31)
 
 

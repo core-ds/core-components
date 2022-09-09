@@ -1,6 +1,5 @@
-/* eslint-disable multiline-comment-style */
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { TabsDesktop } from './desktop';
@@ -28,9 +27,7 @@ const renderTabs = async (props = { selectedId: 'tab-1' }) => {
     );
 
     if (renderResult.container.firstElementChild) {
-        await act(async () => {
-            userEvent.tab();
-        });
+        await userEvent.tab();
     }
 
     return renderResult;
@@ -49,9 +46,7 @@ describe('useTabs', () => {
         it('should focus active tabpanel when the tab list contains the focus', async () => {
             const { getByRole } = await renderTabs();
 
-            await act(async () => {
-                userEvent.tab();
-            });
+            await userEvent.tab();
 
             const tabpanel = getByRole('tabpanel');
 

@@ -66,12 +66,9 @@ export const Content = () => {
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
         const trim = boolean('header.trim', true);
-        const align = select('header.align', ['left', 'right', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
-        const footer = boolean('footer', false);
         const stickyFooter = boolean('footer.sticky', false);
         const footerLayout = select('footer.layout', ['start', 'center', 'space-between', 'column'], 'start');
-        const footerGap = select('footer.gap', [false, 16, 24, 32], false);
         const SidePanelComponent = React.useMemo(() => {
             return {
                 'SidePanelResponsive': SidePanelResponsive,
@@ -84,11 +81,10 @@ export const Content = () => {
         } : {};
         return (
             <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть сайд-панель</Button>
                 <SidePanelComponent
                     open={open || boolean('open')}
                     onClose={handleModalOpen}
-                    keepMounted={boolean('keepMounted', false)}
                     {...props}
                 >
                     {header && (
@@ -97,14 +93,14 @@ export const Content = () => {
                             hasCloser={hasCloser}
                             title={headerTitle}
                             trim={trim}
-                            align={align}
+                            align='left'
                         />
                     )}
                     <SidePanelComponent.Content>
                         <Content />
                     </SidePanelComponent.Content>
-                    {footer && (
-                        <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout} gap={footerGap}>
+                    {stickyFooter && (
+                        <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout} >
                             <Footer />
                         </SidePanelComponent.Footer>
                     )}
@@ -123,6 +119,7 @@ export const Content = () => {
     version={version}
     package='@alfalab/core-components/side-panel'
     stage={1}
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
 />
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { renderHook, cleanup } from '@testing-library/react-hooks';
+import { render, renderHook, cleanup } from '@testing-library/react';
+
 import { usePathBar, usePathBarProps } from '.';
 
 describe('usePathBar', () => {

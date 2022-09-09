@@ -28,6 +28,15 @@
     @mixin focus-outline;
 }
 
+.pseudo {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    font: inherit;
+}
+
 .pseudo .text {
     border-bottom-style: dashed;
 }
