@@ -3,11 +3,10 @@
 :root {
     --scrollbar-rail-size: 12px;
     --scrollbar-thumb-size: 6px;
+    --scrollbar-hover-size: 6px;
     --scrollbar-thumb-border-radius: 3px;
     --scrollbar-thumb-side-outer-offset: 4px;
     --scrollbar-thumb-side-inner-offset: 1px;
-    --scrollbar-horizontal-scaling-factor: 1.5;
-    --scrollbar-vertical-scaling-factor: 1.4, 1.2;
 }
 
 .component {
@@ -125,16 +124,17 @@
         &.vertical {
             top: 0;
             width: var(--scrollbar-rail-size);
+            transform: rotateY(-180deg);
 
             &.hover {
                 & :global(.scrollbar):before {
-                    transform: scale(var(--scrollbar-vertical-scaling-factor));
+                    width: var(--scrollbar-hover-size);
                 }
             }
 
             & :global(.scrollbar) {
                 width: var(--scrollbar-thumb-size);
-                margin: 0 auto;
+                margin-left: 2px;
 
                 &:before {
                     right: var(--scrollbar-thumb-side-inner-offset);
@@ -149,10 +149,11 @@
         &.horizontal {
             left: 0;
             height: var(--scrollbar-rail-size);
+            transform: rotateX(-180deg);
 
             &.hover {
                 & :global(.scrollbar):before {
-                    transform: scaleY(var(--scrollbar-horizontal-scaling-factor));
+                    height: var(--scrollbar-hover-size);
                 }
             }
 
@@ -206,11 +207,11 @@
         pointer-events: all;
 
         &.vertical :global(.scrollbar):before {
-            transform: scale(var(--scrollbar-vertical-scaling-factor));
+            width: var(--scrollbar-hover-size);
         }
 
         &.horizontal :global(.scrollbar):before {
-            transform: scaleY(var(--scrollbar-horizontal-scaling-factor));
+            height: var(--scrollbar-hover-size);
         }
     }
 }
