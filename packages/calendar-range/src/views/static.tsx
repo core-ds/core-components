@@ -41,6 +41,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     onDateFromChange = () => null,
     onDateToChange = () => null,
     onChange = () => null,
+    onError,
     inputFromProps = {},
     inputToProps = {},
     offDays,
@@ -86,12 +87,14 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     );
 
     const [inputFromInvalid, setInputFromInvalid] = useState<boolean>(
-        validateInputFromValue(inputFromValue) === false,
+        isCompleteDateInput(inputFromValue) && dateFrom === null,
     );
 
     const [inputToInvalid, setInputToInvalid] = useState<boolean>(
-        validateInputToValue(inputToValue) === false,
+        isCompleteDateInput(inputToValue) && dateTo === null,
     );
+
+    const hasValidateError = bothInvalid || inputFromInvalid || inputToInvalid;
 
     const { monthFrom, monthTo, handleMonthFromChange, handleMonthToChange } = useStaticViewMonthes(
         {
@@ -214,6 +217,13 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputToValue]);
+
+    useEffect(() => {
+        if (onError) {
+            onError(hasValidateError);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [hasValidateError]);
 
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
 
