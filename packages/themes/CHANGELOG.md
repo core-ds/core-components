@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.1...@alfalab/core-components-themes@9.1.2) (2022-09-09)
+
+
+### Bug Fixes
+
+* **action-button:** review fixes ([8c4b419](https://github.com/core-ds/core-components/commit/8c4b4193b2959e99f2b0f6de836f3f3d63ca0b18))
+
+
+
+
+
 ## [9.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.0...@alfalab/core-components-themes@9.1.1) (2022-08-31)
 
 
