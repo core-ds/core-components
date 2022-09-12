@@ -28,7 +28,7 @@
         "@alfalab/core-components-popover": "^6.0.1",
         "@alfalab/core-components-scrollbar": "^2.1.0",
         "@alfalab/core-components-skeleton": "^4.0.2",
-        "@alfalab/hooks": "^1.4.1",
+        "@alfalab/hooks": "^1.13.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.3.1",
         "downshift": "^5.4.7",
