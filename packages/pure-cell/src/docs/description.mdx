@@ -33,7 +33,7 @@ render(() => {
                     </Button>
                 </Col>
             </Row>
-            <PureCell href={text('href', '')} padding='default' direction='horizontal'>
+            <PureCell href={text('href', '')} padding='default' direction='horizontal' verticalPadding='default'>
                 <PureCell.Graphics>
                     <SuperEllipse
                         size='48'
@@ -724,7 +724,7 @@ render(() => (
 
 ```jsx live
 render(() => (
-    <Container>
+    <div style={{ width: '450px' }}>
         <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
             <PureCell.Graphics>
                 <Circle />
@@ -745,7 +745,7 @@ render(() => (
                 </PureCell.Footer>
             </PureCell.Content>
         </PureCell>
-    </Container>
+    </div>
 ));
 ```
 

@@ -71,6 +71,7 @@ export const POSITION_OPTIONS = [
         nativeSelect={boolean('nativeSelect', false)}
         placeholder={text('placeholder', 'Выберите элемент')}
         label={text('label', 'Элемент')}
+        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
         visibleOptions={number('visibleOptions', 5)}
         defaultOpen={boolean('defaultOpen', false)}
         popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
@@ -93,6 +94,7 @@ export const POSITION_OPTIONS = [
         circularNavigation={boolean('circularNavigation', false)}
         placeholder={text('placeholder', 'Выберите элемент')}
         label={text('label', 'Элемент')}
+        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
         defaultOpen={boolean('defaultOpen', false)}
         swipeable={boolean('swipeable', true)}
     />
@@ -113,6 +115,7 @@ export const POSITION_OPTIONS = [
         circularNavigation={boolean('circularNavigation', false)}
         placeholder={text('placeholder', 'Выберите элемент')}
         label={text('label', 'Элемент')}
+        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
         defaultOpen={boolean('defaultOpen', false)}
     />
 </Story>
@@ -124,6 +127,7 @@ export const POSITION_OPTIONS = [
     version={version}
     package='@alfalab/core-components/select'
     stage={2}
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=184%3A19405'
 />
 
 ```jsx

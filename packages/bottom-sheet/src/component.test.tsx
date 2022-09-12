@@ -1,7 +1,10 @@
 import React, { useState, forwardRef } from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
+import { act } from 'react-dom/test-utils';
 import { BottomSheet, BottomSheetProps, CLOSE_OFFSET } from '.';
+
+jest.useFakeTimers();
 
 const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>((props, ref) => {
     const [open, setOpen] = useState(props.open === undefined ? true : props.open);
@@ -199,7 +202,9 @@ describe('Bottom sheet', () => {
                 fireEvent.mouseUp(content);
             }
 
-            await new Promise(res => setTimeout(res, 1000));
+            act(() => {
+                jest.advanceTimersByTime(1000);
+            });
 
             expect(queryByTestId(dataTestId)).toBeInTheDocument();
         });

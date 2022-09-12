@@ -14,9 +14,13 @@ const optionsWithIcons = [
 ];
 
 render(
-    <Space direction="horizontal">
-        <PickerButton options={options} view='primary' label='Picker button' />
-        <PickerButton options={optionsWithIcons} view='primary' variant="compact" />
+    <Space>
+        <Space direction="horizontal">
+            <PickerButton options={options} view='primary' label='Picker button' />
+            <PickerButton options={optionsWithIcons} view='primary' variant="compact" />
+        </Space>
+        <PickerButtonMobile options={options} view='primary' label='Mobile' />
+        <PickerButtonDesktop options={options} view='primary' label='Responsive' />
     </Space>
 );
 ```

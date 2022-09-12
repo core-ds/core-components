@@ -13,6 +13,11 @@ export type TableProps = TableHTMLAttributes<HTMLTableElement> & {
     compactView?: boolean;
 
     /**
+     * Уменьшение горизонтальных паддингов
+     */
+    compactHorizontal?: boolean;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -44,6 +49,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
             className,
             children,
             compactView = false,
+            compactHorizontal = false,
             wrapper = true,
             pagination,
             dataTestId,
@@ -65,7 +71,14 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
         );
 
         return (
-            <TableContext.Provider value={{ columnsConfiguration, compactView, wrapperRef }}>
+            <TableContext.Provider
+                value={{
+                    columnsConfiguration,
+                    compactView,
+                    compactHorizontal,
+                    wrapperRef,
+                }}
+            >
                 <div
                     ref={wrapperRef}
                     className={cn(styles.component, className, {

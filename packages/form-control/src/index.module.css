@@ -1,28 +1,5 @@
 @import '../../themes/src/default.css';
-
-:root {
-    --form-control-s-min-height: var(--size-s-height);
-    --form-control-m-min-height: var(--size-m-height);
-    --form-control-l-min-height: var(--size-l-height);
-    --form-control-xl-min-height: var(--size-xl-height);
-    --form-control-border-radius: 4px 4px 0 0;
-    --form-control-bg-backdrop-filter: unset;
-
-    /* paddings */
-    --form-control-paddings: 0 var(--gap-s);
-    --form-control-xl-paddings: 0 var(--gap-m);
-    --form-control-labeled-s-paddings: 24px var(--gap-s) 4px;
-    --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
-    --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
-    --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
-    --form-control-sub-paddings: 0;
-
-    /* disabled */
-    --form-control-disabled-opacity: 1;
-
-    /* font */
-    --form-control-font-family: var(--font-family);
-}
+@import './vars.css';
 
 .component {
     font-family: var(--form-control-font-family);
@@ -117,6 +94,18 @@
     padding: var(--form-control-sub-paddings);
 }
 
+.above {
+    @mixin paragraph_component_secondary;
+
+    display: block;
+    margin-bottom: calc(var(--gap-s) / 2);
+    padding: var(--form-control-sub-paddings);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .block {
     width: 100%;
 }
@@ -127,7 +116,7 @@
     min-height: var(--form-control-s-min-height);
 }
 
-.s .hasLabel .input > * {
+.s .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-s-paddings);
 }
 
@@ -139,7 +128,7 @@
     min-height: var(--form-control-m-min-height);
 }
 
-.m .hasLabel .input > * {
+.m .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-m-paddings);
 }
 
@@ -151,7 +140,7 @@
     min-height: var(--form-control-l-min-height);
 }
 
-.l .hasLabel .input > * {
+.l .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-l-paddings);
 }
 
@@ -171,7 +160,7 @@
     padding: var(--form-control-xl-paddings);
 }
 
-.xl .hasLabel .input > * {
+.xl .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-xl-paddings);
 }
 
@@ -233,7 +222,7 @@
 }
 
 .xl .hiddenLabel {
-    padding: var(--form-control-l-paddings);
+    padding: var(--form-control-xl-paddings);
 }
 
 /* min-height and width: max-content; fix for IE */

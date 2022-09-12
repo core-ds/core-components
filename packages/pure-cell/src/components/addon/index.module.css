@@ -1,8 +1,8 @@
 @import '../../../../themes/src/default.css';
 
 .component {
-    grid-column: 2/3;
-    padding-left: var(--gap-m);
+    display: flex;
+    flex-direction: column;
 
     & > * {
         justify-content: flex-end;
@@ -13,6 +13,10 @@
     }
 
     &.default {
+        padding-left: var(--gap-m);
+    }
+
+    &.addonPadding {
         padding-left: var(--gap-m);
     }
 

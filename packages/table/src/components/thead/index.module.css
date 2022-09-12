@@ -13,8 +13,8 @@
 
         width: 1px;
         right: 0;
-        top: 12px;
-        bottom: 8px;
+        top: var(--gap-xs);
+        bottom: var(--gap-xs);
         background-color: var(--color-light-graphic-quaternary);
     }
 

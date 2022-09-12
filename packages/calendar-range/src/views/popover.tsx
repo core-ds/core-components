@@ -26,6 +26,7 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
     onDateFromChange = () => null,
     onDateToChange = () => null,
     onChange = () => null,
+    onError,
     inputFromProps = {},
     inputToProps = {},
     offDays,
@@ -61,6 +62,8 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
         isCompleteDateInput(inputFromValue) &&
         isCompleteDateInput(inputToValue) &&
         parseDateString(inputFromValue).getTime() > parseDateString(inputToValue).getTime();
+
+    const hasValidateError = inputFromInvalid || inputToInvalid || bothInvalid;
 
     const {
         monthFrom,
@@ -158,6 +161,13 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputToValue]);
+
+    useEffect(() => {
+        if (onError) {
+            onError(hasValidateError);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [hasValidateError]);
 
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>

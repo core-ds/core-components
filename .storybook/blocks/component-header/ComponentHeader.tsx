@@ -48,7 +48,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
                     <a
                         href={
                             design ||
-                            'https://www.figma.com/file/JnpPl4gvg2Zjr7zvTz8mUk/Web-%3A%3A-Core-Default-Components'
+                            'https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components'
                         }
                         target='_blank'
                     >

@@ -7,11 +7,19 @@
     position: relative;
     text-align: left;
     color: var(--color-light-text-primary);
-    padding: var(--gap-2xl) var(--gap-m) var(--gap-2xs);
+    padding: var(--gap-2xl) var(--gap-s) var(--gap-2xs);
     border-bottom: 1px solid var(--color-light-border-primary);
     background: var(--color-light-bg-primary);
     vertical-align: top;
     box-sizing: border-box;
+
+    &:first-child {
+        padding-left: var(--gap-m);
+    }
+
+    &:last-child {
+        padding-right: var(--gap-m);
+    }
 }
 
 .sortable {
@@ -22,6 +30,7 @@
     color: var(--color-light-text-primary);
 }
 
-.hidden {
-    display: none;
+.compactHorizontal {
+    padding-left: 6px;
+    padding-right: 6px;
 }
