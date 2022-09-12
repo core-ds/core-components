@@ -9,6 +9,63 @@
   dependencies:
     classnames "^2.2.6"
 
+"@alfalab/core-components-button@^5.0.1":
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-5.3.2.tgz#3c03c976158b70594301f61dca420ad3b1bcd3ab"
+  integrity sha512-Y+FVOYVElL3pxdlovt4pqaPm6carBKngFYCfJ1GtOkYXOK1ziARQeTMeYBRBNSfWMeB6ooPxxH64mxe09FMdpw==
+  dependencies:
+    "@alfalab/core-components-loader" "^2.2.1"
+    "@alfalab/hooks" "^1.4.1"
+    classnames "^2.3.1"
+    react-merge-refs "^1.1.0"
+
+"@alfalab/core-components-button@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-6.1.0.tgz#963b5b3f9cef5635f81c9d7647685b18b646f0f1"
+  integrity sha512-+fToKWCWL8PWwrbQ8r2Qe/42epG1HnhqVkl30a0yPXDdNecRnD2ZojGH3+lB24JNKfMycj28uKbv9jnWhcav0Q==
+  dependencies:
+    "@alfalab/core-components-loader" "^3.0.2"
+    "@alfalab/hooks" "^1.4.1"
+    classnames "^2.3.1"
+    react-merge-refs "^1.1.0"
+
+"@alfalab/core-components-calendar@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-calendar/-/core-components-calendar-6.1.0.tgz#c23e2de749eab2acbeb9c0f7751939af6d4e32ea"
+  integrity sha512-doGiODjrg8x+G/lI+gNFji0x1sJLkdPx3r25lgnPTCbTWuPCdjdUPiGYyQdcjkCGhkPmvgwpQb5yGLHmasyGsg==
+  dependencies:
+    "@alfalab/core-components-button" "^6.1.0"
+    "@alfalab/core-components-icon-button" "^5.0.3"
+    "@alfalab/core-components-modal" "^6.0.3"
+    "@alfalab/hooks" "^1.4.1"
+    "@alfalab/icons-glyph" "^2.16.0"
+    classnames "^2.3.1"
+    date-fns "^2.16.1"
+    react-merge-refs "^1.1.0"
+    react-virtuoso "^2.12.0"
+
+"@alfalab/core-components-form-control@^7.4.0":
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-7.6.1.tgz#a802ce91da03804f502193eac9938f187b2f1d47"
+  integrity sha512-lxtka4f8ZAHW6cPFl1zdNXsgSD1dmXH4QYsjKrMkM/M2PCYik+QoIx9oMSCmxHkQhdFh9CH60Kvo/PBEOQSzyQ==
+  dependencies:
+    classnames "^2.3.1"
+
+"@alfalab/core-components-form-control@^8.1.1":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-8.1.1.tgz#a262862b91ee6656938c97fd07f6a1755ffae727"
+  integrity sha512-I01Cd0XXhbATOLVOvnxBJnnlRWzpsnNwDTSTU0Tiy/GuP59E4X33q206muV0pAdHCPGzifmFDxDZSLFjQdgRdQ==
+  dependencies:
+    classnames "^2.3.1"
+
+"@alfalab/core-components-icon-button@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-icon-button/-/core-components-icon-button-5.0.3.tgz#8378a30d855323359076702afafa277833e1c932"
+  integrity sha512-IxDnJdVnd5q5RSWNRk4z9ejX3rIG0wZKnQPB1Ywn2xQAgEmnLegPig6T6g5NgYFO0OtcalNTAV3RHZIsGbz+mg==
+  dependencies:
+    "@alfalab/core-components-button" "^6.1.0"
+    classnames "^2.3.1"
+
 "@alfalab/core-components-input-autocomplete@7.0.4":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-input-autocomplete/-/core-components-input-autocomplete-7.0.4.tgz#a12b2ddfc9f615d32f89c318f0cec969ea880e11"
@@ -17,6 +74,18 @@
     "@alfalab/core-components-input" "^7.1.0"
     "@alfalab/core-components-select" "^9.2.2"
     classnames "^2.2.6"
+
+"@alfalab/core-components-input@^10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-input/-/core-components-input-10.1.0.tgz#6da999fca4e2d04d4d78b14b28867b1628462f95"
+  integrity sha512-NwuU9Hik9uxhiBco6O4ZjgbYsETCUW6UeHkbmzarHcZvLWPBIIEgY9HH5p7VNCzklB92wEqtiMWlmVtU1o2xPg==
+  dependencies:
+    "@alfalab/core-components-button" "^6.1.0"
+    "@alfalab/core-components-form-control" "^8.1.1"
+    "@alfalab/hooks" "^1.4.1"
+    "@alfalab/icons-glyph" "^2.16.0"
+    classnames "^2.3.1"
+    react-merge-refs "^1.1.0"
 
 "@alfalab/core-components-input@^7.1.0", "@alfalab/core-components-input@^7.3.2":
   version "7.3.6"
@@ -30,10 +99,56 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
+"@alfalab/core-components-loader@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-loader/-/core-components-loader-2.2.1.tgz#80192c2d5fac17235a3ad5747b7337a745e65331"
+  integrity sha512-dmvzEneNbsH2K2XIvkYzOb+milBNXG5LfAqLHvRhSM6S5aXzvuvKcYV+h86d5h3i7bodX77P2muCOTUpmmuedg==
+  dependencies:
+    classnames "^2.3.1"
+
+"@alfalab/core-components-loader@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-loader/-/core-components-loader-3.0.2.tgz#f078c66093ff97b6a787143bfb9eaba48ca8c5be"
+  integrity sha512-dHv9rqh9cpFV4jStIUGa00bcuEsAEaOYQ5QOTmqZzCiH+p13wmI5ziSDSz6WLIIArBILcDpJEgoWLIossiQB7g==
+  dependencies:
+    classnames "^2.3.1"
+
+"@alfalab/core-components-modal@^6.0.3":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-modal/-/core-components-modal-6.0.3.tgz#d73dcb9d47f5c8634c5b8c850aba451399d74eb4"
+  integrity sha512-q0E6G1Xr7IpUtl/jdy1gXch4ayAOMZt0qfBfbtRHkPZ3KRlG91d++W+xpcKGZ/g5UabfZMGwGlmXoGgEveR5uQ==
+  dependencies:
+    "@alfalab/core-components-base-modal" "^5.0.1"
+    "@alfalab/core-components-button" "^6.1.0"
+    "@alfalab/core-components-icon-button" "^5.0.3"
+    "@alfalab/core-components-mq" "^1.0.0"
+    classnames "^2.3.1"
+    react-transition-group "^4.4.1"
+
 "@alfalab/core-components-mq@^1.0.0":
   version "1.1.6"
   resolved "https://registry.npmjs.org/@alfalab/core-components-mq/-/core-components-mq-1.1.6.tgz#cfef373b35442c8282ca7d4ecd5d92a39cb94357"
   integrity sha512-MqyBq4v3B6w75D5vSfSQXqalbDgvB3DwCZL0IA+Sy75Hj6vBf8SLUgpH2HDLNX4O0cr+3F5y5HQmhoqgEO4Pdg==
+
+"@alfalab/core-components-popover@^5.5.0":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-popover/-/core-components-popover-5.8.1.tgz#70fc96412b3003d70be276aabee0fb47753e3994"
+  integrity sha512-Ulhhn4ow7+RgOjrm0bUd45ogRM2nWogpifvlxCX+D/ZSVevQ7lZKz2dXlZXV0+QD3dygLYMWnPga6YrXWZfxVg==
+  dependencies:
+    "@alfalab/core-components-portal" "^2.1.1"
+    "@alfalab/core-components-stack" "^3.1.1"
+    "@juggle/resize-observer" "^3.3.1"
+    "@popperjs/core" "^2.3.3"
+    classnames "^2.3.1"
+    popper-max-size-modifier "^0.2.0"
+    react-merge-refs "^1.1.0"
+    react-popper "^2.2.5"
+    react-transition-group "^4.4.1"
+
+"@alfalab/core-components-portal@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-portal/-/core-components-portal-2.1.1.tgz#6bab690a2a3f862e9f5f84b152a969850a219fac"
+  integrity sha512-+6P0YxzHJP9cF16uvI36s99MvRmz7QOgbfLGdRWri4nnBd13C61aBgsdDYzEu85LYHXHPgW14TymnkrbT/Wf5Q==
 
 "@alfalab/core-components-select@^9.2.2":
   version "9.7.1"
@@ -50,6 +165,18 @@
     react-merge-refs "^1.1.0"
     react-virtual "^2.2.0"
     resize-observer "^1.0.0"
+
+"@alfalab/core-components-skeleton@^3.0.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-skeleton/-/core-components-skeleton-3.3.1.tgz#47b6c925e979acf045c2c05b95f9a2991feb2e04"
+  integrity sha512-LJbefjstwGWsbOF+cmOOLo7L9CowJWEO3P8WJXmZXe+3iqMVd0iB7fZZxsPKaZ+rq/X+77z9JOg4Q6zp32hClw==
+  dependencies:
+    classnames "^2.3.1"
+
+"@alfalab/core-components-stack@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-stack/-/core-components-stack-3.1.1.tgz#c9888190588b53007f03accfe84a52290936635a"
+  integrity sha512-R8IciFbHcCZNMeim1XCGplWTcAhEwOGfs8uvGZ1K+9uGLZg3+0YRMtcGoHSgIhCDbJ0nd8jRMtLWhP0Qe3j26A==
 
 "@alfalab/data@^1.2.2":
   version "1.2.2"

@@ -5,7 +5,6 @@ import React, {
     ElementType,
     FocusEvent,
     MouseEvent,
-    useCallback,
     useEffect,
     useRef,
     useState,
@@ -206,111 +205,98 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             }
         }, [selectedFrom, selectedTo]);
 
-        const handleInputWrapperFocus = useCallback(
-            (event: FocusEvent<HTMLDivElement>) => {
-                if (view === 'desktop') {
-                    if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
-                        calendarRef.current.focus();
-                    }
+        const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
+            if (view === 'desktop') {
+                if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
+                    calendarRef.current.focus();
                 }
-            },
-            [open, view],
-        );
+            }
+        };
 
-        const handleBlur = useCallback(
-            (event: FocusEvent<HTMLDivElement>) => {
-                if (view === 'desktop') {
-                    const target = (event.relatedTarget || document.activeElement) as HTMLElement;
+        const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+            if (view === 'desktop') {
+                const target = (event.relatedTarget || document.activeElement) as HTMLElement;
 
-                    if (calendarRef.current && calendarRef.current.contains(target) === false) {
-                        setOpen(false);
-                    }
+                if (calendarRef.current && calendarRef.current.contains(target) === false) {
+                    setOpen(false);
                 }
-            },
-            [view],
-        );
+            }
+        };
 
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const { value: newValue } = event.target;
+        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+            const { value: newValue } = event.target;
 
-                if (newValue.length > 23) return;
+            if (newValue.length > 23) return;
 
-                // Позволяем вводить только цифры, точки, дефис и пробелы
-                if (/[^\d. \- \d.]/.test(newValue)) {
-                    return;
+            // Позволяем вводить только цифры, точки, дефис и пробелы
+            if (/[^\d. \- \d.]/.test(newValue)) {
+                return;
+            }
+
+            const dots = newValue.match(/\./g);
+            const hyphen = newValue.match(/\-/g);
+
+            // Не даем вводить больше, чем 4 точки и 1 дефис
+            if ((dots && dots.length > 4) || (hyphen && hyphen.length > 1)) {
+                return;
+            }
+
+            const formattedValue = format(newValue);
+
+            const dateArr = formattedValue.split(' - ');
+            const dateFrom = parseDateString(dateArr[0]);
+            const dateTo = parseDateString(dateArr[1]);
+
+            if (dateFnsIsValid(dateFrom) && dateArr[0]?.length === 10) {
+                updatePeriod(dateFrom.getTime());
+            } else if (dateFnsIsValid(dateTo) && dateArr[1]?.length === 10) {
+                updatePeriod(dateTo.getTime());
+            } else {
+                updatePeriod(undefined);
+            }
+
+            setValue(formattedValue);
+
+            if (onChange) onChange(event, { dateFrom, dateTo, value: formattedValue });
+
+            if (isCompleteDateInput(formattedValue)) {
+                const valid = isValid(formattedValue, dateArr[0], dateArr[1]);
+
+                if (!valid) return;
+
+                if (onComplete) {
+                    onComplete(event, { dateFrom, dateTo, value: formattedValue });
                 }
+            }
+        };
 
-                const dots = newValue.match(/\./g);
-                const hyphen = newValue.match(/\-/g);
-
-                // Не даем вводить больше, чем 4 точки и 1 дефис
-                if ((dots && dots.length > 4) || (hyphen && hyphen.length > 1)) {
-                    return;
-                }
-
-                const formattedValue = format(newValue);
-
-                const dateArr = formattedValue.split(' - ');
-                const dateFrom = parseDateString(dateArr[0]);
-                const dateTo = parseDateString(dateArr[1]);
-
-                if (dateFnsIsValid(dateFrom) && dateArr[0]?.length === 10) {
-                    updatePeriod(dateFrom.getTime());
-                } else if (dateFnsIsValid(dateTo) && dateArr[1]?.length === 10) {
-                    updatePeriod(dateTo.getTime());
-                } else {
-                    updatePeriod(undefined);
-                }
-
-                setValue(formattedValue);
-
-                if (onChange) onChange(event, { dateFrom, dateTo, value: formattedValue });
-
-                if (isCompleteDateInput(formattedValue)) {
-                    const valid = isValid(formattedValue, dateArr[0], dateArr[1]);
-
-                    if (!valid) return;
-
-                    if (onComplete) {
-                        onComplete(event, { dateFrom, dateTo, value: formattedValue });
-                    }
-                }
-            },
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            [onChange, onComplete],
-        );
-
-        const handleCalendarClose = useCallback(() => {
+        const handleCalendarClose = () => {
             setOpen(false);
-        }, []);
+        };
 
-        const handleClear = useCallback(() => {
+        const handleClear = () => {
             setValue('');
             updatePeriod(undefined);
-        }, [updatePeriod]);
+        };
 
-        const handleCalendarChange = useCallback<Required<CalendarProps>['onChange']>(
-            (date?: number) => {
-                updatePeriod(date);
-            },
-            [updatePeriod],
-        );
+        const handleCalendarChange = (date?: number) => {
+            updatePeriod(date);
+        };
 
-        const handleCalendarWrapperMouseDown = useCallback((event: MouseEvent<HTMLDivElement>) => {
+        const handleCalendarWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
             // Не дает инпуту терять фокус при выборе даты
             event.preventDefault();
-        }, []);
+        };
 
-        const handleInputWrapperClick = useCallback(() => {
+        const handleInputWrapperClick = () => {
             if (view === 'desktop' && !open) {
                 setOpen(true);
             }
-        }, [view, open]);
+        };
 
-        const handleIconButtonClick = useCallback(() => {
+        const handleIconButtonClick = () => {
             if (!open) setOpen(true);
-        }, [open]);
+        };
 
         const renderCalendar = () => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions

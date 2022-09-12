@@ -5,7 +5,6 @@ import React, {
     ElementType,
     FocusEvent,
     MouseEvent,
-    useCallback,
     useEffect,
     useRef,
     useState,
@@ -197,121 +196,106 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             setOpen(defaultOpen);
         }, [defaultOpen]);
 
-        const checkInputValueIsValid = useCallback(
-            (newInputValue?: string) => {
-                if (!newInputValue || error) return false;
+        const checkInputValueIsValid = (newInputValue?: string) => {
+            if (!newInputValue || error) return false;
 
-                const dateValue = getDateWithoutTime(newInputValue).getTime();
+            const dateValue = getDateWithoutTime(newInputValue).getTime();
 
-                return (
-                    dateValue &&
-                    dateInLimits(dateValue, minDate, maxDate) &&
-                    !offDays.includes(dateValue)
-                );
-            },
-            [error, maxDate, minDate, offDays],
-        );
+            return (
+                dateValue &&
+                dateInLimits(dateValue, minDate, maxDate) &&
+                !offDays.includes(dateValue)
+            );
+        };
 
-        const handleInputWrapperFocus = useCallback(
-            (event: FocusEvent<HTMLDivElement>) => {
-                if (view === 'desktop') {
-                    if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
-                        calendarRef.current.focus();
-                    }
+        const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
+            if (view === 'desktop') {
+                if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
+                    calendarRef.current.focus();
                 }
-            },
-            [open, view],
-        );
+            }
+        };
 
-        const handleBlur = useCallback(
-            (event: FocusEvent<HTMLDivElement>) => {
-                if (view === 'desktop') {
-                    const target = (event.relatedTarget || document.activeElement) as HTMLElement;
+        const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+            if (view === 'desktop') {
+                const target = (event.relatedTarget || document.activeElement) as HTMLElement;
 
-                    if (calendarRef.current && calendarRef.current.contains(target) === false) {
-                        setOpen(false);
-                        setValue(prevValue => setTimeToDate(prevValue));
-                    }
+                if (calendarRef.current && calendarRef.current.contains(target) === false) {
+                    setOpen(false);
+                    setValue(prevValue => setTimeToDate(prevValue));
                 }
-            },
-            [view],
-        );
+            }
+        };
 
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const { value: newValue } = event.target;
+        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+            const { value: newValue } = event.target;
 
-                if (newValue.length > 17) return;
+            if (newValue.length > 17) return;
 
-                // Позволяем вводить только цифры, точки, запятую, двоеточие и пробел
-                if (/[^\d., :\d.]/.test(newValue)) {
-                    return;
+            // Позволяем вводить только цифры, точки, запятую, двоеточие и пробел
+            if (/[^\d., :\d.]/.test(newValue)) {
+                return;
+            }
+
+            const dots = newValue.match(/\./g);
+            const colon = newValue.match(/\:/g);
+            const comma = newValue.match(/\,/g);
+
+            // Не даем вводить больше, чем 2 точки, 1 двоеточие и 1 запятую
+            if (
+                (dots && dots.length > 2) ||
+                (colon && colon.length > 1) ||
+                (comma && comma.length > 1)
+            ) {
+                return;
+            }
+
+            const formattedValue = format(newValue);
+            const date = getFullDateTime(formattedValue);
+
+            setValue(formattedValue);
+
+            if (onChange) onChange(event, { date, value: formattedValue });
+
+            if (isCompleteDateInput(formattedValue)) {
+                const valid = isValid(formattedValue);
+
+                if (!valid) return;
+
+                if (onComplete) {
+                    onComplete(event, { date, value: formattedValue });
                 }
+            }
+        };
 
-                const dots = newValue.match(/\./g);
-                const colon = newValue.match(/\:/g);
-                const comma = newValue.match(/\,/g);
-
-                // Не даем вводить больше, чем 2 точки, 1 двоеточие и 1 запятую
-                if (
-                    (dots && dots.length > 2) ||
-                    (colon && colon.length > 1) ||
-                    (comma && comma.length > 1)
-                ) {
-                    return;
-                }
-
-                const formattedValue = format(newValue);
-                const date = getFullDateTime(formattedValue);
-
-                setValue(formattedValue);
-
-                if (onChange) onChange(event, { date, value: formattedValue });
-
-                if (isCompleteDateInput(formattedValue)) {
-                    const valid = isValid(formattedValue);
-
-                    if (!valid) return;
-
-                    if (onComplete) {
-                        onComplete(event, { date, value: formattedValue });
-                    }
-                }
-            },
-            [onChange, onComplete],
-        );
-
-        const handleCalendarClose = useCallback(() => {
+        const handleCalendarClose = () => {
             setOpen(false);
-        }, []);
+        };
 
-        const handleClear = useCallback(() => {
+        const handleClear = () => {
             setValue('');
-        }, []);
+        };
 
-        const handleCalendarChange = useCallback<Required<CalendarProps>['onChange']>(
-            (date?: number) => {
-                if (date) {
-                    setValue(parseTimestampToDate(date));
-                }
-            },
-            [],
-        );
+        const handleCalendarChange = (date?: number) => {
+            if (date) {
+                setValue(parseTimestampToDate(date));
+            }
+        };
 
-        const handleCalendarWrapperMouseDown = useCallback((event: MouseEvent<HTMLDivElement>) => {
+        const handleCalendarWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
             // Не дает инпуту терять фокус при выборе даты
             event.preventDefault();
-        }, []);
+        };
 
-        const handleInputWrapperClick = useCallback(() => {
+        const handleInputWrapperClick = () => {
             if (view === 'desktop' && !open) {
                 setOpen(true);
             }
-        }, [view, open]);
+        };
 
-        const handleIconButtonClick = useCallback(() => {
+        const handleIconButtonClick = () => {
             if (!open) setOpen(true);
-        }, [open]);
+        };
 
         const renderCalendar = () => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions

@@ -11,12 +11,12 @@
         "directory": "dist"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1",
-        "react-dom": "^16.9.0 || ^17.0.1"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^8.2.3",
-        "@alfalab/core-components-icon-button": "^4.2.2",
-        "classnames": "^2.2.6"
+        "@alfalab/core-components-input": "^10.1.0",
+        "@alfalab/core-components-icon-button": "^5.0.3",
+        "classnames": "^2.3.1"
     }
 }
