@@ -99,7 +99,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       <div
         class="smsComeLinkWrap"
       >
-        <a
+        <button
           class="component secondary pseudo smsComeLink"
         >
           <span
@@ -107,7 +107,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           >
             Не приходит сообщение?
           </span>
-        </a>
+        </button>
       </div>
       <div />
     </div>
@@ -253,7 +253,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
       <div
         class="smsComeLinkWrap"
       >
-        <a
+        <button
           class="component secondary pseudo smsComeLink"
         >
           <span
@@ -261,7 +261,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
           >
             Не приходит сообщение?
           </span>
-        </a>
+        </button>
       </div>
       <div />
     </div>
@@ -374,7 +374,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
       <div
         class="smsComeLinkWrap"
       >
-        <a
+        <button
           class="component secondary pseudo smsComeLink"
         >
           <span
@@ -382,7 +382,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
           >
             Не приходит сообщение?
           </span>
-        </a>
+        </button>
       </div>
       <div />
     </div>
@@ -560,7 +560,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
       <div
         class="smsComeLinkWrap"
       >
-        <a
+        <button
           class="component secondary pseudo smsComeLink"
         >
           <span
@@ -568,7 +568,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
           >
             Не приходит сообщение?
           </span>
-        </a>
+        </button>
       </div>
       <div />
     </div>
@@ -675,7 +675,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
       <div
         class="smsComeLinkWrap"
       >
-        <a
+        <button
           class="component secondary pseudo smsComeLink"
         >
           <span
@@ -683,7 +683,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
           >
             Не приходит сообщение?
           </span>
-        </a>
+        </button>
       </div>
       <div />
     </div>
@@ -795,7 +795,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
       <div
         class="smsComeLinkWrap"
       >
-        <a
+        <button
           class="component secondary pseudo smsComeLink"
         >
           <span
@@ -803,7 +803,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
           >
             Не приходит сообщение?
           </span>
-        </a>
+        </button>
       </div>
       <div />
     </div>
@@ -870,7 +870,7 @@ exports[`Confirmation Snapshot tests should match snapshot without smsCountdown 
       <div
         class="smsComeLinkWrap"
       >
-        <a
+        <button
           class="component secondary pseudo smsComeLink"
         >
           <span
@@ -878,7 +878,7 @@ exports[`Confirmation Snapshot tests should match snapshot without smsCountdown 
           >
             Не приходит сообщение?
           </span>
-        </a>
+        </button>
       </div>
       <div />
     </div>
