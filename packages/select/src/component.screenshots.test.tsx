@@ -104,6 +104,7 @@ describe(
                         selected: [undefined, options[0].key],
                         placeholder: ['', 'Выберите элемент'],
                         label: ['', 'Элемент'],
+                        labelView: ['inner', 'outer'],
                     },
                     size: { width: 300, height: 120 },
                 }),

@@ -71,6 +71,7 @@ export const matchOption = (option, inputValue) =>
                 circularNavigation={boolean('circularNavigation', false)}
                 placeholder={text('placeholder', 'Введите элемент')}
                 label={text('label', 'Элемент')}
+                labelView={select('labelView', ['inner', 'outer'], 'inner')}
                 onChange={handleChange}
                 onInput={handleInput}
                 value={value}
@@ -126,6 +127,7 @@ export const matchOption = (option, inputValue) =>
                 options={filteredOptions}
                 placeholder={text('placeholder', 'Выберите элемент')}
                 label={text('label', 'Элемент')}
+                labelView={select('labelView', ['inner', 'outer'], 'inner')}
                 onChange={handleChange}
                 onFilter={handleFilter}
                 onClearFilter={() => setFilter('')}

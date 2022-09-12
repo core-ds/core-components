@@ -94,6 +94,18 @@
     padding: var(--form-control-sub-paddings);
 }
 
+.above {
+    @mixin paragraph_component_secondary;
+
+    display: block;
+    margin-bottom: calc(var(--gap-s) / 2);
+    padding: var(--form-control-sub-paddings);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .block {
     width: 100%;
 }
@@ -104,7 +116,7 @@
     min-height: var(--form-control-s-min-height);
 }
 
-.s .hasLabel .input > * {
+.s .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-s-paddings);
 }
 
@@ -116,7 +128,7 @@
     min-height: var(--form-control-m-min-height);
 }
 
-.m .hasLabel .input > * {
+.m .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-m-paddings);
 }
 
@@ -128,7 +140,7 @@
     min-height: var(--form-control-l-min-height);
 }
 
-.l .hasLabel .input > * {
+.l .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-l-paddings);
 }
 
@@ -148,7 +160,7 @@
     padding: var(--form-control-xl-paddings);
 }
 
-.xl .hasLabel .input > * {
+.xl .hasInnerLabel .input > * {
     padding: var(--form-control-labeled-xl-paddings);
 }
 
