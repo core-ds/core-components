@@ -48,7 +48,7 @@ describe('TimeInput', () => {
     });
 
     describe('Callback tests', () => {
-        it('should call onChange callback', () => {
+        it('should call onChange callback', async () => {
             const onChange = jest.fn();
             const onComplete = jest.fn();
             const value = '07:27';
@@ -60,8 +60,10 @@ describe('TimeInput', () => {
 
             userEvent.type(input, value);
 
-            expect(onComplete).toBeCalledTimes(1);
-            expect(onChange).toBeCalledTimes(value.length);
+            await waitFor(() => {
+                expect(onComplete).toBeCalledTimes(1);
+                expect(onChange).toBeCalledTimes(value.length);
+            });
         });
     });
 

@@ -26,6 +26,8 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import {
+    DATE_FORMAT,
+    DATE_MASK,
     format,
     isCompleteDateInput,
     isValid,
@@ -62,16 +64,16 @@ export type DateRangeInputProps = Omit<InputProps, 'onChange'> & {
      * Обработчик изменения значения
      */
     onChange?: (
-        event: ChangeEvent<HTMLInputElement>,
-        payload: { dateFrom: Date; dateTo: Date; value: string },
+        payload: { dateFrom?: Date; dateTo?: Date; value: string },
+        event?: ChangeEvent<HTMLInputElement>,
     ) => void;
 
     /**
      * Обработчик окончания ввода
      */
     onComplete?: (
-        event: ChangeEvent<HTMLInputElement>,
         payload: { dateFrom: Date; dateTo: Date; value: string },
+        event?: ChangeEvent<HTMLInputElement>,
     ) => void;
 
     /**
@@ -188,22 +190,44 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
-        const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
-
         useEffect(() => {
             setOpen(defaultOpen);
         }, [defaultOpen]);
 
-        useEffect(() => {
-            if (selectedFrom) {
+        const handlePeriodChange = (selectedFrom?: number, selectedTo?: number) => {
+            if (selectedFrom && !selectedTo && value.length === DATE_MASK.length) {
                 setValue(parseTimestampToDate(selectedFrom));
+            } else if (
+                (!selectedFrom && !selectedTo && value.length === DATE_FORMAT.length) ||
+                (selectedFrom === selectedTo && value.length === DATE_MASK.length)
+            ) {
+                setValue('');
             }
-            if (selectedFrom && selectedTo) {
-                setValue(
-                    `${parseTimestampToDate(selectedFrom)} - ${parseTimestampToDate(selectedTo)}`,
-                );
+
+            if (onChange) {
+                onChange({
+                    dateFrom: selectedFrom ? new Date(selectedFrom) : undefined,
+                    dateTo: selectedTo ? new Date(selectedTo) : undefined,
+                    value,
+                });
             }
-        }, [selectedFrom, selectedTo]);
+            if (onComplete && selectedFrom && selectedTo) {
+                onComplete({
+                    dateFrom: new Date(selectedFrom),
+                    dateTo: new Date(selectedTo),
+                    value,
+                });
+            }
+        };
+
+        const {
+            selectedFrom,
+            selectedTo,
+            updatePeriod,
+            resetPeriod,
+            setStart,
+            setEnd,
+        } = usePeriod({ onPeriodChange: handlePeriodChange });
 
         const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {
@@ -226,7 +250,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             const { value: newValue } = event.target;
 
-            if (newValue.length > 23) return;
+            if (newValue.length > DATE_MASK.length) return;
 
             // Позволяем вводить только цифры, точки, дефис и пробелы
             if (/[^\d. \- \d.]/.test(newValue)) {
@@ -247,17 +271,27 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             const dateFrom = parseDateString(dateArr[0]);
             const dateTo = parseDateString(dateArr[1]);
 
-            if (dateFnsIsValid(dateFrom) && dateArr[0]?.length === 10) {
-                updatePeriod(dateFrom.getTime());
-            } else if (dateFnsIsValid(dateTo) && dateArr[1]?.length === 10) {
-                updatePeriod(dateTo.getTime());
-            } else {
-                updatePeriod(undefined);
+            if (selectedFrom && formattedValue.length < DATE_FORMAT.length) {
+                setStart();
+            } else if (selectedFrom && selectedTo) {
+                setEnd();
+            } else if (
+                dateFnsIsValid(dateFrom) &&
+                dateArr[0]?.length === DATE_FORMAT.length &&
+                dateFrom.getTime() !== selectedFrom
+            ) {
+                setStart(dateFrom.getTime());
+            } else if (
+                dateFnsIsValid(dateTo) &&
+                dateArr[1]?.length === DATE_FORMAT.length &&
+                dateTo.getTime() !== selectedTo
+            ) {
+                setEnd(dateTo.getTime());
             }
 
             setValue(formattedValue);
 
-            if (onChange) onChange(event, { dateFrom, dateTo, value: formattedValue });
+            if (onChange) onChange({ dateFrom, dateTo, value: formattedValue }, event);
 
             if (isCompleteDateInput(formattedValue)) {
                 const valid = isValid(formattedValue, dateArr[0], dateArr[1]);
@@ -265,7 +299,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                 if (!valid) return;
 
                 if (onComplete) {
-                    onComplete(event, { dateFrom, dateTo, value: formattedValue });
+                    onComplete({ dateFrom, dateTo, value: formattedValue }, event);
                 }
             }
         };
@@ -276,12 +310,24 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
 
         const handleClear = () => {
             setValue('');
-            updatePeriod(undefined);
+            resetPeriod();
         };
 
         const handleCalendarChange = (date?: number) => {
-            updatePeriod(date);
+            if (date) {
+                updatePeriod(date);
+            }
         };
+
+        useEffect(() => {
+            if (selectedFrom && selectedTo) {
+                setValue(
+                    `${parseTimestampToDate(selectedFrom)} - ${parseTimestampToDate(selectedTo)}`,
+                );
+            } else if (selectedFrom && value.length < DATE_FORMAT.length) {
+                setValue(parseTimestampToDate(selectedFrom));
+            }
+        }, [selectedFrom, selectedTo, value]);
 
         const handleCalendarWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
             // Не дает инпуту терять фокус при выборе даты

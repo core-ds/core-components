@@ -9,7 +9,24 @@ render(<DateRangeInput label="Укажите диапазон дат" placeholde
 
 ### С пикером
 ```jsx live
-render(<DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" picker/>)
+render(<DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" picker />)
+```
+
+### С обработчиками событий
+```jsx live
+render(() => {
+    const handleChange = (payload) => {
+        const { dateFrom, dateTo, value } = payload;
+        console.log("Changed", dateFrom, dateTo, value)
+    }
+
+    const handleComplete = (payload) => {
+        const { dateFrom, dateTo, value } = payload;
+        console.log("Completed", dateFrom, dateTo, value)
+    }
+
+    return (<DateRangeInput onChange={handleChange} onComplete={handleComplete} label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" picker />)
+})
 ```
 
 ### Пикер

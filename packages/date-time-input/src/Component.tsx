@@ -25,6 +25,7 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import {
+    DATE_MASK,
     format,
     getDateWithoutTime,
     getFullDateTime,
@@ -230,7 +231,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             const { value: newValue } = event.target;
 
-            if (newValue.length > 17) return;
+            if (newValue.length > DATE_MASK.length) return;
 
             // Позволяем вводить только цифры, точки, запятую, двоеточие и пробел
             if (/[^\d., :\d.]/.test(newValue)) {

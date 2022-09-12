@@ -50,7 +50,7 @@ describe('DateRangeInput', () => {
     });
 
     describe('Callback tests', () => {
-        it('should call onChange callback', () => {
+        it('should call onChange callback', async () => {
             const onChange = jest.fn();
             const onComplete = jest.fn();
             const value = '12.12.2021 - 10.04.2022';
@@ -62,8 +62,10 @@ describe('DateRangeInput', () => {
 
             userEvent.type(input, value);
 
-            expect(onComplete).toBeCalledTimes(1);
-            expect(onChange).toBeCalledTimes(value.length);
+            await waitFor(() => {
+                expect(onComplete).toBeCalledTimes(2);
+                expect(onChange).toBeCalledTimes(value.length + 2);
+            });
         });
     });
 

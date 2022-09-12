@@ -267,9 +267,8 @@ describe('Gallery', () => {
 
             fireEvent.mouseOver(fullscreenButton);
 
-            await waitFor(
-                () => expect(getByText('Открыть в полноэкранном режиме')).toBeInTheDocument(),
-                { timeout: 2000 },
+            await waitFor(() =>
+                expect(getByText('Открыть в полноэкранном режиме')).toBeInTheDocument(),
             );
 
             fireEvent.mouseOver(downloadButton);
