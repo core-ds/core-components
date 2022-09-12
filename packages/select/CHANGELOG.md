@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@12.3.1...@alfalab/core-components-select@12.4.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **select:** removed ssr warning ([#248](https://github.com/core-ds/core-components/issues/248)) ([d7f4abd](https://github.com/core-ds/core-components/commit/d7f4abdfd34b63d977e84dfa7373ae2d1554e3e0))
+
+
+### Features
+
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+
+
+
+
+
 ## [12.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@12.3.0...@alfalab/core-components-select@12.3.1) (2022-09-05)
 
 **Note:** Version bump only for package @alfalab/core-components-select

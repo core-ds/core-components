@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.1.1...@alfalab/core-components-form-control@8.2.0) (2022-09-12)
+
+
+### Features
+
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+
+
+
+
+
 ## [8.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.1.0...@alfalab/core-components-form-control@8.1.1) (2022-08-31)
 
 

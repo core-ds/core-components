@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.2...@alfalab/core-components-themes@9.2.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **button:** increased click area of the active state ([#246](https://github.com/core-ds/core-components/issues/246)) ([8937248](https://github.com/core-ds/core-components/commit/8937248cbfe7a2f542855a0bba5bb472eb82a076))
+
+
+### Features
+
+* **toast-plate:** added inverted views ([#243](https://github.com/core-ds/core-components/issues/243)) ([a527d15](https://github.com/core-ds/core-components/commit/a527d152ab0705b429180ffe009886ff8920686a))
+
+
+
+
+
 ## [9.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.1...@alfalab/core-components-themes@9.1.2) (2022-09-09)
 
 

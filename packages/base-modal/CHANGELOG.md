@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@5.0.1...@alfalab/core-components-base-modal@5.0.2) (2022-09-12)
+
+
+### Bug Fixes
+
+* **base-modal:** Added element matches polyfill for IE11 ([#245](https://github.com/core-ds/core-components/issues/245)) ([cb95740](https://github.com/core-ds/core-components/commit/cb95740b931ec48d2f92a2cb64a148400b6cb135))
+
+
+
+
+
 ## [5.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@5.0.0...@alfalab/core-components-base-modal@5.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-base-modal
