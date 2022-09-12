@@ -127,6 +127,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.4.1.tgz#6d9f8983edd69eb22f574a21070e47ccedc678be"
   integrity sha512-OqkFMUJ7La8tTNkXP/T3RyohPptzigaPc15IVNyQxbMuFa8oIepcfCZEC6R7WdBYkHUh3R8C+8HKodzMnmsCew==
 
+"@alfalab/data@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.4.2.tgz#bceab1875b34d92a183fafd481d66e2dd2fd720e"
+  integrity sha512-+MqVDEFM/bcl4hgL3uoXGcN0w8Nb9SJ8zeJVF8SzZVEtJHhrYMR/DRHul5OkeatZB2LLt6YfLwX4aoWRChdomg==
+
 "@alfalab/hooks@^1.0.0":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@alfalab/hooks/-/hooks-1.1.1.tgz"
@@ -138,6 +143,14 @@
   integrity sha512-uDiC5EkxIP3Ov96Fc8Ig9rdFhJ4LCQMs+GXuloBTMuTa6B99hJT1JPMFI8O5j3LSHxyOmJN+Jwqk8dqGAoPH+Q==
   dependencies:
     "@alfalab/utils" "^1.12.1"
+    uuid "^8.3.2"
+
+"@alfalab/hooks@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.13.0.tgz#13c8cf5a326fb85469e6472f469e91d7454a530f"
+  integrity sha512-kAArulLn2plNLZwJIA20KByJq6b/410v7AZp7+X7MMY63oUKKByKhUijIAaFDidKkjV6PBY/aCFzL2fpNLenlQ==
+  dependencies:
+    "@alfalab/utils" "^1.13.2"
     uuid "^8.3.2"
 
 "@alfalab/hooks@^1.4.1":
@@ -226,6 +239,14 @@
     lodash "4.17.21"
     stream-chain "2.2.5"
     stream-json "1.7.4"
+
+"@alfalab/utils@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.2.tgz#b00989b426722e21468c23bd159d45f37d8626ec"
+  integrity sha512-O5K8uWj986yyM0ryxW8yLpOGIgA5L2I9RknLOWhIbFomkzl+sj8Ej/1rPAzRmCgOR58LzZ0BnZZT44VAES/baQ==
+  dependencies:
+    "@alfalab/data" "^1.4.2"
+    lodash "4.17.21"
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
@@ -11857,6 +11878,11 @@ element-closest@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/element-closest/-/element-closest-3.0.2.tgz#3814a69a84f30e48e63eaf57341f4dbf4227d2aa"
   integrity sha512-JxKQiJKX0Zr5Q2/bCaTx8P+UbfyMET1OQd61qu5xQFeWr1km3fGaxelSJtnfT27XQ5Uoztn2yIyeamAc/VX13g==
+
+element-matches-polyfill@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/element-matches-polyfill/-/element-matches-polyfill-1.0.0.tgz#3d97b361c9f8101ed1ce8bb450cef874dadda283"
+  integrity sha512-6xnaB9NpWYmSgWP1/njuCanX1nopjVZRvSivd9cX7cfURGdldeT46g+3ph1pfNNiiPvHLjfhUk/8HXQkbcu7ng==
 
 elliptic@^6.5.3:
   version "6.5.3"

@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { ChangeEvent, useState, useRef, useMemo, RefObject } from 'react';
+import React, { ChangeEvent, useState, useRef, useMemo, RefObject, ElementType } from 'react';
 import mergeRefs from 'react-merge-refs';
 import throttle from 'lodash.throttle';
 
@@ -10,7 +10,7 @@ import {
     BaseSelectChangePayload,
 } from '@alfalab/core-components-select';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { Input } from '@alfalab/core-components-input';
+import { Input as CoreInput } from '@alfalab/core-components-input';
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 
 import { AutocompleteMobileField } from './autocomplete-mobile-field';
@@ -78,6 +78,11 @@ export type InputAutocompleteMobileProps = Omit<
      * Дополнительные пропсы на кнопку "отмена"
      */
     cancelButtonProps?: ButtonProps;
+
+    /**
+     * Кастомный инпут
+     */
+    Input?: ElementType;
 };
 
 const SELECTED: string[] = [];
@@ -85,6 +90,7 @@ const SELECTED: string[] = [];
 export const InputAutocompleteMobile = React.forwardRef(
     (
         {
+            Input,
             bottomSheetProps = {},
             bottomSheetHeaderAddonsProps = {},
             value = '',
@@ -161,6 +167,8 @@ export const InputAutocompleteMobile = React.forwardRef(
         };
 
         const getBottomSheetProps = (): InputAutocompleteMobileProps['bottomSheetProps'] => {
+            const Component = Input || CoreInput;
+
             return {
                 actionButton: (
                     <div className={styles.footer}>
@@ -186,7 +194,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 ),
                 title: label || placeholder,
                 bottomAddons: (
-                    <Input
+                    <Component
                         block={true}
                         clear={!!onClearFilter}
                         onClear={onClearFilter}

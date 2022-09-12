@@ -8,7 +8,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
   >
     <div>
       <div
-        class="component hasCloser notificationComponent"
+        class="component component hasCloser notificationComponent"
         style="top: 108px; z-index: 1000;"
       >
         <div
@@ -59,7 +59,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="closeButtonWrapper"
+            class="closeButtonWrapper closeButtonWrapper"
           >
             <button
               aria-label="закрыть"

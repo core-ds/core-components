@@ -60,6 +60,7 @@ export function ToastExample() {
                 }}
             >
                 <Toast
+                    colors = {select('colors', ['default', 'inverted'], 'default')}
                     open={anchorToastOpen}
                     position={select('position', POSITION_OPTIONS, 'left')}
                     offset={[number('offset[0]', 0), number('offset[1]', 8)]}
@@ -77,6 +78,7 @@ export function ToastExample() {
                     autoCloseDelay={number('autoCloseDelay', 3000)}
                 />
                 <Toast
+                    colors = {select('colors', ['default', 'inverted'], 'default')}
                     open={fixedToastOpen}
                     badge={select(
                         'badge',

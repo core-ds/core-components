@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@8.1.3...@alfalab/core-components-input-autocomplete@8.2.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** add prop for custom input ([#223](https://github.com/core-ds/core-components/issues/223)) ([632cb7f](https://github.com/core-ds/core-components/commit/632cb7fb572366cd42fad1a8741e99098cce1f12))
+
+
+### Features
+
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+
+
+
+
+
+## [8.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@8.1.2...@alfalab/core-components-input-autocomplete@8.1.3) (2022-09-05)
+
+**Note:** Version bump only for package @alfalab/core-components-input-autocomplete
+
+
+
+
+
 ## [8.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input-autocomplete@8.1.1...@alfalab/core-components-input-autocomplete@8.1.2) (2022-09-02)
 
 **Note:** Version bump only for package @alfalab/core-components-input-autocomplete

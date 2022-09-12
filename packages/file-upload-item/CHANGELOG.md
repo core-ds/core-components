@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@5.0.0...@alfalab/core-components-file-upload-item@5.1.0) (2022-09-12)
+
+
+### Features
+
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+
+
+
+
+
+# [5.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@4.0.4...@alfalab/core-components-file-upload-item@5.0.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **link:** replace component with a button in pseudo mode ([#156](https://github.com/core-ds/core-components/issues/156)) ([6f24cbb](https://github.com/core-ds/core-components/commit/6f24cbb433c4ced85986d5f0e0b3bc1289e0fb8d))
+
+
+### BREAKING CHANGES
+
+* **link:** В компоненте Link с пропсом pseudo заменяется дефолтный html-элемент "a" на
+"button"
+
+Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
+
+
+
+
+
 ## [4.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@4.0.3...@alfalab/core-components-file-upload-item@4.0.4) (2022-09-02)
 
 **Note:** Version bump only for package @alfalab/core-components-file-upload-item

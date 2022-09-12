@@ -5,6 +5,7 @@ import React, {
     cloneElement,
     ReactElement,
     ChangeEvent,
+    FocusEvent,
     MouseEvent,
     isValidElement,
 } from 'react';
@@ -63,6 +64,16 @@ export type CheckboxGroupProps = {
     ) => void;
 
     /**
+     * Обработчик блюра.
+     */
+    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+
+    /**
+     * Обработчик фокуса.
+     */
+    onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+
+    /**
      * Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox
      */
     disabled?: boolean;
@@ -81,6 +92,8 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     error,
     hint,
     onChange,
+    onBlur,
+    onFocus,
     type = 'checkbox',
     dataTestId,
     disabled = false,
@@ -145,7 +158,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
             {label ? <span className={styles.label}>{label}</span> : null}
 
             {children ? (
-                <div className={styles.checkboxList}>
+                <div className={styles.checkboxList} onBlur={onBlur} onFocus={onFocus}>
                     {Children.map(children, child => {
                         if (isValidElement(child)) {
                             return type === 'checkbox' ? renderCheckbox(child) : renderTag(child);

@@ -8,6 +8,7 @@ import React, {
     isValidElement,
     useState,
     forwardRef,
+    FocusEvent,
 } from 'react';
 import cn from 'classnames';
 
@@ -64,6 +65,16 @@ export type RadioGroupProps = {
     ) => void;
 
     /**
+     * Обработчик блюра.
+     */
+    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+
+    /**
+     * Обработчик фокуса.
+     */
+    onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+
+    /**
      * Управление возможностью изменения состояния 'checked' дочерних компонентов Radio | Tag
      */
     disabled?: boolean;
@@ -94,6 +105,8 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             error,
             hint,
             onChange,
+            onBlur,
+            onFocus,
             type = 'radio',
             dataTestId,
             disabled = false,
@@ -176,7 +189,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                 {label ? <span className={styles.label}>{label}</span> : null}
 
                 {children ? (
-                    <div className={styles.radioList}>
+                    <div className={styles.radioList} onBlur={onBlur} onFocus={onFocus}>
                         {Children.map(children, child => {
                             if (isValidElement(child)) {
                                 return type === 'radio' ? renderRadio(child) : renderTag(child);
