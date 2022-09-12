@@ -220,7 +220,7 @@ const root = {
     ],
 };
 
-const configs = (process.env.BUILD_FROM_DIST === 'true'
+const configs = (process.env.BUILD_ESM_ONLY === 'true'
     ? [esm, root]
     : [es5, modern, esm, currentComponentName !== 'themes' && cssm, root]
 ).filter(Boolean);

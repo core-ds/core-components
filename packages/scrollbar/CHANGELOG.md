@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-scrollbar@2.0.1...@alfalab/core-components-scrollbar@2.1.0) (2022-08-29)
+
+
+### Features
+
+* **textarea:** custom scrollbar ([#196](https://github.com/core-ds/core-components/issues/196)) ([c0d956c](https://github.com/core-ds/core-components/commit/c0d956cc7bf0a5440a66602ca77de2942a268be2))
+
+
+
+
+
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-scrollbar@2.0.0...@alfalab/core-components-scrollbar@2.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-scrollbar

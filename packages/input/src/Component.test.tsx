@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Input } from './index';
@@ -178,7 +178,7 @@ describe('Input', () => {
                 <Input clear={true} value={value} dataTestId={dataTestId} />,
             );
 
-            userEvent.click(getByLabelText('Очистить'));
+            fireEvent.click(getByLabelText('Очистить'));
 
             expect(getByTestId(dataTestId)).toHaveValue(value);
         });
@@ -228,10 +228,12 @@ describe('Input', () => {
 
             const input = getByTestId(dataTestId) as HTMLInputElement;
 
-            input.setSelectionRange(0, input.value.length);
-            await userEvent.type(input, '{backspace}');
+            await userEvent.type(input, '{backspace}', {
+                initialSelectionStart: 0,
+                initialSelectionEnd: input.value.length,
+            });
 
-            input.blur();
+            fireEvent.blur(input);
 
             expect(input.value).toBe('');
 
@@ -266,9 +268,7 @@ describe('Input', () => {
 
             await userEvent.type(input, '123');
 
-            await act(async () => {
-                userEvent.click(getByLabelText('Очистить'));
-            });
+            fireEvent.click(getByLabelText('Очистить'));
 
             expect(input).toHaveValue('');
         });
@@ -338,7 +338,7 @@ describe('Input', () => {
             const cb = jest.fn();
             const { getByLabelText } = render(<Input onClear={cb} clear={true} value='123' />);
 
-            userEvent.click(getByLabelText('Очистить'));
+            fireEvent.click(getByLabelText('Очистить'));
 
             expect(cb).toBeCalledTimes(1);
         });

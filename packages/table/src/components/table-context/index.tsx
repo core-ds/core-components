@@ -11,12 +11,14 @@ export type ColumnConfiguration = {
 export type TableContextType = {
     columnsConfiguration: ColumnConfiguration[];
     compactView: boolean;
+    compactHorizontal: boolean;
     wrapperRef: RefObject<HTMLDivElement>;
 };
 
 export const DEFAULT_TABLE_CONTEXT: TableContextType = {
     columnsConfiguration: [],
     compactView: false,
+    compactHorizontal: false,
     wrapperRef: { current: null },
 };
 

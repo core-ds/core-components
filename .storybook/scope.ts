@@ -5,7 +5,7 @@ import * as grid from './blocks/grid';
 
 let componentsContext;
 
-if (process.env.BUILD_FROM_DIST === 'true') {
+if (process.env.BUILD_STORYBOOK_FROM_DIST === 'true') {
     try {
         componentsContext = require.context(
             '../dist',

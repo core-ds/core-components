@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { render } from '@testing-library/react';
 
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
@@ -124,7 +124,7 @@ describe('Custom component', () => {
         cb.mockReturnValue(null);
 
         render(
-            <Link Component={cb} href='test'>
+            <Link Component={forwardRef(cb)} href='test'>
                 Link
             </Link>,
         );

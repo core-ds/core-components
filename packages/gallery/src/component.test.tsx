@@ -267,13 +267,16 @@ describe('Gallery', () => {
 
             fireEvent.mouseOver(fullscreenButton);
 
-            await waitFor(() =>
-                expect(getByText('Открыть в полноэкранном режиме')).toBeInTheDocument(),
+            await waitFor(
+                () => expect(getByText('Открыть в полноэкранном режиме')).toBeInTheDocument(),
+                { timeout: 2000 },
             );
 
             fireEvent.mouseOver(downloadButton);
 
-            await waitFor(() => expect(getByText('Скачать')).toBeInTheDocument());
+            await waitFor(() => expect(getByText('Скачать')).toBeInTheDocument(), {
+                timeout: 2000,
+            });
         });
     });
 
