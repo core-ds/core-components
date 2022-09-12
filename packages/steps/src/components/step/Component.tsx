@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
 import { Badge } from '@alfalab/core-components-badge';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
 import styles from './index.module.css';
 
@@ -76,7 +77,7 @@ export const Step: React.FC<StepProps> = ({
     onClick,
     interactive,
     isVerticalAlign,
-    isNotLastStep
+    isNotLastStep,
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
 
@@ -92,7 +93,7 @@ export const Step: React.FC<StepProps> = ({
         if (!interactive) {
             e.stopPropagation();
         }
-    }
+    };
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -112,8 +113,16 @@ export const Step: React.FC<StepProps> = ({
                 />
             );
         }
-        if (isError && !isSelected) {
-            return '!';
+        if (isError) {
+            return (
+                <Badge
+                    size='l'
+                    view='icon'
+                    iconColor='negative'
+                    className={styles.badge}
+                    content={<ExclamationCircleMIcon />}
+                />
+            );
         }
         if (!ordered) {
             return (
@@ -126,14 +135,14 @@ export const Step: React.FC<StepProps> = ({
         return stepNumber;
     };
 
-    const renderHyphen = () => (
+    const renderDash = () => (
         <div
-            className={cn(styles.hyphen, {
+            className={cn(styles.dash, {
                 [styles.vertical]: isVerticalAlign,
                 [styles.completed]: isStepCompleted,
             })}
         />
-    )
+    );
 
     return (
         <div
@@ -161,23 +170,24 @@ export const Step: React.FC<StepProps> = ({
                 <div
                     className={cn(styles.option, {
                         [styles.unordered]: !ordered,
-                        [styles.vertical]: isVerticalAlign
+                        [styles.vertical]: isVerticalAlign,
+                        [styles.error]: isError,
                     })}
                 >
                     {getStepContent()}
                 </div>
-                {isNotLastStep && isVerticalAlign && renderHyphen()}
+                {isNotLastStep && isVerticalAlign && renderDash()}
             </div>
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-            <div 
+            <div
                 className={cn(styles.text, {
-                    [styles.interactive]: interactive
+                    [styles.interactive]: interactive,
                 })}
                 onClick={handleTextClick}
             >
                 {children}
             </div>
-            {isNotLastStep && !isVerticalAlign && renderHyphen()}
+            {isNotLastStep && !isVerticalAlign && renderDash()}
         </div>
     );
 };

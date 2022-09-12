@@ -124,24 +124,24 @@ export const Steps: React.FC<StepsProps> = ({
                 const disabled = checkIsStepDisabled ? checkIsStepDisabled(stepNumber) : false;
                 const isError = checkIsStepError ? checkIsStepError(stepNumber) : false;
                 const isNotLastStep = stepsLength !== stepNumber;
+                const isInteractive = !disabled && interactive;
 
                 return (
-                    <React.Fragment key={stepNumber}>
-                        <Step
-                            stepNumber={stepNumber}
-                            isSelected={isSelected}
-                            isStepCompleted={isStepCompleted}
-                            disabled={disabled}
-                            isError={isError}
-                            onClick={handleStepClick}
-                            ordered={ordered}
-                            interactive={interactive}
-                            isVerticalAlign={isVerticalAlign}
-                            isNotLastStep={isNotLastStep}
-                        >
-                            {step}
-                        </Step>
-                    </React.Fragment>
+                    <Step
+                        stepNumber={stepNumber}
+                        isSelected={isSelected}
+                        isStepCompleted={isStepCompleted}
+                        disabled={disabled}
+                        isError={isError}
+                        onClick={handleStepClick}
+                        ordered={ordered}
+                        interactive={isInteractive}
+                        isVerticalAlign={isVerticalAlign}
+                        isNotLastStep={isNotLastStep}
+                        key={stepNumber}
+                    >
+                        {step}
+                    </Step>
                 );
             })}
         </div>

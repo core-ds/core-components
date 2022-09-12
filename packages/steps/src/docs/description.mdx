@@ -5,37 +5,63 @@
 ```jsx live
 render(() => {
     const [ordered, setOrdered] = React.useState(true);
+    const [error, setError] = React.useState(false);
     const [step, setStep] = React.useState(2);
 
-    const handleStepsChange = (stepNumber) => {
-        setStep(stepNumber);
+    const handleReset = () => setStep(1);
+
+    const handleStepsChange = (stepNumber) => setStep(stepNumber);
+
+    const handleOrderChange = () => setOrdered(prev => !prev);
+
+    const handleErrorChange = () => {
+        setError(prev => {
+            if (!prev && step > 3) {
+                setStep(3);
+            }
+
+            return !prev;
+        });
     }
 
-    const handleOrderChange = () => {
-        setOrdered(prev => !prev);
+    const handleStepDisable = (stepNumber) => {
+        if (error) {
+            return stepNumber === 4 || stepNumber === 5;
+        }
+        
+        return stepNumber === 4;
     }
 
-    const handleReset = () => {
-        setStep(1);
+    const handleStepError = (stepNumber) => {
+        if (error) {
+            return stepNumber === 3;
+        }
     }
 
     return (
-        <div style={{ width: 500 }}>
+        <div>
             <Steps
                 activeStep={step}
                 defaultActiveStep={2}
                 ordered={ordered}
                 onChange={handleStepsChange}
+                checkIsStepDisabled={handleStepDisable}
+                checkIsStepError={handleStepError}
             >
                 <div>Шаг 1</div>
                 <div>Шаг 2</div>
                 <div>Шаг 3</div>
                 <div>Шаг 4</div>
+                <div>Шаг 5</div>
             </Steps>
             <div style={{ margin: '20px 0' }}>Выбран шаг {step}</div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Switch checked={ordered} onChange={handleOrderChange} />
                 <span style={{ marginLeft: 12 }}>Номера шагов</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: 14 }}>
+                <Switch checked={error} onChange={handleErrorChange} />
+                <span style={{ marginLeft: 12 }}>Показать некорректно заполненный шаг</span>
             </div>
             <Button style={{ marginTop: 14 }} view='secondary' onClick={handleReset} size='xxs'>
                 Сбросить
@@ -51,18 +77,37 @@ render(() => {
 ```jsx live
 render(() => {
     const [ordered, setOrdered] = React.useState(true);
+    const [error, setError] = React.useState(false);
     const [step, setStep] = React.useState(2);
 
-    const handleStepsChange = (stepNumber) => {
-        setStep(stepNumber);
+    const handleReset = () => setStep(1);
+
+    const handleStepsChange = (stepNumber) => setStep(stepNumber);
+
+    const handleOrderChange = () => setOrdered(prev => !prev);
+
+    const handleErrorChange = () => {
+        setError(prev => {
+            if (!prev && step > 3) {
+                setStep(3);
+            }
+
+            return !prev;
+        });
     }
 
-    const handleOrderChange = () => {
-        setOrdered(prev => !prev);
+    const handleStepDisable = (stepNumber) => {
+        if (error) {
+            return stepNumber === 4 || stepNumber === 5;
+        }
+        
+        return stepNumber === 4;
     }
 
-    const handleReset = () => {
-        setStep(1);
+    const handleStepError = (stepNumber) => {
+        if (error) {
+            return stepNumber === 3;
+        }
     }
 
     return (
@@ -74,6 +119,8 @@ render(() => {
                 onChange={handleStepsChange}
                 isVerticalAlign={true}
                 interactive={false}
+                checkIsStepDisabled={handleStepDisable}
+                checkIsStepError={handleStepError}
             >
                 <PureCell verticalPadding='none' horizontalPadding='none'>
                     <PureCell.Content>
@@ -140,12 +187,18 @@ render(() => {
                         </PureCell.Main>
                     </PureCell.Content>
                 </PureCell>
+                
+                <div>Шаг 5</div>
             </Steps>
             <div>
                 <div style={{ marginBottom: 20 }}>Выбран шаг {step}</div>
                 <div style={{ display: "flex", alignItems: "center" }}>
                     <Switch checked={ordered} onChange={handleOrderChange} />
                     <span style={{ marginLeft: 12 }}>Номера шагов</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', marginTop: 14 }}>
+                    <Switch checked={error} onChange={handleErrorChange} />
+                    <span style={{ marginLeft: 12 }}>Показать некорректно заполненный шаг</span>
                 </div>
                 <Button
                     style={{ marginTop: 14 }}

@@ -19,6 +19,7 @@
     "dependencies": {
         "@alfalab/core-components-badge": "^4.0.1",
         "@alfalab/hooks": "^1.4.1",
+        "@alfalab/icons-glyph": "^2.62.0",
         "classnames": "^2.3.1"
     }
 }

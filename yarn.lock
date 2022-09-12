@@ -170,6 +170,11 @@
   resolved "https://registry.npmjs.org/@alfalab/icons-glyph/-/icons-glyph-2.16.0.tgz"
   integrity sha512-TnibCP6JRJtjKq/w+G2gddNOMxC2MtzthoHhBVy/85QnvWWubRM0cwCB3MXOkqEXsF+vv4l5eJlDGqbY/e6aoQ==
 
+"@alfalab/icons-glyph@^2.62.0":
+  version "2.62.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.62.0.tgz#ea8c0b4210dbb0d9ebad759115c624c6154906e7"
+  integrity sha512-Ch6wuh8HVvNV5eNM7IwOyQUNw0puJl5t09LKO6fkVXm4Rq8wkLrfxwYBX+wDvON9i24JI5jEuK2HtomOwEnqbA==
+
 "@alfalab/icons-logotype@^1.28.0":
   version "1.28.0"
   resolved "https://registry.npmjs.org/@alfalab/icons-logotype/-/icons-logotype-1.28.0.tgz"
