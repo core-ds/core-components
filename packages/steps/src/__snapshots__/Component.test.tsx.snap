@@ -30,7 +30,7 @@ Object {
             </div>
           </div>
           <div
-            class="hyphen"
+            class="dash"
           />
         </div>
         <div
@@ -84,7 +84,7 @@ Object {
           </div>
         </div>
         <div
-          class="hyphen"
+          class="dash"
         />
       </div>
       <div
