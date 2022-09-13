@@ -12,22 +12,5 @@ render(<DateTimeInput label="Укажите дату и время" placeholder=
 render(<DateTimeInput label="Укажите дату и время" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" picker />)
 ```
 
-### С обработчиками событий
-```jsx live
-render(() => {
-    const handleChange = (event, payload) => {
-        const { date, value } = payload;
-        console.log("Changed", date, value)
-    }
-
-    const handleComplete = (event, payload) => {
-        const { date, value } = payload;
-        console.log("Completed", date, value)
-    }
-
-    return (<DateTimeInput onChange={handleChange} onComplete={handleComplete} label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" picker />)
-})
-```
-
 ### Пикер
 Для настроек пикера см. компонент DatePicker
