@@ -54,7 +54,7 @@ export function createStorybookUrl({
 
     const componentPath = subComponentName
         ? `-${packageName}--${kebab(subComponentName)}`
-        : `-${packageName.replace(/-/g, '')}--${packageName}`;
+        : `-${packageName.replace(/-/g, '')}--${kebab(componentName)}`;
 
     return `${url}?id=компоненты${componentPath}${knobsQuery}&mockDate=${mockDate || ''}`;
 }
