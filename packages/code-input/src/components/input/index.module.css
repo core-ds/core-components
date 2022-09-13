@@ -22,6 +22,10 @@
     font-weight: var(--code-input-font-weight);
     font-family: var(--code-input-font-family);
 
+    &:last-child {
+        margin-right: 0;
+    }
+
     &.hasError {
         color: var(--color-light-text-negative);
         caret-color: var(--code-input-text-color);
