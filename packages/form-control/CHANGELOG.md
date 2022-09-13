@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.2.0...@alfalab/core-components-form-control@8.3.0) (2022-09-13)
+
+
+### Features
+
+* **form-control, themes:** change colors in intranet theme ([#236](https://github.com/core-ds/core-components/issues/236)) ([eae8b7d](https://github.com/core-ds/core-components/commit/eae8b7deed8e394ebc0cc00cd584d9f05575b3b0))
+
+
+
+
+
 # [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.1.1...@alfalab/core-components-form-control@8.2.0) (2022-09-12)
 
 

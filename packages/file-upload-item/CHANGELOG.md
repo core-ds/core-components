@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@5.1.0...@alfalab/core-components-file-upload-item@5.1.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* **file-upload-item:** fixed error display by default ([#252](https://github.com/core-ds/core-components/issues/252)) ([874a669](https://github.com/core-ds/core-components/commit/874a6692af0a17624a219ee967bb1503a3dfb629))
+
+
+
+
+
 # [5.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@5.0.0...@alfalab/core-components-file-upload-item@5.1.0) (2022-09-12)
 
 

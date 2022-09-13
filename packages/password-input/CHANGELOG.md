@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@3.0.5...@alfalab/core-components-password-input@3.0.6) (2022-09-13)
+
+**Note:** Version bump only for package @alfalab/core-components-password-input
+
+
+
+
+
 ## [3.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-password-input@3.0.4...@alfalab/core-components-password-input@3.0.5) (2022-09-12)
 
 **Note:** Version bump only for package @alfalab/core-components-password-input

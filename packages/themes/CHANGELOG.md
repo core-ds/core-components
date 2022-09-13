@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.2.0...@alfalab/core-components-themes@9.3.0) (2022-09-13)
+
+
+### Features
+
+* **form-control, themes:** change colors in intranet theme ([#236](https://github.com/core-ds/core-components/issues/236)) ([eae8b7d](https://github.com/core-ds/core-components/commit/eae8b7deed8e394ebc0cc00cd584d9f05575b3b0))
+* **tabs:** update click theme  ([#225](https://github.com/core-ds/core-components/issues/225)) ([fe12ef6](https://github.com/core-ds/core-components/commit/fe12ef6e8fc7305a165a289e089187ef41119da0))
+
+
+
+
+
 # [9.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.2...@alfalab/core-components-themes@9.2.0) (2022-09-12)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@12.4.0...@alfalab/core-components-select@12.4.1) (2022-09-13)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 # [12.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select@12.3.1...@alfalab/core-components-select@12.4.0) (2022-09-12)
 
 
