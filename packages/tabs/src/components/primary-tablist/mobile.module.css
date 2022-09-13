@@ -1,3 +1,4 @@
+@import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
 .title {
@@ -10,7 +11,7 @@
         font-size: var(--primary-tablist-mobile-font-size);
         font-weight: var(--primary-tablist-mobile-font-weight);
         font-family: var(--primary-tablist-mobile-font-family);
-        line-height: 24px;
+        line-height: var(--primary-tablist-mobile-line-height);
 
         & + .title {
             margin-left: var(--primary-tablist-mobile-gaps);
