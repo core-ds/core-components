@@ -159,6 +159,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                         [styles.disabled]: disabled,
                         [colorStyles[colors].disabled]: disabled,
                         [styles.filled]: filled,
+                        [colorStyles[colors].filled]: filled,
                         [styles.hasInnerLabel]: label && labelView === 'inner',
                         [styles.focused]: focused,
                         [colorStyles[colors].focused]: focused,
