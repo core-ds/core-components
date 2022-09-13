@@ -10,7 +10,7 @@ import { useCountdown, ONE_DAY, ONE_MINUTE } from '../../utils';
 
 import styles from './index.module.css';
 
-const baseConfirmationScreens: { [key: string]: ComponentType } = {
+const confirmationScreens: { [key: string]: ComponentType<{ mobile?: boolean }> } = {
     INITIAL: Initial,
     HINT: Hint,
     FATAL_ERROR: FatalError,
@@ -36,7 +36,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     onChangeScreen,
     onFatalErrorOkButtonClick,
     onTempBlockFinished,
-    confirmationScreens = baseConfirmationScreens,
+    mobile,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);
@@ -112,7 +112,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
                 className={cn(styles.component, styles[alignContent], className)}
                 data-test-id={dataTestId}
             >
-                {CurrentScreen && <CurrentScreen />}
+                {CurrentScreen && <CurrentScreen mobile={mobile} />}
             </div>
         </ConfirmationContext.Provider>
     );

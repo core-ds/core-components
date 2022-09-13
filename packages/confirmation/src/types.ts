@@ -12,9 +12,9 @@ export type ConfirmationProps = {
     state: ConfirmationState | string;
 
     /**
-     * Объект, где ключ - название экрана (screen), значение - компонент для экрана
+     * Мобильная версия компонента для экрана
      */
-    confirmationScreens?: ConfirmationScreens;
+    mobile?: boolean;
 
     /**
      * Позиционирование контента
@@ -189,8 +189,4 @@ export const defaultTexts = {
     tempBlockDescription: 'Повторное подтверждение кодом будет возможно через 24\xa0часа',
     codeSended: 'Код выслан',
     countdown: 'Запросить повторно можно через',
-};
-
-export type ConfirmationScreens = {
-    [key: string]: ComponentType;
 };

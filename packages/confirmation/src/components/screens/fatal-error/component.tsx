@@ -1,4 +1,6 @@
-import React, { useContext, Fragment, FC } from 'react';
+import React, { useContext, FC } from 'react';
+import cn from 'classnames';
+
 import { Button } from '@alfalab/core-components-button';
 import { Typography } from '@alfalab/core-components-typography';
 
@@ -14,10 +16,10 @@ export type FatalErrorProps = {
 };
 
 export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
-    const { texts, onFatalErrorOkButtonClick } = useContext(ConfirmationContext);
+    const { alignContent, texts, onFatalErrorOkButtonClick } = useContext(ConfirmationContext);
 
     return (
-        <Fragment>
+        <div className={cn(styles.component, styles[alignContent])}>
             <Typography.Title
                 tag='h3'
                 font='system'
@@ -28,13 +30,18 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
                 {texts.fatalErrorTitle}
             </Typography.Title>
 
-            <Typography.Text view='primary-medium' color='primary' className={styles.description}>
+            <Typography.Text view='primary-medium' color='primary'>
                 {texts.fatalErrorDescription}
             </Typography.Text>
 
-            <Button size={mobile ? 'xs' : 's'} view='secondary' onClick={onFatalErrorOkButtonClick}>
+            <Button
+                size={mobile ? 'xs' : 's'}
+                view='secondary'
+                onClick={onFatalErrorOkButtonClick}
+                className={styles.button}
+            >
                 {texts.fatalErrorButton}
             </Button>
-        </Fragment>
+        </div>
     );
 };

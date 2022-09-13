@@ -1,10 +1,18 @@
 @import '../../../../../themes/src/default.css';
 @import '../../../vars.css';
 
+.left {
+    align-items: flex-start;
+}
+
+.center {
+    align-items: center;
+}
+
 .header {
     margin-bottom: var(--gap-xl);
 }
 
-.description {
-    margin-bottom: var(--gap-2xl);
+.button {
+    margin-top: var(--gap-2xl);
 }

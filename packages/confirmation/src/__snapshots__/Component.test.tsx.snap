@@ -19,7 +19,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInput"
+        class="component containerInput codeInput"
       >
         <div
           class=""
@@ -101,7 +101,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInput"
+        class="component containerInput codeInput"
       >
         <div
           class=""
@@ -195,7 +195,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInput"
+        class="component containerInput codeInput"
       >
         <div
           class="shake"
@@ -283,7 +283,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         Код отправлен на 
       </span>
       <div
-        class="component codeInput codeInput"
+        class="component containerInput codeInput"
       >
         <div
           class=""
@@ -363,26 +363,30 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
   <div
     class="component left"
   >
-    <h3
-      class="component header system-small bold primary"
+    <div
+      class="component left"
     >
-      Ввести код больше нельзя
-    </h3>
-    <span
-      class="description primary primary-medium"
-    >
-      Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
-    </span>
-    <button
-      class="component secondary s component secondary"
-      type="button"
-    >
-      <span
-        class="text stretchText"
+      <h3
+        class="component header system-small bold primary"
       >
-        Понятно
+        Ввести код больше нельзя
+      </h3>
+      <span
+        class="primary primary-medium"
+      >
+        Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
       </span>
-    </button>
+      <button
+        class="component secondary s component secondary button"
+        type="button"
+      >
+        <span
+          class="text stretchText"
+        >
+          Понятно
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;

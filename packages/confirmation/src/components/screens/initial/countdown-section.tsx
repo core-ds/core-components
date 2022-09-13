@@ -30,7 +30,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     if (codeSendHintVisible) {
         return (
             <Typography.Text
-                className={styles.countdownContainer}
+                className={cn(styles.countdownContainer, { [styles.countdownMobile]: mobile })}
                 view={mobile ? 'primary-small' : 'primary-medium'}
                 tag='div'
             >
@@ -41,7 +41,11 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
 
     if (processing) {
         return (
-            <div className={cn(styles.loaderWrap, styles.countdownContainer)}>
+            <div
+                className={cn(styles.loaderWrap, styles.countdownContainer, {
+                    [styles.countdownLoaderMobile]: mobile,
+                })}
+            >
                 <Loader />
 
                 <span className={styles.loaderText}>
@@ -54,7 +58,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     if (blockSmsRetry) {
         return (
             <Typography.Text
-                className={styles.countdownContainer}
+                className={cn(styles.countdownContainer, { [styles.countdownMobile]: mobile })}
                 view={mobile ? 'primary-small' : 'primary-medium'}
                 tag='div'
             >
@@ -66,10 +70,10 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     if (timePassed) {
         return (
             <Button
-                size={mobile ? 'xs' : 's'}
+                size={mobile ? 'xs' : 'xxs'}
                 view='secondary'
                 onClick={handleSmsRetryClick}
-                className={styles.getCodeButton}
+                className={cn(styles.getCodeButton, { [styles.getCodeButtonMobile]: mobile })}
             >
                 {texts.buttonRetry}
             </Button>
@@ -78,7 +82,9 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
 
     return (
         <Typography.Text
-            className={cn(styles.countdown, styles.countdownContainer)}
+            className={cn(styles.countdown, styles.countdownContainer, {
+                [styles.countdownMobile]: mobile,
+            })}
             view={mobile ? 'primary-small' : 'primary-medium'}
             tag='div'
         >

@@ -14,13 +14,9 @@ export type HintProps = {
      * Отображать в мобильной версии экран компонента
      */
     mobile?: boolean;
-    /**
-     * Дополнительный класс для блока с номером телефона
-     */
-    phoneClassName?: string;
 };
 
-export const Hint: FC<HintProps> = ({ mobile, phoneClassName }) => {
+export const Hint: FC<HintProps> = ({ mobile }) => {
     const { alignContent, texts, onChangeScreen, onChangeState } = useContext(ConfirmationContext);
 
     const handleReturnButtonClick = () => {
@@ -47,7 +43,7 @@ export const Hint: FC<HintProps> = ({ mobile, phoneClassName }) => {
                 </Typography.Text>
 
                 <div className={styles.phonesWrap}>
-                    <div className={cn(styles.phoneWrap, phoneClassName)}>
+                    <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
                         <Link
                             href='tel:+78002000000'
                             underline={false}
@@ -56,17 +52,28 @@ export const Hint: FC<HintProps> = ({ mobile, phoneClassName }) => {
                             8 800 200-00-00
                         </Link>
 
-                        <Typography.Text
-                            view='primary-medium'
-                            color='primary'
-                            className={styles.text}
-                        >
-                            {' '}
-                            &mdash;&nbsp;для звонков по&nbsp;России
-                        </Typography.Text>
+                        {mobile ? (
+                            <Typography.Text
+                                view='primary-medium'
+                                color='primary'
+                                className={styles.text}
+                            >
+                                {' '}
+                                Для&nbsp; звонков по&nbsp;России
+                            </Typography.Text>
+                        ) : (
+                            <Typography.Text
+                                view='primary-medium'
+                                color='primary'
+                                className={styles.text}
+                            >
+                                {' '}
+                                &mdash;&nbsp;для звонков по&nbsp;России
+                            </Typography.Text>
+                        )}
                     </div>
 
-                    <div className={cn(styles.phoneWrap, phoneClassName)}>
+                    <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
                         <Link
                             href='tel:+74957888878'
                             underline={false}
@@ -75,14 +82,25 @@ export const Hint: FC<HintProps> = ({ mobile, phoneClassName }) => {
                             +7 495 78-888-78
                         </Link>
 
-                        <Typography.Text
-                            view='primary-medium'
-                            color='primary'
-                            className={styles.text}
-                        >
-                            {' '}
-                            &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей
-                        </Typography.Text>
+                        {mobile ? (
+                            <Typography.Text
+                                view='primary-medium'
+                                color='primary'
+                                className={styles.text}
+                            >
+                                {' '}
+                                В&nbsp;Москве и&nbsp;за&nbsp;границей
+                            </Typography.Text>
+                        ) : (
+                            <Typography.Text
+                                view='primary-medium'
+                                color='primary'
+                                className={styles.text}
+                            >
+                                {' '}
+                                &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей
+                            </Typography.Text>
+                        )}
                     </div>
                 </div>
 

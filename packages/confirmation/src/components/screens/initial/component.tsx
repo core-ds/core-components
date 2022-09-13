@@ -25,15 +25,11 @@ export type InitialProps = {
      * Отображать в мобильной версии экран компонента
      */
     mobile?: boolean;
-    /**
-     * Дополнительный класс для codeInput
-     */
-    inputClassName?: string;
 };
 
 const CODE_SEND_HINT_VISIBLE_DURATION = 2000;
 
-export const Initial: FC<InitialProps> = ({ mobile, inputClassName }) => {
+export const Initial: FC<InitialProps> = ({ mobile }) => {
     const {
         state,
         alignContent,
@@ -144,17 +140,15 @@ export const Initial: FC<InitialProps> = ({ mobile, inputClassName }) => {
             <Typography.Text view='primary-medium' color='primary' className={styles.phone}>
                 Код отправлен на {phone}
             </Typography.Text>
-
             <CodeInput
                 disabled={processing}
                 error={getCodeInputError()}
                 ref={inputRef}
                 fields={requiredCharAmount}
-                className={cn(styles.codeInput, inputClassName)}
+                className={cn(styles.containerInput, styles.codeInput)}
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}
             />
-
             <CountdownSection
                 processing={processing}
                 timePassed={timePassed}

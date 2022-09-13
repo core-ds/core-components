@@ -45,3 +45,9 @@
 .hintButton {
     margin-top: var(--gap-2xl);
 }
+
+.phoneContentMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
