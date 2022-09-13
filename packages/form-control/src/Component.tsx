@@ -57,6 +57,11 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     label?: ReactNode;
 
     /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -118,6 +123,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             error,
             hint,
             label,
+            labelView = 'inner',
             leftAddons,
             rightAddons,
             bottomAddons,
@@ -144,6 +150,9 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     },
                 )}
             >
+                {label && labelView === 'outer' && (
+                    <span className={cn(styles.above, colorStyles[colors].label)}>{label}</span>
+                )}
                 <div
                     {...restProps}
                     className={cn(fieldClassName, styles.inner, colorStyles[colors].inner, {
@@ -151,7 +160,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                         [colorStyles[colors].disabled]: disabled,
                         [styles.filled]: filled,
                         [colorStyles[colors].filled]: filled,
-                        [styles.hasLabel]: label,
+                        [styles.hasInnerLabel]: label && labelView === 'inner',
                         [styles.focused]: focused,
                         [colorStyles[colors].focused]: focused,
                         [styles.hasError]: error,
@@ -166,7 +175,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     )}
 
                     <div className={styles.inputWrapper}>
-                        {label && (
+                        {label && labelView === 'inner' && (
                             <React.Fragment>
                                 <span className={styles.hiddenLabel} aria-hidden={true}>
                                     {label}

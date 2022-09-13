@@ -25,6 +25,7 @@ describe('Input | screenshots main props', () => {
                         componentName: 'Input',
                         knobs: {
                             label: 'Label',
+                            labelView: ['inner', 'outer'],
                             size: ['s', 'm', 'l', 'xl'],
                             block: [false, true],
                             disabled: [false, true],

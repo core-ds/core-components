@@ -3,7 +3,7 @@
 exports[`Snapshots tests should display correctly 1`] = `
 <div>
   <svg
-    class="spinner default s"
+    class="spinner component s"
     fill="none"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"

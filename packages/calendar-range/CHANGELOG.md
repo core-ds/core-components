@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@6.1.0...@alfalab/core-components-calendar-range@6.2.0) (2022-09-12)
+
+
+### Features
+
+* **calendar-range:** added onError callback ([#253](https://github.com/core-ds/core-components/issues/253)) ([46e163c](https://github.com/core-ds/core-components/commit/46e163c750427e410d9aa9df6c554a5fbb86eba2))
+
+
+
+
+
 # [6.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-calendar-range@6.0.3...@alfalab/core-components-calendar-range@6.1.0) (2022-09-02)
 
 

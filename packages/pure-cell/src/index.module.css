@@ -57,7 +57,7 @@
     padding: var(--gap-m) 0;
 }
 
-.default {
+.defaultPadding {
     padding: var(--gap-s) 0;
 }
 

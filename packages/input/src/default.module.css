@@ -15,7 +15,7 @@
     color: var(--input-placeholder-color);
 }
 
-.hasLabel::placeholder {
+.hasInnerLabel::placeholder {
     color: var(--input-with-label-placeholder-color);
 }
 

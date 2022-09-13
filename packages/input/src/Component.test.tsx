@@ -108,11 +108,11 @@ describe('Input', () => {
             expect(container.getElementsByClassName(className).length).toBe(2);
         });
 
-        it('should set `hasLabel` class', () => {
+        it('should set `hasInnerLabel` class', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Input label='label' dataTestId={dataTestId} />);
 
-            expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
+            expect(getByTestId(dataTestId)).toHaveClass('hasInnerLabel');
         });
 
         it('should set `focusedClassName` when input focused', () => {

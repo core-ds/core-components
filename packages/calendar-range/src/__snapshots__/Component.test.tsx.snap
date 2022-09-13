@@ -110,7 +110,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           class="container days"
         >
           <table
-            class="daysTable left"
+            class="daysTable"
           >
             <thead>
               <tr>
@@ -806,7 +806,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           class="container days"
         >
           <table
-            class="daysTable left"
+            class="daysTable"
           >
             <thead>
               <tr>
