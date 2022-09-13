@@ -1,3 +1,22 @@
+# [31.3.0](https://github.com/core-ds/core-components/compare/v31.2.0...v31.3.0) (2022-09-13)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
+* **base-modal:** fixed ssr error in element matches polyfill ([#257](https://github.com/core-ds/core-components/issues/257)) ([a6e05b1](https://github.com/core-ds/core-components/commit/a6e05b15ed4aabea7ffea0566d7fb121d72b8729))
+* **file-upload-item:** fixed error display by default ([#252](https://github.com/core-ds/core-components/issues/252)) ([874a669](https://github.com/core-ds/core-components/commit/874a6692af0a17624a219ee967bb1503a3dfb629))
+
+
+### Features
+
+* **code-input:** update mobile version ([#230](https://github.com/core-ds/core-components/issues/230)) ([bf66e85](https://github.com/core-ds/core-components/commit/bf66e85b147e22be13f1a62d945aba6012d5ccf5))
+* **confirmation-v1:** rename package confirmation-v-1 ([#258](https://github.com/core-ds/core-components/issues/258)) ([195f7a0](https://github.com/core-ds/core-components/commit/195f7a08eeb24bbb9eecf8e62155ec18dbe731d5))
+* **confirmation-v1:** return old confirmation ([#241](https://github.com/core-ds/core-components/issues/241)) ([a8779ed](https://github.com/core-ds/core-components/commit/a8779ed56baf0db9662ae6e00a417e44c56a65f3))
+* **form-control, themes:** change colors in intranet theme ([#236](https://github.com/core-ds/core-components/issues/236)) ([eae8b7d](https://github.com/core-ds/core-components/commit/eae8b7deed8e394ebc0cc00cd584d9f05575b3b0))
+* **plate:** added custom variable for box-shadow ([#256](https://github.com/core-ds/core-components/issues/256)) ([4d75e4e](https://github.com/core-ds/core-components/commit/4d75e4e84ead1ee12070c9097dba3b40400baac6))
+* **tabs:** update click theme  ([#225](https://github.com/core-ds/core-components/issues/225)) ([fe12ef6](https://github.com/core-ds/core-components/commit/fe12ef6e8fc7305a165a289e089187ef41119da0))
+
 # [31.2.0](https://github.com/core-ds/core-components/compare/v31.1.0...v31.2.0) (2022-09-12)
 
 
