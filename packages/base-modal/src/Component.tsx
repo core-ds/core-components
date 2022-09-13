@@ -13,14 +13,14 @@ import React, {
     FC,
     MutableRefObject,
 } from 'react';
-// TODO Без полифила крашится FocusLock в IE11. Выпилить в будущем!!!.
-import 'element-matches-polyfill';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 import FocusLock from 'react-focus-lock';
+// TODO Без полифила крашится FocusLock в IE11. Выпилить в будущем!!!.
+import './matches-polyfill';
 
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';

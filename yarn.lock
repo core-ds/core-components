@@ -52,6 +52,15 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
+"@alfalab/core-components-link@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-link/-/core-components-link-4.1.0.tgz#24d5bc003cc78b51e9aeb57af690bcba240f5ddd"
+  integrity sha512-hECB7aYhhsqFMNlLMKbROmUpENLiLrRcsChTIwxdWMs+L5Uh5ucrq/8VmoduqV84ySMiQ+mWSZLRus969iE+sw==
+  dependencies:
+    "@alfalab/hooks" "^1.4.1"
+    classnames "^2.3.1"
+    react-merge-refs "^1.1.0"
+
 "@alfalab/core-components-loader@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-loader/-/core-components-loader-2.2.1.tgz#80192c2d5fac17235a3ad5747b7337a745e65331"
@@ -9592,7 +9601,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@2.3.1, classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
+classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
@@ -11878,11 +11887,6 @@ element-closest@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/element-closest/-/element-closest-3.0.2.tgz#3814a69a84f30e48e63eaf57341f4dbf4227d2aa"
   integrity sha512-JxKQiJKX0Zr5Q2/bCaTx8P+UbfyMET1OQd61qu5xQFeWr1km3fGaxelSJtnfT27XQ5Uoztn2yIyeamAc/VX13g==
-
-element-matches-polyfill@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/element-matches-polyfill/-/element-matches-polyfill-1.0.0.tgz#3d97b361c9f8101ed1ce8bb450cef874dadda283"
-  integrity sha512-6xnaB9NpWYmSgWP1/njuCanX1nopjVZRvSivd9cX7cfURGdldeT46g+3ph1pfNNiiPvHLjfhUk/8HXQkbcu7ng==
 
 elliptic@^6.5.3:
   version "6.5.3"
