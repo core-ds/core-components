@@ -1,8 +1,4 @@
-import {
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useLoader = (loading: boolean, timeout: number) => {
     const timerId = useRef(0);
