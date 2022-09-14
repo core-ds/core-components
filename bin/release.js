@@ -153,8 +153,6 @@ async function releaseRoot() {
     const updateResult = await updateChangelogAndPackageJson(changesets);
     const { nextVersion, notes } = updateResult || {};
 
-    return true;
-
     if (!nextVersion) return false;
 
     await git.add(config.packageJsonPath, cwd);

@@ -1,10 +1,3 @@
-## 31.3.2
-
-### Patch Changes
-
-#### `@alfalab/core-components-status`
-- null: bump version. Thanks [@Lacronts](https://github.com/Lacronts)
-
 ## 31.3.1
 
 ### Patch Changes
