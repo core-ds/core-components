@@ -39,7 +39,7 @@
         "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
         "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
         "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
-        "pub:ci": "./bin/publish-ci.sh",
+        "pub:ci": "node ./bin/release.js",
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')}\""
     },
@@ -98,6 +98,8 @@
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-env": "7.18.0",
         "@babel/preset-typescript": "^7.9.0",
+        "@changesets/cli": "^2.24.4",
+        "@changesets/get-github-info": "^0.5.1",
         "@commitlint/config-conventional": "^8.3.4",
         "@commitlint/config-lerna-scopes": "^8.3.4",
         "@oat-sa/rollup-plugin-wildcard-external": "^0.1.0",
