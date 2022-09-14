@@ -14,112 +14,10 @@
   dependencies:
     classnames "^2.2.6"
 
-"@alfalab/core-components-button@^5.0.1":
-  version "5.3.2"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-5.3.2.tgz#3c03c976158b70594301f61dca420ad3b1bcd3ab"
-  integrity sha512-Y+FVOYVElL3pxdlovt4pqaPm6carBKngFYCfJ1GtOkYXOK1ziARQeTMeYBRBNSfWMeB6ooPxxH64mxe09FMdpw==
-  dependencies:
-    "@alfalab/core-components-loader" "^2.2.1"
-    "@alfalab/hooks" "^1.4.1"
-    classnames "^2.3.1"
-    react-merge-refs "^1.1.0"
-
-"@alfalab/core-components-form-control@^7.4.0":
-  version "7.6.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-7.6.1.tgz#a802ce91da03804f502193eac9938f187b2f1d47"
-  integrity sha512-lxtka4f8ZAHW6cPFl1zdNXsgSD1dmXH4QYsjKrMkM/M2PCYik+QoIx9oMSCmxHkQhdFh9CH60Kvo/PBEOQSzyQ==
-  dependencies:
-    classnames "^2.3.1"
-
-"@alfalab/core-components-input-autocomplete@7.0.4":
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-input-autocomplete/-/core-components-input-autocomplete-7.0.4.tgz#a12b2ddfc9f615d32f89c318f0cec969ea880e11"
-  integrity sha512-zz8WKPRjd2nao7Q54bCryO+1NtnZ2jtiZvoVe1/gH7tP8YtucjbiH/zYiCasdT8k0eOAYNDlGoN3E0HHkDu4VA==
-  dependencies:
-    "@alfalab/core-components-input" "^7.1.0"
-    "@alfalab/core-components-select" "^9.2.2"
-    classnames "^2.2.6"
-
-"@alfalab/core-components-input@^7.1.0", "@alfalab/core-components-input@^7.3.2":
-  version "7.3.6"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-input/-/core-components-input-7.3.6.tgz#d56d7e1cead04df8bdc93bc204b49c2914b1b1f7"
-  integrity sha512-WgiSJBhMU7Os9LLQDnIIQZEA7qEuUWa2RySECpapJaE8fkaxDBkLSBuekQ68V0a/7wg1cWei8+FBd8CLHQo2kA==
-  dependencies:
-    "@alfalab/core-components-button" "^5.0.1"
-    "@alfalab/core-components-form-control" "^7.4.0"
-    "@alfalab/hooks" "^1.4.1"
-    "@alfalab/icons-glyph" "^1.190.0"
-    classnames "^2.2.6"
-    react-merge-refs "^1.1.0"
-
-"@alfalab/core-components-link@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-link/-/core-components-link-4.1.0.tgz#24d5bc003cc78b51e9aeb57af690bcba240f5ddd"
-  integrity sha512-hECB7aYhhsqFMNlLMKbROmUpENLiLrRcsChTIwxdWMs+L5Uh5ucrq/8VmoduqV84ySMiQ+mWSZLRus969iE+sw==
-  dependencies:
-    "@alfalab/hooks" "^1.4.1"
-    classnames "^2.3.1"
-    react-merge-refs "^1.1.0"
-
-"@alfalab/core-components-loader@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-loader/-/core-components-loader-2.2.1.tgz#80192c2d5fac17235a3ad5747b7337a745e65331"
-  integrity sha512-dmvzEneNbsH2K2XIvkYzOb+milBNXG5LfAqLHvRhSM6S5aXzvuvKcYV+h86d5h3i7bodX77P2muCOTUpmmuedg==
-  dependencies:
-    classnames "^2.3.1"
-
 "@alfalab/core-components-mq@^1.0.0":
   version "1.1.6"
   resolved "https://registry.npmjs.org/@alfalab/core-components-mq/-/core-components-mq-1.1.6.tgz#cfef373b35442c8282ca7d4ecd5d92a39cb94357"
   integrity sha512-MqyBq4v3B6w75D5vSfSQXqalbDgvB3DwCZL0IA+Sy75Hj6vBf8SLUgpH2HDLNX4O0cr+3F5y5HQmhoqgEO4Pdg==
-
-"@alfalab/core-components-popover@^5.5.0":
-  version "5.8.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-popover/-/core-components-popover-5.8.1.tgz#70fc96412b3003d70be276aabee0fb47753e3994"
-  integrity sha512-Ulhhn4ow7+RgOjrm0bUd45ogRM2nWogpifvlxCX+D/ZSVevQ7lZKz2dXlZXV0+QD3dygLYMWnPga6YrXWZfxVg==
-  dependencies:
-    "@alfalab/core-components-portal" "^2.1.1"
-    "@alfalab/core-components-stack" "^3.1.1"
-    "@juggle/resize-observer" "^3.3.1"
-    "@popperjs/core" "^2.3.3"
-    classnames "^2.3.1"
-    popper-max-size-modifier "^0.2.0"
-    react-merge-refs "^1.1.0"
-    react-popper "^2.2.5"
-    react-transition-group "^4.4.1"
-
-"@alfalab/core-components-portal@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-portal/-/core-components-portal-2.1.1.tgz#6bab690a2a3f862e9f5f84b152a969850a219fac"
-  integrity sha512-+6P0YxzHJP9cF16uvI36s99MvRmz7QOgbfLGdRWri4nnBd13C61aBgsdDYzEu85LYHXHPgW14TymnkrbT/Wf5Q==
-
-"@alfalab/core-components-select@^9.2.2":
-  version "9.7.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-select/-/core-components-select-9.7.1.tgz#5c24e5265b5c182e9b66a87e4029ac849980355f"
-  integrity sha512-46ObyRzieHBgHRWS6TblEvkpXZJy3/7lllb3/jZlHyf/J1Mlo2mmRGgyy8XD1h47vuAsAlnPDsf7Brr592Jq7Q==
-  dependencies:
-    "@alfalab/core-components-form-control" "^7.4.0"
-    "@alfalab/core-components-input" "^7.3.2"
-    "@alfalab/core-components-popover" "^5.5.0"
-    "@alfalab/core-components-skeleton" "^3.0.1"
-    "@alfalab/hooks" "^1.0.0"
-    classnames "^2.2.6"
-    downshift "5.4.7"
-    react-merge-refs "^1.1.0"
-    react-virtual "^2.2.0"
-    resize-observer "^1.0.0"
-
-"@alfalab/core-components-skeleton@^3.0.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-skeleton/-/core-components-skeleton-3.3.1.tgz#47b6c925e979acf045c2c05b95f9a2991feb2e04"
-  integrity sha512-LJbefjstwGWsbOF+cmOOLo7L9CowJWEO3P8WJXmZXe+3iqMVd0iB7fZZxsPKaZ+rq/X+77z9JOg4Q6zp32hClw==
-  dependencies:
-    classnames "^2.3.1"
-
-"@alfalab/core-components-stack@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-stack/-/core-components-stack-3.1.1.tgz#c9888190588b53007f03accfe84a52290936635a"
-  integrity sha512-R8IciFbHcCZNMeim1XCGplWTcAhEwOGfs8uvGZ1K+9uGLZg3+0YRMtcGoHSgIhCDbJ0nd8jRMtLWhP0Qe3j26A==
 
 "@alfalab/data@^1.2.2":
   version "1.2.2"
@@ -140,11 +38,6 @@
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.4.2.tgz#bceab1875b34d92a183fafd481d66e2dd2fd720e"
   integrity sha512-+MqVDEFM/bcl4hgL3uoXGcN0w8Nb9SJ8zeJVF8SzZVEtJHhrYMR/DRHul5OkeatZB2LLt6YfLwX4aoWRChdomg==
-
-"@alfalab/hooks@^1.0.0":
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/@alfalab/hooks/-/hooks-1.1.1.tgz"
-  integrity sha512-4NBh/BzFE/W7Wxgxa0SByodjpDgUQT5RHzc/9wLbMlhljpo+S145mavFdtK+YcJ2Sg4GK6OZon61KqV5w7Nafw==
 
 "@alfalab/hooks@^1.11.0":
   version "1.11.0"
@@ -181,11 +74,6 @@
   version "1.11.0"
   resolved "https://registry.npmjs.org/@alfalab/icons-flag/-/icons-flag-1.11.0.tgz"
   integrity sha512-n+R4Gr6JaMd8JUTiO0QNkcG8rftM9qiAr+sqbZoOKg56O/8SmAaTY8M4wYRQkP93uGo3vFgI1aaCGPXGFSr73A==
-
-"@alfalab/icons-glyph@^1.190.0":
-  version "1.190.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.190.0.tgz#ef9ac0c108dce2d87bda764cd5f4b5c3e09671ca"
-  integrity sha512-WrlfVP30XdUIH/La/qy9YcIRY22NluYl90rCg8thtcDXt1Rp+QPuRQ89/l40QrMCtpleHtRV2Sxdn6BmyDC8FQ==
 
 "@alfalab/icons-glyph@^2.16.0":
   version "2.16.0"
@@ -12115,7 +12003,7 @@ dotgitignore@^2.1.0:
     find-up "^3.0.0"
     minimatch "^3.0.4"
 
-downshift@5.4.7, downshift@^5.4.7:
+downshift@^5.4.7:
   version "5.4.7"
   resolved "https://registry.npmjs.org/downshift/-/downshift-5.4.7.tgz#2ab7b0512cad33011ee6f29630f9a7bb74dff2b5"
   integrity sha512-xaH0RNqwJ5pAsyk9qBmR9XJWmg1OOWMfrhzYv0NH2NjJxn77S3zBcfClw341UfhGyKg5v+qVqg/CQzvAgBNCXQ==
@@ -22102,14 +21990,6 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-virtual@^2.2.0:
-  version "2.3.2"
-  resolved "https://registry.npmjs.org/react-virtual/-/react-virtual-2.3.2.tgz"
-  integrity sha512-uTwiNMePiZQJgtDM57J0YkrLLlCYhKGrpFgedYejILc8QMCzu3rTQGFB9/o07bIFJ8RMfvbEzU4Q5uxcP6nu2g==
-  dependencies:
-    "@reach/observe-rect" "^1.1.0"
-    ts-toolbelt "^6.4.2"
-
 react-virtual@^2.3.2:
   version "2.10.4"
   resolved "https://registry.npmjs.org/react-virtual/-/react-virtual-2.10.4.tgz#08712f0acd79d7d6f7c4726f05651a13b24d8704"
@@ -22809,11 +22689,6 @@ resize-observer-polyfill@^1.5.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
-
-resize-observer@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/resize-observer/-/resize-observer-1.0.0.tgz"
-  integrity sha512-D7UFShDm2TgrEDEyeg+/tTEbvOgPWlvPAfJtxiKp+qutu6HowmcGJKjECgGru0PPDIj3SAucn3ZPpOx54fF7DQ==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
@@ -25158,11 +25033,6 @@ ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.npmjs.org/ts-pnp/-/ts-pnp-1.2.0.tgz"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
-
-ts-toolbelt@^6.4.2:
-  version "6.15.5"
-  resolved "https://registry.npmjs.org/ts-toolbelt/-/ts-toolbelt-6.15.5.tgz"
-  integrity sha512-FZIXf1ksVyLcfr7M317jbB67XFJhOO1YqdTcuGaq9q5jLUoTikukZ+98TPjKiP2jC5CgmYdWWYs0s2nLSU0/1A==
 
 tsconfig-paths@^3.9.0:
   version "3.9.0"
