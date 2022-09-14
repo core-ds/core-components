@@ -32,7 +32,7 @@ type Props = {
     /**
      * Value ячейки
      */
-    value?: string;
+    value?: ReactNode;
 
     /**
      * Цвет value
@@ -63,27 +63,35 @@ export const Text: React.FC<Props> = ({
             })}
         >
             <span className={cn(styles.title)}>
-                <Typography.Text
-                    view={view}
-                    color={titleColor}
-                    className={cn(rowLimit && styles[`rowLimit${rowLimit}`])}
-                    data-test-id={getDataTestId(dataTestId, 'text')}
-                >
-                    {children}
-                </Typography.Text>
+                {typeof children === 'string' ? (
+                    <Typography.Text
+                        view={view}
+                        color={titleColor}
+                        className={cn(rowLimit && styles[`rowLimit${rowLimit}`])}
+                        data-test-id={getDataTestId(dataTestId, 'text')}
+                    >
+                        {children}
+                    </Typography.Text>
+                ) : (
+                    children
+                )}
             </span>
             <span>
-                <Typography.Text
-                    view={view}
-                    color={valueColor}
-                    className={cn({
-                        [styles[`rowLimit${rowLimit}`]]: rowLimit,
-                        [styles.multiline]: !rowLimit,
-                    })}
-                    data-test-id={getDataTestId(dataTestId, 'text')}
-                >
-                    {value}
-                </Typography.Text>
+                {typeof value === 'string' ? (
+                    <Typography.Text
+                        view={view}
+                        color={valueColor}
+                        className={cn({
+                            [styles[`rowLimit${rowLimit}`]]: rowLimit,
+                            [styles.multiline]: !rowLimit,
+                        })}
+                        data-test-id={getDataTestId(dataTestId, 'text')}
+                    >
+                        {value}
+                    </Typography.Text>
+                ) : (
+                    value
+                )}
             </span>
         </div>
     );

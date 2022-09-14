@@ -57,7 +57,7 @@ export type PickerButtonProps = Omit<
         variant?: PickerButtonVariant;
     };
 
-export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
+export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonProps>(
     (
         {
             OptionsList = DefaultOptionsList,

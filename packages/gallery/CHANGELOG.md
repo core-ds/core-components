@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@5.0.5...@alfalab/core-components-gallery@5.0.6) (2022-09-13)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [5.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@5.0.4...@alfalab/core-components-gallery@5.0.5) (2022-09-12)
+
+
+### Bug Fixes
+
+* **gallery:** fixed swiper height on ios 14 and lower ([#95](https://github.com/core-ds/core-components/issues/95)) ([9703ca7](https://github.com/core-ds/core-components/commit/9703ca74733a6df2697354298be745b354c6cc1a))
+
+
+
+
+
+## [5.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@5.0.3...@alfalab/core-components-gallery@5.0.4) (2022-09-02)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [5.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@5.0.2...@alfalab/core-components-gallery@5.0.3) (2022-09-01)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
+## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@5.0.1...@alfalab/core-components-gallery@5.0.2) (2022-08-31)
+
+**Note:** Version bump only for package @alfalab/core-components-gallery
+
+
+
+
+
 ## [5.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-gallery@5.0.0...@alfalab/core-components-gallery@5.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-gallery

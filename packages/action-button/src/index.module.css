@@ -1,0 +1,68 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: inline-flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    vertical-align: top;
+    width: 80px;
+    min-height: 80px;
+    max-height: 100px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    user-select: none;
+    font-family: inherit;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &.s {
+        @mixin action_primary_small;
+    }
+}
+
+.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.loading {
+    cursor: auto;
+    pointer-events: none;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: var(--gap-s);
+    border-radius: var(--border-radius-circle);
+    transition: background-color 0.2s ease;
+    line-height: 0;
+
+    &.s {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.label {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.focused {
+    @mixin focus-outline;
+}

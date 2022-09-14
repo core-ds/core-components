@@ -31,6 +31,12 @@ export type LinkProps = NativeProps & {
     pseudo?: boolean;
 
     /**
+     * Включает / отключает подчеркивание
+     * @default true
+     */
+    underline?: boolean;
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -76,6 +82,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         {
             view = 'primary',
             pseudo = false,
+            underline = true,
             leftAddons,
             rightAddons,
             className,
@@ -83,7 +90,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             children,
             colors = 'default',
             href,
-            Component = 'a',
+            Component = pseudo ? 'button' : 'a',
             ...restProps
         },
         ref,
@@ -99,6 +106,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
                 styles.component,
                 colorStyles[colors][viewClassName],
                 {
+                    [styles.withoutUnderline]: !underline && !pseudo,
                     [styles.pseudo]: pseudo,
                     [styles.focused]: focused,
                     [styles.withAddons]: leftAddons || rightAddons,

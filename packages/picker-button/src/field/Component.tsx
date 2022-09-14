@@ -27,6 +27,8 @@ export const Field = ({
     className,
     selected,
     selectedMultiple,
+    setSelectedItems,
+    toggleMenu,
     valueRenderer,
     ...restProps
 }: FieldProps) => {

@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.2.0...@alfalab/core-components-form-control@8.3.0) (2022-09-13)
+
+
+### Features
+
+* **form-control, themes:** change colors in intranet theme ([#236](https://github.com/core-ds/core-components/issues/236)) ([eae8b7d](https://github.com/core-ds/core-components/commit/eae8b7deed8e394ebc0cc00cd584d9f05575b3b0))
+
+
+
+
+
+# [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.1.1...@alfalab/core-components-form-control@8.2.0) (2022-09-12)
+
+
+### Features
+
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+
+
+
+
+
+## [8.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.1.0...@alfalab/core-components-form-control@8.1.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+
+
+
+
+
+# [8.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.0.1...@alfalab/core-components-form-control@8.1.0) (2022-08-29)
+
+
+### Features
+
+* **textarea:** custom scrollbar ([#196](https://github.com/core-ds/core-components/issues/196)) ([c0d956c](https://github.com/core-ds/core-components/commit/c0d956cc7bf0a5440a66602ca77de2942a268be2))
+
+
+
+
+
 ## [8.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-form-control@8.0.0...@alfalab/core-components-form-control@8.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-form-control

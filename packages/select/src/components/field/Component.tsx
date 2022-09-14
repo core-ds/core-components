@@ -15,6 +15,7 @@ export const Field = ({
     hint,
     disabled,
     label,
+    labelView = 'inner',
     placeholder,
     selectedMultiple = [],
     selected,
@@ -40,7 +41,7 @@ export const Field = ({
     const value = valueRenderer({ selected, selectedMultiple });
 
     const filled = Boolean(value);
-    const showLabel = !!label && (filled || !placeholder);
+    const showLabel = !!label && (filled || !placeholder || labelView === 'outer');
 
     return (
         <div
@@ -60,6 +61,7 @@ export const Field = ({
                 disabled={disabled}
                 filled={filled}
                 label={showLabel && label}
+                labelView={labelView}
                 error={error}
                 hint={hint}
                 rightAddons={

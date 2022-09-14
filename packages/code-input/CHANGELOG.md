@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.2...@alfalab/core-components-code-input@2.1.0) (2022-09-13)
+
+
+### Features
+
+* **code-input:** update mobile version ([#230](https://github.com/core-ds/core-components/issues/230)) ([bf66e85](https://github.com/core-ds/core-components/commit/bf66e85b147e22be13f1a62d945aba6012d5ccf5))
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
+
+
+
+
+## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.1...@alfalab/core-components-code-input@2.0.2) (2022-08-26)
+
+
+### Bug Fixes
+
+* **code-input:** fixed "cannot read properties of undefined (reading get)" error ([#226](https://github.com/core-ds/core-components/issues/226)) ([8383613](https://github.com/core-ds/core-components/commit/838361388979acc184fb213f96c9e4ab43333fbc))
+
+
+
+
+
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.0...@alfalab/core-components-code-input@2.0.1) (2022-08-19)
 
 

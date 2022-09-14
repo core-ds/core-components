@@ -119,11 +119,11 @@ describe('Plate', () => {
                 </Plate>,
             );
 
-            getByText('title').click();
+            fireEvent.click(getByText('title'));
 
             expect(getByTestId(dataTestId)).toHaveClass('isFolded');
 
-            getByText('title').click();
+            fireEvent.click(getByText('title'));
 
             expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
         });
@@ -138,11 +138,11 @@ describe('Plate', () => {
 
             const folderEl = getByTestId(dataTestId).querySelector('.folder') as HTMLElement;
 
-            folderEl.click();
+            fireEvent.click(folderEl);
 
             expect(getByTestId(dataTestId)).toHaveClass('isFolded');
 
-            folderEl.click();
+            fireEvent.click(folderEl);
 
             expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
         });
@@ -157,7 +157,7 @@ describe('Plate', () => {
 
             const input = getByTestId('input') as HTMLElement;
 
-            input.click();
+            fireEvent.click(input);
 
             expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
 

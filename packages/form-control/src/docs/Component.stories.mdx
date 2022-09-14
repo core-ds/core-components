@@ -8,7 +8,7 @@ import { FormControl as FormControlTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
+import styles from '!!raw-loader!../vars.css';
 
 
 <Meta
@@ -40,6 +40,7 @@ import styles from '!!raw-loader!../index.module.css';
                     filled={boolean('filled', false)}
                     focused={boolean('focused', false)}
                     label={text('label', '')}
+                    labelView={select('labelView', ['inner', 'outer'], 'inner')}
                     hint={text('hint', '')}
                     error={text('error', '')}
                     rightAddons={boolean('rightAddons', false) && <StarMIcon />}
@@ -69,5 +70,5 @@ import { FormControl } from '@alfalab/core-components/form-control';
     description={<Description />}
     changelog={<Changelog />}
     props={<Props of={FormControlTS} />}
-    cssVars={<CssVars css={styles} />}
+    cssVars={<CssVars css={`${styles}`} />}
 />

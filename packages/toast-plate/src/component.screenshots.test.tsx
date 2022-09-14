@@ -65,3 +65,29 @@ describe('ToastPlate | action button', () => {
 
     ['default', 'click'].map(testCase);
 });
+
+describe('ToastPlate | inverted views', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'ToastPlate',
+                testStory: false,
+                knobs: {
+                    children: 'Вам одобрено',
+                    title: 'Поздравляем',
+                    renderActionButton: true,
+                    colors: 'inverted',
+                },
+            }),
+            screenshotOpts: {
+                clip,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default', 'click'].map(testCase);
+});

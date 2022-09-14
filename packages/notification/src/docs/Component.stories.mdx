@@ -19,17 +19,33 @@ import styles from '!!raw-loader!../index.module.css';
 <!-- Canvas -->
 
 <Story name='Notification'>
-    <Notification
-        visible={boolean('visible', false)}
-        badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
-        title={text('title', 'Поздравляем, полный успех')}
-        hasCloser={boolean('hasCloser', true)}
-        actionButton={boolean('renderActionButton', false) ? <Button view="link" size="s" colors="inverted">Action Button</Button> : null }
-        offset={number('offset', 48)}
-        onClose={() => {}}
-    >
-        {text('children', 'Вам одобрено. Согласитесь на предложение')}
-    </Notification>
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
+                padding: '10px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <Notification
+                    colors ={colors}
+                    visible={boolean('visible', false)}
+                    badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
+                    title={text('title', 'Поздравляем, полный успех')}
+                    hasCloser={boolean('hasCloser', true)}
+                    actionButton={boolean('renderActionButton', false) ? <Button view="link" size="s" colors="inverted">Action Button</Button> : null }
+                    offset={number('offset', 48)}
+                    onClose={() => {}}
+                >
+                    {text('children', 'Вам одобрено. Согласитесь на предложение')}
+                </Notification>
+            </div>
+        )
+    })}
 </Story>
 
 <!-- Docs -->
@@ -39,6 +55,7 @@ import styles from '!!raw-loader!../index.module.css';
     version={version}
     package='@alfalab/core-components/notification'
     stage={2}
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10057%3A52052'
 />
 
 ```jsx
