@@ -142,21 +142,23 @@ describe('Textarea', () => {
 
                 const textarea = getByTestId(dataTestId) as HTMLInputElement;
 
-                textarea.setSelectionRange(0, textarea.value.length);
-                await userEvent.type(textarea, '{backspace}');
+                await userEvent.type(textarea, '{backspace}', {
+                    initialSelectionStart: 0,
+                    initialSelectionEnd: textarea.value.length,
+                });
 
-                textarea.blur();
+                fireEvent.blur(textarea);
 
                 expect(textarea.value).toBe('');
                 expect(textarea).not.toHaveClass('filled');
             });
         });
 
-        it('should set `hasLabel` class', () => {
+        it('should set `hasInnerLabel` class', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Textarea label='label' dataTestId={dataTestId} />);
 
-            expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
+            expect(getByTestId(dataTestId)).toHaveClass('hasInnerLabel');
         });
 
         it('should set `resizeVertical` class', () => {

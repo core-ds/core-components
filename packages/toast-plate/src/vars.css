@@ -1,6 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
+    /* default */
     --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
     --toast-plate-color: var(--color-light-text-primary-inverted);
     --toast-plate-border-radius: var(--border-radius-m);
@@ -10,4 +11,8 @@
     --toast-plate-action-divider-display: block;
     --toast-plate-content-with-closer-right-padding: var(--gap-m);
     --toast-plate-close-button-align: center;
+
+    /* inverted */
+    --toast-plate-inverted-color: var(--color-light-text-primary);
+    --toast-plate-inverted-bg-color: var(--color-light-bg-primary);
 }

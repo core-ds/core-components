@@ -68,7 +68,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
          
         01:00
       </div>
-      <a
+      <button
         class="component secondary pseudo smsComeLink"
       >
         <span
@@ -76,7 +76,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         >
           Не приходит сообщение?
         </span>
-      </a>
+      </button>
     </div>
   </div>
 </div>
@@ -162,7 +162,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           class="loaderText"
         />
       </div>
-      <a
+      <button
         class="component secondary pseudo smsComeLink"
       >
         <span
@@ -170,7 +170,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         >
           Не приходит сообщение?
         </span>
-      </a>
+      </button>
     </div>
   </div>
 </div>
@@ -250,7 +250,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
          
         01:00
       </div>
-      <a
+      <button
         class="component secondary pseudo smsComeLink"
       >
         <span
@@ -258,7 +258,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         >
           Не приходит сообщение?
         </span>
-      </a>
+      </button>
     </div>
   </div>
 </div>
@@ -344,7 +344,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           class="loaderText"
         />
       </div>
-      <a
+      <button
         class="component secondary pseudo smsComeLink"
       >
         <span
@@ -352,7 +352,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         >
           Не приходит сообщение?
         </span>
-      </a>
+      </button>
     </div>
   </div>
 </div>

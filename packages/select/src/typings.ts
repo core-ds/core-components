@@ -27,6 +27,11 @@ export type OptionShape = {
     disabled?: boolean;
 
     /**
+     * Разрешает показ компонента Checkmark, иногда нужно его убирать для показа контента ошибки или пустого состояния
+     */
+    showCheckMark?: boolean;
+
+    /**
      * Дополнительные данные
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -148,6 +153,11 @@ export type BaseSelectProps = {
      * Лейбл поля
      */
     label?: ReactNode;
+
+    /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
 
     /**
      * Плейсхолдер поля
@@ -353,6 +363,11 @@ export type FieldProps = {
      * Лейбл поля
      */
     label?: ReactNode;
+
+    /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
 
     /**
      * Плейсхолдер поля

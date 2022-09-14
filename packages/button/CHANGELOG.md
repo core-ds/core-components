@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@6.1.0...@alfalab/core-components-button@6.1.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* **button:** increased click area of the active state ([#246](https://github.com/core-ds/core-components/issues/246)) ([8937248](https://github.com/core-ds/core-components/commit/8937248cbfe7a2f542855a0bba5bb472eb82a076))
+
+
+
+
+
+# [6.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@6.0.2...@alfalab/core-components-button@6.1.0) (2022-09-02)
+
+
+### Bug Fixes
+
+* temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+
+
+### Features
+
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
+
+
+
+
 ## [6.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-button@6.0.1...@alfalab/core-components-button@6.0.2) (2022-08-31)
 
 

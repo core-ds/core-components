@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@3.0.2...@alfalab/core-components-collapse@4.0.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **link:** replace component with a button in pseudo mode ([#156](https://github.com/core-ds/core-components/issues/156)) ([6f24cbb](https://github.com/core-ds/core-components/commit/6f24cbb433c4ced85986d5f0e0b3bc1289e0fb8d))
+
+
+### BREAKING CHANGES
+
+* **link:** В компоненте Link с пропсом pseudo заменяется дефолтный html-элемент "a" на
+"button"
+
+Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
+
+
+
+
+
 ## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-collapse@3.0.1...@alfalab/core-components-collapse@3.0.2) (2022-08-25)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse

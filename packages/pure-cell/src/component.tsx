@@ -9,6 +9,9 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ButtonProps } from '@alfalab/core-components-button';
+
 import { useFocus } from '@alfalab/hooks';
 
 import { Addon } from './components/addon';
@@ -88,7 +91,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             href,
             tag: Component = (href && 'a') || (onClick && 'button') || 'section',
             children,
-            horizontalPadding = 'default',
+            horizontalPadding = 'none',
             verticalPadding = 'none',
             direction = 'horizontal',
             ...restProps
@@ -101,6 +104,9 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             [styles.component]: true,
             [styles.focused]: focused,
             [styles[direction]]: true,
+            [styles.defaultPadding]: verticalPadding === 'default',
+            [styles[verticalPadding]]: verticalPadding !== 'default',
+            [styles[horizontalPadding]]: true,
         };
 
         if (href) {
@@ -115,13 +121,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     {...hrefProps}
                     ref={mergeRefs([cellRef, ref])}
-                    className={cn(
-                        styles.link,
-                        addClasses,
-                        className,
-                        styles[horizontalPadding],
-                        styles[verticalPadding],
-                    )}
+                    className={cn(styles.link, addClasses, className)}
                     data-test-id={dataTestId}
                     onClick={onClick}
                 >
@@ -137,13 +137,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
                 <Component
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     ref={mergeRefs([cellRef, ref])}
-                    className={cn(
-                        styles.button,
-                        addClasses,
-                        styles[horizontalPadding],
-                        styles[verticalPadding],
-                        className,
-                    )}
+                    className={cn(styles.button, addClasses, className)}
                     data-test-id={dataTestId}
                     onClick={onClick}
                 >
@@ -158,12 +152,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
             <Component
                 ref={ref}
                 tabIndex={0}
-                className={cn(
-                    addClasses,
-                    styles[horizontalPadding],
-                    styles[verticalPadding],
-                    className,
-                )}
+                className={cn(addClasses, className)}
                 data-test-id={dataTestId}
             >
                 <PureCellContext.Provider value={{ direction }}>

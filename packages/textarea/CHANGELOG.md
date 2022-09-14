@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-textarea@7.2.0...@alfalab/core-components-textarea@7.2.1) (2022-09-13)
+
+**Note:** Version bump only for package @alfalab/core-components-textarea
+
+
+
+
+
+# [7.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-textarea@7.1.1...@alfalab/core-components-textarea@7.2.0) (2022-09-12)
+
+
+### Features
+
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
+
+
+
+
 ## [7.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-textarea@7.1.0...@alfalab/core-components-textarea@7.1.1) (2022-08-31)
 
 **Note:** Version bump only for package @alfalab/core-components-textarea

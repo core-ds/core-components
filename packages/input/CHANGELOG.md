@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input@10.2.0...@alfalab/core-components-input@10.2.1) (2022-09-13)
+
+**Note:** Version bump only for package @alfalab/core-components-input
+
+
+
+
+
+# [10.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input@10.1.0...@alfalab/core-components-input@10.2.0) (2022-09-12)
+
+
+### Features
+
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+
+
+
+
+
+# [10.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input@10.0.3...@alfalab/core-components-input@10.1.0) (2022-09-02)
+
+
+### Features
+
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
+
+
+
+
 ## [10.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-input@10.0.2...@alfalab/core-components-input@10.0.3) (2022-08-31)
 
 

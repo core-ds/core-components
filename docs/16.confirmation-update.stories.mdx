@@ -1,0 +1,148 @@
+import { Checkbox } from '../packages/checkbox/src/Component';
+
+<Meta
+    title='Гайдлайны/Обновление Confirmation'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+#### Инструкция по обновлению Confirmation до 10 версии на актуальную.
+
+Для понимания различий компонентов приведена сравнительная таблица пропсов `Старого` компонента `Confirmation` (до 10 версии), и `Нового` (выше 10 версии, root-пакет 24.0.0).
+
+| Старый                                                         |                                                                                                                                                                                                                  | Новый                                                                           |                                                                                                                                      |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| <b>Название</b>                                                | <b>Описание</b>                                                                                                                                                                                                  | <b>Название</b>                                                                 | <b>Описание</b>                                                                                                                      |
+| code <br /> `string`                                           | Значение поля ввода                                                                                                                                                                                              | ➖                                                                              | -                                                                                                                                    |
+| codeChecking <br /> `boolean`                                  | Флаг состояния обработки введенного кода                                                                                                                                                                         | `state = CODE_CHECKING`                                                         | Состояние проверки кода                                                                                                              |
+| codeSending <br /> `boolean`                                   | Флаг состояния отправки кода.                                                                                                                                                                                    | `state = CODE_SENDING`                                                          | Состояние повторной отправки кода                                                                                                    |
+| error <br /> `boolean`                                         | Состояние ошибки подписания                                                                                                                                                                                      | `state = 'CODE_ERROR'` <br/> `string`                                           | Состояние ошибки, когда ввели неверный код                                                                                           |
+| errorOverlimit <br /> `boolean`                                | Состояние ошибки лимитов - превышено кол-во попыток ввода или запросов кода                                                                                                                                      | `screen = 'TEMP_BLOCK'` <br/> `string`                                          | Экран временной блокировки                                                                                                           |
+| errorOverlimitIsFatal <br /> `boolean`                         | Состояние критической ошибки лимитов - превышены все лимиты и попытки, пользователя блокируют                                                                                                                    | `screen = 'FATAL_ERROR'` <br/> `string`                                         | Экран критической ошибки                                                                                                             |
+| errorText <br /> `string`                                      | Текст ошибки подписания                                                                                                                                                                                          | texts.codeError <br/> `string`                                                  | Ошибка проверки кода                                                                                                                 |
+| additionalContent <br /> `React.Node`                          | Дополнительный контент                                                                                                                                                                                           | ➖                                                                              | -                                                                                                                                    |
+| errorIsFatal <br /> `boolean`                                  | Флаг критичности ошибки подписания. <br/> Если true - ошибка подписания рисуется на экране без поля ввода,<br/> но с кнопкой "Запросить код". <br/> Если false - ошибка подписания рисуется под полем ввода кода | `screen = 'FATAL_ERROR'` <br/> `string`                                         | Экран критической ошибки                                                                                                             |
+| className <br /> `string`                                      | Дополнительный класс                                                                                                                                                                                             | className <br/> `string`                                                        | Дополнительный класс для стилизации общей обёртки                                                                                    |
+| phone <br /> `string`                                          | Номер телефона, на который отправляется сообщение                                                                                                                                                                | phone <br/> `string`                                                            | Номер телефона, на который отправлен код                                                                                             |
+| hasPhoneMask <br /> `boolean`                                  | Управление необходимостью маскировать номер телефона                                                                                                                                                             | ➖                                                                              | Настраивается через пропс `phone`                                                                                                    |
+| requiredCharAmount <br /> `number`                             | Количество символов, которое можно ввести <br/> в поле ввода подписания до того, как произойдет автоотправка                                                                                                     | requiredCharAmount <br/> `number`                                               | Количество символов, которое можно ввести <br/> в поле ввода подписания до того, как произойдет автоотправка                         |
+| hasSmsCountdown <br /> `boolean`                               | Управление отображением таймера с кнопкой "Запросить код"                                                                                                                                                        | ➖                                                                              |                                                                                                                                      |
+| countdownDuration <br /> `number`                              | Длительность обратного отсчета<br/> на кнопке повторного запроса сообщения, в милисекундах                                                                                                                       | countdownDuration <br/> `number`                                                | Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах                                                |
+| signTitle <br /> `React.Node`                                  | Заголовок экрана подписания                                                                                                                                                                                      | texts.title <br/> `string`                                                      | Текст заголовока начального экрана `INITIAL`                                                                                         |
+| overlimitTitle <br /> `string`                                 | Заголовок экрана ошибки лимитов                                                                                                                                                                                  | ➖                                                                              | -                                                                                                                                    |
+| overlimitText <br /> `string`                                  | Текстовое описание блокировки формы при превышении лимитов                                                                                                                                                       | texts.fatalErrorDescription                                                     | Текст описания на экране критической ошибки `FATAL_ERROR`                                                                            |
+| overlimitCountdownDuration <br /> `number`                     | Длительность блокировки при превышении лимитов (ms)                                                                                                                                                              | tempBlockDuration <br/> `number`                                                | Продолжительность блокировки формы (ms)                                                                                              |
+| errorTitle <br /> `string`                                     | Заголовок экрана блокирующей ошибки                                                                                                                                                                              | texts.fatalErrorTitle <br/> `ReactNode`                                         | Заголовок экрана `FATAL_ERROR`                                                                                                       |
+| dataTestId <br /> `string`                                     | Идентификатор для систем автоматизированного тестирования                                                                                                                                                        | dataTestId <br/> `string`                                                       | Идентификатор для систем автоматизированного тестирования                                                                            |
+| codeCheckingText <br /> `string`                               | Текст лоадера при проверке кода                                                                                                                                                                                  | texts.codeChecking <br/> `string`                                               | код проверяется                                                                                                                      |
+| codeSendingText <br /> `string`                                | Текст лоадера при отправке кода                                                                                                                                                                                  | texts.codeSending <br/> `string`                                                | код отправляется                                                                                                                     |
+| buttonErrorText <br /> `string`                                | Текст кнопки при блокирующей ошибке                                                                                                                                                                              | texts.fatalErrorButton <br/> `string`                                           | Текст кнопки на экране `FATAL_ERROR`                                                                                                 |
+| buttonReturnText <br /> `string`                               | Текст кнопки "Вернуться назад" на экране помощи                                                                                                                                                                  | texts.hintButton <br/> `string`                                                 | Текст кнопки на экране `HINT` ('Вернуться к вводу кода')                                                                             |
+| buttonRetryText <br /> `string`                                | Текст кнопки "Запросить новый код"                                                                                                                                                                               | texts.buttonRetry <br/> `string`                                                | Текст кнопки повторной отправки кода                                                                                                 |
+| alignContent <br /> `left \ center`                            | Позиционирование контента                                                                                                                                                                                        | alignContent <br/> `left \ center`                                              | Позиционирование контента                                                                                                            |
+| noAttemptsLeftMessagegnContent <br /> `string`                 | Сообщение, если не осталось попыток ввода кода.<br/> Кнопка повторной отправки смс при этом скрывается.                                                                                                          | text.noAttemptsLeft                                                             | Текст, когда не осталось попыток запроса кода                                                                                        |
+| countdownContent <br /> `React.Node`                           | Кастомный контент для компонента Countdown                                                                                                                                                                       | texts.countdown <br/> `string`                                                  | Текст таймера "запросить повторно можно через"                                                                                       |
+| onInputFinished <br /> `({ code }: { code: string; }) => void` | Обработчик события завершения ввода кода подписания                                                                                                                                                              | onInputFinished <br/> `(code: string) => void`                                  | Обработчик события завершения ввода кода подписания                                                                                  |
+| onInputChange <br /> `({ code }: { code: string; }) => void`   | Обработчик события изменения значения поля ввода кода подписания                                                                                                                                                 | ➖                                                                              | -                                                                                                                                    |
+| onSmsRetryClick <br /> `() => void`                            | Обработчик события нажатия на кнопку "Запросить код"                                                                                                                                                             | onSmsRetryClick <br/> `(code: string) => void`                                  | Обработчик события нажатия на кнопку "Запросить код"                                                                                 |
+| onOverlimitSmsRetryClick <br /> `() => void`                   | Обработчик события нажатия на кнопку "Запросить код" в блоке превышение лимитов                                                                                                                                  | ➖                                                                              | -                                                                                                                                    |
+| onCountdownFinished <br /> `() => void`                        | Обработчик события завершения обратного отсчета для повторного запроса сообщения                                                                                                                                 | onTempBlockFinished <br/> `(code: string) => void`                              | Временная блокировка формы закончилась                                                                                               |
+| onOverlimitCountdownFinished <br /> `() => void`               | Обработчик события завершения обратного отсчета для блокировки формы                                                                                                                                             | ➖                                                                              | -                                                                                                                                    |
+| onSmsHintLinkClick <br /> `() => void`                         | Обработчик события нажатия на ссылку "не приходит сообщение?"                                                                                                                                                    | ➖                                                                              | -                                                                                                                                    |
+| onActionWithFatalError <br /> `() => void`                     | Обработчик события нажатия на кнопку buttonErrorText (по дефолту "Понятно"), <br/> которая появляется при критической ошибке.<br/> Если не передан, то вызывается onSmsRetryClick                                | onFatalErrorOkButtonClick <br/> `(code: string) => void`                        | Клик по кнопке "Понятно" на экране фатальной ошибки                                                                                  |
+|                                                                |                                                                                                                                                                                                                  | screen <br/> `'INITIAL', 'HINT', 'FATAL_ERROR', 'TEMP_BLOCK', key of screenMap` | Экран компонента (Начальное состояние, экран "Не приходит смс?",<br/> экран критической ошибки, экран временной блокировки)          |
+|                                                                |                                                                                                                                                                                                                  | state <br/> `ConfirmationState \ string`                                        | Состояние компонента (Начальное состояние,<br/> проверка кода,<br/> повторная отправка кода,<br /> ошибка, когда ввели неверный код) |
+|                                                                |                                                                                                                                                                                                                  | texts                                                                           | Объект с кастомными текстами для всех экранов                                                                                        |
+|                                                                |                                                                                                                                                                                                                  | onChangeState <br/> `(state: string) => void`                                   | Функция обновления состояния компонента                                                                                              |
+|                                                                |                                                                                                                                                                                                                  | onChangeScreen <br/> `(state: string) => void`                                  | Функция обновления экрана компонента                                                                                                 |
+|                                                                |                                                                                                                                                                                                                  | getScreensMap <br/> `(defaulScreensMap: ScreensMap) => ScreensMap`              | Возввращает объект, где ключ - название экрана (screen), значение - компонент для экрана                                             |
+|                                                                |                                                                                                                                                                                                                  | texts.codeSended <br/> `string`                                                 | Текст после отправки кода (код отправлен)                                                                                            |
+|                                                                |                                                                                                                                                                                                                  | texts.linkToHint <br/> `string`                                                 | Текст ссылки на экран `HINT` ("Не приходит смс?")                                                                                    |
+|                                                                |                                                                                                                                                                                                                  | texts.tempBlockTitle <br/> `ReactNode`                                          | Текст заголовка на экране `TEMP_BLOCK`                                                                                               |
+|                                                                |                                                                                                                                                                                                                  | texts.tempBlockDescription <br/> `ReactNode`                                    | Текст описания на экране временной блокировки `TEMP_BLOCK`                                                                           |
+|                                                                |                                                                                                                                                                                                                  | blockSmsRetry <br/> `boolean`                                                   | Скрытие кнопки повторного запроса sms когда, Не осталось попыток ввода кода                                                          |
+
+В компоненте полностью переосмыслен подход к состоянию.
+Теперь нет необходимости прокидывать множество пропсов для получения желаемого вида компонента.
+Нужно использовать экраны `screen` и состояние `state`. Можно использовать как заложенные в компонент экраны, так и кастомные.
+Заложенные в компонент экраны `screen`:
+
+-   Экран начального состояния `INITIAL`
+-   Экран "Не приходит смс?" `HINT`
+-   Экран критической ошибки `FATAL_ERROR`
+-   Экран временной блокировки `TEMP_BLOCK`
+
+Заложенные в компонент состояния `state`:
+
+-   начальное состояние `INITIAL`
+-   проверка кода `CODE_CHECKING`
+-   повторная отправка кода `CODE_SENDING`
+-   ошибка, когда ввели неверный код `CODE_ERROR`
+
+В новой версии есть как новые пропсы, так и аналогичные старым.
+Рассмотрим те, которых нет в новой версии и чем их можно заменить.
+
+-   `code` В старой версии стейт поля ввода находился снаружи компонента, сейчас эта логика находится внутри.
+    Управлять значениями поля сейчас нет возможности.
+-   `additionalContent` - Для унификации в существующие экраны нельзя добавлять дополнительный контент.
+-   `hasPhoneMask` - В текущей версии маскировка номера телефона производится снаружи компонента, а в поле `phone` прокидывается уже замаскированный номер телефона вида `+7 ··· ··· 07-24`;
+-   `hasSmsCountdown` - Управление отображением кнопки осуществляется через пропс `blockSmsRetry`.
+-   `countdownContent` - Убрали возможность управления контентом для унификации во всех продуктах.
+-   `onInputChange` - Убрали, т.к. нет необходимости проверять промежуточные зачения поля ввода. Финальное значение нужно получать через `onInputFinished`.
+-   `onOverlimitSmsRetryClick` - Убран, на экране критической ошибки нет контролов.
+-   `onOverlimitCountdownFinished` - Необходимо обрабатывать собственной логикой, при завершении таймера, когда `timeLeft === 0`
+-   `onSmsHintLinkClick` - Убран, клик по ссылке всегда меняет экран на `HINT`
+
+#### Кастомные экраны
+
+Если вам недостаточно встроенных экранов, копонент позволяет использовать кастомные экраны.
+Для этого вам может понадобиться "ConfirmationContext" из которого можно получить:
+`alignContent, texts, state, screen, requiredCharAmount, onInputFinished, countdownDuration, onChangeState, onSmsRetryClick, onChangeScreen, onFatalErrorOkButtonClick, tempBlockDuration, phone, blockSmsRetry, onTempBlockFinished, timeLeft`
+
+Пример простого кастомного экрана успешной отправки кода;
+
+```jsx live
+// import { Confirmation, ConfirmationContext } from '@alfalab/core-components-confirmation';
+
+render(() => {
+    const CodeSuccesScreen = () => {
+        const { texts } = React.useContext(ConfirmationContext);
+        return (
+            <Space align='center'>
+                <Typography.Title view='small'>{texts.codeSuccessTitle}</Typography.Title>
+                <CheckmarkCircleMIcon style={{ color: '#64AA49' }} />
+            </Space>
+        );
+    };
+
+    const {
+        confirmationState,
+        confirmationScreen,
+        setConfirmationState,
+        setConfirmationScreen,
+    } = useConfirmation();
+
+    const handleInputFinished = () => {
+        setConfirmationScreen('CODE_SUCCESS');
+        // Сброс демо к начальному состоянию
+        window.setTimeout(() => {
+            setConfirmationState('INITIAL');
+            setConfirmationScreen('INITIAL');
+        }, 10000);
+    };
+    const getScreensMap = screenMap => ({ ...screenMap, CODE_SUCCESS: CodeSuccesScreen });
+
+    return (
+        <Confirmation
+            screen={confirmationScreen}
+            state={confirmationState}
+            alignContent='center'
+            countdownDuration={20000}
+            onChangeState={setConfirmationState}
+            onInputFinished={handleInputFinished}
+            getScreensMap={getScreensMap}
+            phone='+7 ··· ··· 07-24'
+            texts={{ codeSuccessTitle: 'Код принят' }}
+        />
+    );
+});
+```

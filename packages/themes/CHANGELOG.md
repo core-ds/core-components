@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.2.0...@alfalab/core-components-themes@9.3.0) (2022-09-13)
+
+
+### Features
+
+* **form-control, themes:** change colors in intranet theme ([#236](https://github.com/core-ds/core-components/issues/236)) ([eae8b7d](https://github.com/core-ds/core-components/commit/eae8b7deed8e394ebc0cc00cd584d9f05575b3b0))
+* **tabs:** update click theme  ([#225](https://github.com/core-ds/core-components/issues/225)) ([fe12ef6](https://github.com/core-ds/core-components/commit/fe12ef6e8fc7305a165a289e089187ef41119da0))
+
+
+
+
+
+# [9.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.2...@alfalab/core-components-themes@9.2.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **button:** increased click area of the active state ([#246](https://github.com/core-ds/core-components/issues/246)) ([8937248](https://github.com/core-ds/core-components/commit/8937248cbfe7a2f542855a0bba5bb472eb82a076))
+
+
+### Features
+
+* **toast-plate:** added inverted views ([#243](https://github.com/core-ds/core-components/issues/243)) ([a527d15](https://github.com/core-ds/core-components/commit/a527d152ab0705b429180ffe009886ff8920686a))
+
+
+
+
+
+## [9.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.1...@alfalab/core-components-themes@9.1.2) (2022-09-09)
+
+
+### Bug Fixes
+
+* **action-button:** review fixes ([8c4b419](https://github.com/core-ds/core-components/commit/8c4b4193b2959e99f2b0f6de836f3f3d63ca0b18))
+
+
+
+
+
 ## [9.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-themes@9.1.0...@alfalab/core-components-themes@9.1.1) (2022-08-31)
 
 

@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.1.2...@alfalab/core-components-bottom-sheet@5.1.3) (2022-09-13)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
+
+
+
+
+
+## [5.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.1.1...@alfalab/core-components-bottom-sheet@5.1.2) (2022-09-12)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+## [5.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.1.0...@alfalab/core-components-bottom-sheet@5.1.1) (2022-09-02)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+# [5.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.0.2...@alfalab/core-components-bottom-sheet@5.1.0) (2022-09-01)
+
+
+### Features
+
+* **side-panel:** add props imageUrl  and fix doc ([#168](https://github.com/core-ds/core-components/issues/168)) ([9ca0f00](https://github.com/core-ds/core-components/commit/9ca0f0094b993bdd302765db79bcf8f91fae2a12))
+* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+
+
+
+
+
 ## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.0.1...@alfalab/core-components-bottom-sheet@5.0.2) (2022-08-31)
 
 

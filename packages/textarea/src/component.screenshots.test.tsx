@@ -20,6 +20,8 @@ describe('Textarea | sprite', () => {
                             block: true,
                             size: ['s', 'm', 'l', 'xl'],
                             label: ['', 'Лейбл'],
+                            labelView: ['inner', 'outer'],
+                            placeholder: 'Плейсхолдер',
                         },
                         size: { width: 240, height: 100 },
                     }),
