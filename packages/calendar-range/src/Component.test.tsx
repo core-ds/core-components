@@ -425,6 +425,20 @@ describe('CalendarRange', () => {
 
             expect(MONTHS[new Date(date).getMonth()]).toBe(nextMonthName);
         });
+
+        it('should call onError callback with "false" arg', async () => {
+            const cb = jest.fn();
+            render(<CalendarRange onError={cb} valueFrom='10.10.2021' valueTo='10.10.2022' />);
+
+            expect(cb).toBeCalledWith(false);
+        });
+
+        it('should call onError callback with "true" arg', async () => {
+            const cb = jest.fn();
+            render(<CalendarRange onError={cb} valueFrom='10.10.2022' valueTo='10.10.2021' />);
+
+            expect(cb).toBeCalledWith(true);
+        });
     });
 
     describe('Render tests', () => {

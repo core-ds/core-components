@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@12.0.1...@alfalab/core-components-confirmation@12.1.0) (2022-09-13)
+
+
+### Features
+
+* **code-input:** update mobile version ([#230](https://github.com/core-ds/core-components/issues/230)) ([bf66e85](https://github.com/core-ds/core-components/commit/bf66e85b147e22be13f1a62d945aba6012d5ccf5))
+
+
+
+
+
+## [12.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@12.0.0...@alfalab/core-components-confirmation@12.0.1) (2022-09-12)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
 # [12.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@11.0.5...@alfalab/core-components-confirmation@12.0.0) (2022-09-06)
 
 

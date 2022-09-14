@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "31.0.0",
+    "version": "31.3.2",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -39,7 +39,7 @@
         "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
         "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
         "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
-        "pub:ci": "./bin/publish-ci.sh",
+        "pub:ci": "node ./bin/release.js",
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')}\""
     },
@@ -58,7 +58,7 @@
     },
     "dependencies": {
         "@alfalab/data": "^1.2.3",
-        "@alfalab/hooks": "^1.11.0",
+        "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-classic": "^1.76.0",
         "@alfalab/icons-flag": "^1.11.0",
         "@alfalab/icons-glyph": "^2.62.0",
@@ -78,7 +78,7 @@
         "nouislider": "^15.6.0",
         "popper-max-size-modifier": "^0.2.0",
         "react-div-100vh": "^0.7.0",
-        "react-focus-lock": "^2.5.0",
+        "react-focus-lock": "2.9.1",
         "react-merge-refs": "^1.1.0",
         "react-popper": "^2.2.5",
         "react-swipeable": "^5.5.1",
@@ -98,6 +98,8 @@
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-env": "7.18.0",
         "@babel/preset-typescript": "^7.9.0",
+        "@changesets/cli": "^2.24.4",
+        "@changesets/get-github-info": "^0.5.1",
         "@commitlint/config-conventional": "^8.3.4",
         "@commitlint/config-lerna-scopes": "^8.3.4",
         "@oat-sa/rollup-plugin-wildcard-external": "^0.1.0",

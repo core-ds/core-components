@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-vars@6.4.5...@alfalab/core-components-vars@6.5.0) (2022-09-12)
+
+
+### Features
+
+* **vars:** introducing vars bundles ([#192](https://github.com/core-ds/core-components/issues/192)) ([28c15a4](https://github.com/core-ds/core-components/commit/28c15a49a7037680b38fec19018c0d1268f79ac3))
+
+
+
+
+
+## [6.4.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-vars@6.4.4...@alfalab/core-components-vars@6.4.5) (2022-09-09)
+
+
+### Bug Fixes
+
+* **action-button:** review fixes ([8c4b419](https://github.com/core-ds/core-components/commit/8c4b4193b2959e99f2b0f6de836f3f3d63ca0b18))
+
+
+
+
+
 ## [6.4.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-vars@6.4.3...@alfalab/core-components-vars@6.4.4) (2022-08-31)
 
 

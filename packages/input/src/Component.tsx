@@ -87,6 +87,11 @@ export type InputProps = Omit<
     label?: React.ReactNode;
 
     /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
+
+    /**
      * Атрибут type
      */
     type?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
@@ -199,6 +204,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             focusedClassName,
             filledClassName,
             label,
+            labelView = 'inner',
             leftAddons,
             onFocus,
             onBlur,
@@ -231,6 +237,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         // отображаем крестик только для заполненного и активного инпута
         const clearButtonVisible = clear && filled && !disabled && !readOnly;
+        const hasInnerLabel = label && labelView === 'inner';
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
@@ -351,6 +358,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 focused={focused}
                 error={error}
                 label={label}
+                labelView={labelView}
                 hint={hint}
                 leftAddons={leftAddons}
                 rightAddons={renderRightAddons()}
@@ -367,8 +375,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         {
                             [styles.error]: error,
                             [colorStyles[colors].error]: error,
-                            [styles.hasLabel]: label,
-                            [colorStyles[colors].hasLabel]: label,
+                            [styles.hasInnerLabel]: hasInnerLabel,
+                            [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },
                         inputClassName,
                     )}

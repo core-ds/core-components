@@ -87,6 +87,7 @@ export const BaseSelectMobile = forwardRef(
             hint,
             block,
             label,
+            labelView,
             placeholder,
             fieldProps = {},
             optionProps = {},
@@ -383,6 +384,7 @@ export const BaseSelectMobile = forwardRef(
                     size={size}
                     placeholder={placeholder}
                     label={label && <span {...getLabelProps()}>{label}</span>}
+                    labelView={labelView}
                     Arrow={Arrow && <Arrow open={open} />}
                     error={error}
                     hint={hint}

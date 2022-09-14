@@ -196,6 +196,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
 
             const prevRef = inputRefs[prevIndex];
             const nextRef = inputRefs[nextIndex];
+            const curtRef = inputRefs[index];
 
             const newValues = [...values];
 
@@ -209,6 +210,24 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                         newValues[prevIndex] = '';
 
                         focusOnInput(prevRef);
+                    }
+
+                    setValues(newValues);
+
+                    triggerChange(newValues);
+
+                    break;
+                case 'Delete':
+                    event.preventDefault();
+
+                    newValues[index] = '';
+
+                    if (!values[nextIndex]) {
+                        focusOnInput(curtRef);
+                    }
+
+                    if (nextRef) {
+                        focusOnInput(nextRef);
                     }
 
                     setValues(newValues);
@@ -294,7 +313,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             className={styles.input}
-                            compact={fields > 6}
+                            compact={fields > 8}
                         />
                     ))}
                 </div>

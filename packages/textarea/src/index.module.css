@@ -95,7 +95,7 @@
     transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.hasLabel::placeholder {
+.hasInnerLabel::placeholder {
     opacity: 0;
 }
 
@@ -177,7 +177,7 @@
 
 /* FOCUS STATE */
 
-.textarea:focus.hasLabel::placeholder {
+.textarea:focus.hasInnerLabel::placeholder {
     opacity: 1;
 }
 
@@ -187,7 +187,7 @@
 
 /* FILLED STATE */
 
-.textarea.filled.hasLabel {
+.textarea.filled.hasInnerLabel {
     padding-top: 0;
 
     &.s {

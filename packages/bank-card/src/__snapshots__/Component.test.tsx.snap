@@ -35,7 +35,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
           class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner inner filled hasLabel"
+            class="inner inner filled hasInnerLabel"
           >
             <div
               class="inputWrapper"
@@ -60,7 +60,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input hasLabel input"
+                  class="input input hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -152,7 +152,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
           class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner inner filled hasLabel"
+            class="inner inner filled hasInnerLabel"
           >
             <div
               class="inputWrapper"
@@ -177,7 +177,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input hasLabel input"
+                  class="input input hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -267,7 +267,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
           class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner inner filled hasLabel"
+            class="inner inner filled hasInnerLabel"
           >
             <div
               class="inputWrapper"
@@ -292,7 +292,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input hasLabel input"
+                  class="input input hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -382,7 +382,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
           class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner inner filled hasLabel"
+            class="inner inner filled hasInnerLabel"
           >
             <div
               class="inputWrapper"
@@ -407,7 +407,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input input hasLabel input"
+                  class="input input hasInnerLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"

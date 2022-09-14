@@ -154,11 +154,11 @@ describe('Textarea', () => {
             });
         });
 
-        it('should set `hasLabel` class', () => {
+        it('should set `hasInnerLabel` class', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Textarea label='label' dataTestId={dataTestId} />);
 
-            expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
+            expect(getByTestId(dataTestId)).toHaveClass('hasInnerLabel');
         });
 
         it('should set `resizeVertical` class', () => {

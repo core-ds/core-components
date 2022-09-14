@@ -7,8 +7,9 @@ import React, {
     KeyboardEvent,
     FocusEvent,
     useEffect,
-    useLayoutEffect,
 } from 'react';
+// eslint-disable-next-line @typescript-eslint/camelcase
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -57,6 +58,7 @@ export const BaseSelect = forwardRef(
             hint,
             block,
             label,
+            labelView,
             placeholder,
             fieldProps = {},
             optionsListProps = {},
@@ -342,7 +344,12 @@ export const BaseSelect = forwardRef(
             };
         }, [calcOptionsListWidth, open, optionsListWidth]);
 
-        useLayoutEffect(calcOptionsListWidth, [open, optionsListWidth, options, selectedItems]);
+        useLayoutEffect_SAFE_FOR_SSR(calcOptionsListWidth, [
+            open,
+            optionsListWidth,
+            options,
+            selectedItems,
+        ]);
 
         const renderValue = useCallback(
             () =>
@@ -397,6 +404,7 @@ export const BaseSelect = forwardRef(
                     size={size}
                     placeholder={placeholder}
                     label={label && <span {...getLabelProps()}>{label}</span>}
+                    labelView={labelView}
                     Arrow={Arrow && <Arrow open={open} />}
                     error={error}
                     hint={hint}
