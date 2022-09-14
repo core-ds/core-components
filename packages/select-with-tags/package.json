@@ -21,7 +21,7 @@
         "@alfalab/core-components-select": "^12.4.2",
         "@alfalab/core-components-tag": "^5.0.1",
         "@alfalab/hooks": "^1.4.1",
-        "@alfalab/icons-glyph": "^2.16.0",
+        "@alfalab/icons-glyph": "^2.62.0",
         "classnames": "^2.3.1"
     }
 }

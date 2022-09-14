@@ -113,7 +113,7 @@ describe('Render tests', () => {
 
     it.each(pickerButtonVariants)('should have xxs class and small icon', async Component => {
         const size = 'xxs';
-        const iconSize = '18';
+        const iconSize = '16';
 
         const { getByTestId } = render(<Component options={options} size={size} />);
         const button = document.querySelector('button');
