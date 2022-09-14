@@ -208,7 +208,7 @@
     &:global(.dragging .track) {
         pointer-events: all;
 
-        &.vertical :global(.scrollbar):before {
+        &.vertical :global(.scrollbar) {
             width: var(--scrollbar-hover-size);
         }
 
