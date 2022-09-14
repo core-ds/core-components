@@ -1,3 +1,10 @@
+## 31.3.1
+
+### Patch Changes
+
+#### `@alfalab/core-components-scrollbar`
+- [#239](https://github.com/core-ds/core-components/pull/239): Исправлен border-radius при hover-эффекте. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
 # [31.3.0](https://github.com/core-ds/core-components/compare/v31.2.0...v31.3.0) (2022-09-13)
 
 

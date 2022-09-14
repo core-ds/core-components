@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.6
+
+### Patch Changes
+
+-   @alfalab/core-components-select@12.4.2
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
@@ -7,643 +13,366 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [6.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.1.3...@alfalab/core-components-select-with-tags@6.1.4) (2022-09-12)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
-
-
-
-
 
 ## [6.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.1.2...@alfalab/core-components-select-with-tags@6.1.3) (2022-09-05)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [6.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.1.1...@alfalab/core-components-select-with-tags@6.1.2) (2022-09-02)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
-
-
-
-
 
 ## [6.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.1.0...@alfalab/core-components-select-with-tags@6.1.1) (2022-09-02)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 # [6.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.0.4...@alfalab/core-components-select-with-tags@6.1.0) (2022-09-01)
-
 
 ### Features
 
-* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
-
-
-
-
+-   testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
 
 ## [6.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.0.3...@alfalab/core-components-select-with-tags@6.0.4) (2022-08-31)
 
-
 ### Bug Fixes
 
-* fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
-
-
-
-
+-   fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
 
 ## [6.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.0.2...@alfalab/core-components-select-with-tags@6.0.3) (2022-08-29)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [6.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.0.1...@alfalab/core-components-select-with-tags@6.0.2) (2022-08-26)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
-
-
-
-
 
 ## [6.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@6.0.0...@alfalab/core-components-select-with-tags@6.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 # [6.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.7.4...@alfalab/core-components-select-with-tags@6.0.0) (2022-08-17)
-
 
 ### Features
 
-* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
-
+-   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
-* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-директория dist)
+-   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+    директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
-
-
-
-
 ## [5.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.7.3...@alfalab/core-components-select-with-tags@5.7.4) (2022-08-17)
-
 
 ### Bug Fixes
 
-* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
-
-
-
-
+-   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 ## [5.7.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.7.2...@alfalab/core-components-select-with-tags@5.7.3) (2022-08-12)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [5.7.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.7.1...@alfalab/core-components-select-with-tags@5.7.2) (2022-08-11)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
-
-
-
-
 
 ## [5.7.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.7.0...@alfalab/core-components-select-with-tags@5.7.1) (2022-08-09)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 # [5.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.9...@alfalab/core-components-select-with-tags@5.7.0) (2022-08-04)
-
 
 ### Features
 
-* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
-
-
-
-
+-   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [5.6.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.8...@alfalab/core-components-select-with-tags@5.6.9) (2022-07-25)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [5.6.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.7...@alfalab/core-components-select-with-tags@5.6.8) (2022-07-25)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
-
-
-
-
 
 ## [5.6.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.6...@alfalab/core-components-select-with-tags@5.6.7) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [5.6.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.5...@alfalab/core-components-select-with-tags@5.6.6) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
-
-
-
-
 
 ## [5.6.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.4...@alfalab/core-components-select-with-tags@5.6.5) (2022-07-15)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [5.6.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.3...@alfalab/core-components-select-with-tags@5.6.4) (2022-07-15)
-
 
 ### Bug Fixes
 
-* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
-
-
-
-
+-   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [5.6.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.2...@alfalab/core-components-select-with-tags@5.6.3) (2022-07-14)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [5.6.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.1...@alfalab/core-components-select-with-tags@5.6.2) (2022-07-14)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
-
-
-
-
 
 ## [5.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.6.0...@alfalab/core-components-select-with-tags@5.6.1) (2022-07-11)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 # [5.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.5.0...@alfalab/core-components-select-with-tags@5.6.0) (2022-07-01)
-
 
 ### Features
 
-* **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
-
-
-
-
+-   **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
 
 # [5.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.4.0...@alfalab/core-components-select-with-tags@5.5.0) (2022-06-28)
 
-
 ### Features
 
-* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
-
-
-
-
+-   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 # [5.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.3.0...@alfalab/core-components-select-with-tags@5.4.0) (2022-06-09)
 
-
 ### Features
 
-* **select-with-tags:** add calling onOpen handler ([#91](https://github.com/core-ds/core-components/issues/91)) ([b48b05c](https://github.com/core-ds/core-components/commit/b48b05c2ad2660e3a6a00a5d8c25a077189c1891))
-
-
-
-
+-   **select-with-tags:** add calling onOpen handler ([#91](https://github.com/core-ds/core-components/issues/91)) ([b48b05c](https://github.com/core-ds/core-components/commit/b48b05c2ad2660e3a6a00a5d8c25a077189c1891))
 
 # [5.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.2.7...@alfalab/core-components-select-with-tags@5.3.0) (2022-06-08)
 
-
 ### Features
 
-* **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
-* **select-with-tags:** add support useSelectWithApply hook ([#85](https://github.com/core-ds/core-components/issues/85)) ([461f3bc](https://github.com/core-ds/core-components/commit/461f3bc2cdd498a6cc362809dbd7b44a4cd5fd79))
-
-
-
-
+-   **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+-   **select-with-tags:** add support useSelectWithApply hook ([#85](https://github.com/core-ds/core-components/issues/85)) ([461f3bc](https://github.com/core-ds/core-components/commit/461f3bc2cdd498a6cc362809dbd7b44a4cd5fd79))
 
 ## [5.2.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.2.2...@alfalab/core-components-select-with-tags@5.2.3) (2022-03-28)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [5.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.2.1...@alfalab/core-components-select-with-tags@5.2.2) (2022-03-24)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [5.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.2.0...@alfalab/core-components-select-with-tags@5.2.1) (2022-03-04)
-
 
 ### Bug Fixes
 
-* update glyph deps ([#1019](https://github.com/core-ds/core-components/issues/1019)) ([3e910d0](https://github.com/core-ds/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
-
-
-
-
+-   update glyph deps ([#1019](https://github.com/core-ds/core-components/issues/1019)) ([3e910d0](https://github.com/core-ds/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
 
 # [5.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.1.2...@alfalab/core-components-select-with-tags@5.2.0) (2022-03-01)
 
-
 ### Bug Fixes
 
-* changed dropdown component's box shadow styles ([#1010](https://github.com/core-ds/core-components/issues/1010)) ([2f997f5](https://github.com/core-ds/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
-
+-   changed dropdown component's box shadow styles ([#1010](https://github.com/core-ds/core-components/issues/1010)) ([2f997f5](https://github.com/core-ds/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
 
 ### Features
 
-* Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
-
-
-
-
+-   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 ## [5.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.1.1...@alfalab/core-components-select-with-tags@5.1.2) (2022-02-17)
 
-
 ### Bug Fixes
 
-* imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
-
-
-
-
+-   imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
 
 ## [5.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.1.0...@alfalab/core-components-select-with-tags@5.1.1) (2022-02-02)
 
-
 ### Bug Fixes
 
-* **select-with-tags:** update tag size to xxs ([#960](https://github.com/core-ds/core-components/issues/960)) ([4234826](https://github.com/core-ds/core-components/commit/4234826e5dedebc1e6555dfba181981eea4db69f))
-
-
-
-
+-   **select-with-tags:** update tag size to xxs ([#960](https://github.com/core-ds/core-components/issues/960)) ([4234826](https://github.com/core-ds/core-components/commit/4234826e5dedebc1e6555dfba181981eea4db69f))
 
 # [5.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.0.2...@alfalab/core-components-select-with-tags@5.1.0) (2021-12-29)
 
-
 ### Features
 
-* **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/core-ds/core-components/issues/903)) ([f5638ef](https://github.com/core-ds/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
-
-
-
-
+-   **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/core-ds/core-components/issues/903)) ([f5638ef](https://github.com/core-ds/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
 
 ## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.0.1...@alfalab/core-components-select-with-tags@5.0.2) (2021-12-22)
 
-
 ### Bug Fixes
 
-* add missing vars imports ([#931](https://github.com/core-ds/core-components/issues/931)) ([35ba847](https://github.com/core-ds/core-components/commit/35ba847d39924e713166d79ae6d64444131794a1))
-
-
-
-
+-   add missing vars imports ([#931](https://github.com/core-ds/core-components/issues/931)) ([35ba847](https://github.com/core-ds/core-components/commit/35ba847d39924e713166d79ae6d64444131794a1))
 
 ## [5.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@5.0.0...@alfalab/core-components-select-with-tags@5.0.1) (2021-12-08)
 
-
 ### Bug Fixes
 
-* актуализируем @alfalab/utils ([#897](https://github.com/core-ds/core-components/issues/897)) ([30fb88e](https://github.com/core-ds/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
-
-
-
-
+-   актуализируем @alfalab/utils ([#897](https://github.com/core-ds/core-components/issues/897)) ([30fb88e](https://github.com/core-ds/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
 
 # [5.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@4.0.0...@alfalab/core-components-select-with-tags@5.0.0) (2021-11-26)
 
-
 ### Features
 
-* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
-
+-   **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
 
 ### BREAKING CHANGES
 
-* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-заменить размер  на xxs. Можно воспользоваться codemod.
+-   **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+    заменить размер на xxs. Можно воспользоваться codemod.
 
-* feat(codemod): add button xs to xxs transformer
+-   feat(codemod): add button xs to xxs transformer
 
-* feat(tag): добавлен тэг размера 40px, изменены отступы
+-   feat(tag): добавлен тэг размера 40px, изменены отступы
 
 Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
 на xxs.
-* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-заменить размер на xxs. Можно воспользоваться codemod.
 
-* test: update screenshots
+-   **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+    заменить размер на xxs. Можно воспользоваться codemod.
 
-* test: update screenshots
+-   test: update screenshots
 
-* feat(button): linter fix
+-   test: update screenshots
 
-* feat(button): fix min-width
+-   feat(button): linter fix
 
-* feat(tag): remove vertical paddings
+-   feat(button): fix min-width
 
-* feat(tag): remove vertical paddings
+-   feat(tag): remove vertical paddings
 
-* feat(button): updates
+-   feat(tag): remove vertical paddings
 
-
-
-
+-   feat(button): updates
 
 # [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@3.3.0...@alfalab/core-components-select-with-tags@4.0.0) (2021-11-16)
 
-
 ### Features
 
-* **select:** controlled open ([#839](https://github.com/core-ds/core-components/issues/839)) ([95d0470](https://github.com/core-ds/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
-* **select:** переход к темизации цвета иконки ([112cd95](https://github.com/core-ds/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
-
+-   **select:** controlled open ([#839](https://github.com/core-ds/core-components/issues/839)) ([95d0470](https://github.com/core-ds/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+-   **select:** переход к темизации цвета иконки ([112cd95](https://github.com/core-ds/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
 
 ### BREAKING CHANGES
 
-* **select:** удалена переменная --select-arrow-background
-
-
-
-
+-   **select:** удалена переменная --select-arrow-background
 
 # [3.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@3.2.0...@alfalab/core-components-select-with-tags@3.3.0) (2021-09-14)
 
-
 ### Features
 
-* change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
-
-
-
-
+-   change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
 
 # [3.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@3.1.0...@alfalab/core-components-select-with-tags@3.2.0) (2021-08-23)
 
-
 ### Bug Fixes
 
-* **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
-
+-   **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
 
 ### Features
 
-* **tag:** add inverted colors ([#784](https://github.com/core-ds/core-components/issues/784)) ([d3681ae](https://github.com/core-ds/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
-
-
-
-
+-   **tag:** add inverted colors ([#784](https://github.com/core-ds/core-components/issues/784)) ([d3681ae](https://github.com/core-ds/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
 
 # [3.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@3.0.2...@alfalab/core-components-select-with-tags@3.1.0) (2021-08-04)
 
-
 ### Features
 
-* add mods colors ([#770](https://github.com/core-ds/core-components/issues/770)) ([fe985f4](https://github.com/core-ds/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
-
-
-
-
+-   add mods colors ([#770](https://github.com/core-ds/core-components/issues/770)) ([fe985f4](https://github.com/core-ds/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
 
 ## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@3.0.1...@alfalab/core-components-select-with-tags@3.0.2) (2021-07-23)
 
-
 ### Bug Fixes
 
-* select & calendar-input use glyph icons ([#742](https://github.com/core-ds/core-components/issues/742)) ([6b04ae4](https://github.com/core-ds/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
-
-
-
-
+-   select & calendar-input use glyph icons ([#742](https://github.com/core-ds/core-components/issues/742)) ([6b04ae4](https://github.com/core-ds/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@3.0.0...@alfalab/core-components-select-with-tags@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 # [3.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.1.0...@alfalab/core-components-select-with-tags@3.0.0) (2021-07-08)
-
 
 ### Features
 
-* upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+-   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.9...@alfalab/core-components-select-with-tags@2.1.0) (2021-06-04)
 
-
 ### Features
 
-* **tag:** adjusted colors ([#667](https://github.com/core-ds/core-components/issues/667)) ([ded4ac4](https://github.com/core-ds/core-components/commit/ded4ac4a4e02ee8ec4efdc6d990455caa3ab94bb))
-
-
-
-
+-   **tag:** adjusted colors ([#667](https://github.com/core-ds/core-components/issues/667)) ([ded4ac4](https://github.com/core-ds/core-components/commit/ded4ac4a4e02ee8ec4efdc6d990455caa3ab94bb))
 
 ## [2.0.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.8...@alfalab/core-components-select-with-tags@2.0.9) (2021-05-14)
 
-
 ### Bug Fixes
 
-* **select-with-tags:** changed includes method for IE11 support ([#651](https://github.com/core-ds/core-components/issues/651)) ([254bca3](https://github.com/core-ds/core-components/commit/254bca3df02107dfffc5175f74e35162453c20d0))
-
-
-
-
+-   **select-with-tags:** changed includes method for IE11 support ([#651](https://github.com/core-ds/core-components/issues/651)) ([254bca3](https://github.com/core-ds/core-components/commit/254bca3df02107dfffc5175f74e35162453c20d0))
 
 ## [2.0.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.7...@alfalab/core-components-select-with-tags@2.0.8) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [2.0.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.6...@alfalab/core-components-select-with-tags@2.0.7) (2021-04-01)
-
 
 ### Bug Fixes
 
-* **select-with-tags:** tag box-sizing issue ([#589](https://github.com/core-ds/core-components/issues/589)) ([9bc9a44](https://github.com/core-ds/core-components/commit/9bc9a4484b1e46372bce5fc16663f3ac05378310))
-
-
-
-
+-   **select-with-tags:** tag box-sizing issue ([#589](https://github.com/core-ds/core-components/issues/589)) ([9bc9a44](https://github.com/core-ds/core-components/commit/9bc9a4484b1e46372bce5fc16663f3ac05378310))
 
 ## [2.0.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.4...@alfalab/core-components-select-with-tags@2.0.6) (2021-03-18)
 
-
 ### Bug Fixes
 
-* one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
-
-
-
-
+-   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [2.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.2...@alfalab/core-components-select-with-tags@2.0.4) (2021-03-16)
 
-
 ### Bug Fixes
 
-* border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
-
-
-
-
+-   border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
 
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.1...@alfalab/core-components-select-with-tags@2.0.2) (2021-03-15)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@2.0.0...@alfalab/core-components-select-with-tags@2.0.1) (2021-03-14)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 # [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@1.3.4...@alfalab/core-components-select-with-tags@2.0.0) (2021-03-04)
-
 
 ### Features
 
-* **select-with-tags:** changed size L (72 → 64), added size XL (72) ([523b96f](https://github.com/core-ds/core-components/commit/523b96fa79bc12972ec6ac748105ba20906ba236))
-
+-   **select-with-tags:** changed size L (72 → 64), added size XL (72) ([523b96f](https://github.com/core-ds/core-components/commit/523b96fa79bc12972ec6ac748105ba20906ba236))
 
 ### BREAKING CHANGES
 
-* **select-with-tags:** size L changed to size XL
-
-
-
-
+-   **select-with-tags:** size L changed to size XL
 
 ## [1.3.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@1.3.3...@alfalab/core-components-select-with-tags@1.3.4) (2021-03-03)
 
-
 ### Bug Fixes
 
-* **select-with-tags:** remove pointer events from placeholder ([#545](https://github.com/core-ds/core-components/issues/545)) ([41b860b](https://github.com/core-ds/core-components/commit/41b860bd550b71d2025081d76d7c1240258ecaf9))
-
-
-
-
+-   **select-with-tags:** remove pointer events from placeholder ([#545](https://github.com/core-ds/core-components/issues/545)) ([41b860b](https://github.com/core-ds/core-components/commit/41b860bd550b71d2025081d76d7c1240258ecaf9))
 
 ## [1.3.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@1.3.2...@alfalab/core-components-select-with-tags@1.3.3) (2021-03-03)
 
-
 ### Bug Fixes
 
-* **select-with-tags:** missed dot ([c3c98d0](https://github.com/core-ds/core-components/commit/c3c98d0106072a431a616e8420edb01d83ad5fce))
-
-
-
-
+-   **select-with-tags:** missed dot ([c3c98d0](https://github.com/core-ds/core-components/commit/c3c98d0106072a431a616e8420edb01d83ad5fce))
 
 ## [1.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@1.3.1...@alfalab/core-components-select-with-tags@1.3.2) (2021-03-01)
 
-
 ### Bug Fixes
 
-* **select-with-tags:** fixed styles ([#543](https://github.com/core-ds/core-components/issues/543)) ([206db51](https://github.com/core-ds/core-components/commit/206db5138c8ba2869c5ac458609928c4753cc83b))
-
-
-
-
+-   **select-with-tags:** fixed styles ([#543](https://github.com/core-ds/core-components/issues/543)) ([206db51](https://github.com/core-ds/core-components/commit/206db5138c8ba2869c5ac458609928c4753cc83b))
 
 ## [1.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@1.3.0...@alfalab/core-components-select-with-tags@1.3.1) (2021-02-20)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
 
-
-
-
-
 # [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@1.2.2...@alfalab/core-components-select-with-tags@1.3.0) (2021-02-19)
-
 
 ### Features
 
-* **select-with-tags:** added collapsed tag list ([#511](https://github.com/core-ds/core-components/issues/511)) ([fe1d551](https://github.com/core-ds/core-components/commit/fe1d551385e9122c205bbe7a679f02a6eb376569))
-
-
-
-
+-   **select-with-tags:** added collapsed tag list ([#511](https://github.com/core-ds/core-components/issues/511)) ([fe1d551](https://github.com/core-ds/core-components/commit/fe1d551385e9122c205bbe7a679f02a6eb376569))
 
 ## [1.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-select-with-tags@1.2.1...@alfalab/core-components-select-with-tags@1.2.2) (2021-02-18)
 
-
 ### Bug Fixes
 
-
-* update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+-   update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
