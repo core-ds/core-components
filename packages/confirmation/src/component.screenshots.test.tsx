@@ -1,5 +1,9 @@
 import { Page } from 'playwright';
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    generateTestCases,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -11,7 +15,7 @@ const screenshotTesting = setupScreenshotTesting({
 // DESKTOP
 
 describe(
-    'ConfirmationDesktop | code, charAmount, align',
+    'Confirmation | code, charAmount, align',
     screenshotTesting({
         cases: [
             [
@@ -26,7 +30,7 @@ describe(
                         alignContent: ['left', 'center'],
                         requiredCharAmount: [5, 7],
                         phone: '+7 ··· ··· 07-24',
-                        ConfirmationComponent: 'ConfirmationDesktop',
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],
@@ -42,7 +46,7 @@ describe(
 );
 
 describe(
-    'ConfirmationDesktop | CODE_CHECKING, CODE_SENDING, CODE_ERROR states',
+    'Confirmation | CODE_CHECKING, CODE_SENDING, CODE_ERROR states',
     screenshotTesting({
         cases: [
             [
@@ -54,7 +58,7 @@ describe(
                     knobs: {
                         screen: ['INITIAL'],
                         state: ['INITIAL', 'CODE_CHECKING', 'CODE_SENDING', 'CODE_ERROR'],
-                        ConfirmationComponent: 'ConfirmationDesktop',
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],
@@ -71,7 +75,7 @@ describe(
 );
 
 describe(
-    'ConfirmationDesktop | HINT, FATAL_ERROR, TEMP_BLOCK screens',
+    'Confirmation | HINT, FATAL_ERROR, TEMP_BLOCK screens',
     screenshotTesting({
         cases: [
             [
@@ -83,7 +87,7 @@ describe(
                     knobs: {
                         screen: ['HINT', 'FATAL_ERROR', 'TEMP_BLOCK'],
                         state: ['INITIAL'],
-                        ConfirmationComponent: 'ConfirmationDesktop',
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],
@@ -100,7 +104,7 @@ describe(
 );
 
 describe(
-    'ConfirmationDesktop | noAttemptsLeftMessage',
+    'Confirmation | noAttemptsLeftMessage',
     screenshotTesting({
         cases: [
             [
@@ -113,7 +117,7 @@ describe(
                         screen: 'INITIAL',
                         state: 'INITIAL',
                         blockSmsRetry: true,
-                        ConfirmationComponent: 'ConfirmationDesktop',
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],
@@ -125,6 +129,35 @@ describe(
         matchImageSnapshotOptions: {
             failureThresholdType: 'percent',
             failureThreshold: 0.005,
+        },
+    }),
+);
+
+// MOBILE
+
+describe(
+    'ConfirmationMobile | code, charAmount, alig',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'Confirmation',
+                testStory: false,
+                knobs: {
+                    screen: 'INITIAL',
+                    state: 'INITIAL',
+                    alignContent: 'center',
+                    requiredCharAmount: 5,
+                    phone: '+7 ··· ··· 07-24',
+                    ConfirmationComponent: 'ConfirmationMobile',
+                },
+            }),
+        ],
+        viewport: {
+            width: 450,
+            height: 450,
+        },
+        screenshotOpts: {
+            fullPage: true,
         },
     }),
 );

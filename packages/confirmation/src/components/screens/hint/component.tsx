@@ -51,26 +51,17 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         >
                             8 800 200-00-00
                         </Link>
-
-                        {mobile ? (
-                            <Typography.Text
-                                view='primary-medium'
-                                color='primary'
-                                className={styles.text}
-                            >
-                                {' '}
-                                Для&nbsp; звонков по&nbsp;России
-                            </Typography.Text>
-                        ) : (
-                            <Typography.Text
-                                view='primary-medium'
-                                color='primary'
-                                className={styles.text}
-                            >
-                                {' '}
-                                &mdash;&nbsp;для звонков по&nbsp;России
-                            </Typography.Text>
-                        )}
+                        <Typography.Text
+                            view='primary-medium'
+                            color='primary'
+                            className={styles.text}
+                        >
+                            {mobile ? (
+                                <>Для&nbsp; звонков по&nbsp;России</>
+                            ) : (
+                                <>&mdash;&nbsp;для звонков по&nbsp;России</>
+                            )}
+                        </Typography.Text>
                     </div>
 
                     <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
@@ -81,26 +72,17 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         >
                             +7 495 78-888-78
                         </Link>
-
-                        {mobile ? (
-                            <Typography.Text
-                                view='primary-medium'
-                                color='primary'
-                                className={styles.text}
-                            >
-                                {' '}
-                                В&nbsp;Москве и&nbsp;за&nbsp;границей
-                            </Typography.Text>
-                        ) : (
-                            <Typography.Text
-                                view='primary-medium'
-                                color='primary'
-                                className={styles.text}
-                            >
-                                {' '}
-                                &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей
-                            </Typography.Text>
-                        )}
+                        <Typography.Text
+                            view='primary-medium'
+                            color='primary'
+                            className={styles.text}
+                        >
+                            {mobile ? (
+                                <>В&nbsp;Москве и&nbsp;за&nbsp;границей</>
+                            ) : (
+                                <>&mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей</>
+                            )}
+                        </Typography.Text>
                     </div>
                 </div>
 

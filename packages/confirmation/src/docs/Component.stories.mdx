@@ -5,7 +5,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Select } from '@alfalab/core-components-select';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationMobile } from '@alfalab/core-components-confirmation/component.mobile';
-import { ConfirmationDesktop } from '@alfalab/core-components-confirmation/component.desktop';
+import { Confirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationResponsive} from '@alfalab/core-components-confirmation/component.responsive';
 import { ConfirmationMobile as ConfirmationMobileTS } from '../component.mobile';
 import { ConfirmationDesktop as ConfirmationDesktopTS } from '../component.desktop';
@@ -25,7 +25,7 @@ import vars from '!!raw-loader!../vars.css';
 
 <Story name='Confirmation'>
     {React.createElement(() => {
-        const component = select('ConfirmationComponent', ['ConfirmationResponsive', 'ConfirmationDesktop', 'ConfirmationMobile'], 'ConfirmationResponsive');
+        const component = select('ConfirmationComponent', ['ConfirmationResponsive', 'Confirmation', 'ConfirmationMobile'], 'ConfirmationResponsive');
         const variants = [
             { key: 'success', content: 'Успешный сценарий' },
             { key: 'error', content: 'Сценарий с ошибкой' },
@@ -86,7 +86,7 @@ import vars from '!!raw-loader!../vars.css';
         const ConfirmationComponent = React.useMemo(() => {
             return {
                 'ConfirmationResponsive': ConfirmationResponsive,
-                'ConfirmationDesktop': ConfirmationDesktop,
+                'Confirmation': Confirmation,
                 'ConfirmationMobile': ConfirmationMobile,
             }[component]
         }, [component]);
@@ -144,14 +144,14 @@ import vars from '!!raw-loader!../vars.css';
 />
 
 ```jsx
+import { Confirmation } from '@alfalab/core-components/confirmation';
 import { ConfirmationResponsive } from '@alfalab/core-components/confirmation/responsive';
-import { ConfirmationDesktop } from '@alfalab/core-components/confirmation/desktop';
 import { ConfirmationMobile } from '@alfalab/core-components/confirmation/mobile';
 ```
 
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props components={{ConfirmationDesktop: ConfirmationDesktopTS, ConfirmationMobile: ConfirmationMobileTS, ConfirmationResponsive: ConfirmationResponsiveTS}} />}
+    props={<Props components={{Confirmation: ConfirmationDesktopTS, ConfirmationMobile: ConfirmationMobileTS, ConfirmationResponsive: ConfirmationResponsiveTS}} />}
     cssVars={<CssVars css={vars} />}
 />
