@@ -2,6 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Step } from './components/step';
+import { StepIndicatorProps } from './components/step-indicator';
 
 import styles from './index.module.css';
 
@@ -65,6 +66,34 @@ export type StepsProps = {
     checkIsStepError?: (stepNumber: number) => boolean;
 
     /**
+     * Кастомный метод для управления состоянием шага warning
+     * @param stepNumber - номер шага
+     * @return Флаг состояния warning
+     */
+    checkIsStepWarning?: (stepNumber: number) => boolean;
+
+    /**
+     * Кастомный метод для управления состоянием шага waiting
+     * @param stepNumber - номер шага
+     * @return Флаг состояния waiting
+     */
+    checkIsStepWaiting?: (stepNumber: number) => boolean;
+
+    /**
+     * Кастомный метод для управления состоянием шага positive
+     * @param stepNumber - номер шага
+     * @return Флаг состояния positive
+     */
+    checkIsStepPositive?: (stepNumber: number) => boolean;
+
+    /**
+     * Кастомный метод для установки кастомного индикатора шага
+     * @param stepNumber - номер шага
+     * @return Объект StepIndicatorProps { className, content, iconColor }
+     */
+    checkIsStepCustom?: (stepNumber: number) => StepIndicatorProps;
+
+    /**
      * Обработчик клика на шаг
      * @param stepNumber - номер активного шага
      */
@@ -87,6 +116,10 @@ export const Steps: React.FC<StepsProps> = ({
     interactive = true,
     checkIsStepDisabled,
     checkIsStepError,
+    checkIsStepWarning,
+    checkIsStepWaiting,
+    checkIsStepPositive,
+    checkIsStepCustom,
     onChange,
     dataTestId,
 }) => {
@@ -122,7 +155,11 @@ export const Steps: React.FC<StepsProps> = ({
                 const isSelected = stepNumber === activeStep;
                 const isStepCompleted = isMarkCompletedSteps && stepNumber < activeStep;
                 const disabled = checkIsStepDisabled ? checkIsStepDisabled(stepNumber) : false;
+                const isPositive = checkIsStepPositive ? checkIsStepPositive(stepNumber) : false;
                 const isError = checkIsStepError ? checkIsStepError(stepNumber) : false;
+                const isWarning = checkIsStepWarning ? checkIsStepWarning(stepNumber) : false;
+                const isWaiting = checkIsStepWaiting ? checkIsStepWaiting(stepNumber) : false;
+                const customStepIndicator = checkIsStepCustom && checkIsStepCustom(stepNumber);
                 const isNotLastStep = stepsLength !== stepNumber;
                 const isInteractive = !disabled && interactive;
 
@@ -132,7 +169,11 @@ export const Steps: React.FC<StepsProps> = ({
                         isSelected={isSelected}
                         isStepCompleted={isStepCompleted}
                         disabled={disabled}
+                        isPositive={isPositive}
                         isError={isError}
+                        isWarning={isWarning}
+                        isWaiting={isWaiting}
+                        customStepIndicator={customStepIndicator}
                         onClick={handleStepClick}
                         ordered={ordered}
                         interactive={isInteractive}

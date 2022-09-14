@@ -1,9 +1,11 @@
 import React, { ReactNode, useRef } from 'react';
 import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
-import { Badge } from '@alfalab/core-components-badge';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
+import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
+
+import { StepIndicator, StepIndicatorProps } from '../step-indicator';
 
 import styles from './index.module.css';
 
@@ -39,14 +41,34 @@ export type StepProps = {
     interactive?: boolean;
 
     /**
-     * Маркер того, что на текущем шаге есть ошибка
+     * Маркер того, что текущий шаг находится в состоянии "Positive"
+     */
+    isPositive: boolean;
+
+    /**
+     * Маркер того, что текущий шаг находится в состоянии "Error"
      */
     isError: boolean;
+
+    /**
+     * Маркер того, что текущий шаг находится в состоянии "Warning"
+     */
+    isWarning: boolean;
+
+    /**
+     * Маркер того, что текущий шаг находится в состоянии "Waiting"
+     */
+    isWaiting: boolean;
 
     /**
      * Маркер того, что текущий шаг нужно пометить как завершенный
      */
     isStepCompleted: boolean;
+
+    /**
+     * Свойства кастомного индикатора текущего шага
+     */
+    customStepIndicator?: StepIndicatorProps;
 
     /**
      * Управление ориентацией компонента
@@ -72,7 +94,11 @@ export const Step: React.FC<StepProps> = ({
     isSelected,
     disabled,
     ordered,
+    isPositive,
     isError,
+    isWarning,
+    isWaiting,
+    customStepIndicator,
     isStepCompleted,
     onClick,
     interactive,
@@ -101,28 +127,24 @@ export const Step: React.FC<StepProps> = ({
         }
     };
 
-    const getStepContent = () => {
-        if (isStepCompleted && !isError) {
-            return (
-                <Badge
-                    size='l'
-                    view='icon'
-                    iconColor='positive'
-                    className={styles.badge}
-                    content={<CheckmarkCircleMIcon />}
-                />
-            );
+    const getStepIndicator = () => {
+        if (customStepIndicator) {
+            return <StepIndicator {...customStepIndicator} />;
         }
         if (isError) {
-            return (
-                <Badge
-                    size='l'
-                    view='icon'
-                    iconColor='negative'
-                    className={styles.badge}
-                    content={<ExclamationCircleMIcon />}
-                />
-            );
+            return <StepIndicator iconColor='negative' content={<ExclamationCircleMIcon />} />;
+        }
+        if (isWarning) {
+            return <StepIndicator iconColor='attention' content={<ExclamationCircleMIcon />} />;
+        }
+        if (isWaiting) {
+            return <StepIndicator iconColor='secondary' content={<ClockMIcon />} />;
+        }
+        if (isPositive) {
+            return <StepIndicator iconColor='positive' content={<CheckmarkCircleMIcon />} />;
+        }
+        if (isStepCompleted) {
+            return <StepIndicator iconColor='positive' content={<CheckmarkCircleMIcon />} className={styles.completedIndicator} />;
         }
         if (!ordered) {
             return (
@@ -174,7 +196,7 @@ export const Step: React.FC<StepProps> = ({
                         [styles.error]: isError,
                     })}
                 >
-                    {getStepContent()}
+                    {getStepIndicator()}
                 </div>
                 {isNotLastStep && isVerticalAlign && renderDash()}
             </div>

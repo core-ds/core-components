@@ -213,3 +213,62 @@ render(() => {
     );
 });
 ```
+
+
+### Виды индикаторов
+
+```jsx live
+render(
+    <div style={{ color: '#546272' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='positive'
+                content={<CheckmarkCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Completed</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='positive'
+                content={<CheckmarkCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Positive</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='negative'
+                content={<ExclamationCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Negative</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='attention'
+                content={<ExclamationCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Warning</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='secondary'
+                content={<ClockMIcon />}
+            />
+            <Typography.Text view='primary-small'>Waiting</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ width: 24, height: 24, background: 'rgba(55, 120, 251, 0.1)', border: '1px solid #3778FB', borderRadius: 4, margin: '0 6px' }} />
+            <Typography.Text view='primary-small'>Custom</Typography.Text>
+        </div>
+    </div>
+)
+```
