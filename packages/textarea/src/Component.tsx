@@ -70,6 +70,11 @@ export type TextareaProps = Omit<
     label?: React.ReactNode;
 
     /**
+     * Вид лейбла внутри / снаружи
+     */
+    labelView?: 'inner' | 'outer';
+
+    /**
      * Слот слева
      */
     leftAddons?: React.ReactNode;
@@ -180,6 +185,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             hint,
             textareaClassName,
             label,
+            labelView = 'inner',
             leftAddons,
             onFocus,
             onBlur,
@@ -215,6 +221,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const [focusVisible] = useFocus(textareaRef, 'keyboard');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
+        const hasInnerLabel = label && labelView === 'inner';
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
@@ -282,8 +289,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 colorStyles[colors].textarea,
                 styles[size],
                 {
-                    [styles.hasLabel]: nativeScrollbar && label,
-                    [colorStyles[colors].hasLabel]: label,
+                    [styles.hasInnerLabel]: nativeScrollbar && hasInnerLabel,
+                    [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                     [styles.filled]: nativeScrollbar && filled,
                     [styles.resizeVertical]: resize === 'vertical',
                 },
@@ -365,6 +372,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 focused={focused}
                 error={error}
                 label={label}
+                labelView={labelView}
                 hint={getHint()}
                 leftAddons={leftAddons}
                 rightAddons={rightAddons}

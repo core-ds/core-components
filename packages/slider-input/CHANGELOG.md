@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@6.2.1...@alfalab/core-components-slider-input@6.2.2) (2022-09-13)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [6.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@6.2.0...@alfalab/core-components-slider-input@6.2.1) (2022-09-12)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+# [6.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@6.1.0...@alfalab/core-components-slider-input@6.2.0) (2022-09-06)
+
+
+### Features
+
+* **slider-input:** revert steps ([#234](https://github.com/core-ds/core-components/issues/234)) ([d5e312b](https://github.com/core-ds/core-components/commit/d5e312bb7a54e53414e205a57081159033d53efe))
+
+
+
+
+
 # [6.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-slider-input@6.0.3...@alfalab/core-components-slider-input@6.1.0) (2022-09-02)
 
 

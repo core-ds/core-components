@@ -19,6 +19,8 @@ import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observe
 import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 import FocusLock from 'react-focus-lock';
+// TODO Без полифила крашится FocusLock в IE11. Выпилить в будущем!!!.
+import './matches-polyfill';
 
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
@@ -514,7 +516,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     onKeyDown={handleKeyDown}
                                     onMouseDown={handleBackdropMouseDown}
                                     onMouseUp={handleBackdropMouseUp}
-                                    tabIndex={-1}
+                                    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                                    tabIndex={0}
                                     data-test-id={dataTestId}
                                     style={{
                                         zIndex: computedZIndex,

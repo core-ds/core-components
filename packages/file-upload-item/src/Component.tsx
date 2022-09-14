@@ -1,4 +1,4 @@
-import React, { ElementType, MouseEvent, ReactNode, useCallback } from 'react';
+import React, { ElementType, MouseEvent, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
@@ -135,25 +135,22 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     disableButtons,
     dataTestId,
 }) => {
-    const handleDownload = useCallback(
-        (event: MouseEvent<HTMLElement>) => {
-            if (onDownload) {
-                event.preventDefault();
-                onDownload(id);
-            }
-        },
-        [id, onDownload],
-    );
+    const handleDownload = (event: MouseEvent<HTMLElement>) => {
+        if (onDownload) {
+            event.preventDefault();
+            onDownload(id);
+        }
+    };
 
-    const handleDelete = useCallback(() => {
+    const handleDelete = () => {
         if (onDelete) onDelete(id);
-    }, [id, onDelete]);
+    };
 
-    const handleRestore = useCallback(() => {
+    const handleRestore = () => {
         if (onRestore) onRestore(id);
-    }, [id, onRestore]);
+    };
 
-    const renderIcon = useCallback(() => {
+    const renderIcon = () => {
         if (showRestore) {
             return <ClockMIcon className={styles.restoreIcon} />;
         }
@@ -174,9 +171,10 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 return <Icon className={styles.icon} />;
             }
         }
-    }, [showRestore, uploadStatus]);
+    };
 
-    const renderInfoSection = useCallback(() => {
+    const renderInfoSection = () => {
+        const shouldShownError = uploadStatus === 'ERROR' || !!error;
         const errorContent =
             uploadStatus === 'ERROR' && !error ? 'Не удалось загрузить файл' : error;
 
@@ -184,14 +182,14 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
             <div className={styles.infoSection}>
                 <div className={styles.name}>{name}</div>
 
-                {error && (
+                {shouldShownError && (
                     <div className={styles.errorWrapper} role='alert'>
                         {errorContent}
                     </div>
                 )}
             </div>
         );
-    }, [name, uploadStatus, error]);
+    };
 
     const showMeta = !showRestore && (!uploadStatus || uploadStatus === 'SUCCESS');
     const showDownload = Boolean(downloadLink) && !showRestore;

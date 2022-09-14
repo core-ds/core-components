@@ -1,3 +1,81 @@
+# [31.3.0](https://github.com/core-ds/core-components/compare/v31.2.0...v31.3.0) (2022-09-13)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
+* **base-modal:** fixed ssr error in element matches polyfill ([#257](https://github.com/core-ds/core-components/issues/257)) ([a6e05b1](https://github.com/core-ds/core-components/commit/a6e05b15ed4aabea7ffea0566d7fb121d72b8729))
+* **file-upload-item:** fixed error display by default ([#252](https://github.com/core-ds/core-components/issues/252)) ([874a669](https://github.com/core-ds/core-components/commit/874a6692af0a17624a219ee967bb1503a3dfb629))
+
+
+### Features
+
+* **code-input:** update mobile version ([#230](https://github.com/core-ds/core-components/issues/230)) ([bf66e85](https://github.com/core-ds/core-components/commit/bf66e85b147e22be13f1a62d945aba6012d5ccf5))
+* **confirmation-v1:** rename package confirmation-v-1 ([#258](https://github.com/core-ds/core-components/issues/258)) ([195f7a0](https://github.com/core-ds/core-components/commit/195f7a08eeb24bbb9eecf8e62155ec18dbe731d5))
+* **confirmation-v1:** return old confirmation ([#241](https://github.com/core-ds/core-components/issues/241)) ([a8779ed](https://github.com/core-ds/core-components/commit/a8779ed56baf0db9662ae6e00a417e44c56a65f3))
+* **form-control, themes:** change colors in intranet theme ([#236](https://github.com/core-ds/core-components/issues/236)) ([eae8b7d](https://github.com/core-ds/core-components/commit/eae8b7deed8e394ebc0cc00cd584d9f05575b3b0))
+* **plate:** added custom variable for box-shadow ([#256](https://github.com/core-ds/core-components/issues/256)) ([4d75e4e](https://github.com/core-ds/core-components/commit/4d75e4e84ead1ee12070c9097dba3b40400baac6))
+* **tabs:** update click theme  ([#225](https://github.com/core-ds/core-components/issues/225)) ([fe12ef6](https://github.com/core-ds/core-components/commit/fe12ef6e8fc7305a165a289e089187ef41119da0))
+
+# [31.2.0](https://github.com/core-ds/core-components/compare/v31.1.0...v31.2.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **base-modal:** Added element matches polyfill for IE11 ([#245](https://github.com/core-ds/core-components/issues/245)) ([cb95740](https://github.com/core-ds/core-components/commit/cb95740b931ec48d2f92a2cb64a148400b6cb135))
+* **button:** increased click area of the active state ([#246](https://github.com/core-ds/core-components/issues/246)) ([8937248](https://github.com/core-ds/core-components/commit/8937248cbfe7a2f542855a0bba5bb472eb82a076))
+* **checkbox-group:** added onBlur and onFocus ([#250](https://github.com/core-ds/core-components/issues/250)) ([b4a739b](https://github.com/core-ds/core-components/commit/b4a739b8516089265b9979f6f1eb5649d05833f5))
+* **gallery:** fixed swiper height on ios 14 and lower ([#95](https://github.com/core-ds/core-components/issues/95)) ([9703ca7](https://github.com/core-ds/core-components/commit/9703ca74733a6df2697354298be745b354c6cc1a))
+* **input-autocomplete:** add prop for custom input ([#223](https://github.com/core-ds/core-components/issues/223)) ([632cb7f](https://github.com/core-ds/core-components/commit/632cb7fb572366cd42fad1a8741e99098cce1f12))
+* **intl-phone-input:** fixed on ios 14 and lower ([#94](https://github.com/core-ds/core-components/issues/94)) ([8b7d3fc](https://github.com/core-ds/core-components/commit/8b7d3fc0df18d035cf86960832da5c8e07cc22e4))
+* **pure-cell:** better pure-cell text (ReactNode for value) ([#240](https://github.com/core-ds/core-components/issues/240)) ([8eea8b0](https://github.com/core-ds/core-components/commit/8eea8b068dbc75b20362edf89f4de0a56f5eb8d5))
+* **radio-group:** added onBlur and onFocus ([#249](https://github.com/core-ds/core-components/issues/249)) ([68c802c](https://github.com/core-ds/core-components/commit/68c802c2f4b8d1506573f9bd53aa2ef1af2e51ce))
+* renamed default classnames ([#198](https://github.com/core-ds/core-components/issues/198)) ([bf22bba](https://github.com/core-ds/core-components/commit/bf22bbafbd16c14804316cba25a4026b85dde2f7))
+* **select:** removed ssr warning ([#248](https://github.com/core-ds/core-components/issues/248)) ([d7f4abd](https://github.com/core-ds/core-components/commit/d7f4abdfd34b63d977e84dfa7373ae2d1554e3e0))
+
+
+### Features
+
+* **calendar-range:** added onError callback ([#253](https://github.com/core-ds/core-components/issues/253)) ([46e163c](https://github.com/core-ds/core-components/commit/46e163c750427e410d9aa9df6c554a5fbb86eba2))
+* **form-control:** new input/select label view (outer) ([#177](https://github.com/core-ds/core-components/issues/177)) ([66beb15](https://github.com/core-ds/core-components/commit/66beb15756de97e17a4d1dd4221fa7f401ee8539))
+* **toast-plate:** added inverted views ([#243](https://github.com/core-ds/core-components/issues/243)) ([a527d15](https://github.com/core-ds/core-components/commit/a527d152ab0705b429180ffe009886ff8920686a))
+* **vars:** introducing vars bundles ([#192](https://github.com/core-ds/core-components/issues/192)) ([28c15a4](https://github.com/core-ds/core-components/commit/28c15a49a7037680b38fec19018c0d1268f79ac3))
+
+# [31.1.0](https://github.com/core-ds/core-components/compare/v31.0.0...v31.1.0) (2022-09-09)
+
+
+### Bug Fixes
+
+* **action-button:** review fixes ([8c4b419](https://github.com/core-ds/core-components/commit/8c4b4193b2959e99f2b0f6de836f3f3d63ca0b18))
+
+
+### Features
+
+* new component action-button ([b8b009c](https://github.com/core-ds/core-components/commit/b8b009cc63071b9766c8a23884eac95fdbf6d658))
+* updated colors prop & added tests ([08170e6](https://github.com/core-ds/core-components/commit/08170e6fa6e33e7785477ff41b833f75809e9f60))
+
+# [31.0.0](https://github.com/core-ds/core-components/compare/v30.7.0...v31.0.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **link:** replace component with a button in pseudo mode ([#156](https://github.com/core-ds/core-components/issues/156)) ([6f24cbb](https://github.com/core-ds/core-components/commit/6f24cbb433c4ced85986d5f0e0b3bc1289e0fb8d))
+
+
+### BREAKING CHANGES
+
+* **link:** В компоненте Link с пропсом pseudo заменяется дефолтный html-элемент "a" на
+"button"
+
+Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
+
+# [30.7.0](https://github.com/core-ds/core-components/compare/v30.6.1...v30.7.0) (2022-09-06)
+
+
+### Features
+
+* **slider-input:** revert steps ([#234](https://github.com/core-ds/core-components/issues/234)) ([d5e312b](https://github.com/core-ds/core-components/commit/d5e312bb7a54e53414e205a57081159033d53efe))
+
 ## [30.6.1](https://github.com/core-ds/core-components/compare/v30.6.0...v30.6.1) (2022-09-05)
 
 

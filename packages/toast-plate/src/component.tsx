@@ -9,6 +9,13 @@ import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type BadgeIcons = {
     negative: JSX.Element;
@@ -86,6 +93,11 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Функция, с помощью которой можно переопределить иконки в Badge
      */
     getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 };
 
 const iconDefaultComponents = {
@@ -111,6 +123,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             block,
             onClose,
             getBadgeIcons,
+            colors = 'default',
             ...restProps
         },
         ref,
@@ -134,6 +147,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             <div
                 className={cn(
                     styles.component,
+                    colorStyles[colors].component,
                     { [styles.block]: block, [styles.hasCloser]: hasCloser },
                     className,
                 )}
@@ -181,10 +195,15 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                     )}
 
                     {hasCloser && (
-                        <div className={styles.closeButtonWrapper}>
+                        <div
+                            className={cn(
+                                styles.closeButtonWrapper,
+                                colorStyles[colors].closeButtonWrapper,
+                            )}
+                        >
                             <IconButton
                                 icon={CrossMIcon}
-                                colors='inverted'
+                                colors={colors === 'default' ? 'inverted' : 'default'}
                                 className={cn(styles.closeButton)}
                                 onClick={handleClose}
                                 aria-label='закрыть'

@@ -11,6 +11,7 @@
     /* mobile */
     --primary-tablist-mobile-gaps: var(--gap-xl);
     --primary-tablist-mobile-font-size: 16px;
+    --primary-tablist-mobile-line-height: 24px;
     --primary-tablist-mobile-font-weight: 400;
     --primary-tablist-mobile-font-family: var(--font-family-system);
     --primary-tablist-mobile-padding: 0 0 var(--gap-s);

@@ -12,6 +12,7 @@ export type AutocompleteFieldProps = FieldProps &
 
 export const AutocompleteField = ({
     label,
+    labelView = 'inner',
     placeholder,
     size,
     Arrow,
@@ -56,6 +57,7 @@ export const AutocompleteField = ({
             readOnly={readOnly}
             block={true}
             label={label}
+            labelView={labelView}
             placeholder={placeholder}
             size={size}
             error={error}

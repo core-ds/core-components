@@ -12,5 +12,5 @@ export const asyncRender = async (
         result = await render(ui, options);
     });
 
-    return result as unknown as RenderResult;
+    return (result as unknown) as RenderResult;
 };

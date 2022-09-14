@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-radio-group@3.0.1...@alfalab/core-components-radio-group@3.0.2) (2022-09-12)
+
+
+### Bug Fixes
+
+* **radio-group:** added onBlur and onFocus ([#249](https://github.com/core-ds/core-components/issues/249)) ([68c802c](https://github.com/core-ds/core-components/commit/68c802c2f4b8d1506573f9bd53aa2ef1af2e51ce))
+
+
+
+
+
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-radio-group@3.0.0...@alfalab/core-components-radio-group@3.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-radio-group
