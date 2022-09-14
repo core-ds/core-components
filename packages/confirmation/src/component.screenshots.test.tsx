@@ -1,9 +1,5 @@
 import { Page } from 'playwright';
-import {
-    setupScreenshotTesting,
-    createSpriteStorybookUrl,
-    generateTestCases,
-} from '../../screenshot-utils';
+import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -129,35 +125,6 @@ describe(
         matchImageSnapshotOptions: {
             failureThresholdType: 'percent',
             failureThreshold: 0.005,
-        },
-    }),
-);
-
-// MOBILE
-
-describe(
-    'ConfirmationMobile | code, charAmount, alig',
-    screenshotTesting({
-        cases: [
-            ...generateTestCases({
-                componentName: 'Confirmation',
-                testStory: false,
-                knobs: {
-                    screen: 'INITIAL',
-                    state: 'INITIAL',
-                    alignContent: 'center',
-                    requiredCharAmount: 5,
-                    phone: '+7 ··· ··· 07-24',
-                    ConfirmationComponent: 'ConfirmationMobile',
-                },
-            }),
-        ],
-        viewport: {
-            width: 450,
-            height: 450,
-        },
-        screenshotOpts: {
-            fullPage: true,
         },
     }),
 );
