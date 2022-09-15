@@ -1,10 +1,12 @@
+@import '../../../../themes/src/default.css';
+
 .component {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 388px;
     margin: 0 auto;
-    color: var(--confirmation-text-color);
+    color: var(--color-light-text-secondary);
 }
 
 .center {
