@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^6.1.0",
-        "@alfalab/core-components-link": "^4.1.0",
+        "@alfalab/core-components-link": "^5.0.0",
         "@alfalab/core-components-loader": "^3.0.2",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/icons-glyph": "^2.16.0",
