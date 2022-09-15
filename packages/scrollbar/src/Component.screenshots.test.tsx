@@ -56,6 +56,8 @@ describe('Scrollbar | interactions tests', () => {
             });
         } catch (e) {
             console.error(e.message);
+
+            throw e;
         } finally {
             await closeBrowser({ browser, context, page });
         }
@@ -87,6 +89,8 @@ describe('Scrollbar | interactions tests', () => {
             });
         } catch (e) {
             console.error(e.message);
+
+            throw e;
         } finally {
             await closeBrowser({ browser, context, page });
         }
