@@ -50,7 +50,7 @@ render(() => {
                             valueColor='secondary'
                             value='Value'
                             view='component'
-                            rowLimit={multiline ? undefined : 1}
+                            rowLimit={multiline ? 'infinity' : undefined}
                         >
                             Сейчас много говорят об отказах банков в проведении операций,
                             блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
@@ -68,7 +68,6 @@ render(() => {
                             valueColor='negative'
                             value='SubValue'
                             view='primary-small'
-                            rowLimit={multiline ? undefined : 1}
                         >
                             Сейчас много говорят об отказах банков в проведении операций,
                             блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
@@ -362,11 +361,11 @@ render(() => (
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
+                                <PureCell.Text titleColor='primary' view='component'>
                                     Идейные соображения высшего порядка Идейные соображения высшего
                                     порядка
                                 </PureCell.Text>
-                                <PureCell.Text titleColor='secondary' view='primary-small' rowLimit={1}>
+                                <PureCell.Text titleColor='secondary' view='primary-small'>
                                     Идейные соображения высшего порядка Идейные соображения высшего
                                     порядка
                                 </PureCell.Text>
