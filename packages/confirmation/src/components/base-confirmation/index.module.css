@@ -4,6 +4,7 @@
     width: 100%;
     max-width: 388px;
     margin: 0 auto;
+    color: var(--confirmation-text-color);
 }
 
 .center {
