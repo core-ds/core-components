@@ -185,6 +185,7 @@ describe('PureCell', () => {
         );
 
         fireEvent.click(screen.getByTestId('cell-pure'));
+
         expect(cb).toBeCalledTimes(1);
         expect(screen.getByTestId('cell-pure').tagName).toBe('BUTTON');
     });
