@@ -55,6 +55,7 @@ export const Text: React.FC<Props> = ({
     dataTestId,
 }) => {
     const { direction = 'horizontal' } = useContext(PureCellContext);
+    const className = rowLimit && styles[`rowLimit${rowLimit}`];
 
     return (
         <div
@@ -62,12 +63,12 @@ export const Text: React.FC<Props> = ({
                 [styles.vertical]: direction !== 'horizontal',
             })}
         >
-            <span className={cn(styles.title)}>
+            <span className={styles.title}>
                 {typeof children === 'string' ? (
                     <Typography.Text
                         view={view}
                         color={titleColor}
-                        className={cn(rowLimit && styles[`rowLimit${rowLimit}`])}
+                        className={className}
                         data-test-id={getDataTestId(dataTestId, 'text')}
                     >
                         {children}
@@ -81,10 +82,7 @@ export const Text: React.FC<Props> = ({
                     <Typography.Text
                         view={view}
                         color={valueColor}
-                        className={cn({
-                            [styles[`rowLimit${rowLimit}`]]: rowLimit,
-                            [styles.multiline]: !rowLimit,
-                        })}
+                        className={className}
                         data-test-id={getDataTestId(dataTestId, 'text')}
                     >
                         {value}

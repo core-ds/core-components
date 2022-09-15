@@ -50,7 +50,7 @@ render(() => {
                             valueColor='secondary'
                             value='Value'
                             view='component'
-                            rowLimit={1}
+                            rowLimit={multiline ? undefined : 1}
                         >
                             Сейчас много говорят об отказах банков в проведении операций,
                             блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
@@ -68,7 +68,7 @@ render(() => {
                             valueColor='negative'
                             value='SubValue'
                             view='primary-small'
-                            rowLimit={1}
+                            rowLimit={multiline ? undefined : 1}
                         >
                             Сейчас много говорят об отказах банков в проведении операций,
                             блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
