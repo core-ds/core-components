@@ -56,6 +56,10 @@ describe(
                 }),
             ],
         ],
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.1,
+        },
         screenshotOpts: {
             fullPage: true,
         },
