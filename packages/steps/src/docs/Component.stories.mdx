@@ -8,7 +8,8 @@ import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon'
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
 
-import { name, version } from '../../package.json';
+import { Steps as StepsTS } from '../Component';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../components/step/index.module.css';
@@ -49,7 +50,7 @@ import { Steps } from '@alfalab/core-components/steps';
 ```
 
 <Tabs
-    props={<Props of={Steps} />}
+    props={<Props of={StepsTS} />}
     description={<Description />}
     cssVars={<CssVars css={styles} />}
     changelog={<Changelog />}
