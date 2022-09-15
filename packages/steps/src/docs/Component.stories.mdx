@@ -1,0 +1,57 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { number, boolean } from '@storybook/addon-knobs';
+import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
+import { Steps } from '@alfalab/core-components-steps';
+import { Badge } from '@alfalab/core-components-badge';
+import { Typography } from '@alfalab/core-components-typography';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
+import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
+
+import { Steps as StepsTS } from '../Component';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../components/step/index.module.css';
+
+<Meta
+    title='Компоненты/Steps'
+    component={Steps}
+/>
+
+<!-- Canvas -->
+
+<Story name='Steps'>
+    <Steps
+        activeStep={number('activeStep', 1)}
+        defaultActiveStep={number('defaultActiveStep', 2)}
+        isVerticalAlign={boolean('isVerticalAlign', false)}
+        ordered={boolean('ordered', false)}
+        interactive={boolean('interactive', true)}
+    >
+        <div>Шаг 1</div>
+        <div>Шаг 2</div>
+        <div>Шаг 3</div>
+        <div>Шаг 4</div>
+    </Steps>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Steps'
+    version={version}
+    package='@alfalab/core-components/steps'
+    stage={1}
+/>
+
+```jsx
+import { Steps } from '@alfalab/core-components/steps';
+```
+
+<Tabs
+    props={<Props of={StepsTS} />}
+    description={<Description />}
+    cssVars={<CssVars css={styles} />}
+    changelog={<Changelog />}
+/>

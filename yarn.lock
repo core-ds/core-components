@@ -75,10 +75,10 @@
   resolved "https://registry.npmjs.org/@alfalab/icons-flag/-/icons-flag-1.11.0.tgz"
   integrity sha512-n+R4Gr6JaMd8JUTiO0QNkcG8rftM9qiAr+sqbZoOKg56O/8SmAaTY8M4wYRQkP93uGo3vFgI1aaCGPXGFSr73A==
 
-"@alfalab/icons-glyph@^2.16.0":
-  version "2.16.0"
-  resolved "https://registry.npmjs.org/@alfalab/icons-glyph/-/icons-glyph-2.16.0.tgz"
-  integrity sha512-TnibCP6JRJtjKq/w+G2gddNOMxC2MtzthoHhBVy/85QnvWWubRM0cwCB3MXOkqEXsF+vv4l5eJlDGqbY/e6aoQ==
+"@alfalab/icons-glyph@^2.64.0":
+  version "2.64.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.64.0.tgz#9141fd32909c7da4ac9912db38feba5e3b5013eb"
+  integrity sha512-HoKQ4SupRVf7Ws1kGX1gmf7lKNiM0E3tAUT5RZ5elO52v5klzGSiD3c2mlox0wbEgui9Dxey4nt/1MOJ1j638w==
 
 "@alfalab/icons-logotype@^1.28.0":
   version "1.28.0"
