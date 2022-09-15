@@ -20,7 +20,7 @@
     "dependencies": {
         "@alfalab/core-components-badge": "^1.0.3",
         "@alfalab/core-components-icon-button": "^5.0.4",
-        "@alfalab/icons-glyph": "^2.62.0",
+        "@alfalab/icons-glyph": "^2.64.0",
         "classnames": "^2.3.1"
     }
 }
