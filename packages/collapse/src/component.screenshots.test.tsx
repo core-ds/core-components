@@ -29,7 +29,7 @@ describe('Collapse | interactions tests', () => {
                 },
             });
 
-            await page.click('a');
+            await page.click('button[class*=component]');
 
             await matchHtml({
                 page,
@@ -44,6 +44,8 @@ describe('Collapse | interactions tests', () => {
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
+
+            throw error;
         } finally {
             await closeBrowser({ browser, context, page });
         }

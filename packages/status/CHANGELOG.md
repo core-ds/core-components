@@ -2,12 +2,7 @@
 
 ## 3.0.3
 
-### Patch Changes
-
--   bump version. Thanks [@Lacronts](https://github.com/Lacronts)
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+- В этом выпуске не было значимых изменений.
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-status@3.0.0...@alfalab/core-components-status@3.0.1) (2022-08-19)
 

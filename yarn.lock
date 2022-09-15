@@ -14,15 +14,6 @@
   dependencies:
     classnames "^2.2.6"
 
-"@alfalab/core-components-link@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-link/-/core-components-link-4.1.0.tgz#24d5bc003cc78b51e9aeb57af690bcba240f5ddd"
-  integrity sha512-hECB7aYhhsqFMNlLMKbROmUpENLiLrRcsChTIwxdWMs+L5Uh5ucrq/8VmoduqV84ySMiQ+mWSZLRus969iE+sw==
-  dependencies:
-    "@alfalab/hooks" "^1.4.1"
-    classnames "^2.3.1"
-    react-merge-refs "^1.1.0"
-
 "@alfalab/core-components-mq@^1.0.0":
   version "1.1.6"
   resolved "https://registry.npmjs.org/@alfalab/core-components-mq/-/core-components-mq-1.1.6.tgz#cfef373b35442c8282ca7d4ecd5d92a39cb94357"
