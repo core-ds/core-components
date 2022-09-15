@@ -7,18 +7,6 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@alfalab/core-components-badge@^1.0.3":
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-badge/-/core-components-badge-1.1.0.tgz"
-  integrity sha512-+iqCpiHIm+q2Rsk0sJWyHbtVbshtW1T0Ux+YoouXdRutI//StIUp2hIkT4Ja8On8rxHScP0KlPD1FcZqiZpiEA==
-  dependencies:
-    classnames "^2.2.6"
-
-"@alfalab/core-components-mq@^1.0.0":
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/@alfalab/core-components-mq/-/core-components-mq-1.1.6.tgz#cfef373b35442c8282ca7d4ecd5d92a39cb94357"
-  integrity sha512-MqyBq4v3B6w75D5vSfSQXqalbDgvB3DwCZL0IA+Sy75Hj6vBf8SLUgpH2HDLNX4O0cr+3F5y5HQmhoqgEO4Pdg==
-
 "@alfalab/data@^1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.2.tgz#3052b75f6e9857bbfa97a0b511b69167cbb9e89c"
@@ -9766,7 +9754,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
+classnames@^2.2.5, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
