@@ -16,9 +16,8 @@ type Props = {
 
     /**
      * Количество строк
-     * @default 1
      */
-    rowLimit?: 1 | 2 | 'infinity';
+    rowLimit?: 1 | 2;
 
     /**
      * Размер текста
@@ -49,14 +48,14 @@ type Props = {
 export const Text: React.FC<Props> = ({
     children,
     value,
-    rowLimit = 1,
+    rowLimit,
     view = 'component',
     titleColor,
     valueColor,
     dataTestId,
 }) => {
     const { direction = 'horizontal' } = useContext(PureCellContext);
-    const className = rowLimit === 'infinity' ? undefined : styles[`rowLimit${rowLimit}`];
+    const className = rowLimit && styles[`rowLimit${rowLimit}`];
 
     return (
         <div
