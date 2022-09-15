@@ -16,9 +16,10 @@ import { Typography } from '@alfalab/core-components-typography';
 import { Button } from '@alfalab/core-components-button';
 
 import { ConfirmationContext } from '../../../context';
+import { Header } from '../../header';
+import { CountdownSection } from './countdown-section';
 
 import styles from './index.module.css';
-import { CountdownSection } from './countdown-section';
 
 export type InitialProps = {
     /**
@@ -127,15 +128,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Typography.Title
-                tag='h3'
-                font='system'
-                view={mobile ? 'xsmall' : 'small'}
-                color='primary'
-                className={styles.header}
-            >
-                {texts.title}
-            </Typography.Title>
+            <Header mobile={mobile}>{texts.title}</Header>
 
             <Typography.Text view='primary-medium' color='primary' className={styles.phone}>
                 Код отправлен на {phone}

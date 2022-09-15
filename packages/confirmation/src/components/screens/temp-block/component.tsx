@@ -3,6 +3,7 @@ import React, { useContext, useEffect, Fragment, FC } from 'react';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { CountdownLoader } from '../../countdown-loader';
+import { Header } from '../../header';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes, useCountdown } from '../../../utils';
@@ -35,15 +36,7 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
 
     return (
         <Fragment>
-            <Typography.Title
-                tag='h3'
-                font='system'
-                view={mobile ? 'xsmall' : 'small'}
-                color='primary'
-                className={styles.header}
-            >
-                {texts.tempBlockTitle}
-            </Typography.Title>
+            <Header mobile={mobile}>{texts.tempBlockTitle}</Header>
 
             <Typography.Text view='primary-medium' color='primary' className={styles.description}>
                 {texts.tempBlockDescription}

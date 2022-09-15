@@ -1,9 +1,4 @@
 @import '../../../../../themes/src/default.css';
-@import '../../../vars.css';
-
-.header {
-    margin-bottom: var(--gap-xl);
-}
 
 .description {
     margin-bottom: var(--gap-xs);

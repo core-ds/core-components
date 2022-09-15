@@ -1,5 +1,4 @@
 @import '../../../../../themes/src/default.css';
-@import '../../../vars.css';
 
 .center {
     & .hintWrap {
@@ -14,10 +13,6 @@
     & span:last-of-type {
         margin-bottom: 0;
     }
-}
-
-.header {
-    margin-bottom: var(--gap-xl);
 }
 
 .text {

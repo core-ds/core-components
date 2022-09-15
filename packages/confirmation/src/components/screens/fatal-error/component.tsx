@@ -5,6 +5,7 @@ import { Button } from '@alfalab/core-components-button';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
+import { Header } from '../../header';
 
 import styles from './index.module.css';
 
@@ -20,15 +21,7 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Typography.Title
-                tag='h3'
-                font='system'
-                view={mobile ? 'xsmall' : 'small'}
-                color='primary'
-                className={styles.header}
-            >
-                {texts.fatalErrorTitle}
-            </Typography.Title>
+            <Header mobile={mobile}>{texts.fatalErrorTitle}</Header>
 
             <Typography.Text view='primary-medium' color='primary'>
                 {texts.fatalErrorDescription}

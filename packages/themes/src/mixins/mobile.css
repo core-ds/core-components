@@ -3,7 +3,6 @@
 @import './tag/mobile.css';
 @import './checkbox/mobile.css';
 @import './radio/mobile.css';
-@import './confirmation/mobile.css';
 @import './input/mobile.css';
 @import './slider/mobile.css';
 @import './slider-input/mobile.css';
@@ -17,7 +16,6 @@
     @mixin tag-mobile;
     @mixin checkbox-mobile;
     @mixin radio-mobile;
-    @mixin confirmation-mobile;
     @mixin form-control-mobile;
     @mixin input-mobile;
     @mixin slider-mobile;

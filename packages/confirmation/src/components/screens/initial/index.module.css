@@ -1,13 +1,8 @@
 @import '../../../../../themes/src/default.css';
-@import '../../../vars.css';
 
 .component {
     display: flex;
     flex-direction: column;
-}
-
-.header {
-    margin-bottom: var(--gap-xl);
 }
 
 .phone {

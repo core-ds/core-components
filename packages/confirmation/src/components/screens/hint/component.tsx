@@ -6,6 +6,7 @@ import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
+import { Header } from '../../header';
 
 import styles from './index.module.css';
 
@@ -27,15 +28,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
     return (
         <div className={cn(styles.component, styles[alignContent])}>
             <div className={styles.hintWrap}>
-                <Typography.Title
-                    tag='h3'
-                    font='system'
-                    view={mobile ? 'xsmall' : 'small'}
-                    color='primary'
-                    className={styles.header}
-                >
-                    Не&nbsp;приходит сообщение?
-                </Typography.Title>
+                <Header mobile={mobile}>Не&nbsp;приходит сообщение?</Header>
 
                 <Typography.Text view='primary-medium' color='primary' className={styles.text}>
                     Если у&nbsp;вас изменился номер телефона, позвоните нам или обратитесь

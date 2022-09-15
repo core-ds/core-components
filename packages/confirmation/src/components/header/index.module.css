@@ -1,0 +1,21 @@
+@import '../../vars.css';
+
+.header {
+    margin-bottom: var(--gap-xl);
+}
+
+.typography {
+    font-feature-settings: 'ss01';
+    font-size: var(--confirmation-header-destop-font-size);
+    line-height: var(--confirmation-header-destop-line-height);
+    font-weight: var(--confirmation-header-destop-font-weight);
+    font-family: var(--confirmation-header-destop-font-family);
+}
+
+.typographyMobile {
+    font-feature-settings: 'ss01';
+    font-size: var(--confirmation-header-mobile-font-size);
+    line-height: var(--confirmation-header-mobile-line-height);
+    font-weight: var(--confirmation-header-mobile-font-weight);
+    font-family: var(--confirmation-header-mobile-font-family);
+}

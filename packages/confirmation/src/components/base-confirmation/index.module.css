@@ -1,9 +1,4 @@
-@import '../../../../themes/src/default.css';
-@import '../../vars.css';
-
 .component {
-    @mixin _confirmation-text;
-
     display: flex;
     flex-direction: column;
     width: 100%;

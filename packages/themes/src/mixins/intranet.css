@@ -3,7 +3,6 @@
 @import './tag/intranet.css';
 @import './checkbox/intranet.css';
 @import './radio/intranet.css';
-@import './confirmation/intranet.css';
 @import './input/intranet.css';
 @import './slider/intranet.css';
 @import './slider-input/intranet.css';
@@ -17,7 +16,6 @@
     @mixin tag-intranet;
     @mixin checkbox-intranet;
     @mixin radio-intranet;
-    @mixin confirmation-intranet;
     @mixin form-control-intranet;
     @mixin input-intranet;
     @mixin slider-intranet;
