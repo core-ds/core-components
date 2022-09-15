@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.0.12
+
+### Patch Changes
+
+-   Updated dependencies [[#189](https://github.com/core-ds/core-components/pull/189)]
+    -   @alfalab/core-components-input@10.2.2
+    -   @alfalab/core-components-select@12.4.3
+    -   @alfalab/core-components-input-autocomplete@8.2.3
+
 ## 7.0.11
 
 ### Patch Changes

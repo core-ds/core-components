@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.2.7
+
+### Patch Changes
+
+-   @alfalab/core-components-select@12.4.3
+
 ## 8.2.6
 
 ### Patch Changes

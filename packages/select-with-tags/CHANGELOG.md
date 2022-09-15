@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.1.7
+
+### Patch Changes
+
+-   [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+    -   @alfalab/core-components-select@12.4.3
+
 ## 6.1.6
 
 ### Patch Changes

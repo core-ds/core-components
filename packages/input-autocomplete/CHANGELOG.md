@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.3
+
+### Patch Changes
+
+-   Updated dependencies [[#189](https://github.com/core-ds/core-components/pull/189)]
+    -   @alfalab/core-components-input@10.2.2
+    -   @alfalab/core-components-select@12.4.3
+
 ## 8.2.2
 
 ### Patch Changes
