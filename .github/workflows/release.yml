@@ -17,6 +17,7 @@ jobs:
         with:
           ref: 'master'
           fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Install dependencies
         run: yarn --pure-lockfile

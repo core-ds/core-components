@@ -6,9 +6,9 @@ function getLinesFromSummary(summary, links, idx = 0) {
     const hasLinks = !!links;
     const [firstLine, ...futureLines] = summary.split('\n').map(l => l.trimRight());
 
-    let returnVal = `${idx !== 0 ? '\n' : ''}- ${hasLinks ? `${links.pull}: ` : ''}${firstLine}${
-        hasLinks ? `. Thanks ${links.user}` : ''
-    }`;
+    let returnVal = `${idx !== 0 ? '\n' : ''}- ${
+        hasLinks && links.pull ? `${links.pull}: ` : ''
+    }${firstLine}${hasLinks && links.user ? `. Thanks ${links.user}` : ''}`;
 
     if (futureLines.length > 0) {
         returnVal += `\n${futureLines.map(l => `  ${l}`).join('\n')}`;

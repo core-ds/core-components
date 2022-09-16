@@ -1,3 +1,90 @@
+## 32.0.0
+
+### Major Changes
+
+#### `@alfalab/core-components-pure-cell`
+- [#182](https://github.com/core-ds/core-components/pull/182): Убран проп isMultiline. Есть rowLimit, и если его не передавать, ожидается, что текст не будет обрезаться.. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+### Minor Changes
+
+#### `@alfalab/core-components-steps`
+- [#189](https://github.com/core-ds/core-components/pull/189): Новый компонент Steps. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-confirmation-v1`
+- [#260](https://github.com/core-ds/core-components/pull/260): Добавил реэкспорт для компонента ConfirmationV1 как Confirmation и типа пропсов ConfirmationV1Props как ConfirmationProps. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+
+### Patch Changes
+
+#### `@alfalab/core-components-attach`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-bank-card`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-calendar`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-checkbox`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-confirmation`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-confirmation-v1`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-dropzone`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-file-upload-item`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-gallery`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-input`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-password-input`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-select-with-tags`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-toast-plate`
+- [#189](https://github.com/core-ds/core-components/pull/189): Обновлена зависимость @alfalab/icons-glyph. Thanks [@blackraydev](https://github.com/blackraydev)
+- [#261](https://github.com/core-ds/core-components/pull/261): Обновлены внутренние зависимости. Thanks [@Lacronts](https://github.com/Lacronts)
+
+
+#### `@alfalab/core-components-modal`
+- [#261](https://github.com/core-ds/core-components/pull/261): Обновлены внутренние зависимости. Thanks [@Lacronts](https://github.com/Lacronts)
+
+## 31.3.3
+
+- В этом выпуске не было значимых изменений.
+
+## 31.3.1
+
+### Patch Changes
+
+#### `@alfalab/core-components-scrollbar`
+- [#239](https://github.com/core-ds/core-components/pull/239): Исправлен border-radius при hover-эффекте. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
 # [31.3.0](https://github.com/core-ds/core-components/compare/v31.2.0...v31.3.0) (2022-09-13)
 
 

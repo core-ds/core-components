@@ -35,6 +35,10 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.05,
+        },
     }),
 );
 
@@ -59,6 +63,10 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'percent',
+            failureThreshold: 0.05,
+        },
     }),
 );
 
@@ -77,6 +85,8 @@ describe(
             page.hover('button[class^=component]').then(() => page.waitForTimeout(500)),
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+            failureThresholdType: 'percent',
+            failureThreshold: 0.05,
         },
     }),
 );
@@ -99,6 +109,8 @@ describe(
         },
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `pressed-${customSnapshotIdentifier(...args)}`,
+            failureThresholdType: 'percent',
+            failureThreshold: 0.05,
         },
     }),
 );

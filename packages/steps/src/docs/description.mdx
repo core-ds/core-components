@@ -1,0 +1,274 @@
+## Примеры
+
+### Горизонтальный
+
+```jsx live
+render(() => {
+    const [ordered, setOrdered] = React.useState(true);
+    const [error, setError] = React.useState(false);
+    const [step, setStep] = React.useState(2);
+
+    const handleReset = () => setStep(1);
+
+    const handleStepsChange = (stepNumber) => setStep(stepNumber);
+
+    const handleOrderChange = () => setOrdered(prev => !prev);
+
+    const handleErrorChange = () => {
+        setError(prev => {
+            if (!prev && step > 3) {
+                setStep(3);
+            }
+
+            return !prev;
+        });
+    }
+
+    const handleStepDisable = (stepNumber) => {
+        if (error) {
+            return stepNumber === 4 || stepNumber === 5;
+        }
+        
+        return stepNumber === 4;
+    }
+
+    const handleStepError = (stepNumber) => {
+        if (error) {
+            return stepNumber === 3;
+        }
+    }
+
+    return (
+        <div>
+            <Steps
+                activeStep={step}
+                defaultActiveStep={2}
+                ordered={ordered}
+                onChange={handleStepsChange}
+                checkIsStepDisabled={handleStepDisable}
+                checkIsStepError={handleStepError}
+            >
+                <div>Шаг 1</div>
+                <div>Шаг 2</div>
+                <div>Шаг 3</div>
+                <div>Шаг 4</div>
+                <div>Шаг 5</div>
+            </Steps>
+            <div style={{ margin: '20px 0' }}>Выбран шаг {step}</div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Switch checked={ordered} onChange={handleOrderChange} />
+                <span style={{ marginLeft: 12 }}>Номера шагов</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: 14 }}>
+                <Switch checked={error} onChange={handleErrorChange} />
+                <span style={{ marginLeft: 12 }}>Показать некорректно заполненный шаг</span>
+            </div>
+            <Button style={{ marginTop: 14 }} view='secondary' onClick={handleReset} size='xxs'>
+                Сбросить
+            </Button>
+        </div>
+    );
+});
+```
+
+
+### Вертикальный
+
+```jsx live
+render(() => {
+    const [ordered, setOrdered] = React.useState(true);
+    const [error, setError] = React.useState(false);
+    const [step, setStep] = React.useState(2);
+
+    const handleReset = () => setStep(1);
+
+    const handleStepsChange = (stepNumber) => setStep(stepNumber);
+
+    const handleOrderChange = () => setOrdered(prev => !prev);
+
+    const handleErrorChange = () => {
+        setError(prev => {
+            if (!prev && step > 3) {
+                setStep(3);
+            }
+
+            return !prev;
+        });
+    }
+
+    const handleStepDisable = (stepNumber) => {
+        if (error) {
+            return stepNumber === 4 || stepNumber === 5;
+        }
+        
+        return stepNumber === 4;
+    }
+
+    const handleStepError = (stepNumber) => {
+        if (error) {
+            return stepNumber === 3;
+        }
+    }
+
+    return (
+        <div style={{ display: 'flex', gap: 250 }}>
+            <Steps
+                activeStep={step}
+                defaultActiveStep={2}
+                ordered={ordered}
+                onChange={handleStepsChange}
+                isVerticalAlign={true}
+                interactive={false}
+                checkIsStepDisabled={handleStepDisable}
+                checkIsStepError={handleStepError}
+            >
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 1
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 2
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                        <PureCell.Footer>
+                            <div style={{ display: "flex", gap: 12 }}>
+                                <PureCell.FooterButton view="primary">
+                                    Primary
+                                </PureCell.FooterButton>
+                                <PureCell.FooterButton view="secondary">
+                                    Secondary
+                                </PureCell.FooterButton>
+                            </div>
+                        </PureCell.Footer>
+                    </PureCell.Content>
+                </PureCell>
+
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 3
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+
+                <PureCell verticalPadding='none' horizontalPadding='none'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor="primary"
+                                view="component"
+                            >
+                                Шаг 4
+                            </PureCell.Text>
+                            <PureCell.Category categoryName="Subtitle" />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+                
+                <div>Шаг 5</div>
+            </Steps>
+            <div>
+                <div style={{ marginBottom: 20 }}>Выбран шаг {step}</div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                    <Switch checked={ordered} onChange={handleOrderChange} />
+                    <span style={{ marginLeft: 12 }}>Номера шагов</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', marginTop: 14 }}>
+                    <Switch checked={error} onChange={handleErrorChange} />
+                    <span style={{ marginLeft: 12 }}>Показать некорректно заполненный шаг</span>
+                </div>
+                <Button
+                    style={{ marginTop: 14 }}
+                    view="secondary"
+                    onClick={handleReset}
+                    size="xxs"
+                >
+                    Сбросить
+                </Button>
+            </div>
+        </div>
+    );
+});
+```
+
+
+### Виды индикаторов
+
+```jsx live
+render(
+    <div style={{ color: '#546272' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='positive'
+                content={<CheckmarkCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Completed</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='positive'
+                content={<CheckmarkCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Positive</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='negative'
+                content={<ExclamationCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Negative</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='attention'
+                content={<ExclamationCircleMIcon />}
+            />
+            <Typography.Text view='primary-small'>Warning</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
+            <Badge
+                size='l'
+                view='icon'
+                iconColor='secondary'
+                content={<ClockMIcon />}
+            />
+            <Typography.Text view='primary-small'>Waiting</Typography.Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ width: 24, height: 24, background: 'rgba(55, 120, 251, 0.1)', border: '1px solid #3778FB', borderRadius: 4, margin: '0 6px' }} />
+            <Typography.Text view='primary-small'>Custom</Typography.Text>
+        </div>
+    </div>
+)
+```

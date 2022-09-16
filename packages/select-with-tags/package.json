@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select-with-tags",
-    "version": "6.1.5",
+    "version": "6.1.7",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,10 +18,10 @@
     },
     "dependencies": {
         "@alfalab/core-components-form-control": "^8.3.0",
-        "@alfalab/core-components-select": "^12.4.1",
+        "@alfalab/core-components-select": "^12.4.3",
         "@alfalab/core-components-tag": "^5.0.1",
         "@alfalab/hooks": "^1.4.1",
-        "@alfalab/icons-glyph": "^2.16.0",
+        "@alfalab/icons-glyph": "^2.64.0",
         "classnames": "^2.3.1"
     }
 }

@@ -13,7 +13,7 @@ const {
 } = require('../tools/changesets/changelogFunctions').default;
 
 const cwd = process.cwd();
-const execOptions = { silent: true, fatal: true };
+const execOptions = { silent: false, fatal: true };
 
 const config = {
     changelogPath: 'CHANGELOG.md',
@@ -21,6 +21,10 @@ const config = {
     gitUsername: 'core-ds-bot',
     gitEmail: 'ds@gitmax.tech',
 };
+
+function escapeShellChars(str) {
+    return str.replace(/["`$]/g, '\\$&');
+}
 
 function setupGit() {
     shell.exec(`git config user.name "${config.gitUsername}"`, execOptions);
@@ -159,7 +163,7 @@ async function releaseRoot() {
     await git.add(config.changelogPath, cwd);
 
     logger.log('=> Commit changed files');
-    shell.exec('git commit -n -m "chore: publish root package"', execOptions);
+    shell.exec('git commit -n -m "chore: publish root package [skip ci]"', execOptions);
 
     // копирую package.json в сборку корневого пакета
     shell.exec('cp package.json dist/package.json', execOptions);
@@ -184,12 +188,17 @@ async function releaseRoot() {
         await git.tag(nextReleaseTag, cwd);
 
         logger.log('=> Push changes');
-        shell.exec('git push origin master', execOptions);
+        shell.exec(
+            `git push "https://${config.gitUsername}:${process.env.GITHUB_TOKEN}@github.com/core-ds/core-components.git"`,
+            execOptions,
+        );
         shell.exec('git push --follow-tags', execOptions);
 
         logger.log('=> Create github release');
         shell.exec(
-            `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${notes}" --target master`,
+            `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
+                notes,
+            )}" --target master`,
             execOptions,
         );
 
@@ -215,10 +224,13 @@ async function releasePackages() {
     shell.exec('git add .', execOptions);
     // Не добавляем .npmrc в коммит.
     shell.exec('git reset .npmrc', execOptions);
-    shell.exec('git commit -n -m "chore: publish packages"', execOptions);
+    shell.exec('git commit -n -m "chore: publish packages [skip ci]"', execOptions);
 
     logger.log('=> Push changes');
-    shell.exec('git push origin master', execOptions);
+    shell.exec(
+        `git push "https://${config.gitUsername}:${process.env.GITHUB_TOKEN}@github.com/core-ds/core-components.git"`,
+        execOptions,
+    );
     shell.exec('git push --follow-tags', execOptions);
 }
 

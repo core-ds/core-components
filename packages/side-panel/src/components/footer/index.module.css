@@ -9,6 +9,7 @@
 .sticky {
     background: var(--side-panel-footer-background);
     position: sticky;
+    z-index: 1;
 }
 
 .highlighted {

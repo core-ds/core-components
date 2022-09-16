@@ -98,18 +98,35 @@ import { Checkbox } from '../packages/checkbox/src/Component';
 Для этого вам может понадобиться "ConfirmationContext" из которого можно получить:
 `alignContent, texts, state, screen, requiredCharAmount, onInputFinished, countdownDuration, onChangeState, onSmsRetryClick, onChangeScreen, onFatalErrorOkButtonClick, tempBlockDuration, phone, blockSmsRetry, onTempBlockFinished, timeLeft`
 
-Пример простого кастомного экрана успешной отправки кода;
+Пример простого кастомного экрана успешной отправки заявки;
 
 ```jsx live
 // import { Confirmation, ConfirmationContext } from '@alfalab/core-components-confirmation';
 
 render(() => {
     const CodeSuccesScreen = () => {
-        const { texts } = React.useContext(ConfirmationContext);
+        const { texts, onChangeScreen, onChangeState } = React.useContext(ConfirmationContext);
         return (
-            <Space align='center'>
-                <Typography.Title view='small'>{texts.codeSuccessTitle}</Typography.Title>
-                <CheckmarkCircleMIcon style={{ color: '#64AA49' }} />
+            <Space align='center' size={24}>
+                <img src='./images/success_code.svg' alt='success' />
+                <Space align='center'>
+                    <Typography.Title color='primary' view='small'>
+                        {texts.codeSuccessTitle}
+                    </Typography.Title>
+                    <Typography.Text view='primary-medium'>
+                        {texts.codeSuccessDescription}
+                    </Typography.Text>
+                </Space>
+                <Button
+                    size='s'
+                    view='tertiary'
+                    onClick={() => {
+                        onChangeScreen('INITIAL');
+                        onChangeState('INITIAL');
+                    }}
+                >
+                    {texts.codeSuccessButtonTitle}
+                </Button>
             </Space>
         );
     };
@@ -123,12 +140,12 @@ render(() => {
 
     const handleInputFinished = () => {
         setConfirmationScreen('CODE_SUCCESS');
-        // Сброс демо к начальному состоянию
-        window.setTimeout(() => {
-            setConfirmationState('INITIAL');
-            setConfirmationScreen('INITIAL');
-        }, 10000);
     };
+
+    const handleChangeScreen = screen => {
+        setConfirmationScreen(screen);
+    };
+
     const getScreensMap = screenMap => ({ ...screenMap, CODE_SUCCESS: CodeSuccesScreen });
 
     return (
@@ -138,10 +155,15 @@ render(() => {
             alignContent='center'
             countdownDuration={20000}
             onChangeState={setConfirmationState}
+            onChangeScreen={handleChangeScreen}
             onInputFinished={handleInputFinished}
             getScreensMap={getScreensMap}
             phone='+7 ··· ··· 07-24'
-            texts={{ codeSuccessTitle: 'Код принят' }}
+            texts={{
+                codeSuccessTitle: 'Заявка на подключение отправлена',
+                codeSuccessDescription: 'Услуга подключится в течение 3-х рабочих дней',
+                codeSuccessButtonTitle: 'Перейти в список заявок',
+            }}
         />
     );
 });
