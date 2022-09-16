@@ -1,35 +1,5 @@
 @import '../../themes/src/default.css';
-
-:root {
-    --form-control-inverted-border-bottom: 1px solid var(--color-light-border-underline-inverted);
-    --form-control-inverted-bg-color: var(--color-light-specialbg-component-inverted);
-    --form-control-inverted-color: var(--color-light-text-primary-inverted);
-    --form-control-inverted-label-color: var(--color-light-text-secondary-inverted-transparent);
-    --form-control-inverted-hint-color: var(--color-light-text-secondary-inverted-transparent);
-
-    /* disabled */
-    --form-control-inverted-disabled-bg-color: var(
-        --color-light-specialbg-component-inverted-tint-15
-    );
-    --form-control-inverted-disabled-border-bottom: 1px dashed
-        var(--color-light-border-underline-inverted);
-    --form-control-inverted-disabled-color: var(--color-light-text-secondary-inverted-transparent);
-
-    /* focus */
-    --form-control-inverted-focus-border-bottom: 1px solid var(--color-light-border-key-inverted);
-    --form-control-inverted-focus-bg-color: var(--color-light-specialbg-component-inverted-tint-15);
-
-    /* hover */
-    --form-control-inverted-hover-bg-color: var(--color-light-specialbg-component-inverted-tint-15);
-
-    /* error */
-    --form-control-inverted-error-color: var(--color-static-text-accent);
-    --form-control-inverted-error-label-color: var(
-        --color-light-text-secondary-inverted-transparent
-    );
-    --form-control-inverted-error-shadow: none;
-    --form-control-inverted-error-border-bottom: 1px solid var(--color-static-border-accent);
-}
+@import './vars.css';
 
 .component {
     color: var(--form-control-inverted-color);
@@ -57,10 +27,19 @@
 .disabled {
     background-color: var(--form-control-inverted-disabled-bg-color);
     color: var(--form-control-inverted-disabled-color);
+    box-shadow: var(--form-control-inverted-disabled-shadow);
+}
+
+.disabled.hasError {
+    box-shadow: var(--form-control-inverted-error-disabled-shadow);
 }
 
 .disabled:before {
     border-bottom: var(--form-control-inverted-disabled-border-bottom);
+}
+
+.disabled.filled .label {
+    color: var(--form-control-inverted-disabled-filled-label-color);
 }
 
 /* FOCUS STATE */

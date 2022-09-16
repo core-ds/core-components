@@ -1,0 +1,78 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --form-control-border-bottom: 1px solid var(--color-light-border-underline);
+    --form-control-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
+    --form-control-color: var(--color-light-text-primary);
+    --form-control-label-color: var(--color-light-text-secondary);
+    --form-control-hint-color: var(--color-light-text-secondary);
+    --form-control-inverted-border-bottom: 1px solid var(--color-light-border-underline-inverted);
+    --form-control-inverted-bg-color: var(--color-light-specialbg-component-inverted);
+    --form-control-inverted-color: var(--color-light-text-primary-inverted);
+    --form-control-inverted-label-color: var(--color-light-text-secondary-inverted-transparent);
+    --form-control-inverted-hint-color: var(--color-light-text-secondary-inverted-transparent);
+
+    /* disabled */
+    --form-control-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-underline);
+    --form-control-disabled-color: var(--color-light-text-secondary);
+    --form-control-disabled-filled-label-color: var(--form-control-disabled-color);
+    --form-control-disabled-shadow: none;
+    --form-control-inverted-disabled-bg-color: var(
+        --color-light-specialbg-component-inverted-tint-15
+    );
+    --form-control-inverted-disabled-border-bottom: 1px dashed
+        var(--color-light-border-underline-inverted);
+    --form-control-inverted-disabled-color: var(--color-light-text-secondary-inverted-transparent);
+    --form-control-inverted-disabled-filled-label-color: var(
+        --form-control-inverted-disabled-color
+    );
+    --form-control-inverted-disabled-shadow: none;
+
+    /* focus */
+    --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
+    --form-control-focus-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --form-control-inverted-focus-border-bottom: 1px solid var(--color-light-border-key-inverted);
+    --form-control-inverted-focus-bg-color: var(--color-light-specialbg-component-inverted-tint-15);
+
+    /* hover */
+    --form-control-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --form-control-inverted-hover-bg-color: var(--color-light-specialbg-component-inverted-tint-15);
+
+    /* error */
+    --form-control-error-color: var(--color-light-text-negative);
+    --form-control-error-label-color: var(--color-light-text-secondary);
+    --form-control-error-shadow: none;
+    --form-control-error-disabled-shadow: var(--form-control-error-shadow);
+    --form-control-error-border-bottom: 1px solid var(--color-static-border-accent);
+    --form-control-inverted-error-color: var(--color-static-text-accent);
+    --form-control-inverted-error-label-color: var(
+        --color-light-text-secondary-inverted-transparent
+    );
+    --form-control-inverted-error-shadow: none;
+    --form-control-inverted-error-disabled-shadow: var(--form-control-inverted-error-shadow);
+    --form-control-inverted-error-border-bottom: 1px solid var(--color-static-border-accent);
+
+    /* height */
+    --form-control-s-min-height: var(--size-s-height);
+    --form-control-m-min-height: var(--size-m-height);
+    --form-control-l-min-height: var(--size-l-height);
+    --form-control-xl-min-height: var(--size-xl-height);
+    --form-control-border-radius: 4px 4px 0 0;
+    --form-control-bg-backdrop-filter: unset;
+
+    /* paddings */
+    --form-control-paddings: 0 var(--gap-s);
+    --form-control-xl-paddings: 0 var(--gap-m);
+    --form-control-labeled-s-paddings: 24px var(--gap-s) 4px;
+    --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
+    --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
+    --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
+    --form-control-sub-paddings: 0;
+
+    /* disabled */
+    --form-control-disabled-opacity: 1;
+
+    /* font */
+    --form-control-font-family: var(--font-family);
+}

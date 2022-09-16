@@ -13,6 +13,7 @@
     /* custom view */
     --plate-background: transparent;
     --plate-border-color: var(--color-static-status-grey);
+    --plate-box-shadow: var(--shadow-s);
 
     /* icons */
     --plate-closer-icon: url('https://alfabank.servicecdn.ru/icons/glyph_cross_m.svg');
@@ -70,7 +71,7 @@
 }
 
 .shadow {
-    box-shadow: var(--shadow-s);
+    box-shadow: var(--plate-box-shadow);
 }
 
 .common {

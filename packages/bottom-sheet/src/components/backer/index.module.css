@@ -1,3 +1,5 @@
+@import '../../../../themes/src/default.css';
+
 :root {
     --bottom-sheet-backer-bg-color: var(--color-light-bg-primary-inverted-alpha-3);
 }

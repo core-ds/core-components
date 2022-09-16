@@ -1,0 +1,156 @@
+### @deprecated
+
+Компонент Confirmation версии 9.0.7 - больше не поддерживается, переходите на актуальную версию [Confirmation](/docs/компоненты-confirmation--confirmation)
+
+[Инструкция по обновлению](/docs/гайдлайны-обновление-confirmation--page)
+
+```tsx live
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий' });
+    const [value, setValue] = React.useState('');
+    const [codeChecking, setCodeChecking] = React.useState(false);
+    const [codeSending, setCodeSending] = React.useState(false);
+    const [error, setError] = React.useState('');
+    const [errorIsFatal, setErrorIsFatal] = React.useState(false);
+    const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState('');
+    const [errorOverlimit, setErrorOverlimit] = React.useState(false);
+    const [errorOverlimitIsFatal, setErrorOverlimitIsFatal] = React.useState(false);
+    const [overlimitTitle, setOverlimitTitle] = React.useState(
+        'Превышено количество\n попыток ввода кода',
+    );
+    const [overlimitText, setOverlimitText] = React.useState(
+        'Повторное подтверждение кодом из SMS\n будет возможно через',
+    );
+    const [overlimitCountdownDuration, setOverlimitCountdownDuration] = React.useState(10000);
+
+    const setCode = code => {
+        setValue(code);
+        setError('');
+    };
+
+    const handleSubmit = () => {
+        setCodeChecking(true);
+        setError('');
+        setTimeout(() => {
+            setCodeChecking(false);
+            switch (variant.key) {
+                case 'success':
+                    break;
+                case 'error':
+                    setError('Неправильный код');
+                    break;
+                case 'fatal':
+                    setError('Выполните операцию с самого начала');
+                    setErrorIsFatal(true);
+                    break;
+                case 'attempts-left':
+                    setNoAttemptsLeftMessage('Не осталось попыток запроса кода');
+                    break;
+                case 'overlimit-input':
+                    setOverlimitTitle('Превышено количество\n попыток ввода кода');
+                    setOverlimitText(
+                        'Повторное подтверждение кодом из SMS\n будет возможно через 1 минуту',
+                    );
+                    setOverlimitCountdownDuration(60000);
+                    setErrorOverlimit(true);
+                    setErrorOverlimitIsFatal(false);
+                    break;
+                case 'overlimit-attempts':
+                    setOverlimitTitle('Превышено количество\n попыток запроса кода');
+                    setOverlimitText(
+                        'Повторное подтверждение кода из SMS\n будет возможно через 24 часа ',
+                    );
+                    setOverlimitCountdownDuration(86400000);
+                    setErrorOverlimit(true);
+                    setErrorOverlimitIsFatal(true);
+                    break;
+            }
+        }, 300);
+    };
+    const handleOverlimitCountdownFinished = () => {
+        setOverlimitTitle('Введите код из SMS');
+        setOverlimitText('Чтобы продолжить нажмите кнопку\n «Запросить новый код»');
+        setErrorOverlimitIsFatal(false);
+    };
+    const handleSmsRetryClick = () => {
+        setCodeSending(true);
+        setError('');
+        setCode('');
+        setTimeout(() => {
+            setCodeSending(false);
+        }, 300);
+    };
+    const handleOverlimitRetryClick = () => {
+        setCodeSending(true);
+        setError('');
+        setCode('');
+        setErrorOverlimit(false);
+        setTimeout(() => {
+            setCodeSending(false);
+        }, 300);
+    };
+
+    return (
+        <Space>
+            <Select
+                options={[
+                    { key: 'success', content: 'Успешный сценарий' },
+                    { key: 'error', content: 'Сценарий с ошибкой' },
+                    { key: 'fatal', content: 'Сценарий с критичной ошибкой' },
+                    {
+                        key: 'attempts-left',
+                        content: 'Сценарий, когда кончились попытки запроса смс',
+                    },
+                    {
+                        key: 'overlimit-input',
+                        content: 'Сценарий, когда кончились попытки ввода и форма заблокирована',
+                    },
+                    {
+                        key: 'overlimit-attempts',
+                        content:
+                            'Сценарий, когда кончились попытки запроса смс и форма заблокирована',
+                    },
+                ]}
+                onChange={({ selected }) => {
+                    setVariant(selected);
+                }}
+                selected={variant.key}
+            />
+
+            <div
+                style={{
+                    display: 'inline-flex',
+                    padding: '16px',
+                    border: '1px solid #eeeff1',
+                }}
+            >
+                <ConfirmationV1
+                    phone='+7 000 000 00 42'
+                    onInputFinished={handleSubmit}
+                    onSmsRetryClick={handleSmsRetryClick}
+                    codeSending={codeSending}
+                    codeChecking={codeChecking}
+                    countdownDuration={10000}
+                    code={value}
+                    onInputChange={({ code }) => setCode(code)}
+                    alignContent='center'
+                    requiredCharAmount={5}
+                    error={Boolean(error)}
+                    errorText={error}
+                    errorIsFatal={errorIsFatal}
+                    noAttemptsLeftMessage={noAttemptsLeftMessage}
+                    errorOverlimit={errorOverlimit}
+                    errorOverlimitIsFatal={errorOverlimitIsFatal}
+                    overlimitTitle={overlimitTitle}
+                    overlimitText={overlimitText}
+                    overlimitCountdownDuration={overlimitCountdownDuration}
+                    onOverlimitSmsRetryClick={handleOverlimitRetryClick}
+                    onOverlimitCountdownFinished={handleOverlimitCountdownFinished}
+                />
+            </div>
+        </Space>
+    );
+});
+```

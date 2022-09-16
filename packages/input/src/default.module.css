@@ -1,23 +1,5 @@
 @import '../../themes/src/default.css';
-
-:root {
-    --input-color: var(--color-light-text-primary);
-    --input-placeholder-color: var(--color-light-text-secondary);
-    --input-focus-placeholder-color: var(--color-light-text-tertiary);
-    --input-with-label-placeholder-color: var(--color-light-text-tertiary);
-    --input-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
-    --input-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
-    --input-caret-color: var(--input-color);
-
-    /* disabled */
-    --input-disabled-color: var(--color-light-text-secondary);
-
-    /* read-only */
-    --input-read-only-color: var(--color-light-text-secondary);
-
-    /* error */
-    --input-error-color: var(--color-light-text-primary);
-}
+@import './vars.css';
 
 .input {
     color: var(--input-color);
@@ -33,7 +15,7 @@
     color: var(--input-placeholder-color);
 }
 
-.hasLabel::placeholder {
+.hasInnerLabel::placeholder {
     color: var(--input-with-label-placeholder-color);
 }
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@3.0.1...@alfalab/core-components-amount@3.0.2) (2022-08-31)
+
+
+### Bug Fixes
+
+* **amount:** fix undefined symbol ([#231](https://github.com/core-ds/core-components/issues/231)) ([07a93ab](https://github.com/core-ds/core-components/commit/07a93abefd530532cdacb530baf27d239b7f7174))
+
+
+
+
+
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@3.0.0...@alfalab/core-components-amount@3.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-amount

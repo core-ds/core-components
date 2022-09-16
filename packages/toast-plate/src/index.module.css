@@ -1,16 +1,5 @@
 @import '../../themes/src/default.css';
-
-:root {
-    --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
-    --toast-plate-color: var(--color-light-text-primary-inverted);
-    --toast-plate-border-radius: var(--border-radius-m);
-    --toast-plate-title-font-weight: 700;
-    --toast-plate-action-align: center;
-    --toast-plate-action-padding: 0 var(--gap-2xl);
-    --toast-plate-action-divider-display: block;
-    --toast-plate-content-with-closer-right-padding: var(--gap-m);
-    --toast-plate-close-button-align: center;
-}
+@import './vars.css';
 
 .component {
     position: relative;
@@ -18,10 +7,8 @@
     flex-direction: column;
     box-sizing: border-box;
     border-radius: var(--toast-plate-border-radius);
-    color: var(--toast-plate-color);
     min-height: 56px;
     padding: var(--gap-m);
-    background-color: var(--toast-plate-bg-color);
 
     &.hasCloser {
         /* 2×16 + 24 */
@@ -95,7 +82,6 @@
         top: var(--gap-s);
         bottom: var(--gap-s);
         width: 1px;
-        background-color: var(--color-light-border-secondary-inverted);
         content: '';
     }
 }

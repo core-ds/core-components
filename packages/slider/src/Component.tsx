@@ -108,10 +108,7 @@ export const Slider: FC<SliderProps> = ({
             start: [value],
             connect: [true, false],
             step,
-            pips: {
-                ...pips,
-                density: 100,
-            } as Options['pips'],
+            pips: pips as Options['pips'],
             range,
         });
 
@@ -137,16 +134,14 @@ export const Slider: FC<SliderProps> = ({
         const slider = getSlider();
         if (!slider) return;
 
-        const newOptions = {
-            step,
-            pips: {
-                ...pips,
-                density: 100,
-            } as Options['pips'],
-            range,
-        };
-
-        slider.updateOptions(newOptions, true);
+        slider.updateOptions(
+            {
+                step,
+                range,
+                pips: pips as Options['pips'],
+            },
+            true,
+        );
     }, [pips, range, step]);
 
     useEffect(() => {

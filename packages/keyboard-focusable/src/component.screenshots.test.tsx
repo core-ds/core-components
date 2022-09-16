@@ -27,6 +27,8 @@ describe('KeyboardFocusable | interactions tests', () => {
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
+
+            throw error;
         } finally {
             await closeBrowser({ browser, context, page });
         }
@@ -50,6 +52,8 @@ describe('KeyboardFocusable | interactions tests', () => {
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
+
+            throw error;
         } finally {
             await closeBrowser({ browser, context, page });
         }

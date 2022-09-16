@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../form-control/src/vars.css';
 
 :root {
     /* min-height */
@@ -32,6 +33,21 @@
     --textarea-xl-filled-min-height: calc(
         var(--textarea-xl-min-height) - var(--textarea-xl-filled-margin-top)
     );
+}
+
+.scrollable {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.scrollableWrapper {
+    box-sizing: border-box;
+
+    & > * {
+        font-family: var(--font-family);
+    }
 }
 
 .textarea {
@@ -68,13 +84,18 @@
         padding-top: var(--textarea-xl-padding-top);
         padding-bottom: var(--gap-xs);
     }
+
+    &.textareaHidden {
+        position: absolute;
+        transform: translateX(-10000px);
+    }
 }
 
 .textarea::placeholder {
     transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.hasLabel::placeholder {
+.hasInnerLabel::placeholder {
     opacity: 0;
 }
 
@@ -84,7 +105,8 @@
 
 /* SIZES */
 
-.textarea {
+.textarea,
+.scrollable {
     &.s {
         min-height: var(--textarea-s-min-height);
     }
@@ -99,6 +121,44 @@
 
     &.xl {
         min-height: var(--textarea-xl-min-height);
+    }
+}
+
+/* Паддинги взяты из стилей form-control */
+.scrollable {
+    &.s,
+    &.m,
+    &.l {
+        & .textarea {
+            padding-left: var(--gap-s);
+            padding-right: var(--gap-s);
+        }
+    }
+
+    &.xl {
+        & .textarea {
+            padding-left: var(--gap-m);
+            padding-right: var(--gap-m);
+        }
+    }
+}
+
+/* Паддинги взяты из стилей form-control */
+.scrollableWithLabel {
+    &.s .textarea {
+        padding: var(--form-control-labeled-s-paddings);
+    }
+
+    &.m .textarea {
+        padding: var(--form-control-labeled-m-paddings);
+    }
+
+    &.l .textarea {
+        padding: var(--form-control-labeled-l-paddings);
+    }
+
+    &.xl .textarea {
+        padding: var(--form-control-labeled-xl-paddings);
     }
 }
 
@@ -117,7 +177,7 @@
 
 /* FOCUS STATE */
 
-.textarea:focus.hasLabel::placeholder {
+.textarea:focus.hasInnerLabel::placeholder {
     opacity: 1;
 }
 
@@ -127,7 +187,7 @@
 
 /* FILLED STATE */
 
-.textarea.filled.hasLabel {
+.textarea.filled.hasInnerLabel {
     padding-top: 0;
 
     &.s {
@@ -152,5 +212,47 @@
         margin-top: var(--textarea-xl-filled-margin-top);
         min-height: var(--textarea-xl-filled-min-height);
         height: var(--textarea-xl-filled-min-height);
+    }
+}
+
+.scrollableWithLabel.filled {
+    & .textarea {
+        padding-top: 0;
+    }
+
+    &.s {
+        margin-top: var(--textarea-s-filled-margin-top);
+        min-height: var(--textarea-s-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-s-filled-min-height);
+        }
+    }
+
+    &.m {
+        margin-top: var(--textarea-m-filled-margin-top);
+        min-height: var(--textarea-m-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-m-filled-min-height);
+        }
+    }
+
+    &.l {
+        margin-top: var(--textarea-l-filled-margin-top);
+        min-height: var(--textarea-l-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-l-filled-min-height);
+        }
+    }
+
+    &.xl {
+        margin-top: var(--textarea-xl-filled-margin-top);
+        min-height: var(--textarea-xl-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-xl-filled-min-height);
+        }
     }
 }

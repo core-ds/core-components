@@ -197,7 +197,7 @@ module.exports = {
                                   ]
                                 : []),
                             // Минифицируем css для prod сторибука.
-                            ...(process.env.BUILD_FROM_DIST === 'true'
+                            ...(process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
                                 ? require('cssnano-preset-default')().plugins
                                 : []),
                         ],
@@ -205,7 +205,9 @@ module.exports = {
                 },
             }),
             new webpack.DefinePlugin({
-                'process.env.BUILD_FROM_DIST': JSON.stringify(process.env.BUILD_FROM_DIST),
+                'process.env.BUILD_STORYBOOK_FROM_DIST': JSON.stringify(
+                    process.env.BUILD_STORYBOOK_FROM_DIST,
+                ),
             }),
         );
 

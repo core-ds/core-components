@@ -130,7 +130,8 @@ describe('CodeInput', () => {
 
             const input = getInput(container, 0);
 
-            await userEvent.paste(input, '1234');
+            input.focus();
+            await userEvent.paste('1234');
 
             expect(getByDisplayValue('1')).toBeInTheDocument();
             expect(getByDisplayValue('2')).toBeInTheDocument();
@@ -143,7 +144,8 @@ describe('CodeInput', () => {
 
             const input = getInput(container, 0);
 
-            await userEvent.paste(input, '12345');
+            input.focus();
+            await userEvent.paste('12345');
 
             expect(getByDisplayValue('1')).toBeInTheDocument();
             expect(getByDisplayValue('2')).toBeInTheDocument();
@@ -151,12 +153,12 @@ describe('CodeInput', () => {
             expect(getByDisplayValue('4')).toBeInTheDocument();
         });
 
-        it('should filter correctly', () => {
+        it('should filter correctly', async () => {
             const { container, getByDisplayValue } = render(<CodeInput />);
 
             const input = getInput(container, 0);
 
-            userEvent.type(input, '1av2hv3yu4');
+            await userEvent.type(input, '1av2hv3yu4');
 
             expect(getByDisplayValue('1')).toBeInTheDocument();
             expect(getByDisplayValue('2')).toBeInTheDocument();

@@ -1,5 +1,6 @@
 @import '../../themes/src/default.css';
 @import '../../slider/src/vars.css';
+@import '../../form-control/src/vars.css';
 
 :root {
     --slider-input-steps-color: var(--color-light-text-secondary);

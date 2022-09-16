@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.4...@alfalab/core-components-filter-tag@2.0.5) (2022-09-12)
+
+**Note:** Version bump only for package @alfalab/core-components-filter-tag
+
+
+
+
+
+## [2.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.3...@alfalab/core-components-filter-tag@2.0.4) (2022-09-02)
+
+**Note:** Version bump only for package @alfalab/core-components-filter-tag
+
+
+
+
+
+## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.2...@alfalab/core-components-filter-tag@2.0.3) (2022-08-31)
+
+
+### Bug Fixes
+
+* **filter-tag:** поправлены цвета у иконки крестика ([#167](https://github.com/core-ds/core-components/issues/167)) ([28eb49e](https://github.com/core-ds/core-components/commit/28eb49e012b5b6f8a8e4f07e2214ecb65fae0564))
+
+
+
+
+
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-filter-tag@2.0.1...@alfalab/core-components-filter-tag@2.0.2) (2022-08-26)
 
 

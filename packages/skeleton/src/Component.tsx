@@ -45,5 +45,9 @@ export const Skeleton: React.FC<SkeletonProps> = ({
         );
     }
 
-    return <div data-test-id={dataTestId}>{children}</div>;
+    return (
+        <div data-test-id={dataTestId} className={className}>
+            {children}
+        </div>
+    );
 };
