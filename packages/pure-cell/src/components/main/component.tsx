@@ -28,13 +28,13 @@ export const Main: React.FC<Props> = ({ children, isReverse, dataTestId }) => {
     const { direction = 'horizontal' } = useContext(PureCellContext);
 
     return (
-        <main
+        <div
             className={cn(styles.component, styles[direction], {
                 [styles.reverse]: isReverse,
             })}
             data-test-id={getDataTestId(dataTestId, 'main')}
         >
             {children}
-        </main>
+        </div>
     );
 };
