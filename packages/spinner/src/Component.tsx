@@ -1,7 +1,15 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { useId } from '@alfalab/hooks';
+
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type SpinnerProps = {
     /**
@@ -77,9 +85,15 @@ export const Spinner: FC<SpinnerProps> = ({
             viewBox={`0 0 ${size} ${size}`}
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            className={cn(styles.spinner, styles[colors], styles[sizeProp], className, {
-                [styles.visible]: visible,
-            })}
+            className={cn(
+                styles.spinner,
+                colorStyles[colors].component,
+                styles[sizeProp],
+                className,
+                {
+                    [styles.visible]: visible,
+                },
+            )}
             data-test-id={dataTestId}
             id={id}
         >

@@ -7,10 +7,8 @@
     flex-direction: column;
     box-sizing: border-box;
     border-radius: var(--toast-plate-border-radius);
-    color: var(--toast-plate-color);
     min-height: 56px;
     padding: var(--gap-m);
-    background-color: var(--toast-plate-bg-color);
 
     &.hasCloser {
         /* 2×16 + 24 */
@@ -84,7 +82,6 @@
         top: var(--gap-s);
         bottom: var(--gap-s);
         width: 1px;
-        background-color: var(--color-light-border-secondary-inverted);
         content: '';
     }
 }

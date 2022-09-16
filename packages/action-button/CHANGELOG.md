@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-action-button@1.1.0...@alfalab/core-components-action-button@1.1.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
+
+
+
+
+
 # 1.1.0 (2022-09-09)
 
 

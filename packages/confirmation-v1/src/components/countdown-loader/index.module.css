@@ -1,0 +1,7 @@
+@import '../../../../themes/src/default.css';
+
+.circle {
+    fill: transparent;
+    stroke: var(--color-light-graphic-tertiary);
+    stroke-width: 2px;
+}

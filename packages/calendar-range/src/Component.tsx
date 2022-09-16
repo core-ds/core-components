@@ -56,6 +56,11 @@ export type CalendarRangeProps = {
     }) => void;
 
     /**
+     * Коллбэк, срабатывающий при возникновении ошибок валидации дат внутри компонента.
+     */
+    onError?: (hasError: boolean) => void;
+
+    /**
      * Список событий
      */
     events?: Array<Date | number>;

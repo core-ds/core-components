@@ -27,10 +27,19 @@
 .disabled {
     background-color: var(--form-control-inverted-disabled-bg-color);
     color: var(--form-control-inverted-disabled-color);
+    box-shadow: var(--form-control-inverted-disabled-shadow);
+}
+
+.disabled.hasError {
+    box-shadow: var(--form-control-inverted-error-disabled-shadow);
 }
 
 .disabled:before {
     border-bottom: var(--form-control-inverted-disabled-border-bottom);
+}
+
+.disabled.filled .label {
+    color: var(--form-control-inverted-disabled-filled-label-color);
 }
 
 /* FOCUS STATE */

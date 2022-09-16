@@ -33,7 +33,7 @@ render(() => {
                     </Button>
                 </Col>
             </Row>
-            <PureCell href={text('href', '')} padding='default' direction='horizontal'>
+            <PureCell href={text('href', '')} padding='default' direction='horizontal' verticalPadding='default'>
                 <PureCell.Graphics>
                     <SuperEllipse
                         size='48'
@@ -48,9 +48,9 @@ render(() => {
                         <PureCell.Text
                             titleColor='primary'
                             valueColor='secondary'
-                            isMultiline={multiline}
                             value='Value'
                             view='component'
+                            rowLimit={multiline ? undefined : 1}
                         >
                             Сейчас много говорят об отказах банков в проведении операций,
                             блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
@@ -68,6 +68,7 @@ render(() => {
                             valueColor='negative'
                             value='SubValue'
                             view='primary-small'
+                            rowLimit={1}
                         >
                             Сейчас много говорят об отказах банков в проведении операций,
                             блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
@@ -361,11 +362,11 @@ render(() => (
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text titleColor='primary' view='component'>
+                                <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
                                     Идейные соображения высшего порядка Идейные соображения высшего
                                     порядка
                                 </PureCell.Text>
-                                <PureCell.Text titleColor='secondary' view='primary-small'>
+                                <PureCell.Text titleColor='secondary' view='primary-small' rowLimit={1}>
                                     Идейные соображения высшего порядка Идейные соображения высшего
                                     порядка
                                 </PureCell.Text>
@@ -696,7 +697,7 @@ render(() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text titleColor='primary' view='component'>
+                    <PureCell.Text titleColor='primary' view='component' rowLimit={2}>
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
@@ -831,11 +832,11 @@ render(() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text titleColor='primary' view='component'>
+                    <PureCell.Text titleColor='primary' view='component' rowLimit={2}>
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
-                    <PureCell.Text titleColor='secondary' view='primary-small'>
+                    <PureCell.Text titleColor='secondary' view='primary-small' rowLimit={2}>
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>

@@ -104,6 +104,7 @@ describe(
                         selected: [undefined, options[0].key],
                         placeholder: ['', 'Выберите элемент'],
                         label: ['', 'Элемент'],
+                        labelView: ['inner', 'outer'],
                     },
                     size: { width: 300, height: 120 },
                 }),
@@ -189,6 +190,8 @@ describe('Select | interactions tests', () => {
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
+
+            throw error;
         } finally {
             await closeBrowser({ browser, context, page });
         }
@@ -229,6 +232,8 @@ describe('Select | interactions tests', () => {
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
+
+            throw error;
         } finally {
             await closeBrowser({ browser, context, page });
         }
