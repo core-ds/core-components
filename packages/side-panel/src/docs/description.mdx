@@ -38,25 +38,27 @@ render(() => {
             полученных преступным путем, и финансированию терроризма» — 115-ФЗ
         </p>
     )
-    
+
     return (
         <React.Fragment>
             <Button type='button' size='xs' onClick={handleModalOpen}>
                 Открыть сайд-панель
             </Button>
             <SidePanelComponent open={open} onClose={handleModalOpen} size='s'>
-                <SidePanelComponent.Header 
-                    hasCloser={state.navigation === 'closer'} 
-                    sticky={state.fixedСontent === 'yes'} 
+                <SidePanelComponent.Header
+                    hasCloser={state.navigation === 'closer'}
+                    sticky={state.fixedСontent === 'yes'}
                     title ={state.header === 'header' && 'Почему банк проверяет мои операции?'}/>
                 <SidePanelComponent.Content>
-                    {state.header === 'content' && 
-                        <Typography.Title view='small' tag='div'>Почему банк проверяет мои операции?</Typography.Title>}
-                        <Text/>
-                        <Text/>
-                        <Text/>
-                        <Text/>
-                        <Text/>
+                    <div style={{position: 'relative'}}>
+                        {state.header === 'content' &&
+                            <Typography.Title view='small' tag='div'>Почему банк проверяет мои операции?</Typography.Title>}
+                            <Text/>
+                            <Text/>
+                            <Text/>
+                            <Text/>
+                            <Text/>
+                    </div>
                 </SidePanelComponent.Content>
                 <SidePanelComponent.Footer sticky={state.fixedСontent === 'yes'}>
                     {state.footerContent === 'yes' && <Button view='primary' size='s' onClick={handleModalOpen}>
@@ -75,7 +77,7 @@ render(() => {
                 >
                     <Radio label="Десктопная" value="desktop" />
                     <Radio label="Мобильная" value="mobile" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -102,7 +104,7 @@ render(() => {
                 >
                     <Radio label="В шапке" value="header" />
                     <Radio label="В контентной части" value="content" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -129,7 +131,7 @@ render(() => {
                     <Radio label="Кнопка" value="yes" />
                     <Radio label="Нет контента" value="no" />
                 </RadioGroup>
-                
+
                 <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
             </div>
         </React.Fragment>
