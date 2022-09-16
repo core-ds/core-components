@@ -1,3 +1,19 @@
+## 32.0.1
+
+### Patch Changes
+
+#### `@alfalab/core-components-pure-cell`
+- [#271](https://github.com/core-ds/core-components/pull/271): Внутрении компонент "comment" заменен на @alfalab/core-components-comment. Thanks [@Lacronts](https://github.com/Lacronts)
+- [#272](https://github.com/core-ds/core-components/pull/272): HTML-тег main заменен на div. Thanks [@Lacronts](https://github.com/Lacronts)
+
+
+#### `@alfalab/core-components-side-panel`
+- [#270](https://github.com/core-ds/core-components/pull/270): Исправлена ошибка, когда non-static position контент при скролле перекрывал sticky заголовок. Thanks [@Lacronts](https://github.com/Lacronts)
+
+
+#### `@alfalab/core-components-vars`
+- [#273](https://github.com/core-ds/core-components/pull/273): Исправлены пути импорта переменных в бандле. Thanks [@Lacronts](https://github.com/Lacronts)
+
 ## 32.0.0
 
 ### Major Changes
