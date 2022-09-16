@@ -22,6 +22,10 @@ const config = {
     gitEmail: 'ds@gitmax.tech',
 };
 
+function escapeShellChars(str) {
+    return str.replace(/["`$]/g, '\\$&');
+}
+
 function setupGit() {
     shell.exec(`git config user.name "${config.gitUsername}"`, execOptions);
     shell.exec(`git config user.email "${config.gitEmail}"`, execOptions);
@@ -192,7 +196,9 @@ async function releaseRoot() {
 
         logger.log('=> Create github release');
         shell.exec(
-            `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${notes}" --target master`,
+            `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
+                notes,
+            )}" --target master`,
             execOptions,
         );
 
