@@ -1,5 +1,15 @@
 # Change Log
 
+## 12.4.3
+
+### Patch Changes
+
+-   Updated dependencies [[#189](https://github.com/core-ds/core-components/pull/189)]
+-   Updated dependencies [[#261](https://github.com/core-ds/core-components/pull/261)]
+    -   @alfalab/core-components-checkbox@3.0.2
+    -   @alfalab/core-components-input@10.2.2
+    -   @alfalab/core-components-modal@6.0.6
+
 ## 12.4.2
 
 ### Patch Changes

@@ -273,11 +273,14 @@ describe('CalendarInput', () => {
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
 
-            await waitFor(() => {
-                expect(input).toHaveValue(value);
-            });
+            await waitFor(
+                () => {
+                    expect(input).toHaveValue(value);
+                },
+                { timeout: 2000 },
+            );
 
             const selectedButton = getSelectedDay();
 
@@ -303,7 +306,7 @@ describe('CalendarInput', () => {
             expect(container.querySelector('button[aria-selected="true"]')).not.toBeInTheDocument();
 
             userEvent.type(input, value);
-            await waitFor(() => expect(input).toHaveValue(value));
+            await waitFor(() => expect(input).toHaveValue(value), { timeout: 2000 });
 
             expect(queryByText('Ноябрь')).toBeInTheDocument();
             expect(container.querySelector('button[aria-selected="true"]')).not.toBeInTheDocument();
@@ -542,9 +545,12 @@ describe('CalendarInput', () => {
 
             userEvent.type(input, value);
 
-            await waitFor(() => {
-                expect(input).toHaveValue(value);
-            });
+            await waitFor(
+                () => {
+                    expect(input).toHaveValue(value);
+                },
+                { timeout: 2000 },
+            );
 
             const payload = cb.mock.calls[value.length - 1][1];
 
@@ -588,9 +594,12 @@ describe('CalendarInput', () => {
 
             userEvent.type(input, value);
 
-            await waitFor(() => {
-                expect(input).toHaveValue(value);
-            });
+            await waitFor(
+                () => {
+                    expect(input).toHaveValue(value);
+                },
+                { timeout: 2000 },
+            );
 
             expect(cb).toBeCalledTimes(1);
         });

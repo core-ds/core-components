@@ -29,14 +29,14 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -58,14 +58,14 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -720,14 +720,14 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -749,14 +749,14 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -962,14 +962,14 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -991,14 +991,14 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -2339,14 +2339,14 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -2368,14 +2368,14 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -3722,14 +3722,14 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -3751,14 +3751,14 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 class="upDownIcon"
                 fill="currentColor"
                 focusable="false"
-                height="18"
+                height="16"
                 role="img"
-                viewBox="0 0 18 18"
-                width="18"
+                viewBox="0 0 16 16"
+                width="16"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  d="M2.293 6.207l1.414-1.414L8 9.086l4.293-4.293 1.414 1.414L8 11.914 2.293 6.207z"
                   fill-rule="evenodd"
                 />
               </svg>

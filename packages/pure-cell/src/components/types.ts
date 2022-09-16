@@ -1,8 +1,8 @@
 import { ReactElement, ReactNode } from 'react';
+import { Comment } from '@alfalab/core-components-comment';
 
 import { Amount } from './amount';
 import { AmountTitle } from './amount-title';
-import { Comment } from './comment';
 import { FooterButton } from './footer-button';
 import { FooterText } from './footer-text';
 import { Graphics } from './graphics';
