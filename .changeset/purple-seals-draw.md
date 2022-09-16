@@ -2,4 +2,4 @@
 "@alfalab/core-components-themes": minor
 ---
 
-Удалена темизация для клика
+Удалена темизация click для компонента CodeInput
