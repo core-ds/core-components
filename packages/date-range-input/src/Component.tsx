@@ -138,6 +138,11 @@ export type DateRangeInputProps = Omit<InputProps, 'onChange'> & {
      * Календарь будет принимать ширину инпута
      */
     useAnchorWidth?: boolean;
+
+    /**
+     * Растягивает компонент на ширину контейнера
+     */
+    block?: boolean;
 };
 
 export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputProps>(
@@ -155,6 +160,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             onComplete,
             rightAddons,
             useAnchorWidth,
+            block,
             popoverPosition = 'bottom-start',
             zIndexPopover,
             preventFlip,
@@ -367,19 +373,22 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
 
         return (
             <div
-                className={cn(styles.component, className)}
+                className={cn(styles.component, className, {
+                    [styles.block]: block,
+                })}
                 onClick={inputDisabled ? undefined : handleInputWrapperClick}
                 onFocus={inputDisabled ? undefined : handleInputWrapperFocus}
                 onBlur={handleBlur}
             >
                 <Input
                     {...restProps}
+                    block={block}
                     ref={mergeRefs([ref, inputRef])}
                     value={value}
                     onChange={handleChange}
                     disabled={disabled}
                     readOnly={readOnly}
-                    className={cn(styles.input, inputClassName)}
+                    className={inputClassName}
                     onClear={handleClear}
                     rightAddons={
                         <React.Fragment>

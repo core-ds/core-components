@@ -11,10 +11,6 @@
     position: relative;
 }
 
-.input {
-    width: 354px;
-}
-
 .calendarContainer {
     display: inline-block;
     box-sizing: border-box;
@@ -29,4 +25,8 @@
 .calendarResponsive {
     width: var(--calendar-width);
     padding: 0 var(--gap-m);
+}
+
+.block {
+    width: 100%;
 }

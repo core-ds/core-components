@@ -4,12 +4,20 @@
 
 ### Без пикера
 ```jsx live
-render(<DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ"/>)
+render(
+    <div style={{ width: 250 }}>
+        <DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" block />
+    </div>
+)
 ```
 
 ### С пикером
 ```jsx live
-render(<DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" picker />)
+render(
+    <div style={{ width: 275 }}>
+        <DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" picker block />
+    </div>
+)
 ```
 
 ### Пикер

@@ -4,12 +4,20 @@
 
 ### Без пикера
 ```jsx live
-render(<DateTimeInput label="Укажите дату и время" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" />)
+render(
+    <div style={{ width: 225 }}>
+        <DateTimeInput label="Укажите дату и время" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" block />
+    </div>
+)
 ```
 
 ### С пикером
 ```jsx live
-render(<DateTimeInput label="Укажите дату и время" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" picker />)
+render(
+    <div style={{ width: 230 }}>
+        <DateTimeInput label="Укажите дату и время" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" picker block/>
+    </div>
+)
 ```
 
 ### Пикер

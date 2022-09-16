@@ -1,12 +1,9 @@
 /* eslint-disable no-useless-escape */
 
 import React, { ChangeEvent, useState } from 'react';
-import cn from 'classnames';
 import { Input, InputProps } from '@alfalab/core-components-input';
 
 import { format, isCompleteTimeInput, isValidInputValue } from './utils';
-
-import styles from './index.module.css';
 
 export type TimeInputProps = Omit<InputProps, 'onChange'> & {
     /**
@@ -80,7 +77,7 @@ export const TimeInput = React.forwardRef<HTMLInputElement, TimeInputProps>(
                 {...restProps}
                 ref={ref}
                 value={value}
-                className={cn(styles.component, className)}
+                className={className}
                 onChange={handleChange}
                 onClear={handleClearClick}
             />
