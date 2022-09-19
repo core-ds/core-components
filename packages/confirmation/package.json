@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-confirmation",
-    "version": "12.1.1",
+    "version": "12.1.2",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^6.1.1",
-        "@alfalab/core-components-code-input": "^2.1.0",
+        "@alfalab/core-components-code-input": "^2.1.1",
         "@alfalab/core-components-link": "^5.0.0",
         "@alfalab/core-components-loader": "^3.0.2",
         "@alfalab/hooks": "^1.4.1",

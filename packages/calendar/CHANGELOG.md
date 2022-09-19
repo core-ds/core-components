@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.4
+
+### Patch Changes
+
+-   [#175](https://github.com/core-ds/core-components/pull/175): Новые компоненты: TimeInput, DateTimeInput, DateRangeInput. Thanks [@blackraydev](https://github.com/blackraydev)
+
 ## 6.1.3
 
 ### Patch Changes

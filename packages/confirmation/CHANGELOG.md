@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.1.2
+
+### Patch Changes
+
+-   Updated dependencies [[#274](https://github.com/core-ds/core-components/pull/274)]
+    -   @alfalab/core-components-code-input@2.1.1
+
 ## 12.1.1
 
 ### Patch Changes
