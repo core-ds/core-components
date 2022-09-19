@@ -1,0 +1,52 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+
+import { TimeInput } from '../Component';
+import Changelog from '../../CHANGELOG.md';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+
+
+<Meta
+    title='Компоненты/TimeInput'
+    component={TimeInput}
+/>
+
+<!-- Canvas -->
+
+<Story name='TimeInput'>
+    {React.createElement(() => {
+        return (
+            <TimeInput
+                block={boolean('block', false)}
+                size={select('size', ['s', 'm', 'l'], 's')}
+                error={text('error', '')}
+                hint={text('hint', '')}
+                label={text('label', '')}
+                placeholder={text('placeholder', '')}
+                clear={boolean('clear', false)}
+            />
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='TimeInput'
+    version={version}
+    package='@alfalab/core-components/time-input'
+    stage={2}
+/>
+
+```jsx
+import { TimeInput } from '@alfalab/core-components/time-input';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={TimeInput} />}
+/>

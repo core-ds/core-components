@@ -144,7 +144,13 @@ export const Step: React.FC<StepProps> = ({
             return <StepIndicator iconColor='positive' content={<CheckmarkCircleMIcon />} />;
         }
         if (isStepCompleted) {
-            return <StepIndicator iconColor='positive' content={<CheckmarkCircleMIcon />} className={styles.completedIndicator} />;
+            return (
+                <StepIndicator
+                    iconColor='positive'
+                    content={<CheckmarkCircleMIcon />}
+                    className={styles.completedIndicator}
+                />
+            );
         }
         if (!ordered) {
             return (
