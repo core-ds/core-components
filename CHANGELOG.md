@@ -1,3 +1,32 @@
+## 32.1.0
+
+### Minor Changes
+
+#### `@alfalab/core-components-date-range-input`
+- [#175](https://github.com/core-ds/core-components/pull/175): Новые компоненты: TimeInput, DateTimeInput, DateRangeInput. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-date-time-input`
+- [#175](https://github.com/core-ds/core-components/pull/175): Новые компоненты: TimeInput, DateTimeInput, DateRangeInput. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-time-input`
+- [#175](https://github.com/core-ds/core-components/pull/175): Новые компоненты: TimeInput, DateTimeInput, DateRangeInput. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-themes`
+- [#269](https://github.com/core-ds/core-components/pull/269): Удалена темизация click для компонента CodeInput. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+### Patch Changes
+
+#### `@alfalab/core-components-calendar`
+- [#175](https://github.com/core-ds/core-components/pull/175): Новые компоненты: TimeInput, DateTimeInput, DateRangeInput. Thanks [@blackraydev](https://github.com/blackraydev)
+
+
+#### `@alfalab/core-components-code-input`
+- [#274](https://github.com/core-ds/core-components/pull/274): Компактная версия теперь включается когда >6 полей. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
 ## 32.0.1
 
 ### Patch Changes
