@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@alfalab/data": "^1.4.2",
-        "@alfalab/utils": "^1.13.1",
+        "@alfalab/utils": "^1.13.2",
         "classnames": "^2.3.1"
     },
     "peerDependencies": {
