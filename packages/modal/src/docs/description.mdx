@@ -203,7 +203,7 @@ render(() => {
             </Col>
             <Col>
             {open &&
-            <div id='container-modal' style={{
+            <div id='container-modal2' style={{
                 position: 'relative',
                 bottom: '10px',
                 left: '160px',
@@ -217,7 +217,7 @@ render(() => {
                 open={open} 
                 onClose={handleModalOpen} 
                 size='m' 
-                container={() => document.getElementById('container-modal')}>
+                container={() => document.getElementById('container-modal2')}>
                 <ModalMobile.Header
                     hasCloser={hasCloser}
                     title='Пример очень-очень длинного заголовка в шапке'
@@ -256,6 +256,109 @@ render(() => {
                     </Button>
                 </ModalMobile.Footer>
             </ModalMobile>
+            </Row>
+        </React.Fragment>
+    );
+});
+```
+
+### Настройка шапки (HeaderMobile) Вариант №3
+
+```jsx live
+// import { Typography } from '@alfalab/core-components/typography';
+
+render(() => {
+    const [openModal, setOpen] = React.useState(false);
+    const [trim, setTrim] = React.useState(true);
+    const [leftAddons, setLeftAddons] = React.useState(false);
+    const [hasCloser, setHasCloser] = React.useState(true);
+
+    const handleModalOpen = () => setOpen(!openModal);
+
+    styles={
+        border: '1px solid var(--color-light-border-secondary)',
+    }
+
+    return (
+        <React.Fragment>
+        <Row>
+        <Col>
+            <Space>
+                <Button type='button' size='xs' onClick={handleModalOpen}>
+                    Открыть модалку
+                </Button>
+                <Checkbox
+                    onChange={() => setTrim(!trim)}
+                    checked={trim}
+                    label='Обрезка заголовка'
+                />
+                <Checkbox
+                    onChange={() => setHasCloser(!hasCloser)}
+                    checked={hasCloser}
+                    label='Крестик'
+                />
+                <Checkbox
+                    onChange={() => setLeftAddons(!leftAddons)}
+                    checked={leftAddons}
+                    label='Левый аддон'
+                />
+            </Space>
+            </Col>
+            <Col>
+            <div id='container-modal3' style={{
+                position: 'relative',
+                bottom: '10px',
+                left: '160px',
+                transform: 'translate3d(0, 0, 1px)',
+                width: '360px',
+                height: '800px',
+                ...(openModal && styles)
+            }}></div>
+                  
+            <ModalMobile 
+                open={openModal} 
+                onClose={handleModalOpen} 
+                size='m' 
+                container={() => document.getElementById('container-modal3')}>
+                <ModalMobile.Header
+                    hasCloser={hasCloser}
+                    title='Пример очень-очень длинного заголовка в шапке'
+                    trim={trim}
+                    leftAddons={
+                        leftAddons ? (
+                            <div
+                                style={{
+                                    width: 48,
+                                    height: 48,
+                                    background: 'rgba(207, 112, 255, 0.1)',
+                                }}
+                            />
+                        ) : null
+                    }
+                />
+                <ModalMobile.Content>
+                    <Typography.Text tag='p'>
+                        Сейчас много говорят об отказах банков в проведении операций, блокировках
+                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+                        выявлять операции своих клиентов, потенциально нарушающие требования
+                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+                        доходов, полученных преступным путем, и финансированию терроризма».
+                    </Typography.Text>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+                        предотвращать проведение таких операций и поэтому могут запросить
+                        дополнительную информацию и документы, ограничить доступ к платежам через
+                        интернет-банк или даже отказать в исполнении платежа.
+                    </Typography.Text>
+                </ModalMobile.Content>
+                <ModalMobile.Footer>
+                    <Button view='primary' size='s' onClick={handleModalOpen}>
+                        Понятно
+                    </Button>
+                </ModalMobile.Footer>
+            </ModalMobile>
+            </Col> 
             </Row>
         </React.Fragment>
     );
