@@ -12,4 +12,19 @@
     --confirmation-header-mobile-line-height: 22px;
     --confirmation-header-mobile-font-weight: bold;
     --confirmation-header-mobile-font-family: var(--font-family-system);
+
+    /* text */
+    --confirmation-text-font-size: 16px;
+    --confirmation-text-line-height: 24px;
+    --confirmation-text-font-weight: 400;
+    --confirmation-text-font-family: var(--font-family-system);
+    --confirmation-text-color: var(--color-light-text-primary);
+
+    @define-mixin _confirmation-text {
+        font-size: var(--confirmation-text-font-size);
+        line-height: var(--confirmation-text-line-height);
+        font-weight: var(--confirmation-text-font-weight);
+        font-family: var(--confirmation-text-font-family);
+        color: var(--confirmation-text-color);
+    }
 }

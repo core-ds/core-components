@@ -14,7 +14,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         Введите код из сообщения
       </h3>
       <span
-        class="phone primary primary-medium"
+        class="phone typographyTheme primary primary-medium"
       >
         Код отправлен на 
       </span>
@@ -62,7 +62,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="countdown countdownContainer primary-medium"
+        class="countdown countdownContainer typographyTheme primary-medium"
       >
         Запросить повторно можно через
          
@@ -96,7 +96,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         Введите код из сообщения
       </h3>
       <span
-        class="phone primary primary-medium"
+        class="phone typographyTheme primary primary-medium"
       >
         Код отправлен на 
       </span>
@@ -149,7 +149,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         </div>
       </div>
       <div
-        class="loaderWrap countdownContainer"
+        class="loaderWrap countdownContainer typographyTheme"
       >
         <div
           class="component"
@@ -190,7 +190,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         Введите код из сообщения
       </h3>
       <span
-        class="phone primary primary-medium"
+        class="phone typographyTheme primary primary-medium"
       >
         Код отправлен на 
       </span>
@@ -244,7 +244,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         </div>
       </div>
       <div
-        class="countdown countdownContainer primary-medium"
+        class="countdown countdownContainer typographyTheme primary-medium"
       >
         Запросить повторно можно через
          
@@ -278,7 +278,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         Введите код из сообщения
       </h3>
       <span
-        class="phone primary primary-medium"
+        class="phone typographyTheme primary primary-medium"
       >
         Код отправлен на 
       </span>
@@ -331,7 +331,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         </div>
       </div>
       <div
-        class="loaderWrap countdownContainer"
+        class="loaderWrap countdownContainer typographyTheme"
       >
         <div
           class="component"
@@ -372,7 +372,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
         Ввести код больше нельзя
       </h3>
       <span
-        class="primary primary-medium"
+        class="typographyTheme primary primary-medium"
       >
         Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
       </span>
@@ -402,12 +402,12 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
       Превышено количество попыток запроса кода
     </h3>
     <span
-      class="description primary primary-medium"
+      class="description typographyTheme primary primary-medium"
     >
       Повторное подтверждение кодом будет возможно через 24 часа
     </span>
     <div
-      class="countdownWrap"
+      class="countdownWrap typographyTheme"
     >
       <svg
         class="loader"
@@ -448,7 +448,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
           Не приходит сообщение?
         </h3>
         <span
-          class="text primary primary-medium"
+          class="text typographyTheme primary primary-medium"
         >
           Если у вас изменился номер телефона, позвоните нам или обратитесь в любое отделение банка.
         </span>
@@ -469,7 +469,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
               </span>
             </a>
             <span
-              class="text primary primary-medium"
+              class="text typographyTheme primary primary-medium"
             >
               — для звонков по России
             </span>
@@ -488,14 +488,14 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
               </span>
             </a>
             <span
-              class="text primary primary-medium"
+              class="text typographyTheme primary primary-medium"
             >
               — в Москве и за границей
             </span>
           </div>
         </div>
         <span
-          class="text primary primary-medium"
+          class="text typographyTheme primary primary-medium"
         >
           Если номер не менялся, возможно, перегружен сервис отправки сообщений. Попробуйте повторить действие через несколько минут.
         </span>

@@ -130,7 +130,11 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.title}</Header>
 
-            <Typography.Text view='primary-medium' color='primary' className={styles.phone}>
+            <Typography.Text
+                view='primary-medium'
+                color='primary'
+                className={cn(styles.phone, { [styles.typographyTheme]: !mobile })}
+            >
                 Код отправлен на {phone}
             </Typography.Text>
             <CodeInput

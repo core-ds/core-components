@@ -1,4 +1,8 @@
-@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.typographyTheme {
+    @mixin _confirmation-text;
+}
 
 .left {
     align-items: flex-start;

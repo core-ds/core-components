@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, Fragment, FC } from 'react';
+import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
@@ -38,11 +39,15 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
         <Fragment>
             <Header mobile={mobile}>{texts.tempBlockTitle}</Header>
 
-            <Typography.Text view='primary-medium' color='primary' className={styles.description}>
+            <Typography.Text
+                view='primary-medium'
+                color='primary'
+                className={cn(styles.description, { [styles.typographyTheme]: !mobile })}
+            >
                 {texts.tempBlockDescription}
             </Typography.Text>
 
-            <div className={styles.countdownWrap}>
+            <div className={cn(styles.countdownWrap, { [styles.typographyTheme]: !mobile })}>
                 <CountdownLoader
                     progress={1 - timeLeft / tempBlockDuration}
                     className={styles.loader}

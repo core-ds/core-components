@@ -30,7 +30,10 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     if (codeSendHintVisible) {
         return (
             <Typography.Text
-                className={cn(styles.countdownContainer, { [styles.countdownMobile]: mobile })}
+                className={cn(styles.countdownContainer, {
+                    [styles.countdownMobile]: mobile,
+                    [styles.typographyTheme]: !mobile,
+                })}
                 view={mobile ? 'primary-small' : 'primary-medium'}
                 tag='div'
             >
@@ -44,6 +47,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
             <div
                 className={cn(styles.loaderWrap, styles.countdownContainer, {
                     [styles.countdownLoaderMobile]: mobile,
+                    [styles.typographyTheme]: !mobile,
                 })}
             >
                 <Loader />
@@ -58,7 +62,10 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     if (blockSmsRetry) {
         return (
             <Typography.Text
-                className={cn(styles.countdownContainer, { [styles.countdownMobile]: mobile })}
+                className={cn(styles.countdownContainer, {
+                    [styles.countdownMobile]: mobile,
+                    [styles.typographyTheme]: !mobile,
+                })}
                 view={mobile ? 'primary-small' : 'primary-medium'}
                 tag='div'
             >
@@ -84,6 +91,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         <Typography.Text
             className={cn(styles.countdown, styles.countdownContainer, {
                 [styles.countdownMobile]: mobile,
+                [styles.typographyTheme]: !mobile,
             })}
             view={mobile ? 'primary-small' : 'primary-medium'}
             tag='div'

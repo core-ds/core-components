@@ -18,12 +18,15 @@ export type FatalErrorProps = {
 
 export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
     const { alignContent, texts, onFatalErrorOkButtonClick } = useContext(ConfirmationContext);
-
     return (
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.fatalErrorTitle}</Header>
 
-            <Typography.Text view='primary-medium' color='primary'>
+            <Typography.Text
+                view='primary-medium'
+                color='primary'
+                className={cn({ [styles.typographyTheme]: !mobile })}
+            >
                 {texts.fatalErrorDescription}
             </Typography.Text>
 

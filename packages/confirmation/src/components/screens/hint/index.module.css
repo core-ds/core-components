@@ -1,4 +1,4 @@
-@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
 
 .center {
     & .hintWrap {
@@ -17,6 +17,10 @@
 
 .text {
     margin-bottom: var(--gap-xl);
+}
+
+.typographyTheme {
+    @mixin _confirmation-text;
 }
 
 .phonesWrap {

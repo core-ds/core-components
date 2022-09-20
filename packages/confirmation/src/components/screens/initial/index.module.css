@@ -1,11 +1,15 @@
-@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
 
 .component {
     display: flex;
     flex-direction: column;
 }
+.typographyTheme {
+    @mixin _confirmation-text;
+}
 
 .phone {
+    color: var(--color-light-text-primary);
     margin-bottom: var(--gap-2xl);
 }
 
@@ -44,6 +48,7 @@
 }
 
 .countdownContainer {
+    color: var(--color-light-text-secondary);
     margin-bottom: var(--gap-xl);
 }
 

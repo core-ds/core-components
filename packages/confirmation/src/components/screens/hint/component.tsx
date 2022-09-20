@@ -30,7 +30,11 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
             <div className={styles.hintWrap}>
                 <Header mobile={mobile}>Не&nbsp;приходит сообщение?</Header>
 
-                <Typography.Text view='primary-medium' color='primary' className={styles.text}>
+                <Typography.Text
+                    view='primary-medium'
+                    color='primary'
+                    className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
+                >
                     Если у&nbsp;вас изменился номер телефона, позвоните нам или обратитесь
                     в&nbsp;любое отделение банка.
                 </Typography.Text>
@@ -47,7 +51,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         <Typography.Text
                             view='primary-medium'
                             color='primary'
-                            className={styles.text}
+                            className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
                         >
                             {mobile ? (
                                 <>Для&nbsp; звонков по&nbsp;России</>
@@ -68,7 +72,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         <Typography.Text
                             view='primary-medium'
                             color='primary'
-                            className={styles.text}
+                            className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
                         >
                             {mobile ? (
                                 <>В&nbsp;Москве и&nbsp;за&nbsp;границей</>
@@ -79,7 +83,11 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     </div>
                 </div>
 
-                <Typography.Text view='primary-medium' color='primary' className={styles.text}>
+                <Typography.Text
+                    view='primary-medium'
+                    color='primary'
+                    className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
+                >
                     Если номер не&nbsp;менялся, возможно, перегружен сервис отправки сообщений.
                     Попробуйте повторить действие через несколько минут.
                 </Typography.Text>
