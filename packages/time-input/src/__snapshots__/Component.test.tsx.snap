@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeInput Display tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component component s"
+  >
+    <div
+      class="inner inner filled"
+    >
+      <div
+        class="inputWrapper"
+      >
+        <div
+          class="input"
+        >
+          <input
+            class="input input"
+            type="text"
+            value="19:37"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

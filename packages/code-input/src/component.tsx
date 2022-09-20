@@ -313,7 +313,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             className={styles.input}
-                            compact={fields > 8}
+                            compact={fields > 6}
                         />
                     ))}
                 </div>
