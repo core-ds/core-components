@@ -58,7 +58,7 @@
         ]
     },
     "dependencies": {
-        "@alfalab/data": "^1.2.3",
+        "@alfalab/data": "^1.4.1",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-classic": "^1.76.0",
         "@alfalab/icons-flag": "^1.11.0",

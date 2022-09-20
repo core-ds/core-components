@@ -7,11 +7,6 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@alfalab/data@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.2.tgz#3052b75f6e9857bbfa97a0b511b69167cbb9e89c"
-  integrity sha512-Sj56c4bZBjm98PEaIiWyB0oDHNQIfPFYMxj1N0eh6WhPgmOz09Zm3oG5+9wZ2fkktVH8sElCHIUkjL2ztFPCbA==
-
 "@alfalab/data@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.3.tgz#b4cc25542ecef657c6f0b64608eb6f9e37f35524"
