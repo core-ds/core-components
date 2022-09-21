@@ -224,7 +224,7 @@ async function releasePackages() {
     shell.exec('git add .', execOptions);
     // Не добавляем .npmrc в коммит.
     shell.exec('git reset .npmrc', execOptions);
-    shell.exec('git commit -n -m "chore: publish packages [skip ci]"', execOptions);
+    shell.exec('git commit -n -m "chore: publish packages"', execOptions);
 
     logger.log('=> Push changes');
     shell.exec(
