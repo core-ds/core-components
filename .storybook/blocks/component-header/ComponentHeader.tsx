@@ -5,7 +5,6 @@ import { Typography } from '@alfalab/core-components-typography';
 import { Space } from '@alfalab/core-components-space';
 import { pluralize } from '@alfalab/utils';
 import { Title } from '@storybook/addon-docs';
-import { Status } from 'storybook/blocks/status';
 
 import usages from 'storybook/usages.json';
 
@@ -14,17 +13,11 @@ import styles from './ComponentHeader.module.css';
 type ComponentHeaderProps = {
     name: string;
     version?: string;
-    stage: number;
     design?: string;
     children?: ReactNode;
 };
 
-export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
-    name,
-    version,
-    stage,
-    design,
-}) => {
+export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, version, design }) => {
     const packageName = name
         .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
         .replace(/([A-Z])([A-Z])(?=[a-z])/g, '$1-$2')
@@ -39,8 +32,6 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             <div className={styles.version}>{version}</div>
 
             <Space direction='horizontal' align='center' className={styles.info}>
-                {stage && <Status stage={stage} />}
-
                 {usages[name]?.projects > 0 && (
                     <Typography.Text>
                         Используется в{' '}
