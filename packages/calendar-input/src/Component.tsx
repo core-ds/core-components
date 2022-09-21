@@ -219,7 +219,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const checkInputValueIsValid = useCallback(
             (newInputValue?: string) => {
-                if (!newInputValue || error) return false;
+                if (!newInputValue) return false;
 
                 const dateValue = parseDateString(newInputValue).getTime();
 
@@ -230,7 +230,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     !offDays.includes(dateValue)
                 );
             },
-            [error, maxDate, minDate, offDays],
+            [maxDate, minDate, offDays],
         );
 
         const inputDisabled = disabled || readOnly;
