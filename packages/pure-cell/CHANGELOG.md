@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+-   Updated dependencies [[#279](https://github.com/core-ds/core-components/pull/279)]
+    -   @alfalab/core-components-amount@3.0.3
+
 ## 3.0.1
 
 ### Patch Changes

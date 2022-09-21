@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.1.5
+
+### Patch Changes
+
+-   [#277](https://github.com/core-ds/core-components/pull/277): Внешняя ошибка больше не влияет на вызов onChange. Thanks [@reme3d2y](https://github.com/reme3d2y)
+
 ## 7.1.4
 
 ### Patch Changes
