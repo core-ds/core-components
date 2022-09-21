@@ -1,3 +1,42 @@
+## 32.1.1
+
+### Patch Changes
+
+#### `@alfalab/core-components-calendar-input`
+- [#277](https://github.com/core-ds/core-components/pull/277): Внешняя ошибка больше не влияет на вызов onChange. Thanks [@reme3d2y](https://github.com/reme3d2y)
+
+
+#### `@alfalab/core-components-collapse`
+- [#278](https://github.com/core-ds/core-components/pull/278): Отключена анимация при изначальном expanded=true. Убран ненужный пропс style.. Thanks [@reme3d2y](https://github.com/reme3d2y)
+
+
+#### `@alfalab/core-components-amount-input`
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+
+#### `@alfalab/core-components-amount`
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+
+#### `@alfalab/core-components-attach`
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+
+#### `@alfalab/core-components-confirmation-v1`
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+
+#### `@alfalab/core-components-confirmation`
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+
+#### `@alfalab/core-components-filter-tag`
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+
+#### `@alfalab/core-components-intl-phone-input`
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
 ## 32.1.0
 
 ### Minor Changes
