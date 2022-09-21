@@ -7,20 +7,10 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@alfalab/data@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.2.tgz#3052b75f6e9857bbfa97a0b511b69167cbb9e89c"
-  integrity sha512-Sj56c4bZBjm98PEaIiWyB0oDHNQIfPFYMxj1N0eh6WhPgmOz09Zm3oG5+9wZ2fkktVH8sElCHIUkjL2ztFPCbA==
-
 "@alfalab/data@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.3.tgz#b4cc25542ecef657c6f0b64608eb6f9e37f35524"
   integrity sha512-BWzAJkjxg/+ksajaTv2z35ElFh/jNZE3d+hlOWKfO9uxWITeKKEDs10yPWIlZRcY33q0QtgBlPfp5mQ6BdtnWg==
-
-"@alfalab/data@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.4.1.tgz#6d9f8983edd69eb22f574a21070e47ccedc678be"
-  integrity sha512-OqkFMUJ7La8tTNkXP/T3RyohPptzigaPc15IVNyQxbMuFa8oIepcfCZEC6R7WdBYkHUh3R8C+8HKodzMnmsCew==
 
 "@alfalab/data@^1.4.2":
   version "1.4.2"
@@ -99,14 +89,6 @@
   resolved "https://registry.npmjs.org/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.4.0.tgz"
   integrity sha512-6BOJJppFlPTsA/m53zjlBDTm49PF1O+wcrSDL7s3uOdMkChc0F/NXKTq+Oz/k4tI4yG5ZnyACcmD8g7vbjvVag==
 
-"@alfalab/utils@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.11.0.tgz#2bfcb5d8f21864263fed4907c1d35b6108e5b3fe"
-  integrity sha512-X4WXuNHfHbmkgJNv1+c1ehCELwuirY3VSazveU46bnLo/KtizNVkM2BOl71gtqn9SvABoLdXe9Mi933Gp6crMw==
-  dependencies:
-    "@alfalab/data" "^1.2.3"
-    fast-redact "^3.1.1"
-
 "@alfalab/utils@^1.12.1":
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.12.1.tgz#d6dab30b4a8de8bbc0e82e21caba0b1f9432757c"
@@ -114,16 +96,6 @@
   dependencies:
     "@alfalab/data" "^1.2.3"
     fast-redact "^3.1.1"
-
-"@alfalab/utils@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.1.tgz#0b67be504d6176152e9d830e844f363639ddddc9"
-  integrity sha512-KJYeNgfh7nXmCA3b3jgXH9iaZKWi3ahCPa9C/rrRxBHC1numPrl0yqLGs1ytx4L8d+ByeH69iiNRXT+jMv+oAA==
-  dependencies:
-    "@alfalab/data" "^1.4.1"
-    lodash "4.17.21"
-    stream-chain "2.2.5"
-    stream-json "1.7.4"
 
 "@alfalab/utils@^1.13.2":
   version "1.13.2"
@@ -22996,11 +22968,6 @@ stream-browserify@^2.0.1:
     inherits "~2.0.1"
     readable-stream "^2.0.2"
 
-stream-chain@2.2.5, stream-chain@^2.2.5:
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/stream-chain/-/stream-chain-2.2.5.tgz#b30967e8f14ee033c5b9a19bbe8a2cba90ba0d09"
-  integrity sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA==
-
 stream-each@^1.1.0:
   version "1.2.3"
   resolved "https://registry.npmjs.org/stream-each/-/stream-each-1.2.3.tgz"
@@ -23019,13 +22986,6 @@ stream-http@^2.7.2:
     readable-stream "^2.3.6"
     to-arraybuffer "^1.0.0"
     xtend "^4.0.0"
-
-stream-json@1.7.4:
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-1.7.4.tgz#e41637f93c5aca7267009ca8a3f6751e62331e69"
-  integrity sha512-ja2dde1v7dOlx5/vmavn8kLrxvNfs7r2oNc5DYmNJzayDDdudyCSuTB1gFjH4XBVTIwxiMxL4i059HX+ZiouXg==
-  dependencies:
-    stream-chain "^2.2.5"
 
 stream-shift@^1.0.0:
   version "1.0.1"
