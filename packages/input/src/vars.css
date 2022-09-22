@@ -9,7 +9,7 @@
     --input-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
     --input-caret-color: var(--input-color);
     --input-inverted-color: var(--color-light-text-primary-inverted);
-    --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted-transparent);
+    --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
     --input-inverted-with-label-placeholder-color: var(--color-light-text-tertiary-inverted);
     --input-inverted-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
@@ -18,11 +18,11 @@
 
     /* disabled */
     --input-disabled-color: var(--color-light-text-secondary);
-    --input-inverted-disabled-color: var(--color-light-text-secondary-inverted-transparent);
+    --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
 
     /* read-only */
     --input-read-only-color: var(--color-light-text-secondary);
-    --input-inverted-read-only-color: var(--color-light-text-secondary-inverted-transparent);
+    --input-inverted-read-only-color: var(--color-light-text-secondary-inverted);
 
     /* error */
     --input-error-color: var(--color-light-text-primary);
