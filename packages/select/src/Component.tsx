@@ -10,11 +10,13 @@ import { Option as DefaultOption } from './components/option';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { BaseSelectProps } from './typings';
 
+export type SelectFieldProps = FormControlProps & Record<string, unknown>;
+
 export type SelectProps = Omit<BaseSelectProps, 'fieldProps'> & {
     /**
      * Пропсы, которые будут прокинуты в компонент поля
      */
-    fieldProps?: FormControlProps & Record<string, unknown>;
+    fieldProps?: SelectFieldProps;
 };
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
