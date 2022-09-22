@@ -24160,10 +24160,10 @@ uglify-js@^3.1.4:
   resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.12.3.tgz"
   integrity sha512-feZzR+kIcSVuLi3s/0x0b2Tx4Iokwqt+8PJM7yRHKuldg4MLdam4TCFeICv+lgDtuYiCtdmrtIP+uN9LWvDasw==
 
-ui-primitives@^3.38.0:
-  version "3.38.0"
-  resolved "https://registry.npmjs.org/ui-primitives/-/ui-primitives-3.38.0.tgz"
-  integrity sha512-TgjM0wgZFtVpPusZmeYV7O7jMeaQdG5cRSim2Hu1OiYQka/nX671YWenV/xWYe3s/AJpc2NoS3wMlHckzxeN0w==
+ui-primitives@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-8.1.0.tgz#4f791e5a9fe5e6f6f1d2926a4fe479bc298ba369"
+  integrity sha512-8UPoiCn92SBQDHe70K7AGUWy8LtoIpo3UoA6/Y9Ssc2rRvrCO7Nio1v+pdiOPx6/a2+DtlLcUEXfagEkAbV3og==
 
 unescape@^1.0.1:
   version "1.0.1"

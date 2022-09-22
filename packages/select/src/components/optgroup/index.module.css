@@ -17,7 +17,7 @@
 }
 
 .label {
-    @mixin system_12-16_medium_caps;
+    @mixin paragraph_caps;
 
     display: block;
     color: var(--select-optgroup-color);

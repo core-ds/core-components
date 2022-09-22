@@ -187,7 +187,7 @@
 }
 
 .label {
-    @mixin system_16-24_regular;
+    @mixin paragraph_primary_medium;
     display: block;
     color: var(--checkbox-label-color);
 }
@@ -197,7 +197,7 @@
 }
 
 .errorMessage {
-    @mixin system_14-18_regular;
+    @mixin paragraph_component_secondary;
     color: var(--checkbox-error-color);
 }
 

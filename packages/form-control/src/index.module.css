@@ -49,7 +49,7 @@
 }
 
 .label {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 
     position: absolute;
     display: flex;
@@ -85,9 +85,7 @@
 }
 
 .sub {
-    @mixin system_14-18_regular;
-
-    display: block;
+    @mixin paragraph_component_secondary display: block;
 
     /* adjusting overall height 👌 */
     margin-top: 6px;

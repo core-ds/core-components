@@ -80,7 +80,7 @@
     }
 
     & :global(.noUi-pips) {
-        @mixin system_14-18_regular;
+        @mixin paragraph_component_secondary;
         margin-top: 6px;
         height: 18px;
         color: var(--color-light-text-secondary);

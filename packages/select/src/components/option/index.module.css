@@ -2,7 +2,7 @@
 @import '../../vars.css';
 
 .option {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 
     display: flex;
     align-items: center;
