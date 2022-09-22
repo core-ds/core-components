@@ -4,4 +4,3 @@
 ---
 
 Добавлены новые компоненты ConfirmationMobile, ConfirmationResponsive
-Удалена темизация intranet и mobile для компонента Confirmation
