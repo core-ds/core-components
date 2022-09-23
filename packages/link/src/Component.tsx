@@ -117,6 +117,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
             // Для совместимости с react-router-dom, меняем href на to
             [typeof Component === 'string' ? 'href' : 'to']: href,
+            ...(pseudo && { type: 'button' }),
         };
 
         return (

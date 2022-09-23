@@ -72,6 +72,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       </div>
       <button
         class="component secondary pseudo smsComeLink"
+        type="button"
       >
         <span
           class="text"
@@ -165,6 +166,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       </div>
       <button
         class="component secondary pseudo smsComeLink"
+        type="button"
       >
         <span
           class="text"
@@ -255,6 +257,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       </div>
       <button
         class="component secondary pseudo smsComeLink"
+        type="button"
       >
         <span
           class="text"
@@ -348,6 +351,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       </div>
       <button
         class="component secondary pseudo smsComeLink"
+        type="button"
       >
         <span
           class="text"
