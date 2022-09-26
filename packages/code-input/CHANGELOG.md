@@ -1,152 +1,96 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+-   [#274](https://github.com/core-ds/core-components/pull/274): Компактная версия теперь включается когда >6 полей. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.2...@alfalab/core-components-code-input@2.1.0) (2022-09-13)
 
-
 ### Features
 
-* **code-input:** update mobile version ([#230](https://github.com/core-ds/core-components/issues/230)) ([bf66e85](https://github.com/core-ds/core-components/commit/bf66e85b147e22be13f1a62d945aba6012d5ccf5))
-* testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
-
-
-
-
+-   **code-input:** update mobile version ([#230](https://github.com/core-ds/core-components/issues/230)) ([bf66e85](https://github.com/core-ds/core-components/commit/bf66e85b147e22be13f1a62d945aba6012d5ccf5))
+-   testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
 
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.1...@alfalab/core-components-code-input@2.0.2) (2022-08-26)
 
-
 ### Bug Fixes
 
-* **code-input:** fixed "cannot read properties of undefined (reading get)" error ([#226](https://github.com/core-ds/core-components/issues/226)) ([8383613](https://github.com/core-ds/core-components/commit/838361388979acc184fb213f96c9e4ab43333fbc))
-
-
-
-
+-   **code-input:** fixed "cannot read properties of undefined (reading get)" error ([#226](https://github.com/core-ds/core-components/issues/226)) ([8383613](https://github.com/core-ds/core-components/commit/838361388979acc184fb213f96c9e4ab43333fbc))
 
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@2.0.0...@alfalab/core-components-code-input@2.0.1) (2022-08-19)
 
-
 ### Bug Fixes
 
-* omit enterKeyHint prop ([#197](https://github.com/core-ds/core-components/issues/197)) ([72f4946](https://github.com/core-ds/core-components/commit/72f494623c282f61b45539fa1c13d5c45bc5180c))
-
-
-
-
+-   omit enterKeyHint prop ([#197](https://github.com/core-ds/core-components/issues/197)) ([72f4946](https://github.com/core-ds/core-components/commit/72f494623c282f61b45539fa1c13d5c45bc5180c))
 
 # [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.5.1...@alfalab/core-components-code-input@2.0.0) (2022-08-17)
 
-
 ### Features
 
-* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
-
+-   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
-* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-директория dist)
+-   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+    директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
-
-
-
-
 ## [1.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.5.0...@alfalab/core-components-code-input@1.5.1) (2022-08-17)
-
 
 ### Bug Fixes
 
-* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
-
-
-
-
+-   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 # [1.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.4.3...@alfalab/core-components-code-input@1.5.0) (2022-08-04)
 
-
 ### Features
 
-* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
-
-
-
-
+-   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [1.4.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.4.2...@alfalab/core-components-code-input@1.4.3) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-code-input
 
-
-
-
-
 ## [1.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.4.1...@alfalab/core-components-code-input@1.4.2) (2022-07-15)
-
 
 ### Bug Fixes
 
-* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
-
-
-
-
+-   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [1.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.4.0...@alfalab/core-components-code-input@1.4.1) (2022-07-14)
 
 **Note:** Version bump only for package @alfalab/core-components-code-input
 
-
-
-
-
 # [1.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.3.0...@alfalab/core-components-code-input@1.4.0) (2022-06-28)
-
 
 ### Features
 
-* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
-
-
-
-
+-   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 # [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.2.3...@alfalab/core-components-code-input@1.3.0) (2022-06-20)
 
-
 ### Features
 
-* **code-input:** autocomplete sms in android ([#67](https://github.com/core-ds/core-components/issues/67)) ([b32f734](https://github.com/core-ds/core-components/commit/b32f73403d5ccce9812368e5f186952a67dca57c))
-
-
-
-
+-   **code-input:** autocomplete sms in android ([#67](https://github.com/core-ds/core-components/issues/67)) ([b32f734](https://github.com/core-ds/core-components/commit/b32f73403d5ccce9812368e5f186952a67dca57c))
 
 # [1.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.1.0...@alfalab/core-components-code-input@1.2.0) (2022-03-03)
 
-
 ### Bug Fixes
 
-* **code-input:** code-input-request-animation-frame-fix ([#1014](https://github.com/core-ds/core-components/issues/1014)) ([ad1478e](https://github.com/core-ds/core-components/commit/ad1478ebfd17679e8a2792462c619f525e5b7bb9))
-
+-   **code-input:** code-input-request-animation-frame-fix ([#1014](https://github.com/core-ds/core-components/issues/1014)) ([ad1478e](https://github.com/core-ds/core-components/commit/ad1478ebfd17679e8a2792462c619f525e5b7bb9))
 
 ### Features
 
-* Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
-
-
-
-
+-   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 # 1.1.0 (2022-02-16)
 
-
 ### Features
 
-
-* **code-input:** add component ([#932](https://github.com/core-ds/core-components/issues/932)) ([dc40cb5](https://github.com/core-ds/core-components/commit/dc40cb5b28322b4a2dc5735b354a7d45cf34adb9))
+-   **code-input:** add component ([#932](https://github.com/core-ds/core-components/issues/932)) ([dc40cb5](https://github.com/core-ds/core-components/commit/dc40cb5b28322b4a2dc5735b354a7d45cf34adb9))

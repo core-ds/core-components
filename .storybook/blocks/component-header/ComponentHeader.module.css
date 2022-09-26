@@ -15,6 +15,11 @@
     line-height: 1.2;
 }
 
+.info {
+    display: flex;
+    margin-top: var(--gap-xs);
+}
+
 .design {
     padding: 0 0 0 var(--gap-l);
     background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
@@ -43,4 +48,8 @@
     color: var(--color-light-text-link);
     border-bottom: 1px solid var(--color-light-text-link-alpha-30);
     text-decoration: none;
+}
+
+.usageLink * {
+    border-bottom: 0;
 }

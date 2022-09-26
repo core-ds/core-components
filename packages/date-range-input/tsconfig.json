@@ -1,0 +1,20 @@
+{
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-modal/*": ["../modal/src/*"],
+            "@alfalab/core-components-*": ["../*/src"]
+        }
+    },
+    "references": [
+        { "path": "../calendar" },
+        { "path": "../input" },
+        { "path": "../icon-button" },
+        { "path": "../popover" },
+        { "path": "../modal" },
+    ]
+}

@@ -163,7 +163,7 @@ async function releaseRoot() {
     await git.add(config.changelogPath, cwd);
 
     logger.log('=> Commit changed files');
-    shell.exec('git commit -n -m "chore: publish root package"', execOptions);
+    shell.exec('git commit -n -m "chore: publish root package [skip ci]"', execOptions);
 
     // копирую package.json в сборку корневого пакета
     shell.exec('cp package.json dist/package.json', execOptions);

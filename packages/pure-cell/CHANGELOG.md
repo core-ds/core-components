@@ -1,5 +1,19 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+-   Updated dependencies [[#279](https://github.com/core-ds/core-components/pull/279)]
+    -   @alfalab/core-components-amount@3.0.3
+
+## 3.0.1
+
+### Patch Changes
+
+-   [#271](https://github.com/core-ds/core-components/pull/271): Внутренний компонент "comment" заменен на @alfalab/core-components-comment. Thanks [@Lacronts](https://github.com/Lacronts)
+-   [#272](https://github.com/core-ds/core-components/pull/272): HTML-тег main заменен на div. Thanks [@Lacronts](https://github.com/Lacronts)
+
 ## 3.0.0
 
 ### Major Changes

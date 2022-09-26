@@ -13,12 +13,12 @@ import cn from 'classnames';
 import { ButtonProps } from '@alfalab/core-components-button';
 
 import { useFocus } from '@alfalab/hooks';
+import { Comment } from '@alfalab/core-components-comment';
 
 import { Addon } from './components/addon';
 import { Amount } from './components/amount';
 import { AmountTitle } from './components/amount-title';
 import { Category } from './components/category';
-import { Comment } from './components/comment';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { FooterButton } from './components/footer-button';

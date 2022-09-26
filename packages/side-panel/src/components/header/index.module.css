@@ -20,6 +20,7 @@
 
 .sticky {
     position: sticky;
+    z-index: 1;
 
     &.hasContent {
         background: var(--side-panel-header-background);

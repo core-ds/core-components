@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.4
+
+### Patch Changes
+
+-   [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
 ## 6.1.3
 
 ### Patch Changes

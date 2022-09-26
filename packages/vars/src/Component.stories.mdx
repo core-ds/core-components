@@ -27,14 +27,13 @@ import mixins from '!!raw-loader!./mixins.css';
     name='vars'
     version={version}
     package='@alfalab/core-components/vars'
-    stage={3}
 />
 
 ```css
 @import '@alfalab/core-components/vars';
 ```
 
-Все CSS-переменные можно также экспортировать в виде JS-переменных: 
+Все CSS-переменные можно также экспортировать в виде JS-переменных:
 
 ```typescript
 import * as vars from '@alfalab/core-components/vars';
@@ -42,7 +41,7 @@ import * as vars from '@alfalab/core-components/vars';
 vars.gap2xl === '32px' //true
 ```
 
-Для использования в проекте, подключите весь набор переменных в одном из корневых css файлов: 
+Для использования в проекте, подключите весь набор переменных в одном из корневых css файлов:
 
 ```css
 /* app.css */
@@ -60,7 +59,7 @@ vars.gap2xl === '32px' //true
 
 ### Отдельные наборы переменных:
 
-#### Отступы 
+#### Отступы
 ```css
 @import '@alfalab/core-components/vars/gaps.css';
 ```
@@ -119,14 +118,14 @@ vars.gap2xl === '32px' //true
 }
 ```
 #### Переменные
-#  
-#  
+#
+#
 
 <CssVars css={typography} expandable />
 &nbsp;
 
 #### Миксины
-#  
+#
 #
 
 <CssVars css={typography} expandable type='mixins'/>

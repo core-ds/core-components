@@ -1,5 +1,25 @@
 # Change Log
 
+## 12.1.4
+
+### Patch Changes
+
+-   Updated dependencies [[#283](https://github.com/core-ds/core-components/pull/283)]
+    -   @alfalab/core-components-link@5.0.1
+
+## 12.1.3
+
+### Patch Changes
+
+-   [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+
+## 12.1.2
+
+### Patch Changes
+
+-   Updated dependencies [[#274](https://github.com/core-ds/core-components/pull/274)]
+    -   @alfalab/core-components-code-input@2.1.1
+
 ## 12.1.1
 
 ### Patch Changes

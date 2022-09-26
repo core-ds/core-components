@@ -1,12 +1,4 @@
-import React, {
-    CSSProperties,
-    forwardRef,
-    useCallback,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
@@ -138,14 +130,6 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
         useEffect(() => recalculate(), [isExpanded, recalculate]);
 
-        const contentStyles: CSSProperties = useMemo(() => {
-            const contentHeight = contentRef.current?.offsetHeight;
-
-            return {
-                height: isExpanded && !contentHeight ? '0px' : `${contentHeight}px`,
-            };
-        }, [isExpanded]);
-
         const ToggledIcon = isExpanded ? ArrowUpMBlackIcon : ArrowDownMBlackIcon;
 
         return (
@@ -160,7 +144,6 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                     className={cn(styles.content, {
                         [styles.expandedContent]: isExpanded,
                     })}
-                    style={contentStyles}
                     onTransitionEnd={handleTransitionEnd}
                 >
                     <div ref={contentCaseRef}>{children}</div>

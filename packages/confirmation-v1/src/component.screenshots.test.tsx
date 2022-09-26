@@ -161,9 +161,7 @@ describe(
     }),
 );
 
-// TODO: fix test. Cant`t find button with pseudo class
-
-describe.skip('ConfirmationV1 | interactions tests', () => {
+describe('ConfirmationV1 | interactions tests', () => {
     test('Open don`t receive sms', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'ConfirmationV1',
@@ -174,7 +172,7 @@ describe.skip('ConfirmationV1 | interactions tests', () => {
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
         try {
-            // await page.locator('button', { hasText: 'Не приходит сообщение?' }).click();
+            await page.locator('button', { hasText: 'Не приходит сообщение?' }).click();
 
             await matchHtml({
                 page,

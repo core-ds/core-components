@@ -28,6 +28,10 @@ describe('Snapshots tests', () => {
             ),
         ).toMatchSnapshot();
     });
+
+    it('should render pseudo link snapshot', () => {
+        expect(render(<Link pseudo={true}>Link</Link>)).toMatchSnapshot();
+    });
 });
 
 describe('Classes tests', () => {
@@ -115,6 +119,16 @@ describe('Attributes tests', () => {
         const relAttr = container.firstElementChild?.getAttribute('rel');
 
         expect(relAttr).toBe('noreferrer noopener');
+    });
+
+    it('should set type attribute button for pseudo link', () => {
+        const typeAttributeButton = 'button';
+
+        const { container } = render(<Link pseudo={true}>Link</Link>);
+
+        const typeAttr = container.firstElementChild?.getAttribute('type');
+
+        expect(typeAttr).toBe(typeAttributeButton);
     });
 });
 
