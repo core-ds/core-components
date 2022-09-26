@@ -1,3 +1,10 @@
+## 32.1.2
+
+### Patch Changes
+
+#### `@alfalab/core-components-link`
+- [#283](https://github.com/core-ds/core-components/pull/283): Добавлен атрибут type=button для Link при pseudo=true. Thanks [@dmitrbrvsk](https://github.com/dmitrbrvsk)
+
 ## 32.1.1
 
 ### Patch Changes
