@@ -101,6 +101,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       >
         <button
           class="component secondary pseudo smsComeLink"
+          type="button"
         >
           <span
             class="text"
@@ -255,6 +256,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
       >
         <button
           class="component secondary pseudo smsComeLink"
+          type="button"
         >
           <span
             class="text"
@@ -376,6 +378,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
       >
         <button
           class="component secondary pseudo smsComeLink"
+          type="button"
         >
           <span
             class="text"
@@ -562,6 +565,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
       >
         <button
           class="component secondary pseudo smsComeLink"
+          type="button"
         >
           <span
             class="text"
@@ -677,6 +681,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
       >
         <button
           class="component secondary pseudo smsComeLink"
+          type="button"
         >
           <span
             class="text"
@@ -797,6 +802,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
       >
         <button
           class="component secondary pseudo smsComeLink"
+          type="button"
         >
           <span
             class="text"
@@ -872,6 +878,7 @@ exports[`Confirmation Snapshot tests should match snapshot without smsCountdown 
       >
         <button
           class="component secondary pseudo smsComeLink"
+          type="button"
         >
           <span
             class="text"
