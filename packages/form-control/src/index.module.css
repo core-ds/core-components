@@ -85,7 +85,8 @@
 }
 
 .sub {
-    @mixin paragraph_component_secondary display: block;
+    @mixin paragraph_component_secondary;
+    display: block;
 
     /* adjusting overall height 👌 */
     margin-top: 6px;

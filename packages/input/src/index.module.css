@@ -10,7 +10,8 @@
 }
 
 .input {
-    @mixin paragraph_component position: relative;
+    @mixin paragraph_component;
+    position: relative;
     display: block;
     width: 100%;
     height: 100%;
