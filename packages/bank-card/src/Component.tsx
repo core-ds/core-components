@@ -71,7 +71,7 @@ const getBrandIcon = (value = '') => {
 export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
     (
         {
-            bankLogo = <AlfaBankLogoMIcon />,
+            bankLogo = <AlfaBankLogoMIcon width="32" height="32" />,
             backgroundColor = '#EF3124',
             inputLabel = 'Номер карты или счёта',
             value,
@@ -150,7 +150,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
 );
 
 BankCard.defaultProps = {
-    bankLogo: <AlfaBankLogoMIcon />,
+    bankLogo: <AlfaBankLogoMIcon width="32" height="32" />,
     backgroundColor: '#EF3124',
     inputLabel: 'Номер карты или счёта',
 };

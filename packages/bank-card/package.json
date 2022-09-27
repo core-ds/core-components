@@ -19,8 +19,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-masked-input": "^5.0.7",
-        "@alfalab/icons-glyph": "^2.64.0",
-        "@alfalab/icons-logotype": "^2.16.0",
+        "@alfalab/icons-glyph": "^2.71.0",
+        "@alfalab/icons-logotype": "^2.18.0",
         "classnames": "^2.3.1"
     }
 }
