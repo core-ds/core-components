@@ -56,7 +56,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                             {mobile ? (
                                 <>Для&nbsp; звонков по&nbsp;России</>
                             ) : (
-                                <>&mdash;&nbsp;для звонков по&nbsp;России</>
+                                <> &mdash;&nbsp;для звонков по&nbsp;России</>
                             )}
                         </Typography.Text>
                     </div>
@@ -77,7 +77,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                             {mobile ? (
                                 <>В&nbsp;Москве и&nbsp;за&nbsp;границей</>
                             ) : (
-                                <>&mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей</>
+                                <> &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей</>
                             )}
                         </Typography.Text>
                     </div>

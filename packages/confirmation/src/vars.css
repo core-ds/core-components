@@ -1,11 +1,11 @@
 @import '../../themes/src/default.css';
 
 :root {
-    /* destop */
-    --confirmation-header-destop-font-size: 22px;
-    --confirmation-header-destop-line-height: 26px;
-    --confirmation-header-destop-font-weight: bold;
-    --confirmation-header-destop-font-family: var(--font-family-system);
+    /* desktop */
+    --confirmation-header-desktop-font-size: 22px;
+    --confirmation-header-desktop-line-height: 26px;
+    --confirmation-header-desktop-font-weight: bold;
+    --confirmation-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
     --confirmation-header-mobile-font-size: 18px;
@@ -19,6 +19,9 @@
     --confirmation-text-font-weight: 400;
     --confirmation-text-font-family: var(--font-family-system);
     --confirmation-text-color: var(--color-light-text-primary);
+
+    /* header */
+    --confirmation-header-font-feature-settings: normal;
 
     @define-mixin _confirmation-text {
         font-size: var(--confirmation-text-font-size);

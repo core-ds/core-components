@@ -1,7 +1,7 @@
 @define-mixin confirmation-intranet {
     /* theme */
-    --confirmation-header-destop-font-size: 18px;
-    --confirmation-header-destop-line-height: 22px;
+    --confirmation-header-desktop-font-size: 18px;
+    --confirmation-header-desktop-line-height: 22px;
     --confirmation-text-font-size: 14px;
     --confirmation-text-line-height: 20px;
     --confirmation-text-color: var(--color-light-text-secondary);

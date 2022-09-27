@@ -1,13 +1,15 @@
 @define-mixin confirmation-click {
-    /* destop */
-    --confirmation-header-destop-font-size: 24px;
-    --confirmation-header-destop-line-height: 32px;
-    --confirmation-header-destop-font-weight: 500;
-    --confirmation-header-destop-font-family: var(--font-family-styrene);
+    /* desktop */
+    --confirmation-header-desktop-font-size: 24px;
+    --confirmation-header-desktop-line-height: 32px;
+    --confirmation-header-desktop-font-weight: 500;
+    --confirmation-header-desktop-font-family: var(--font-family-styrene);
+    --confirmation-header-font-feature-settings: 'ss01';
 
     /* mobile */
     --confirmation-header-mobile-font-size: 20px;
     --confirmation-header-mobile-line-height: 28px;
     --confirmation-header-mobile-font-weight: 500;
     --confirmation-header-mobile-font-family: var(--font-family-styrene);
+    --confirmation-header-font-feature-settings: 'ss01';
 }

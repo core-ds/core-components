@@ -5,15 +5,15 @@
 }
 
 .typography {
-    font-feature-settings: 'ss01';
-    font-size: var(--confirmation-header-destop-font-size);
-    line-height: var(--confirmation-header-destop-line-height);
-    font-weight: var(--confirmation-header-destop-font-weight);
-    font-family: var(--confirmation-header-destop-font-family);
+    font-feature-settings: var(--confirmation-header-font-feature-settings);
+    font-size: var(--confirmation-header-desktop-font-size);
+    line-height: var(--confirmation-header-desktop-line-height);
+    font-weight: var(--confirmation-header-desktop-font-weight);
+    font-family: var(--confirmation-header-desktop-font-family);
 }
 
 .typographyMobile {
-    font-feature-settings: 'ss01';
+    font-feature-settings: var(--confirmation-header-font-feature-settings);
     font-size: var(--confirmation-header-mobile-font-size);
     line-height: var(--confirmation-header-mobile-line-height);
     font-weight: var(--confirmation-header-mobile-font-weight);
