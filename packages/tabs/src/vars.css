@@ -7,6 +7,7 @@
     --primary-tablist-disabled-color: var(--color-light-text-tertiary);
     --primary-tablist-bottom-border-color: var(--color-light-border-primary);
     --primary-tablist-line-color: var(--color-light-border-accent);
+    --primary-tablist-font-feature-settings: normal;
 
     /* mobile */
     --primary-tablist-mobile-gaps: var(--gap-xl);
