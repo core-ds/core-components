@@ -1,7 +1,7 @@
 import React, { useCallback, MouseEvent, ReactNode, useState, ChangeEvent, useEffect } from 'react';
 import cn from 'classnames';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { AlfaBankLogoMIcon } from '@alfalab/icons-logotype/AlfaBankLogoMIcon';
+import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
 import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
 import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
 import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
@@ -71,7 +71,7 @@ const getBrandIcon = (value = '') => {
 export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
     (
         {
-            bankLogo = <AlfaBankLogoMIcon width="32" height="32" />,
+            bankLogo = <AlfaBankLIcon />,
             backgroundColor = '#EF3124',
             inputLabel = 'Номер карты или счёта',
             value,
@@ -150,7 +150,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
 );
 
 BankCard.defaultProps = {
-    bankLogo: <AlfaBankLogoMIcon width="32" height="32" />,
+    bankLogo: <AlfaBankLIcon />,
     backgroundColor: '#EF3124',
     inputLabel: 'Номер карты или счёта',
 };
