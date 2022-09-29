@@ -1,0 +1,21 @@
+@import '../../vars.css';
+
+.header {
+    margin-bottom: var(--gap-xl);
+}
+
+.typography {
+    font-feature-settings: var(--confirmation-header-font-feature-settings);
+    font-size: var(--confirmation-header-desktop-font-size);
+    line-height: var(--confirmation-header-desktop-line-height);
+    font-weight: var(--confirmation-header-desktop-font-weight);
+    font-family: var(--confirmation-header-desktop-font-family);
+}
+
+.typographyMobile {
+    font-feature-settings: var(--confirmation-header-font-feature-settings);
+    font-size: var(--confirmation-header-mobile-font-size);
+    line-height: var(--confirmation-header-mobile-line-height);
+    font-weight: var(--confirmation-header-mobile-font-weight);
+    font-family: var(--confirmation-header-mobile-font-family);
+}

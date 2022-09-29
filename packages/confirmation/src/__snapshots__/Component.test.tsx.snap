@@ -9,66 +9,64 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       class="component left"
     >
       <h3
-        class="header"
+        class="component header typography styrene-medium medium primary"
       >
         Введите код из сообщения
       </h3>
+      <span
+        class="phone typographyTheme primary primary-medium"
+      >
+        Код отправлен на 
+      </span>
       <div
-        class="inputContainer"
+        class="component containerInput codeInput"
       >
         <div
-          class="component codeInput"
+          class=""
         >
-          <div
-            class=""
-          >
-            <input
-              autocomplete="one-time-code"
-              class="input"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-          </div>
+          <input
+            autocomplete="one-time-code"
+            class="input"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
         </div>
       </div>
       <div
-        class="countdown countdownContainer"
+        class="countdown countdownContainer typographyTheme primary-medium"
       >
         Запросить повторно можно через
-        <div
-          class="countdownTimer"
-        >
-          01:00
-        </div>
+         
+        01:00
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -94,64 +92,65 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       class="component left"
     >
       <h3
-        class="header"
+        class="component header typography styrene-medium medium primary"
       >
         Введите код из сообщения
       </h3>
+      <span
+        class="phone typographyTheme primary primary-medium"
+      >
+        Код отправлен на 
+      </span>
       <div
-        class="inputContainer"
+        class="component containerInput codeInput"
       >
         <div
-          class="component codeInput"
+          class=""
         >
-          <div
-            class=""
-          >
-            <input
-              autocomplete="one-time-code"
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-          </div>
+          <input
+            autocomplete="one-time-code"
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
         </div>
       </div>
       <div
-        class="loaderWrap countdownContainer"
+        class="loaderWrap countdownContainer typographyTheme"
       >
         <div
           class="component"
@@ -188,72 +187,70 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       class="component left"
     >
       <h3
-        class="header"
+        class="component header typography styrene-medium medium primary"
       >
         Введите код из сообщения
       </h3>
+      <span
+        class="phone typographyTheme primary primary-medium"
+      >
+        Код отправлен на 
+      </span>
       <div
-        class="inputContainer"
+        class="component containerInput codeInput"
       >
         <div
-          class="component codeInput"
+          class="shake"
         >
-          <div
-            class="shake"
-          >
-            <input
-              autocomplete="one-time-code"
-              class="input hasError"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input hasError"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input hasError"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input hasError"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input hasError"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-          </div>
-          <div
-            class="error"
-            role="alert"
-          >
-            Код введён неверно
-          </div>
+          <input
+            autocomplete="one-time-code"
+            class="input hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input hasError"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+        </div>
+        <div
+          class="error"
+          role="alert"
+        >
+          Код введён неверно
         </div>
       </div>
       <div
-        class="countdown countdownContainer"
+        class="countdown countdownContainer typographyTheme primary-medium"
       >
         Запросить повторно можно через
-        <div
-          class="countdownTimer"
-        >
-          01:00
-        </div>
+         
+        01:00
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -279,64 +276,65 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       class="component left"
     >
       <h3
-        class="header"
+        class="component header typography styrene-medium medium primary"
       >
         Введите код из сообщения
       </h3>
+      <span
+        class="phone typographyTheme primary primary-medium"
+      >
+        Код отправлен на 
+      </span>
       <div
-        class="inputContainer"
+        class="component containerInput codeInput"
       >
         <div
-          class="component codeInput"
+          class=""
         >
-          <div
-            class=""
-          >
-            <input
-              autocomplete="one-time-code"
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-            <input
-              autocomplete=""
-              class="input disabled"
-              disabled=""
-              inputmode="numeric"
-              pattern="[0-9]*"
-              value=""
-            />
-          </div>
+          <input
+            autocomplete="one-time-code"
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
+          <input
+            autocomplete=""
+            class="input disabled"
+            disabled=""
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value=""
+          />
         </div>
       </div>
       <div
-        class="loaderWrap countdownContainer"
+        class="loaderWrap countdownContainer typographyTheme"
       >
         <div
           class="component"
@@ -369,26 +367,30 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
   <div
     class="component left"
   >
-    <h3
-      class="header"
-    >
-      Ввести код больше нельзя
-    </h3>
     <div
-      class="description"
+      class="component left"
     >
-      Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
-    </div>
-    <button
-      class="component secondary xs component secondary"
-      type="button"
-    >
-      <span
-        class="text stretchText"
+      <h3
+        class="component header typography styrene-medium medium primary"
       >
-        Понятно
+        Ввести код больше нельзя
+      </h3>
+      <span
+        class="typographyTheme primary primary-medium"
+      >
+        Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
       </span>
-    </button>
+      <button
+        class="component secondary s component secondary button"
+        type="button"
+      >
+        <span
+          class="text stretchText"
+        >
+          Понятно
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -399,17 +401,17 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
     class="component left"
   >
     <h3
-      class="header"
+      class="component header typography styrene-medium medium primary"
     >
       Превышено количество попыток запроса кода
     </h3>
-    <div
-      class="description"
+    <span
+      class="description typographyTheme primary primary-medium"
     >
       Повторное подтверждение кодом будет возможно через 24 часа
-    </div>
+    </span>
     <div
-      class="countdownWrap"
+      class="countdownWrap typographyTheme"
     >
       <svg
         class="loader"
@@ -445,12 +447,12 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
         class="hintWrap"
       >
         <h3
-          class="title"
+          class="component header typography styrene-medium medium primary"
         >
           Не приходит сообщение?
         </h3>
         <span
-          class="text"
+          class="text typographyTheme primary primary-medium"
         >
           Если у вас изменился номер телефона, позвоните нам или обратитесь в любое отделение банка.
         </span>
@@ -461,7 +463,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
             class="phoneWrap"
           >
             <a
-              class="component primary phoneLink"
+              class="component primary withoutUnderline phoneLink"
               href="tel:+78002000000"
             >
               <span
@@ -471,17 +473,16 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
               </span>
             </a>
             <span
-              class="phoneDescription"
+              class="text typographyTheme primary primary-medium"
             >
-               
-              — для звонков по России
+               — для звонков по России
             </span>
           </div>
           <div
             class="phoneWrap"
           >
             <a
-              class="component primary phoneLink"
+              class="component primary withoutUnderline phoneLink"
               href="tel:+74957888878"
             >
               <span
@@ -491,15 +492,14 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
               </span>
             </a>
             <span
-              class="phoneDescription"
+              class="text typographyTheme primary primary-medium"
             >
-               
-              — в Москве и за границей
+               — в Москве и за границей
             </span>
           </div>
         </div>
         <span
-          class="text"
+          class="text typographyTheme primary primary-medium"
         >
           Если номер не менялся, возможно, перегружен сервис отправки сообщений. Попробуйте повторить действие через несколько минут.
         </span>

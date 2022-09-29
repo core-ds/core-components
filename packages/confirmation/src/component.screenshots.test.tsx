@@ -8,6 +8,8 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
+// DESKTOP
+
 describe(
     'Confirmation | code, charAmount, align',
     screenshotTesting({
@@ -16,6 +18,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
+                    packageName: 'confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
                         screen: 'INITIAL',
@@ -23,6 +26,7 @@ describe(
                         alignContent: ['left', 'center'],
                         requiredCharAmount: [5, 7],
                         phone: '+7 ··· ··· 07-24',
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],
@@ -45,10 +49,12 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
+                    packageName: 'confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
                         screen: ['INITIAL'],
                         state: ['INITIAL', 'CODE_CHECKING', 'CODE_SENDING', 'CODE_ERROR'],
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],
@@ -72,10 +78,12 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
+                    packageName: 'confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
                         screen: ['HINT', 'FATAL_ERROR', 'TEMP_BLOCK'],
                         state: ['INITIAL'],
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],
@@ -99,11 +107,13 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
+                    packageName: 'confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
                         screen: 'INITIAL',
                         state: 'INITIAL',
                         blockSmsRetry: true,
+                        ConfirmationComponent: 'Confirmation',
                     },
                 }),
             ],

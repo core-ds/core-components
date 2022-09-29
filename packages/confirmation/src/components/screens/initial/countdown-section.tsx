@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { Loader } from '@alfalab/core-components-loader';
 import { Button } from '@alfalab/core-components-button';
+import { Typography } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes } from '../../../utils';
@@ -13,6 +14,7 @@ type CountdownSectionProps = {
     codeSendHintVisible: boolean;
     timePassed: boolean;
     processing: boolean;
+    mobile?: boolean;
     handleSmsRetryClick: () => void;
 };
 
@@ -20,17 +22,34 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     codeSendHintVisible,
     timePassed,
     processing,
+    mobile,
     handleSmsRetryClick,
 }) => {
     const { state, texts, timeLeft, blockSmsRetry } = useContext(ConfirmationContext);
 
     if (codeSendHintVisible) {
-        return <div className={styles.countdownContainer}>{texts.codeSended}</div>;
+        return (
+            <Typography.Text
+                className={cn(styles.countdownContainer, {
+                    [styles.countdownMobile]: mobile,
+                    [styles.typographyTheme]: !mobile,
+                })}
+                view={mobile ? 'primary-small' : 'primary-medium'}
+                tag='div'
+            >
+                {texts.codeSended}
+            </Typography.Text>
+        );
     }
 
     if (processing) {
         return (
-            <div className={cn(styles.loaderWrap, styles.countdownContainer)}>
+            <div
+                className={cn(styles.loaderWrap, styles.countdownContainer, {
+                    [styles.countdownLoaderMobile]: mobile,
+                    [styles.typographyTheme]: !mobile,
+                })}
+            >
                 <Loader />
 
                 <span className={styles.loaderText}>
@@ -41,16 +60,27 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     }
 
     if (blockSmsRetry) {
-        return <div className={styles.countdownContainer}>{texts.noAttemptsLeft}</div>;
+        return (
+            <Typography.Text
+                className={cn(styles.countdownContainer, {
+                    [styles.countdownMobile]: mobile,
+                    [styles.typographyTheme]: !mobile,
+                })}
+                view={mobile ? 'primary-small' : 'primary-medium'}
+                tag='div'
+            >
+                {texts.noAttemptsLeft}
+            </Typography.Text>
+        );
     }
 
     if (timePassed) {
         return (
             <Button
-                size='xxs'
+                size={mobile ? 'xs' : 'xxs'}
                 view='secondary'
                 onClick={handleSmsRetryClick}
-                className={styles.getCodeButton}
+                className={cn(styles.getCodeButton, { [styles.getCodeButtonMobile]: mobile })}
             >
                 {texts.buttonRetry}
             </Button>
@@ -58,10 +88,15 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     }
 
     return (
-        <div className={cn(styles.countdown, styles.countdownContainer)}>
-            {texts.countdown}
-
-            <div className={styles.countdownTimer}>{formatMsAsMinutes(timeLeft)}</div>
-        </div>
+        <Typography.Text
+            className={cn(styles.countdown, styles.countdownContainer, {
+                [styles.countdownMobile]: mobile,
+                [styles.typographyTheme]: !mobile,
+            })}
+            view={mobile ? 'primary-small' : 'primary-medium'}
+            tag='div'
+        >
+            {texts.countdown} {formatMsAsMinutes(timeLeft)}
+        </Typography.Text>
     );
 };

@@ -12,6 +12,11 @@ export type ConfirmationProps = {
     state: ConfirmationState | string;
 
     /**
+     * Мобильная версия компонента для экрана
+     */
+    mobile?: boolean;
+
+    /**
      * Позиционирование контента
      */
     alignContent?: 'left' | 'center';
