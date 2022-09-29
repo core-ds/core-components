@@ -45,7 +45,11 @@
     --color-dark-specialbg-overlay-fallback: #070707;
     --color-dark-specialbg-primary-grouped: #202022;
     --color-dark-specialbg-secondary-grouped: #2c2c2e;
+    --color-dark-specialbg-secondary-transparent: rgba(255, 255, 255, 0.06);
+    --color-dark-specialbg-secondary-transparent-inverted: rgba(32, 32, 34, 0.05);
     --color-dark-specialbg-tertiary-grouped: #3a3a3c;
+    --color-dark-specialbg-tertiary-transparent: rgba(255, 255, 255, 0.11);
+    --color-dark-specialbg-tertiary-transparent-inverted: rgba(32, 32, 34, 0.1);
     --color-dark-text-accent: #ef3124;
     --color-dark-text-attention: #cb830f;
     --color-dark-text-disabled: rgba(235, 235, 245, 0.18);
@@ -105,7 +109,11 @@
     --color-light-specialbg-overlay-fallback: #5c5c5c;
     --color-light-specialbg-primary-grouped: #f3f4f5;
     --color-light-specialbg-secondary-grouped: #fff;
+    --color-light-specialbg-secondary-transparent: rgba(32, 32, 34, 0.05);
+    --color-light-specialbg-secondary-transparent-inverted: rgba(255, 255, 255, 0.06);
     --color-light-specialbg-tertiary-grouped: #f3f4f5;
+    --color-light-specialbg-tertiary-transparent: rgba(32, 32, 34, 0.1);
+    --color-light-specialbg-tertiary-transparent-inverted: rgba(255, 255, 255, 0.11);
     --color-light-text-accent: #ef3124;
     --color-light-text-attention: #cb830f;
     --color-light-text-disabled: rgba(60, 60, 67, 0.18);

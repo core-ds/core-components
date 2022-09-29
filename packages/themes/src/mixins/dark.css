@@ -45,7 +45,17 @@
     --color-light-specialbg-overlay-fallback: var(--color-dark-specialbg-overlay-fallback);
     --color-light-specialbg-primary-grouped: var(--color-dark-specialbg-primary-grouped);
     --color-light-specialbg-secondary-grouped: var(--color-dark-specialbg-secondary-grouped);
+    --color-light-specialbg-secondary-transparent: var(
+        --color-dark-specialbg-secondary-transparent
+    );
+    --color-light-specialbg-secondary-transparent-inverted: var(
+        --color-dark-specialbg-secondary-transparent-inverted
+    );
     --color-light-specialbg-tertiary-grouped: var(--color-dark-specialbg-tertiary-grouped);
+    --color-light-specialbg-tertiary-transparent: var(--color-dark-specialbg-tertiary-transparent);
+    --color-light-specialbg-tertiary-transparent-inverted: var(
+        --color-dark-specialbg-tertiary-transparent-inverted
+    );
     --color-light-text-accent: var(--color-dark-text-accent);
     --color-light-text-attention: var(--color-dark-text-attention);
     --color-light-text-disabled: var(--color-dark-text-disabled);
