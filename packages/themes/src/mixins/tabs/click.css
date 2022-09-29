@@ -16,6 +16,7 @@
     --primary-tablist-xl-font-weight: 500;
     --primary-tablist-xl-font-family: var(--font-family-styrene);
     --primary-tablist-xl-padding: var(--gap-l) 0;
+    --primary-tablist-font-feature-settings: 'ss01';
 
     /* mobile */
     --primary-tablist-mobile-font-weight: 500;
