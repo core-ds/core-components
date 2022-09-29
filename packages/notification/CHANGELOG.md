@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.1.2
+
+### Patch Changes
+
+-   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    -   @alfalab/core-components-toast-plate@5.1.2
+
 ## 6.1.1
 
 ### Patch Changes
