@@ -1,4 +1,4 @@
-@define-mixin form-control-site {
+@define-mixin form-control-corp {
     /* theme */
     --form-control-s-border-radius: 4px 4px 0 0;
     --form-control-m-border-radius: 4px 4px 0 0;

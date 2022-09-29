@@ -1,6 +1,10 @@
 @define-mixin form-control-intranet {
     /* theme */
     --form-control-border-radius: var(--border-radius-l);
+    --form-control-s-border-radius: var(--border-radius-l);
+    --form-control-m-border-radius: var(--border-radius-l);
+    --form-control-l-border-radius: var(--border-radius-l);
+    --form-control-xl-border-radius: var(--border-radius-l);
     --form-control-border-bottom: 0;
     --form-control-inverted-border-bottom: 0;
     --form-control-bg-color: var(--color-light-bg-secondary);
@@ -18,12 +22,14 @@
     --form-control-inverted-disabled-filled-label-color: var(--color-light-text-tertiary-inverted);
 
     /* focus */
+    --form-control-focus-border: 0;
     --form-control-focus-border-bottom: 0;
     --form-control-inverted-focus-border-bottom: 0;
     --form-control-focus-bg-color: var(--color-light-bg-secondary-shade-7);
     --form-control-inverted-focus-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
     --form-control-hover-bg-color: var(--color-light-bg-secondary-shade-7);
     --form-control-inverted-hover-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
+    --form-control-inverted-focus-border: 0;
 
     /* error */
     --form-control-error-label-color: var(--color-light-text-secondary);
@@ -33,6 +39,7 @@
     --form-control-inverted-error-shadow: none;
     --form-control-error-border-bottom: 0;
     --form-control-inverted-error-border-bottom: 0;
+    --form-control-error-border: 0;
 
     /* paddings */
     --form-control-sub-paddings: 0 var(--gap-2xs);

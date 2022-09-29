@@ -42,20 +42,22 @@
     color: var(--form-control-inverted-disabled-filled-label-color);
 }
 
+/* HOVER STATE */
+
+.inner:not(.disabled):hover {
+    background-color: var(--form-control-inverted-hover-bg-color);
+}
+
 /* FOCUS STATE */
 
 .focused:not(.disabled):not(.hasError):before {
     border-bottom: var(--form-control-inverted-focus-border-bottom);
 }
 
-.focused.inner {
+.focused.inner,
+.focused.inner:hover {
     background-color: var(--form-control-inverted-focus-bg-color);
-}
-
-/* HOVER STATE */
-
-.inner:not(.disabled):hover {
-    background-color: var(--form-control-inverted-hover-bg-color);
+    border: var(--form-control-inverted-focus-border);
 }
 
 /* ERROR STATE */
@@ -74,4 +76,9 @@
 
 .hasError:before {
     border-bottom: var(--form-control-inverted-error-border-bottom);
+}
+
+.hasError.inner,
+.hasError.inner:hover {
+    border: var(--form-control-error-border);
 }

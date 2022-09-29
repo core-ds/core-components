@@ -1,12 +1,12 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --form-control-border-bottom: 1px solid var(--color-light-border-underline);
+    --form-control-border-bottom: 0;
     --form-control-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
     --form-control-color: var(--color-light-text-primary);
     --form-control-label-color: var(--color-light-text-secondary);
     --form-control-hint-color: var(--color-light-text-secondary);
-    --form-control-inverted-border-bottom: 1px solid var(--color-light-border-underline-inverted);
+    --form-control-inverted-border-bottom: 0;
     --form-control-inverted-bg-color: var(--color-light-specialbg-component-inverted);
     --form-control-inverted-color: var(--color-light-text-primary-inverted);
     --form-control-inverted-label-color: var(--color-light-text-secondary-inverted-transparent);
@@ -30,10 +30,12 @@
     --form-control-inverted-disabled-shadow: none;
 
     /* focus */
-    --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
-    --form-control-focus-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
-    --form-control-inverted-focus-border-bottom: 1px solid var(--color-light-border-key-inverted);
-    --form-control-inverted-focus-bg-color: var(--color-light-specialbg-component-inverted-tint-15);
+    --form-control-focus-border: 2px solid var(--color-light-graphic-secondary);
+    --form-control-focus-border-bottom: 0;
+    --form-control-focus-bg-color: var(--color-light-bg-primary);
+    --form-control-inverted-focus-border-bottom: 0;
+    --form-control-inverted-focus-bg-color: var(--color-light-bg-primary-inverted);
+    --form-control-inverted-focus-border: 2px solid var(--color-light-graphic-secondary-inverted);
 
     /* hover */
     --form-control-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
@@ -44,14 +46,15 @@
     --form-control-error-label-color: var(--color-light-text-secondary);
     --form-control-error-shadow: none;
     --form-control-error-disabled-shadow: var(--form-control-error-shadow);
-    --form-control-error-border-bottom: 1px solid var(--color-static-border-accent);
+    --form-control-error-border: 2px solid var(--color-light-graphic-negative);
+    --form-control-error-border-bottom: 0;
     --form-control-inverted-error-color: var(--color-static-text-accent);
     --form-control-inverted-error-label-color: var(
         --color-light-text-secondary-inverted-transparent
     );
     --form-control-inverted-error-shadow: none;
     --form-control-inverted-error-disabled-shadow: var(--form-control-inverted-error-shadow);
-    --form-control-inverted-error-border-bottom: 1px solid var(--color-static-border-accent);
+    --form-control-inverted-error-border-bottom: 0;
 
     /* height */
     --form-control-s-min-height: var(--size-s-height);
@@ -75,4 +78,10 @@
 
     /* font */
     --form-control-font-family: var(--font-family);
+
+    /* border-radius */
+    --form-control-s-border-radius: var(--border-radius-m);
+    --form-control-m-border-radius: var(--border-radius-m);
+    --form-control-l-border-radius: var(--border-radius-m);
+    --form-control-xl-border-radius: var(--border-radius-l);
 }

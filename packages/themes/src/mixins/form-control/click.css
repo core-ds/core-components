@@ -1,6 +1,10 @@
 @define-mixin form-control-click {
     /* theme */
     --form-control-border-radius: var(--border-radius-s);
+    --form-control-s-border-radius: var(--border-radius-s);
+    --form-control-m-border-radius: var(--border-radius-s);
+    --form-control-l-border-radius: var(--border-radius-s);
+    --form-control-xl-border-radius: var(--border-radius-s);
     --form-control-border-bottom: 0;
     --form-control-inverted-border-bottom: 0;
     --form-control-bg-color: var(--color-light-bg-tertiary);
@@ -14,12 +18,14 @@
     --form-control-inverted-disabled-bg-color: var(--color-light-bg-tertiary-inverted);
 
     /* focus */
+    --form-control-focus-border: 0;
     --form-control-focus-border-bottom: 0;
     --form-control-inverted-focus-border-bottom: 0;
     --form-control-focus-bg-color: var(--color-light-bg-tertiary);
     --form-control-inverted-focus-bg-color: var(--color-light-bg-tertiary-inverted);
     --form-control-hover-bg-color: var(--color-light-bg-tertiary);
     --form-control-inverted-hover-bg-color: var(--color-light-bg-tertiary-inverted);
+    --form-control-inverted-focus-border: 0;
 
     /* error */
     --form-control-error-label-color: var(--color-light-text-negative);
@@ -28,4 +34,5 @@
     --form-control-inverted-error-shadow: inset 0 0 0 1px var(--color-light-border-accent);
     --form-control-error-border-bottom: 0;
     --form-control-inverted-error-border-bottom: 0;
+    --form-control-error-border: 0;
 }
