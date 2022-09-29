@@ -43,25 +43,25 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.7.0.tgz#b1e15d660b544925fdaf1491f1259e6480739483"
   integrity sha512-NQL8V90vwjCo8VPM8KncvB/3x5RskbRkQ+iAUSq3AaLdCKPS0K6Bu3Up30lFsqBiuVdr/Hne/HxBW7EBhUf5EQ==
 
-"@alfalab/icons-classic@^1.76.0":
-  version "1.76.0"
-  resolved "https://registry.npmjs.org/@alfalab/icons-classic/-/icons-classic-1.76.0.tgz"
-  integrity sha512-Zq8srsqnOB3rdkLI2X1JK7c4tJtMThvFPaFi+myOn1+qutNAxeHRzF8yb0V+gVoKw86HxE814teYQIYSVm40Sw==
+"@alfalab/icons-classic@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-2.3.0.tgz#5e6fdacba70bbf1d8b4b393d289d875a760d3164"
+  integrity sha512-Tmdb9+XllXr84hqd0KQKOQLaE/7cx2Mj04QG9Y+7QwzYDp7sPbO7FjVfI4pfbxqE2KlhrggYKK/cYmiO1k59EQ==
 
-"@alfalab/icons-flag@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.npmjs.org/@alfalab/icons-flag/-/icons-flag-1.11.0.tgz"
-  integrity sha512-n+R4Gr6JaMd8JUTiO0QNkcG8rftM9qiAr+sqbZoOKg56O/8SmAaTY8M4wYRQkP93uGo3vFgI1aaCGPXGFSr73A==
+"@alfalab/icons-flag@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-2.2.0.tgz#f30ac26125a08282e1117a75df045a5472aac6d0"
+  integrity sha512-egEds3VBNhTaJC/whIAPTUT19nMDuDXWNCQ0e5VjD8m7qbSvppowFoTIaKWv33FzmodaqgrEEoMJJtUbs7DP5g==
 
-"@alfalab/icons-glyph@^2.64.0":
-  version "2.64.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.64.0.tgz#9141fd32909c7da4ac9912db38feba5e3b5013eb"
-  integrity sha512-HoKQ4SupRVf7Ws1kGX1gmf7lKNiM0E3tAUT5RZ5elO52v5klzGSiD3c2mlox0wbEgui9Dxey4nt/1MOJ1j638w==
+"@alfalab/icons-glyph@^2.71.0":
+  version "2.71.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.71.0.tgz#ab69ca28482a560db9eff3c6da251a5f04100e63"
+  integrity sha512-lUCy+13BgY/j1vccw51eZbwKb3LQiFmJPO39cCGOIkjX4kx+zgKN1V4aW2UTxgXstuW5teXlUlXeTr00AX5B6A==
 
-"@alfalab/icons-logotype@^1.28.0":
-  version "1.28.0"
-  resolved "https://registry.npmjs.org/@alfalab/icons-logotype/-/icons-logotype-1.28.0.tgz"
-  integrity sha512-7W3pVTqEYlAMub+yXDqB2HcqFdO+9q0BFjzUnT72b5XbVamgw/X2tnhnY1dmURPs5VCepYsKLX5PYt/X8timDw==
+"@alfalab/icons-logotype@^2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.19.0.tgz#7d223c79ea7decc8d6659af87ccc242f7d0a6ad5"
+  integrity sha512-9J5W3JXIZlKhDB1uq4nXkUTAlzubCjHkhjdUrO0Bk9zh7dJF0SgkrRAIkHLf9thGH/hgI/5Tsc0Gjq1cGl+Oew==
 
 "@alfalab/rollup-plugin-postcss@^3.6.0":
   version "3.6.0"
