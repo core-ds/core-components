@@ -203,4 +203,14 @@
     --color-light-bg-primary-alpha-32: var(--color-dark-bg-primary-alpha-32);
     --color-light-bg-primary-alpha-37: var(--color-dark-bg-primary-alpha-37);
     --color-light-border-secondary-inverted: var(--color-dark-border-secondary-inverted);
+    --color-light-specialbg-secondary-transparent: var(
+        --color-dark-specialbg-secondary-transparent
+    );
+    --color-light-specialbg-secondary-transparent-inverted: var(
+        --color-dark-specialbg-secondary-transparent-inverted
+    );
+    --color-light-specialbg-tertiary-transparent: var(--color-dark-specialbg-tertiary-transparent);
+    --color-light-specialbg-tertiary-transparent-inverted: var(
+        --color-dark-specialbg-tertiary-transparent-inverted
+    );
 }

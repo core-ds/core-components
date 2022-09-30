@@ -1,17 +1,19 @@
 ---
-"@alfalab/core-components-amount-input": major
-"@alfalab/core-components-amount": major
-"@alfalab/core-components-attach": major
-"@alfalab/core-components-button": major
-"@alfalab/core-components-calendar-input": major
-"@alfalab/core-components-calendar": major
-"@alfalab/core-components-checkbox-group": major
-"@alfalab/core-components-checkbox": major
-"@alfalab/core-components-date-input": major
-"@alfalab/core-components-date-range-input": major
-"@alfalab/core-components-date-time-input": major
-"@alfalab/core-components-filter-tag": major
-"@alfalab/core-components-form-control": major
+"@alfalab/core-components/vars": major
+"@alfalab/core-components/themes": patch
+"@alfalab/core-components-amount-input": patch
+"@alfalab/core-components-amount": patch
+"@alfalab/core-components-attach": patch
+"@alfalab/core-components-button": patch
+"@alfalab/core-components-calendar-input": patch
+"@alfalab/core-components-calendar": patch
+"@alfalab/core-components-checkbox-group": patch
+"@alfalab/core-components-checkbox": patch
+"@alfalab/core-components-date-input": patch
+"@alfalab/core-components-date-range-input": patch
+"@alfalab/core-components-date-time-input": patch
+"@alfalab/core-components-filter-tag": patch
+"@alfalab/core-components-form-control": patch
 ---
 
-chore: обновила ui-primitives до последней версии 
+Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики
