@@ -5,7 +5,7 @@ import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
 import { setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
-import theme from 'prism-react-renderer/themes/oceanicNext';
+// import theme from 'prism-react-renderer/themes/oceanicNext';
 
 import guidelinesStyles from '!!postcss-loader!./public/guidelines.css';
 
@@ -21,13 +21,13 @@ if (window.location.href.includes('guidelines')) {
 
 addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
-        editorTheme: theme,
+        // editorTheme: theme,
         sandboxPath: '/docs/компоненты-песочница--page',
         copyText: ['Скопировать', 'Скопировано'],
         expandText: ['Показать код', 'Скрыть код'],
         shareText: ['Поделиться', 'Поделиться'],
-        borderColor: 'var(--color-light-border-secondary)',
-        borderRadius: 'var(--border-radius-s)',
+        // borderColor: 'var(--color-light-border-secondary)',
+        // borderRadius: 'var(--border-radius-s)',
         actionBg: 'var(--color-light-bg-primary)',
         actionColor: 'var(--color-light-text-primary)',
         actionAccent: 'var(--color-light-bg-accent)',

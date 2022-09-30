@@ -24264,10 +24264,10 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.12.0.tgz"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@^0.0.25:
-  version "0.0.25"
-  resolved "https://registry.npmjs.org/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.25.tgz"
-  integrity sha512-JJzaLhR+8t7pIGP6VyiEVuXfTbxmyx3/TGxt5SabGwxM88b/b6giFzggzTHqeDcrBwlJehj8PixYmPQMNG4m9A==
+storybook-addon-live-examples@0.0.27--canary.5.0911e90.0:
+  version "0.0.27--canary.5.0911e90.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.27--canary.5.0911e90.0.tgz#8a86259ecf40671d57b20ec9d45d4aa0526805f3"
+  integrity sha512-CSokyS/s1lLPC0a8iE2lvzP5aj3lGk5HPpYjeBiu2DYrQsT0xkT+8XuFHGP+6W63Q5bFE0mEvSBNC0mOAa1ADw==
   dependencies:
     prettier "^2.4.0"
     react-live "^2.3.0"

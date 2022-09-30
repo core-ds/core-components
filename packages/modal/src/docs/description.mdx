@@ -2,9 +2,7 @@
 
 Предоставляет стандартные компоненты `Header`, `Closer`, `Content`, `Footer`, а также доступ к контексту.
 
-```jsx live
-// import { Typography } from '@alfalab/core-components/typography';
-
+```jsx live id=1
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -15,7 +13,7 @@ render(() => {
             <Button type='button' size='xs' onClick={handleModalOpen}>
                 Открыть модалку
             </Button>
-            <ModalDesktop open={open} onClose={handleModalOpen} size='m'>
+            <ModalDesktop open={open} onClose={handleModalOpen} size='m' container={() => document.getElementById('preview-1')}>
                 <ModalDesktop.Header hasCloser={true} />
                 <ModalDesktop.Content>
                     <Typography.Title tag='div' view='small'>
@@ -43,6 +41,48 @@ render(() => {
                     </Button>
                 </ModalDesktop.Footer>
             </ModalDesktop>
+        </React.Fragment>
+    );
+});
+#MOBILE#
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleModalOpen = () => setOpen(!open);
+
+    return (
+        <React.Fragment>
+            <Button type='button' size='xs' onClick={handleModalOpen}>
+                Открыть модалку
+            </Button>
+            <ModalMobile open={open} onClose={handleModalOpen} size='m' container={() => document.getElementById('preview-1')}>
+                <ModalMobile.Header hasCloser={true} />
+                <ModalMobile.Content>
+                    <Typography.Title tag='div' view='small'>
+                        Почему банк проверяет мои операции?
+                    </Typography.Title>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Сейчас много говорят об отказах банков в проведении операций, блокировках
+                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+                        выявлять операции своих клиентов, потенциально нарушающие требования
+                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+                        доходов, полученных преступным путем, и финансированию терроризма».
+                    </Typography.Text>
+                    <br />
+                    <Typography.Text tag='p'>
+                        Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+                        предотвращать проведение таких операций и поэтому могут запросить
+                        дополнительную информацию и документы, ограничить доступ к платежам через
+                        интернет-банк или даже отказать в исполнении платежа.
+                    </Typography.Text>
+                </ModalMobile.Content>
+                <ModalMobile.Footer>
+                    <Button view='primary' size='s' onClick={handleModalOpen}>
+                        Понятно
+                    </Button>
+                </ModalMobile.Footer>
+            </ModalMobile>
         </React.Fragment>
     );
 });
@@ -110,11 +150,11 @@ render(() => {
                 height: '800px',
                 zIndex: '10',
                 ...(open && styles)
-            }}></div>   </div> }         
-            <ModalMobile 
-                open={open} 
-                onClose={handleModalOpen} 
-                size='m' 
+            }}></div>   </div> }
+            <ModalMobile
+                open={open}
+                onClose={handleModalOpen}
+                size='m'
                 container={() => document.getElementById('container-modal')}>
                 <ModalMobile.Header
                     hasCloser={hasCloser}
@@ -211,12 +251,12 @@ render(() => {
                 width: '360px',
                 height: '800px',
                 ...(open && styles)
-            }}></div>}  
-            </Col>       
-            <ModalMobile 
-                open={open} 
-                onClose={handleModalOpen} 
-                size='m' 
+            }}></div>}
+            </Col>
+            <ModalMobile
+                open={open}
+                onClose={handleModalOpen}
+                size='m'
                 container={() => document.getElementById('container-modal2')}>
                 <ModalMobile.Header
                     hasCloser={hasCloser}
@@ -314,11 +354,11 @@ render(() => {
                 height: '800px',
                 ...(openModal && styles)
             }}></div>
-                  
-            <ModalMobile 
-                open={openModal} 
-                onClose={handleModalOpen} 
-                size='m' 
+
+            <ModalMobile
+                open={openModal}
+                onClose={handleModalOpen}
+                size='m'
                 container={() => document.getElementById('container-modal3')}>
                 <ModalMobile.Header
                     hasCloser={hasCloser}
@@ -358,7 +398,7 @@ render(() => {
                     </Button>
                 </ModalMobile.Footer>
             </ModalMobile>
-            </Col> 
+            </Col>
             </Row>
         </React.Fragment>
     );
