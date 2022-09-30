@@ -18,6 +18,7 @@ export type CreateStorybookUrlParams = {
     componentName: string;
     subComponentName?: string;
     testStory?: boolean;
+    inverted?: boolean;
     knobs?: Knobs;
     mockDate?: number;
 };
@@ -28,6 +29,7 @@ export type CreateSpriteStorybookUrlParams = {
     componentName: string;
     subComponentName?: string;
     knobs?: KnobsCombinations;
+    inverted?: boolean;
     size?: { width: number; height: number };
     mockDate?: number;
 };
@@ -38,6 +40,7 @@ export function createStorybookUrl({
     subComponentName = '',
     packageName = kebab(componentName),
     testStory = true,
+    inverted = false,
     knobs = {},
     mockDate,
 }: CreateStorybookUrlParams) {
@@ -48,7 +51,7 @@ export function createStorybookUrl({
 
     if (testStory) {
         // TODO: укоротить (переписать на qs.stringify)
-        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${knobsQuery}&mockDate=${mockDate ||
+        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&inverted=${inverted}&${knobsQuery}&mockDate=${mockDate ||
             ''}`;
     }
 
@@ -65,13 +68,14 @@ export function createSpriteStorybookUrl({
     subComponentName = '',
     packageName = kebab(componentName),
     knobs = {},
+    inverted = false,
     size,
     mockDate,
 }: CreateSpriteStorybookUrlParams) {
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
 
     // TODO: укоротить (переписать на qs.stringify)
-    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&knobs=${JSON.stringify(
+    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
         knobs,
     )}&mockDate=${mockDate || ''}`;
 }

@@ -66,7 +66,7 @@ function updateDarkThemeMixins(colors) {
             .replace(/^light-/, 'dark-')
             .replace(/-(shade|tint)-/, v => (v === '-shade-' ? '-tint-' : '-shade-'));
 
-        if (colors[pair]) {
+        if (colors[pair] && !color.endsWith('-old')) {
             css += `    ${buildVarName(color)}: var(--color-${pair});\n`;
         } else {
             console.warn(`No pair found for '${color}' color.`);

@@ -44,7 +44,7 @@
 }
 
 .steps {
-    @mixin system_14-18_regular;
+    @mixin paragraph_component_secondary;
 
     display: flex;
     justify-content: space-between;
@@ -53,7 +53,7 @@
 }
 
 .info {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 
     color: var(--slider-input-info-color);
     box-sizing: border-box;

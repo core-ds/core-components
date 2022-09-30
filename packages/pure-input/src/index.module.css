@@ -3,7 +3,7 @@
 @import '../../form-control/src/vars.css';
 
 .component {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 
     display: inline-flex;
     box-sizing: border-box;

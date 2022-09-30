@@ -8,7 +8,7 @@
 .component {
     display: flex;
     position: relative;
-    color: var(--color-light-text-secondary-transparent);
+    color: var(--color-light-text-secondary);
 }
 
 .bg {

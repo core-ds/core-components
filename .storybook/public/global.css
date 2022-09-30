@@ -158,7 +158,7 @@ div.sidebar-subheading {
     padding: var(--gap-xs) var(--gap-m) 0 var(--gap-l);
     margin-bottom: var(--gap-xs);
     border-top: 1px solid rgba(0, 0, 0, 0.07);
-    color: var(--color-light-text-tertiary-transparent);
+    color: var(--color-light-text-tertiary);
     font-size: 12px;
     line-height: 1.2;
     font-weight: 700;
@@ -506,7 +506,7 @@ div.sbdocs table.docblock-propstable {
 
 table.docblock-propstable thead.docblock-propstable-head th {
     padding: 0 0 var(--gap-xs);
-    color: var(--color-light-text-tertiary-transparent);
+    color: var(--color-light-text-tertiary);
     font-size: 12px;
     line-height: 1.2;
     font-weight: normal;

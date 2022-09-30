@@ -18,7 +18,7 @@
 }
 
 .contentWrapper {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 
     white-space: nowrap;
     text-overflow: ellipsis;

@@ -51,7 +51,7 @@
 }
 
 .textarea {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 
     position: relative;
     display: block;

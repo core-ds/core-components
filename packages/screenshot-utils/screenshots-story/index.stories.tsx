@@ -11,14 +11,14 @@ export const Screenshots = () => {
 
     const props = parseKnobs();
 
+    const invertedBg = getQueryParam('inverted', true) || (props as any).colors === 'inverted';
+
     return (
         <div
-            // TODO:
             style={{
-                backgroundColor:
-                    (props as any).colors === 'inverted'
-                        ? 'var(--color-light-bg-primary-inverted)'
-                        : 'transparent',
+                backgroundColor: invertedBg
+                    ? 'var(--color-light-bg-primary-inverted)'
+                    : 'transparent',
             }}
         >
             {Component ? <Component {...props} /> : null}
