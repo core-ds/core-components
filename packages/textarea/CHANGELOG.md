@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.2.3
+
+### Patch Changes
+
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-form-control@8.3.1
+
 ## 7.2.2
 
 ### Patch Changes

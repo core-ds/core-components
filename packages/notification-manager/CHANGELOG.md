@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.3
+
+### Patch Changes
+
+-   @alfalab/core-components-notification@6.1.3
+
 ## 5.1.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.2.1
+
+### Patch Changes
+
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-button@6.1.2
+
 ## 12.2.0
 
 ### Minor Changes

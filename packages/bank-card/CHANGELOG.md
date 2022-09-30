@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.2.1
+
+### Patch Changes
+
+-   @alfalab/core-components-masked-input@5.0.9
+
 ## 5.2.0
 
 ### Minor Changes

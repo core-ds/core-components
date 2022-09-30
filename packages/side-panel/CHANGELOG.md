@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.5
+
+### Patch Changes
+
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-button@6.1.2
+    -   @alfalab/core-components-icon-button@5.0.5
+
 ## 2.1.4
 
 ### Patch Changes

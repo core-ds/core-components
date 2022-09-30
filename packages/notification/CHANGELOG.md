@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.3
+
+### Patch Changes
+
+-   @alfalab/core-components-toast-plate@5.1.3
+
 ## 6.1.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.9
+
+### Patch Changes
+
+-   @alfalab/core-components-icon-button@5.0.5
+-   @alfalab/core-components-input@10.2.4
+
 ## 3.0.8
 
 ### Patch Changes

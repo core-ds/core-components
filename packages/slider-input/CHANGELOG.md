@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.2.5
+
+### Patch Changes
+
+-   @alfalab/core-components-input@10.2.4
+
 ## 6.2.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.2.4
+
+### Patch Changes
+
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-button@6.1.2
+    -   @alfalab/core-components-form-control@8.3.1
+
 ## 10.2.3
 
 ### Patch Changes

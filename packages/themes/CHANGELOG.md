@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.5.1
+
+### Patch Changes
+
+-   [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
 ## 9.5.0
 
 ### Minor Changes

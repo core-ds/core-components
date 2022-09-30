@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.9
+
+### Patch Changes
+
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-form-control@8.3.1
+    -   @alfalab/core-components-select@12.4.5
+
 ## 6.1.8
 
 ### Patch Changes

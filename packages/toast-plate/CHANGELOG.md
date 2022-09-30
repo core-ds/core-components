@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.3
+
+### Patch Changes
+
+-   @alfalab/core-components-icon-button@5.0.5
+
 ## 5.1.2
 
 ### Patch Changes

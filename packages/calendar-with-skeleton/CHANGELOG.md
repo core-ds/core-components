@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.0.10
+
+### Patch Changes
+
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-calendar@6.1.6
+
 ## 5.0.9
 
 ### Patch Changes

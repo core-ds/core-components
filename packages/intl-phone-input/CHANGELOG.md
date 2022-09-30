@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.15
+
+### Patch Changes
+
+-   @alfalab/core-components-input@10.2.4
+-   @alfalab/core-components-input-autocomplete@8.2.5
+-   @alfalab/core-components-select@12.4.5
+
 ## 7.0.14
 
 ### Patch Changes
