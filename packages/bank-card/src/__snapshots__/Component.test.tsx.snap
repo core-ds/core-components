@@ -16,19 +16,18 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
           class="bankLogo"
         >
           <svg
+            fill="currentColor"
             focusable="false"
-            height="30"
+            height="32"
             role="img"
-            viewBox="0 0 30 30"
-            width="30"
+            viewBox="0 0 21 32"
+            width="21"
           >
-            <g
-              fill="#ef3124"
-            >
-              <path
-                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
-              />
-            </g>
+            <path
+              clip-rule="evenodd"
+              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              fill-rule="evenodd"
+            />
           </svg>
         </div>
         <div
@@ -133,19 +132,18 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
           class="bankLogo"
         >
           <svg
+            fill="currentColor"
             focusable="false"
-            height="30"
+            height="32"
             role="img"
-            viewBox="0 0 30 30"
-            width="30"
+            viewBox="0 0 21 32"
+            width="21"
           >
-            <g
-              fill="#ef3124"
-            >
-              <path
-                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
-              />
-            </g>
+            <path
+              clip-rule="evenodd"
+              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              fill-rule="evenodd"
+            />
           </svg>
         </div>
         <div
@@ -248,19 +246,18 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
           class="bankLogo"
         >
           <svg
+            fill="currentColor"
             focusable="false"
-            height="30"
+            height="32"
             role="img"
-            viewBox="0 0 30 30"
-            width="30"
+            viewBox="0 0 21 32"
+            width="21"
           >
-            <g
-              fill="#ef3124"
-            >
-              <path
-                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
-              />
-            </g>
+            <path
+              clip-rule="evenodd"
+              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              fill-rule="evenodd"
+            />
           </svg>
         </div>
         <div
@@ -363,19 +360,18 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
           class="bankLogo"
         >
           <svg
+            fill="currentColor"
             focusable="false"
-            height="30"
+            height="32"
             role="img"
-            viewBox="0 0 30 30"
-            width="30"
+            viewBox="0 0 21 32"
+            width="21"
           >
-            <g
-              fill="#ef3124"
-            >
-              <path
-                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
-              />
-            </g>
+            <path
+              clip-rule="evenodd"
+              d="M10.471 4.886l-3.081 8.89h6.106l-2.91-8.89h-.115zM10.7 0c2.474 0 3.196 1.432 3.822 3.245L21 22h-4.794l-1.455-4.459H6.077L4.508 22H0L6.798 3.245C7.458 1.426 8.226 0 10.7 0zM0 27h21v5H0v-5z"
+              fill-rule="evenodd"
+            />
           </svg>
         </div>
         <div

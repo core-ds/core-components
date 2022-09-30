@@ -1,11 +1,6 @@
-@import '../../../../../themes/src/default.css';
 @import '../../../vars.css';
 
 .center {
-    & .phoneHintWrap {
-        align-items: center;
-    }
-
     & .hintWrap {
         align-items: center;
     }
@@ -15,21 +10,20 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.title {
-    @mixin _confirmation-title;
+    & span:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 .text {
-    @mixin _confirmation-text;
-
     margin-bottom: var(--gap-xl);
 }
 
-.phonesWrap {
+.typographyTheme {
     @mixin _confirmation-text;
+}
 
+.phonesWrap {
     display: flex;
     flex-direction: column;
     margin-bottom: var(--gap-xl);
@@ -45,16 +39,14 @@
 
 .phoneLink {
     @mixin action_primary_medium;
-
-    & > span {
-        border-bottom: none;
-    }
-}
-
-.phoneDescription {
-    color: var(--confirmation-text-color);
 }
 
 .hintButton {
     margin-top: var(--gap-2xl);
+}
+
+.phoneContentMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

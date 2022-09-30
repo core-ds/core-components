@@ -13,5 +13,5 @@
 
 .description {
     margin-top: var(--gap-xs);
-    color: var(--color-light-text-secondary-transparent);
+    color: var(--color-light-text-secondary);
 }

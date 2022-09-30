@@ -5,7 +5,7 @@
     --input-error-icon-display: block;
     --input-disabled-color: var(--color-light-text-secondary);
     --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
-    --input-focus-placeholder-color: var(--color-light-text-tertiary-transparent);
-    --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted-transparent);
+    --input-focus-placeholder-color: var(--color-light-text-tertiary);
+    --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
     --input-error-icon-not-alone-display: none;
 }

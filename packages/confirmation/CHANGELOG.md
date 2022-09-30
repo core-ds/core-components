@@ -1,5 +1,17 @@
 # Change Log
 
+## 12.2.0
+
+### Minor Changes
+
+-   [#233](https://github.com/core-ds/core-components/pull/233): Добавлены новые компоненты ConfirmationMobile, ConfirmationResponsive. Thanks [@Valeri8888](https://github.com/Valeri8888)
+    Обновлены стили компонента для соответствия актуальным макетам
+
+### Patch Changes
+
+-   [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+    Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
 ## 12.1.4
 
 ### Patch Changes

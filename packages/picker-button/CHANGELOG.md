@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.8
+
+### Patch Changes
+
+-   [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+    Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+    -   @alfalab/core-components-select@12.4.4
+
 ## 8.2.7
 
 ### Patch Changes

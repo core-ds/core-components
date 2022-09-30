@@ -2,7 +2,7 @@
 @import '../../input/src/vars.css';
 
 .suffixContainer {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 
     position: absolute;
     left: 0;

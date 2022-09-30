@@ -53,13 +53,13 @@
 }
 
 .label {
-    @mixin system_16-24_regular;
+    @mixin paragraph_primary_medium;
     margin-bottom: var(--gap-s);
     color: var(--radio-group-label-color);
 }
 
 .sub {
-    @mixin system_14-18_regular;
+    @mixin paragraph_component_secondary;
     margin-top: var(--gap-s);
 }
 

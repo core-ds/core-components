@@ -48,6 +48,7 @@
 }
 
 .heightS {
+    @mixin accent_secondary_small;
     padding: 0 var(--gap-2xs);
 }
 

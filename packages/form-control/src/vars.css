@@ -9,8 +9,8 @@
     --form-control-inverted-border-bottom: 0;
     --form-control-inverted-bg-color: var(--color-light-specialbg-component-inverted);
     --form-control-inverted-color: var(--color-light-text-primary-inverted);
-    --form-control-inverted-label-color: var(--color-light-text-secondary-inverted-transparent);
-    --form-control-inverted-hint-color: var(--color-light-text-secondary-inverted-transparent);
+    --form-control-inverted-label-color: var(--color-light-text-secondary-inverted);
+    --form-control-inverted-hint-color: var(--color-light-text-secondary-inverted);
 
     /* disabled */
     --form-control-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
@@ -23,7 +23,7 @@
     );
     --form-control-inverted-disabled-border-bottom: 1px dashed
         var(--color-light-border-underline-inverted);
-    --form-control-inverted-disabled-color: var(--color-light-text-secondary-inverted-transparent);
+    --form-control-inverted-disabled-color: var(--color-light-text-secondary-inverted);
     --form-control-inverted-disabled-filled-label-color: var(
         --form-control-inverted-disabled-color
     );
@@ -49,9 +49,7 @@
     --form-control-error-border: 2px solid var(--color-light-graphic-negative);
     --form-control-error-border-bottom: 0;
     --form-control-inverted-error-color: var(--color-static-text-accent);
-    --form-control-inverted-error-label-color: var(
-        --color-light-text-secondary-inverted-transparent
-    );
+    --form-control-inverted-error-label-color: var(--color-light-text-secondary-inverted);
     --form-control-inverted-error-shadow: none;
     --form-control-inverted-error-disabled-shadow: var(--form-control-inverted-error-shadow);
     --form-control-inverted-error-border-bottom: 0;

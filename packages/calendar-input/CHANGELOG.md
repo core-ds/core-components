@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.1.6
+
+### Patch Changes
+
+-   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    -   @alfalab/core-components-calendar@6.1.5
+    -   @alfalab/core-components-date-input@3.1.4
+
 ## 7.1.5
 
 ### Patch Changes

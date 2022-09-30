@@ -3,21 +3,21 @@ import React, { ComponentType, FC, useEffect } from 'react';
 import cn from 'classnames';
 import { usePrevious } from '@alfalab/hooks';
 
-import { ConfirmationContext } from './context';
-import { ConfirmationProps, TConfirmationContext, defaultTexts } from './types';
-import { Initial, Hint, TempBlock, FatalError } from './components';
-import { useCountdown, ONE_DAY, ONE_MINUTE } from './utils';
+import { ConfirmationContext } from '../../context';
+import { ConfirmationProps, TConfirmationContext, defaultTexts } from '../../types';
+import { Initial, Hint, TempBlock, FatalError } from '../screens';
+import { useCountdown, ONE_DAY, ONE_MINUTE } from '../../utils';
 
 import styles from './index.module.css';
 
-const confirmationScreens: { [key: string]: ComponentType } = {
+const confirmationScreens: { [key: string]: ComponentType<{ mobile?: boolean }> } = {
     INITIAL: Initial,
     HINT: Hint,
     FATAL_ERROR: FatalError,
     TEMP_BLOCK: TempBlock,
 };
 
-export const Confirmation: FC<ConfirmationProps> = ({
+export const BaseConfirmation: FC<ConfirmationProps> = ({
     state,
     screen,
     alignContent = 'left',
@@ -36,6 +36,7 @@ export const Confirmation: FC<ConfirmationProps> = ({
     onChangeScreen,
     onFatalErrorOkButtonClick,
     onTempBlockFinished,
+    mobile,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);
@@ -111,7 +112,7 @@ export const Confirmation: FC<ConfirmationProps> = ({
                 className={cn(styles.component, styles[alignContent], className)}
                 data-test-id={dataTestId}
             >
-                {CurrentScreen && <CurrentScreen />}
+                {CurrentScreen && <CurrentScreen mobile={mobile} />}
             </div>
         </ConfirmationContext.Provider>
     );

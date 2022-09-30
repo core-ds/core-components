@@ -1,14 +1,11 @@
-@import '../../../../../themes/src/default.css';
 @import '../../../vars.css';
 
-.header {
-    @mixin _confirmation-title;
+.typographyTheme {
+    @mixin _confirmation-text;
 }
 
 .description {
-    @mixin _confirmation-text;
-
-    margin-bottom: var(--gap-2xl);
+    margin-bottom: var(--gap-xs);
 }
 
 .countdownWrap {

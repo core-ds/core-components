@@ -42,22 +42,22 @@
 .xxs .noFile,
 .xs .file,
 .xs .noFile {
-    @mixin system_14-18_regular;
+    @mixin paragraph_component_secondary;
 }
 
 .s .file,
 .s .noFile {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 }
 
 .m .file,
 .m .noFile {
-    @mixin system_16-20_regular;
+    @mixin paragraph_component;
 }
 
 .l .file,
 .l .noFile {
-    @mixin system_18-22_regular;
+    @mixin promo-system_xsmall;
 }
 
 .file,
