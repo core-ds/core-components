@@ -58,7 +58,6 @@
 .focused.inner,
 .focused.inner:hover {
     background-color: var(--form-control-inverted-focus-bg-color);
-    border: var(--form-control-inverted-focus-border);
     box-shadow: var(--form-control-inverted-focus-shadow);
 }
 
