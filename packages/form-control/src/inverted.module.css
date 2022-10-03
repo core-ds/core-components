@@ -32,6 +32,7 @@
 
 .disabled.hasError {
     box-shadow: var(--form-control-inverted-error-disabled-shadow);
+    background-color: var(--form-control-inverted-disabled-bg-color);
 }
 
 .disabled:before {
@@ -58,6 +59,7 @@
 .focused.inner:hover {
     background-color: var(--form-control-inverted-focus-bg-color);
     border: var(--form-control-inverted-focus-border);
+    box-shadow: var(--form-control-inverted-focus-shadow);
 }
 
 /* ERROR STATE */
@@ -70,15 +72,11 @@
     color: var(--form-control-inverted-error-label-color);
 }
 
-.hasError {
-    box-shadow: var(--form-control-inverted-error-shadow);
-}
-
 .hasError:before {
     border-bottom: var(--form-control-inverted-error-border-bottom);
 }
 
-.hasError.inner,
-.hasError.inner:hover {
-    border: var(--form-control-error-border);
+.hasError {
+    box-shadow: var(--form-control-inverted-error-shadow);
+    background-color: var(--form-control-inverted-error-bg-color);
 }

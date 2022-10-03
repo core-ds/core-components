@@ -10,4 +10,7 @@
     --input-caret-color: var(--color-light-text-link);
     --input-inverted-caret-color: var(--color-light-text-link);
     --input-error-icon-not-alone-display: none;
+    --input-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
+    --input-inverted-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
+    --input-success-icon-display: block;
 }
