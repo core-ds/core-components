@@ -76,7 +76,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     Product Name ··0000
                 </PureCell.Text>
                 <PureCell.Amount
-                amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } }
+                view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
                 weight={ weight } color={ color } view={ view }/>
             </PureCell.Main>
             <PureCell.Footer>
@@ -94,7 +94,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.AmountTitle
-                        amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } }
+                        view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
                         color={ color }
                     />
                 </PureCell.Main>
@@ -231,7 +231,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount
-                        amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } }
+                        view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
                         weight={ weight } color={ color } view={ view }/>
                     </PureCell.Main>
                     <PureCell.Footer>
@@ -275,8 +275,8 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Общий баланс
                         </PureCell.Text>
                         <PureCell.AmountTitle
-                            amount={ { view: viewAmount, value: value, minorUnits: 100, currency: 'RUR' } }
-                         color={ color }
+                            view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
+                            color={ color }
                         />
                     </PureCell.Main>
                     <PureCell.Addon verticalAlign="center">
