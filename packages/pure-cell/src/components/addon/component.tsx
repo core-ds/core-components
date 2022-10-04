@@ -10,7 +10,7 @@ type Props = {
     /**
      * Вертикальное выравнивание
      */
-    verticalAlign?: 'center';
+    verticalAlign?: 'top' | 'center' | 'bottom';
 
     /**
      * Горизонтальные отступы

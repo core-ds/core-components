@@ -9,6 +9,7 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    word-break: break-all;
 }
 
 .rowLimit2 {
@@ -17,6 +18,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
 .component {
     display: flex;
     flex-direction: row;
@@ -31,6 +33,6 @@
     }
 }
 
-.title {
-    margin-right: var(--gap-m);
+.title + .value {
+    margin-left: var(--gap-m);
 }

@@ -11,23 +11,24 @@ import styles from './index.module.css';
 
 type Props = {
     /**
-     * Props свойственные для компонента Amount
-     */
-    amount: AmountType;
-
-    /**
      * Цвет денежного значения
      */
     color?: Color;
+} & AmountType;
 
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-};
-
-export const AmountTitle: React.FC<Props> = ({ amount, color = 'primary', dataTestId }) => {
-    const { value, currency, minority, minorUnits, rightAddons, showPlus, className } = amount;
+export const AmountTitle: React.FC<Props> = ({
+    value,
+    currency,
+    minority,
+    transparentMinor,
+    minorUnits = 100,
+    rightAddons,
+    showPlus,
+    className,
+    view,
+    color = 'primary',
+    dataTestId,
+}) => {
     return (
         <Typography.Title
             tag='h4'
@@ -37,14 +38,16 @@ export const AmountTitle: React.FC<Props> = ({ amount, color = 'primary', dataTe
             color={color}
         >
             <CoreAmount
-                minority={minority === undefined ? minorUnits : minority}
+                minority={minority || minorUnits}
                 value={value}
+                currency={currency}
                 rightAddons={rightAddons}
                 showPlus={showPlus}
                 className={cn(styles.weight, className)}
-                currency={currency}
                 dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
-                view='withZeroMinorPart'
+                view={view}
+                bold='none'
+                transparentMinor={transparentMinor}
             />
         </Typography.Title>
     );

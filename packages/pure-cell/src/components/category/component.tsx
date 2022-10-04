@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Typography } from '@alfalab/core-components-typography';
 import { getDataTestId } from '../../../../utils/getDataTestId';
@@ -17,12 +17,22 @@ type Props = {
     categoryPercent?: number;
 
     /**
+     * Слот справа
+     */
+    rightAddon?: ReactNode;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
-export const Category: React.FC<Props> = ({ categoryName, categoryPercent, dataTestId }) => (
+export const Category: React.FC<Props> = ({
+    categoryName,
+    categoryPercent,
+    rightAddon,
+    dataTestId,
+}) => (
     <div className={styles.component} data-test-id='cell-pure-category'>
         <Typography.Text
             view='primary-small'
@@ -42,6 +52,14 @@ export const Category: React.FC<Props> = ({ categoryName, categoryPercent, dataT
             >
                 {categoryPercent}%
             </Typography.Text>
+        )}
+        {rightAddon !== undefined && (
+            <div
+                className={styles.rightAddon}
+                data-test-id={getDataTestId(dataTestId, 'category-right-addon')}
+            >
+                {rightAddon}
+            </div>
         )}
     </div>
 );

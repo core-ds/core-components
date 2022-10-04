@@ -11,11 +11,6 @@ import styles from './index.module.css';
 
 type Props = {
     /**
-     * Props свойственные для компонента Amount
-     */
-    amount: AmountType;
-
-    /**
      * Начертание шрифта денежного значения
      */
     weight?: 'bold' | 'normal';
@@ -23,7 +18,7 @@ type Props = {
     /**
      * Размер денежного значения
      */
-    view?: 'component' | 'primary-small';
+    textView?: 'component' | 'primary-small';
 
     /**
      * Цвет денежного значения
@@ -34,35 +29,32 @@ type Props = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+} & AmountType;
 
 export const Amount: React.FC<Props> = ({
-    amount,
     weight = 'normal',
-    view = 'component',
+    textView = 'component',
     color = 'primary',
     dataTestId,
+    value,
+    currency,
+    minority,
+    minorUnits = 100,
+    rightAddons,
+    showPlus,
+    className,
+    transparentMinor,
+    view,
 }) => {
-    const {
-        value,
-        currency,
-        minority,
-        minorUnits,
-        rightAddons,
-        showPlus,
-        className,
-        transparentMinor,
-        view: viewAmount,
-    } = amount;
     return (
         <Typography.Text
-            view={view}
+            view={textView}
             dataTestId={getDataTestId(dataTestId, 'amount-text')}
             className={cn(styles.component)}
             color={color}
         >
             <CoreAmount
-                minority={minority === undefined ? minorUnits : minority}
+                minority={minority || minorUnits}
                 value={value}
                 transparentMinor={transparentMinor}
                 bold={weight === 'bold' ? 'full' : 'none'}
@@ -71,7 +63,7 @@ export const Amount: React.FC<Props> = ({
                 className={className}
                 currency={currency}
                 dataTestId={getDataTestId(dataTestId, 'amount')}
-                view={viewAmount}
+                view={view}
             />
         </Typography.Text>
     );
