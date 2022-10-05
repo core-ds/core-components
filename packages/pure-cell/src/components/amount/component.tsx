@@ -35,16 +35,10 @@ export const Amount: React.FC<Props> = ({
     weight = 'normal',
     textView = 'component',
     color = 'primary',
-    dataTestId,
-    value,
-    currency,
     minority,
     minorUnits = 100,
-    rightAddons,
-    showPlus,
-    className,
-    transparentMinor,
-    view,
+    dataTestId,
+    ...restProps
 }) => {
     return (
         <Typography.Text
@@ -55,15 +49,9 @@ export const Amount: React.FC<Props> = ({
         >
             <CoreAmount
                 minority={minority || minorUnits}
-                value={value}
-                transparentMinor={transparentMinor}
                 bold={weight === 'bold' ? 'full' : 'none'}
-                rightAddons={rightAddons}
-                showPlus={showPlus}
-                className={className}
-                currency={currency}
                 dataTestId={getDataTestId(dataTestId, 'amount')}
-                view={view}
+                {...restProps}
             />
         </Typography.Text>
     );

@@ -19,7 +19,7 @@ type Props = {
     /**
      * Слот справа
      */
-    rightAddon?: ReactNode;
+    rightAddons?: ReactNode;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -30,7 +30,7 @@ type Props = {
 export const Category: React.FC<Props> = ({
     categoryName,
     categoryPercent,
-    rightAddon,
+    rightAddons,
     dataTestId,
 }) => (
     <div className={styles.component} data-test-id='cell-pure-category'>
@@ -53,12 +53,12 @@ export const Category: React.FC<Props> = ({
                 {categoryPercent}%
             </Typography.Text>
         )}
-        {rightAddon !== undefined && (
+        {rightAddons !== undefined && (
             <div
                 className={styles.rightAddon}
                 data-test-id={getDataTestId(dataTestId, 'category-right-addon')}
             >
-                {rightAddon}
+                {rightAddons}
             </div>
         )}
     </div>

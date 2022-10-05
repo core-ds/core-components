@@ -17,17 +17,12 @@ type Props = {
 } & AmountType;
 
 export const AmountTitle: React.FC<Props> = ({
-    value,
-    currency,
     minority,
-    transparentMinor,
     minorUnits = 100,
-    rightAddons,
-    showPlus,
     className,
-    view,
     color = 'primary',
     dataTestId,
+    ...restProps
 }) => {
     return (
         <Typography.Title
@@ -39,15 +34,10 @@ export const AmountTitle: React.FC<Props> = ({
         >
             <CoreAmount
                 minority={minority || minorUnits}
-                value={value}
-                currency={currency}
-                rightAddons={rightAddons}
-                showPlus={showPlus}
                 className={cn(styles.weight, className)}
                 dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
-                view={view}
+                {...restProps}
                 bold='none'
-                transparentMinor={transparentMinor}
             />
         </Typography.Title>
     );
