@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../loader" }]
+    "references": [{ "path": "../loader" }, { "path": "../spinner" }]
 }

@@ -11,7 +11,7 @@ import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 
 import { useFocus } from '@alfalab/hooks';
-import { Loader } from '@alfalab/core-components-loader';
+import { Spinner } from '@alfalab/core-components-spinner';
 
 import styles from './index.module.css';
 import defaultColors from './default.module.css';
@@ -199,7 +199,12 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     </span>
                 )}
 
-                {showLoader && <Loader className={styles.loader} />}
+                {showLoader && (
+                    <Spinner
+                        visible={showLoader}
+                        className={cn(styles.loader, colorStyles[colors].loader)}
+                    />
+                )}
 
                 {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
             </React.Fragment>

@@ -3,14 +3,19 @@
 :root {
     /* misc */
     --button-font-family: var(--font-family);
-    --button-border-radius: var(--border-radius-m);
     --button-active-transform-scale-factor: 0.97;
-    --button-active-transform: scale(var(--button-active-transform-scale-factor));
 
     /* увеличиваем зону клика у активной кнопки, чтобы по краям срабатывал клик  */
     --button-active-before-transform: scale(calc(1 / var(--button-active-transform-scale-factor)));
     --button-font-weight: 500;
+
+    /* border-radius */
     --button-xxs-size-border-radius: 6px;
+    --button-xs-size-border-radius: var(--border-radius-m);
+    --button-s-size-border-radius: var(--border-radius-m);
+    --button-m-size-border-radius: var(--border-radius-l);
+    --button-l-size-border-radius: var(--border-radius-l);
+    --button-xl-size-border-radius: var(--border-radius-l);
 }
 
 .component {
@@ -31,7 +36,6 @@
     text-decoration: none;
     background-color: transparent;
     border: 0;
-    border-radius: var(--button-border-radius);
     outline: none;
     box-shadow: none;
     user-select: none;
@@ -41,8 +45,6 @@
     will-change: transform;
 
     &:active {
-        transform: var(--button-active-transform);
-
         &:before {
             transform: var(--button-active-before-transform);
         }
@@ -78,9 +80,6 @@ a.loading {
 
 .loader {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 /* Size */
@@ -102,6 +101,7 @@ a.loading {
     min-height: 40px;
     padding: 0 var(--gap-l);
     font-size: 14px;
+    border-radius: var(--button-xs-size-border-radius);
 
     &.iconOnly {
         min-width: 40px;
@@ -112,6 +112,8 @@ a.loading {
     min-width: 104px;
     min-height: var(--size-s-height);
     font-size: 16px;
+    line-height: 24px;
+    border-radius: var(--button-s-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-s-height);
@@ -123,6 +125,8 @@ a.loading {
     min-height: var(--size-m-height);
     padding: 0 28px;
     font-size: 16px;
+    line-height: 24px;
+    border-radius: var(--button-m-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-m-height);
@@ -135,6 +139,7 @@ a.loading {
     padding: 0 var(--gap-2xl);
     font-size: 18px;
     line-height: 24px;
+    border-radius: var(--button-l-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-l-height);
@@ -147,6 +152,7 @@ a.loading {
     padding: 0 36px;
     font-size: 18px;
     line-height: 24px;
+    border-radius: var(--button-xl-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-xl-height);
