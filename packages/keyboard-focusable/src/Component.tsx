@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useRef, RefObject } from 'react';
+import { RefObject,useRef } from 'react';
 
 import { useFocus } from '@alfalab/hooks';
 

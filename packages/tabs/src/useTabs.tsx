@@ -39,6 +39,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
             }
 
             let newFocusIndex;
+
             switch (position) {
                 case 'prev':
                     newFocusIndex = focusedTabIndex === 0 ? refs.length - 1 : focusedTabIndex - 1;

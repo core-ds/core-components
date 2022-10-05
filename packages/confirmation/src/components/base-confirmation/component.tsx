@@ -1,12 +1,12 @@
 import React, { ComponentType, FC, useEffect } from 'react';
-
 import cn from 'classnames';
+
 import { usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../context';
-import { ConfirmationProps, TConfirmationContext, defaultTexts } from '../../types';
-import { Initial, Hint, TempBlock, FatalError } from '../screens';
-import { useCountdown, ONE_DAY, ONE_MINUTE } from '../../utils';
+import { ConfirmationProps, defaultTexts, TConfirmationContext } from '../../types';
+import { ONE_DAY, ONE_MINUTE, useCountdown } from '../../utils';
+import { FatalError, Hint, Initial, TempBlock } from '../screens';
 
 import styles from './index.module.css';
 
@@ -83,6 +83,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         }
     };
 
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     const contextValue: TConfirmationContext = {
         alignContent,
         texts: { ...defaultTexts, ...restProps.texts },

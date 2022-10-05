@@ -1,10 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
+
 import { TabListProps } from '../../typings';
+
 import { PrimaryTabList } from './Component';
 
-import mobileStyles from './mobile.module.css';
 import commonStyles from './index.module.css';
+import mobileStyles from './mobile.module.css';
 
 const styles = {
     ...commonStyles,

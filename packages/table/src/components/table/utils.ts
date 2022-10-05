@@ -1,7 +1,8 @@
 import React from 'react';
+
+import { isChildInstanceOf } from '../../utils';
 import { THead } from '../thead';
 import { THeadCellProps } from '../thead-cell';
-import { isChildInstanceOf } from '../../utils';
 
 export function findAllHeadCellsProps(children: React.ReactElement[]) {
     const result: THeadCellProps[] = [];

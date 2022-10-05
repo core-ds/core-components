@@ -1,7 +1,7 @@
 import {
     BreakpointObjectKeysType,
-    BreakpointsKeysType,
     BreakpointObjectType,
+    BreakpointsKeysType,
     ResponsivePropertyType,
 } from '../typings';
 
@@ -19,6 +19,7 @@ export function createClassNames(
         }
         if (typeof prop !== 'object') {
             classNames.push(styles[`${name}-${prop}`]);
+
             return;
         }
         (Object.keys(prop) as BreakpointsKeysType[]).forEach(breakpoint => {
@@ -27,8 +28,10 @@ export function createClassNames(
             }
             if (typeof prop[breakpoint] === 'object') {
                 const propBreakpointObject = prop[breakpoint] as BreakpointObjectType;
+
                 (Object.keys(propBreakpointObject) as BreakpointObjectKeysType[]).forEach(size => {
                     const value = propBreakpointObject[size];
+
                     if (value === null) {
                         return;
                     }
@@ -36,6 +39,7 @@ export function createClassNames(
                 });
             } else {
                 const value = prop[breakpoint];
+
                 classNames.push(styles[`${name}-${breakpoint}-${value}`]);
             }
         });

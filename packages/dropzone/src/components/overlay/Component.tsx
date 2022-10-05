@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+
 import { ContainerMIcon } from '@alfalab/icons-glyph/ContainerMIcon';
 
 import styles from './index.module.css';
@@ -16,8 +17,7 @@ export type OverlayProps = {
     visible?: boolean;
 };
 
-export const Overlay: FC<OverlayProps> = ({ text = 'Перетащите файлы', visible = false }) => {
-    return (
+export const Overlay: FC<OverlayProps> = ({ text = 'Перетащите файлы', visible = false }) => (
         <div
             className={cn(styles.overlay, {
                 [styles.visible]: visible,
@@ -27,4 +27,3 @@ export const Overlay: FC<OverlayProps> = ({ text = 'Перетащите фай�
             <span className={styles.text}>{text}</span>
         </div>
     );
-};

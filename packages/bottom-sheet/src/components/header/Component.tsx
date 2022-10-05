@@ -1,12 +1,13 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
+
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { Typography } from '@alfalab/core-components-typography';
 
-import { BottomSheetTitleAlign, HEADER_OFFSET } from '../..';
-import { Closer } from '../closer/Component';
-import { Backer } from '../backer/Component';
 import { getDataTestId } from '../../../../utils/getDataTestId';
+import { BottomSheetTitleAlign, HEADER_OFFSET } from '../..';
+import { Backer } from '../backer/Component';
+import { Closer } from '../closer/Component';
 
 import styles from './index.module.css';
 

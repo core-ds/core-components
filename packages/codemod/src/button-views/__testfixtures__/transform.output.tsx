@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Button } from '@alfalab/core-components-button';
 
 export const Component = () => (

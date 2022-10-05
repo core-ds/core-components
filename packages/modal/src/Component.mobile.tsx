@@ -3,10 +3,10 @@ import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
-import { HeaderMobile } from './components/header/Component.mobile';
+import { Closer } from './components/closer/Component';
 import { ContentMobile } from './components/content/Component.mobile';
 import { FooterMobile } from './components/footer/Component.mobile';
-import { Closer } from './components/closer/Component';
+import { HeaderMobile } from './components/header/Component.mobile';
 
 import styles from './mobile.module.css';
 import transitions from './transitions.module.css';
@@ -20,8 +20,7 @@ export type ModalMobileProps = BaseModalProps & {
 };
 
 const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>(
-    ({ children, className, ...restProps }, ref) => {
-        return (
+    ({ children, className, ...restProps }, ref) => (
             <BaseModal
                 {...restProps}
                 ref={ref}
@@ -33,8 +32,7 @@ const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>(
             >
                 {children}
             </BaseModal>
-        );
-    },
+        ),
 );
 
 export const ModalMobile = Object.assign(ModalMobileComponent, {

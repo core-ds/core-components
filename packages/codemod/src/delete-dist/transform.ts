@@ -16,16 +16,15 @@ const transformPaths = (fileInfo, api, options) => {
             }
 
             const re = new RegExp('^(@alfalab/core-components-).+(/dist)');
+
             return re.test(importFrom);
         })
         .map(p => p.parent);
 
-    importsForReplace.replaceWith(p => {
-        return j.importDeclaration(
+    importsForReplace.replaceWith(p => j.importDeclaration(
             p.node.specifiers,
             j.stringLiteral(p.value.source.value.replace('/dist', '')),
-        );
-    });
+        ));
 
     return source.toSource({ quote: 'single' });
 };

@@ -1,4 +1,5 @@
 import { applyTransform } from '@codeshift/test-utils';
+
 import * as transformer from '../transform';
 
 const inputCss = `
@@ -58,6 +59,7 @@ const expectedCss = `
 describe('css-codemod#replace-color-vars transform', () => {
     it('should transform correctly', async () => {
         const result = await applyTransform(transformer, inputCss);
+
         expect(result).toMatchInlineSnapshot(expectedCss);
     });
 });

@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, ElementType, FC, useCallback, useContext } from 'react';
 import cn from 'classnames';
+
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 
 import { ModalContext } from '../../Context';

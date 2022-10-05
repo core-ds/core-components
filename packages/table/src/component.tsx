@@ -1,13 +1,13 @@
 import {
+    Pagination,
     Table as TableComponent,
     TBody,
+    TCell,
+    TExpandableRow,
     THead,
     THeadCell,
-    TSortableHeadCell,
-    TCell,
     TRow,
-    TExpandableRow,
-    Pagination,
+    TSortableHeadCell,
 } from './components';
 
 export const Table = Object.assign(TableComponent, {

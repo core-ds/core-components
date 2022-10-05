@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, ElementType } from 'react';
 import cn from 'classnames';
+
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 import { ArrowBackMIcon } from '@alfalab/icons-glyph/ArrowBackMIcon';
 
@@ -39,8 +40,7 @@ export const Backer: React.FC<BackerProps> = ({
     dataTestId,
     onClick,
     ...restProps
-}) => {
-    return (
+}) => (
         <div className={cn(styles.backer, className)}>
             <IconButton
                 size={size}
@@ -53,4 +53,3 @@ export const Backer: React.FC<BackerProps> = ({
             />
         </div>
     );
-};

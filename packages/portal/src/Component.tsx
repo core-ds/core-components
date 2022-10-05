@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode, forwardRef } from 'react';
+import { forwardRef,ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { getDefaultPortalContainer, setRef } from './utils';
@@ -30,10 +30,12 @@ export const Portal = forwardRef<Element, PortalProps>(
         useEffect(() => {
             if (mountNode) {
                 setRef(ref, mountNode);
+
                 return () => {
                     setRef(ref, null);
                 };
             }
+
             return () => null;
         }, [ref, mountNode]);
 

@@ -6,9 +6,7 @@ export const PLACEHOLDER_HEIGHT = 300;
 export const getImageKey = ({ name = '', src }: GalleryImage, index: number): string =>
     `${name}-${index}-${src}`;
 
-export const getImageAlt = ({ alt, name }: GalleryImage, index: number): string => {
-    return alt || name || `Изображение ${index + 1}`;
-};
+export const getImageAlt = ({ alt, name }: GalleryImage, index: number): string => alt || name || `Изображение ${index + 1}`;
 
 export const isSmallImage = (meta?: ImageMeta) => {
     if (!meta) {

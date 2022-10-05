@@ -1,10 +1,11 @@
-import cn from 'classnames';
 import React, { useMemo } from 'react';
+import cn from 'classnames';
+
 import { ResponsivePropertyType } from '../typings';
 import { createClassNames } from '../utils';
 
-import styles from './index.module.css';
 import guttersStyles from '../gutters.module.css';
+import styles from './index.module.css';
 
 export type ColProps = {
     /**

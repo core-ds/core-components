@@ -1,4 +1,4 @@
-import React, { useContext, FC } from 'react';
+import React, { FC,useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
@@ -18,6 +18,7 @@ export type FatalErrorProps = {
 
 export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
     const { alignContent, texts, onFatalErrorOkButtonClick } = useContext(ConfirmationContext);
+
     return (
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.fatalErrorTitle}</Header>

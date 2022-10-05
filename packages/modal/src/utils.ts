@@ -12,6 +12,7 @@ export function hasScrollbar(target: HTMLElement) {
 
 const getScrollbarSize = () => {
     const scrollDiv = document.createElement('div');
+
     scrollDiv.style.width = '99px';
     scrollDiv.style.height = '99px';
     scrollDiv.style.position = 'absolute';
@@ -20,6 +21,7 @@ const getScrollbarSize = () => {
 
     document.body.appendChild(scrollDiv);
     const scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
     document.body.removeChild(scrollDiv);
 
     return scrollbarSize;
@@ -33,9 +35,7 @@ const isOverflowing = (container: Element) => {
     return container.scrollHeight > container.clientHeight;
 };
 
-const getPaddingRight = (node: Element) => {
-    return parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
-};
+const getPaddingRight = (node: Element) => parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 
 export const handleContainer = (container: HTMLElement) => {
     const restoreStyle: Array<{

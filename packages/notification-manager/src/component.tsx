@@ -1,6 +1,6 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
+import { CSSTransition,TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { Portal } from '@alfalab/core-components-portal';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
@@ -56,8 +56,7 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
             ...restProps
         },
         ref,
-    ) => {
-        return (
+    ) => (
             <Stack value={zIndex}>
                 {computedZIndex => (
                     <Portal>
@@ -91,6 +90,5 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                     </Portal>
                 )}
             </Stack>
-        );
-    },
+        ),
 );

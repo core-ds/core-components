@@ -1,7 +1,7 @@
-import { XAxisProps } from '../../../types/xAxis.types';
 import { BrushProps } from '../../../types/brush.types';
-import { LegendProps } from '../../../types/legend.types';
 import { ComposedChartProps } from '../../../types/composedChart.types';
+import { LegendProps } from '../../../types/legend.types';
+import { XAxisProps } from '../../../types/xAxis.types';
 
 type ComposedChartsMarginResultProps = {
     top: number;
@@ -15,8 +15,7 @@ export const setComposedChartsMargin = (
     legend: LegendProps | undefined,
     brush: BrushProps | undefined,
     xAxis: XAxisProps,
-): ComposedChartsMarginResultProps => {
-    return {
+): ComposedChartsMarginResultProps => ({
         top:
             (composeChart?.initMargin?.top || 0) +
             (legend?.verticalAlign === 'top' && legend?.marginTop ? Math.abs(legend.marginTop) : 0),
@@ -27,5 +26,4 @@ export const setComposedChartsMargin = (
             (legend?.verticalAlign !== 'top' && legend?.marginTop ? legend.marginTop : 0),
         left: composeChart?.initMargin?.left || 0,
         right: composeChart?.initMargin?.right || 0,
-    };
-};
+    });

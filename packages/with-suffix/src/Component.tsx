@@ -1,21 +1,22 @@
 import React, {
-    useState,
+    FC,
+    forwardRef,
+    Fragment,
+    ReactNode,
+    RefAttributes,
     useCallback,
     useRef,
-    FC,
-    RefAttributes,
-    Fragment,
-    forwardRef,
-    ReactNode,
+    useState,
 } from 'react';
-
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { Portal } from '@alfalab/core-components-portal';
+import cn from 'classnames';
+
 import { InputProps } from '@alfalab/core-components-input';
+import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export type withSuffixProps = InputProps & {
     /**
      * Дополнительный закрепленный текст справа от основного значения.
@@ -67,7 +68,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
             );
 
             const handleClear = useCallback<Required<InputProps>['onClear']>(
-                event => {
+                (event) => {
                     if (uncontrolled) {
                         setStateValue('');
                     }

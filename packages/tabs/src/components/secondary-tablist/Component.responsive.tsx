@@ -1,8 +1,11 @@
 import React from 'react';
+
 import { useMedia } from '@alfalab/hooks';
+
+import { SecondaryTabListProps, TabsMatchMedia } from '../../typings';
+
 import { SecondaryTabListDesktop } from './Component.desktop';
 import { SecondaryTabListMobile } from './Component.mobile';
-import { SecondaryTabListProps, TabsMatchMedia } from '../../typings';
 
 export const SecondaryTabListResponsive = ({
     size,

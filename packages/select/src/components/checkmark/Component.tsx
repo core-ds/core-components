@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import cn from 'classnames';
+
 import { Checkbox, CheckboxProps } from '@alfalab/core-components-checkbox';
+
 import { CheckmarkProps } from '../../typings';
 
 import styles from './index.module.css';

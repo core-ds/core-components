@@ -1,5 +1,5 @@
-import cn from 'classnames';
 import React, { Children, ReactNode } from 'react';
+import cn from 'classnames';
 
 import styles from './index.module.css';
 

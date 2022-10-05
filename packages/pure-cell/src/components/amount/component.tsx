@@ -1,11 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Typography, Color } from '@alfalab/core-components-typography';
-
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
-import { AmountProps as AmountType } from '../typesProps';
+import { Color, Typography } from '@alfalab/core-components-typography';
+
 import { getDataTestId } from '../../../../utils/getDataTestId';
+import { AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
 
@@ -39,20 +39,18 @@ export const Amount: React.FC<Props> = ({
     minorUnits = 100,
     dataTestId,
     ...restProps
-}) => {
-    return (
-        <Typography.Text
-            view={textView}
-            dataTestId={getDataTestId(dataTestId, 'amount-text')}
-            className={cn(styles.component)}
-            color={color}
-        >
-            <CoreAmount
-                minority={minority || minorUnits}
-                bold={weight === 'bold' ? 'full' : 'none'}
-                dataTestId={getDataTestId(dataTestId, 'amount')}
-                {...restProps}
-            />
-        </Typography.Text>
-    );
-};
+}) => (
+    <Typography.Text
+        view={textView}
+        dataTestId={getDataTestId(dataTestId, 'amount-text')}
+        className={cn(styles.component)}
+        color={color}
+    >
+        <CoreAmount
+            minority={minority || minorUnits}
+            bold={weight === 'bold' ? 'full' : 'none'}
+            dataTestId={getDataTestId(dataTestId, 'amount')}
+            {...restProps}
+        />
+    </Typography.Text>
+);

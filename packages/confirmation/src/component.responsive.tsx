@@ -1,5 +1,7 @@
-import { useMedia } from '@alfalab/hooks';
 import React, { FC } from 'react';
+
+import { useMedia } from '@alfalab/hooks';
+
 import { ConfirmationDesktop } from './component.desktop';
 import { ConfirmationMobile } from './component.mobile';
 import { ConfirmationProps } from './types';

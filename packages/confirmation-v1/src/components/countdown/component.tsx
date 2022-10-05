@@ -1,9 +1,9 @@
-import React, { MouseEvent, FC, useCallback, useState, useRef, useEffect, ReactNode } from 'react';
+import React, { FC, MouseEvent, ReactNode,useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { phoneNumber } from '@alfalab/utils';
-import { usePrevious } from '@alfalab/hooks';
 
 import { Button } from '@alfalab/core-components-button';
+import { usePrevious } from '@alfalab/hooks';
+import { phoneNumber } from '@alfalab/utils';
 
 import { CountdownLoader } from '../countdown-loader';
 

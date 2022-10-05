@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+
 import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';

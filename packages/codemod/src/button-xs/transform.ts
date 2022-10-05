@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign, no-shadow */
-import { Transform, ASTPath, JSXElement } from 'jscodeshift';
+import { ASTPath, JSXElement,Transform } from 'jscodeshift';
 
 /**
  * Меняет <button size="xs" /> на <button size="xxs" />

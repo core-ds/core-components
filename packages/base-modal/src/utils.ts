@@ -19,6 +19,7 @@ export const getScrollbarSize = (() => {
         if (cachedSize !== undefined) return cachedSize;
 
         const scrollDiv = document.createElement('div');
+
         scrollDiv.style.width = '99px';
         scrollDiv.style.height = '99px';
         scrollDiv.style.position = 'absolute';
@@ -27,6 +28,7 @@ export const getScrollbarSize = (() => {
 
         document.body.appendChild(scrollDiv);
         const scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
         document.body.removeChild(scrollDiv);
 
         cachedSize = scrollbarSize;
@@ -43,9 +45,7 @@ const isOverflowing = (container: Element) => {
     return container.scrollHeight > container.clientHeight;
 };
 
-const getPaddingRight = (node: Element) => {
-    return parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
-};
+const getPaddingRight = (node: Element) => parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 
 export const restoreContainerStyles = (container: HTMLElement) => {
     const modalRestoreStyles = getModalStore().getRestoreStyles();
@@ -79,6 +79,7 @@ export const handleContainer = (container?: HTMLElement) => {
 
     if (existingStyles) {
         existingStyles.modals += 1;
+
         return;
     }
 

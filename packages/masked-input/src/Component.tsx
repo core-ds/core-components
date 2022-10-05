@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useCallback, ChangeEvent, useState, MouseEvent } from 'react';
-import cn from 'classnames';
+import React, { ChangeEvent, MouseEvent,useCallback, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
 import { createTextMaskInputElement, TextMaskInputElement } from 'text-mask-core';
+
 import { Input, InputProps } from '@alfalab/core-components-input';
 
 import styles from './index.module.css';

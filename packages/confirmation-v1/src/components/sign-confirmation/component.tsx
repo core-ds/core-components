@@ -4,9 +4,9 @@ import cn from 'classnames';
 import { Link } from '@alfalab/core-components-link';
 import { Loader } from '@alfalab/core-components-loader';
 
-import { Countdown } from '../countdown';
-import { CodeInput } from '../code-input';
 import { ContentAlign } from '../../component';
+import { CodeInput } from '../code-input';
+import { Countdown } from '../countdown';
 
 import styles from './index.module.css';
 

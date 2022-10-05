@@ -1,21 +1,22 @@
 import React, {
-    useState,
-    useEffect,
-    useRef,
-    TextareaHTMLAttributes,
     ChangeEvent,
     forwardRef,
     ReactNode,
+    TextareaHTMLAttributes,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
-import TextareaAutosize from 'react-textarea-autosize';
 import mergeRefs from 'react-merge-refs';
-import { useFocus, useMedia } from '@alfalab/hooks';
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { FormControl } from '@alfalab/core-components-form-control';
+import TextareaAutosize from 'react-textarea-autosize';
+import cn from 'classnames';
 
-import styles from './index.module.css';
+import { FormControl } from '@alfalab/core-components-form-control';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
+import { useFocus, useMedia } from '@alfalab/hooks';
+
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {
@@ -210,6 +211,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const uncontrolled = value === undefined;
 
         let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+
         nativeScrollbar = resize !== 'none' || Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
         const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -236,6 +238,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 }
             } else if (!nativeScrollbar && textareaRef.current) {
                 const textareaHeight = textareaRef.current.scrollHeight;
+
                 setScrollableHeight(textareaHeight);
             }
         }, [autosize, maxHeight, nativeScrollbar]);
@@ -308,8 +311,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             maxLength,
         };
 
-        const renderWithNativeScrollbar = () => {
-            return autosize ? (
+        const renderWithNativeScrollbar = () =>
+            autosize ? (
                 <TextareaAutosize
                     {...textareaProps}
                     maxRows={maxRows}
@@ -319,7 +322,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             ) : (
                 <textarea {...textareaProps} style={{ maxHeight }} />
             );
-        };
 
         const renderWithCustomScrollbar = () => {
             const minRowsValue = autosize ? minRows : rows;
@@ -344,7 +346,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                         maxRows={maxRows}
                         minRows={minRowsValue}
                         value={textareaProps.value}
-                        onHeightChange={height => {
+                        onHeightChange={(height) => {
                             if (autosize) {
                                 setScrollableHeight(height);
 
@@ -383,14 +385,3 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-Textarea.defaultProps = {
-    autoComplete: 'on',
-    autosize: true,
-    size: 's',
-    block: false,
-    resize: 'none',
-};

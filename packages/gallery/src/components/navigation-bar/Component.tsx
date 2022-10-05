@@ -1,10 +1,10 @@
 import React, { FC, KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
 
-import { ImagePreview } from '../image-preview';
-import styles from './index.module.css';
-
-import { getImageKey, TestIds } from '../../utils';
 import { GalleryContext } from '../../context';
+import { getImageKey, TestIds } from '../../utils';
+import { ImagePreview } from '../image-preview';
+
+import styles from './index.module.css';
 
 const MIN_SCROLL_STEP = 24;
 

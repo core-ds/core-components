@@ -1,20 +1,20 @@
 import React, { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
-import { OptionShape, SelectProps } from '@alfalab/core-components-select';
-import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
 import {
     InputAutocomplete,
     InputAutocompleteProps,
 } from '@alfalab/core-components-input-autocomplete';
+import { OptionShape, SelectProps } from '@alfalab/core-components-select';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
-import { CountriesSelect, FlagIcon } from './components';
-import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
+import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
+
 import { calculateCaretPos } from './utils/calculateCaretPos';
-import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
+import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
 import { preparePasteData } from './utils/preparePasteData';
+import { CountriesSelect, FlagIcon } from './components';
+import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
 
 import styles from './index.module.css';
 
@@ -145,6 +145,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             if (countryIso2 === 'ru') {
                 const parts = newValue.split(' ');
+
                 newValue = parts.reduce((acc, part, index) => {
                     if (index === 0) {
                         return part;
@@ -152,6 +153,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     if (index > 2) {
                         return `${acc}-${part}`;
                     }
+
                     return `${acc} ${part}`;
                 }, '');
             }
@@ -181,13 +183,14 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const getCountryByNumber = (inputValue: string) => {
             // dialcode казахстанских номеров совпадает с российскими, поэтому проверяем отдельно
             if (new RegExp('^\\+7(\\s)?7').test(inputValue)) {
-                const kzCoutry = countries.find(item => item.iso2 === 'kz');
+                const kzCoutry = countries.find((item) => item.iso2 === 'kz');
+
                 if (kzCoutry) {
                     return kzCoutry;
                 }
             }
 
-            const targetCountry = countries.find(country => {
+            const targetCountry = countries.find((country) => {
                 if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
                     // Сначала проверяем, если приоритет не указан
                     if (country.priority === undefined) {
@@ -203,8 +206,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     if (country.priority === 0) {
                         return true;
                     }
+
                     return false;
                 }
+
                 return false;
             });
 
@@ -213,6 +218,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         const setCountryByDialCode = (inputValue: string) => {
             const country = getCountryByNumber(inputValue);
+
             onChange(formatPhone(inputValue));
             if (country) {
                 setCountryIso2(country.iso2);
@@ -226,6 +232,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const setCountryByDialCodeWithLengthCheck = (inputValue: string) => {
             if (inputRef.current) {
                 const { selectionStart } = inputRef.current;
+
                 if ((selectionStart || 0) <= MAX_DIAL_CODE_LENGTH) {
                     setCountryByDialCode(inputValue);
                 }
@@ -268,6 +275,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             name?: string;
         }) => {
             const { selected } = payload;
+
             if (!selected) return;
             setCountryByDialCodeWithLengthCheck(selected.key);
             onChange(formatPhone(selected.key));
@@ -305,6 +313,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             let newValue = currentValue.slice(0, caretPosition) + event.key + endPhonePart;
 
             const newValueDecimal = newValue.replace(/\D/g, '');
+
             // Запрещаем ввод, если номер уже заполнен.
             if (newValueDecimal.length > maxPhoneLength) {
                 newValue = newValue.slice(0, -1);
@@ -406,9 +415,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = event => {
+        const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = (event) => {
             event.preventDefault();
             const text = event.clipboardData?.getData('Text');
+
             if (!text || !inputRef.current) {
                 return;
             }
@@ -444,7 +454,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             import(
                 /* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/bundle/libphonenumber-js.min'
             )
-                .then(utils => {
+                .then((utils) => {
                     phoneLibUtils.current = utils.AsYouType;
 
                     if (canBeEmptyCountry) {
@@ -453,7 +463,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         setCountryByDialCode(value);
                     }
                 })
-                .catch(error => `An error occurred while loading libphonenumber-js:\n${error}`);
+                .catch((error) => `An error occurred while loading libphonenumber-js:\n${error}`);
 
             /* eslint-disable-next-line react-hooks/exhaustive-deps */
         }, [value]);
@@ -515,8 +525,3 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         );
     },
 );
-
-IntlPhoneInput.defaultProps = {
-    size: 'm',
-    defaultCountryIso2: 'ru',
-};

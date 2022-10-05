@@ -1,6 +1,6 @@
-import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import { ReactElement } from 'react';
 import { act } from 'react-dom/test-utils';
+import { render, RenderOptions, RenderResult } from '@testing-library/react';
 
 export const asyncRender = async (
     ui: ReactElement,

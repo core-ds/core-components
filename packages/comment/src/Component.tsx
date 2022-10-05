@@ -28,6 +28,7 @@ export type CommentProps = {
 
 export const Comment: React.FC<CommentProps> = ({ className, dataTestId, children, rowLimit }) => {
     const textClassName = rowLimit && styles[`rowLimit${rowLimit}`];
+
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <Typography.Text tag='div' view='component' className={textClassName} color='primary'>

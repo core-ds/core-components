@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { Content, ContentProps } from './Component';
+
 import { ModalDesktopProps } from '../../Component.desktop';
+
+import { Content, ContentProps } from './Component';
 
 import styles from './desktop.module.css';
 

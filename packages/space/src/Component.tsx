@@ -1,8 +1,10 @@
-import React, { ReactNode, Children, forwardRef } from 'react';
+import React, { Children, forwardRef,ReactNode } from 'react';
 import classNames from 'classnames';
+
 import Item from './Item';
+import { Align, Direction, Size } from './utils';
+
 import styles from './index.module.css';
-import { Direction, Align, Size } from './utils';
 
 export type SpaceProps = {
     /**
@@ -57,9 +59,7 @@ const SpaceSizes: { [key in Size]: number } = {
     l: 20,
 };
 
-const getNumberSize = (size: Size) => {
-    return typeof size === 'string' ? SpaceSizes[size] : size || 0;
-};
+const getNumberSize = (size: Size) => typeof size === 'string' ? SpaceSizes[size] : size || 0;
 
 /**
  * Позаимствовано с благодарностью из Ant Design

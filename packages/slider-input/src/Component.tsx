@@ -1,16 +1,17 @@
 import React, {
-    forwardRef,
-    useCallback,
     ChangeEvent,
-    FC,
-    Fragment,
-    ReactNode,
-    isValidElement,
     cloneElement,
+    FC,
+    forwardRef,
+    Fragment,
+    isValidElement,
+    ReactNode,
+    useCallback,
 } from 'react';
 import cn from 'classnames';
-import { Slider, SliderProps } from '@alfalab/core-components-slider';
+
 import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
+import { Slider, SliderProps } from '@alfalab/core-components-slider';
 
 import styles from './index.module.css';
 
@@ -152,6 +153,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
     ) => {
         const getValidInputValue = useCallback((inputValue: string) => {
             const number = parseInt(inputValue, 10);
+
             return inputValue === '' || Number.isNaN(number) ? '' : Math.abs(number);
         }, []);
 
@@ -236,7 +238,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         )
                     }
                 />
-
+                {/* eslint-disable react/no-array-index-key */}
                 {steps.length > 0 && !error && (
                     <div className={cn(styles.steps, stepsClassName)}>
                         {steps.map((stepLabel, i) =>
@@ -252,17 +254,3 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-SliderInput.defaultProps = {
-    value: '',
-    min: 0,
-    max: 100,
-    step: 1,
-    size: 's',
-    Input: DefaultInput,
-    steps: [],
-    customInputProps: {},
-};

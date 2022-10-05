@@ -1,10 +1,13 @@
 import React, { useCallback } from 'react';
+
 import { Skeleton } from '@alfalab/core-components-skeleton';
+
 import { Option } from '../../components/option';
 import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 type useSelectWithLoadingProps = {
     loading?: boolean;
     visibleOptions?: BaseSelectProps['visibleOptions'];

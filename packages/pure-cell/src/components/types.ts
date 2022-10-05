@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
+
 import { Comment } from '@alfalab/core-components-comment';
 
 import { Amount } from './amount';

@@ -1,14 +1,16 @@
-import React, { useCallback, MouseEvent, ReactNode, useState, ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent, MouseEvent, ReactNode, useCallback, useEffect,useState } from 'react';
 import cn from 'classnames';
+
 import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
 import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
-import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
+import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
 import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
 import { MirXxlIcon } from '@alfalab/icons-logotype/MirXxlIcon';
+import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
+
+import { validateCardNumber } from './utils';
 
 import styles from './index.module.css';
-import { validateCardNumber } from './utils';
 
 export type BankCardProps = {
     /**
@@ -65,6 +67,7 @@ const getBrandIcon = (value = '') => {
         if (value.startsWith('5')) return <MastercardLIcon />;
         if (value.startsWith('6')) return <MastercardLIcon />;
     }
+
     return null;
 };
 

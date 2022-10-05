@@ -1,3 +1,4 @@
+/* eslint-disable simple-import-sort/imports */
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
@@ -7,11 +8,11 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
 
-import { useFocus } from '@alfalab/hooks';
 import { Spinner } from '@alfalab/core-components-spinner';
+import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 import defaultColors from './default.module.css';
@@ -220,11 +221,12 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             }
         }, [loading]);
 
-        useEffect(() => {
-            return () => {
+        useEffect(
+            () => () => {
                 window.clearTimeout(timerId.current);
-            };
-        }, []);
+            },
+            [],
+        );
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -245,9 +247,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             );
         }
 
-        const { disabled, type = 'button', ...restButtonProps } = restProps as ButtonHTMLAttributes<
-            HTMLButtonElement
-        >;
+        const {
+            disabled,
+            type = 'button',
+            ...restButtonProps
+        } = restProps as ButtonHTMLAttributes<HTMLButtonElement>;
 
         return (
             <Component

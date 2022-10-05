@@ -1,14 +1,15 @@
 import {
-    ReactNode,
-    FC,
-    RefAttributes,
     AriaAttributes,
+    FC,
     FocusEvent,
     MouseEvent,
     ReactElement,
+    ReactNode,
+    RefAttributes,
 } from 'react';
-import { PopoverProps } from '@alfalab/core-components-popover';
+
 import { InputProps } from '@alfalab/core-components-input';
+import { PopoverProps } from '@alfalab/core-components-popover';
 
 export type OptionShape = {
     /**

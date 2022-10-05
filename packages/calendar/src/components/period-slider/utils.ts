@@ -16,7 +16,8 @@ import startOfQuarter from 'date-fns/startOfQuarter';
 import startOfWeek from 'date-fns/startOfWeek';
 import startOfYear from 'date-fns/startOfYear';
 
-import { monthName, formatDate } from '../../utils';
+import { formatDate,monthName } from '../../utils';
+
 import { PeriodType } from '.';
 
 export const formatPeriod = (valueFrom: Date, valueTo: Date, periodType: PeriodType) => {

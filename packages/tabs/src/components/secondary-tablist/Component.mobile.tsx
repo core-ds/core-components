@@ -1,10 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
-import { SecondaryTabList } from './Component';
+
 import { SecondaryTabListProps } from '../../typings';
 
-import mobileStyles from './mobile.module.css';
+import { SecondaryTabList } from './Component';
+
 import commonStyles from './index.module.css';
+import mobileStyles from './mobile.module.css';
 
 const styles = {
     ...commonStyles,
