@@ -1,5 +1,22 @@
 # Change Log
 
+## 5.2.1
+
+### Patch Changes
+
+-   @alfalab/core-components-masked-input@5.0.9
+
+## 5.2.0
+
+### Minor Changes
+
+-   [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+    Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+### Patch Changes
+
+-   @alfalab/core-components-masked-input@5.0.8
+
 ## 5.1.2
 
 ### Patch Changes

@@ -1,0 +1,334 @@
+Merge branch 'master' of github.com:core-ds/core-components into feat/pure-cell
+
+# Conflicts:
+#	packages/pure-cell/src/__image_snapshots__/pure-cell-screenshots-direction-horizontal-direction-0-snap.png
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please run
+#	git update-ref -d MERGE_HEAD
+# and try again.
+
+
+# Пожалуйста, введите сообщение коммита для ваших изменений. Строки,
+# начинающиеся с «#» будут проигнорированы, а пустое сообщение
+# отменяет процесс коммита.
+#
+# На ветке feat/pure-cell
+# Все конфликты исправлены, но вы все еще в процессе слияния.
+#
+# Изменения, которые будут включены в коммит:
+#	изменено:      .storybook/public/global.css
+#	изменено:      CHANGELOG.md
+#	изменено:      docs/6.typography.stories.mdx
+#	изменено:      package.json
+#	изменено:      packages/alert/CHANGELOG.md
+#	изменено:      packages/alert/package.json
+#	изменено:      packages/amount-input/CHANGELOG.md
+#	изменено:      packages/amount-input/package.json
+#	изменено:      packages/amount-input/src/__image_snapshots__/amount-input-screenshots-inverted-snap.png
+#	изменено:      packages/amount-input/src/__image_snapshots__/amount-input-screenshots-sprite-snap.png
+#	изменено:      packages/amount/CHANGELOG.md
+#	изменено:      packages/amount/package.json
+#	изменено:      packages/attach/CHANGELOG.md
+#	изменено:      packages/attach/package.json
+#	изменено:      packages/attach/src/index.module.css
+#	изменено:      packages/badge/CHANGELOG.md
+#	изменено:      packages/badge/package.json
+#	изменено:      packages/badge/src/__image_snapshots__/badge-screenshots-view-count-sprite-snap.png
+#	изменено:      packages/badge/src/index.module.css
+#	изменено:      packages/bank-card/CHANGELOG.md
+#	изменено:      packages/bank-card/package.json
+#	изменено:      packages/bank-card/src/Component.test.tsx
+#	изменено:      packages/bank-card/src/Component.tsx
+#	изменено:      packages/bank-card/src/__image_snapshots__/bank-card-screenshots-sprite-snap.png
+#	изменено:      packages/bank-card/src/__snapshots__/Component.test.tsx.snap
+#	изменено:      packages/bank-card/src/docs/Component.stories.mdx
+#	изменено:      packages/bank-card/src/index.module.css
+#	изменено:      packages/bottom-sheet/CHANGELOG.md
+#	изменено:      packages/bottom-sheet/package.json
+#	изменено:      packages/button/CHANGELOG.md
+#	изменено:      packages/button/package.json
+#	изменено:      packages/button/src/__image_snapshots__/button-inverted-views-themes-intranet-theme-snap.png
+#	изменено:      packages/button/src/__image_snapshots__/button-inverted-views-themes-mobile-theme-snap.png
+#	изменено:      packages/button/src/__image_snapshots__/button-views-themes-intranet-theme-snap.png
+#	удалено:       packages/button/src/__image_snapshots__/button-views-themes-mobile-theme-2-snap.png
+#	изменено:      packages/button/src/__image_snapshots__/button-views-themes-mobile-theme-snap.png
+#	изменено:      packages/calendar-input/CHANGELOG.md
+#	изменено:      packages/calendar-input/package.json
+#	изменено:      packages/calendar-input/src/__image_snapshots__/calendar-input-interactions-tests-open-calendar-snap.png
+#	изменено:      packages/calendar-range/CHANGELOG.md
+#	изменено:      packages/calendar-range/package.json
+#	изменено:      packages/calendar-with-skeleton/CHANGELOG.md
+#	изменено:      packages/calendar-with-skeleton/package.json
+#	изменено:      packages/calendar/CHANGELOG.md
+#	изменено:      packages/calendar/package.json
+#	изменено:      packages/checkbox-group/CHANGELOG.md
+#	изменено:      packages/checkbox-group/package.json
+#	изменено:      packages/checkbox-group/src/index.module.css
+#	изменено:      packages/checkbox/CHANGELOG.md
+#	изменено:      packages/checkbox/package.json
+#	изменено:      packages/checkbox/src/index.module.css
+#	изменено:      packages/collapse/CHANGELOG.md
+#	изменено:      packages/collapse/package.json
+#	изменено:      packages/confirmation-v1/CHANGELOG.md
+#	изменено:      packages/confirmation-v1/package.json
+#	изменено:      packages/confirmation-v1/src/__image_snapshots__/confirmation-v-1-code-char-amount-align-sprite-snap.png
+#	изменено:      packages/confirmation-v1/src/__image_snapshots__/confirmation-v-1-interactions-tests-open-don-t-receive-sms-snap.png
+#	изменено:      packages/confirmation-v1/src/__image_snapshots__/confirmation-v-1-phone-phone-mask-countdown-sprite-snap.png
+#	изменено:      packages/confirmation/CHANGELOG.md
+#	изменено:      packages/confirmation/package.json
+#	изменено:      packages/confirmation/src/Component.test.tsx
+#	изменено:      packages/confirmation/src/__image_snapshots__/confirmation-code-char-amount-align-sprite-snap.png
+#	изменено:      packages/confirmation/src/__image_snapshots__/confirmation-code-checking-code-sending-code-error-states-sprite-snap.png
+#	изменено:      packages/confirmation/src/__image_snapshots__/confirmation-hint-fatal-error-temp-block-screens-sprite-snap.png
+#	изменено:      packages/confirmation/src/__image_snapshots__/confirmation-no-attempts-left-message-sprite-snap.png
+#	изменено:      packages/confirmation/src/__snapshots__/Component.test.tsx.snap
+#	новый файл:    packages/confirmation/src/component.desktop.tsx
+#	новый файл:    packages/confirmation/src/component.mobile.tsx
+#	новый файл:    packages/confirmation/src/component.responsive.tsx
+#	изменено:      packages/confirmation/src/component.screenshots.test.tsx
+#	переименовано: packages/confirmation/src/component.tsx -> packages/confirmation/src/components/base-confirmation/component.tsx
+#	переименовано: packages/confirmation/src/index.module.css -> packages/confirmation/src/components/base-confirmation/index.module.css
+#	новый файл:    packages/confirmation/src/components/base-confirmation/index.ts
+#	изменено:      packages/confirmation/src/components/countdown-loader/index.module.css
+#	новый файл:    packages/confirmation/src/components/header/component.tsx
+#	новый файл:    packages/confirmation/src/components/header/index.module.css
+#	новый файл:    packages/confirmation/src/components/header/index.ts
+#	изменено:      packages/confirmation/src/components/screens/fatal-error/component.tsx
+#	изменено:      packages/confirmation/src/components/screens/fatal-error/index.module.css
+#	изменено:      packages/confirmation/src/components/screens/hint/component.tsx
+#	изменено:      packages/confirmation/src/components/screens/hint/index.module.css
+#	изменено:      packages/confirmation/src/components/screens/index.ts
+#	изменено:      packages/confirmation/src/components/screens/initial/component.tsx
+#	изменено:      packages/confirmation/src/components/screens/initial/countdown-section.tsx
+#	изменено:      packages/confirmation/src/components/screens/initial/index.module.css
+#	изменено:      packages/confirmation/src/components/screens/temp-block/component.tsx
+#	изменено:      packages/confirmation/src/components/screens/temp-block/index.module.css
+#	новый файл:    packages/confirmation/src/desktop.ts
+#	изменено:      packages/confirmation/src/docs/Component.stories.mdx
+#	изменено:      packages/confirmation/src/docs/description.mdx
+#	изменено:      packages/confirmation/src/index.ts
+#	новый файл:    packages/confirmation/src/mobile.module.css
+#	новый файл:    packages/confirmation/src/mobile.ts
+#	новый файл:    packages/confirmation/src/responsive.ts
+#	изменено:      packages/confirmation/src/types.ts
+#	изменено:      packages/confirmation/src/vars.css
+#	изменено:      packages/confirmation/tsconfig.json
+#	изменено:      packages/custom-button/CHANGELOG.md
+#	изменено:      packages/custom-button/package.json
+#	изменено:      packages/date-input/CHANGELOG.md
+#	изменено:      packages/date-input/package.json
+#	изменено:      packages/date-input/src/__image_snapshots__/date-input-hint-sprite-snap.png
+#	изменено:      packages/date-input/src/__image_snapshots__/date-input-label-sprite-snap.png
+#	изменено:      packages/date-range-input/CHANGELOG.md
+#	изменено:      packages/date-range-input/package.json
+#	изменено:      packages/date-range-input/src/__image_snapshots__/date-range-input-hint-sprite-snap.png
+#	изменено:      packages/date-range-input/src/__image_snapshots__/date-range-input-label-sprite-snap.png
+#	изменено:      packages/date-time-input/CHANGELOG.md
+#	изменено:      packages/date-time-input/package.json
+#	изменено:      packages/date-time-input/src/__image_snapshots__/date-time-input-hint-sprite-snap.png
+#	изменено:      packages/date-time-input/src/__image_snapshots__/date-time-input-label-sprite-snap.png
+#	изменено:      packages/dropzone/CHANGELOG.md
+#	изменено:      packages/dropzone/package.json
+#	изменено:      packages/file-upload-item/CHANGELOG.md
+#	изменено:      packages/file-upload-item/package.json
+#	изменено:      packages/filter-tag/CHANGELOG.md
+#	изменено:      packages/filter-tag/package.json
+#	изменено:      packages/filter-tag/src/__image_snapshots__/filter-tag-main-props-click-snap.png
+#	изменено:      packages/filter-tag/src/__image_snapshots__/filter-tag-main-props-mobile-snap.png
+#	изменено:      packages/form-control/CHANGELOG.md
+#	изменено:      packages/form-control/package.json
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-click-theme-2-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-click-theme-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-default-theme-2-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-default-theme-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-mobile-theme-2-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-mobile-theme-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-site-theme-2-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-hint-and-error-site-theme-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-main-props-click-theme-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-main-props-default-theme-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-main-props-mobile-theme-snap.png
+#	изменено:      packages/form-control/src/__image_snapshots__/form-control-screenshots-main-props-site-theme-snap.png
+#	изменено:      packages/form-control/src/index.module.css
+#	изменено:      packages/form-control/src/vars.css
+#	изменено:      packages/gallery/CHANGELOG.md
+#	изменено:      packages/gallery/package.json
+#	изменено:      packages/gallery/src/__image_snapshots__/gallery-interactions-tests-full-screen-snap.png
+#	изменено:      packages/gallery/src/__image_snapshots__/gallery-interactions-tests-with-multiple-images-2-snap.png
+#	изменено:      packages/gallery/src/__image_snapshots__/gallery-interactions-tests-with-multiple-images-3-snap.png
+#	изменено:      packages/gallery/src/__image_snapshots__/gallery-interactions-tests-with-multiple-images-4-snap.png
+#	изменено:      packages/gallery/src/__image_snapshots__/gallery-interactions-tests-with-multiple-images-snap.png
+#	изменено:      packages/icon-button/CHANGELOG.md
+#	изменено:      packages/icon-button/package.json
+#	изменено:      packages/icon-button/src/__image_snapshots__/icon-button-inverted-views-view-0-snap.png
+#	новый файл:    packages/icon-button/src/__image_snapshots__/icon-button-screenshots-disabled-view-1-colors-0-2-snap.png
+#	изменено:      packages/icon-button/src/__image_snapshots__/icon-button-screenshots-disabled-view-1-colors-0-snap.png
+#	изменено:      packages/icon-view/src/components/base-shape/index.module.css
+#	изменено:      packages/input-autocomplete/CHANGELOG.md
+#	изменено:      packages/input-autocomplete/package.json
+#	изменено:      packages/input-autocomplete/src/autocomplete-mobile-field/index.module.css
+#	изменено:      packages/input/CHANGELOG.md
+#	изменено:      packages/input/package.json
+#	изменено:      packages/input/src/__image_snapshots__/input-hover-state-label-0-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-addons-sprite-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-click-theme-2-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-click-theme-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-default-theme-2-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-default-theme-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-mobile-theme-2-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-mobile-theme-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-site-theme-2-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-hint-and-error-site-theme-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-main-props-click-theme-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-main-props-default-theme-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-main-props-mobile-theme-2-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-main-props-mobile-theme-snap.png
+#	изменено:      packages/input/src/__image_snapshots__/input-screenshots-main-props-site-theme-snap.png
+#	изменено:      packages/input/src/index.module.css
+#	изменено:      packages/input/src/vars.css
+#	изменено:      packages/intl-phone-input/CHANGELOG.md
+#	изменено:      packages/intl-phone-input/package.json
+#	изменено:      packages/keyboard-focusable/src/__image_snapshots__/keyboard-focusable-interactions-tests-focus-on-input-snap.png
+#	изменено:      packages/masked-input/CHANGELOG.md
+#	изменено:      packages/masked-input/package.json
+#	изменено:      packages/modal/CHANGELOG.md
+#	изменено:      packages/modal/package.json
+#	изменено:      packages/notification-manager/CHANGELOG.md
+#	изменено:      packages/notification-manager/package.json
+#	изменено:      packages/notification/CHANGELOG.md
+#	изменено:      packages/notification/package.json
+#	изменено:      packages/pagination/CHANGELOG.md
+#	изменено:      packages/pagination/package.json
+#	изменено:      packages/password-input/CHANGELOG.md
+#	изменено:      packages/password-input/package.json
+#	изменено:      packages/phone-input/CHANGELOG.md
+#	изменено:      packages/phone-input/package.json
+#	изменено:      packages/picker-button/CHANGELOG.md
+#	изменено:      packages/picker-button/package.json
+#	изменено:      packages/plate/CHANGELOG.md
+#	изменено:      packages/plate/package.json
+#	изменено:      packages/pure-cell/CHANGELOG.md
+#	изменено:      packages/pure-cell/package.json
+#	изменено:      packages/pure-input/src/index.module.css
+#	изменено:      packages/radio-group/src/index.module.css
+#	изменено:      packages/radio/src/index.module.css
+#	изменено:      packages/screenshot-utils/createStorybookUrl.ts
+#	изменено:      packages/screenshot-utils/screenshots-story/index.stories.tsx
+#	изменено:      packages/screenshot-utils/screenshots-story/sprite.stories.tsx
+#	изменено:      packages/screenshot-utils/screenshots-story/utils.ts
+#	изменено:      packages/scrollbar/src/__image_snapshots__/scrollbar-screenshot-colors-0-direction-0-snap.png
+#	изменено:      packages/scrollbar/src/__image_snapshots__/scrollbar-screenshot-colors-0-direction-1-snap.png
+#	изменено:      packages/scrollbar/src/__image_snapshots__/scrollbar-screenshot-colors-1-direction-0-snap.png
+#	изменено:      packages/scrollbar/src/__image_snapshots__/scrollbar-screenshot-colors-1-direction-1-snap.png
+#	изменено:      packages/select-with-tags/CHANGELOG.md
+#	изменено:      packages/select-with-tags/package.json
+#	изменено:      packages/select-with-tags/src/components/tag-list/index.module.css
+#	изменено:      packages/select/CHANGELOG.md
+#	изменено:      packages/select/package.json
+#	изменено:      packages/select/src/__image_snapshots__/select-click-theme-additional-props-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-click-theme-main-props-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-default-theme-additional-props-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-default-theme-main-props-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-click-open-select-select-one-item-2-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-click-open-select-select-one-item-3-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-click-open-select-select-one-item-4-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-click-open-select-select-one-item-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-default-open-select-select-one-item-2-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-default-open-select-select-one-item-3-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-default-open-select-select-one-item-4-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-default-open-select-select-one-item-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-long-options-2-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-long-options-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-interactions-tests-visible-options-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-optgroup-click-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-optgroup-default-snap.png
+#	изменено:      packages/select/src/__image_snapshots__/select-placeholder-label-snap.png
+#	изменено:      packages/select/src/components/field/index.module.css
+#	изменено:      packages/select/src/components/optgroup/index.module.css
+#	изменено:      packages/select/src/components/option/index.module.css
+#	изменено:      packages/side-panel/CHANGELOG.md
+#	изменено:      packages/side-panel/package.json
+#	изменено:      packages/slider-input/CHANGELOG.md
+#	изменено:      packages/slider-input/package.json
+#	изменено:      packages/slider-input/src/__image_snapshots__/slider-input-sprite-additional-props-2-snap.png
+#	изменено:      packages/slider-input/src/__image_snapshots__/slider-input-sprite-additional-props-3-snap.png
+#	изменено:      packages/slider-input/src/__image_snapshots__/slider-input-sprite-additional-props-snap.png
+#	изменено:      packages/slider-input/src/__image_snapshots__/slider-input-sprite-main-props-2-snap.png
+#	изменено:      packages/slider-input/src/__image_snapshots__/slider-input-sprite-main-props-3-snap.png
+#	изменено:      packages/slider-input/src/__image_snapshots__/slider-input-sprite-main-props-snap.png
+#	изменено:      packages/slider-input/src/index.module.css
+#	изменено:      packages/slider/src/index.module.css
+#	изменено:      packages/stepped-progress-bar/src/index.module.css
+#	изменено:      packages/steps/CHANGELOG.md
+#	изменено:      packages/steps/package.json
+#	изменено:      packages/switch/src/index.module.css
+#	изменено:      packages/table/CHANGELOG.md
+#	изменено:      packages/table/package.json
+#	изменено:      packages/tabs/CHANGELOG.md
+#	изменено:      packages/tabs/package.json
+#	изменено:      packages/tabs/src/__image_snapshots__/click-tabs-tabs-desktop-view-1-size-0-2-snap.png
+#	изменено:      packages/tabs/src/__image_snapshots__/click-tabs-tabs-desktop-view-1-size-1-2-snap.png
+#	изменено:      packages/tabs/src/__image_snapshots__/click-tabs-tabs-desktop-view-1-size-2-2-snap.png
+#	изменено:      packages/tabs/src/__image_snapshots__/click-tabs-tabs-desktop-view-1-size-3-2-snap.png
+#	изменено:      packages/tabs/src/__image_snapshots__/click-tabs-tabs-desktop-view-1-size-4-2-snap.png
+#	изменено:      packages/tabs/src/__image_snapshots__/click-tabs-tabs-desktop-view-1-size-5-2-snap.png
+#	изменено:      packages/tabs/src/components/primary-tablist/index.module.css
+#	изменено:      packages/tabs/src/vars.css
+#	изменено:      packages/tag/src/__image_snapshots__/click-tag-right-addons-checked-0-disabled-1-2-snap.png
+#	изменено:      packages/tag/src/__image_snapshots__/mobile-tag-right-addons-checked-0-disabled-1-3-snap.png
+#	изменено:      packages/tag/src/__image_snapshots__/tag-inverted-mobile-snap.png
+#	изменено:      packages/tag/src/__image_snapshots__/tag-main-props-click-snap.png
+#	изменено:      packages/tag/src/__image_snapshots__/tag-main-props-mobile-snap.png
+#	изменено:      packages/textarea/CHANGELOG.md
+#	изменено:      packages/textarea/package.json
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-click-counter-snap.png
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-click-hint-error-snap.png
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-click-main-props-snap.png
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-default-counter-snap.png
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-default-hint-error-snap.png
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-default-main-props-snap.png
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-inverted-2-snap.png
+#	изменено:      packages/textarea/src/__image_snapshots__/textarea-sprite-inverted-snap.png
+#	изменено:      packages/textarea/src/index.module.css
+#	изменено:      packages/themes/CHANGELOG.md
+#	изменено:      packages/themes/package.json
+#	изменено:      packages/themes/src/dark.css
+#	изменено:      packages/themes/src/mixins/button/intranet.css
+#	изменено:      packages/themes/src/mixins/button/mobile.css
+#	изменено:      packages/themes/src/mixins/confirmation/click.css
+#	изменено:      packages/themes/src/mixins/confirmation/intranet.css
+#	изменено:      packages/themes/src/mixins/confirmation/mobile.css
+#	изменено:      packages/themes/src/mixins/dark.css
+#	изменено:      packages/themes/src/mixins/input/intranet.css
+#	изменено:      packages/themes/src/mixins/input/mobile.css
+#	изменено:      packages/themes/src/mixins/intranet.css
+#	изменено:      packages/themes/src/mixins/mobile.css
+#	изменено:      packages/themes/src/mixins/tabs/click.css
+#	изменено:      packages/time-input/CHANGELOG.md
+#	изменено:      packages/time-input/package.json
+#	изменено:      packages/time-input/src/__image_snapshots__/time-input-hint-sprite-snap.png
+#	изменено:      packages/time-input/src/__image_snapshots__/time-input-label-sprite-snap.png
+#	изменено:      packages/toast-plate/CHANGELOG.md
+#	изменено:      packages/toast-plate/package.json
+#	изменено:      packages/toast/CHANGELOG.md
+#	изменено:      packages/toast/package.json
+#	изменено:      packages/tooltip/CHANGELOG.md
+#	изменено:      packages/tooltip/package.json
+#	новый файл:    packages/typography/src/text/__image_snapshots__/typography-text-colors-sprite-inverted-snap.png
+#	изменено:      packages/typography/src/text/__image_snapshots__/typography-text-colors-sprite-snap.png
+#	изменено:      packages/typography/src/text/component.screenshots.test.tsx
+#	новый файл:    packages/typography/src/title/__image_snapshots__/typography-title-colors-sprite-inverted-snap.png
+#	изменено:      packages/typography/src/title/__image_snapshots__/typography-title-colors-sprite-snap.png
+#	изменено:      packages/typography/src/title/component.screenshots.test.tsx
+#	изменено:      packages/vars/CHANGELOG.md
+#	изменено:      packages/vars/package.json
+#	изменено:      packages/vars/src/colors-bluetint.css
+#	изменено:      packages/vars/src/colors-indigo.css
+#	изменено:      packages/vars/src/typography.css
+#	изменено:      packages/with-suffix/CHANGELOG.md
+#	изменено:      packages/with-suffix/package.json
+#	изменено:      packages/with-suffix/src/index.module.css
+#	изменено:      tools/update-colors.js
+#	изменено:      yarn.lock
+#

@@ -1,5 +1,23 @@
 # Change Log
 
+## 9.5.1
+
+### Patch Changes
+
+-   [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+## 9.5.0
+
+### Minor Changes
+
+-   [#233](https://github.com/core-ds/core-components/pull/233): Добавлены новые компоненты ConfirmationMobile, ConfirmationResponsive. Thanks [@Valeri8888](https://github.com/Valeri8888)
+    Обновлены стили компонента для соответствия актуальным макетам
+
+### Patch Changes
+
+-   [#284](https://github.com/core-ds/core-components/pull/284): В компоненте Badge уменьшен font-size до 11px для размера 's' (высота 16-17). Thanks [@Valeri8888](https://github.com/Valeri8888)
+    В компоненте Tabs свойство font-feature-settings: 'ss01' назначено только для темы click
+
 ## 9.4.0
 
 ### Minor Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 6.1.6
+
+### Patch Changes
+
+-   [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+    -   @alfalab/core-components-input@10.2.4
+    -   @alfalab/core-components-with-suffix@4.0.9
+
+## 6.1.5
+
+### Patch Changes
+
+-   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    -   @alfalab/core-components-input@10.2.3
+    -   @alfalab/core-components-with-suffix@4.0.8
+
 ## 6.1.4
 
 ### Patch Changes

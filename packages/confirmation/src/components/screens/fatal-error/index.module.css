@@ -1,13 +1,17 @@
-@import '../../../../../themes/src/default.css';
 @import '../../../vars.css';
 
-.header {
-    @mixin _confirmation-title;
+.typographyTheme {
+    @mixin _confirmation-text;
 }
 
-.description {
-    @mixin _confirmation-text;
+.left {
+    align-items: flex-start;
+}
 
-    margin-bottom: var(--gap-2xl);
-    color: var(--color-light-text-primary);
+.center {
+    align-items: center;
+}
+
+.button {
+    margin-top: var(--gap-2xl);
 }

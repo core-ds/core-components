@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.0.8
+
+### Patch Changes
+
+-   [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-button@6.1.2
+
+## 5.0.7
+
+### Patch Changes
+
+-   [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+    Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
 ## 5.0.6
 
 ### Patch Changes

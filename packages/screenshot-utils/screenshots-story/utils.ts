@@ -2,7 +2,11 @@ import qs from 'querystring';
 
 export const queryParams = qs.parse(document.location.search);
 
-export const getQueryParam = (param: string) => queryParams[param] as string;
+export const getQueryParam = (param: string, parse = false) => {
+    const value = queryParams[param] as string;
+
+    return parse ? parseValue(value) : value;
+};
 
 export const parseKnobs = () =>
     Object.entries(queryParams).reduce((acc, [k, v]) => {
@@ -13,7 +17,7 @@ export const parseKnobs = () =>
         return acc;
     }, {});
 
-function parseValue(value: string) {
+export function parseValue(value: string) {
     const isBoolean = () => ['true', 'false'].includes(value);
     const isNumeric = () => !Number.isNaN(+value) && !Number.isNaN(parseFloat(value));
 

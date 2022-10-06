@@ -1,4 +1,5 @@
 import React, {
+    FC,
     useCallback,
     useContext,
     useEffect,
@@ -11,15 +12,25 @@ import cn from 'classnames';
 import { usePrevious } from '@alfalab/hooks';
 import { CodeInput, CustomInputRef, CodeInputProps } from '@alfalab/core-components-code-input';
 import { Link } from '@alfalab/core-components-link';
+import { Typography } from '@alfalab/core-components-typography';
+import { Button } from '@alfalab/core-components-button';
 
 import { ConfirmationContext } from '../../../context';
+import { Header } from '../../header';
+import { CountdownSection } from './countdown-section';
 
 import styles from './index.module.css';
-import { CountdownSection } from './countdown-section';
+
+export type InitialProps = {
+    /**
+     * Отображать в мобильной версии экран компонента
+     */
+    mobile?: boolean;
+};
 
 const CODE_SEND_HINT_VISIBLE_DURATION = 2000;
 
-export const Initial = () => {
+export const Initial: FC<InitialProps> = ({ mobile }) => {
     const {
         state,
         alignContent,
@@ -117,37 +128,46 @@ export const Initial = () => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <h3 className={styles.header}>{texts.title}</h3>
+            <Header mobile={mobile}>{texts.title}</Header>
 
-            {phone && <div className={styles.phone}>Код отправлен на {phone}</div>}
-
-            <div className={styles.inputContainer}>
-                <CodeInput
-                    disabled={processing}
-                    error={getCodeInputError()}
-                    ref={inputRef}
-                    fields={requiredCharAmount}
-                    className={styles.codeInput}
-                    onComplete={handleInputComplete}
-                    onChange={handleInputChange}
-                />
-            </div>
-
+            <Typography.Text
+                view='primary-medium'
+                color='primary'
+                className={cn(styles.phone, { [styles.typographyTheme]: !mobile })}
+            >
+                Код отправлен на {phone}
+            </Typography.Text>
+            <CodeInput
+                disabled={processing}
+                error={getCodeInputError()}
+                ref={inputRef}
+                fields={requiredCharAmount}
+                className={cn(styles.containerInput, styles.codeInput)}
+                onComplete={handleInputComplete}
+                onChange={handleInputChange}
+            />
             <CountdownSection
                 processing={processing}
                 timePassed={timePassed}
                 codeSendHintVisible={codeSendHintVisible}
                 handleSmsRetryClick={handleSmsRetryClick}
+                mobile={mobile}
             />
 
-            <Link
-                onClick={handleSmsHintLinkClick}
-                className={styles.smsComeLink}
-                view='secondary'
-                pseudo={true}
-            >
-                {texts.linkToHint}
-            </Link>
+            {mobile ? (
+                <Button onClick={handleSmsHintLinkClick} view='link' size='xs'>
+                    {texts.linkToHint}
+                </Button>
+            ) : (
+                <Link
+                    onClick={handleSmsHintLinkClick}
+                    className={styles.smsComeLink}
+                    view={mobile ? 'primary' : 'secondary'}
+                    pseudo={true}
+                >
+                    {texts.linkToHint}
+                </Link>
+            )}
         </div>
     );
 };

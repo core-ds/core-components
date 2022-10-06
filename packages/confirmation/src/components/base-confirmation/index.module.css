@@ -1,14 +1,12 @@
-@import '../../themes/src/default.css';
-@import './vars.css';
+@import '../../../../themes/src/default.css';
 
 .component {
-    @mixin _confirmation-text;
-
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 400px;
+    max-width: 388px;
     margin: 0 auto;
+    color: var(--color-light-text-secondary);
 }
 
 .center {

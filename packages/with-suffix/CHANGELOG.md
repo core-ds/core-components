@@ -1,5 +1,18 @@
 # Change Log
 
+## 4.0.9
+
+### Patch Changes
+
+-   @alfalab/core-components-input@10.2.4
+
+## 4.0.8
+
+### Patch Changes
+
+-   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    -   @alfalab/core-components-input@10.2.3
+
 ## 4.0.7
 
 ### Patch Changes

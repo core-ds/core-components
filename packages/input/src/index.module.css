@@ -10,8 +10,7 @@
 }
 
 .input {
-    @mixin system_16-20_regular;
-
+    @mixin paragraph_component;
     position: relative;
     display: block;
     width: 100%;
@@ -122,7 +121,7 @@
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
         &:first-line {
-            @mixin system_16-20_regular;
+            @mixin paragraph_component;
             font-family: var(--form-control-font-family);
         }
 

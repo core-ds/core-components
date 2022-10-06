@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings"],
+    "include": ["src", "../../typings", "src/*.json"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -13,6 +13,7 @@
         { "path": "../button" },
         { "path": "../loader" },
         { "path": "../link" },
+        { "path": "../typography" },
         { "path": "../code-input" }
     ]
 }

@@ -1,5 +1,25 @@
 # Change Log
 
+## 12.4.5
+
+### Patch Changes
+
+-   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    -   @alfalab/core-components-button@6.1.2
+    -   @alfalab/core-components-checkbox@3.0.4
+    -   @alfalab/core-components-form-control@8.3.1
+    -   @alfalab/core-components-input@10.2.4
+    -   @alfalab/core-components-modal@6.0.7
+    -   @alfalab/core-components-bottom-sheet@5.1.4
+
+## 12.4.4
+
+### Patch Changes
+
+-   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    -   @alfalab/core-components-checkbox@3.0.3
+    -   @alfalab/core-components-input@10.2.3
+
 ## 12.4.3
 
 ### Patch Changes

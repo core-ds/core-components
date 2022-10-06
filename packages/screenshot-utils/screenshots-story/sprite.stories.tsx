@@ -52,6 +52,10 @@ export const ScreenshotsSprite = () => {
                     // eslint-disable-next-line no-param-reassign
                     props.options = JSON.parse(props.options as string);
                 }
+
+                const invertedBg =
+                    getQueryParam('inverted', true) || (props as any).colors === 'inverted';
+
                 return (
                     <div
                         // eslint-disable-next-line react/no-array-index-key
@@ -63,12 +67,9 @@ export const ScreenshotsSprite = () => {
                             id={ids[index]}
                             style={{
                                 ...componentStyles,
-                                // TODO:
-                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                backgroundColor:
-                                    (props as any).colors === 'inverted'
-                                        ? 'var(--color-light-bg-primary-inverted)'
-                                        : 'transparent',
+                                backgroundColor: invertedBg
+                                    ? 'var(--color-light-bg-primary-inverted)'
+                                    : 'transparent',
                             }}
                         >
                             <Component {...props} />

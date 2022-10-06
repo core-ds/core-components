@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.0.9
+
+### Patch Changes
+
+-   @alfalab/core-components-icon-button@5.0.5
+-   @alfalab/core-components-input@10.2.4
+
+## 3.0.8
+
+### Patch Changes
+
+-   [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+    Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+-   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    -   @alfalab/core-components-input@10.2.3
+
 ## 3.0.7
 
 ### Patch Changes

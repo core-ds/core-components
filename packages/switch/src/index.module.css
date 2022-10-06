@@ -85,7 +85,7 @@
 }
 
 .label {
-    @mixin system_16-24_regular;
+    @mixin paragraph_primary_medium;
     display: block;
     color: var(--switch-label-color);
 }
@@ -95,7 +95,7 @@
 }
 
 .hint {
-    @mixin system_14-18_regular;
+    @mixin paragraph_component_secondary;
     display: block;
     color: var(--switch-hint-color);
 }

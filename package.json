@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "32.1.2",
+    "version": "33.0.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -60,10 +60,10 @@
     "dependencies": {
         "@alfalab/data": "^1.4.2",
         "@alfalab/hooks": "^1.13.0",
-        "@alfalab/icons-classic": "^1.76.0",
-        "@alfalab/icons-flag": "^1.11.0",
-        "@alfalab/icons-glyph": "^2.64.0",
-        "@alfalab/icons-logotype": "^1.28.0",
+        "@alfalab/icons-classic": "^2.3.0",
+        "@alfalab/icons-flag": "^2.2.0",
+        "@alfalab/icons-glyph": "^2.71.0",
+        "@alfalab/icons-logotype": "^2.19.0",
         "@alfalab/stylelint-core-vars": "^1.4.0",
         "@alfalab/utils": "^1.13.2",
         "@juggle/resize-observer": "^3.3.1",
@@ -91,7 +91,7 @@
         "simplebar": "^5.3.8",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
-        "ui-primitives": "^3.38.0"
+        "ui-primitives": "^8.10.0"
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.6.0",

@@ -1,3 +1,183 @@
+## 33.0.0
+
+### Major Changes
+
+#### `@alfalab/core-components/vars`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и типографика. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+  Удалённые миксины с текстовыми стилями были помечены как deprecated более двух лет назад и в макетах давно не используются.
+
+  Основное изменение, про которое нужно знать — удалены текстовые transparent цвета.
+  При обновлении достаточно убрать `-transparent` из названий:
+  `--color-light-text-secondary-transparent` → `--color-light-text-secondary`
+
+### Patch Changes
+
+#### `@alfalab/core-components/themes`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-amount-input`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-amount`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-attach`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-button`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-calendar-input`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-calendar`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-checkbox-group`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-checkbox`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-date-input`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-date-range-input`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-date-time-input`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-filter-tag`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+
+#### `@alfalab/core-components-form-control`
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+
+## 32.2.0
+
+### Minor Changes
+
+#### `@alfalab/core-components-bank-card`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-confirmation`
+- [#233](https://github.com/core-ds/core-components/pull/233): Добавлены новые компоненты ConfirmationMobile, ConfirmationResponsive. Thanks [@Valeri8888](https://github.com/Valeri8888)
+  Обновлены стили компонента для соответствия актуальным макетам
+
+
+#### `@alfalab/core-components-themes`
+- [#233](https://github.com/core-ds/core-components/pull/233): Добавлены новые компоненты ConfirmationMobile, ConfirmationResponsive. Thanks [@Valeri8888](https://github.com/Valeri8888)
+  Обновлены стили компонента для соответствия актуальным макетам
+
+
+### Patch Changes
+
+#### `@alfalab/core-components-attach`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-calendar`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-checkbox`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-collapse`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-confirmation`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-confirmation-v1`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-dropzone`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-file-upload-item`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-gallery`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-input`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-password-input`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-picker-button`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-select-with-tags`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-steps`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-toast-plate`
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+
+
+#### `@alfalab/core-components-badge`
+- [#284](https://github.com/core-ds/core-components/pull/284): В компоненте Badge уменьшен font-size до 11px для размера 's' (высота 16-17). Thanks [@Valeri8888](https://github.com/Valeri8888)
+  В компоненте Tabs свойство font-feature-settings: 'ss01' назначено только для темы click
+
+
+#### `@alfalab/core-components-tabs`
+- [#284](https://github.com/core-ds/core-components/pull/284): В компоненте Badge уменьшен font-size до 11px для размера 's' (высота 16-17). Thanks [@Valeri8888](https://github.com/Valeri8888)
+  В компоненте Tabs свойство font-feature-settings: 'ss01' назначено только для темы click
+
+
+#### `@alfalab/core-components-themes`
+- [#284](https://github.com/core-ds/core-components/pull/284): В компоненте Badge уменьшен font-size до 11px для размера 's' (высота 16-17). Thanks [@Valeri8888](https://github.com/Valeri8888)
+  В компоненте Tabs свойство font-feature-settings: 'ss01' назначено только для темы click
+
 ## 32.1.2
 
 ### Patch Changes

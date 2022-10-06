@@ -1,23 +1,15 @@
-@import '../../../../../themes/src/default.css';
 @import '../../../vars.css';
 
 .component {
     display: flex;
     flex-direction: column;
 }
-
-.header {
-    @mixin _confirmation-title;
+.typographyTheme {
+    @mixin _confirmation-text;
 }
 
 .phone {
-    margin-bottom: var(--gap-2xl);
     color: var(--color-light-text-primary);
-}
-
-.inputContainer {
-    display: flex;
-    flex-direction: column;
     margin-bottom: var(--gap-2xl);
 }
 
@@ -30,11 +22,14 @@
     align-items: center;
 }
 
+.left {
+    align-items: flex-start;
+}
+
 .center {
     align-items: center;
     text-align: center;
 
-    & .codeInput,
     & .loaderWrap {
         justify-content: center;
     }
@@ -44,12 +39,24 @@
     }
 }
 
+.codeInput {
+    margin-bottom: var(--gap-s);
+}
+
 .smsComeLink {
-    @mixin paragraph_primary_small;
+    @mixin action_primary_small;
 }
 
 .countdownContainer {
+    color: var(--color-light-text-secondary);
     margin-bottom: var(--gap-xl);
+}
+
+.countdownMobile {
+    margin-bottom: var(--gap-l);
+}
+.countdownLoaderMobile {
+    margin-bottom: var(--gap-m);
 }
 
 .getCodeButton {
@@ -58,13 +65,10 @@
     margin-bottom: var(--gap-m);
 }
 
-.countdown {
-    display: flex;
+.getCodeButtonMobile {
+    margin-bottom: 0;
 }
 
-.countdownTimer {
-    display: flex;
-    justify-content: flex-start;
-    min-width: 45px;
-    margin-left: var(--gap-2xs);
+.containerInput {
+    min-height: 80px;
 }
