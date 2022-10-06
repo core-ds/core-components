@@ -1,5 +1,6 @@
 import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { IntlPhoneInput } from './index';
 
@@ -146,7 +147,7 @@ describe('IntlPhoneInput', () => {
         );
         const input = await screen.getByDisplayValue('');
 
-        fireEvent.change(input, { target: { value: '+998 12 345 67 89' } });
+        fireEvent.change(input, { target: { value: '+998 12 345 67 89', selectionStart: 0 } });
 
         expect(onCountryChange).toBeCalledWith('UZ');
         expect(onCountryChange).toHaveBeenCalledTimes(1);
@@ -195,5 +196,123 @@ describe('IntlPhoneInput', () => {
         const countrySelect = queryByTestId('countries-select');
 
         expect(countrySelect).toBeNull();
+    });
+
+    it('should show empty country', async () => {
+        const onCountryChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                value=''
+                onChange={() => null}
+                dataTestId={testId}
+                onCountryChange={onCountryChange}
+                canBeEmptyCountry={true}
+                defaultCountryIso2='ru'
+            />,
+        );
+
+        const input = screen.getByDisplayValue('');
+
+        fireEvent.change(input, { target: { value: '+', selectionStart: 0 } });
+
+        const icons = screen.getAllByRole('img');
+
+        expect(icons[0]).toHaveClass('emptyCountryIcon');
+        expect(onCountryChange).toBeCalledWith(undefined);
+    });
+
+    it('should call `onChange` with value "+7" when type "8" in empty field with `ruNumberPriority`', async () => {
+        const onChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                value=''
+                onChange={onChange}
+                dataTestId={testId}
+                ruNumberPriority={true}
+                defaultCountryIso2='ru'
+            />,
+        );
+
+        const input = screen.getByDisplayValue('');
+
+        userEvent.type(input, '8');
+
+        await waitFor(() => {
+            expect(onChange).toBeCalledWith('+7');
+        });
+    });
+
+    it('should call `onChange` with value "+7 9" when type "9" in empty field with `ruNumberPriority`', async () => {
+        const onChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                value=''
+                onChange={onChange}
+                dataTestId={testId}
+                ruNumberPriority={true}
+                defaultCountryIso2='ru'
+            />,
+        );
+
+        const input = screen.getByDisplayValue('');
+
+        userEvent.type(input, '9');
+
+        await waitFor(() => {
+            expect(onChange).toBeCalledWith('+7 9');
+        });
+    });
+
+    it('should call `onChange` with value "+7" when type "7" in empty field with `ruNumberPriority`', async () => {
+        const onChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                value=''
+                onChange={onChange}
+                dataTestId={testId}
+                ruNumberPriority={true}
+                defaultCountryIso2='ru'
+            />,
+        );
+
+        const input = screen.getByDisplayValue('');
+
+        userEvent.type(input, '7');
+
+        await waitFor(() => {
+            expect(onChange).toBeCalledWith('+7');
+        });
+    });
+
+    it('should not render country select when use `staticFlag`', () => {
+        const onChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                value=''
+                onChange={onChange}
+                dataTestId={testId}
+                staticFlag={true}
+                defaultCountryIso2='ru'
+            />,
+        );
+
+        const countrySelect = screen.queryByTestId('countries-select');
+
+        expect(countrySelect).toBeNull();
+    });
+
+    it('should show "+" when clear value', async () => {
+        const onChange = jest.fn();
+        render(<IntlPhoneInput value='+7' onChange={onChange} canClear={true} />);
+
+        const clearButton = await screen.findByLabelText('Очистить');
+
+        expect(clearButton).toBeInTheDocument();
+
+        fireEvent.click(clearButton);
+
+        await waitFor(() => {
+            expect(onChange).toBeCalledWith('+');
+        });
     });
 });

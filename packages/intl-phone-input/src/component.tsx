@@ -9,10 +9,12 @@ import {
     InputAutocomplete,
     InputAutocompleteProps,
 } from '@alfalab/core-components-input-autocomplete';
-import { CountriesSelect } from './components';
+import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
+import { CountriesSelect, FlagIcon } from './components';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
 import { calculateCaretPos } from './utils/calculateCaretPos';
 import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
+import { preparePasteData } from './utils/preparePasteData';
 
 import styles from './index.module.css';
 
@@ -53,7 +55,7 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
         /**
          * Обработчик события изменения страны
          */
-        onCountryChange?: (countryCode: CountryCode) => void;
+        onCountryChange?: (countryCode?: CountryCode) => void;
 
         /**
          * Список стран
@@ -69,6 +71,26 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
          * Ограничение длин вводимых номеров по странам.
          */
         maxPhoneLen?: MaxPhoneLenByCountry;
+
+        /*
+         * Отключает выбор страны через селект
+         */
+        staticFlag?: boolean;
+
+        /*
+         * Разрешает состояние без выбранной страны
+         */
+        canBeEmptyCountry?: boolean;
+
+        /*
+         * Разрешает состояние без выбранной страны
+         */
+        ruNumberPriority?: boolean;
+
+        /*
+         * Разрешает очищать поле крестиком
+         */
+        canClear?: boolean;
     };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
@@ -76,6 +98,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         {
             disabled = false,
             readOnly = false,
+            staticFlag = false,
+            canBeEmptyCountry = false,
+            ruNumberPriority = false,
+            canClear = false,
             size = 'm',
             colors = 'default',
             options = [],
@@ -93,8 +119,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         },
         ref,
     ) => {
-        const [countryIso2, setCountryIso2] = useState(defaultCountryIso2.toLowerCase());
-        const [fieldWidth, setFieldWidth] = useState(0);
+        const [countryIso2, setCountryIso2] = useState<string | undefined>(
+            defaultCountryIso2.toLowerCase(),
+        );
 
         const inputRef = useRef<HTMLInputElement>(null);
         const [inputWrapperRef, setInputWrapperRef] = useState<HTMLDivElement | null>(null);
@@ -108,7 +135,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             if (phoneLibUtils.current) {
                 const Utils = phoneLibUtils.current;
-                const utils = new Utils(countryIso2.toUpperCase() as CountryCode);
+                const utils = new Utils(
+                    countryIso2 ? (countryIso2.toUpperCase() as CountryCode) : undefined,
+                );
 
                 newValue = utils.input(inputValue);
             }
@@ -127,59 +156,76 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             return country;
         };
 
-        const handleCountryChange = (countryCode: string) => {
+        const handleCountryChange = (countryCode?: string) => {
             if (onCountryChange) {
-                onCountryChange(countryCode.toUpperCase() as CountryCode);
+                onCountryChange(
+                    countryCode ? (countryCode.toUpperCase() as CountryCode) : undefined,
+                );
             }
         };
 
-        const setCountryByDialCode = (inputValue: string) => {
-            for (let i = 0; i < countries.length; i++) {
-                const country = countries[i];
+        const getCountryByNumber = (inputValue: string) => {
+            // dialcode казахстанских номеров совпадает с российскими, поэтому проверяем отдельно
+            if (new RegExp('^\\+7(\\s)?7').test(inputValue)) {
+                const kzCoutry = countries.find(item => item.iso2 === 'kz');
+                if (kzCoutry) {
+                    return kzCoutry;
+                }
+            }
 
+            const targetCountry = countries.find(country => {
                 if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
                     // Сначала проверяем, если приоритет не указан
                     if (country.priority === undefined) {
-                        onChange(formatPhone(inputValue));
-                        setCountryIso2(country.iso2);
-                        handleCountryChange(country.iso2);
-
-                        break;
+                        return true;
                     }
 
                     // Если страна уже была выставлена через селект, и коды совпадают
-                    if (countryIso2 === country.iso2) {
-                        onChange(formatPhone(inputValue));
-                        setCountryIso2(country.iso2);
-                        handleCountryChange(country.iso2);
-
-                        break;
-                        // Если не совпадают - выбираем по приоритету
-                    } else if (country.priority === 0) {
-                        onChange(formatPhone(inputValue));
-                        setCountryIso2(country.iso2);
-                        handleCountryChange(country.iso2);
-
-                        break;
+                    if (countryIso2 === country.iso2 && countryIso2 !== 'kz') {
+                        return true;
                     }
+
+                    // Если не совпадают - выбираем по приоритету
+                    if (country.priority === 0) {
+                        return true;
+                    }
+                    return false;
                 }
+                return false;
+            });
+
+            return targetCountry;
+        };
+
+        const setCountryByDialCode = (inputValue: string) => {
+            const country = getCountryByNumber(inputValue);
+            onChange(formatPhone(inputValue));
+            if (country) {
+                setCountryIso2(country.iso2);
+                handleCountryChange(country.iso2);
+            } else if (canBeEmptyCountry) {
+                setCountryIso2(undefined);
+                handleCountryChange(undefined);
             }
         };
 
         const setCountryByDialCodeWithLengthCheck = (inputValue: string) => {
-            if (value.length < MAX_DIAL_CODE_LENGTH) {
-                setCountryByDialCode(inputValue);
+            if (inputRef.current) {
+                const { selectionStart } = inputRef.current;
+                if ((selectionStart || 0) <= MAX_DIAL_CODE_LENGTH) {
+                    setCountryByDialCode(inputValue);
+                }
             }
         };
 
         const addCountryCode = (inputValue: string) => {
-            const country = countriesHash[countryIso2];
-
-            if (clearableCountryCode) {
+            if (clearableCountryCode || !countryIso2) {
                 return inputValue.length === 1 && inputValue !== '+'
                     ? `+${inputValue}`
                     : inputValue;
             }
+            const country = countriesHash[countryIso2];
+
             return formatPhoneWithUnclearableCountryCode(inputValue, country);
         };
 
@@ -213,8 +259,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             onChange(formatPhone(selected.key));
         };
 
-        const country = countriesHash[countryIso2];
-        const countryCodeLength = `+${country.dialCode}`.length;
+        const country = countryIso2 && countriesHash[countryIso2];
+        const countryCodeLength = country ? `+${country.dialCode}`.length : 0;
+        const isEmptyValue = clearableCountryCode
+            ? value === '' || value === '+'
+            : value.length <= countryCodeLength;
 
         const handleInputNewChar = (
             event: React.KeyboardEvent<HTMLInputElement>,
@@ -222,7 +271,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         ) => {
             const input = event.target as HTMLInputElement;
             const currentValue = input.value;
-            const maxPhoneLength = maxPhoneLen?.[countryIso2.toUpperCase()] || MAX_PHONE_LEN;
+            const maxPhoneLength =
+                (countryIso2 && maxPhoneLen?.[countryIso2.toUpperCase()]) || MAX_PHONE_LEN;
             // Если номер полностью заполнен, то перезатираем цифры, если каретка не в самом конце.
             const shouldReplace = maxPhoneLength === currentValue.replace(/\D/g, '').length;
 
@@ -240,9 +290,18 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             let newValue = currentValue.slice(0, caretPosition) + event.key + endPhonePart;
 
+            const newValueDecimal = newValue.replace(/\D/g, '');
             // Запрещаем ввод, если номер уже заполнен.
-            if (newValue.replace(/\D/g, '').length > maxPhoneLength) {
+            if (newValueDecimal.length > maxPhoneLength) {
                 newValue = newValue.slice(0, -1);
+            }
+
+            if (ruNumberPriority && !value && countryIso2) {
+                if (newValue === '7' || newValue === '8') {
+                    newValue = '+7';
+                } else if (newValueDecimal.length === 1) {
+                    newValue = `+7${newValueDecimal}`;
+                }
             }
 
             newValue = formatPhone(addCountryCode(newValue));
@@ -317,6 +376,43 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
+        const handleClear = () => {
+            if (clearableCountryCode) {
+                onChange('+');
+                if (canBeEmptyCountry) {
+                    setCountryIso2(undefined);
+                    handleCountryChange(undefined);
+                }
+            } else {
+                onChange(value.substring(0, countryCodeLength));
+            }
+        };
+
+        const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = event => {
+            event.preventDefault();
+            const text = event.clipboardData?.getData('Text');
+            if (!text || !inputRef.current) {
+                return;
+            }
+
+            const { selectionStart, selectionEnd } = inputRef.current;
+            const preparedNumber = preparePasteData(
+                value,
+                text,
+                selectionStart || 0,
+                selectionEnd || 0,
+            );
+            const targetCountry = getCountryByNumber(preparedNumber);
+            const maxPhoneLength =
+                (targetCountry && maxPhoneLen?.[targetCountry.iso2.toUpperCase()]) || MAX_PHONE_LEN;
+            const resultNumber = preparedNumber.substring(0, maxPhoneLength + 1);
+
+            if (resultNumber) {
+                setCountryIso2(targetCountry ? targetCountry.iso2 : undefined);
+                onChange(formatPhone(addCountryCode(resultNumber)));
+            }
+        };
+
         useEffect(() => {
             if (inputRef.current && caretPos !== undefined) {
                 inputRef.current.setSelectionRange(caretPos, caretPos);
@@ -333,7 +429,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 .then(utils => {
                     phoneLibUtils.current = utils.AsYouType;
 
-                    setCountryByDialCode(value);
+                    if (!canBeEmptyCountry) {
+                        setCountryByDialCode(value);
+                    }
                 })
                 .catch(error => `An error occurred while loading libphonenumber-js:\n${error}`);
 
@@ -342,17 +440,13 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
-        useEffect(() => {
-            if (inputWrapperRef) {
-                setFieldWidth(inputWrapperRef.getBoundingClientRect().width);
-            }
-        }, [inputWrapperRef]);
-
         return (
             <InputAutocomplete
                 {...restProps}
                 ref={ref}
                 inputProps={{
+                    clear: canClear && !isEmptyValue,
+                    onClear: handleClear,
                     ...inputProps,
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
@@ -361,17 +455,30 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     className: cn(className, styles[size]),
                     addonsClassName: styles.addons,
                     onKeyDown: handleKeyDown,
-                    leftAddons: countries.length > 1 && (
-                        <CountriesSelect
-                            dataTestId='countries-select'
-                            disabled={disabled || readOnly}
-                            size={size}
-                            selected={countryIso2}
-                            countries={countries}
-                            onChange={handleSelectChange}
-                            fieldWidth={fieldWidth}
-                            preventFlip={preventFlip}
-                        />
+                    onPaste: handlePaste,
+                    leftAddons: staticFlag ? (
+                        <span className={styles.flagIconWrapper}>
+                            {countryIso2 ? (
+                                <FlagIcon country={countryIso2} />
+                            ) : (
+                                <WorldMagnifierMIcon className={styles.emptyCountryIcon} />
+                            )}
+                        </span>
+                    ) : (
+                        countries.length > 1 && (
+                            <CountriesSelect
+                                dataTestId='countries-select'
+                                disabled={disabled || readOnly}
+                                size={size}
+                                selected={countryIso2}
+                                countries={countries}
+                                onChange={handleSelectChange}
+                                fieldWidth={
+                                    inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
+                                }
+                                preventFlip={preventFlip}
+                            />
+                        )
                     ),
                 }}
                 optionsListWidth='field'
