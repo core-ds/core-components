@@ -296,7 +296,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 newValue = newValue.slice(0, -1);
             }
 
-            if (ruNumberPriority && !value && countryIso2) {
+            if (ruNumberPriority && !value && countryIso2 === 'ru') {
                 if (newValue === '7' || newValue === '8') {
                     newValue = '+7';
                 } else if (newValueDecimal.length === 1) {
