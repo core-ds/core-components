@@ -30,7 +30,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const weight = select('weight', ['bold', 'normal'], 'normal');
     const view = select('view', ['component', 'primary-small'], 'component');
-    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'default');
+    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'withZeroMinorPart');
     const color = select('color',
     [
     'tertiary',
@@ -52,7 +52,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 display: 'flex', justifyContent: 'space-around'
             }}>
         <div style={{
-                display: 'flex', gap: '20px', flexWrap: 'nowrap', flexDirection: 'column'
+                display: 'flex', gap: '20px', flexWrap: 'nowrap', flexDirection: 'column', flexBasis: '250px'
             }}>
         <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
             <PureCell.Graphics>
@@ -60,11 +60,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text titleColor="primary" view="component">
-                        Title
+                    <PureCell.Text titleColor="primary" view="component" value="Value" valueColor="secondary" rowLimit={1}>
+                        Long title for example
                     </PureCell.Text>
-                    <PureCell.Text titleColor="secondary" view="primary-small">
-                        Label
+                    <PureCell.Text titleColor="secondary" view="primary-small" value="SubValue" valueColor="secondary" rowLimit={1}>
+                        Long label for example
                     </PureCell.Text>
                 </PureCell.Main>
             </PureCell.Content>
@@ -77,7 +77,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 </PureCell.Text>
                 <PureCell.Amount
                 view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
-                weight={ weight } color={ color } view={ view }/>
+                weight={ weight } color={ color }/>
             </PureCell.Main>
             <PureCell.Footer>
                 <Typography.Text titleColor="secondary" view="primary-small">
@@ -95,6 +95,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell.Text>
                     <PureCell.AmountTitle
                         view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
+                        transparentMinor={ true }
                         color={ color }
                     />
                 </PureCell.Main>
@@ -232,7 +233,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         </PureCell.Text>
                         <PureCell.Amount
                         view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
-                        weight={ weight } color={ color } view={ view }/>
+                        weight={ weight } color={ color }/>
                     </PureCell.Main>
                     <PureCell.Footer>
                         <Typography.Text color="secondary" view="primary-small">
@@ -250,7 +251,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     {React.createElement(() => {
     const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
     const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'default');
+    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'withZeroMinorPart');
     const color = select('color',
     [
     'tertiary',
@@ -275,8 +276,12 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Общий баланс
                         </PureCell.Text>
                         <PureCell.AmountTitle
-                            view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
+                            view={ viewAmount }
+                            value={ value }
+                            minorUnits='100'
+                            currency='RUR'
                             color={ color }
+                            transparentMinor={ true }
                         />
                     </PureCell.Main>
                     <PureCell.Addon verticalAlign="center">
