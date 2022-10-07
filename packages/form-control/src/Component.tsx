@@ -32,6 +32,11 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     disabled?: boolean;
 
     /**
+     * Cостояние только для чтения
+     */
+    readOnly?: boolean;
+
+    /**
      * Заполненное состояние
      */
     filled?: boolean;
@@ -118,6 +123,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             labelClassName,
             addonsClassName,
             disabled,
+            readOnly,
             focused,
             filled,
             error,
@@ -156,8 +162,8 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                 <div
                     {...restProps}
                     className={cn(fieldClassName, styles.inner, colorStyles[colors].inner, {
-                        [styles.disabled]: disabled,
-                        [colorStyles[colors].disabled]: disabled,
+                        [styles.disabled]: disabled || readOnly,
+                        [colorStyles[colors].disabled]: disabled || readOnly,
                         [styles.filled]: filled,
                         [colorStyles[colors].filled]: filled,
                         [styles.hasInnerLabel]: label && labelView === 'inner',

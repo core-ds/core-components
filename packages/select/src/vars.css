@@ -5,9 +5,9 @@
 
     /* options list */
 
-    --select-options-list-border-radius: 0 0 4px 4px;
+    --select-options-list-border-radius: var(--border-radius-s);
     --select-options-list-box-shadow: var(--shadow-m);
-    --select-options-list-offset: 0;
+    --select-options-list-offset: var(--gap-2xs);
     --select-options-list-top-padding: 0;
     --select-options-list-bottom-padding: 0;
     --select-options-list-empty-placeholder-color: var(--color-light-text-secondary);

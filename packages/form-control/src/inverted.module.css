@@ -59,6 +59,10 @@
 .focused.inner:hover {
     background-color: var(--form-control-inverted-focus-bg-color);
     box-shadow: var(--form-control-inverted-focus-shadow);
+
+    &.hasError {
+        box-shadow: var(--form-control-inverted-focus-error-shadow);
+    }
 }
 
 /* ERROR STATE */

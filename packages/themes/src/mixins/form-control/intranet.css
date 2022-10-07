@@ -30,6 +30,8 @@
     --form-control-hover-bg-color: var(--color-light-bg-secondary-shade-7);
     --form-control-inverted-hover-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
     --form-control-inverted-focus-shadow: none;
+    --form-control-focus-error-shadow: none;
+    --form-control-inverted-focus-error-shadow: none;
 
     /* error */
     --form-control-error-label-color: var(--color-light-text-secondary);

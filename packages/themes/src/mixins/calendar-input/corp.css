@@ -1,3 +1,4 @@
 @define-mixin calendar-input-corp {
     --calendar-input-icon-color: var(--color-light-graphic-secondary);
+    --calendar-input-popover-border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);
 }

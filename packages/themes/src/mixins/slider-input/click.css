@@ -1,9 +1,8 @@
-@define-mixin slider-input-mobile {
-    --slider-input-font-weight: normal;
+@define-mixin slider-input-click {
     --slider-input-s-border-bottom-radius: 0;
     --slider-input-m-border-bottom-radius: 0;
     --slider-input-l-border-bottom-radius: 0;
     --slider-input-xl-border-bottom-radius: 0;
     --slider-input-progress-bg-color: var(--color-light-graphic-quaternary);
-    --slider-input-progress-hover-bg-color: var(--color-light-graphic-quaternary);
+    --slider-input-progress-hover-bg-color: var(--color-light-graphic-quaternary-shade-10);
 }

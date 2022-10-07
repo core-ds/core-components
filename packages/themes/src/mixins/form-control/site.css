@@ -16,6 +16,8 @@
     --form-control-focus-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
     --form-control-inverted-focus-border-bottom: 1px solid var(--color-light-border-key-inverted);
     --form-control-inverted-focus-shadow: none;
+    --form-control-focus-error-shadow: none;
+    --form-control-inverted-focus-error-shadow: none;
 
     /* hover */
     --form-control-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-15);

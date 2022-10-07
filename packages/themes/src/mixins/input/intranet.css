@@ -3,14 +3,10 @@
     --input-error-color: var(--color-light-text-primary);
     --input-inverted-error-color: var(--color-light-text-accent);
     --input-error-icon-display: block;
-    --input-success-icon-display: block;
     --input-disabled-color: var(--color-light-text-secondary);
     --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
-    --input-error-icon-not-alone-display: none;
     --input-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
     --input-inverted-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
-    --input-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
-    --input-inverted-success-icon: url('https://alfabank.servicecdn.ru/icons/icon_ok_s_color.svg');
 }

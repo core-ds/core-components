@@ -354,6 +354,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 colors={colors}
                 block={block}
                 disabled={disabled}
+                readOnly={readOnly}
                 filled={filled || autofilled || focused}
                 focused={focused}
                 error={error}

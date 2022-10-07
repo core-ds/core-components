@@ -30,9 +30,12 @@
 
     /* focus */
     --form-control-focus-shadow: inset 0 0 0 2px var(--color-light-graphic-secondary);
+    --form-control-focus-error-shadow: inset 0 0 0 2px var(--color-light-graphic-secondary);
     --form-control-focus-border-bottom: 0;
     --form-control-focus-bg-color: var(--color-light-bg-primary);
     --form-control-inverted-focus-shadow: inset 0 0 0 2px
+        var(--color-light-graphic-secondary-inverted);
+    --form-control-inverted-focus-error-shadow: inset 0 0 0 2px
         var(--color-light-graphic-secondary-inverted);
     --form-control-inverted-focus-border-bottom: 0;
     --form-control-inverted-focus-bg-color: var(--color-light-bg-primary-inverted);
