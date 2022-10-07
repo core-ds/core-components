@@ -66,8 +66,8 @@
 
     & :global(.noUi-handle) {
         position: absolute;
-        top: calc((var(--slider-thumb-size) / 2 - var(--slider-clickable-area-size) / 2) * -1);
-        right: calc(var(--slider-thumb-size) / 2 * -1);
+        top: calc((var(--slider-thumb-half-size) - var(--slider-clickable-area-half-size)) * -1);
+        right: calc(var(--slider-thumb-half-size) * -1);
         width: var(--slider-thumb-size);
         height: var(--slider-thumb-size);
 
@@ -124,7 +124,7 @@
     }
 
     & :global(.noUi-connects) {
-        top: calc(var(--slider-clickable-area-size) / 2 - var(--slider-progress-s-height) / 2);
+        top: calc(var(--slider-clickable-area-half-size) - var(--slider-progress-s-height) / 2);
         height: var(--slider-progress-s-height);
         border-radius: var(--slider-progress-s-border-radius);
     }
@@ -137,7 +137,7 @@
     }
 
     & :global(.noUi-connects) {
-        top: calc(var(--slider-clickable-area-size) / 2 - var(--slider-progress-m-height) / 2);
+        top: calc(var(--slider-clickable-area-half-size) - var(--slider-progress-m-height) / 2);
         height: var(--slider-progress-m-height);
         border-radius: var(--slider-progress-m-border-radius);
     }

@@ -7,6 +7,7 @@
     --slider-thumb-hover-color: var(--color-light-graphic-accent-shade-7);
     --slider-thumb-active-color: var(--color-light-graphic-accent-shade-15);
     --slider-thumb-size: 20px;
+    --slider-thumb-half-size: calc(var(--slider-thumb-size) / 2);
     --slider-thumb-border: 2px solid transparent;
     --slider-thumb-box-shadow: none;
     --slider-progress-s-height: 2px;
@@ -16,6 +17,7 @@
     --slider-progress-background: var(--color-light-bg-quaternary);
     --slider-progress-hover-background: var(--color-light-bg-quaternary);
     --slider-clickable-area-size: 16px;
+    --slider-clickable-area-half-size: calc(var(--slider-clickable-area-size) / 2);
 
     /* Отступы по бокам — на мобилке thumb не должен заходить за края контрола */
     --slider-origin-width: 100%;
