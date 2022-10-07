@@ -1,3 +1,14 @@
+## 33.0.1
+
+### Patch Changes
+
+#### `@alfalab/core-components-slider`
+- [#289](https://github.com/core-ds/core-components/pull/289): Увеличена кликабельная область слайдера. Thanks [@reme3d2y](https://github.com/reme3d2y)
+
+
+#### `@alfalab/core-components-slider-input`
+- [#289](https://github.com/core-ds/core-components/pull/289): Увеличена кликабельная область слайдера. Thanks [@reme3d2y](https://github.com/reme3d2y)
+
 ## 33.0.0
 
 ### Major Changes
