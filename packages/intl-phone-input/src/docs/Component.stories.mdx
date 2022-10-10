@@ -29,7 +29,7 @@ import Changelog from '../../CHANGELOG.md';
         const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
         const block = boolean('block', false);
         const disabled = boolean('disabled', false);
-        const staticFlag = boolean('staticFlag', false);
+        const hideCountrySelect = boolean('hideCountrySelect', false);
         const canBeEmptyCountry = boolean('canBeEmptyCountry', false);
         const ruNumberPriority = boolean('ruNumberPriority', false);
         const canClear = boolean('canClear', false);
@@ -48,7 +48,7 @@ import Changelog from '../../CHANGELOG.md';
                     label={label}
                     disabled={disabled}
                     canBeEmptyCountry={canBeEmptyCountry}
-                    staticFlag={staticFlag}
+                    hideCountrySelect={hideCountrySelect}
                     canClear={canClear}
                     ruNumberPriority={ruNumberPriority}
                     defaultCountryIso2='RU'

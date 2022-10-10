@@ -75,7 +75,7 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
         /*
          * Отключает выбор страны через селект
          */
-        staticFlag?: boolean;
+        hideCountrySelect?: boolean;
 
         /*
          * Разрешает состояние без выбранной страны
@@ -98,7 +98,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         {
             disabled = false,
             readOnly = false,
-            staticFlag = false,
+            hideCountrySelect = false,
             canBeEmptyCountry = false,
             ruNumberPriority = false,
             canClear = false,
@@ -429,7 +429,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 .then(utils => {
                     phoneLibUtils.current = utils.AsYouType;
 
-                    if (!canBeEmptyCountry) {
+                    if (canBeEmptyCountry) {
+                        onChange(formatPhone(value));
+                    } else {
                         setCountryByDialCode(value);
                     }
                 })
@@ -456,7 +458,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     addonsClassName: styles.addons,
                     onKeyDown: handleKeyDown,
                     onPaste: handlePaste,
-                    leftAddons: staticFlag ? (
+                    leftAddons: hideCountrySelect ? (
                         <span className={styles.flagIconWrapper}>
                             {countryIso2 ? (
                                 <FlagIcon country={countryIso2} />

@@ -284,14 +284,14 @@ describe('IntlPhoneInput', () => {
         });
     });
 
-    it('should not render country select when use `staticFlag`', () => {
+    it('should not render country select when use `hideCountrySelect`', () => {
         const onChange = jest.fn();
         render(
             <IntlPhoneInput
                 value=''
                 onChange={onChange}
                 dataTestId={testId}
-                staticFlag={true}
+                hideCountrySelect={true}
                 defaultCountryIso2='ru'
             />,
         );
