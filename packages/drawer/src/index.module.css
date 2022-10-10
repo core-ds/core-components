@@ -71,6 +71,10 @@
 .exitActive {
     transition: transform 0.25s ease-in-out 0.1s;
     transform: translateX(100%);
+
+    &.component {
+        box-shadow: none;
+    }
 }
 
 .backdropExitActive,

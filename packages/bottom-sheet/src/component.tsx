@@ -457,7 +457,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     invisible: initialHeight === 'full' ? false : hideOverlay,
                 }}
                 disableBackdropClick={hideOverlay ? true : disableOverlayClick}
-                className={cn(styles.modal, modalClassName)}
+                className={cn('cc-bottom-sheet', styles.modal, modalClassName)}
                 wrapperClassName={modalWrapperClassName}
                 disableBlockingScroll={disableBlockingScroll}
                 transitionProps={{

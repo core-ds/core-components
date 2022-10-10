@@ -31,7 +31,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
         tabindex="0"
       >
         <div
-          class="component modal appear appearActive"
+          class="component cc-bottom-sheet modal appear appearActive"
         >
           <div
             class="content"
@@ -115,7 +115,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
         tabindex="0"
       >
         <div
-          class="component modal appear appearActive"
+          class="component cc-bottom-sheet modal appear appearActive"
         >
           <div
             class="content"

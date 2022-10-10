@@ -111,7 +111,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
         tabindex="0"
       >
         <div
-          class="component modal appear appearActive"
+          class="component cc-bottom-sheet modal appear appearActive"
         >
           <div
             class="content"
