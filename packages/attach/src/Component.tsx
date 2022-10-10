@@ -2,7 +2,6 @@ import React, {
     InputHTMLAttributes,
     ButtonHTMLAttributes,
     useState,
-    useCallback,
     useRef,
     ChangeEvent,
     useEffect,
@@ -14,6 +13,7 @@ import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
+import { PaperclipSIcon } from '@alfalab/icons-glyph/PaperclipSIcon';
 import { pluralize } from '@alfalab/utils';
 import { truncateFilename } from './utils';
 
@@ -134,59 +134,62 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         const labelRef = useRef<HTMLLabelElement>(null);
         const buttonRef = useRef<HTMLButtonElement>(null);
 
-        const handleInputChange = useCallback(
-            (event: React.ChangeEvent<HTMLInputElement>) => {
-                const filesArray = event.target.files ? Array.from(event.target.files) : [];
+        const getDefaultLeftAddon = () => {
+            let IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 
-                if (onChange) {
-                    onChange(event, { files: filesArray });
-                }
+            if (['xs', 'xxs'].includes(size)) {
+                IconComponent = PaperclipSIcon;
+            } else {
+                IconComponent = PaperclipMIcon;
+            }
 
-                if (uncontrolled && event.target.files) {
-                    setFiles(filesArray);
-                }
+            return <IconComponent className={styles.icon} />;
+        };
 
-                if (inputRef.current) {
-                    inputRef.current.value = '';
-                }
-            },
-            [onChange, uncontrolled],
-        );
+        const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const filesArray = event.target.files ? Array.from(event.target.files) : [];
 
-        const handleButtonClick = useCallback(
-            (event: React.MouseEvent<HTMLButtonElement>) => {
-                if (labelRef.current) {
-                    labelRef.current.click();
-                }
-                if (buttonRef.current) {
-                    buttonRef.current.focus();
-                }
+            if (onChange) {
+                onChange(event, { files: filesArray });
+            }
 
-                if (buttonProps.onClick) {
-                    buttonProps.onClick(event);
-                }
-            },
-            [buttonProps],
-        );
+            if (uncontrolled && event.target.files) {
+                setFiles(filesArray);
+            }
 
-        const handleClearClick = useCallback(
-            (ev: React.MouseEvent<HTMLButtonElement>) => {
-                if (uncontrolled) {
-                    setFiles([]);
-                }
+            if (inputRef.current) {
+                inputRef.current.value = '';
+            }
+        };
 
-                if (onClear) {
-                    onClear(ev);
-                }
-            },
-            [onClear, uncontrolled],
-        );
+        const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+            if (labelRef.current) {
+                labelRef.current.click();
+            }
+            if (buttonRef.current) {
+                buttonRef.current.focus();
+            }
+
+            if (buttonProps.onClick) {
+                buttonProps.onClick(event);
+            }
+        };
+
+        const handleClearClick = (ev: React.MouseEvent<HTMLButtonElement>) => {
+            if (uncontrolled) {
+                setFiles([]);
+            }
+
+            if (onClear) {
+                onClear(ev);
+            }
+        };
 
         const statusTextContent =
             files.length === 1 ? (
                 truncateFilename(files[0].name, maxFilenameLength)
             ) : (
-                <abbr title={files.map(file => file.name).join()}>
+                <abbr title={files.map((file) => file.name).join()}>
                     {files.length} {pluralize(files.length, ...MULTIPLE_TEXTS)}
                 </abbr>
             );
@@ -213,16 +216,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     size={size}
                     disabled={disabled}
                     view={buttonProps?.view || 'secondary'}
-                    leftAddons={
-                        buttonProps?.leftAddons || (
-                            <PaperclipMIcon
-                                className={cn(styles.icon, {
-                                    [styles.icon_size_xs]: size === 'xs',
-                                    [styles.icon_size_xxs]: size === 'xxs',
-                                })}
-                            />
-                        )
-                    }
+                    leftAddons={buttonProps?.leftAddons || getDefaultLeftAddon()}
                     onClick={handleButtonClick}
                     ref={buttonRef}
                 >
