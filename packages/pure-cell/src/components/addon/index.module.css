@@ -22,16 +22,14 @@
     }
 
     &.top {
-        align-self: center;
-        padding: var(--gap-3xs) 0;
+        align-self: flex-start;
     }
 
     &.center {
         align-self: center;
     }
 
-    .bottom {
+    &.bottom {
         align-self: flex-end;
-        padding: var(--gap-3xs) 0;
     }
 }
