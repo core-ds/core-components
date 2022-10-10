@@ -32,6 +32,8 @@ export function preparePasteData(
             resultNumber = `${startText}${cutNumber}${endText}`.replace(/[^+\d]/g, '');
         } else if (isTextHavePlus && isSelectPlus) {
             resultNumber = `${cutNumberWithPlus}${endText}`.replace(/[^+\d]/g, '');
+        } else if (!isTextHavePlus && isSelectPlus) {
+            resultNumber = `+${cutNumber}${endText}`.replace(/[^+\d]/g, '');
         }
         // вставка в пустое поле
     } else if (!phoneValue) {
