@@ -4,15 +4,15 @@
 
 ### [#282](https://github.com/core-ds/core-components/pull/282)<br/>
 
-#### Список изменений
+#### Что изменилось
 - Обновление vars из последней версии ui-primitives, удалены deprecated цвета и типографика.<br/>
 - Удалённые миксины с текстовыми стилями были помечены как deprecated более двух лет назад и в макетах давно не используются.<br/>
 
 #### Влияние на компоненты
-- Мажорные <br/>
+- Мажорное <br/>
 `vars`<br/>
 
-- Минорные <br/>
+- Минорное <br/>
 `amount-input` `amount` `attach` `button` `calendar-input`<br/>
 `calendar` `checkbox-group` `checkbox` `date-input` `date-range-input`<br/>
 
@@ -22,19 +22,19 @@
 
 ### [#283](https://github.com/core-ds/core-components/pull/282) 
 
-#### Список изменений
+#### Что изменилось
 - Обновлён лого в BankCard.<br/>
 - Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag). <br/>
 - Добавлены новые компоненты ConfirmationMobile, ConfirmationResponsive.<br/>
 - Обновлены стили компонента для соответствия актуальным макетам.<br/>
 
 #### Влияние на компоненты
-- Мажорные <br/>
+- Мажорное <br/>
 `amount-input` `amount` `attach` `button` `calendar-input`<br/>
 `calendar` `checkbox-group` `checkbox` `date-input` `date-range-input`<br/>
 `date-time-input` `filter-tag` `form-control` `themes`<br/>
 
-- Минорные <br/>
+- Минорное <br/>
 `amount-input` `amount` `attach` `button` `calendar-input`<br/>
 `calendar` `checkbox-group` `checkbox` <br/>
 
@@ -42,11 +42,11 @@
 `date-time-input` `filter-tag`
 <br/>
 
-#### Список изменений
+#### Что изменилось
 - Основное изменение, про которое нужно знать — удалены текстовые transparent цвета. При обновлении достаточно убрать `-transparent` из названий:`--color-light-text-secondary-transparent` → `--color-light-text-secondary` <br/>
 
 #### Влияние на компоненты
-- Минорные <br/>
+- Минорное <br/>
 `amount-input` `amount` `attach` `button` `calendar-input`<br/>
 `calendar` `checkbox-group` `checkbox` <br/>
 
@@ -60,16 +60,16 @@
 
 ### [#208](https://github.com/core-ds/core-components/pull/208) 
 
-#### Список изменений
+#### Что изменилось
 - Обновлён лого в BankCard.<br/>
 - Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag). <br/>
 - Добавлены новые компоненты ConfirmationMobile, ConfirmationResponsive.<br/>
 
 #### Влияние на компоненты
-- Мажорные <br/>
+- Мажорное <br/>
 `vars`<br/>
 
-- Минорные <br/>
+- Минорное <br/>
 `amount-input` `amount` `attach` `button` `calendar-input`<br/>
 `calendar` `checkbox-group` `checkbox` `date-input` `date-range-input`<br/>
 
