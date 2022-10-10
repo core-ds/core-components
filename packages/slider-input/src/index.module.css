@@ -10,6 +10,9 @@
     --slider-input-m-border-bottom-radius: var(--border-radius-m);
     --slider-input-l-border-bottom-radius: var(--border-radius-m);
     --slider-input-xl-border-bottom-radius: var(--border-radius-l);
+    --slider-input-progress-margin-horizontal: var(--gap-s);
+    --slider-input-xl-progress-margin-horizontal: var(--gap-m);
+    --slider-input-progress-border-radius: var(--border-radius-s);
     --slider-input-progress-bg-color: var(--color-light-graphic-secondary);
     --slider-input-progress-hover-bg-color: var(--color-light-graphic-secondary);
 }
@@ -24,14 +27,28 @@
 }
 
 .slider {
+    width: calc(100% - var(--slider-input-progress-margin-horizontal) * 2);
+    margin-left: var(--slider-input-progress-margin-horizontal);
+    margin-right: var(--slider-input-progress-margin-horizontal);
     margin-top: calc(var(--slider-progress-s-height) / -2);
     transform: translateY(-1px);
 
+    &.xl {
+        width: calc(100% - var(--slider-input-xl-progress-margin-horizontal) * 2);
+        margin-left: var(--slider-input-xl-progress-margin-horizontal);
+        margin-right: var(--slider-input-xl-progress-margin-horizontal);
+    }
+
     & :global(.noUi-base) {
         background-color: var(--slider-input-progress-bg-color);
+        border-radius: var(--slider-input-progress-border-radius);
     }
     & :global(.noUi-base):hover {
         background-color: var(--slider-input-progress-hover-bg-color);
+    }
+
+    & :global(.noUi-connects) {
+        border-radius: var(--slider-input-progress-border-radius);
     }
 
     & + * {
@@ -40,29 +57,24 @@
 }
 
 .component .field {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    &.s {
+        border-bottom-left-radius: var(--slider-input-s-border-bottom-radius);
+        border-bottom-right-radius: var(--slider-input-s-border-bottom-radius);
+    }
 
-    &.disabled {
-        &.s {
-            border-bottom-left-radius: var(--slider-input-s-border-bottom-radius);
-            border-bottom-right-radius: var(--slider-input-s-border-bottom-radius);
-        }
+    &.m {
+        border-bottom-left-radius: var(--slider-input-m-border-bottom-radius);
+        border-bottom-right-radius: var(--slider-input-m-border-bottom-radius);
+    }
 
-        &.m {
-            border-bottom-left-radius: var(--slider-input-m-border-bottom-radius);
-            border-bottom-right-radius: var(--slider-input-m-border-bottom-radius);
-        }
+    &.l {
+        border-bottom-left-radius: var(--slider-input-l-border-bottom-radius);
+        border-bottom-right-radius: var(--slider-input-l-border-bottom-radius);
+    }
 
-        &.l {
-            border-bottom-left-radius: var(--slider-input-l-border-bottom-radius);
-            border-bottom-right-radius: var(--slider-input-l-border-bottom-radius);
-        }
-
-        &.xl {
-            border-bottom-left-radius: var(--slider-input-xl-border-bottom-radius);
-            border-bottom-right-radius: var(--slider-input-xl-border-bottom-radius);
-        }
+    &.xl {
+        border-bottom-left-radius: var(--slider-input-xl-border-bottom-radius);
+        border-bottom-right-radius: var(--slider-input-xl-border-bottom-radius);
     }
 }
 

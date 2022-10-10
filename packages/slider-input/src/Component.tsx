@@ -221,7 +221,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                     Number.isNaN(sliderValue) || !sliderValue ? min : sliderValue
                                 }
                                 disabled={disabled || readOnly}
-                                className={cn(styles.slider, sliderClassName)}
+                                className={cn(styles.slider, styles[size], sliderClassName)}
                                 pips={!error && !hint ? pips : undefined}
                                 range={range}
                             />

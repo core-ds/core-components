@@ -1,8 +1,6 @@
 @define-mixin select-click {
     /* theme */
-    --select-options-list-border-radius: var(--border-radius-s);
     --select-options-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-    --select-options-list-offset: 8px;
 
     /* options list */
 

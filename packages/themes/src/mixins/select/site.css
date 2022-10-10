@@ -1,5 +1,5 @@
 @define-mixin select-site {
-    --select-options-list-border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);
+    --select-options-list-border-radius: 0 0 var(--border-radius-m) var(--border-radius-m);
     --select-options-list-offset: 0;
 
     /* select mobile footer */

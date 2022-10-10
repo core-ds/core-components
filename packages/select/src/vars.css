@@ -5,7 +5,7 @@
 
     /* options list */
 
-    --select-options-list-border-radius: var(--border-radius-s);
+    --select-options-list-border-radius: var(--border-radius-m);
     --select-options-list-box-shadow: var(--shadow-m);
     --select-options-list-offset: var(--gap-2xs);
     --select-options-list-top-padding: 0;
