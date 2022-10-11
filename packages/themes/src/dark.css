@@ -229,4 +229,5 @@
     --color-light-text-primary-inverted-shade-40: var(--color-dark-text-primary-inverted-tint-40);
     --color-light-text-primary-tint-24: var(--color-dark-text-primary-shade-24);
     --color-light-text-primary-tint-40: var(--color-dark-text-primary-shade-40);
+    --color-light-border-tertiary-inverted: var(--color-dark-border-tertiary-inverted);
 }

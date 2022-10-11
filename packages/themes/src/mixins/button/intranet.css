@@ -36,12 +36,10 @@
     --button-inverted-secondary-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
 
     /* tertiary */
-    --button-tertiary-hover-border-color: var(---color-light-border-underline-inverted);
-    --button-tertiary-active-border-color: var(--color-light-border-underline-inverted);
-    --button-inverted-tertiary-hover-border-color: var(--color-light-border-underline);
-    --button-inverted-tertiary-active-border-color: var(--color-light-border-underline);
+    --button-tertiary-hover-border-color: var(--color-light-border-underline-inverted);
     --button-tertiary-disabled-border-color: var(--color-light-border-underline-inverted-alpha-30);
     --button-tertiary-disabled-color: var(--color-light-text-primary-alpha-30);
+    --button-inverted-tertiary-hover-border-color: var(--color-light-border-underline);
     --button-inverted-tertiary-disabled-border-color: var(--color-light-border-underline-alpha-30);
     --button-inverted-tertiary-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
 
