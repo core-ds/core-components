@@ -303,7 +303,7 @@ describe('IntlPhoneInput', () => {
 
     it('should show "+" when clear value', async () => {
         const onChange = jest.fn();
-        render(<IntlPhoneInput value='+7' onChange={onChange} canClear={true} />);
+        render(<IntlPhoneInput value='+7' onChange={onChange} clear={true} />);
 
         const clearButton = await screen.findByLabelText('Очистить');
 

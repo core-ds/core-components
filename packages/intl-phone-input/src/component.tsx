@@ -83,14 +83,15 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
         canBeEmptyCountry?: boolean;
 
         /*
-         * Разрешает состояние без выбранной страны
+         * Подставляет +7 при выбранной стране 'ru' и вводе первых цифр номера.
+         * При canBeEmptyCountry - работает только с дефолтным значением 'ru'
          */
         ruNumberPriority?: boolean;
 
         /*
          * Разрешает очищать поле крестиком
          */
-        canClear?: boolean;
+        clear?: boolean;
     };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
@@ -101,7 +102,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             hideCountrySelect = false,
             canBeEmptyCountry = false,
             ruNumberPriority = false,
-            canClear = false,
+            clear = false,
             size = 'm',
             colors = 'default',
             options = [],
@@ -447,7 +448,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 {...restProps}
                 ref={ref}
                 inputProps={{
-                    clear: canClear && !isEmptyValue,
+                    clear: clear && !isEmptyValue,
                     onClear: handleClear,
                     ...inputProps,
                     ref: inputRef,
