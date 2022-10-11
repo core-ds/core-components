@@ -8,4 +8,6 @@
     --slider-input-progress-border-radius: var(--border-radius-s);
     --slider-input-progress-bg-color: var(--color-light-graphic-quaternary);
     --slider-input-progress-hover-bg-color: var(--color-light-graphic-quaternary-shade-10);
+    --slider-input-origin-width: 100%;
+    --slider-input-origin-right: 0;
 }
