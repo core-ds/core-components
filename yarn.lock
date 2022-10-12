@@ -24264,10 +24264,10 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.12.0.tgz"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@0.0.27--canary.5.d03d9f0.0:
-  version "0.0.27--canary.5.d03d9f0.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.27--canary.5.d03d9f0.0.tgz#377e9350cbffeae5dbaee5115989f2ab4cfda229"
-  integrity sha512-/t/X3Ofx4fy8oim+IurJZLbcT8chUEbCgJf3bChEYvYgNj+L8YRMkhAeT5wAamWD/7iYSdTOt0H0zglEzVJjaA==
+storybook-addon-live-examples@0.0.27--canary.5.ea978ee.0:
+  version "0.0.27--canary.5.ea978ee.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.27--canary.5.ea978ee.0.tgz#968cd4b12c8facc88b530e88a930616c3071a02a"
+  integrity sha512-2FcyD+eokUbwZ+COshPm4iowBI9UpnKgIJOEBCH36mEhfjYm87vWQSRlRD4dyoL7Qc2niwu0zNtTYZG+pDu4rw==
   dependencies:
     prettier "^2.4.0"
     react-live "^2.3.0"
