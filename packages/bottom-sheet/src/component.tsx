@@ -204,6 +204,13 @@ export type BottomSheetProps = {
     backdropProps?: BaseModalProps['backdropProps'];
 
     /**
+     * Нода, компонент или функция возвращающая их
+     *
+     * Контейнер к которому будут добавляться порталы
+     */
+    container?: () => Element;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -261,6 +268,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             dataTestId,
             swipeable = true,
             backdropProps,
+            container,
             onClose,
             onBack,
         },
@@ -463,6 +471,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 className={cn(styles.modal, modalClassName)}
                 wrapperClassName={modalWrapperClassName}
                 disableBlockingScroll={disableBlockingScroll}
+                container={container}
                 transitionProps={{
                     appear: true,
                     timeout: TIMEOUT,

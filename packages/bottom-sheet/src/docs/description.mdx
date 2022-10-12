@@ -1,4 +1,4 @@
-BottomSheet построен с использованием слотов.  
+BottomSheet построен с использованием слотов.
 Компонент не имеет десктопной версии
 
 ## Архитектура
@@ -6,7 +6,7 @@ BottomSheet построен с использованием слотов.
 
 ## Примеры
 
-```jsx live
+```jsx live mobileHeight=700 id=1
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -47,6 +47,7 @@ render(() => {
                 hasBacker={state.navigation === 'back'}
                 titleAlign={state.header !== 'no' && state.header}
                 onClose={() => setOpen(false)}
+                container={() => document.getElementById('preview-1')}
             >
                 <div style={{ lineHeight: '24px' }}>
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
@@ -90,7 +91,7 @@ render(() => {
                     <Radio label="Без заголовка" value="no" />
                     <Radio label="Центрирован" value="center" />
                     <Radio label="По левому краю" value="left" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -119,7 +120,7 @@ render(() => {
                 >
                     <Radio label="Мало" value="small" />
                     <Radio label="Больше чем на один экран" value="big" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -133,7 +134,7 @@ render(() => {
                     <Radio label="Кнопка" value="yes" />
                     <Radio label="Нет контента" value="no" />
                 </RadioGroup>
-                
+
                 <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
             </div>
 
@@ -147,7 +148,7 @@ render(() => {
                 >
                     <Radio label="По размеру контента" value="default" />
                     <Radio label="На весь экран" value="full" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -160,7 +161,7 @@ render(() => {
                 >
                     <Radio label="Разрешено" value="yes" />
                     <Radio label="Запрещено" value="no" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -173,7 +174,7 @@ render(() => {
                 >
                     <Radio label="С оверлеем" value="yes" />
                     <Radio label="Без оверлея" value="no" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
         </>
     );

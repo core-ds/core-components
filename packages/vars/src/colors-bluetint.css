@@ -163,6 +163,7 @@
     --color-dark-bg-primary-alpha-32: rgba(18, 18, 18, 0.32);
     --color-dark-bg-primary-alpha-37: rgba(18, 18, 18, 0.37);
     --color-dark-bg-primary-alpha-40: rgba(18, 18, 18, 0.4);
+    --color-dark-bg-primary-tint-2: rgb(23, 23, 23);
     --color-dark-bg-primary-tint-7: rgb(35, 35, 35);
     --color-dark-bg-primary-tint-15: rgb(54, 54, 54);
     --color-dark-bg-primary-inverted-alpha-3: rgba(255, 255, 255, 0.03);
@@ -310,6 +311,7 @@
     --color-light-bg-primary-alpha-32: rgba(255, 255, 255, 0.32);
     --color-light-bg-primary-alpha-37: rgba(255, 255, 255, 0.37);
     --color-light-bg-primary-alpha-40: rgba(255, 255, 255, 0.4);
+    --color-light-bg-primary-shade-2: rgb(250, 250, 250);
     --color-light-bg-primary-shade-7: rgb(237, 237, 237);
     --color-light-bg-primary-shade-15: rgb(217, 217, 217);
     --color-light-bg-primary-inverted-alpha-3: rgba(18, 18, 18, 0.03);
