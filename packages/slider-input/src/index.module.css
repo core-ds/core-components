@@ -57,10 +57,6 @@
         width: var(--slider-input-origin-width);
         right: var(--slider-input-origin-right);
     }
-
-    & + * {
-        margin-top: var(--gap-xs);
-    }
 }
 
 .component .field {
