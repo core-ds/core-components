@@ -19,5 +19,10 @@
 
     & .option {
         padding: 0 var(--gap-m);
+
+        &:before {
+            /* Удаляем разделители у опций выпадающего списка. */
+            display: none;
+        }
     }
 }
