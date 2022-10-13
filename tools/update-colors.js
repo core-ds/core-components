@@ -47,17 +47,19 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
                 fs.writeFileSync(cssPath, result.css);
 
                 if (pathname.includes('indigo')) {
-                    updateDarkThemeMixins(colors);
+                    buildDarkThemeVars(colors);
                 }
             });
     });
 });
 
-function updateDarkThemeMixins(colors) {
+function buildDarkThemeVars(colors) {
     const mixinsDir = path.resolve(__dirname, '../packages/themes/src/mixins');
-    const mixinFileName = 'dark.css';
+    const varsDir = path.resolve(__dirname, '../packages/themes/src');
+    const fileName = 'dark.css';
 
-    let css = '@define-mixin theme-dark {\n';
+    let mixin = '@define-mixin theme-dark {\n';
+    let vars = ':root {';
 
     Object.keys(colors).forEach(color => {
         if (/^light-/.test(color) === false) return;
@@ -67,15 +69,19 @@ function updateDarkThemeMixins(colors) {
             .replace(/-(shade|tint)-/, v => (v === '-shade-' ? '-tint-' : '-shade-'));
 
         if (colors[pair] && !color.endsWith('-old')) {
-            css += `    ${buildVarName(color)}: var(--color-${pair});\n`;
+            const varName = `    ${buildVarName(color)}: var(--color-${pair});\n`;
+            vars += varName;
+            mixin += varName;
         } else {
             console.warn(`No pair found for '${color}' color.`);
         }
     });
 
-    css += '}';
+    vars += '}';
+    mixin += '}';
 
-    fs.writeFileSync(path.join(mixinsDir, mixinFileName), css);
+    fs.writeFileSync(path.join(mixinsDir, fileName), mixin);
+    fs.writeFileSync(path.join(varsDir, fileName), vars);
 }
 
 function requireColors(pathname) {
