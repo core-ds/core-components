@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.0.8
+
+### Patch Changes
+
+### [#301](https://github.com/core-ds/core-components/pull/301)
+
+-   Исправлена ошибка, из-за которой не рендерился контент CalendarMobile в iOS < 13.4
+
 ## 6.0.7
 
 ### Patch Changes
