@@ -7,12 +7,18 @@ import endOfDay from 'date-fns/endOfDay';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { Button } from '@alfalab/core-components-button';
 
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { Calendar, CalendarProps, limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
 import { DaysTable } from '../days-table';
 import { dateArrayToHashTable, generateMonths, generateWeeks } from '../../utils';
 import { Month } from '../../typings';
 
 import styles from './index.module.css';
+
+// ResizeObserverPolyfill необходим для корректной работы react-virtuoso.
+if (typeof window !== 'undefined' && !window.ResizeObserver) {
+    window.ResizeObserver = ResizeObserverPolyfill;
+}
 
 export type CalendarMobileProps = CalendarProps & {
     /**
@@ -83,7 +89,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             <table className={styles.dayNames}>
                 <thead>
                     <tr>
-                        {WEEKDAYS.map(dayName => (
+                        {WEEKDAYS.map((dayName) => (
                             <th className={styles.dayName} key={dayName}>
                                 {dayName}
                             </th>
@@ -220,17 +226,20 @@ const CalendarMonthOnlyView = ({
         return yearsAmount * 12 + currentMonthIndex;
     }, [yearsAmount]);
 
-    const month = useMemo(() => (monthTimestamp ? new Date(monthTimestamp) : undefined), [
-        monthTimestamp,
-    ]);
+    const month = useMemo(
+        () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
+        [monthTimestamp],
+    );
 
-    const minDate = useMemo(() => (minDateTimestamp ? startOfDay(minDateTimestamp) : undefined), [
-        minDateTimestamp,
-    ]);
+    const minDate = useMemo(
+        () => (minDateTimestamp ? startOfDay(minDateTimestamp) : undefined),
+        [minDateTimestamp],
+    );
 
-    const maxDate = useMemo(() => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined), [
-        maxDateTimestamp,
-    ]);
+    const maxDate = useMemo(
+        () => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined),
+        [maxDateTimestamp],
+    );
 
     const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
 
@@ -277,7 +286,7 @@ const CalendarMonthOnlyView = ({
 
         const generatedMonths = [...prevMonths, ...months, ...nextMonths];
 
-        return generatedMonths.map(item => {
+        return generatedMonths.map((item) => {
             return {
                 ...item,
                 weeks: generateWeeks(item.date, {
@@ -318,7 +327,7 @@ const CalendarMonthOnlyView = ({
             itemContent={renderMonth}
             initialTopMostItemIndex={initialMonthIndex}
             increaseViewportBy={800}
-            itemSize={el => el.getBoundingClientRect().height + 32}
+            itemSize={(el) => el.getBoundingClientRect().height + 32}
         />
     );
 };
