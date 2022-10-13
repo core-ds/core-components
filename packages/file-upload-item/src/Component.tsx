@@ -4,10 +4,10 @@ import cn from 'classnames';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Link } from '@alfalab/core-components-link';
 import { Spinner } from '@alfalab/core-components-spinner';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { CrossSIcon } from '@alfalab/icons-glyph/CrossSIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
-import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
+import { PointerDownSIcon } from '@alfalab/icons-glyph/PointerDownSIcon';
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
 
 import { fileIcon, humanFileSize } from './utils';
@@ -236,7 +236,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
             {showDownload && (
                 <IconButton
                     size='xxs'
-                    icon={PointerDownMIcon}
+                    icon={PointerDownSIcon}
                     className={styles.download}
                     aria-label='скачать'
                     href={downloadLink}
@@ -249,7 +249,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
             {showDelete && !showRestore && (
                 <IconButton
                     size='xxs'
-                    icon={CrossMIcon}
+                    icon={CrossSIcon}
                     onClick={handleDelete}
                     disabled={disableButtons}
                     className={styles.delete}

@@ -31,12 +31,6 @@
     }
 }
 
-.icon_size_xs,
-.icon_size_xxs {
-    width: 18px;
-    height: 18px;
-}
-
 /* TODO обновить типографику на новую, когда ее зарелизят */
 .xxs .file,
 .xxs .noFile,
