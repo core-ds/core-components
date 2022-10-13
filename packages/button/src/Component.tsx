@@ -1,3 +1,4 @@
+// TODO Вид кнопок зависит от порядка импорта стилей. Исправить!!!.
 /* eslint-disable simple-import-sort/imports */
 import React, {
     AnchorHTMLAttributes,

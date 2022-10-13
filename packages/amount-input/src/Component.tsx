@@ -1,12 +1,12 @@
-import React, { forwardRef, Fragment,useCallback, useEffect, useState } from 'react';
+import React, { forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { CurrencyCodes } from '@alfalab/data';
-import { formatAmount, getCurrencySymbol,THINSP } from '@alfalab/utils';
+import { formatAmount, getCurrencySymbol, THINSP } from '@alfalab/utils';
 
-import { getAmountValueFromStr,getFormattedValue } from './utils';
+import { getAmountValueFromStr, getFormattedValue } from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

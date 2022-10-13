@@ -1,4 +1,4 @@
-import React, { FC,useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 

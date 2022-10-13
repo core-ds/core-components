@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo,useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 import {
     Area,
@@ -29,7 +29,7 @@ import { ToggleChartProps } from './types/chart.types';
 import { OptionsProps } from './types/options.types';
 import { SeriaProps } from './types/seria.types';
 import { CoordinatesProps } from './types/utils/coordinates.types';
-import { DataDynamicBooleanProps,DataDynamicProps } from './types/utils/data.types';
+import { DataDynamicBooleanProps, DataDynamicProps } from './types/utils/data.types';
 import { ActiveDotProps } from './types/utils/dot.types';
 
 import styles from './index.module.css';
@@ -345,9 +345,9 @@ export const Chart = (props: OptionsProps) => {
 
         if (typeof activeTooltipIndex === 'number' && typeof activeDotsState.prev === 'number') {
             setActiveDotsState((prev: ActiveDotProps) => ({
-                    prev: prev.active,
-                    active: activeTooltipIndex,
-                }));
+                prev: prev.active,
+                active: activeTooltipIndex,
+            }));
         }
     };
 

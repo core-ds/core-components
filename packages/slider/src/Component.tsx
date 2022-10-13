@@ -1,4 +1,4 @@
-import React, { FC,useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import noUiSlider, { API, Options } from 'nouislider';
 

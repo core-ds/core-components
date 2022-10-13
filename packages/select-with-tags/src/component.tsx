@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useCallback, useRef,useState } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback, useRef, useState } from 'react';
 
 import {
     Arrow as DefaultArrow,

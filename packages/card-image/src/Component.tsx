@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useRef,useState } from 'react';
+import React, { FC, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
