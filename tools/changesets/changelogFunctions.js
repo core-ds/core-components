@@ -2,30 +2,34 @@ const { getInfo } = require('@changesets/get-github-info');
 
 const repo = 'core-ds/core-components';
 
-function getLinesFromSummary(summary, links, idx = 0) {
-    const hasLinks = !!links;
-    const [firstLine, ...futureLines] = summary.split('\n').map(l => l.trimRight());
-
-    let returnVal = `${idx !== 0 ? '\n' : ''}- ${
-        hasLinks && links.pull ? `${links.pull}: ` : ''
-    }${firstLine}${hasLinks && links.user ? `. Thanks ${links.user}` : ''}`;
-
-    if (futureLines.length > 0) {
-        returnVal += `\n${futureLines.map(l => `  ${l}`).join('\n')}`;
+const getLinesFromSummary = (summary, prLink, showPrLink = true, isRootChangelog = false) => {
+    let returnVal = showPrLink ? `### ${prLink}\n\n` : '';
+    if (isRootChangelog) {
+        returnVal += '#### Что изменилось\n';
     }
 
-    return returnVal;
-}
+    const [firstLine, ...futureLines] = summary.split('\n').map((l) => l.trimRight());
 
-async function getReleaseLine(changeset) {
+    returnVal += `${firstLine.trim().startsWith('-') ? firstLine : `- ${firstLine}`}`;
+
+    if (futureLines.length > 0) {
+        returnVal += `\n${futureLines.map((l) => `${l}<br />`).join('\n')}`;
+    }
+
+    returnVal += '\n\n';
+
+    return returnVal;
+};
+
+const getReleaseLine = async (changeset) => {
     const links = await getGithubLinks([changeset.commit]);
 
-    return getLinesFromSummary(changeset.summary, links[0]);
-}
+    return getLinesFromSummary(changeset.summary, links[0]?.pull || '#');
+};
 
 async function getGithubLinks(commits) {
     return Promise.all(
-        commits.map(async commit => {
+        commits.map(async (commit) => {
             if (commit) {
                 const info = await getInfo({ repo, commit });
 
@@ -37,24 +41,20 @@ async function getGithubLinks(commits) {
     );
 }
 
-async function getDependencyReleaseLine(changesets, dependenciesUpdated) {
+const getDependencyReleaseLine = (changesets, dependenciesUpdated) => {
     if (dependenciesUpdated.length === 0) return '';
 
-    const changesetLinks = await Promise.all(
-        changesets.map(async changeset => {
-            const links = await getGithubLinks([changeset.commit]);
-            const hasLinks = !!links && !!links[0];
-
-            return `- Updated dependencies${hasLinks ? ` [${links[0].pull}]` : ''}`;
-        }),
-    );
+    const firstLine = '- Обновлены зависимости';
 
     const updatedDependenciesList = dependenciesUpdated.map(
-        dependency => `  - ${dependency.name}@${dependency.newVersion}`,
+        (dependency) =>
+            `  - ${dependency.name.replace('@alfalab/core-components-', '')}@${
+                dependency.newVersion
+            }`,
     );
 
-    return [...changesetLinks, ...updatedDependenciesList].join('\n');
-}
+    return [firstLine, ...updatedDependenciesList].join('\n');
+};
 
 const defaultChangelogFunctions = {
     getReleaseLine,
