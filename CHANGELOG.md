@@ -1,3 +1,35 @@
+## 33.0.2
+
+<sup><time>13.10.2022</time></sup>
+
+### [#296](https://github.com/core-ds/core-components/pull/296)
+
+#### Что изменилось
+- Удалены разделители опций в выпадающем списке для темы "click"
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button`
+
+
+### [#298](https://github.com/core-ds/core-components/pull/298)
+
+#### Что изменилось
+- Заменены иконки M размера на S
+
+#### Влияние на компоненты
+- Патчи<br />`attach` `file-upload-item`
+
+
+### [#301](https://github.com/core-ds/core-components/pull/301)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не рендерился контент CalendarMobile в iOS < 13.4
+
+#### Влияние на компоненты
+- Патчи<br />`calendar` `modal`
+
+
+
 ## 33.0.1
 
 ### Patch Changes
