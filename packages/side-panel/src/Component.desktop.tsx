@@ -1,9 +1,8 @@
 import React, { cloneElement, forwardRef, isValidElement, useRef } from 'react';
 import cn from 'classnames';
 
-import { Drawer } from '@alfalab/core-components-drawer';
+import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { TransitionProps } from 'react-transition-group/Transition';
 
 import mergeRefs from 'react-merge-refs';
 import { HeaderDesktop } from './components/header/Component.desktop';
@@ -13,24 +12,20 @@ import { FooterDesktop } from './components/footer/Component.desktop';
 import styles from './desktop.module.css';
 import transitions from './transitions.desktop.module.css';
 
-export type SidePanelDesktopProps = BaseModalProps & {
-    /**
-     * Пропсы для анимации контента (CSSTransition)
-     */
-    contentTransitionProps?: Partial<TransitionProps>;
+export type SidePanelDesktopProps = BaseModalProps &
+    Pick<DrawerProps, 'placement' | 'nativeScrollbar' | 'contentTransitionProps'> & {
+        /**
+         * Ширина модального окна
+         * @default "s"
+         */
+        size?: 's';
 
-    /**
-     * Ширина модального окна
-     * @default "s"
-     */
-    size?: 's';
-
-    /**
-     * Управление наличием закрывающего крестика
-     * @default false
-     */
-    hasCloser?: boolean;
-};
+        /**
+         * Управление наличием закрывающего крестика
+         * @default false
+         */
+        hasCloser?: boolean;
+    };
 
 const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopProps>(
     (
@@ -41,21 +36,41 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
             wrapperClassName,
             contentTransitionProps = {},
             backdropProps,
+            placement = 'right',
             ...restProps
         },
         ref,
     ) => {
         const modalRef = useRef<HTMLElement>(null);
 
+        const enterCn = cn({
+            [transitions.appearRight]: placement === 'right',
+            [transitions.appearLeft]: placement === 'left',
+        });
+
+        const exitCn = cn({
+            [transitions.exitActiveRight]: placement === 'right',
+            [transitions.exitActiveLeft]: placement === 'left',
+        });
+
         return (
             <Drawer
                 {...restProps}
                 ref={mergeRefs([ref, modalRef])}
+                placement={placement}
                 wrapperClassName={wrapperClassName}
                 className={cn(className, styles[size], styles.hidden)}
                 backdropProps={backdropProps}
                 contentTransitionProps={{
-                    classNames: transitions,
+                    classNames: {
+                        appear: enterCn,
+                        enter: enterCn,
+                        appearActive: transitions.enterActive,
+                        enterActive: transitions.enterActive,
+                        exit: transitions.exit,
+                        exitActive: exitCn,
+                        exitDone: exitCn,
+                    },
                     ...contentTransitionProps,
                 }}
             >

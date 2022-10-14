@@ -4,12 +4,25 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps, BaseModalContext } from '@alfalab/core-components-base-modal';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import styles from './index.module.css';
 
 export const ANIMATION_DURATION = 600;
 
 export type DrawerProps = Omit<BaseModalProps, 'container'> & {
+    /**
+     * Край экрана, с которого может появиться Drawer.
+     * @default "right"
+     */
+    placement?: 'left' | 'right';
+
+    /**
+     * Нужно ли использовать нативный скроллбар
+     * @default true
+     */
+    nativeScrollbar?: boolean;
+
     /**
      * Пропсы для анимации контента (CSSTransition)
      */
@@ -18,57 +31,78 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
 
 export const DrawerContext = BaseModalContext;
 
+const backdropProps = {
+    classNames: {
+        enter: styles.backdropEnter,
+        appear: styles.backdropEnter,
+        enterActive: styles.backdropEnterActive,
+        appearActive: styles.backdropEnterActive,
+        enterDone: styles.backdropEnterDone,
+        appearDone: styles.backdropEnterDone,
+        exit: styles.backdropExit,
+        exitActive: styles.backdropExitActive,
+        exitDone: styles.backdropExitDone,
+    },
+    timeout: ANIMATION_DURATION,
+};
+
+const contentProps = {
+    classNames: {
+        enter: styles.contentEnter,
+        appear: styles.contentEnter,
+        enterActive: styles.contentEnterActive,
+        appearActive: styles.contentEnterActive,
+        exit: styles.contentExit,
+        exitActive: styles.contentExitActive,
+    },
+    timeout: ANIMATION_DURATION,
+};
+
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
-    ({ open, className, children, contentTransitionProps, ...restProps }, ref) => {
-        const transitionProps = useMemo(
-            () => ({
+    (
+        {
+            open,
+            className,
+            children,
+            contentTransitionProps,
+            nativeScrollbar = true,
+            placement = 'right',
+            ...restProps
+        },
+        ref,
+    ) => {
+        const isRightPlacement = placement === 'right';
+        const isLeftPlacement = placement === 'left';
+
+        const transitionProps = useMemo(() => {
+            const enterClassName = cn({
+                [styles.enterRight]: isRightPlacement,
+                [styles.enterLeft]: isLeftPlacement,
+            });
+
+            const exitClassName = cn({
+                [styles.exitActiveRight]: isRightPlacement,
+                [styles.exitActiveLeft]: isLeftPlacement,
+            });
+
+            return {
                 classNames: {
-                    enter: styles.enter,
-                    appear: styles.enter,
+                    enter: enterClassName,
+                    appear: enterClassName,
                     enterActive: styles.enterActive,
                     appearActive: styles.enterActive,
                     exit: styles.exit,
-                    exitActive: styles.exitActive,
+                    exitActive: exitClassName,
                 },
                 timeout: ANIMATION_DURATION,
                 ...restProps.transitionProps,
-            }),
-            [restProps.transitionProps],
-        );
+            };
+        }, [restProps.transitionProps, isLeftPlacement, isRightPlacement]);
 
-        const backdropProps = useMemo(
-            () => ({
-                classNames: {
-                    enter: styles.backdropEnter,
-                    appear: styles.backdropEnter,
-                    enterActive: styles.backdropEnterActive,
-                    appearActive: styles.backdropEnterActive,
-                    enterDone: styles.backdropEnterDone,
-                    appearDone: styles.backdropEnterDone,
-                    exit: styles.backdropExit,
-                    exitActive: styles.backdropExitActive,
-                    exitDone: styles.backdropExitDone,
-                },
-                timeout: ANIMATION_DURATION,
-                ...restProps.backdropProps,
-            }),
-            [restProps.backdropProps],
-        );
+        const renderWithNativeScrollbar = () => <div className={styles.content}>{children}</div>;
 
-        const contentProps = useMemo(
-            () => ({
-                classNames: {
-                    enter: styles.contentEnter,
-                    appear: styles.contentEnter,
-                    enterActive: styles.contentEnterActive,
-                    appearActive: styles.contentEnterActive,
-                    exit: styles.contentExit,
-                    exitActive: styles.contentExitActive,
-                },
-                timeout: ANIMATION_DURATION,
-                ...contentTransitionProps,
-            }),
-            [contentTransitionProps],
+        const renderWithCustomScrollbar = () => (
+            <Scrollbar className={styles.simplebar}>{children}</Scrollbar>
         );
 
         return (
@@ -77,12 +111,19 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                 scrollHandler='content'
                 ref={ref}
                 open={open}
-                className={cn(styles.component, className)}
+                className={cn(styles.component, className, {
+                    [styles.rightPlacement]: isRightPlacement,
+                    [styles.leftPlacement]: isLeftPlacement,
+                })}
                 transitionProps={transitionProps}
-                backdropProps={backdropProps}
+                backdropProps={{ ...backdropProps, ...restProps.backdropProps }}
             >
-                <CSSTransition appear={true} {...contentProps} in={open}>
-                    <div className={styles.content}>{children}</div>
+                <CSSTransition
+                    {...{ ...contentProps, ...contentTransitionProps }}
+                    appear={true}
+                    in={open}
+                >
+                    {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
                 </CSSTransition>
             </BaseModal>
         );

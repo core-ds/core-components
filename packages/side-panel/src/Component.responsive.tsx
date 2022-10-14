@@ -1,30 +1,26 @@
 import { useMedia } from '@alfalab/hooks';
 import React, { FC, forwardRef, useContext, useMemo } from 'react';
 
-import { TransitionProps } from 'react-transition-group/Transition';
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { DrawerProps } from '@alfalab/core-components-drawer';
 import { SidePanelDesktop } from './Component.desktop';
 import { SidePanelMobile } from './Component.mobile';
 import { Closer } from './components/closer/Component';
 
-export type SidePanelResponsiveProps = BaseModalProps & {
-    /**
-     * Пропсы для анимации контента (CSSTransition)
-     */
-    contentTransitionProps?: Partial<TransitionProps>;
+export type SidePanelResponsiveProps = BaseModalProps &
+    Pick<DrawerProps, 'contentTransitionProps' | 'placement' | 'nativeScrollbar'> & {
+        /**
+         * Ширина модального окна
+         * @default "s"
+         */
+        size?: 's';
 
-    /**
-     * Ширина модального окна
-     * @default "s"
-     */
-    size?: 's';
-
-    /**
-     * Управление наличием закрывающего крестика
-     * @default false
-     */
-    hasCloser?: boolean;
-};
+        /**
+         * Управление наличием закрывающего крестика
+         * @default false
+         */
+        hasCloser?: boolean;
+    };
 
 type View = 'desktop' | 'mobile';
 

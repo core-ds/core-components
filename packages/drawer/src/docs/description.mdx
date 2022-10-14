@@ -50,7 +50,7 @@ render(() => {
 });
 ```
 
-## Кастомные шапка и футер
+## Drawer расположен слева, имеет кастомный скроллбар, шапку и футер.
 
 ```jsx live
 function Header() {
@@ -136,7 +136,7 @@ render(() => {
             <Button size='xs' onClick={handleModalOpen}>
                 Открыть Drawer
             </Button>
-            <Drawer open={open} onClose={handleModalOpen}>
+            <Drawer open={open} onClose={handleModalOpen} placement='left' nativeScrollbar={false}>
                 <Header />
                 <Content />
                 <Footer />
