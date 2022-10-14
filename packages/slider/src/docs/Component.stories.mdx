@@ -8,6 +8,7 @@ import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
+import vars from '!!raw-loader!../vars.css';
 
 
 <Meta
@@ -54,5 +55,5 @@ import { Slider } from '@alfalab/core-components/slider';
     description={<Description />}
     changelog={<Changelog />}
     props={<Props of={SliderTS} />}
-    cssVars={<CssVars css={styles} />}
+    cssVars={<CssVars css={`${vars}${styles}`} />}
 />
