@@ -105,6 +105,14 @@
     "@alfalab/data" "^1.4.2"
     lodash "4.17.21"
 
+"@alfalab/utils@^1.13.3":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.3.tgz#a52b5897139302fff3fb0a55ecb7e1f6f62e34f2"
+  integrity sha512-pg5e3kVM8EUZc2VLQX6zblk5JEsBbdvqwL4wamZpgbDxL2BNpviqXsVOMKqxIe4G9ptFyFnVZVNX2UV22DYPUA==
+  dependencies:
+    "@alfalab/data" "^1.4.2"
+    lodash "4.17.21"
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
