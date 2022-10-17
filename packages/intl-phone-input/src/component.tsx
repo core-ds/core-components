@@ -143,6 +143,19 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 newValue = utils.input(inputValue);
             }
 
+            if (countryIso2 === 'ru') {
+                const parts = newValue.split(' ');
+                newValue = parts.reduce((acc, part, index) => {
+                    if (index === 0) {
+                        return part;
+                    }
+                    if (index > 2) {
+                        return `${acc}-${part}`;
+                    }
+                    return `${acc} ${part}`;
+                }, '');
+            }
+
             return newValue;
         };
 
@@ -312,6 +325,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             if (shouldReplace && phonePartWithoutMask.length > maxPhoneLength) {
                 phonePartWithoutMask = phonePartWithoutMask.slice(0, -1);
+            }
+
+            if (newValue && newValue[0] !== '+') {
+                newValue = `+${newValue}`;
             }
 
             setCaretPos(calculateCaretPos(phonePartWithoutMask, newValue));
