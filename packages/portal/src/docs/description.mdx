@@ -3,6 +3,7 @@
 ```jsx live
 render(() => {
     const [show, setShow] = React.useState(false);
+    const containerRef = React.useRef();
 
     const handleClick = () => setShow(!show);
 
@@ -21,13 +22,13 @@ render(() => {
             <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
             <div>
                 {show && (
-                    <Portal getPortalContainer={() => document.getElementById('portal-container')}>
+                    <Portal getPortalContainer={() => containerRef.current}>
                         <StarMIcon />
                     </Portal>
                 )}
             </div>
 
-            <div id='portal-container' style={styles}>
+            <div ref={containerRef} style={styles}>
                 <div>Контейнер для контента портала</div>
             </div>
         </Space>

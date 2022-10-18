@@ -44,6 +44,13 @@ describe('BaseModal', () => {
 
             expect(queryByTestId('BaseModal')?.textContent).toEqual('Hello World');
         });
+
+        it('should forward ref', () => {
+            const ref = jest.fn();
+            render(<BaseModal ref={ref} open={true} />);
+
+            expect(ref.mock.calls[0][0].tagName).toEqual('DIV');
+        });
     });
 
     describe('prop: open', () => {
