@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.2.10
+
+### Patch Changes
+
+### [#296](https://github.com/core-ds/core-components/pull/296)
+
+-   Удалены разделители опций в выпадающем списке для темы "click"
+
+*   Обновлены зависимости
+    -   select@12.4.6
+
 ## 8.2.9
 
 ### Patch Changes

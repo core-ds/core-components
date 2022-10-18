@@ -22,6 +22,12 @@ const config = {
     gitEmail: 'ds@gitmax.tech',
 };
 
+const REL_TYPE_TO_RU = {
+    major: 'Мажорное',
+    minor: 'Минорное',
+    patch: 'Патчи',
+};
+
 function escapeShellChars(str) {
     return str.replace(/["`$]/g, '\\$&');
 }
@@ -73,73 +79,98 @@ async function updateChangelog(notes) {
     await fs.close(fd);
 }
 
-function groupByReleaseType(changesets) {
-    return changesets.reduce(
-        (result, cs) => {
-            cs.releases.forEach(rel => {
-                if (!result[rel.type][rel.name]) {
-                    result[rel.type][rel.name] = { summaries: [], links: [] };
-                }
-
-                result[rel.type][rel.name].summaries.push(cs.summary);
-                result[rel.type][rel.name].links.push(cs.links || null);
-            });
+function groupByReleaseType(releases) {
+    return releases.reduce(
+        (result, rel) => {
+            result[rel.type].push(rel.name.replace('@alfalab/core-components-', ''));
 
             return result;
         },
-        { major: {}, minor: {}, patch: {} },
+        { major: [], minor: [], patch: [] },
     );
 }
 
-function generateChangesForVersionTypeMarkdown(obj, type) {
-    if (Object.keys(obj).length) {
-        let markdown = `### ${type} Changes\n\n`;
+function groupByPullRequest(changesets) {
+    return changesets.reduce((result, cs) => {
+        const prLink = [cs.links.pull || '#'];
 
-        Object.keys(obj).forEach((packageName, idx) => {
-            markdown += `${idx !== 0 ? '\n\n\n' : ''}#### \`${packageName}\`\n`;
+        if (!result[prLink]) {
+            result[prLink] = { summaries: [], relTypes: [] };
+        }
 
-            obj[packageName].summaries.forEach((summary, idx) => {
-                const links = obj[packageName].links[idx];
-                const lines = getLinesFromSummary(summary, links, idx);
+        result[prLink].summaries.push(cs.summary);
 
-                markdown += lines;
-            });
+        result[prLink].relTypes.push(groupByReleaseType(cs.releases));
+
+        return result;
+    }, {});
+}
+
+function hasReleaseType(groupedCs, type) {
+    return Object.keys(groupedCs).some(key =>
+        groupedCs[key].relTypes.some(el => el[type].length > 0),
+    );
+}
+
+function getLinesAboutChangedPackages(relTypes) {
+    let returnVal = '#### Влияние на компоненты';
+
+    Object.keys(relTypes).forEach(relType => {
+        const packages = relTypes[relType];
+        if (packages.length > 0) {
+            returnVal += `\n- ${REL_TYPE_TO_RU[relType]}<br />${packages
+                .map((p, idx) => ((idx + 1) % 5 === 0 ? `\`${p}\`<br />` : `\`${p}\``))
+                .join(' ')}`;
+
+            returnVal += '\n\n';
+        }
+    });
+
+    return returnVal;
+}
+
+function generateChanges(groupedCs, nextVersion) {
+    let markdown = `## ${nextVersion}\n`;
+    markdown += `\n<sup><time>${new Date().toLocaleDateString('ru-RU')}</time></sup>\n`;
+
+    Object.keys(groupedCs).forEach(prLink => {
+        groupedCs[prLink].summaries.forEach((summary, idx) => {
+            if (idx > 0) {
+                markdown += '<br />\n';
+            }
+
+            markdown += '\n';
+
+            markdown += getLinesFromSummary(summary, prLink, idx === 0, true);
+            markdown += getLinesAboutChangedPackages(groupedCs[prLink].relTypes[idx]);
         });
+    });
 
-        markdown += '\n\n';
+    markdown += '\n\n';
 
-        return markdown;
-    }
-
-    return null;
+    return markdown;
 }
 
 async function updateChangelogAndPackageJson(changesets) {
-    const { major, minor, patch } = groupByReleaseType(changesets);
+    const groupedCs = groupByPullRequest(changesets);
 
     const nextReleaseType = (() => {
-        if (Object.keys(major).length > 0) return 'major';
-        if (Object.keys(minor).length > 0) return 'minor';
-        if (Object.keys(patch).length > 0) return 'patch';
+        if (hasReleaseType(groupedCs, 'major')) return 'major';
+        if (hasReleaseType(groupedCs, 'minor')) return 'minor';
+        if (hasReleaseType(groupedCs, 'patch')) return 'patch';
 
         return 'none';
     })();
 
     if (nextReleaseType !== 'none') {
         const nextVersion = getNextVersion(nextReleaseType);
-
-        const notes = [
-            `## ${nextVersion}\n`,
-            generateChangesForVersionTypeMarkdown(major, 'Major'),
-            generateChangesForVersionTypeMarkdown(minor, 'Minor'),
-            generateChangesForVersionTypeMarkdown(patch, 'Patch'),
-        ]
-            .filter(line => line)
-            .join('\n');
-
-        await updatePackageVersion(nextVersion);
+        const notes = generateChanges(groupedCs, nextVersion);
 
         await updateChangelog(notes);
+
+        if (process.env.GENERATE_CHANGELOG_ONLY === 'true') return null;
+
+        await updatePackageVersion(nextVersion);
 
         return { nextVersion, notes };
     }
@@ -197,7 +228,7 @@ async function releaseRoot() {
         logger.log('=> Create github release');
         shell.exec(
             `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
-                notes,
+                notes.replace('<br />', '\n'),
             )}" --target master`,
             execOptions,
         );

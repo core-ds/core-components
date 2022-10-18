@@ -1,4 +1,6 @@
 @define-mixin button-site {
+    --button-active-transform-scale-factor: 0.97;
+
     /* border-radius */
     --button-xxs-size-border-radius: 6px;
     --button-xs-size-border-radius: var(--border-radius-m);

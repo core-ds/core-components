@@ -7,12 +7,18 @@ import endOfDay from 'date-fns/endOfDay';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { Button } from '@alfalab/core-components-button';
 
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { Calendar, CalendarProps, limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
 import { DaysTable } from '../days-table';
 import { dateArrayToHashTable, generateMonths, generateWeeks } from '../../utils';
 import { Month } from '../../typings';
 
 import styles from './index.module.css';
+
+// ResizeObserverPolyfill необходим для корректной работы react-virtuoso.
+if (typeof window !== 'undefined' && !window.ResizeObserver) {
+    window.ResizeObserver = ResizeObserverPolyfill;
+}
 
 export type CalendarMobileProps = CalendarProps & {
     /**

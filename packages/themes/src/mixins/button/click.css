@@ -1,5 +1,4 @@
 @define-mixin button-click {
-    --button-active-before-transform: none;
     --button-active-transform: none;
 
     /* border-radius */

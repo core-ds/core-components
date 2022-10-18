@@ -84,11 +84,6 @@
     height: 24px;
     width: 24px;
     margin-left: var(--gap-xs);
-
-    & svg {
-        width: 18px;
-        height: 18px;
-    }
 }
 
 .errorWrapper {

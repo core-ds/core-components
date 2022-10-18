@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.2.6
+
+### Patch Changes
+
+-   [#289](https://github.com/core-ds/core-components/pull/289): Увеличена кликабельная область слайдера. Thanks [@reme3d2y](https://github.com/reme3d2y)
+-   Updated dependencies [[#289](https://github.com/core-ds/core-components/pull/289)]
+    -   @alfalab/core-components-slider@4.1.1
+
 ## 6.2.5
 
 ### Patch Changes

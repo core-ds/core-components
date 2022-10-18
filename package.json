@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "33.0.0",
+    "version": "33.0.2",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -42,6 +42,7 @@
         "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
         "pub:ci": "node ./bin/release.js",
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
+        "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')}\""
     },
     "browserslist": {
@@ -105,12 +106,12 @@
         "@commitlint/config-lerna-scopes": "^17.0.2",
         "@oat-sa/rollup-plugin-wildcard-external": "^0.1.0",
         "@rollup/plugin-json": "^4.1.0",
-        "@storybook/addon-docs": "^6.5.9",
+        "@storybook/addon-docs": "^6.5.12",
         "@storybook/addon-knobs": "^6.3.0",
-        "@storybook/addons": "^6.5.9",
+        "@storybook/addons": "^6.5.12",
         "@storybook/preset-create-react-app": "^3.2.0",
         "@storybook/preset-typescript": "^3.0.0",
-        "@storybook/react": "^6.5.9",
+        "@storybook/react": "^6.5.12",
         "@testing-library/dom": "^8.17.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.3.0",

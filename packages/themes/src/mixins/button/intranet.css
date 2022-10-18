@@ -1,6 +1,5 @@
 @define-mixin button-intranet {
     /* theme */
-    --button-active-before-transform: none;
     --button-active-transform: none;
 
     /* border-radius */

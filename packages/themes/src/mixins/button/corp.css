@@ -1,5 +1,4 @@
 @define-mixin button-corp {
-    --button-active-before-transform: none;
     --button-active-transform: none;
 
     /* border-radius */

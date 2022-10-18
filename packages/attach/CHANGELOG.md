@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.9
+
+### Patch Changes
+
+### [#298](https://github.com/core-ds/core-components/pull/298)
+
+-   Заменены иконки M размера на S
+
 ## 5.0.8
 
 ### Patch Changes
