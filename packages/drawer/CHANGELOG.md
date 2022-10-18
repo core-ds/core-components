@@ -1,477 +1,303 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#305](https://github.com/core-ds/core-components/pull/305)
+
+-   Добавлен проп placement, теперь Drawer и SidePanel могут появляться слева
+-   Добавлен кастомный скроллбар.<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.4
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [4.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@4.0.2...@alfalab/core-components-drawer@4.0.3) (2022-09-13)
 
-
 ### Bug Fixes
 
-* **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
-
-
-
-
+-   **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
 
 ## [4.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@4.0.1...@alfalab/core-components-drawer@4.0.2) (2022-09-12)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [4.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@4.0.0...@alfalab/core-components-drawer@4.0.1) (2022-08-19)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 # [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.3.1...@alfalab/core-components-drawer@4.0.0) (2022-08-17)
-
 
 ### Features
 
-* removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
-
+-   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
-* Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-директория dist)
+-   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+    директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
-
-
-
-
 ## [3.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.3.0...@alfalab/core-components-drawer@3.3.1) (2022-08-17)
-
 
 ### Bug Fixes
 
-* returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
-
-
-
-
+-   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 # [3.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.8...@alfalab/core-components-drawer@3.3.0) (2022-08-04)
 
-
 ### Features
 
-* react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
-
-
-
-
+-   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [3.2.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.7...@alfalab/core-components-drawer@3.2.8) (2022-07-25)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [3.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.6...@alfalab/core-components-drawer@3.2.7) (2022-07-18)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [3.2.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.5...@alfalab/core-components-drawer@3.2.6) (2022-07-15)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [3.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.4...@alfalab/core-components-drawer@3.2.5) (2022-07-15)
-
 
 ### Bug Fixes
 
-* bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
-
-
-
-
+-   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [3.2.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.3...@alfalab/core-components-drawer@3.2.4) (2022-07-14)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [3.2.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.2...@alfalab/core-components-drawer@3.2.3) (2022-07-11)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [3.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.1...@alfalab/core-components-drawer@3.2.2) (2022-07-01)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [3.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.2.0...@alfalab/core-components-drawer@3.2.1) (2022-06-30)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 # [3.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.1.4...@alfalab/core-components-drawer@3.2.0) (2022-06-28)
-
 
 ### Features
 
-* circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
-
-
-
-
+-   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [3.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.1.3...@alfalab/core-components-drawer@3.1.4) (2022-06-20)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [3.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.1.0...@alfalab/core-components-drawer@3.1.1) (2022-03-24)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 # [3.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.0.3...@alfalab/core-components-drawer@3.1.0) (2022-03-01)
-
 
 ### Features
 
-* Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
-
-
-
-
+-   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 ## [3.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.0.2...@alfalab/core-components-drawer@3.0.3) (2022-01-17)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.0.1...@alfalab/core-components-drawer@3.0.2) (2021-09-14)
-
 
 ### Bug Fixes
 
-* **base-modal:** modal scroll ([#820](https://github.com/core-ds/core-components/issues/820)) ([1b2d94a](https://github.com/core-ds/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
-
-
-
-
+-   **base-modal:** modal scroll ([#820](https://github.com/core-ds/core-components/issues/820)) ([1b2d94a](https://github.com/core-ds/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@3.0.0...@alfalab/core-components-drawer@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 # [3.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@2.1.4...@alfalab/core-components-drawer@3.0.0) (2021-07-08)
-
 
 ### Features
 
-* upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+-   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [2.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@2.1.3...@alfalab/core-components-drawer@2.1.4) (2021-07-02)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [2.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@2.1.2...@alfalab/core-components-drawer@2.1.3) (2021-06-28)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [2.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@2.1.1...@alfalab/core-components-drawer@2.1.2) (2021-05-28)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@2.1.0...@alfalab/core-components-drawer@2.1.1) (2021-05-25)
-
 
 ### Bug Fixes
 
-* **modal:** fix styles ([#665](https://github.com/core-ds/core-components/issues/665)) ([06f3615](https://github.com/core-ds/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
-
-
-
-
+-   **modal:** fix styles ([#665](https://github.com/core-ds/core-components/issues/665)) ([06f3615](https://github.com/core-ds/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
 
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@2.0.0...@alfalab/core-components-drawer@2.1.0) (2021-05-18)
 
-
 ### Features
 
-* **drawer:** update animtaion ([#643](https://github.com/core-ds/core-components/issues/643)) ([3a3cfc5](https://github.com/core-ds/core-components/commit/3a3cfc5be89908df476f77a35bcf6b9460ecb92a))
-
-
-
-
+-   **drawer:** update animtaion ([#643](https://github.com/core-ds/core-components/issues/643)) ([3a3cfc5](https://github.com/core-ds/core-components/commit/3a3cfc5be89908df476f77a35bcf6b9460ecb92a))
 
 # [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.2.2...@alfalab/core-components-drawer@2.0.0) (2021-04-26)
 
-
 ### Features
 
-* **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
-
+-   **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
 
 ### BREAKING CHANGES
 
-* **stack:** remove z-index, add stack component
+-   **stack:** remove z-index, add stack component
 
-* feat(modal): remove z-index, add stack component
-
-remove z-index, add stack component
-* **stack:** remove z-index, add stack component
-
-* feat(notification-manager): remove z-index, add stack component
+-   feat(modal): remove z-index, add stack component
 
 remove z-index, add stack component
-* **stack:** remove z-index, add stack component
 
-* feat(notification): remove z-index, add stack component
+-   **stack:** remove z-index, add stack component
 
-remove z-index, add stack component
-* **stack:** remove z-index, add stack component
-
-* feat(popover): remove z-index, add stack component
+-   feat(notification-manager): remove z-index, add stack component
 
 remove z-index, add stack component
-* **stack:** remove z-index, add stack component
 
-* feat(select): remove z-index, add stack component
+-   **stack:** remove z-index, add stack component
 
-remove z-index, add stack component
-* **stack:** remove z-index, add stack component
-
-* feat(toast): remove z-index, add stack component
+-   feat(notification): remove z-index, add stack component
 
 remove z-index, add stack component
-* **stack:** remove z-index, add stack component
 
-* feat(tooltip): remove z-index, add stack component
+-   **stack:** remove z-index, add stack component
+
+-   feat(popover): remove z-index, add stack component
 
 remove z-index, add stack component
-* **stack:** remove z-index, add stack component
 
-* feat(stack): fix comment
+-   **stack:** remove z-index, add stack component
 
-* Revert "feat(modal): remove z-index, add stack component"
+-   feat(select): remove z-index, add stack component
+
+remove z-index, add stack component
+
+-   **stack:** remove z-index, add stack component
+
+-   feat(toast): remove z-index, add stack component
+
+remove z-index, add stack component
+
+-   **stack:** remove z-index, add stack component
+
+-   feat(tooltip): remove z-index, add stack component
+
+remove z-index, add stack component
+
+-   **stack:** remove z-index, add stack component
+
+-   feat(stack): fix comment
+
+-   Revert "feat(modal): remove z-index, add stack component"
 
 This reverts commit fcae901c6ec58311701cd491296a7b04016a9a65.
 
-* feat(base-modal): remove z-index, add stack component
+-   feat(base-modal): remove z-index, add stack component
 
 remove z-index, add stack component
-* **stack:** remove z-index, add stack component
 
-* test(file-upload-item): update snapshot
+-   **stack:** remove z-index, add stack component
 
-
-
-
+-   test(file-upload-item): update snapshot
 
 ## [1.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.2.1...@alfalab/core-components-drawer@1.2.2) (2021-04-26)
 
-
 ### Bug Fixes
 
-* **drawer:** lost vars ([#632](https://github.com/core-ds/core-components/issues/632)) ([82a8e46](https://github.com/core-ds/core-components/commit/82a8e461fc16d4ae8b6d3d268c92f7dc969e81f8))
-
-
-
-
+-   **drawer:** lost vars ([#632](https://github.com/core-ds/core-components/issues/632)) ([82a8e46](https://github.com/core-ds/core-components/commit/82a8e461fc16d4ae8b6d3d268c92f7dc969e81f8))
 
 ## [1.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.2.0...@alfalab/core-components-drawer@1.2.1) (2021-04-09)
 
-
 ### Bug Fixes
 
-* **drawer:** backdrop styles ([04da4fa](https://github.com/core-ds/core-components/commit/04da4fac310dbe2634ea4130ead480a88d47ee8e))
-
-
-
-
+-   **drawer:** backdrop styles ([04da4fa](https://github.com/core-ds/core-components/commit/04da4fac310dbe2634ea4130ead480a88d47ee8e))
 
 # [1.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.15...@alfalab/core-components-drawer@1.2.0) (2021-04-09)
 
-
 ### Features
 
-* **backdrop:** add component ([948a6c2](https://github.com/core-ds/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))
-
-
-
-
+-   **backdrop:** add component ([948a6c2](https://github.com/core-ds/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))
 
 ## [1.1.15](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.14...@alfalab/core-components-drawer@1.1.15) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [1.1.14](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.13...@alfalab/core-components-drawer@1.1.14) (2021-03-30)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [1.1.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.12...@alfalab/core-components-drawer@1.1.13) (2021-03-24)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [1.1.12](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.11...@alfalab/core-components-drawer@1.1.12) (2021-03-19)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [1.1.11](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.9...@alfalab/core-components-drawer@1.1.11) (2021-03-18)
-
 
 ### Bug Fixes
 
-* one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
-
-
-
-
+-   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [1.1.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.8...@alfalab/core-components-drawer@1.1.9) (2021-03-16)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [1.1.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.7...@alfalab/core-components-drawer@1.1.8) (2021-03-15)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [1.1.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.6...@alfalab/core-components-drawer@1.1.7) (2021-03-14)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [1.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.5...@alfalab/core-components-drawer@1.1.6) (2021-03-10)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [1.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.4...@alfalab/core-components-drawer@1.1.5) (2021-03-04)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [1.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.3...@alfalab/core-components-drawer@1.1.4) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [1.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.2...@alfalab/core-components-drawer@1.1.3) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 ## [1.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.1...@alfalab/core-components-drawer@1.1.2) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
-
-
-
-
 
 ## [1.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-drawer@1.1.0...@alfalab/core-components-drawer@1.1.1) (2021-02-20)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
 
-
-
-
-
 # 1.1.0 (2021-02-19)
-
 
 ### Features
 
-
-* **drawer:** add component ([#497](https://github.com/core-ds/core-components/issues/497)) ([5943188](https://github.com/core-ds/core-components/commit/594318886d581e6afca99fcebe9088c222aa3d52))
+-   **drawer:** add component ([#497](https://github.com/core-ds/core-components/issues/497)) ([5943188](https://github.com/core-ds/core-components/commit/594318886d581e6afca99fcebe9088c222aa3d52))

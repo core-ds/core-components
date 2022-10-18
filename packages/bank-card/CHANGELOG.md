@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.2
+
+### Patch Changes
+
+### [#293](https://github.com/core-ds/core-components/pull/293)
+
+-   Изменен размер инпута с "s" на "m"
+
+*   Обновлены зависимости
+    -   masked-input@5.0.10
+
 ## 5.2.1
 
 ### Patch Changes

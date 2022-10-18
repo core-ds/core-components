@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.0.9
+
+### Patch Changes
+
+### [#307](https://github.com/core-ds/core-components/pull/307)
+
+-   Добавили зависимость @alfalab/icons-glyph в компонент Modal
+
+*   Обновлены зависимости
+    -   base-modal@5.0.4
+
 ## 6.0.8
 
 ### Patch Changes
