@@ -3,6 +3,7 @@
 .component {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 
     & > * {
         justify-content: flex-end;
@@ -20,7 +21,15 @@
         padding-left: var(--gap-m);
     }
 
+    &.top {
+        align-self: flex-start;
+    }
+
     &.center {
         align-self: center;
+    }
+
+    &.bottom {
+        align-self: flex-end;
     }
 }

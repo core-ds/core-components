@@ -141,12 +141,13 @@ render(() => (
                                 Product Name ··0000
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={{
-                                    view: 'withZeroMinorPart',
-                                    value: 100000000,
-                                    currency: 'RUR',
-                                    minorUnits: 100,
-                                }}
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={ 'withZeroMinorPart' }
+                                transparentMinor={true}
+                                textView='primary-medium'
                             />
                         </PureCell.Main>
                         <PureCell.Footer>
@@ -169,7 +170,13 @@ render(() => (
                                 Product Name ··0000
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={{ value: 100000000, currency: 'RUR', minorUnits: 100 }}
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={ 'withZeroMinorPart' }
+                                transparentMinor={true}
+                                teaxtView='primary-medium'
                             />
                         </PureCell.Main>
                     </PureCell.Content>
@@ -512,7 +519,13 @@ render(() => (
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={{ value: 100000000, currency: 'RUR', minorUnits: 100 }}
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={ 'withZeroMinorPart' }
+                                transparentMinor={true}
+                                textView='primary-medium'
                             />
                         </PureCell.Main>
                     </PureCell.Content>
@@ -531,7 +544,13 @@ render(() => (
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={{ value: 100000000, currency: 'RUR', minorUnits: 100 }}
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={ 'withZeroMinorPart' }
+                                transparentMinor={true}
+                                textView='primary-medium'
                             />
                         </PureCell.Main>
                     </PureCell.Content>
@@ -547,7 +566,13 @@ render(() => (
                                 Caption Secondary
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={{ value: 100000000, currency: 'RUR', minorUnits: 100 }}
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={ 'withZeroMinorPart' }
+                                transparentMinor={true}
+                                textView='primary-medium'
                             />
                         </PureCell.Main>
                         <PureCell.Addon verticalAlign='center'>
@@ -629,7 +654,13 @@ render(() => (
                                 Account Name ··0000
                             </PureCell.Text>
                             <PureCell.Amount
-                                amount={{ value: 0, currency: 'RUR', minorUnits: 100 }}
+                                value={100000099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={ 'withZeroMinorPart' }
+                                transparentMinor={true}
+                                textView='primary-medium'
                             />
                         </PureCell.Main>
                         <PureCell.Addon verticalAlign='center'>
@@ -681,7 +712,12 @@ render(() => (
                 </PureCell.Main>
                 <PureCell.Addon>
                     <PureCell.Amount
-                        amount={{ value: 100000000, currency: 'RUR', minorUnits: 100 }}
+                        value={100000099}
+                        minorUnits={100}
+                        currency='RUR'
+                        color='primary'
+                        view={ 'withZeroMinorPart' }
+                        transparentMinor={true}
                     />
                 </PureCell.Addon>
                 <PureCell.Footer>
@@ -707,7 +743,12 @@ render(() => (
                 </PureCell.Main>
                 <PureCell.Addon>
                     <PureCell.Amount
-                        amount={{ value: 100000000, currency: 'RUR', minorUnits: 100 }}
+                        value={100000099}
+                        minorUnits={100}
+                        currency='RUR'
+                        color='primary'
+                        view={ 'withZeroMinorPart' }
+                        transparentMinor={true}
                     />
                 </PureCell.Addon>
                 <PureCell.Footer>
@@ -736,11 +777,11 @@ render(() => (
                         Яндекс Лавка
                     </PureCell.Text>
                     <PureCell.Category
-                        categoryName='Кафе, рестораны, столовые, бары'
+                        categoryName='Кафе, рестораны, столовые, бары Кафе, рестораны, столовые, бары Кафе, рестораны, столовые, бары'
                         categoryPercent={10}
+                        rightAddon={<ShoppingListSIcon color='var(--color-light-graphic-secondary-inverted)' />}
                     />
                 </PureCell.Main>
-                <PureCell.Addon></PureCell.Addon>
                 <PureCell.Footer>
                     <PureCell.Comment>Комментарий есть</PureCell.Comment>
                 </PureCell.Footer>
@@ -762,7 +803,12 @@ render(() => (
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.AmountTitle
-                        amount={{ value: 100000099, currency: 'RUR', minorUnits: 100 }}
+                        value={100000099}
+                        minorUnits={100}
+                        currency='RUR'
+                        color='primary'
+                        view={ 'withZeroMinorPart' }
+                        transparentMinor={true}
                     />
                 </PureCell.Main>
                 <PureCell.Addon verticalAlign='center'>
@@ -777,8 +823,14 @@ render(() => (
                         Общий баланс
                     </PureCell.Text>
                     <PureCell.Amount
-                        amount={{ value: 100000099, currency: 'RUR', minorUnits: 100 }}
+                        value={100000099}
+                        minorUnits={100}
+                        currency='RUR'
+                        color='primary'
+                        view={ 'withZeroMinorPart' }
+                        transparentMinor={true}
                         weight='bold'
+                        textView='primary-medium'
                     />
                 </PureCell.Main>
                 <PureCell.Addon verticalAlign='center'>
@@ -792,11 +844,11 @@ render(() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text rowLimit={2} titleColor='primary' view='component'>
+                    <PureCell.Text titleColor='primary' view='component'>
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
-                    <PureCell.Text rowLimit={2} titleColor='secondary' view='primary-small'>
+                    <PureCell.Text titleColor='secondary' view='primary-small'>
                         Если текст дискрипшена или текст кэпшена не помещается в контейнер,
                         отображаем сколько влезло
                     </PureCell.Text>
@@ -881,6 +933,14 @@ render(() => (
                     <PureCell.Category categoryName='Кафе, рестораны, столовые, бары' />
                 </PureCell.Main>
                 <PureCell.Addon>
+                    <PureCell.Amount
+                        value={100000099}
+                        minorUnits={100}
+                        currency='RUR'
+                        color='primary'
+                        view={ 'withZeroMinorPart' }
+                        transparentMinor={true}
+                    />
                     <PureCell.Text titleColor='secondary' view='component'>
                         22.11.2021
                     </PureCell.Text>
@@ -919,7 +979,7 @@ render(() => (
                     <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
                         Яндекс Лавка
                     </PureCell.Text>
-                    <PureCell.Category categoryName='Кафе, рестораны, столовые, бары' />
+                    <PureCell.Category categoryName='Кафе, рестораны, столовые, бары' rightAddon={<ShoppingListSIcon color='var(--color-light-graphic-secondary-inverted)' />} />
                 </PureCell.Main>
             </PureCell.Content>
         </PureCell>

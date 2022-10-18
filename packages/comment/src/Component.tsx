@@ -7,6 +7,10 @@ import styles from './index.module.css';
 
 export type CommentProps = {
     /**
+     * Количество строк
+     */
+    rowLimit?: 2 | 5;
+    /**
      *  Сss класс для стилизации общей обёртки
      */
     className?: string;
@@ -22,10 +26,13 @@ export type CommentProps = {
     children?: ReactNode;
 };
 
-export const Comment: React.FC<CommentProps> = ({ className, dataTestId, children }) => (
-    <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-        <Typography.Text tag='div' view='component' className={styles.text} color='primary'>
-            {children}
-        </Typography.Text>
-    </div>
-);
+export const Comment: React.FC<CommentProps> = ({ className, dataTestId, children, rowLimit }) => {
+    const textClassName = rowLimit && styles[`rowLimit${rowLimit}`];
+    return (
+        <div className={cn(styles.component, className)} data-test-id={dataTestId}>
+            <Typography.Text tag='div' view='component' className={textClassName} color='primary'>
+                {children}
+            </Typography.Text>
+        </div>
+    );
+};

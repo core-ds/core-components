@@ -20,7 +20,7 @@ export type AmountProps = {
     /**
      * Количество минорных единиц в валюте
      */
-    minority: number;
+    minority?: number;
 
     /**
      * Делает минорную часть полупрозрачной
@@ -30,7 +30,7 @@ export type AmountProps = {
     /**
      * Количество минорных единиц в валюте для Клика
      */
-    minorUnits: number;
+    minorUnits?: number;
 
     /**
      * default - не отображаем копейки, если их значение 0

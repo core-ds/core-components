@@ -11,11 +11,6 @@ import styles from './index.module.css';
 
 type Props = {
     /**
-     * Props свойственные для компонента Amount
-     */
-    amount: AmountType;
-
-    /**
      * Начертание шрифта денежного значения
      */
     weight?: 'bold' | 'normal';
@@ -23,7 +18,7 @@ type Props = {
     /**
      * Размер денежного значения
      */
-    view?: 'component' | 'primary-small';
+    textView?: 'component' | 'primary-small';
 
     /**
      * Цвет денежного значения
@@ -34,44 +29,29 @@ type Props = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+} & AmountType;
 
 export const Amount: React.FC<Props> = ({
-    amount,
     weight = 'normal',
-    view = 'component',
+    textView = 'component',
     color = 'primary',
+    minority,
+    minorUnits = 100,
     dataTestId,
+    ...restProps
 }) => {
-    const {
-        value,
-        currency,
-        minority,
-        minorUnits,
-        rightAddons,
-        showPlus,
-        className,
-        transparentMinor,
-        view: viewAmount,
-    } = amount;
     return (
         <Typography.Text
-            view={view}
+            view={textView}
             dataTestId={getDataTestId(dataTestId, 'amount-text')}
             className={cn(styles.component)}
             color={color}
         >
             <CoreAmount
-                minority={minority === undefined ? minorUnits : minority}
-                value={value}
-                transparentMinor={transparentMinor}
+                minority={minority || minorUnits}
                 bold={weight === 'bold' ? 'full' : 'none'}
-                rightAddons={rightAddons}
-                showPlus={showPlus}
-                className={className}
-                currency={currency}
                 dataTestId={getDataTestId(dataTestId, 'amount')}
-                view={viewAmount}
+                {...restProps}
             />
         </Typography.Text>
     );
