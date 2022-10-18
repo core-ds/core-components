@@ -12,6 +12,11 @@
     overflow: auto;
 }
 
+.stickyHeader {
+    overflow: scroll;
+    height: 100%;
+}
+
 .hasPagination {
     padding-bottom: 0;
 }

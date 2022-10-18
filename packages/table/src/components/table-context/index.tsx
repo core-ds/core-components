@@ -10,6 +10,7 @@ export type ColumnConfiguration = {
 
 export type TableContextType = {
     columnsConfiguration: ColumnConfiguration[];
+    stickyHeader: boolean;
     compactView: boolean;
     compactHorizontal: boolean;
     wrapperRef: RefObject<HTMLDivElement>;
@@ -18,6 +19,7 @@ export type TableContextType = {
 export const DEFAULT_TABLE_CONTEXT: TableContextType = {
     columnsConfiguration: [],
     compactView: false,
+    stickyHeader: false,
     compactHorizontal: false,
     wrapperRef: { current: null },
 };
