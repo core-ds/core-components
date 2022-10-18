@@ -1,5 +1,23 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+### [#288](https://github.com/core-ds/core-components/pull/288)
+
+-   Для `PureCell.AmountTitle` props были объеденены с `AmountType`, удален проп `amount`
+-   Для `PureCell.Amount` props были объеденены с `AmountType`, удален проп `amount`, `view` переименован в `textView`<br />
+-   Добавлен проп rowLimit для управления количеством строк для отображения<br />
+-   Для `PureCell.Addon` расширено значение пропа `verticalAlign`<br />
+-   Для `PureCell.Category` добавлен проп `rightAddons`<br />
+-   В `PureCell.Text` исправлен `render` блока `value`<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   comment@2.1.0
+
 ## 3.0.3
 
 ### Patch Changes

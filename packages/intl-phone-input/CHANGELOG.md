@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+### [#294](https://github.com/core-ds/core-components/pull/294)
+
+-   Добавлено состояние невыбранной страны — `canBeEmptyCountry`
+-   Добавлена возможность отключить селект выбора стран — `hideCountrySelect`<br />
+-   Колбэк `onCountryChange` теперь может принимать undefined в случаях, когда установлен пропс `canBeEmptyCountry: true`<br />
+-   Добавлен режим приоритета ввода российского номера (при дефолтно выбранном российском флаге ввод числа добавит +7) — `ruNumberPriority`<br />
+-   Добавлен пропс `clear` для сброса страны при очистке поля<br />
+
 ## 7.0.17
 
 ### Patch Changes
