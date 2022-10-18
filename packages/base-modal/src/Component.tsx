@@ -490,7 +490,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         return (
             <Stack value={zIndex}>
                 {computedZIndex => (
-                    <Portal getPortalContainer={container}>
+                    <Portal getPortalContainer={container} immediateMount={true}>
                         <BaseModalContext.Provider value={contextValue}>
                             <FocusLock
                                 autoFocus={!disableAutoFocus}

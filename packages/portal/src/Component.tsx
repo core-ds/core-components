@@ -11,10 +11,17 @@ export type PortalProps = {
      * Функция, возвращающая контейнер, в который будут рендериться дочерние элементы
      */
     getPortalContainer?: () => Element;
+
+    /**
+     * Немедленно отрендерить дочерние элементы (false - контент будет отрендерен на след. рендер).
+     */
+    immediateMount?: boolean;
 };
 export const Portal = forwardRef<Element, PortalProps>(
-    ({ getPortalContainer = getDefaultPortalContainer, children }, ref) => {
-        const [mountNode, setMountNode] = useState<Element | null>(null);
+    ({ getPortalContainer = getDefaultPortalContainer, immediateMount = false, children }, ref) => {
+        const [mountNode, setMountNode] = useState<Element | null>(() =>
+            immediateMount ? getPortalContainer() : null,
+        );
 
         useEffect(() => {
             setMountNode(getPortalContainer());
