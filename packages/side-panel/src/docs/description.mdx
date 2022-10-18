@@ -1,6 +1,7 @@
 SidePanel построен как Compound Components.
 
 ## Архитектура
+
 Содержит компоненты Header, Content, Footer, содержащие в себе кастомизируемые слоты.
 
 ```tsx live
@@ -16,7 +17,9 @@ render(() => {
         header: 'header',
         navigation: 'closer',
         version: 'desktop',
-        footerContent: 'yes'
+        footerContent: 'yes',
+        placement: 'right',
+        scrollbar: 'native'
     });
 
     const handleStateChange = (key, _, payload) => {
@@ -44,7 +47,7 @@ render(() => {
             <Button type='button' size='xs' onClick={handleModalOpen}>
                 Открыть сайд-панель
             </Button>
-            <SidePanelComponent open={open} onClose={handleModalOpen} size='s'>
+            <SidePanelComponent open={open} onClose={handleModalOpen} size='s' placement={state.placement} nativeScrollbar={state.scrollbar === 'native'}>
                 <SidePanelComponent.Header
                     hasCloser={state.navigation === 'closer'}
                     sticky={state.fixedСontent === 'yes'}
@@ -79,6 +82,36 @@ render(() => {
                     <Radio label="Мобильная" value="mobile" />
                 </RadioGroup>
             </div>
+
+            {state.version === 'desktop' && (
+                <>
+                <div style={{ margin: '40px 0' }}>
+                    <RadioGroup
+                        label="Размещение"
+                        direction="vertical"
+                        name="placement"
+                        onChange={handleStateChange.bind(null, 'placement')}
+                        value={state.placement}
+                    >
+                        <Radio label="Слева" value="left" />
+                        <Radio label="Справа" value="right" />
+                    </RadioGroup>
+                </div>
+
+                <div style={{ margin: '40px 0' }}>
+                    <RadioGroup
+                        label="Скроллбар"
+                        direction="vertical"
+                        name="scrollbar"
+                        onChange={handleStateChange.bind(null, 'scrollbar')}
+                        value={state.scrollbar}
+                    >
+                        <Radio label="Нативный" value='native' />
+                        <Radio label="Кастомный" value='custom' />
+                    </RadioGroup>
+                </div>
+                </>
+            )}
 
             <div style={{ margin: '40px 0' }}>
                 <RadioGroup

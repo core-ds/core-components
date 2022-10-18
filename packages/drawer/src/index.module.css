@@ -8,13 +8,21 @@
 .component {
     position: fixed;
     top: 0;
-    right: 0;
     height: 100%;
     width: var(--drawer-width);
     flex: 1;
-    align-self: flex-end;
     overflow: auto;
     will-change: transform;
+}
+
+.rightPlacement {
+    right: 0;
+    align-self: flex-end;
+}
+
+.leftPlacement {
+    left: 0;
+    align-self: flex-start;
 }
 
 .content {
@@ -24,10 +32,18 @@
     flex: 1;
 }
 
+.simplebar {
+    height: 100vh;
+}
+
 /* enter */
 
-.enter {
+.enterRight {
     transform: translateX(100%);
+}
+
+.enterLeft {
+    transform: translateX(-100%);
 }
 
 .contentEnter {
@@ -68,9 +84,14 @@
     opacity: 1;
 }
 
-.exitActive {
+.exitActiveRight {
     transition: transform 0.25s ease-in-out 0.1s;
     transform: translateX(100%);
+}
+
+.exitActiveLeft {
+    transition: transform 0.25s ease-in-out 0.1s;
+    transform: translateX(-100%);
 }
 
 .backdropExitActive,
