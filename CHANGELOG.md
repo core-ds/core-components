@@ -1,3 +1,43 @@
+## 34.0.0
+
+<sup><time>18.10.2022</time></sup>
+
+### [#294](https://github.com/core-ds/core-components/pull/294)
+
+#### Что изменилось
+- Добавлено состояние невыбранной страны — `canBeEmptyCountry`
+- Добавлена возможность отключить селект выбора стран — `hideCountrySelect`<br />
+- Колбэк `onCountryChange` теперь может принимать undefined в случаях, когда установлен пропс `canBeEmptyCountry: true`<br />
+- Добавлен режим приоритета ввода российского номера (при дефолтно выбранном российском флаге ввод числа добавит +7) — `ruNumberPriority`<br />
+- Добавлен пропс `clear` для сброса страны при очистке поля<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`intl-phone-input`
+
+
+### [#288](https://github.com/core-ds/core-components/pull/288)
+
+#### Что изменилось
+-   Добавлен проп rowLimit для управления количеством строк для отображения
+
+#### Влияние на компоненты
+- Минорное<br />`comment`
+
+<br />
+
+#### Что изменилось
+-   Для `PureCell.AmountTitle` props были объеденены с `AmountType`, удален проп `amount`
+-   Для `PureCell.Amount` props были объеденены с `AmountType`, удален проп `amount`, `view` переименован в `textView`<br />
+-   Добавлен проп rowLimit для управления количеством строк для отображения<br />
+-   Для `PureCell.Addon` расширено значение пропа `verticalAlign`<br />
+-   Для `PureCell.Category` добавлен проп `rightAddons`<br />
+-   В `PureCell.Text` исправлен `render` блока `value`<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`pure-cell`
+
+
+
 ## 33.1.0
 
 <sup><time>18.10.2022</time></sup>
