@@ -57,6 +57,11 @@
         width: var(--slider-input-origin-width);
         right: var(--slider-input-origin-right);
     }
+
+    /* TODO исправить на 6px когда слайдеру добавят position: absolute */
+    & + * {
+        margin-top: 5px;
+    }
 }
 
 .component .field {
