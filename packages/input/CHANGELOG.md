@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.2.5
+
+### Patch Changes
+
+### [#293](https://github.com/core-ds/core-components/pull/293)
+
+-   Исправлена высота инпута в OS Windows
+
 ## 10.2.4
 
 ### Patch Changes

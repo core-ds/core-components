@@ -77,20 +77,22 @@ export const Text: React.FC<Props> = ({
                     children
                 )}
             </span>
-            <span>
-                {typeof value === 'string' ? (
-                    <Typography.Text
-                        view={view}
-                        color={valueColor}
-                        className={className}
-                        data-test-id={getDataTestId(dataTestId, 'text')}
-                    >
-                        {value}
-                    </Typography.Text>
-                ) : (
-                    value
-                )}
-            </span>
+            {value !== undefined && (
+                <span className={styles.value}>
+                    {typeof value === 'string' ? (
+                        <Typography.Text
+                            view={view}
+                            color={valueColor}
+                            className={className}
+                            data-test-id={getDataTestId(dataTestId, 'text')}
+                        >
+                            {value}
+                        </Typography.Text>
+                    ) : (
+                        value
+                    )}
+                </span>
+            )}
         </div>
     );
 };

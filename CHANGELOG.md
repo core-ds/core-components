@@ -1,3 +1,114 @@
+## 34.0.0
+
+<sup><time>18.10.2022</time></sup>
+
+### [#294](https://github.com/core-ds/core-components/pull/294)
+
+<table>
+<tr>
+<td>
+  Мажорки
+</td>
+<td>
+  <code>intl-phone-input</code>
+</td>
+</tr>
+</table>
+
+- Колбэк `onCountryChange` теперь может принимать undefined в случаях, когда установлен пропс `canBeEmptyCountry: true`<br />
+- Добавлено состояние невыбранной страны — `canBeEmptyCountry`
+- Добавлена возможность отключить селект выбора стран — `hideCountrySelect`<br />
+- Добавлен режим приоритета ввода российского номера (при дефолтно выбранном российском флаге ввод числа добавит +7) — `ruNumberPriority`<br />
+- Добавлен пропс `clear` для сброса страны при очистке поля<br />
+
+### [#288](https://github.com/core-ds/core-components/pull/288)
+
+<table>
+<tr>
+<td>
+  Мажорки
+</td>
+<td>
+  <code>pure-cell</code>
+</td>
+</tr>
+</table>
+
+- Для `PureCell.AmountTitle` props были объеденены с `AmountType`, удален проп `amount`
+- Для `PureCell.Amount` props были объеденены с `AmountType`, удален проп `amount`, `view` переименован в `textView`<br />
+- Для `PureCell.Addon` расширено значение пропа `verticalAlign`<br />
+- Для `PureCell.Category` добавлен проп `rightAddons`<br />
+- В `PureCell.Text` исправлен `render` блока `value`<br />
+
+<table>
+<tr>
+<td>
+  Минорки
+</td>
+<td>
+  <code>comment</code>
+</td>
+</tr>
+</table>
+
+- Добавлен проп rowLimit для управления количеством строк для отображения<br />
+
+<br />
+
+## 33.1.0
+
+<sup><time>18.10.2022</time></sup>
+
+### [#307](https://github.com/core-ds/core-components/pull/307)
+
+#### Что изменилось
+- Добавили зависимость @alfalab/icons-glyph в компонент Modal
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#306](https://github.com/core-ds/core-components/pull/306)
+
+#### Что изменилось
+- В portal добавлен проп immediateMount, с помощью которого можно мгновенно отрендерить дочерние элементы через портал.
+- В base-modal исправлена проблема с доступом к ref-ам контента, который рендерился через portal.<br />
+
+#### Влияние на компоненты
+- Минорное<br />`portal`
+
+
+- Патчи<br />`base-modal`
+
+
+### [#293](https://github.com/core-ds/core-components/pull/293)
+
+#### Что изменилось
+- Изменен размер инпута с "s" на "m"
+
+#### Влияние на компоненты
+- Патчи<br />`bank-card`
+
+<br />
+
+#### Что изменилось
+- Исправлена высота инпута в OS Windows
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+### [#305](https://github.com/core-ds/core-components/pull/305)
+
+#### Что изменилось
+- Добавлен проп placement, теперь Drawer и SidePanel могут появляться слева
+- Добавлен кастомный скроллбар.<br />
+
+#### Влияние на компоненты
+- Минорное<br />`drawer` `side-panel`
+
+
+
 ## 33.0.2
 
 <sup><time>13.10.2022</time></sup>

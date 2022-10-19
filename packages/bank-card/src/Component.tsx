@@ -130,6 +130,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
                             mask={getMask}
                             block={true}
                             label={inputLabel}
+                            size='m'
                             rightAddons={renderRightAddons()}
                             inputClassName={styles.input}
                             labelClassName={styles.label}

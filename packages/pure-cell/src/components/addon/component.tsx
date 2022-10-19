@@ -10,7 +10,7 @@ type Props = {
     /**
      * Вертикальное выравнивание
      */
-    verticalAlign?: 'center';
+    verticalAlign?: 'top' | 'center' | 'bottom';
 
     /**
      * Горизонтальные отступы
@@ -30,14 +30,12 @@ type Props = {
 
 export const Addon: React.FC<Props> = ({
     children,
-    verticalAlign,
+    verticalAlign = 'top',
     addonPadding = 'default',
     dataTestId,
 }) => (
     <section
-        className={cn(styles.component, styles[addonPadding], {
-            [styles.center]: verticalAlign,
-        })}
+        className={cn(styles.component, styles[addonPadding], styles[verticalAlign])}
         data-test-id={getDataTestId(dataTestId, 'addon')}
     >
         {children}

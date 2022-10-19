@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+### [#305](https://github.com/core-ds/core-components/pull/305)
+
+-   Добавлен проп placement, теперь Drawer и SidePanel могут появляться слева
+-   Добавлен кастомный скроллбар.<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.4
+    -   drawer@4.1.0
+
 ## 2.1.5
 
 ### Patch Changes

@@ -10,7 +10,7 @@ import {
 } from '@alfalab/core-components-select';
 import { Country } from '@alfalab/utils';
 
-import { SelectField } from '../select-field';
+import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
 import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
@@ -19,7 +19,7 @@ type CountriesSelectProps = Pick<
     SelectProps,
     'size' | 'dataTestId' | 'disabled' | 'onChange' | 'preventFlip'
 > & {
-    selected: string;
+    selected?: string;
     countries: Country[];
     fieldWidth: number | null;
 };
@@ -69,7 +69,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
                 disabled={disabled}
                 size={size}
                 options={options}
-                selected={selected}
+                selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
                 onChange={onChange}
                 Field={SelectField}
                 OptionsList={renderOptionsList}

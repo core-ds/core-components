@@ -11,11 +11,16 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    word-break: break-all;
 }
 
 .categoryPercent {
     padding: 0 var(--gap-xs);
     background-color: var(--color-light-bg-secondary);
     border-radius: var(--border-radius-xl);
+    margin-left: var(--gap-2xs);
+}
+
+.rightAddon {
     margin-left: var(--gap-2xs);
 }

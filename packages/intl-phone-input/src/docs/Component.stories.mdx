@@ -29,6 +29,10 @@ import Changelog from '../../CHANGELOG.md';
         const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
         const block = boolean('block', false);
         const disabled = boolean('disabled', false);
+        const hideCountrySelect = boolean('hideCountrySelect', false);
+        const canBeEmptyCountry = boolean('canBeEmptyCountry', false);
+        const ruNumberPriority = boolean('ruNumberPriority', false);
+        const clear = boolean('clear', false);
         const label = text('label', 'Номер телефона');
         const clearableCountryCode = boolean('clearableCountryCode', true);
         const handleCountryChange = React.useCallback(countryCode => {
@@ -43,6 +47,10 @@ import Changelog from '../../CHANGELOG.md';
                     block={block}
                     label={label}
                     disabled={disabled}
+                    canBeEmptyCountry={canBeEmptyCountry}
+                    hideCountrySelect={hideCountrySelect}
+                    clear={clear}
+                    ruNumberPriority={ruNumberPriority}
                     defaultCountryIso2='RU'
                     readOnly={boolean('readOnly', false)}
                     onCountryChange={handleCountryChange}

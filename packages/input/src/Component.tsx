@@ -375,6 +375,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         {
                             [styles.error]: error,
                             [colorStyles[colors].error]: error,
+                            [styles[size]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },

@@ -8,9 +8,16 @@
         var(--border-radius-xxl);
 }
 
-.text {
+.rowLimit2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.rowLimit5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

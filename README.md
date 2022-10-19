@@ -210,6 +210,5 @@ import { Button } from '@alfalab/core-components-button/dist/modern';
 -   [Александр Яценко](https://github.com/reme3d2y)
 -   [Владимир Гевак](https://github.com/Lacronts)
 -   [Евгений Купава](https://github.com/EGNKupava)
--   [Рамиль Сагидуллин](https://github.com/blackraydev)
 -   [Валерия Чуричева](https://github.com/Valeri8888)
 -   [Евгений Сергеев](https://github.com/SiebenSieben)

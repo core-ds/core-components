@@ -22,8 +22,8 @@
 }
 
 .aspectRatioContainer {
-    /* Эталонный размер 343x215 */
-    padding-bottom: 62.6%;
+    /* Эталонный размер 343x216 */
+    padding-bottom: 63%;
 }
 
 .content {
@@ -74,6 +74,7 @@
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: 0 !important;
+    padding-bottom: 4px !important;
 
     @media (max-width: 360px) {
         font-size: 16px;

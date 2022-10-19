@@ -27,4 +27,10 @@ describe('comment', () => {
 
         expect(screen.getByTestId('test-children')).toBeInTheDocument();
     });
+
+    it('should use a rowLimit prop', () => {
+        render(<Comment dataTestId='test-identifier' rowLimit={2} />);
+
+        expect(screen.getByTestId('test-identifier').firstElementChild).toHaveClass('rowLimit2');
+    });
 });

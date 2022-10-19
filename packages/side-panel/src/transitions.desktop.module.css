@@ -1,10 +1,18 @@
-.appear,
-.enter {
+@define-mixin exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.enterRight {
     opacity: 0;
     transform: translateX(15px);
 }
 
-.appearActive,
+.enterLeft {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+
 .enterActive {
     opacity: 1;
     transform: translateX(0);
@@ -16,9 +24,12 @@
     transform: translateX(0);
 }
 
-.exitActive,
-.exitDone {
-    opacity: 0;
-    transition: opacity 200ms ease-out, transform 200ms ease-out;
+.exitActiveRight {
+    @mixin exit-active;
     transform: translateX(15px);
+}
+
+.exitActiveLeft {
+    @mixin exit-active;
+    transform: translateX(-15px);
 }

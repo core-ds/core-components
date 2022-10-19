@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.1.0
+    -   popover@6.0.2
+
 ## 4.2.3
 
 ### Patch Changes

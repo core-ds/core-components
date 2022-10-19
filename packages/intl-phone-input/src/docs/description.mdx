@@ -6,40 +6,6 @@
 
 **Если вы используете `arui-scripts` для сборки, версия `arui-scripts` должна быть не ниже 9.7.0.**
 
-### Кейс с очисткой поля
-
-```jsx live
-render(() => {
-    const [value, setValue] = React.useState('+7');
-    const [selectedCountry, setSelectedCountry] = React.useState('RU');
-
-    const handleChange = newValue => setValue(newValue);
-
-    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
-
-    const handleClear = () => setValue('');
-
-    return (
-        <div style={{ width: '320px' }}>
-            <IntlPhoneInput
-                inputProps={{
-                    clear: true,
-                    onClear: handleClear,
-                }}
-                value={value}
-                onChange={handleChange}
-                block={true}
-                label='Номер телефона'
-                defaultCountryIso2='RU'
-                onCountryChange={handleCountryChange}
-            />
-            <br />
-            Код выбранной страны: <strong>{selectedCountry}</strong>
-        </div>
-    );
-});
-```
-
 ### Кейс с автокомплитом
 
 ```jsx live

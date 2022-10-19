@@ -28,8 +28,26 @@
     transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.hasInnerLabel::placeholder {
-    opacity: 0;
+.hasInnerLabel {
+    &::placeholder {
+        opacity: 0;
+    }
+
+    &.s {
+        height: var(--form-control-s-min-height);
+    }
+
+    &.m {
+        height: var(--form-control-m-min-height);
+    }
+
+    &.l {
+        height: var(--form-control-l-min-height);
+    }
+
+    &.xl {
+        height: var(--form-control-xl-min-height);
+    }
 }
 
 .block {
