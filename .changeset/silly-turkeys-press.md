@@ -1,22 +1,20 @@
 ---
-"@alfalab/core-components-input": minor
-"@alfalab/core-components-form-control": minor
-"@alfalab/core-components-amount-input": patch
-"@alfalab/core-components-amount": patch
-"@alfalab/core-components-calendar-input": patch
-"@alfalab/core-components-calendar": patch
-"@alfalab/core-components-date-input": patch
-"@alfalab/core-components-date-range-input": patch
-"@alfalab/core-components-date-time-input": patch
-"@alfalab/core-components-input-autocomplete": patch
-"@alfalab/core-components-intl-phone-input": patch
+"@alfalab/core-components-input": major
+"@alfalab/core-components-form-control": major
+"@alfalab/core-components-amount-input": major
+"@alfalab/core-components-calendar-input": major
+"@alfalab/core-components-date-input": major
+"@alfalab/core-components-date-range-input": major
+"@alfalab/core-components-date-time-input": major
+"@alfalab/core-components-input-autocomplete": major
+"@alfalab/core-components-intl-phone-input": major
 "@alfalab/core-components-keyboard-focusable": patch
-"@alfalab/core-components-password-input": patch
+"@alfalab/core-components-password-input": major
 "@alfalab/core-components-picker-button": patch
-"@alfalab/core-components-select": patch
-"@alfalab/core-components-slider-input": patch
-"@alfalab/core-components-textarea": patch
-"@alfalab/core-components-time-input": patch
+"@alfalab/core-components-select": major
+"@alfalab/core-components-slider-input": major
+"@alfalab/core-components-textarea": major
+"@alfalab/core-components-time-input": major
 "@alfalab/core-components-with-suffix": patch
 "@alfalab/core-components-themes": patch
 ---

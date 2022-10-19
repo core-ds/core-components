@@ -9,6 +9,7 @@
 
     /* focus */
     --form-control-focus-border-bottom: 1px solid var(--color-black);
+    --form-control-focus-shadow: transparent;
 
     /* hover */
     --form-control-hover-bg-color: transparent;
