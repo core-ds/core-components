@@ -2,7 +2,7 @@
 
 Предоставляет стандартные компоненты `Header`, `Closer`, `Content`, `Footer`, а также доступ к контексту.
 
-```jsx live id=1
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -13,7 +13,7 @@ render(() => {
             <Button type='button' size='xs' onClick={handleModalOpen}>
                 Открыть модалку
             </Button>
-            <ModalDesktop open={open} onClose={handleModalOpen} size='m' container={() => document.getElementById('preview-1')}>
+            <ModalDesktop open={open} onClose={handleModalOpen} size='m'>
                 <ModalDesktop.Header hasCloser={true} />
                 <ModalDesktop.Content>
                     <Typography.Title tag='div' view='small'>
@@ -55,7 +55,7 @@ render(() => {
             <Button type='button' size='xs' onClick={handleModalOpen}>
                 Открыть модалку
             </Button>
-            <ModalMobile open={open} onClose={handleModalOpen} size='m' container={() => document.getElementById('preview-1')}>
+            <ModalMobile open={open} onClose={handleModalOpen} size='m'>
                 <ModalMobile.Header hasCloser={true} />
                 <ModalMobile.Content>
                     <Typography.Title tag='div' view='small'>

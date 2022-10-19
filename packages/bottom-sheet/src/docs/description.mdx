@@ -6,7 +6,7 @@ BottomSheet построен с использованием слотов.
 
 ## Примеры
 
-```jsx live mobileHeight=700 id=1
+```jsx live mobileHeight=500
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -47,7 +47,6 @@ render(() => {
                 hasBacker={state.navigation === 'back'}
                 titleAlign={state.header !== 'no' && state.header}
                 onClose={() => setOpen(false)}
-                container={() => document.getElementById('preview-1')}
             >
                 <div style={{ lineHeight: '24px' }}>
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ

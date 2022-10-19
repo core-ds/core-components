@@ -9,7 +9,7 @@ import { InputAutocomplete } from '../Component';
 
 Компонент поля для ввода с автокомплитом
 
-```jsx live id=1
+```jsx live
 render(() => {
     const options = [
         { key: 'Neptunium' },
@@ -98,7 +98,6 @@ render(() => {
             onChange={handleChange}
             onInput={handleInput}
             value={value}
-            container={() => document.getElementById('preview-1')}
         />
     );
 });

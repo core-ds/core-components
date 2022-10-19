@@ -23,6 +23,7 @@ addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
         // editorTheme: theme,
         sandboxPath: '/docs/компоненты-песочница--page',
+        mobileFrameName: 'mobileframe--page',
 
         desktopText: 'Переключить на декстопную версию',
         mobileText: 'Переключить на мобильную версию',

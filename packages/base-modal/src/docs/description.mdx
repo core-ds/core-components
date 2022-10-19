@@ -1,6 +1,6 @@
 Базовый компонент для построения модальных окон, сайд-панелей и пр.
 
-```jsx live id=1
+```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -12,7 +12,7 @@ render(() => {
                 Открыть
             </Button>
 
-            <BaseModal open={open} onClose={handleModalOpen} container={() => document.getElementById('preview-1')}>
+            <BaseModal open={open} onClose={handleModalOpen}>
                 <div style={{ padding: '100px' }}>BaseModal</div>
             </BaseModal>
         </>

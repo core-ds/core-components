@@ -2,7 +2,7 @@
 
 Компонент, представляющим собой заготовку для реализации сайд-панелей. В основе компонента лежит `BaseModal`.
 
-```jsx live id=1
+```jsx live
 function Content() {
     const { contentRef } = React.useContext(DrawerContext);
     const [showMore, setShowMore] = React.useState(false);
@@ -42,7 +42,7 @@ render(() => {
             <Button size='xs' onClick={handleModalOpen}>
                 Открыть Drawer
             </Button>
-            <Drawer open={open} onClose={handleModalOpen} container={() => document.getElementById('preview-1')}>
+            <Drawer open={open} onClose={handleModalOpen}>
                 <Content />
             </Drawer>
         </React.Fragment>
@@ -52,7 +52,7 @@ render(() => {
 
 ## Drawer расположен слева, имеет кастомный скроллбар, шапку и футер.
 
-```jsx live id=2
+```jsx live
 function Header() {
     const { headerHighlighted, onClose, setHasHeader } = React.useContext(DrawerContext);
     React.useEffect(() => setHasHeader(true), [setHasHeader]);
@@ -137,10 +137,14 @@ render(() => {
                 Открыть Drawer
             </Button>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Drawer open={open} onClose={handleModalOpen} placement='left' nativeScrollbar={false}>
 =======
             <Drawer open={open} onClose={handleModalOpen} container={() => document.getElementById('preview-2')}>
 >>>>>>> b58d53cc3 (docs: update)
+=======
+            <Drawer open={open} onClose={handleModalOpen}>
+>>>>>>> 43b8aee58 (docs: update)
                 <Header />
                 <Content />
                 <Footer />
