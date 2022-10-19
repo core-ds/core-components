@@ -1,4 +1,12 @@
-import React, { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import React, {
+    ChangeEvent,
+    forwardRef,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { AsYouType, CountryCode } from 'libphonenumber-js';
@@ -131,33 +139,43 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
-        const formatPhone = (inputValue: string) => {
-            let newValue = inputValue;
+        const formatPhone = useCallback(
+            (inputValue: string) => {
+                let newValue = inputValue;
 
-            if (phoneLibUtils.current) {
-                const Utils = phoneLibUtils.current;
-                const utils = new Utils(
-                    countryIso2 ? (countryIso2.toUpperCase() as CountryCode) : undefined,
-                );
+                if (phoneLibUtils.current) {
+                    const Utils = phoneLibUtils.current;
+                    const utils = new Utils(
+                        countryIso2 ? (countryIso2.toUpperCase() as CountryCode) : undefined,
+                    );
 
-                newValue = utils.input(inputValue);
+                    newValue = utils.input(inputValue);
+                }
+
+                if (countryIso2 === 'ru') {
+                    const parts = newValue.split(' ');
+                    newValue = parts.reduce((acc, part, index) => {
+                        if (index === 0) {
+                            return part;
+                        }
+                        if (index > 2) {
+                            return `${acc}-${part}`;
+                        }
+                        return `${acc} ${part}`;
+                    }, '');
+                }
+
+                return newValue;
+            },
+            [countryIso2],
+        );
+
+        const formatedValue = useMemo(() => {
+            if (value.indexOf(' ') > 0) {
+                return value;
             }
-
-            if (countryIso2 === 'ru') {
-                const parts = newValue.split(' ');
-                newValue = parts.reduce((acc, part, index) => {
-                    if (index === 0) {
-                        return part;
-                    }
-                    if (index > 2) {
-                        return `${acc}-${part}`;
-                    }
-                    return `${acc} ${part}`;
-                }, '');
-            }
-
-            return newValue;
-        };
+            return formatPhone(value);
+        }, [value, formatPhone]);
 
         const setCountryByIso2 = (iso2: string) => {
             const country = countriesHash[iso2];
@@ -402,7 +420,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     handleCountryChange(undefined);
                 }
             } else {
-                onChange(value.substring(0, countryCodeLength));
+                onChange(formatedValue.substring(0, countryCodeLength));
             }
         };
 
@@ -510,7 +528,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 readOnly={readOnly}
                 size={size}
                 className={className}
-                value={value}
+                value={formatedValue}
             />
         );
     },

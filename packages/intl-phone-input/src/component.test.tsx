@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -313,6 +313,36 @@ describe('IntlPhoneInput', () => {
 
         await waitFor(() => {
             expect(onChange).toBeCalledWith('+');
+        });
+    });
+
+    it('should format number when set unformated value', async () => {
+        const onChange = jest.fn();
+        const RenderComponent = () => {
+            const [value, setValue] = useState('+7');
+
+            return (
+                <React.Fragment>
+                    <IntlPhoneInput value={value} onChange={onChange} />
+                    <button
+                        type='button'
+                        data-test-id='intl-change-number'
+                        onClick={() => setValue('+79491234567')}
+                    >
+                        Изменить номер
+                    </button>
+                </React.Fragment>
+            );
+        };
+        render(<RenderComponent />);
+
+        const input = (await screen.findByRole('textbox')) as HTMLInputElement;
+        const btn = screen.getByTestId('intl-change-number');
+
+        fireEvent.click(btn);
+
+        await waitFor(async () => {
+            expect(input.value).toBe('+7 949 123-45-67');
         });
     });
 });
