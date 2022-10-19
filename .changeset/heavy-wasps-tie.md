@@ -1,7 +1,7 @@
 ---
 "@alfalab/core-components-button": major
 "@alfalab/core-components-alert": patch
-"@alfalab/core-components-attach": patch
+"@alfalab/core-components-attach": major
 "@alfalab/core-components-bottom-sheet": patch
 "@alfalab/core-components-confirmation": patch
 "@alfalab/core-components-confirmation-v1": patch
