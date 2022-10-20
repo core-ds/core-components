@@ -24,4 +24,5 @@
 "@alfalab/core-components-bank-card": patch
 ---
 
-Обновлены стили компонентов Input и FormControl для соответствия актуальным макетам
+- Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+- Исправлен отступ до hint в SliderInput (уменьшился на 2px)
