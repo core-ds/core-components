@@ -196,38 +196,41 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const getCountryByNumber = (inputValue: string) => {
-            // dialcode казахстанских номеров совпадает с российскими, поэтому проверяем отдельно
-            if (new RegExp('^\\+7(\\s)?7').test(inputValue)) {
-                const kzCoutry = countries.find(item => item.iso2 === 'kz');
-                if (kzCoutry) {
-                    return kzCoutry;
+        const getCountryByNumber = useCallback(
+            (inputValue: string) => {
+                // dialcode казахстанских номеров совпадает с российскими, поэтому проверяем отдельно
+                if (new RegExp('^\\+7(\\s)?7').test(inputValue)) {
+                    const kzCoutry = countries.find(item => item.iso2 === 'kz');
+                    if (kzCoutry) {
+                        return kzCoutry;
+                    }
                 }
-            }
 
-            const targetCountry = countries.find(country => {
-                if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
-                    // Сначала проверяем, если приоритет не указан
-                    if (country.priority === undefined) {
-                        return true;
-                    }
+                const targetCountry = countries.find(country => {
+                    if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
+                        // Сначала проверяем, если приоритет не указан
+                        if (country.priority === undefined) {
+                            return true;
+                        }
 
-                    // Если страна уже была выставлена через селект, и коды совпадают
-                    if (countryIso2 === country.iso2 && countryIso2 !== 'kz') {
-                        return true;
-                    }
+                        // Если страна уже была выставлена через селект, и коды совпадают
+                        if (countryIso2 === country.iso2 && countryIso2 !== 'kz') {
+                            return true;
+                        }
 
-                    // Если не совпадают - выбираем по приоритету
-                    if (country.priority === 0) {
-                        return true;
+                        // Если не совпадают - выбираем по приоритету
+                        if (country.priority === 0) {
+                            return true;
+                        }
+                        return false;
                     }
                     return false;
-                }
-                return false;
-            });
+                });
 
-            return targetCountry;
-        };
+                return targetCountry;
+            },
+            [countries, countryIso2],
+        );
 
         const setCountryByDialCode = (inputValue: string) => {
             const country = getCountryByNumber(inputValue);
@@ -475,6 +478,15 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             /* eslint-disable-next-line react-hooks/exhaustive-deps */
         }, [value]);
+
+        useEffect(() => {
+            const newCountry = getCountryByNumber(value);
+            if (newCountry && countryIso2 !== newCountry.iso2) {
+                setCountryIso2(newCountry.iso2);
+            } else if (canBeEmptyCountry && !newCountry && countryIso2) {
+                setCountryIso2(undefined);
+            }
+        }, [value, getCountryByNumber, canBeEmptyCountry, countryIso2]);
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
