@@ -169,6 +169,17 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasValidateError]);
 
+    const checkForLabel = () => {
+        if (
+            inputFromProps.label &&
+            inputFromProps.labelView === 'outer' &&
+            inputToProps.label && inputToProps.labelView === 'outer'
+        ) {
+            return styles.outerLabel;
+        }
+        return '';
+    };
+
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <CalendarInput
@@ -193,7 +204,7 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
                 }}
             />
 
-            <span className={styles.divider} />
+            <span className={cn(styles.divider, checkForLabel())} />
 
             <CalendarInput
                 {...inputToProps}

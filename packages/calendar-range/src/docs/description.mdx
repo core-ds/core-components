@@ -29,6 +29,8 @@ render(() => {
             <CalendarRange
                 valueFrom={valueFrom.value}
                 valueTo={valueTo.value}
+                inputFromProps={ { label: 'Дата начала', labelView: 'outer' } }
+                inputToProps={ { label: 'Дата окончания', labelView: 'outer' } }
                 minDate={minDate}
                 maxDate={maxDate}
                 defaultMonth={startOfMonth(defaultDate)}

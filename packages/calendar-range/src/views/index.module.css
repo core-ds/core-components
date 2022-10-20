@@ -34,6 +34,10 @@
     }
 }
 
+.outerLabel {
+    margin-top: 24px;
+}
+
 .static {
     & .calendar {
         width: var(--calendar-inner-width);
