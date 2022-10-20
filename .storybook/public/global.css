@@ -831,7 +831,8 @@ div.lib-welcome {
 }
 
 #компоненты--screenshots,
-#компоненты--screenshots-sprite {
+#компоненты--screenshots-sprite,
+#mobileframe--page {
     display: none;
 }
 
