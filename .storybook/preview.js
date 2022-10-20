@@ -5,7 +5,6 @@ import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
 import { setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
-// import theme from 'prism-react-renderer/themes/oceanicNext';
 
 import guidelinesStyles from '!!postcss-loader!./public/guidelines.css';
 
@@ -21,7 +20,6 @@ if (window.location.href.includes('guidelines')) {
 
 addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
-        // editorTheme: theme,
         sandboxPath: '/docs/компоненты-песочница--page',
         mobileFrameName: 'mobileframe--page',
 
