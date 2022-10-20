@@ -483,10 +483,14 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             const newCountry = getCountryByNumber(value);
             if (newCountry && countryIso2 !== newCountry.iso2) {
                 setCountryIso2(newCountry.iso2);
-            } else if (canBeEmptyCountry && !newCountry && countryIso2) {
+            } else if (
+                canBeEmptyCountry &&
+                !newCountry &&
+                countryIso2 !== defaultCountryIso2.toLowerCase()
+            ) {
                 setCountryIso2(undefined);
             }
-        }, [value, getCountryByNumber, canBeEmptyCountry, countryIso2]);
+        }, [value, getCountryByNumber, canBeEmptyCountry, countryIso2, defaultCountryIso2]);
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
