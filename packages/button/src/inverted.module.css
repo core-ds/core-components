@@ -168,6 +168,7 @@
 .link {
     color: var(--button-inverted-link-base-color);
     background-color: transparent;
+    border: 1px solid transparent;
 
     &:hover {
         background-color: var(--button-inverted-link-hover-bg-color);

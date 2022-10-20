@@ -155,6 +155,7 @@
 .link {
     color: var(--button-link-base-color);
     background-color: transparent;
+    border: 1px solid transparent;
 
     &:hover {
         background-color: var(--button-link-hover-bg-color);

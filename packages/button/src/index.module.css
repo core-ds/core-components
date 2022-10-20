@@ -26,7 +26,7 @@
     align-content: center;
     align-items: center;
     margin: 0;
-    padding: 0 var(--gap-xl);
+    padding: 0 23px;
     line-height: 20px;
     font-weight: var(--button-font-weight);
     font-family: var(--font-family);
@@ -70,10 +70,12 @@ a.loading {
 
 /* Size */
 
+/* За счет того, что у кнопок есть border 1px,
+для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
 .xxs {
     min-width: 80px;
     min-height: var(--size-xs-height);
-    padding: 0 var(--gap-m);
+    padding: 0 15px;
     font-size: 14px;
     border-radius: var(--button-xxs-size-border-radius);
 
@@ -85,7 +87,7 @@ a.loading {
 .xs {
     min-width: 88px;
     min-height: 40px;
-    padding: 0 var(--gap-l);
+    padding: 0 19px;
     font-size: 14px;
     border-radius: var(--button-xs-size-border-radius);
 
@@ -109,7 +111,7 @@ a.loading {
 .m {
     min-width: 128px;
     min-height: var(--size-m-height);
-    padding: 0 28px;
+    padding: 0 27px;
     font-size: 16px;
     line-height: 24px;
     border-radius: var(--button-m-size-border-radius);
@@ -122,7 +124,7 @@ a.loading {
 .l {
     min-width: 160px;
     min-height: var(--size-l-height);
-    padding: 0 var(--gap-2xl);
+    padding: 0 31px;
     font-size: 18px;
     line-height: 24px;
     border-radius: var(--button-l-size-border-radius);
@@ -135,7 +137,7 @@ a.loading {
 .xl {
     min-width: 168px;
     min-height: var(--size-xl-height);
-    padding: 0 36px;
+    padding: 0 35px;
     font-size: 18px;
     line-height: 24px;
     border-radius: var(--button-xl-size-border-radius);
@@ -147,27 +149,27 @@ a.loading {
 
 .withRightAddons {
     &.xxs {
-        padding-right: var(--gap-s);
+        padding-right: 11px;
     }
 
     &.xs {
-        padding-right: var(--gap-m);
+        padding-right: 15px;
     }
 
     &.s {
-        padding-right: var(--gap-l);
+        padding-right: 19px;
     }
 
     &.m {
-        padding-right: var(--gap-xl);
+        padding-right: 23px;
     }
 
     &.l {
-        padding-right: 28px;
+        padding-right: 27px;
     }
 
     &.xl {
-        padding-right: var(--gap-2xl);
+        padding-right: 31px;
     }
 
     &.ghost {
@@ -177,27 +179,27 @@ a.loading {
 
 .withLeftAddons {
     &.xxs {
-        padding-left: var(--gap-s);
+        padding-left: 11px;
     }
 
     &.xs {
-        padding-left: var(--gap-m);
+        padding-left: 15px;
     }
 
     &.s {
-        padding-left: var(--gap-l);
+        padding-left: 19px;
     }
 
     &.m {
-        padding-left: var(--gap-xl);
+        padding-left: 23px;
     }
 
     &.l {
-        padding-left: 28px;
+        padding-left: 27px;
     }
 
     &.xl {
-        padding-left: var(--gap-2xl);
+        padding-left: 31px;
     }
 
     &.ghost {
