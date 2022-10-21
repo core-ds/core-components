@@ -225,6 +225,18 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasValidateError]);
 
+    const checkForLabel = () => {
+        if (
+            inputFromProps.label &&
+            inputFromProps.labelView === 'outer' &&
+            inputToProps.label &&
+            inputToProps.labelView === 'outer'
+        ) {
+            return styles.outerLabel;
+        }
+        return '';
+    };
+
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
 
     const { calendarProps: calendarFromProps, ...dateInputFromProps } = inputFromProps;
@@ -271,7 +283,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                 />
             </div>
 
-            <span className={styles.divider} />
+            <span className={cn(styles.divider, checkForLabel())} />
 
             <div>
                 <DateInput
