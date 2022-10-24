@@ -2,16 +2,16 @@ import React, { forwardRef } from 'react';
 
 import {
     AdditionalMobileProps,
-    SelectMobile,
     Optgroup as DefaultOptgroup,
+    SelectMobile,
 } from '@alfalab/core-components-select';
 
+import { PickerButtonDesktopProps } from './Component';
 import { Field as DefaultField } from './field';
-import { PickerButtonProps } from './Component';
 import { Option as DefaultOption } from './option';
 
 export type PickerButtonMobileProps = Omit<
-    PickerButtonProps,
+    PickerButtonDesktopProps,
     'OptionsList' | 'Checkmark' | 'onScroll'
 > &
     AdditionalMobileProps;
@@ -33,34 +33,32 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             ...restProps
         },
         ref,
-    ) => {
-        return (
-            <SelectMobile
-                {...restProps}
-                label={label}
-                Option={Option}
-                bottomSheetProps={{
-                    title: label,
-                    stickyHeader: true,
-                    ...bottomSheetProps,
-                }}
-                Field={DefaultField}
-                Optgroup={Optgroup}
-                size={size === 'm' ? 'm' : 's'}
-                closeOnSelect={true}
-                fieldProps={{
-                    view,
-                    loading,
-                    /** size у select, button несовместимы */
-                    buttonSize: size,
-                    buttonVariant: variant,
-                    leftAddons,
-                    rightAddons,
-                }}
-                ref={ref}
-                options={options}
-                selected={[]}
-            />
-        );
-    },
+    ) => (
+        <SelectMobile
+            {...restProps}
+            label={label}
+            Option={Option}
+            bottomSheetProps={{
+                title: label,
+                stickyHeader: true,
+                ...bottomSheetProps,
+            }}
+            Field={DefaultField}
+            Optgroup={Optgroup}
+            size={size === 'm' ? 'm' : 's'}
+            closeOnSelect={true}
+            fieldProps={{
+                view,
+                loading,
+                /** size у select, button несовместимы */
+                buttonSize: size,
+                buttonVariant: variant,
+                leftAddons,
+                rightAddons,
+            }}
+            ref={ref}
+            options={options}
+            selected={[]}
+        />
+    ),
 );

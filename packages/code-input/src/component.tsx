@@ -1,12 +1,12 @@
 import React, {
+    createRef,
+    FocusEventHandler,
     forwardRef,
     ReactNode,
     RefObject,
-    createRef,
-    useState,
-    FocusEventHandler,
     useEffect,
     useImperativeHandle,
+    useState,
 } from 'react';
 import cn from 'classnames';
 
@@ -260,7 +260,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             }
         };
 
-        const handleFocus: FocusEventHandler<HTMLInputElement> = event => {
+        const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
             const target = event.target as HTMLInputElement;
 
             /**
@@ -286,7 +286,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                     .then((res: CredentialOtp | null) => {
                         if (res?.code) handleChange(res.code, 0, true);
                     })
-                    .catch(err => {
+                    .catch((err) => {
                         // eslint-disable-next-line no-console
                         console.error(err);
                     });
@@ -301,6 +301,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
         return (
             <div className={cn(styles.component, className)} data-test-id={dataTestId}>
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
+                    {/* eslint-disable react/no-array-index-key */}
                     {new Array(fields).fill('').map((_, index) => (
                         <Input
                             ref={inputRefs[index]}

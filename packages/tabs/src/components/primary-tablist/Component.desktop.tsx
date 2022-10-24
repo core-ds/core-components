@@ -1,6 +1,8 @@
 import React from 'react';
-import { PrimaryTabList } from './Component';
+
 import { TabListProps } from '../../typings';
+
+import { PrimaryTabList } from './Component';
 
 import styles from './index.module.css';
 

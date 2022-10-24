@@ -1,44 +1,42 @@
-import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 import {
-    ResponsiveContainer,
+    Area,
     Bar,
-    XAxis,
-    YAxis,
+    Brush,
     CartesianGrid,
-    Tooltip,
+    Cell,
+    ComposedChart,
+    LabelList,
     Legend,
     Line,
-    ComposedChart,
-    Cell,
-    Area,
-    Brush,
-    LabelList,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis,
 } from 'recharts';
 
-import { CustomizedHOC } from './hoc/Customized';
-import { LinearGradient } from './components/LinearGradient';
-import { Legends } from './components/Legends';
-import { Dot } from './components/Dot';
-import { useSettings } from './hooks/useSettings';
-
 import { CustomizedLabel } from './components/CustomizedLabel';
-import { SeriaProps } from './types/seria.types';
-import { OptionsProps } from './types/options.types';
-import { ToggleChartProps } from './types/chart.types';
-import { DataDynamicProps, DataDynamicBooleanProps } from './types/utils/data.types';
-import { ActiveDotProps } from './types/utils/dot.types';
-import { CoordinatesProps } from './types/utils/coordinates.types';
+import { Dot } from './components/Dot';
+import { Legends } from './components/Legends';
+import { LinearGradient } from './components/LinearGradient';
 import { RectBar } from './components/RectBar';
 import { Tick } from './components/Tick';
 import { TooltipContent } from './components/TooltipContent';
+import { CustomizedHOC } from './hoc/Customized';
+import { useSettings } from './hooks/useSettings';
+import { ToggleChartProps } from './types/chart.types';
+import { OptionsProps } from './types/options.types';
+import { SeriaProps } from './types/seria.types';
+import { CoordinatesProps } from './types/utils/coordinates.types';
+import { DataDynamicBooleanProps, DataDynamicProps } from './types/utils/data.types';
+import { ActiveDotProps } from './types/utils/dot.types';
 
 import styles from './index.module.css';
 
 export const Chart = (props: OptionsProps) => {
-    const [{ state, data, charts, filterCount }, { setCharts, setFilterCount }] = useSettings(
-        props,
-    );
+    const [{ state, data, charts, filterCount }, { setCharts, setFilterCount }] =
+        useSettings(props);
     const [activeDotsState, setActiveDotsState] = useState<ActiveDotProps>({
         prev: null,
         active: null,
@@ -56,8 +54,10 @@ export const Chart = (props: OptionsProps) => {
 
         return state.series.map((item: SeriaProps) => {
             const { chart, gradient } = item;
+
             if (chart !== 'gradient' || !gradient) return null;
             const { gid, points } = gradient;
+
             return (
                 <LinearGradient
                     key={`${state.id}-${gid}`}
@@ -81,19 +81,21 @@ export const Chart = (props: OptionsProps) => {
 
             if (charts[`${dataKey}`] && filterCount > 1) {
                 changed = true;
-                setFilterCount(prev => prev - 1);
+                setFilterCount((prev) => prev - 1);
             }
 
             if (!charts[`${dataKey}`]) {
                 changed = true;
-                setFilterCount(prev => prev + 1);
+                setFilterCount((prev) => prev + 1);
             }
 
             if (!changed) return;
             setCharts((prev: DataDynamicBooleanProps) => {
                 const newState = { ...prev };
+
                 newState[`${dataKey}`] = !newState[`${dataKey}`];
                 if (withGrad) newState[`${dataKey}-gradient`] = !newState[`${dataKey}-gradient`];
+
                 return newState;
             });
         },
@@ -104,6 +106,7 @@ export const Chart = (props: OptionsProps) => {
         if (node !== null) {
             setTimeout(() => {
                 const { height } = node.getBoundingClientRect();
+
                 setHeightLegend(height);
             }, 0);
         }
@@ -147,6 +150,7 @@ export const Chart = (props: OptionsProps) => {
         if (!state?.xAxis) return null;
 
         let tick;
+
         if (state?.xAxis?.tickType === 'point') {
             tick = CustomizedHOC(Tick, { xAxis: state.xAxis });
         } else if (typeof state.xAxis.tick === 'boolean') {
@@ -162,6 +166,7 @@ export const Chart = (props: OptionsProps) => {
         if (!state?.yAxis) return null;
 
         let tick;
+
         if (state?.yAxis?.tick) {
             tick = CustomizedHOC(state.yAxis.tick, { state });
         } else if (typeof state.yAxis.tick === 'boolean') {
@@ -215,6 +220,7 @@ export const Chart = (props: OptionsProps) => {
                             )}
                             {data.map((_: DataDynamicProps, index: number) => {
                                 const key = `${state.id}-${properties.dataKey}-${index}`;
+
                                 return (
                                     <Cell
                                         key={key}
@@ -290,6 +296,7 @@ export const Chart = (props: OptionsProps) => {
             (state?.composeChart?.margin?.bottom ? state.composeChart.margin.bottom : 0) +
             marginTick +
             (state.brush?.brushMargin ? state.brush.brushMargin : 0);
+
         setYBrush(brushY);
     }, [heightLegend, state]);
 
@@ -315,6 +322,7 @@ export const Chart = (props: OptionsProps) => {
                     activeCoordinate.x -
                     (tooltipRef.current?.state?.boxWidth || 0) >
                 20;
+
             setTooltipArrowSide(side);
         }
     };
@@ -335,12 +343,10 @@ export const Chart = (props: OptionsProps) => {
         }
 
         if (typeof activeTooltipIndex === 'number' && typeof activeDotsState.prev === 'number') {
-            setActiveDotsState((prev: ActiveDotProps) => {
-                return {
-                    prev: prev.active,
-                    active: activeTooltipIndex,
-                };
-            });
+            setActiveDotsState((prev: ActiveDotProps) => ({
+                prev: prev.active,
+                active: activeTooltipIndex,
+            }));
         }
     };
 

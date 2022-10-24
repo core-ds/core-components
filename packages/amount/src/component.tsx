@@ -1,8 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
-import { formatAmount, AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, THINSP } from '@alfalab/utils';
+
+import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, formatAmount, THINSP } from '@alfalab/utils';
 
 import { AmountProps } from './types';
+
 import styles from './index.module.css';
 
 /**

@@ -1,10 +1,12 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
-import cn from 'classnames';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
+import cn from 'classnames';
+import debounce from 'lodash.debounce';
+
+import { Link } from '@alfalab/core-components-link';
 import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { ArrowUpMBlackIcon } from '@alfalab/icons-classic/ArrowUpMBlackIcon';
-import { Link } from '@alfalab/core-components-link';
-import debounce from 'lodash.debounce';
+
 import styles from './index.module.css';
 
 export type CollapseProps = {
@@ -119,6 +121,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
             const observer = new ResizeObserver(recalculate);
+
             if (contentCaseRef.current) {
                 observer.observe(contentCaseRef.current);
             }

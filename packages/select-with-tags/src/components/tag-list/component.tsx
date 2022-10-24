@@ -1,24 +1,27 @@
 import React, {
-    FC,
-    useRef,
-    useMemo,
-    useState,
-    ReactNode,
-    useEffect,
     ChangeEvent,
-    useCallback,
-    useLayoutEffect,
-    MutableRefObject,
-    MouseEventHandler,
+    FC,
     KeyboardEventHandler,
+    MouseEventHandler,
+    MutableRefObject,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useLayoutEffect,
+    useMemo,
+    useRef,
+    useState,
 } from 'react';
 import cn from 'classnames';
-import { useFocus } from '@alfalab/hooks';
-import { FieldProps } from '@alfalab/core-components-select';
+
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
+import { FieldProps } from '@alfalab/core-components-select';
+import { useFocus } from '@alfalab/hooks';
+
 import { TagComponent } from '../../types';
-import { Tag as DefaultTag } from '../tag';
 import { calculateTotalElementsPerRow } from '../../utils/calculate-collapse-size';
+import { Tag as DefaultTag } from '../tag';
+
 import styles from './index.module.css';
 
 type TagListOwnProps = {
@@ -90,6 +93,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 contentWrapperRef.current,
                 autocomplete && inputRef.current ? inputRef.current : null,
             );
+
             setVisibleElements(totalVisibleElements);
         }
     }, [collapseTagList, visibleElements, autocomplete]);
@@ -109,7 +113,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const { onClick, ...restInnerProps } = innerProps;
 
     const handleClick = useCallback<MouseEventHandler<HTMLDivElement>>(
-        event => {
+        (event) => {
             if (onClick && contentWrapperRef.current) {
                 const eventTarget = event.target as HTMLDivElement;
 
@@ -130,7 +134,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     );
 
     const handleKeyDown = useCallback<KeyboardEventHandler<HTMLDivElement>>(
-        event => {
+        (event) => {
             const lastSelectedTag = selectedMultiple[selectedMultiple.length - 1];
 
             if (event.key === 'Backspace' && !value && handleDeleteTag && lastSelectedTag) {
@@ -144,7 +148,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             if (event) {
                 event.stopPropagation();
-                setShowMoreEnabled(v => !v);
+                setShowMoreEnabled((v) => !v);
                 if (handleUpdatePopover) {
                     handleUpdatePopover();
                 }
@@ -173,6 +177,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         if (transformCollapsedTagText) {
             return transformCollapsedTagText(selectedMultiple.length - visibleElements);
         }
+
         return `+${selectedMultiple.length - visibleElements}`;
     }, [transformCollapsedTagText, isShowMoreEnabled, selectedMultiple.length, visibleElements]);
 

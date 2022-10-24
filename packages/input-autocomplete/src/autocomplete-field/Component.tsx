@@ -1,8 +1,10 @@
 import React, { useCallback, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+
 import { Input as DefaultInput } from '@alfalab/core-components-input';
 import { FieldProps } from '@alfalab/core-components-select';
-import mergeRefs from 'react-merge-refs';
+
 import { InputAutocompleteProps } from '../Component';
 
 import styles from './index.module.css';
@@ -43,16 +45,16 @@ export const AutocompleteField = ({
         },
         [onClick],
     );
+
     return (
         <Input
             {...inputProps}
             {...innerProps}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-            // @ts-ignore
-            wrapperRef={mergeRefs([innerProps.ref, inputProps.wrapperRef])}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-            // @ts-ignore
-            ref={mergeRefs([inputRef, inputProps.ref])}
+            wrapperRef={mergeRefs([
+                innerProps.ref as React.Ref<HTMLElement>,
+                inputProps.wrapperRef as React.Ref<HTMLElement>,
+            ])}
+            ref={mergeRefs([inputRef, inputProps.ref as React.Ref<HTMLElement>])}
             disabled={disabled}
             readOnly={readOnly}
             block={true}

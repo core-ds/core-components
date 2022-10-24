@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Paragraph from 'arui-feather/paragraph';
 
 const someVar = true;

@@ -1,5 +1,6 @@
-import React, { forwardRef, useCallback, SelectHTMLAttributes } from 'react';
-import { OptionShape, GroupShape } from '../../typings';
+import React, { forwardRef, SelectHTMLAttributes, useCallback } from 'react';
+
+import { GroupShape, OptionShape } from '../../typings';
 import { isGroup } from '../../utils';
 
 export type NativeSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
@@ -22,7 +23,7 @@ const Option = ({ option }: { option: OptionShape }) => (
 
 const Group = ({ label, options }: GroupShape) => (
     <optgroup label={label}>
-        {options.map(option => (
+        {options.map((option) => (
             <Option option={option} key={option.key} />
         ))}
     </optgroup>
@@ -46,7 +47,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 ref={ref}
                 {...restProps}
             >
-                {options.map(option =>
+                {options.map((option) =>
                     isGroup(option) ? (
                         <Group {...option} key={option.label} />
                     ) : (

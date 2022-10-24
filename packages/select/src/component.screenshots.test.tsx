@@ -158,7 +158,7 @@ describe('Select | interactions tests', () => {
                 await match();
             } catch (error) {
                 // eslint-disable-next-line no-console
-                console.error(error.message);
+                console.error((error as Error).message);
 
                 throw error;
             } finally {
@@ -191,7 +191,7 @@ describe('Select | interactions tests', () => {
             await matchHtml({ page, expect, css, viewport });
         } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error.message);
+            console.error((error as Error).message);
 
             throw error;
         } finally {
@@ -233,7 +233,7 @@ describe('Select | interactions tests', () => {
             await matchHtml({ page, expect, css, viewport });
         } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error.message);
+            console.error((error as Error).message);
 
             throw error;
         } finally {

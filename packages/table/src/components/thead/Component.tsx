@@ -26,10 +26,8 @@ export const THead: React.FC<THeadProps> = ({
     children,
     dataTestId,
     ...restProps
-}) => {
-    return (
-        <thead className={cn(styles.component, className)} data-test-id={dataTestId} {...restProps}>
-            <tr className={cn(styles.row, rowClassName)}>{children}</tr>
-        </thead>
-    );
-};
+}) => (
+    <thead className={cn(styles.component, className)} data-test-id={dataTestId} {...restProps}>
+        <tr className={cn(styles.row, rowClassName)}>{children}</tr>
+    </thead>
+);

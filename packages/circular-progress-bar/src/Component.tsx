@@ -1,5 +1,6 @@
+import React, { ElementType, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
-import React, { ReactNode, useMemo, ElementType } from 'react';
+
 import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
@@ -197,33 +198,28 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     const subtitleContent = subtitleComplete && isComplete ? subtitleComplete : subtitle;
     const IconComponent = IconComplete && isComplete ? IconComplete : Icon;
 
-    const renderTitleString = () => {
-        return (
-            <React.Fragment>
-                {SIZES[size] > 64 ? (
-                    <Typography.TitleMobile
-                        className={cn(styles.typography, styles.title)}
-                        color={isCompleteTextColor ? completeTextColor : contentColor}
-                        tag='div'
-                        font='system'
-                        view={VIEW_TITLE[size]}
-                    >
-                        {titleContent}
-                    </Typography.TitleMobile>
-                ) : (
-                    <Typography.Text
-                        className={styles.title}
-                        color={isCompleteTextColor ? completeTextColor : contentColor}
-                        tag='div'
-                        weight='bold'
-                        view={VIEW_TEXT[size]}
-                    >
-                        {titleContent}
-                    </Typography.Text>
-                )}
-            </React.Fragment>
+    const renderTitleString = () =>
+        SIZES[size] > 64 ? (
+            <Typography.TitleMobile
+                className={cn(styles.typography, styles.title)}
+                color={isCompleteTextColor ? completeTextColor : contentColor}
+                tag='div'
+                font='system'
+                view={VIEW_TITLE[size]}
+            >
+                {titleContent}
+            </Typography.TitleMobile>
+        ) : (
+            <Typography.Text
+                className={styles.title}
+                color={isCompleteTextColor ? completeTextColor : contentColor}
+                tag='div'
+                weight='bold'
+                view={VIEW_TEXT[size]}
+            >
+                {titleContent}
+            </Typography.Text>
         );
-    };
 
     const renderTitle = () => (typeof title === 'string' ? renderTitleString() : titleContent);
 
@@ -241,23 +237,21 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             subtitleContent
         );
 
-    const renderIcon = () => {
-        return (
-            <span
-                className={cn(
-                    styles.iconWrapper,
-                    styles[size],
-                    styles.tertiary,
-                    styles[`icon-${contentColor}`],
-                    {
-                        [styles[`icon-${completeIconColor}`]]: completeIconColor,
-                    },
-                )}
-            >
-                {IconComponent && <IconComponent className={styles.icon} />}
-            </span>
-        );
-    };
+    const renderIcon = () => (
+        <span
+            className={cn(
+                styles.iconWrapper,
+                styles[size],
+                styles.tertiary,
+                styles[`icon-${contentColor}`],
+                {
+                    [styles[`icon-${completeIconColor}`]]: completeIconColor,
+                },
+            )}
+        >
+            {IconComponent && <IconComponent className={styles.icon} />}
+        </span>
+    );
 
     const renderContent = () =>
         Icon || (IconComplete && isComplete) ? (

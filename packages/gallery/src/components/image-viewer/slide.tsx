@@ -3,10 +3,38 @@ import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { ImageMeta, GalleryImage } from '../../types';
+import { GalleryImage, ImageMeta } from '../../types';
 import { getImageAlt, isSmallImage, TestIds } from '../../utils';
 
 import styles from './index.module.css';
+
+type SlideInnerProps = {
+    active: boolean;
+    broken: boolean;
+    withPlaceholder: boolean;
+    loading: boolean;
+    children: ReactNode;
+};
+
+const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceholder }) => {
+    const content = broken ? (
+        <div className={styles.brokenImgWrapper}>
+            <div className={styles.brokenImgIcon} />
+
+            <Typography.Text view='primary-small' color='secondary'>
+                Не удалось загрузить изображение
+            </Typography.Text>
+        </div>
+    ) : (
+        children
+    );
+
+    return (
+        <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
+            {withPlaceholder ? <div className={styles.placeholder}>{content}</div> : content}
+        </div>
+    );
+};
 
 type SlideProps = {
     isActive: boolean;
@@ -54,7 +82,7 @@ export const Slide: FC<SlideProps> = ({
                     [styles.verticalImageFit]: verticalImageFit,
                     [styles.horizontalImageFit]: horizontalImageFit,
                 })}
-                onLoad={event => handleLoad(event, index)}
+                onLoad={(event) => handleLoad(event, index)}
                 onError={() => handleLoadError(index)}
                 style={{
                     maxHeight: `${swiperHeight}px`,
@@ -62,33 +90,5 @@ export const Slide: FC<SlideProps> = ({
                 data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
             />
         </SlideInner>
-    );
-};
-
-type SlideInnerProps = {
-    active: boolean;
-    broken: boolean;
-    withPlaceholder: boolean;
-    loading: boolean;
-    children: ReactNode;
-};
-
-const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceholder }) => {
-    const content = broken ? (
-        <div className={styles.brokenImgWrapper}>
-            <div className={styles.brokenImgIcon} />
-
-            <Typography.Text view='primary-small' color='secondary'>
-                Не удалось загрузить изображение
-            </Typography.Text>
-        </div>
-    ) : (
-        children
-    );
-
-    return (
-        <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
-            {withPlaceholder ? <div className={styles.placeholder}>{content}</div> : content}
-        </div>
     );
 };

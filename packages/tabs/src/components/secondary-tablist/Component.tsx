@@ -1,9 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
+
 import { Tag } from '@alfalab/core-components-tag';
-import { ScrollableContainer } from '../scrollable-container';
+
 import { SecondaryTabListProps, Styles } from '../../typings';
 import { useTabs } from '../../useTabs';
+import { ScrollableContainer } from '../scrollable-container';
 
 export const SecondaryTabList = ({
     styles = {},

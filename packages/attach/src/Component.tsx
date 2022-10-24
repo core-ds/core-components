@@ -1,20 +1,22 @@
 import React, {
-    InputHTMLAttributes,
     ButtonHTMLAttributes,
-    useState,
-    useRef,
     ChangeEvent,
-    useEffect,
+    InputHTMLAttributes,
     MouseEvent,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
+
 import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
+import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 import { PaperclipSIcon } from '@alfalab/icons-glyph/PaperclipSIcon';
 import { pluralize } from '@alfalab/utils';
+
 import { truncateFilename } from './utils';
 
 import styles from './index.module.css';
@@ -189,7 +191,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             files.length === 1 ? (
                 truncateFilename(files[0].name, maxFilenameLength)
             ) : (
-                <abbr title={files.map(file => file.name).join()}>
+                <abbr title={files.map((file) => file.name).join()}>
                     {files.length} {pluralize(files.length, ...MULTIPLE_TEXTS)}
                 </abbr>
             );

@@ -1,11 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Typography, Color } from '@alfalab/core-components-typography';
-
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
-import { AmountProps as AmountType } from '../typesProps';
+import { Color, Typography } from '@alfalab/core-components-typography';
+
 import { getDataTestId } from '../../../../utils/getDataTestId';
+import { AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
 
@@ -23,22 +23,20 @@ export const AmountTitle: React.FC<Props> = ({
     color = 'primary',
     dataTestId,
     ...restProps
-}) => {
-    return (
-        <Typography.Title
-            tag='h4'
-            view='small'
-            dataTestId={getDataTestId(dataTestId, 'amount-title')}
-            className={styles.component}
-            color={color}
-        >
-            <CoreAmount
-                minority={minority || minorUnits}
-                className={cn(styles.weight, className)}
-                dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
-                {...restProps}
-                bold='none'
-            />
-        </Typography.Title>
-    );
-};
+}) => (
+    <Typography.Title
+        tag='h4'
+        view='small'
+        dataTestId={getDataTestId(dataTestId, 'amount-title')}
+        className={styles.component}
+        color={color}
+    >
+        <CoreAmount
+            minority={minority || minorUnits}
+            className={cn(styles.weight, className)}
+            dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
+            {...restProps}
+            bold='none'
+        />
+    </Typography.Title>
+);

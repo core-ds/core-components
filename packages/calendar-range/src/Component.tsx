@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { CalendarInputProps } from '@alfalab/core-components-calendar-input';
 
 import { CalendarRangePopover } from './views/popover';
@@ -102,5 +103,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     ...restProps
 }) => {
     const View = calendarPosition === 'popover' ? CalendarRangePopover : CalendarRangeStatic;
+
     return <View {...restProps} />;
 };

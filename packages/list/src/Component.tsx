@@ -1,5 +1,5 @@
-import cn from 'classnames';
 import React, { Children, ReactNode } from 'react';
+import cn from 'classnames';
 
 import styles from './index.module.css';
 
@@ -56,7 +56,7 @@ export const List: React.FC<ListProps> = ({
 
     return (
         <Component className={listClassNames} data-test-id={dataTestId}>
-            {Children.map(children, child => (
+            {Children.map(children, (child) => (
                 <li className={itemClassNames}>
                     {Component !== 'ol' && <div className={styles.slot}>{markerType}</div>}
                     {child}

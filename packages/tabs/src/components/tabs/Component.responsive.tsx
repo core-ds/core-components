@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { TabsProps } from '../../typings';
 import { PrimaryTabListResponsive } from '../primary-tablist/Component.responsive';
 import { SecondaryTabListResponsive } from '../secondary-tablist/Component.responsive';
+
 import { Tabs } from './Component';
 
 const views = {

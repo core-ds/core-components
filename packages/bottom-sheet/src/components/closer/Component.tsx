@@ -1,8 +1,9 @@
 import React, { ButtonHTMLAttributes, ElementType, useCallback, useContext } from 'react';
 import cn from 'classnames';
+
+import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
-import { BaseModalContext } from '@alfalab/core-components-base-modal';
 
 import styles from './index.module.css';
 

@@ -1,7 +1,7 @@
-import { ChartProps } from './chart.types';
-import { LabelListProps } from './labelList.types';
 import { DataProps } from './utils/data.types';
 import { GradientProps } from './utils/gradient.types';
+import { ChartProps } from './chart.types';
+import { LabelListProps } from './labelList.types';
 
 export type RadiusProp = {
     top?: number;

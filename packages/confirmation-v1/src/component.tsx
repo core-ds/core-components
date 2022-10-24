@@ -1,9 +1,10 @@
-import React, { forwardRef, useState, useRef, useEffect, useCallback, ReactNode } from 'react';
+import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
+
 import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
 
-import { SignConfirmation, Overlimit } from './components';
+import { Overlimit, SignConfirmation } from './components';
 
 import styles from './index.module.css';
 

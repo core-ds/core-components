@@ -1,24 +1,24 @@
 import React, {
     ChangeEvent,
+    FocusEvent,
+    forwardRef,
     useCallback,
     useEffect,
-    useState,
-    forwardRef,
-    FocusEvent,
     useRef,
+    useState,
 } from 'react';
+import mergeRefs from 'react-merge-refs';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
 
-import mergeRefs from 'react-merge-refs';
 import {
-    NATIVE_DATE_FORMAT,
-    parseDateString,
-    formatDate,
     format,
+    formatDate,
     isCompleteDateInput,
     isInputDateSupported,
     isValid,
+    NATIVE_DATE_FORMAT,
+    parseDateString,
 } from './utils';
 
 import styles from './index.module.css';

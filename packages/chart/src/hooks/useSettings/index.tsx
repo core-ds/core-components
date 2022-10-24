@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+
 import { OptionsProps } from '../../types/options.types';
 import { DataDynamicBooleanProps, DataDynamicProps } from '../../types/utils/data.types';
 
@@ -38,6 +39,7 @@ export const useSettings = (options: OptionsProps): Settings => {
 
         settings.series = setGradientCharts(series);
         const [initData, chartsNames, count] = setDatas(settings.series, labels);
+
         settings.composeChart.margin = setComposedChartsMargin(composeChart, legend, brush, xAxis);
         settings.series = sortByIndex(settings.series);
 

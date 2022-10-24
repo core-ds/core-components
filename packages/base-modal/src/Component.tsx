@@ -1,29 +1,27 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, {
-    useCallback,
-    useRef,
-    useState,
+    FC,
     forwardRef,
-    MouseEvent,
     KeyboardEvent,
+    MouseEvent,
+    MutableRefObject,
     ReactNode,
+    Ref,
+    useCallback,
     useEffect,
     useMemo,
-    Ref,
-    FC,
-    MutableRefObject,
+    useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
+import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
-import FocusLock from 'react-focus-lock';
-// TODO Без полифила крашится FocusLock в IE11. Выпилить в будущем!!!.
-import './matches-polyfill';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
+import cn from 'classnames';
 
-import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
+import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import {
@@ -36,6 +34,9 @@ import {
 } from './utils';
 
 import styles from './index.module.css';
+
+// TODO Без полифила крашится FocusLock в IE11. Выпилить в будущем!!!.
+import './matches-polyfill';
 
 export type BaseModalProps = {
     /**
@@ -192,6 +193,7 @@ export type BaseModalContext = {
     onClose: Required<BaseModalProps>['onClose'];
 };
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const BaseModalContext = React.createContext<BaseModalContext>({
     hasFooter: false,
     hasHeader: false,
@@ -249,13 +251,14 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const wrapperRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
-        const restoreContainerStylesRef = useRef<null | Function>(null);
+        const restoreContainerStylesRef = useRef<null | (() => void)>(null);
         const mouseDownTarget = useRef<HTMLElement>();
         const resizeObserverRef = useRef<ResizeObserver>();
 
         const checkToHasScrollBar = () => {
             if (scrollableNodeRef.current) {
                 const scrollExists = hasScrollbar(scrollableNodeRef.current);
+
                 setFooterHighlighted(scrollExists);
                 setHasScroll(scrollExists);
             }
@@ -264,9 +267,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const isExited = exited || exited === null;
         const shouldRender = keepMounted || open || !isExited;
 
-        const getContainer = useCallback(() => {
-            return (container ? container() : document.body) as HTMLElement;
-        }, [container]);
+        const getContainer = useCallback(
+            () => (container ? container() : document.body) as HTMLElement,
+            [container],
+        );
 
         const addResizeHandle = useCallback(() => {
             if (!resizeObserverRef.current) return;
@@ -336,6 +340,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             if (event.clientX && clientWidth) {
                 // Устанавливаем смещение для абсолютно спозиционированного скроллбара в OSX в 17px.
                 const offset = getScrollbarSize() === 0 ? 17 : 0;
+
                 clickedOnScrollbar = event.clientX + offset > clientWidth;
             }
 
@@ -379,6 +384,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const getScrollHandler = useCallback(() => {
             if (scrollHandler === 'wrapper') return wrapperRef.current;
             if (scrollHandler === 'content') return componentNodeRef.current;
+
             return scrollHandler.current || wrapperRef.current;
         }, [scrollHandler]);
 
@@ -403,7 +409,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         const handleExited: Required<TransitionProps>['onExited'] = useCallback(
-            node => {
+            (node) => {
                 removeResizeHandle();
 
                 setExited(true);
@@ -489,7 +495,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         return (
             <Stack value={zIndex}>
-                {computedZIndex => (
+                {(computedZIndex) => (
                     <Portal getPortalContainer={container} immediateMount={true}>
                         <BaseModalContext.Provider value={contextValue}>
                             <FocusLock

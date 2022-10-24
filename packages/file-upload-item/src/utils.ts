@@ -1,8 +1,8 @@
 import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
+import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { DocumentTxtMIcon } from '@alfalab/icons-glyph/DocumentTxtMIcon';
 import { DocumentUnknownMIcon } from '@alfalab/icons-glyph/DocumentUnknownMIcon';
-import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
 
 export function humanFileSize(size: string | number) {
     const units = ['B', 'KB', 'MB', 'GB'];
@@ -20,11 +20,7 @@ export function humanFileSize(size: string | number) {
     return `${Number(humanSize)} ${units[factor]}`;
 }
 
-export const getExtension = (filename: string) =>
-    filename
-        .toLowerCase()
-        .split('.')
-        .pop();
+export const getExtension = (filename: string) => filename.toLowerCase().split('.').pop();
 
 export function fileIcon(filename: string) {
     const extension = getExtension(filename);

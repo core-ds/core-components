@@ -1,4 +1,4 @@
-import { cloneElement, ReactElement, FC, useCallback, useMemo } from 'react';
+import { cloneElement, FC, ReactElement, useCallback, useMemo } from 'react';
 import cn from 'classnames';
 
 import { NotificationProps as CoreNotificationProps } from '@alfalab/core-components-notification';

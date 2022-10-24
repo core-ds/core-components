@@ -1,12 +1,11 @@
 import React, { forwardRef, KeyboardEvent, MouseEvent, ReactNode, useRef } from 'react';
+import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
-import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
+import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
-
-import cn from 'classnames';
 
 import styles from './index.module.css';
 
@@ -93,7 +92,9 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
 
             if (isKeyBoardEvent(event)) {
                 const clickSimilarKeys = ['Enter'].includes(event.key);
+
                 if (clickSimilarKeys) onClear();
+
                 return;
             }
 

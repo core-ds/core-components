@@ -1,11 +1,11 @@
 import React, { HTMLAttributes, useEffect, useRef } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import SimpleBar from 'simplebar/src/simplebar';
+import cn from 'classnames';
 import throttle from 'lodash.throttle';
+import SimpleBar from 'simplebar/src/simplebar';
 
-import styles from './index.module.css';
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStylesMap = {

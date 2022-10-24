@@ -1,8 +1,11 @@
 import React, { ElementType, FC } from 'react';
 import cn from 'classnames';
+
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
-import { Header, HeaderProps } from './Component';
+
 import { Closer } from '../closer/Component';
+
+import { Header, HeaderProps } from './Component';
 
 import styles from './desktop.module.css';
 

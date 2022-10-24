@@ -1,10 +1,10 @@
 import React, { forwardRef, RefAttributes, useCallback, useEffect, useRef } from 'react';
 import cn from 'classnames';
+
 import { Button } from '@alfalab/core-components-button';
 
-import { OptionShape, OptionsListProps } from '../../../typings';
 import { OptionsList as DefaultOptionsList } from '../../../components';
-
+import { OptionShape, OptionsListProps } from '../../../typings';
 import { SELECT_ALL_KEY } from '../hook';
 
 import styles from './index.module.css';

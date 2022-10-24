@@ -1,9 +1,11 @@
 import React from 'react';
-import { Modal } from '@alfalab/core-components-modal/dist/esm';
+
+import { Alert as CoreAlert } from '@alfalab/core-components-alert/dist/esm';
 import { Button } from '@alfalab/core-components-button/dist/cssm';
 import { Calendar, CalendarMobile } from '@alfalab/core-components-calendar/dist/modern';
-import { Alert as CoreAlert } from '@alfalab/core-components-alert/dist/esm';
+import { Modal } from '@alfalab/core-components-modal/dist/esm';
 import { Plate } from '@alfalab/core-components-plate';
+
 import { OtherComponent } from '../OtherComponent';
 
 export const Component = () => {

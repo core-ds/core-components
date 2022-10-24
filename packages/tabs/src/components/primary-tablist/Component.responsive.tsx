@@ -1,8 +1,11 @@
 import React from 'react';
+
 import { useMedia } from '@alfalab/hooks';
+
+import { TabListProps, TabsMatchMedia } from '../../typings';
+
 import { PrimaryTabListDesktop } from './Component.desktop';
 import { PrimaryTabListMobile } from './Component.mobile';
-import { TabListProps, TabsMatchMedia } from '../../typings';
 
 export const PrimaryTabListResponsive = ({
     size,

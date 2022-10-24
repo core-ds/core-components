@@ -1,12 +1,12 @@
-import { useMedia } from '@alfalab/hooks';
 import React, { FC, forwardRef, useContext, useMemo } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { useMedia } from '@alfalab/hooks';
 
+import { Closer } from './components/closer/Component';
 import { ModalDesktop, ModalDesktopProps } from './Component.desktop';
 import { ModalMobile, ModalMobileProps } from './Component.mobile';
-import { Closer } from './components/closer/Component';
 
 export type ModalResponsiveProps = ModalMobileProps &
     ModalDesktopProps & {
@@ -23,6 +23,7 @@ type ResponsiveContext = {
     view?: View;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 const ResponsiveContext = React.createContext<ResponsiveContext>({
     view: 'desktop',
 });

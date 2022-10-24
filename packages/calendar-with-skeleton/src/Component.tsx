@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
+import cn from 'classnames';
 
-import { Skeleton } from '@alfalab/core-components-skeleton';
 import { Calendar, CalendarProps } from '@alfalab/core-components-calendar';
+import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import styles from './index.module.css';
 

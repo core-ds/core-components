@@ -1,19 +1,18 @@
 import React, { FC, KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
 
-import { ImagePreview } from '../image-preview';
-import styles from './index.module.css';
-
-import { getImageKey, TestIds } from '../../utils';
 import { GalleryContext } from '../../context';
+import { getImageKey, TestIds } from '../../utils';
+import { ImagePreview } from '../image-preview';
+
+import styles from './index.module.css';
 
 const MIN_SCROLL_STEP = 24;
 
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper } = useContext(
-        GalleryContext,
-    );
+    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper } =
+        useContext(GalleryContext);
 
     const swiper = getSwiper();
 
@@ -52,7 +51,7 @@ export const NavigationBar: FC = () => {
         [scroll],
     );
 
-    const handleKeyDown: KeyboardEventHandler = event => {
+    const handleKeyDown: KeyboardEventHandler = (event) => {
         if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
             event.preventDefault();
         }

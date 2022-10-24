@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
-import { getDataTestId } from '../../../../utils/getDataTestId';
 
+import { getDataTestId } from '../../../../utils/getDataTestId';
 import { AddonElement } from '../types';
 
 import styles from './index.module.css';

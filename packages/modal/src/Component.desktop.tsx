@@ -1,12 +1,13 @@
 import React, { cloneElement, forwardRef, isValidElement, useCallback, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
-import mergeRefs from 'react-merge-refs';
-import { HeaderDesktop } from './components/header/Component.desktop';
+
+import { Closer } from './components/closer/Component';
 import { ContentDesktop } from './components/content/Component.desktop';
 import { FooterDesktop } from './components/footer/Component.desktop';
-import { Closer } from './components/closer/Component';
+import { HeaderDesktop } from './components/header/Component.desktop';
 
 import styles from './desktop.module.css';
 import transitions from './transitions.module.css';
@@ -65,6 +66,7 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
 
                     if (content) {
                         const { marginTop } = window.getComputedStyle(content);
+
                         content.style.marginTop = marginTop;
                     }
                 }
@@ -94,7 +96,7 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
                     onEntered: handleEntered,
                 }}
             >
-                {React.Children.map(children, child =>
+                {React.Children.map(children, (child) =>
                     isValidElement(child) ? cloneElement(child, { size: componentSize }) : child,
                 )}
             </BaseModal>

@@ -1,16 +1,17 @@
-import React, { ChangeEvent, forwardRef, useCallback, useState, useRef } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback, useRef, useState } from 'react';
+
 import {
-    BaseSelectProps,
-    OptionsList as DefaultOptionsList,
-    Option as DefaultOption,
-    Optgroup as DefaultOptgroup,
-    BaseSelect,
     Arrow as DefaultArrow,
+    BaseSelect,
+    BaseSelectProps,
+    Optgroup as DefaultOptgroup,
+    Option as DefaultOption,
+    OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select';
 
 import { TagList } from './components';
-import { filterOptions } from './utils';
 import { SelectWithTagsProps } from './types';
+import { filterOptions } from './utils';
 
 export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
     (
@@ -60,7 +61,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             (deletedKey: string) => {
                 let tags = selected || selectedTags;
 
-                tags = tags.filter(tag => {
+                tags = tags.filter((tag) => {
                     const key = typeof tag === 'string' ? tag : tag.key;
 
                     return deletedKey !== key;
@@ -95,8 +96,9 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         );
 
         const handleOpen = useCallback<Required<BaseSelectProps>['onOpen']>(
-            payload => {
+            (payload) => {
                 const { open } = payload;
+
                 if (!open && value) {
                     resetValue();
                 }

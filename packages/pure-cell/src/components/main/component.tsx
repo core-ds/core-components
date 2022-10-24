@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { PureCellContext } from '../../component';
 import { getDataTestId } from '../../../../utils/getDataTestId';
+import { PureCellContext } from '../../component';
 import { MainElement } from '../types';
 
 import styles from './index.module.css';

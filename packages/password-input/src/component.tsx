@@ -1,7 +1,8 @@
 import React, { forwardRef, useCallback, useState } from 'react';
 import cn from 'classnames';
-import { Input, InputProps } from '@alfalab/core-components-input';
+
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { Input, InputProps } from '@alfalab/core-components-input';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { EyeOffMIcon } from '@alfalab/icons-glyph/EyeOffMIcon';
 
@@ -45,7 +46,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             }
 
             if (uncontrolled) {
-                setStatePasswordVisible(visible => !visible);
+                setStatePasswordVisible((visible) => !visible);
             }
         }, [passwordVisible, uncontrolled, onPasswordVisibleChange]);
 

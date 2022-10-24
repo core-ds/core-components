@@ -2,11 +2,10 @@ import React, { FC, MutableRefObject } from 'react';
 
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 import { Tooltip } from '@alfalab/core-components-tooltip';
-
-import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
-import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
+import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
 
 type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;
@@ -47,7 +46,7 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
     </Tooltip>
 );
 
-export const Download: FC<Props> = props => (
+export const Download: FC<Props> = (props) => (
     <Tooltip
         trigger='hover'
         position='bottom'
@@ -58,6 +57,6 @@ export const Download: FC<Props> = props => (
     </Tooltip>
 );
 
-export const Exit: FC<Props> = props => (
+export const Exit: FC<Props> = (props) => (
     <IconButton {...props} icon={CrossMIcon} colors='inverted' aria-label='Закрыть' />
 );

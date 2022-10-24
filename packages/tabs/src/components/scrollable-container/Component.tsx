@@ -2,8 +2,9 @@ import React, { ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 import computeScrollIntoView from 'compute-scroll-into-view';
 
-import styles from './index.module.css';
 import { TabsProps } from '../../typings';
+
+import styles from './index.module.css';
 
 /**
  * Дополнительная прокрутка при клике на не поместившийся таб

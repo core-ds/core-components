@@ -1,17 +1,19 @@
 /* eslint-disable complexity */
 import React, { FC, RefCallback, useCallback, useRef } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
 import isEqual from 'date-fns/isEqual';
 import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
 import isSameDay from 'date-fns/isSameDay';
 import isToday from 'date-fns/isToday';
 import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfMonth from 'date-fns/startOfMonth';
+
+import { Button } from '@alfalab/core-components-button';
 import { usePrevious } from '@alfalab/hooks';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { WEEKDAYS, getSelectionRange, russianWeekDay } from '../../utils';
+
 import { Day } from '../../typings';
+import { getSelectionRange, russianWeekDay, WEEKDAYS } from '../../utils';
 
 import styles from './index.module.css';
 
@@ -49,9 +51,7 @@ export type DaysTableProps = {
     /**
      * Доп. пропсы для переданного дня
      */
-    getDayProps: (
-        day: Day,
-    ) => Record<string, unknown> & {
+    getDayProps: (day: Day) => Record<string, unknown> & {
         ref: RefCallback<HTMLTableDataCellElement>;
         onClick: (e: React.MouseEvent<HTMLTableDataCellElement>) => void;
     };
@@ -90,7 +90,7 @@ export const DaysTable: FC<DaysTableProps> = ({
 
     const renderHeader = useCallback(
         () =>
-            WEEKDAYS.map(dayName => (
+            WEEKDAYS.map((dayName) => (
                 <th className={styles.dayName} key={dayName}>
                     {dayName}
                 </th>
@@ -160,7 +160,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                     [styles.cursorPointer]: !day.disabled,
                 })}
                 align='center'
-                ref={node => {
+                ref={(node) => {
                     /**
                      * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
                      * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.

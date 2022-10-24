@@ -3,9 +3,9 @@ import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { NavigationBar, Header, ImageViewer } from './components';
-import { GalleryImage, ImageMeta } from './types';
+import { Header, ImageViewer, NavigationBar } from './components';
 import { GalleryContext } from './context';
+import { GalleryImage, ImageMeta } from './types';
 
 import styles from './index.module.css';
 
@@ -143,6 +143,7 @@ export const Gallery: FC<GalleryProps> = ({
 
     const showNavigationBar = !singleSlide && !fullScreen;
 
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     const galleryContext: GalleryContext = {
         singleSlide,
         currentSlideIndex,
