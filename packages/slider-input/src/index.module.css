@@ -42,15 +42,18 @@
     }
 
     & :global(.noUi-base) {
-        background-color: var(--slider-input-progress-bg-color);
         border-radius: var(--slider-input-progress-border-radius);
     }
+
     & :global(.noUi-base):hover {
-        background-color: var(--slider-input-progress-hover-bg-color);
+        & > :global(.noUi-connects) {
+            background-color: var(--slider-input-progress-hover-bg-color);
+        }
     }
 
     & :global(.noUi-connects) {
         border-radius: var(--slider-input-progress-border-radius);
+        background-color: var(--slider-input-progress-bg-color);
     }
 
     & :global(.noUi-origin) {
