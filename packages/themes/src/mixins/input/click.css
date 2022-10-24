@@ -1,8 +1,6 @@
 @define-mixin input-click {
     /* theme */
-    --input-error-icon-display: none;
-    --input-error-icon-not-alone-display: none;
-    --input-success-icon-display: none;
     --input-disabled-color: var(--color-light-text-primary);
     --input-inverted-disabled-color: var(--color-light-text-primary-inverted);
+    --input-success-icon-display: none;
 }

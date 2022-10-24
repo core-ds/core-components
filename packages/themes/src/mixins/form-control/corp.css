@@ -1,4 +1,4 @@
-@define-mixin form-control-site {
+@define-mixin form-control-corp {
     /* theme */
     --form-control-s-border-radius: 4px 4px 0 0;
     --form-control-m-border-radius: 4px 4px 0 0;
@@ -13,7 +13,6 @@
     /* focus */
     --form-control-focus-shadow: none;
     --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
-    --form-control-inverted-focus-bg-color: var(--color-light-specialbg-component-inverted-tint-15);
     --form-control-focus-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
     --form-control-inverted-focus-border-bottom: 1px solid var(--color-light-border-key-inverted);
     --form-control-inverted-focus-shadow: none;

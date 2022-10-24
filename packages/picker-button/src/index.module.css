@@ -6,7 +6,7 @@
 
 :global(.cc-picker-button) {
     &.optionsPopover {
-        padding: var(--gap-xs) 0;
+        padding: var(--gap-2xs) 0;
 
         &.sideGap {
             padding: 0 var(--gap-xs);
@@ -14,7 +14,7 @@
     }
 
     & .optionsListContainer {
-        border-radius: var(--border-radius-s);
+        border-radius: var(--border-radius-m);
     }
 
     & .option {

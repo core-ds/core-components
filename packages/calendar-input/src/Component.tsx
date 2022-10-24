@@ -430,7 +430,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         })}
                         className={popoverClassName}
                         position={popoverPosition}
-                        offset={[0, 8]}
+                        offset={[0, 4]}
                         withTransition={false}
                         preventFlip={preventFlip}
                         zIndex={zIndexPopover}
