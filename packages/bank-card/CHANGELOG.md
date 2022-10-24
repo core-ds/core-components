@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.2.3
+
+### Patch Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+-   Обновлены зависимости
+    -   masked-input@6.0.0
+
 ## 5.2.2
 
 ### Patch Changes

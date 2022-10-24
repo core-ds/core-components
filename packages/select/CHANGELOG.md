@@ -1,5 +1,23 @@
 # Change Log
 
+## 13.0.0
+
+### Major Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.0
+    -   bottom-sheet@5.1.6
+    -   modal@6.0.10
+    -   input@11.0.0
+    -   form-control@9.0.0
+
 ## 12.4.7
 
 ### Patch Changes
