@@ -159,6 +159,20 @@
     }
 }
 
+/* Убирает нативные стрелочки при type=number */
+
+.input {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+        -moz-appearance: textfield;
+    }
+}
+
 @keyframes onautofillstart {
     from {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
