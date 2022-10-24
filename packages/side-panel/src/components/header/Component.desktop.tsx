@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { ElementType, FC } from 'react';
 import cn from 'classnames';
+import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { Header, HeaderProps } from './Component';
 import { Closer } from '../closer/Component';
 
@@ -15,6 +16,11 @@ export type HeaderDesktopProps = Omit<HeaderProps, 'closer'> & {
      * Наличие крестика
      */
     hasCloser?: boolean;
+
+    /**
+     * Иконка closer.
+     */
+    closerIcon?: ElementType;
 };
 
 export const HeaderDesktop: FC<HeaderDesktopProps> = ({
@@ -22,6 +28,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     className,
     contentClassName,
     hasCloser = true,
+    closerIcon = CrossHeavyMIcon,
     sticky,
     leftAddons = <span />,
     title,
@@ -37,7 +44,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
                 [styles.hasContent]: hasContent,
             })}
             contentClassName={cn(styles.content, contentClassName)}
-            closer={hasCloser ? <Closer /> : null}
+            closer={hasCloser ? <Closer icon={closerIcon} /> : null}
             leftAddons={leftAddons}
             sticky={sticky}
             title={title}
