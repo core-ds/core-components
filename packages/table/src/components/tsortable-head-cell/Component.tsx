@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
 import { THeadCell, THeadCellProps } from '../thead-cell';
 
 import { SortIconAsc } from './sort-icon-asc';
 import { SortIconDesc } from './sort-icon-desc';
 import { SortIconUnset } from './sort-icon-unset';
+
+import styles from './index.module.css';
 
 export type TSortableHeadCellProps = THeadCellProps & {
     isSortedDesc?: boolean;

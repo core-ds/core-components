@@ -1,19 +1,20 @@
 import React, { forwardRef, MouseEvent, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
+import endOfDay from 'date-fns/endOfDay';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
-import endOfDay from 'date-fns/endOfDay';
+
 import { useDidUpdateEffect } from '@alfalab/hooks';
 
-import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
+import { Header } from './components/header';
+import { MonthYearHeader } from './components/month-year-header';
 import { MonthsTable } from './components/months-table';
-import { YearsTable } from './components/years-table';
 import { PeriodSlider } from './components/period-slider';
+import { YearsTable } from './components/years-table';
+import { SelectorView,View } from './typings';
 import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
-import { View, SelectorView } from './typings';
-import { MonthYearHeader } from './components/month-year-header';
 
 import styles from './index.module.css';
 
@@ -260,6 +261,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
         useDidUpdateEffect(() => {
             const newMonth = value && startOfMonth(value);
+
             if (newMonth && newMonth.getTime() !== activeMonth.getTime()) {
                 setMonthByDate(newMonth);
             }

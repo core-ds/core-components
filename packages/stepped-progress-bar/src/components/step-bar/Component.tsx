@@ -1,8 +1,9 @@
 import React, { FC, memo } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
 import { SteppedProgressBarView } from '../../Component';
+
+import styles from './index.module.css';
 
 type StepBarProps = {
     isDone: boolean;

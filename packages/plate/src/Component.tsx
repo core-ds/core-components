@@ -1,20 +1,22 @@
 import React, {
     forwardRef,
-    useCallback,
-    useState,
-    ReactNode,
-    MouseEvent,
-    useRef,
-    ReactElement,
     KeyboardEvent,
+    MouseEvent,
+    ReactElement,
+    ReactNode,
+    useCallback,
+    useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { useFocus } from '@alfalab/hooks';
+import cn from 'classnames';
+
 import { Button, ComponentProps as ButtonProps } from '@alfalab/core-components-button';
+import { useFocus } from '@alfalab/hooks';
+
+import { ButtonList } from './components/button-list/component';
 
 import styles from './index.module.css';
-import { ButtonList } from './components/button-list/component';
 
 export type PlateProps = {
     /**

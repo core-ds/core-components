@@ -1,19 +1,18 @@
 import React, {
     FC,
     KeyboardEventHandler,
-    useContext,
-    useRef,
-    SyntheticEvent,
-    useMemo,
-    useCallback,
     MouseEventHandler,
+    SyntheticEvent,
+    useCallback,
+    useContext,
     useEffect,
+    useMemo,
+    useRef,
 } from 'react';
-import SwiperCore, { A11y, EffectFade, Controller } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import cn from 'classnames';
 import elementClosest from 'element-closest';
-import 'swiper/swiper.min.css';
+import SwiperCore, { A11y, Controller,EffectFade } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useFocus } from '@alfalab/hooks';
 import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIcon';
@@ -21,8 +20,10 @@ import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHea
 
 import { GalleryContext } from '../../context';
 import { getImageAlt, getImageKey, TestIds } from '../../utils';
+
 import { Slide } from './slide';
 
+import 'swiper/swiper.min.css';
 import styles from './index.module.css';
 
 SwiperCore.use([EffectFade, A11y, Controller]);

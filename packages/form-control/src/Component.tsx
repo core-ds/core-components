@@ -1,8 +1,8 @@
-import React, { ReactNode, HTMLAttributes } from 'react';
+import React, { HTMLAttributes,ReactNode } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {

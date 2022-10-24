@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+
 import { TabProps } from '../../typings';
 
 import styles from './index.module.css';

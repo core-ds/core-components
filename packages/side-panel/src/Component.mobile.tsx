@@ -3,9 +3,9 @@ import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
-import { HeaderMobile } from './components/header/Component.mobile';
 import { ContentMobile } from './components/content/Component.mobile';
 import { FooterMobile } from './components/footer/Component.mobile';
+import { HeaderMobile } from './components/header/Component.mobile';
 
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
@@ -19,8 +19,7 @@ export type SidePanelMobileProps = BaseModalProps & {
 };
 
 const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps>(
-    ({ children, className, transitionProps, ...restProps }, ref) => {
-        return (
+    ({ children, className, transitionProps, ...restProps }, ref) => (
             <BaseModal
                 {...restProps}
                 ref={ref}
@@ -32,8 +31,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
             >
                 {children}
             </BaseModal>
-        );
-    },
+        ),
 );
 
 export const SidePanelMobile = Object.assign(SidePanelMobileComponent, {

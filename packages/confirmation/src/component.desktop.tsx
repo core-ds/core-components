@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { BaseConfirmation } from './components/base-confirmation';
 import { ConfirmationProps } from './types';
 

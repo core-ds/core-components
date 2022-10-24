@@ -1,16 +1,18 @@
 import React, { useContext, useEffect } from 'react';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
+
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
+import { Button } from '@alfalab/core-components-button';
 
 import { GroupShape, OptionShape, OptionsListProps } from '../../../typings';
-import { Optgroup as DefaultOptgroup } from '../../optgroup';
 import { isGroup } from '../../../utils';
+import { Optgroup as DefaultOptgroup } from '../../optgroup';
 
 import styles from './index.module.css';
 
 const createCounter = () => {
     let count = 0;
+
     // eslint-disable-next-line no-plusplus
     return () => count++;
 };

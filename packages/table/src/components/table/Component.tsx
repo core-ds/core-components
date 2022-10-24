@@ -1,8 +1,9 @@
-import React, { useMemo, TableHTMLAttributes, ReactNode, useRef, forwardRef } from 'react';
+import React, { forwardRef, ReactNode, TableHTMLAttributes, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
-import { findAllHeadCellsProps } from './utils';
 import { ColumnConfiguration, TableContext } from '../table-context';
+
+import { findAllHeadCellsProps } from './utils';
 
 import styles from './index.module.css';
 
@@ -70,6 +71,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
             [children],
         );
 
+        /* eslint-disable react/jsx-no-constructed-context-values */
         return (
             <TableContext.Provider
                 value={{

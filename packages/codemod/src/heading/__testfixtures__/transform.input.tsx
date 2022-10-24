@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Heading from 'arui-feather/heading';
 
 const someVar = false;

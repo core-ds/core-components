@@ -1,16 +1,16 @@
 /* eslint-disable no-param-reassign, no-shadow */
 import {
-    Transform,
-    JSXIdentifier,
-    StringLiteral,
     ASTPath,
-    JSXElement,
-    JSCodeshift,
-    JSXOpeningElement,
     FileInfo,
+    JSCodeshift,
+    JSXElement,
+    JSXIdentifier,
+    JSXOpeningElement,
+    StringLiteral,
+    Transform,
 } from 'jscodeshift';
 
-import { transformTypographyImports, renameAttribute, addStringAttribute, log } from '../utils';
+import { addStringAttribute, log,renameAttribute, transformTypographyImports } from '../utils';
 
 const sizes = {
     xs: 'xsmall',
@@ -172,6 +172,7 @@ const headingTransform: Transform = (fileInfo, api) => {
 
             if (closingElement) {
                 const closingElementName = closingElement.name as JSXIdentifier;
+
                 closingElementName.name = 'Typography.TitleResponsive';
             }
 

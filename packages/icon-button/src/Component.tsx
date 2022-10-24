@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 
-import styles from './index.module.css';
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {
@@ -50,8 +50,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (
         { className, icon: Icon, view = 'primary', size = 's', colors = 'default', ...restProps },
         ref,
-    ) => {
-        return (
+    ) => (
             <Button
                 {...restProps}
                 ref={ref}
@@ -65,6 +64,5 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                     <Icon className={styles.icon} />
                 </span>
             </Button>
-        );
-    },
+        ),
 );

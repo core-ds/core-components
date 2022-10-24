@@ -1,4 +1,4 @@
-import { JSCodeshift, Collection, JSXOpeningElement } from 'jscodeshift';
+import { Collection, JSCodeshift, JSXOpeningElement } from 'jscodeshift';
 
 type TransformTypographyImportOpts = {
     from: string;

@@ -1,13 +1,11 @@
 import React, { forwardRef } from 'react';
 
-import { BaseSelectMobile } from '../base-select-mobile';
-
-import { Field as DefaultField } from '../field';
-import { Arrow as DefaultArrow } from '../arrow';
-import { Option as DefaultOption } from '../option';
-import { Optgroup as DefaultOptgroup } from '../optgroup';
-
 import { BaseSelectProps } from '../../typings';
+import { Arrow as DefaultArrow } from '../arrow';
+import { BaseSelectMobile } from '../base-select-mobile';
+import { Field as DefaultField } from '../field';
+import { Optgroup as DefaultOptgroup } from '../optgroup';
+import { Option as DefaultOption } from '../option';
 
 export type SelectModalMobileProps = Omit<
     BaseSelectProps,
@@ -36,8 +34,7 @@ export const SelectModalMobile = forwardRef(
             ...restProps
         }: SelectModalMobileProps,
         ref,
-    ) => {
-        return (
+    ) => (
             <BaseSelectMobile
                 ref={ref}
                 autocomplete={autocomplete}
@@ -59,6 +56,5 @@ export const SelectModalMobile = forwardRef(
                 isBottomSheet={false}
                 {...restProps}
             />
-        );
-    },
+        ),
 );

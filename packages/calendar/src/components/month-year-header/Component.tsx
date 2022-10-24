@@ -1,8 +1,10 @@
 import React, { FC, MouseEvent } from 'react';
 import cn from 'classnames';
+
 import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
-import { SelectButton } from '../select-button';
+
 import { monthName } from '../../utils';
+import { SelectButton } from '../select-button';
 
 import styles from './index.module.css';
 

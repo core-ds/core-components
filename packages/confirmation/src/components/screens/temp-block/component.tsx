@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, Fragment, FC } from 'react';
+import React, { FC,Fragment, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { CountdownLoader } from '../../countdown-loader';
-import { Header } from '../../header';
-
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes, useCountdown } from '../../../utils';
+import { CountdownLoader } from '../../countdown-loader';
+import { Header } from '../../header';
 
 import styles from './index.module.css';
 

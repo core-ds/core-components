@@ -1,14 +1,13 @@
 import React, { forwardRef, ReactNode } from 'react';
 
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import { BaseSelectMobile } from '../base-select-mobile';
-
-import { Field as DefaultField } from '../field';
-import { Arrow as DefaultArrow } from '../arrow';
-import { Option as DefaultOption } from '../option';
-import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import { BaseSelectProps } from '../../typings';
+import { Arrow as DefaultArrow } from '../arrow';
+import { BaseSelectMobile } from '../base-select-mobile';
+import { Field as DefaultField } from '../field';
+import { Optgroup as DefaultOptgroup } from '../optgroup';
+import { Option as DefaultOption } from '../option';
 
 export type AdditionalMobileProps = {
     /**
@@ -54,8 +53,7 @@ export const SelectMobile = forwardRef(
             ...restProps
         }: SelectMobileProps,
         ref,
-    ) => {
-        return (
+    ) => (
             <BaseSelectMobile
                 ref={ref}
                 autocomplete={autocomplete}
@@ -77,6 +75,5 @@ export const SelectMobile = forwardRef(
                 isBottomSheet={true}
                 {...restProps}
             />
-        );
-    },
+        ),
 );

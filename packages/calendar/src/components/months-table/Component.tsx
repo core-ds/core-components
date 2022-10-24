@@ -2,9 +2,10 @@ import React, { FC, useCallback } from 'react';
 import cn from 'classnames';
 import isSameMonth from 'date-fns/isSameMonth';
 import isThisMonth from 'date-fns/isThisMonth';
-import { SelectButton, SelectButtonProps } from '../select-button';
-import { monthName } from '../../utils';
+
 import { Month } from '../../typings';
+import { monthName } from '../../utils';
+import { SelectButton, SelectButtonProps } from '../select-button';
 
 import styles from './index.module.css';
 
@@ -40,6 +41,7 @@ export const MonthsTable: FC<MonthsTableProps> = ({
         (month: Month): SelectButtonProps['view'] => {
             if (selectedMonth && isSameMonth(selectedMonth, month.date)) return 'selected';
             if (isThisMonth(month.date)) return 'outlined';
+
             return 'default';
         },
         [selectedMonth],

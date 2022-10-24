@@ -1,10 +1,10 @@
-import React, { HTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef,HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import { Color } from '../colors';
 
-import styles from './index.module.css';
 import colors from '../colors.module.css';
+import styles from './index.module.css';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
 

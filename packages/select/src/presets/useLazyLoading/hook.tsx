@@ -1,11 +1,14 @@
-import 'intersection-observer';
-
 import React, { Reducer, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
-import { Skeleton } from '@alfalab/core-components-skeleton';
+
 import { InputProps } from '@alfalab/core-components-input';
+import { Skeleton } from '@alfalab/core-components-skeleton';
+
 import { Option } from '../../components/option';
 import { OptionProps, OptionShape } from '../../typings';
+
 import styles from './index.module.css';
+
+import 'intersection-observer';
 
 const DEBOUNCE_TIMEOUT = 300;
 
@@ -14,6 +17,7 @@ type OptionsFetcherResponse = {
     hasMore: boolean;
 };
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 type useLazyLoadingProps = {
     /** Количество элементов на "странице" */
     limit?: number;
@@ -34,7 +38,7 @@ type useLazyLoadingProps = {
      *  hasMore - указывает, есть ли еще незагруженные элементы (в случае false перестает загружать "следующую страницу")
      * }>
      */
-    optionsFetcher<T>(
+    optionsFetcher(
         offset: number,
         limit: number,
         queryString?: string,
@@ -135,10 +139,8 @@ export function useLazyLoading({
         }
     };
 
-    const [
-        { opened, offset, options, loading, allOptionsLoaded, queryString },
-        dispatch,
-    ] = useReducer(lazyLoadingReducer, lazyLoadingInitialState);
+    const [{ opened, offset, options, loading, allOptionsLoaded, queryString }, dispatch] =
+        useReducer(lazyLoadingReducer, lazyLoadingInitialState);
 
     const abortFetchingOptionsRef = useRef<() => void>();
 
@@ -149,11 +151,11 @@ export function useLazyLoading({
             // eslint-disable-next-line no-unused-expressions
             abortFetchingOptionsRef.current?.();
             abortFetchingOptionsRef.current = reject;
-            optionsFetcher(offset, limit, queryString).then(res => {
+            optionsFetcher(offset, limit, queryString).then((res) => {
                 resolve(res);
             });
         })
-            .then(res => {
+            .then((res) => {
                 dispatch(actions.fetchOptionsSuccess(res));
                 abortFetchingOptionsRef.current = undefined;
             })
@@ -167,6 +169,7 @@ export function useLazyLoading({
 
     useEffect(() => {
         let observer: IntersectionObserver;
+
         if (opened && !loading && !allOptionsLoaded) {
             observer = new IntersectionObserver(
                 ([entry]) => {
@@ -265,15 +268,17 @@ export function useLazyLoading({
         [loading],
     );
 
-    const skeletonOptions: OptionShape[] = useMemo(() => {
-        return Array(loading ? limit : 0)
-            .fill(0)
-            .map((_, key) => ({
-                key: `loading-${key}`,
-                disabled: true,
-                content: skeleton,
-            }));
-    }, [loading, limit, skeleton]);
+    const skeletonOptions: OptionShape[] = useMemo(
+        () =>
+            Array(loading ? limit : 0)
+                .fill(0)
+                .map((_, key) => ({
+                    key: `loading-${key}`,
+                    disabled: true,
+                    content: skeleton,
+                })),
+        [loading, limit, skeleton],
+    );
 
     const reset = useCallback(() => {
         dispatch(actions.reset());

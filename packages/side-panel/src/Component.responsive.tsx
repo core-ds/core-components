@@ -1,11 +1,12 @@
-import { useMedia } from '@alfalab/hooks';
 import React, { FC, forwardRef, useContext, useMemo } from 'react';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
+import { useMedia } from '@alfalab/hooks';
+
+import { Closer } from './components/closer/Component';
 import { SidePanelDesktop } from './Component.desktop';
 import { SidePanelMobile } from './Component.mobile';
-import { Closer } from './components/closer/Component';
 
 export type SidePanelResponsiveProps = BaseModalProps &
     Pick<DrawerProps, 'contentTransitionProps' | 'placement' | 'nativeScrollbar'> & {
@@ -28,6 +29,7 @@ type ResponsiveContext = {
     view?: View;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 const ResponsiveContext = React.createContext<ResponsiveContext>({
     view: 'desktop',
 });

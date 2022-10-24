@@ -55,7 +55,7 @@ describe('Scrollbar | interactions tests', () => {
                 },
             });
         } catch (e) {
-            console.error(e.message);
+            console.error((e as Error).message);
 
             throw e;
         } finally {
@@ -88,7 +88,7 @@ describe('Scrollbar | interactions tests', () => {
                 },
             });
         } catch (e) {
-            console.error(e.message);
+            console.error((e as Error).message);
 
             throw e;
         } finally {

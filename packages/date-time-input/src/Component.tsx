@@ -9,19 +9,20 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { useMedia } from '@alfalab/hooks';
-import { Input, InputProps } from '@alfalab/core-components-input';
+import cn from 'classnames';
+
 import {
     Calendar as DefaultCalendar,
     CalendarMobile as DefaultCalendarMobile,
-    CalendarProps,
     CalendarMobileProps,
+    CalendarProps,
     dateInLimits,
 } from '@alfalab/core-components-calendar';
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { Input, InputProps } from '@alfalab/core-components-input';
+import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { useMedia } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import {

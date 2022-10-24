@@ -1,37 +1,37 @@
 import React, {
-    useRef,
-    useMemo,
-    useCallback,
-    MouseEvent,
+    FocusEvent,
     forwardRef,
     KeyboardEvent,
-    FocusEvent,
-    useEffect,
+    MouseEvent,
     ReactNode,
+    useEffect,
+    useMemo,
+    useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import {
-    useMultipleSelection,
     useCombobox,
+    useMultipleSelection,
     UseMultipleSelectionProps,
     UseMultipleSelectionState,
 } from 'downshift';
 
-import { Field as DefaultField } from '../field';
-import { Arrow as DefaultArrow } from '../arrow';
-import { Option as DefaultOption } from '../option';
-import { Optgroup as DefaultOptgroup } from '../optgroup';
-import { OptionsList } from './options-list';
+import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
+import { getDataTestId } from '../../../../utils/getDataTestId';
+import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
-import { getDataTestId } from '../../../../utils/getDataTestId';
+import { Arrow as DefaultArrow } from '../arrow';
+import { Field as DefaultField } from '../field';
+import { Optgroup as DefaultOptgroup } from '../optgroup';
+import { Option as DefaultOption } from '../option';
+
 import { Checkmark } from './checkmark';
-import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
+import { OptionsList } from './options-list';
 
 import styles from './index.module.css';
 
@@ -113,10 +113,10 @@ export const BaseSelectMobile = forwardRef(
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
-        const { flatOptions, selectedOptions } = useMemo(() => processOptions(options, selected), [
-            options,
-            selected,
-        ]);
+        const { flatOptions, selectedOptions } = useMemo(
+            () => processOptions(options, selected),
+            [options, selected],
+        );
 
         const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
 
@@ -124,7 +124,7 @@ export const BaseSelectMobile = forwardRef(
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
-            onSelectedItemsChange: changes => {
+            onSelectedItemsChange: (changes) => {
                 if (onChange) {
                     const { selectedItems = [] } = changes;
 
@@ -181,7 +181,7 @@ export const BaseSelectMobile = forwardRef(
             items: flatOptions,
             itemToString,
             defaultHighlightedIndex: -1,
-            onIsOpenChange: changes => {
+            onIsOpenChange: (changes) => {
                 if (onOpen) {
                     /**
                      *  Вызываем обработчик асинхронно.
@@ -294,37 +294,26 @@ export const BaseSelectMobile = forwardRef(
             }
         };
 
-        const getOptionProps = useCallback(
-            (option: OptionShape, index: number) => ({
-                ...(optionProps as object),
-                className: cn(styles.option, optionClassName),
-                innerProps: getItemProps({
-                    index,
-                    item: option,
-                    disabled: option.disabled,
-                    onMouseDown: (event: MouseEvent) => event.preventDefault(),
-                }),
-                multiple,
+        const getOptionProps = (option: OptionShape, index: number) => ({
+            ...(optionProps as object),
+            className: cn(styles.option, optionClassName),
+            innerProps: getItemProps({
                 index,
-                option,
-                size: optionsSize,
+                item: option,
                 disabled: option.disabled,
-                highlighted: index === highlightedIndex,
-                selected: selectedItems.includes(option),
-                dataTestId: getDataTestId(dataTestId, 'option'),
-                Checkmark: () => <Checkmark selected={selectedItems.includes(option)} />,
+                onMouseDown: (event: MouseEvent) => event.preventDefault(),
             }),
-            [
-                dataTestId,
-                getItemProps,
-                highlightedIndex,
-                multiple,
-                optionClassName,
-                optionProps,
-                optionsSize,
-                selectedItems,
-            ],
-        );
+            multiple,
+            index,
+            option,
+            size: optionsSize,
+            disabled: option.disabled,
+            highlighted: index === highlightedIndex,
+            selected: selectedItems.includes(option),
+            dataTestId: getDataTestId(dataTestId, 'option'),
+            // eslint-disable-next-line react/no-unstable-nested-components
+            Checkmark: () => <Checkmark selected={selectedItems.includes(option)} />,
+        });
 
         useEffect(() => {
             if (defaultOpen) openMenu();
@@ -337,30 +326,27 @@ export const BaseSelectMobile = forwardRef(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
-        const renderValue = useCallback(
-            () =>
-                selectedItems.map(option => (
-                    <input type='hidden' name={name} value={option.key} key={option.key} />
-                )),
-            [selectedItems, name],
-        );
+        const renderValue = () =>
+            selectedItems.map((option) => (
+                <input type='hidden' name={name} value={option.key} key={option.key} />
+            ));
 
-        const handleApply = useCallback(() => {
+        const handleApply = () => {
             setSelectedDraft(selectedItems);
-        }, [setSelectedDraft, selectedItems]);
+        };
 
-        const handleClear = useCallback(() => {
+        const handleClear = () => {
             setSelectedDraft([]);
             setSelectedItems([]);
-        }, [setSelectedDraft, setSelectedItems]);
+        };
 
-        const handleClose = useCallback(() => {
+        const handleClose = () => {
             if (multiple) {
                 setSelectedItems(selectedDraft);
             }
 
             toggleMenu();
-        }, [setSelectedItems, selectedDraft, toggleMenu, multiple]);
+        };
 
         return (
             <div

@@ -1,16 +1,19 @@
-import React, { forwardRef, useCallback, useRef } from 'react';
-import cn from 'classnames';
+import React, { forwardRef, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
+
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { useMedia } from '@alfalab/hooks';
-import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
-import { Optgroup as DefaultOptgroup } from '../optgroup';
+
+import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
 import { isGroup, useVisibleOptions } from '../../utils';
+import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
 
 const createCounter = () => {
     let count = 0;
+
     // eslint-disable-next-line no-plusplus
     return () => count++;
 };
@@ -38,30 +41,25 @@ export const OptionsList = forwardRef(
         ref,
     ) => {
         let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+
         nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
-        const renderOption = useCallback(
-            (option: OptionShape, index: number) => (
-                <Option key={option.key} {...getOptionProps(option, index)} />
-            ),
-            [getOptionProps],
+        const renderOption = (option: OptionShape, index: number) => (
+            <Option key={option.key} {...getOptionProps(option, index)} />
         );
 
         const listRef = useRef<HTMLDivElement>(null);
         const scrollbarRef = useRef<HTMLDivElement>(null);
         const counter = createCounter();
-        const renderGroup = useCallback(
-            (group: GroupShape) => (
-                <Optgroup
-                    className={optionGroupClassName}
-                    label={group.label}
-                    key={group.label}
-                    size={size}
-                >
-                    {group.options.map(option => renderOption(option, counter()))}
-                </Optgroup>
-            ),
-            [optionGroupClassName, counter, renderOption, size],
+        const renderGroup = (group: GroupShape) => (
+            <Optgroup
+                className={optionGroupClassName}
+                label={group.label}
+                key={group.label}
+                size={size}
+            >
+                {group.options.map((option) => renderOption(option, counter()))}
+            </Optgroup>
         );
 
         useVisibleOptions({
@@ -76,19 +74,17 @@ export const OptionsList = forwardRef(
             return null;
         }
 
-        const renderListItems = () => {
-            return (
-                <React.Fragment>
-                    {options.map(option =>
-                        isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
-                    )}
+        const renderListItems = () => (
+            <React.Fragment>
+                {options.map((option) =>
+                    isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
+                )}
 
-                    {emptyPlaceholder && options.length === 0 && (
-                        <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
-                    )}
-                </React.Fragment>
-            );
-        };
+                {emptyPlaceholder && options.length === 0 && (
+                    <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+                )}
+            </React.Fragment>
+        );
 
         const renderWithCustomScrollbar = () => {
             const scrollableNodeProps = {
@@ -110,17 +106,11 @@ export const OptionsList = forwardRef(
             );
         };
 
-        const renderWithNativeScrollbar = () => {
-            return (
-                <div
-                    className={styles.scrollable}
-                    ref={mergeRefs([listRef, ref])}
-                    onScroll={onScroll}
-                >
-                    {renderListItems()}
-                </div>
-            );
-        };
+        const renderWithNativeScrollbar = () => (
+            <div className={styles.scrollable} ref={mergeRefs([listRef, ref])} onScroll={onScroll}>
+                {renderListItems()}
+            </div>
+        );
 
         return (
             <div

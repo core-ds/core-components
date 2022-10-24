@@ -1,15 +1,15 @@
-import React, { forwardRef, HTMLAttributes, ReactNode, MouseEvent, useCallback } from 'react';
+import React, { forwardRef, HTMLAttributes, MouseEvent, ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
 import { Badge } from '@alfalab/core-components-badge';
+import { IconButton } from '@alfalab/core-components-icon-button';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
-import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
-import styles from './index.module.css';
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {

@@ -1,25 +1,27 @@
 /* eslint-disable complexity */
-import React, { useCallback, useState, FC, useEffect, MouseEvent } from 'react';
+import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import addMonths from 'date-fns/addMonths';
 import endOfMonth from 'date-fns/endOfMonth';
 import max from 'date-fns/max';
 import startOfMonth from 'date-fns/startOfMonth';
 import subMonths from 'date-fns/subMonths';
+
 import { Calendar, usePeriodWithReset } from '@alfalab/core-components-calendar';
 import {
     formatDate,
-    parseDateString,
     isValidInputValue,
+    parseDateString,
 } from '@alfalab/core-components-calendar-input';
 import {
     DateInput,
     DateInputProps,
     isCompleteDateInput,
 } from '@alfalab/core-components-date-input';
-import { isDayButton } from '../utils';
+
 import { CalendarRangeProps } from '../Component';
 import { useSelectionProps, useStaticViewMonthes } from '../hooks';
+import { isDayButton } from '../utils';
 
 import styles from './index.module.css';
 
@@ -130,6 +132,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         const mouseOverDayButton = isDayButton(target) || isDayButton(target.parentElement);
 
         let date;
+
         if (mouseOverDayButton) {
             const button =
                 target.tagName === 'BUTTON' ? target : (target.parentElement as HTMLButtonElement);

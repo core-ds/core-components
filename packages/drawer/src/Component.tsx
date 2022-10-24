@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalProps, BaseModalContext } from '@alfalab/core-components-base-modal';
+import { BaseModal, BaseModalContext, BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import styles from './index.module.css';

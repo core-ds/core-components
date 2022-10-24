@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
+
 import { PointIcon } from '../../icons/Point';
 import { DotProps, DotSettingProps } from '../../types/utils/dot.types';
 

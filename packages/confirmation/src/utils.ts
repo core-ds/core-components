@@ -70,11 +70,9 @@ export const useCountdown: UseCountdown = (countdownDuration, tick = 1000) => {
 
     const timeLeft = countdownDuration - timePassed;
 
-    useEffect(() => {
-        return () => {
+    useEffect(() => () => {
             stopTimer();
-        };
-    }, [stopTimer]);
+        }, [stopTimer]);
 
     return [timeLeft, startTimer, stopTimer];
 };

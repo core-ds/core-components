@@ -1,8 +1,9 @@
-import React, { useImperativeHandle, useCallback, useRef } from 'react';
+import React, { useCallback, useImperativeHandle, useRef } from 'react';
 import { conformToMask, TextMaskConfig } from 'text-mask-core';
+
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
-import { deleteFormatting, setCaretPosition, getInsertedNumber } from './utils';
+import { deleteFormatting, getInsertedNumber,setCaretPosition } from './utils';
 
 const mask = [
     '+',
@@ -74,6 +75,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 // Вставка номера с 10 цифрами без кода страны
                 if (rawValue.length === 10 && conformedValue.length === mask.length) {
                     const masked = conformToMask(`+7${rawValue}`, mask, config);
+
                     return masked.conformedValue;
                 }
 
@@ -90,6 +92,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     (insertedNumber.startsWith('8') || insertedNumber.startsWith('7'))
                 ) {
                     const masked = conformToMask(`+7${insertedNumber.slice(1)}`, mask, config);
+
                     return masked.conformedValue;
                 }
 

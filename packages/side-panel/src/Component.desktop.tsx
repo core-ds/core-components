@@ -1,13 +1,13 @@
 import React, { cloneElement, forwardRef, isValidElement, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 
-import mergeRefs from 'react-merge-refs';
-import { HeaderDesktop } from './components/header/Component.desktop';
 import { ContentDesktop } from './components/content/Component.desktop';
 import { FooterDesktop } from './components/footer/Component.desktop';
+import { HeaderDesktop } from './components/header/Component.desktop';
 
 import styles from './desktop.module.css';
 import transitions from './transitions.desktop.module.css';

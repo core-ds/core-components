@@ -1,7 +1,8 @@
 import React, { forwardRef, ReactNode } from 'react';
 
-import { pathsMap } from './paths';
 import { BaseShape, BaseShapeProps } from '../base-shape';
+
+import { pathsMap } from './paths';
 
 export type SuperEllipseProps = Omit<BaseShapeProps, 'pathsMap' | 'size'> & {
     /**

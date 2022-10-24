@@ -1,7 +1,9 @@
 import { useCallback, useState } from 'react';
-import { useDidUpdateEffect } from '@alfalab/hooks';
 import differenceInDays from 'date-fns/differenceInDays';
 
+import { useDidUpdateEffect } from '@alfalab/hooks';
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
 type usePeriodProps = {
     /**
      * Обработчик изменения выделенного периода
@@ -45,12 +47,14 @@ export function usePeriod({
             // сбрасываем выделение
             if (date === undefined || (date === selectedTo && date === selectedFrom)) {
                 resetPeriod();
+
                 return;
             }
 
             // сбрасываем конец, если выбранная дата совпадает с ним
             if (date === selectedTo) {
                 setSelectedTo(undefined);
+
                 return;
             }
 
@@ -62,6 +66,7 @@ export function usePeriod({
                 } else {
                     setSelectedTo(date);
                 }
+
                 return;
             }
 
@@ -73,6 +78,7 @@ export function usePeriod({
                     // начинаем выделение
                     setSelectedFrom(date);
                 }
+
                 return;
             }
 
@@ -80,6 +86,7 @@ export function usePeriod({
             if (!selectedTo) {
                 setSelectedFrom(Math.min(date, selectedFrom));
                 setSelectedTo(Math.max(date, selectedFrom));
+
                 return;
             }
 
@@ -139,18 +146,21 @@ export function usePeriodWithReset({
             // сбрасываем выделение
             if (date === undefined) {
                 resetPeriod();
+
                 return;
             }
 
             if (!selectedFrom && selectedTo) {
                 setSelectedFrom(Math.min(date, selectedTo));
                 setSelectedTo(Math.max(date, selectedTo));
+
                 return;
             }
 
             if (!selectedFrom) {
                 // начинаем выделение
                 setSelectedFrom(date);
+
                 return;
             }
 
@@ -158,6 +168,7 @@ export function usePeriodWithReset({
             if (!selectedTo) {
                 setSelectedFrom(Math.min(date, selectedFrom));
                 setSelectedTo(Math.max(date, selectedFrom));
+
                 return;
             }
 

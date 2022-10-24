@@ -1,17 +1,19 @@
 /* eslint-disable complexity */
 import React, { FC, RefCallback, useCallback, useRef } from 'react';
+import { CSSTransition,TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
 import isEqual from 'date-fns/isEqual';
 import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
 import isSameDay from 'date-fns/isSameDay';
 import isToday from 'date-fns/isToday';
 import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfMonth from 'date-fns/startOfMonth';
+
+import { Button } from '@alfalab/core-components-button';
 import { usePrevious } from '@alfalab/hooks';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { WEEKDAYS, getSelectionRange, russianWeekDay } from '../../utils';
+
 import { Day } from '../../typings';
+import { getSelectionRange, russianWeekDay,WEEKDAYS } from '../../utils';
 
 import styles from './index.module.css';
 

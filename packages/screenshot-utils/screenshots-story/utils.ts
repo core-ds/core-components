@@ -15,7 +15,7 @@ export const parseKnobs = () =>
         }
 
         return acc;
-    }, {});
+    }, {} as Record<string, any>);
 
 export function parseValue(value: string) {
     const isBoolean = () => ['true', 'false'].includes(value);

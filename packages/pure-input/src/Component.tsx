@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes, useRef } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
+
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';

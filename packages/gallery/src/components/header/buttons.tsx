@@ -2,11 +2,10 @@ import React, { FC, MutableRefObject } from 'react';
 
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 import { Tooltip } from '@alfalab/core-components-tooltip';
-
-import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
-import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
+import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
 
 type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;

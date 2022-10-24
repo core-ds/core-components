@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { Footer, FooterProps } from './Component';
+
 import { ModalDesktopProps } from '../../Component.desktop';
+
+import { Footer, FooterProps } from './Component';
 
 import styles from './desktop.module.css';
 

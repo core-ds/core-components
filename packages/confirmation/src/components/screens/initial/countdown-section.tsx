@@ -1,8 +1,8 @@
-import React, { useContext, FC } from 'react';
+import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { Loader } from '@alfalab/core-components-loader';
 import { Button } from '@alfalab/core-components-button';
+import { Loader } from '@alfalab/core-components-loader';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';

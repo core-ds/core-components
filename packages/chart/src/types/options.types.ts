@@ -1,13 +1,14 @@
 import React from 'react';
+
 import { BrushProps } from './brush.types';
 import { CartesianGridProps } from './cartesianGrid.types';
 import { ComposedChartProps } from './composedChart.types';
 import { LegendProps } from './legend.types';
+import { ResponsiveContainerProps } from './responsiveContainer.types';
+import { SeriaProps } from './seria.types';
 import { TooltipProps } from './tooltip.types';
 import { XAxisProps } from './xAxis.types';
 import { YAxisProps } from './yAxis.types';
-import { SeriaProps } from './seria.types';
-import { ResponsiveContainerProps } from './responsiveContainer.types';
 
 export interface OptionsProps {
     /**
