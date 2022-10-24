@@ -223,3 +223,17 @@
     z-index: -1;
     opacity: 0;
 }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .checkedIcon {
+        top: 50%;
+        transform: translate(0, -50%);
+        left: -5.6px;
+    }
+
+    .indeterminateLine {
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 1.5px;
+    }
+}
