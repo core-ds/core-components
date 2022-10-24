@@ -4,6 +4,8 @@
 @import './input/site.css';
 @import './bottom-sheet/site.css';
 @import './select/site.css';
+@import './slider-input/site.css';
+@import './calendar-input/site.css';
 
 @define-mixin theme-site {
     @mixin button-site;
@@ -12,4 +14,6 @@
     @mixin input-site;
     @mixin bottom-sheet-site;
     @mixin select-site;
+    @mixin slider-input-site;
+    @mixin calendar-input-site;
 }

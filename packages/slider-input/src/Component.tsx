@@ -200,7 +200,12 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     readOnly={readOnly}
                     className={cn(inputClassName, styles.input)}
                     focusedClassName={cn(focusedClassName, styles.focused)}
-                    fieldClassName={cn(fieldClassName, styles.field)}
+                    fieldClassName={cn(
+                        fieldClassName,
+                        styles.field,
+                        { [styles.disabled]: disabled },
+                        styles[size],
+                    )}
                     inputMode='numeric'
                     pattern='[0-9]*'
                     error={error}
@@ -216,7 +221,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                     Number.isNaN(sliderValue) || !sliderValue ? min : sliderValue
                                 }
                                 disabled={disabled || readOnly}
-                                className={cn(styles.slider, sliderClassName)}
+                                className={cn(styles.slider, styles[size], sliderClassName)}
                                 pips={!error && !hint ? pips : undefined}
                                 range={range}
                             />

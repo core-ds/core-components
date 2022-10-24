@@ -38,6 +38,7 @@ import styles from '!!raw-loader!../vars.css';
                         ['number', 'card', 'email', 'money', 'password', 'tel', 'text'],
                         'text',
                     )}
+                    value={text('value', '')}
                     block={boolean('block', false)}
                     clear={boolean('clear', false)}
                     size={select('size', ['s', 'm', 'l', 'xl'], 's')}

@@ -11,7 +11,6 @@
     position: relative;
     min-height: 100%;
     backdrop-filter: var(--form-control-bg-backdrop-filter);
-    border-radius: var(--form-control-border-radius);
     transition: background 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
     outline: none;
@@ -113,6 +112,7 @@
 
 .s .inner {
     min-height: var(--form-control-s-min-height);
+    border-radius: var(--form-control-s-border-radius);
 }
 
 .s .hasInnerLabel .input > * {
@@ -125,6 +125,7 @@
 
 .m .inner {
     min-height: var(--form-control-m-min-height);
+    border-radius: var(--form-control-m-border-radius);
 }
 
 .m .hasInnerLabel .input > * {
@@ -137,6 +138,7 @@
 
 .l .inner {
     min-height: var(--form-control-l-min-height);
+    border-radius: var(--form-control-l-border-radius);
 }
 
 .l .hasInnerLabel .input > * {
@@ -149,6 +151,7 @@
 
 .xl .inner {
     min-height: var(--form-control-xl-min-height);
+    border-radius: var(--form-control-xl-border-radius);
 }
 
 .xl .label {
