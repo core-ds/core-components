@@ -15,7 +15,6 @@
 "@alfalab/core-components-tag": patch
 "@alfalab/core-components-toast-plate": patch
 "@alfalab/core-components-modal": patch
-"@alfalab/core-components-side-panel": patch
 ---
 
 - Новые стили кнопок в теме default

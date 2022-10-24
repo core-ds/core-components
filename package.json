@@ -100,7 +100,7 @@
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-env": "7.18.0",
         "@babel/preset-typescript": "^7.9.0",
-        "@changesets/cli": "^2.24.4",
+        "@changesets/cli": "^2.25.0",
         "@changesets/get-github-info": "^0.5.1",
         "@commitlint/config-conventional": "^17.1.0",
         "@commitlint/config-lerna-scopes": "^17.0.2",

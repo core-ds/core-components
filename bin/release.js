@@ -7,13 +7,13 @@ const git = require('@changesets/git');
 const logger = require('@changesets/logger');
 const shell = require('shelljs');
 const { getCommitsThatAddFiles } = require('@changesets/git');
-const {
-    getLinesFromSummary,
-    getGithubLinks,
-} = require('../tools/changesets/changelogFunctions').default;
+const { getLinesFromSummary, getGithubLinks } =
+    require('../tools/changesets/changelogFunctions').default;
 
 const cwd = process.cwd();
 const execOptions = { silent: false, fatal: true };
+
+const isGenerateChangelogOnly = process.env.GENERATE_CHANGELOG_ONLY === 'true';
 
 const config = {
     changelogPath: 'CHANGELOG.md',
@@ -41,7 +41,7 @@ function setupGit() {
 
 async function getChangesets() {
     const changesets = await readChangesets(cwd);
-    const paths = (changesets || []).map(cs => `.changeset/${cs.id}.md`);
+    const paths = (changesets || []).map((cs) => `.changeset/${cs.id}.md`);
     const commits = await getCommitsThatAddFiles(paths, cwd);
     const links = await getGithubLinks(commits);
 
@@ -107,15 +107,15 @@ function groupByPullRequest(changesets) {
 }
 
 function hasReleaseType(groupedCs, type) {
-    return Object.keys(groupedCs).some(key =>
-        groupedCs[key].relTypes.some(el => el[type].length > 0),
+    return Object.keys(groupedCs).some((key) =>
+        groupedCs[key].relTypes.some((el) => el[type].length > 0),
     );
 }
 
 function getLinesAboutChangedPackages(relTypes) {
     let returnVal = '#### Влияние на компоненты';
 
-    Object.keys(relTypes).forEach(relType => {
+    Object.keys(relTypes).forEach((relType) => {
         const packages = relTypes[relType];
         if (packages.length > 0) {
             returnVal += `\n- ${REL_TYPE_TO_RU[relType]}<br />${packages
@@ -133,7 +133,7 @@ function generateChanges(groupedCs, nextVersion) {
     let markdown = `## ${nextVersion}\n`;
     markdown += `\n<sup><time>${new Date().toLocaleDateString('ru-RU')}</time></sup>\n`;
 
-    Object.keys(groupedCs).forEach(prLink => {
+    Object.keys(groupedCs).forEach((prLink) => {
         groupedCs[prLink].summaries.forEach((summary, idx) => {
             if (idx > 0) {
                 markdown += '<br />\n';
@@ -168,7 +168,7 @@ async function updateChangelogAndPackageJson(changesets) {
 
         await updateChangelog(notes);
 
-        if (process.env.GENERATE_CHANGELOG_ONLY === 'true') return null;
+        if (isGenerateChangelogOnly) return null;
 
         await updatePackageVersion(nextVersion);
 
@@ -268,7 +268,9 @@ async function releasePackages() {
 (async () => {
     try {
         logger.log('Setup git');
-        setupGit();
+        if (!isGenerateChangelogOnly) {
+            setupGit();
+        }
 
         logger.log('Release root package');
         const released = await releaseRoot();
