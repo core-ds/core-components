@@ -1,4 +1,4 @@
-import { Meta, Props, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
@@ -66,6 +66,6 @@ import { Portal } from '@alfalab/core-components/portal';
 
 <Tabs
     description={<Description />}
-    props={<Props of={PortalTS} />}
+    props={<ArgsTable of={PortalTS} />}
     changelog={<Changelog />}
 />

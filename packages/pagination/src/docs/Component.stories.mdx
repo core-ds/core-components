@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { number, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Pagination } from '@alfalab/core-components-pagination';
@@ -49,5 +49,5 @@ import { Pagination } from '@alfalab/core-components/pagination';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={PaginationTS} />}
+    props={<ArgsTable of={PaginationTS} />}
 />

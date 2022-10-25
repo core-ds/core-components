@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { formatDate } from '@alfalab/core-components-date-input';
 import { CalendarInput } from '@alfalab/core-components-calendar-input';
@@ -57,6 +57,6 @@ import { CalendarInput } from '@alfalab/core-components/calendar-input';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={CalendarInputTS} />}
+    props={<ArgsTable of={CalendarInputTS} />}
     cssVars={<CssVars css={styles} />}
 />

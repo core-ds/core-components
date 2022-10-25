@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
@@ -49,5 +49,5 @@ import { PasswordInput } from '@alfalab/core-components/password-input';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={PasswordInputTS} /> }
+    props={<ArgsTable of={PasswordInputTS} /> }
 />
