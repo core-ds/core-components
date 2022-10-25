@@ -1,0 +1,28 @@
+name: "Changesets"
+
+on: [push]
+
+jobs:
+  main:
+    name: changesets check
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: parse changesets
+        uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          script: |
+            const shell = require('shelljs');
+            const ret = shell.exec(`GITHUB_TOKEN=${process.env.GITHUB_TOKEN} yarn changeset version`, {silent: true});
+
+            if (ret.code !== 0) {
+              core.setFailed(ret.stderr);
+            }
