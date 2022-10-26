@@ -14,7 +14,7 @@ describe(
             componentName: 'Iconview',
             subComponentName: 'SuperEllipse',
             knobs: {
-                size: [48, 64, 80, 128],
+                size: [24, 48, 64, 80, 128],
                 border: [true, false],
             },
             testStory: false,
@@ -52,7 +52,7 @@ describe(
             componentName: 'Iconview',
             subComponentName: 'Circle',
             knobs: {
-                size: [48, 64, 80],
+                size: [24, 48, 64, 80, 128],
                 border: [true, false],
             },
             testStory: false,

@@ -1,8 +1,8 @@
 type SizePathsMap = {
     [size: number]: {
-        top: string;
-        bottom: string;
-        topBottom: string;
+        top?: string;
+        bottom?: string;
+        topBottom?: string;
         none: string;
     };
 };
@@ -25,16 +25,16 @@ export const getPath = ({
     hasBottomAddons,
     pathsMap,
 }: GetPathParams): string => {
-    if (hasBottomAddons && hasTopAddons) {
-        return pathsMap[size].topBottom;
+    if (hasBottomAddons && hasTopAddons && size > 24) {
+        return pathsMap[size].topBottom || '';
     }
 
-    if (hasBottomAddons) {
-        return pathsMap[size].bottom;
+    if (hasBottomAddons && size > 24) {
+        return pathsMap[size].bottom || '';
     }
 
-    if (hasTopAddons) {
-        return pathsMap[size].top;
+    if (hasTopAddons && size > 24) {
+        return pathsMap[size].top || '';
     }
 
     return pathsMap[size].none;

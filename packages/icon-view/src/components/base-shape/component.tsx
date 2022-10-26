@@ -151,11 +151,11 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                     {!imageUrl && <div className={styles.children}>{children}</div>}
                 </div>
 
-                {hasTopAddons && (
+                {hasTopAddons && size > 24 && (
                     <div className={cn(styles.addons, styles.topAddons)}>{topAddons}</div>
                 )}
 
-                {hasBottomAddons && (
+                {hasBottomAddons && size > 24 && (
                     <div className={cn(styles.addons, styles.bottomAddons)}>{bottomAddons}</div>
                 )}
             </div>
