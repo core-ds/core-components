@@ -22,21 +22,18 @@ addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
         sandboxPath: '/docs/компоненты-песочница--page',
         mobileFrameName: 'mobileframe--page',
-
+        noDesktopText: 'Не предназначен для использования на десктопных устройствах',
+        noMobileText: 'Не предназначен для использования на мобильных устройствах',
         desktopText: 'Переключить на декстопную версию',
         mobileText: 'Переключить на мобильную версию',
         expandText: 'Показать код',
         copyText: 'Скопировать код',
         shareText: 'Поделиться кодом',
-
-        bgColor: 'var(--color-light-bg-primary-shade-2)',
+        bgColor: '#FAFAFA',
         borderColor: 'var(--color-light-border-primary)',
         borderRadius: 'var(--border-radius-xl)',
-
         hintColor: 'var(--color-light-text-tertiary)',
-
         iconColor: 'var(--color-light-bg-primary-inverted)',
-
         errorsBg: 'var(--color-light-bg-negative-muted)',
         errorsColor: 'var(--color-light-text-accent)',
         fontBase: 'var(--font-family-system)',

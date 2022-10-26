@@ -5,9 +5,7 @@
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
-
     const handleModalOpen = () => setOpen(!open);
-
     return (
         <React.Fragment>
             <Button type='button' size='xs' onClick={handleModalOpen}>
@@ -47,9 +45,7 @@ render(() => {
 @MOBILE@
 render(() => {
     const [open, setOpen] = React.useState(false);
-
     const handleModalOpen = () => setOpen(!open);
-
     return (
         <React.Fragment>
             <Button type='button' size='xs' onClick={handleModalOpen}>
