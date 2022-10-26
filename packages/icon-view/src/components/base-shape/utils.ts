@@ -25,15 +25,15 @@ export const getPath = ({
     hasBottomAddons,
     pathsMap,
 }: GetPathParams): string => {
-    if (hasBottomAddons && hasTopAddons && size > 24) {
+    if (hasBottomAddons && hasTopAddons) {
         return pathsMap[size].topBottom || '';
     }
 
-    if (hasBottomAddons && size > 24) {
+    if (hasBottomAddons) {
         return pathsMap[size].bottom || '';
     }
 
-    if (hasTopAddons && size > 24) {
+    if (hasTopAddons) {
         return pathsMap[size].top || '';
     }
 
