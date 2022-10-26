@@ -90,7 +90,7 @@ describe('IntlPhoneInput', () => {
         const flagComponent = container.querySelector('.flagIcon');
 
         fireEvent.click(flagComponent as HTMLSpanElement);
-        const option = getAllByRole('option')[0];
+        const option = await waitFor(() => getAllByRole('option')[0]);
         fireEvent.click(option);
 
         waitFor(() => {
@@ -106,14 +106,15 @@ describe('IntlPhoneInput', () => {
         const flagComponent = container.querySelector('.flagIcon');
 
         fireEvent.click(flagComponent as HTMLSpanElement);
-        fireEvent.click(getAllByRole('option')[0]);
+        const option = await waitFor(() => getAllByRole('option')[0]);
+        fireEvent.click(option);
 
         waitFor(() => {
             expect(document.activeElement).toBe(input);
         });
     });
 
-    it('should call `onCountryChange` callback after country was changed', () => {
+    it('should call `onCountryChange` callback after country was changed', async () => {
         const onCountryChange = jest.fn();
         const { container, getAllByRole } = render(
             <IntlPhoneInput
@@ -123,15 +124,13 @@ describe('IntlPhoneInput', () => {
                 dataTestId={testId}
             />,
         );
-        const flagComponent = container.querySelector('.flagIcon');
 
+        const flagComponent = container.querySelector('span[class^=flagIcon]');
         fireEvent.click(flagComponent as HTMLSpanElement);
-        fireEvent.click(getAllByRole('option')[0]);
+        const option = await waitFor(() => getAllByRole('option')[0]);
+        fireEvent.click(option);
 
-        waitFor(() => {
-            expect(onCountryChange).toBeCalledWith('AU');
-            expect(onCountryChange).toHaveBeenCalledTimes(1);
-        });
+        await waitFor(() => expect(onCountryChange).toHaveBeenCalledTimes(1));
     });
 
     it('should call `onCountryChange` callback after input was changed', async () => {
