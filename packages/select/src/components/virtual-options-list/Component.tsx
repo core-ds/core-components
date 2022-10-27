@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useRef, useEffect, useMemo, useState } from 'react';
-import cn from 'classnames';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useVirtual } from 'react-virtual';
+import cn from 'classnames';
+
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { useMedia } from '@alfalab/hooks';
-import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
-import { Optgroup as DefaultOptgroup } from '../optgroup';
+
+import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
+import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
 
@@ -18,6 +20,7 @@ export type VirtualOptionsList = Omit<OptionsListProps, 'optionsListWidth'> & {
     overscan?: number;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const VirtualOptionsList = ({
     size = 's',
     flatOptions = [],
@@ -50,6 +53,7 @@ export const VirtualOptionsList = ({
     });
 
     let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+
     nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
     // Сколл к выбранному пункту при открытии меню
@@ -63,7 +67,7 @@ export const VirtualOptionsList = ({
     useEffect(() => {
         if (highlightedIndex === -1) return;
 
-        if (!rowVirtualizer.virtualItems.some(option => option.index === highlightedIndex)) {
+        if (!rowVirtualizer.virtualItems.some((option) => option.index === highlightedIndex)) {
             rowVirtualizer.scrollToIndex(highlightedIndex, { align: 'end' });
         }
     }, [highlightedIndex]);
@@ -108,6 +112,7 @@ export const VirtualOptionsList = ({
     // Т.к. рендерится плоский список, необходимо знать индекс, когда начинается новая группа
     const groupStartIndexes = useMemo(() => {
         let currentIndex = 0;
+
         return options.reduce((acc: { [key: number]: number }, option, index) => {
             if (isGroup(option)) {
                 acc[currentIndex] = index;
@@ -115,6 +120,7 @@ export const VirtualOptionsList = ({
             } else {
                 currentIndex += 1;
             }
+
             return acc;
         }, {});
     }, [options]);
@@ -125,8 +131,8 @@ export const VirtualOptionsList = ({
         ref: listRef,
     };
 
-    const renderList = () => {
-        return rowVirtualizer.virtualItems.map(virtualRow => {
+    const renderList = () =>
+        rowVirtualizer.virtualItems.map((virtualRow) => {
             const option = flatOptions[virtualRow.index];
             const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
 
@@ -146,28 +152,23 @@ export const VirtualOptionsList = ({
                 </div>
             );
         });
-    };
 
-    const renderWithCustomScrollbar = () => {
-        return (
-            <Scrollbar
-                className={styles.scrollable}
-                ref={scrollbarRef}
-                scrollableNodeProps={{ onScroll, ref: parentRef }}
-                contentNodeProps={contentNodeProps}
-            >
-                {renderList()}
-            </Scrollbar>
-        );
-    };
+    const renderWithCustomScrollbar = () => (
+        <Scrollbar
+            className={styles.scrollable}
+            ref={scrollbarRef}
+            scrollableNodeProps={{ onScroll, ref: parentRef }}
+            contentNodeProps={contentNodeProps}
+        >
+            {renderList()}
+        </Scrollbar>
+    );
 
-    const renderWithNativeScrollbar = () => {
-        return (
-            <div className={styles.scrollable} ref={parentRef} onScroll={onScroll}>
-                <div {...contentNodeProps}>{renderList()}</div>
-            </div>
-        );
-    };
+    const renderWithNativeScrollbar = () => (
+        <div className={styles.scrollable} ref={parentRef} onScroll={onScroll}>
+            <div {...contentNodeProps}>{renderList()}</div>
+        </div>
+    );
 
     return (
         <div

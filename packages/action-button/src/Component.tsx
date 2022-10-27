@@ -11,11 +11,12 @@ import cn from 'classnames';
 import { Loader } from '@alfalab/core-components-loader';
 import { useFocus } from '@alfalab/hooks';
 
-import styles from './index.module.css';
+import { useLoader } from './hooks';
+
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 import staticColors from './static.module.css';
-import { useLoader } from './hooks';
 
 const colorStyles = {
     default: defaultColors,

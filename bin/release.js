@@ -13,6 +13,8 @@ const { getLinesFromSummary, getGithubLinks } =
 const cwd = process.cwd();
 const execOptions = { silent: false, fatal: true };
 
+const isGenerateChangelogOnly = process.env.GENERATE_CHANGELOG_ONLY === 'true';
+
 const config = {
     changelogPath: 'CHANGELOG.md',
     packageJsonPath: 'package.json',
@@ -166,7 +168,7 @@ async function updateChangelogAndPackageJson(changesets) {
 
         await updateChangelog(notes);
 
-        if (process.env.GENERATE_CHANGELOG_ONLY === 'true') return null;
+        if (isGenerateChangelogOnly) return null;
 
         await updatePackageVersion(nextVersion);
 
@@ -266,7 +268,9 @@ async function releasePackages() {
 (async () => {
     try {
         logger.log('Setup git');
-        setupGit();
+        if (!isGenerateChangelogOnly) {
+            setupGit();
+        }
 
         logger.log('Release root package');
         const released = await releaseRoot();

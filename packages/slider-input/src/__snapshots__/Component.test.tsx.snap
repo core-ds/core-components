@@ -9,7 +9,7 @@ exports[`SliderInput should match snapshot 1`] = `
       class="component component input s block"
     >
       <div
-        class="field inner inner"
+        class="field s inner inner"
       >
         <div
           class="inputWrapper"

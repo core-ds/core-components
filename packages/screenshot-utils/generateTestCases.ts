@@ -1,8 +1,8 @@
 import {
-    KnobsCombinations,
-    CreateStorybookUrlParams,
-    KnobValueType,
     createStorybookUrl,
+    CreateStorybookUrlParams,
+    KnobsCombinations,
+    KnobValueType,
 } from './createStorybookUrl';
 import { generateCombos } from './utils';
 
@@ -18,7 +18,9 @@ export const generateTestCases = ({
     const knobNames = Object.keys(knobs);
 
     // Генерируем комбинации из набора кнобсов
-    const combos = generateCombos<KnobValueType>(knobValues.map(v => (Array.isArray(v) ? v : [v])));
+    const combos = generateCombos<KnobValueType>(
+        knobValues.map((v) => (Array.isArray(v) ? v : [v])),
+    );
 
     // Собираем тестовых кейс — имя кейса и словарь из комбинации кнобсов
     const buildTestCase = (knobsCombo: Array<[KnobValueType, number]>) => {
@@ -38,7 +40,7 @@ export const generateTestCases = ({
         return { caseName, knobsVariant };
     };
 
-    return combos.map(combo => {
+    return combos.map((combo) => {
         const { caseName, knobsVariant } = buildTestCase(combo);
 
         return [

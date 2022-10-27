@@ -2,7 +2,7 @@ import format from 'date-fns/format';
 import { Chart } from '@alfalab/core-components-chart';
 
 import { Chart as ChartTS } from '../Component';
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { number, boolean, select, text, object } from '@storybook/addon-knobs';
 import { version } from '../../package.json';
@@ -1392,6 +1392,6 @@ import { Chart } from '@alfalab/core-components/chart';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={ChartTS} />}
+    props={<ArgsTable of={ChartTS} />}
 />
 

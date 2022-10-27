@@ -2,9 +2,9 @@ import React, { ThHTMLAttributes, useContext } from 'react';
 import cn from 'classnames';
 
 import { TextAlignProperty } from '../../typings';
+import { TableContext } from '../table-context';
 
 import styles from './index.module.css';
-import { TableContext } from '../table-context';
 
 export type THeadCellProps = ThHTMLAttributes<HTMLHeadingElement> & {
     /**

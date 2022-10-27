@@ -1,11 +1,12 @@
-import React, { FC, ChangeEvent, forwardRef, RefAttributes } from 'react';
+import React, { ChangeEvent, FC, forwardRef, RefAttributes } from 'react';
+
 import { InputProps } from '@alfalab/core-components-input';
 import {
-    BaseSelectProps,
-    OptionsList as DefaultOptionsList,
-    Option as DefaultOption,
-    Optgroup as DefaultOptgroup,
     BaseSelect,
+    BaseSelectProps,
+    Optgroup as DefaultOptgroup,
+    Option as DefaultOption,
+    OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select';
 
 import { AutocompleteField } from './autocomplete-field';

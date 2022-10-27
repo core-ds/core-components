@@ -1,5 +1,6 @@
-import { CurrencyCodes } from '@alfalab/data';
 import { ReactNode } from 'react';
+
+import { CurrencyCodes } from '@alfalab/data';
 
 export type AmountProps = {
     /**

@@ -1,6 +1,7 @@
-import parse from 'date-fns/parse';
 import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
+import parse from 'date-fns/parse';
+
 import { dateInLimits } from '@alfalab/core-components-calendar';
 import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 
@@ -43,6 +44,6 @@ export const isValidInputValue = (
         dateValue &&
             isCompleteDateInput(newInputValue) &&
             dateInLimits(dateValue, minDate, maxDate) &&
-            !offDays.some(offDay => isSameDay(offDay, dateValue)),
+            !offDays.some((offDay) => isSameDay(offDay, dateValue)),
     );
 };

@@ -1,13 +1,13 @@
 import React, {
-    FC,
-    ReactNode,
+    ChangeEvent,
     Children,
     cloneElement,
-    ReactElement,
-    ChangeEvent,
+    FC,
     FocusEvent,
-    MouseEvent,
     isValidElement,
+    MouseEvent,
+    ReactElement,
+    ReactNode,
 } from 'react';
 import cn from 'classnames';
 
@@ -159,7 +159,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
 
             {children ? (
                 <div className={styles.checkboxList} onBlur={onBlur} onFocus={onFocus}>
-                    {Children.map(children, child => {
+                    {Children.map(children, (child) => {
                         if (isValidElement(child)) {
                             return type === 'checkbox' ? renderCheckbox(child) : renderTag(child);
                         }

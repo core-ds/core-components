@@ -18,16 +18,17 @@ const plugin = (): Plugin => {
 
     return {
         postcssPlugin: 'ReplaceColorTokens',
-        Declaration: decl => {
+        Declaration: (decl) => {
             if (decl[processed]) {
                 return;
             }
             if (decl.value.includes('--color-')) {
                 const fullVars = decl.value.match(/--color[\w-]+/g) || [];
                 const values = fullVars.map(
-                    color => color.match(/([\w-]+?)(?=-tint|-alpha|-shade|$)/g)[0],
+                    (color) => color.match(/([\w-]+?)(?=-tint|-alpha|-shade|$)/g)[0],
                 );
-                values.forEach(value => {
+
+                values.forEach((value) => {
                     if (replacement[value]) {
                         decl.value = decl.value.replace(value, replacement[value]);
                     }

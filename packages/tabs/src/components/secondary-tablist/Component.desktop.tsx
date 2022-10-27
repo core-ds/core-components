@@ -1,6 +1,8 @@
 import React from 'react';
-import { SecondaryTabList } from './Component';
+
 import { SecondaryTabListProps } from '../../typings';
+
+import { SecondaryTabList } from './Component';
 
 import commonStyles from './index.module.css';
 

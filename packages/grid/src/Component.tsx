@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { Row, RowProps } from './row';
 import { Col, ColProps } from './col';
+import { Row, RowProps } from './row';
 
 export const Grid: {
     Row: FC<RowProps>;

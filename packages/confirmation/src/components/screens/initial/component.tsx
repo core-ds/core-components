@@ -9,14 +9,15 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { usePrevious } from '@alfalab/hooks';
-import { CodeInput, CustomInputRef, CodeInputProps } from '@alfalab/core-components-code-input';
+import { Button } from '@alfalab/core-components-button';
+import { CodeInput, CodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input';
 import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
-import { Button } from '@alfalab/core-components-button';
+import { usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../../context';
 import { Header } from '../../header';
+
 import { CountdownSection } from './countdown-section';
 
 import styles from './index.module.css';
@@ -52,7 +53,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     const timerId = useRef(0);
 
-    const handleInputComplete: CodeInputProps['onComplete'] = code => {
+    const handleInputComplete: CodeInputProps['onComplete'] = (code) => {
         onInputFinished(code);
     };
 

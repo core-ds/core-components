@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import {boolean, select, number} from '@storybook/addon-knobs';
 import { ComponentHeader, CssVars, Tabs } from 'storybook/blocks';
 import { Scrollbar } from "@alfalab/core-components-scrollbar";
@@ -103,6 +103,6 @@ import { Scrollbar } from '@alfalab/core-components/scrollbar';
 
 <Tabs
     description={<Description />}
-    props={<Props of={ScrollbarTS} />}
+    props={<ArgsTable of={ScrollbarTS} />}
     cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
 />

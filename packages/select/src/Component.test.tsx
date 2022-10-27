@@ -9,9 +9,20 @@ import { asyncRender } from '../../utils/test-utils';
 
 import { FieldProps as BaseFieldProps, Select, OptionsListProps, OptionProps } from './index';
 
-import * as fieldModule from './components/field';
-import * as optionsListModule from './components/options-list';
-import * as optionModule from './components/option';
+jest.mock('./components/field', () =>
+    Object.assign({}, jest.requireActual('./components/field') as Record<any, any>),
+);
+const fieldModule = require('./components/field');
+
+jest.mock('./components/options-list', () =>
+    Object.assign({}, jest.requireActual('./components/options-list') as Record<any, any>),
+);
+const optionsListModule = require('./components/options-list');
+
+jest.mock('./components/option', () =>
+    Object.assign({}, jest.requireActual('./components/option') as Record<any, any>),
+);
+const optionModule = require('./components/option');
 
 type PopoverComponent = {
     render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
@@ -155,7 +166,7 @@ describe('Select', () => {
                 await fireEvent.keyDown(target, { key: 'ArrowDown', code: 'ArrowDown' });
             });
 
-            await new Promise(res => {
+            await new Promise((res) => {
                 setTimeout(res, 100);
             });
 
@@ -402,7 +413,7 @@ describe('Select', () => {
         });
 
         it('should transfer props to Field', async () => {
-            const spy = jest.spyOn(fieldModule, 'Field');
+            const spy = jest.spyOn(fieldModule, 'Field' as never);
 
             const propPrefix = 'field';
 
@@ -461,9 +472,11 @@ describe('Select', () => {
         it('should transfer optionProps to Option', async () => {
             const spy = jest.spyOn(optionModule, 'Option');
 
-            const optionProps: Partial<Omit<OptionProps, 'innerProps'> & {
-                innerProps: Partial<OptionProps['innerProps']>;
-            }> = {
+            const optionProps: Partial<
+                Omit<OptionProps, 'innerProps'> & {
+                    innerProps: Partial<OptionProps['innerProps']>;
+                }
+            > = {
                 innerProps: {
                     onMouseDown: expect.any(Function),
                 },

@@ -1,35 +1,36 @@
 import React, {
+    ChangeEvent,
+    ElementType,
+    FocusEvent,
     forwardRef,
+    KeyboardEvent,
+    MouseEvent,
     useCallback,
+    useEffect,
     useRef,
     useState,
-    FocusEvent,
-    ChangeEvent,
-    MouseEvent,
-    KeyboardEvent,
-    useEffect,
-    ElementType,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { useMedia } from '@alfalab/hooks';
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
-import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
-import {
-    DateInput,
-    DateInputProps,
-    formatDate,
-    parseDateString,
-    isCompleteDateInput,
-} from '@alfalab/core-components-date-input';
+import cn from 'classnames';
 
 import {
     Calendar as DefaultCalendar,
     CalendarMobile as DefaultCalendarMobile,
-    CalendarProps,
     CalendarMobileProps,
+    CalendarProps,
     dateInLimits,
 } from '@alfalab/core-components-calendar';
+import {
+    DateInput,
+    DateInputProps,
+    formatDate,
+    isCompleteDateInput,
+    parseDateString,
+} from '@alfalab/core-components-date-input';
+import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { useMedia } from '@alfalab/hooks';
+import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
+
 import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
 
 import styles from './index.module.css';
@@ -430,7 +431,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         })}
                         className={popoverClassName}
                         position={popoverPosition}
-                        offset={[0, 8]}
+                        offset={[0, 4]}
                         withTransition={false}
                         preventFlip={preventFlip}
                         zIndex={zIndexPopover}

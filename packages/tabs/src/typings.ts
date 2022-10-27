@@ -1,4 +1,4 @@
-import { MouseEvent, FC, ReactElement, ReactNode } from 'react';
+import { FC, MouseEvent, ReactElement, ReactNode } from 'react';
 
 import { TagProps } from '@alfalab/core-components-tag';
 

@@ -1,4 +1,4 @@
-import { Meta, Props, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
@@ -49,7 +49,7 @@ import { PhoneInput } from '@alfalab/core-components/phone-input';
 
 <Tabs
     description={<Description />}
-    props={<Props of={PhoneInputTS} />}
+    props={<ArgsTable of={PhoneInputTS} />}
     changelog={<Changelog />}
 />
 

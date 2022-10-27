@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import cn from 'classnames';
+
 import { SelectorView } from '../../typings';
 
 import styles from './index.module.css';
@@ -21,16 +22,14 @@ export type HeaderProps = {
     children?: ReactNode;
 };
 
-export const Header: FC<HeaderProps> = ({ view = 'full', withShadow, children }) => {
-    return (
-        <div
-            className={cn(styles.header, {
-                [styles.monthOnly]: view === 'month-only',
-                [styles.withShadow]: withShadow,
-            })}
-            aria-live='polite'
-        >
-            {children}
-        </div>
-    );
-};
+export const Header: FC<HeaderProps> = ({ view = 'full', withShadow, children }) => (
+    <div
+        className={cn(styles.header, {
+            [styles.monthOnly]: view === 'month-only',
+            [styles.withShadow]: withShadow,
+        })}
+        aria-live='polite'
+    >
+        {children}
+    </div>
+);

@@ -1,6 +1,6 @@
 import React from 'react';
-
 import cn from 'classnames';
+
 import { getDataTestId } from '../../../../utils/getDataTestId';
 import { FooterElement } from '../types';
 

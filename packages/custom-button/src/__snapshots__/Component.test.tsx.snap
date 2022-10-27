@@ -303,13 +303,62 @@ Object {
         style="background: rgb(255, 69, 195);"
         type="button"
       >
-        <div
-          class="component loader"
+        <svg
+          class="spinner component s loader loader visible"
+          fill="none"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div />
-          <div />
-          <div />
-        </div>
+          <defs>
+            <lineargradient
+              id=":r0:_top"
+              x1="0.05"
+            >
+              <stop
+                offset="0.1"
+                stop-color="currentColor"
+                stop-opacity="0"
+              />
+              <stop
+                offset="1"
+                stop-color="currentColor"
+                stop-opacity="0.3"
+              />
+            </lineargradient>
+            <lineargradient
+              id=":r0:_bottom"
+              x1="0.05"
+            >
+              <stop
+                offset="0"
+                stop-color="currentColor"
+                stop-opacity="1"
+              />
+              <stop
+                offset="1"
+                stop-color="currentColor"
+                stop-opacity="0.3"
+              />
+            </lineargradient>
+          </defs>
+          <g
+            stroke-width="2"
+          >
+            <path
+              d="M3,12 A9,9 0 0 1 21,12"
+              stroke="url(#:r0:_top)"
+            />
+            <path
+              d="M21,12 A9,9 0 0 1 3,12"
+              stroke="url(#:r0:_bottom)"
+            />
+            <path
+              d="M3,12 A9,9 0 0 1 3 12"
+              stroke="currentColor"
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
       </button>
     </div>
   </body>,
@@ -320,13 +369,62 @@ Object {
       style="background: rgb(255, 69, 195);"
       type="button"
     >
-      <div
-        class="component loader"
+      <svg
+        class="spinner component s loader loader visible"
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div />
-        <div />
-        <div />
-      </div>
+        <defs>
+          <lineargradient
+            id=":r0:_top"
+            x1="0.05"
+          >
+            <stop
+              offset="0.1"
+              stop-color="currentColor"
+              stop-opacity="0"
+            />
+            <stop
+              offset="1"
+              stop-color="currentColor"
+              stop-opacity="0.3"
+            />
+          </lineargradient>
+          <lineargradient
+            id=":r0:_bottom"
+            x1="0.05"
+          >
+            <stop
+              offset="0"
+              stop-color="currentColor"
+              stop-opacity="1"
+            />
+            <stop
+              offset="1"
+              stop-color="currentColor"
+              stop-opacity="0.3"
+            />
+          </lineargradient>
+        </defs>
+        <g
+          stroke-width="2"
+        >
+          <path
+            d="M3,12 A9,9 0 0 1 21,12"
+            stroke="url(#:r0:_top)"
+          />
+          <path
+            d="M21,12 A9,9 0 0 1 3,12"
+            stroke="url(#:r0:_bottom)"
+          />
+          <path
+            d="M3,12 A9,9 0 0 1 3 12"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </g>
+      </svg>
     </button>
   </div>,
   "debug": [Function],

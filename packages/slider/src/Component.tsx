@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, FC } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import noUiSlider, { API, Options } from 'nouislider';
 
@@ -132,6 +132,7 @@ export const Slider: FC<SliderProps> = ({
 
     useEffect(() => {
         const slider = getSlider();
+
         if (!slider) return;
 
         slider.updateOptions(
@@ -146,6 +147,7 @@ export const Slider: FC<SliderProps> = ({
 
     useEffect(() => {
         const slider = getSlider();
+
         if (!slider) return;
 
         const handler = () => {

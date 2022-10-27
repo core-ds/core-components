@@ -8,18 +8,20 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import cn from 'classnames';
 import { use100vh } from 'react-div-100vh';
-import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
+import { TransitionProps } from 'react-transition-group/Transition';
+import cn from 'classnames';
+
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
-import { Header, HeaderProps } from './components/header/Component';
+import { getDataTestId } from '../../utils';
+
 import { Footer } from './components/footer/Component';
+import { Header, HeaderProps } from './components/header/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
-import { getDataTestId } from '../../utils';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
@@ -306,6 +308,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const getSheetOffset = (deltaY: number): number => {
             let offset = deltaY > 0 ? 0 : -deltaY;
+
             offset -= scrollableContainerScrollValue.current;
 
             return Math.floor(Math.max(0, offset));

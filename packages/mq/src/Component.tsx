@@ -1,4 +1,5 @@
 import React, { FC, Fragment, ReactNode, useEffect } from 'react';
+
 import { useMatchMedia } from './useMatchMedia';
 import { isPointerEventsSupported, isTouchSupported } from './utils';
 
@@ -40,5 +41,6 @@ export const Mq: FC<MqProps> = ({ children, query = '', touch, onMatchChange }) 
         }
     }, [matches, onMatchChange]);
 
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <Fragment>{matches && IS_BROWSER ? children : null}</Fragment>;
 };

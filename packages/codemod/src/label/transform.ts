@@ -1,16 +1,16 @@
 /* eslint-disable no-param-reassign, no-shadow */
 import {
-    Transform,
-    JSXIdentifier,
-    StringLiteral,
     ASTPath,
-    JSXElement,
-    JSCodeshift,
-    JSXOpeningElement,
     FileInfo,
+    JSCodeshift,
+    JSXElement,
+    JSXIdentifier,
+    JSXOpeningElement,
+    StringLiteral,
+    Transform,
 } from 'jscodeshift';
 
-import { transformTypographyImports, renameAttribute, addStringAttribute, log } from '../utils';
+import { addStringAttribute, log, renameAttribute, transformTypographyImports } from '../utils';
 
 const componentSizeMap = {
     s: 'Typography.Text',
@@ -48,6 +48,7 @@ const transformSize = (
              */
             if (node.value.type === 'StringLiteral') {
                 const nodeValue = node.value as StringLiteral;
+
                 size = nodeValue.value;
                 componentName = componentSizeMap[size];
 
@@ -82,7 +83,7 @@ const labelTransform: Transform = (fileInfo, api) => {
     /**
      * Находим использование компонента Label и меняем ему пропсы
      */
-    source.findJSXElements('Label').forEach(path => {
+    source.findJSXElements('Label').forEach((path) => {
         j(path).replaceWith((path: ASTPath<JSXElement>) => {
             const { node } = path;
 
@@ -96,6 +97,7 @@ const labelTransform: Transform = (fileInfo, api) => {
 
             if (closingElement) {
                 const closingElementName = closingElement.name as JSXIdentifier;
+
                 closingElementName.name = componentName;
             }
 

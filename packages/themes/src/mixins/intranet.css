@@ -7,7 +7,6 @@
 @import './slider/intranet.css';
 @import './slider-input/intranet.css';
 @import './calendar/intranet.css';
-@import './calendar-input/intranet.css';
 @import './bottom-sheet/intranet.css';
 @import './select/intranet.css';
 @import './confirmation/intranet.css';
@@ -22,7 +21,6 @@
     @mixin slider-intranet;
     @mixin slider-input-intranet;
     @mixin calendar-intranet;
-    @mixin calendar-input-intranet;
     @mixin bottom-sheet-intranet;
     @mixin select-intranet;
     @mixin confirmation-intranet;

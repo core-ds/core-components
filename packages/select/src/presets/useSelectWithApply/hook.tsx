@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { OptionsListWithApply } from './options-list-with-apply';
-import { OptionShape, processOptions, BaseSelectProps } from '../..';
 
+import { BaseSelectProps, OptionShape, processOptions } from '../..';
+
+import { OptionsListWithApply } from './options-list-with-apply';
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
 type useSelectWithApplyProps = {
     /**
      * Список выбранных пунктов
@@ -46,10 +49,10 @@ export function useSelectWithApply({
     showClear = true,
     showSelectAll = false,
 }: useSelectWithApplyProps) {
-    const { flatOptions, selectedOptions } = useMemo(() => processOptions(options, selected), [
-        options,
-        selected,
-    ]);
+    const { flatOptions, selectedOptions } = useMemo(
+        () => processOptions(options, selected),
+        [options, selected],
+    );
 
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
@@ -79,6 +82,7 @@ export function useSelectWithApply({
                     initiator: null,
                     ...restArgs,
                 });
+
                 return;
             }
 
@@ -91,7 +95,7 @@ export function useSelectWithApply({
             } else {
                 setSelectedDraft(
                     initiatorSelected
-                        ? selectedDraft.filter(o => o !== initiator)
+                        ? selectedDraft.filter((o) => o !== initiator)
                         : selectedDraft.concat(initiator),
                 );
             }

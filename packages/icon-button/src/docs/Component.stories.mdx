@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
@@ -64,6 +64,6 @@ import { IconButton } from '@alfalab/core-components/icon-button';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={IconButtonTS} />}
+    props={<ArgsTable of={IconButtonTS} />}
     cssVars={<CssVars css={`${styles}${defaultStyles}`} />}
 />

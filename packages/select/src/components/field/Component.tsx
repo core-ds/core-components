@@ -1,7 +1,9 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
-import { useFocus } from '@alfalab/hooks';
+
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
+import { useFocus } from '@alfalab/hooks';
+
 import { FieldProps as BaseFieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
 

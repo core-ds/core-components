@@ -1,4 +1,4 @@
-import { Meta, Props, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
@@ -52,5 +52,5 @@ import { BaseModal } from '@alfalab/core-components/base-modal';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={BaseModalTS} />}
+    props={<ArgsTable of={BaseModalTS} />}
 />

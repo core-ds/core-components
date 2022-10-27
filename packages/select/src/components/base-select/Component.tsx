@@ -1,29 +1,30 @@
 import React, {
-    useRef,
-    useMemo,
-    useCallback,
-    MouseEvent,
+    FocusEvent,
     forwardRef,
     KeyboardEvent,
-    FocusEvent,
+    MouseEvent,
+    useCallback,
     useEffect,
+    useMemo,
+    useRef,
 } from 'react';
-// eslint-disable-next-line @typescript-eslint/camelcase
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import mergeRefs from 'react-merge-refs';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
-import { Popover } from '@alfalab/core-components-popover';
 import {
-    useMultipleSelection,
     useCombobox,
+    useMultipleSelection,
     UseMultipleSelectionProps,
     UseMultipleSelectionState,
 } from 'downshift';
-import { NativeSelect } from '../native-select';
+
+import { Popover } from '@alfalab/core-components-popover';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+
+import { getDataTestId } from '../../../../utils/getDataTestId';
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
-import { getDataTestId } from '../../../../utils/getDataTestId';
+import { NativeSelect } from '../native-select';
 
 import styles from './index.module.css';
 
@@ -88,14 +89,14 @@ export const BaseSelect = forwardRef(
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
-        const { flatOptions, selectedOptions } = useMemo(() => processOptions(options, selected), [
-            options,
-            selected,
-        ]);
+        const { flatOptions, selectedOptions } = useMemo(
+            () => processOptions(options, selected),
+            [options, selected],
+        );
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
-            onSelectedItemsChange: changes => {
+            onSelectedItemsChange: (changes) => {
                 if (onChange) {
                     const { selectedItems = [] } = changes;
 
@@ -152,7 +153,7 @@ export const BaseSelect = forwardRef(
             items: flatOptions,
             itemToString,
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
-            onIsOpenChange: changes => {
+            onIsOpenChange: (changes) => {
                 if (onOpen) {
                     /**
                      *  Вызываем обработчик асинхронно.
@@ -335,6 +336,7 @@ export const BaseSelect = forwardRef(
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
             const observer = new ResizeObserver(calcOptionsListWidth);
+
             if (rootRef.current) {
                 observer.observe(rootRef.current);
             }
@@ -353,7 +355,7 @@ export const BaseSelect = forwardRef(
 
         const renderValue = useCallback(
             () =>
-                selectedItems.map(option => (
+                selectedItems.map((option) => (
                     <input type='hidden' name={name} value={option.key} key={option.key} />
                 )),
             [selectedItems, name],
@@ -361,7 +363,7 @@ export const BaseSelect = forwardRef(
 
         const renderNativeSelect = useCallback(() => {
             const value = multiple
-                ? selectedItems.map(option => option.key)
+                ? selectedItems.map((option) => option.key)
                 : (selectedItems[0] || {}).key;
 
             return (

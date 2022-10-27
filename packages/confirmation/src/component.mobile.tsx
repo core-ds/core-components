@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+
 import { BaseConfirmation } from './components/base-confirmation';
 import { ConfirmationProps } from './types';
 

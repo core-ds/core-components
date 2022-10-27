@@ -1,22 +1,23 @@
 import React, {
     forwardRef,
     MouseEventHandler,
+    TouchEventHandler,
     useCallback,
     useEffect,
     useRef,
-    TouchEventHandler,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
-import { useClickOutside, usePrevious } from '@alfalab/hooks';
+
+import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { Portal } from '@alfalab/core-components-portal';
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import {
     ToastPlate as ToastPlateComponent,
     ToastPlateProps,
 } from '@alfalab/core-components-toast-plate';
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
-import { Portal } from '@alfalab/core-components-portal';
-import { Stack, stackingOrder } from '@alfalab/core-components-stack';
+import { useClickOutside, usePrevious } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -115,7 +116,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         }, []);
 
         const handleMouseEnter = useCallback<MouseEventHandler<HTMLDivElement>>(
-            event => {
+            (event) => {
                 stopTimer();
 
                 if (onMouseEnter) {
@@ -126,7 +127,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         );
 
         const handleMouseLeave = useCallback<MouseEventHandler<HTMLDivElement>>(
-            event => {
+            (event) => {
                 startTimer();
 
                 if (onMouseLeave) {
@@ -137,7 +138,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         );
 
         const handleTouchStart = useCallback<TouchEventHandler<HTMLDivElement>>(
-            event => {
+            (event) => {
                 stopTimer();
 
                 if (onTouchStart) {
@@ -191,7 +192,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
 
         return (
             <Stack value={zIndex}>
-                {computedZIndex => (
+                {(computedZIndex) => (
                     <Portal getPortalContainer={getPortalContainer}>
                         <CSSTransition
                             unmountOnExit={true}

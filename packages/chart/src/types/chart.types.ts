@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
 import { RectangleProps } from 'recharts';
 import { DataKey } from 'recharts/types/util/types';
-import { DotSettingProps } from './utils/dot.types';
 
 import { DataProps } from './utils/data.types';
+import { DotSettingProps } from './utils/dot.types';
 
 type CurveType = 'linear' | 'monotone' | 'step';
 
@@ -52,6 +52,7 @@ export interface ChartProps {
     /**
      * Форматирование значения графика для тултипа
      */
+    // eslint-disable-next-line @typescript-eslint/ban-types
     formatter?: Function;
 
     /**

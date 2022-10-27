@@ -1,17 +1,18 @@
 import React, {
+    ChangeEvent,
     forwardRef,
     KeyboardEvent,
-    ChangeEvent,
-    useRef,
-    useImperativeHandle,
-    useEffect,
     useCallback,
+    useEffect,
+    useImperativeHandle,
+    useRef,
 } from 'react';
 import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
 
 import { ContentAlign } from '../../component';
+
 import { mergeArrays } from './utils';
 
 import styles from './index.module.css';

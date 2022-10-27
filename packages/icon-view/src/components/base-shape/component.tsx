@@ -1,4 +1,4 @@
-import React, { Fragment, forwardRef, ReactNode } from 'react';
+import React, { forwardRef, Fragment, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { getPath, PathsMap } from './utils';

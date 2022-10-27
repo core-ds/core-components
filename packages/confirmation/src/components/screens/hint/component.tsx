@@ -54,9 +54,12 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                             className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
                         >
                             {mobile ? (
-                                <>Для&nbsp; звонков по&nbsp;России</>
+                                <React.Fragment>Для&nbsp; звонков по&nbsp;России</React.Fragment>
                             ) : (
-                                <> &mdash;&nbsp;для звонков по&nbsp;России</>
+                                <React.Fragment>
+                                    {' '}
+                                    &mdash;&nbsp;для звонков по&nbsp;России
+                                </React.Fragment>
                             )}
                         </Typography.Text>
                     </div>
@@ -75,9 +78,14 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                             className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
                         >
                             {mobile ? (
-                                <>В&nbsp;Москве и&nbsp;за&nbsp;границей</>
+                                <React.Fragment>
+                                    В&nbsp;Москве и&nbsp;за&nbsp;границей
+                                </React.Fragment>
                             ) : (
-                                <> &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей</>
+                                <React.Fragment>
+                                    {' '}
+                                    &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей
+                                </React.Fragment>
                             )}
                         </Typography.Text>
                     </div>

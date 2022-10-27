@@ -1,8 +1,8 @@
-import React, { ReactNode, HTMLAttributes } from 'react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {
@@ -30,6 +30,11 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
      * Заблокированное состояние
      */
     disabled?: boolean;
+
+    /**
+     * Cостояние только для чтения
+     */
+    readOnly?: boolean;
 
     /**
      * Заполненное состояние
@@ -118,6 +123,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             labelClassName,
             addonsClassName,
             disabled,
+            readOnly,
             focused,
             filled,
             error,
@@ -156,8 +162,8 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                 <div
                     {...restProps}
                     className={cn(fieldClassName, styles.inner, colorStyles[colors].inner, {
-                        [styles.disabled]: disabled,
-                        [colorStyles[colors].disabled]: disabled,
+                        [styles.disabled]: disabled || readOnly,
+                        [colorStyles[colors].disabled]: disabled || readOnly,
                         [styles.filled]: filled,
                         [colorStyles[colors].filled]: filled,
                         [styles.hasInnerLabel]: label && labelView === 'inner',

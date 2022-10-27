@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, text, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph/CheckmarkOnCircleMIcon';
@@ -65,7 +65,7 @@ import { Plate } from '@alfalab/core-components/plate';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={PlateTS} /> }
+    props={<ArgsTable of={PlateTS} /> }
     cssVars={<CssVars css={styles} />}
 />
 

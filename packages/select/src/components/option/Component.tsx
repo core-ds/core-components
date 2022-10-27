@@ -1,7 +1,8 @@
 import React, { FC, isValidElement } from 'react';
 import cn from 'classnames';
-import { Checkmark as DefaultCheckMark } from '../checkmark';
+
 import { OptionProps } from '../../typings';
+import { Checkmark as DefaultCheckMark } from '../checkmark';
 
 import styles from './index.module.css';
 

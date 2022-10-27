@@ -1,5 +1,7 @@
-import { useMedia } from '@alfalab/hooks';
 import React, { FC } from 'react';
+
+import { useMedia } from '@alfalab/hooks';
+
 import { ConfirmationDesktop } from './component.desktop';
 import { ConfirmationMobile } from './component.mobile';
 import { ConfirmationProps } from './types';
@@ -8,7 +10,7 @@ export type ResponsiveConfirmationProps = Omit<ConfirmationProps, 'confirmationS
 
 export type ConfirmationMedia = 'desktop' | 'mobile';
 
-export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = props => {
+export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = (props) => {
     const [view] = useMedia<ConfirmationMedia>(
         [
             ['mobile', '(max-width: 1023px)'],

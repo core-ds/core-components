@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+
 import { Footer, FooterProps } from './Component';
 
 import styles from './mobile.module.css';

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Direction } from './utils';
 
 export interface ItemProps {

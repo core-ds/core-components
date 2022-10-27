@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
@@ -48,5 +48,5 @@ import { FileUploadItem } from '@alfalab/core-components/file-upload-item';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={FileUploadItemTS} />}
+    props={<ArgsTable of={FileUploadItemTS} />}
 />

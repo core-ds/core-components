@@ -6,26 +6,29 @@ const transformPaths = (fileInfo, api, options) => {
 
     const importsForReplace = source
         .find(j.ImportSpecifier)
-        .filter(path => {
+        .filter((path) => {
             const importFrom = path.parent.value.source.value;
 
             if (packages.length > 0) {
-                const reList = packages.map(p => new RegExp(`^@alfalab/core-components-${p}/dist`));
+                const reList = packages.map(
+                    (p) => new RegExp(`^@alfalab/core-components-${p}/dist`),
+                );
 
-                return reList.some(re => re.test(importFrom));
+                return reList.some((re) => re.test(importFrom));
             }
 
             const re = new RegExp('^(@alfalab/core-components-).+(/dist)');
+
             return re.test(importFrom);
         })
-        .map(p => p.parent);
+        .map((p) => p.parent);
 
-    importsForReplace.replaceWith(p => {
-        return j.importDeclaration(
+    importsForReplace.replaceWith((p) =>
+        j.importDeclaration(
             p.node.specifiers,
             j.stringLiteral(p.value.source.value.replace('/dist', '')),
-        );
-    });
+        ),
+    );
 
     return source.toSource({ quote: 'single' });
 };

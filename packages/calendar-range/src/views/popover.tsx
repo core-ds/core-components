@@ -1,6 +1,7 @@
-import React, { useCallback, useState, FC, useEffect } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import startOfMonth from 'date-fns/startOfMonth';
+
 import {
     CalendarInput,
     CalendarInputProps,
@@ -65,17 +66,13 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
 
     const hasValidateError = inputFromInvalid || inputToInvalid || bothInvalid;
 
-    const {
-        monthFrom,
-        monthTo,
-        handleMonthFromChange,
-        handleMonthToChange,
-    } = usePopoverViewMonthes({
-        dateFrom,
-        dateTo,
-        defaultMonth,
-        resetKey,
-    });
+    const { monthFrom, monthTo, handleMonthFromChange, handleMonthToChange } =
+        usePopoverViewMonthes({
+            dateFrom,
+            dateTo,
+            defaultMonth,
+            resetKey,
+        });
 
     const handleValidInputFrom = useCallback(() => {
         setInputFromInvalid(

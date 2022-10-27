@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
@@ -11,9 +12,8 @@ import cn from 'classnames';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ButtonProps } from '@alfalab/core-components-button';
-
-import { useFocus } from '@alfalab/hooks';
 import { Comment } from '@alfalab/core-components-comment';
+import { useFocus } from '@alfalab/hooks';
 
 import { Addon } from './components/addon';
 import { Amount } from './components/amount';
@@ -35,6 +35,7 @@ export type PureCellContext = {
     direction?: 'horizontal' | 'vertical';
 };
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PureCellContext = React.createContext<PureCellContext>({});
 
 export type PureCellProps = {

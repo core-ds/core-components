@@ -1,3 +1,5 @@
 @define-mixin input-corp {
-    --input-error-icon-not-alone-display: none;
+    --input-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
+    --input-inverted-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
+    --input-error-icon-display: block;
 }
