@@ -28,6 +28,7 @@ import styles from '!!raw-loader!../index.module.css';
         const minority = number('minority', 100);
         const showPlus = boolean('showPlus', false);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
+        const codeFormat = select('codeFormat', ['symbolic', 'letter'], 'symbolic');
         const bold = select('bold', ['full', 'major', 'none'], 'bold');
         const transparentMinor = boolean('transparentMinor', true);
         return (
@@ -44,6 +45,7 @@ import styles from '!!raw-loader!../index.module.css';
                             minority={minority}
                             showPlus={showPlus}
                             view={view}
+                            codeFormat={codeFormat}
                             bold={bold}
                             transparentMinor={transparentMinor}
                         />

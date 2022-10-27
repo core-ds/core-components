@@ -51,4 +51,19 @@ describe('Amount', () => {
         );
         expect(container).toMatchSnapshot();
     });
+
+    it('should displayed correctly with in letter format code', () => {
+        const currency = 'RUB';
+
+        const { getByText } = render(
+            <Amount
+                value={1234500}
+                currency={currency}
+                minority={100}
+                codeFormat='letter'
+            />,
+        );
+
+        expect(getByText(currency)).toBeInTheDocument();
+    });
 });

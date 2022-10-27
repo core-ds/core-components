@@ -24,6 +24,11 @@ export type AmountProps = {
     minority: number;
 
     /**
+     * Формат отображения кода валюты
+     */
+    codeFormat?: 'letter' | 'symbolic';
+
+    /**
      * default - не отображаем копейки, если их значение 0
      * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
      */

@@ -80,3 +80,16 @@ https://design.alfabank.ru/patterns/amount
     <Amount value={1234500} currency='RUR' minority={100} />
 </span>
 ```
+
+- С буквенным кодом валюты
+
+```jsx live
+<span>
+    <Amount
+        value={1234500}
+        currency='RUB'
+        minority={100}
+        codeFormat='letter'
+    />
+</span>
+```

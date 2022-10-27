@@ -1,10 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-
-import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, formatAmount, THINSP } from '@alfalab/utils';
+import { formatAmount, AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR } from '@alfalab/utils';
 
 import { AmountProps } from './types';
-
 import styles from './index.module.css';
 
 /**
@@ -15,6 +13,7 @@ export const Amount: React.FC<AmountProps> = ({
     value,
     minority,
     currency,
+    codeFormat = 'symbolic',
     view = 'default',
     bold,
     transparentMinor,
@@ -23,11 +22,17 @@ export const Amount: React.FC<AmountProps> = ({
     className,
     dataTestId,
 }) => {
-    const { majorPart, minorPart, currencySymbol } = formatAmount({
+    const {
+        majorPart,
+        minorPart,
+        currencySymbol,
+        currencySeparator,
+    } = formatAmount({
         value,
         currency,
         minority,
         view,
+        codeFormat,
     });
 
     const defaultStyles = bold === undefined && transparentMinor === undefined;
@@ -51,7 +56,7 @@ export const Amount: React.FC<AmountProps> = ({
             >
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
-                {currency ? `${THINSP}${currencySymbol ?? currency}` : null}
+                {currency ? `${currencySeparator}${currencySymbol ?? currency}` : null}
                 {rightAddons}
             </span>
         </span>
