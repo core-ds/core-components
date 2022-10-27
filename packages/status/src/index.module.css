@@ -12,6 +12,7 @@
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
+    letter-spacing: 0.5px;
 
     &:empty {
         padding: 0;
