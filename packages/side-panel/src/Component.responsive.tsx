@@ -9,7 +9,10 @@ import { SidePanelDesktop } from './Component.desktop';
 import { SidePanelMobile } from './Component.mobile';
 
 export type SidePanelResponsiveProps = BaseModalProps &
-    Pick<DrawerProps, 'contentTransitionProps' | 'placement' | 'nativeScrollbar'> & {
+    Pick<
+        DrawerProps,
+        'contentTransitionProps' | 'placement' | 'nativeScrollbar' | 'scrollbarProps'
+    > & {
         /**
          * Ширина модального окна
          * @default "s"
