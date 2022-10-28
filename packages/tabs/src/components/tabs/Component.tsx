@@ -11,6 +11,7 @@ export const Tabs = ({
     children,
     selectedId,
     scrollable,
+    collapsible,
     fullWidthScroll = false,
     keepMounted = false,
     dataTestId,
@@ -40,6 +41,7 @@ export const Tabs = ({
                 titles={titles}
                 selectedId={selectedId}
                 scrollable={scrollable}
+                collapsible={collapsible}
                 onChange={onChange}
                 dataTestId={dataTestId}
                 defaultMatch={defaultMatch}

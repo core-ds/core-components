@@ -53,6 +53,11 @@ export type TabsProps = {
     scrollable?: boolean;
 
     /**
+     * Сворачивает не помещающиеся в окне табы в PickerButton
+     */
+    collapsible?: boolean;
+
+    /**
      * При скроле табы будут уходить в край экрана
      */
     fullWidthScroll?: boolean;
@@ -137,6 +142,8 @@ export type TabListTitle = {
     rightAddons?: ReactNode;
     hidden?: boolean;
     toggleClassName?: string;
+    selected?: boolean;
+    collapsed?: boolean;
 };
 
 export type TabListProps = Pick<
@@ -147,6 +154,7 @@ export type TabListProps = Pick<
     | 'defaultMatch'
     | 'selectedId'
     | 'scrollable'
+    | 'collapsible'
     | 'onChange'
     | 'dataTestId'
     | 'fullWidthScroll'
