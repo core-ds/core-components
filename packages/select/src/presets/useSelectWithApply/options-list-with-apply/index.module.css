@@ -3,7 +3,7 @@
 
 .footer {
     background: var(--color-light-bg-primary);
-    padding: var(--gap-s) var(--gap-s) var(--gap-m);
+    padding: var(--gap-s);
     outline: none;
 
     & > * + * {
