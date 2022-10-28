@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.2.6
+
+### Patch Changes
+
+### [#324](https://github.com/core-ds/core-components/pull/324)
+
+-   "export" типов заменен на "export type"
+
 ## 1.2.5
 
 ### Patch Changes
