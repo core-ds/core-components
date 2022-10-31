@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+### [#308](https://github.com/core-ds/core-components/pull/308)
+
+-   Добавлен новый пропс в компонент Amount - codeFormat, который отображает код валюты в зависимости от указанного формата.
+    Обновлена библиотека @alfalab/utils, теперь метод formatAmount форматирует сумму, разделяя ее средним математическим пробелом.<br />
+
+### Patch Changes
+
+### [#324](https://github.com/core-ds/core-components/pull/324)
+
+-   "export" типов заменен на "export type"
+
 ## 3.0.4
 
 ### Patch Changes

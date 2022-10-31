@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.9
+
+### Patch Changes
+
+### [#322](https://github.com/core-ds/core-components/pull/322)
+
+-   Исправлено некорректное отображение в Safari при взаимодействии с компонентом FilterTag
+
 ## 2.0.8
 
 ### Patch Changes

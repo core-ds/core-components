@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.4
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   masked-input@6.0.1
+
 ## 5.2.3
 
 ### Patch Changes

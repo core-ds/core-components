@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   date-input@4.0.1
+    -   calendar-input@8.0.1
+    -   calendar@6.1.10
+
 ## 7.0.0
 
 ### Major Changes
