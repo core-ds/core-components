@@ -38,6 +38,7 @@ export const List: React.FC<ListProps> = ({
     className,
     dataTestId,
     children,
+    ...restProps
 }) => {
     const markerType = marker || (Component === 'ul' ? '—' : 'decimal');
     const listClassNames = cn(
@@ -55,7 +56,7 @@ export const List: React.FC<ListProps> = ({
     });
 
     return (
-        <Component className={listClassNames} data-test-id={dataTestId}>
+        <Component className={listClassNames} data-test-id={dataTestId} {...restProps}>
             {Children.map(children, child => (
                 <li className={itemClassNames}>
                     {Component !== 'ol' && <div className={styles.slot}>{markerType}</div>}
