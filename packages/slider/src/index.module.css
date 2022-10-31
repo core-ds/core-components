@@ -81,7 +81,7 @@
     }
 
     & :global(.noUi-touch-area) {
-        border-radius: 50%;
+        border-radius: var(--border-radius-circle);
         background: var(--slider-thumb-color);
         width: 100%;
         height: 100%;

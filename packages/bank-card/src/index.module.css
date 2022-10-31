@@ -75,7 +75,7 @@
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: 0 !important;
-    padding-bottom: 4px !important;
+    padding-bottom: var(--gap-2xs) !important;
 
     @media (max-width: 360px) {
         font-size: 16px;

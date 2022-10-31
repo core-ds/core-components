@@ -52,7 +52,7 @@
     background: var(--color-light-graphic-quaternary);
     min-width: 24px;
     height: 24px;
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
 
     &.vertical {
         margin-top: var(--gap-xs);
@@ -123,7 +123,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     width: 20px;
     height: 20px;
     border: 2px solid var(--color-light-graphic-quaternary);
@@ -132,7 +132,7 @@
 .dot {
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     background: var(--color-light-graphic-quaternary);
 }
 
