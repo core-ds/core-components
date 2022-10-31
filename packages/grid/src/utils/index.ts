@@ -11,7 +11,7 @@ export function createClassNames(
 ) {
     const classNames: string[] = [];
 
-    Object.keys(props).forEach(name => {
+    Object.keys(props).forEach((name) => {
         const prop = props[name];
 
         if (!prop) {
@@ -22,21 +22,23 @@ export function createClassNames(
 
             return;
         }
-        (Object.keys(prop) as BreakpointsKeysType[]).forEach(breakpoint => {
+        (Object.keys(prop) as BreakpointsKeysType[]).forEach((breakpoint) => {
             if (prop[breakpoint] === null) {
                 return;
             }
             if (typeof prop[breakpoint] === 'object') {
                 const propBreakpointObject = prop[breakpoint] as BreakpointObjectType;
 
-                (Object.keys(propBreakpointObject) as BreakpointObjectKeysType[]).forEach(size => {
-                    const value = propBreakpointObject[size];
+                (Object.keys(propBreakpointObject) as BreakpointObjectKeysType[]).forEach(
+                    (size) => {
+                        const value = propBreakpointObject[size];
 
-                    if (value === null) {
-                        return;
-                    }
-                    classNames.push(styles[`${name}-${breakpoint}-${size}-${value}`]);
-                });
+                        if (value === null) {
+                            return;
+                        }
+                        classNames.push(styles[`${name}-${breakpoint}-${size}-${value}`]);
+                    },
+                );
             } else {
                 const value = prop[breakpoint];
 

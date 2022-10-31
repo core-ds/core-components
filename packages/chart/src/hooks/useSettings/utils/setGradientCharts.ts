@@ -2,7 +2,7 @@ import { SeriaProps } from '../../../types/seria.types';
 import { DataProps } from '../../../types/utils/data.types';
 
 export const setGradientCharts = (series: SeriaProps[]): SeriaProps[] => {
-    const filterSeries = series.filter(item => item.chart !== 'gradient');
+    const filterSeries = series.filter((item) => item.chart !== 'gradient');
 
     return filterSeries.reduce((accum: SeriaProps[], item: SeriaProps) => {
         const { chart, data: dataSeria, offset, fill } = item;

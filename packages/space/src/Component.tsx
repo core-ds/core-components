@@ -1,4 +1,4 @@
-import React, { Children, forwardRef,ReactNode } from 'react';
+import React, { Children, forwardRef, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import Item from './Item';
@@ -59,7 +59,7 @@ const SpaceSizes: { [key in Size]: number } = {
     l: 20,
 };
 
-const getNumberSize = (size: Size) => typeof size === 'string' ? SpaceSizes[size] : size || 0;
+const getNumberSize = (size: Size) => (typeof size === 'string' ? SpaceSizes[size] : size || 0);
 
 /**
  * Позаимствовано с благодарностью из Ant Design
@@ -80,7 +80,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
     const [horizontalSize, verticalSize] = React.useMemo(
         () =>
-            ((Array.isArray(size) ? size : [size, size]) as [Size, Size]).map(item =>
+            ((Array.isArray(size) ? size : [size, size]) as [Size, Size]).map((item) =>
                 getNumberSize(item),
             ),
         [size],

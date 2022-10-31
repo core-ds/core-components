@@ -190,7 +190,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
 
                 {children ? (
                     <div className={styles.radioList} onBlur={onBlur} onFocus={onFocus}>
-                        {Children.map(children, child => {
+                        {Children.map(children, (child) => {
                             if (isValidElement(child)) {
                                 return type === 'radio' ? renderRadio(child) : renderTag(child);
                             }

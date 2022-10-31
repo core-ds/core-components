@@ -49,7 +49,7 @@ export const MonthsTable: FC<MonthsTableProps> = ({
 
     return (
         <div className={cn(styles.monthsTable, { [styles.responsive]: responsive })}>
-            {months.map(month => (
+            {months.map((month) => (
                 <SelectButton
                     {...getMonthProps(month)}
                     key={month.date.getTime()}

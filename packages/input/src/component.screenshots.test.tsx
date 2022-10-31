@@ -42,8 +42,8 @@ describe('Input | screenshots main props', () => {
             theme,
         })();
 
-    ['default', 'inverted'].forEach(colors => {
-        ['default', 'click', 'site', 'mobile'].forEach(theme => testCase(theme, colors));
+    ['default', 'inverted'].forEach((colors) => {
+        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 
@@ -72,8 +72,8 @@ describe('Input | screenshots hint and error', () => {
             theme,
         })();
 
-    ['default', 'inverted'].forEach(colors => {
-        ['default', 'click', 'site', 'mobile'].forEach(theme => testCase(theme, colors));
+    ['default', 'inverted'].forEach((colors) => {
+        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 
@@ -101,7 +101,7 @@ describe('Input | clear icon', () => {
             theme,
         })();
 
-    ['default', 'inverted'].forEach(colors => testCase('default', colors));
+    ['default', 'inverted'].forEach((colors) => testCase('default', colors));
 });
 
 describe(

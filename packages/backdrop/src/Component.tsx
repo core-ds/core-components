@@ -56,23 +56,23 @@ export const Backdrop: React.FC<BackdropProps> = ({
     transitionClassNames = styles,
     ...restProps
 }) => (
-        <CSSTransition
-            timeout={timeout}
-            unmountOnExit={true}
-            classNames={transitionClassNames}
-            in={open}
-            appear={true}
-            {...restProps}
+    <CSSTransition
+        timeout={timeout}
+        unmountOnExit={true}
+        classNames={transitionClassNames}
+        in={open}
+        appear={true}
+        {...restProps}
+    >
+        <div
+            aria-hidden={true}
+            onClick={onClose}
+            data-test-id={dataTestId}
+            className={cn(styles.backdrop, className, {
+                [styles.invisible]: invisible,
+            })}
         >
-            <div
-                aria-hidden={true}
-                onClick={onClose}
-                data-test-id={dataTestId}
-                className={cn(styles.backdrop, className, {
-                    [styles.invisible]: invisible,
-                })}
-            >
-                {children}
-            </div>
-        </CSSTransition>
-    );
+            {children}
+        </div>
+    </CSSTransition>
+);

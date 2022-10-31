@@ -25,7 +25,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         onSelect(index);
     };
 
-    const handleKeyDown: KeyboardEventHandler = event => {
+    const handleKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
             onSelect(index);
         }

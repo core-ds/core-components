@@ -45,7 +45,7 @@ describe('validateCardNumber', () => {
             randomExamples.push(example);
         }
 
-        randomExamples.forEach(example => {
+        randomExamples.forEach((example) => {
             it(`should have exactly one valid checksum digit after ${example}`, () => {
                 let validCount = 0;
                 for (let i = 0; i < 10; i++) {

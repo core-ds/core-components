@@ -23,13 +23,13 @@ export type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ view = 'full', withShadow, children }) => (
-        <div
-            className={cn(styles.header, {
-                [styles.monthOnly]: view === 'month-only',
-                [styles.withShadow]: withShadow,
-            })}
-            aria-live='polite'
-        >
-            {children}
-        </div>
-    );
+    <div
+        className={cn(styles.header, {
+            [styles.monthOnly]: view === 'month-only',
+            [styles.withShadow]: withShadow,
+        })}
+        aria-live='polite'
+    >
+        {children}
+    </div>
+);

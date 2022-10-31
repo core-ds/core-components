@@ -25,7 +25,7 @@ export const setDatas = (
 
         if (!hideLegend && !hide) count += 1;
 
-        labels.map(label => {
+        labels.map((label) => {
             const item = seriaData.find((d: DataProps) => d.label === label);
 
             if (item) {

@@ -49,7 +49,7 @@ export const OptionsList = ({
             key={group.label}
             size={size}
         >
-            {group.options.map(option => renderOption(option, counter()))}
+            {group.options.map((option) => renderOption(option, counter()))}
         </Optgroup>
     );
 
@@ -59,7 +59,7 @@ export const OptionsList = ({
 
     return (
         <div className={cn(styles.optionsList, styles[size], className)} data-test-id={dataTestId}>
-            {options.map(option =>
+            {options.map((option) =>
                 isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
             )}
 

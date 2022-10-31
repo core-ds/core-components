@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign, no-shadow */
-import { ASTPath, JSXElement,Transform } from 'jscodeshift';
+import { ASTPath, JSXElement, Transform } from 'jscodeshift';
 
 const buttonViewsTransform: Transform = (fileInfo, api) => {
     const j = api.jscodeshift;
@@ -8,7 +8,7 @@ const buttonViewsTransform: Transform = (fileInfo, api) => {
     /**
      * Находим использование компонента Button и меняем ему пропсы
      */
-    source.findJSXElements('Button').forEach(path => {
+    source.findJSXElements('Button').forEach((path) => {
         j(path).replaceWith((path: ASTPath<JSXElement>) => {
             const { node } = path;
 

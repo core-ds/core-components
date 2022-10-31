@@ -32,7 +32,7 @@ describe('Text', () => {
                 'caps',
             ];
 
-            views.forEach(view => {
+            views.forEach((view) => {
                 if (!view) return;
 
                 const { container } = render(<Text view={view} />);
@@ -42,7 +42,7 @@ describe('Text', () => {
         });
 
         it('should set `color` class', () => {
-            colors.forEach(color => {
+            colors.forEach((color) => {
                 const { container } = render(<Text color={color} />);
 
                 expect(container.firstElementChild).toHaveClass(color);
@@ -52,7 +52,7 @@ describe('Text', () => {
         it('should set `weight` class', () => {
             const weights: Array<TextProps['weight']> = ['regular', 'medium', 'bold'];
 
-            weights.forEach(weight => {
+            weights.forEach((weight) => {
                 if (!weight) return;
 
                 const { container } = render(<Text weight={weight} />);
@@ -88,7 +88,7 @@ describe('Text', () => {
             const { container, rerender } = render(<Text />);
             const tags: Array<TextProps['tag']> = ['div', 'p', 'span'];
 
-            tags.forEach(tag => {
+            tags.forEach((tag) => {
                 if (!tag) return;
 
                 const requiredTextTag = tag.toUpperCase();

@@ -37,10 +37,10 @@ describe('Title', () => {
                 'xsmall',
             ];
 
-            fonts.forEach(font => {
+            fonts.forEach((font) => {
                 if (!font) return;
 
-                views.forEach(view => {
+                views.forEach((view) => {
                     if (!view) return;
 
                     const { container } = render(<Title tag='h1' view={view} font={font} />);
@@ -51,7 +51,7 @@ describe('Title', () => {
         });
 
         it('should set `color` class', () => {
-            colors.forEach(color => {
+            colors.forEach((color) => {
                 const { container } = render(<Title tag='h1' color={color} />);
 
                 expect(container.firstElementChild).toHaveClass(color);
@@ -61,7 +61,7 @@ describe('Title', () => {
         it('should set `weight` class', () => {
             const weights: Array<TitleProps['weight']> = ['regular', 'medium', 'bold'];
 
-            weights.forEach(weight => {
+            weights.forEach((weight) => {
                 if (!weight) return;
 
                 const { container } = render(<Title tag='h1' weight={weight} />);
@@ -84,7 +84,7 @@ describe('Title', () => {
             const { container, rerender } = render(<Title tag='h1' />);
             const tags: Array<TitleProps['tag']> = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'];
 
-            tags.forEach(tag => {
+            tags.forEach((tag) => {
                 if (!tag) return;
 
                 const requiredTitleTag = tag.toUpperCase();

@@ -153,7 +153,7 @@ describe('Checkbox', () => {
 
             let allDisabled = true;
 
-            inputs.forEach(input => {
+            inputs.forEach((input) => {
                 if (!input.disabled) {
                     allDisabled = false;
                 }
