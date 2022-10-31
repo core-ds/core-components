@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Browser, BrowserContext,chromium, Page } from 'playwright';
+import { Browser, BrowserContext, chromium, Page } from 'playwright';
 
 import { defaultViewport, matchHtml, MatchHtmlParams } from './helpers';
 
@@ -35,17 +35,20 @@ export type ScreenshotTestingParams = Omit<MatchHtmlParams, 'page' | 'css' | 'ex
     theme?: string;
 };
 
-export const setupScreenshotTesting = ({
-    it,
-    beforeAll,
-    afterAll,
-    expect,
-}: {
-    it: jest.It;
-    beforeAll: jest.Lifecycle;
-    afterAll: jest.Lifecycle;
-    expect: jest.Expect;
-}) => ({ cases, theme, ...matchHtmlArgs }: ScreenshotTestingParams) => () => {
+export const setupScreenshotTesting =
+    ({
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+    }: {
+        it: jest.It;
+        beforeAll: jest.Lifecycle;
+        afterAll: jest.Lifecycle;
+        expect: jest.Expect;
+    }) =>
+    ({ cases, theme, ...matchHtmlArgs }: ScreenshotTestingParams) =>
+    () => {
         let browser: Browser;
         let context: BrowserContext;
         let page: Page;

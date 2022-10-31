@@ -45,12 +45,13 @@ const isOverflowing = (container: Element) => {
     return container.scrollHeight > container.clientHeight;
 };
 
-const getPaddingRight = (node: Element) => parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
+const getPaddingRight = (node: Element) =>
+    parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 
 export const restoreContainerStyles = (container: HTMLElement) => {
     const modalRestoreStyles = getModalStore().getRestoreStyles();
 
-    const index = modalRestoreStyles.findIndex(s => s.container === container);
+    const index = modalRestoreStyles.findIndex((s) => s.container === container);
     const existingStyles = modalRestoreStyles[index];
 
     if (!existingStyles) return;
@@ -75,7 +76,7 @@ export const handleContainer = (container?: HTMLElement) => {
 
     const modalRestoreStyles = getModalStore().getRestoreStyles();
 
-    const existingStyles = modalRestoreStyles.find(s => s.container === container);
+    const existingStyles = modalRestoreStyles.find((s) => s.container === container);
 
     if (existingStyles) {
         existingStyles.modals += 1;

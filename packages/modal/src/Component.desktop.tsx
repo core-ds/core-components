@@ -96,7 +96,7 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
                     onEntered: handleEntered,
                 }}
             >
-                {React.Children.map(children, child =>
+                {React.Children.map(children, (child) =>
                     isValidElement(child) ? cloneElement(child, { size: componentSize }) : child,
                 )}
             </BaseModal>

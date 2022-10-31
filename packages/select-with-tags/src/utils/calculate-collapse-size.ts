@@ -1,8 +1,5 @@
 const getElementSize = (element: HTMLElement, property: string): number => {
-    const size = +window
-        .getComputedStyle(element)
-        .getPropertyValue(property)
-        .replace('px', '');
+    const size = +window.getComputedStyle(element).getPropertyValue(property).replace('px', '');
 
     return Number.isNaN(size) ? 0 : size;
 };

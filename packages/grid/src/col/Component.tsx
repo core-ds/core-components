@@ -74,11 +74,10 @@ export const Col: React.FC<ColProps> = ({
     children,
     dataTestId,
 }) => {
-    const classNames = useMemo(() => createClassNames({ order, offset, width }, styles), [
-        order,
-        offset,
-        width,
-    ]);
+    const classNames = useMemo(
+        () => createClassNames({ order, offset, width }, styles),
+        [order, offset, width],
+    );
 
     return (
         <Component

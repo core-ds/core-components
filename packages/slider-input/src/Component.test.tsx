@@ -110,7 +110,7 @@ describe('SliderInput', () => {
 
             const { queryByText } = render(<SliderInput pips={pips} />);
 
-            pips.values.map(value => expect(queryByText(value.toString())).toBeInTheDocument());
+            pips.values.map((value) => expect(queryByText(value.toString())).toBeInTheDocument());
         });
 
         it('should render info', () => {

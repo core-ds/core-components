@@ -13,7 +13,7 @@ import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
-import { BasePlacement, ModifierArguments,Obj, VariationPlacement } from '@popperjs/core';
+import { BasePlacement, ModifierArguments, Obj, VariationPlacement } from '@popperjs/core';
 import cn from 'classnames';
 import maxSize from 'popper-max-size-modifier';
 
@@ -250,14 +250,14 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             arrowElement,
         ]);
 
-        const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
-            referenceElement,
-            popperElement,
-            {
-                placement: position,
-                modifiers: getModifiers(),
-            },
-        );
+        const {
+            styles: popperStyles,
+            attributes,
+            update: updatePopper,
+        } = usePopper(referenceElement, popperElement, {
+            placement: position,
+            modifiers: getModifiers(),
+        });
 
         if (updatePopper) {
             updatePopperRef.current = updatePopper;
@@ -323,38 +323,38 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         }, [referenceElement, position]);
 
         const renderContent = (computedZIndex: number, style?: CSSProperties) => (
-                <div
-                    ref={mergeRefs([ref, setPopperElement])}
-                    style={{
-                        zIndex: computedZIndex,
-                        width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
-                        ...popperStyles.popper,
-                    }}
-                    data-test-id={dataTestId}
-                    className={cn(styles.component, className, {
-                        [styles.arrowShift]: arrowShift,
-                    })}
-                    {...attributes.popper}
-                >
-                    <div className={cn(styles.inner, popperClassName)} style={style}>
-                        <div className={cn({ [styles.scrollableContent]: availableHeight })}>
-                            {children}
-                        </div>
-
-                        {withArrow && (
-                            <div
-                                ref={setArrowElement}
-                                style={popperStyles.arrow}
-                                className={cn(styles.arrow, arrowClassName)}
-                            />
-                        )}
+            <div
+                ref={mergeRefs([ref, setPopperElement])}
+                style={{
+                    zIndex: computedZIndex,
+                    width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
+                    ...popperStyles.popper,
+                }}
+                data-test-id={dataTestId}
+                className={cn(styles.component, className, {
+                    [styles.arrowShift]: arrowShift,
+                })}
+                {...attributes.popper}
+            >
+                <div className={cn(styles.inner, popperClassName)} style={style}>
+                    <div className={cn({ [styles.scrollableContent]: availableHeight })}>
+                        {children}
                     </div>
+
+                    {withArrow && (
+                        <div
+                            ref={setArrowElement}
+                            style={popperStyles.arrow}
+                            className={cn(styles.arrow, arrowClassName)}
+                        />
+                    )}
                 </div>
-            );
+            </div>
+        );
 
         return (
             <Stack value={zIndex}>
-                {computedZIndex => (
+                {(computedZIndex) => (
                     <Portal getPortalContainer={getPortalContainer}>
                         {withTransition ? (
                             <CSSTransition

@@ -16,7 +16,7 @@ import startOfQuarter from 'date-fns/startOfQuarter';
 import startOfWeek from 'date-fns/startOfWeek';
 import startOfYear from 'date-fns/startOfYear';
 
-import { formatDate,monthName } from '../../utils';
+import { formatDate, monthName } from '../../utils';
 
 import { PeriodType } from '.';
 

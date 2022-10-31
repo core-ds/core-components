@@ -6,8 +6,8 @@ import { NotificationManager } from '.';
 
 jest.mock('react-transition-group', () => {
     return {
-        CSSTransition: jest.fn(props => props.children),
-        TransitionGroup: jest.fn(props => props.children),
+        CSSTransition: jest.fn((props) => props.children),
+        TransitionGroup: jest.fn((props) => props.children),
     };
 });
 

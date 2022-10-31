@@ -3,7 +3,7 @@ import { conformToMask, TextMaskConfig } from 'text-mask-core';
 
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
-import { deleteFormatting, getInsertedNumber,setCaretPosition } from './utils';
+import { deleteFormatting, getInsertedNumber, setCaretPosition } from './utils';
 
 const mask = [
     '+',

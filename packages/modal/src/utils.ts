@@ -35,7 +35,8 @@ const isOverflowing = (container: Element) => {
     return container.scrollHeight > container.clientHeight;
 };
 
-const getPaddingRight = (node: Element) => parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
+const getPaddingRight = (node: Element) =>
+    parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 
 export const handleContainer = (container: HTMLElement) => {
     const restoreStyle: Array<{

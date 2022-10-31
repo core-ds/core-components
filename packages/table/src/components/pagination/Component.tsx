@@ -51,7 +51,7 @@ export const Pagination: FC<PaginationProps> = ({
         () =>
             Array.from(new Set<number>(possiblePerPage.concat(perPage)))
                 .sort((a, b) => a - b)
-                .map(value => ({
+                .map((value) => ({
                     key: value.toString(),
                     content: `Показывать по ${value}`,
                 })),

@@ -20,7 +20,7 @@ export const Dot = React.forwardRef<SVGSVGElement, DotProps>(
         useEffect(() => {
             let dotSetting: DotSettingProps =
                 Array.isArray(dotSettings) && dotSettings.length > 0
-                    ? dotSettings.find(item => item.media && windowWidth < item.media)
+                    ? dotSettings.find((item) => item.media && windowWidth < item.media)
                     : dotSettings;
 
             if (Array.isArray(dotSettings) && dotSettings.length > 0 && !dotSetting) {

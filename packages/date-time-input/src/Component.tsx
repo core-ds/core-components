@@ -230,7 +230,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
 
                 if (calendarRef.current && calendarRef.current.contains(target) === false) {
                     setOpen(false);
-                    setValue(prevValue => setTimeToDate(prevValue));
+                    setValue((prevValue) => setTimeToDate(prevValue));
                 }
             }
         };

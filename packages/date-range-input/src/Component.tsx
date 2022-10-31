@@ -227,14 +227,9 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             }
         };
 
-        const {
-            selectedFrom,
-            selectedTo,
-            updatePeriod,
-            resetPeriod,
-            setStart,
-            setEnd,
-        } = usePeriod({ onPeriodChange: handlePeriodChange });
+        const { selectedFrom, selectedTo, updatePeriod, resetPeriod, setStart, setEnd } = usePeriod(
+            { onPeriodChange: handlePeriodChange },
+        );
 
         const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {

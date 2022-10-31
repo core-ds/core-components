@@ -8,10 +8,9 @@ import { TabsResponsive } from './Component.responsive';
 import { Tab } from '../tab';
 import { TabsProps } from '../../typings';
 
-const tabVariants: Array<[
-    typeof TabsMobile | typeof TabsDesktop | typeof TabsResponsive,
-    TabsProps['view'],
-]> = [
+const tabVariants: Array<
+    [typeof TabsMobile | typeof TabsDesktop | typeof TabsResponsive, TabsProps['view']]
+> = [
     [TabsDesktop, 'primary'],
     [TabsDesktop, 'secondary'],
     [TabsMobile, 'primary'],

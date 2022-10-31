@@ -40,7 +40,7 @@ describe('IconButton', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        (['xxs', 'xs', 's'] as const).forEach(size => {
+        (['xxs', 'xs', 's'] as const).forEach((size) => {
             it('should set `size` class on icon wrapper', () => {
                 const { container } = render(<IconButton icon={StarMIcon} size={size} />);
 

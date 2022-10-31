@@ -5,7 +5,7 @@ import { Status, colors } from './index';
 
 describe('Status', () => {
     describe('Snapshots tests', () => {
-        it.each(['soft', 'contrast'] as const)('should match view="%s" snapshot', view => {
+        it.each(['soft', 'contrast'] as const)('should match view="%s" snapshot', (view) => {
             expect(render(<Status view={view}>Label</Status>).container).toMatchSnapshot();
         });
     });
@@ -32,13 +32,13 @@ describe('Status', () => {
             expect(container.firstElementChild).toHaveClass('green');
         });
 
-        it.each(['soft', 'contrast'] as const)('should set view="%s"', view => {
+        it.each(['soft', 'contrast'] as const)('should set view="%s"', (view) => {
             const { container } = render(<Status view={view}>Label</Status>);
 
             expect(container.firstElementChild).toHaveClass(view);
         });
 
-        it.each(colors)('should set color="%s"', color => {
+        it.each(colors)('should set color="%s"', (color) => {
             const { container } = render(<Status color={color}>Label</Status>);
 
             expect(container.firstElementChild).toHaveClass(color);

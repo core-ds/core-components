@@ -13,12 +13,12 @@ describe('Stack', () => {
         const { getByTestId } = render(
             <div>
                 <Stack>
-                    {zIndex => {
+                    {(zIndex) => {
                         return <div style={{ zIndex }} data-test-id={testIds[0]} />;
                     }}
                 </Stack>
                 <Stack>
-                    {zIndex => {
+                    {(zIndex) => {
                         return <div style={{ zIndex }} data-test-id={testIds[1]} />;
                     }}
                 </Stack>
@@ -37,12 +37,12 @@ describe('Stack', () => {
         const { getByTestId } = render(
             <div>
                 <Stack>
-                    {zIndex => {
+                    {(zIndex) => {
                         return (
                             <Fragment>
                                 <div style={{ zIndex }} data-test-id={testIds[0]} />
                                 <Stack>
-                                    {nextZIndex => {
+                                    {(nextZIndex) => {
                                         return (
                                             <div
                                                 style={{ zIndex: nextZIndex }}
@@ -70,7 +70,7 @@ describe('Stack', () => {
         const { getByTestId } = render(
             <div>
                 <Stack>
-                    {zIndex => {
+                    {(zIndex) => {
                         return <div style={{ zIndex }} data-test-id={testId} />;
                     }}
                 </Stack>
@@ -88,7 +88,7 @@ describe('Stack', () => {
         const { getByTestId } = render(
             <div>
                 <Stack value={1}>
-                    {zIndex => {
+                    {(zIndex) => {
                         return <div style={{ zIndex }} data-test-id={testId} />;
                     }}
                 </Stack>

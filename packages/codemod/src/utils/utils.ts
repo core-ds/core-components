@@ -29,24 +29,24 @@ export const transformTypographyImports = (
      */
     const existedTypographyImports = source
         .find(j.ImportSpecifier)
-        .filter(path => path.parent.value.source.value === to)
-        .map(path => path.parent);
+        .filter((path) => path.parent.value.source.value === to)
+        .map((path) => path.parent);
 
     /**
      * Импорты компонента, который надо заменить
      */
     const imports = source
         .find(j.ImportSpecifier)
-        .filter(path => path.parent.value.source.value === from)
-        .map(path => path.parent);
+        .filter((path) => path.parent.value.source.value === from)
+        .map((path) => path.parent);
 
     /**
      * Импорты компонента, который надо заменить (import default)
      */
     const defaultImports = source
         .find(j.ImportDefaultSpecifier)
-        .filter(path => path.parent.value.source.value === from)
-        .map(path => path.parent);
+        .filter((path) => path.parent.value.source.value === from)
+        .map((path) => path.parent);
 
     if (existedTypographyImports.length > 0) {
         /**
@@ -82,7 +82,7 @@ export const renameAttribute = (
 
     j(openingElement)
         .find(j.JSXAttribute, { name: { name: from } })
-        .replaceWith(path => {
+        .replaceWith((path) => {
             const { node } = path;
 
             node.name.name = to;

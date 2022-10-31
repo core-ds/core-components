@@ -1,4 +1,4 @@
-import React, { HTMLAttributes,ReactNode } from 'react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
 
 import defaultColors from './default.module.css';

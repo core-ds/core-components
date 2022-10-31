@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ElementType,RefObject, useMemo, useRef, useState } from 'react';
+import React, { ChangeEvent, ElementType, RefObject, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
@@ -126,17 +126,21 @@ export const InputAutocompleteMobile = React.forwardRef(
             }
         };
 
-        const handleOpen: SelectMobileProps['onOpen'] = payload => {
+        const handleOpen: SelectMobileProps['onOpen'] = (payload) => {
             setBottomSheetVisibility(Boolean(payload.open));
         };
 
-        const handleOptionsListTouchMove = useMemo(() => throttle(() => {
-                const input = bottomSheetInputRef.current;
+        const handleOptionsListTouchMove = useMemo(
+            () =>
+                throttle(() => {
+                    const input = bottomSheetInputRef.current;
 
-                if (input && document.activeElement === input) {
-                    input.blur();
-                }
-            }, 300), []);
+                    if (input && document.activeElement === input) {
+                        input.blur();
+                    }
+                }, 300),
+            [],
+        );
 
         const handleChange = () => {
             setBottomSheetVisibility(false);

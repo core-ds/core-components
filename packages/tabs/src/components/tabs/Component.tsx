@@ -29,7 +29,7 @@ export const Tabs = ({
     );
 
     const tabs = tabsArray.filter(
-        tab => tab.props.id === selectedId || tab.props.keepMounted || keepMounted,
+        (tab) => tab.props.id === selectedId || tab.props.keepMounted || keepMounted,
     );
 
     return (
@@ -46,7 +46,7 @@ export const Tabs = ({
                 fullWidthScroll={fullWidthScroll}
             />
 
-            {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
+            {tabs.map((tab) => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
         </div>
     );
 };

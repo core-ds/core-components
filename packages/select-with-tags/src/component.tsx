@@ -61,7 +61,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             (deletedKey: string) => {
                 let tags = selected || selectedTags;
 
-                tags = tags.filter(tag => {
+                tags = tags.filter((tag) => {
                     const key = typeof tag === 'string' ? tag : tag.key;
 
                     return deletedKey !== key;
@@ -96,7 +96,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         );
 
         const handleOpen = useCallback<Required<BaseSelectProps>['onOpen']>(
-            payload => {
+            (payload) => {
                 const { open } = payload;
 
                 if (!open && value) {
