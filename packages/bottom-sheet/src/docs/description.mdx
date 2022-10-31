@@ -1,4 +1,4 @@
-BottomSheet построен с использованием слотов.  
+BottomSheet построен с использованием слотов.
 Компонент не имеет десктопной версии
 
 ## Архитектура
@@ -6,7 +6,7 @@ BottomSheet построен с использованием слотов.
 
 ## Примеры
 
-```jsx live
+```jsx live mobileOnly
 render(() => {
     const [open, setOpen] = React.useState(false);
 
@@ -90,7 +90,7 @@ render(() => {
                     <Radio label="Без заголовка" value="no" />
                     <Radio label="Центрирован" value="center" />
                     <Radio label="По левому краю" value="left" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -119,7 +119,7 @@ render(() => {
                 >
                     <Radio label="Мало" value="small" />
                     <Radio label="Больше чем на один экран" value="big" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -133,7 +133,7 @@ render(() => {
                     <Radio label="Кнопка" value="yes" />
                     <Radio label="Нет контента" value="no" />
                 </RadioGroup>
-                
+
                 <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
             </div>
 
@@ -147,7 +147,7 @@ render(() => {
                 >
                     <Radio label="По размеру контента" value="default" />
                     <Radio label="На весь экран" value="full" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -160,7 +160,7 @@ render(() => {
                 >
                     <Radio label="Разрешено" value="yes" />
                     <Radio label="Запрещено" value="no" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
 
             <div style={{ margin: '40px 0' }}>
@@ -173,7 +173,7 @@ render(() => {
                 >
                     <Radio label="С оверлеем" value="yes" />
                     <Radio label="Без оверлея" value="no" />
-                </RadioGroup>                    
+                </RadioGroup>
             </div>
         </>
     );
