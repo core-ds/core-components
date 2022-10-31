@@ -1,3 +1,5 @@
+@import '../../themes/src/default.css';
+
 .component {
     width: 24px;
     height: 24px;
@@ -8,7 +10,7 @@
     & div {
         height: 4px;
         width: 4px;
-        margin-right: 4px;
+        margin-right: var(--gap-2xs);
         border-radius: 100%;
         background-color: currentColor;
         animation-name: blink;

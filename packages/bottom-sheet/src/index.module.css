@@ -42,7 +42,7 @@
     left: 50%;
     width: 36px;
     height: 4px;
-    border-radius: 20px;
+    border-radius: var(--border-radius-xxl);
     transform: translateX(-50%);
     background-color: var(--color-light-graphic-quaternary);
     z-index: 1000;
