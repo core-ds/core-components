@@ -1,5 +1,19 @@
 # Change Log
 
+## 13.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   input@11.0.1
+    -   base-modal@5.0.5
+    -   bottom-sheet@5.1.7
+    -   modal@6.0.11
+
 ## 13.0.0
 
 ### Major Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+### [#323](https://github.com/core-ds/core-components/pull/323)
+
+-   Добавлена возможность передавать пропсы в компонент Scrollbar
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.5
+
 ## 4.1.0
 
 ### Minor Changes

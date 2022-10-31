@@ -1,8 +1,16 @@
 # Change Log
 
+## 3.0.4
+
+### Patch Changes
+
+### [#319](https://github.com/core-ds/core-components/pull/319)
+
+-   Добавлен текстовый стиль letter-spacing для компонента Status
+
 ## 3.0.3
 
-- В этом выпуске не было значимых изменений.
+-   В этом выпуске не было значимых изменений.
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-status@3.0.0...@alfalab/core-components-status@3.0.1) (2022-08-19)
 

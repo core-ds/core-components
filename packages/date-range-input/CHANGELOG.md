@@ -1,5 +1,17 @@
 # @alfalab/core-components-date-range-input
 
+## 2.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   input@11.0.1
+    -   calendar@6.1.10
+
 ## 2.0.0
 
 ### Major Changes

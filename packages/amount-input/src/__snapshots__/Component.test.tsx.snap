@@ -226,7 +226,7 @@ Object {
                   pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 $"
                   type="text"
-                  value="12 345,67"
+                  value="12 345,67"
                 />
                 <div
                   class="suffixContainer suffixContainer"
@@ -234,12 +234,12 @@ Object {
                   <span
                     class="spacer"
                   >
-                    12 345,67
+                    12 345,67
                   </span>
                   <div
                     class="suffix"
                   >
-                    12 345
+                    12 345
                     <span
                       class="minorPartAndCurrency"
                     >
@@ -278,7 +278,7 @@ Object {
                 pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 $"
                 type="text"
-                value="12 345,67"
+                value="12 345,67"
               />
               <div
                 class="suffixContainer suffixContainer"
@@ -286,12 +286,12 @@ Object {
                 <span
                   class="spacer"
                 >
-                  12 345,67
+                  12 345,67
                 </span>
                 <div
                   class="suffix"
                 >
-                  12 345
+                  12 345
                   <span
                     class="minorPartAndCurrency"
                   >

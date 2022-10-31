@@ -12,4 +12,6 @@ const Title: FC<TitleProps> = (props) => (
      */
     <TitleBase {...props} styles={Object.assign(commonStyles, styles)} />
 );
-export { Title, TitleProps };
+
+export { Title };
+export type { TitleProps };

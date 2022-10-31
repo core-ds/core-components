@@ -76,6 +76,7 @@
     border-color: var(--tag-border-color);
     border-style: solid;
     transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    margin: 0;
 
     &.defaultVariant {
         border-radius: var(--tag-border-radius);

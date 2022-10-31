@@ -1,5 +1,5 @@
 export * from './component';
 export * from './presets';
-export { TitleProps } from './title';
-export { TextProps } from './text';
-export { Color } from './colors';
+export type { TitleProps } from './title';
+export type { TextProps } from './text';
+export type { Color } from './colors';
