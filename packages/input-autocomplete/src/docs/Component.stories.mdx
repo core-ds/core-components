@@ -9,8 +9,9 @@ import { Arrow, Option, isOptionShape } from '@alfalab/core-components-select';
 import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
 import { InputAutocompleteMobile } from '@alfalab/core-components-input-autocomplete/mobile';
 
-import { InputAutocomplete as InputAutocompleteTS } from '../Component';
+import { InputAutocompleteDesktopProps as InputAutocompleteDesktopPropsTS } from '../Component.desktop';
 import { InputAutocompleteMobile as InputAutocompleteMobileTS } from '../Component.mobile';
+import { InputAutocompleteResponsive as InputAutocompleteResponsiveTS } from '../Component.responsive'
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -159,10 +160,13 @@ export const matchOption = (option, inputValue) =>
 
 ```jsx
 import { InputAutocomplete } from '@alfalab/core-components/input-autocomplete';
+import { InputAutocompleteDesktop } from '@alfalab/core-components/input-autocomplete/desktop';
+import { InputAutocompleteMobile } from '@alfalab/core-components/input-autocomplete/mobile';
+import { InputAutocompleteResponsive } from '@alfalab/core-components/input-autocomplete/responsive';
 ```
 
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<ArgsTable components={{InputAutocomplete: InputAutocompleteTS, InputAutocompleteMobile: InputAutocompleteMobileTS}} />}
+    props={<ArgsTable components={{InputAutocomplete: InputAutocompleteDesktopPropsTS, InputAutocompleteMobile: InputAutocompleteMobileTS, InputAutocompleteResponsive: InputAutocompleteResponsiveTS}} />}
 />

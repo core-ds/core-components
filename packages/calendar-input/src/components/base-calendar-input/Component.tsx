@@ -28,16 +28,13 @@ import {
     parseDateString,
 } from '@alfalab/core-components-date-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
-import { useMedia } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
-import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
+import { SUPPORTS_INPUT_TYPE_DATE } from '../../utils';
 
 import styles from './index.module.css';
 
-type View = 'desktop' | 'mobile';
-
-export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
+export type BaseCalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
     /**
      * Дополнительный класс
      */
@@ -156,9 +153,14 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Календарь будет принимать ширину инпута
      */
     useAnchorWidth?: boolean;
+
+    /**
+     * Отображение компонента в мобильном или десктопном виде
+     */
+    view?: 'desktop' | 'mobile';
 };
 
-export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
+export const BaseCalendarInput = forwardRef<HTMLInputElement, BaseCalendarInputProps>(
     (
         {
             block = false,
@@ -191,18 +193,11 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             useAnchorWidth,
             rightAddons,
             error,
+            view = 'desktop',
             ...restProps
         },
         ref,
     ) => {
-        const [view] = useMedia<View>(
-            [
-                ['mobile', '(max-width: 1023px)'],
-                ['desktop', '(min-width: 1024px)'],
-            ],
-            'desktop',
-        );
-
         const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
 
         const calendarResponsive = calendarProps?.responsive ?? true;

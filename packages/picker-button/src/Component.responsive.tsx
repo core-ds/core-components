@@ -10,7 +10,7 @@ import { PickerButtonMobile } from './Component.mobile';
 
 export type PickerButtonMatchMedia = 'desktop' | 'mobile';
 
-export type PickerButtonProps = PickerButtonDesktopProps &
+export type PickerButtonResponsiveProps = PickerButtonDesktopProps &
     AdditionalMobileProps & {
         /**
          * Контрольная точка, с нее начинается desktop версия
@@ -19,7 +19,7 @@ export type PickerButtonProps = PickerButtonDesktopProps &
         breakpoint?: number;
     };
 
-export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
+export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonResponsiveProps>(
     (
         {
             OptionsList,

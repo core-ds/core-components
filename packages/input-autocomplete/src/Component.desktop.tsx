@@ -11,7 +11,7 @@ import {
 
 import { AutocompleteField } from './autocomplete-field';
 
-export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSelect'> & {
+export type InputAutocompleteDesktopProps = Omit<BaseSelectProps, 'Field' | 'nativeSelect'> & {
     /**
      * Компонент ввода значения
      */
@@ -48,7 +48,7 @@ export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSele
     updatePopover?: BaseSelectProps['updatePopover'];
 };
 
-export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteProps>(
+export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutocompleteDesktopProps>(
     (
         {
             OptionsList = DefaultOptionsList,
