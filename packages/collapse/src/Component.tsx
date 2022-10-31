@@ -34,9 +34,14 @@ export type CollapseProps = {
     children?: React.ReactNode;
 
     /**
-     * Дополнительный класс
+     * Дополнительный класс обертки
      */
     className?: string;
+
+    /**
+     * Дополнительный класс для скрываемого контента
+     */
+    expandedContentClassName?: string;
 
     /**
      * Идентификатор компонента в DOM
@@ -46,12 +51,12 @@ export type CollapseProps = {
     /**
      * Обработчик смены состояний `expanded/collapsed`
      */
-    onExpandedChange?: (expanded?: boolean) => void;
+    onExpandedChange?: (expanded: boolean) => void;
 
     /**
      * Обработчик события завершения анимации
      */
-    onTransitionEnd?: (expanded?: boolean) => void;
+    onTransitionEnd?: (expanded: boolean) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -67,6 +72,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             expandedLabel,
             children,
             className,
+            expandedContentClassName,
             id,
             onTransitionEnd,
             onExpandedChange,
@@ -78,7 +84,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
         const contentRef = useRef<HTMLDivElement>(null);
         const contentCaseRef = useRef<HTMLDivElement>(null);
-        const [expandedState, setExpandedState] = useState(expanded);
+        const [expandedState, setExpandedState] = useState(uncontrolled ? false : expanded);
 
         const isExpanded = uncontrolled ? expandedState : expanded;
 
@@ -99,15 +105,15 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
         }, [isExpanded]);
 
         const handleTransitionEnd = useCallback(() => {
-            if (onTransitionEnd) onTransitionEnd(expanded);
-        }, [expanded, onTransitionEnd]);
+            if (onTransitionEnd) onTransitionEnd(isExpanded);
+        }, [isExpanded, onTransitionEnd]);
 
         const handleExpandedChange = useCallback(() => {
             if (uncontrolled) {
                 setExpandedState(!isExpanded);
             }
 
-            if (onExpandedChange) onExpandedChange();
+            if (onExpandedChange) onExpandedChange(!isExpanded);
         }, [isExpanded, onExpandedChange, uncontrolled]);
 
         useEffect(() => {
@@ -144,7 +150,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             >
                 <div
                     ref={contentRef}
-                    className={cn(styles.content, {
+                    className={cn(styles.content, expandedContentClassName, {
                         [styles.expandedContent]: isExpanded,
                     })}
                     onTransitionEnd={handleTransitionEnd}
