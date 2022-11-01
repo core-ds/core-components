@@ -475,8 +475,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
             <span
               class="text typographyTheme primary primary-medium"
             >
-               
-              — для звонков по России
+               — для звонков по России
             </span>
           </div>
           <div
@@ -495,8 +494,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
             <span
               class="text typographyTheme primary primary-medium"
             >
-               
-              — в Москве и за границей
+               — в Москве и за границей
             </span>
           </div>
         </div>

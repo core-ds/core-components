@@ -8,7 +8,7 @@ const path = require('path');
 const kebab = require('lodash.kebabcase');
 const { hideBin } = require('yargs/helpers');
 
-const getTransformerPath = componentName =>
+const getTransformerPath = (componentName) =>
     path.resolve(__dirname, `../src/${kebab(componentName)}/transform.ts`);
 
 function main() {
@@ -41,7 +41,7 @@ function main() {
 
     const transformers = argv.transformers.split(',');
 
-    transformers.forEach(transformerName => {
+    transformers.forEach((transformerName) => {
         const transformer = getTransformerPath(transformerName);
 
         try {

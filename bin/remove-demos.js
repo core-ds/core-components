@@ -24,7 +24,7 @@ shell.exec('git config commit.gpgsign false', execOptions);
 const remoteBranches = shell.exec('git branch -r', execOptions).stdout.trim();
 
 /** List of remote branches */
-const branchesList = remoteBranches.split('\n').map(branch =>
+const branchesList = remoteBranches.split('\n').map((branch) =>
     branch
         .replace('origin/', '')
         .trim()
@@ -50,16 +50,16 @@ if (currentBranch === defaultConfig.targetBranch) {
         .split('\n');
 
     const shouldRemove = directories.filter(
-        directory =>
+        (directory) =>
             !defaultConfig.excluded_directories.includes(directory) &&
-            !branchesList.some(branchName => directory.indexOf(branchName) === 0),
+            !branchesList.some((branchName) => directory.indexOf(branchName) === 0),
     );
 
     console.log('=> should remove', shouldRemove);
 
     /** Trying to delete directories */
     console.log('=> Trying to delete directories');
-    shouldRemove.forEach(directory => {
+    shouldRemove.forEach((directory) => {
         shell.exec(`rm -rf ${directory}`, execOptions);
     });
 

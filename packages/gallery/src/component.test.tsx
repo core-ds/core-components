@@ -22,7 +22,7 @@ const images = [
     },
 ];
 
-const getImageIndex = (src: string): number => images.findIndex(image => image.src === src);
+const getImageIndex = (src: string): number => images.findIndex((image) => image.src === src);
 
 const GalleryWrapper = () => {
     const [open, setOpen] = useState(true);

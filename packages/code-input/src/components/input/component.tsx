@@ -28,15 +28,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         { index, error, disabled, value = '', compact = false, onChange, onKeyDown, onFocus },
         ref,
     ) => {
-        const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
+        const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
             onChange(event, { index });
         };
 
-        const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = event => {
+        const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
             onKeyDown(event, { index });
         };
 
-        const handleClick: MouseEventHandler = event => {
+        const handleClick: MouseEventHandler = (event) => {
             const target = event.target as HTMLInputElement;
 
             /**
