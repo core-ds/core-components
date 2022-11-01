@@ -32,6 +32,47 @@ describe('Attributes tests', () => {
 
         expect(testIdAttr).toBe(dataTestId);
     });
+
+    it('should be ol element', () => {
+        const dataTestId = 'link-test-id';
+
+        const { getByTestId } = render(
+            <List tag='ol' dataTestId={dataTestId}>
+                List
+            </List>,
+        );
+
+        const listEl = getByTestId(dataTestId);
+
+        expect(listEl.tagName).toBe('OL');
+    });
+
+    it('should set start attribute', () => {
+        const dataTestId = 'link-test-id';
+        const startValue = 10;
+        const { getByTestId } = render(
+            <List tag='ol' start={startValue} dataTestId={dataTestId}>
+                List
+            </List>,
+        );
+
+        const listEl = getByTestId(dataTestId);
+
+        expect(listEl).toHaveAttribute('start');
+        expect(listEl.getAttribute('start')).toEqual(String(startValue));
+    });
+
+    it('should set reversed attribute', () => {
+        const dataTestId = 'link-test-id';
+        const { getByTestId } = render(
+            <List tag='ol' reversed dataTestId={dataTestId}>
+                List
+            </List>,
+        );
+
+        const listEl = getByTestId(dataTestId);
+        expect(listEl).toHaveAttribute('reversed');
+    });
 });
 
 describe('Props tests', () => {
