@@ -176,6 +176,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             if (value.indexOf(' ') > 0) {
                 return value;
             }
+
             return formatPhone(value);
         }, [value, formatPhone]);
 
@@ -203,6 +204,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 // dialcode казахстанских номеров совпадает с российскими, поэтому проверяем отдельно
                 if (new RegExp('^\\+7(\\s)?7').test(inputValue)) {
                     const kzCoutry = countries.find((item) => item.iso2 === 'kz');
+
                     if (kzCoutry) {
                         return kzCoutry;
                     }
@@ -224,6 +226,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         if (country.priority === 0) {
                             return true;
                         }
+
                         return false;
                     }
 
@@ -489,6 +492,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         useEffect(() => {
             const newCountry = getCountryByNumber(value);
+
             if (newCountry && countryIso2 !== newCountry.iso2) {
                 setCountryIso2(newCountry.iso2);
             } else if (
