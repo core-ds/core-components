@@ -1,0 +1,24 @@
+Компонент для создания отступа между блоками.
+
+Можно задавать как вертикальный, так и горизонтальный отступ.
+Размер отступа устанавливается в соответствии с [системой отступов](/docs/гайдлайны-отступы--page)
+
+```jsx live
+<div>
+    <Typography.Text>Просто текст</Typography.Text>
+    <Gap size='s' />
+    <CardImage cardId='EG' />
+    <Gap size='xl' />
+    <Typography.Text>Еще немного текста</Typography.Text>
+</div>
+```
+
+```jsx live
+<div style={{ display: 'flex' }}>
+    <CardImage cardId='EG' />
+    <Gap direction='horizontal' size='l' />
+    <CardImage cardId='EG' />
+    <Gap direction='horizontal' size='l' />
+    <CardImage cardId='EG' />
+</div>
+```
