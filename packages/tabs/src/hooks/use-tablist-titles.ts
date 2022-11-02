@@ -16,7 +16,7 @@ export const useTablistTitles = ({
     const { containerRef, addonRef, idsCollapsedElements } = useCollapsibleElements<
         HTMLDivElement,
         HTMLInputElement
-    >('[role=tab]');
+    >('[role=tab]', [titles]);
 
     const [view] = useMedia<TabsMatchMedia>(
         [
@@ -27,21 +27,24 @@ export const useTablistTitles = ({
     );
 
     const tablistTitles = useMemo(() => {
-        const visibleTitles = titles.filter(({ id }) => !idsCollapsedElements.includes(String(id)));
-        const lastVisibleTitle = visibleTitles[visibleTitles.length - 1];
-        const isDesktop = view === 'desktop';
+        const idsCollapsedTitles: string[] = [];
 
-        const idsCollapsedTitles = idsCollapsedElements.reduce<string[]>(
-            (acc, id) =>
-                selectedId === id && lastVisibleTitle
-                    ? [...acc, String(lastVisibleTitle.id)]
-                    : [...acc, id],
-            [],
-        );
+        if (view === 'desktop' && collapsible) {
+            const visibleTitles = titles.filter(
+                ({ id }) => !idsCollapsedElements.includes(String(id)),
+            );
+            const lastVisibleTitle = visibleTitles[visibleTitles.length - 1];
+
+            idsCollapsedElements.forEach((id) => {
+                idsCollapsedTitles.push(
+                    selectedId === id && lastVisibleTitle ? String(lastVisibleTitle.id) : id,
+                );
+            });
+        }
 
         return titles.map((title) => ({
             ...title,
-            collapsed: collapsible && isDesktop && idsCollapsedTitles.includes(String(title.id)),
+            collapsed: idsCollapsedTitles.includes(String(title.id)),
             selected: title.id === selectedId,
         }));
     }, [titles, collapsible, selectedId, idsCollapsedElements, view]);

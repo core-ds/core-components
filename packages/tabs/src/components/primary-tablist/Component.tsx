@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
@@ -41,19 +41,20 @@ export const PrimaryTabList = ({
         }
     }, [selectedTab, tablistTitles]);
 
-    const collapsedOptions = tablistTitles.reduce<PickerButtonProps['options']>(
-        (options, title) =>
-            title.collapsed
-                ? [
-                      ...options,
-                      {
-                          key: title.title,
-                          value: title.id,
-                          content: <Title {...title} styles={styles} isOption={true} />,
-                      },
-                  ]
-                : options,
-        [],
+    const collapsedOptions = useMemo(
+        () =>
+            tablistTitles.reduce<PickerButtonProps['options']>((options, title) => {
+                if (title.collapsed) {
+                    options.push({
+                        key: title.title,
+                        value: title.id,
+                        content: <Title {...title} styles={styles} isOption={true} />,
+                    });
+                }
+
+                return options;
+            }, []),
+        [tablistTitles, styles],
     );
 
     const collapsedAddonsLength = tablistTitles.filter(
@@ -93,9 +94,9 @@ export const PrimaryTabList = ({
             ))}
 
             {collapsedOptions.length ? (
-                <span ref={addonRef} className={cn(styles.pickerWrapper)}>
+                <span ref={addonRef} className={styles.pickerWrapper}>
                     <PickerButton
-                        fieldClassName={cn(styles.title)}
+                        fieldClassName={styles.title}
                         optionClassName={cn(styles.pickerOption, size && styles[size])}
                         options={collapsedOptions}
                         onChange={handleOptionsChange}

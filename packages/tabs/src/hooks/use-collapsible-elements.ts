@@ -1,20 +1,21 @@
-import {
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
-import { ResizeObserver } from '@juggle/resize-observer';
+import { DependencyList, useRef, useState } from 'react';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
+
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 export const useCollapsibleElements = <
     ContainerType extends HTMLElement,
-    AddonType extends HTMLElement
->(selectors: string) => {
+    AddonType extends HTMLElement,
+>(
+    selectors: string,
+    deps: DependencyList = [],
+) => {
     const [idsCollapsedElements, setIdsCollapsedElements] = useState<string[]>([]);
 
     const containerRef = useRef<ContainerType>(null);
     const addonRef = useRef<AddonType>(null);
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const collapseElements = (inlineSize?: number) => {
             const container = containerRef.current;
 
@@ -24,32 +25,31 @@ export const useCollapsibleElements = <
             const containerWidth = inlineSize || container.clientWidth;
             const elements = Array.from(container.querySelectorAll(selectors)) as HTMLElement[];
 
-            const idsCollapsedElements = elements.reduce<string[]>((
-                acc,
-                element,
-            ) => {
+            const idsCollapsedElements = elements.reduce<string[]>((acc, element) => {
                 const { offsetLeft, offsetWidth, id } = element;
                 const elementOffset = offsetLeft + offsetWidth;
                 const isCollapsedElement = getComputedStyle(element).visibility === 'collapse';
-                const maxWidth = addon && !isCollapsedElement
-                    ? containerWidth - (addon.offsetWidth + parseFloat(getComputedStyle(addon).marginLeft))
-                    : containerWidth;
+                const maxWidth =
+                    addon && !isCollapsedElement
+                        ? containerWidth -
+                          (addon.offsetWidth + parseFloat(getComputedStyle(addon).marginLeft))
+                        : containerWidth;
 
-                return elementOffset >= maxWidth
-                    ? [...acc, id]
-                    : acc;
+                if (elementOffset >= maxWidth) acc.push(id);
+
+                return acc;
             }, []);
 
             setIdsCollapsedElements(idsCollapsedElements);
-        }
-
+        };
 
         const handleElementsResize = (entries: ResizeObserverEntry[]) => {
             const [{ inlineSize }] = entries[0].contentBoxSize;
 
-            collapseElements(inlineSize)
+            collapseElements(inlineSize);
         };
 
+        const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
         const observer = new ResizeObserver(handleElementsResize);
 
         if (containerRef.current) {
@@ -58,7 +58,7 @@ export const useCollapsibleElements = <
         }
 
         return () => observer.disconnect();
-    }, [selectors]);
+    }, [selectors, ...deps]);
 
     return {
         containerRef,

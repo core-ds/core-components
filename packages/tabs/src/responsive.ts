@@ -4,4 +4,5 @@ export * from './components/secondary-tablist/Component.responsive';
 export * from './components/tab';
 export * from './components/tabs/Component.responsive';
 export * from './hooks/use-tabs';
+export * from './hooks/use-collapsible-elements';
 export * from './typings';
