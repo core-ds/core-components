@@ -1,12 +1,4 @@
-import React, {
-    ChangeEvent,
-    forwardRef,
-    useCallback,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import React, { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
@@ -139,46 +131,33 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
-        const formatPhone = useCallback(
-            (inputValue: string) => {
-                let newValue = inputValue;
+        const formatPhone = (inputValue: string, iso2 = countryIso2) => {
+            let newValue = inputValue;
 
-                if (phoneLibUtils.current) {
-                    const Utils = phoneLibUtils.current;
-                    const utils = new Utils(
-                        countryIso2 ? (countryIso2.toUpperCase() as CountryCode) : undefined,
-                    );
+            if (phoneLibUtils.current) {
+                const Utils = phoneLibUtils.current;
+                const utils = new Utils(iso2 ? (iso2.toUpperCase() as CountryCode) : undefined);
 
-                    newValue = utils.input(inputValue);
-                }
-
-                if (countryIso2 === 'ru') {
-                    const parts = newValue.split(' ');
-
-                    newValue = parts.reduce((acc, part, index) => {
-                        if (index === 0) {
-                            return part;
-                        }
-                        if (index > 2) {
-                            return `${acc}-${part}`;
-                        }
-
-                        return `${acc} ${part}`;
-                    }, '');
-                }
-
-                return newValue;
-            },
-            [countryIso2],
-        );
-
-        const formatedValue = useMemo(() => {
-            if (value.indexOf(' ') > 0) {
-                return value;
+                newValue = utils.input(inputValue);
             }
 
-            return formatPhone(value);
-        }, [value, formatPhone]);
+            if (iso2 === 'ru') {
+                const parts = newValue.split(' ');
+
+                newValue = parts.reduce((acc, part, index) => {
+                    if (index === 0) {
+                        return part;
+                    }
+                    if (index > 2) {
+                        return `${acc}-${part}`;
+                    }
+
+                    return `${acc} ${part}`;
+                }, '');
+            }
+
+            return newValue;
+        };
 
         const setCountryByIso2 = (iso2: string) => {
             const country = countriesHash[iso2];
@@ -199,44 +178,41 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const getCountryByNumber = useCallback(
-            (inputValue: string) => {
-                // dialcode казахстанских номеров совпадает с российскими, поэтому проверяем отдельно
-                if (new RegExp('^\\+7(\\s)?7').test(inputValue)) {
-                    const kzCoutry = countries.find((item) => item.iso2 === 'kz');
+        const getCountryByNumber = (inputValue: string) => {
+            // dialcode казахстанских номеров совпадает с российскими, поэтому проверяем отдельно
+            if (new RegExp('^\\+7(\\s)?7').test(inputValue)) {
+                const kzCoutry = countries.find((item) => item.iso2 === 'kz');
 
-                    if (kzCoutry) {
-                        return kzCoutry;
-                    }
+                if (kzCoutry) {
+                    return kzCoutry;
                 }
+            }
 
-                const targetCountry = countries.find((country) => {
-                    if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
-                        // Сначала проверяем, если приоритет не указан
-                        if (country.priority === undefined) {
-                            return true;
-                        }
+            const targetCountry = countries.find((country) => {
+                if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
+                    // Сначала проверяем, если приоритет не указан
+                    if (country.priority === undefined) {
+                        return true;
+                    }
 
-                        // Если страна уже была выставлена через селект, и коды совпадают
-                        if (countryIso2 === country.iso2 && countryIso2 !== 'kz') {
-                            return true;
-                        }
+                    // Если страна уже была выставлена через селект, и коды совпадают
+                    if (countryIso2 === country.iso2 && countryIso2 !== 'kz') {
+                        return true;
+                    }
 
-                        // Если не совпадают - выбираем по приоритету
-                        if (country.priority === 0) {
-                            return true;
-                        }
-
-                        return false;
+                    // Если не совпадают - выбираем по приоритету
+                    if (country.priority === 0) {
+                        return true;
                     }
 
                     return false;
-                });
+                }
 
-                return targetCountry;
-            },
-            [countries, countryIso2],
-        );
+                return false;
+            });
+
+            return targetCountry;
+        };
 
         const setCountryByDialCode = (inputValue: string) => {
             const country = getCountryByNumber(inputValue);
@@ -433,7 +409,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     handleCountryChange(undefined);
                 }
             } else {
-                onChange(formatedValue.substring(0, countryCodeLength));
+                onChange(value.substring(0, countryCodeLength));
             }
         };
 
@@ -491,18 +467,24 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         }, [value]);
 
         useEffect(() => {
-            const newCountry = getCountryByNumber(value);
+            if (value && value.length > 1 && !value.includes(' ')) {
+                const newCountry = getCountryByNumber(value);
 
-            if (newCountry && countryIso2 !== newCountry.iso2) {
-                setCountryIso2(newCountry.iso2);
-            } else if (
-                canBeEmptyCountry &&
-                !newCountry &&
-                countryIso2 !== defaultCountryIso2.toLowerCase()
-            ) {
-                setCountryIso2(undefined);
+                if (newCountry && countryIso2 !== newCountry.iso2) {
+                    setCountryIso2(newCountry.iso2);
+                    handleCountryChange(newCountry.iso2);
+                } else if (
+                    canBeEmptyCountry &&
+                    !newCountry &&
+                    countryIso2 !== defaultCountryIso2.toLowerCase()
+                ) {
+                    setCountryIso2(undefined);
+                    handleCountryChange(undefined);
+                }
+                onChange(formatPhone(value, newCountry?.iso2));
             }
-        }, [value, getCountryByNumber, canBeEmptyCountry, countryIso2, defaultCountryIso2]);
+            /* eslint-disable-next-line react-hooks/exhaustive-deps */
+        }, [value, canBeEmptyCountry, countryIso2, defaultCountryIso2]);
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
@@ -556,7 +538,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 readOnly={readOnly}
                 size={size}
                 className={className}
-                value={formatedValue}
+                value={value}
             />
         );
     },

@@ -316,14 +316,19 @@ describe('IntlPhoneInput', () => {
         });
     });
 
-    it('should format number when set unformated value', async () => {
+    it.only('should format number when set unformated value', async () => {
         const onChange = jest.fn();
+        const onCountryChange = jest.fn();
         const RenderComponent = () => {
-            const [value, setValue] = useState('+7');
+            const [value, setValue] = useState('+7 789 123 45 67');
 
             return (
                 <React.Fragment>
-                    <IntlPhoneInput value={value} onChange={onChange} />
+                    <IntlPhoneInput
+                        value={value}
+                        onCountryChange={onCountryChange}
+                        onChange={onChange}
+                    />
                     <button
                         type='button'
                         data-test-id='intl-change-number'
@@ -336,13 +341,13 @@ describe('IntlPhoneInput', () => {
         };
         render(<RenderComponent />);
 
-        const input = (await screen.findByRole('textbox')) as HTMLInputElement;
-        const btn = screen.getByTestId('intl-change-number');
+        const btn = await screen.findByTestId('intl-change-number');
 
         fireEvent.click(btn);
 
         await waitFor(async () => {
-            expect(input.value).toBe('+7 949 123-45-67');
+            expect(onChange).toHaveBeenCalledWith('+7 949 123-45-67');
+            expect(onCountryChange).toHaveBeenCalledWith('RU');
         });
     });
 });
