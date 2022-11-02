@@ -30,9 +30,9 @@ describe('Props tests', () => {
     it('should set size', () => {
         const dataTestId = 'test-id';
         const size = 'xl';
-        const { getByTestId } = render(<Gap size={size} />);
+        const { getByTestId } = render(<Gap size={size} dataTestId={dataTestId} />);
         const gapEl = getByTestId(dataTestId);
 
-        expect(gapEl).toHaveClass(size);
+        expect(gapEl).toHaveAttribute('data-gap-size', size);
     });
 });

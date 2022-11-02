@@ -43,5 +43,9 @@ export type GapProps = {
 };
 
 export const Gap = ({ size, direction = 'vertical', className, dataTestId }: GapProps) => (
-    <div data-test-id={dataTestId} className={cn(styles[direction], styles[size], className)} />
+    <div
+        data-test-id={dataTestId}
+        data-gap-size={size}
+        className={cn(styles.gap, styles[direction], className)}
+    />
 );
