@@ -21,12 +21,10 @@ exports[`Collapse Display tests should display radio group with one child correc
       class="component primary pseudo withAddons"
       type="button"
     >
-      <span>
-        <span
-          class="text"
-        >
-          Показать
-        </span>
+      <span
+        class="text"
+      >
+        Показать
       </span>
       <span
         class="addons"

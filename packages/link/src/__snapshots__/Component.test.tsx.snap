@@ -108,12 +108,10 @@ Object {
             />
           </svg>
         </span>
-        <span>
-          <span
-            class="text"
-          >
-            Link
-          </span>
+        <span
+          class="text"
+        >
+          Link
         </span>
       </a>
     </div>
@@ -139,12 +137,10 @@ Object {
           />
         </svg>
       </span>
-      <span>
-        <span
-          class="text"
-        >
-          Link
-        </span>
+      <span
+        class="text"
+      >
+        Link
       </span>
     </a>
   </div>,
@@ -294,12 +290,10 @@ Object {
         class="component primary withAddons"
         href=""
       >
-        <span>
-          <span
-            class="text"
-          >
-            Link
-          </span>
+        <span
+          class="text"
+        >
+          Link
         </span>
         <span
           class="addons"
@@ -325,12 +319,10 @@ Object {
       class="component primary withAddons"
       href=""
     >
-      <span>
-        <span
-          class="text"
-        >
-          Link
-        </span>
+      <span
+        class="text"
+      >
+        Link
       </span>
       <span
         class="addons"

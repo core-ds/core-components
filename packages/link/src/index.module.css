@@ -49,6 +49,10 @@
     display: flex;
     align-items: center;
     transition: color 0.2s ease;
+
+    & ~ .text {
+        align-self: flex-start;
+    }
 }
 
 .addons:first-child {

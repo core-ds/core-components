@@ -126,11 +126,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
                 {leftAddons || rightAddons ? (
                     <React.Fragment>
                         {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
-                        {children && (
-                            <span>
-                                <span className={styles.text}>{children}</span>
-                            </span>
-                        )}
+                        {children && <span className={styles.text}>{children}</span>}
                         {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
                     </React.Fragment>
                 ) : (
