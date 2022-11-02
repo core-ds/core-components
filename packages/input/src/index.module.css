@@ -2,13 +2,6 @@
 @import '../../form-control/src/vars.css';
 @import './vars.css';
 
-@define-mixin _input-icon {
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-
 .input {
     @mixin paragraph_component;
     position: relative;
@@ -69,8 +62,6 @@
 }
 
 .errorIcon {
-    @mixin _input-icon;
-
     display: var(--input-error-icon-display);
 
     &:not(:only-child) {
@@ -82,6 +73,10 @@
     display: var(--input-error-icon-not-alone-display);
 }
 
+.errorColorIcon {
+    color: var(--color-light-graphic-negative);
+}
+
 .clearButton + * {
     margin-left: var(--gap-2xs);
 }
@@ -91,13 +86,15 @@
 }
 
 .successIcon {
-    @mixin _input-icon;
-
     display: var(--input-success-icon-display);
 
     &:not(:only-child) {
         margin-left: var(--gap-2xs);
     }
+}
+
+.successColorIcon {
+    color: var(--color-light-graphic-positive);
 }
 
 /* DISABLED STATE */

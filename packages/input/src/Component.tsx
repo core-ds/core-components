@@ -14,8 +14,11 @@ import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
+import { Badge } from '@alfalab/core-components/badge';
 import { useFocus } from '@alfalab/hooks';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -330,12 +333,28 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         )}
                         {rightAddons}
                         {error && (
-                            <span className={cn(styles.errorIcon, colorStyles[colors].errorIcon)} />
+                            <span className={styles.errorIcon}>
+                                <Badge
+                                    view='icon'
+                                    size='m'
+                                    iconColor='negative'
+                                    content={
+                                        <ExclamationCircleMIcon className={styles.errorColorIcon} />
+                                    }
+                                />
+                            </span>
                         )}
                         {success && !error && (
-                            <span
-                                className={cn(styles.successIcon, colorStyles[colors].successIcon)}
-                            />
+                            <span className={styles.successIcon}>
+                                <Badge
+                                    view='icon'
+                                    size='m'
+                                    iconColor='positive'
+                                    content={
+                                        <CheckmarkCircleMIcon className={styles.successColorIcon} />
+                                    }
+                                />
+                            </span>
                         )}
                     </Fragment>
                 )
