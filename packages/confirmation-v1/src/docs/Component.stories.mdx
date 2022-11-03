@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { ConfirmationV1 } from '@alfalab/core-components-confirmation-v1';
@@ -174,6 +174,6 @@ import { ConfirmationV1 } from '@alfalab/core-components/confirmation-v1';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={ConfirmationV1TS} />}
+    props={<ArgsTable of={ConfirmationV1TS} />}
     cssVars={<CssVars css={vars} />}
 />

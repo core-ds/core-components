@@ -30,12 +30,12 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
 
             const tabAvailable = (ref: HTMLButtonElement) => ref && !ref.disabled;
 
-            if (refs.every(ref => !tabAvailable(ref))) return;
+            if (refs.every((ref) => !tabAvailable(ref))) return;
 
-            let focusedTabIndex = refs.findIndex(node => document.activeElement === node);
+            let focusedTabIndex = refs.findIndex((node) => document.activeElement === node);
 
             if (focusedTabIndex === -1) {
-                focusedTabIndex = refs.findIndex(node => node === selectedTab);
+                focusedTabIndex = refs.findIndex((node) => node === selectedTab);
             }
 
             let newFocusIndex;

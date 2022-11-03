@@ -18,12 +18,12 @@ export type OverlayProps = {
 };
 
 export const Overlay: FC<OverlayProps> = ({ text = 'Перетащите файлы', visible = false }) => (
-        <div
-            className={cn(styles.overlay, {
-                [styles.visible]: visible,
-            })}
-        >
-            <ContainerMIcon />
-            <span className={styles.text}>{text}</span>
-        </div>
-    );
+    <div
+        className={cn(styles.overlay, {
+            [styles.visible]: visible,
+        })}
+    >
+        <ContainerMIcon />
+        <span className={styles.text}>{text}</span>
+    </div>
+);

@@ -1,5 +1,34 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   date-input@4.0.1
+    -   calendar-input@8.0.1
+    -   calendar@6.1.10
+
+## 7.0.0
+
+### Major Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar-input@8.0.0
+    -   date-input@4.0.0
+    -   calendar@6.1.9
+
 ## 6.2.8
 
 ### Patch Changes

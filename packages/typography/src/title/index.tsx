@@ -5,12 +5,13 @@ import { Title as TitleBase, TitleProps } from './component';
 import commonStyles from './common.module.css';
 import styles from './index.module.css';
 
-const Title: FC<TitleProps> = props => 
+const Title: FC<TitleProps> = (props) => (
     /**
      * Если поменять Object.assign на деструктуризацию, то упадут тесты.
      * Видимо, это особенность работы jest и css-modules.
      */
-     <TitleBase {...props} styles={Object.assign(commonStyles, styles)} />
-;
+    <TitleBase {...props} styles={Object.assign(commonStyles, styles)} />
+);
 
-export { Title, TitleProps };
+export { Title };
+export type { TitleProps };

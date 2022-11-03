@@ -1,5 +1,27 @@
 # Change Log
 
+## 6.0.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.5
+
+## 6.0.10
+
+### Patch Changes
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+-   Новые стили кнопок в теме default
+-   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+-   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+-   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+-   Обновлены зависимости
+    -   button@7.0.0
+    -   icon-button@6.0.0
+
 ## 6.0.9
 
 ### Patch Changes

@@ -19,9 +19,9 @@ export const Tick = ({ y, payload, tickFormatter, xAxis }: TickProps) => {
             className={cn(styles.tick)}
             opacity='1'
             textAnchor='middle'
-            transform={`translate(${payload.coordinate}, ${y -
-                (typeof marginTick === 'number' ? marginTick : 0) -
-                radius * 2})`}
+            transform={`translate(${payload.coordinate}, ${
+                y - (typeof marginTick === 'number' ? marginTick : 0) - radius * 2
+            })`}
         >
             <text className={cn(styles.tickText)} y='30'>
                 {tickFormatter ? tickFormatter(payload.value) : payload.value}

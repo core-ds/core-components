@@ -66,17 +66,13 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
 
     const hasValidateError = inputFromInvalid || inputToInvalid || bothInvalid;
 
-    const {
-        monthFrom,
-        monthTo,
-        handleMonthFromChange,
-        handleMonthToChange,
-    } = usePopoverViewMonthes({
-        dateFrom,
-        dateTo,
-        defaultMonth,
-        resetKey,
-    });
+    const { monthFrom, monthTo, handleMonthFromChange, handleMonthToChange } =
+        usePopoverViewMonthes({
+            dateFrom,
+            dateTo,
+            defaultMonth,
+            resetKey,
+        });
 
     const handleValidInputFrom = useCallback(() => {
         setInputFromInvalid(

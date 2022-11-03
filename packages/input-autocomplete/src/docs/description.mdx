@@ -55,6 +55,52 @@ render(() => {
         />
     );
 });
+@MOBILE@
+render(() => {
+    const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
+    ];
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+
+    const handleInput = event => {
+        setValue(event.target.value);
+    };
+
+    const handleChange = ({ selected }) => {
+        setValue(selected ? selected.key : '');
+    };
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <InputAutocompleteMobile
+            options={filteredOptions}
+            placeholder='Введите элемент'
+            label='Элемент'
+            onChange={handleChange}
+            onInput={handleInput}
+            value={value}
+        />
+    );
+});
 ```
 
 ### Кейс с очисткой поля

@@ -46,7 +46,7 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
     </Tooltip>
 );
 
-export const Download: FC<Props> = props => (
+export const Download: FC<Props> = (props) => (
     <Tooltip
         trigger='hover'
         position='bottom'
@@ -57,6 +57,6 @@ export const Download: FC<Props> = props => (
     </Tooltip>
 );
 
-export const Exit: FC<Props> = props => (
+export const Exit: FC<Props> = (props) => (
     <IconButton {...props} icon={CrossMIcon} colors='inverted' aria-label='Закрыть' />
 );

@@ -1,7 +1,7 @@
 import { GlobalStore } from './GlobalStore';
 import { ModalStore, SavedStyle } from './ModalStore';
 
-export { SavedStyle };
+export type { SavedStyle };
 
 const getCoreComponentsStore = (): GlobalStore => {
     if (!window.coreComponentsStore) {

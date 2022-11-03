@@ -33,7 +33,7 @@ const clickPickerButton = () => {
     fireEvent.click(button);
 };
 
-describe.each(pickerButtonVariants)('Snapshots tests', Component => {
+describe.each(pickerButtonVariants)('Snapshots tests', (Component) => {
     it('should display correctly', () => {
         const { container } = render(<Component label={label} options={options} />);
 
@@ -55,7 +55,7 @@ describe.each(pickerButtonVariants)('Snapshots tests', Component => {
 });
 
 describe('Attributes tests', () => {
-    it.each(pickerButtonVariants)('should set data-test-id attribute', async Component => {
+    it.each(pickerButtonVariants)('should set data-test-id attribute', async (Component) => {
         render(<Component className={className} dataTestId={testId} options={options} />);
 
         const container = document.querySelector(`.${className}`);
@@ -65,7 +65,7 @@ describe('Attributes tests', () => {
         expect(testIdAttr).toBe(testId);
     });
 
-    it.each(pickerButtonVariants)('should have disabled attribute', async Component => {
+    it.each(pickerButtonVariants)('should have disabled attribute', async (Component) => {
         render(<Component disabled={true} options={options} />);
 
         const button = document.querySelector('button');
@@ -75,20 +75,20 @@ describe('Attributes tests', () => {
 });
 
 describe('Render tests', () => {
-    it.each(pickerButtonVariants)('should unmount without errors', async Component => {
+    it.each(pickerButtonVariants)('should unmount without errors', async (Component) => {
         const { unmount } = render(<Component options={options} />);
 
         expect(unmount).not.toThrowError();
     });
 
-    it.each(pickerButtonVariants)('should have loading class', async Component => {
+    it.each(pickerButtonVariants)('should have loading class', async (Component) => {
         render(<Component options={options} loading={true} />);
         const button = document.querySelector('button');
 
         expect(button).toHaveClass('loading');
     });
 
-    it.each(pickerButtonVariants)('should have primary class', async Component => {
+    it.each(pickerButtonVariants)('should have primary class', async (Component) => {
         const view = 'primary';
         render(<Component options={options} view={view} />);
         const button = document.querySelector('button');
@@ -98,7 +98,7 @@ describe('Render tests', () => {
 
     it.each(pickerButtonVariants)(
         'should have m class, icon size = 24, secondary class by default',
-        async Component => {
+        async (Component) => {
             const iconSize = '24';
             const { getByTestId } = render(<Component options={options} />);
             const button = document.querySelector('button');
@@ -111,7 +111,7 @@ describe('Render tests', () => {
         },
     );
 
-    it.each(pickerButtonVariants)('should have xxs class and small icon', async Component => {
+    it.each(pickerButtonVariants)('should have xxs class and small icon', async (Component) => {
         const size = 'xxs';
         const iconSize = '16';
 
@@ -124,7 +124,7 @@ describe('Render tests', () => {
         expect(icon.getAttribute('height')).toBe(iconSize);
     });
 
-    it.each(pickerButtonVariants)('should have open class if opened', async Component => {
+    it.each(pickerButtonVariants)('should have open class if opened', async (Component) => {
         render(<Component label={label} options={options} />);
 
         clickPickerButton();
@@ -135,7 +135,7 @@ describe('Render tests', () => {
         });
     });
 
-    it.each(pickerButtonVariants)('should have options if opened', async Component => {
+    it.each(pickerButtonVariants)('should have options if opened', async (Component) => {
         render(<Component label={label} options={options} />);
 
         clickPickerButton();
@@ -148,7 +148,7 @@ describe('Render tests', () => {
 
     it.each(pickerButtonVariants)(
         'options container should have sideGap & optionsPopover  class',
-        async Component => {
+        async (Component) => {
             const { container } = render(
                 <Component options={options} loading={true} popoverPosition='right' />,
             );

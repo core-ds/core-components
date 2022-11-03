@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { pluralize } from '@alfalab/utils';
 import { Tag } from '@alfalab/core-components-tag';
@@ -96,5 +96,5 @@ import { SelectWithTags } from '@alfalab/core-components/select-with-tags';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={SelectWithTagsTS} />}
+    props={<ArgsTable of={SelectWithTagsTS} />}
 />

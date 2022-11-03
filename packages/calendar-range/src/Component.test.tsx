@@ -363,7 +363,7 @@ describe('CalendarRange', () => {
 
             Array.from(days)
                 .slice(1, -1)
-                .forEach(day => expect(day.parentElement).toHaveClass('range'));
+                .forEach((day) => expect(day.parentElement).toHaveClass('range'));
         });
 
         it('should keep selection when month changed', async () => {
@@ -390,7 +390,7 @@ describe('CalendarRange', () => {
 
             Array.from(days)
                 .slice(0, -1)
-                .forEach(day => expect(day).toHaveClass('range'));
+                .forEach((day) => expect(day).toHaveClass('range'));
         });
     });
 

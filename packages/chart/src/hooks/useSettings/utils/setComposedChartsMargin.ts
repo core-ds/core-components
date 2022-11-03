@@ -16,14 +16,14 @@ export const setComposedChartsMargin = (
     brush: BrushProps | undefined,
     xAxis: XAxisProps,
 ): ComposedChartsMarginResultProps => ({
-        top:
-            (composeChart?.initMargin?.top || 0) +
-            (legend?.verticalAlign === 'top' && legend?.marginTop ? Math.abs(legend.marginTop) : 0),
-        bottom:
-            (composeChart?.initMargin?.bottom || 0) +
-            (xAxis?.tickMargin || 0) +
-            (brush?.brushMargin || 0) +
-            (legend?.verticalAlign !== 'top' && legend?.marginTop ? legend.marginTop : 0),
-        left: composeChart?.initMargin?.left || 0,
-        right: composeChart?.initMargin?.right || 0,
-    });
+    top:
+        (composeChart?.initMargin?.top || 0) +
+        (legend?.verticalAlign === 'top' && legend?.marginTop ? Math.abs(legend.marginTop) : 0),
+    bottom:
+        (composeChart?.initMargin?.bottom || 0) +
+        (xAxis?.tickMargin || 0) +
+        (brush?.brushMargin || 0) +
+        (legend?.verticalAlign !== 'top' && legend?.marginTop ? legend.marginTop : 0),
+    left: composeChart?.initMargin?.left || 0,
+    right: composeChart?.initMargin?.right || 0,
+});

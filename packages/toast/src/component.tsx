@@ -116,7 +116,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         }, []);
 
         const handleMouseEnter = useCallback<MouseEventHandler<HTMLDivElement>>(
-            event => {
+            (event) => {
                 stopTimer();
 
                 if (onMouseEnter) {
@@ -127,7 +127,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         );
 
         const handleMouseLeave = useCallback<MouseEventHandler<HTMLDivElement>>(
-            event => {
+            (event) => {
                 startTimer();
 
                 if (onMouseLeave) {
@@ -138,7 +138,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         );
 
         const handleTouchStart = useCallback<TouchEventHandler<HTMLDivElement>>(
-            event => {
+            (event) => {
                 stopTimer();
 
                 if (onTouchStart) {
@@ -192,7 +192,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
 
         return (
             <Stack value={zIndex}>
-                {computedZIndex => (
+                {(computedZIndex) => (
                     <Portal getPortalContainer={getPortalContainer}>
                         <CSSTransition
                             unmountOnExit={true}

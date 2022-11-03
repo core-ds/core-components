@@ -7,6 +7,46 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
+"@alfalab/core-components@^35.1.0":
+  version "35.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components/-/core-components-35.1.0.tgz#ec40696bded96af7dbcba7d87cd9085619eb1061"
+  integrity sha512-+qEzNjCtZgkz/bzOuhcrIHefrMQOUco7l8FCLuhQqULfmNy6M6DWMMlFwmtZHTJ1P26cLHR24DykBpJhBuLK+Q==
+  dependencies:
+    "@alfalab/data" "^1.4.2"
+    "@alfalab/hooks" "^1.13.0"
+    "@alfalab/icons-classic" "^2.3.0"
+    "@alfalab/icons-flag" "^2.2.0"
+    "@alfalab/icons-glyph" "^2.71.0"
+    "@alfalab/icons-logotype" "^2.19.0"
+    "@alfalab/stylelint-core-vars" "^1.4.0"
+    "@alfalab/utils" "^1.13.3"
+    "@juggle/resize-observer" "^3.3.1"
+    "@popperjs/core" "^2.3.3"
+    classnames "^2.3.1"
+    compute-scroll-into-view "^1.0.13"
+    date-fns "^2.16.1"
+    downshift "^5.4.7"
+    element-closest "^3.0.2"
+    intersection-observer "^0.12.0"
+    libphonenumber-js "^1.10.7"
+    lodash.debounce "^4.0.8"
+    nouislider "^15.6.0"
+    popper-max-size-modifier "^0.2.0"
+    react-div-100vh "^0.7.0"
+    react-focus-lock "2.9.1"
+    react-merge-refs "^1.1.0"
+    react-popper "^2.2.5"
+    react-swipeable "^5.5.1"
+    react-textarea-autosize "^8.3.4"
+    react-transition-group "^4.4.1"
+    react-virtual "^2.3.2"
+    react-virtuoso "^2.12.0"
+    recharts "^2.1.2"
+    simplebar "^5.3.8"
+    swiper "^6.8.2"
+    text-mask-core "^5.1.2"
+    ui-primitives "^8.10.0"
+
 "@alfalab/data@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.3.tgz#b4cc25542ecef657c6f0b64608eb6f9e37f35524"
@@ -52,6 +92,11 @@
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-2.2.0.tgz#f30ac26125a08282e1117a75df045a5472aac6d0"
   integrity sha512-egEds3VBNhTaJC/whIAPTUT19nMDuDXWNCQ0e5VjD8m7qbSvppowFoTIaKWv33FzmodaqgrEEoMJJtUbs7DP5g==
+
+"@alfalab/icons-glyph@^2.66.0":
+  version "2.76.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.76.0.tgz#f95774cc0f6f66d348099bbac2f69f4e80fbf8bd"
+  integrity sha512-vVE4fOjcxwYwMAbeaY895GK2mibPY9wEpAA8NSWhFFvMh02QgeNQPHeiwyb+X2aBXwlr1TG+BQRwk0UAS7jI4w==
 
 "@alfalab/icons-glyph@^2.71.0":
   version "2.71.0"
@@ -101,6 +146,14 @@
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.2.tgz#b00989b426722e21468c23bd159d45f37d8626ec"
   integrity sha512-O5K8uWj986yyM0ryxW8yLpOGIgA5L2I9RknLOWhIbFomkzl+sj8Ej/1rPAzRmCgOR58LzZ0BnZZT44VAES/baQ==
+  dependencies:
+    "@alfalab/data" "^1.4.2"
+    lodash "4.17.21"
+
+"@alfalab/utils@^1.13.3":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.3.tgz#a52b5897139302fff3fb0a55ecb7e1f6f62e34f2"
+  integrity sha512-pg5e3kVM8EUZc2VLQX6zblk5JEsBbdvqwL4wamZpgbDxL2BNpviqXsVOMKqxIe4G9ptFyFnVZVNX2UV22DYPUA==
   dependencies:
     "@alfalab/data" "^1.4.2"
     lodash "4.17.21"
@@ -24256,11 +24309,13 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.12.0.tgz"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@^0.0.25:
-  version "0.0.25"
-  resolved "https://registry.npmjs.org/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.25.tgz"
-  integrity sha512-JJzaLhR+8t7pIGP6VyiEVuXfTbxmyx3/TGxt5SabGwxM88b/b6giFzggzTHqeDcrBwlJehj8PixYmPQMNG4m9A==
+storybook-addon-live-examples@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-1.0.8.tgz#4eced2139d7f947df215ae0808493c3e32a8e933"
+  integrity sha512-Yse3FAS4BoqLW68S1l/LTMPGtkJw2yPKkyL6mZRm4BX9yJKlFDdcFjMbi+LH6oEyGZH5iRbR0qym/MzCskwzEA==
   dependencies:
+    "@alfalab/core-components" "^35.1.0"
+    "@alfalab/icons-glyph" "^2.66.0"
     prettier "^2.4.0"
     react-live "^2.3.0"
 

@@ -20,18 +20,18 @@ export type SidePanelMobileProps = BaseModalProps & {
 
 const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps>(
     ({ children, className, transitionProps, ...restProps }, ref) => (
-            <BaseModal
-                {...restProps}
-                ref={ref}
-                transitionProps={{
-                    classNames: transitions,
-                    ...transitionProps,
-                }}
-                className={cn(className, styles.component)}
-            >
-                {children}
-            </BaseModal>
-        ),
+        <BaseModal
+            {...restProps}
+            ref={ref}
+            transitionProps={{
+                classNames: transitions,
+                ...transitionProps,
+            }}
+            className={cn(className, styles.component)}
+        >
+            {children}
+        </BaseModal>
+    ),
 );
 
 export const SidePanelMobile = Object.assign(SidePanelMobileComponent, {

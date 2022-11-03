@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 
-export const SortIconAsc: React.FC<SVGProps<SVGSVGElement>> = props => (
+export const SortIconAsc: React.FC<SVGProps<SVGSVGElement>> = (props) => (
     <svg
         width='18'
         height='18'

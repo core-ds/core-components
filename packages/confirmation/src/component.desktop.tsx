@@ -5,6 +5,6 @@ import { ConfirmationProps } from './types';
 
 export type DesktopConfirmationProps = Omit<ConfirmationProps, 'mobile'>;
 
-export const ConfirmationDesktop: FC<DesktopConfirmationProps> = props => (
+export const ConfirmationDesktop: FC<DesktopConfirmationProps> = (props) => (
     <BaseConfirmation {...props} />
 );

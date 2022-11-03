@@ -11,7 +11,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import elementClosest from 'element-closest';
-import SwiperCore, { A11y, Controller,EffectFade } from 'swiper';
+import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useFocus } from '@alfalab/hooks';
@@ -66,13 +66,13 @@ export const ImageViewer: FC = () => {
         slideNext();
     };
 
-    const handleArrowLeftKeyDown: KeyboardEventHandler = event => {
+    const handleArrowLeftKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
             slidePrev();
         }
     };
 
-    const handleArrowRightKeyDown: KeyboardEventHandler = event => {
+    const handleArrowRightKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
             slideNext();
         }
@@ -91,7 +91,7 @@ export const ImageViewer: FC = () => {
     };
 
     const handleWrapperClick = useCallback<MouseEventHandler>(
-        event => {
+        (event) => {
             const eventTarget = event.target as HTMLElement;
 
             const isArrow =

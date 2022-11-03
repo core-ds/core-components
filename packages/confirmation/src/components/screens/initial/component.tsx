@@ -10,7 +10,7 @@ import React, {
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
-import { CodeInput, CodeInputProps,CustomInputRef } from '@alfalab/core-components-code-input';
+import { CodeInput, CodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input';
 import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 import { usePrevious } from '@alfalab/hooks';
@@ -53,7 +53,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     const timerId = useRef(0);
 
-    const handleInputComplete: CodeInputProps['onComplete'] = code => {
+    const handleInputComplete: CodeInputProps['onComplete'] = (code) => {
         onInputFinished(code);
     };
 

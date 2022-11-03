@@ -12,7 +12,7 @@ import { MonthYearHeader } from './components/month-year-header';
 import { MonthsTable } from './components/months-table';
 import { PeriodSlider } from './components/period-slider';
 import { YearsTable } from './components/years-table';
-import { SelectorView,View } from './typings';
+import { SelectorView, View } from './typings';
 import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
 
@@ -167,18 +167,20 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             [],
         );
 
-        const month = useMemo(() => (monthTimestamp ? new Date(monthTimestamp) : undefined), [
-            monthTimestamp,
-        ]);
+        const month = useMemo(
+            () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
+            [monthTimestamp],
+        );
 
         const minDate = useMemo(
             () => (minDateTimestamp ? startOfDay(minDateTimestamp) : undefined),
             [minDateTimestamp],
         );
 
-        const maxDate = useMemo(() => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined), [
-            maxDateTimestamp,
-        ]);
+        const maxDate = useMemo(
+            () => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined),
+            [maxDateTimestamp],
+        );
 
         const {
             activeMonth,

@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { PasswordInput, PasswordInputProps } from '.';
 
-const ControlledPasswordInput: FC<PasswordInputProps> = props => {
+const ControlledPasswordInput: FC<PasswordInputProps> = (props) => {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const handlePasswordVisibleChange = (visible: boolean) => {

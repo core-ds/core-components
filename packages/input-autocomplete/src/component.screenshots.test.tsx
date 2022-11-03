@@ -48,7 +48,7 @@ describe('InputAutocomplete | interactions tests', () => {
 describe('InputAutocompleteMobile | interactions tests', () => {
     test('Fill value', async () => {
         const pageUrl = createStorybookUrl({
-            componentName: 'Inputautocomplete',
+            componentName: 'InputAutocomplete',
             subComponentName: 'InputAutocompleteMobile',
             testStory: false,
             knobs: {

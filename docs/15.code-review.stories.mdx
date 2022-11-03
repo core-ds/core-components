@@ -66,4 +66,4 @@ import { Checkbox } from '../packages/checkbox/src/Component';
   > Если при обновлении скриншотов в проекте не был установлен git-lfs, то скриншоты сохранятся в обычное git хранилище.
 - В документации(Component.stories.tsx) компоненты, которые используются в Story, должны быть импортированы из `@alfalab/core-components-x`.
 Это нужно для того, чтобы сторибук в gh-pages собирался из уже собранных rollup-ом компонентов, а не из исходного кода.
-Относительные импорты(`import { ComponentName } from './Component'`) нужно использовать только для отображения свойств компонента(`<Props of={ComponentName}`>).
+Относительные импорты(`import { ComponentName } from './Component'`) нужно использовать только для отображения свойств компонента(`<ArgsTable of={ComponentName}`>).

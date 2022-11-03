@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { StarSIcon } from '@alfalab/icons-glyph/StarSIcon';
@@ -74,7 +74,7 @@ import { Link } from '@alfalab/core-components/link';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={LinkTS} />}
+    props={<ArgsTable of={LinkTS} />}
     cssVars={<CssVars css={`${styles}${defaultStyles}${invertedStyles}`} />}
 />
 

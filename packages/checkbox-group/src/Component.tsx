@@ -159,7 +159,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
 
             {children ? (
                 <div className={styles.checkboxList} onBlur={onBlur} onFocus={onFocus}>
-                    {Children.map(children, child => {
+                    {Children.map(children, (child) => {
                         if (isValidElement(child)) {
                             return type === 'checkbox' ? renderCheckbox(child) : renderTag(child);
                         }

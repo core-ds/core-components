@@ -1,5 +1,25 @@
 # Change Log
 
+## 2.1.15
+
+### Patch Changes
+
+### [#314](https://github.com/core-ds/core-components/pull/314)
+
+-   Исправлена ошибка в css из-за которой не работал проп withoutBorder
+
+-   Обновлены зависимости
+    -   select@13.0.1
+
+## 2.1.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.0
+    -   select@13.0.0
+    -   pagination@2.0.6
+
 ## 2.1.13
 
 ### Patch Changes

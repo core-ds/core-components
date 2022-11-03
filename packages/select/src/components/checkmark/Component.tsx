@@ -23,7 +23,7 @@ export const Checkmark = ({
     });
 
     const handleCheckboxClick = useCallback<Required<CheckboxProps>['onClick']>(
-        event => event.stopPropagation(),
+        (event) => event.stopPropagation(),
         [],
     );
 

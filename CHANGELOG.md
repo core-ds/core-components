@@ -1,3 +1,114 @@
+## 35.1.0
+
+<sup><time>28.10.2022</time></sup>
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+#### Что изменилось
+- Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+#### Влияние на компоненты
+- Патчи<br />`input` `amount-input` `date-input` `date-range-input` `date-time-input`<br /> `input-autocomplete` `intl-phone-input` `masked-input` `password-input` `select`<br /> `slider-input` `time-input` `with-suffix` `calendar-input` `calendar-range`<br /> `bank-card` `phone-input` `picker-button` `select-with-tags`
+
+
+### [#314](https://github.com/core-ds/core-components/pull/314)
+
+#### Что изменилось
+- Исправлена ошибка в css из-за которой не работал проп withoutBorder
+
+#### Влияние на компоненты
+- Патчи<br />`table`
+
+
+### [#323](https://github.com/core-ds/core-components/pull/323)
+
+#### Что изменилось
+- Добавлена возможность передавать пропсы в компонент Scrollbar
+
+#### Влияние на компоненты
+- Минорное<br />`drawer` `side-panel`
+
+
+### [#322](https://github.com/core-ds/core-components/pull/322)
+
+#### Что изменилось
+- Исправлено некорректное отображение в Safari при взаимодействии с компонентом FilterTag
+
+#### Влияние на компоненты
+- Патчи<br />`filter-tag`
+
+
+### [#319](https://github.com/core-ds/core-components/pull/319)
+
+#### Что изменилось
+- Добавлен текстовый стиль letter-spacing для компонента Status
+
+#### Влияние на компоненты
+- Патчи<br />`status`
+
+
+### [#324](https://github.com/core-ds/core-components/pull/324)
+
+#### Что изменилось
+- "export" типов заменен на "export type"
+
+#### Влияние на компоненты
+- Патчи<br />`amount` `confirmation-v1` `global-store` `picker-button` `typography`<br />
+
+
+### [#308](https://github.com/core-ds/core-components/pull/308)
+
+#### Что изменилось
+- Добавлен новый пропс в компонент Amount - codeFormat, который отображает код валюты в зависимости от указанного формата.
+Обновлена библиотека @alfalab/utils, теперь метод formatAmount форматирует сумму, разделяя ее средним математическим пробелом.<br />
+
+#### Влияние на компоненты
+- Минорное<br />`amount` `amount-input`
+
+
+
+## 35.0.0
+
+<sup><time>24.10.2022</time></sup>
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+#### Что изменилось
+- Новые стили кнопок в теме default
+- Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+- Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+- Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`button` `attach` `custom-button` `icon-button` `picker-button`<br />
+
+
+- Патчи<br />`alert` `bottom-sheet` `confirmation` `confirmation-v1` `themes`<br /> `pure-cell` `side-panel` `plate` `tag` `toast-plate`<br /> `modal`
+
+
+### [#310](https://github.com/core-ds/core-components/pull/310)
+
+#### Что изменилось
+- Добавлена возможность менять иконку Closer
+
+#### Влияние на компоненты
+- Минорное<br />`side-panel`
+
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+#### Что изменилось
+- Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+- Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`input` `form-control` `amount-input` `calendar-input` `date-input`<br /> `date-range-input` `date-time-input` `input-autocomplete` `intl-phone-input` `password-input`<br /> `select` `slider-input` `textarea` `time-input` `masked-input`<br /> `select-with-tags` `calendar-range` `phone-input`
+
+
+- Патчи<br />`keyboard-focusable` `picker-button` `with-suffix` `themes` `bank-card`<br />
+
+
+
 ## 34.0.0
 
 <sup><time>18.10.2022</time></sup>

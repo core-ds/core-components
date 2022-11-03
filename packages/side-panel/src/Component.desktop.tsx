@@ -13,7 +13,10 @@ import styles from './desktop.module.css';
 import transitions from './transitions.desktop.module.css';
 
 export type SidePanelDesktopProps = BaseModalProps &
-    Pick<DrawerProps, 'placement' | 'nativeScrollbar' | 'contentTransitionProps'> & {
+    Pick<
+        DrawerProps,
+        'placement' | 'nativeScrollbar' | 'contentTransitionProps' | 'scrollbarProps'
+    > & {
         /**
          * Ширина модального окна
          * @default "s"
@@ -74,7 +77,7 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
                     ...contentTransitionProps,
                 }}
             >
-                {React.Children.map(children, child =>
+                {React.Children.map(children, (child) =>
                     isValidElement(child) ? cloneElement(child, { size }) : child,
                 )}
             </Drawer>

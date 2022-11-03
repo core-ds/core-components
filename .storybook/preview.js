@@ -5,7 +5,6 @@ import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
 import { setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
-import theme from 'prism-react-renderer/themes/oceanicNext';
 
 import guidelinesStyles from '!!postcss-loader!./public/guidelines.css';
 
@@ -21,16 +20,21 @@ if (window.location.href.includes('guidelines')) {
 
 addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
-        editorTheme: theme,
         sandboxPath: '/docs/компоненты-песочница--page',
-        copyText: ['Скопировать', 'Скопировано'],
-        expandText: ['Показать код', 'Скрыть код'],
-        shareText: ['Поделиться', 'Поделиться'],
-        borderColor: 'var(--color-light-border-secondary)',
-        borderRadius: 'var(--border-radius-s)',
-        actionBg: 'var(--color-light-bg-primary)',
-        actionColor: 'var(--color-light-text-primary)',
-        actionAccent: 'var(--color-light-bg-accent)',
+        mobileFrameName: 'mobileframe--page',
+        noDesktopText: 'Не предназначен для использования на десктопных устройствах',
+        noMobileText: 'Не предназначен для использования на мобильных устройствах',
+        desktopText: 'Переключить на декстопную версию',
+        mobileText: 'Переключить на мобильную версию',
+        expandText: 'Показать код',
+        copyText: 'Скопировать код',
+        shareText: 'Поделиться кодом',
+        bgColor: 'var(--color-light-bg-secondary)',
+        previewBgColor: 'var(--color-light-bg-primary)',
+        borderColor: 'var(--color-light-border-primary)',
+        borderRadius: 'var(--border-radius-xl)',
+        hintColor: 'var(--color-light-text-tertiary)',
+        iconColor: 'var(--color-light-bg-primary-inverted)',
         errorsBg: 'var(--color-light-bg-negative-muted)',
         errorsColor: 'var(--color-light-text-accent)',
         fontBase: 'var(--font-family-system)',
@@ -38,6 +42,8 @@ addons.setConfig({
         fontSizeBase: 16,
         fontSizeCode: 14,
         defaultCanvas: true,
+        noDesktopText: 'Не предназначен для использования на десктопных устройствах.',
+        noMobileText: 'Не предназначен для использования на мобильных устройствах.',
         scope: {
             ...scope,
         },
@@ -76,11 +82,3 @@ addParameters({
         },
     },
 });
-
-configure(
-    [
-        require.context('../docs', true, /\.stories\.mdx$/),
-        require.context('../packages', true, /\.stories\.(tsx|mdx)$/),
-    ],
-    module,
-);

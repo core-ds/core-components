@@ -190,7 +190,7 @@ export function useSelectionProps(from?: number, to?: number, highlighted?: numb
             };
         }
 
-        const dates = [from, to, highlighted].filter(date => date !== undefined) as number[];
+        const dates = [from, to, highlighted].filter((date) => date !== undefined) as number[];
 
         return {
             rangeComplete: false,

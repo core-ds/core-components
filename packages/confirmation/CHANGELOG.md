@@ -1,5 +1,26 @@
 # Change Log
 
+## 12.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.3
+
+## 12.2.2
+
+### Patch Changes
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+-   Новые стили кнопок в теме default
+-   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+-   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+-   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+-   Обновлены зависимости
+    -   button@7.0.0
+
 ## 12.2.1
 
 ### Patch Changes

@@ -10,7 +10,7 @@ import {
     Transform,
 } from 'jscodeshift';
 
-import { addStringAttribute, log,renameAttribute, transformTypographyImports } from '../utils';
+import { addStringAttribute, log, renameAttribute, transformTypographyImports } from '../utils';
 
 const componentSizeMap = {
     s: 'Typography.Text',
@@ -83,7 +83,7 @@ const labelTransform: Transform = (fileInfo, api) => {
     /**
      * Находим использование компонента Label и меняем ему пропсы
      */
-    source.findJSXElements('Label').forEach(path => {
+    source.findJSXElements('Label').forEach((path) => {
         j(path).replaceWith((path: ASTPath<JSXElement>) => {
             const { node } = path;
 

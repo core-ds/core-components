@@ -6,12 +6,11 @@ import React, { useState } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
+import { MMSP, THINSP } from '@alfalab/utils';
 import { AmountInput } from './index';
 import { AmountInputProps } from './Component';
 
 describe('AmountInput', () => {
-    const THINSP = String.fromCharCode(8201);
-
     function renderAmountInput(
         value: AmountInputProps['value'],
         currency: CurrencyCodes | null = 'RUR',
@@ -91,17 +90,17 @@ describe('AmountInput', () => {
 
     it('should render passed amount', () => {
         const input = renderAmountInput(1234567);
-        expect(input.value).toBe(`12${THINSP}345,67`);
+        expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
     it('should render passed negative amount', () => {
         const input = renderAmountInput(-1234567);
-        expect(input.value).toBe(`-12${THINSP}345,67`);
+        expect(input.value).toBe(`-12${MMSP}345,67`);
     });
 
     it('should render passed amount without zero minor part', () => {
         const input = renderAmountInput(1234500);
-        expect(input.value).toBe(`12${THINSP}345`);
+        expect(input.value).toBe(`12${MMSP}345`);
     });
 
     it('should render empty input if passed amount.value is null', () => {
@@ -121,12 +120,12 @@ describe('AmountInput', () => {
 
     it('should render passed decimal amount', () => {
         const input = renderAmountInput(1234567);
-        expect(input.value).toBe(`12${THINSP}345,67`);
+        expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
     it('should render passed decimal amount if value is string', () => {
         const input = renderAmountInput('1234567');
-        expect(input.value).toBe(`12${THINSP}345,67`);
+        expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
     it("should replace entered '.' with ','", () => {
@@ -148,14 +147,14 @@ describe('AmountInput', () => {
         expect(input.value).toBe('-123,45');
 
         fireEvent.change(input, { target: { value: '123456789.12' } });
-        expect(input.value).toBe(`123${THINSP}456${THINSP}789,12`);
+        expect(input.value).toBe(`123${MMSP}456${MMSP}789,12`);
     });
 
     it('should allow input correct amounts', () => {
         const input = renderAmountInput(0);
 
         fireEvent.change(input, { target: { value: '123456' } });
-        expect(input.value).toBe(`123${THINSP}456`);
+        expect(input.value).toBe(`123${MMSP}456`);
 
         fireEvent.change(input, { target: { value: '0,' } });
         expect(input.value).toBe('0,');
@@ -173,10 +172,10 @@ describe('AmountInput', () => {
         expect(input.value).toBe('123,45');
 
         fireEvent.change(input, { target: { value: '123456789' } });
-        expect(input.value).toBe(`123${THINSP}456${THINSP}789`);
+        expect(input.value).toBe(`123${MMSP}456${MMSP}789`);
 
         fireEvent.change(input, { target: { value: '123456789,12' } });
-        expect(input.value).toBe(`123${THINSP}456${THINSP}789,12`);
+        expect(input.value).toBe(`123${MMSP}456${MMSP}789,12`);
     });
 
     it('should allow input correct amounts when positiveOnly is false', () => {
@@ -192,7 +191,7 @@ describe('AmountInput', () => {
         expect(input.value).toBe('-0,2');
 
         fireEvent.change(input, { target: { value: '-123456' } });
-        expect(input.value).toBe(`-123${THINSP}456`);
+        expect(input.value).toBe(`-123${MMSP}456`);
 
         fireEvent.change(input, { target: { value: '-123,' } });
         expect(input.value).toBe('-123,');
@@ -204,13 +203,13 @@ describe('AmountInput', () => {
         expect(input.value).toBe('-123,45');
 
         fireEvent.change(input, { target: { value: '-123456789' } });
-        expect(input.value).toBe(`-123${THINSP}456${THINSP}789`);
+        expect(input.value).toBe(`-123${MMSP}456${MMSP}789`);
 
         fireEvent.change(input, { target: { value: '-123456789,12' } });
-        expect(input.value).toBe(`-123${THINSP}456${THINSP}789,12`);
+        expect(input.value).toBe(`-123${MMSP}456${MMSP}789,12`);
 
         fireEvent.change(input, { target: { value: '123456' } });
-        expect(input.value).toBe(`123${THINSP}456`);
+        expect(input.value).toBe(`123${MMSP}456`);
 
         fireEvent.change(input, { target: { value: '0,' } });
         expect(input.value).toBe('0,');
@@ -228,10 +227,10 @@ describe('AmountInput', () => {
         expect(input.value).toBe('123,45');
 
         fireEvent.change(input, { target: { value: '123456789' } });
-        expect(input.value).toBe(`123${THINSP}456${THINSP}789`);
+        expect(input.value).toBe(`123${MMSP}456${MMSP}789`);
 
         fireEvent.change(input, { target: { value: '123456789,12' } });
-        expect(input.value).toBe(`123${THINSP}456${THINSP}789,12`);
+        expect(input.value).toBe(`123${MMSP}456${MMSP}789,12`);
     });
 
     it("should infer 0 if only ',' is entered", () => {
@@ -252,13 +251,13 @@ describe('AmountInput', () => {
         const input = renderAmountInput(1234567);
 
         fireEvent.change(input, { target: { value: 'f' } });
-        expect(input.value).toBe(`12${THINSP}345,67`);
+        expect(input.value).toBe(`12${MMSP}345,67`);
 
         fireEvent.change(input, { target: { value: '!' } });
-        expect(input.value).toBe(`12${THINSP}345,67`);
+        expect(input.value).toBe(`12${MMSP}345,67`);
 
         fireEvent.change(input, { target: { value: 'e' } });
-        expect(input.value).toBe(`12${THINSP}345,67`);
+        expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
     it('should prevent input of negative values when onlyPositive is true', () => {
@@ -286,7 +285,7 @@ describe('AmountInput', () => {
         expect(input.value).toBe('123');
 
         await userEvent.type(input, '.50');
-        expect(input.value).toBe(`12${THINSP}350`);
+        expect(input.value).toBe(`12${MMSP}350`);
 
         await userEvent.click(input);
         await act(() => {
@@ -302,14 +301,14 @@ describe('AmountInput', () => {
         expect(input.value).toBe('0');
 
         await userEvent.type(input, '1234');
-        expect(input.value).toBe(`1${THINSP}234`);
+        expect(input.value).toBe(`1${MMSP}234`);
 
         await userEvent.type(input, '0', {
             initialSelectionStart: 0,
             initialSelectionEnd: 0,
             delay: 10,
         });
-        expect(input.value).toBe(`1${THINSP}234`);
+        expect(input.value).toBe(`1${MMSP}234`);
 
         fireEvent.change(input, { target: { value: '' } });
         await userEvent.type(input, '0');
@@ -326,7 +325,7 @@ describe('AmountInput', () => {
             initialSelectionEnd: 7,
             delay: 10,
         });
-        expect(input.value).toBe(`12${THINSP}345,86`);
+        expect(input.value).toBe(`12${MMSP}345,86`);
     });
 
     it('should allow to paste value with spaces', async () => {
@@ -376,7 +375,7 @@ describe('AmountInput', () => {
         const input = renderAmountInput(null);
 
         await userEvent.type(input, '1234');
-        expect(input.value).toBe(`1${THINSP}234`);
+        expect(input.value).toBe(`1${MMSP}234`);
 
         await userEvent.type(input, '{backspace}', {
             initialSelectionStart: 2,
@@ -384,7 +383,7 @@ describe('AmountInput', () => {
             delay: 10,
         });
 
-        expect(input.value).toBe(`1${THINSP}234`);
+        expect(input.value).toBe(`1${MMSP}234`);
     });
 
     it('should render new amount from props (looped value)', async () => {
@@ -424,7 +423,7 @@ describe('AmountInput', () => {
 
         await userEvent.type(input, '{backspace}{backspace}{backspace}{backspace}5678');
 
-        expect(input.value).toBe(`5${THINSP}678`);
+        expect(input.value).toBe(`5${MMSP}678`);
 
         act(() => {
             setAmountManually(34567, 'USD', 100);

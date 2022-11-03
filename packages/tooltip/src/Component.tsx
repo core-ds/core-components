@@ -13,7 +13,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Popover, PopoverProps,Position } from '@alfalab/core-components-popover';
+import { Popover, PopoverProps, Position } from '@alfalab/core-components-popover';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

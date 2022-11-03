@@ -51,18 +51,18 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         { className, icon: Icon, view = 'primary', size = 's', colors = 'default', ...restProps },
         ref,
     ) => (
-            <Button
-                {...restProps}
-                ref={ref}
-                view='ghost'
-                className={cn(className, colorStyles[colors][view], colorStyles[colors].component, {
-                    [colorStyles[colors].loader]: restProps.loading,
-                })}
-                size='s'
-            >
-                <span className={cn(styles.iconWrapper, styles[size])}>
-                    <Icon className={styles.icon} />
-                </span>
-            </Button>
-        ),
+        <Button
+            {...restProps}
+            ref={ref}
+            view='ghost'
+            className={cn(className, colorStyles[colors][view], colorStyles[colors].component, {
+                [colorStyles[colors].loader]: restProps.loading,
+            })}
+            size='s'
+        >
+            <span className={cn(styles.iconWrapper, styles[size])}>
+                <Icon className={styles.icon} />
+            </span>
+        </Button>
+    ),
 );

@@ -1,4 +1,4 @@
-import React, { FC,Fragment, useContext, useEffect } from 'react';
+import React, { FC, Fragment, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
@@ -18,9 +18,8 @@ export type TempBlockProps = {
 };
 
 export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
-    const { texts, tempBlockDuration, onChangeScreen, onTempBlockFinished } = useContext(
-        ConfirmationContext,
-    );
+    const { texts, tempBlockDuration, onChangeScreen, onTempBlockFinished } =
+        useContext(ConfirmationContext);
 
     const [timeLeft, startTimer] = useCountdown(tempBlockDuration);
 

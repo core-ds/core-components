@@ -81,7 +81,7 @@ export const YearsTable: FC<YearsTableProps> = ({
             ref={ref}
         >
             <div className={styles.inner}>
-                {years.map(year => (
+                {years.map((year) => (
                     <SelectButton
                         {...getYearProps(year)}
                         key={year.getFullYear()}
