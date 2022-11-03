@@ -43,7 +43,7 @@ export const THeadCell = ({
     hidden,
     ...restProps
 }: THeadCellProps) => {
-    const { compactHorizontal } = useContext(TableContext);
+    const { compactHorizontal, stickyHeader } = useContext(TableContext);
 
     if (hidden) return null;
 
@@ -53,6 +53,9 @@ export const THeadCell = ({
                 styles.component,
                 className,
                 compactHorizontal && styles.compactHorizontal,
+                {
+                    [styles.stickyHeader]: stickyHeader,
+                },
             )}
             style={{ ...style, width, textAlign }}
             data-test-id={dataTestId}
