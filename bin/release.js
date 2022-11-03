@@ -117,7 +117,7 @@ function groupByReleaseType(cs) {
 
 function groupByPullRequest(changesets) {
     return changesets.reduce((result, cs) => {
-        const prLink = [cs.links.pull || '#'];
+        const prLink = [cs.links?.pull || cs.links?.commit?.replace(/`/g, '') || '#'];
 
         if (!result[prLink]) {
             result[prLink] = { summaries: [], relTypes: [] };

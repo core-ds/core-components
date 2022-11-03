@@ -11,7 +11,7 @@
 - Патчи<br />`badge` `bank-card` `bottom-sheet` `loader` `slider`<br /> `steps`
 
 
-### #
+### [6d0fc7849](https://github.com/core-ds/core-components/commit/6d0fc7849f1cd01d03a911c6b0b64ed5d00a3f24)
 
 #### Что изменилось
 - Добавлен пропс `stickyHeader` для фиксации заголовков при скролле
@@ -19,7 +19,7 @@
 #### Влияние на компоненты
 - Минорное<br />`table`
 
-<br />
+### [a32104b45](https://github.com/core-ds/core-components/commit/a32104b45de2c4f93aad8c380428ed88331801fb)
 
 #### Что изменилось
 - Исправлено форматирование номера в intl-phone-input, который передаётся снаружи компонента в props `value`
