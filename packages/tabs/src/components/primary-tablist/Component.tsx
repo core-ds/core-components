@@ -113,6 +113,7 @@ export const PrimaryTabList = ({
                         size='l'
                         view='ghost'
                         label='Ещё'
+                        popoverPosition='bottom-end'
                     />
                 </span>
             ) : null}
