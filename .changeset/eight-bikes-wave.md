@@ -2,4 +2,4 @@
 "@alfalab/core-components-table": minor
 ---
 
-feat(table): sticky header in table
+Добавлен пропс `stickyHeader` для фиксации заголовков при скролле
