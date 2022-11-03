@@ -163,6 +163,11 @@ export type TabListProps = Pick<
      * Заголовки табов
      */
     titles?: TabListTitle[];
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 };
 
 export type SecondaryTabListProps = TabListProps & {

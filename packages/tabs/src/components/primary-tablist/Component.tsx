@@ -1,9 +1,12 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
+import {
+    PickerButtonDesktop,
+    PickerButtonDesktopProps,
+} from '@alfalab/core-components/picker-button/desktop';
 import { Badge } from '@alfalab/core-components-badge';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
-import { PickerButton, PickerButtonProps } from '@alfalab/core-components-picker-button';
 
 import { useTablistTitles } from '../../hooks/use-tablist-titles';
 import { createSyntheticMouseEvent } from '../../synthetic-events';
@@ -23,6 +26,7 @@ export const PrimaryTabList = ({
     fullWidthScroll,
     onChange,
     dataTestId,
+    breakpoint = 1024,
 }: TabListProps & Styles) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -31,6 +35,7 @@ export const PrimaryTabList = ({
             titles,
             selectedId,
             collapsible,
+            breakpoint,
             onChange,
         });
 
@@ -43,7 +48,7 @@ export const PrimaryTabList = ({
 
     const collapsedOptions = useMemo(
         () =>
-            tablistTitles.reduce<PickerButtonProps['options']>((options, title) => {
+            tablistTitles.reduce<PickerButtonDesktopProps['options']>((options, title) => {
                 if (title.collapsed) {
                     options.push({
                         key: title.title,
@@ -62,7 +67,7 @@ export const PrimaryTabList = ({
     ).length;
 
     const handleOptionsChange = (
-        payload: Parameters<Required<PickerButtonProps>['onChange']>[0],
+        payload: Parameters<Required<PickerButtonDesktopProps>['onChange']>[0],
     ) => {
         if (payload.selected?.value && onChange) {
             const nativeMouseEvent = new MouseEvent('change');
@@ -95,7 +100,7 @@ export const PrimaryTabList = ({
 
             {collapsedOptions.length ? (
                 <span ref={addonRef} className={styles.pickerWrapper}>
-                    <PickerButton
+                    <PickerButtonDesktop
                         fieldClassName={styles.title}
                         optionClassName={cn(styles.pickerOption, size && styles[size])}
                         options={collapsedOptions}

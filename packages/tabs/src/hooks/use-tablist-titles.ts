@@ -11,18 +11,17 @@ export const useTablistTitles = ({
     titles = [],
     selectedId,
     collapsible,
+    breakpoint,
     onChange,
-}: Pick<TabListProps, 'titles' | 'selectedId' | 'collapsible' | 'onChange'>) => {
+}: Pick<TabListProps, 'titles' | 'selectedId' | 'collapsible' | 'onChange'> &
+    Required<Pick<TabListProps, 'breakpoint'>>) => {
     const { containerRef, addonRef, idsCollapsedElements } = useCollapsibleElements<
         HTMLDivElement,
         HTMLInputElement
     >('[role=tab]', [titles]);
 
     const [view] = useMedia<TabsMatchMedia>(
-        [
-            ['mobile', '(max-width: 767px)'],
-            ['desktop', '(min-width: 768px)'],
-        ],
+        [['desktop', `(min-width: ${breakpoint}px)`]],
         'desktop',
     );
 
