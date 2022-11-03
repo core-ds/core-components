@@ -11,10 +11,11 @@
     --select-checkmark-margin: 0 0 0 var(--gap-m);
     --select-checkmark-size: 24px;
     --select-checkmark-before-display: none;
-    --select-checkmark-after-display: 'flex';
-    --select-checkmark-background: url('https://alfabank.servicecdn.ru/icons/glyph_checkmark-circle_m_color.svg');
+    --select-checkmark-after-display: block;
+    --select-checkmark-background: none;
     --select-checkmark-border-radius: 0;
-    --select-mobile-checkmark-background: url('https://alfabank.servicecdn.ru/icons/glyph_checkmark-circle_m_color.svg');
+    --select-mobile-checkmark-display-icon: none;
+    --select-mobile-checkmark-display-badge: block;
 
     /* select mobile footer */
 

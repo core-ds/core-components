@@ -18,6 +18,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "@alfalab/core-components-badge": "^4.0.2",
         "@alfalab/core-components-base-modal": "^5.0.5",
         "@alfalab/core-components-bottom-sheet": "^5.1.7",
         "@alfalab/core-components-button": "^7.0.0",
@@ -29,6 +30,7 @@
         "@alfalab/core-components-scrollbar": "^2.1.1",
         "@alfalab/core-components-skeleton": "^4.0.2",
         "@alfalab/hooks": "^1.13.0",
+        "@alfalab/icons-glyph": "^2.71.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.3.1",
         "downshift": "^5.4.7",
