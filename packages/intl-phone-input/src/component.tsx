@@ -131,19 +131,17 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
-        const formatPhone = (inputValue: string) => {
+        const formatPhone = (inputValue: string, iso2 = countryIso2) => {
             let newValue = inputValue;
 
             if (phoneLibUtils.current) {
                 const Utils = phoneLibUtils.current;
-                const utils = new Utils(
-                    countryIso2 ? (countryIso2.toUpperCase() as CountryCode) : undefined,
-                );
+                const utils = new Utils(iso2 ? (iso2.toUpperCase() as CountryCode) : undefined);
 
                 newValue = utils.input(inputValue);
             }
 
-            if (countryIso2 === 'ru') {
+            if (iso2 === 'ru') {
                 const parts = newValue.split(' ');
 
                 newValue = parts.reduce((acc, part, index) => {
@@ -467,6 +465,26 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             /* eslint-disable-next-line react-hooks/exhaustive-deps */
         }, [value]);
+
+        useEffect(() => {
+            if (value && value.length > 1 && !value.includes(' ')) {
+                const newCountry = getCountryByNumber(value);
+
+                if (newCountry && countryIso2 !== newCountry.iso2) {
+                    setCountryIso2(newCountry.iso2);
+                    handleCountryChange(newCountry.iso2);
+                } else if (
+                    canBeEmptyCountry &&
+                    !newCountry &&
+                    countryIso2 !== defaultCountryIso2.toLowerCase()
+                ) {
+                    setCountryIso2(undefined);
+                    handleCountryChange(undefined);
+                }
+                onChange(formatPhone(value, newCountry?.iso2));
+            }
+            /* eslint-disable-next-line react-hooks/exhaustive-deps */
+        }, [value, canBeEmptyCountry, countryIso2, defaultCountryIso2]);
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
