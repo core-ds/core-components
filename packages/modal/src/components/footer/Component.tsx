@@ -2,9 +2,12 @@ import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { ModalContext } from '../../Context';
+import { ResponsiveContext } from '../../ResponsiveContext';
 
+import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
 import layoutStyles from './layout.module.css';
+import mobileStyles from './mobile.module.css';
 
 export type FooterProps = {
     /**
@@ -35,6 +38,7 @@ export type FooterProps = {
 
 export const Footer: FC<FooterProps> = ({ children, className, sticky, layout = 'start', gap }) => {
     const { footerHighlighted, setHasFooter } = useContext(ModalContext);
+    const { size, view } = useContext(ResponsiveContext);
 
     useEffect(() => {
         setHasFooter(true);
@@ -50,6 +54,11 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky, layout = 
                 {
                     [styles.highlighted]: sticky && footerHighlighted,
                     [styles.sticky]: sticky,
+                    [desktopStyles.footer]: view === 'desktop',
+                    [desktopStyles.sticky]: view === 'desktop' && sticky,
+                    [desktopStyles[size]]: view === 'desktop',
+                    [mobileStyles.footer]: view === 'mobile',
+                    [mobileStyles.sticky]: view === 'mobile' && sticky,
                 },
             )}
         >
