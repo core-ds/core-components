@@ -1,8 +1,9 @@
-import { LegendProps } from '../../../types/legend.types';
 import { BrushProps } from '../../../types/brush.types';
+import { LegendProps } from '../../../types/legend.types';
 
 export const setLegendMargin = (brush: BrushProps, legend: LegendProps): number => {
     let top = 0;
+
     if (typeof brush?.brushMargin !== 'number' || !legend?.verticalAlign) return top;
 
     if (legend.verticalAlign === 'top') {

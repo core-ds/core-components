@@ -38,10 +38,12 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
 
     useEffect(() => {
         const xhr = new XMLHttpRequest();
+
         xhr.open('GET', `${baseUrl}/${name}.svg`);
         xhr.send();
         xhr.onload = function onload() {
             const svg = xhr.response;
+
             if (svg.startsWith('<svg')) setIcon(svg);
         };
 

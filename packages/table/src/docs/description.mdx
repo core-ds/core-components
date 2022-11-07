@@ -824,3 +824,73 @@ render(() => {
     );
 });
 ```
+
+
+## Фиксация заголовка
+
+```jsx live
+const getCurrentDay = function(addDays) {
+    var date = new Date();
+    date.setDate(date.getDate() + addDays);
+    return date;
+}
+const data = Array
+    .from({length: 10}, (_, i) => i + 1)
+    .map((idx)=>({
+        id: idx,
+        date: getCurrentDay(idx),
+        title: `ООО "Company Name ${idx}"`,
+        sum: Math.floor(Math.random()*1000000),
+    }));
+
+render(() => {
+    return (
+        <div style={{ margin: '0 0 40px', height: '300px' }}>
+            <Table stickyHeader>
+                <Table.THead>
+                    <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
+                    </Table.THeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {data.map(row => (
+                        <Table.TRow key={row.id}>
+                            <Table.TCell>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.date.toLocaleDateString()}
+                                </Typography.Text>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Space size={2}>
+                                    <Typography.Text view='primary-small' tag='div'>
+                                        {row.title}
+                                    </Typography.Text>
+                                    <Typography.Text view='primary-small' color='secondary'>
+                                        {row.subtitle}
+                                    </Typography.Text>
+                                </Space>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                    bold='full'
+                                    transparentMinor={true}
+                                />
+                            </Table.TCell>
+                        </Table.TRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </div>
+    );
+});
+```

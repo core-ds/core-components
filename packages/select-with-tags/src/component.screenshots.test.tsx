@@ -68,7 +68,7 @@ describe('SelectWithTags | interactions tests', () => {
                 await match();
             } catch (error) {
                 // eslint-disable-next-line no-console
-                console.error(error.message);
+                console.error((error as Error).message);
             } finally {
                 await closeBrowser({ browser, context, page });
             }
@@ -103,7 +103,7 @@ describe('SelectWithTags | interactions tests', () => {
                 expect,
                 css,
                 viewport,
-                evaluate: remotePage =>
+                evaluate: (remotePage) =>
                     remotePage
                         .hover('[class*=tagCross]')
                         .then(() => remotePage.mouse.down())
@@ -111,7 +111,7 @@ describe('SelectWithTags | interactions tests', () => {
             });
         } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error.message);
+            console.error((error as Error).message);
 
             throw error;
         } finally {
@@ -156,7 +156,7 @@ describe('SelectWithTags | interactions tests', () => {
             await match();
         } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error.message);
+            console.error((error as Error).message);
         } finally {
             await closeBrowser({ browser, context, page });
         }

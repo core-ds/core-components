@@ -25,6 +25,7 @@ export type GalleryContext = {
 
 const mockFn = () => undefined;
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GalleryContext = createContext<GalleryContext>({
     singleSlide: false,
     currentSlideIndex: 0,

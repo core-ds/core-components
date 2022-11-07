@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import cn from 'classnames';
-import { useFocus } from '@alfalab/hooks';
-import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select';
 
+import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
 import { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
+import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select';
+import { useFocus } from '@alfalab/hooks';
+
 import styles from './index.module.css';
 
 export type AutocompleteMobileFieldProps = FormControlProps &

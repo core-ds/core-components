@@ -4,11 +4,7 @@
  */
 
 export const deleteFormatting = (phone: string) =>
-    phone
-        .replace('+', '')
-        .replace(/^7/, '')
-        .replace(/\s/g, '')
-        .replace(/-/g, '');
+    phone.replace('+', '').replace(/^7/, '').replace(/\s/g, '').replace(/-/g, '');
 
 export function setCaretPosition({
     position,

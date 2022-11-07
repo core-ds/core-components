@@ -1,14 +1,14 @@
 import React, {
-    ReactNode,
+    ChangeEvent,
     Children,
     cloneElement,
-    ReactElement,
-    ChangeEvent,
-    MouseEvent,
-    isValidElement,
-    useState,
-    forwardRef,
     FocusEvent,
+    forwardRef,
+    isValidElement,
+    MouseEvent,
+    ReactElement,
+    ReactNode,
+    useState,
 } from 'react';
 import cn from 'classnames';
 
@@ -190,7 +190,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
 
                 {children ? (
                     <div className={styles.radioList} onBlur={onBlur} onFocus={onFocus}>
-                        {Children.map(children, child => {
+                        {Children.map(children, (child) => {
                             if (isValidElement(child)) {
                                 return type === 'radio' ? renderRadio(child) : renderTag(child);
                             }

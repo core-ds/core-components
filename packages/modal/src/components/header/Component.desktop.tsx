@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { Header, HeaderProps } from './Component';
-import { Closer } from '../closer/Component';
-import { ModalDesktopProps } from '../../Component.desktop';
+
 import { getDataTestId } from '../../../../utils/getDataTestId';
+import { ModalDesktopProps } from '../../Component.desktop';
+import { Closer } from '../closer/Component';
+
+import { Header, HeaderProps } from './Component';
 
 import styles from './desktop.module.css';
 
@@ -32,6 +34,7 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     ...restProps
 }) => {
     const hasContent = title || Boolean(children);
+
     return (
         <Header
             className={cn(className, styles.header, size && styles[size], {

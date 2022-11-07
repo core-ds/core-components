@@ -1,22 +1,22 @@
 import React, {
     FC,
-    HTMLAttributes,
-    ReactElement,
-    useState,
-    useEffect,
-    useCallback,
-    ReactNode,
-    useRef,
     Fragment,
+    HTMLAttributes,
     MutableRefObject,
+    ReactElement,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
 
-import { Popover, Position, PopoverProps } from '@alfalab/core-components-popover';
+import { Popover, PopoverProps, Position } from '@alfalab/core-components-popover';
 
-import styles from './index.module.css';
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {

@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, boolean, number } from '@storybook/addon-knobs';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { Container, Row, Col } from 'storybook/blocks/grid';
@@ -28,6 +28,7 @@ import styles from '!!raw-loader!../index.module.css';
         const minority = number('minority', 100);
         const showPlus = boolean('showPlus', false);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
+        const codeFormat = select('codeFormat', ['symbolic', 'letter'], 'symbolic');
         const bold = select('bold', ['full', 'major', 'none'], 'bold');
         const transparentMinor = boolean('transparentMinor', true);
         return (
@@ -44,6 +45,7 @@ import styles from '!!raw-loader!../index.module.css';
                             minority={minority}
                             showPlus={showPlus}
                             view={view}
+                            codeFormat={codeFormat}
                             bold={bold}
                             transparentMinor={transparentMinor}
                         />
@@ -80,6 +82,6 @@ import { Amount } from '@alfalab/core-components/amount';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={AmountTS} />}
+    props={<ArgsTable of={AmountTS} />}
     cssVars={<CssVars css={styles} />}
 />

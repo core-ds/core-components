@@ -1,24 +1,25 @@
+import addDays from 'date-fns/addDays';
+import addMonths from 'date-fns/addMonths';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import eachMonthOfInterval from 'date-fns/eachMonthOfInterval';
 import eachYearOfInterval from 'date-fns/eachYearOfInterval';
+import endOfWeek from 'date-fns/endOfWeek';
+import endOfYear from 'date-fns/endOfYear';
+import format from 'date-fns/format';
+import isAfter from 'date-fns/isAfter';
+import isBefore from 'date-fns/isBefore';
+import isSameDay from 'date-fns/isSameDay';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
+import max from 'date-fns/max';
+import min from 'date-fns/min';
+import parse from 'date-fns/parse';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
-import startOfYear from 'date-fns/startOfYear';
-import endOfYear from 'date-fns/endOfYear';
-import isSameDay from 'date-fns/isSameDay';
-import isBefore from 'date-fns/isBefore';
-import isAfter from 'date-fns/isAfter';
-import min from 'date-fns/min';
-import max from 'date-fns/max';
-import addDays from 'date-fns/addDays';
-import addMonths from 'date-fns/addMonths';
-import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
+import startOfYear from 'date-fns/startOfYear';
 import subDays from 'date-fns/subDays';
 import subMonths from 'date-fns/subMonths';
-import format from 'date-fns/format';
-import parse from 'date-fns/parse';
+
 import { DateShift, Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;
@@ -92,7 +93,7 @@ export function generateWeeks(
  * Возвращает массив с месяцами для переданного года
  */
 export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?: Date }) {
-    return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map(month =>
+    return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map((month) =>
         buildMonth(month, options),
     );
 }
@@ -158,8 +159,10 @@ export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: D
  */
 export function limitDate(date: Date | number, minDate?: Date | number, maxDate?: Date | number) {
     let limitedDate = date;
+
     if (minDate) limitedDate = max([minDate, limitedDate]);
     if (maxDate) limitedDate = min([maxDate, limitedDate]);
+
     return new Date(limitedDate);
 }
 
@@ -187,6 +190,7 @@ export function monthName(month: Date) {
 export function dateArrayToHashTable(arr: Array<Date | number>) {
     return arr.reduce((acc: Record<number, boolean>, v) => {
         acc[startOfDay(v).getTime()] = true;
+
         return acc;
     }, {});
 }
@@ -238,6 +242,7 @@ export function modifyDateByShift(
     while (offDaysMap[newDate.getTime()]) {
         // Перескакиваем через выходные дни, кроме случаев с концами недели
         let amount = newDate < date ? -1 : 1;
+
         if (shift === 'endOfWeek') amount = -1;
         if (shift === 'startOfWeek') amount = 1;
         newDate = addDays(newDate, amount);

@@ -3,8 +3,8 @@
  * TODO: нужно перенести утилиты в этот проект, когда он будет готов
  */
 
-import { formatAmount } from '@alfalab/utils';
 import { CurrencyCodes } from '@alfalab/data';
+import { formatAmount } from '@alfalab/utils';
 
 /**
  * Форматирует введенное значение
@@ -19,6 +19,7 @@ export function getFormattedValue(enteredValue: string, currency: CurrencyCodes,
 
     // eslint-disable-next-line prefer-const
     let [head, tail] = enteredValue.split(',');
+
     // При вводе "-," указываем, что имеется в виду "-0,"
     if (head === '-') {
         head = '-0';

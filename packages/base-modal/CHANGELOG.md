@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.0.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   global-store@2.0.2
+
 ## 5.0.4
 
 ### Patch Changes

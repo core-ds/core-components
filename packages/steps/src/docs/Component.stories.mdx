@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { number, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Steps } from '@alfalab/core-components-steps';
@@ -49,7 +49,7 @@ import { Steps } from '@alfalab/core-components/steps';
 ```
 
 <Tabs
-    props={<Props of={StepsTS} />}
+    props={<ArgsTable of={StepsTS} />}
     description={<Description />}
     cssVars={<CssVars css={styles} />}
     changelog={<Changelog />}

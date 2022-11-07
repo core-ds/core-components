@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+
 import { Typography } from '@alfalab/core-components-typography';
 
 import { PayloadProps } from '../../types/payload.types';
@@ -50,7 +51,9 @@ export const TooltipContent = ({
                     const data: SeriaProps | undefined = series.find(
                         (d: SeriaProps) => d.properties.dataKey === entry.dataKey,
                     );
+
                     if (data?.hideTooltip || data?.hide) return null;
+
                     return (
                         <li
                             className={cn(styles.tooltipItem)}

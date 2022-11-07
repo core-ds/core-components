@@ -20,7 +20,7 @@ describe('Input', () => {
     });
 
     it('should forward ref to input wrapper', () => {
-        const ref = (React.createRef() as unknown) as React.MutableRefObject<HTMLDivElement>;
+        const ref = React.createRef() as unknown as React.MutableRefObject<HTMLDivElement>;
         render(<Input wrapperRef={ref} className='wrapperClassName' />);
 
         expect(ref.current.classList.contains('wrapperClassName'));

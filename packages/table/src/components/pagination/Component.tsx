@@ -1,14 +1,15 @@
-import React, { FC, useMemo, useCallback, useContext } from 'react';
+import React, { FC, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 
-import { BaseSelectChangePayload, Select, SelectProps } from '@alfalab/core-components-select';
 import {
     Pagination as CorePagination,
     PaginationProps as CorePaginationProps,
 } from '@alfalab/core-components-pagination';
+import { BaseSelectChangePayload, Select, SelectProps } from '@alfalab/core-components-select';
+
+import { TableContext } from '../table-context';
 
 import { CustomSelectField } from './select-field';
-import { TableContext } from '../table-context';
 
 import styles from './index.module.css';
 
@@ -50,7 +51,7 @@ export const Pagination: FC<PaginationProps> = ({
         () =>
             Array.from(new Set<number>(possiblePerPage.concat(perPage)))
                 .sort((a, b) => a - b)
-                .map(value => ({
+                .map((value) => ({
                     key: value.toString(),
                     content: `Показывать по ${value}`,
                 })),

@@ -1,14 +1,17 @@
 import React, { FC, MouseEvent, useMemo } from 'react';
 import cn from 'classnames';
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { Button } from '@alfalab/core-components-button';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
+
+import { Button } from '@alfalab/core-components-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
+
+import { monthName } from '../../utils';
+
 import { formatPeriod, getYearSelectorValue, shiftValues } from './utils';
 
 import styles from './index.module.css';
-import { monthName } from '../../utils';
 
 export type PeriodType = 'range' | 'day' | 'week' | 'month' | 'quarter' | 'year';
 
@@ -144,6 +147,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     const showArrow = (direction: 'prev' | 'next') => {
         if (hideDisabledArrows) {
             const disabled = direction === 'prev' ? prevArrowDisabled : nextArrowDisabled;
+
             return !disabled && valueFrom;
         }
 

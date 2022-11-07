@@ -3,8 +3,8 @@ import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalProps, BaseModalContext } from '@alfalab/core-components-base-modal';
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
+import { BaseModal, BaseModalContext, BaseModalProps } from '@alfalab/core-components-base-modal';
+import { Scrollbar, ScrollbarProps } from '@alfalab/core-components-scrollbar';
 
 import styles from './index.module.css';
 
@@ -22,6 +22,11 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
      * @default true
      */
     nativeScrollbar?: boolean;
+
+    /**
+     * Пропсы кастомного скроллбара.
+     */
+    scrollbarProps?: Partial<Omit<ScrollbarProps, 'children'>>;
 
     /**
      * Пропсы для анимации контента (CSSTransition)
@@ -67,6 +72,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
             contentTransitionProps,
             nativeScrollbar = true,
             placement = 'right',
+            scrollbarProps,
             ...restProps
         },
         ref,
@@ -102,7 +108,12 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
         const renderWithNativeScrollbar = () => <div className={styles.content}>{children}</div>;
 
         const renderWithCustomScrollbar = () => (
-            <Scrollbar className={styles.simplebar}>{children}</Scrollbar>
+            <Scrollbar
+                {...scrollbarProps}
+                className={cn(styles.simplebar, scrollbarProps?.className)}
+            >
+                {children}
+            </Scrollbar>
         );
 
         return (

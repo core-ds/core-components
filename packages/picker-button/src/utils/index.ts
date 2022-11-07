@@ -1,8 +1,10 @@
 import { FC, SVGProps } from 'react';
-import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
+
 import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
+import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { MoreMIcon } from '@alfalab/icons-glyph/MoreMIcon';
 import { MoreSIcon } from '@alfalab/icons-glyph/MoreSIcon';
+
 import { PickerButtonSize, PickerButtonVariant } from '..';
 
 export const getIcon = (

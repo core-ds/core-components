@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, ElementType, FC, useCallback, useContext } from 'react';
 import cn from 'classnames';
+
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
-import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 
 import { ModalContext } from '../../Context';
 
@@ -31,19 +31,13 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * Иконка
      */
-    icon?: ElementType;
+    icon: ElementType;
 };
 
 /**
  * @deprecated Компонент только для внутреннего использования. Используйте <Header />
  */
-export const Closer: FC<CloserProps> = ({
-    className,
-    size = 's',
-    sticky,
-    icon = CrossHeavyMIcon,
-    ...restProps
-}) => {
+export const Closer: FC<CloserProps> = ({ className, size = 's', sticky, icon, ...restProps }) => {
     const { onClose } = useContext(ModalContext);
 
     const handleClick = useCallback(

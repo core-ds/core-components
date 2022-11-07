@@ -1,8 +1,9 @@
-import React, { useMemo, TableHTMLAttributes, ReactNode, useRef, forwardRef } from 'react';
+import React, { forwardRef, ReactNode, TableHTMLAttributes, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
-import { findAllHeadCellsProps } from './utils';
 import { ColumnConfiguration, TableContext } from '../table-context';
+
+import { findAllHeadCellsProps } from './utils';
 
 import styles from './index.module.css';
 
@@ -41,6 +42,11 @@ export type TableProps = TableHTMLAttributes<HTMLTableElement> & {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Если true то заголовок будет фиксироваться при скроле
+     */
+    stickyHeader?: boolean;
 };
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
@@ -53,6 +59,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
             wrapper = true,
             pagination,
             dataTestId,
+            stickyHeader = false,
             ...restProps
         },
         ref,
@@ -70,9 +77,11 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
             [children],
         );
 
+        /* eslint-disable react/jsx-no-constructed-context-values */
         return (
             <TableContext.Provider
                 value={{
+                    stickyHeader,
                     columnsConfiguration,
                     compactView,
                     compactHorizontal,
@@ -84,6 +93,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
                     className={cn(styles.component, className, {
                         [styles.wrapper]: wrapper,
                         [styles.hasPagination]: !!pagination,
+                        [styles.stickyHeader]: stickyHeader,
                     })}
                     data-test-id={dataTestId}
                 >

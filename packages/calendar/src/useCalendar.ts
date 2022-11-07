@@ -1,24 +1,25 @@
 import { KeyboardEvent, MouseEvent, Ref, useCallback, useMemo, useRef, useState } from 'react';
-import startOfMonth from 'date-fns/startOfMonth';
+import mergeRefs from 'react-merge-refs';
+import addMonths from 'date-fns/addMonths';
+import addYears from 'date-fns/addYears';
 import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
 import isSameYear from 'date-fns/isSameYear';
 import setYear from 'date-fns/setYear';
-import addMonths from 'date-fns/addMonths';
+import startOfMonth from 'date-fns/startOfMonth';
 import subYears from 'date-fns/subYears';
-import addYears from 'date-fns/addYears';
-import mergeRefs from 'react-merge-refs';
+
+import { DateShift, Day, Month, View } from './typings';
 import {
-    limitDate,
+    dateArrayToHashTable,
     generateMonths,
     generateWeeks,
     generateYears,
-    dateArrayToHashTable,
+    limitDate,
     modifyDateByShift,
-    simulateTab,
     MONTHS_IN_YEAR,
+    simulateTab,
 } from './utils';
-import { DateShift, Day, Month, View } from './typings';
 
 export type UseCalendarProps = {
     /**
@@ -125,11 +126,10 @@ export function useCalendar({
         [maxDate, minDate, selected, activeMonth, eventsMap, offDaysMap, holidaysMap],
     );
 
-    const months = useMemo(() => generateMonths(activeMonth, { minMonth, maxMonth }), [
-        minMonth,
-        maxMonth,
-        activeMonth,
-    ]);
+    const months = useMemo(
+        () => generateMonths(activeMonth, { minMonth, maxMonth }),
+        [minMonth, maxMonth, activeMonth],
+    );
 
     const years = useMemo(
         () =>
@@ -173,12 +173,12 @@ export function useCalendar({
     }, [setMonthByStep]);
 
     const getFocusedDate = useCallback(
-        () => dateRefs.current.find(node => document.activeElement === node),
+        () => dateRefs.current.find((node) => document.activeElement === node),
         [],
     );
 
     const getFocusableDate = useCallback(
-        () => dateRefs.current.find(node => node && node.tabIndex === 0),
+        () => dateRefs.current.find((node) => node && node.tabIndex === 0),
         [],
     );
 
@@ -189,10 +189,10 @@ export function useCalendar({
         }
     }, []);
 
-    const focusFirstAvailableDate = useCallback(() => focusDate(getFocusableDate()), [
-        focusDate,
-        getFocusableDate,
-    ]);
+    const focusFirstAvailableDate = useCallback(
+        () => focusDate(getFocusableDate()),
+        [focusDate, getFocusableDate],
+    );
 
     const focusDay = useCallback(
         (shift: DateShift) => {
@@ -314,6 +314,7 @@ export function useCalendar({
 
     const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLTableDataCellElement>) => {
         const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
+
         setHighlighted(date ? +date : undefined);
     }, []);
 
@@ -321,18 +322,15 @@ export function useCalendar({
         setHighlighted(undefined);
     }, []);
 
-    const handleDayClick = useCallback(
-        (event: MouseEvent<HTMLTableDataCellElement>) => {
-            const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
+    const handleDayClick = (event: MouseEvent<HTMLTableDataCellElement>) => {
+        const { date } = (event.currentTarget as HTMLTableDataCellElement).dataset;
 
-            if (date && onChange) {
-                onChange(+date);
-            }
+        if (date && onChange) {
+            onChange(+date);
+        }
 
-            handleDayMouseLeave();
-        },
-        [onChange, handleDayMouseLeave],
-    );
+        handleDayMouseLeave();
+    };
 
     const daysControls = useMemo(
         (): { [key: string]: () => void } => ({
@@ -374,103 +372,79 @@ export function useCalendar({
         years: yearsControls,
     };
 
-    const handleKeyDown = useCallback(
-        (event: KeyboardEvent<HTMLDivElement>) => {
-            const controls = controlsByView[view];
+    const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+        const controls = controlsByView[view];
 
-            if (event.key in controls) {
-                controls[event.key]();
-                event.preventDefault();
-            }
-        },
-        [controlsByView, view],
-    );
+        if (event.key in controls) {
+            controls[event.key]();
+            event.preventDefault();
+        }
+    };
 
     let focusableDayIsSet = false;
 
-    const getDayProps = useCallback(
-        (day: Day) => {
-            const daySelected = selected && isSameDay(selected, day.date);
-            let canFocus = daySelected;
+    const getDayProps = (day: Day) => {
+        const daySelected = selected && isSameDay(selected, day.date);
+        let canFocus = daySelected;
 
-            // Если день не выбран — фокус должен начинаться с первого доступного дня месяца
-            if (
-                (!selected || !isSameMonth(selected, activeMonth)) &&
-                !focusableDayIsSet &&
-                !day.disabled
-            ) {
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-                focusableDayIsSet = true;
-                canFocus = true;
-            }
+        // Если день не выбран — фокус должен начинаться с первого доступного дня месяца
+        if (
+            (!selected || !isSameMonth(selected, activeMonth)) &&
+            !focusableDayIsSet &&
+            !day.disabled
+        ) {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            focusableDayIsSet = true;
+            canFocus = true;
+        }
 
-            return {
-                'data-date': day.date.getTime(),
-                'aria-selected': daySelected,
-                ref: (node: HTMLTableDataCellElement) => {
-                    handleDateRef(node, day.date.getDate() - 1);
-                },
-                tabIndex: canFocus ? 0 : -1,
-                onMouseEnter: handleDayMouseEnter,
-                onMouseLeave: handleDayMouseLeave,
-                onClick: handleDayClick,
-            };
-        },
-        [
-            handleDayClick,
-            handleDateRef,
-            handleKeyDown,
-            handleDayMouseEnter,
-            handleDayMouseLeave,
-            selected,
-        ],
-    );
+        return {
+            'data-date': day.date.getTime(),
+            'aria-selected': daySelected,
+            ref: (node: HTMLTableDataCellElement) => {
+                handleDateRef(node, day.date.getDate() - 1);
+            },
+            tabIndex: canFocus ? 0 : -1,
+            onMouseEnter: handleDayMouseEnter,
+            onMouseLeave: handleDayMouseLeave,
+            onClick: handleDayClick,
+        };
+    };
 
-    const getMonthProps = useCallback(
-        // eslint-disable-next-line no-shadow
-        (month: Month) => {
-            const monthselected = isSameMonth(activeMonth, month.date);
-            return {
-                'data-date': month.date.getTime(),
-                'aria-selected': monthselected,
-                ref: (node: HTMLButtonElement) => {
-                    handleDateRef(node, month.date.getMonth());
-                },
-                tabIndex: monthselected ? 0 : -1,
-                disabled: month.disabled,
-                onClick: handleMonthClick,
-            };
-        },
-        [activeMonth, handleDateRef, handleMonthClick],
-    );
+    const getMonthProps = (month: Month) => {
+        const monthselected = isSameMonth(activeMonth, month.date);
 
-    const getYearProps = useCallback(
-        (year: Date) => {
-            const yearSelected = isSameYear(activeMonth, year);
+        return {
+            'data-date': month.date.getTime(),
+            'aria-selected': monthselected,
+            ref: (node: HTMLButtonElement) => {
+                handleDateRef(node, month.date.getMonth());
+            },
+            tabIndex: monthselected ? 0 : -1,
+            disabled: month.disabled,
+            onClick: handleMonthClick,
+        };
+    };
 
-            return {
-                'data-date': year.getTime(),
-                'aria-selected': yearSelected,
-                ref: (node: HTMLButtonElement) => {
-                    handleDateRef(node, year.getFullYear());
-                },
-                tabIndex: yearSelected ? 0 : -1,
-                onClick: handleYearClick,
-            };
-        },
-        [activeMonth, handleDateRef, handleYearClick],
-    );
+    const getYearProps = (year: Date) => {
+        const yearSelected = isSameYear(activeMonth, year);
 
-    const getRootProps = useCallback(
-        ({ ref = null }: { ref?: Ref<HTMLDivElement> }) => {
-            return {
-                onKeyDown: handleKeyDown,
-                ref: mergeRefs([ref, rootRef]),
-                tabIndex: -1,
-            };
-        },
-        [handleKeyDown],
-    );
+        return {
+            'data-date': year.getTime(),
+            'aria-selected': yearSelected,
+            ref: (node: HTMLButtonElement) => {
+                handleDateRef(node, year.getFullYear());
+            },
+            tabIndex: yearSelected ? 0 : -1,
+            onClick: handleYearClick,
+        };
+    };
+
+    const getRootProps = ({ ref = null }: { ref?: Ref<HTMLDivElement> }) => ({
+        onKeyDown: handleKeyDown,
+        ref: mergeRefs([ref, rootRef]),
+        tabIndex: -1,
+    });
 
     return {
         activeMonth,

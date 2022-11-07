@@ -1,7 +1,8 @@
 import React from 'react';
-import Label from 'arui-feather/label';
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Typography } from '@alfalab/core-components/typography';
+import Label from 'arui-feather/label';
 
 const someVar = true;
 

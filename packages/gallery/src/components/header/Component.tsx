@@ -1,9 +1,10 @@
 import React, { FC, useContext, useEffect, useRef } from 'react';
 
-import { HeaderInfoBlock } from '../header-info-block';
-import * as Buttons from './buttons';
-import { isSmallImage, TestIds } from '../../utils';
 import { GalleryContext } from '../../context';
+import { isSmallImage, TestIds } from '../../utils';
+import { HeaderInfoBlock } from '../header-info-block';
+
+import * as Buttons from './buttons';
 
 import styles from './index.module.css';
 

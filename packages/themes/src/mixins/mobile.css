@@ -6,7 +6,6 @@
 @import './input/mobile.css';
 @import './slider/mobile.css';
 @import './slider-input/mobile.css';
-@import './calendar-input/mobile.css';
 @import './filter-tag/mobile.css';
 @import './bottom-sheet/mobile.css';
 @import './select/mobile.css';
@@ -22,7 +21,6 @@
     @mixin input-mobile;
     @mixin slider-mobile;
     @mixin slider-input-mobile;
-    @mixin calendar-input-mobile;
     @mixin filter-tag-mobile;
     @mixin bottom-sheet-mobile;
     @mixin select-mobile;

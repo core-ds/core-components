@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, boolean, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Input } from '@alfalab/core-components-input';
@@ -54,5 +54,5 @@ import { Space } from '@alfalab/core-components/space';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={SpaceTS} />}
+    props={<ArgsTable of={SpaceTS} />}
 />

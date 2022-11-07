@@ -36,7 +36,7 @@ describe('InputAutocomplete | interactions tests', () => {
             await matchHtml({ page, expect, css, matchImageSnapshotOptions });
         } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error.message);
+            console.error((error as Error).message);
 
             throw error;
         } finally {
@@ -48,7 +48,7 @@ describe('InputAutocomplete | interactions tests', () => {
 describe('InputAutocompleteMobile | interactions tests', () => {
     test('Fill value', async () => {
         const pageUrl = createStorybookUrl({
-            componentName: 'Inputautocomplete',
+            componentName: 'InputAutocomplete',
             subComponentName: 'InputAutocompleteMobile',
             testStory: false,
             knobs: {
@@ -77,7 +77,7 @@ describe('InputAutocompleteMobile | interactions tests', () => {
             await matchHtml({ page, expect, css, matchImageSnapshotOptions });
         } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error.message);
+            console.error((error as Error).message);
 
             throw error;
         } finally {

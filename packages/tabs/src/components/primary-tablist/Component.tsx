@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import cn from 'classnames';
-import { Styles, TabListProps } from '../../typings';
 
-import { ScrollableContainer } from '../scrollable-container';
+import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
+
+import { Styles, TabListProps } from '../../typings';
 import { useTabs } from '../../useTabs';
+import { ScrollableContainer } from '../scrollable-container';
 
 export const PrimaryTabList = ({
     size,

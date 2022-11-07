@@ -1,5 +1,35 @@
 # Change Log
 
+## 5.1.8
+
+### Patch Changes
+
+### [#333](https://github.com/core-ds/core-components/pull/333)
+
+-   Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
+
+## 5.1.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.3
+    -   base-modal@5.0.5
+
+## 5.1.6
+
+### Patch Changes
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+-   Новые стили кнопок в теме default
+-   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+-   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+-   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+-   Обновлены зависимости
+    -   icon-button@6.0.0
+
 ## 5.1.5
 
 ### Patch Changes

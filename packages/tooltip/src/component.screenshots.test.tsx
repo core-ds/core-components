@@ -54,7 +54,7 @@ describe('Tooltip', () => {
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
-                console.error(error.message);
+                console.error((error as Error).message);
 
                 throw error;
             }
@@ -98,7 +98,7 @@ describe('Tooltip', () => {
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
-                console.error(error.message);
+                console.error((error as Error).message);
 
                 throw error;
             }
@@ -142,7 +142,7 @@ describe('Tooltip', () => {
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
-                console.error(error.message);
+                console.error((error as Error).message);
 
                 throw error;
             }

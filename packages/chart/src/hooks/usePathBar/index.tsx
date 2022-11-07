@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+
 import { RadiusProp } from '../../types/seria.types';
+
 import { getRadius } from './utils/getRadius';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export type usePathBarProps = {
     radius?: RadiusProp;
     height: number;
@@ -40,6 +43,7 @@ export const usePathBar = (props: usePathBarProps): number[] => {
             const yInit = heightCheck
                 ? background.height + background.y - (radiusTop + radiusBottom)
                 : y;
+
             setInitY(yInit);
         }
 

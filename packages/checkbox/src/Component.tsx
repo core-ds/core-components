@@ -1,8 +1,8 @@
-import React, { InputHTMLAttributes, forwardRef, ReactNode, ChangeEvent, useRef } from 'react';
-import cn from 'classnames';
-import { useFocus } from '@alfalab/hooks';
+import React, { ChangeEvent, forwardRef, InputHTMLAttributes, ReactNode, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
 
+import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCompactMIcon } from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
 
 import styles from './index.module.css';

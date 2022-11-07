@@ -1,13 +1,15 @@
+import React, { forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
-import React, { useState, useEffect, useCallback, forwardRef, Fragment } from 'react';
-import { Input, InputProps } from '@alfalab/core-components-input';
-import { THINSP, formatAmount, getCurrencySymbol } from '@alfalab/utils';
-import { CurrencyCodes } from '@alfalab/data';
-import { withSuffix } from '@alfalab/core-components-with-suffix';
-import { getFormattedValue, getAmountValueFromStr } from './utils';
 
-import styles from './index.module.css';
+import { Input, InputProps } from '@alfalab/core-components-input';
+import { withSuffix } from '@alfalab/core-components-with-suffix';
+import { CurrencyCodes } from '@alfalab/data';
+import { formatAmount, getCurrencySymbol, THINSP } from '@alfalab/utils';
+
+import { getAmountValueFromStr, getFormattedValue } from './utils';
+
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {
@@ -128,6 +130,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         useEffect(() => {
             const currentAmountValue = getAmountValueFromStr(inputValue, minority);
+
             if (currentAmountValue !== value) {
                 return setInputValue(getFormattedAmount());
             }
@@ -153,6 +156,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
                 if (newFormattedValue === inputValue) {
                     const caret = input.selectionStart;
+
                     window.requestAnimationFrame(() => {
                         input.selectionStart = caret;
                         input.selectionEnd = caret;
@@ -168,6 +172,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
                     const [head, tail] = input.value.split(/\.|,/);
                     let notFormattedEnteredValueLength = head.length;
+
                     if (tail) {
                         notFormattedEnteredValueLength += 1; // запятая или точка
                         notFormattedEnteredValueLength += tail.slice(
@@ -178,6 +183,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
                     const diff = newFormattedValue.length - notFormattedEnteredValueLength;
                     const caret = (input.selectionStart as number) + diff;
+
                     window.requestAnimationFrame(() => {
                         input.selectionStart = caret;
                         input.selectionEnd = caret;
@@ -194,6 +200,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             } else {
                 // Не двигаем каретку когда вставляется невалидный символ
                 const caret = (input.selectionStart as number) - 1;
+
                 window.requestAnimationFrame(() => {
                     input.selectionStart = caret;
                     input.selectionEnd = caret;

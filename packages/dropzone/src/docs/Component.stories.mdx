@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
+import { Meta, Story, Preview, ArgsTable } from '@storybook/addon-docs';
 import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Dropzone } from '@alfalab/core-components-dropzone';
@@ -75,6 +75,6 @@ import { Dropzone } from '@alfalab/core-components/dropzone';
 
 <Tabs
     description={<Description />}
-    props={<Props of={DropzoneTS} />}
+    props={<ArgsTable of={DropzoneTS} />}
     changelog={<Changelog />}
 />

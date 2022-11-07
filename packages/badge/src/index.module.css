@@ -21,12 +21,12 @@
 
 .count {
     display: inline-flex;
-    padding: 2px;
+    padding: var(--gap-3xs);
 }
 
 .outlineCount {
     background-color: var(--badge-icon-bg-color);
-    border-radius: 99px;
+    border-radius: var(--border-radius-pill);
 }
 
 .s {
@@ -73,17 +73,17 @@
 }
 
 .wrapper {
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     box-sizing: border-box;
 
     &.s {
-        padding: 2px;
+        padding: var(--gap-3xs);
         width: 18px;
         height: 18px;
     }
 
     &.m {
-        padding: 2px;
+        padding: var(--gap-3xs);
         width: 24px;
         height: 24px;
     }

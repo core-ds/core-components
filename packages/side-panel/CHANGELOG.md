@@ -1,5 +1,40 @@
 # Change Log
 
+## 2.4.0
+
+### Minor Changes
+
+### [#323](https://github.com/core-ds/core-components/pull/323)
+
+-   Добавлена возможность передавать пропсы в компонент Scrollbar
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   drawer@4.2.0
+    -   base-modal@5.0.5
+
+## 2.3.0
+
+### Minor Changes
+
+### [#310](https://github.com/core-ds/core-components/pull/310)
+
+-   Добавлена возможность менять иконку Closer
+
+### Patch Changes
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+-   Новые стили кнопок в теме default
+-   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+-   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+-   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+-   Обновлены зависимости
+    -   button@7.0.0
+    -   icon-button@6.0.0
+
 ## 2.2.0
 
 ### Minor Changes

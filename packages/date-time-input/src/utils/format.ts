@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-escape */
 
-import parse from 'date-fns/parse';
 import dateFnsIsValid from 'date-fns/isValid';
+import parse from 'date-fns/parse';
 
 export const DATE_FORMAT = 'dd.MM.yyyy';
 export const DATE_MASK = [
@@ -105,6 +105,7 @@ export const getDateWithoutTime = (value: string): Date => {
 
     if (valueArr[0]) {
         const date = valueArr[0].split('.');
+
         [day, month, year] = date;
     }
 
@@ -127,10 +128,12 @@ export const getFullDateTime = (value: string): Date => {
 
     if (valueArr[0]) {
         const date = valueArr[0].split('.');
+
         [day, month, year] = date;
     }
     if (valueArr[1]) {
         const time = valueArr[1].split(':');
+
         hours = Number(time[0]);
         mins = Number(time[1]);
     }

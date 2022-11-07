@@ -1,5 +1,49 @@
 # Change Log
 
+## 9.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.0.2
+
+## 9.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+### [#324](https://github.com/core-ds/core-components/pull/324)
+
+-   "export" типов заменен на "export type"
+
+-   Обновлены зависимости
+    -   select@13.0.1
+
+## 9.0.0
+
+### Major Changes
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+-   Новые стили кнопок в теме default
+-   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+-   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+-   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+### Patch Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+-   Обновлены зависимости
+    -   button@7.0.0
+    -   select@13.0.0
+
 ## 8.2.11
 
 ### Patch Changes

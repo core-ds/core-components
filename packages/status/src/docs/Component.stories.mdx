@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Status, colors } from '@alfalab/core-components-status';
@@ -43,5 +43,5 @@ import { Status } from '@alfalab/core-components/status';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={StatusTS} />}
+    props={<ArgsTable of={StatusTS} />}
 />

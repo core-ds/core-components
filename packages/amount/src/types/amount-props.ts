@@ -1,5 +1,6 @@
-import { CurrencyCodes } from '@alfalab/data';
 import { ReactNode } from 'react';
+
+import { CurrencyCodes } from '@alfalab/data';
 
 export type AmountProps = {
     /**
@@ -21,6 +22,11 @@ export type AmountProps = {
      * Количество минорных единиц в валюте
      */
     minority: number;
+
+    /**
+     * Формат отображения кода валюты
+     */
+    codeFormat?: 'letter' | 'symbolic';
 
     /**
      * default - не отображаем копейки, если их значение 0

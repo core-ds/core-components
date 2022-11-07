@@ -1,8 +1,9 @@
 import React, { HTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
 import { TCell, TCellProps } from '../tcell';
+
+import styles from './index.module.css';
 
 export type TRowProps = HTMLAttributes<HTMLTableRowElement> & {
     /**

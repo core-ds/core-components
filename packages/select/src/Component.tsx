@@ -1,12 +1,14 @@
 import React, { forwardRef } from 'react';
-import { Field as DefaultField } from './components/field';
+
+import { FormControlProps } from '@alfalab/core-components-form-control/src/Component';
+
 import { Arrow as DefaultArrow } from './components/arrow';
-import { OptionsList as DefaultOptionsList } from './components/options-list';
-import { Option as DefaultOption } from './components/option';
-import { Optgroup as DefaultOptgroup } from './components/optgroup';
 import { BaseSelect } from './components/base-select';
+import { Field as DefaultField } from './components/field';
+import { Optgroup as DefaultOptgroup } from './components/optgroup';
+import { Option as DefaultOption } from './components/option';
+import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { BaseSelectProps } from './typings';
-import { FormControlProps } from '../../form-control/src/Component';
 
 export type SelectProps = Omit<BaseSelectProps, 'fieldProps'> & {
     /**

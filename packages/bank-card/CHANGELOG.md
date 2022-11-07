@@ -1,5 +1,36 @@
 # Change Log
 
+## 5.2.5
+
+### Patch Changes
+
+### [#333](https://github.com/core-ds/core-components/pull/333)
+
+-   Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
+
+## 5.2.4
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   masked-input@6.0.1
+
+## 5.2.3
+
+### Patch Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+-   Обновлены зависимости
+    -   masked-input@6.0.0
+
 ## 5.2.2
 
 ### Patch Changes

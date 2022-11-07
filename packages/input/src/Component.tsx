@@ -1,23 +1,24 @@
 import React, {
-    useState,
-    InputHTMLAttributes,
-    useCallback,
+    AnimationEvent,
     ChangeEvent,
     Fragment,
+    InputHTMLAttributes,
     MouseEvent,
-    useRef,
     ReactNode,
-    AnimationEvent,
+    useCallback,
+    useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { useFocus } from '@alfalab/hooks';
+import cn from 'classnames';
+
 import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
+import { useFocus } from '@alfalab/hooks';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 
-import styles from './index.module.css';
 import defaultColors from './default.module.css';
+import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {
@@ -354,6 +355,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 colors={colors}
                 block={block}
                 disabled={disabled}
+                readOnly={readOnly}
                 filled={filled || autofilled || focused}
                 focused={focused}
                 error={error}

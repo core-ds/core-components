@@ -1,8 +1,11 @@
 import React, { useCallback } from 'react';
 import cn from 'classnames';
+
 import { Tag as CoreTag } from '@alfalab/core-components-tag';
 import { CrossCompactMIcon } from '@alfalab/icons-glyph/CrossCompactMIcon';
+
 import { TagComponent } from '../../types';
+
 import styles from './index.module.css';
 
 export const Tag: TagComponent = ({

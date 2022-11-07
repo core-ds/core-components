@@ -1,20 +1,20 @@
 import React, {
     forwardRef,
-    useCallback,
-    MouseEvent,
-    useRef,
-    useEffect,
-    useState,
     Fragment,
+    MouseEvent,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useSwipeable } from 'react-swipeable';
+import cn from 'classnames';
 import elementClosest from 'element-closest';
 
 import { Portal } from '@alfalab/core-components-portal';
-import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
+import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
 
 import { useClickOutside } from './utils';
 
@@ -193,7 +193,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
 
         return (
             <Stack value={zIndex}>
-                {computedZIndex => (
+                {(computedZIndex) => (
                     <Wrapper>
                         <div {...swipeableHandlers}>
                             <ToastPlate
@@ -232,13 +232,3 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-Notification.defaultProps = {
-    autoCloseDelay: 5000,
-    offset: 108,
-    hasCloser: true,
-    usePortal: true,
-};

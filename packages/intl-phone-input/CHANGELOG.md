@@ -1,5 +1,46 @@
 # Change Log
 
+## 9.0.2
+
+### Patch Changes
+
+###
+
+-   Исправлено форматирование номера в intl-phone-input, который передаётся снаружи компонента в props `value`
+
+-   Обновлены зависимости
+    -   select@13.0.2
+    -   input-autocomplete@9.0.2
+
+## 9.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   input@11.0.1
+    -   input-autocomplete@9.0.1
+    -   select@13.0.1
+
+## 9.0.0
+
+### Major Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.0.0
+    -   input-autocomplete@9.0.0
+    -   select@13.0.0
+
 ## 8.0.0
 
 ### Major Changes

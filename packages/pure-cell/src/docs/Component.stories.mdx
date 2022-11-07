@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
@@ -598,7 +598,7 @@ import { PureCell } from '@alfalab/core-components/pure-cell';
     description={<Description />}
     changelog={<Changelog />}
     props={
-        <Props components={{
+        <ArgsTable components={{
             PureCell: PureCellTS,
             'Addon': PureCellTS.Addon,
             'Amount': PureCellTS.Amount,

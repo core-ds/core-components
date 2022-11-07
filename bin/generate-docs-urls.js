@@ -10,7 +10,7 @@ const writeFile = promisify(fs.writeFile);
 
 const excludedPackages = ['codemod', 'screenshot-utils', 'themes', 'utils', 'vars'];
 
-const isComponent = dir => !excludedPackages.includes(dir) && !dir.includes('.');
+const isComponent = (dir) => !excludedPackages.includes(dir) && !dir.includes('.');
 
 const packagesDir = path.join(process.cwd(), 'packages');
 const buildDir = path.join(process.cwd(), process.env.STORYBOOK_BUILD_DIR || 'build');
@@ -19,14 +19,14 @@ async function main() {
     const packagesNames = (await readDir(packagesDir)).filter(isComponent);
 
     const packagesInfos = await Promise.all(
-        packagesNames.map(packageName =>
-            readFile(path.join(packagesDir, packageName, 'package.json'), 'utf-8').then(str =>
+        packagesNames.map((packageName) =>
+            readFile(path.join(packagesDir, packageName, 'package.json'), 'utf-8').then((str) =>
                 JSON.parse(str),
             ),
         ),
     );
 
-    const components = packagesInfos.map(packageInfo => {
+    const components = packagesInfos.map((packageInfo) => {
         const packageName = packageInfo.name.replace('@alfalab/core-components-', '');
         const componentName = upperfirst(camelCase(packageName));
 
@@ -63,7 +63,7 @@ main()
         console.log('DONE');
         process.exit(0);
     })
-    .catch(error => {
+    .catch((error) => {
         console.log(error);
         process.exit(1);
     });

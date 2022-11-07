@@ -53,11 +53,9 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                             color='primary'
                             className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
                         >
-                            {mobile ? (
-                                <>Для&nbsp; звонков по&nbsp;России</>
-                            ) : (
-                                <> &mdash;&nbsp;для звонков по&nbsp;России</>
-                            )}
+                            {mobile
+                                ? 'Для\u00A0 звонков по\u00A0России'
+                                : ' \u2014\u00A0для звонков по\u00A0России'}
                         </Typography.Text>
                     </div>
 
@@ -74,11 +72,9 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                             color='primary'
                             className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
                         >
-                            {mobile ? (
-                                <>В&nbsp;Москве и&nbsp;за&nbsp;границей</>
-                            ) : (
-                                <> &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей</>
-                            )}
+                            {mobile
+                                ? 'В\u00A0Москве и\u00A0за\u00A0границей'
+                                : ' \u2014\u00A0в\u00A0Москве и\u00A0за\u00A0границей'}
                         </Typography.Text>
                     </div>
                 </div>

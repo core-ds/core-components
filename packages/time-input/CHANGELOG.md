@@ -1,5 +1,31 @@
 # @alfalab/core-components-time-input
 
+## 2.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   input@11.0.1
+
+## 2.0.0
+
+### Major Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.0.0
+    -   input@11.0.0
+
 ## 1.1.3
 
 ### Patch Changes

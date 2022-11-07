@@ -1,5 +1,26 @@
 # Change Log
 
+## 5.1.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@4.0.3
+
+## 5.1.4
+
+### Patch Changes
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+-   Новые стили кнопок в теме default
+-   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+-   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+-   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+-   Обновлены зависимости
+    -   icon-button@6.0.0
+
 ## 5.1.3
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { CardImage } from '@alfalab/core-components-card-image';
@@ -44,6 +44,6 @@ import { CardImage } from '@alfalab/core-components/card-image';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={CardImageTS} />}
+    props={<ArgsTable of={CardImageTS} />}
     cssVars={<CssVars css={styles} />}
 />

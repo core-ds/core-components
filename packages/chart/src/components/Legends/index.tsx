@@ -1,15 +1,15 @@
 import React from 'react';
 import cn from 'classnames';
-import { Typography } from '@alfalab/core-components-typography';
 
-import { DataDynamicBooleanProps } from '../../types/utils/data.types';
-import { LegendProps } from '../../types/legend.types';
-import { SeriaProps } from '../../types/seria.types';
+import { Typography } from '@alfalab/core-components-typography';
 
 import { CircleIcon } from '../../icons/Circle';
 import { CircleLineIcon } from '../../icons/CircleLine';
 import { FilledCircleIcon } from '../../icons/FilledCircle';
 import { StrokeCircleIcon } from '../../icons/StrokeCircle';
+import { LegendProps } from '../../types/legend.types';
+import { SeriaProps } from '../../types/seria.types';
+import { DataDynamicBooleanProps } from '../../types/utils/data.types';
 
 import styles from './index.module.css';
 
@@ -32,8 +32,10 @@ export const Legends = React.forwardRef<HTMLUListElement, Props>(
     ({ legend, series, id, charts, toggleChart }, ref): React.ReactElement => {
         const style: React.CSSProperties = {
             textAlign: legend.align || 'center',
-            transform: `translateY(${(legend?.marginTop ? legend.marginTop : 0) *
-                (legend.verticalAlign === 'top' ? -1 : 1)}px)`,
+            transform: `translateY(${
+                (legend?.marginTop ? legend.marginTop : 0) *
+                (legend.verticalAlign === 'top' ? -1 : 1)
+            }px)`,
         };
 
         return (

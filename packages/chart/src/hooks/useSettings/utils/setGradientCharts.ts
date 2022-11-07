@@ -1,17 +1,19 @@
-import { DataProps } from '../../../types/utils/data.types';
 import { SeriaProps } from '../../../types/seria.types';
+import { DataProps } from '../../../types/utils/data.types';
 
 export const setGradientCharts = (series: SeriaProps[]): SeriaProps[] => {
-    const filterSeries = series.filter(item => item.chart !== 'gradient');
+    const filterSeries = series.filter((item) => item.chart !== 'gradient');
 
     return filterSeries.reduce((accum: SeriaProps[], item: SeriaProps) => {
         const { chart, data: dataSeria, offset, fill } = item;
 
         if (chart === 'area') {
             let newData = null;
+
             if (offset) {
                 newData = dataSeria.map((d: DataProps) => {
                     const { label, value } = d;
+
                     return {
                         label,
                         value: Math.ceil(value - value * offset),
@@ -35,6 +37,7 @@ export const setGradientCharts = (series: SeriaProps[]): SeriaProps[] => {
         }
 
         accum.push(item);
+
         return accum;
     }, []);
 };

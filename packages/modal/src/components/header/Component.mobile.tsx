@@ -1,9 +1,12 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+
 import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
-import { Header, HeaderProps } from './Component';
-import { Closer } from '../closer/Component';
+
 import { getDataTestId } from '../../../../utils/getDataTestId';
+import { Closer } from '../closer/Component';
+
+import { Header, HeaderProps } from './Component';
 
 import styles from './mobile.module.css';
 

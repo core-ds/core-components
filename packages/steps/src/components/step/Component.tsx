@@ -1,9 +1,10 @@
 import React, { ReactNode, useRef } from 'react';
 import cn from 'classnames';
+
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
-import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
+import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
 import { StepIndicator, StepIndicatorProps } from '../step-indicator';
 

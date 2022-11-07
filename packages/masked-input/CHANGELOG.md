@@ -1,5 +1,30 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+### [#320](https://github.com/core-ds/core-components/pull/320)
+
+-   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+
+-   Обновлены зависимости
+    -   input@11.0.1
+
+## 6.0.0
+
+### Major Changes
+
+### [#286](https://github.com/core-ds/core-components/pull/286)
+
+-   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+-   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.0.0
+
 ## 5.0.10
 
 ### Patch Changes

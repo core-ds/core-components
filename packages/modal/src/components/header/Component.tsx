@@ -1,8 +1,8 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { ModalContext } from '../../Context';
 import { getDataTestId } from '../../../../utils';
+import { ModalContext } from '../../Context';
 
 import styles from './index.module.css';
 

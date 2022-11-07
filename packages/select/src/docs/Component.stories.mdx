@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
@@ -135,7 +135,7 @@ import { Select } from '@alfalab/core-components/select';
 
 <Tabs
     description={<Description />}
-    props={<Props of={SelectTS} />}
+    props={<ArgsTable of={SelectTS} />}
     cssVars={<CssVars css={vars} />}
     changelog={<Changelog />}
 />

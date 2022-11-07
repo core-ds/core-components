@@ -1,6 +1,6 @@
-import parse from 'date-fns/parse';
 import dateFnsFormat from 'date-fns/format';
 import dateFnsIsValid from 'date-fns/isValid';
+import parse from 'date-fns/parse';
 
 export const DATE_FORMAT = 'dd.MM.yyyy';
 export const NATIVE_DATE_FORMAT = 'yyyy-MM-dd';

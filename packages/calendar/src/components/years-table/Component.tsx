@@ -2,6 +2,7 @@ import React, { FC, MouseEvent, useCallback, useLayoutEffect, useRef } from 'rea
 import cn from 'classnames';
 import isSameYear from 'date-fns/isSameYear';
 import isThisYear from 'date-fns/isThisYear';
+
 import { SelectButton, SelectButtonProps } from '../select-button';
 
 import styles from './index.module.css';
@@ -46,6 +47,7 @@ export const YearsTable: FC<YearsTableProps> = ({
         (year: Date): SelectButtonProps['view'] => {
             if (selectedYear && isSameYear(selectedYear, year)) return 'selected';
             if (isThisYear(year)) return 'outlined';
+
             return 'default';
         },
         [selectedYear],
@@ -79,7 +81,7 @@ export const YearsTable: FC<YearsTableProps> = ({
             ref={ref}
         >
             <div className={styles.inner}>
-                {years.map(year => (
+                {years.map((year) => (
                     <SelectButton
                         {...getYearProps(year)}
                         key={year.getFullYear()}

@@ -1,4 +1,5 @@
 import kebab from 'lodash.kebabcase';
+
 import { STORYBOOK_URL } from './setupScreenshotTesting';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -51,12 +52,13 @@ export function createStorybookUrl({
 
     if (testStory) {
         // TODO: укоротить (переписать на qs.stringify)
-        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&inverted=${inverted}&${knobsQuery}&mockDate=${mockDate ||
-            ''}`;
+        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&inverted=${inverted}&${knobsQuery}&mockDate=${
+            mockDate || ''
+        }`;
     }
 
     const componentPath = subComponentName
-        ? `-${packageName}--${kebab(subComponentName)}`
+        ? `-${packageName.replace(/-/g, '')}--${kebab(subComponentName)}`
         : `-${packageName.replace(/-/g, '')}--${kebab(componentName)}`;
 
     return `${url}?id=компоненты${componentPath}${knobsQuery}&mockDate=${mockDate || ''}`;

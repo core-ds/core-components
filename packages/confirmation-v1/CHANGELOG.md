@@ -1,5 +1,34 @@
 # Change Log
 
+## 1.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   loader@3.0.3
+
+## 1.2.6
+
+### Patch Changes
+
+### [#324](https://github.com/core-ds/core-components/pull/324)
+
+-   "export" типов заменен на "export type"
+
+## 1.2.5
+
+### Patch Changes
+
+### [#292](https://github.com/core-ds/core-components/pull/292)
+
+-   Новые стили кнопок в теме default
+-   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+-   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+-   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+
+-   Обновлены зависимости
+    -   button@7.0.0
+
 ## 1.2.4
 
 ### Patch Changes

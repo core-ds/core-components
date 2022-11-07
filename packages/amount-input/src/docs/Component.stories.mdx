@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
@@ -57,6 +57,6 @@ import { AmountInput } from '@alfalab/core-components/amount-input';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<Props of={AmountInputTS} />}
+    props={<ArgsTable of={AmountInputTS} />}
     cssVars={<CssVars css={styles} />}
 />

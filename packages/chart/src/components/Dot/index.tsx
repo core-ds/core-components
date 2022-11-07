@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
+
 import { PointIcon } from '../../icons/Point';
 import { DotProps, DotSettingProps } from '../../types/utils/dot.types';
 
@@ -19,7 +20,7 @@ export const Dot = React.forwardRef<SVGSVGElement, DotProps>(
         useEffect(() => {
             let dotSetting: DotSettingProps =
                 Array.isArray(dotSettings) && dotSettings.length > 0
-                    ? dotSettings.find(item => item.media && windowWidth < item.media)
+                    ? dotSettings.find((item) => item.media && windowWidth < item.media)
                     : dotSettings;
 
             if (Array.isArray(dotSettings) && dotSettings.length > 0 && !dotSetting) {

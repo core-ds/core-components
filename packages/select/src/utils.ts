@@ -1,5 +1,6 @@
-import { useRef, useEffect, ReactNode, isValidElement, cloneElement, RefObject } from 'react';
-import { OptionShape, GroupShape, BaseSelectProps } from './typings';
+import { cloneElement, isValidElement, ReactNode, RefObject, useEffect, useRef } from 'react';
+
+import { BaseSelectProps, GroupShape, OptionShape } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
@@ -26,6 +27,7 @@ export const joinOptions = ({
         }
 
         if (index < options.length - 1) acc.push(', ');
+
         return acc;
     }, []);
 };
@@ -53,7 +55,7 @@ export function processOptions(
         }
     };
 
-    options.forEach(option => {
+    options.forEach((option) => {
         if (isGroup(option)) {
             option.options.forEach(process);
         } else {
@@ -64,6 +66,7 @@ export function processOptions(
     return { flatOptions, selectedOptions };
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 type useVisibleOptionsArgs = {
     /**
      * Количество видимых пунктов
@@ -139,5 +142,6 @@ export const lastIndexOf = <T>(array: T[], predicate: (item: T) => boolean) => {
     for (let i = array.length - 1; i >= 0; i--) {
         if (predicate(array[i])) return i;
     }
+
     return -1;
 };

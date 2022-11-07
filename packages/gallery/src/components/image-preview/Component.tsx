@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
 
-import { GalleryImage } from '../../types';
 import { GalleryContext } from '../../context';
+import { GalleryImage } from '../../types';
 
 import styles from './index.module.css';
 
@@ -25,7 +25,7 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         onSelect(index);
     };
 
-    const handleKeyDown: KeyboardEventHandler = event => {
+    const handleKeyDown: KeyboardEventHandler = (event) => {
         if (event.key === 'Enter') {
             onSelect(index);
         }

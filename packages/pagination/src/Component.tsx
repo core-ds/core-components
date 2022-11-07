@@ -4,9 +4,9 @@ import cn from 'classnames';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 import { ChevronForwardMIcon } from '@alfalab/icons-glyph/ChevronForwardMIcon';
 
-import { Tag } from './components/tag';
 import { DefaultView } from './components/default-view';
 import { PerPageView } from './components/per-page-view';
+import { Tag } from './components/tag';
 
 import styles from './index.module.css';
 

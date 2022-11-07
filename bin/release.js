@@ -13,6 +13,8 @@ const { getLinesFromSummary, getGithubLinks } =
 const cwd = process.cwd();
 const execOptions = { silent: false, fatal: true };
 
+const isGenerateChangelogOnly = process.env.GENERATE_CHANGELOG_ONLY === 'true';
+
 const config = {
     changelogPath: 'CHANGELOG.md',
     packageJsonPath: 'package.json',
@@ -25,6 +27,8 @@ const REL_TYPE_TO_RU = {
     minor: 'Минорное',
     patch: 'Патчи',
 };
+
+const NEW_COMPONENT_PHRASE = 'новый компонент';
 
 function escapeShellChars(str) {
     return str.replace(/["`$]/g, '\\$&');
@@ -77,10 +81,33 @@ async function updateChangelog(notes) {
     await fs.close(fd);
 }
 
-function groupByReleaseType(releases) {
-    return releases.reduce(
+function groupByReleaseType(cs) {
+    const newComponentPhraseIdx = cs.summary
+        .toLowerCase()
+        .replace(/ {2,}/g, ' ')
+        .indexOf(NEW_COMPONENT_PHRASE);
+
+    return cs.releases.reduce(
         (result, rel) => {
-            result[rel.type].push(rel.name.replace('@alfalab/core-components-', ''));
+            const packageName = rel.name.replace('@alfalab/core-components-', '');
+
+            // Новые компоненты публикуем миноркой, а не мажоркой.
+            if (rel.type === 'major' && ~newComponentPhraseIdx) {
+                const simplify = (str = '') => str.replace(/[^a-zA-z]/g, '').toLowerCase();
+
+                const newPackage = cs.summary
+                    .slice(newComponentPhraseIdx + NEW_COMPONENT_PHRASE.length)
+                    .trim()
+                    .split(' ')[0];
+
+                if (simplify(packageName) === simplify(newPackage)) {
+                    result.minor.push(packageName);
+
+                    return result;
+                }
+            }
+
+            result[rel.type].push(packageName);
 
             return result;
         },
@@ -90,7 +117,7 @@ function groupByReleaseType(releases) {
 
 function groupByPullRequest(changesets) {
     return changesets.reduce((result, cs) => {
-        const prLink = [cs.links.pull || '#'];
+        const prLink = [cs.links?.pull || cs.links?.commit?.replace(/`/g, '') || '#'];
 
         if (!result[prLink]) {
             result[prLink] = { summaries: [], relTypes: [] };
@@ -98,7 +125,7 @@ function groupByPullRequest(changesets) {
 
         result[prLink].summaries.push(cs.summary);
 
-        result[prLink].relTypes.push(groupByReleaseType(cs.releases));
+        result[prLink].relTypes.push(groupByReleaseType(cs));
 
         return result;
     }, {});
@@ -166,7 +193,7 @@ async function updateChangelogAndPackageJson(changesets) {
 
         await updateChangelog(notes);
 
-        if (process.env.GENERATE_CHANGELOG_ONLY === 'true') return null;
+        if (isGenerateChangelogOnly) return null;
 
         await updatePackageVersion(nextVersion);
 
@@ -266,7 +293,9 @@ async function releasePackages() {
 (async () => {
     try {
         logger.log('Setup git');
-        setupGit();
+        if (!isGenerateChangelogOnly) {
+            setupGit();
+        }
 
         logger.log('Release root package');
         const released = await releaseRoot();

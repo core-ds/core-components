@@ -1,24 +1,24 @@
 import React, {
-    useState,
-    useEffect,
-    useCallback,
     CSSProperties,
-    MutableRefObject,
     forwardRef,
+    MutableRefObject,
     ReactNode,
+    useCallback,
+    useEffect,
     useRef,
+    useState,
 } from 'react';
-import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
+import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
-import { usePopper } from 'react-popper';
-import { BasePlacement, VariationPlacement, Obj, ModifierArguments } from '@popperjs/core';
-import maxSize from 'popper-max-size-modifier';
-import mergeRefs from 'react-merge-refs';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
+import { BasePlacement, ModifierArguments, Obj, VariationPlacement } from '@popperjs/core';
+import cn from 'classnames';
+import maxSize from 'popper-max-size-modifier';
 
-import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import styles from './index.module.css';
 
@@ -250,14 +250,14 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             arrowElement,
         ]);
 
-        const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
-            referenceElement,
-            popperElement,
-            {
-                placement: position,
-                modifiers: getModifiers(),
-            },
-        );
+        const {
+            styles: popperStyles,
+            attributes,
+            update: updatePopper,
+        } = usePopper(referenceElement, popperElement, {
+            placement: position,
+            modifiers: getModifiers(),
+        });
 
         if (updatePopper) {
             updatePopperRef.current = updatePopper;
@@ -322,41 +322,39 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             }
         }, [referenceElement, position]);
 
-        const renderContent = (computedZIndex: number, style?: CSSProperties) => {
-            return (
-                <div
-                    ref={mergeRefs([ref, setPopperElement])}
-                    style={{
-                        zIndex: computedZIndex,
-                        width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
-                        ...popperStyles.popper,
-                    }}
-                    data-test-id={dataTestId}
-                    className={cn(styles.component, className, {
-                        [styles.arrowShift]: arrowShift,
-                    })}
-                    {...attributes.popper}
-                >
-                    <div className={cn(styles.inner, popperClassName)} style={style}>
-                        <div className={cn({ [styles.scrollableContent]: availableHeight })}>
-                            {children}
-                        </div>
-
-                        {withArrow && (
-                            <div
-                                ref={setArrowElement}
-                                style={popperStyles.arrow}
-                                className={cn(styles.arrow, arrowClassName)}
-                            />
-                        )}
+        const renderContent = (computedZIndex: number, style?: CSSProperties) => (
+            <div
+                ref={mergeRefs([ref, setPopperElement])}
+                style={{
+                    zIndex: computedZIndex,
+                    width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
+                    ...popperStyles.popper,
+                }}
+                data-test-id={dataTestId}
+                className={cn(styles.component, className, {
+                    [styles.arrowShift]: arrowShift,
+                })}
+                {...attributes.popper}
+            >
+                <div className={cn(styles.inner, popperClassName)} style={style}>
+                    <div className={cn({ [styles.scrollableContent]: availableHeight })}>
+                        {children}
                     </div>
+
+                    {withArrow && (
+                        <div
+                            ref={setArrowElement}
+                            style={popperStyles.arrow}
+                            className={cn(styles.arrow, arrowClassName)}
+                        />
+                    )}
                 </div>
-            );
-        };
+            </div>
+        );
 
         return (
             <Stack value={zIndex}>
-                {computedZIndex => (
+                {(computedZIndex) => (
                     <Portal getPortalContainer={getPortalContainer}>
                         {withTransition ? (
                             <CSSTransition
