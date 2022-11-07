@@ -227,13 +227,13 @@
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .checkedIcon {
         top: 50%;
-        transform: translate(0, -50%);
-        left: -5.6px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .indeterminateLine {
         top: 50%;
-        transform: translate(0, -50%);
-        left: 1.5px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
