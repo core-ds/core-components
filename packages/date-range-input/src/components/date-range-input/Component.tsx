@@ -15,7 +15,6 @@ import dateFnsIsValid from 'date-fns/isValid';
 
 import {
     Calendar as DefaultCalendar,
-    CalendarMobile as DefaultCalendarMobile,
     CalendarMobileProps,
     CalendarProps,
     usePeriod,
@@ -37,7 +36,7 @@ import {
 
 import styles from './index.module.css';
 
-export type BaseDateRangeInputProps = Omit<InputProps, 'onChange'> & {
+export type DateRangeInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Дополнительный класс
      */
@@ -77,7 +76,7 @@ export type BaseDateRangeInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Компонент календаря
      */
-    Calendar?: ElementType<CalendarProps>;
+    Calendar?: ElementType;
 
     /**
      * Доп. пропсы для календаря
@@ -148,7 +147,7 @@ export type BaseDateRangeInputProps = Omit<InputProps, 'onChange'> & {
     view?: 'desktop' | 'mobile';
 };
 
-export const BaseDateRangeInput = React.forwardRef<HTMLInputElement, BaseDateRangeInputProps>(
+export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputProps>(
     (
         {
             className,
@@ -187,8 +186,6 @@ export const BaseDateRangeInput = React.forwardRef<HTMLInputElement, BaseDateRan
         const [open, setOpen] = useState(false);
 
         const inputDisabled = disabled || readOnly;
-
-        const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
@@ -344,7 +341,7 @@ export const BaseDateRangeInput = React.forwardRef<HTMLInputElement, BaseDateRan
         const renderCalendar = () => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <CalendarComponent
+                <Calendar
                     {...calendarProps}
                     responsive={calendarResponsive}
                     open={open}

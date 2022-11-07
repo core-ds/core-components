@@ -15,7 +15,6 @@ import cn from 'classnames';
 
 import {
     Calendar as DefaultCalendar,
-    CalendarMobile as DefaultCalendarMobile,
     CalendarMobileProps,
     CalendarProps,
     dateInLimits,
@@ -34,7 +33,7 @@ import { SUPPORTS_INPUT_TYPE_DATE } from '../../utils';
 
 import styles from './index.module.css';
 
-export type BaseCalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
+export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
     /**
      * Дополнительный класс
      */
@@ -116,7 +115,7 @@ export type BaseCalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMo
     /**
      * Компонент календаря
      */
-    Calendar?: ElementType<CalendarProps>;
+    Calendar?: ElementType;
 
     /**
      * Обработчик изменения значения
@@ -160,7 +159,7 @@ export type BaseCalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMo
     view?: 'desktop' | 'mobile';
 };
 
-export const BaseCalendarInput = forwardRef<HTMLInputElement, BaseCalendarInputProps>(
+export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
     (
         {
             block = false,
@@ -198,8 +197,6 @@ export const BaseCalendarInput = forwardRef<HTMLInputElement, BaseCalendarInputP
         },
         ref,
     ) => {
-        const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
-
         const calendarResponsive = calendarProps?.responsive ?? true;
         const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
         const shouldRenderOnlyInput = mobileMode === 'input';
@@ -362,7 +359,7 @@ export const BaseCalendarInput = forwardRef<HTMLInputElement, BaseCalendarInputP
         const renderCalendar = () => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <CalendarComponent
+                <Calendar
                     {...calendarProps}
                     responsive={calendarResponsive}
                     open={open}

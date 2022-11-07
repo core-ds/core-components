@@ -14,7 +14,6 @@ import cn from 'classnames';
 
 import {
     Calendar as DefaultCalendar,
-    CalendarMobile as DefaultCalendarMobile,
     CalendarMobileProps,
     CalendarProps,
     dateInLimits,
@@ -37,7 +36,7 @@ import {
 
 import styles from './index.module.css';
 
-export type BaseDateTimeInputProps = Omit<InputProps, 'onChange'> & {
+export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Дополнительный класс
      */
@@ -77,7 +76,7 @@ export type BaseDateTimeInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Компонент календаря
      */
-    Calendar?: ElementType<CalendarProps>;
+    Calendar?: ElementType;
 
     /**
      * Доп. пропсы для календаря
@@ -148,7 +147,7 @@ export type BaseDateTimeInputProps = Omit<InputProps, 'onChange'> & {
     view?: 'desktop' | 'mobile';
 };
 
-export const BaseDateTimeInput = React.forwardRef<HTMLInputElement, BaseDateTimeInputProps>(
+export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputProps>(
     (
         {
             className,
@@ -190,8 +189,6 @@ export const BaseDateTimeInput = React.forwardRef<HTMLInputElement, BaseDateTime
         const calendarValue = value ? getDateWithoutTime(value).getTime() : undefined;
 
         const inputDisabled = disabled || readOnly;
-
-        const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
@@ -303,7 +300,7 @@ export const BaseDateTimeInput = React.forwardRef<HTMLInputElement, BaseDateTime
         const renderCalendar = () => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <CalendarComponent
+                <Calendar
                     {...calendarProps}
                     responsive={calendarResponsive}
                     open={open}

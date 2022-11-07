@@ -6,9 +6,9 @@ import { useMedia } from '@alfalab/hooks';
 import { InputProps } from '@alfalab/core-components-input';
 import { DateRangeInputDesktop } from './Component.desktop';
 import { DateRangeInputMobile } from './Component.mobile';
-import { BaseDateRangeInputProps } from './components/base-date-range-input/Component';
+import { DateRangeInputProps } from './components/date-range-input/Component';
 
-export type DateRangeInputResponsiveProps = Omit<BaseDateRangeInputProps, 'view'> & {
+export type DateRangeInputResponsiveProps = Omit<DateRangeInputProps, 'view'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

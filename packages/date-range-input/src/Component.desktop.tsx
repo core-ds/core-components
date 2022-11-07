@@ -2,13 +2,10 @@ import React, { FC } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { InputProps } from '@alfalab/core-components-input';
-import {
-    BaseDateRangeInput,
-    BaseDateRangeInputProps,
-} from './components/base-date-range-input/Component';
+import { DateRangeInput, DateRangeInputProps } from './components/date-range-input/Component';
 
-export type DateRangeInputDesktopProps = Omit<BaseDateRangeInputProps, 'view'>;
+export type DateRangeInputDesktopProps = Omit<DateRangeInputProps, 'view'>;
 
 export const DateRangeInputDesktop: FC<DateRangeInputDesktopProps> = (props) => (
-    <BaseDateRangeInput {...props} />
+    <DateRangeInput {...props} />
 );
