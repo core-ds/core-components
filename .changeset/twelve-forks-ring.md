@@ -16,4 +16,4 @@
 "@alfalab/core-components-phone-input": minor
 ---
 
-В компонентах Gallery и Input иконки подгружаемые с 'https://alfabank.servicecdn.ru' были заменены на иконки из icons-demo
+В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
