@@ -10,6 +10,9 @@ import { SidePanelResponsive } from '@alfalab/core-components-side-panel/Compone
 import { SidePanelMobile as SidePanelMobileTS } from '../Component.mobile';
 import { SidePanelDesktop as SidePanelDesktopTS } from '../Component.desktop';
 import { SidePanelResponsive as SidePanelResponsiveTS } from '../Component.responsive';
+import { Header as HeaderTS } from '../components/header/Component';
+import { Content as ContentTS } from '../components/content/Component';
+import { Footer as FooterTS } from '../components/footer/Component'
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -132,5 +135,5 @@ import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
     description={<Description />}
     changelog={<Changelog />}
     cssVars={<CssVars css={vars} />}
-    props={<ArgsTable components={{SidePanelDesktop: SidePanelDesktopTS, SidePanelMobile: SidePanelMobileTS, SidePanelResponsive: SidePanelResponsiveTS}} />}
+    props={<ArgsTable components={{SidePanelDesktop: SidePanelDesktopTS, SidePanelMobile: SidePanelMobileTS, SidePanelResponsive: SidePanelResponsiveTS, 'SidePanel.Header': HeaderTS, 'SidePanel.Content': ContentTS, 'SidePanel.Footer': FooterTS}} />}
 />
