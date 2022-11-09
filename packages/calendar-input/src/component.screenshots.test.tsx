@@ -27,11 +27,6 @@ describe('CalendarInput | interactions tests', () => {
                 page,
                 expect,
                 css,
-                matchImageSnapshotOptions: {
-                    failureThresholdType: 'percent',
-                    // TODO:
-                    failureThreshold: 2,
-                },
             });
         } catch (error) {
             // eslint-disable-next-line no-console
