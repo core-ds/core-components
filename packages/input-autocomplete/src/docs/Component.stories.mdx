@@ -15,7 +15,6 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
 export const options = [
     { key: 'Neptunium' },
     { key: 'Plutonium' },
@@ -37,24 +36,20 @@ export const options = [
 export const matchOption = (option, inputValue) =>
     option.key.toLowerCase().includes((inputValue || '').toLowerCase());
 
-<Meta
-    title='Компоненты/InputAutocomplete'
-    component={InputAutocomplete}
-/>
-
+<Meta title='Компоненты/Селекты/InputAutocomplete' component={InputAutocomplete} />
 
 <!-- Canvas -->
 
 <Story name='InputAutocomplete'>
     {React.createElement(() => {
         const [value, setValue] = React.useState('');
-        const handleInput = event => {
+        const handleInput = (event) => {
             setValue(event.target.value);
         };
         const handleChange = ({ selected }) => {
             setValue(selected ? selected.key : '');
         };
-        const filteredOptions = options.filter(option => matchOption(option, value));
+        const filteredOptions = options.filter((option) => matchOption(option, value));
         return (
             <InputAutocomplete
                 options={filteredOptions}
@@ -104,15 +99,19 @@ export const matchOption = (option, inputValue) =>
             option.content.toLowerCase().includes((inputValue || '').toLowerCase());
         const [value, setValue] = React.useState('');
         const [filter, setFilter] = React.useState('');
-        const handleFilter = event => {
+        const handleFilter = (event) => {
             setFilter(event.target.value);
         };
         const handleChange = (payload) => {
-            const newValue = payload ? isOptionShape(payload.selected) ? payload.selected.content : payload : '';
+            const newValue = payload
+                ? isOptionShape(payload.selected)
+                    ? payload.selected.content
+                    : payload
+                : '';
             setValue(newValue);
             setFilter(newValue);
         };
-        const filteredOptions = options.filter(option => matchOption(option, filter));
+        const filteredOptions = options.filter((option) => matchOption(option, filter));
         return (
             <InputAutocompleteMobile
                 dataTestId={'asfa fs asf afa'}
@@ -132,21 +131,20 @@ export const matchOption = (option, inputValue) =>
                 onFilter={handleFilter}
                 onClearFilter={() => setFilter('')}
                 continueButtonProps={{
-                    dataTestId: 'continue'
+                    dataTestId: 'continue',
                 }}
                 cancelButtonProps={{
-                    dataTestId: 'cancel'
+                    dataTestId: 'cancel',
                 }}
                 bottomSheetProps={{
                     transitionProps: {
                         onEnter: () => setFilter(value),
-                    }
+                    },
                 }}
             />
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -164,5 +162,12 @@ import { InputAutocomplete } from '@alfalab/core-components/input-autocomplete';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<ArgsTable components={{InputAutocomplete: InputAutocompleteTS, InputAutocompleteMobile: InputAutocompleteMobileTS}} />}
+    props={
+        <ArgsTable
+            components={{
+                InputAutocomplete: InputAutocompleteTS,
+                InputAutocompleteMobile: InputAutocompleteMobileTS,
+            }}
+        />
+    }
 />

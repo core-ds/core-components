@@ -9,12 +9,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Radio'
-    component={Radio}
-/>
-
+<Meta title='Компоненты/Контролы/Radio' component={Radio} />
 
 <!-- Canvas -->
 
@@ -27,7 +22,7 @@ import styles from '!!raw-loader!../index.module.css';
         const inactive = boolean('inactive', false);
         const checkedKnob = boolean('checked', false);
         const block = boolean('block', false);
-        const label = text('label', 'Text label')
+        const label = text('label', 'Text label');
         const hint = text('hint', 'Hint');
         const align = select('align', ['start', 'center'], 'start');
         const addons = text('addons');
@@ -47,7 +42,6 @@ import styles from '!!raw-loader!../index.module.css';
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 

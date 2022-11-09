@@ -1,9 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta
-  title='Гайдлайны/Цвета'
-  parameters={{ previewTabs: { canvas: { hidden: true } }}}
-/>
+<Meta title='Токены и ассеты/Цвета' parameters={{ previewTabs: { canvas: { hidden: true } } }} />
 
 ## Цвета
 
@@ -14,6 +11,7 @@ import { Meta } from '@storybook/addon-docs';
 ### Использование цветов
 
 При выделении любого элемента в Figma, в правом сайдбаре можно увидеть название цвета:
+
 <img src='./images/colors_figma-element.png' width={319} alt='Пример цвета в Figma' />
 
 Названию цвета `light/text/primary` соответствует переменная `var(--color-light-text-primary)`.
@@ -36,9 +34,9 @@ import { Meta } from '@storybook/addon-docs';
 
 Примеры использования:
 
-- затемнение → `color-mod(var(--color) shade(30%))` или `color-mod(var(--color) blenda(black 30%))`
-- осветление → `color-mod(var(--color) tint(30%))` или `color-mod(var(--color) blenda(white 30%))`
-- прозрачность → `color-mod(var(--color) alpha(30%))`
+-   затемнение → `color-mod(var(--color) shade(30%))` или `color-mod(var(--color) blenda(black 30%))`
+-   осветление → `color-mod(var(--color) tint(30%))` или `color-mod(var(--color) blenda(white 30%))`
+-   прозрачность → `color-mod(var(--color) alpha(30%))`
 
 ### Тени
 
@@ -46,5 +44,5 @@ import { Meta } from '@storybook/addon-docs';
 
 Названия видны в Figma аналогично цветам, смотрите размер (xs/s/m/l/xl):
 
-- XL → `var(--shadow-xl)`
-- XL Hard → `var(--shadow-xl-hard)`
+-   XL → `var(--shadow-xl)`
+-   XL Hard → `var(--shadow-xl-hard)`

@@ -10,12 +10,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../vars.css';
 
-
-<Meta
-    title='Компоненты/Input'
-    component={Input}
-/>
-
+<Meta title='Компоненты/Инпуты/Input' component={Input} />
 
 <!-- Canvas -->
 
@@ -23,15 +18,20 @@ import styles from '!!raw-loader!../vars.css';
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <Input
                     type={select(
                         'type',
@@ -59,7 +59,6 @@ import styles from '!!raw-loader!../vars.css';
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 

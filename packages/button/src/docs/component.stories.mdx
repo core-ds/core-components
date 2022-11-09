@@ -14,29 +14,28 @@ import colorsStyles from '!!raw-loader!../default.module.css';
 export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
-
-<Meta
-    title='Компоненты/Button'
-    component={Button}
-/>
-
+<Meta title='Компоненты/Кнопки/Button' component={Button} />
 
 <!-- Canvas -->
-
 
 <Story name='Button'>
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <Button
                     view={select('view', VIEWS, 'primary')}
                     colors={colors}
@@ -52,10 +51,9 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
                     {text('label', 'Оплатить')}
                 </Button>
             </div>
-        )
+        );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -72,6 +70,12 @@ import { Button } from '@alfalab/core-components/button';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<ArgsTable of={ButtonTS} /> }
-    cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
+    props={<ArgsTable of={ButtonTS} />}
+    cssVars={
+        <CssVars
+            css={`
+                ${styles}${colorsStyles}
+            `}
+        />
+    }
 />

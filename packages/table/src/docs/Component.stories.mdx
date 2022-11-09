@@ -11,11 +11,7 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/Table'
-    component={Table}
-/>
+<Meta title='Компоненты/Таблицы и графики/Table' component={Table} />
 
 <!-- Canvas -->
 
@@ -31,12 +27,7 @@ import Changelog from '../../CHANGELOG.md';
             <Table.THeadCell width='84px' id='number' title='Номер'>
                 Номер
             </Table.THeadCell>
-            <Table.THeadCell
-                width='186px'
-                id='sum'
-                title='Сумма'
-                textAlign='right'
-            >
+            <Table.THeadCell width='186px' id='sum' title='Сумма' textAlign='right'>
                 Сумма
             </Table.THeadCell>
         </Table.THead>
@@ -80,11 +71,7 @@ import Changelog from '../../CHANGELOG.md';
 
 <!-- Docs -->
 
-<ComponentHeader
-    name='Table'
-    version={version}
-    package='@alfalab/core-components/table'
-/>
+<ComponentHeader name='Table' version={version} package='@alfalab/core-components/table' />
 
 ```jsx
 import { Table } from '@alfalab/core-components/table';
@@ -94,15 +81,17 @@ import { Table } from '@alfalab/core-components/table';
     description={<Description />}
     changelog={<Changelog />}
     props={
-        <ArgsTable components={{
-            Table:TableTS,
-            'Wrapper': TableTS.Wrapper,
-            'Pagination': TableTS.Pagination,
-            'TCell': TableTS.TCell,
-            'THead': TableTS.THead,
-            'THeadCell': TableTS.THeadCell,
-            'TSortableHeadCell': TableTS.TSortableHeadCell,
-            'TRow': TableTS.TRow,
-        }}/>
+        <ArgsTable
+            components={{
+                Table: TableTS,
+                Wrapper: TableTS.Wrapper,
+                Pagination: TableTS.Pagination,
+                TCell: TableTS.TCell,
+                THead: TableTS.THead,
+                THeadCell: TableTS.THeadCell,
+                TSortableHeadCell: TableTS.TSortableHeadCell,
+                TRow: TableTS.TRow,
+            }}
+        />
     }
 />

@@ -6,7 +6,7 @@ import { Select } from '@alfalab/core-components-select';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationMobile } from '@alfalab/core-components-confirmation/component.mobile';
 import { Confirmation } from '@alfalab/core-components-confirmation';
-import { ConfirmationResponsive} from '@alfalab/core-components-confirmation/component.responsive';
+import { ConfirmationResponsive } from '@alfalab/core-components-confirmation/component.responsive';
 import { ConfirmationMobile as ConfirmationMobileTS } from '../component.mobile';
 import { ConfirmationDesktop as ConfirmationDesktopTS } from '../component.desktop';
 import { ConfirmationResponsive as ConfirmationResponsiveTS } from '../component.responsive';
@@ -15,17 +15,17 @@ import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 import vars from '!!raw-loader!../vars.css';
 
-
-<Meta
-    title='Компоненты/Confirmation'
-/>
-
+<Meta title='Компоненты/Составные компоненты/Confirmation' />
 
 <!-- Canvas -->
 
 <Story name='Confirmation'>
     {React.createElement(() => {
-        const component = select('ConfirmationComponent', ['ConfirmationResponsive', 'Confirmation', 'ConfirmationMobile'], 'ConfirmationResponsive');
+        const component = select(
+            'ConfirmationComponent',
+            ['ConfirmationResponsive', 'Confirmation', 'ConfirmationMobile'],
+            'ConfirmationResponsive',
+        );
         const variants = [
             { key: 'success', content: 'Успешный сценарий' },
             { key: 'error', content: 'Сценарий с ошибкой' },
@@ -39,7 +39,10 @@ import vars from '!!raw-loader!../vars.css';
                 content: 'Сценарий, когда форма временно заблокирована',
             },
         ];
-        const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий' });
+        const [variant, setVariant] = React.useState({
+            key: 'success',
+            content: 'Успешный сценарий',
+        });
         const {
             confirmationState,
             confirmationScreen,
@@ -85,10 +88,10 @@ import vars from '!!raw-loader!../vars.css';
         };
         const ConfirmationComponent = React.useMemo(() => {
             return {
-                'ConfirmationResponsive': ConfirmationResponsive,
-                'Confirmation': Confirmation,
-                'ConfirmationMobile': ConfirmationMobile,
-            }[component]
+                ConfirmationResponsive: ConfirmationResponsive,
+                Confirmation: Confirmation,
+                ConfirmationMobile: ConfirmationMobile,
+            }[component];
         }, [component]);
         return (
             <div>
@@ -133,7 +136,6 @@ import vars from '!!raw-loader!../vars.css';
     })}
 </Story>
 
-
 <!-- Docs -->
 
 <ComponentHeader
@@ -152,6 +154,14 @@ import { ConfirmationMobile } from '@alfalab/core-components/confirmation/mobile
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<ArgsTable components={{Confirmation: ConfirmationDesktopTS, ConfirmationMobile: ConfirmationMobileTS, ConfirmationResponsive: ConfirmationResponsiveTS}} />}
+    props={
+        <ArgsTable
+            components={{
+                Confirmation: ConfirmationDesktopTS,
+                ConfirmationMobile: ConfirmationMobileTS,
+                ConfirmationResponsive: ConfirmationResponsiveTS,
+            }}
+        />
+    }
     cssVars={<CssVars css={vars} />}
 />

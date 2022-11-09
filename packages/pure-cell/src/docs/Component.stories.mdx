@@ -15,325 +15,486 @@ import Changelog from '../../CHANGELOG.md';
 
 export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
-<Meta
-    title='Компоненты/PureCell'
-    component={PureCell}
-/>
-
+<Meta title='Компоненты/Ячейки/PureCell' component={PureCell} />
 
 <!-- Canvas -->
 
 <Story name='PureCell'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const weight = select('weight', ['bold', 'normal'], 'normal');
-    const view = select('view', ['component', 'primary-small'], 'component');
-    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'withZeroMinorPart');
-    const color = select('color',
-    [
-    'tertiary',
-    'disabled',
-    'accent',
-    'primary',
-    'attention',
-    'positive',
-    'secondary',
-    'tertiary-inverted',
-    'primary-inverted',
-    'secondary-inverted',
-    'link',
-    'negative',
-    ], 'primary');
-    const value = text('value', '100000000');
-    return (
-        <div style={{
-                display: 'flex', justifyContent: 'space-around'
-            }}>
-        <div style={{
-                display: 'flex', gap: '20px', flexWrap: 'nowrap', flexDirection: 'column', flexBasis: '250px'
-            }}>
-        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-            <PureCell.Graphics>
-                <StarMIcon />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor="primary" view="component" value="Value" valueColor="secondary" rowLimit={1}>
-                        Long title for example
-                    </PureCell.Text>
-                    <PureCell.Text titleColor="secondary" view="primary-small" value="SubValue" valueColor="secondary" rowLimit={1}>
-                        Long label for example
-                    </PureCell.Text>
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-            <PureCell.Content>
-            <PureCell.Main>
-                <PureCell.Text titleColor="secondary" view="primary-small">
-                    Product Name ··0000
-                </PureCell.Text>
-                <PureCell.Amount
-                view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
-                weight={ weight } color={ color }/>
-            </PureCell.Main>
-            <PureCell.Footer>
-                <Typography.Text titleColor="secondary" view="primary-small">
-                    Caption Secondary
-                </Typography.Text>
-                <PureCell.FooterButton>Action</PureCell.FooterButton>
-            </PureCell.Footer>
-        </PureCell.Content>
-        </PureCell>
-        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor="secondary" view="primary-small">
-                        Общий баланс
-                    </PureCell.Text>
-                    <PureCell.AmountTitle
-                        view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
-                        transparentMinor={ true }
-                        color={ color }
-                    />
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign="center">
-                    <ChevronForwardMIcon />
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        </div>
-        <div style={{
-                display: 'flex', gap: '20px', flexWrap: 'nowrap', flexDirection: 'column'
-            }}>
-        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
-                        Яндекс Лавка
-                    </PureCell.Text>
-                    <PureCell.Category
-                        categoryName='Кафе, рестораны, столовые, бары'
-                        categoryPercent={ 10 }
-                    />
-                </PureCell.Main>
-                <PureCell.Footer>
-                    <PureCell.Comment>Комментарий есть</PureCell.Comment>
-                </PureCell.Footer>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor="primary" view="component">
-                        Card Name
-                    </PureCell.Text>
-                    <PureCell.Text titleColor="secondary" view="primary-small">
-                        Additional Info
-                    </PureCell.Text>
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign="center">
-                    <InformationCircleMIcon  style={{color: '#c5c5c7'}}/>
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-            <PureCell.Graphics>
-                <Circle/>
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
-                        Яндекс Лавка
-                    </PureCell.Text>
-                    <PureCell.Category
-                        categoryName="Кафе, рестораны, столовые, бары"
-                        categoryPercent={ 10 }
-                    />
-                </PureCell.Main>
-                <PureCell.Footer>
-                    <PureCell.ExtraSubtitle>Status</PureCell.ExtraSubtitle>
-                    <PureCell.FooterButton>Button</PureCell.FooterButton>
-                </PureCell.Footer>
-            </PureCell.Content>
-        </PureCell>
-        </div>
-        </div>
-    );
+        const view = select('view', ['component', 'primary-small'], 'component');
+        const viewAmount = select(
+            'viewAmount',
+            ['default', 'withZeroMinorPart'],
+            'withZeroMinorPart',
+        );
+        const color = select(
+            'color',
+            [
+                'tertiary',
+                'disabled',
+                'accent',
+                'primary',
+                'attention',
+                'positive',
+                'secondary',
+                'tertiary-inverted',
+                'primary-inverted',
+                'secondary-inverted',
+                'link',
+                'negative',
+            ],
+            'primary',
+        );
+        const value = text('value', '100000000');
+        return (
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                }}
+            >
+                <div
+                    style={{
+                        display: 'flex',
+                        gap: '20px',
+                        flexWrap: 'nowrap',
+                        flexDirection: 'column',
+                        flexBasis: '250px',
+                    }}
+                >
+                    <PureCell
+                        href={text('href', '')}
+                        verticalPadding={verticalPadding}
+                        horizontalPadding={horizontalPadding}
+                        direction={direction}
+                    >
+                        <PureCell.Graphics>
+                            <StarMIcon />
+                        </PureCell.Graphics>
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text
+                                    titleColor='primary'
+                                    view='component'
+                                    value='Value'
+                                    valueColor='secondary'
+                                    rowLimit={1}
+                                >
+                                    Long title for example
+                                </PureCell.Text>
+                                <PureCell.Text
+                                    titleColor='secondary'
+                                    view='primary-small'
+                                    value='SubValue'
+                                    valueColor='secondary'
+                                    rowLimit={1}
+                                >
+                                    Long label for example
+                                </PureCell.Text>
+                            </PureCell.Main>
+                        </PureCell.Content>
+                    </PureCell>
+                    <PureCell
+                        href={text('href', '')}
+                        verticalPadding={verticalPadding}
+                        horizontalPadding={horizontalPadding}
+                        direction={direction}
+                    >
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='secondary' view='primary-small'>
+                                    Product Name ··0000
+                                </PureCell.Text>
+                                <PureCell.Amount
+                                    view={viewAmount}
+                                    value={value}
+                                    minorUnits='100'
+                                    currency='RUR'
+                                    weight={weight}
+                                    color={color}
+                                />
+                            </PureCell.Main>
+                            <PureCell.Footer>
+                                <Typography.Text titleColor='secondary' view='primary-small'>
+                                    Caption Secondary
+                                </Typography.Text>
+                                <PureCell.FooterButton>Action</PureCell.FooterButton>
+                            </PureCell.Footer>
+                        </PureCell.Content>
+                    </PureCell>
+                    <PureCell
+                        href={text('href', '')}
+                        verticalPadding={verticalPadding}
+                        horizontalPadding={horizontalPadding}
+                        direction={direction}
+                    >
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='secondary' view='primary-small'>
+                                    Общий баланс
+                                </PureCell.Text>
+                                <PureCell.AmountTitle
+                                    view={viewAmount}
+                                    value={value}
+                                    minorUnits='100'
+                                    currency='RUR'
+                                    transparentMinor={true}
+                                    color={color}
+                                />
+                            </PureCell.Main>
+                            <PureCell.Addon verticalAlign='center'>
+                                <ChevronForwardMIcon />
+                            </PureCell.Addon>
+                        </PureCell.Content>
+                    </PureCell>
+                </div>
+                <div
+                    style={{
+                        display: 'flex',
+                        gap: '20px',
+                        flexWrap: 'nowrap',
+                        flexDirection: 'column',
+                    }}
+                >
+                    <PureCell
+                        href={text('href', '')}
+                        verticalPadding={verticalPadding}
+                        horizontalPadding={horizontalPadding}
+                        direction={direction}
+                    >
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
+                                    Яндекс Лавка
+                                </PureCell.Text>
+                                <PureCell.Category
+                                    categoryName='Кафе, рестораны, столовые, бары'
+                                    categoryPercent={10}
+                                />
+                            </PureCell.Main>
+                            <PureCell.Footer>
+                                <PureCell.Comment>Комментарий есть</PureCell.Comment>
+                            </PureCell.Footer>
+                        </PureCell.Content>
+                    </PureCell>
+                    <PureCell
+                        href={text('href', '')}
+                        verticalPadding={verticalPadding}
+                        horizontalPadding={horizontalPadding}
+                        direction={direction}
+                    >
+                        <PureCell.Graphics>
+                            <Circle />
+                        </PureCell.Graphics>
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='primary' view='component'>
+                                    Card Name
+                                </PureCell.Text>
+                                <PureCell.Text titleColor='secondary' view='primary-small'>
+                                    Additional Info
+                                </PureCell.Text>
+                            </PureCell.Main>
+                            <PureCell.Addon verticalAlign='center'>
+                                <InformationCircleMIcon style={{ color: '#c5c5c7' }} />
+                            </PureCell.Addon>
+                        </PureCell.Content>
+                    </PureCell>
+                    <PureCell
+                        href={text('href', '')}
+                        verticalPadding={verticalPadding}
+                        horizontalPadding={horizontalPadding}
+                        direction={direction}
+                    >
+                        <PureCell.Graphics>
+                            <Circle />
+                        </PureCell.Graphics>
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
+                                    Яндекс Лавка
+                                </PureCell.Text>
+                                <PureCell.Category
+                                    categoryName='Кафе, рестораны, столовые, бары'
+                                    categoryPercent={10}
+                                />
+                            </PureCell.Main>
+                            <PureCell.Footer>
+                                <PureCell.ExtraSubtitle>Status</PureCell.ExtraSubtitle>
+                                <PureCell.FooterButton>Button</PureCell.FooterButton>
+                            </PureCell.Footer>
+                        </PureCell.Content>
+                    </PureCell>
+                </div>
+            </div>
+        );
     })}
 </Story>
 
 <Story name='PureCell.Addon'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');
-    const addonPadding = select('addonPadding', ['default', 'none'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    return (
-        <div style={{
-                width: '400px',
-            }}>
-        <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const addonPadding = select('addonPadding', ['default', 'none'], 'default');
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        return (
+            <div
+                style={{
+                    width: '400px',
+                }}
+            >
+                <PureCell
+                    href={text('href', '')}
+                    verticalPadding={verticalPadding}
+                    horizontalPadding={horizontalPadding}
+                    direction={direction}
+                >
+                    <PureCell.Graphics>
+                        <Circle />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor="primary" view="component">
+                            <PureCell.Text titleColor='primary' view='component'>
                                 Card Name
                             </PureCell.Text>
-                            <PureCell.Text titleColor="secondary" view="primary-small">
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
                                 Additional Info
                             </PureCell.Text>
                         </PureCell.Main>
-                        <PureCell.Addon verticalAlign="center" addonPadding={addonPadding}>
-                            <InformationCircleMIcon  style={{color: '#c5c5c7'}}/>
+                        <PureCell.Addon verticalAlign='center' addonPadding={addonPadding}>
+                            <InformationCircleMIcon style={{ color: '#c5c5c7' }} />
                         </PureCell.Addon>
                     </PureCell.Content>
-        </PureCell>
-        </div>
-    );
+                </PureCell>
+            </div>
+        );
     })}
 </Story>
 
 <Story name='PureCell.Amount'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const weight = select('weight', ['bold', 'normal'], 'normal');
-    const view = select('view', ['component', 'primary-small'], 'component');
-    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'default');
-    const color = select('color',
-    [
-    'tertiary',
-    'disabled',
-    'accent',
-    'primary',
-    'attention',
-    'positive',
-    'secondary',
-    'tertiary-inverted',
-    'primary-inverted',
-    'secondary-inverted',
-    'link',
-    'negative',
-    ], 'primary');
-    const value = text('value', '100000000');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-                 <PureCell.Content>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        const weight = select('weight', ['bold', 'normal'], 'normal');
+        const view = select('view', ['component', 'primary-small'], 'component');
+        const viewAmount = select('viewAmount', ['default', 'withZeroMinorPart'], 'default');
+        const color = select(
+            'color',
+            [
+                'tertiary',
+                'disabled',
+                'accent',
+                'primary',
+                'attention',
+                'positive',
+                'secondary',
+                'tertiary-inverted',
+                'primary-inverted',
+                'secondary-inverted',
+                'link',
+                'negative',
+            ],
+            'primary',
+        );
+        const value = text('value', '100000000');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
+                <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="secondary" view="primary-small">
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Product Name ··0000
                         </PureCell.Text>
                         <PureCell.Amount
-                        view={ viewAmount } value={ value } minorUnits='100' currency='RUR'
-                        weight={ weight } color={ color }/>
+                            view={viewAmount}
+                            value={value}
+                            minorUnits='100'
+                            currency='RUR'
+                            weight={weight}
+                            color={color}
+                        />
                     </PureCell.Main>
                     <PureCell.Footer>
-                        <Typography.Text color="secondary" view="primary-small">
+                        <Typography.Text color='secondary' view='primary-small'>
                             Caption Secondary
                         </Typography.Text>
                         <PureCell.FooterButton>Action</PureCell.FooterButton>
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.AmountTitle'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const viewAmount = select('viewAmount', ['default' , 'withZeroMinorPart'], 'withZeroMinorPart');
-    const color = select('color',
-    [
-    'tertiary',
-    'disabled',
-    'accent',
-    'primary',
-    'attention',
-    'positive',
-    'secondary',
-    'tertiary-inverted',
-    'primary-inverted',
-    'secondary-inverted',
-    'link',
-    'negative',
-    ], 'primary');
-    const value = text('value', '100000000');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        const viewAmount = select(
+            'viewAmount',
+            ['default', 'withZeroMinorPart'],
+            'withZeroMinorPart',
+        );
+        const color = select(
+            'color',
+            [
+                'tertiary',
+                'disabled',
+                'accent',
+                'primary',
+                'attention',
+                'positive',
+                'secondary',
+                'tertiary-inverted',
+                'primary-inverted',
+                'secondary-inverted',
+                'link',
+                'negative',
+            ],
+            'primary',
+        );
+        const value = text('value', '100000000');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="secondary" view="primary-small">
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
                             Общий баланс
                         </PureCell.Text>
                         <PureCell.AmountTitle
-                            view={ viewAmount }
-                            value={ value }
+                            view={viewAmount}
+                            value={value}
                             minorUnits='100'
                             currency='RUR'
-                            color={ color }
-                            transparentMinor={ true }
+                            color={color}
+                            transparentMinor={true}
                         />
                     </PureCell.Main>
-                    <PureCell.Addon verticalAlign="center">
+                    <PureCell.Addon verticalAlign='center'>
                         <ChevronForwardMIcon />
                     </PureCell.Addon>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.Category'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const categoryName = text('categoryName', 'Кафе, рестораны, столовые, бары');
-    const categoryPercent = text('categoryPercent', '10');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        const categoryName = text('categoryName', 'Кафе, рестораны, столовые, бары');
+        const categoryPercent = text('categoryPercent', '10');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Graphics>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
+                        <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName={ categoryName }
-                            categoryPercent={ categoryPercent }
+                            categoryName={categoryName}
+                            categoryPercent={categoryPercent}
                         />
                     </PureCell.Main>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.Comment'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
+                        <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
                             categoryName='Кафе, рестораны, столовые, бары'
-                            categoryPercent={ 10 }
+                            categoryPercent={10}
                         />
                     </PureCell.Main>
                     <PureCell.Footer>
@@ -341,60 +502,90 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.Content'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    return (
-        <div style={{
-                width: '400px',
-            }}>
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-                <PureCell.Graphics>
-                    <Circle  />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
-                            Яндекс Лавка
-                        </PureCell.Text>
-                        <PureCell.Category
-                            categoryName="Кафе, рестораны, столовые, бары"
-                            categoryPercent={ 10 }
-                        />
-                    </PureCell.Main>
-                    <PureCell.Addon>
-                        <InformationCircleMIcon/>
-                    </PureCell.Addon>
-                </PureCell.Content>
-            </PureCell>
-        </div>
-    );
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        return (
+            <div
+                style={{
+                    width: '400px',
+                }}
+            >
+                <PureCell
+                    href={text('href', '')}
+                    verticalPadding={verticalPadding}
+                    horizontalPadding={horizontalPadding}
+                    direction={direction}
+                >
+                    <PureCell.Graphics>
+                        <Circle />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
+                                Яндекс Лавка
+                            </PureCell.Text>
+                            <PureCell.Category
+                                categoryName='Кафе, рестораны, столовые, бары'
+                                categoryPercent={10}
+                            />
+                        </PureCell.Main>
+                        <PureCell.Addon>
+                            <InformationCircleMIcon />
+                        </PureCell.Addon>
+                    </PureCell.Content>
+                </PureCell>
+            </div>
+        );
     })}
 </Story>
 
 <Story name='PureCell.Footer'>
     {React.createElement(() => {
-    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Graphics>
-                    <Circle/>
+                    <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
+                        <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName="Кафе, рестораны, столовые, бары"
-                            categoryPercent={ 10 }
+                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryPercent={10}
                         />
                     </PureCell.Main>
                     <PureCell.Footer footerPadding={footerPadding}>
@@ -403,26 +594,40 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.FooterButton'>
     {React.createElement(() => {
-    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const colors = select('colors', ['default', 'inverted'], 'default');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
+                        <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName="Кафе, рестораны, столовые, бары"
-                            categoryPercent={ 10 }
+                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryPercent={10}
                         />
                     </PureCell.Main>
                     <PureCell.Footer footerPadding={footerPadding}>
@@ -436,140 +641,201 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             nowrap={boolean('nowrap', false)}
                             leftAddons={boolean('leftAddons', false) && <StarMIcon />}
                             rightAddons={boolean('rightAddons', false) && <StarMIcon />}
-                    >
-                    Button
-                    </PureCell.FooterButton>
+                        >
+                            Button
+                        </PureCell.FooterButton>
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.ExtraSubtitle'>
     {React.createElement(() => {
-    const footerPadding = select('footerPadding', ['default', 'none'], 'default');
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-        const color = select('color',
-    [
-    'tertiary',
-    'disabled',
-    'accent',
-    'primary',
-    'attention',
-    'positive',
-    'secondary',
-    'tertiary-inverted',
-    'primary-inverted',
-    'secondary-inverted',
-    'link',
-    'negative',
-    ], 'secondary');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const footerPadding = select('footerPadding', ['default', 'none'], 'default');
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        const color = select(
+            'color',
+            [
+                'tertiary',
+                'disabled',
+                'accent',
+                'primary',
+                'attention',
+                'positive',
+                'secondary',
+                'tertiary-inverted',
+                'primary-inverted',
+                'secondary-inverted',
+                'link',
+                'negative',
+            ],
+            'secondary',
+        );
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
+                        <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName="Кафе, рестораны, столовые, бары"
-                            categoryPercent={ 10 }
+                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryPercent={10}
                         />
                     </PureCell.Main>
                     <PureCell.Footer footerPadding={footerPadding}>
-                        <PureCell.ExtraSubtitle color={ color }>Status</PureCell.ExtraSubtitle>
+                        <PureCell.ExtraSubtitle color={color}>Status</PureCell.ExtraSubtitle>
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.Graphics'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Graphics>
-                    <Circle/>
+                    <Circle />
                 </PureCell.Graphics>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.Main'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Graphics>
-                    <Circle  />
+                    <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
+                        <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName="Кафе, рестораны, столовые, бары"
-                            categoryPercent={ 10 }
+                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryPercent={10}
                         />
                     </PureCell.Main>
-                    <PureCell.Addon>
-                    </PureCell.Addon>
+                    <PureCell.Addon></PureCell.Addon>
                     <PureCell.Footer>
                         <PureCell.Comment>Комментарий есть</PureCell.Comment>
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
 <Story name='PureCell.Text'>
     {React.createElement(() => {
-    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
-    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-    const rowLimit = select('rowLimit', ['1', '2'], '1');
-    const view = select('view', ['primary-small', 'component'], 'component');
-    const color = select('titleColor',
-    [
-    "tertiary",
-    "disabled",
-    "accent",
-    "primary",
-    "attention",
-    "positive",
-    "secondary",
-    "tertiary-inverted",
-    "primary-inverted",
-    "secondary-inverted",
-    "link",
-    "negative"
-    ], 'primary');
-    return (
-            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+        const verticalPadding = select(
+            'verticalPadding',
+            ['airy', 'default', 'compact', 'tiny', 'none'],
+            'default',
+        );
+        const horizontalPadding = select(
+            'horizontalPadding',
+            ['left', 'right', 'both', 'none'],
+            'none',
+        );
+        const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+        const rowLimit = select('rowLimit', ['1', '2'], '1');
+        const view = select('view', ['primary-small', 'component'], 'component');
+        const color = select(
+            'titleColor',
+            [
+                'tertiary',
+                'disabled',
+                'accent',
+                'primary',
+                'attention',
+                'positive',
+                'secondary',
+                'tertiary-inverted',
+                'primary-inverted',
+                'secondary-inverted',
+                'link',
+                'negative',
+            ],
+            'primary',
+        );
+        return (
+            <PureCell
+                href={text('href', '')}
+                verticalPadding={verticalPadding}
+                horizontalPadding={horizontalPadding}
+                direction={direction}
+            >
                 <PureCell.Graphics>
                     <Circle />
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text
-                        titleColor={ color }
-                        value={text('value', '')}
-                        view={view}
-                        rowLimit={ rowLimit }
+                            titleColor={color}
+                            value={text('value', '')}
+                            view={view}
+                            rowLimit={rowLimit}
                         >
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName="Кафе, рестораны, столовые, бары"
-                            categoryPercent={ 10 }
+                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryPercent={10}
                         />
                     </PureCell.Main>
                     <PureCell.Footer>
@@ -577,7 +843,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
-    );
+        );
     })}
 </Story>
 
@@ -598,19 +864,22 @@ import { PureCell } from '@alfalab/core-components/pure-cell';
     description={<Description />}
     changelog={<Changelog />}
     props={
-        <ArgsTable components={{
-            PureCell: PureCellTS,
-            'Addon': PureCellTS.Addon,
-            'Amount': PureCellTS.Amount,
-            'AmountTitle': PureCellTS.AmountTitle,
-            'Category': PureCellTS.Category,
-            'Comment': PureCellTS.Comment,
-            'Content': PureCellTS.Content,
-            'Footer': PureCellTS.Footer,
-            'FooterButton': PureCellTS.FooterButton,
-            'ExtraSubtitle': PureCellTS.ExtraSubtitle,
-            'Graphics': PureCellTS.Graphics,
-            'Main': PureCellTS.Main,
-            'Text': PureCellTS.Text,
-        }} />}
+        <ArgsTable
+            components={{
+                PureCell: PureCellTS,
+                Addon: PureCellTS.Addon,
+                Amount: PureCellTS.Amount,
+                AmountTitle: PureCellTS.AmountTitle,
+                Category: PureCellTS.Category,
+                Comment: PureCellTS.Comment,
+                Content: PureCellTS.Content,
+                Footer: PureCellTS.Footer,
+                FooterButton: PureCellTS.FooterButton,
+                ExtraSubtitle: PureCellTS.ExtraSubtitle,
+                Graphics: PureCellTS.Graphics,
+                Main: PureCellTS.Main,
+                Text: PureCellTS.Text,
+            }}
+        />
+    }
 />

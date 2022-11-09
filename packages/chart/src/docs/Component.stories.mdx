@@ -6,12 +6,10 @@ import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { number, boolean, select, text, object } from '@storybook/addon-knobs';
 import { version } from '../../package.json';
-import Description from './description.mdx'
+import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta
-    title='Компоненты/Chart'
-/>
+<Meta title='Компоненты/Таблицы и графики/Chart' />
 
 <!-- Canvas -->
 
@@ -19,48 +17,48 @@ import Changelog from '../../CHANGELOG.md';
     {React.createElement(() => {
         const clearData = (obj) => {
             const copy = JSON.parse(JSON.stringify(obj));
-            const labels = ["label", "label", "..."];
-            const series = copy.series.map(item => {
+            const labels = ['label', 'label', '...'];
+            const series = copy.series.map((item) => {
                 item.data = [
                     {
                         label: 'label',
-                        value: 'value'
+                        value: 'value',
                     },
-                    '...'
+                    '...',
                 ];
                 return item;
             });
-            return ({ ...obj, labels, series});
+            return { ...obj, labels, series };
         };
         const orientationVertical = {
             bottom: 'bottom',
-            top: 'top'
+            top: 'top',
         };
         const orientationHorizontal = {
             left: 'left',
-            right: 'right'
+            right: 'right',
         };
         const alignHorizontal = {
             left: 'left',
             center: 'center',
-            right: 'right'
+            right: 'right',
         };
         const alignVertical = {
             bottom: 'bottom',
             middle: 'middle',
-            top: 'top'
+            top: 'top',
         };
         const linesType = {
             linear: 'linear',
             monotone: 'monotone',
-            step: 'step'
+            step: 'step',
         };
         const animationType = {
             ease: 'ease',
             'ease-in': 'ease-in',
             'ease-out': 'ease-out',
             'ease-in-out': 'ease-in-out',
-            linear: 'linear'
+            linear: 'linear',
         };
         const iconTypes = {
             circleLine: 'circleLine',
@@ -155,35 +153,43 @@ import Changelog from '../../CHANGELOG.md';
         const barHideTooltipFirst = boolean('hideTooltip', false, barIdFirst);
         const barZIndexFirst = number('zIndex', 1, {}, barIdFirst);
         const barIconFirst = select('icon', iconTypes, 'circle', barIdFirst);
-        const barFillFirst = text('properties.fill', 'var(--color-static-graphic-persimmon)', barIdFirst);
+        const barFillFirst = text(
+            'properties.fill',
+            'var(--color-static-graphic-persimmon)',
+            barIdFirst,
+        );
         const barNameFirst = text('properties.name', 'расход', barIdFirst);
         const barHideSecond = boolean('hide', false, barIdSecond);
         const barHideLegendSecond = boolean('hideLegend', false, barIdSecond);
         const barHideTooltipSecond = boolean('hideTooltip', false, barIdSecond);
         const barZIndexSecond = number('zIndex', 10, {}, barIdSecond);
         const barIconSecond = select('icon', iconTypes, 'circle', barIdSecond);
-        const barFillSecond = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barIdSecond);
+        const barFillSecond = text(
+            'properties.fill',
+            'var(--color-static-graphic-green-jungle)',
+            barIdSecond,
+        );
         const barNameSecond = text('properties.name', 'приход', barIdSecond);
         const responsiveContainer = {
-            debounce
+            debounce,
         };
         const cartesianGrid = {
             vertical,
             horizontal,
             strokeDasharray,
             stroke,
-            fill
+            fill,
         };
         const composeChart = {
             initMargin: {
                 top: initMarginTop,
                 bottom: initMarginBottom,
                 left: marginLeft,
-                right: marginRight
+                right: marginRight,
             },
             barGap,
             maxBarSize,
-            barCategoryGap
+            barCategoryGap,
         };
         const xAxis = {
             hide: xAxisHide,
@@ -233,7 +239,7 @@ import Changelog from '../../CHANGELOG.md';
             filterNull: tooltipFilterNull,
             cursor: {
                 stroke: cursorStroke,
-                strokeWidth: cursorStrokeWidth
+                strokeWidth: cursorStrokeWidth,
             },
             isAnimationActive: tooltipIsAnimationActive,
             animationBegin: tooltipAnimationBegin,
@@ -394,32 +400,30 @@ import Changelog from '../../CHANGELOG.md';
             legend,
             brush,
             labels: labelsBarChart,
-            series: [barChartFirst, barChartSecond, lineChart]
+            series: [barChartFirst, barChartSecond, lineChart],
         };
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
                     <Chart
                         id='bar-chart'
-                        composeChart={ composeChart }
-                        responsiveContainer={ responsiveContainer }
-                        cartesianGrid={ cartesianGrid }
-                        xAxis={ xAxis }
-                        yAxis={ yAxis }
-                        tooltip={ tooltip }
-                        legend={ legend }
-                        brush={ brush }
-                        labels={ labelsBarChart }
-                        series={ [barChartFirst, barChartSecond, lineChart] }
+                        composeChart={composeChart}
+                        responsiveContainer={responsiveContainer}
+                        cartesianGrid={cartesianGrid}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        tooltip={tooltip}
+                        legend={legend}
+                        brush={brush}
+                        labels={labelsBarChart}
+                        series={[barChartFirst, barChartSecond, lineChart]}
                     />
                 </div>
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
-                    <pre>
-                        { JSON.stringify(clearData(barChartOptions), null, 2) }
-                    </pre>
+                    <pre>{JSON.stringify(clearData(barChartOptions), null, 2)}</pre>
                 </div>
             </div>
-        )
+        );
     })}
 </Story>
 
@@ -429,49 +433,49 @@ import Changelog from '../../CHANGELOG.md';
     {React.createElement(() => {
         const clearData = (obj) => {
             const copy = JSON.parse(JSON.stringify(obj));
-            const labels = ["label", "label", "..."];
-            const series = copy.series.map(item => {
+            const labels = ['label', 'label', '...'];
+            const series = copy.series.map((item) => {
                 item.data = [
                     {
                         label: 'label',
-                        value: 'value'
+                        value: 'value',
                     },
-                    '...'
+                    '...',
                 ];
                 return item;
             });
-            return ({ ...obj, labels, series});
+            return { ...obj, labels, series };
         };
         const formatXAxis = (time) => format(time, 'dd LLL');
         const orientationVertical = {
             bottom: 'bottom',
-            top: 'top'
+            top: 'top',
         };
         const orientationHorizontal = {
             left: 'left',
-            right: 'right'
+            right: 'right',
         };
         const alignHorizontal = {
             left: 'left',
             center: 'center',
-            right: 'right'
+            right: 'right',
         };
         const alignVertical = {
             bottom: 'bottom',
             middle: 'middle',
-            top: 'top'
+            top: 'top',
         };
         const linesType = {
             linear: 'linear',
             monotone: 'monotone',
-            step: 'step'
+            step: 'step',
         };
         const animationType = {
             ease: 'ease',
             'ease-in': 'ease-in',
             'ease-out': 'ease-out',
             'ease-in-out': 'ease-in-out',
-            linear: 'linear'
+            linear: 'linear',
         };
         const iconTypes = {
             circleLine: 'circleLine',
@@ -566,11 +570,21 @@ import Changelog from '../../CHANGELOG.md';
         const areaHideTooltip = boolean('hideTooltip', false, areaId);
         const areaZIndex = number('zIndex', 100, {}, areaId);
         const areaIcon = select('icon', iconTypes, 'filledCircle', areaId);
-        const areaOffset = number('offset', 0.1, {min: 0, max: 1, step: 0.1}, areaId);
+        const areaOffset = number('offset', 0.1, { min: 0, max: 1, step: 0.1 }, areaId);
         const areaColor_1 = text('gradient.points.color above', 'rgba(0, 112, 224, 0.2)', areaId);
-        const areaColorOpacity_1 = number('gradient.points.opacity of color above', 1, {min: 0, max: 1, step: 0.1}, areaId);
+        const areaColorOpacity_1 = number(
+            'gradient.points.opacity of color above',
+            1,
+            { min: 0, max: 1, step: 0.1 },
+            areaId,
+        );
         const areaColor_2 = text('gradient.points.color below', 'rgba(0, 128, 255, 0)', areaId);
-        const areaColorOpacity_2 = number('gradient opacity of color below', 1, {min: 0, max: 1, step: 0.1}, areaId);
+        const areaColorOpacity_2 = number(
+            'gradient opacity of color below',
+            1,
+            { min: 0, max: 1, step: 0.1 },
+            areaId,
+        );
         const areaName = text('properties.name', 'предыдущий период', areaId);
         const areaType = select('properties.type', linesType, 'monotone', areaId);
         const areaStroke = text('properties.stroke', 'var(--color-static-status-blue)', areaId);
@@ -581,7 +595,7 @@ import Changelog from '../../CHANGELOG.md';
         const areaDot = boolean('properties.dot', true, areaId);
         const areaStrokeDasharray = text('properties.strokeDasharray', '10 10', areaId);
         const responsiveContainer = {
-            debounce
+            debounce,
         };
         const cartesianGrid = {
             vertical,
@@ -595,11 +609,11 @@ import Changelog from '../../CHANGELOG.md';
                 top: initMarginTop,
                 bottom: initMarginBottom,
                 left: marginLeft,
-                right: marginRight
+                right: marginRight,
             },
             barCategoryGap,
             barSize,
-            maxBarSize
+            maxBarSize,
         };
         const xAxis = {
             hide: xAxisHide,
@@ -651,7 +665,7 @@ import Changelog from '../../CHANGELOG.md';
             filterNull: tooltipFilterNull,
             cursor: {
                 stroke: cursorStroke,
-                strokeWidth: cursorStrokeWidth
+                strokeWidth: cursorStrokeWidth,
             },
             isAnimationActive: tooltipIsAnimationActive,
             animationBegin: tooltipAnimationBegin,
@@ -669,9 +683,20 @@ import Changelog from '../../CHANGELOG.md';
             height: brushHeight,
             stroke: brushStroke,
             alwaysShowText: brushHeightAlwaysShowText,
-            tickFormatter: formatXAxis
+            tickFormatter: formatXAxis,
         };
-        const labelsLineChart = [1608242400000, 1608328800000, 1608415200000, 1608501600000, 1608588000000, 1608674400000, 1608760800000, 1608847200000, 1608933600000, 1609020000000, 1609106400000, 1609192800000, 1609279200000, 1609365600000, 1609452000000, 1609538400000, 1609624800000, 1609711200000, 1609797600000, 1609884000000, 1609970400000, 1610056800000, 1610143200000, 1610229600000, 1610316000000, 1610402400000, 1610488800000, 1610575200000, 1610661600000, 1610748000000, 1610834400000, 1610920800000, 1611007200000, 1611093600000, 1611180000000, 1611266400000, 1611352800000, 1611439200000, 1611525600000, 1611612000000, 1611698400000, 1611784800000, 1611871200000, 1611957600000, 1612044000000, 1612130400000, 1612216800000, 1612303200000];
+        const labelsLineChart = [
+            1608242400000, 1608328800000, 1608415200000, 1608501600000, 1608588000000,
+            1608674400000, 1608760800000, 1608847200000, 1608933600000, 1609020000000,
+            1609106400000, 1609192800000, 1609279200000, 1609365600000, 1609452000000,
+            1609538400000, 1609624800000, 1609711200000, 1609797600000, 1609884000000,
+            1609970400000, 1610056800000, 1610143200000, 1610229600000, 1610316000000,
+            1610402400000, 1610488800000, 1610575200000, 1610661600000, 1610748000000,
+            1610834400000, 1610920800000, 1611007200000, 1611093600000, 1611180000000,
+            1611266400000, 1611352800000, 1611439200000, 1611525600000, 1611612000000,
+            1611698400000, 1611784800000, 1611871200000, 1611957600000, 1612044000000,
+            1612130400000, 1612216800000, 1612303200000,
+        ];
         const lineChart = {
             hide: lineHide,
             hideLegend: lineHideLegend,
@@ -798,7 +823,7 @@ import Changelog from '../../CHANGELOG.md';
                 },
                 {
                     label: 1610402400000,
-                    value: 55
+                    value: 55,
                 },
                 {
                     label: 1610488800000,
@@ -1133,32 +1158,30 @@ import Changelog from '../../CHANGELOG.md';
             legend,
             brush,
             labels: labelsLineChart,
-            series: [areaChart]
+            series: [areaChart],
         };
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
                     <Chart
-                        id={ 'line-chart' }
-                        composeChart={ composeChart }
-                        responsiveContainer={ responsiveContainer }
-                        cartesianGrid={ cartesianGrid }
-                        xAxis={ xAxis }
-                        yAxis={ yAxis }
-                        tooltip={ tooltip }
-                        legend={ legend }
-                        brush={ brush }
-                        labels={ labelsLineChart }
-                        series={ [lineChart, areaChart] }
+                        id={'line-chart'}
+                        composeChart={composeChart}
+                        responsiveContainer={responsiveContainer}
+                        cartesianGrid={cartesianGrid}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        tooltip={tooltip}
+                        legend={legend}
+                        brush={brush}
+                        labels={labelsLineChart}
+                        series={[lineChart, areaChart]}
                     />
                 </div>
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
-                    <pre>
-                        { JSON.stringify(clearData(lineChartOptions), null, 2) }
-                    </pre>
+                    <pre>{JSON.stringify(clearData(lineChartOptions), null, 2)}</pre>
                 </div>
             </div>
-        )
+        );
     })}
 </Story>
 
@@ -1168,48 +1191,48 @@ import Changelog from '../../CHANGELOG.md';
     {React.createElement(() => {
         const clearData = (obj) => {
             const copy = JSON.parse(JSON.stringify(obj));
-            const labels = ["label", "label", "..."];
-            const series = copy.series.map(item => {
+            const labels = ['label', 'label', '...'];
+            const series = copy.series.map((item) => {
                 item.data = [
                     {
                         label: 'label',
-                        value: 'value'
+                        value: 'value',
                     },
-                    '...'
+                    '...',
                 ];
                 return item;
             });
-            return ({ ...obj, labels, series});
+            return { ...obj, labels, series };
         };
         const orientationVertical = {
             bottom: 'bottom',
-            top: 'top'
+            top: 'top',
         };
         const orientationHorizontal = {
             left: 'left',
-            right: 'right'
+            right: 'right',
         };
         const alignHorizontal = {
             left: 'left',
             center: 'center',
-            right: 'right'
+            right: 'right',
         };
         const alignVertical = {
             bottom: 'bottom',
             middle: 'middle',
-            top: 'top'
+            top: 'top',
         };
         const linesType = {
             linear: 'linear',
             monotone: 'monotone',
-            step: 'step'
+            step: 'step',
         };
         const animationType = {
             ease: 'ease',
             'ease-in': 'ease-in',
             'ease-out': 'ease-out',
             'ease-in-out': 'ease-in-out',
-            linear: 'linear'
+            linear: 'linear',
         };
         const iconTypes = {
             circleLine: 'circleLine',
@@ -1246,16 +1269,20 @@ import Changelog from '../../CHANGELOG.md';
         const barHideTooltip = boolean('hideTooltip', false, barId);
         const barZIndex = number('zIndex', 10, {}, barId);
         const barIcon = select('icon', iconTypes, 'circle', barId);
-        const barRadius = object('radius', {
-            top: 10,
-            bottom: 10,
-        }, barId);
+        const barRadius = object(
+            'radius',
+            {
+                top: 10,
+                bottom: 10,
+            },
+            barId,
+        );
         const barFormatter = text('labelList.formatter', '', barId);
-        const barLabelListOffset= number('labelList.offset', 10, {}, barId);
+        const barLabelListOffset = number('labelList.offset', 10, {}, barId);
         const barFill = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barId);
         const barName = text('properties.name', 'приход', barId);
         const responsiveContainer = {
-            debounce
+            debounce,
         };
         const cartesianGrid = {
             vertical,
@@ -1266,7 +1293,7 @@ import Changelog from '../../CHANGELOG.md';
                 top: initMarginTop,
                 bottom: initMarginBottom,
                 left: marginLeft,
-                right: marginRight
+                right: marginRight,
             },
             barGap,
             maxBarSize,
@@ -1289,7 +1316,16 @@ import Changelog from '../../CHANGELOG.md';
         const yAxis = {
             hide: yAxisHide,
         };
-        const labelsBarChart = ['Long label', 'Label1', 'Label2', 'Label3', 'Label4', 'Label5', 'Label6', 'Label7'];
+        const labelsBarChart = [
+            'Long label',
+            'Label1',
+            'Label2',
+            'Label3',
+            'Label4',
+            'Label5',
+            'Label6',
+            'Label7',
+        ];
         const barChart = {
             hide: barHideLegend,
             hideLegend: barHideLegend,
@@ -1351,47 +1387,36 @@ import Changelog from '../../CHANGELOG.md';
             xAxis,
             yAxis,
             labels: labelsBarChart,
-            series: [barChart]
+            series: [barChart],
         };
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
                     <Chart
                         id='bar-chart'
-                        composeChart={ composeChart }
-                        responsiveContainer={ responsiveContainer }
-                        cartesianGrid={ cartesianGrid }
-                        xAxis={ xAxis }
-                        yAxis={ yAxis }
-                        labels={ labelsBarChart }
-                        series={ [barChart] }
+                        composeChart={composeChart}
+                        responsiveContainer={responsiveContainer}
+                        cartesianGrid={cartesianGrid}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        labels={labelsBarChart}
+                        series={[barChart]}
                     />
                 </div>
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
-                    <pre>
-                        { JSON.stringify(clearData(barChartOptions), null, 2) }
-                    </pre>
+                    <pre>{JSON.stringify(clearData(barChartOptions), null, 2)}</pre>
                 </div>
             </div>
-        )
+        );
     })}
 </Story>
 
 <!-- Docs -->
 
-<ComponentHeader
-    name='Chart'
-    version={version}
-    package='@alfalab/core-components/chart'
-/>
+<ComponentHeader name='Chart' version={version} package='@alfalab/core-components/chart' />
 
 ```jsx
 import { Chart } from '@alfalab/core-components/chart';
 ```
 
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={<ArgsTable of={ChartTS} />}
-/>
-
+<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={ChartTS} />} />
