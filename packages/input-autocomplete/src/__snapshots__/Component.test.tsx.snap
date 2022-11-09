@@ -214,7 +214,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           id="downshift-5-item-0"
                           role="option"
                         >
-                          <span
+                          <div
                             class="checkmark"
                           >
                             <svg
@@ -254,13 +254,13 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 </svg>
                               </div>
                             </div>
-                          </span>
+                          </div>
                           <div
                             class="content textContent"
                           >
                             Neptunium
                           </div>
-                          <span
+                          <div
                             class="checkmark"
                           >
                             <svg
@@ -300,7 +300,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 </svg>
                               </div>
                             </div>
-                          </span>
+                          </div>
                         </div>
                         <div
                           aria-selected="false"
@@ -308,7 +308,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           id="downshift-5-item-1"
                           role="option"
                         >
-                          <span
+                          <div
                             class="checkmark"
                           >
                             <svg
@@ -348,13 +348,13 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 </svg>
                               </div>
                             </div>
-                          </span>
+                          </div>
                           <div
                             class="content textContent"
                           >
                             Plutonium
                           </div>
-                          <span
+                          <div
                             class="checkmark"
                           >
                             <svg
@@ -394,7 +394,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 </svg>
                               </div>
                             </div>
-                          </span>
+                          </div>
                         </div>
                       </div>
                     </div>

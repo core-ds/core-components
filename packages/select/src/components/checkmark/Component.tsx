@@ -29,7 +29,7 @@ export const Checkmark = ({
     );
 
     return single ? (
-        <span className={checkmarkClassNames}>
+        <div className={checkmarkClassNames}>
             <Badge
                 className={styles.after}
                 view='icon'
@@ -37,7 +37,7 @@ export const Checkmark = ({
                 iconColor='positive'
                 content={<CheckmarkCircleMIcon className={styles.colorIcon} />}
             />
-        </span>
+        </div>
     ) : (
         <Checkbox
             checked={selected}

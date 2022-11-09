@@ -9,7 +9,7 @@ import { CheckmarkProps } from '../../../typings';
 import styles from './index.module.css';
 
 export const Checkmark = ({ selected, className }: CheckmarkProps) => (
-    <span
+    <div
         className={cn(styles.checkmark, className, {
             [styles.selected]: selected,
         })}
@@ -23,5 +23,5 @@ export const Checkmark = ({ selected, className }: CheckmarkProps) => (
             iconColor='positive'
             content={<CheckmarkCircleMIcon />}
         />
-    </span>
+    </div>
 );
