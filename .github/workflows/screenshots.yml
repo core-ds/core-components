@@ -16,7 +16,7 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
           with:
             lfs: true
 
@@ -26,22 +26,13 @@ jobs:
         - name: Install dependencies
           run: yarn
 
-        - uses: microsoft/playwright-github-action@v1
-
         - name: Build storybook
           run: yarn build-storybook-from-dist
 
-        - name: Serve storybook
-          run: yarn serve-storybook &
-
         - name: Run screenshots tests
           run: yarn test:screenshots
-          env:
-            CI: true
-            CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
-            CI_USER_PASSWORD: ${{ secrets.CI_USER_PASSWORD }}
 
-        - uses: actions/upload-artifact@v2
+        - uses: actions/upload-artifact@v3
           if: failure()
           with:
             name: diffs
