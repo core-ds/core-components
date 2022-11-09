@@ -7,7 +7,7 @@ import styles from './desktop.module.css';
 
 export type FooterDesktopProps = FooterProps & {
     /**
-     * Размер
+     * Размер (только для desktop версии компонента)
      */
     size?: 's';
 };

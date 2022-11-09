@@ -11,7 +11,7 @@ import styles from './desktop.module.css';
 
 export type HeaderDesktopProps = Omit<HeaderProps, 'closer'> & {
     /**
-     * Размер
+     * Размер (только для desktop версии компонента)
      */
     size?: 's';
 
