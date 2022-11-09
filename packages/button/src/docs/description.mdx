@@ -1,7 +1,6 @@
 import { Container, Row, Col } from 'storybook/blocks';
 
-Кнопка используется как триггер для выполнения определённого действия.
-Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
+## Виды кнопок
 
 ```jsx live
 <Container>
@@ -25,14 +24,12 @@ import { Container, Row, Col } from 'storybook/blocks';
 </Container>
 ```
 
-## Виды кнопок
+## Размеры
 
-В библиотеке доступно несколько видов кнопок (view).
-
-- <b>Primary</b>. Обозначает ключевое действие. На экране может быть только одна главная кнопка.
+Кнопка доступна в размерах XL, L, M, S, XS, XXS.
 
 ```jsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 
 render(
     <Container>
@@ -40,7 +37,7 @@ render(
             {SIZES.map(size => (
                 <Col key={size}>
                     <Button size={size} view="primary">
-                        Кнопка
+                        Label
                     </Button>
                 </Col>
             ))}
@@ -49,163 +46,103 @@ render(
 )
 ```
 
-- <b>Secondary</b>. Второстепенная кнопка. Может использоваться для любых действий.
-
-```jsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="secondary">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-- <b>Tertiary</b>. Дополнительная кнопка.
-
-```jsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="tertiary">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-- <b>Link</b>. Прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`.
-
-```jsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="link">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-- <b>Ghost</b>. Прозрачная кнопка без отступов.
-
-```jsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="ghost">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-## Ссылка
-
-Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
-
-```jsx live
-<Container>
-    <Row align="middle">
-        <Col>
-            <Button href="https://alfabank.ru" target="_blank" >
-                Ссылка
-            </Button>
-        </Col>
-        <Col>
-            <Button view="tertiary" href="https://alfabank.ru" target="_blank" >
-                Ссылка
-            </Button>
-        </Col>
-    </Row>
-</Container>
-```
-
-## Ширина кнопки
-
+## Ширина 
+Кнопка адаптируется под длину контента. Для каждого вертигального размера кнопки задан минимальный горизонтальный размер. 
 С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
 
 ```jsx live
-<Button block={true} size="s" >
-    Кнопка
-</Button>
+    <Container>
+        <Row>
+            <Col>
+                <Button>
+                    0
+                </Button>
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+                <Button>
+                    Очень длинный лейбл
+                </Button>
+            </Col>
+        </Row>
+        <br/>
+        <Button block={true} size='m'>
+            Занимает всю ширину контейнера
+        </Button>
+    </Container>
 ```
 
-## Слоты для кастомизации
+## Анатомия
 
 С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
-
 Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
 
 ```jsx live
 render(() => {
-    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+    const [label, setLabel] = React.useState(true);
+    const [leftAddons, setLeftAddonsl] = React.useState(false);
+    const [rightAddons, setRightAddons] = React.useState(false);
+
+    const handleLabelChange = () => setLabel(!label);
+    const handleLeftAddonsChange = () => setLeftAddonsl(!leftAddons);
+    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
 
     return (
         <Container>
             <Row>
-                {SIZES.map(size => (
-                    <Col key={size}>
-                        <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
-                            Кнопка
-                        </Button>
-                    </Col>
-                ))}
-            </Row>
-
-            <Row>
-                {SIZES.map(size => (
-                    <Col key={size}>
-                        <Button leftAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
-                            Кнопка
-                        </Button>
-                    </Col>
-                ))}
-            </Row>
-
-            <Row>
                 <Col>
-                    <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs" />
+                    <Button leftAddons={leftAddons && <StarMIcon/>} rightAddons={rightAddons && <StarMIcon/>} view="primary">
+                        {label && 'Label'}
+                    </Button>
                 </Col>
             </Row>
+
+            <Row align='middle'>
+                <Switch label={<span>Label</span>} checked={label} onChange={handleLabelChange} />
+            </Row>
+
+            <Row align='middle'>
+                <Switch label={<span>LeftAddons</span>} checked={leftAddons} onChange={handleLeftAddonsChange} />
+            </Row>
+
+            <Row align='middle'>
+                <Switch label={<span>RightAddons</span>} checked={rightAddons} onChange={handleRightAddonsChange} />
+            </Row>
+
         </Container>
-    )
-})
+    );
+});
 ```
 
-## Состояние загрузки
+## Перенос текста внутри кнопки
+
+С помощью свойства `nowrap` можно запретить перенос текста на новую строку
+
+```jsx live
+render(() => {
+    const [checked, setChecked] = React.useState(true);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Container>
+        <div style={{ display: 'flex', width: '180px' }}>
+            <Button view="primary" nowrap={checked}>
+                Пример длинного текста 
+            </Button>
+        </div>
+        <Row align='middle'>
+            <Switch label={<span>Запретить перенос строки</span>} checked={checked} onChange={handleChange} />
+        </Row>
+    </Container>
+    );
+});
+```
+
+## Обработка событий
 
 С помощью свойства `loading` можно отобразить состояние загрузки.
-
 Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
 
 ```jsx live expanded
@@ -231,7 +168,7 @@ render(() => {
                         loading={loading.primary}
                         onClick={() => handleClick('primary', 30)}
                     >
-                        Отправить быстрый запрос (30мс)
+                        Быстрый запрос (30ms)
                     </Button>
                 </Col>
                 <Col>
@@ -240,7 +177,7 @@ render(() => {
                         loading={loading.secondary}
                         onClick={() => handleClick('secondary', 1500)}
                     >
-                        Отправить долгий запрос (1500мс)
+                        Долгий запрос (1500ms)
                     </Button>
                 </Col>
             </Row>
@@ -249,23 +186,26 @@ render(() => {
 });
 ```
 
-## Перенос текста
+## Кнопка-ссылка
 
-С помощью свойства `nowrap` можно запретить перенос строки в кнопке.
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
 
 ```jsx live
-<div style={{ width: '240px' }}>
+<Container>
     <Row align="middle">
         <Col>
-            <Button view="secondary" nowrap={true}>
-                Кнопка без переноса текста
-            </Button>
-        </Col>
-        <Col>
-            <Button view="ghost">
-                Кнопка с{'\u00A0'}переносом текста
+            <Button view="primary" href="https://alfabank.ru" target="_blank">
+                Кнопка-ссылка
             </Button>
         </Col>
     </Row>
-</div>
+</Container>
 ```
+
+## Другие кнопки
+
+Если нужна кнопка с одной иконкой, но без подложки, используйте <a href="/docs/компоненты-iconbutton--icon-button">IconButton</a>
+
+Если нужна кнопка с другим цветом фона, используйте <a href="/docs/компоненты-custombutton--custom-button">CustomButton</a>
+
+Если нужна кнопка с выпадающим списком, используйте <a href="/docs/компоненты-pickerbutton--picker-button">PickerButton</a>.

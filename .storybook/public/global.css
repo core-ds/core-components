@@ -353,21 +353,7 @@ h2.sbdocs-h2:first-of-type {
     line-height: 1.2;
     font-weight: 500;
     font-family: 'Styrene UI';
-    box-shadow: inset 0 0 0 1px var(--color-light-border-secondary);
     border: 0;
-}
-
-h2.sbdocs-h2:after {
-    display: block;
-    position: absolute;
-    right: 32px;
-    top: 50%;
-    margin-top: var(--gap-xs-neg);
-    width: 16px;
-    height: 16px;
-    background-color: var(--color-light-graphic-accent);
-    border-radius: var(--border-radius-m);
-    content: '';
 }
 
 h3.sbdocs-h3,
