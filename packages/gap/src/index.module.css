@@ -2,6 +2,7 @@
 
 .vertical {
     overflow: hidden;
+    display: block;
 }
 
 .horizontal {

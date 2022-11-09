@@ -27,6 +27,13 @@ describe('Props tests', () => {
         expect(testIdAttr).toBe(dataTestId);
     });
 
+    it('should render span if prop tag === span ', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(<Gap size='l' dataTestId={dataTestId} tag='span' />);
+
+        expect(getByTestId(dataTestId).tagName).toBe('SPAN');
+    });
+
     it('should set size', () => {
         const dataTestId = 'test-id';
         const size = 'xl';

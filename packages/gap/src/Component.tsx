@@ -32,6 +32,12 @@ export type GapProps = {
     direction?: 'horizontal' | 'vertical';
 
     /**
+     * HTML тег
+     * @default 'div'
+     */
+    tag?: 'div' | 'span';
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -42,8 +48,14 @@ export type GapProps = {
     dataTestId?: string;
 };
 
-export const Gap = ({ size, direction = 'vertical', className, dataTestId }: GapProps) => (
-    <div
+export const Gap = ({
+    size,
+    direction = 'vertical',
+    tag: Component = 'div',
+    className,
+    dataTestId,
+}: GapProps) => (
+    <Component
         data-test-id={dataTestId}
         data-gap-size={size}
         className={cn(styles.gap, styles[direction], className)}
