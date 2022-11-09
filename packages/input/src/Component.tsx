@@ -333,7 +333,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         )}
                         {rightAddons}
                         {error && (
-                            <span className={styles.errorIcon}>
+                            <div className={styles.errorIcon}>
                                 <Badge
                                     view='icon'
                                     size='m'
@@ -342,10 +342,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                         <ExclamationCircleMIcon className={styles.errorColorIcon} />
                                     }
                                 />
-                            </span>
+                            </div>
                         )}
                         {success && !error && (
-                            <span className={styles.successIcon}>
+                            <div className={styles.successIcon}>
                                 <Badge
                                     view='icon'
                                     size='m'
@@ -354,7 +354,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                         <CheckmarkCircleMIcon className={styles.successColorIcon} />
                                     }
                                 />
-                            </span>
+                            </div>
                         )}
                     </Fragment>
                 )
