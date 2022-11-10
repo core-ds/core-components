@@ -59,7 +59,7 @@ describe('Attach | interactions tests', () => {
                 mimeType: 'application/pdf',
             });
 
-            await matchHtml({ page, expect, css });
+            await matchHtml({ context, page, expect, css });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

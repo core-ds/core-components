@@ -62,6 +62,11 @@ export type ConfirmationProps = {
     className?: string;
 
     /**
+     * Флаг - нужно ли очищать код при возникновении ошибки
+     */
+    clearCodeOnError?: boolean;
+
+    /**
      * Функция обновления состояния компонента
      */
     onChangeState: (state: ConfirmationState | string) => void;
@@ -119,7 +124,10 @@ export type TConfirmationContext = Required<
         | 'tempBlockDuration'
     >
 > &
-    Pick<ConfirmationProps, 'phone' | 'blockSmsRetry' | 'onTempBlockFinished'> & {
+    Pick<
+        ConfirmationProps,
+        'phone' | 'blockSmsRetry' | 'onTempBlockFinished' | 'clearCodeOnError'
+    > & {
         timeLeft: number;
     };
 

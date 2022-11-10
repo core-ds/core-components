@@ -23,7 +23,7 @@ describe('KeyboardFocusable | interactions tests', () => {
         try {
             await page.press('#root', 'Tab');
 
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -48,7 +48,7 @@ describe('KeyboardFocusable | interactions tests', () => {
         try {
             await page.press('#root', 'Tab');
 
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

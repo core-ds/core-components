@@ -26,6 +26,7 @@ describe('SelectWithTags | interactions tests', () => {
 
             const match = async () =>
                 matchHtml({
+                    context,
                     page,
                     expect,
                     css,
@@ -99,6 +100,7 @@ describe('SelectWithTags | interactions tests', () => {
             await page.waitForTimeout(1000);
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,
@@ -136,6 +138,7 @@ describe('SelectWithTags | interactions tests', () => {
 
         const match = async () =>
             matchHtml({
+                context,
                 page,
                 expect,
                 css,
