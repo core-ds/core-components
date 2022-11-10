@@ -13,11 +13,12 @@ docker exec -d playwright yarn serve-storybook
 
 docker exec playwright yarn jest --config=jest.screenshots.config.js "$@"
 
-docker stop playwright
-
 if [ "$?" -eq "0" ]
 then
+  docker stop playwright;
   exit 0;
 else
+  docker stop playwright;
   exit 1;
 fi
+
