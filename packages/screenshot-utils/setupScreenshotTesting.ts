@@ -30,7 +30,10 @@ export type ScreenshotOpts = {
 
 export type EvaluateFn = (page: Page) => void;
 
-export type ScreenshotTestingParams = Omit<MatchHtmlParams, 'page' | 'css' | 'expect'> & {
+export type ScreenshotTestingParams = Omit<
+    MatchHtmlParams,
+    'page' | 'css' | 'expect' | 'context'
+> & {
     cases: Array<[string, string]>;
     theme?: string;
 };
@@ -76,11 +79,6 @@ export const setupScreenshotTesting =
                 timeout: 200000,
             });
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                ...matchHtmlArgs,
-            });
+            await matchHtml({ context, page, expect, css, ...matchHtmlArgs });
         });
     };
