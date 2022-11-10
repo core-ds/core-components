@@ -19,11 +19,12 @@ describe('CalendarInput | interactions tests', () => {
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
         try {
-            await matchHtml({ page, expect, css });
+            await matchHtml({ context, page, expect, css });
 
             await page.click('input');
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,

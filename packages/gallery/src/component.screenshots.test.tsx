@@ -20,12 +20,7 @@ describe('Gallery | interactions tests', () => {
         try {
             await page.click('#open-single-gallery-button');
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                screenshotOpts: { fullPage: true },
-            });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -48,23 +43,13 @@ describe('Gallery | interactions tests', () => {
         const nextSlide = async () => {
             await page.click(`[data-test-id=${TestIds.NEXT_SLIDE_BUTTON}]`);
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                screenshotOpts: { fullPage: true },
-            });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
         };
 
         try {
             await page.click('#open-gallery-button');
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                screenshotOpts: { fullPage: true },
-            });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
 
             await nextSlide();
             await nextSlide();
@@ -93,12 +78,7 @@ describe('Gallery | interactions tests', () => {
 
             await page.click(`[data-test-id=${TestIds.FULLSCREEN_BUTTON}]`);
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                screenshotOpts: { fullPage: true },
-            });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

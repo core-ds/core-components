@@ -35,11 +35,7 @@ describe('PickerButton', () => {
 
             await page.click('button[class*=component]');
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-            });
+            await matchHtml({ context, page, expect, css });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -68,6 +64,7 @@ describe('PickerButton', () => {
             await page.click('button[class*=component]');
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,
