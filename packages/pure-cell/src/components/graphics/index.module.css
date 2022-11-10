@@ -3,7 +3,7 @@
 .component {
     flex-basis: auto;
 
-    &.fullStretch {
+    &.stretch {
         flex-basis: 100%;
     }
 }

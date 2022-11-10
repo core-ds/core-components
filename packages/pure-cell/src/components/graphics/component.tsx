@@ -15,7 +15,7 @@ export type Props = {
     /**
      * Компонент занимает все свободное пространство контейнера
      */
-    fullStretch?: boolean;
+    stretch?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -23,9 +23,9 @@ export type Props = {
     dataTestId?: string;
 };
 
-export const Graphics: React.FC<Props> = ({ children, fullStretch = false, dataTestId }) => (
+export const Graphics: React.FC<Props> = ({ children, stretch = false, dataTestId }) => (
     <section
-        className={cn(styles.component, { [styles.fullStretch]: fullStretch })}
+        className={cn(styles.component, { [styles.stretch]: stretch })}
         data-test-id={getDataTestId(dataTestId, 'graphics')}
     >
         {children}

@@ -16,7 +16,7 @@ type Props = {
     /**
      * Компонент занимает все свободное пространство контейнера
      */
-    fullStretch?: boolean;
+    stretch?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -24,14 +24,14 @@ type Props = {
     dataTestId?: string;
 };
 
-export const Content: React.FC<Props> = ({ children, fullStretch = true, dataTestId }) => {
+export const Content: React.FC<Props> = ({ children, stretch = true, dataTestId }) => {
     const { direction } = useContext(PureCellContext);
 
     return (
         <section
             className={cn(styles.component, {
                 [styles.horizontal]: direction === 'horizontal',
-                [styles.fullStretch]: fullStretch,
+                [styles.stretch]: stretch,
             })}
             data-test-id={getDataTestId(dataTestId, 'content')}
         >

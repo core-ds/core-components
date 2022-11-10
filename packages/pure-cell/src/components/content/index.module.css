@@ -4,14 +4,13 @@
     flex-basis: auto;
     display: grid;
     grid-template-columns: 1fr auto;
-    flex-shrink: 1;
 
     &.horizontal {
         /* for button */
         align-self: stretch;
     }
 
-    &.fullStretch {
+    &.stretch {
         flex-basis: 100%;
     }
 }

@@ -20,7 +20,7 @@ type Props = {
     /**
      * Компонент занимает все свободное пространство контейнера
      */
-    fullStretch?: boolean;
+    stretch?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -31,12 +31,12 @@ type Props = {
 export const AdditionalContent: React.FC<Props> = ({
     children,
     verticalAlign = 'top',
-    fullStretch = false,
+    stretch = false,
     dataTestId,
 }) => (
     <section
         className={cn(styles.component, styles[verticalAlign], {
-            [styles.fullStretch]: fullStretch,
+            [styles.stretch]: stretch,
         })}
         data-test-id={getDataTestId(dataTestId, 'additional-content')}
     >

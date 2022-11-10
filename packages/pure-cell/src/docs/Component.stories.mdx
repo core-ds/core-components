@@ -591,20 +591,20 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                 width: '400px',
             }}>
             <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
-                <PureCell.Graphics fullStretch={boolean('fullStretchGraphics', false)}>
+                <PureCell.Graphics stretch={boolean('stretchGraphics', false)}>
                     <Circle  />
                 </PureCell.Graphics>
-                <PureCell.Content fullStretch={boolean('fullStretchContent', true)}>
+                <PureCell.Content stretch={boolean('stretchContent', true)}>
                     <PureCell.Main>
                         <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
                             Яндекс Лавка
                         </PureCell.Text>
                     </PureCell.Main>
-                    <PureCell.Addon>
+                    <PureCell.Addon verticalAlign="center">
                         <InformationCircleMIcon/>
                     </PureCell.Addon>
                 </PureCell.Content>
-                <PureCell.AdditionalContent fullStretch={boolean('fullStretchAdditionalContent', false)}>
+                <PureCell.AdditionalContent verticalAlign="center" stretch={boolean('stretchAdditionalContent', false)}>
                     <CircularProgressBar value={25} size='s' />
                 </PureCell.AdditionalContent>
             </PureCell>
