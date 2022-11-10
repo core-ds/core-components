@@ -2,15 +2,20 @@ import React from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '../../../../utils/getDataTestId';
-import { GraphicsElement } from '../types';
+import { AdditionalContentElement } from '../types';
 
 import styles from './index.module.css';
 
-export type Props = {
+type Props = {
+    /**
+     * Вертикальное выравнивание
+     */
+    verticalAlign?: 'top' | 'center' | 'bottom';
+
     /**
      * Компоненты
      */
-    children: GraphicsElement;
+    children: AdditionalContentElement;
 
     /**
      * Компонент занимает все свободное пространство контейнера
@@ -23,10 +28,17 @@ export type Props = {
     dataTestId?: string;
 };
 
-export const Graphics: React.FC<Props> = ({ children, fullStretch = false, dataTestId }) => (
+export const AdditionalContent: React.FC<Props> = ({
+    children,
+    verticalAlign = 'top',
+    fullStretch = false,
+    dataTestId,
+}) => (
     <section
-        className={cn(styles.component, { [styles.fullStretch]: fullStretch })}
-        data-test-id={getDataTestId(dataTestId, 'graphics')}
+        className={cn(styles.component, styles[verticalAlign], {
+            [styles.fullStretch]: fullStretch,
+        })}
+        data-test-id={getDataTestId(dataTestId, 'additional-content')}
     >
         {children}
     </section>

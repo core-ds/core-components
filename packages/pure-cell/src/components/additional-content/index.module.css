@@ -1,0 +1,29 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-basis: auto;
+    flex-shrink: 1;
+
+    & > * {
+        justify-content: flex-end;
+    }
+
+    &.top {
+        align-self: flex-start;
+    }
+
+    &.center {
+        align-self: center;
+    }
+
+    &.bottom {
+        align-self: flex-end;
+    }
+
+    &.fullStretch {
+        flex-basis: 100%;
+    }
+}

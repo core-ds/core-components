@@ -2,4 +2,8 @@
 
 .component {
     flex-basis: auto;
+
+    &.fullStretch {
+        flex-basis: 100%;
+    }
 }

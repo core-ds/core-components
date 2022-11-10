@@ -5,6 +5,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { PureCell } from '@alfalab/core-components-pure-cell';
 import { Typography } from '@alfalab/core-components-typography';
+import { CircularProgressBar } from '@alfalab/core-components/circular-progress-bar';
 import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
@@ -577,6 +578,37 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                     </PureCell.Footer>
                 </PureCell.Content>
             </PureCell>
+    );
+    })}
+</Story>
+
+<Story name='PureCell.AdditionalContent'>
+    {React.createElement(() => {
+    const verticalPadding = select('verticalPadding', ['airy', 'default', 'compact', 'tiny', 'none'], 'default');
+    const horizontalPadding = select('horizontalPadding', ['left', 'right', 'both', 'none'], 'none');    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    return (
+        <div style={{
+                width: '400px',
+            }}>
+            <PureCell href={ text('href', '') } verticalPadding={ verticalPadding } horizontalPadding={ horizontalPadding } direction={ direction }>
+                <PureCell.Graphics fullStretch={boolean('fullStretchGraphics', false)}>
+                    <Circle  />
+                </PureCell.Graphics>
+                <PureCell.Content fullStretch={boolean('fullStretchContent', true)}>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor="primary" view="component" rowLimit={ 1 }>
+                            Яндекс Лавка
+                        </PureCell.Text>
+                    </PureCell.Main>
+                    <PureCell.Addon>
+                        <InformationCircleMIcon/>
+                    </PureCell.Addon>
+                </PureCell.Content>
+                <PureCell.AdditionalContent fullStretch={boolean('fullStretchAdditionalContent', false)}>
+                    <CircularProgressBar value={25} size='s' />
+                </PureCell.AdditionalContent>
+            </PureCell>
+        </div>
     );
     })}
 </Story>

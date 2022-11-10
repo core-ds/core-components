@@ -24,4 +24,5 @@ export type MainElement =
     | (TextElement | AmountElement | AmountTitleElement);
 export type ContentElement = Array<MainElement | AddonElement | FooterElement> | MainElement;
 export type AddonElement = Array<TextElement | ReactNode> | TextElement | ReactNode;
+export type AdditionalContentElement = Array<TextElement | ReactNode> | TextElement | ReactNode;
 export type PureCellElement = Array<GraphicsElement | ContentElement> | ContentElement;

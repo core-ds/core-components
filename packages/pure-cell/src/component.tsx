@@ -26,6 +26,7 @@ import { FooterText } from './components/footer-text';
 import { Graphics } from './components/graphics';
 import { Main } from './components/main';
 import { Text } from './components/text';
+import { AdditionalContent } from './components/additional-content';
 import { PureCellElement } from './components/types';
 
 import styles from './index.module.css';
@@ -182,4 +183,5 @@ export const PureCell = Object.assign(PureCellComponent, {
     FooterButton,
     Comment,
     Category,
+    AdditionalContent,
 });
