@@ -5,8 +5,13 @@
 }
 
 .paragraph {
-    margin: var(--text-paragraph-margin-bottom);
+    margin: 0;
     padding: 0;
+}
+
+.paragraphWithMargins {
+    padding: 0;
+    margin: var(--text-paragraph-margin-bottom);
 }
 
 .primary-large {
