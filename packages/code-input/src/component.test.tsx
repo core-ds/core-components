@@ -1,6 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import { CodeInput } from '.';
 
@@ -53,6 +54,36 @@ describe('CodeInput', () => {
             expect(inputs[1]).toHaveValue(initialValues[1]);
             expect(inputs[2]).toHaveValue(initialValues[2]);
             expect(inputs[3]).toHaveValue(initialValues[3]);
+        });
+
+        it('should reset values on errors with clearCodeOnError prop', async () => {
+            const initialValues = '1234';
+            const testId = 'code-input';
+
+            const { container, getByTestId } = render(
+                <CodeInput
+                    initialValues={initialValues}
+                    error={true}
+                    clearCodeOnError={true}
+                    dataTestId={testId}
+                />,
+            );
+
+            const inputs = getInputs(container);
+
+            expect(inputs[0]).toHaveValue(initialValues[0]);
+            expect(inputs[1]).toHaveValue(initialValues[1]);
+            expect(inputs[2]).toHaveValue(initialValues[2]);
+            expect(inputs[3]).toHaveValue(initialValues[3]);
+
+            fireEvent.animationEnd(getByTestId(testId));
+
+            await waitFor(() => {
+                expect(inputs[0]).toHaveValue('');
+                expect(inputs[1]).toHaveValue('');
+                expect(inputs[2]).toHaveValue('');
+                expect(inputs[3]).toHaveValue('');
+            });
         });
 
         it('should render disabled inputs', () => {

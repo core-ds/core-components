@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC, SVGProps } from 'react';
+import React, { ButtonHTMLAttributes, FC, Fragment, SVGProps } from 'react';
 import cn from 'classnames';
 
 import { Button, ButtonProps } from '@alfalab/core-components-button';
@@ -47,7 +47,11 @@ export const Field = ({
             <Button
                 {...buttonProps}
                 rightAddons={
-                    rightAddons ?? (
+                    <Fragment>
+                        {rightAddons && (
+                            <span className={styles.addonsContainer}>{rightAddons}</span>
+                        )}
+
                         <span
                             className={cn(
                                 styles.iconContainer,
@@ -56,7 +60,7 @@ export const Field = ({
                         >
                             <Icon data-test-id='picker-button-icon' />
                         </span>
-                    )
+                    </Fragment>
                 }
                 block={true}
                 view={view}

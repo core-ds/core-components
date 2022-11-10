@@ -5,6 +5,11 @@
     transition: transform 0.15s ease-in-out;
 }
 
+.addonsContainer {
+    display: flex;
+    margin-right: var(--gap-2xs);
+}
+
 .open {
     transform: var(--arrow-transform);
 }

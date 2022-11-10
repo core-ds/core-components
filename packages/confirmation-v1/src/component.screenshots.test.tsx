@@ -175,6 +175,7 @@ describe('ConfirmationV1 | interactions tests', () => {
             await page.locator('button', { hasText: 'Не приходит сообщение?' }).click();
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,

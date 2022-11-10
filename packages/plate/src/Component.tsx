@@ -11,7 +11,10 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Button, ComponentProps as ButtonProps } from '@alfalab/core-components-button';
+import { ComponentProps as ButtonProps } from '@alfalab/core-components-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { useFocus } from '@alfalab/hooks';
 
 import { ButtonList } from './components/button-list/component';
@@ -319,16 +322,19 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                     className={cn(styles.folder, {
                                         [styles.isFolded]: folded,
                                     })}
-                                />
+                                >
+                                    <ChevronDownMIcon />
+                                </div>
                             </div>
                         )}
 
                         {hasCloser && !foldable && (
                             <div className={styles.rightAddons}>
-                                <Button
+                                <IconButton
                                     className={styles.closer}
                                     aria-label='закрыть'
-                                    view='ghost'
+                                    icon={CrossMIcon}
+                                    size='xxs'
                                     onClick={handleClose}
                                 />
                             </div>
