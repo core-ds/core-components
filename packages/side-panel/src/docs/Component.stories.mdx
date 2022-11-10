@@ -10,29 +10,33 @@ import { SidePanelResponsive } from '@alfalab/core-components-side-panel/Compone
 import { SidePanelMobile as SidePanelMobileTS } from '../Component.mobile';
 import { SidePanelDesktop as SidePanelDesktopTS } from '../Component.desktop';
 import { SidePanelResponsive as SidePanelResponsiveTS } from '../Component.responsive';
+import { HeaderDesktop as HeaderTS } from '../components/header/Component.desktop';
+import { ContentDesktop as ContentTS } from '../components/content/Component.desktop';
+import { FooterDesktop as FooterTS } from '../components/footer/Component.desktop';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 
-
-<Meta
-    title='Компоненты/SidePanel'
-/>
+<Meta title='Компоненты/SidePanel' />
 
 export const Text = () => (
     <p style={{ margin: '0 0 16px' }}>
         Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
         Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-        потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
-        полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+        потенциально нарушающие требования Федерального закона «О противодействии легализации
+        (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
     </p>
 );
 
 export const Footer = () => (
     <>
-        <Button size='s' view='primary'>Сохранить</Button>
-        <Button size='s' view='secondary'>Отмена</Button>
+        <Button size='s' view='primary'>
+            Сохранить
+        </Button>
+        <Button size='s' view='secondary'>
+            Отмена
+        </Button>
     </>
 );
 
@@ -40,14 +44,14 @@ export const Content = () => {
     const [showMore, setShowMore] = React.useState(false);
     return (
         <>
-            <Text/>
+            <Text />
             {(showMore || boolean('showMore')) && (
                 <>
-                    <Text/>
-                    <Text/>
-                    <Text/>
-                    <Text/>
-                    <Text/>
+                    <Text />
+                    <Text />
+                    <Text />
+                    <Text />
+                    <Text />
                 </>
             )}
             <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
@@ -61,27 +65,40 @@ export const Content = () => {
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
-        const component = select('SidePanelComponent', ['SidePanelResponsive', 'SidePanelDesktop', 'SidePanelMobile'], 'SidePanelDesktop');
+        const component = select(
+            'SidePanelComponent',
+            ['SidePanelResponsive', 'SidePanelDesktop', 'SidePanelMobile'],
+            'SidePanelDesktop',
+        );
         const header = boolean('header', true);
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
         const trim = boolean('header.trim', true);
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
-        const footerLayout = select('footer.layout', ['start', 'center', 'space-between', 'column'], 'start');
+        const footerLayout = select(
+            'footer.layout',
+            ['start', 'center', 'space-between', 'column'],
+            'start',
+        );
         const SidePanelComponent = React.useMemo(() => {
             return {
-                'SidePanelResponsive': SidePanelResponsive,
-                'SidePanelDesktop': SidePanelDesktop,
-                'SidePanelMobile': SidePanelMobile,
-            }[component]
+                SidePanelResponsive: SidePanelResponsive,
+                SidePanelDesktop: SidePanelDesktop,
+                SidePanelMobile: SidePanelMobile,
+            }[component];
         }, [component]);
-        const props = SidePanelComponent !== SidePanelMobile ? {
-            size: select('size', ['s'], 's'),
-        } : {};
+        const props =
+            SidePanelComponent !== SidePanelMobile
+                ? {
+                      size: select('size', ['s'], 's'),
+                  }
+                : {};
         return (
             <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть сайд-панель</Button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>
+                    Открыть сайд-панель
+                </Button>
                 <SidePanelComponent
                     open={open || boolean('open')}
                     onClose={handleModalOpen}
@@ -100,7 +117,7 @@ export const Content = () => {
                         <Content />
                     </SidePanelComponent.Content>
                     {stickyFooter && (
-                        <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout} >
+                        <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout}>
                             <Footer />
                         </SidePanelComponent.Footer>
                     )}
@@ -110,8 +127,6 @@ export const Content = () => {
     })}
 </Story>
 
-
-
 <!-- Docs -->
 
 <ComponentHeader
@@ -120,7 +135,6 @@ export const Content = () => {
     package='@alfalab/core-components/side-panel'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
 />
-
 
 ```tsx
 import { SidePanelResponsive } from '@alfalab/core-components/side-panel/responsive';
@@ -132,5 +146,16 @@ import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
     description={<Description />}
     changelog={<Changelog />}
     cssVars={<CssVars css={vars} />}
-    props={<ArgsTable components={{SidePanelDesktop: SidePanelDesktopTS, SidePanelMobile: SidePanelMobileTS, SidePanelResponsive: SidePanelResponsiveTS}} />}
+    props={
+        <ArgsTable
+            components={{
+                SidePanelDesktop: SidePanelDesktopTS,
+                SidePanelMobile: SidePanelMobileTS,
+                SidePanelResponsive: SidePanelResponsiveTS,
+                'SidePanel.Header': HeaderTS,
+                'SidePanel.Content': ContentTS,
+                'SidePanel.Footer': FooterTS,
+            }}
+        />
+    }
 />

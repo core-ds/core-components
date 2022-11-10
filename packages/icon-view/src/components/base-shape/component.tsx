@@ -77,9 +77,9 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
     ) => {
         const imagePatternId = imageUrl && `${imageUrl.replace(/[^a-z]+/g, '')}_${size}`;
 
-        const hasTopAddons = Boolean(topAddons);
+        const hasTopAddons = Boolean(topAddons) && size > 24;
 
-        const hasBottomAddons = Boolean(bottomAddons);
+        const hasBottomAddons = Boolean(bottomAddons) && size > 24;
 
         return (
             <div

@@ -7,7 +7,7 @@ import styles from './desktop.module.css';
 
 export type ContentDesktopProps = ContentProps & {
     /**
-     * Размер
+     * Размер (только для desktop версии компонента)
      */
     size?: 's';
 };

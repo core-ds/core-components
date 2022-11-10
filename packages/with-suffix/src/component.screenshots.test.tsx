@@ -19,6 +19,7 @@ describe('WithSuffix', () => {
 
         try {
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,
