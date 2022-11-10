@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+###
+
+-   Добавлен пропс `stickyHeader` для фиксации заголовков при скролле
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.0.2
+
 ## 2.1.15
 
 ### Patch Changes

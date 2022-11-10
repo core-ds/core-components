@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   loader@3.0.3
+
 ## 12.2.3
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   slider@4.1.2
+
 ## 7.0.1
 
 ### Patch Changes

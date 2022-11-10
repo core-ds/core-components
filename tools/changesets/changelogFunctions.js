@@ -24,7 +24,10 @@ const getLinesFromSummary = (summary, prLink, showPrLink = true, isRootChangelog
 const getReleaseLine = async (changeset) => {
     const links = await getGithubLinks([changeset.commit]);
 
-    return getLinesFromSummary(changeset.summary, links[0]?.pull || '#');
+    return getLinesFromSummary(
+        changeset.summary,
+        links[0]?.pull || links[0]?.commit?.replace(/`/g, '') || '#',
+    );
 };
 
 async function getGithubLinks(commits) {

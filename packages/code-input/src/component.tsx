@@ -6,6 +6,7 @@ import React, {
     RefObject,
     useEffect,
     useImperativeHandle,
+    useRef,
     useState,
 } from 'react';
 import cn from 'classnames';
@@ -46,6 +47,12 @@ export type CodeInputProps = {
     dataTestId?: string;
 
     /**
+     * Флаг - нужно ли очищать код при возникновении ошибки
+     * @default true
+     */
+    clearCodeOnError?: boolean;
+
+    /**
      * Коллбек ввода значения
      */
     onChange?: (code: string) => void;
@@ -71,6 +78,9 @@ interface CredentialOtp extends Credential {
     code?: string;
 }
 
+/** После истечения этого времени код очищается */
+const CODE_ERROR_HINT_VISIBLE_DURATION = 200;
+
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
     (
         {
@@ -80,6 +90,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             fields = 4,
             initialValues = '',
             dataTestId,
+            clearCodeOnError = true,
             onChange,
             onComplete,
         },
@@ -90,6 +101,8 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             .map(() => createRef<HTMLInputElement>());
 
         const [values, setValues] = useState(initialValues.split(''));
+
+        const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
 
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             if (inputRef.current) {
@@ -271,6 +284,24 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             });
         };
 
+        const handleClearCode = () => {
+            clearErrorTimerId.current = setTimeout(() => {
+                focus();
+                /** Очищаем только в случае, если код не изменился */
+                setValues((prevState) => (values === prevState ? [] : prevState));
+            }, CODE_ERROR_HINT_VISIBLE_DURATION);
+        };
+
+        useEffect(
+            () => () => {
+                if (clearErrorTimerId.current) {
+                    clearTimeout(clearErrorTimerId.current);
+                    clearErrorTimerId.current = undefined;
+                }
+            },
+            [error],
+        );
+
         useEffect(() => {
             let ac: AbortController | null = null;
 
@@ -299,7 +330,11 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
         }, []);
 
         return (
-            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
+            <div
+                className={cn(styles.component, className)}
+                data-test-id={dataTestId}
+                onAnimationEnd={clearCodeOnError ? handleClearCode : undefined}
+            >
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
                     {/* eslint-disable react/no-array-index-key */}
                     {new Array(fields).fill('').map((_, index) => (
