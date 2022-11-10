@@ -29,30 +29,21 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
             <Typography.Title tag='h1' view='xlarge'>{name}</Typography.Title>
             <Typography.Text tag='p' view='primary-medium' className={styles.text} >{children}</Typography.Text>
             <div className={styles.links}>
-                <div className={styles.link}>
-                    <div
-                        className={cn(styles.design, {
-                            [styles.commonLink]: !design,
-                        })}
-                    >
-                        <a
-                            href={
-                                design ||
-                                'https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components'
-                            }
-                            target='_blank'
-                        >
-                            Figma
-                        </a>
-                    </div>
-                </div>
-                <div className={styles.link}>
-                    <div className={styles.github}>
-                        <a href={githubLink} target='_blank'>
-                            Github
-                        </a>
-                    </div>
-                </div>
+                <a 
+                    className={cn(styles.design, {
+                        [styles.commonLink]: !design,
+                    })}
+                    href={
+                        design ||
+                        'https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components'
+                    }
+                    target='_blank'
+                >
+                    Figma
+                </a>
+                <a className={styles.github} href={githubLink} target='_blank'>
+                    Github
+                </a>
             </div>
 
             <Space direction='horizontal' align='center' className={styles.info}>
@@ -70,6 +61,9 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
                             {usages[name]?.projects}{' '}
                             {pluralize(usages[name]?.projects, 'проекте', 'проектах', 'проектах')}
                         </Link>
+                        {' и '}
+                        <b>~{usages[name]?.imports}</b>{' '}
+                        {pluralize(usages[name]?.imports, 'файле', 'файлах', 'файлах')}
                     </Typography.Text>
                 )}
             </Space>

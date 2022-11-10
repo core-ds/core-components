@@ -55,7 +55,7 @@ export const Tabs: FC<Props> = ({
     const renderTabs = (): TabsResponsiveProps['children'] => {
         return [
             <Tab title={TabTitle[TabName.DESCRIPTION]} id={TabName.DESCRIPTION} key='description'>
-                <div style={{ marginTop: '40px' }}>{description}</div>
+                <div style={{ marginTop: '30px' }}>{description}</div>
             </Tab>,
             props ? (
                 <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS} key='props'>
@@ -64,7 +64,7 @@ export const Tabs: FC<Props> = ({
             ) : null,
             cssVars ? (
                 <Tab title={TabTitle[TabName.CSS_VARS]} id={TabName.CSS_VARS} key='css-vars'>
-                    <div style={{ marginTop: '40px' }}>{cssVars}</div>
+                    <div style={{ marginTop: '30px' }}>{cssVars}</div>
                 </Tab>
             ) : null,
             development ? (
@@ -74,7 +74,7 @@ export const Tabs: FC<Props> = ({
             ) : null,
             changelog ? (
                 <Tab title={TabTitle[TabName.CHANGELOG]} id={TabName.CHANGELOG} key='changelog'>
-                    <div style={{ marginTop: '40px' }}>
+                    <div style={{ marginTop: '30px' }}>
                         <Changelog content={changelog} />
                     </div>
                 </Tab>

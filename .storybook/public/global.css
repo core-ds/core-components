@@ -352,8 +352,8 @@ h1.sbdocs-title {
 h2.sbdocs-h2,
 h2.sbdocs-h2:first-of-type {
     position: relative !important;
-    margin: var(--gap-4xl) var(--gap-m-neg) var(--gap-m);
-    padding: var(--gap-s) var(--gap-m);
+    margin: var(--gap-xl) var(--gap-m-neg) var(--gap-s);
+    padding: 0 var(--gap-m);
     color: var(--color-light-text-primary);
 
     /* font-size: 24px; */

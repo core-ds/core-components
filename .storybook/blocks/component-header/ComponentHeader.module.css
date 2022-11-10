@@ -15,19 +15,8 @@
     margin-top: var(--gap-xs);
 }
 
-.design {
-    background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
-    padding: var(--gap-2xs) var(--gap-xs) var(--gap-2xs) var(--gap-l);
-}
-
 .commonLink {
     opacity: 0.8;
-}
-
-.github {
-    background: url(https://github.githubassets.com/favicons/favicon.svg) no-repeat 0 50%;
-    background-size: 16px 16px;
-    padding: var(--gap-2xs) var(--gap-xs) var(--gap-2xs) var(--gap-l);
 }
 
 .links {
@@ -36,22 +25,29 @@
     line-height: 24px;
 }
 
-.links > div {
-    margin-right: var(--gap-xs);
-}
-
 .links a {
-    color: var(--color-light-text-link);
-    border-bottom: 1px solid var(--color-light-text-link-alpha-30);
+    display: block;
+    padding: var(--gap-2xs) var(--gap-xs) var(--gap-2xs) var(--gap-2xl);
+    margin-right: var(--gap-xs);
     text-decoration: none;
-}
-
-.link {
-    padding: var(--gap-2xs);
     border: 1px solid var(--color-light-border-secondary);
     border-radius: 6px;
+    color: var(--color-light-text-link);
 }
 
 .usageLink * {
     border-bottom: 0;
+}
+
+.links {
+    position: relative;
+}
+
+.github {
+    background: url(https://github.githubassets.com/favicons/favicon.svg) no-repeat 10% 50%;
+    background-size: 16px 16px;
+}
+
+.design {
+    background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 10% 50%;
 }
