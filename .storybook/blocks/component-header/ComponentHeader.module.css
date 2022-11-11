@@ -30,9 +30,11 @@
     padding: var(--gap-2xs) var(--gap-xs) var(--gap-2xs) var(--gap-2xl);
     margin-right: var(--gap-xs);
     text-decoration: none;
-    border: 1px solid var(--color-light-border-secondary);
+    border: 1px solid var(--color-light-bg-tertiary);
     border-radius: 6px;
     color: var(--color-light-text-link);
+    background-position: 10% 50%;
+    background-repeat: no-repeat;
 }
 
 .usageLink * {
@@ -44,10 +46,20 @@
 }
 
 .github {
-    background: url(https://github.githubassets.com/favicons/favicon.svg) no-repeat 10% 50%;
+    background-image: url(https://github.githubassets.com/favicons/favicon.svg);
     background-size: 16px 16px;
 }
 
 .design {
-    background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 10% 50%;
+    background-image: url(https://static.figma.com/app/icon/1/favicon.svg);
+}
+
+.github:hover,
+.design:hover {
+    background-color: var(--color-light-bg-primary-inverted-alpha-7);
+}
+
+.github:active,
+.design:active {
+    background-color: var(--color-light-bg-primary-inverted-alpha-15);
 }
