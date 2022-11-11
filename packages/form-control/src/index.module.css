@@ -231,8 +231,7 @@
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .component {
-        float: left;
-        clear: left;
+        display: inline-block;
     }
 
     .inner:after {
