@@ -31,4 +31,3 @@ docker exec playwright yarn jest --config=jest.screenshots.config.js "$@"
 check_error
 
 docker stop playwright
-
