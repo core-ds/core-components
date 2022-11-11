@@ -1,5 +1,26 @@
 # Change Log
 
+## 10.0.0
+
+### Major Changes
+
+### [#344](https://github.com/core-ds/core-components/pull/344)
+
+-   При наличии правого аддона, дефолтная иконка кнопки не исчезает
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.1
+    -   select@13.0.3
+
+## 9.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.0.2
+
 ## 9.0.1
 
 ### Patch Changes

@@ -7,7 +7,7 @@ import { OptionsList, OptionsListProps, Select, useLazyLoading } from '../../ind
 
 const LIMIT = 10;
 const TIME_TO_FETCH = 250;
-const sleep = () => new Promise(r => setTimeout(r, TIME_TO_FETCH));
+const sleep = () => new Promise((r) => setTimeout(r, TIME_TO_FETCH));
 const mockOptions = (offset: number) => ({
     options: Array(LIMIT)
         .fill(0)
@@ -138,7 +138,7 @@ describe('Select useLazyLoading hook', () => {
         await waitForElementToBeRemoved(() => getAllByTestId('skeleton'), {
             timeout: TIME_TO_FETCH * 2,
         }).then(async () => {
-            const opts = getAllByText(content => content.startsWith('Option number'));
+            const opts = getAllByText((content) => content.startsWith('Option number'));
             expect(queryAllByTestId('skeleton')).toHaveLength(0);
             expect(opts).toHaveLength(LIMIT);
         });
@@ -164,7 +164,7 @@ describe('Select useLazyLoading hook', () => {
             expect(getAllByTestId('select-option')).toHaveLength(LIMIT * 2);
 
             expect(getAllByTestId('skeleton')).toHaveLength(LIMIT);
-            const oldOpts = getAllByText(content => content.startsWith('Option number'));
+            const oldOpts = getAllByText((content) => content.startsWith('Option number'));
             expect(oldOpts).toHaveLength(LIMIT);
 
             expect(fetchOptions).toHaveBeenCalledWith(1, LIMIT, '');
@@ -182,7 +182,7 @@ describe('Select useLazyLoading hook', () => {
 
         await waitFor(() => {
             expect(getAllByTestId('select-option')).toHaveLength(LIMIT * 2);
-            const newOpts = getAllByText(content => content.startsWith('Option number'));
+            const newOpts = getAllByText((content) => content.startsWith('Option number'));
             expect(newOpts).toHaveLength(LIMIT * 2);
         });
 

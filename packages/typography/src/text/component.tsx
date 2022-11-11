@@ -1,4 +1,4 @@
-import React, { forwardRef,HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import { Color } from '../colors';

@@ -60,10 +60,6 @@
     flex-grow: 1;
 }
 
-a.loading {
-    pointer-events: none;
-}
-
 .loader {
     position: absolute;
 }
@@ -225,7 +221,7 @@ a.loading {
 
 /* Disabled */
 
-.component:disabled {
+.component[disabled] {
     cursor: var(--disabled-cursor);
 
     & * {

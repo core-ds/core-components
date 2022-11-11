@@ -1,5 +1,26 @@
 # Change Log
 
+## 9.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.0.3
+    -   input@11.0.2
+    -   input-autocomplete@9.0.3
+
+## 9.0.2
+
+### Patch Changes
+
+###
+
+-   Исправлено форматирование номера в intl-phone-input, который передаётся снаружи компонента в props `value`
+
+-   Обновлены зависимости
+    -   select@13.0.2
+    -   input-autocomplete@9.0.2
+
 ## 9.0.1
 
 ### Patch Changes

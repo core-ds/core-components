@@ -46,7 +46,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             }
 
             if (uncontrolled) {
-                setStatePasswordVisible(visible => !visible);
+                setStatePasswordVisible((visible) => !visible);
             }
         }, [passwordVisible, uncontrolled, onPasswordVisibleChange]);
 

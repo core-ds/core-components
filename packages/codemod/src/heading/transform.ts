@@ -10,7 +10,7 @@ import {
     Transform,
 } from 'jscodeshift';
 
-import { addStringAttribute, log,renameAttribute, transformTypographyImports } from '../utils';
+import { addStringAttribute, log, renameAttribute, transformTypographyImports } from '../utils';
 
 const sizes = {
     xs: 'xsmall',
@@ -160,7 +160,7 @@ const headingTransform: Transform = (fileInfo, api) => {
     /**
      * Находим использование компонента Heading и меняем ему пропсы
      */
-    source.findJSXElements('Heading').forEach(path => {
+    source.findJSXElements('Heading').forEach((path) => {
         j(path).replaceWith((path: ASTPath<JSXElement>) => {
             const { node } = path;
 

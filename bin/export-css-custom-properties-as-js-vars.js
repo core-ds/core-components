@@ -25,7 +25,7 @@ postcss()
         shell.exec(`tsc --typeRoots [] --declaration --emitDeclarationOnly --allowJs ${jsPath}`);
         process.exit(0);
     })
-    .catch(reason => {
+    .catch((reason) => {
         console.log(reason);
         process.exit(1);
     });

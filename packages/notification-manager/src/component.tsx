@@ -1,5 +1,5 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { CSSTransition,TransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
 import { Portal } from '@alfalab/core-components-portal';
@@ -57,38 +57,38 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
         },
         ref,
     ) => (
-            <Stack value={zIndex}>
-                {computedZIndex => (
-                    <Portal>
-                        <div
-                            className={cn(styles.component, className)}
-                            ref={ref}
-                            data-test-id={dataTestId}
-                            style={{
-                                zIndex: computedZIndex,
-                                ...style,
-                            }}
-                            {...restProps}
-                        >
-                            <TransitionGroup>
-                                {notifications.map(element => (
-                                    <CSSTransition
-                                        key={element.props.id}
-                                        timeout={400}
-                                        classNames={CSS_TRANSITION_CLASS_NAMES}
-                                        unmountOnExit={true}
-                                    >
-                                        <Notification
-                                            element={element}
-                                            className={styles.notification}
-                                            onRemoveNotification={onRemoveNotification}
-                                        />
-                                    </CSSTransition>
-                                ))}
-                            </TransitionGroup>
-                        </div>
-                    </Portal>
-                )}
-            </Stack>
-        ),
+        <Stack value={zIndex}>
+            {(computedZIndex) => (
+                <Portal>
+                    <div
+                        className={cn(styles.component, className)}
+                        ref={ref}
+                        data-test-id={dataTestId}
+                        style={{
+                            zIndex: computedZIndex,
+                            ...style,
+                        }}
+                        {...restProps}
+                    >
+                        <TransitionGroup>
+                            {notifications.map((element) => (
+                                <CSSTransition
+                                    key={element.props.id}
+                                    timeout={400}
+                                    classNames={CSS_TRANSITION_CLASS_NAMES}
+                                    unmountOnExit={true}
+                                >
+                                    <Notification
+                                        element={element}
+                                        className={styles.notification}
+                                        onRemoveNotification={onRemoveNotification}
+                                    />
+                                </CSSTransition>
+                            ))}
+                        </TransitionGroup>
+                    </div>
+                </Portal>
+            )}
+        </Stack>
+    ),
 );

@@ -3,8 +3,8 @@ import React, {
     forwardRef,
     MutableRefObject,
     ReactNode,
-    useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
@@ -13,7 +13,7 @@ import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
-import { BasePlacement, ModifierArguments,Obj, VariationPlacement } from '@popperjs/core';
+import { BasePlacement, ModifierArguments, Obj, VariationPlacement } from '@popperjs/core';
 import cn from 'classnames';
 import maxSize from 'popper-max-size-modifier';
 
@@ -215,7 +215,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
         const updatePopperRef = useRef<() => void>();
 
-        const getModifiers = useCallback(() => {
+        const popperModifiers = useMemo(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
 
             if (withArrow) {
@@ -250,24 +250,18 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             arrowElement,
         ]);
 
-        const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
-            referenceElement,
-            popperElement,
-            {
-                placement: position,
-                modifiers: getModifiers(),
-            },
-        );
+        const {
+            styles: popperStyles,
+            attributes,
+            update: updatePopper,
+        } = usePopper(referenceElement, popperElement, {
+            placement: position,
+            modifiers: popperModifiers,
+        });
 
         if (updatePopper) {
             updatePopperRef.current = updatePopper;
         }
-
-        const updatePopoverWidth = useCallback(() => {
-            if (useAnchorWidth && updatePopperRef.current) {
-                updatePopperRef.current();
-            }
-        }, [useAnchorWidth]);
 
         useEffect(() => {
             setReferenceElement(anchorElement);
@@ -288,6 +282,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
         useEffect(() => {
             if (useAnchorWidth) {
+                const updatePopoverWidth = () => updatePopperRef.current?.();
                 const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
                 const observer = new ResizeObserver(updatePopoverWidth);
 
@@ -301,7 +296,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             }
 
             return () => ({});
-        }, [anchorElement, updatePopoverWidth, useAnchorWidth]);
+        }, [anchorElement, useAnchorWidth]);
 
         /**
          * По дизайну, если у тултипа позиционирование -start/-end, то стрелочка немного сдвигается вбок.
@@ -323,38 +318,39 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         }, [referenceElement, position]);
 
         const renderContent = (computedZIndex: number, style?: CSSProperties) => (
-                <div
-                    ref={mergeRefs([ref, setPopperElement])}
-                    style={{
-                        zIndex: computedZIndex,
-                        width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
-                        ...popperStyles.popper,
-                    }}
-                    data-test-id={dataTestId}
-                    className={cn(styles.component, className, {
-                        [styles.arrowShift]: arrowShift,
-                    })}
-                    {...attributes.popper}
-                >
-                    <div className={cn(styles.inner, popperClassName)} style={style}>
-                        <div className={cn({ [styles.scrollableContent]: availableHeight })}>
-                            {children}
-                        </div>
-
-                        {withArrow && (
-                            <div
-                                ref={setArrowElement}
-                                style={popperStyles.arrow}
-                                className={cn(styles.arrow, arrowClassName)}
-                            />
-                        )}
+            <div
+                ref={mergeRefs([ref, setPopperElement])}
+                style={{
+                    zIndex: computedZIndex,
+                    width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
+                    ...popperStyles.popper,
+                    ...(popperStyles.popper?.transform ? null : { visibility: 'hidden' }),
+                }}
+                data-test-id={dataTestId}
+                className={cn(styles.component, className, {
+                    [styles.arrowShift]: arrowShift,
+                })}
+                {...attributes.popper}
+            >
+                <div className={cn(styles.inner, popperClassName)} style={style}>
+                    <div className={cn({ [styles.scrollableContent]: availableHeight })}>
+                        {children}
                     </div>
+
+                    {withArrow && (
+                        <div
+                            ref={setArrowElement}
+                            style={popperStyles.arrow}
+                            className={cn(styles.arrow, arrowClassName)}
+                        />
+                    )}
                 </div>
-            );
+            </div>
+        );
 
         return (
             <Stack value={zIndex}>
-                {computedZIndex => (
+                {(computedZIndex) => (
                     <Portal getPortalContainer={getPortalContainer}>
                         {withTransition ? (
                             <CSSTransition

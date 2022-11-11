@@ -11,10 +11,10 @@ describe(
     'IconView | SuperEllipse size, border',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'Iconview',
+            componentName: 'IconView',
             subComponentName: 'SuperEllipse',
             knobs: {
-                size: [48, 64, 80, 128],
+                size: [24, 48, 64, 80, 128],
                 border: [true, false],
             },
             testStory: false,
@@ -29,7 +29,7 @@ describe(
     'IconView | SuperEllipse size, border, addons',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'Iconview',
+            componentName: 'IconView',
             subComponentName: 'SuperEllipse',
             knobs: {
                 size: [48, 64, 80, 128],
@@ -49,10 +49,10 @@ describe(
     'IconView | Circle size, border',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'Iconview',
+            componentName: 'IconView',
             subComponentName: 'Circle',
             knobs: {
-                size: [48, 64, 80],
+                size: [24, 48, 64, 80, 128],
                 border: [true, false],
             },
             testStory: false,
@@ -67,7 +67,7 @@ describe(
     'IconView | Circle size, border, addons',
     screenshotTesting({
         cases: generateTestCases({
-            componentName: 'Iconview',
+            componentName: 'IconView',
             subComponentName: 'Circle',
             knobs: {
                 size: [48, 64, 80],

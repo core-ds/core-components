@@ -18,4 +18,6 @@ export type FlagIconProps = {
 /**
  * Компонент флага в виде иконки.
  */
-export const FlagIcon: FC<FlagIconProps> = ({ country = '', className }) => <span className={cn(styles.flagIcon, styles[country], className)} />;
+export const FlagIcon: FC<FlagIconProps> = ({ country = '', className }) => (
+    <span className={cn(styles.flagIcon, styles[country], className)} />
+);

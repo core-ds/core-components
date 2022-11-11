@@ -32,8 +32,10 @@ export const Legends = React.forwardRef<HTMLUListElement, Props>(
     ({ legend, series, id, charts, toggleChart }, ref): React.ReactElement => {
         const style: React.CSSProperties = {
             textAlign: legend.align || 'center',
-            transform: `translateY(${(legend?.marginTop ? legend.marginTop : 0) *
-                (legend.verticalAlign === 'top' ? -1 : 1)}px)`,
+            transform: `translateY(${
+                (legend?.marginTop ? legend.marginTop : 0) *
+                (legend.verticalAlign === 'top' ? -1 : 1)
+            }px)`,
         };
 
         return (

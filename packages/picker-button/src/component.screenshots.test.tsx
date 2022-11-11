@@ -35,11 +35,7 @@ describe('PickerButton', () => {
 
             await page.click('button[class*=component]');
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-            });
+            await matchHtml({ context, page, expect, css });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -54,14 +50,10 @@ describe('PickerButton', () => {
 describe('PickerButton', () => {
     it('mobile opened', async () => {
         const pageUrl = createStorybookUrl({
-            componentName: 'Pickerbutton',
+            componentName: 'PickerButton',
             subComponentName: 'PickerButtonMobile',
             testStory: false,
-            knobs: {
-                block: true,
-                options: JSON.stringify(options),
-                label: 'Открыть',
-            },
+            knobs: { label: 'Открыть' },
         });
 
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
@@ -72,9 +64,13 @@ describe('PickerButton', () => {
             await page.click('button[class*=component]');
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,
+                screenshotOpts: {
+                    fullPage: true,
+                },
             });
         } catch (error) {
             // eslint-disable-next-line no-console

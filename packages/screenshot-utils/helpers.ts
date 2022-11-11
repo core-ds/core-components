@@ -8,6 +8,8 @@ import {
     WebKitBrowser,
     ChromiumBrowser,
     chromium,
+    Route,
+    Request,
 } from 'playwright';
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
@@ -32,11 +34,6 @@ type CloseBrowserParams = {
     browser: Browser;
 };
 
-const CI = process.env.CI === 'true';
-
-const serverHost = CI ? 'https://digital.alfabank.ru' : 'http://digital';
-const playwrightUrl = `${serverHost}/playwright`;
-
 export const defaultViewport = { width: 1024, height: 768 };
 
 /**
@@ -52,11 +49,12 @@ export const customSnapshotIdentifier = ({
 const getPageHtml = async (page: Page, css?: string) => {
     const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
 
-    return `<html><head><style>${css}</style>${head}</head><body>${body}</body></html>`;
+    return `<html><head><style>${css}</style>${head}</head><body style="font-family: var(--font-family)">${body}</body></html>`;
 };
 
 export type MatchHtmlParams = {
     page: Page;
+    context: BrowserContext;
     css?: string;
     expect: any;
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
@@ -76,8 +74,23 @@ const screenshotDefaultOpts = {
     omitBackground: false,
 };
 
+const proxyAssets = async (route: Route, request: Request) => {
+    try {
+        const img = await axios.get(request.url(), { responseType: 'arraybuffer' });
+
+        await route.fulfill({
+            status: 200,
+            body: img.data,
+            contentType: 'image/svg+xml',
+        });
+    } catch (err) {
+        await route.abort();
+    }
+};
+
 export const matchHtml = async ({
     page,
+    context,
     css,
     expect,
     matchImageSnapshotOptions,
@@ -87,33 +100,23 @@ export const matchHtml = async ({
 }: MatchHtmlParams) => {
     let pageHtml = await getPageHtml(page, css);
 
-    // FIXME: servicecdn.ru недоступен на playwright сервере
-    pageHtml = pageHtml.replace(/alfabank\.servicecdn\.ru/g, 'alfabank.st');
+    let newPage = await context.newPage();
 
-    const image = await axios.post(
-        playwrightUrl,
-        {
-            data: pageHtml,
-            screenshotOpts,
-            evaluate: evaluate && evaluate.toString(),
-            viewport,
-        },
-        {
-            responseType: 'arraybuffer',
-            headers: {
-                accept: 'application/json',
-            },
-            auth: CI
-                ? {
-                      username: process.env.CI_USER_NAME as string,
-                      password: process.env.CI_USER_PASSWORD as string,
-                  }
-                : undefined,
-        },
-    );
+    await Promise.all([
+        newPage.setViewportSize(viewport),
+        newPage.route(/alfabank\.servicecdn\.ru/, proxyAssets),
+        newPage.setContent(pageHtml),
+    ]);
+
+    if (evaluate) {
+        await evaluate(newPage);
+    }
+
+    // отключаем анимацию.
+    const image = await newPage.screenshot({ ...screenshotOpts, animations: 'disabled' });
 
     try {
-        expect(image.data).toMatchImageSnapshot({
+        expect(image).toMatchImageSnapshot({
             customSnapshotIdentifier,
             ...matchImageSnapshotOptions,
         });
@@ -132,9 +135,7 @@ export const openBrowserPage = async (
     const page = await context.newPage();
 
     const [mainCss, vendorCss] = await Promise.all([
-        axios.get(STYLES_URL, {
-            responseType: 'text',
-        }),
+        axios.get(STYLES_URL, { responseType: 'text' }),
         axios.get(VENDOR_STYLES_URL, { responseType: 'text' }),
         page.goto(pageUrl),
     ]);

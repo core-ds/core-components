@@ -19,7 +19,7 @@ export function generateCombos<T>(
 
 export function combosToProps(combos: Array<Array<[unknown, number]>>, names: string[]) {
     return combos.map(
-        combo =>
+        (combo) =>
             combo.reduce(
                 (props, [value], nameIndex) => ({
                     ...props,

@@ -10,7 +10,7 @@ export type ResponsiveConfirmationProps = Omit<ConfirmationProps, 'confirmationS
 
 export type ConfirmationMedia = 'desktop' | 'mobile';
 
-export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = props => {
+export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = (props) => {
     const [view] = useMedia<ConfirmationMedia>(
         [
             ['mobile', '(max-width: 1023px)'],

@@ -34,7 +34,7 @@ describe('Calendar', () => {
             expect(render(<Calendar value={defaultValue} />).container).toMatchSnapshot();
         });
 
-        it.each(['days', 'months', 'years'])('should match defaultView="%s" snapshot', view => {
+        it.each(['days', 'months', 'years'])('should match defaultView="%s" snapshot', (view) => {
             expect(
                 render(
                     <Calendar
@@ -46,7 +46,7 @@ describe('Calendar', () => {
             ).toMatchSnapshot();
         });
 
-        it.each(['month-only', 'full'])('should match selectorView="%s" snapshot', view => {
+        it.each(['month-only', 'full'])('should match selectorView="%s" snapshot', (view) => {
             expect(
                 render(<Calendar value={defaultValue} selectorView={view as SelectorView} />)
                     .container,
@@ -303,7 +303,7 @@ describe('Calendar', () => {
 
             fireEvent.mouseEnter(days[highlightedDate.getDate() - 1]);
 
-            days.forEach(day => {
+            days.forEach((day) => {
                 const date = +(day.textContent || '');
 
                 if (date < selectedDay || date > highlightedDay) {
@@ -344,7 +344,7 @@ describe('Calendar', () => {
 
             fireEvent.mouseEnter(days[highlightedDate.getDate() - 1]);
 
-            days.forEach(day => {
+            days.forEach((day) => {
                 const date = +(day.textContent || '');
 
                 if (date < highlightedDay || date > selectedDay) {
@@ -387,7 +387,7 @@ describe('Calendar', () => {
 
             fireEvent.mouseEnter(days[highlightedDate.getDate() - 1]);
 
-            days.forEach(day => {
+            days.forEach((day) => {
                 const date = +(day.textContent || '');
 
                 if (date < selectedDay || date > highlightedDay) {
@@ -430,7 +430,7 @@ describe('Calendar', () => {
 
             fireEvent.mouseEnter(days[highlightedDay - 1]);
 
-            days.forEach(day => {
+            days.forEach((day) => {
                 const date = +(day.textContent || '');
 
                 if (date < fromDay || date > toDay) {
@@ -506,7 +506,7 @@ describe('Calendar', () => {
 
         const { queryByText } = render(<Calendar value={defaultValue} offDays={offDays} />);
 
-        offDays.forEach(day => {
+        offDays.forEach((day) => {
             const dayOfMonth = day.getDate().toString();
             expect(queryByText(dayOfMonth)?.parentNode).toBeDisabled();
         });
@@ -521,7 +521,7 @@ describe('Calendar', () => {
 
         const { queryByText } = render(<Calendar value={defaultValue} events={events} />);
 
-        events.forEach(day => {
+        events.forEach((day) => {
             const dayOfMonth = day.getDate().toString();
             expect(queryByText(dayOfMonth)?.firstElementChild).toHaveClass('dot');
         });
@@ -645,7 +645,7 @@ describe('Calendar', () => {
         describe('DaysTable', () => {
             it.each(Object.keys(keyCodes))(
                 '%s should focus first non-disabled day of month if there is not focused day',
-                async key => {
+                async (key) => {
                     const { container } = render(
                         <Calendar
                             defaultMonth={defaultDate.getTime()}
@@ -669,7 +669,7 @@ describe('Calendar', () => {
 
             it.each(Object.keys(keyCodes))(
                 '%s should focus selected day if there is not focused day',
-                async key => {
+                async (key) => {
                     render(<Calendar value={defaultDate.getTime()} />);
 
                     await pressTab();
@@ -832,9 +832,7 @@ describe('Calendar', () => {
 
             describe('ArrowUp', () => {
                 it('should move focus to prev week', async () => {
-                    const prevWeekDate = subDays(defaultValue, 7)
-                        .getDate()
-                        .toString();
+                    const prevWeekDate = subDays(defaultValue, 7).getDate().toString();
 
                     render(<Calendar value={defaultValue} />);
 
@@ -889,9 +887,7 @@ describe('Calendar', () => {
 
             describe('ArrowDown', () => {
                 it('should move focus to next week', async () => {
-                    const nextWeekDate = addDays(defaultValue, 7)
-                        .getDate()
-                        .toString();
+                    const nextWeekDate = addDays(defaultValue, 7).getDate().toString();
 
                     render(<Calendar value={defaultValue} />);
 
@@ -1100,7 +1096,7 @@ describe('Calendar', () => {
         describe('MonthsTable', () => {
             it.each(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'])(
                 '%s should focus selected or current month if there is not focused month',
-                async key => {
+                async (key) => {
                     const { getByText, container } = render(
                         <Calendar defaultMonth={defaultDate.getTime()} />,
                     );
@@ -1131,7 +1127,7 @@ describe('Calendar', () => {
 
                     keyDown(getActiveElement(), 'ArrowLeft');
 
-                    ['Октябрь', 'Сентябрь'].forEach(month => {
+                    ['Октябрь', 'Сентябрь'].forEach((month) => {
                         keyDown(getActiveElement(), 'ArrowLeft');
                         expect(getActiveElement().textContent).toBe(month);
                     });
@@ -1148,7 +1144,7 @@ describe('Calendar', () => {
 
                     keyDown(getActiveElement(), 'ArrowRight');
 
-                    ['Декабрь', 'Декабрь'].forEach(month => {
+                    ['Декабрь', 'Декабрь'].forEach((month) => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         expect(getActiveElement().textContent).toBe(month);
                     });
@@ -1165,7 +1161,7 @@ describe('Calendar', () => {
 
                     keyDown(getActiveElement(), 'ArrowUp');
 
-                    ['Август', 'Май', 'Февраль', 'Февраль'].forEach(month => {
+                    ['Август', 'Май', 'Февраль', 'Февраль'].forEach((month) => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         expect(getActiveElement().textContent).toBe(month);
                     });
@@ -1184,7 +1180,7 @@ describe('Calendar', () => {
 
                     keyDown(getActiveElement(), 'ArrowDown');
 
-                    ['Апрель', 'Июль', 'Октябрь', 'Октябрь'].forEach(month => {
+                    ['Апрель', 'Июль', 'Октябрь', 'Октябрь'].forEach((month) => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         expect(getActiveElement().textContent).toBe(month);
                     });
@@ -1195,7 +1191,7 @@ describe('Calendar', () => {
         describe('YearsTable', () => {
             it.each(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'])(
                 '%s should focus selected or current year if there is not focused year',
-                async key => {
+                async (key) => {
                     const { getByText, container } = render(
                         <Calendar defaultMonth={defaultDate.getTime()} />,
                     );
@@ -1226,7 +1222,7 @@ describe('Calendar', () => {
 
                     keyDown(getActiveElement(), 'ArrowRight');
 
-                    ['2019', '2018', '2017'].forEach(year => {
+                    ['2019', '2018', '2017'].forEach((year) => {
                         keyDown(getActiveElement(), 'ArrowRight');
                         expect(getActiveElement().textContent).toBe(year);
                     });
@@ -1245,7 +1241,7 @@ describe('Calendar', () => {
                     keyDown(getActiveElement(), 'ArrowRight');
                     keyDown(getActiveElement(), 'ArrowRight');
 
-                    ['2019', '2020'].forEach(year => {
+                    ['2019', '2020'].forEach((year) => {
                         keyDown(getActiveElement(), 'ArrowLeft');
                         expect(getActiveElement().textContent).toBe(year);
                     });
@@ -1264,7 +1260,7 @@ describe('Calendar', () => {
                     keyDown(getActiveElement(), 'ArrowDown');
                     keyDown(getActiveElement(), 'ArrowDown');
 
-                    ['2017', '2020'].forEach(year => {
+                    ['2017', '2020'].forEach((year) => {
                         keyDown(getActiveElement(), 'ArrowUp');
                         expect(getActiveElement().textContent).toBe(year);
                     });
@@ -1281,7 +1277,7 @@ describe('Calendar', () => {
 
                     keyDown(getActiveElement(), 'ArrowDown');
 
-                    ['2017', '2014'].forEach(year => {
+                    ['2017', '2014'].forEach((year) => {
                         keyDown(getActiveElement(), 'ArrowDown');
                         expect(getActiveElement().textContent).toBe(year);
                     });

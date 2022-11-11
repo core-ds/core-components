@@ -1,5 +1,25 @@
 # Change Log
 
+## 13.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.0.3
+    -   modal@6.0.12
+    -   checkbox@3.0.5
+    -   form-control@9.0.1
+    -   button@7.0.1
+    -   input@11.0.2
+    -   bottom-sheet@5.1.9
+
+## 13.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.1.8
+
 ## 13.0.1
 
 ### Patch Changes

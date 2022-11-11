@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@9.0.1
+    -   select@13.0.3
+
+## 7.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.0.2
+
 ## 7.0.1
 
 ### Patch Changes

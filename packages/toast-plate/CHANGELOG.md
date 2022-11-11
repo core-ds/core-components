@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.0.1
+
+## 5.1.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@4.0.3
+
 ## 5.1.4
 
 ### Patch Changes

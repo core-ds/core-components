@@ -10,7 +10,7 @@ import {
     Transform,
 } from 'jscodeshift';
 
-import { addStringAttribute, log,renameAttribute, transformTypographyImports } from '../utils';
+import { addStringAttribute, log, renameAttribute, transformTypographyImports } from '../utils';
 
 const componentViewMap = {
     small: 'primary-small',
@@ -78,7 +78,7 @@ const paragraphTransform: Transform = (fileInfo, api) => {
     /**
      * Находим использование компонента Heading и меняем ему пропсы
      */
-    source.findJSXElements('Paragraph').forEach(path => {
+    source.findJSXElements('Paragraph').forEach((path) => {
         j(path).replaceWith((path: ASTPath<JSXElement>) => {
             const { node } = path;
 

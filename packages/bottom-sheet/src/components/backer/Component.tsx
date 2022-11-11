@@ -41,15 +41,15 @@ export const Backer: React.FC<BackerProps> = ({
     onClick,
     ...restProps
 }) => (
-        <div className={cn(styles.backer, className)}>
-            <IconButton
-                size={size}
-                className={styles.button}
-                aria-label='назад'
-                onClick={onClick}
-                icon={icon}
-                dataTestId={dataTestId}
-                {...restProps}
-            />
-        </div>
-    );
+    <div className={cn(styles.backer, className)}>
+        <IconButton
+            size={size}
+            className={styles.button}
+            aria-label='назад'
+            onClick={onClick}
+            icon={icon}
+            dataTestId={dataTestId}
+            {...restProps}
+        />
+    </div>
+);

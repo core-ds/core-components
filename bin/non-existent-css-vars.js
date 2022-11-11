@@ -13,7 +13,7 @@ glob(
     (err, files) => {
         const nonExistentVars = {};
 
-        files.forEach(file => {
+        files.forEach((file) => {
             const re = /(?<=var\().+?(?=\))/g;
             const data = fs.readFileSync(file).toString();
             let result;
@@ -29,8 +29,9 @@ glob(
         });
 
         shell.exec(
-            `echo ::set-output name=has-non-existent-vars::${Object.keys(nonExistentVars).length >
-                0}`,
+            `echo ::set-output name=has-non-existent-vars::${
+                Object.keys(nonExistentVars).length > 0
+            }`,
         );
         shell.exec(
             `echo ::set-output name=non-existent-css-vars::${JSON.stringify(

@@ -16,7 +16,7 @@ export type TBodyProps = HTMLAttributes<HTMLTableSectionElement> & {
 };
 
 export const TBody: React.FC<TBodyProps> = ({ className, children, dataTestId, ...restProps }) => (
-        <tbody className={cn(styles.component, className)} data-test-id={dataTestId} {...restProps}>
-            {children}
-        </tbody>
-    );
+    <tbody className={cn(styles.component, className)} data-test-id={dataTestId} {...restProps}>
+        {children}
+    </tbody>
+);

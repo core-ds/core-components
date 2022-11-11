@@ -1,8 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
-import { formatAmount, AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR } from '@alfalab/utils';
+
+import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, formatAmount } from '@alfalab/utils';
 
 import { AmountProps } from './types';
+
 import styles from './index.module.css';
 
 /**
@@ -22,12 +24,7 @@ export const Amount: React.FC<AmountProps> = ({
     className,
     dataTestId,
 }) => {
-    const {
-        majorPart,
-        minorPart,
-        currencySymbol,
-        currencySeparator,
-    } = formatAmount({
+    const { majorPart, minorPart, currencySymbol, currencySeparator } = formatAmount({
         value,
         currency,
         minority,

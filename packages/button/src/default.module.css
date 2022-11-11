@@ -188,7 +188,7 @@
 
 /* Disabled */
 
-.component:disabled {
+.component[disabled] {
     &.primary {
         color: var(--button-primary-disabled-color);
         background-color: var(--button-primary-disabled-bg-color);

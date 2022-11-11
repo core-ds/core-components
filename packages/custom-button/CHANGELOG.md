@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.1
+
 ## 3.0.0
 
 ### Major Changes

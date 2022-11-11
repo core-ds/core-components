@@ -1,0 +1,23 @@
+@import '../../themes/src/default.css';
+
+.vertical {
+    overflow: hidden;
+    display: block;
+}
+
+.horizontal {
+    display: inline-block;
+    overflow: hidden;
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl {
+    .vertical.gap[data-gap-size='$(size)'] {
+        height: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl {
+    .horizontal.gap[data-gap-size='$(size)'] {
+        width: var(--gap-$(size));
+    }
+}

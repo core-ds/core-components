@@ -5,20 +5,18 @@ import { getQueryParam } from './utils';
 
 import styles from './sprite.stories.module.css';
 
-const propsToTitle = props => {
+const propsToTitle = (props) => {
     const { children, ...restProps } = props;
-    return JSON.stringify(restProps)
-        .replace(/[{}"]/g, '')
-        .replace(/,/g, ', ');
+    return JSON.stringify(restProps).replace(/[{}"]/g, '').replace(/,/g, ', ');
 };
 
 export const ScreenshotsSprite = () => {
     const knobs = getQueryParam('knobs') ? JSON.parse(getQueryParam('knobs')) : {};
 
-    const combos = generateCombos(Object.values(knobs).map(v => (Array.isArray(v) ? v : [v])));
+    const combos = generateCombos(Object.values(knobs).map((v) => (Array.isArray(v) ? v : [v])));
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const ids = combos.map(combo => combo.map(([_, valueIndex]) => valueIndex).join('-'));
+    const ids = combos.map((combo) => combo.map(([_, valueIndex]) => valueIndex).join('-'));
 
     const propsList = combosToProps(combos, Object.keys(knobs));
 

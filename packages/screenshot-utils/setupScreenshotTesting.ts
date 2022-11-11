@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Browser, BrowserContext,chromium, Page } from 'playwright';
+import { Browser, BrowserContext, chromium, Page } from 'playwright';
 
 import { defaultViewport, matchHtml, MatchHtmlParams } from './helpers';
 
@@ -30,22 +30,28 @@ export type ScreenshotOpts = {
 
 export type EvaluateFn = (page: Page) => void;
 
-export type ScreenshotTestingParams = Omit<MatchHtmlParams, 'page' | 'css' | 'expect'> & {
+export type ScreenshotTestingParams = Omit<
+    MatchHtmlParams,
+    'page' | 'css' | 'expect' | 'context'
+> & {
     cases: Array<[string, string]>;
     theme?: string;
 };
 
-export const setupScreenshotTesting = ({
-    it,
-    beforeAll,
-    afterAll,
-    expect,
-}: {
-    it: jest.It;
-    beforeAll: jest.Lifecycle;
-    afterAll: jest.Lifecycle;
-    expect: jest.Expect;
-}) => ({ cases, theme, ...matchHtmlArgs }: ScreenshotTestingParams) => () => {
+export const setupScreenshotTesting =
+    ({
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+    }: {
+        it: jest.It;
+        beforeAll: jest.Lifecycle;
+        afterAll: jest.Lifecycle;
+        expect: jest.Expect;
+    }) =>
+    ({ cases, theme, ...matchHtmlArgs }: ScreenshotTestingParams) =>
+    () => {
         let browser: Browser;
         let context: BrowserContext;
         let page: Page;
@@ -73,11 +79,6 @@ export const setupScreenshotTesting = ({
                 timeout: 200000,
             });
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                ...matchHtmlArgs,
-            });
+            await matchHtml({ context, page, expect, css, ...matchHtmlArgs });
         });
     };

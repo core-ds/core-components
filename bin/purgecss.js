@@ -7,9 +7,9 @@ const writeFile = promisify(fs.writeFile);
 
 const ignorePackages = ['themes', 'vars', 'grid'];
 
-const shouldSkipPath = path =>
+const shouldSkipPath = (path) =>
     ignorePackages.some(
-        package => path.includes(`dist/${package}`) || path.includes(`packages/${package}`),
+        (package) => path.includes(`dist/${package}`) || path.includes(`packages/${package}`),
     );
 
 // Скипаем purgecss при запуске из лерны внутри пакета
@@ -17,7 +17,7 @@ if (shouldSkipPath(process.cwd())) process.exit(0);
 
 const matches = glob.sync('dist/**/*.css');
 
-matches.forEach(match => {
+matches.forEach((match) => {
     const purge = new PurgeCSS();
 
     // Скипаем purgecss при запуске в рут пакете
@@ -34,14 +34,14 @@ matches.forEach(match => {
              */
             whitelistPatterns: [/.*/],
         })
-        .then(result => {
+        .then((result) => {
             result.forEach(({ css, file }) => {
                 // удаляем пустые блоки :root
                 css = css.replace(/^:root {\n}\n/gm, '');
                 writeFile(file, css);
             });
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
         });
 });

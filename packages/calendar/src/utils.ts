@@ -93,7 +93,7 @@ export function generateWeeks(
  * Возвращает массив с месяцами для переданного года
  */
 export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?: Date }) {
-    return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map(month =>
+    return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map((month) =>
         buildMonth(month, options),
     );
 }

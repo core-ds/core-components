@@ -113,7 +113,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const { onClick, ...restInnerProps } = innerProps;
 
     const handleClick = useCallback<MouseEventHandler<HTMLDivElement>>(
-        event => {
+        (event) => {
             if (onClick && contentWrapperRef.current) {
                 const eventTarget = event.target as HTMLDivElement;
 
@@ -134,7 +134,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     );
 
     const handleKeyDown = useCallback<KeyboardEventHandler<HTMLDivElement>>(
-        event => {
+        (event) => {
             const lastSelectedTag = selectedMultiple[selectedMultiple.length - 1];
 
             if (event.key === 'Backspace' && !value && handleDeleteTag && lastSelectedTag) {
@@ -148,7 +148,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             if (event) {
                 event.stopPropagation();
-                setShowMoreEnabled(v => !v);
+                setShowMoreEnabled((v) => !v);
                 if (handleUpdatePopover) {
                     handleUpdatePopover();
                 }

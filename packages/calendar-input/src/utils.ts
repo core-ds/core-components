@@ -44,6 +44,6 @@ export const isValidInputValue = (
         dateValue &&
             isCompleteDateInput(newInputValue) &&
             dateInLimits(dateValue, minDate, maxDate) &&
-            !offDays.some(offDay => isSameDay(offDay, dateValue)),
+            !offDays.some((offDay) => isSameDay(offDay, dateValue)),
     );
 };

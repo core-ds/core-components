@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popover",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "description": "Popover component",
     "keywords": [],
     "license": "MIT",
@@ -25,7 +25,7 @@
         "classnames": "^2.3.1",
         "popper-max-size-modifier": "^0.2.0",
         "react-merge-refs": "^1.1.0",
-        "react-popper": "^2.2.5",
+        "react-popper": "^2.3.0",
         "react-transition-group": "^4.4.1"
     },
     "devDependencies": {

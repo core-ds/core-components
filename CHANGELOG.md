@@ -1,3 +1,139 @@
+## 36.0.0
+
+<sup><time>11.11.2022</time></sup>
+
+### [#344](https://github.com/core-ds/core-components/pull/344)
+
+#### Что изменилось
+- При наличии правого аддона, дефолтная иконка кнопки не исчезает
+
+#### Влияние на компоненты
+- Мажорное<br />`picker-button`
+
+
+### [#331](https://github.com/core-ds/core-components/pull/331)
+
+#### Что изменилось
+- Изменен фоновый цвет на light/specialbg/secondary-transparent для компонента Plate в режиме common
+
+#### Влияние на компоненты
+- Минорное<br />`plate`
+
+
+### [#350](https://github.com/core-ds/core-components/pull/350)
+
+#### Что изменилось
+- В документацию добавлены пропсы и их описание для подкомпонентов SidePanel
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+### [#326](https://github.com/core-ds/core-components/pull/326)
+
+#### Что изменилось
+- Исправлены прыжки поповера в react 18
+
+#### Влияние на компоненты
+- Патчи<br />`popover`
+
+
+### [#352](https://github.com/core-ds/core-components/pull/352)
+
+#### Что изменилось
+- Исправлена ошибка в ModalResponsive, из-за которой сбрасывалось состояние у дочерник компонентов при переключении desktop -> mobile и наоборот
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#343](https://github.com/core-ds/core-components/pull/343)
+
+#### Что изменилось
+- Добавлен проп clearCodeOnError. Если он включен, то при возникновении ошибки код будет очищаться
+
+#### Влияние на компоненты
+- Минорное<br />`code-input` `confirmation`
+
+
+### [#317](https://github.com/core-ds/core-components/pull/317)
+
+#### Что изменилось
+- Исправлены ошибки в браузере IE 11 в компонентах Сheckbox и FormControl
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox` `form-control`
+
+
+### [#327](https://github.com/core-ds/core-components/pull/327)
+
+#### Что изменилось
+- Добавлен новый размер (24px) для компонента SuperEllipse
+- Добавлены новые размеры (24px и 128px) для компонента Circle<br />
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#359](https://github.com/core-ds/core-components/pull/359)
+
+#### Что изменилось
+- Исправили disabled в режиме Ссылки
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#339](https://github.com/core-ds/core-components/pull/339)
+
+#### Что изменилось
+- Добавлен новый компонент Gap
+
+#### Влияние на компоненты
+- Минорное<br />`gap`
+
+
+### [#340](https://github.com/core-ds/core-components/pull/340)
+
+#### Что изменилось
+- В компоненте Plate иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`plate`
+
+
+
+## 35.2.0
+
+<sup><time>03.11.2022</time></sup>
+
+### [#333](https://github.com/core-ds/core-components/pull/333)
+
+#### Что изменилось
+- Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
+
+#### Влияние на компоненты
+- Патчи<br />`badge` `bank-card` `bottom-sheet` `loader` `slider`<br /> `steps`
+
+
+### [6d0fc7849](https://github.com/core-ds/core-components/commit/6d0fc7849f1cd01d03a911c6b0b64ed5d00a3f24)
+
+#### Что изменилось
+- Добавлен пропс `stickyHeader` для фиксации заголовков при скролле
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+### [a32104b45](https://github.com/core-ds/core-components/commit/a32104b45de2c4f93aad8c380428ed88331801fb)
+
+#### Что изменилось
+- Исправлено форматирование номера в intl-phone-input, который передаётся снаружи компонента в props `value`
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+
 ## 35.1.0
 
 <sup><time>28.10.2022</time></sup>

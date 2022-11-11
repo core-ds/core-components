@@ -55,7 +55,7 @@ async function main() {
         };
 
         return new Promise((resolve, reject) => {
-            const req = http.request(options, res => {
+            const req = http.request(options, (res) => {
                 res.on('end', () => {
                     resolve();
                 });

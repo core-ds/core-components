@@ -56,12 +56,7 @@ describe('Amount', () => {
         const currency = 'RUB';
 
         const { getByText } = render(
-            <Amount
-                value={1234500}
-                currency={currency}
-                minority={100}
-                codeFormat='letter'
-            />,
+            <Amount value={1234500} currency={currency} minority={100} codeFormat='letter' />,
         );
 
         expect(getByText(currency)).toBeInTheDocument();

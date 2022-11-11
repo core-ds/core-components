@@ -35,9 +35,8 @@ import { ActiveDotProps } from './types/utils/dot.types';
 import styles from './index.module.css';
 
 export const Chart = (props: OptionsProps) => {
-    const [{ state, data, charts, filterCount }, { setCharts, setFilterCount }] = useSettings(
-        props,
-    );
+    const [{ state, data, charts, filterCount }, { setCharts, setFilterCount }] =
+        useSettings(props);
     const [activeDotsState, setActiveDotsState] = useState<ActiveDotProps>({
         prev: null,
         active: null,
@@ -82,12 +81,12 @@ export const Chart = (props: OptionsProps) => {
 
             if (charts[`${dataKey}`] && filterCount > 1) {
                 changed = true;
-                setFilterCount(prev => prev - 1);
+                setFilterCount((prev) => prev - 1);
             }
 
             if (!charts[`${dataKey}`]) {
                 changed = true;
-                setFilterCount(prev => prev + 1);
+                setFilterCount((prev) => prev + 1);
             }
 
             if (!changed) return;

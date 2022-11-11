@@ -1,4 +1,4 @@
-import { GroupShape, isGroup,OptionShape } from '@alfalab/core-components-select';
+import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select';
 
 import { OptionMatcher, SelectWithTagsProps } from '../types';
 
@@ -22,7 +22,7 @@ export const filterOptions = (
 ) => {
     if (optionsIsGroupShapes(options)) {
         return options.reduce<GroupShape[]>((acc, group) => {
-            const matchedOptions = group.options.filter(option => math(option, inputValue));
+            const matchedOptions = group.options.filter((option) => math(option, inputValue));
 
             if (matchedOptions.length > 0) {
                 acc.push({ ...group, options: matchedOptions });
@@ -34,5 +34,5 @@ export const filterOptions = (
         }, []);
     }
 
-    return (options as OptionShape[]).filter(option => math(option, inputValue));
+    return (options as OptionShape[]).filter((option) => math(option, inputValue));
 };

@@ -20,11 +20,7 @@ export function humanFileSize(size: string | number) {
     return `${Number(humanSize)} ${units[factor]}`;
 }
 
-export const getExtension = (filename: string) =>
-    filename
-        .toLowerCase()
-        .split('.')
-        .pop();
+export const getExtension = (filename: string) => filename.toLowerCase().split('.').pop();
 
 export function fileIcon(filename: string) {
     const extension = getExtension(filename);

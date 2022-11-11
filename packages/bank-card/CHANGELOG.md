@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.0.2
+
+## 5.2.5
+
+### Patch Changes
+
+### [#333](https://github.com/core-ds/core-components/pull/333)
+
+-   Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
+
 ## 5.2.4
 
 ### Patch Changes
