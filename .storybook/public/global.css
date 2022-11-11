@@ -184,8 +184,6 @@ div.sidebar-subheading {
     position: relative;
     padding-top: var(--gap-xs);
     padding-bottom: var(--gap-xs);
-    /* padding-right: var(--gap-xl); */
-    /* padding-left: var(--gap-m); */
     color: var(--color-light-text-primary);
     font-weight: 400;
     font-size: 16px;
@@ -195,14 +193,10 @@ div.sidebar-subheading {
     align-items: center;
 }
 
-.sidebar-container .sidebar-item span:first-child {
+.sidebar-container .sidebar-item > span:first-child {
     display: none;
 }
 
-/* .sidebar-container .sidebar-item[data-nodetype='story'],
-.sidebar-container .sidebar-item[data-nodetype='component'] {
-    padding-left: 40px;
-} */
 .sidebar-container .sidebar-item[data-nodetype='group'] {
     padding-left: 18px;
 }
