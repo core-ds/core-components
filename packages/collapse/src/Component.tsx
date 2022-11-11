@@ -49,6 +49,12 @@ export type CollapseProps = {
     id?: string;
 
     /**
+     * Начальное состояние uncontrolled компонента
+     * @default false
+     */
+    defaultExpanded?: boolean;
+
+    /**
      * Обработчик смены состояний `expanded/collapsed`
      */
     onExpandedChange?: (expanded: boolean) => void;
@@ -76,6 +82,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             id,
             onTransitionEnd,
             onExpandedChange,
+            defaultExpanded = false,
             dataTestId,
         },
         ref,
@@ -84,7 +91,9 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
         const contentRef = useRef<HTMLDivElement>(null);
         const contentCaseRef = useRef<HTMLDivElement>(null);
-        const [expandedState, setExpandedState] = useState(uncontrolled ? false : expanded);
+        const [expandedState, setExpandedState] = useState(
+            uncontrolled ? defaultExpanded : expanded,
+        );
 
         const isExpanded = uncontrolled ? expandedState : expanded;
 

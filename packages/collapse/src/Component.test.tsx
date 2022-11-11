@@ -56,6 +56,18 @@ describe('Collapse', () => {
             expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
+        it('should have `expandedContent` class when defaultExpanded is passed', () => {
+            const dataTestId = 'test-id';
+            const expandedClassName = 'expandedContent';
+            const { getByTestId } = render(
+                <Collapse dataTestId={dataTestId} collapsedLabel='Показать' defaultExpanded={true}>
+                    {paragraph}
+                </Collapse>,
+            );
+
+            expect(getByTestId(dataTestId).firstChild).toHaveClass(expandedClassName);
+        });
+
         it('should set `expandedclassName` class', () => {
             const dataTestId = 'test-id';
             const expandedContentClassName = 'expanded-test-class';
