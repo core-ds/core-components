@@ -80,6 +80,7 @@ div[id*='story--'] {
 
 .sidebar-container .os-content {
     padding-left: 36px !important;
+    min-width: 332px;
 }
 
 div.sidebar-header {
@@ -172,22 +173,66 @@ div.sidebar-subheading {
 }
 
 .sidebar-container .sidebar-item {
+    position: relative;
     padding-top: var(--gap-xs);
     padding-bottom: var(--gap-xs);
+    /* padding-right: var(--gap-xl); */
+    /* padding-left: var(--gap-m); */
     color: var(--color-light-text-primary);
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     background: transparent !important;
+    width: auto;
+    align-items: center;
+}
+
+.sidebar-container .sidebar-item span:first-child {
+    display: none;
+}
+
+/* .sidebar-container .sidebar-item[data-nodetype='story'],
+.sidebar-container .sidebar-item[data-nodetype='component'] {
+    padding-left: 40px;
+} */
+.sidebar-container .sidebar-item[data-nodetype='group'] {
+    padding-left: 18px;
+}
+
+.sidebar-container .sidebar-item[aria-expanded='false']::after {
+    content: url(./images/chevron-right-compact.svg);
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 200ms;
+}
+
+.sidebar-container .sidebar-item[aria-expanded='true']::after {
+    content: url(./images/chevron-down-compact.svg);
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar-container .sidebar-item .item-label {
+    display: inline-flex;
+    align-items: center;
 }
 
 .sidebar-container .sidebar-item .sidebar-icon {
     color: #b6bcc3;
+    flex-shrink: 0;
 }
 
 .sidebar-container .sidebar-item:hover,
 .sidebar-container .sidebar-item:focus,
-.sidebar-container .sidebar-item[data-selected='true'] {
+.sidebar-container .sidebar-item[data-selected='true']:not([data-nodetype='group']) {
     font-weight: normal;
     color: var(--color-light-text-accent) !important;
     background: transparent !important;
@@ -204,17 +249,6 @@ button.sidebar-item[aria-expanded='true']:focus {
     background: transparent !important;
 }
 
-/* a.sidebar-item[class*='inlineGlow'] span.sidebar-expander,
-button.sidebar-item[class*='inlineGlow'] span.sidebar-expander {
-    width: 14px;
-}
-
-a.sidebar-item[class*='inlineGlow'] > svg + span,
-button.sidebar-item[class*='inlineGlow'] > svg + span {
-    border-radius: 99px;
-    background-color: var(--color-light-bg-tertiary);
-} */
-
 button[data-action='collapse-root']:focus {
     box-shadow: none;
     color: inherit;
@@ -230,7 +264,7 @@ select.select {
     padding-right: var(--gap-xl);
     -webkit-appearance: none;
     appearance: none;
-    background-image: url(https://alfabank.servicecdn.ru/icons/glyph_chevron-down-compact_m.svg);
+    background-image: url(./images/chevron-down-compact.svg);
     background-repeat: no-repeat;
     background-position: right center;
 }
