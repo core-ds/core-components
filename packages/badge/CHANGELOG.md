@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+### [#333](https://github.com/core-ds/core-components/pull/333)
+
+-   Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
+
 ## 4.0.2
 
 ### Patch Changes

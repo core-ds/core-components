@@ -12,6 +12,10 @@
     overflow: auto;
 }
 
+.stickyHeader {
+    max-height: 100%;
+}
+
 .hasPagination {
     padding-bottom: 0;
 }

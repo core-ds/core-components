@@ -1,5 +1,4 @@
 import { addons } from '@storybook/addons';
-import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
 import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
@@ -22,8 +21,6 @@ addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
         sandboxPath: '/docs/компоненты-песочница--page',
         mobileFrameName: 'mobileframe--page',
-        noDesktopText: 'Не предназначен для использования на десктопных устройствах',
-        noMobileText: 'Не предназначен для использования на мобильных устройствах',
         desktopText: 'Переключить на декстопную версию',
         mobileText: 'Переключить на мобильную версию',
         expandText: 'Показать код',

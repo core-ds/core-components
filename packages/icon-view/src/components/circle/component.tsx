@@ -9,7 +9,7 @@ export type CircleProps = Omit<BaseShapeProps, 'pathsMap' | 'size'> & {
      * Размер компонента
      * @default 64
      */
-    size?: 40 | 48 | 64 | 80;
+    size?: 24 | 40 | 48 | 64 | 80 | 128;
 
     /**
      * Дочерний компонент

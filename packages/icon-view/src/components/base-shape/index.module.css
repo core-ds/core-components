@@ -51,6 +51,13 @@
     }
 }
 
+.size_24 {
+    & .children {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 .size_40 {
     & .children {
         width: 24px;

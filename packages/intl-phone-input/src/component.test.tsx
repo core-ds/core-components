@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -90,7 +90,7 @@ describe('IntlPhoneInput', () => {
         const flagComponent = container.querySelector('.flagIcon');
 
         fireEvent.click(flagComponent as HTMLSpanElement);
-        const option = getAllByRole('option')[0];
+        const option = await waitFor(() => getAllByRole('option')[0]);
         fireEvent.click(option);
 
         waitFor(() => {
@@ -106,14 +106,15 @@ describe('IntlPhoneInput', () => {
         const flagComponent = container.querySelector('.flagIcon');
 
         fireEvent.click(flagComponent as HTMLSpanElement);
-        fireEvent.click(getAllByRole('option')[0]);
+        const option = await waitFor(() => getAllByRole('option')[0]);
+        fireEvent.click(option);
 
         waitFor(() => {
             expect(document.activeElement).toBe(input);
         });
     });
 
-    it('should call `onCountryChange` callback after country was changed', () => {
+    it('should call `onCountryChange` callback after country was changed', async () => {
         const onCountryChange = jest.fn();
         const { container, getAllByRole } = render(
             <IntlPhoneInput
@@ -123,15 +124,13 @@ describe('IntlPhoneInput', () => {
                 dataTestId={testId}
             />,
         );
-        const flagComponent = container.querySelector('.flagIcon');
 
+        const flagComponent = container.querySelector('span[class^=flagIcon]');
         fireEvent.click(flagComponent as HTMLSpanElement);
-        fireEvent.click(getAllByRole('option')[0]);
+        const option = await waitFor(() => getAllByRole('option')[0]);
+        fireEvent.click(option);
 
-        waitFor(() => {
-            expect(onCountryChange).toBeCalledWith('AU');
-            expect(onCountryChange).toHaveBeenCalledTimes(1);
-        });
+        await waitFor(() => expect(onCountryChange).toHaveBeenCalledTimes(1));
     });
 
     it('should call `onCountryChange` callback after input was changed', async () => {
@@ -313,6 +312,41 @@ describe('IntlPhoneInput', () => {
 
         await waitFor(() => {
             expect(onChange).toBeCalledWith('+');
+        });
+    });
+
+    it.only('should format number when set unformated value', async () => {
+        const onChange = jest.fn();
+        const onCountryChange = jest.fn();
+        const RenderComponent = () => {
+            const [value, setValue] = useState('+7 789 123 45 67');
+
+            return (
+                <React.Fragment>
+                    <IntlPhoneInput
+                        value={value}
+                        onCountryChange={onCountryChange}
+                        onChange={onChange}
+                    />
+                    <button
+                        type='button'
+                        data-test-id='intl-change-number'
+                        onClick={() => setValue('+79491234567')}
+                    >
+                        Изменить номер
+                    </button>
+                </React.Fragment>
+            );
+        };
+        render(<RenderComponent />);
+
+        const btn = await screen.findByTestId('intl-change-number');
+
+        fireEvent.click(btn);
+
+        await waitFor(async () => {
+            expect(onChange).toHaveBeenCalledWith('+7 949 123-45-67');
+            expect(onCountryChange).toHaveBeenCalledWith('RU');
         });
     });
 });

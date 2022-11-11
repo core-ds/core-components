@@ -1,5 +1,12 @@
 # Change Log
 
+## 13.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.1.8
+
 ## 13.0.1
 
 ### Patch Changes
