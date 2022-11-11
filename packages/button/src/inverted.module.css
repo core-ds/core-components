@@ -200,7 +200,7 @@
     }
 }
 
-.component:disabled {
+.component[disabled] {
     &.primary {
         color: var(--button-inverted-primary-disabled-color);
         background-color: var(--button-inverted-primary-disabled-bg-color);
