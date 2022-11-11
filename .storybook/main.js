@@ -18,10 +18,10 @@ const babelPresetEnvOptions = {
 
 const babelPresetEnvPreset = require.resolve('@babel/preset-env');
 
-const addPackagesDir = config => {
-    config.module.rules.forEach(rule => {
+const addPackagesDir = (config) => {
+    config.module.rules.forEach((rule) => {
         if (rule.oneOf) {
-            rule.oneOf.forEach(nestedRule => {
+            rule.oneOf.forEach((nestedRule) => {
                 if (nestedRule.loader && nestedRule.loader.includes('babel-loader')) {
                     nestedRule.include.push(path.resolve(__dirname, '../packages'));
                     nestedRule.include.push(path.resolve(__dirname, '../node_modules/simplebar'));
@@ -39,11 +39,11 @@ const addPackagesDir = config => {
     });
 };
 
-const addPresetEnvToMdxLoader = config => {
-    config.module.rules.forEach(rule => {
+const addPresetEnvToMdxLoader = (config) => {
+    config.module.rules.forEach((rule) => {
         if (String(rule.test) === String(storiesRegex)) {
             if (rule.use) {
-                rule.use.forEach(nestedRule => {
+                rule.use.forEach((nestedRule) => {
                     if (nestedRule.loader && nestedRule.loader.includes('babel-loader')) {
                         nestedRule.options.presets.unshift([
                             babelPresetEnvPreset,
@@ -68,10 +68,10 @@ const es6Transpiler = () => {
         'unicode-match-property-value-ecmascript',
         'strip-ansi',
         'react-github-btn',
-    ].map(n => new RegExp(`[\\\\/]node_modules[\\\\/]${n}`));
+    ].map((n) => new RegExp(`[\\\\/]node_modules[\\\\/]${n}`));
 
-    const include = input => {
-        return !!nodeModulesThatNeedToBeParsedBecauseTheyExposeES6.find(p => input.match(p));
+    const include = (input) => {
+        return !!nodeModulesThatNeedToBeParsedBecauseTheyExposeES6.find((p) => input.match(p));
     };
 
     return {
@@ -105,7 +105,7 @@ module.exports = {
         './addons/theme-switcher/register.js',
         './addons/mode-switcher/register.js',
     ],
-    webpackFinal: async config => {
+    webpackFinal: async (config) => {
         addPackagesDir(config);
 
         config.resolve = {
@@ -118,14 +118,14 @@ module.exports = {
 
         config.performance.hints = false;
 
-        const group = config.module.rules.find(rule => rule.oneOf !== undefined);
+        const group = config.module.rules.find((rule) => rule.oneOf !== undefined);
 
         const cssRuleIndex = group.oneOf.findIndex(
-            rule => rule.test.toString() === cssRegex.toString(),
+            (rule) => rule.test.toString() === cssRegex.toString(),
         );
 
         const cssModuleRuleIndex = group.oneOf.findIndex(
-            rule => rule.test.toString() === cssModuleRegex.toString(),
+            (rule) => rule.test.toString() === cssModuleRegex.toString(),
         );
 
         group.oneOf[cssRuleIndex] = {
@@ -170,6 +170,11 @@ module.exports = {
                 'postcss-loader',
             ],
         };
+
+        // Выпиливаем дефолтный MiniCssExtractPlugin плагин, чтобы не дублировались стили.
+        config.plugins = config.plugins.filter((plugin) => {
+            return plugin.constructor.name !== 'MiniCssExtractPlugin';
+        });
 
         if (isIeMode) {
             config.module.rules.push(es6Transpiler());

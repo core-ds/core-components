@@ -43,10 +43,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body.sb-show-main {
-    margin: 0;
-    padding: var(--gap-xs);
+body.sb-show-main,
+body.sb-show-main.sb-main-padded {
+    margin: var(--gap-xs);
+    padding: 0;
     overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+#root iframe[data-is-storybook='true'] {
+    box-sizing: border-box;
+    padding: var(--gap-xs);
+    margin: 0;
 }
 
 #docs-root > .sbdocs-wrapper {

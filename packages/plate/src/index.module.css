@@ -14,10 +14,6 @@
     --plate-background: transparent;
     --plate-border-color: var(--color-static-status-grey);
     --plate-box-shadow: var(--shadow-s);
-
-    /* icons */
-    --plate-closer-icon: url('https://alfabank.servicecdn.ru/icons/glyph_cross_m.svg');
-    --plate-arrow-icon: url('https://alfabank.servicecdn.ru/icons/glyph_chevron-down_m.svg');
 }
 
 .component {
@@ -75,7 +71,7 @@
 }
 
 .common {
-    background-color: var(--color-light-bg-secondary);
+    background-color: var(--color-light-specialbg-secondary-transparent);
     box-shadow: var(--plate-border) var(--color-static-status-grey);
     &:before {
         background-color: var(--color-static-status-grey);
@@ -209,12 +205,7 @@
     }
 }
 
-.closer {
-    background: var(--plate-closer-icon) center no-repeat;
-}
-
 .folder {
-    background: var(--plate-arrow-icon) center no-repeat;
     transition: transform 0.15s ease-in-out, opacity 0.2s ease;
     transform: var(--arrow-transform);
 

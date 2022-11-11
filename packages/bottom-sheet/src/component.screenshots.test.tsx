@@ -113,23 +113,13 @@ describe('BottomSheet | interactions tests', () => {
         try {
             await page.click('#button-1');
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                screenshotOpts: { fullPage: true },
-            });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
 
             await page.reload();
 
             await page.click('#button-2');
 
-            await matchHtml({
-                page,
-                expect,
-                css,
-                screenshotOpts: { fullPage: true },
-            });
+            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

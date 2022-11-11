@@ -330,7 +330,7 @@ describe('Select', () => {
                 );
 
                 fireEvent.click(getByTestId('select-field'));
-                expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument();
+                await waitFor(() => expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument());
 
                 await userEvent.click(document.firstElementChild as HTMLElement);
                 expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
@@ -355,7 +355,8 @@ describe('Select', () => {
                 const { queryByRole } = render(
                     <Select {...baseProps} options={options} defaultOpen={true} />,
                 );
-                expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument();
+
+                await waitFor(() => expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument());
 
                 const input = document.querySelector('.field') as HTMLElement;
                 fireEvent.keyDown(input, { key: 'Escape', code: 'Escape' });
@@ -366,7 +367,8 @@ describe('Select', () => {
                 const { queryByRole } = render(
                     <Select {...baseProps} options={options} defaultOpen={true} />,
                 );
-                expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument();
+
+                await waitFor(() => expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument());
 
                 const input = document.querySelector('.field') as HTMLElement;
                 fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });

@@ -24,7 +24,7 @@ import Changelog from '../../CHANGELOG.md';
         const bottomAddons = boolean('bottomAddons', false);
         return (
             <SuperEllipse
-                size={select('size', ['40', '48', '64', '80', '128'], '64')}
+                size={select('size', ['24', '40', '48', '64', '80', '128'], '64')}
                 backgroundColor={text('backgroundColor', '#f3f4f5')}
                 border={boolean('border', false)}
                 imageUrl={text('imageUrl', '')}
@@ -43,7 +43,7 @@ import Changelog from '../../CHANGELOG.md';
         const bottomAddons = boolean('bottomAddons', false);
         return (
             <Circle
-                size={select('size', ['40', '48', '64', '80'], '64')}
+                size={select('size', ['24', '40', '48', '64', '80', '128'], '64')}
                 backgroundColor={text('backgroundColor', '#f3f4f5')}
                 border={boolean('border', false)}
                 imageUrl={text('imageUrl', '')}
