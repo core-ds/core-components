@@ -2,6 +2,7 @@ import React, { FC, isValidElement } from 'react';
 import cn from 'classnames';
 
 import { OptionProps } from '../../typings';
+import { Checkmark as DefaultMobileCheckmark } from '../base-select-mobile/checkmark';
 import { Checkmark as DefaultCheckMark } from '../checkmark';
 
 import styles from './index.module.css';
@@ -15,7 +16,8 @@ export const Option: FC<OptionProps> = ({
     highlighted,
     disabled,
     multiple,
-    Checkmark = DefaultCheckMark,
+    mobile,
+    Checkmark = mobile ? DefaultMobileCheckmark : DefaultCheckMark,
     innerProps,
     dataTestId,
 }) => {

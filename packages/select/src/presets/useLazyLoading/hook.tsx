@@ -3,7 +3,7 @@ import React, { Reducer, useCallback, useEffect, useMemo, useReducer, useRef } f
 import { InputProps } from '@alfalab/core-components-input';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
-import { Option } from '../../components/option';
+import { Option as DefaultOption } from '../../components/option';
 import { OptionProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
@@ -27,6 +27,9 @@ type useLazyLoadingProps = {
 
     /** Скелетон загружаемых элементов */
     skeleton?: React.ReactNode;
+
+    /** Компонент пункта меню */
+    Option?: React.FC<OptionProps>;
 
     /**
      * Функция-загрузчик опций.
@@ -74,6 +77,7 @@ export function useLazyLoading({
     initialOffset = 0,
     optionsFetcher,
     skeleton = <Skeleton className={styles.skeleton} visible={true} />,
+    Option = DefaultOption,
 }: useLazyLoadingProps) {
     const initialOptions: OptionShape[] = [];
     const initialLoading = false;
@@ -261,11 +265,8 @@ export function useLazyLoading({
         [],
     );
 
-    const renderOption = useCallback(
-        (props: OptionProps) => (
-            <Option {...props} highlighted={loading ? false : props.highlighted} />
-        ),
-        [loading],
+    const renderOption = (props: OptionProps) => (
+        <Option {...props} highlighted={loading ? false : props.highlighted} />
     );
 
     const skeletonOptions: OptionShape[] = useMemo(
