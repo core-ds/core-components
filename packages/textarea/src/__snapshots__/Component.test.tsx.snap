@@ -42,16 +42,6 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
         <div
           class="input"
         >
-          <div
-            class="pseudoTextarea s textarea textarea s filled nativeScrollbar"
-            hidden=""
-          >
-            <span />
-            <span
-              class="overflow"
-            />
-             
-          </div>
           <textarea
             autocomplete="on"
             class="textarea textarea s filled"
@@ -182,16 +172,6 @@ exports[`Textarea Snapshots tests should match snapshot with default counter 1`]
         <div
           class="input"
         >
-          <div
-            class="pseudoTextarea s textarea textarea s filled nativeScrollbar"
-            hidden=""
-          >
-            <span />
-            <span
-              class="overflow"
-            />
-             
-          </div>
           <textarea
             autocomplete="on"
             class="textarea textarea s filled"

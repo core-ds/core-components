@@ -60,7 +60,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref,
     ) => {
         const uncontrolled = value === undefined;
-
         let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
 
         nativeScrollbar = resize !== 'none' || Boolean(nativeScrollbarProp ?? nativeScrollbar);
@@ -72,12 +71,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const [stateValue, setStateValue] = useState(defaultValue || '');
         const [scrollableHeight, setScrollableHeight] = useState<number>();
         const [scrollPosition, setScrollPosition] = useState(0);
-        const [overflow, setOverflow] = useState(false);
 
         const [focusVisible] = useFocus(textareaRef, 'keyboard');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
+        const hasOverflow = Boolean(maxLength && stateValue.slice(maxLength));
 
         useEffect(() => {
             const pseudoNode = pseudoTextareaRef.current;
@@ -132,19 +131,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             if (uncontrolled) {
                 setStateValue(value);
             }
-
-            if (maxLength) {
-                if (value.length <= maxLength) {
-                    setOverflow(false);
-                } else {
-                    setOverflow(true);
-                }
-            }
         };
 
         const handleTeaxtareaScroll = (event: React.UIEvent) => {
-            const value = (event.target as HTMLElement).scrollTop;
-            setScrollPosition(value);
+            if (maxLength) {
+                const value = (event.target as HTMLElement).scrollTop;
+                setScrollPosition(value);
+            }
         };
 
         const getValueLength = (): number => {
@@ -209,7 +202,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                     widthPropName='width'
                     contentNodeProps={{ className: styles.scrollableWrapper }}
                 >
-                    {maxLength && (
+                    {hasOverflow && (
                         <PseudoTextArea
                             stateValue={stateValue}
                             size={size}
@@ -265,11 +258,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 rightAddons={rightAddons}
                 bottomAddons={bottomAddons}
                 overflowHint={maxLength && getCounterText(getValueLength(), maxLength)}
-                overflow={overflow}
+                overflow={hasOverflow}
             >
                 {nativeScrollbar ? (
                     <>
-                        {maxLength && (
+                        {hasOverflow && (
                             <PseudoTextArea
                                 stateValue={stateValue}
                                 size={size}

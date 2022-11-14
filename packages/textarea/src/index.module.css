@@ -1,6 +1,5 @@
 @import '../../themes/src/default.css';
 @import '../../form-control/src/vars.css';
-@import '@alfalab/core-components/vars/colors-indigo.css';
 
 :root {
     /* min-height */
@@ -48,31 +47,6 @@
 
     & > * {
         font-family: var(--font-family);
-    }
-}
-
-.pseudoTextarea {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    z-index: -1;
-    overflow: hidden;
-    max-height: 100%;
-    & span {
-        color: transparent;
-    }
-    & .overflow {
-        background-color: color-mod(var(--color-light-graphic-negative) alpha(40%));
-    }
-    &.nativeScrollbar {
-        overflow: auto;
-    }
-    &.customScrollbar {
-        max-height: none;
     }
 }
 
@@ -125,6 +99,31 @@
 
 .resizeVertical {
     resize: vertical;
+}
+
+.pseudoTextarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    z-index: -1;
+    overflow: hidden;
+    max-height: 100%;
+    & span {
+        color: transparent;
+    }
+    & .overflow {
+        background-color: color-mod(var(--color-light-graphic-negative) alpha(40%));
+    }
+    &.nativeScrollbar {
+        overflow: auto;
+    }
+    &.customScrollbar {
+        max-height: none;
+    }
 }
 
 /* SIZES */
