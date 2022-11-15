@@ -1,162 +1,127 @@
-Компонент используется для указания значения из заданного диапазона.
-
-### Архитектура
-
-Представляет из себя [Input](/docs/компоненты-инпуты-input--input) совмещенный со [Slider](/docs/компоненты-контролы-slider--slider)
-
-### Примеры
-
-#### Сегменты и шаг слайдера
+## Стандартный вид компонента
 
 Можно настроить количество сегментов и шаг внутри сегмента.
 
 ```jsx live
-// import { withSuffix } from '@alfalab/core-components/with-suffix';
-// import { Input } from '@alfalab/core-components/input';
-
-const SuffixInput = withSuffix(Input);
-
-const getSuffix = (value) => {
-    if (value <= 0) return '';
-
-    if (value.toString().endsWith('1')) {
-        return ' год';
-    }
-
-    if (
-        value.toString().endsWith('2') ||
-        value.toString().endsWith('3') ||
-        value.toString().endsWith('4')
-    ) {
-        return ' года';
-    }
-
-    return ' лет';
-};
-
 const min = 1;
-const max = 5;
-const step = 1;
+
+render(() => {
+    const [value1, setValue1] = React.useState(3);
+    const [value2, setValue2] = React.useState(5);
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <SliderInput
+                value={value1}
+                label='Label'
+                size='m'
+                pips={{
+                    mode: 'values',
+                    values: [min, 10 / 2, 10],
+                }}
+                min={min}
+                max={10}
+                step={1}
+                block={true}
+                onChange={(_, { value }) => setValue1(value)}
+            />
+            <Gap size='xl' />
+            <SliderInput
+                value={value2}
+                label='Label'
+                size='m'
+                pips={{
+                    mode: 'values',
+                    values: [min, 10, 100],
+                }}
+                min={min}
+                max={100}
+                range={{
+                    min: min,
+                    '50%': [10, 5],
+                    max: 100,
+                }}
+                step={1}
+                block={true}
+                onChange={(_, { value }) => setValue2(value)}
+            />
+        </div>
+    );
+});
+```
+
+## Состояния
+
+В состоянии ошибки шкала заменяется на сообщение об ошибке, а в задисейбленном состоянии может превращаться в подпись.
+
+```jsx live
+const formatAmountSimple = (() => {
+    const formatter = new Intl.NumberFormat('ru-RU', {
+        style: 'currency',
+        currency: 'RUB',
+    });
+
+    return (value) => (value ? formatter.format(value).slice(0, -5) : '');
+})();
+
+const min = 100000;
+const max = 300000;
 const pips = {
     mode: 'values',
-    values: [1, 2, 3, 4, 5],
+    values: [min, max - min, max],
     format: {
-        to: (value) => `${value}${getSuffix(value)}`,
+        to: (value) => formatAmountSimple(value),
     },
 };
 
-const normalizeValue = (value, min, max) =>
-    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
-
 render(() => {
-    const [value, setValue] = React.useState('');
-
-    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+    const [value, setValue] = React.useState(150000);
+    const [props, setProps] = React.useState({});
 
     return (
-        <div style={{ width: 320 }}>
-            <SliderInput
-                block={true}
-                value={value}
-                min={min}
-                max={max}
-                step={step}
-                onChange={handleChange}
-                label='Срок кредита'
-                pips={pips}
-                Input={SuffixInput}
-                customInputProps={{
-                    suffix: getSuffix(value),
-                }}
-            />
-            <br />
-            <span>Value: {value}</span>
+        <div style={{ width: '100%' }}>
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                <SliderInput
+                    value={formatAmountSimple(value)}
+                    sliderValue={value}
+                    label='Label'
+                    size='m'
+                    pips={pips}
+                    min={min}
+                    max={max}
+                    step={1000}
+                    block={true}
+                    onChange={(_, { value }) => setValue(value)}
+                    {...props}
+                />
+            </div>
+            <Gap size='xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button onClick={() => setProps({})} size='xxs' view='secondary'>
+                    По умолчанию
+                </Button>
+                <Button onClick={() => setProps({ error: ' Error' })} size='xxs' view='secondary'>
+                    Ошибка
+                </Button>
+                <Button
+                    onClick={() => setProps({ disabled: true, hint: 'Hint' })}
+                    size='xxs'
+                    view='secondary'
+                >
+                    Заблокирован
+                </Button>
+            </Space>
         </div>
     );
 });
 ```
 
-**Нелинейный шаг**
+## Amount
+
+Используйте Amount для деления введенных значений на разряды.
 
 ```jsx live
-// import { withSuffix } from '@alfalab/core-components/with-suffix';
-// import { Input } from '@alfalab/core-components/input';
-
-const SuffixInput = withSuffix(Input);
-
-const min = 0;
-const max = 100;
-const step = 1;
-const range = {
-    min: [0],
-    '50%': [20, 5],
-    max: [100],
-};
-
-const normalizeValue = (value, min, max) =>
-    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
-
-render(() => {
-    const [value, setValue] = React.useState('');
-
-    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
-
-    return (
-        <div style={{ width: 320 }}>
-            <SliderInput
-                block={true}
-                value={value}
-                min={min}
-                max={max}
-                step={step}
-                onChange={handleChange}
-                label='Label'
-                range={range}
-                pips={{
-                    mode: 'range',
-                }}
-                Input={SuffixInput}
-                customInputProps={{
-                    suffix: ' %',
-                }}
-            />
-            <br />
-            <span>Value: {value}</span>
-        </div>
-    );
-});
-```
-
-#### Подпись
-
-В задисейбленном состоянии допустимо использовать стандартный Hint
-
-```jsx live
-const pips = {
-    mode: 'values',
-    values: [0, 50, 100],
-};
-
-render(() => {
-    return (
-        <div style={{ width: 320 }}>
-            <SliderInput
-                block={true}
-                label='Срок кредита'
-                pips={pips}
-                hint='Hint'
-                disabled={true}
-            />
-        </div>
-    );
-});
-```
-
-### AmountSliderInput
-
-```jsx live
-// import { AmountInput } from '@alfalab/core-components/amount-input';
-
 const min = 50000;
 const max = 10000000;
 const step = 1000;
@@ -178,10 +143,10 @@ const pips = {
 };
 
 render(() => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState(120000);
 
     const handleInputChange = (event, { value }) => {
-        setValue(value !== '' ? (+value / 100).toString() : '');
+        setValue(value !== '' ? (value / 100).toString() : '');
     };
 
     const handleSliderChange = ({ value }) => {
@@ -190,12 +155,12 @@ render(() => {
 
     const handleBlur = () => {
         if (value !== '') {
-            setValue(Math.max(min, Math.min(max, +value)));
+            setValue(Math.max(min, Math.min(max, parseFloat(value.toString()))));
         }
     };
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SliderInput
                 block={true}
                 value={value !== '' ? value * 100 : ''}
@@ -210,9 +175,14 @@ render(() => {
                 step={step}
                 label='Первоначальный взнос'
                 Input={AmountInput}
-                size='l'
+                size='m'
             />
         </div>
     );
 });
 ```
+
+## Морфология
+
+Поле ввода является оберткой над [FormControl](?path=/docs/компоненты-formcontrol--form-control),
+поэтому наследует все доступные для него настройки. Для слайдера используется компонент [Slider](?path=/docs/компоненты-slider--slider)

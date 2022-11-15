@@ -1,14 +1,13 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { FormControl } from '@alfalab/core-components-form-control';
 
-import { FormControl as FormControlTS } from '../Component';
 import { version } from '../../package.json';
+import Development from './development.mdx';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../vars.css';
 
 <Meta title='Компоненты/Модалки и поповеры/FormControl' component={FormControl} />
 
@@ -58,21 +57,7 @@ import styles from '!!raw-loader!../vars.css';
     name='FormControl'
     version={version}
     package='@alfalab/core-components/form-control'
+    children='Базовый компонент для построения полей ввода — input, textarea, select и др.'
 />
 
-```jsx
-import { FormControl } from '@alfalab/core-components/form-control';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={<ArgsTable of={FormControlTS} />}
-    cssVars={
-        <CssVars
-            css={`
-                ${styles}
-            `}
-        />
-    }
-/>
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />

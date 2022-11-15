@@ -1,18 +1,14 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import { Tag } from '@alfalab/core-components-tag';
-import { Input } from '@alfalab/core-components-input';
-import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { Arrow, Option, isOptionShape } from '@alfalab/core-components-select';
+import { Arrow, isOptionShape } from '@alfalab/core-components-select';
 import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
 import { InputAutocompleteMobile } from '@alfalab/core-components-input-autocomplete/mobile';
 
-import { InputAutocomplete as InputAutocompleteTS } from '../Component';
-import { InputAutocompleteMobile as InputAutocompleteMobileTS } from '../Component.mobile';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
 export const options = [
@@ -153,21 +149,7 @@ export const matchOption = (option, inputValue) =>
     version={version}
     package='@alfalab/core-components/input-autocomplete'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=58839%3A63017'
+    children='Дает возможность выбрать значение из списка доступных, либо ввести своё с помощью клавиатуры.'
 />
 
-```jsx
-import { InputAutocomplete } from '@alfalab/core-components/input-autocomplete';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={
-        <ArgsTable
-            components={{
-                InputAutocomplete: InputAutocompleteTS,
-                InputAutocompleteMobile: InputAutocompleteMobileTS,
-            }}
-        />
-    }
-/>
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
