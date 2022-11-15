@@ -20,6 +20,7 @@ module.exports = {
         '@alfalab/core-components-(.*)/(.*)$': '<rootDir>/packages/$1/src/$2',
         '@alfalab/core-components-(.*)$': '<rootDir>/packages/$1/src',
         '\\.css$': 'identity-obj-proxy',
+        '\\.(svg|png|jpg)$': '<rootDir>/__mocks__/fileMock.ts',
     },
     testMatch: ['**/*.test.ts?(x)', '!**/*.screenshots.test.ts?(x)'],
     testPathIgnorePatterns: ['codemod'],
