@@ -6,6 +6,7 @@ import wildcardExternal from '@oat-sa/rollup-plugin-wildcard-external';
 import typescript from '@wessberg/rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
+import svg from 'rollup-plugin-svg';
 
 import {
     coreComponentsRootPackageResolver,
@@ -33,13 +34,13 @@ const baseConfig = {
         '!src/**/*.mdx',
         '!src/**/*.d.ts',
     ],
-    plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
+    plugins: [wildcardExternal(['@alfalab/core-components-*/*']), svg()],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
 
 const multiInputPlugin = multiInput();
 
-const copyPlugin = dest =>
+const copyPlugin = (dest) =>
     copy({
         flatten: false,
         targets: [{ src: ['src/**/*.{png,svg,jpg,jpeg}', '!**/__image_snapshots__/**'], dest }],
@@ -47,7 +48,7 @@ const copyPlugin = dest =>
 
 const postcssPlugin = postcss({
     modules: {
-        generateScopedName: function(name, fileName) {
+        generateScopedName: function (name, fileName) {
             const relativeFileName = path.relative(currentPackageDir, fileName);
 
             const hash = generateClassNameHash(pkg.name, rootPkg.version, relativeFileName);
@@ -77,7 +78,7 @@ const es5 = {
         ...baseConfig.plugins,
         multiInputPlugin,
         typescript({
-            tsconfig: resolvedConfig => ({
+            tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
@@ -113,7 +114,7 @@ const modern = {
         multiInputPlugin,
         typescript({
             outDir: 'dist/modern',
-            tsconfig: resolvedConfig => ({
+            tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
                 target: ScriptTarget.ES2020,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
@@ -144,7 +145,7 @@ const cssm = {
         ignoreCss(),
         typescript({
             outDir: 'dist/cssm',
-            tsconfig: resolvedConfig => ({
+            tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
@@ -175,7 +176,7 @@ const esm = {
         multiInputPlugin,
         typescript({
             outDir: 'dist/esm',
-            tsconfig: resolvedConfig => ({
+            tsconfig: (resolvedConfig) => ({
                 ...resolvedConfig,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
@@ -220,9 +221,10 @@ const root = {
     ],
 };
 
-const configs = (process.env.BUILD_ESM_ONLY === 'true'
-    ? [esm, root]
-    : [es5, modern, esm, currentComponentName !== 'themes' && cssm, root]
+const configs = (
+    process.env.BUILD_ESM_ONLY === 'true'
+        ? [esm, root]
+        : [es5, modern, esm, currentComponentName !== 'themes' && cssm, root]
 ).filter(Boolean);
 
 export default configs;
