@@ -22,6 +22,7 @@ export type CreateStorybookUrlParams = {
     inverted?: boolean;
     knobs?: Knobs;
     mockDate?: number;
+    group?: string;
 };
 
 export type CreateSpriteStorybookUrlParams = {
@@ -33,6 +34,7 @@ export type CreateSpriteStorybookUrlParams = {
     inverted?: boolean;
     size?: { width: number; height: number };
     mockDate?: number;
+    group?: string;
 };
 
 export function createStorybookUrl({
@@ -44,7 +46,8 @@ export function createStorybookUrl({
     inverted = false,
     knobs = {},
     mockDate,
-}: CreateStorybookUrlParams) {
+    group,
+}: CreateStorybookUrlParams): string {
     const knobsQuery = Object.keys(knobs).reduce(
         (acc, knobName) => `${acc}&knob-${knobName}=${knobs[knobName]}`,
         '',
@@ -57,11 +60,17 @@ export function createStorybookUrl({
         }`;
     }
 
+    const componentGroup = group ? `-${group.toLowerCase().replace(/\s/g, '-')}` : '';
+
     const componentPath = subComponentName
         ? `-${packageName.replace(/-/g, '')}--${kebab(subComponentName)}`
         : `-${packageName.replace(/-/g, '')}--${kebab(componentName)}`;
 
-    return `${url}?id=компоненты${componentPath}${knobsQuery}&mockDate=${mockDate || ''}`;
+    const storybookUrl = `${url}?id=компоненты${componentGroup}${componentPath}${knobsQuery}&mockDate=${
+        mockDate || ''
+    }`;
+
+    return storybookUrl;
 }
 
 export function createSpriteStorybookUrl({
@@ -73,11 +82,13 @@ export function createSpriteStorybookUrl({
     inverted = false,
     size,
     mockDate,
-}: CreateSpriteStorybookUrlParams) {
+    group,
+}: CreateSpriteStorybookUrlParams): string {
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
+    const componentGroup = group ? `-${group.toLowerCase().replace(/\s/g, '-')}` : '';
 
     // TODO: укоротить (переписать на qs.stringify)
-    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
+    return `${url}?id=компоненты${componentGroup}--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
         knobs,
     )}&mockDate=${mockDate || ''}`;
 }
