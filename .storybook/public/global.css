@@ -366,8 +366,8 @@ div.benefits-item span {
 h1.sbdocs-h1 {
     margin: 0 0 var(--gap-xl);
     color: var(--color-light-text-primary);
-    font-size: 48px;
-    line-height: 64px;
+    font-size: 34px;
+    line-height: 40px;
     font-weight: 500;
     font-family: var(--font-family-styrene);
 }
@@ -395,13 +395,12 @@ h1.sbdocs-title {
 h2.sbdocs-h2,
 h2.sbdocs-h2:first-of-type {
     position: relative !important;
-    margin: var(--gap-xl) var(--gap-m-neg) var(--gap-s);
+    margin: var(--gap-xl) var(--gap-m-neg) 0;
     padding: 0 var(--gap-m);
     color: var(--color-light-text-primary);
 
-    /* font-size: 24px; */
-    font-size: 24px;
-    line-height: 1.2;
+    font-size: 20px;
+    line-height: 28px;
     font-weight: 500;
     font-family: 'Styrene UI';
     border: 0;
@@ -427,10 +426,10 @@ h4.sbdocs-h4 {
 }
 
 p.sbdocs-p {
-    margin: 0 0 var(--gap-m);
+    margin: var(--gap-s) 0 0;
     color: var(--color-light-text-primary);
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 24px;
     font-family: var(--font-family);
 }
 
@@ -462,6 +461,19 @@ p.sbdocs-p > code {
     background-color: rgba(11, 31, 53, 0.05);
     border-radius: var(--border-radius-s);
     white-space: pre-wrap;
+}
+
+pre.sbdocs-pre > div {
+    margin: 0;
+}
+
+pre.sbdocs-pre.sbdocs {
+    margin: var(--gap-xl) 0;
+}
+
+pre.sbdocs-pre.sbdocs + h2,
+pre.sbdocs-pre.sbdocs + h3 {
+    margin-top: var(--gap-4xl);
 }
 
 pre.sbdocs-pre code.sbdocs-code:only-child,
@@ -902,4 +914,23 @@ table.docblock-argstable tbody.docblock-argstable-body td div:only-child span {
 
 .plateGlobal {
     --plate-background: url('./images/docs-background.png');
+}
+
+@media screen and (min-width: 768px) {
+    h1.sbdocs-h1 {
+        font-size: 48px;
+        line-height: 64px;
+    }
+
+    h2.sbdocs-h2,
+    h2.sbdocs-h2:first-of-type {
+        margin-top: var(--gap-2xl);
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    pre.sbdocs-pre.sbdocs + h2,
+    pre.sbdocs-pre.sbdocs + h3 {
+        margin-top: calc(var(--gap-xl) + var(--gap-2xl));
+    }
 }

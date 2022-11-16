@@ -1,6 +1,6 @@
 .component {
     position: relative;
-    margin: 0 0 var(--gap-xl);
+    margin: 0;
 }
 
 .component h1 {
@@ -10,6 +10,11 @@
 .text {
     margin: var(--gap-xl) 0;
 }
+
+.textMobile {
+    margin-top: var(--gap-s);
+}
+
 .info {
     display: flex;
     margin-top: var(--gap-xs);

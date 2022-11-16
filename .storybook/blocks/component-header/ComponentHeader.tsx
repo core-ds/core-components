@@ -8,6 +8,7 @@ import { pluralize } from '@alfalab/utils';
 import usages from 'storybook/usages.json';
 
 import styles from './ComponentHeader.module.css';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 
 type ComponentHeaderProps = {
     name: string;
@@ -17,6 +18,8 @@ type ComponentHeaderProps = {
 };
 
 export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, children }) => {
+    const [isDesktop] = useMatchMedia('--tablet-m');
+
     const packageName = name
         .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
         .replace(/([A-Z])([A-Z])(?=[a-z])/g, '$1-$2')
@@ -24,14 +27,22 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
 
     const githubLink = `https://github.com/core-ds/core-components/tree/master/packages/${packageName}`;
 
+    const Title = isDesktop ? Typography.Title : Typography.TitleMobile;
+
     return (
         <div className={styles.component}>
-            <Typography.Title tag='h1' view='xlarge'>
+            <Title tag='h1' view='xlarge'>
                 {name}
-            </Typography.Title>
-            <Typography.Text tag='p' view='primary-medium' className={styles.text}>
-                {children}
-            </Typography.Text>
+            </Title>
+            {children && (
+                <Typography.Text
+                    tag='p'
+                    view='primary-medium'
+                    className={cn(styles.text, { [styles.textMobile]: !isDesktop })}
+                >
+                    {children}
+                </Typography.Text>
+            )}
             <div className={styles.links}>
                 <a
                     className={cn(styles.design, {
