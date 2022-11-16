@@ -1,5 +1,23 @@
 # Change Log
 
+## 6.3.0
+
+### Minor Changes
+
+### [#331](https://github.com/core-ds/core-components/pull/331)
+
+-   Изменен фоновый цвет на light/specialbg/secondary-transparent для компонента Plate в режиме common
+
+### [#340](https://github.com/core-ds/core-components/pull/340)
+
+-   В компоненте Plate иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.1
+    -   icon-button@6.0.1
+
 ## 6.2.2
 
 ### Patch Changes

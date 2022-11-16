@@ -1,5 +1,6 @@
 import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { StarSIcon } from '@alfalab/icons-glyph/StarSIcon';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
@@ -7,6 +8,7 @@ import { Button } from '@alfalab/core-components-button';
 import { Button as ButtonTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx'
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import colorsStyles from '!!raw-loader!../default.module.css';
@@ -21,6 +23,8 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 <Story name='Button'>
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const sizel = select('size', SIZES, 'm');
+        const addons = sizel === 'xxs' ? <StarSIcon/> : <StarMIcon />;
         return (
             <div
                 style={{
@@ -39,14 +43,14 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
                 <Button
                     view={select('view', VIEWS, 'primary')}
                     colors={colors}
-                    size={select('size', SIZES, 'm')}
+                    size={sizel}
                     href={text('href', '')}
                     loading={boolean('loading')}
                     disabled={boolean('disabled', false)}
                     block={boolean('block', false)}
                     nowrap={boolean('nowrap', false)}
-                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
-                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
+                    leftAddons={boolean('leftAddons', false) && addons}
+                    rightAddons={boolean('rightAddons', false) && addons}
                 >
                     {text('label', 'Оплатить')}
                 </Button>
@@ -61,21 +65,11 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
     name='Button'
     version={version}
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=61%3A73570'
+    children='Используется как триггер для выполнения определённого действия. Лейбл кнопки должен однозначно сообщать пользователю, что произойдёт после нажатия на неё.'
 />
-
-```jsx
-import { Button } from '@alfalab/core-components/button';
-```
 
 <Tabs
     description={<Description />}
+    development={<Development /> }
     changelog={<Changelog />}
-    props={<ArgsTable of={ButtonTS} />}
-    cssVars={
-        <CssVars
-            css={`
-                ${styles}${colorsStyles}
-            `}
-        />
-    }
 />

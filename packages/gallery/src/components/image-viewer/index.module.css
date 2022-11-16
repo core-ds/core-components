@@ -1,5 +1,4 @@
 @import '../../../../themes/src/default.css';
-@import '../../vars.css';
 
 .component {
     display: flex;
@@ -119,9 +118,6 @@
     width: 80px;
     height: 80px;
     margin-bottom: var(--gap-2xs);
-    background-image: var(--gallery-broken-image-icon);
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .fullScreenImage {

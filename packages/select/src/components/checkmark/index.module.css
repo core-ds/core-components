@@ -33,3 +33,7 @@
 .after {
     display: var(--select-checkmark-after-display);
 }
+
+.colorIcon {
+    color: var(--color-light-graphic-positive);
+}

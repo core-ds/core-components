@@ -146,6 +146,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             nowrap = false,
             colors = 'default',
             Component = href ? 'a' : 'button',
+            onClick,
             ...restProps
         },
         ref,
@@ -186,6 +187,12 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             ),
             'data-test-id': dataTestId || null,
         };
+
+        const {
+            disabled,
+            type = 'button',
+            ...restButtonProps
+        } = restProps as ButtonHTMLAttributes<HTMLButtonElement>;
 
         const buttonChildren = (
             <React.Fragment>
@@ -229,6 +236,18 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             [],
         );
 
+        const handleClick = (
+            e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
+                React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        ) => {
+            if (disabled || showLoader) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            onClick?.(e);
+        };
+
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
 
@@ -241,6 +260,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     {...hrefProps}
+                    onClick={handleClick}
+                    disabled={disabled || showLoader}
                     ref={mergeRefs([buttonRef, ref])}
                 >
                     {buttonChildren}
@@ -248,16 +269,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             );
         }
 
-        const {
-            disabled,
-            type = 'button',
-            ...restButtonProps
-        } = restProps as ButtonHTMLAttributes<HTMLButtonElement>;
-
         return (
             <Component
                 {...componentProps}
                 {...restButtonProps}
+                onClick={handleClick}
                 type={type}
                 disabled={disabled || showLoader}
                 ref={mergeRefs([buttonRef, ref])}

@@ -1,5 +1,14 @@
 # Change Log
 
+## 8.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.0.3
+    -   calendar@6.1.11
+    -   date-input@4.0.2
+
 ## 8.0.1
 
 ### Patch Changes

@@ -6,8 +6,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--select-mobile-checkmark-background);
-    background-size: cover;
     width: 24px;
     height: 24px;
     opacity: 0;
@@ -19,4 +17,12 @@
     &.selected {
         opacity: 1;
     }
+}
+
+.displayIcon {
+    display: var(--select-mobile-checkmark-display-icon);
+}
+
+.displayBadge {
+    display: var(--select-mobile-checkmark-display-badge);
 }

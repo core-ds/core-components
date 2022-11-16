@@ -1,3 +1,7 @@
+import fs from 'fs';
+import path from 'path';
+
+import glob from 'glob';
 import kebab from 'lodash.kebabcase';
 
 import { STORYBOOK_URL } from './setupScreenshotTesting';
@@ -22,7 +26,6 @@ export type CreateStorybookUrlParams = {
     inverted?: boolean;
     knobs?: Knobs;
     mockDate?: number;
-    group?: string;
 };
 
 export type CreateSpriteStorybookUrlParams = {
@@ -34,8 +37,45 @@ export type CreateSpriteStorybookUrlParams = {
     inverted?: boolean;
     size?: { width: number; height: number };
     mockDate?: number;
-    group?: string;
 };
+
+const findComponentGroupPath = (() => {
+    const cache = new Map();
+
+    return (componentName: string, packageName: string) => {
+        if (cache.has(packageName)) return cache.get(packageName);
+
+        const files = glob.sync(
+            path.join(path.resolve(__dirname, `../${packageName}`), '**/*.stories.mdx'),
+            {},
+        );
+
+        let result = '';
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const doc = fs.readFileSync(file).toString().replace(/\n/g, '');
+            const metaTag = (/<Meta.+?\/>/.exec(doc) || [''])[0].trim();
+
+            const titlePropValue = (/(?<=title=').*(?=')/.exec(metaTag) || [''])[0].trim();
+
+            const pathsEls = titlePropValue.split('/');
+
+            if (pathsEls.length > 0 && pathsEls[pathsEls.length - 1] === componentName) {
+                result = pathsEls
+                    .slice(0, pathsEls.length - 1)
+                    .map((el) => `${el.toLowerCase().replace(/\s/g, '-')}`)
+                    .join('-');
+
+                break;
+            }
+        }
+
+        cache.set(packageName, result);
+
+        return result;
+    };
+})();
 
 export function createStorybookUrl({
     url = STORYBOOK_URL,
@@ -46,7 +86,6 @@ export function createStorybookUrl({
     inverted = false,
     knobs = {},
     mockDate,
-    group,
 }: CreateStorybookUrlParams): string {
     const knobsQuery = Object.keys(knobs).reduce(
         (acc, knobName) => `${acc}&knob-${knobName}=${knobs[knobName]}`,
@@ -60,13 +99,15 @@ export function createStorybookUrl({
         }`;
     }
 
-    const componentGroup = group ? `-${group.toLowerCase().replace(/\s/g, '-')}` : '';
+    const groupPath = findComponentGroupPath(componentName, packageName);
+
+    const packagePath = packageName.replace(/-/g, '');
 
     const componentPath = subComponentName
-        ? `-${packageName.replace(/-/g, '')}--${kebab(subComponentName)}`
-        : `-${packageName.replace(/-/g, '')}--${kebab(componentName)}`;
+        ? `-${packagePath}--${kebab(subComponentName)}`
+        : `-${packagePath}--${kebab(componentName)}`;
 
-    const storybookUrl = `${url}?id=компоненты${componentGroup}${componentPath}${knobsQuery}&mockDate=${
+    const storybookUrl = `${url}?id=${groupPath}${componentPath}${knobsQuery}&mockDate=${
         mockDate || ''
     }`;
 
@@ -82,13 +123,11 @@ export function createSpriteStorybookUrl({
     inverted = false,
     size,
     mockDate,
-    group,
 }: CreateSpriteStorybookUrlParams): string {
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
-    const componentGroup = group ? `-${group.toLowerCase().replace(/\s/g, '-')}` : '';
 
     // TODO: укоротить (переписать на qs.stringify)
-    return `${url}?id=компоненты${componentGroup}--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
+    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
         knobs,
     )}&mockDate=${mockDate || ''}`;
 }

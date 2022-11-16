@@ -5,6 +5,7 @@ import { Typography } from '@alfalab/core-components-typography';
 
 import { GalleryImage, ImageMeta } from '../../types';
 import { getImageAlt, isSmallImage, TestIds } from '../../utils';
+import { NoImagePaths } from './paths';
 
 import styles from './index.module.css';
 
@@ -19,7 +20,24 @@ type SlideInnerProps = {
 const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceholder }) => {
     const content = broken ? (
         <div className={styles.brokenImgWrapper}>
-            <div className={styles.brokenImgIcon} />
+            <div className={styles.brokenImgIcon}>
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='80'
+                    height='80'
+                    viewBox='0 0 80 80'
+                    fill='none'
+                >
+                    <rect width='80' height='80' fill='none' />
+                    <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d={NoImagePaths.baseImage}
+                        fill='#DBDEE1'
+                    />
+                    <path d={NoImagePaths.triangleImage} fill='#DBDEE1' />
+                </svg>
+            </div>
 
             <Typography.Text view='primary-small' color='secondary'>
                 Не удалось загрузить изображение

@@ -1,0 +1,18 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.checkmark {
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.single {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+    &.selected {
+        opacity: 1;
+    }
+}

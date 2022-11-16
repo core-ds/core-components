@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
-import { Option } from '../../components/option';
+import { Option as DefaultOption } from '../../components/option';
 import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
@@ -11,17 +11,16 @@ import styles from './index.module.css';
 type useSelectWithLoadingProps = {
     loading?: boolean;
     visibleOptions?: BaseSelectProps['visibleOptions'];
+    Option?: React.FC<OptionProps>;
 };
 
 export function useSelectWithLoading({
     loading = false,
     visibleOptions = 6,
+    Option = DefaultOption,
 }: useSelectWithLoadingProps) {
-    const renderOption = useCallback(
-        (props: OptionProps) => (
-            <Option {...props} Checkmark={null} highlighted={loading ? false : props.highlighted} />
-        ),
-        [loading],
+    const renderOption = (props: OptionProps) => (
+        <Option {...props} Checkmark={null} highlighted={loading ? false : props.highlighted} />
     );
 
     const options: OptionShape[] = Array(visibleOptions)

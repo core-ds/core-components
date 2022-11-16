@@ -44,7 +44,6 @@ describe(
         cases: generateTestCases({
             componentName: 'Alert',
             packageName: 'alert',
-            group: 'Прочие компоненты',
             testStory: false,
             knobs: {
                 buttons: [true],

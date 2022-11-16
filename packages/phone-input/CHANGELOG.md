@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.0.2
+
 ## 7.0.1
 
 ### Patch Changes

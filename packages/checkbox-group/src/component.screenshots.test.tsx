@@ -14,7 +14,6 @@ describe(
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'CheckboxGroup',
-            group: 'контролы',
             testStory: false,
             knobs: {
                 direction: ['horizontal', 'vertical'],
@@ -34,7 +33,6 @@ describe(
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'CheckboxGroup',
-            group: 'контролы',
             testStory: false,
             knobs: {
                 disabled: true,

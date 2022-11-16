@@ -3,3 +3,15 @@
 .component {
     flex-basis: auto;
 }
+
+.top {
+    align-self: flex-start;
+}
+
+.center {
+    align-self: center;
+}
+
+.bottom {
+    align-self: flex-end;
+}

@@ -303,7 +303,7 @@ describe('Select', () => {
             const input = document.querySelector('.input') as HTMLElement;
             await pressArrowDownNTimes(input, options.length + 1);
 
-            expect((document.querySelector('.highlighted div') as HTMLElement).innerHTML).toBe(
+            expect((document.querySelector('.highlighted .content') as HTMLElement).innerHTML).toBe(
                 options[options.length - 1].content,
             );
         });
@@ -313,7 +313,7 @@ describe('Select', () => {
 
             const input = document.querySelector('.input') as HTMLElement;
             await pressArrowDownNTimes(input, options.length + 1);
-            expect((document.querySelector('.highlighted div') as HTMLElement).innerHTML).toBe(
+            expect((document.querySelector('.highlighted .content') as HTMLElement).innerHTML).toBe(
                 options[0].content,
             );
         });

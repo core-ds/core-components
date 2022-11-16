@@ -403,8 +403,8 @@ h1.sbdocs-title {
 h2.sbdocs-h2,
 h2.sbdocs-h2:first-of-type {
     position: relative !important;
-    margin: var(--gap-4xl) var(--gap-m-neg) var(--gap-m);
-    padding: var(--gap-s) var(--gap-m);
+    margin: var(--gap-xl) var(--gap-m-neg) var(--gap-s);
+    padding: 0 var(--gap-m);
     color: var(--color-light-text-primary);
 
     /* font-size: 24px; */
@@ -412,21 +412,7 @@ h2.sbdocs-h2:first-of-type {
     line-height: 1.2;
     font-weight: 500;
     font-family: 'Styrene UI';
-    box-shadow: inset 0 0 0 1px var(--color-light-border-secondary);
     border: 0;
-}
-
-h2.sbdocs-h2:after {
-    display: block;
-    position: absolute;
-    right: 32px;
-    top: 50%;
-    margin-top: var(--gap-xs-neg);
-    width: 16px;
-    height: 16px;
-    background-color: var(--color-light-graphic-accent);
-    border-radius: var(--border-radius-m);
-    content: '';
 }
 
 h3.sbdocs-h3,
@@ -468,7 +454,6 @@ a.sbdocs-a {
     color: #0f62fe;
     font-size: 16px;
     line-height: 1.5;
-    border-bottom: 1px solid #b7d0ff;
 }
 
 li.sbdocs-li code.sbdocs-code,

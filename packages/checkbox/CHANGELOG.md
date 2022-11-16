@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+### [#317](https://github.com/core-ds/core-components/pull/317)
+
+-   Исправлены ошибки в браузере IE 11 в компонентах Сheckbox и FormControl
+
 ## 3.0.4
 
 ### Patch Changes
