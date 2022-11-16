@@ -1,5 +1,9 @@
 @import '../../../packages/vars/src/index.css';
 
 .cssVars {
-    margin-top: var(--gap-xl-neg);
+    margin: var(--gap-xl) 0;
+
+    & > div {
+        margin: 0;
+    }
 }
