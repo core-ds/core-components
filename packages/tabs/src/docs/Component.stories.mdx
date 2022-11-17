@@ -36,6 +36,7 @@ import vars from '!!raw-loader!../vars.css';
             [component],
         );
         const props = TabsComponent !== TabsMobile ? {
+            collapsible: boolean('collapsible', false),
             size: select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm'),
         } : {};
         const responsiveAndMobileProps = TabsComponent !== TabsDesktop ? {

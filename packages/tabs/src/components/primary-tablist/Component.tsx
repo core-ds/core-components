@@ -1,11 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
+import {
+    PickerButtonDesktop,
+    PickerButtonDesktopProps,
+} from '@alfalab/core-components/picker-button/desktop';
+import { Badge } from '@alfalab/core-components-badge';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 
+import { useTablistTitles } from '../../hooks/use-tablist-titles';
+import { createSyntheticMouseEvent } from '../../synthetic-events';
 import { Styles, TabListProps } from '../../typings';
-import { useTabs } from '../../useTabs';
 import { ScrollableContainer } from '../scrollable-container';
+import { Title } from '../title';
 
 export const PrimaryTabList = ({
     size,
@@ -15,24 +22,60 @@ export const PrimaryTabList = ({
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
+    collapsible,
     fullWidthScroll,
     onChange,
     dataTestId,
+    breakpoint = 1024,
 }: TabListProps & Styles) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
-    const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
-        titles,
-        selectedId,
-        onChange,
-    });
+    const { containerRef, addonRef, tablistTitles, selectedTab, focusedTab, getTabListItemProps } =
+        useTablistTitles({
+            titles,
+            selectedId,
+            collapsible,
+            breakpoint,
+            onChange,
+        });
 
     useEffect(() => {
         if (selectedTab && lineRef.current) {
             lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
             lineRef.current.style.transform = `translateX(${selectedTab.offsetLeft}px)`;
         }
-    }, [selectedTab]);
+    }, [selectedTab, tablistTitles]);
+
+    const collapsedOptions = useMemo(
+        () =>
+            tablistTitles.reduce<PickerButtonDesktopProps['options']>((options, title) => {
+                if (title.collapsed) {
+                    options.push({
+                        key: title.title,
+                        value: title.id,
+                        content: <Title {...title} styles={styles} isOption={true} />,
+                    });
+                }
+
+                return options;
+            }, []),
+        [tablistTitles, styles],
+    );
+
+    const collapsedAddonsLength = tablistTitles.filter(
+        (title) => title.collapsed && title.rightAddons,
+    ).length;
+
+    const handleOptionsChange = (
+        payload: Parameters<Required<PickerButtonDesktopProps>['onChange']>[0],
+    ) => {
+        if (payload.selected?.value && onChange) {
+            const nativeMouseEvent = new MouseEvent('change');
+            const syntheticMouseEvent = createSyntheticMouseEvent(nativeMouseEvent);
+
+            onChange(syntheticMouseEvent, { selectedId: payload.selected.value });
+        }
+    };
 
     const renderContent = () => (
         <div
@@ -42,40 +85,44 @@ export const PrimaryTabList = ({
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
-            {titles.map((item, index) => {
-                if (item.hidden) return null;
+            {tablistTitles.map((title, index) => (
+                <KeyboardFocusable key={title.id}>
+                    {(ref, focused) => (
+                        <Title
+                            {...getTabListItemProps(index, ref)}
+                            {...title}
+                            focused={focused}
+                            styles={styles}
+                        />
+                    )}
+                </KeyboardFocusable>
+            ))}
 
-                return (
-                    <KeyboardFocusable key={item.id}>
-                        {(ref, focused) => (
-                            <button
-                                {...getTabListItemProps(index, ref)}
-                                type='button'
-                                className={cn(
-                                    styles.title,
-                                    {
-                                        [styles.selected]: item.id === selectedId,
-                                        [styles.disabled]: item.disabled,
-                                    },
-                                    item.toggleClassName,
-                                )}
-                            >
-                                <span className={focused ? styles.focused : undefined}>
-                                    {item.title}
-                                </span>
-                                {item.rightAddons && (
-                                    <span className={styles.rightAddons}>{item.rightAddons}</span>
-                                )}
-                            </button>
-                        )}
-                    </KeyboardFocusable>
-                );
-            })}
+            {collapsedOptions.length ? (
+                <span ref={addonRef} className={styles.pickerWrapper}>
+                    <PickerButtonDesktop
+                        fieldClassName={styles.title}
+                        optionClassName={cn(styles.pickerOption, size && styles[size])}
+                        options={collapsedOptions}
+                        onChange={handleOptionsChange}
+                        rightAddons={
+                            collapsedAddonsLength ? (
+                                <Badge view='count' content={collapsedAddonsLength} />
+                            ) : null
+                        }
+                        size='l'
+                        view='ghost'
+                        label='Ещё'
+                        popoverPosition='bottom-end'
+                    />
+                </span>
+            ) : null}
+
             <div className={styles.line} ref={lineRef} />
         </div>
     );
 
-    return scrollable ? (
+    return scrollable && !collapsible ? (
         <ScrollableContainer
             activeChild={focusedTab || selectedTab}
             containerClassName={containerClassName}
@@ -84,6 +131,8 @@ export const PrimaryTabList = ({
             {renderContent()}
         </ScrollableContainer>
     ) : (
-        <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
+        <div ref={containerRef} className={cn(styles.container, containerClassName)}>
+            {renderContent()}
+        </div>
     );
 };
