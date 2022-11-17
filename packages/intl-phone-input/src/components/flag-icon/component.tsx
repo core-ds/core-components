@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import styles from './index.module.css';
 
-import svgSprite from './images/sprites/flagsSprite.svg';
+import styles from './index.module.css';
 
 export type FlagIconProps = {
     /**
@@ -21,6 +20,6 @@ export type FlagIconProps = {
  */
 export const FlagIcon: FC<FlagIconProps> = ({ country = '', className }) => (
     <svg className={cn(styles.flagIcon, className)}>
-        <use xlinkHref={`${svgSprite}#${country}`} />
+        <use href={`#${country}`} />
     </svg>
 );

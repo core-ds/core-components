@@ -6,7 +6,6 @@ import wildcardExternal from '@oat-sa/rollup-plugin-wildcard-external';
 import typescript from '@wessberg/rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
-import images from 'rollup-plugin-image-files';
 
 import {
     coreComponentsRootPackageResolver,
@@ -34,7 +33,7 @@ const baseConfig = {
         '!src/**/*.mdx',
         '!src/**/*.d.ts',
     ],
-    plugins: [wildcardExternal(['@alfalab/core-components-*/*']), images()],
+    plugins: [wildcardExternal(['@alfalab/core-components-*/*'])],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
 

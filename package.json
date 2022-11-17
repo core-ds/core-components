@@ -195,7 +195,6 @@
         "rimraf": "^3.0.2",
         "rollup": "^2.10.2",
         "rollup-plugin-copy": "^3.3.0",
-        "rollup-plugin-image-files": "^1.4.2",
         "rollup-plugin-multi-input": "^1.1.1",
         "shelljs": "^0.8.5",
         "standard-version": "^8.0.0",
