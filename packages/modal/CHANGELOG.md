@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+### [#329](https://github.com/core-ds/core-components/pull/329)
+
+-   Добавлен z-index к липкому header
+
 ## 6.0.12
 
 ### Patch Changes

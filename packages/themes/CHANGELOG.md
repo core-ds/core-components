@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.6.0
+
+### Minor Changes
+
+### [#346](https://github.com/core-ds/core-components/pull/346)
+
+-   В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+-   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
 ## 9.5.2
 
 ### Patch Changes

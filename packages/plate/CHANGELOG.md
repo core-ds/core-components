@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.3.1
+
+### Patch Changes
+
+### [#360](https://github.com/core-ds/core-components/pull/360)
+
+-   Исправили max-height контента. Теперь max-height добавляется только раскрываемому(foldable) контенту.
+
 ## 6.3.0
 
 ### Minor Changes
