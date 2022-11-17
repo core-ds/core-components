@@ -10,7 +10,7 @@ import {
 } from '@alfalab/core-components-select';
 import { Country } from '@alfalab/utils';
 
-import { FlagIcon, FlagSprite } from '../flag-icon';
+import { FlagIcon } from '../flag-icon';
 import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
 
 import styles from './index.module.css';
@@ -64,7 +64,6 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
 
     return (
         <div className={styles.component} onClick={(event) => event.stopPropagation()}>
-            <FlagSprite />
             <Select
                 dataTestId={dataTestId}
                 disabled={disabled}
