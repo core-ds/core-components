@@ -91,7 +91,7 @@
         "simplebar": "^5.3.8",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
-        "ui-primitives": "^8.10.0"
+        "ui-primitives": "^9.4.0"
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.6.0",
