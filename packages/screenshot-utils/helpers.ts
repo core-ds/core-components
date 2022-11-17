@@ -115,6 +115,8 @@ export const matchHtml = async ({
     // отключаем анимацию.
     const image = await newPage.screenshot({ ...screenshotOpts, animations: 'disabled' });
 
+    await newPage.close();
+
     try {
         expect(image).toMatchImageSnapshot({
             customSnapshotIdentifier,

@@ -15,13 +15,15 @@ enum TabName {
     PROPS = 'PROPS',
     CSS_VARS = 'CSS_VARS',
     CHANGELOG = 'CHANGELOG',
+    DEVELOPMENT = 'DEVELOPMENT',
 }
 
 const TabTitle = {
     [TabName.DESCRIPTION]: 'Описание',
     [TabName.PROPS]: 'Свойства',
     [TabName.CSS_VARS]: 'CSS-переменные',
-    [TabName.CHANGELOG]: 'Что нового',
+    [TabName.CHANGELOG]: 'Обновления',
+    [TabName.DEVELOPMENT]: 'Разработчику',
 };
 
 type Props = {
@@ -30,6 +32,7 @@ type Props = {
     cssVars?: ReactNode;
     changelog?: string;
     defaultSelected?: TabName;
+    development?: ReactNode;
 };
 
 export const Tabs: FC<Props> = ({
@@ -38,6 +41,7 @@ export const Tabs: FC<Props> = ({
     cssVars,
     changelog,
     defaultSelected = TabName.DESCRIPTION,
+    development,
 }) => {
     const [selected, setSelected] = useState(defaultSelected);
 
@@ -51,7 +55,7 @@ export const Tabs: FC<Props> = ({
     const renderTabs = (): TabsResponsiveProps['children'] => {
         return [
             <Tab title={TabTitle[TabName.DESCRIPTION]} id={TabName.DESCRIPTION} key='description'>
-                <div style={{ marginTop: '40px' }}>{description}</div>
+                <div style={{ marginTop: '30px' }}>{description}</div>
             </Tab>,
             props ? (
                 <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS} key='props'>
@@ -60,12 +64,17 @@ export const Tabs: FC<Props> = ({
             ) : null,
             cssVars ? (
                 <Tab title={TabTitle[TabName.CSS_VARS]} id={TabName.CSS_VARS} key='css-vars'>
-                    <div style={{ marginTop: '40px' }}>{cssVars}</div>
+                    <div style={{ marginTop: '30px' }}>{cssVars}</div>
+                </Tab>
+            ) : null,
+            development ? (
+                <Tab title={TabTitle[TabName.DEVELOPMENT]} id={TabName.DEVELOPMENT} key='development'>
+                    {development}
                 </Tab>
             ) : null,
             changelog ? (
                 <Tab title={TabTitle[TabName.CHANGELOG]} id={TabName.CHANGELOG} key='changelog'>
-                    <div style={{ marginTop: '40px' }}>
+                    <div style={{ marginTop: '30px' }}>
                         <Changelog content={changelog} />
                     </div>
                 </Tab>
