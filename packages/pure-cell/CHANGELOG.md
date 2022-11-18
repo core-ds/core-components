@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.4
+    -   comment@2.1.2
+
 ## 4.1.0
 
 ### Minor Changes
