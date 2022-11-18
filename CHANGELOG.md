@@ -1,3 +1,17 @@
+## 36.1.1
+
+<sup><time>18.11.2022</time></sup>
+
+### [#368](https://github.com/core-ds/core-components/pull/368)
+
+#### Что изменилось
+- Обновлен пакет ui-primitives и миксины typography (изменился line-height 24→20 у миксинов headline-mobile_xsmall и headline-system-mobile_xsmall)
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
 ## 36.1.0
 
 <sup><time>17.11.2022</time></sup>
