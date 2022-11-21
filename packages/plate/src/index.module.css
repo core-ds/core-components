@@ -224,25 +224,13 @@
 }
 
 .rowLimit1 {
-    -webkit-line-clamp: 1;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-all;
+    @mixin row_limit 1;
 }
 
 .rowLimit2 {
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-all;
+    @mixin row_limit 2;
 }
 
 .rowLimit3 {
-    -webkit-line-clamp: 3;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-all;
+    @mixin row_limit 3;
 }
