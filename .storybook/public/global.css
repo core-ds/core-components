@@ -221,10 +221,22 @@ div.sidebar-subheading > button > span:first-of-type {
 }
 
 .sidebar-container .sidebar-item:hover .sidebar-icon,
-.sidebar-container .sidebar-item:focus .sidebar-icon,
+.sidebar-container .sidebar-item:focus:not([data-nodetype='group']) .sidebar-icon,
 .sidebar-container .sidebar-item[data-selected='true'] .sidebar-icon {
     color: var(--color-light-text-accent);
 }
+
+/* img песочницы */
+.sidebar-container .sidebar-item img.sidebar-icon {
+    filter: invert(83%) sepia(10%) saturate(176%) hue-rotate(172deg) brightness(89%) contrast(92%);
+}
+
+.sidebar-container .sidebar-item:hover img.sidebar-icon,
+.sidebar-container .sidebar-item:focus: img.sidebar-icon,
+.sidebar-container .sidebar-item[data-selected='true'] img.sidebar-icon {
+    filter: invert(83%) sepia(14%) saturate(129%) hue-rotate(172deg) brightness(89%) contrast(90%);
+}
+/* _______________ */
 
 button.sidebar-item[aria-expanded='true'],
 button.sidebar-item[aria-expanded='true']:focus {
