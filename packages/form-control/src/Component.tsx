@@ -110,15 +110,6 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
      * Компонент поля (инпут, textarea и пр.)
      */
     children?: ReactNode;
-
-    /**
-     * Счетчик переполнения
-     */
-    overflowHint?: ReactNode;
-    /**
-     * Флаг преполнения
-     */
-    overflow?: boolean;
 };
 
 export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
@@ -144,8 +135,6 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             bottomAddons,
             children,
             dataTestId,
-            overflowHint,
-            overflow,
             ...restProps
         },
         ref,
@@ -219,17 +208,6 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     )}
                 </div>
                 {bottomAddons}
-
-                {overflowHint && (
-                    <span
-                        className={cn(styles.sub, {
-                            [colorStyles[colors].error]: overflow,
-                            [colorStyles[colors].hint]: !overflow,
-                        })}
-                    >
-                        {overflowHint}
-                    </span>
-                )}
 
                 {errorMessage && (
                     <span

@@ -32,3 +32,11 @@
 .textarea:focus::placeholder {
     color: var(--input-focus-placeholder-color);
 }
+
+.hint {
+    color: var(--form-control-hint-color);
+}
+
+.error {
+    color: var(--form-control-error-color);
+}

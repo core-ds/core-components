@@ -238,6 +238,22 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             );
         };
 
+        const getBottomAddons = () => (
+            <>
+                {maxLength && (
+                    <span
+                        className={cn(styles.sub, {
+                            [colorStyles[colors].error]: hasOverflow,
+                            [colorStyles[colors].hint]: !hasOverflow,
+                        })}
+                    >
+                        {getCounterText(getValueLength(), maxLength)}
+                    </span>
+                )}
+                {bottomAddons}
+            </>
+        );
+
         return (
             <FormControl
                 className={cn(className)}
@@ -256,9 +272,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 hint={hint}
                 leftAddons={leftAddons}
                 rightAddons={rightAddons}
-                bottomAddons={bottomAddons}
-                overflowHint={maxLength && getCounterText(getValueLength(), maxLength)}
-                overflow={hasOverflow}
+                bottomAddons={getBottomAddons()}
             >
                 {nativeScrollbar ? (
                     <>

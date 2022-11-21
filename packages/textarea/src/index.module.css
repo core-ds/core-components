@@ -116,7 +116,7 @@
         color: transparent;
     }
     & .overflow {
-        background-color: color-mod(var(--color-light-graphic-negative) alpha(40%));
+        background-color: var(--color-light-graphic-negative-alpha-40);
     }
     &.nativeScrollbar {
         overflow: auto;
@@ -124,6 +124,11 @@
     &.customScrollbar {
         max-height: none;
     }
+}
+
+.sub {
+    @mixin paragraph_component_secondary;
+    @mixin form-control-sub;
 }
 
 /* SIZES */
