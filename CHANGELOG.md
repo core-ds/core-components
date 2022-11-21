@@ -1,3 +1,108 @@
+## 36.1.1
+
+<sup><time>18.11.2022</time></sup>
+
+### [#368](https://github.com/core-ds/core-components/pull/368)
+
+#### Что изменилось
+- Обновлен пакет ui-primitives и миксины typography (изменился line-height 24→20 у миксинов headline-mobile_xsmall и headline-system-mobile_xsmall)
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
+## 36.1.0
+
+<sup><time>17.11.2022</time></sup>
+
+### [#336](https://github.com/core-ds/core-components/pull/336)
+
+#### Что изменилось
+- Добавлен пропс collapsible, при включении которого не помещающиеся в окне табы сворачиваются в PickerButton.
+- Добавлен хук use-collapsible-elements, который следит за изменением ширины контейнера и возвращает те элементы, которые не помещаются в данном контейнере.<br />
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#360](https://github.com/core-ds/core-components/pull/360)
+
+#### Что изменилось
+- Исправили max-height контента. Теперь max-height добавляется только раскрываемому(foldable) контенту.
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#329](https://github.com/core-ds/core-components/pull/329)
+
+#### Что изменилось
+- Добавлен z-index к липкому header
+
+#### Влияние на компоненты
+- Минорное<br />`modal`
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент BaseOption
+- Изменены отступы у заголовка группы (компонент Optgroup)<br />
+- Изменены отступы у футера, который возвращает хук useSelectWithApply<br />
+- Добавлена возможность прокидывать кастомный Option в useLazyLoading и useSelectWithLoading хук<br />
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+<br />
+
+#### Что изменилось
+- Добавлено вертикальное выравнивание у компонента PureCell.Graphics
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#346](https://github.com/core-ds/core-components/pull/346)
+
+#### Что изменилось
+- В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`select` `themes`
+
+
+### [#335](https://github.com/core-ds/core-components/pull/335)
+
+#### Что изменилось
+- Добавлен обязательный параметр(expanded) в типы обработчиков состояний.
+Добавлены пропсы:<br />
+<br />
+-   `expandedContentClassName` - позволяет устанавливать дополнительный класс для скрываемого контента.<br />
+-   `defaultExpanded` - позволяет устанавливать начальное состояние неконтролируемого компонента.<br />
+
+#### Влияние на компоненты
+- Минорное<br />`collapse`
+
+<br />
+
+#### Что изменилось
+- Добавили restProps в компонент
+
+#### Влияние на компоненты
+- Минорное<br />`list`
+
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+#### Что изменилось
+- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`gallery` `input` `themes` `amount-input` `date-input`<br /> `date-range-input` `date-time-input` `input-autocomplete` `intl-phone-input` `masked-input`<br /> `password-input` `slider-input` `time-input` `calendar-input` `phone-input`<br />
+
+
+
 ## 36.0.0
 
 <sup><time>11.11.2022</time></sup>

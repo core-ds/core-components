@@ -150,15 +150,18 @@
     padding: 6px var(--gap-s) 6px var(--gap-2xs);
 }
 
+.foldable .content {
+    max-height: 300vh;
+}
+
 .content {
     @mixin paragraph_primary_small;
 
-    max-height: 300vh;
     overflow: hidden;
     transition: max-height 2s ease-in-out;
     cursor: default;
 
-    &.isFolded {
+    &.isFolded.isFolded {
         max-height: 0;
         transition: max-height 1s cubic-bezier(0, 1, 0, 1);
     }

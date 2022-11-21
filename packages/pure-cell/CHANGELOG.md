@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.4
+    -   comment@2.1.2
+
+## 4.1.0
+
+### Minor Changes
+
+### [#329](https://github.com/core-ds/core-components/pull/329)
+
+-   Добавлено вертикальное выравнивание у компонента PureCell.Graphics
+
 ## 4.0.3
 
 ### Patch Changes

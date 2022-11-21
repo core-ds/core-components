@@ -1,5 +1,19 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+-   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.1.0
+    -   calendar@6.1.12
+
 ## 8.0.2
 
 ### Patch Changes

@@ -1,5 +1,33 @@
 # Change Log
 
+## 13.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.1.10
+
+## 13.1.0
+
+### Minor Changes
+
+### [#346](https://github.com/core-ds/core-components/pull/346)
+
+-   В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### [#329](https://github.com/core-ds/core-components/pull/329)
+
+-   Добавлен новый компонент BaseOption
+-   Изменены отступы у заголовка группы (компонент Optgroup)<br />
+-   Изменены отступы у футера, который возвращает хук useSelectWithApply<br />
+-   Добавлена возможность прокидывать кастомный Option в useLazyLoading и useSelectWithLoading хук<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@6.1.0
+    -   input@11.1.0
+
 ## 13.0.3
 
 ### Patch Changes
