@@ -21,10 +21,14 @@ describe(
                     componentName: 'Plate',
                     knobs: {
                         title: 'Поздравляем, полный успех',
-                        children: ['', 'Вам одобрено. Согласитесь на предложение'],
+                        children: [
+                            '',
+                            'Вам одобрено. Согласитесь на предложение, спустя какое-то время специалист с Вами свяжется для уточнения информации',
+                        ],
                         view: ['negative', 'positive', 'attention', 'common'],
                         hasCloser: [false, true],
                         foldable: [false, true],
+                        rowLimit: [undefined, 1, 2, 3],
                     },
                     size: { width: 400, height: 120 },
                 }),
