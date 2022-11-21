@@ -1,36 +1,46 @@
 import React from 'react';
 
-import { DocumentIcon } from './public/icons/DocumentIcon';
-import { ComponentIcon } from './public/icons/ComponentIcon';
-import { FolderIcon } from './public/icons/FolderIcon';
-import { DocumentBlankIcon } from './public/icons/DocumentBlankIcon';
-import { DiamondsBlankIcon } from './public/icons/DiamondsBlankIcon';
-import PencilIcon from './public/images/pencil.svg';
-
-// Через css не удалось выделить нужную группу
-const Gap = () => <span style={{ width: '16px' }} />;
+import { Gap } from './components/Gap.jsx';
+import { DocumentIcon } from './components/icons/DocumentIcon.jsx';
+import { ComponentIcon } from './components/icons/ComponentIcon.jsx';
+import { FolderIcon } from './components/icons/FolderIcon.jsx';
+import { DocumentBlankIcon } from './components/icons/DocumentBlankIcon.jsx';
+import { DiamondsBlankIcon } from './components/icons/DiamondsBlankIcon.jsx';
+// import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
+import SandboxIcon from './public/images/sandbox.svg';
 
 const renderIcon = (type, parent, depth, name) => {
     switch (type) {
         case 'component': {
             if (name === 'Песочница') {
-                // Иконка карандаша не отображается svg компонентом
-                return <img src={PencilIcon} className='sidebar-icon' />;
+                // Сложная иконка песочницы не отображается svg компонентом
+                return <img src={SandboxIcon} className='sidebar-icon' />;
             }
             if (parent === 'инструкции-доступность') {
                 return <DocumentBlankIcon />;
             }
-            return parent && parent.includes('компоненты') ? (
-                <>
-                    <Gap />
-                    <ComponentIcon />
-                </>
-            ) : (
-                <DocumentIcon />
-            );
+            if (parent && parent.includes('компоненты')) {
+                return (
+                    <>
+                        <Gap size={name === 'KeyboardFocusable' ? 8 : 24} />
+                        <ComponentIcon />
+                    </>
+                );
+            }
+            return <DocumentIcon />;
         }
         case 'story': {
-            return depth > 2 ? <DiamondsBlankIcon /> : <ComponentIcon />;
+            return depth > 2 ? (
+                <>
+                    <Gap size={16} />
+                    <DiamondsBlankIcon />
+                </>
+            ) : (
+                <>
+                    <Gap size={8} />
+                    <ComponentIcon />
+                </>
+            );
         }
         case 'group': {
             return parent === 'инструкции' ? <DocumentIcon /> : <FolderIcon />;

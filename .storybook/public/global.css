@@ -88,14 +88,13 @@ div[id*='story--'] {
 
 .sidebar-container .os-content {
     padding-left: 36px !important;
-    min-width: 332px;
 }
 
 div.sidebar-header {
     display: flex;
     align-items: center;
     justify-content: start !important;
-    margin: 0 0 0 -10px !important;
+    /* margin: 0 0 0 -10px !important; */
 }
 
 div.sidebar-header > div:first-child a {
@@ -118,8 +117,9 @@ a[href='#storybook-preview-wrapper'] {
 }
 
 .search-field {
-    margin-left: var(--gap-l-neg);
+    margin-left: -10px;
     margin-right: -10px;
+    margin-bottom: var(--gap-xl);
 }
 
 .search-field svg:first-child {
@@ -161,23 +161,24 @@ a[href='#storybook-preview-wrapper'] {
     display: none;
 }
 
-.sidebar-container .sidebar-item .sidebar-icon {
-    /* кастомные иконки пунктов */
-    margin-right: 8px;
-}
 .sidebar-container .sidebar-item svg:not(.sidebar-icon) {
     /* исходные иконки пунктов */
     display: none;
 }
 
+/* Главные пункты sidebar */
 div.sidebar-subheading {
-    padding: var(--gap-xl) var(--gap-2xs) 0 var(--gap-xl);
+    padding: 0 0 0 36px;
     margin-bottom: var(--gap-xs);
     color: var(--color-light-text-secondary);
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
     letter-spacing: 1.25px;
+}
+
+div.sidebar-subheading > button > span:first-of-type {
+    display: none;
 }
 
 .sidebar-container .sidebar-item {
@@ -201,30 +202,9 @@ div.sidebar-subheading {
     padding-left: 18px;
 }
 
-.sidebar-container .sidebar-item[aria-expanded='false']::after {
-    content: url(./images/chevron-right-compact.svg);
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    right: -24px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 200ms;
-}
-
-.sidebar-container .sidebar-item[aria-expanded='true']::after {
-    content: url(./images/chevron-down-compact.svg);
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    right: -24px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .sidebar-container .sidebar-item .item-label {
     display: inline-flex;
-    align-items: center;
+    align-items: start;
 }
 
 .sidebar-container .sidebar-item .sidebar-icon {
@@ -233,7 +213,7 @@ div.sidebar-subheading {
 }
 
 .sidebar-container .sidebar-item:hover,
-.sidebar-container .sidebar-item:focus,
+.sidebar-container .sidebar-item:focus:not([data-nodetype='group']),
 .sidebar-container .sidebar-item[data-selected='true']:not([data-nodetype='group']) {
     font-weight: normal;
     color: var(--color-light-text-accent) !important;
