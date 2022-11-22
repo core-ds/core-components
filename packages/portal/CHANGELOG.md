@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.1.1
+
+### Patch Changes
+
+### [#372](https://github.com/core-ds/core-components/pull/372)
+
+-   Исправлена ошибка "document is not defined" при immediateMount=true
+
 ## 3.1.0
 
 ### Minor Changes

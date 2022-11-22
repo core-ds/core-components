@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+### [#358](https://github.com/core-ds/core-components/pull/358)
+
+-   Добавлен новый prop `defaultMargins` в компонент Text. Теперь есть возможность отключить отступ для тега `p`
+
 ## 3.0.4
 
 ### Patch Changes

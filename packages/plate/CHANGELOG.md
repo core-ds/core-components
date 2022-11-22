@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.3.2
+
+### Patch Changes
+
+### [#371](https://github.com/core-ds/core-components/pull/371)
+
+-   Добавлен новый опциональный prop `rowLimit` в компонент Plate. Теперь есть возможность ограничивать количество строк для передаваемого текста в `children` (от 1 до 3).
+
 ## 6.3.1
 
 ### Patch Changes
