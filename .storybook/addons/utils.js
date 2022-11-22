@@ -1,5 +1,8 @@
 export const getStoryDoc = () => document.querySelector('iframe').contentDocument;
 
+export const getMobileFrames = () =>
+    Array.from(getStoryDoc().querySelectorAll('iframe[src*=mobileframe]'));
+
 export function getOrCreateStyleTag(id, beforeId, doc = getStoryDoc()) {
     const existingTag = doc.getElementById(id);
     if (existingTag) {
@@ -24,9 +27,4 @@ export function setGuidelinesStyles(styles) {
     getOrCreateStyleTag('guidelines', null, document).innerHTML = styles;
 }
 
-export const extractMixinContent = css =>
-    css
-        .trim()
-        .split('\n')
-        .slice(1, -1)
-        .join('\n');
+export const extractMixinContent = (css) => css.trim().split('\n').slice(1, -1).join('\n');

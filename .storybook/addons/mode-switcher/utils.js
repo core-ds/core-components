@@ -1,4 +1,4 @@
-import { getOrCreateStyleTag } from '../utils';
+import { getMobileFrames, getOrCreateStyleTag } from '../utils';
 
 import darkStyles from '!!postcss-loader!./dark.css';
 
@@ -11,6 +11,12 @@ export function setModeVarsInIframeHtmlPage() {
     if (matches) {
         setModeVars(matches[1], document);
     }
+}
+
+export function setModeVarsInMobileFrame(mode) {
+    getMobileFrames().forEach((iframe) => {
+        setModeVars(mode, iframe.contentDocument);
+    });
 }
 
 export function setModeVars(mode, doc) {
