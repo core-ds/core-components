@@ -222,3 +222,15 @@
         margin-right: var(--gap-xs);
     }
 }
+
+.rowLimit1 {
+    @mixin row_limit 1;
+}
+
+.rowLimit2 {
+    @mixin row_limit 2;
+}
+
+.rowLimit3 {
+    @mixin row_limit 3;
+}

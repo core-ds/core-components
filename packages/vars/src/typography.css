@@ -440,3 +440,11 @@
     line-height: 20px;
     font-weight: 400;
 }
+
+@define-mixin row_limit $num {
+    -webkit-line-clamp: $num;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+}

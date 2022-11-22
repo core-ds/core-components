@@ -5,18 +5,11 @@
 }
 
 .rowLimit1 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-all;
+    @mixin row_limit 1;
 }
 
 .rowLimit2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    @mixin row_limit 2;
 }
 
 .component {
