@@ -1,5 +1,6 @@
 @import '../../themes/src/default.css';
 @import '../../input/src/default.module.css';
+@import '../../form-control/src/vars.css';
 
 .textarea {
     color: var(--input-color);
