@@ -23,13 +23,17 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
         .toLowerCase();
 
     const githubLink = `https://github.com/core-ds/core-components/tree/master/packages/${packageName}`;
-    
+
     return (
         <div className={styles.component}>
-            <Typography.Title tag='h1' view='xlarge'>{name}</Typography.Title>
-            <Typography.Text tag='p' view='primary-medium' className={styles.text} >{children}</Typography.Text>
+            <Typography.Title tag='h1' view='xlarge'>
+                {name}
+            </Typography.Title>
+            <Typography.Text tag='p' view='primary-medium' className={styles.text}>
+                {children}
+            </Typography.Text>
             <div className={styles.links}>
-                <a 
+                <a
                     className={cn(styles.design, {
                         [styles.commonLink]: !design,
                     })}
@@ -61,8 +65,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
                             {usages[name]?.projects}{' '}
                             {pluralize(usages[name]?.projects, 'проекте', 'проектах', 'проектах')}
                         </Link>
-                        {' и '}
-                        <b>~{usages[name]?.imports}</b>{' '}
+                        {' и '}~{usages[name]?.imports}{' '}
                         {pluralize(usages[name]?.imports, 'файле', 'файлах', 'файлах')}
                     </Typography.Text>
                 )}
