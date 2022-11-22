@@ -18,7 +18,7 @@ export const themes = {
     intranet,
 };
 
-export const THEME_DATA_ATTR = 'theme';
+export const THEME_TAG_ID = 'theme';
 
 export function setThemeStylesInIframeHtmlPage() {
     const matches = /&theme=([^&]*)/.exec(document.location.search);
@@ -45,5 +45,5 @@ export function getThemeStyles(theme) {
 export function setThemeStyles(theme, doc) {
     const themeStyles = getThemeStyles(theme);
 
-    getOrCreateStyleTag('theme', MODE_COLORS_TAG_ID, doc).innerHTML = themeStyles;
+    getOrCreateStyleTag(THEME_TAG_ID, MODE_COLORS_TAG_ID, doc).innerHTML = themeStyles;
 }
