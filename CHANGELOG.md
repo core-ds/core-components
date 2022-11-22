@@ -1,3 +1,35 @@
+## 36.1.2
+
+<sup><time>22.11.2022</time></sup>
+
+### [#358](https://github.com/core-ds/core-components/pull/358)
+
+#### Что изменилось
+- Добавлен новый prop `defaultMargins` в компонент Text. Теперь есть возможность отключить отступ для тега `p`
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+### [#371](https://github.com/core-ds/core-components/pull/371)
+
+#### Что изменилось
+- Добавлен новый опциональный prop `rowLimit` в компонент Plate. Теперь есть возможность ограничивать количество строк для передаваемого текста в `children` (от 1 до 3).
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#372](https://github.com/core-ds/core-components/pull/372)
+
+#### Что изменилось
+- Исправлена ошибка "document is not defined" при immediateMount=true
+
+#### Влияние на компоненты
+- Патчи<br />`portal`
+
+
+
 ## 36.1.1
 
 <sup><time>18.11.2022</time></sup>
