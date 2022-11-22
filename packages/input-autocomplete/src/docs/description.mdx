@@ -623,3 +623,81 @@ render(() => {
     );
 });
 ```
+
+
+### Компонент `InputAutocompleteMobile` + Multiple.
+
+Мобильная версия InputAutocomplete с Multiple.
+
+```jsx live
+render(() => {
+     const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
+    ];
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+    const [filter, setFilter] = React.useState('');
+
+    const handleFilter = event => {
+        setFilter(event.target.value);
+    };
+    
+    const inputValues = value
+    .split(',')
+    .map(v => v.trim())
+    .filter(v => v);
+
+    
+    const selectedOptions = options.filter(option => inputValues.includes(option.key.trim()));
+
+    const selected = selectedOptions.map(option => option.key);
+
+
+    const handleChange = ({ selectedMultiple }) => {
+        const value = selectedMultiple.length
+            ? selectedMultiple.map(option => option.key).join(', ') + ', '
+            : '';
+        setValue(value);
+    };
+
+              
+    const filteredOptions = options.filter(option => matchOption(option, filter));
+            
+    return (
+        <div style={{width: 201}}>
+            <InputAutocompleteMobile
+                block={true}
+                value={value}
+                filter={filter}
+                options={filteredOptions}
+                placeholder='Выберите элемент'
+                label='Элемент'
+                multiple={true}
+                selected={selected}
+                closeOnSelect={false}
+                allowUnselect={true}
+                onChange={handleChange}
+                onFilter={handleFilter}
+                onClearFilter={() => setFilter('')}
+            />
+        </div>
+    );
+});
+```

@@ -26,6 +26,11 @@ export type AdditionalMobileProps = {
      * Дополнительные пропсы шторки
      */
     bottomSheetProps?: Partial<BottomSheetProps>;
+
+    /**
+     * Отображать footer в OptionsList
+     */
+    showFooter?: boolean | null;
 };
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> &
@@ -50,6 +55,7 @@ export const SelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            showFooter,
             ...restProps
         }: SelectMobileProps,
         ref,
@@ -73,6 +79,7 @@ export const SelectMobile = forwardRef(
             Optgroup={Optgroup}
             Option={Option}
             isBottomSheet={true}
+            showFooter={showFooter}
             {...restProps}
         />
     ),

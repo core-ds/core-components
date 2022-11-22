@@ -59,6 +59,11 @@ export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark
      * Дополнительные пропсы шторки
      */
     bottomSheetProps?: Partial<BottomSheetProps>;
+
+    /**
+     * Отображать footer в OptionsList
+     */
+    showFooter?: boolean | null;
 };
 
 export const BaseSelectMobile = forwardRef(
@@ -105,6 +110,7 @@ export const BaseSelectMobile = forwardRef(
             footer,
             isBottomSheet,
             bottomSheetProps,
+            showFooter = null,
         }: SelectMobileProps,
         ref,
     ) => {
@@ -436,7 +442,7 @@ export const BaseSelectMobile = forwardRef(
                                 getOptionProps={getOptionProps}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                showFooter={multiple}
+                                showFooter={showFooter ?? multiple}
                                 onApply={handleApply}
                                 onClear={handleClear}
                             />

@@ -19,15 +19,7 @@ import styles from './mobile.module.css';
 
 export type InputAutocompleteMobileProps = Omit<
     BaseSelectProps,
-    | 'OptionsList'
-    | 'Checkmark'
-    | 'onScroll'
-    | 'selected'
-    | 'nativeSelect'
-    | 'multiple'
-    | 'autocomplete'
-    | 'valueRenderer'
-    | 'allowUnselect'
+    'OptionsList' | 'Checkmark' | 'onScroll' | 'nativeSelect' | 'autocomplete' | 'valueRenderer'
 > & {
     /**
      * Обработчик выбора
@@ -108,6 +100,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             onClearFilter,
             continueButtonProps,
             cancelButtonProps,
+            selected,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -227,7 +220,7 @@ export const InputAutocompleteMobile = React.forwardRef(
         return (
             <SelectMobile
                 ref={mergeRefs([targetRef, ref])}
-                selected={SELECTED}
+                selected={selected || SELECTED}
                 open={Boolean(open || openProp)}
                 onOpen={handleOpen}
                 onChange={onChange}
@@ -239,6 +232,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 size={size}
                 name={name}
                 bottomSheetProps={getBottomSheetProps()}
+                showFooter={false}
                 {...restProps}
             />
         );
