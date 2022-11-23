@@ -12,12 +12,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Tooltip'
-    component={Tooltip}
-/>
-
+<Meta title='Компоненты/Прочие компоненты/Tooltip' component={Tooltip} />
 
 <!-- Canvas -->
 
@@ -43,36 +38,36 @@ import styles from '!!raw-loader!../index.module.css';
         const trigger = select('trigger', ['hover', 'click'], 'hover');
         return (
             <div
-            style={{
-                width: '100%',
-                height: '300px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
-            <Tooltip
-                content={
-                    <div style={{ width: '215px' }}>
-                        Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф это
-                        позволяет
-                    </div>
-                }
-                open={open}
-                trigger={trigger}
-                offset={[number('offset[0]', 0), number('offset[1]', 16)]}
-                position={select('position', POSITION_OPTIONS, 'left')}
-                onCloseDelay={number('onCloseDelay (in ms)', 300)}
-                onOpenDelay={number('onOpenDelay (in ms)', 300)}
-                view={select('view', ['tooltip', 'hint'], 'tooltip')}
-                colors={select('colors', ['default','inverted'], 'default')}
-                dataTestId='test-id'
+                style={{
+                    width: '100%',
+                    height: '300px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
             >
-                <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
-                    {trigger === 'hover' ? 'Hover me' : 'Click me'}
-                </div>
-            </Tooltip>
-        </div>
+                <Tooltip
+                    content={
+                        <div style={{ width: '215px' }}>
+                            Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф
+                            это позволяет
+                        </div>
+                    }
+                    open={open}
+                    trigger={trigger}
+                    offset={[number('offset[0]', 0), number('offset[1]', 16)]}
+                    position={select('position', POSITION_OPTIONS, 'left')}
+                    onCloseDelay={number('onCloseDelay (in ms)', 300)}
+                    onOpenDelay={number('onOpenDelay (in ms)', 300)}
+                    view={select('view', ['tooltip', 'hint'], 'tooltip')}
+                    colors={select('colors', ['default', 'inverted'], 'default')}
+                    dataTestId='test-id'
+                >
+                    <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+                        {trigger === 'hover' ? 'Hover me' : 'Click me'}
+                    </div>
+                </Tooltip>
+            </div>
         );
     })}
 </Story>

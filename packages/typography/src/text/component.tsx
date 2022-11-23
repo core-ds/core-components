@@ -10,7 +10,7 @@ type NativeProps = HTMLAttributes<HTMLSpanElement>;
 
 type TextBaseProps = {
     /**
-     * [Вариант начертания](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-типографика--page)
+     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/инструкции-типографика--page)
      */
     view?:
         | 'primary-large'

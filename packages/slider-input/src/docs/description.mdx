@@ -2,7 +2,7 @@
 
 ### Архитектура
 
-Представляет из себя [Input](?path=/docs/компоненты-input--input) совмещенный со [Slider](?path=/docs/компоненты-slider--slider)
+Представляет из себя [Input](/docs/компоненты-инпуты-input--input) совмещенный со [Slider](/docs/компоненты-контролы-slider--slider)
 
 ### Примеры
 
@@ -16,7 +16,7 @@
 
 const SuffixInput = withSuffix(Input);
 
-const getSuffix = value => {
+const getSuffix = (value) => {
     if (value <= 0) return '';
 
     if (value.toString().endsWith('1')) {
@@ -41,7 +41,7 @@ const pips = {
     mode: 'values',
     values: [1, 2, 3, 4, 5],
     format: {
-        to: value => `${value}${getSuffix(value)}`,
+        to: (value) => `${value}${getSuffix(value)}`,
     },
 };
 
@@ -170,7 +170,7 @@ const pips = {
     mode: 'values',
     values: [min, max],
     format: {
-        to: value => {
+        to: (value) => {
             if (value < 1000000) return `${value / 1000} тыс`;
             return `${value / 1000000} млн`;
         },

@@ -7,9 +7,9 @@ render(() => {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState();
 
-    const [firstRadioValue, setFirstRadioValue] = React.useState("single");
-    const [secondRadioValue, setSecondRadioValue] = React.useState("single");
-    const [thirdRadioValue, setThirdRadioValue] = React.useState("desktop");
+    const [firstRadioValue, setFirstRadioValue] = React.useState('single');
+    const [secondRadioValue, setSecondRadioValue] = React.useState('single');
+    const [thirdRadioValue, setThirdRadioValue] = React.useState('desktop');
 
     const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
 
@@ -18,7 +18,7 @@ render(() => {
     React.useEffect(() => {
         setValue();
         updatePeriod();
-    }, [firstRadioValue, secondRadioValue, thirdRadioValue])
+    }, [firstRadioValue, secondRadioValue, thirdRadioValue]);
 
     const getDateString = React.useCallback((date) => {
         const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
@@ -31,7 +31,7 @@ render(() => {
     const selectedDate = React.useMemo(() => {
         const date = new Date(value);
         return getDateString(date);
-    }, [value])
+    }, [value]);
 
     const selectedRange = React.useMemo(() => {
         if (selectedFrom && selectedTo) {
@@ -43,10 +43,10 @@ render(() => {
         if (allowSelectionFromEmptyRange) {
             if (selectedFrom) {
                 const selectedFromDate = new Date(selectedFrom);
-                return `${getDateString(selectedFromDate)}`
+                return `${getDateString(selectedFromDate)}`;
             } else if (selectedTo) {
                 const selectedToDate = new Date(selectedTo);
-                return `${getDateString(selectedToDate)}`
+                return `${getDateString(selectedToDate)}`;
             }
         }
 
@@ -65,21 +65,14 @@ render(() => {
         setThirdRadioValue(payload.value);
     }, []);
 
-    const events = React.useMemo(() => ([
-        new Date().setDate(2),
-        new Date().setDate(3),
-        new Date().setDate(5),
-    ]), []);
+    const events = React.useMemo(
+        () => [new Date().setDate(2), new Date().setDate(3), new Date().setDate(5)],
+        [],
+    );
 
-    const offDays = React.useMemo(() => ([
-        new Date().setDate(3),
-        new Date().setDate(4),
-    ]), []);
+    const offDays = React.useMemo(() => [new Date().setDate(3), new Date().setDate(4)], []);
 
-    const holidays = React.useMemo(() => ([
-        new Date().setDate(1),
-        new Date().setDate(2),
-    ]), [])
+    const holidays = React.useMemo(() => [new Date().setDate(1), new Date().setDate(2)], []);
 
     return (
         <Row style={{ gap: '40px' }}>
@@ -119,61 +112,57 @@ render(() => {
             </Col>
             <Col>
                 <p style={{ marginBottom: '40px' }}>
-                    Values: {
-                        secondRadioValue === 'single' && value && selectedDate ||
-                        secondRadioValue !== 'single' && selectedRange
-                    }
+                    Values:{' '}
+                    {(secondRadioValue === 'single' && value && selectedDate) ||
+                        (secondRadioValue !== 'single' && selectedRange)}
                 </p>
 
                 <div style={{ marginBottom: '40px' }}>
                     <RadioGroup
-                        label="Где находятся предполагаемые даты"
-                        direction="vertical"
-                        name="radioGroup"
+                        label='Где находятся предполагаемые даты'
+                        direction='vertical'
+                        name='radioGroup'
                         onChange={onFirstRadioChange}
                         value={firstRadioValue}
                     >
-                        <Radio label="В пределах одного года" value="single" />
-                        <Radio label="В пределах нескольких лет" value="multiple" />
+                        <Radio label='В пределах одного года' value='single' />
+                        <Radio label='В пределах нескольких лет' value='multiple' />
                     </RadioGroup>
                 </div>
 
                 <div style={{ marginBottom: '40px' }}>
                     <RadioGroup
-                        label="Режим"
-                        direction="vertical"
-                        name="radioGroup"
+                        label='Режим'
+                        direction='vertical'
+                        name='radioGroup'
                         onChange={onSecondRadioChange}
                         value={secondRadioValue}
                     >
-                        <Radio label="Принимает одну дату" value="single" />
-                        <Radio label="Принимает диапазон значений" value="range" />
-                        <Radio label="Может принимать и диапазон и дату" value="singleAndRange" />
+                        <Radio label='Принимает одну дату' value='single' />
+                        <Radio label='Принимает диапазон значений' value='range' />
+                        <Radio label='Может принимать и диапазон и дату' value='singleAndRange' />
                     </RadioGroup>
                 </div>
 
                 <RadioGroup
-                    label="Версия"
-                    direction="vertical"
-                    name="radioGroup"
+                    label='Версия'
+                    direction='vertical'
+                    name='radioGroup'
                     onChange={onThirdRadioChange}
                     value={thirdRadioValue}
                 >
-                    <Radio label="Десктопная" value="desktop" />
-                    <Radio label="Мобильная" value="mobile" />
+                    <Radio label='Десктопная' value='desktop' />
+                    <Radio label='Мобильная' value='mobile' />
                 </RadioGroup>
             </Col>
         </Row>
     );
 });
-
 ```
-
 
 ### Где используется
 
-Используется в <a view="default" href="https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-calendarinput--calendar-input">CalendarInput</a>, <a view="default" href="https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-calendarrange--calendar-range">CalendarRange</a>.
-
+Используется в [CalendarInput](/docs/компоненты-инпуты-calendarinput--calendar-input), [CalendarRange](/docs/компоненты-календари-calendarrange--calendar-range).
 
 ## Механики
 
@@ -183,19 +172,19 @@ render(() => {
 render(() => {
     const [open, setOpen] = React.useState(false);
 
-    const [firstRadioValue, setFirstRadioValue] = React.useState("clarification");
-    const [secondRadioValue, setSecondRadioValue] = React.useState("desktop");
+    const [firstRadioValue, setFirstRadioValue] = React.useState('clarification');
+    const [secondRadioValue, setSecondRadioValue] = React.useState('desktop');
 
     const {
         selectedFrom: selectedFromClarification,
         selectedTo: selectedToClarification,
-        updatePeriod: updatePeriodClarification
+        updatePeriod: updatePeriodClarification,
     } = usePeriod();
 
     const {
         selectedFrom: selectedFromReset,
         selectedTo: selectedToReset,
-        updatePeriod: updatePeriodReset
+        updatePeriod: updatePeriodReset,
     } = usePeriodWithReset();
 
     React.useEffect(() => {
@@ -203,7 +192,10 @@ render(() => {
         updatePeriodReset();
     }, [firstRadioValue, secondRadioValue]);
 
-    const isClarification = React.useMemo(() => firstRadioValue === 'clarification', [firstRadioValue]);
+    const isClarification = React.useMemo(
+        () => firstRadioValue === 'clarification',
+        [firstRadioValue],
+    );
 
     const updatePeriod = React.useMemo(() => {
         return isClarification ? updatePeriodClarification : updatePeriodReset;
@@ -270,41 +262,40 @@ render(() => {
             </Col>
             <Col>
                 <p style={{ marginBottom: '40px' }}>
-                    Values: { selectedFrom && selectedTo && selectedRange }
+                    Values: {selectedFrom && selectedTo && selectedRange}
                 </p>
 
                 <div style={{ marginBottom: '40px' }}>
                     <RadioGroup
-                        label="Режим"
-                        direction="vertical"
-                        name="radioGroupFirst"
+                        label='Режим'
+                        direction='vertical'
+                        name='radioGroupFirst'
                         onChange={onFirstRadioChange}
                         value={firstRadioValue}
                     >
-                        <Radio label="Уточнение границ" value="clarification" />
-                        <Radio label="Сброс границ" value="reset" />
+                        <Radio label='Уточнение границ' value='clarification' />
+                        <Radio label='Сброс границ' value='reset' />
                     </RadioGroup>
                 </div>
 
                 <RadioGroup
-                    label="Версия"
-                    direction="vertical"
-                    name="radioGroupSecond"
+                    label='Версия'
+                    direction='vertical'
+                    name='radioGroupSecond'
                     onChange={onSecondRadioChange}
                     value={secondRadioValue}
                 >
-                    <Radio label="Десктопная" value="desktop" />
-                    <Radio label="Мобильная" value="mobile" />
+                    <Radio label='Десктопная' value='desktop' />
+                    <Radio label='Мобильная' value='mobile' />
                 </RadioGroup>
             </Col>
         </Row>
     );
 });
-
 ```
 
-
 ### События и недоступные даты
+
 Задать недоступные даты можно, передав массив дат в свойство [offDays]. <br />
 Задать события можно, передав массив дат в свойство [events]
 
@@ -312,11 +303,7 @@ render(() => {
 render(() => {
     const [value, setValue] = React.useState();
 
-    const events = [
-        new Date().setDate(2),
-        new Date().setDate(12),
-        new Date().setDate(21),
-    ];
+    const events = [new Date().setDate(2), new Date().setDate(12), new Date().setDate(21)];
 
     const offDays = [
         new Date().setDate(1),
@@ -360,11 +347,10 @@ render(() => {
         </Row>
     );
 });
-
 ```
 
-
 ### Границы
+
 Можно ограничить выбор дат, задав допустимый диапазон с помощью свойств [minDate] и [maxDate]
 
 ```jsx live
@@ -418,15 +404,13 @@ render(() => {
             </Col>
             <Col>
                 <p style={{ marginBottom: '40px', lineHeight: '24px' }}>
-                    Допустимый диапазон: <br />
-                    с {rangeBounds}
+                    Допустимый диапазон: <br />с {rangeBounds}
                 </p>
                 <p>Values: {value && selectedDate}</p>
             </Col>
         </Row>
     );
 });
-
 ```
 
 ## Вспомогательные конструкции
@@ -494,11 +478,7 @@ render(() => {
 
             <br />
 
-            <PeriodSlider
-                periodType='day'
-                onPrevArrowClick={handler}
-                onNextArrowClick={handler}
-            />
+            <PeriodSlider periodType='day' onPrevArrowClick={handler} onNextArrowClick={handler} />
         </div>
     );
 });

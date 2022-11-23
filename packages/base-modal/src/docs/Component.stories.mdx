@@ -9,13 +9,9 @@ import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
+<Meta title='Компоненты/Модалки и поповеры/BaseModal' component={BaseModal} />
 
-<Meta
-    title='Компоненты/BaseModal'
-    component={BaseModal}
-/>
-
-<Story name="BaseModal">
+<Story name='BaseModal'>
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
@@ -24,26 +20,17 @@ import Description from './description.mdx';
                 <Button type='button' size='xs' onClick={handleModalOpen}>
                     Открыть
                 </Button>
-                <BaseModal
-                    open={open}
-                    onClose={handleModalOpen}
-                >
+                <BaseModal open={open} onClose={handleModalOpen}>
                     <div style={{ padding: '100px' }}>BaseModal</div>
                 </BaseModal>
             </React.Fragment>
-        )
+        );
     })}
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='BaseModal'
-    version={version}
-    package='@alfalab/core-components/base-modal'
-/>
-
+<ComponentHeader name='BaseModal' version={version} package='@alfalab/core-components/base-modal' />
 
 ```jsx
 import { BaseModal } from '@alfalab/core-components/base-modal';

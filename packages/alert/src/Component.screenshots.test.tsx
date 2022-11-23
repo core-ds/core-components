@@ -43,6 +43,7 @@ describe(
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'Alert',
+            packageName: 'alert',
             testStory: false,
             knobs: {
                 buttons: [true],
