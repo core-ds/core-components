@@ -1,3 +1,26 @@
+## 36.2.0
+
+<sup><time>23.11.2022</time></sup>
+
+### [#347](https://github.com/core-ds/core-components/pull/347)
+
+#### Что изменилось
+- feat(themes): add js entries
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#348](https://github.com/core-ds/core-components/pull/348)
+
+#### Что изменилось
+- feat(select-mobile): allow to customize optionsList
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+
 ## 36.1.2
 
 <sup><time>22.11.2022</time></sup>
