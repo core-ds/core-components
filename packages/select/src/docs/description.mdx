@@ -17,7 +17,7 @@ render(() => {
     ];
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
@@ -53,7 +53,7 @@ render(() => {
     ];
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
                 allowUnselect={true}
                 options={options}
@@ -106,7 +106,7 @@ render(() => {
     };
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
@@ -149,7 +149,7 @@ render(() => {
     );
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
                 allowUnselect={true}
                 options={options}
@@ -188,7 +188,7 @@ render(() => {
     }, []);
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
@@ -213,7 +213,7 @@ render(() => {
     }, []);
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
                 allowUnselect={true}
                 options={groups}
@@ -309,7 +309,7 @@ render(() => {
     );
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             {selectWithVirtualList}
             <div style={{ height: 'var(--gap-m)' }} />
             {selectWithSkeleton}
@@ -399,7 +399,7 @@ render(() => {
     );
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             {selectWithVirtualList}
             <div style={{ height: 'var(--gap-m)' }} />
             {selectWithSkeleton}
@@ -555,7 +555,7 @@ render(() => {
     );
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             {selectWithHeader}
             <div style={{ height: 'var(--gap-m)' }} />
             {selectWithPureCell}
@@ -625,7 +625,7 @@ render(() => {
     }));
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
                 allowUnselect={true}
                 placeholder='Выберите счёт'
@@ -676,7 +676,7 @@ const options = [
 ];
 
 render(
-    <div style={{ width: 320 }}>
+    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
         <Select
             allowUnselect={true}
             size='m'
@@ -736,7 +736,7 @@ render(() => {
     return (
         <form onSubmit={onSubmit}>
             <Space>
-                <div style={{ width: 320 }}>
+                <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
                     <Select
                         allowUnselect={true}
                         size='m'
@@ -794,7 +794,7 @@ render(() => {
     return (
         <form onSubmit={onSubmit}>
             <Space>
-                <div style={{ width: 320 }}>
+                <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
                     <SelectMobile
                         allowUnselect={true}
                         size='m'
@@ -838,7 +838,7 @@ render(() => {
     ];
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
@@ -926,7 +926,7 @@ render(() => {
     };
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 block={true}
@@ -971,7 +971,7 @@ render(() => {
     return (
         <div
             style={{
-                width: 320,
+                width: document.body.clientWidth < 450 ? '100%' : 320,
                 paddingTop: 'var(--select-options-list-top-padding)',
                 paddingBottom: 'var(--select-options-list-bottom-padding)',
                 boxShadow: 'var(--select-options-list-box-shadow)',

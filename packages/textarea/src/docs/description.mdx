@@ -1,5 +1,35 @@
 Компонент текстового поля ввода.
 
+## Высота
+
+Для компонента можно задать одну из механик изменения высоты:
+
+1. Зафиксировать минимальное и максимальное количество строк.
+2. Задать максимальную высоту.
+3. Сделать изменение высоты автоматическим.
+4. Предоставить пользователю возможность управлять высотой самостоятельно.
+
 ```jsx live
-<Textarea />
+<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+    <Textarea placeholder='Автоматическое изменение высоты' block={true}/>
+    <Gap size='m' />
+    <Textarea placeholder='Высота в три строки' minRows={3} autosize={false} block={true}/>
+    <Gap size='m' />
+    <Textarea placeholder='Ручное управление высотой' autosize={false} resize='vertical' minRows={3} block={true}/>
+</div>
 ```
+
+## Максимальное количество символов
+
+Можно ограничить количество вводимых символов.
+
+```jsx live
+<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+    <Textarea label='Label' block={true} minRows={3} maxLength={96} showCounter={true}/>
+</div>
+```
+
+## Морфология
+
+Поле ввода является оберткой над [FormControl](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control),
+поэтому наследует все доступные для него настройки.
