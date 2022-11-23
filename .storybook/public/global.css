@@ -364,12 +364,12 @@ div.benefits-item span {
 }
 
 h1.sbdocs-h1 {
-    margin: 0 0 var(--gap-2xl);
-    color: var(--color-light-text-accent);
+    margin: 0 0 var(--gap-xl);
+    color: var(--color-light-text-primary);
     font-size: 48px;
-    line-height: 1;
-    font-weight: 900;
-    font-family: var(--font-family);
+    line-height: 64px;
+    font-weight: 500;
+    font-family: var(--font-family-styrene);
 }
 
 p.sbdocs-p.lead {
