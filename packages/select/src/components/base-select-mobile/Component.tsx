@@ -59,11 +59,6 @@ export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark
      * Дополнительные пропсы шторки
      */
     bottomSheetProps?: Partial<BottomSheetProps>;
-
-    /**
-     * Отображать footer в OptionsList
-     */
-    showFooter?: boolean | null;
 };
 
 export const BaseSelectMobile = forwardRef(
@@ -110,7 +105,6 @@ export const BaseSelectMobile = forwardRef(
             footer,
             isBottomSheet,
             bottomSheetProps,
-            showFooter = null,
         }: SelectMobileProps,
         ref,
     ) => {
@@ -428,6 +422,7 @@ export const BaseSelectMobile = forwardRef(
                     >
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
+                                showFooter={multiple}
                                 {...optionsListProps}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
@@ -442,7 +437,6 @@ export const BaseSelectMobile = forwardRef(
                                 getOptionProps={getOptionProps}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                showFooter={showFooter ?? multiple}
                                 onApply={handleApply}
                                 onClear={handleClear}
                             />
@@ -458,6 +452,7 @@ export const BaseSelectMobile = forwardRef(
                         <ModalMobile.Header hasCloser={true} title={placeholder} sticky={true} />
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
+                                showFooter={multiple}
                                 {...optionsListProps}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
@@ -472,7 +467,6 @@ export const BaseSelectMobile = forwardRef(
                                 getOptionProps={getOptionProps}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                showFooter={multiple}
                                 onApply={handleApply}
                                 onClear={handleClear}
                             />

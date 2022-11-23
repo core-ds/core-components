@@ -101,6 +101,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             continueButtonProps,
             cancelButtonProps,
             selected,
+            multiple,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -135,9 +136,18 @@ export const InputAutocompleteMobile = React.forwardRef(
             [],
         );
 
-        const handleChange = () => {
+        const handleApply = () => {
             setBottomSheetVisibility(false);
             onChange(filter);
+        };
+
+        const handleChange: SelectMobileProps['onChange'] = (payload) => {
+            onChange(payload);
+
+            if (multiple) {
+                // После выбора опции возвращаем фокус в поле ввода.
+                requestAnimationFrame(() => bottomSheetInputRef.current?.focus());
+            }
         };
 
         const handleCancel = () => {
@@ -171,7 +181,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                             block={true}
                             view='primary'
                             size='s'
-                            onClick={handleChange}
+                            onClick={handleApply}
                             {...continueButtonProps}
                         >
                             Продолжить
@@ -223,7 +233,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 selected={selected || SELECTED}
                 open={Boolean(open || openProp)}
                 onOpen={handleOpen}
-                onChange={onChange}
+                onChange={handleChange}
                 Arrow={Arrow}
                 Field={AutocompleteMobileField}
                 fieldProps={{ value }}
@@ -231,8 +241,9 @@ export const InputAutocompleteMobile = React.forwardRef(
                 label={label}
                 size={size}
                 name={name}
+                multiple={multiple}
                 bottomSheetProps={getBottomSheetProps()}
-                showFooter={false}
+                optionsListProps={{ showFooter: false }}
                 {...restProps}
             />
         );

@@ -130,7 +130,7 @@ render(() => {
 
     const [value, setValue] = React.useState('');
 
-    const handleInput = event => {
+    const handleInput = (event) => {
         setValue(event.target.value);
     };
 
@@ -138,11 +138,11 @@ render(() => {
         setValue(selected ? selected.key : '');
     };
 
-    const handleClear = event => {
+    const handleClear = (event) => {
         setValue('');
     };
 
-    const filteredOptions = options.filter(option => matchOption(option, value));
+    const filteredOptions = options.filter((option) => matchOption(option, value));
 
     return (
         <InputAutocomplete
@@ -194,7 +194,7 @@ render(() => {
 
     const [selectedTags, setSelectedTags] = React.useState([]);
 
-    const handleInput = event => {
+    const handleInput = (event) => {
         setValue(event.target.value);
     };
 
@@ -207,7 +207,7 @@ render(() => {
 
     const renderTags = () =>
         selectedTags.length > 0
-            ? selectedTags.map(item => (
+            ? selectedTags.map((item) => (
                   <Tag key={item} size='xs'>
                       {item}
                   </Tag>
@@ -215,8 +215,8 @@ render(() => {
             : null;
 
     const filteredOptions = options
-        .filter(option => !selectedTags.includes(option.content))
-        .filter(option => matchOption(option, value));
+        .filter((option) => !selectedTags.includes(option.content))
+        .filter((option) => matchOption(option, value));
 
     if (filteredOptions.length === 0 && value) {
         filteredOptions.push({ key: value, content: value });
@@ -267,7 +267,7 @@ render(() => {
     const [dirty, setDirty] = React.useState(false);
     const [value, setValue] = React.useState('');
 
-    const handleInput = event => {
+    const handleInput = (event) => {
         if (!dirty) setDirty(true);
         setValue(event.target.value);
     };
@@ -276,7 +276,7 @@ render(() => {
         setValue(selected ? selected.key : '');
     };
 
-    const filteredOptions = options.filter(option => matchOption(option, value));
+    const filteredOptions = options.filter((option) => matchOption(option, value));
 
     return (
         <InputAutocomplete
@@ -344,7 +344,7 @@ render(() => {
         },
     ];
 
-    const CardOption = props => (
+    const CardOption = (props) => (
         <Option {...props}>
             <div>
                 {props.option.key}
@@ -356,7 +356,7 @@ render(() => {
 
     const [value, setValue] = React.useState('');
 
-    const handleInput = event => {
+    const handleInput = (event) => {
         setValue(event.target.value);
     };
 
@@ -364,7 +364,7 @@ render(() => {
         setValue(selected ? selected.content : null);
     };
 
-    const filteredOptions = cards.filter(option => matchOption(option, value));
+    const filteredOptions = cards.filter((option) => matchOption(option, value));
 
     return (
         <InputAutocomplete
@@ -412,30 +412,30 @@ render(() => {
 
     const [value, setValue] = React.useState('');
 
-    const handleInput = event => {
+    const handleInput = (event) => {
         setValue(event.target.value);
     };
 
     const handleChange = ({ selectedMultiple }) => {
         const value = selectedMultiple.length
-            ? selectedMultiple.map(option => option.key).join(', ') + ', '
+            ? selectedMultiple.map((option) => option.key).join(', ') + ', '
             : '';
         setValue(value);
     };
 
     const inputValues = value
         .split(',')
-        .map(v => v.trim())
-        .filter(v => v);
+        .map((v) => v.trim())
+        .filter((v) => v);
 
-    const selectedOptions = options.filter(option => inputValues.includes(option.key.trim()));
+    const selectedOptions = options.filter((option) => inputValues.includes(option.key.trim()));
 
-    const selected = selectedOptions.map(option => option.key);
+    const selected = selectedOptions.map((option) => option.key);
 
     const filteredOptions =
         inputValues.length === selected.length
             ? options
-            : options.filter(option => {
+            : options.filter((option) => {
                   return (
                       selectedOptions.includes(option) ||
                       matchOption(option, inputValues[inputValues.length - 1])
@@ -465,8 +465,6 @@ render(() => {
 
 render(<InputAutocomplete options={[]} Arrow={Arrow} />);
 ```
-
-
 
 ### Компонент `InputAutocompleteMobile`.
 
@@ -499,21 +497,25 @@ render(() => {
     const [value, setValue] = React.useState('');
     const [filter, setFilter] = React.useState('');
 
-    const handleFilter = event => {
+    const handleFilter = (event) => {
         setFilter(event.target.value);
     };
 
     const handleChange = (payload) => {
-        const newValue = payload ? isOptionShape(payload.selected) ? payload.selected.content : payload : '';
+        const newValue = payload
+            ? isOptionShape(payload.selected)
+                ? payload.selected.content
+                : payload
+            : '';
 
         setValue(newValue);
         setFilter(newValue);
     };
 
-    const filteredOptions = options.filter(option => matchOption(option, filter));
+    const filteredOptions = options.filter((option) => matchOption(option, filter));
 
     return (
-        <div style={{width: 201}}>
+        <div style={{ width: 201 }}>
             <InputAutocompleteMobile
                 block={true}
                 value={value}
@@ -528,14 +530,13 @@ render(() => {
                 bottomSheetProps={{
                     transitionProps: {
                         onEnter: () => setFilter(value),
-                    }
+                    },
                 }}
             />
         </div>
     );
 });
 ```
-
 
 ### Компонент `InputAutocompleteMobile` с кастомным инпутом.
 
@@ -570,28 +571,32 @@ render(() => {
 
     const [selectedCountry, setSelectedCountry] = React.useState('RU');
 
-    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+    const handleCountryChange = (countryCode) => setSelectedCountry(countryCode);
 
-   const handleClear = () => {
-        setFilter('')
+    const handleClear = () => {
+        setFilter('');
         setValue('');
-    }
+    };
 
-    const handleFilter = event => {
+    const handleFilter = (event) => {
         setFilter(event.target.value);
     };
 
     const handleChange = (payload) => {
-        const newValue = payload ? isOptionShape(payload.selected) ? payload.selected.content : payload : '';
+        const newValue = payload
+            ? isOptionShape(payload.selected)
+                ? payload.selected.content
+                : payload
+            : '';
 
         setValue(newValue);
         setFilter(newValue);
     };
 
-    const filteredOptions = options.filter(option => matchOption(option, filter));
+    const filteredOptions = options.filter((option) => matchOption(option, filter));
 
     return (
-        <div style={{width: 201}}>
+        <div style={{ width: 201 }}>
             <InputAutocompleteMobile
                 Input={IntlPhoneInput}
                 block={true}
@@ -608,15 +613,15 @@ render(() => {
                         onEnter: () => setFilter(value),
                     },
                     inputProps: {
-                    clear: true,
-                    onClear: handleClear,
-                },
-                value: value,
-                onChange: handleChange,
-                block: true,
-                label: 'Номер телефона',
-                defaultCountryIso2: 'RU',
-                onCountryChange: handleCountryChange,
+                        clear: true,
+                        onClear: handleClear,
+                    },
+                    value: value,
+                    onChange: handleChange,
+                    block: true,
+                    label: 'Номер телефона',
+                    defaultCountryIso2: 'RU',
+                    onCountryChange: handleCountryChange,
                 }}
             />
         </div>
@@ -624,14 +629,13 @@ render(() => {
 });
 ```
 
-
 ### Компонент `InputAutocompleteMobile` + Multiple.
 
 Мобильная версия InputAutocomplete с Multiple.
 
 ```jsx live
 render(() => {
-     const options = [
+    const options = [
         { key: 'Neptunium' },
         { key: 'Plutonium' },
         { key: 'Americium' },
@@ -655,33 +659,46 @@ render(() => {
     const [value, setValue] = React.useState('');
     const [filter, setFilter] = React.useState('');
 
-    const handleFilter = event => {
+    const handleFilter = (event) => {
         setFilter(event.target.value);
     };
-    
-    const inputValues = value
-    .split(',')
-    .map(v => v.trim())
-    .filter(v => v);
 
-    
-    const selectedOptions = options.filter(option => inputValues.includes(option.key.trim()));
+    const filterValues = filter
+        .split(',')
+        .map((v) => v.trim())
+        .filter((v) => v);
 
-    const selected = selectedOptions.map(option => option.key);
+    const selectedOptions = options.filter((option) => filterValues.includes(option.key.trim()));
 
+    const selected = selectedOptions.map((option) => option.key);
 
-    const handleChange = ({ selectedMultiple }) => {
-        const value = selectedMultiple.length
-            ? selectedMultiple.map(option => option.key).join(', ') + ', '
-            : '';
-        setValue(value);
+    const handleChange = (payload) => {
+        let newValue = '';
+
+        if (payload && payload.selectedMultiple) {
+            newValue = payload.selectedMultiple.length
+                ? payload.selectedMultiple.map((option) => option.key).join(', ') + ', '
+                : '';
+        } else {
+            newValue = payload || '';
+        }
+
+        setValue(newValue);
+        setFilter(newValue);
     };
 
-              
-    const filteredOptions = options.filter(option => matchOption(option, filter));
-            
+    const filteredOptions =
+        filterValues.length === selected.length
+            ? options
+            : options.filter((option) => {
+                  return (
+                      selectedOptions.includes(option) ||
+                      matchOption(option, filterValues[filterValues.length - 1])
+                  );
+              });
+
     return (
-        <div style={{width: 201}}>
+        <div style={{ width: 201 }}>
             <InputAutocompleteMobile
                 block={true}
                 value={value}
@@ -696,6 +713,7 @@ render(() => {
                 onChange={handleChange}
                 onFilter={handleFilter}
                 onClearFilter={() => setFilter('')}
+                onCancel={() => setFilter(value)}
             />
         </div>
     );
