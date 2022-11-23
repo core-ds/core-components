@@ -52,6 +52,8 @@ import { version } from '../../package.json';
                           ]
                         : null
                 }
+                row
+                rowLimit={select('rowLimit', [undefined, 1, 2, 3])}
             >
                 {text('children', 'Вам одобрено. Согласитесь на предложение')}
             </Plate>

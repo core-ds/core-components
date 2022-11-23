@@ -1,5 +1,23 @@
 # Change Log
 
+## 13.2.0
+
+### Minor Changes
+
+### [#348](https://github.com/core-ds/core-components/pull/348)
+
+-   feat(select-mobile): allow to customize optionsList
+
+## 13.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.1.11
+    -   base-modal@5.0.6
+    -   popover@6.0.4
+    -   modal@6.1.1
+
 ## 13.1.1
 
 ### Patch Changes

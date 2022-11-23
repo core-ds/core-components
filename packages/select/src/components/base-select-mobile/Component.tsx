@@ -33,11 +33,11 @@ import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
 
 import { Checkmark } from './checkmark';
-import { OptionsList } from './options-list';
+import { OptionsList as DefaultOptionsList } from './options-list';
 
 import styles from './index.module.css';
 
-export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
+export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> & {
     /**
      * Футер
      * @deprecated Используйте bottomSheetProps.actionButton
@@ -101,6 +101,7 @@ export const BaseSelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            OptionsList = DefaultOptionsList,
             swipeable,
             footer,
             isBottomSheet,

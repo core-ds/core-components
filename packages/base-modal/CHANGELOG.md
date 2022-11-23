@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.1.1
+
 ## 5.0.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   with-suffix@4.0.15
+
 ## 7.2.0
 
 ### Minor Changes

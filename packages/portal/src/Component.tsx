@@ -20,7 +20,7 @@ export type PortalProps = {
 export const Portal = forwardRef<Element, PortalProps>(
     ({ getPortalContainer = getDefaultPortalContainer, immediateMount = false, children }, ref) => {
         const [mountNode, setMountNode] = useState<Element | null>(() =>
-            immediateMount ? getPortalContainer() : null,
+            typeof window !== 'undefined' && immediateMount ? getPortalContainer() : null,
         );
 
         useEffect(() => {

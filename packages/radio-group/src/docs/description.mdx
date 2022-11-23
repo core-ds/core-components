@@ -1,62 +1,158 @@
-Компонент группы радио.
+## Как использовать
+
+Группа радиокнопок используется когда пользователю доступно несколько вариантов выбора.
+Обычно от двух до пяти. Если вариантов больше, возможно следует использовать другой контрол,
+например [Select](?path=/docs/компоненты-select--select).
+
+Для выбора пункта необходимо кликнуть по названию пункта или по радиокнопке. Повторное нажатие не снимет выбор.
+
+Группа может содержать заголовок и подпись.
+
+В группе может быть выбрано несколько пунктов.
+
+Один из пунктов может быть предвыбран по умолчанию, такой пункт необходимо располагать первым в списке.
+
+## Копирайт
+
+Название группы радиокнопок должно быть сформулировано таким образом, чтобы было понятно, что можно выбрать только 1 вариант и
+названия вариантов выбора не содержали повторяющуюся часть.
+
+## Горизонтальная группа
+
+Горизонтальное расположение используется при коротких названиях пунктов и малом количестве вариантов — от двух до трех.
 
 ```jsx live
 render(() => {
     const [value, setValue] = React.useState('one');
+    const [error, setError] = React.useState(false);
 
     const onChange = (_, payload) => {
         setValue(payload.value);
     };
 
     return (
-        <RadioGroup
-            label='Заголовок группы'
-            direction='vertical'
-            name='radioGroup'
-            onChange={onChange}
-            value={value}
-        >
-            <Radio label='Первый вариант' value='one' />
-            <Radio label='Второй вариант' value='two' />
-            <Radio label='Третий вариант' value='three' />
-        </RadioGroup>
+        <div style={{ width: '100%' }}>
+            <RadioGroup
+                label='Ближайшая планета к Солнцу'
+                direction='horizontal'
+                name='radioGroup'
+                onChange={onChange}
+                hint='Выберите один из вариантов'
+                error={error}
+                value={value}
+            >
+                <Radio label='Меркурий' value='one' size='m' />
+                <Radio label='Венера' value='two' size='m' />
+                <Radio label='Нептун' value='three' size='m' />
+            </RadioGroup>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Правильный ответ: Меркурий')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
     );
 });
 ```
 
-### Группа радио, использующая компонент `Tag`
+## Вертикальная группа
+
+Вертикальное расположение используется при длинных названиях пунктов. Рекомендуемое количество вариантов от двух до пяти.
 
 ```jsx live
 render(() => {
     const [value, setValue] = React.useState('one');
+    const [error, setError] = React.useState(false);
 
     const onChange = (_, payload) => {
         setValue(payload.value);
     };
 
-    const onReset = () => {
-        setValue(null);
+    return (
+        <div style={{ width: '100%' }}>
+            <RadioGroup
+                label='Выберите планету земной группы'
+                onChange={onChange}
+                hint='Только одна из этих планет принадлежит земной группе'
+                error={error}
+                value={value}
+            >
+                <Radio label='Марс' value='one' size='m' />
+                <Radio label='Юпитер' value='two' size='m' />
+                <Radio label='Меркурий' value='three' size='m' />
+                <Radio label='Сатурн' value='four' size='m' />
+                <Radio label='Нептун' value='five' size='m' />
+            </RadioGroup>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Правильный ответ: Марс')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
+    );
+});
+```
+
+## Группа тегов
+
+Теги могут использоваться в качестве радиокнопок в составе группы.
+Группа тегов используется при коротких названиях пунктов и малом количестве вариантов — от двух до трех.
+Если варианты не помещаются в одну строку они могут перенестись на следующую.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState('one');
+    const [error, setError] = React.useState(false);
+
+    const onChange = (_, payload) => {
+        setValue(payload.value);
     };
 
     return (
-        <React.Fragment>
+        <div style={{ width: '100%' }}>
             <RadioGroup
-                label='Заголовок группы'
+                label='Выберите один из вариантов'
                 onChange={onChange}
                 direction='horizontal'
                 type='tag'
-                name='tagRadioGroup'
+                hint='Выберите один из вариантов'
+                error={error}
                 value={value}
             >
-                <Tag value='one'>Первый вариант</Tag>
-                <Tag value='two'>Второй вариант</Tag>
-                <Tag value='three'>Третий вариант</Tag>
+                <Tag value='one'>Вариант 1</Tag>
+                <Tag value='two'>Вариант 2</Tag>
+                <Tag value='three'>Вариант 3</Tag>
+                <Tag value='four'>Вариант 4</Tag>
             </RadioGroup>
-            <br />
-            <Button onClick={onReset} size='s' view='tertiary' disabled={value === null}>
-                Сбросить выбор
-            </Button>
-        </React.Fragment>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Error message')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
     );
 });
 ```
+
+## Использование в формах
+
+Не рекомендуется использовать в одной форме несколько вариантов реализации радиогрупп.
+Чтобы пользователю было комфортно взаимодействовать с интерфейсом, контролы с одинаковой механикой должны выглядеть одинаково.

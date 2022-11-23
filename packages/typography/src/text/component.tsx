@@ -8,7 +8,7 @@ import styles from './index.module.css';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
 
-export type TextProps = Omit<NativeProps, 'color'> & {
+type TextBaseProps = {
     /**
      * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/инструкции-типографика--page)
      */
@@ -40,7 +40,7 @@ export type TextProps = Omit<NativeProps, 'color'> & {
     /**
      * HTML тег
      */
-    tag?: 'p' | 'span' | 'div';
+    tag?: 'span' | 'div';
 
     /**
      * Css-класс для стилизации (native prop)
@@ -56,7 +56,19 @@ export type TextProps = Omit<NativeProps, 'color'> & {
      * Контент (native prop)
      */
     children?: React.ReactNode;
+
+    /**
+     * Добавляет отступы к тэгу 'p'
+     */
+    defaultMargins?: never;
 };
+
+type TextPTagProps = Omit<TextBaseProps, 'tag' | 'defaultMargins'> & {
+    tag?: 'p';
+    defaultMargins?: boolean;
+};
+
+export type TextProps = Omit<NativeProps, 'color'> & (TextBaseProps | TextPTagProps);
 
 type TextElementType = HTMLParagraphElement | HTMLSpanElement | HTMLDivElement;
 
@@ -67,6 +79,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
             tag: Component = 'span',
             weight,
             monospaceNumbers = false,
+            defaultMargins = true,
             color,
             className,
             dataTestId,
@@ -77,7 +90,11 @@ export const Text = forwardRef<TextElementType, TextProps>(
     ) => (
         <Component
             className={cn(
-                { [styles.paragraph]: Component === 'p', [styles.monospace]: monospaceNumbers },
+                {
+                    [styles.paragraph]: Component === 'p' && !defaultMargins,
+                    [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
+                    [styles.monospace]: monospaceNumbers,
+                },
                 className,
                 color && colors[color],
                 styles[view],

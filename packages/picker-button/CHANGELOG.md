@@ -1,5 +1,19 @@
 # Change Log
 
+## 10.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.0
+
+## 10.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.1.2
+
 ## 10.0.2
 
 ### Patch Changes

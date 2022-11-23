@@ -91,6 +91,7 @@ import { colors } from '../colors';
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold', undefined], 'regular');
         const monospace = boolean('monospaceNumbers', false);
+        const defaultMargins = tag === 'p' ? boolean('defaultMargins', true) : undefined;
         return VIEW_TYPES.map((view) => (
             <Typography.Text
                 view={view}
@@ -99,6 +100,7 @@ import { colors } from '../colors';
                 weight={weight}
                 monospaceNumbers={monospace}
                 key={view}
+                defaultMargins={defaultMargins}
             >
                 {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент
                 времени в прошлом, когда плотность энергии (материи) и кривизна пространства-времени
