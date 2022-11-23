@@ -699,7 +699,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
       </div>
     </div>
     <span
-      class="divider"
+      class="component s"
     />
     <div>
       <div
