@@ -10,10 +10,6 @@
     width: max-content;
     box-sizing: border-box;
 
-    &.disabled {
-        background-color: var(--tag-background-color-disabled);
-    }
-
     &.defaultVariant {
         border-radius: var(--tag-border-radius);
     }
