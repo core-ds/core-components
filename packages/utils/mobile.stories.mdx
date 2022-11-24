@@ -1,4 +1,6 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { MODE_COLORS_TAG_ID } from 'storybook/addons/mode-switcher/utils';
+import { THEME_TAG_ID } from 'storybook/addons/theme-switcher/utils';
 
 import { MobileFrame } from 'storybook-addon-live-examples';
 
@@ -8,5 +10,15 @@ import { MobileFrame } from 'storybook-addon-live-examples';
         previewTabs: { canvas: { hidden: true } },
     }}
 />
+
+export function InitialThemeAndMode() {
+    const parentDoc = window.parent.document;
+    const themeStyles = parentDoc.getElementById(THEME_TAG_ID);
+    const modeStyles = parentDoc.getElementById(MODE_COLORS_TAG_ID);
+    if (themeStyles) document.head.appendChild(themeStyles.cloneNode(true));
+    if (modeStyles) document.head.appendChild(modeStyles.cloneNode(true));
+}
+
+<InitialThemeAndMode />
 
 <MobileFrame />
