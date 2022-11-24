@@ -73,6 +73,7 @@
     height: 100%;
     display: block;
     box-shadow: var(--plate-box-shadow);
+    pointer-events: none;
 }
 
 .rounded {
