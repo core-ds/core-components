@@ -18,7 +18,7 @@ docker run --name playwright -d -it --rm --ipc=host -v $(pwd):/core-components -
 
 check_error
 
-docker exec playwright bash -c "apt-get update; apt-get install fonts-roboto -y; apt-get install -y fonts-dejavu-core; fc-cache -fv"
+docker exec playwright bash -c "apt-get update; apt-get install fonts-roboto -y; apt-get install -y fonts-dejavu-core; fc-cache -f"
 
 check_error
 

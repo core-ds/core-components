@@ -15,20 +15,20 @@ const optionsWithIcons = [
 
 render(
     <Space>
-        <Space direction="horizontal">
+        <Space direction='horizontal'>
             <PickerButton options={options} view='primary' label='Picker button' />
-            <PickerButton options={optionsWithIcons} view='primary' variant="compact" />
+            <PickerButton options={optionsWithIcons} view='primary' variant='compact' />
         </Space>
         <PickerButtonMobile options={options} view='primary' label='Mobile' />
         <PickerButtonDesktop options={options} view='primary' label='Responsive' />
-    </Space>
+    </Space>,
 );
 ```
 
 ## Архитектура
 
-PickerButton это <a href="/docs/компоненты-select--select">Select</a> с <a href="/docs/компоненты-button--button">Button</a> вместо стандартного `field`.
-Поэтому PickerButton доступен во всех `size` и `view`, которые есть у <a href="/docs/компоненты-button--button">Button</a>.
+PickerButton это [Select](path=/docs/компоненты-селекты-select--select) с [Button](path=/docs/компоненты-кнопки-button--button) вместо стандартного `field`.
+Поэтому PickerButton доступен во всех `size` и `view`, которые есть у [Button](path=/docs/компоненты-кнопки-button--button).
 
 ```jsx live
 const options = [
@@ -61,9 +61,19 @@ const options = [
 
 render(
     <Space direction='horizontal'>
-        <PickerButton label='Слева' options={options} popoverPosition='bottom-start' view="primary" />
-        <PickerButton label='По центру' options={options} popoverPosition='bottom' view="primary" />
-        <PickerButton label='Справа' options={options} popoverPosition='bottom-end' view="primary" />
+        <PickerButton
+            label='Слева'
+            options={options}
+            popoverPosition='bottom-start'
+            view='primary'
+        />
+        <PickerButton label='По центру' options={options} popoverPosition='bottom' view='primary' />
+        <PickerButton
+            label='Справа'
+            options={options}
+            popoverPosition='bottom-end'
+            view='primary'
+        />
     </Space>,
 );
 ```
@@ -212,5 +222,13 @@ const options = [
     { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
 ];
 
-render(<PickerButton size='m' options={options} view="primary" label='Выберите карту' preventFlip={false} />);
+render(
+    <PickerButton
+        size='m'
+        options={options}
+        view='primary'
+        label='Выберите карту'
+        preventFlip={false}
+    />,
+);
 ```

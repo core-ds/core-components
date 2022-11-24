@@ -1,26 +1,60 @@
-Компонент текстового ввода диапазона дат
+## Стандартный вид компонента
 
-## Примеры
+Поле ввода с маской ДД.ММ.ГГГГ – ДД.ММ.ГГГГ. Использование пикера опционально.
 
-### Без пикера
 ```jsx live
 render(
-    <div style={{ width: 250 }}>
-        <DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" block />
-    </div>
-)
+    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <DateRangeInput
+            label='Период действия патента'
+            placeholder='ДД.ММ.ГГГГ - ДД.ММ.ГГГГ'
+            block={true}
+            size='m'
+        />
+    </div>,
+);
 ```
 
+## Пикер
 
-### С пикером
-```jsx live
-render(
-    <div style={{ width: 275 }}>
-        <DateRangeInput label="Укажите диапазон дат" placeholder="ДД.ММ.ГГГГ - ДД.ММ.ГГГГ" picker block />
-    </div>
-)
+Пикер используется, когда выбор дат ограничен. Например, если нельзя указывать выходные дни.
+При наличии пикера допустимо блокировать ввод с клавиатуры.
+
+```jsx live mobileHeight=640
+render(() => {
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
+
+    return (
+        <div style={{ width: '100%' }}>
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                <DateRangeInput
+                    label='Укажите диапазон дат'
+                    placeholder='ДД.ММ.ГГГГ - ДД.ММ.ГГГГ'
+                    picker={true}
+                    block={true}
+                    size='m'
+                    {...(disableUserInput
+                        ? {
+                              onKeyDown: (e) => e.preventDefault(),
+                          }
+                        : null)}
+                />
+            </div>
+            <Gap size='xl' />
+
+            <Switch
+                checked={disableUserInput}
+                onChange={() => setDisableUserInput((prevState) => !prevState)}
+                label='Запретить ввод с клавиатуры'
+            />
+        </div>
+    );
+});
 ```
 
+## Морфология
 
-### Пикер
-Для настроек пикера см. компонент DatePicker
+Поле ввода является оберткой над [FormControl](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control),
+поэтому наследует все доступные для него настройки. Пикер это
+[Calendar](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-calendar--calendar)
+в [Popover](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-popover--popover).

@@ -6,6 +6,22 @@ import { Text, TextProps } from './index';
 
 describe('Text', () => {
     describe('Classes tests', () => {
+        it('should set paragraph class', () => {
+            const className = 'paragraph';
+
+            const { container } = render(<Text tag='p' defaultMargins={false} />);
+
+            expect(container.firstElementChild).toHaveClass(className);
+        });
+
+        it('should set paragraphWithMargins class by default', () => {
+            const className = 'paragraphWithMargins';
+
+            const { container } = render(<Text tag='p' />);
+
+            expect(container.firstElementChild).toHaveClass(className);
+        });
+
         it('should set custom class', () => {
             const className = 'custom-class';
 

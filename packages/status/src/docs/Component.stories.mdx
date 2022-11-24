@@ -8,12 +8,7 @@ import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/Status'
-    component={Status}
-/>
-
+<Meta title='Компоненты/Прочие компоненты/Status' component={Status} />
 
 <!-- Canvas -->
 
@@ -25,7 +20,6 @@ import Changelog from '../../CHANGELOG.md';
         {text('children', 'Label')}
     </Status>
 </Story>
-
 
 <!-- Docs -->
 
@@ -40,8 +34,4 @@ import Changelog from '../../CHANGELOG.md';
 import { Status } from '@alfalab/core-components/status';
 ```
 
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={<ArgsTable of={StatusTS} />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={StatusTS} />} />

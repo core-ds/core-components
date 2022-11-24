@@ -11,7 +11,7 @@ const clip = { x: 0, y: 0, width: 260, height: 80 };
 describe('WithSuffix', () => {
     test('suffix styles', async () => {
         const pageUrl = createStorybookUrl({
-            componentName: 'WithSuffix',
+            componentName: 'withSuffix',
             testStory: false,
         });
 

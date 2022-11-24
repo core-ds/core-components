@@ -82,10 +82,19 @@ div[id*='story--'] {
 
 /* Manager */
 
+.os-padding .os-viewport {
+    background: #ffffff;
+}
+
+.sidebar-container .os-content {
+    padding-left: 36px !important;
+}
+
 div.sidebar-header {
     display: flex;
     align-items: center;
-    margin: -6px -10px 0 !important;
+    justify-content: start !important;
+    /* margin: 0 0 0 -10px !important; */
 }
 
 div.sidebar-header > div:first-child a {
@@ -98,13 +107,19 @@ div.sidebar-header img {
     max-height: 32px;
 }
 
+div.sidebar-header button {
+    box-shadow: none;
+    transform: scale(1.2);
+}
+
 a[href='#storybook-preview-wrapper'] {
     display: none;
 }
 
 .search-field {
-    margin-left: var(--gap-l-neg);
+    margin-left: -10px;
     margin-right: -10px;
+    margin-bottom: var(--gap-xl);
 }
 
 .search-field svg:first-child {
@@ -146,59 +161,87 @@ a[href='#storybook-preview-wrapper'] {
     display: none;
 }
 
-.sidebar-container .sidebar-item svg {
-    /* иконки страниц */
+.sidebar-container .sidebar-item svg:not(.sidebar-icon) {
+    /* исходные иконки пунктов */
     display: none;
 }
 
+/* Главные пункты sidebar */
 div.sidebar-subheading {
-    padding: var(--gap-xs) var(--gap-m) 0 var(--gap-l);
+    padding: 0 0 0 36px;
     margin-bottom: var(--gap-xs);
-    border-top: 1px solid rgba(0, 0, 0, 0.07);
-    color: var(--color-light-text-tertiary);
+    color: var(--color-light-text-secondary);
     font-size: 12px;
-    line-height: 1.2;
-    font-weight: 700;
+    line-height: 16px;
+    font-weight: 500;
     letter-spacing: 1.25px;
 }
 
+div.sidebar-subheading > button > span:first-of-type {
+    display: none;
+}
+
 .sidebar-container .sidebar-item {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    color: rgba(11, 31, 53, 0.9);
-    font-size: 14px;
-    line-height: 1.2;
+    position: relative;
+    padding-top: var(--gap-xs);
+    padding-bottom: var(--gap-xs);
+    color: var(--color-light-text-primary);
     font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
     background: transparent !important;
+    width: auto;
+    align-items: center;
+}
+
+.sidebar-container .sidebar-item > span:first-child {
+    display: none;
+}
+
+.sidebar-container .sidebar-item[data-nodetype='group'] {
+    padding-left: 18px;
+}
+
+.sidebar-container .sidebar-item .item-label {
+    display: inline-flex;
+    align-items: start;
+}
+
+.sidebar-container .sidebar-item .sidebar-icon {
+    color: #b6bcc3;
+    flex-shrink: 0;
 }
 
 .sidebar-container .sidebar-item:hover,
-.sidebar-container .sidebar-item:focus,
-.sidebar-container .sidebar-item[data-selected='true'] {
+.sidebar-container .sidebar-item:focus:not([data-nodetype='group']),
+.sidebar-container .sidebar-item[data-selected='true']:not([data-nodetype='group']) {
     font-weight: normal;
-    color: var(--color-light-text-primary) !important;
-    background: rgba(0, 0, 0, 0.05) !important;
+    color: var(--color-light-text-accent) !important;
+    background: transparent !important;
 }
 
-.sidebar-container .sidebar-item[data-selected='true'] {
-    background-color: rgba(11, 31, 53, 0.1) !important;
+.sidebar-container .sidebar-item:hover .sidebar-icon,
+.sidebar-container .sidebar-item:focus:not([data-nodetype='group']) .sidebar-icon,
+.sidebar-container .sidebar-item[data-selected='true'] .sidebar-icon {
+    color: var(--color-light-text-accent);
 }
+
+/* img песочницы */
+.sidebar-container .sidebar-item img.sidebar-icon {
+    filter: invert(83%) sepia(10%) saturate(176%) hue-rotate(172deg) brightness(89%) contrast(92%);
+}
+
+.sidebar-container .sidebar-item:hover img.sidebar-icon,
+.sidebar-container .sidebar-item:focus:not([data-nodetype='group']) img.sidebar-icon,
+.sidebar-container .sidebar-item[data-selected='true'] img.sidebar-icon {
+    filter: invert(47%) sepia(88%) saturate(6608%) hue-rotate(348deg) brightness(95%) contrast(96%);
+}
+/* _______________ */
 
 button.sidebar-item[aria-expanded='true'],
 button.sidebar-item[aria-expanded='true']:focus {
     background: transparent !important;
 }
-
-/* a.sidebar-item[class*='inlineGlow'] span.sidebar-expander,
-button.sidebar-item[class*='inlineGlow'] span.sidebar-expander {
-    width: 14px;
-}
-
-a.sidebar-item[class*='inlineGlow'] > svg + span,
-button.sidebar-item[class*='inlineGlow'] > svg + span {
-    border-radius: 99px;
-    background-color: var(--color-light-bg-tertiary);
-} */
 
 button[data-action='collapse-root']:focus {
     box-shadow: none;
@@ -215,7 +258,7 @@ select.select {
     padding-right: var(--gap-xl);
     -webkit-appearance: none;
     appearance: none;
-    background-image: url(https://alfabank.servicecdn.ru/icons/glyph_chevron-down-compact_m.svg);
+    background-image: url(./images/chevron-down-compact.svg);
     background-repeat: no-repeat;
     background-position: right center;
 }
@@ -321,12 +364,12 @@ div.benefits-item span {
 }
 
 h1.sbdocs-h1 {
-    margin: 0 0 var(--gap-2xl);
-    color: var(--color-light-text-accent);
+    margin: 0 0 var(--gap-xl);
+    color: var(--color-light-text-primary);
     font-size: 48px;
-    line-height: 1;
-    font-weight: 900;
-    font-family: var(--font-family);
+    line-height: 64px;
+    font-weight: 500;
+    font-family: var(--font-family-styrene);
 }
 
 p.sbdocs-p.lead {

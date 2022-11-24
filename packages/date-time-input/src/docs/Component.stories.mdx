@@ -1,19 +1,14 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
-import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { Meta, Story } from '@storybook/addon-docs';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import { DateTimeInput } from '../Component';
+import { DateTimeInput } from '@alfalab/core-components-date-time-input';
 import Changelog from '../../CHANGELOG.md';
 import { version } from '../../package.json';
 import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
+import Development from './development.mdx';
 
-
-<Meta
-    title='Компоненты/DateTimeInput'
-    component={DateTimeInput}
-/>
+<Meta title='Компоненты/Инпуты/DateTimeInput' component={DateTimeInput} />
 
 <!-- Canvas -->
 
@@ -39,15 +34,7 @@ import styles from '!!raw-loader!../index.module.css';
     name='DateTimeInput'
     version={version}
     package='@alfalab/core-components/date-time-input'
+    children='Поле для указания диапазона даты и времени.'
 />
 
-```jsx
-import { DateTimeInput } from '@alfalab/core-components/date-time-input';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={<ArgsTable of={DateTimeInput} />}
-    cssVars={<CssVars css={styles} />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />

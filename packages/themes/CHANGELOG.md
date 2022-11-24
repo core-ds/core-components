@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.7.0
+
+### Minor Changes
+
+### [#347](https://github.com/core-ds/core-components/pull/347)
+
+-   feat(themes): add js entries
+
 ## 9.6.0
 
 ### Minor Changes

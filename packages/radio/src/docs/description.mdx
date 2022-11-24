@@ -1,18 +1,63 @@
-### Компонент Radio
+## Размеры
+
+Стандартный размер компонента — m. Размер s устарел и не рекомендован к использованию.
 
 ```jsx live
 render(() => {
     const [checked, setChecked] = React.useState(false);
 
-    const handleChange = () => setChecked(!checked);
+    const handleChange = () => {
+        setChecked(!checked);
+    };
 
     return (
-        <Radio
-            onChange={handleChange}
-            checked={checked}
-            hint='Описание пункта'
-            label='Вариант выбора у радиобатона'
-        />
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Radio
+                size='m'
+                onChange={handleChange}
+                checked={checked}
+                label='Вариант выбора'
+                block={true}
+            />
+        </div>
+    );
+});
+```
+
+## Состояния
+
+Радиокнопка может находиться в выбранном и невыбранном состоянии.
+Если радиокнопка заблокирована, но пользователь может совершить какие-то действия чтобы её разблокировать,
+используется состояние «неактивна». Если кнопка заблокирована и её нельзя разблокировать, то используется состояние «недоступна».
+
+```jsx live
+render(() => {
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Radio size='m' label='Выбрана' checked={true} block={true} />
+            <Gap size='m' />
+            <Radio
+                size='m'
+                label='Выбрана и недоступна'
+                disabled={true}
+                checked={true}
+                block={true}
+            />
+            <Gap size='m' />
+            <Radio
+                size='m'
+                label='Выбрана и неактивна'
+                inactive={true}
+                checked={true}
+                block={true}
+            />
+            <Gap size='xl' />
+            <Radio size='m' label='По умолчанию' block={true} />
+            <Gap size='m' />
+            <Radio size='m' label='По умолчанию и недоступна' disabled={true} block={true} />
+            <Gap size='m' />
+            <Radio size='m' label='По умолчанию и неактивна' inactive={true} block={true} />
+        </div>
     );
 });
 ```

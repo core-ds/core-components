@@ -10,11 +10,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Toast'
-    component={Toast}
-/>
+<Meta title='Компоненты/Уведомления/Toast' component={Toast} />
 
 <!-- Canvas -->
 
@@ -36,7 +32,7 @@ export function ToastExample() {
     const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
     const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
     const [buttonElement, setButtonElement] = React.useState(null);
-    const handleButtonRef = node => {
+    const handleButtonRef = (node) => {
         setButtonElement(node);
     };
     const containerRef = React.useRef();
@@ -60,7 +56,7 @@ export function ToastExample() {
                 }}
             >
                 <Toast
-                    colors = {select('colors', ['default', 'inverted'], 'default')}
+                    colors={select('colors', ['default', 'inverted'], 'default')}
                     open={anchorToastOpen}
                     position={select('position', POSITION_OPTIONS, 'left')}
                     offset={[number('offset[0]', 0), number('offset[1]', 8)]}
@@ -78,7 +74,7 @@ export function ToastExample() {
                     autoCloseDelay={number('autoCloseDelay', 3000)}
                 />
                 <Toast
-                    colors = {select('colors', ['default', 'inverted'], 'default')}
+                    colors={select('colors', ['default', 'inverted'], 'default')}
                     open={fixedToastOpen}
                     badge={select(
                         'badge',
@@ -131,7 +127,6 @@ export function ToastExample() {
 <Story name='Toast'>
     <ToastExample />
 </Story>
-
 
 <!-- Docs -->
 

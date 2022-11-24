@@ -9,11 +9,7 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/NotificationManager'
-    component={NotificationManager}
-/>
+<Meta title='Компоненты/Уведомления/NotificationManager' component={NotificationManager} />
 
 <!-- Canvas -->
 
@@ -33,15 +29,15 @@ import Changelog from '../../CHANGELOG.md';
             );
             notifications.unshift(newNotification);
             setNotifications([...notifications]);
-            setCount(val => val + 1);
+            setCount((val) => val + 1);
         };
-        const removeNotification = React.useCallback(id => {
+        const removeNotification = React.useCallback((id) => {
             /**
              * Обратите внимание, что актуальный массив нотификаций
              * нужно брать из аргументов функции обновления состояния.
              */
-            setNotifications(actualNotifications =>
-                actualNotifications.filter(notification => notification.props.id !== id),
+            setNotifications((actualNotifications) =>
+                actualNotifications.filter((notification) => notification.props.id !== id),
             );
         }, []);
         return (

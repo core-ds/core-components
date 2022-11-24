@@ -1,7 +1,16 @@
-Компонент текстового ввода времени.
+## Стандартный вид компонента
 
-## Примеры
+Стандартный вид компонента — поле ввода с маской ЧЧ.ММ.
 
 ```jsx live
-render(<TimeInput label='Укажите время' placeholder='ЧЧ:ММ'/>)
+render(
+    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <TimeInput label='Время визита' placeholder='ЧЧ:ММ' size='m' block={true}/>
+    </div>,
+);
 ```
+
+## Морфология
+
+Поле ввода является оберткой над [FormControl](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control),
+поэтому наследует все доступные для него настройки.

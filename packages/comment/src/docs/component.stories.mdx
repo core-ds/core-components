@@ -9,12 +9,10 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-<Meta
-    title='Компоненты/Comment'
-    component={Comment}
-/>
+<Meta title='Компоненты/Прочие компоненты/Comment' component={Comment} />
 
 <!-- Canvas -->
+
 <Story name='Comment'>
     {React.createElement(() => {
         const children = text('Текст комментария', 'Comment');
@@ -23,7 +21,7 @@ import styles from '!!raw-loader!../index.module.css';
             <div>
                 <Comment rowLimit={rowLimit}>{children}</Comment>
             </div>
-        )
+        );
     })}
 </Story>
 

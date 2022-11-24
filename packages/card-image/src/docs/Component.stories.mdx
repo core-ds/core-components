@@ -9,33 +9,26 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/CardImage'
-    component={CardImage}
-/>
-
+<Meta title='Компоненты/Другое/CardImage' component={CardImage} />
 
 <!-- Canvas -->
 
 <Story name='CardImage'>
     <CardImage
         cardId={text('cardId', 'EG')}
-        layers={text('layers', 'BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE')}
+        layers={text(
+            'layers',
+            'BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE',
+        )}
         width={number('width', 280)}
         rounded={boolean('rounded', false)}
         baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
     />
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='CardImage'
-    version={version}
-    package='@alfalab/core-components/card-image'
-/>
+<ComponentHeader name='CardImage' version={version} package='@alfalab/core-components/card-image' />
 
 ```jsx
 import { CardImage } from '@alfalab/core-components/card-image';
