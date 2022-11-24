@@ -5,6 +5,7 @@ import { useFocus } from '@alfalab/hooks';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage } from '../../types';
+import { NoImagePaths } from './paths';
 
 import styles from './index.module.css';
 
@@ -53,7 +54,24 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
         >
             {isBroken ? (
                 <div className={cn(styles.preview, styles.brokenImageWrapper)}>
-                    <div className={styles.brokenIcon} />
+                    <div className={styles.brokenIcon}>
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='40'
+                            height='40'
+                            viewBox='0 0 40 40'
+                            fill='none'
+                        >
+                            <rect width='40' height='40' fill='none' />
+                            <path
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d={NoImagePaths.baseImage}
+                                fill='#DBDEE1'
+                            />
+                            <path d={NoImagePaths.triangleImage} fill='#DBDEE1' />
+                        </svg>
+                    </div>
                 </div>
             ) : (
                 <div

@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+### [#359](https://github.com/core-ds/core-components/pull/359)
+
+-   Исправили disabled в режиме Ссылки
+
 ## 7.0.0
 
 ### Major Changes

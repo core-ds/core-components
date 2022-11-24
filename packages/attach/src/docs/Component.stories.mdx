@@ -8,11 +8,7 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/Attach'
-    component={Attach}
-/>
+<Meta title='Компоненты/Загрузка файлов/Attach' component={Attach} />
 
 <!-- Canvas -->
 
@@ -41,13 +37,10 @@ import Changelog from '../../CHANGELOG.md';
 import { Attach } from '@alfalab/core-components/attach';
 ```
 
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={<ArgsTable of={AttachTS} />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={AttachTS} />} />
 
 ## Controlled Attach
+
 К сожалению, можно только эмулировать контролируемое поведение
 (https://ru.reactjs.org/docs/uncontrolled-components.html#the-file-input-tag)
 
@@ -64,15 +57,15 @@ render(() => {
         const formData = new FormData();
 
         files.forEach((file, i) => {
-            formData.append(`file${  i}`, file);
+            formData.append(`file${i}`, file);
         });
 
         fetch('https://httpbin.org/post', {
             method: 'POST',
             body: formData,
         })
-            .then(r => r.json())
-            .then(r => setResponse(r));
+            .then((r) => r.json())
+            .then((r) => setResponse(r));
     };
 
     return (

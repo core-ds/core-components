@@ -149,7 +149,8 @@ render(() => {
 
 ### Адаптивность
 
-Можно использовать десктопные, мобильные и адаптивные табы. Адаптивная версия табов перестраивается при 768px.
+- Можно использовать десктопные, мобильные и адаптивные табы. Адаптивная версия табов перестраивается при 768px.
+- Если табы не помещаются в окне, то можно активировать свойство collapsible, в режиме которого появляется последний таб "Ещё", где размещаются все невлезшие табы на странице.
 
 ```jsx live
 const tabs = [
@@ -160,6 +161,9 @@ const tabs = [
     { title: 'Plutonuim', id: 'tab-5' },
     { title: 'Rubidium', id: 'tab-6' },
     { title: 'Californium', id: 'tab-7' },
+    { title: 'Einsteinium', id: 'tab-8', rightAddons: <Badge view='count' content={1} /> },
+    { title: 'Fermium', id: 'tab-9' },
+    { title: 'Mendelevium', id: 'tab-10' },
 ];
 render(() => {
     const [selectedId, setSelectedId] = React.useState('tab-1');
@@ -167,14 +171,16 @@ render(() => {
     const [width, setWidth] = React.useState('100%');
     const [count, setCount] = React.useState('7');
     const [component, setComponent] = React.useState('TabsResponsive');
+    const [collapsible, setCollapsible] = React.useState(false);
 
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
     const handleWidthChange = (event, { value }) => setWidth(value);
     const handleCountChange = (event, { value }) => setCount(value);
     const handleViewChange = (event, { value }) => setView(value);
-    const handleComponentChange = (event, { value }) => setComponent(value);
-
-    const props = TabsComponent !== TabsDesktop && { fullWidthScroll: true };
+    const handleComponentChange = (event, { value }) => {
+        setComponent(value);
+        setCollapsible(value === 'TabsCollapsibleDesktop');
+    };
 
     const TabsComponent = React.useMemo(
         () =>
@@ -182,9 +188,12 @@ render(() => {
                 TabsDesktop: TabsDesktop,
                 TabsMobile: TabsMobile,
                 TabsResponsive: TabsResponsive,
+                TabsCollapsibleDesktop: TabsDesktop,
             }[component]),
         [component],
     );
+
+    const props = TabsComponent !== TabsDesktop && { fullWidthScroll: true };
 
     return (
         <>
@@ -192,12 +201,13 @@ render(() => {
                 <TabsComponent
                     {...props}
                     scrollable={true}
+                    collapsible={collapsible}
                     selectedId={selectedId}
                     onChange={handleChange}
                     view={view}
                 >
-                    {tabs.slice(0, +count).map(({ id, title }) => (
-                        <Tab title={title} id={id} />
+                    {tabs.slice(0, +count).map((tab) => (
+                        <Tab key={tab.id} {...tab} />
                     ))}
                 </TabsComponent>
             </div>
@@ -220,6 +230,7 @@ render(() => {
                         value={count}
                         onChange={handleCountChange}
                     >
+                        <Radio label='10' value='10' />
                         <Radio label='7' value='7' />
                         <Radio label='2' value='2' />
                     </RadioGroup>
@@ -241,6 +252,7 @@ render(() => {
                         onChange={handleComponentChange}
                     >
                         <Radio label='Desktop' value='TabsDesktop' />
+                        <Radio label='Collapsible' value='TabsCollapsibleDesktop' />
                         <Radio label='Mobile' value='TabsMobile' />
                         <Radio label='Responsive' value='TabsResponsive' />
                     </RadioGroup>

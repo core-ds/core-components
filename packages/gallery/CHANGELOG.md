@@ -1,5 +1,38 @@
 # Change Log
 
+## 5.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.5
+    -   base-modal@5.0.6
+    -   tooltip@6.1.11
+
+## 5.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.4
+    -   tooltip@6.1.10
+
+## 5.1.0
+
+### Minor Changes
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+-   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+## 5.0.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@6.1.9
+    -   icon-button@6.0.1
+
 ## 5.0.13
 
 ### Patch Changes

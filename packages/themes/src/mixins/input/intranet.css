@@ -7,6 +7,4 @@
     --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
-    --input-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
-    --input-inverted-error-icon: url('https://alfabank.servicecdn.ru/icons/glyph_alert-circle_m_negative.svg');
 }

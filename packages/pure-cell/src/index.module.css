@@ -2,6 +2,10 @@
 
 .component {
     text-align: unset;
+
+    /** line-height наследуется. Если его не обнулить, то все иконки внутри будут иметь неверный размер */
+    line-height: 0;
+    box-sizing: border-box;
 }
 
 .horizontal {

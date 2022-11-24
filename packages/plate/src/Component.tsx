@@ -11,8 +11,11 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Button, ComponentProps as ButtonProps } from '@alfalab/core-components-button';
+import { ComponentProps as ButtonProps } from '@alfalab/core-components-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
 import { useFocus } from '@alfalab/hooks';
+import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { ButtonList } from './components/button-list/component';
 
@@ -136,6 +139,11 @@ export type PlateProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Количество строк (не поддерживает IE)
+     */
+    rowLimit?: 1 | 2 | 3;
 };
 
 /* eslint-disable complexity */
@@ -165,6 +173,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             onClick,
             onClose,
             onToggle,
+            rowLimit,
         },
         ref,
     ) => {
@@ -186,6 +195,8 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         const hasContent = children || hasButtons;
         const hasSubAddons = !!subAddons && typeof subAddons !== 'boolean';
         const hasAnyAddons = leftAddons || subAddons || foldable || hasCloser;
+
+        const rowLimitStyles = rowLimit && styles[`rowLimit${rowLimit}`];
 
         const handleClick = useCallback(
             (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
@@ -284,7 +295,9 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                     })}
                                 >
                                     {children && (
-                                        <div className={styles.description}>{children}</div>
+                                        <div className={cn(styles.description, rowLimitStyles)}>
+                                            {children}
+                                        </div>
                                     )}
 
                                     {hasButtons && (
@@ -319,16 +332,19 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                     className={cn(styles.folder, {
                                         [styles.isFolded]: folded,
                                     })}
-                                />
+                                >
+                                    <ChevronDownMIcon />
+                                </div>
                             </div>
                         )}
 
                         {hasCloser && !foldable && (
                             <div className={styles.rightAddons}>
-                                <Button
+                                <IconButton
                                     className={styles.closer}
                                     aria-label='закрыть'
-                                    view='ghost'
+                                    icon={CrossMIcon}
+                                    size='xxs'
                                     onClick={handleClose}
                                 />
                             </div>

@@ -3,8 +3,8 @@ import React, {
     forwardRef,
     MutableRefObject,
     ReactNode,
-    useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
@@ -215,7 +215,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
         const updatePopperRef = useRef<() => void>();
 
-        const getModifiers = useCallback(() => {
+        const popperModifiers = useMemo(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
 
             if (withArrow) {
@@ -256,18 +256,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             update: updatePopper,
         } = usePopper(referenceElement, popperElement, {
             placement: position,
-            modifiers: getModifiers(),
+            modifiers: popperModifiers,
         });
 
         if (updatePopper) {
             updatePopperRef.current = updatePopper;
         }
-
-        const updatePopoverWidth = useCallback(() => {
-            if (useAnchorWidth && updatePopperRef.current) {
-                updatePopperRef.current();
-            }
-        }, [useAnchorWidth]);
 
         useEffect(() => {
             setReferenceElement(anchorElement);
@@ -288,6 +282,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
         useEffect(() => {
             if (useAnchorWidth) {
+                const updatePopoverWidth = () => updatePopperRef.current?.();
                 const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
                 const observer = new ResizeObserver(updatePopoverWidth);
 
@@ -301,7 +296,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             }
 
             return () => ({});
-        }, [anchorElement, updatePopoverWidth, useAnchorWidth]);
+        }, [anchorElement, useAnchorWidth]);
 
         /**
          * По дизайну, если у тултипа позиционирование -start/-end, то стрелочка немного сдвигается вбок.
@@ -329,6 +324,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     zIndex: computedZIndex,
                     width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
                     ...popperStyles.popper,
+                    ...(popperStyles.popper?.transform ? null : { visibility: 'hidden' }),
                 }}
                 data-test-id={dataTestId}
                 className={cn(styles.component, className, {

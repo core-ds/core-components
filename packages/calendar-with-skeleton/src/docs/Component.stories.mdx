@@ -9,12 +9,7 @@ import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
-
-<Meta
-    title='Компоненты/CalendarWithSkeleton'
-    component={CalendarWithSkeleton}
-/>
-
+<Meta title='Компоненты/Календари/CalendarWithSkeleton' component={CalendarWithSkeleton} />
 
 <!-- Canvas -->
 
@@ -23,13 +18,14 @@ import Description from './description.mdx';
         const [visible, setVisible] = React.useState(false);
         return (
             <>
-                <CalendarWithSkeleton calendarVisible={ visible }/>
-                <Button size="xs" onClick={() => setVisible(!visible)}>toggle</Button>
+                <CalendarWithSkeleton calendarVisible={visible} />
+                <Button size='xs' onClick={() => setVisible(!visible)}>
+                    toggle
+                </Button>
             </>
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 

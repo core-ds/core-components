@@ -20,7 +20,7 @@ import { CustomButton } from '@alfalab/core-components-custom-button';
 
 ## Виды кнопок
 
-Размеры и отступы идентичны компоненту <a href="/docs/компоненты-button--button">Button</a>.
+Размеры и отступы идентичны компоненту [Button](/docs/компоненты-кнопки-button--button).
 
 На данный момент поддерживается только `view Primary`.
 
@@ -30,7 +30,7 @@ const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 render(
     <Container>
         <Row>
-            {SIZES.map(size => (
+            {SIZES.map((size) => (
                 <Col key={size}>
                     <CustomButton size={size}>Кнопка</CustomButton>
                 </Col>
@@ -60,14 +60,14 @@ const BLACK_CONTENT_COLORS = [
 render(
     <Container>
         <Row>
-            {WHITE_CONTENT_COLORS.map(color => (
+            {WHITE_CONTENT_COLORS.map((color) => (
                 <Col key={color}>
                     <CustomButton backgroundColor={color}>Кнопка</CustomButton>
                 </Col>
             ))}
         </Row>
         <Row>
-            {BLACK_CONTENT_COLORS.map(color => (
+            {BLACK_CONTENT_COLORS.map((color) => (
                 <Col key={color}>
                     <CustomButton backgroundColor={color} contentColor='black'>
                         Кнопка

@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/addon-docs';
 
 <Meta
-  title='Гайдлайны/Скриншотное тестирование'
-  parameters={{ previewTabs: { canvas: { hidden: true } }}}
+    title='Инструкции/Скриншотное тестирование'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
 />
 
 ## Скриншотное тестирование
@@ -63,10 +63,7 @@ const cases = generateTestCases({
     },
 });
 
-describe(
-    'Input | screenshots sizes, blocks and disabled',
-    screenshotTesting({ cases }),
-);
+describe('Input | screenshots sizes, blocks and disabled', screenshotTesting({ cases }));
 ```
 
 **_Функция `generateTestCases` вернет все возможные комбинации пропсов.
@@ -88,7 +85,7 @@ describe('Input | interactions tests', () => {
         try {
             await page.fill('input', 'value');
 
-            await matchHtml({ page, expect, css });
+            await matchHtml({ context, page, expect, css });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);
@@ -124,6 +121,7 @@ git lfs install --force
 При изменении скриншота появляется папка `__diff_output__`, в которой можно увидеть изменения.
 
 Если изменения нужно принять, то обновляем скриншоты:
+
 ```bash
 $ yarn test:screenshots -u
 ```

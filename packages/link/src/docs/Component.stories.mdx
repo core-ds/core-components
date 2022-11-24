@@ -17,12 +17,7 @@ import invertedStyles from '!!raw-loader!../inverted.module.css';
 
 export const VIEWS = ['primary', 'secondary', 'default'];
 
-
-<Meta
-    title='Компоненты/Link'
-    component={Link}
-/>
-
+<Meta title='Компоненты/Контролы/Link' component={Link} />
 
 <!-- Canvas -->
 
@@ -30,15 +25,20 @@ export const VIEWS = ['primary', 'secondary', 'default'];
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <Typography.Text view='primary-medium'>
                     <Link
                         view={select('view', VIEWS, 'primary')}
@@ -57,7 +57,6 @@ export const VIEWS = ['primary', 'secondary', 'default'];
     })}
 </Story>
 
-
 <!-- Docs -->
 
 <ComponentHeader
@@ -65,6 +64,7 @@ export const VIEWS = ['primary', 'secondary', 'default'];
     version={version}
     package='@alfalab/core-components/link'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=204%3A38227'
+    children='Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу или вызова нового информационного слоя.'
 />
 
 ```jsx
@@ -75,6 +75,11 @@ import { Link } from '@alfalab/core-components/link';
     description={<Description />}
     changelog={<Changelog />}
     props={<ArgsTable of={LinkTS} />}
-    cssVars={<CssVars css={`${styles}${defaultStyles}${invertedStyles}`} />}
+    cssVars={
+        <CssVars
+            css={`
+                ${styles}${defaultStyles}${invertedStyles}
+            `}
+        />
+    }
 />
-

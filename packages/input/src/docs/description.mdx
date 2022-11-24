@@ -1,11 +1,215 @@
-Компонент текстового поля ввода.
+## Размеры
 
-☝️ В приложениях Клика используйте обёртку [newclick-composite-components/input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-input--basic).
+Основным типом инпутов в вебе являются инпуты размера M с внутренним расположением лейбла.
 
 ```jsx live
-<React.Fragment>
-    <Input label='email' name='email' />
-    <br />
-    <Input label='phone' name='phone' />
-</React.Fragment>
+render(() => {
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Input block={true} label='Текст' size='m' />
+            <Gap size='m' />
+            <Input block={true} label='Email' size='m' />
+        </div>
+    );
+});
 ```
+
+## Валидация
+
+См. гайд валидация.
+
+```jsx live
+render(() => {
+    const [error, setError] = React.useState(false);
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <div style={{ height: 80 }}>
+                <Input block={true} label='Текст' size='m' error={error} />
+            </div>
+            <Gap size='xl' />
+            <Button size='xxs' view='secondary' onClick={() => setError(false)}>
+                По умолчанию
+            </Button>
+            <Gap size='s' direction='horizontal' />
+            <Button size='xxs' view='secondary' onClick={() => setError('Error message')}>
+                Состояние ошибки
+            </Button>
+        </div>
+    );
+});
+```
+
+## Disabled и ReadOnly
+
+Доступный только для чтения инпут может быть выбран с клавиатуры, его значение передается при отправке формы.
+Заблокированный инпут нельзя выбрать с клавиатуры и его значение не будет отправлено.
+
+```jsx live
+render(() => {
+    const [inputProps, setInputProps] = React.useState({});
+
+    return (
+        <div style={{ width: '100%' }}>
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                <Input block={true} label='Текст' size='m' {...inputProps} />
+            </div>
+            <Gap size='xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' view='secondary' onClick={() => setInputProps({})}>
+                    По умолчанию
+                </Button>
+                <Button
+                    size='xxs'
+                    view='secondary'
+                    onClick={() => setInputProps({ disabled: true })}
+                >
+                    Заблокирован
+                </Button>
+                <Button
+                    size='xxs'
+                    view='secondary'
+                    onClick={() => setInputProps({ readOnly: true })}
+                >
+                    Только чтение
+                </Button>
+            </Space>
+        </div>
+    );
+});
+```
+
+## Дополнительная информация
+
+Для упрощения пользовательского ввода используется несколько паттернов вывода дополнительной информации.
+
+1. Placeholder — подсказка внутри поля, отображается до тех пор, пока пользователь не начнет вводить значение.
+2. Hint — подсказка под полем. Если поле перейдёт в состоянии ошибки hint будет заменен на сообщение об ошибке.
+3. Tooltip — иконка с подсказкой.
+
+```jsx live
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Input
+                block={true}
+                placeholder='Инпут с плейсхолдером'
+                size='m'
+                hint='Подсказка под полем'
+                rightAddons={
+                    <TooltipResponsive
+                        open={open}
+                        content={
+                            <span
+                                style={{ whiteSpace: 'pre-wrap' }}
+                            >{`Сообщение тултипа\nотображается при\nнаведении`}</span>
+                        }
+                        onOpen={() => setOpen(true)}
+                        onClose={() => setOpen(false)}
+                        position='right'
+                    >
+                        <Badge
+                            view='icon'
+                            iconColor='secondary'
+                            content={<InformationCircleMIcon />}
+                        />
+                    </TooltipResponsive>
+                }
+            />
+        </div>
+    );
+});
+```
+
+## Статусы
+
+В некоторых кейсах может потребоваться дополнительная индикация ошибки или успеха.
+
+```jsx live
+render(() => {
+    const [success, setSuccess] = React.useState(false);
+    const [value, setValue] = React.useState('');
+
+    /* Не показываем вторую иконку ошибки в теме сайта */
+    const css = `
+        :root {
+            --input-error-icon-display: none;
+            --input-error-icon-not-alone-display: none;
+        }
+    `;
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setValue(value);
+
+        if (value.length === 5) {
+            setSuccess(true);
+        } else {
+            setSuccess(false);
+        }
+    };
+
+    const hasError = value !== '' && !success;
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <style>{css}</style>
+            <Input
+                value={value}
+                block={true}
+                onChange={handleChange}
+                placeholder='Введите 5 символов'
+                size='m'
+                success={success}
+                error={hasError}
+                rightAddons={
+                    hasError ? (
+                        <Badge
+                            view='icon'
+                            size='m'
+                            iconColor='negative'
+                            content={
+                                <ExclamationCircleMIcon
+                                    style={{ color: 'var(--color-light-graphic-negative)' }}
+                                />
+                            }
+                        />
+                    ) : undefined
+                }
+            />
+        </div>
+    );
+});
+```
+
+## Крестик очистки
+
+В редких кейсах может потребоваться механика быстрой очистки введенного контента.
+Рекомендуется использовать данную механику точечно, а не глобально ко всем полям большой формы.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState('Value');
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Input
+                value={value}
+                block={true}
+                onChange={(e) => setValue(e.target.value)}
+                label='Label'
+                size='m'
+                clear={true}
+                onClear={() => setValue('')}
+            />
+        </div>
+    );
+});
+```
+
+## Морфология
+
+Компонент является оберткой над [FormControl](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control), поэтому наследует все доступные для него настройки.

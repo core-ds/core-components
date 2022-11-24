@@ -2,8 +2,8 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { TabsDesktop } from './desktop';
-import { Tab } from './components/tab';
+import { TabsDesktop } from '../desktop';
+import { Tab } from '../components/tab';
 
 const renderTabs = async (props = { selectedId: 'tab-1' }) => {
     const renderResult = render(

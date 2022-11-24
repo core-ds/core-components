@@ -20,7 +20,7 @@ export const options = [
     { key: 'Скопировать реквизиты' },
 ];
 
-<Meta title='Компоненты/PickerButton' component={PickerButton} />
+<Meta title='Компоненты/Кнопки/PickerButton' component={PickerButton} />
 
 <!-- Canvas -->
 
@@ -29,7 +29,11 @@ export const options = [
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
-        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        view={select(
+            'view',
+            ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'],
+            'secondary',
+        )}
         variant={select('variant', ['default', 'compact'])}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
@@ -42,7 +46,11 @@ export const options = [
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
-        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        view={select(
+            'view',
+            ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'],
+            'secondary',
+        )}
         variant={select('variant', ['default', 'compact'])}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
@@ -55,7 +63,11 @@ export const options = [
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
-        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        view={select(
+            'view',
+            ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'],
+            'secondary',
+        )}
         variant={select('variant', ['default', 'compact'])}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}

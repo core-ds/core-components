@@ -19,6 +19,7 @@ describe('Collapse | interactions tests', () => {
 
         try {
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,
@@ -32,6 +33,7 @@ describe('Collapse | interactions tests', () => {
             await page.click('button[class*=component]');
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,

@@ -1,19 +1,15 @@
 import { Container, Row, Col } from 'storybook/blocks';
 
 Компонент используется для отображения фильтров,
-вариантов выбора в <a href="/docs/компоненты-radiogroup--radio-group">RadioGroup</a>,
-и <a href="/docs/компоненты-tabs--tabs">Tabs secondary</a>.
+вариантов выбора в [RadioGroup](/docs/компоненты-контролы-radiogroup--radio-group),
+и [Tabs secondary](/docs/компоненты-прочие-компоненты-tabs--tabs).
 
 ```jsx live
 render(() => {
     const [checked, setChecked] = React.useState(false);
     const handleClick = () => setChecked(!checked);
     return (
-        <Tag
-            size='s'
-            checked={checked}
-            onClick={handleClick}
-        >
+        <Tag size='s' checked={checked} onClick={handleClick}>
             Label
         </Tag>
     );
@@ -23,28 +19,31 @@ render(() => {
 ## Примеры
 
 ### Размеры
+
 Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
 
 ```jsx live
 render(() => {
     const SIZES = ['s', 'xs', 'xxs'];
 
-    const [checked, setChecked] = React.useState(Object.fromEntries(SIZES.map((key) => [key, false])));
+    const [checked, setChecked] = React.useState(
+        Object.fromEntries(SIZES.map((key) => [key, false])),
+    );
 
     return (
         <Container>
             <Row>
-                { SIZES.map((size) => (
+                {SIZES.map((size) => (
                     <Col key={size}>
                         <Tag
                             size={size}
                             checked={checked[size]}
-                            onClick={() => setChecked({...checked, [size]: !checked[size]})}
+                            onClick={() => setChecked({ ...checked, [size]: !checked[size] })}
                         >
                             Label
                         </Tag>
                     </Col>
-                )) }
+                ))}
             </Row>
         </Container>
     );
@@ -52,6 +51,7 @@ render(() => {
 ```
 
 ### Скругления
+
 Доступны два варианта компонента в рамках одной темы: `variant=default`, `variant=alt`.
 
 ```jsx live
@@ -59,9 +59,7 @@ render(() => (
     <Container>
         <Row>
             <Col>
-                <Tag size='xxs'>
-                    Label
-                </Tag>
+                <Tag size='xxs'>Label</Tag>
             </Col>
             <Col>
                 <Tag size='xxs' variant='alt'>
@@ -74,26 +72,29 @@ render(() => (
 ```
 
 ### Слоты
+
 С помощью слотов leftAddons и rightAddons можно кастомизировать тэг. Например, добавить иконку.
 Переданный контент будет отрисован слева или справа от лейбла.
 
 ```jsx live
 render(() => {
-    const addon = <div style={{
-            background: 'rgba(55, 120, 251, 0.1)',
-            border: '1px dashed #3778FB',
-            height: '24px',
-            width: '24px',
-            boxSizing: 'border-box',
-        }} />;
+    const addon = (
+        <div
+            style={{
+                background: 'rgba(55, 120, 251, 0.1)',
+                border: '1px dashed #3778FB',
+                height: '24px',
+                width: '24px',
+                boxSizing: 'border-box',
+            }}
+        />
+    );
 
     return (
         <Container>
             <Row>
                 <Col>
-                    <Tag size='xxs'>
-                        Label
-                    </Tag>
+                    <Tag size='xxs'>Label</Tag>
                 </Col>
                 <Col>
                     <Tag size='xxs' leftAddons={addon}>
@@ -106,9 +107,7 @@ render(() => {
                     </Tag>
                 </Col>
                 <Col>
-                    <Tag size='xxs'>
-                        {addon}
-                    </Tag>
+                    <Tag size='xxs'>{addon}</Tag>
                 </Col>
             </Row>
         </Container>
@@ -117,25 +116,25 @@ render(() => {
 ```
 
 ### Кастомные слоты
+
 В некоторых случаях допустимо дополнительно настраивать отступ внутри аддона, см. пример с Amount.
 
 ```jsx live
 render(() => {
-    const addon = <div style={{
-        background: 'rgba(55, 120, 251, 0.1)',
-        border: '1px dashed #3778FB',
-        height: '24px',
-        width: '24px',
-        }} />;
+    const addon = (
+        <div
+            style={{
+                background: 'rgba(55, 120, 251, 0.1)',
+                border: '1px dashed #3778FB',
+                height: '24px',
+                width: '24px',
+            }}
+        />
+    );
 
     const amountAddon = (
         <div style={{ paddingRight: '4px' }}>
-            <Amount
-                view="withZeroMinorPart"
-                value={123456700}
-                currency="RUR"
-                minority={100}
-            />
+            <Amount view='withZeroMinorPart' value={123456700} currency='RUR' minority={100} />
         </div>
     );
 
@@ -143,9 +142,7 @@ render(() => {
         <Container>
             <Row>
                 <Col>
-                    <Tag size='xxs'>
-                        Label
-                    </Tag>
+                    <Tag size='xxs'>Label</Tag>
                 </Col>
                 <Col>
                     <Tag size='xxs' rightAddons={<StarSIcon />}>
@@ -153,15 +150,12 @@ render(() => {
                     </Tag>
                 </Col>
                 <Col>
-                    <Tag size='xxs' rightAddons={<Badge view="count" content={1} />}>
+                    <Tag size='xxs' rightAddons={<Badge view='count' content={1} />}>
                         Label
                     </Tag>
                 </Col>
                 <Col>
-                    <Tag
-                        size='xxs'
-                        rightAddons={amountAddon}
-                    >
+                    <Tag size='xxs' rightAddons={amountAddon}>
                         Label
                     </Tag>
                 </Col>

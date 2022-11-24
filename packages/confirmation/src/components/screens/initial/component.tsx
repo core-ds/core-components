@@ -39,6 +39,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         requiredCharAmount,
         timeLeft,
         phone,
+        clearCodeOnError,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -146,6 +147,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 className={cn(styles.containerInput, styles.codeInput)}
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}
+                clearCodeOnError={clearCodeOnError}
             />
             <CountdownSection
                 processing={processing}

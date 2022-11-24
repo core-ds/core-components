@@ -8,21 +8,17 @@ import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
-<Meta
-    title='Компоненты/Dropzone'
-    component={Dropzone}
-/>
-
+<Meta title='Компоненты/Загрузка файлов/Dropzone' component={Dropzone} />
 
 <!-- Canvas -->
 
 <Story name='Dropzone'>
     {React.createElement(() => {
         const [filesList, setFilesList] = React.useState([]);
-        const handleDrop = files => {
+        const handleDrop = (files) => {
             setFilesList(
                 Array.from(files)
-                    .map(file => file.name)
+                    .map((file) => file.name)
                     .filter(Boolean),
             );
         };
@@ -46,7 +42,7 @@ import Description from './description.mdx';
                 >
                     {filesList.length > 0 ? (
                         <ul>
-                            {filesList.map(file => (
+                            {filesList.map((file) => (
                                 <li key={file}>{file}</li>
                             ))}
                         </ul>
@@ -58,7 +54,6 @@ import Description from './description.mdx';
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 

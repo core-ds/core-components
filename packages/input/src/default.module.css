@@ -23,14 +23,6 @@
     color: var(--color-light-graphic-primary);
 }
 
-.errorIcon {
-    background-image: var(--input-error-icon);
-}
-
-.successIcon {
-    background-image: var(--input-success-icon);
-}
-
 /* READ-ONLY STATE */
 
 .input:read-only {

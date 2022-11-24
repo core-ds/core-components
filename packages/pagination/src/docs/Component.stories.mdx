@@ -8,18 +8,14 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/Pagination'
-    component={Pagination}
-/>
+<Meta title='Компоненты/Прочие компоненты/Pagination' component={Pagination} />
 
 <!-- Canvas -->
 
 <Story name='Pagination'>
     {React.createElement(() => {
         const [page, setPage] = React.useState(0);
-        const handlePageChange = pageIndex => setPage(pageIndex);
+        const handlePageChange = (pageIndex) => setPage(pageIndex);
         return (
             <Pagination
                 view={select('view', ['default', 'per-page'], 'default')}

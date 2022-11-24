@@ -14,9 +14,7 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta
-    title='Компоненты/IconView'
-/>
+<Meta title='Компоненты/Прочие компоненты/IconView' />
 
 <!-- Canvas -->
 
@@ -26,16 +24,16 @@ import Changelog from '../../CHANGELOG.md';
         const bottomAddons = boolean('bottomAddons', false);
         return (
             <SuperEllipse
-                size={select('size', ['40', '48', '64', '80', '128'], '64')}
+                size={select('size', ['24', '40', '48', '64', '80', '128'], '64')}
                 backgroundColor={text('backgroundColor', '#f3f4f5')}
                 border={boolean('border', false)}
                 imageUrl={text('imageUrl', '')}
-                topAddons={topAddons && <AlertCircleMIcon color="#2fc26e" /> }
-                bottomAddons={bottomAddons && <CheckmarkCircleMIcon color="#2fc26e" /> }
+                topAddons={topAddons && <AlertCircleMIcon color='#2fc26e' />}
+                bottomAddons={bottomAddons && <CheckmarkCircleMIcon color='#2fc26e' />}
             >
                 <SfTouchIdXxlIcon />
             </SuperEllipse>
-        )
+        );
     })}
 </Story>
 
@@ -45,16 +43,16 @@ import Changelog from '../../CHANGELOG.md';
         const bottomAddons = boolean('bottomAddons', false);
         return (
             <Circle
-                size={select('size', ['40', '48', '64', '80'], '64')}
+                size={select('size', ['24', '40', '48', '64', '80', '128'], '64')}
                 backgroundColor={text('backgroundColor', '#f3f4f5')}
                 border={boolean('border', false)}
                 imageUrl={text('imageUrl', '')}
-                topAddons={topAddons && <AlertCircleMIcon color="#2fc26e" /> }
-                bottomAddons={bottomAddons && <CheckmarkCircleMIcon color="#2fc26e" /> }
+                topAddons={topAddons && <AlertCircleMIcon color='#2fc26e' />}
+                bottomAddons={bottomAddons && <CheckmarkCircleMIcon color='#2fc26e' />}
             >
                 <SfTouchIdXxlIcon />
             </Circle>
-        )
+        );
     })}
 </Story>
 
@@ -75,7 +73,7 @@ import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
 export const Shapes = {
     Circle: CircleTS,
     SuperEllipse: SuperEllipseTS,
-}
+};
 
 <Tabs
     description={<Description />}

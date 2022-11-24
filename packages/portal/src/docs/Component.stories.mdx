@@ -11,12 +11,7 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/Portal'
-    component={Portal}
-/>
-
+<Meta title='Компоненты/Вспомогательные компоненты/Portal' component={Portal} />
 
 <!-- Canvas -->
 
@@ -35,10 +30,14 @@ import Changelog from '../../CHANGELOG.md';
         };
         return (
             <Space>
-                <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
+                <Button onClick={handleClick}>
+                    {show ? 'Unmount children' : 'Mount children'}
+                </Button>
                 <div>
                     {show && (
-                        <Portal getPortalContainer={() => document.getElementById('portal-container')}>
+                        <Portal
+                            getPortalContainer={() => document.getElementById('portal-container')}
+                        >
                             <StarMIcon />
                         </Portal>
                     )}
@@ -51,21 +50,12 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='Portal'
-    version={version}
-    package='@alfalab/core-components/portal'
-/>
+<ComponentHeader name='Portal' version={version} package='@alfalab/core-components/portal' />
 
 ```jsx
 import { Portal } from '@alfalab/core-components/portal';
 ```
 
-<Tabs
-    description={<Description />}
-    props={<ArgsTable of={PortalTS} />}
-    changelog={<Changelog />}
-/>
+<Tabs description={<Description />} props={<ArgsTable of={PortalTS} />} changelog={<Changelog />} />

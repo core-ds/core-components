@@ -9,12 +9,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/CircularProgressBar'
-    component={CircularProgressBar}
-/>
-
+<Meta title='Компоненты/Прогрессбары/CircularProgressBar' component={CircularProgressBar} />
 
 <!-- Canvas -->
 
@@ -22,11 +17,19 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         const value = number('value', 50);
         const view = select('view', ['positive', 'negative']);
-        const completeTextColor = select('completeTextColor',['primary','primary-inverted', 'positive', 'negative', 'secondary' ], 'secondary');
+        const completeTextColor = select(
+            'completeTextColor',
+            ['primary', 'primary-inverted', 'positive', 'negative', 'secondary'],
+            'secondary',
+        );
         const title = text('title', 'title');
         const titleComplete = text('titleComplete');
         const subtitle = text('subtitle', 'subtitle');
-        const contentColor = select('contentColor',['primary', 'secondary', 'tertiary', 'positive', 'negative' ], 'secondary');
+        const contentColor = select(
+            'contentColor',
+            ['primary', 'secondary', 'tertiary', 'positive', 'negative'],
+            'secondary',
+        );
         const subtitleComplete = text('subtitleComplete');
         return (
             <React.Fragment>
@@ -46,13 +49,11 @@ import styles from '!!raw-loader!../index.module.css';
                     size={select('size', ['xs', 's', 'm', 'l', 'xl', 'xxl'], 'l')}
                 />
                 <p>Без атрибута title значение для title берётся из value</p>
-                <CircularProgressBar
-                    value={value}
-                    view={view}
-                    subtitle={subtitle}
-                    size='l'
-                />
-                <p>Если есть children, то они подставляются в центр, а title и subtitle игнорируются</p>
+                <CircularProgressBar value={value} view={view} subtitle={subtitle} size='l' />
+                <p>
+                    Если есть children, то они подставляются в центр, а title и subtitle
+                    игнорируются
+                </p>
                 <CircularProgressBar
                     value={value}
                     view={view}
@@ -63,10 +64,9 @@ import styles from '!!raw-loader!../index.module.css';
                     <p>Hello</p>
                 </CircularProgressBar>
             </React.Fragment>
-        )
+        );
     })}
 </Story>
-
 
 <!-- Docs -->
 

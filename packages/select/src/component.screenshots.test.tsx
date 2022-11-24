@@ -140,7 +140,7 @@ describe('Select | interactions tests', () => {
 
             await page.setViewportSize(viewport);
 
-            const match = async () => matchHtml({ page, expect, css, viewport });
+            const match = async () => matchHtml({ context, page, expect, css, viewport });
 
             try {
                 await match();
@@ -188,7 +188,7 @@ describe('Select | interactions tests', () => {
         try {
             await page.click('[role="combobox"]');
 
-            await matchHtml({ page, expect, css, viewport });
+            await matchHtml({ context, page, expect, css, viewport });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -224,13 +224,13 @@ describe('Select | interactions tests', () => {
         try {
             await page.click('[role="combobox"]');
 
-            await matchHtml({ page, expect, css, viewport });
+            await matchHtml({ context, page, expect, css, viewport });
 
             await page.click('[role="option"]');
 
             await page.click('[role="combobox"]');
 
-            await matchHtml({ page, expect, css, viewport });
+            await matchHtml({ context, page, expect, css, viewport });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

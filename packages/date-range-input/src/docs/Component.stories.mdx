@@ -1,19 +1,14 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
-import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { Meta, Story } from '@storybook/addon-docs';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { DateRangeInput } from '@alfalab/core-components-date-range-input';
 
-import { DateRangeInput } from '../Component';
 import Changelog from '../../CHANGELOG.md';
 import { version } from '../../package.json';
 import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
+import Development from './development.mdx';
 
-
-<Meta
-    title='Компоненты/DateRangeInput'
-    component={DateRangeInput}
-/>
+<Meta title='Компоненты/Инпуты/DateRangeInput' component={DateRangeInput} />
 
 <!-- Canvas -->
 
@@ -39,15 +34,7 @@ import styles from '!!raw-loader!../index.module.css';
     name='DateRangeInput'
     version={version}
     package='@alfalab/core-components/date-range-input'
+    children='Поле для указания диапазона дат.'
 />
 
-```jsx
-import { DateRangeInput } from '@alfalab/core-components/date-range-input';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={<ArgsTable of={DateRangeInput} />}
-    cssVars={<CssVars css={styles} />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />

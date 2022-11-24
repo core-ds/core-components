@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+### [#358](https://github.com/core-ds/core-components/pull/358)
+
+-   Добавлен новый prop `defaultMargins` в компонент Text. Теперь есть возможность отключить отступ для тега `p`
+
+## 3.0.4
+
+### Patch Changes
+
+### [#368](https://github.com/core-ds/core-components/pull/368)
+
+-   Обновлен пакет ui-primitives и миксины typography (изменился line-height 24→20 у миксинов headline-mobile_xsmall и headline-system-mobile_xsmall)
+
 ## 3.0.3
 
 ### Patch Changes

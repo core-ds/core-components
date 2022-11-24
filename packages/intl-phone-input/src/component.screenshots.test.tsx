@@ -35,15 +35,15 @@ describe('IntlPhoneInput | interactions tests', () => {
              */
             await page.waitForTimeout(500);
 
-            await matchHtml({ page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
 
             await page.click('[role="combobox"] >> span');
 
-            await matchHtml({ page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
 
             await page.click('[role="option"]');
 
-            await matchHtml({ page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

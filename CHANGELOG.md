@@ -1,3 +1,268 @@
+## 36.2.0
+
+<sup><time>23.11.2022</time></sup>
+
+### [#347](https://github.com/core-ds/core-components/pull/347)
+
+#### Что изменилось
+- feat(themes): add js entries
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#348](https://github.com/core-ds/core-components/pull/348)
+
+#### Что изменилось
+- feat(select-mobile): allow to customize optionsList
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+
+## 36.1.2
+
+<sup><time>22.11.2022</time></sup>
+
+### [#358](https://github.com/core-ds/core-components/pull/358)
+
+#### Что изменилось
+- Добавлен новый prop `defaultMargins` в компонент Text. Теперь есть возможность отключить отступ для тега `p`
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+### [#371](https://github.com/core-ds/core-components/pull/371)
+
+#### Что изменилось
+- Добавлен новый опциональный prop `rowLimit` в компонент Plate. Теперь есть возможность ограничивать количество строк для передаваемого текста в `children` (от 1 до 3).
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#372](https://github.com/core-ds/core-components/pull/372)
+
+#### Что изменилось
+- Исправлена ошибка "document is not defined" при immediateMount=true
+
+#### Влияние на компоненты
+- Патчи<br />`portal`
+
+
+
+## 36.1.1
+
+<sup><time>18.11.2022</time></sup>
+
+### [#368](https://github.com/core-ds/core-components/pull/368)
+
+#### Что изменилось
+- Обновлен пакет ui-primitives и миксины typography (изменился line-height 24→20 у миксинов headline-mobile_xsmall и headline-system-mobile_xsmall)
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+
+## 36.1.0
+
+<sup><time>17.11.2022</time></sup>
+
+### [#336](https://github.com/core-ds/core-components/pull/336)
+
+#### Что изменилось
+- Добавлен пропс collapsible, при включении которого не помещающиеся в окне табы сворачиваются в PickerButton.
+- Добавлен хук use-collapsible-elements, который следит за изменением ширины контейнера и возвращает те элементы, которые не помещаются в данном контейнере.<br />
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#360](https://github.com/core-ds/core-components/pull/360)
+
+#### Что изменилось
+- Исправили max-height контента. Теперь max-height добавляется только раскрываемому(foldable) контенту.
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#329](https://github.com/core-ds/core-components/pull/329)
+
+#### Что изменилось
+- Добавлен z-index к липкому header
+
+#### Влияние на компоненты
+- Минорное<br />`modal`
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент BaseOption
+- Изменены отступы у заголовка группы (компонент Optgroup)<br />
+- Изменены отступы у футера, который возвращает хук useSelectWithApply<br />
+- Добавлена возможность прокидывать кастомный Option в useLazyLoading и useSelectWithLoading хук<br />
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+<br />
+
+#### Что изменилось
+- Добавлено вертикальное выравнивание у компонента PureCell.Graphics
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#346](https://github.com/core-ds/core-components/pull/346)
+
+#### Что изменилось
+- В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`select` `themes`
+
+
+### [#335](https://github.com/core-ds/core-components/pull/335)
+
+#### Что изменилось
+- Добавлен обязательный параметр(expanded) в типы обработчиков состояний.
+Добавлены пропсы:<br />
+<br />
+-   `expandedContentClassName` - позволяет устанавливать дополнительный класс для скрываемого контента.<br />
+-   `defaultExpanded` - позволяет устанавливать начальное состояние неконтролируемого компонента.<br />
+
+#### Влияние на компоненты
+- Минорное<br />`collapse`
+
+<br />
+
+#### Что изменилось
+- Добавили restProps в компонент
+
+#### Влияние на компоненты
+- Минорное<br />`list`
+
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+#### Что изменилось
+- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`gallery` `input` `themes` `amount-input` `date-input`<br /> `date-range-input` `date-time-input` `input-autocomplete` `intl-phone-input` `masked-input`<br /> `password-input` `slider-input` `time-input` `calendar-input` `phone-input`<br />
+
+
+
+## 36.0.0
+
+<sup><time>11.11.2022</time></sup>
+
+### [#344](https://github.com/core-ds/core-components/pull/344)
+
+#### Что изменилось
+- При наличии правого аддона, дефолтная иконка кнопки не исчезает
+
+#### Влияние на компоненты
+- Мажорное<br />`picker-button`
+
+
+### [#331](https://github.com/core-ds/core-components/pull/331)
+
+#### Что изменилось
+- Изменен фоновый цвет на light/specialbg/secondary-transparent для компонента Plate в режиме common
+
+#### Влияние на компоненты
+- Минорное<br />`plate`
+
+
+### [#350](https://github.com/core-ds/core-components/pull/350)
+
+#### Что изменилось
+- В документацию добавлены пропсы и их описание для подкомпонентов SidePanel
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+### [#326](https://github.com/core-ds/core-components/pull/326)
+
+#### Что изменилось
+- Исправлены прыжки поповера в react 18
+
+#### Влияние на компоненты
+- Патчи<br />`popover`
+
+
+### [#352](https://github.com/core-ds/core-components/pull/352)
+
+#### Что изменилось
+- Исправлена ошибка в ModalResponsive, из-за которой сбрасывалось состояние у дочерник компонентов при переключении desktop -> mobile и наоборот
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#343](https://github.com/core-ds/core-components/pull/343)
+
+#### Что изменилось
+- Добавлен проп clearCodeOnError. Если он включен, то при возникновении ошибки код будет очищаться
+
+#### Влияние на компоненты
+- Минорное<br />`code-input` `confirmation`
+
+
+### [#317](https://github.com/core-ds/core-components/pull/317)
+
+#### Что изменилось
+- Исправлены ошибки в браузере IE 11 в компонентах Сheckbox и FormControl
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox` `form-control`
+
+
+### [#327](https://github.com/core-ds/core-components/pull/327)
+
+#### Что изменилось
+- Добавлен новый размер (24px) для компонента SuperEllipse
+- Добавлены новые размеры (24px и 128px) для компонента Circle<br />
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#359](https://github.com/core-ds/core-components/pull/359)
+
+#### Что изменилось
+- Исправили disabled в режиме Ссылки
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#339](https://github.com/core-ds/core-components/pull/339)
+
+#### Что изменилось
+- Добавлен новый компонент Gap
+
+#### Влияние на компоненты
+- Минорное<br />`gap`
+
+
+### [#340](https://github.com/core-ds/core-components/pull/340)
+
+#### Что изменилось
+- В компоненте Plate иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+#### Влияние на компоненты
+- Минорное<br />`plate`
+
+
+
 ## 35.2.0
 
 <sup><time>03.11.2022</time></sup>

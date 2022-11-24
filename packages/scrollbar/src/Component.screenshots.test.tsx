@@ -45,6 +45,7 @@ describe('Scrollbar | interactions tests', () => {
             await page.hover('div[class*=vertical]');
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,
@@ -78,6 +79,7 @@ describe('Scrollbar | interactions tests', () => {
             await page.hover('div[class*=horizontal]');
 
             await matchHtml({
+                context,
                 page,
                 expect,
                 css,

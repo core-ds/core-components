@@ -12,16 +12,17 @@ import styles from '!!raw-loader!../index.module.css';
 
 import { version } from '../../package.json';
 
-<Meta
-    title='Компоненты/Plate'
-    component={Plate}
-/>
+<Meta title='Компоненты/Прочие компоненты/Plate' component={Plate} />
 
 <!-- Canvas -->
 
 <Story name='Plate'>
     {React.createElement(() => {
-        const view = select('view', ['common', 'negative', 'positive', 'attention', 'custom'], 'positive');
+        const view = select(
+            'view',
+            ['common', 'negative', 'positive', 'attention', 'custom'],
+            'positive',
+        );
         return (
             <Plate
                 view={view}
@@ -34,18 +35,29 @@ import { version } from '../../package.json';
                 limitContentWidth={boolean('limitContentWidth', true)}
                 titleView={select('titleView', ['bold', 'light'])}
                 leftAddons={boolean('leftAddons', true) ? <CheckmarkOnCircleMIcon /> : null}
-                buttons={boolean('buttons', false) ? [
-                    <Button view='primary'>Хорошо</Button>,
-                    <Button>Подробнее</Button>,
-                ] : null}
-                subAddons={boolean('subAddons', false) ? [
-                    <Button view='link' size='xxs'>Хорошо</Button>,
-                    <Button view='secondary' size='xxs'>Подробнее</Button>,
-                ] : null}
+                buttons={
+                    boolean('buttons', false)
+                        ? [<Button view='primary'>Хорошо</Button>, <Button>Подробнее</Button>]
+                        : null
+                }
+                subAddons={
+                    boolean('subAddons', false)
+                        ? [
+                              <Button view='link' size='xxs'>
+                                  Хорошо
+                              </Button>,
+                              <Button view='secondary' size='xxs'>
+                                  Подробнее
+                              </Button>,
+                          ]
+                        : null
+                }
+                row
+                rowLimit={select('rowLimit', [undefined, 1, 2, 3])}
             >
                 {text('children', 'Вам одобрено. Согласитесь на предложение')}
             </Plate>
-        )
+        );
     })}
 </Story>
 
@@ -65,7 +77,6 @@ import { Plate } from '@alfalab/core-components/plate';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<ArgsTable of={PlateTS} /> }
+    props={<ArgsTable of={PlateTS} />}
     cssVars={<CssVars css={styles} />}
 />
-

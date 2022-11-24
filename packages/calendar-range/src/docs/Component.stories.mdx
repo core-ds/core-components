@@ -11,18 +11,12 @@ import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
-
-<Meta
-    title='Компоненты/CalendarRange'
-    component={CalendarRange}
-/>
+<Meta title='Компоненты/Календари/CalendarRange' component={CalendarRange} />
 
 <!-- Canvas -->
 
 <Story name='CalendarRange'>
-    <CalendarRange
-        calendarPosition={select('calendarPosition', ['static', 'popover'], 'static')}
-    />
+    <CalendarRange calendarPosition={select('calendarPosition', ['static', 'popover'], 'static')} />
 </Story>
 
 <!-- Docs -->
@@ -41,5 +35,13 @@ import { CalendarRange } from '@alfalab/core-components/calendar-range';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<ArgsTable components={{ CalendarRange: CalendarRangeTS, CalendarRangePopover: CalendarRangePopoverTS, CalendarRangeStatic: CalendarRangeStaticTS }} />}
+    props={
+        <ArgsTable
+            components={{
+                CalendarRange: CalendarRangeTS,
+                CalendarRangePopover: CalendarRangePopoverTS,
+                CalendarRangeStatic: CalendarRangeStaticTS,
+            }}
+        />
+    }
 />

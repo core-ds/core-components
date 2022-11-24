@@ -647,6 +647,16 @@ export type OptionProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Позиция иконки "галочки"
+     */
+    checkmarkPosition?: 'before' | 'after';
+
+    /**
+     * Мобильная верcия option.
+     */
+    mobile?: boolean;
 };
 
 export type CheckmarkProps = {

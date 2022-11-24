@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+### [#343](https://github.com/core-ds/core-components/pull/343)
+
+-   Добавлен проп clearCodeOnError. Если он включен, то при возникновении ошибки код будет очищаться
+
 ## 2.1.1
 
 ### Patch Changes

@@ -15,24 +15,25 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 
-
-<Meta
-    title='Компоненты/Modal'
-/>
+<Meta title='Компоненты/Модалки и поповеры/Modal' />
 
 export const Text = () => (
     <p style={{ margin: '0 0 16px' }}>
         Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
         Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-        потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
-        полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+        потенциально нарушающие требования Федерального закона «О противодействии легализации
+        (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
     </p>
 );
 
 export const Footer = () => (
     <>
-        <Button size='s' view='primary'>Сохранить</Button>
-        <Button size='s' view='secondary'>Отмена</Button>
+        <Button size='s' view='primary'>
+            Сохранить
+        </Button>
+        <Button size='s' view='secondary'>
+            Отмена
+        </Button>
     </>
 );
 
@@ -40,12 +41,12 @@ export const Content = () => {
     const [showMore, setShowMore] = React.useState(false);
     return (
         <>
-            <Text/>
+            <Text />
             {(showMore || boolean('showMore')) && (
                 <>
-                    <Text/>
-                    <Text/>
-                    <Text/>
+                    <Text />
+                    <Text />
+                    <Text />
                 </>
             )}
             <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
@@ -59,7 +60,11 @@ export const Content = () => {
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
-        const component = select('ModalComponent', ['ModalResponsive', 'ModalDesktop', 'ModalMobile'], 'ModalResponsive');
+        const component = select(
+            'ModalComponent',
+            ['ModalResponsive', 'ModalDesktop', 'ModalMobile'],
+            'ModalResponsive',
+        );
         const header = boolean('header', true);
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
@@ -68,22 +73,31 @@ export const Content = () => {
         const stickyHeader = boolean('header.sticky', false);
         const footer = boolean('footer', false);
         const stickyFooter = boolean('footer.sticky', false);
-        const footerLayout = select('footer.layout', ['start', 'center', 'space-between', 'column'], 'start');
+        const footerLayout = select(
+            'footer.layout',
+            ['start', 'center', 'space-between', 'column'],
+            'start',
+        );
         const footerGap = select('footer.gap', [false, 16, 24, 32], false);
         const flexContent = boolean('content.flex', false);
         const ModalComponent = React.useMemo(() => {
             return {
-                'ModalResponsive': ModalResponsive,
-                'ModalDesktop': ModalDesktop,
-                'ModalMobile': ModalMobile,
-            }[component]
+                ModalResponsive: ModalResponsive,
+                ModalDesktop: ModalDesktop,
+                ModalMobile: ModalMobile,
+            }[component];
         }, [component]);
-        const props = ModalComponent !== ModalMobile ? {
-            size: select('size', ['s', 'm', 'l', 'xl', 'fullscreen'], 's'),
-        } : {};
+        const props =
+            ModalComponent !== ModalMobile
+                ? {
+                      size: select('size', ['s', 'm', 'l', 'xl', 'fullscreen'], 's'),
+                  }
+                : {};
         return (
             <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>
+                    Открыть модалку
+                </Button>
                 <ModalComponent
                     open={open || boolean('open')}
                     onClose={handleModalOpen}
@@ -103,7 +117,11 @@ export const Content = () => {
                         <Content />
                     </ModalComponent.Content>
                     {footer && (
-                        <ModalComponent.Footer sticky={stickyFooter} layout={footerLayout} gap={footerGap}>
+                        <ModalComponent.Footer
+                            sticky={stickyFooter}
+                            layout={footerLayout}
+                            gap={footerGap}
+                        >
                             <Footer />
                         </ModalComponent.Footer>
                     )}
@@ -113,8 +131,6 @@ export const Content = () => {
     })}
 </Story>
 
-
-
 <!-- Docs -->
 
 <ComponentHeader
@@ -123,7 +139,6 @@ export const Content = () => {
     package='@alfalab/core-components/modal'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
 />
-
 
 ```jsx
 import { ModalResponsive } from '@alfalab/core-components/modal/responsive';
@@ -135,5 +150,13 @@ import { ModalMobile } from '@alfalab/core-components/modal/mobile';
     description={<Description />}
     changelog={<Changelog />}
     cssVars={<CssVars css={vars} />}
-    props={<ArgsTable components={{ModalDesktop: ModalDesktopTS, ModalMobile: ModalMobileTS, ModalResponsive: ModalResponsiveTS}} />}
+    props={
+        <ArgsTable
+            components={{
+                ModalDesktop: ModalDesktopTS,
+                ModalMobile: ModalMobileTS,
+                ModalResponsive: ModalResponsiveTS,
+            }}
+        />
+    }
 />
