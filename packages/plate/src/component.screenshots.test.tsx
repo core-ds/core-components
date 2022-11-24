@@ -134,7 +134,7 @@ describe(
 );
 
 describe(
-    'Plate | rowLimit',
+    'Plate | shadow and border',
     screenshotTesting({
         cases: [
             [
@@ -143,8 +143,8 @@ describe(
                     componentName: 'Plate',
                     knobs: {
                         title: 'Поздравляем, полный успех',
-                        shadow: [false, true],
-                        border: [false, true],
+                        shadow: [true, false],
+                        border: [true, false],
                     },
                     size: { width: 400, height: 120 },
                 }),
