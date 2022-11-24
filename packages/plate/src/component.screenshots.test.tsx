@@ -132,3 +132,30 @@ describe(
         viewport: { width: 500, height: 160 },
     }),
 );
+
+describe(
+    'Plate | rowLimit',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Plate',
+                    knobs: {
+                        title: 'Поздравляем, полный успех',
+                        shadow: [false, true],
+                        border: [false, true],
+                    },
+                    size: { width: 400, height: 120 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 840,
+            height: 100,
+        },
+    }),
+);
