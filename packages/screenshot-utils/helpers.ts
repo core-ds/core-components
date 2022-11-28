@@ -10,6 +10,7 @@ import {
     chromium,
     Route,
     Request,
+    BrowserContextOptions,
 } from 'playwright';
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
@@ -131,9 +132,10 @@ export const matchHtml = async ({
 export const openBrowserPage = async (
     pageUrl: string,
     browserType: BrowserType<ChromiumBrowser | FirefoxBrowser | WebKitBrowser> = chromium,
+    contextOptions?: BrowserContextOptions,
 ) => {
     const browser = await browserType.launch();
-    const context = await browser.newContext({ viewport: defaultViewport });
+    const context = await browser.newContext({ viewport: defaultViewport, ...contextOptions });
     const page = await context.newPage();
 
     const [mainCss, vendorCss] = await Promise.all([

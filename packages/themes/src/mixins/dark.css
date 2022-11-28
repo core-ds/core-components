@@ -138,6 +138,7 @@
     --color-light-graphic-accent-shade-10: var(--color-dark-graphic-accent-tint-10);
     --color-light-graphic-accent-shade-15: var(--color-dark-graphic-accent-tint-15);
     --color-light-graphic-accent-shade-30: var(--color-dark-graphic-accent-tint-30);
+    --color-light-graphic-negative-alpha-10: var(--color-dark-graphic-negative-alpha-10);
     --color-light-graphic-negative-alpha-30: var(--color-dark-graphic-negative-alpha-30);
     --color-light-graphic-negative-alpha-40: var(--color-dark-graphic-negative-alpha-40);
     --color-light-graphic-negative-tint-20: var(--color-dark-graphic-negative-shade-20);
@@ -145,6 +146,7 @@
     --color-light-graphic-negative-shade-7: var(--color-dark-graphic-negative-tint-7);
     --color-light-graphic-negative-shade-15: var(--color-dark-graphic-negative-tint-15);
     --color-light-graphic-negative-shade-30: var(--color-dark-graphic-negative-tint-30);
+    --color-light-graphic-positive-alpha-10: var(--color-dark-graphic-positive-alpha-10);
     --color-light-graphic-positive-shade-10: var(--color-dark-graphic-positive-tint-10);
     --color-light-graphic-positive-shade-30: var(--color-dark-graphic-positive-tint-30);
     --color-light-graphic-primary-alpha-30: var(--color-dark-graphic-primary-alpha-30);

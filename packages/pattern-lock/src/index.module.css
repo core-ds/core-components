@@ -1,0 +1,27 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    max-width: var(--pattern-lock-max-width);
+    margin: var(--gap-xs) 0 var(--gap-xl) 0;
+
+    & canvas {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.error {
+    @mixin paragraph_primary_medium;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--gap-m);
+    min-height: 24px;
+    color: var(--color-light-text-negative);
+}
