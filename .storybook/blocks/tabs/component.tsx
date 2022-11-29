@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import { TabsResponsive, Tab, TabsResponsiveProps } from '@alfalab/core-components-tabs';
 import { Changelog } from '../changelog';
+import styles from './index.module.css';
 
 enum TabName {
     DESCRIPTION = 'DESCRIPTION',
@@ -55,7 +56,7 @@ export const Tabs: FC<Props> = ({
     const renderTabs = (): TabsResponsiveProps['children'] => {
         return [
             <Tab title={TabTitle[TabName.DESCRIPTION]} id={TabName.DESCRIPTION} key='description'>
-                <div style={{ marginTop: '30px' }}>{description}</div>
+                {description}
             </Tab>,
             props ? (
                 <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS} key='props'>
@@ -64,17 +65,21 @@ export const Tabs: FC<Props> = ({
             ) : null,
             cssVars ? (
                 <Tab title={TabTitle[TabName.CSS_VARS]} id={TabName.CSS_VARS} key='css-vars'>
-                    <div style={{ marginTop: '30px' }}>{cssVars}</div>
+                    {cssVars}
                 </Tab>
             ) : null,
             development ? (
-                <Tab title={TabTitle[TabName.DEVELOPMENT]} id={TabName.DEVELOPMENT} key='development'>
+                <Tab
+                    title={TabTitle[TabName.DEVELOPMENT]}
+                    id={TabName.DEVELOPMENT}
+                    key='development'
+                >
                     {development}
                 </Tab>
             ) : null,
             changelog ? (
                 <Tab title={TabTitle[TabName.CHANGELOG]} id={TabName.CHANGELOG} key='changelog'>
-                    <div style={{ marginTop: '30px' }}>
+                    <div style={{ marginTop: '32px' }}>
                         <Changelog content={changelog} />
                     </div>
                 </Tab>
@@ -85,7 +90,11 @@ export const Tabs: FC<Props> = ({
     const tabs = useMemo(() => renderTabs(), [description, props, cssVars]);
 
     return (
-        <TabsResponsive selectedId={selected} onChange={handleChange}>
+        <TabsResponsive
+            selectedId={selected}
+            onChange={handleChange}
+            containerClassName={styles.tabs}
+        >
             {tabs}
         </TabsResponsive>
     );
