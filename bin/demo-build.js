@@ -7,6 +7,7 @@
 /* eslint-disable no-console */
 const shell = require('shelljs');
 const parseGitUrl = require('git-url-parse');
+const findComponentPath = require('../tools/storybook/findComponentPath');
 
 /** Config for github */
 const defaultConfig = {
@@ -31,8 +32,8 @@ const sourceBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).
 const tempOutputDir = sourceBranch.replace(/[^a-zA-Z0-9]/g, '_') + '_' + lastCommitHash;
 /** Try to get affected component name from last commit message **/
 const lastCommitMessage = shell.exec('git show-branch --no-name HEAD', execOptions).stdout.trim();
-/** Parse affected component from last commit message */
-const affectedComponent = parseScopeFromCommit(lastCommitMessage);
+/** Parse affected package from last commit message */
+const affectedPackage = parseScopeFromCommit(lastCommitMessage);
 
 /** Git remote url */
 const gitUrl = shell
@@ -100,13 +101,27 @@ function buildStorybookUrl() {
 
     let url = `${gitPagesUrl}/${branchFolder}`;
 
-    if (affectedComponent) {
-        const getComponentFolder = () => {
-            if (affectedComponent.startsWith('typography')) return 'typography';
-            return affectedComponent.replace(/-/g, '');
+    if (affectedPackage) {
+        const packageToComponentName = (string) => {
+            return string
+                .split('-')
+                .map((substr) => substr.charAt(0).toUpperCase() + substr.slice(1))
+                .join('');
         };
 
-        url += `/?path=/docs/компоненты-${getComponentFolder()}--${affectedComponent}`;
+        const getComponentFolder = () => {
+            if (affectedPackage.startsWith('typography')) return 'typography';
+            return affectedPackage.replace(/-/g, '');
+        };
+
+        const groupPath = findComponentPath(
+            packageToComponentName(affectedPackage),
+            affectedPackage,
+        );
+
+        if (groupPath) {
+            url += `/?path=/docs/${groupPath}-${getComponentFolder()}--${affectedPackage}`;
+        }
     }
 
     return encodeURI(url);
