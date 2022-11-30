@@ -121,70 +121,88 @@ render(() => {
 });
 @MOBILE@
 render(() => {
+    const [shownChevron, setShownChevron] = React.useState(false);
+    const [multiple, setMultiple] = React.useState(false);
     const [value, setValue] = React.useState('');
     const [filter, setFilter] = React.useState('');
-    const [shownChevron, setShownChevron] = React.useState(false);
-
+    
     const options = [
-        { key: '1', content: 'Neptunium' },
-        { key: '2', content: 'Plutonium' },
-        { key: '3', content: 'Americium' },
-        { key: '4', content: 'Curium' },
-        { key: '5', content: 'Berkelium' },
-        { key: '6', content: 'Californium' },
-        { key: '7', content: 'Einsteinium' },
-        { key: '8', content: 'Fermium' },
-        { key: '9', content: 'Hydrogenium' },
-        { key: '10', content: 'Helium' },
-        { key: '11', content: 'Lithium' },
-        { key: '12', content: 'Beryllium' },
-        { key: '13', content: 'Borum' },
-        { key: '14', content: 'Carboneum' },
-        { key: '15', content: 'Nitrogenium' },
-        { key: '16', content: 'Oxygenium' },
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
     ];
 
     const matchOption = (option, inputValue) =>
-        option.content.toLowerCase().includes((inputValue || '').toLowerCase());
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
 
     const handleFilter = (event) => {
         setFilter(event.target.value);
     };
 
+    const filterValues = filter
+        .split(',')
+        .map((v) => v.trim())
+        .filter((v) => v);
+
+    const selectedOptions = options.filter((option) => filterValues.includes(option.key.trim()));
+
+    const selected = selectedOptions.map((option) => option.key);
+
     const handleChange = (payload) => {
-        const newValue = payload
-            ? isOptionShape(payload.selected)
-                ? payload.selected.content
-                : payload
-            : '';
+        let newValue = '';
+
+        if (payload && payload.selectedMultiple) {
+            newValue = payload.selectedMultiple.length
+                ? payload.selectedMultiple.map((option) => option.key).join(', ') + ', '
+                : '';
+        } else {
+            newValue = payload || '';
+        }
 
         setValue(newValue);
         setFilter(newValue);
     };
 
-    const filteredOptions = options.filter((option) => matchOption(option, filter));
+    const filteredOptions =
+        filterValues.length === selected.length
+            ? options
+            : options.filter((option) => {
+                  return (
+                      selectedOptions.includes(option) ||
+                      matchOption(option, filterValues[filterValues.length - 1])
+                  );
+              });
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <InputAutocompleteMobile
-                size='m'
-                Arrow={shownChevron ? Arrow : undefined}
                 block={true}
                 value={value}
+                Arrow={shownChevron ? Arrow : undefined}
                 filter={filter}
                 options={filteredOptions}
-                label='Инпут с автокомплитом'
-                placeholder='Начните вводить название'
+                placeholder='Выберите элемент'
+                label='Элемент'
+                multiple={multiple}
+                selected={selected}
+                closeOnSelect={false}
+                allowUnselect={true}
                 onChange={handleChange}
                 onFilter={handleFilter}
                 onClearFilter={() => setFilter('')}
-                // Если нужно, то можно подставить значение в фильтр при открытии шторки.
-                bottomSheetProps={{
-                    transitionProps: {
-                        onEnter: () => setFilter(value),
-                    },
-                }}
-                Option={BaseOption}
+                onCancel={() => setFilter(value)}
             />
             <Gap size='xl' />
 
@@ -192,6 +210,15 @@ render(() => {
                 checked={shownChevron}
                 label='Шеврон'
                 onChange={() => setShownChevron((prevState) => !prevState)}
+            />
+            <Gap size='m' />
+            <Switch
+                checked={multiple}
+                label='Мультивыбор'
+                onChange={() => {
+                    setMultiple((prevState) => !prevState);
+                    setValue('');
+                }}
             />
         </div>
     );
