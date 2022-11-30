@@ -14,7 +14,12 @@ describe('Textarea', () => {
 
         it('should match snapshot with default counter', () => {
             const { container } = render(
-                <Textarea value='value' maxLength={500} nativeScrollbar={true} />,
+                <Textarea
+                    value='value'
+                    maxLength={500}
+                    nativeScrollbar={true}
+                    showCounter={true}
+                />,
             );
 
             expect(container).toMatchSnapshot();
@@ -26,6 +31,7 @@ describe('Textarea', () => {
                     nativeScrollbar={true}
                     value='value'
                     maxLength={500}
+                    showCounter={true}
                     getCounterText={() => 'Custom counter'}
                 />,
             );

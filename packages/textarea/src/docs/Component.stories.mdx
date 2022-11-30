@@ -18,6 +18,7 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         return (
             <Textarea
+                showCounter={boolean('showCounter', false)}
                 maxLength={number('maxLength', 500)}
                 autosize={boolean('autosize', true)}
                 block={boolean('block', false)}

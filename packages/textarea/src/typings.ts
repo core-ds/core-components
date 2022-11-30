@@ -130,6 +130,11 @@ export type TextareaIncomeProps = {
     maxLength?: number;
 
     /**
+     * Показывать счетчик введенных символов
+     */
+    showCounter?: boolean;
+
+    /**
      * Функция, возвращающая текст для счетчика
      */
     getCounterText?: (textLength: number, maxLength?: number) => string;

@@ -52,6 +52,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             value,
             defaultValue,
             rows = autosize ? 1 : 3,
+            showCounter = false,
             getCounterText = getDefaultCounterText,
             maxLength,
             nativeScrollbar: nativeScrollbarProp,
@@ -238,21 +239,24 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             );
         };
 
-        const getBottomAddons = () => (
-            <>
-                {maxLength && (
-                    <span
-                        className={cn(styles.sub, {
-                            [colorStyles[colors].error]: hasOverflow,
-                            [colorStyles[colors].hint]: !hasOverflow,
-                        })}
-                    >
-                        {getCounterText(getValueLength(), maxLength)}
-                    </span>
-                )}
-                {bottomAddons}
-            </>
-        );
+        const getBottomAddons = () => {
+            const counterIsVisible = Boolean(maxLength && showCounter);
+            return (
+                <>
+                    {counterIsVisible && (
+                        <span
+                            className={cn(styles.sub, {
+                                [colorStyles[colors].error]: hasOverflow,
+                                [colorStyles[colors].hint]: !hasOverflow,
+                            })}
+                        >
+                            {getCounterText(getValueLength(), maxLength)}
+                        </span>
+                    )}
+                    {bottomAddons}
+                </>
+            );
+        };
 
         return (
             <FormControl
