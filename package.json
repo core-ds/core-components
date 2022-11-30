@@ -174,7 +174,7 @@
         "lodash.upperfirst": "^4.3.1",
         "mini-css-extract-plugin": "^0.11.0",
         "optimize-css-assets-webpack-plugin": "^5.0.4",
-        "playwright": "^1.27.1",
+        "playwright": "^1.28.1",
         "postcss-cli": "^7.1.0",
         "postcss-custom-media": "^7.0.8",
         "postcss-custom-properties": "^10.0.0",
