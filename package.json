@@ -94,6 +94,7 @@
         "ui-primitives": "^9.4.0"
     },
     "devDependencies": {
+        "@a110/storybook-expand-all": "^1.1.1",
         "@alfalab/rollup-plugin-postcss": "^3.6.0",
         "@babel/core": "^7.18.0",
         "@babel/plugin-proposal-class-properties": "^7.12.1",
