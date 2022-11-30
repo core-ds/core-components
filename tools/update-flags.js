@@ -3,7 +3,7 @@ const path = require('path');
 
 const { optimize } = require('svgo');
 
-const flagsDir = path.resolve(__dirname, '../node_modules/ui-primitives/icons/flag');
+const flagsDir = path.resolve(__dirname, '..', 'node_modules', 'ui-primitives', 'icons', 'flag');
 
 const countries = {
     AF: 'Afghanistan',
@@ -309,7 +309,13 @@ fs.readdir(flagsDir, (error, files) => {
 
     const spritePath = path.resolve(
         __dirname,
-        '../packages/intl-phone-input/src/components/flag-icon/flagSprite.ts',
+        '..',
+        'packages',
+        'intl-phone-input',
+        'src',
+        'components',
+        'flag-icon',
+        'flagSprite.ts',
     );
 
     fs.writeFile(
