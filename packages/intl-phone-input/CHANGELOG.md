@@ -1,5 +1,53 @@
 # Change Log
 
+## 9.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.0
+    -   input-autocomplete@9.1.3
+
+## 9.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.1.2
+    -   input-autocomplete@9.1.2
+
+## 9.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.1.1
+    -   input-autocomplete@9.1.1
+
+## 9.1.0
+
+### Minor Changes
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+-   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.1.0
+    -   input@11.1.0
+    -   input-autocomplete@9.1.0
+
+## 9.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.0.3
+    -   input@11.0.2
+    -   input-autocomplete@9.0.3
+
 ## 9.0.2
 
 ### Patch Changes

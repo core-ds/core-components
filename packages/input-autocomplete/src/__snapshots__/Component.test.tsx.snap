@@ -201,7 +201,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                   >
                     <div
                       aria-labelledby="downshift-5-label"
-                      class="optionsList"
                       id="downshift-5-menu"
                       role="listbox"
                     >
@@ -214,17 +213,93 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           id="downshift-5-item-0"
                           role="option"
                         >
-                          <span
+                          <div
                             class="checkmark"
-                          />
+                          >
+                            <svg
+                              class="displayIcon"
+                              fill="currentColor"
+                              focusable="false"
+                              height="24"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="24"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                            <div
+                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                            >
+                              <div
+                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                              >
+                                <svg
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
                           <div
                             class="content textContent"
                           >
                             Neptunium
                           </div>
-                          <span
+                          <div
                             class="checkmark"
-                          />
+                          >
+                            <svg
+                              class="displayIcon"
+                              fill="currentColor"
+                              focusable="false"
+                              height="24"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="24"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                            <div
+                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                            >
+                              <div
+                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                              >
+                                <svg
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                         <div
                           aria-selected="false"
@@ -232,17 +307,93 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           id="downshift-5-item-1"
                           role="option"
                         >
-                          <span
+                          <div
                             class="checkmark"
-                          />
+                          >
+                            <svg
+                              class="displayIcon"
+                              fill="currentColor"
+                              focusable="false"
+                              height="24"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="24"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                            <div
+                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                            >
+                              <div
+                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                              >
+                                <svg
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
                           <div
                             class="content textContent"
                           >
                             Plutonium
                           </div>
-                          <span
+                          <div
                             class="checkmark"
-                          />
+                          >
+                            <svg
+                              class="displayIcon"
+                              fill="currentColor"
+                              focusable="false"
+                              height="24"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="24"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                            <div
+                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                            >
+                              <div
+                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                              >
+                                <svg
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

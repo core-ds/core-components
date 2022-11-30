@@ -7,49 +7,59 @@
     display: inline-block;
 }
 
-.version {
-    display: inline-block;
-    margin-left: var(--gap-xs);
-    color: rgba(11, 31, 53, 0.6);
-    font-size: 16px;
-    line-height: 1.2;
+.text {
+    margin: var(--gap-xl) 0;
 }
-
 .info {
     display: flex;
     margin-top: var(--gap-xs);
-}
-
-.design {
-    padding: 0 0 0 var(--gap-l);
-    background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
 }
 
 .commonLink {
     opacity: 0.8;
 }
 
-.github {
-    margin: 0 0 var(--gap-xs);
-    padding: 0 0 0 var(--gap-l);
-    background: url(https://github.githubassets.com/favicons/favicon.svg) no-repeat 0 50%;
-    background-size: 16px 16px;
-}
-
 .links {
-    position: absolute;
-    right: 0;
-    top: 20px;
+    display: flex;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 24px;
 }
 
 .links a {
-    color: var(--color-light-text-link);
-    border-bottom: 1px solid var(--color-light-text-link-alpha-30);
+    display: block;
+    padding: var(--gap-2xs) var(--gap-xs) var(--gap-2xs) var(--gap-2xl);
+    margin-right: var(--gap-xs);
     text-decoration: none;
+    border: 1px solid var(--color-light-bg-tertiary);
+    border-radius: 6px;
+    color: var(--color-light-text-link);
+    background-position: 10% 50%;
+    background-repeat: no-repeat;
 }
 
 .usageLink * {
     border-bottom: 0;
+}
+
+.links {
+    position: relative;
+}
+
+.github {
+    background-image: url(https://github.githubassets.com/favicons/favicon.svg);
+    background-size: 16px 16px;
+}
+
+.design {
+    background-image: url(https://static.figma.com/app/icon/1/favicon.svg);
+}
+
+.github:hover,
+.design:hover {
+    background-color: var(--color-light-bg-primary-inverted-alpha-7);
+}
+
+.github:active,
+.design:active {
+    background-color: var(--color-light-bg-primary-inverted-alpha-15);
 }

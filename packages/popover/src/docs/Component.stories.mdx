@@ -11,12 +11,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Popover'
-    component={Popover}
-/>
-
+<Meta title='Компоненты/Модалки и поповеры/Popover' component={Popover} />
 
 <!-- Canvas -->
 
@@ -41,7 +36,7 @@ import styles from '!!raw-loader!../index.module.css';
         const toggle = () => {
             setOpen(!open);
         };
-        const handleButtonRef = node => {
+        const handleButtonRef = (node) => {
             setButtonElement(node);
         };
         const transitionTimeout = number('transition.timeout (ms)', 150);
@@ -75,14 +70,9 @@ import styles from '!!raw-loader!../index.module.css';
     })}
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='Popover'
-    version={version}
-    package='@alfalab/core-components/popover'
-/>
+<ComponentHeader name='Popover' version={version} package='@alfalab/core-components/popover' />
 
 ```jsx
 import { Popover } from '@alfalab/core-components/popover';

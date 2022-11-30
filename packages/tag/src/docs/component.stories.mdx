@@ -12,10 +12,7 @@ import styles from '!!raw-loader!../vars.css';
 
 export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
-<Meta
-    title='Компоненты/Tag'
-    component={Tag}
-/>
+<Meta title='Компоненты/Прочие компоненты/Tag' component={Tag} />
 
 <!-- Canvas -->
 
@@ -25,18 +22,23 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
         const handleClick = () => setChecked(!checked);
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <Tag
                     size={select('size', SIZES, 'm')}
-                    variant={select('variant',['default', 'alt'], 'default')}
+                    variant={select('variant', ['default', 'alt'], 'default')}
                     disabled={boolean('disabled', false)}
                     checked={checked || boolean('checked', false)}
                     rightAddons={boolean('rightAddons', false) && <CopyMIcon />}

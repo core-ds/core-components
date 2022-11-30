@@ -1,5 +1,32 @@
 # Change Log
 
+## 6.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.6
+
+## 6.1.0
+
+### Minor Changes
+
+### [#329](https://github.com/core-ds/core-components/pull/329)
+
+-   Добавлен z-index к липкому header
+
+## 6.0.12
+
+### Patch Changes
+
+### [#352](https://github.com/core-ds/core-components/pull/352)
+
+-   Исправлена ошибка в ModalResponsive, из-за которой сбрасывалось состояние у дочерник компонентов при переключении desktop -> mobile и наоборот
+
+-   Обновлены зависимости
+    -   button@7.0.1
+    -   icon-button@6.0.1
+
 ## 6.0.11
 
 ### Patch Changes

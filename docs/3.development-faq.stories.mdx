@@ -1,23 +1,21 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta
-  title='Гайдлайны/FAQ'
-  parameters={{ previewTabs: { canvas: { hidden: true } }}}
-/>
+<Meta title='Инструкции/FAQ' parameters={{ previewTabs: { canvas: { hidden: true } } }} />
 
 ## Разработка
 
 Мы стараемся придерживаться следующих базовых принципов разработки:
 
-- [KISS](https://ru.wikipedia.org/wiki/KISS_%28%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%29)
-- [YAGNI](https://ru.wikipedia.org/wiki/YAGNI)
-- [DRY](https://ru.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself)
+-   [KISS](https://ru.wikipedia.org/wiki/KISS_%28%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%29)
+-   [YAGNI](https://ru.wikipedia.org/wiki/YAGNI)
+-   [DRY](https://ru.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself)
 
 Максимально простой код с низком порогом входа.
 
 ### Колбэки
 
 <!-- https://github.com/alfa-laboratory/core-components/issues/45#issuecomment-609640997 -->
+
 Колбэки в компонентах, как правило, имеют следующий вид:
 
 ```tsx
@@ -47,7 +45,7 @@ const handleArrowClick = useCallback(() => {}, []);
 
 function onArrowClick() {}
 
-const onArrowClick = function() {};
+const onArrowClick = function () {};
 
 const onArrowClick = () => {};
 ```
@@ -138,6 +136,6 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 
 ### Что делать, если компонент не соответствует макету?
 
-* Вполне возможно, что в Figma не внесены последние изменения, уточните у дизайнера где более актуальный вариант.
-* Сообщите мейнтейнерам библиотеки или [создайте ишью](https://github.com/core-ds/core-components/issues/new/choose) с описанием проблемы.
-* Если уверены, что должно быть иначе и есть время исправить — кидайте PR :)
+-   Вполне возможно, что в Figma не внесены последние изменения, уточните у дизайнера где более актуальный вариант.
+-   Сообщите мейнтейнерам библиотеки или [создайте ишью](https://github.com/core-ds/core-components/issues/new/choose) с описанием проблемы.
+-   Если уверены, что должно быть иначе и есть время исправить — кидайте PR :)

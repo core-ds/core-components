@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 
 import userEvent from '@testing-library/user-event';
-import { Plate } from './index';
+import { Plate, PlateProps } from './index';
 import { Button } from '../../button/src';
 
 describe('Plate', () => {
@@ -73,6 +73,27 @@ describe('Plate', () => {
             const { getByTestId } = render(<Plate view={view} dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId)).toHaveClass(view);
+        });
+
+        it.each([
+            ['rowLimit1', 1],
+            ['rowLimit2', 2],
+            ['rowLimit3', 3],
+        ])(
+            'children should have `%s` class if rowLimit prop is `%s`',
+            (expectedClassName, rowLimit) => {
+                const { getByText } = render(
+                    <Plate rowLimit={rowLimit as PlateProps['rowLimit']}>Content</Plate>,
+                );
+
+                expect(getByText('Content')).toHaveClass(expectedClassName);
+            },
+        );
+
+        it('children should not have styles for row limitation', () => {
+            const { getByText } = render(<Plate>Content</Plate>);
+
+            expect(getByText('Content').classList[1]).toBeUndefined();
         });
     });
 

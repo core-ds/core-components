@@ -3,5 +3,5 @@ export * from './components/scrollable-container';
 export * from './components/secondary-tablist/Component.responsive';
 export * from './components/tab';
 export * from './components/tabs/Component.responsive';
-export * from './useTabs';
+export * from './hooks/use-tabs';
 export * from './typings';

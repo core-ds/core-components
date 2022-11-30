@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   portal@3.1.1
+
+## 6.0.3
+
+### Patch Changes
+
+### [#326](https://github.com/core-ds/core-components/pull/326)
+
+-   Исправлены прыжки поповера в react 18
+
 ## 6.0.2
 
 ### Patch Changes

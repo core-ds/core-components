@@ -87,6 +87,16 @@ describe('Button', () => {
             const { container } = render(<Button type={type} />);
             expect(container.firstElementChild).toHaveAttribute('type', type);
         });
+
+        it('should set disabled attribute to <button>', () => {
+            const { container } = render(<Button disabled={true} />);
+            expect(container.firstElementChild).toHaveAttribute('disabled');
+        });
+
+        it('should set disabled attribute to <a>', () => {
+            const { container } = render(<Button href='test' disabled={true} />);
+            expect(container.firstElementChild).toHaveAttribute('disabled');
+        });
     });
 
     describe('Classes tests', () => {
@@ -146,6 +156,18 @@ describe('Button', () => {
 
             const { getByTestId } = render(
                 <Button onClick={cb} dataTestId={dataTestId} disabled={true} />,
+            );
+
+            fireEvent.click(getByTestId(dataTestId));
+
+            expect(cb).not.toBeCalled();
+        });
+
+        it('should not call `onClick` prop if disabled and href passed', () => {
+            const cb = jest.fn();
+
+            const { getByTestId } = render(
+                <Button onClick={cb} href='test' dataTestId={dataTestId} disabled={true} />,
             );
 
             fireEvent.click(getByTestId(dataTestId));

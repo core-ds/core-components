@@ -43,15 +43,15 @@ async function main() {
         components,
         breakPoints: {
             name: 'Брейкпоинты',
-            docsUrl: '/iframe.html?id=гайдлайны-брейкпоинты--page',
+            docsUrl: '/iframe.html?id=инструкции-брейкпоинты--page',
         },
         gaps: {
             name: 'Отступы',
-            docsUrl: '/iframe.html?id=гайдлайны-отступы--page',
+            docsUrl: '/iframe.html?id=инструкции-отступы--page',
         },
         cssVars: {
             name: 'CSS-переменные',
-            docsUrl: '/iframe.html?id=гайдлайны-css-переменные--page',
+            docsUrl: '/iframe.html?id=инструкции-css-переменные--page',
         },
     };
 

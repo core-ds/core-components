@@ -15,11 +15,7 @@ export const shortText =
 
 export const longText = Array(10).fill(shortText).join('\n\n');
 
-
-<Meta
-    title='Компоненты/BottomSheet'
-    component={BottomSheet}
-/>
+<Meta title='Компоненты/Модалки и поповеры/BottomSheet' component={BottomSheet} />
 
 <!-- Canvas -->
 
@@ -38,8 +34,8 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                         setTextContent(shortText);
                         setOpen(true);
                     }}
-                    style={{ margin: '15px'}}
-                    id="button-1"
+                    style={{ margin: '15px' }}
+                    id='button-1'
                 >
                     Окрыть шторку
                 </Button>
@@ -48,8 +44,8 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                         setTextContent(longText);
                         setOpen(true);
                     }}
-                    style={{ margin: '15px'}}
-                    id="button-2"
+                    style={{ margin: '15px' }}
+                    id='button-2'
                 >
                     Окрыть шторку с длинным контентом
                 </Button>
@@ -57,8 +53,13 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                     key={textContent}
                     open={open}
                     title={text('title', 'Тайтл')}
-                    actionButton={renderActionButton &&
-                        <Button view="secondary" block={true} size="s" onClick={handleClose}>Понятно</Button>}
+                    actionButton={
+                        renderActionButton && (
+                            <Button view='secondary' block={true} size='s' onClick={handleClose}>
+                                Понятно
+                            </Button>
+                        )
+                    }
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
                     titleAlign={select('titleAlign', ['center', 'left'], 'center')}
@@ -74,15 +75,12 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                     hideHeader={boolean('hideHeader', false)}
                     disableOverlayClick={boolean('disableOverlayClick', false)}
                 >
-                    <div style={{whiteSpace: 'pre-wrap'}}>
-                        {textContent}
-                    </div>
+                    <div style={{ whiteSpace: 'pre-wrap' }}>{textContent}</div>
                 </BottomSheet>
             </div>
-        )
+        );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -101,6 +99,5 @@ import { BottomSheet } from '@alfalab/core-components/bottom-sheet';
     description={<Description />}
     changelog={<Changelog />}
     props={<ArgsTable of={BottomSheetTS} />}
-    cssVars={<CssVars css={vars}/>}
+    cssVars={<CssVars css={vars} />}
 />
-

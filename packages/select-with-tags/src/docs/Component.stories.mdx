@@ -30,12 +30,7 @@ export const options = [
     { key: '15', content: 'Bohrium', value: 'Bohrium' },
 ];
 
-
-<Meta
-    title='Компоненты/SelectWithTags'
-    component={SelectWithTags}
-/>
-
+<Meta title='Компоненты/Селекты/SelectWithTags' component={SelectWithTags} />
 
 <!-- Canvas -->
 
@@ -43,7 +38,7 @@ export const options = [
     {React.createElement(() => {
         const [value, setValue] = React.useState('');
         const [selected, setSelected] = React.useState([]);
-        const handleInput = event => {
+        const handleInput = (event) => {
             setValue(event.target.value);
         };
         const handleChange = React.useCallback(({ selectedMultiple }) => {
@@ -53,7 +48,7 @@ export const options = [
             return `+${count} ${pluralize(count, 'элемент', 'элемента', 'элементов')}`;
         };
         return (
-            <div style={{width: '400px'}}>
+            <div style={{ width: '400px' }}>
                 <SelectWithTags
                     collapseTagList={boolean('collapseTagList', true)}
                     moveInputToNewLine={boolean('moveInputToNewLine', true)}
@@ -80,7 +75,6 @@ export const options = [
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 

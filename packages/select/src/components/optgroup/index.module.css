@@ -5,7 +5,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: var(--gap-m) var(--select-optgroup-right-padding) var(--gap-xs)
+    padding: var(--gap-s) var(--select-optgroup-right-padding) var(--gap-2xs)
         var(--select-optgroup-left-padding);
     box-sizing: border-box;
     background: var(--select-optgroup-background);

@@ -1,5 +1,4 @@
 import { addons } from '@storybook/addons';
-import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
 import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
@@ -22,8 +21,6 @@ addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
         sandboxPath: '/docs/компоненты-песочница--page',
         mobileFrameName: 'mobileframe--page',
-        noDesktopText: 'Не предназначен для использования на десктопных устройствах',
-        noMobileText: 'Не предназначен для использования на мобильных устройствах',
         desktopText: 'Переключить на декстопную версию',
         mobileText: 'Переключить на мобильную версию',
         expandText: 'Показать код',
@@ -59,25 +56,44 @@ addParameters({
         storySort: {
             method: 'alphabetical',
             order: [
-                'Гайдлайны',
+                'Инструкции',
                 [
                     'Начало работы',
                     'Changelog',
                     'FAQ',
-                    'Статусы',
                     'Брейкпоинты',
-                    'Иконки',
-                    'Отступы',
                     'Темизация',
-                    'Типографика',
-                    'Цвета',
-                    'CSS-переменные',
+                    'Валидация',
                     'Доступность',
                     ['Что это?'],
                     'Скриншотное тестирование',
                     'Миграция со старых компонентов',
+                    'Использование с другими библиотеками',
+                    'Обновление Confirmation',
+                    'Чек-лист для Code Review',
                 ],
+                'Токены и ассеты',
+                ['Иконки', 'Отступы', 'Типографика', 'Цвета', 'CSS-переменные'],
                 'Компоненты',
+                [
+                    'Песочница',
+                    'Селекты',
+                    'Кнопки',
+                    'Инпуты',
+                    'Контролы',
+                    'Прогрессбары',
+                    'Модалки и поповеры',
+                    'Календари',
+                    'Загрузка файлов',
+                    'Уведомления',
+                    'Таблицы и графики',
+                    'Ожидание',
+                    'Ячейки',
+                    'Составные компоненты',
+                    'Вспомогательные компоненты',
+                    'Прочие компоненты',
+                    'Другое',
+                ],
             ],
         },
     },

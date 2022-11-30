@@ -1,65 +1,669 @@
-Компонент выпадающего списка.
+### Стандартный вид компонента
 
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
+По умолчанию селект вызывает [Popover](/docs/компоненты-модалки-и-поповеры-popover--popover) с вариантами выбора.
+На мобильных устройствах варианты выбора отображаются в [BottomSheet](/docs/компоненты-модалки-и-поповеры-bottomsheet--bottom-sheet).
 
-render(<Select options={options} placeholder='Выберите элемент' />);
+```jsx live mobileHeight=640
+render(() => {
+    const options = [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+        { key: '3', content: 'Americium' },
+        { key: '4', content: 'Curium' },
+        { key: '5', content: 'Berkelium' },
+        { key: '6', content: 'Californium' },
+        { key: '7', content: 'Einsteinium' },
+        { key: '8', content: 'Fermium' },
+    ];
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Select
+                allowUnselect={true}
+                size='m'
+                options={options}
+                placeholder='Одиночный выбор'
+                Option={BaseOption}
+                block={true}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <Select
+                allowUnselect={true}
+                size='m'
+                options={options}
+                placeholder='Множественный выбор'
+                Option={BaseOption}
+                multiple={true}
+                block={true}
+            />
+        </div>
+    );
+});
+@MOBILE@
+render(() => {
+    const options = [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+        { key: '3', content: 'Americium' },
+        { key: '4', content: 'Curium' },
+        { key: '5', content: 'Berkelium' },
+        { key: '6', content: 'Californium' },
+        { key: '7', content: 'Einsteinium' },
+        { key: '8', content: 'Fermium' },
+    ];
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <SelectMobile
+                allowUnselect={true}
+                options={options}
+                placeholder='Одиночный выбор'
+                Option={BaseOption}
+                block={true}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <SelectMobile
+                allowUnselect={true}
+                options={options}
+                placeholder='Множественный выбор'
+                Option={BaseOption}
+                multiple={true}
+                block={true}
+            />
+        </div>
+    );
+});
 ```
 
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
+### Условие выбора
 
-render(<SelectMobile options={options} placeholder='SelectMobile' />);
+Селекты поддерживают несколько способов принятия изменений:
+
+1. После выбора первого элемента поповер автоматически закрывается.
+2. После выбора элемента необходимо закрыть дропдаун кликнув «снаружи».
+3. После нажатия на кнопку подтверждения в дропдауне.
+
+```jsx live mobileHeight=640
+render(() => {
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState([]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map((option) => option.key));
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Select
+                allowUnselect={true}
+                size='m'
+                options={options}
+                placeholder='Без подтверждения'
+                Option={BaseOption}
+                block={true}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <Select
+                allowUnselect={true}
+                placeholder='Выбор с подтверждением'
+                block={true}
+                optionsListWidth='field'
+                Option={BaseOption}
+                size='m'
+                {...useSelectWithApply({
+                    options,
+                    selected,
+                    onChange: handleChange,
+                })}
+            />
+        </div>
+    );
+});
+@MOBILE@
+render(() => {
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <SelectMobile
+                allowUnselect={true}
+                options={options}
+                placeholder='Без подтверждения'
+                Option={BaseOption}
+                block={true}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <SelectMobile
+                allowUnselect={true}
+                options={options}
+                placeholder='С подтверждением'
+                Option={BaseOption}
+                multiple={true}
+                block={true}
+            />
+        </div>
+    );
+});
 ```
 
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
+### Группировка
 
-render(<SelectModalMobile options={options} multiple placeholder='SelectModalMobile' />);
+Пункты списка можно группировать.
+
+```jsx live
+render(() => {
+    const groups = new Array(5).fill().reduce((acc, _, groupIndex) => {
+        return acc.concat({
+            label: `Группа №${groupIndex + 1}`,
+            options: new Array(5).fill().map((_, index) => ({
+                key: index,
+                content: `Пункт ${groupIndex + 1}.${index + 1}`,
+            })),
+        });
+    }, []);
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Select
+                allowUnselect={true}
+                size='m'
+                options={groups}
+                placeholder='Сгруппированный список'
+                Option={BaseOption}
+                block={true}
+            />
+        </div>
+    );
+});
+@MOBILE@
+render(() => {
+    const groups = new Array(5).fill().reduce((acc, _, groupIndex) => {
+        return acc.concat({
+            label: `Группа №${groupIndex + 1}`,
+            options: new Array(5).fill().map((_, index) => ({
+                key: index,
+                content: `Пункт ${groupIndex + 1}.${index + 1}`,
+            })),
+        });
+    }, []);
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <SelectMobile
+                allowUnselect={true}
+                options={groups}
+                placeholder='Сгруппированный список'
+                Option={BaseOption}
+                block={true}
+            />
+        </div>
+    );
+});
 ```
 
-## Использование
+### Длинные списки и ленивая загрузка
 
-В случае, если нужно собрать селект под очень специфичный кейс - за основу стоит взять компонент `BaseSelect`,
-который содержит только основные пропсы и позволяет заменить или настроить почти что угодно.
+Для рендера большого количества данных используйте `OptionsList={VirtualOptionsList}`. На время подгрузки можно использовать скелетон.
 
-Компонент `Select` является преднастроенной оберткой над `BaseSelect`
+```jsx live mobileHeight=640
+render(() => {
+    const optionsForVirtualList = React.useMemo(
+        () =>
+            new Array(1000).fill().map((_, index) => {
+                const variableSizeText = `Вы восхитительны! `.repeat(
+                    Math.round(Math.random() * 10),
+                );
 
----
+                return {
+                    key: index,
+                    content: `${index}. ${variableSizeText}`,
+                };
+            }),
+        [],
+    );
 
-### Управление закрытием
+    const selectWithVirtualList = (
+        <Select
+            size='m'
+            block={true}
+            placeholder='Список из тысячи пунктов'
+            options={optionsForVirtualList}
+            OptionsList={VirtualOptionsList}
+            circularNavigation={true}
+            allowUnselect={true}
+            visibleOptions={3}
+            Option={BaseOption}
+        />
+    );
 
-По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
-Изменить это поведение можно с помощью `closeOnSelect`.
+    const [loading, setLoading] = React.useState(true);
 
-```jsx live
+    const loadingProps = useSelectWithLoading({
+        visibleOptions: 6,
+        loading,
+        Option: (props) => (
+            <BaseOption
+                {...props}
+                option={{
+                    ...props.option,
+                    content: <div style={{ padding: 'var(--gap-s)' }}>{props.option.content}</div>,
+                }}
+            />
+        ),
+    });
+
+    const handleOpen = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
+    };
+
+    const optionsForListWithSkeleton = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+        ],
+        [],
+    );
+
+    const selectWithSkeleton = (
+        <Select
+            allowUnselect={true}
+            placeholder='Список со скелетной загрузкой'
+            block={true}
+            size='m'
+            options={optionsForListWithSkeleton}
+            onOpen={handleOpen}
+            Option={BaseOption}
+            {...loadingProps}
+        />
+    );
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            {selectWithVirtualList}
+            <div style={{ height: 'var(--gap-m)' }} />
+            {selectWithSkeleton}
+        </div>
+    );
+});
+@MOBILE@
+render(() => {
+    const optionsForVirtualList = React.useMemo(
+        () =>
+            new Array(1000).fill().map((_, index) => {
+                const variableSizeText = `Вы восхитительны! `.repeat(
+                    Math.round(Math.random() * 10),
+                );
+
+                return {
+                    key: index,
+                    content: `${index}. ${variableSizeText}`,
+                };
+            }),
+        [],
+    );
+
+    const optionsForListWithSkeleton = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+        ],
+        [],
+    );
+
+    const selectWithVirtualList = (
+        <SelectMobile
+            size='m'
+            block={true}
+            placeholder='Список из тысячи пунктов'
+            options={optionsForVirtualList}
+            OptionsList={VirtualOptionsList}
+            circularNavigation={true}
+            allowUnselect={true}
+            visibleOptions={3}
+            Option={BaseOption}
+        />
+    );
+
+    const [loading, setLoading] = React.useState(true);
+
+    const loadingProps = useSelectWithLoading({
+        visibleOptions: 6,
+        loading,
+        Option: (props) => (
+            <BaseOption
+                {...props}
+                option={{
+                    ...props.option,
+                    content: (
+                        <div style={{ padding: 'var(--gap-m) var(--gap-s)' }}>
+                            {props.option.content}
+                        </div>
+                    ),
+                }}
+            />
+        ),
+    });
+
+    const handleOpen = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
+    };
+
+    const selectWithSkeleton = (
+        <SelectMobile
+            allowUnselect={true}
+            placeholder='Список со скелетной загрузкой'
+            block={true}
+            size='m'
+            options={optionsForListWithSkeleton}
+            onOpen={handleOpen}
+            Option={BaseOption}
+            {...loadingProps}
+        />
+    );
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            {selectWithVirtualList}
+            <div style={{ height: 'var(--gap-m)' }} />
+            {selectWithSkeleton}
+        </div>
+    );
+});
+```
+
+### Кастомизация
+
+Допускается кастомизировать поле селекта и выпадающий список.
+Есть возможность заменить или кастомизировать компоненты `Field`, `Option`, `OptionsList`, `Optgroup`, `Arrow`,
+а вместо текста у вариантов выбора (поле `content`) использовать произвольный html контент.
+Также стандартный компонент `Field` позволяет управлять рендером выбранных пунктов с помощью свойства `valueRenderer`.
+
+```jsx live mobileHeight=640
+render(() => {
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState([]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map((option) => option.key));
+    };
+
+    const handleAllToggle = () => {
+        if (selected.length === options.length) {
+            setSelected([]);
+        } else {
+            setSelected(options.map((e) => e.key));
+        }
+    };
+
+    const renderHeader = () => {
+        return (
+            <div
+                style={{
+                    padding: 'var(--gap-s)',
+                    boxShadow: 'inset 0 -1px 0 var(--color-light-border-secondary)',
+                }}
+            >
+                <Checkbox
+                    checked={selected.length === options.length}
+                    size='m'
+                    label='Выбрать все'
+                    onChange={handleAllToggle}
+                />
+            </div>
+        );
+    };
+
+    const presetProps = useSelectWithApply({
+        options,
+        selected,
+        onChange: handleChange,
+    });
+
+    const selectWithHeader = (
+        <Select
+            allowUnselect={true}
+            placeholder='Выберите элементы'
+            block={true}
+            optionsListWidth='field'
+            Option={BaseOption}
+            size='m'
+            {...presetProps}
+            optionsListProps={{ ...presetProps.optionsListProps, header: renderHeader() }}
+        />
+    );
+
+    const renderPureCell = ({
+        text,
+        amount,
+        icon,
+        horizontalPadding = 'left',
+        iconSize = 48,
+        verticalPadding = 'default',
+    }) => {
+        return (
+            <PureCell verticalPadding={verticalPadding} horizontalPadding={horizontalPadding}>
+                <PureCell.Graphics verticalAlign='center'>
+                    <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                            {text}
+                        </PureCell.Text>
+                        <PureCell.Amount
+                            value={amount}
+                            minorUnits={100}
+                            currency='RUR'
+                            color='primary'
+                            view={'withZeroMinorPart'}
+                            transparentMinor={true}
+                            teaxtView='primary-medium'
+                        />
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+        );
+    };
+
+    const renderSelected = ({ selected }) => {
+        return selected
+            ? renderPureCell({
+                  ...selected.value,
+                  horizontalPadding: 'none',
+                  verticalPadding: 'none',
+                  iconSize: 40,
+              })
+            : undefined;
+    };
+
+    const data = [
+        {
+            key: 'Account1',
+            value: { text: 'Зарплатный счёт', amount: 3405161, icon: <StarMIcon /> },
+        },
+        {
+            key: 'Account2',
+            value: { text: 'Накопительный счёт', amount: 6000024, icon: <SafeBoxMIcon /> },
+        },
+    ];
+
+    const pureCellOptions = data.map((item) => ({
+        ...item,
+        content: renderPureCell(item.value),
+    }));
+
+    const selectWithPureCell = (
+        <Select
+            allowUnselect={true}
+            placeholder='Выберите счёт'
+            options={pureCellOptions}
+            Option={BaseOption}
+            size='m'
+            valueRenderer={renderSelected}
+            block={true}
+        />
+    );
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            {selectWithHeader}
+            <div style={{ height: 'var(--gap-m)' }} />
+            {selectWithPureCell}
+        </div>
+    );
+});
+@MOBILE@
+render(() => {
+    const renderPureCell = ({
+        text,
+        amount,
+        icon,
+        horizontalPadding = 'left',
+        iconSize = 48,
+        verticalPadding = 'default',
+    }) => {
+        return (
+            <PureCell verticalPadding={verticalPadding} horizontalPadding={horizontalPadding}>
+                <PureCell.Graphics verticalAlign='center'>
+                    <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                            {text}
+                        </PureCell.Text>
+                        <PureCell.Amount
+                            value={amount}
+                            minorUnits={100}
+                            currency='RUR'
+                            color='primary'
+                            view={'withZeroMinorPart'}
+                            transparentMinor={true}
+                            teaxtView='primary-medium'
+                        />
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+        );
+    };
+
+    const renderSelected = ({ selected }) => {
+        return selected
+            ? renderPureCell({
+                  ...selected.value,
+                  horizontalPadding: 'none',
+                  verticalPadding: 'none',
+                  iconSize: 40,
+              })
+            : undefined;
+    };
+
+    const data = [
+        {
+            key: 'Account1',
+            value: { text: 'Зарплатный счёт', amount: 3405161, icon: <StarMIcon /> },
+        },
+        {
+            key: 'Account2',
+            value: { text: 'Накопительный счёт', amount: 6000024, icon: <SafeBoxMIcon /> },
+        },
+    ];
+
+    const pureCellOptions = data.map((item) => ({
+        ...item,
+        content: renderPureCell(item.value),
+    }));
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <SelectMobile
+                allowUnselect={true}
+                placeholder='Выберите счёт'
+                options={pureCellOptions}
+                Option={BaseOption}
+                size='m'
+                valueRenderer={renderSelected}
+                block={true}
+            />
+        </div>
+    );
+});
+```
+
+### Формат отображения списков на мобильных устройствах
+
+В редких кейсах может потребоваться использовать селект с нативным выпадающим списком или
+открывать его в [Modal](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-modal--modal)
+вместо [BottomSheet](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-bottomsheet--bottom-sheet).
+
+```jsx live mobileHeight=640
+const groups = [
+    {
+        label: 'Группа №1',
+        options: [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+        ],
+    },
+    {
+        label: 'Группа №2',
+        options: [
+            { key: '3', content: 'Berkelium' },
+            { key: '4', content: 'Californium' },
+        ],
+    },
+];
+
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -72,141 +676,51 @@ const options = [
 ];
 
 render(
-    <Select
-        options={options}
-        multiple={true}
-        placeholder='Выберите элемент'
-        allowUnselect={true}
-    />,
+    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <Select
+            allowUnselect={true}
+            size='m'
+            options={groups}
+            placeholder='Нативный список'
+            nativeSelect={true}
+            block={true}
+        />
+        <div style={{ height: 'var(--gap-m)' }} />
+        <SelectModalMobile
+            allowUnselect={true}
+            options={options}
+            placeholder='Список в модалке'
+            block={true}
+            Option={BaseOption}
+        />
+    </div>,
 );
-```
-
-### Controlled-way
-
-Компонент может быть использован как controlled с помощью `onChange` и `selected`:
-
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium', disabled: true },
-    { key: '3', content: 'Americium', disabled: true },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selected, setSelected] = React.useState([options[2].key, options[3].key]);
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map(option => option.key));
-    };
-
-    return (
-        <Select
-            options={options}
-            placeholder='Выберите элемент'
-            label='controlled'
-            multiple={true}
-            onChange={handleChange}
-            selected={selected}
-        />
-    );
-});
-```
-
-#### Управление открытием
-
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [open, setOpen] = React.useState(false);
-
-    return (
-        <Space direction='horizontal'>
-            <Select
-                options={options}
-                placeholder='Выберите элемент'
-                open={open}
-                onOpen={payload => {
-                    setOpen(payload.open);
-                }}
-                // Полностью управляемое открытие
-                // onChange={payload => {
-                //     setOpen(false);
-                // }}
-            />
-            <Button onClick={() => setOpen(o => !o)}>{open ? 'Закрыть' : 'Открыть'}</Button>
-        </Space>
-    );
-});
-```
-
-#### OptionShape вместо ключей для выбранных пунктов
-
-Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
-В этом случае просто передавайте их через свойство `selected`.
-
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selected, setSelected] = React.useState([options[2], options[3]]);
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple);
-    };
-
-    return (
-        <Select
-            options={options}
-            placeholder='Выберите элемент'
-            label='controlled'
-            multiple={true}
-            onChange={handleChange}
-            selected={selected}
-        />
-    );
-});
 ```
 
 ### Использование в форме
 
-Чтобы использовать селект внутри формы - следует указать атрибут `name`
+Чтобы использовать селект внутри формы — следует указать атрибут `name`.
 
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-];
-
+```jsx live mobileHeight=640
 render(() => {
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
     const [serialized, setSerialized] = React.useState();
     const [selected, setSelected] = React.useState([]);
 
-    const onSubmit = event => {
+    const onSubmit = (event) => {
         event.preventDefault();
 
         const form = event.target;
@@ -216,20 +730,83 @@ render(() => {
     };
 
     const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map(option => option.key));
+        setSelected(selectedMultiple.map((option) => option.key));
     };
 
     return (
         <form onSubmit={onSubmit}>
             <Space>
-                <Select
-                    options={options}
-                    placeholder='Выберите элемент'
-                    name='select'
-                    multiple={true}
-                    onChange={handleChange}
-                    selected={selected}
-                />
+                <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                    <Select
+                        allowUnselect={true}
+                        size='m'
+                        block={true}
+                        options={options}
+                        placeholder='Выберите элемент'
+                        name='select'
+                        multiple={true}
+                        onChange={handleChange}
+                        selected={selected}
+                    />
+                </div>
+
+                <Button size='xs' type='submit'>
+                    Отправить
+                </Button>
+
+                <div>serialized: {serialized}</div>
+            </Space>
+        </form>
+    );
+});
+@MOBILE@
+render(() => {
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
+    const [serialized, setSerialized] = React.useState();
+    const [selected, setSelected] = React.useState([]);
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        setSerialized(new URLSearchParams(formData).toString());
+    };
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map((option) => option.key));
+    };
+
+    return (
+        <form onSubmit={onSubmit}>
+            <Space>
+                <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                    <SelectMobile
+                        allowUnselect={true}
+                        size='m'
+                        block={true}
+                        options={options}
+                        placeholder='Выберите элемент'
+                        name='select'
+                        multiple={true}
+                        onChange={handleChange}
+                        selected={selected}
+                    />
+                </div>
 
                 <Button size='xs' type='submit'>
                     Отправить
@@ -242,485 +819,219 @@ render(() => {
 });
 ```
 
-## Настройка рендера
+### Управление открытием и закрытием
 
-Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
+По умолчанию список для селекта с единичным выбором закрывается сразу после выбора.
+В мультиселекте список остается открытым. Изменить это поведение можно с помощью параметра `closeOnSelect`.
 
-```jsx live
-const Card = ({ name, balance }) => (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-        <div
-            style={{ width: '76px', height: '48px', marginRight: '16px', background: '#E7E9EB' }}
-        />
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '14px' }}>{name}</span>
-            <span style={{ fontSize: '16px' }}>{balance}</span>
-        </div>
-    </div>
-);
-
-const options = [
-    { key: 'Account1', content: <Card name='Account1 Name ··0000' balance='100 000,00 ₽' /> },
-    { key: 'Account2', content: <Card name='Account2 Name ··0000' balance='150 000,00 ₽' /> },
-    { key: 'Account3', content: <Card name='Account3 Name ··0000' balance='230 000,00 ₽' /> },
-    { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
-];
-
+```jsx live mobileHeight=640
 render(() => {
-    const [selected, setSelected] = React.useState(null);
-
-    const handleChange = ({ selected }) => {
-        setSelected(selected ? selected.key : null);
-    };
+    const options = [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+        { key: '3', content: 'Americium' },
+        { key: '4', content: 'Curium' },
+        { key: '5', content: 'Berkelium' },
+        { key: '6', content: 'Californium' },
+        { key: '7', content: 'Einsteinium' },
+        { key: '8', content: 'Fermium' },
+    ];
 
     return (
-        <div style={{ width: 420 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
-                block={true}
-                size='l'
-                placeholder='Выберите карту'
-                multiple={false}
                 allowUnselect={true}
+                size='m'
                 options={options}
-                selected={selected}
-                onChange={handleChange}
+                placeholder='Закроется после выбора'
+                Option={BaseOption}
+                block={true}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <Select
+                allowUnselect={true}
+                size='m'
+                options={options}
+                placeholder='Не закроется после выбора'
+                Option={BaseOption}
+                block={true}
+                closeOnSelect={false}
+            />
+        </div>
+    );
+});
+@MOBILE@
+render(() => {
+    const options = [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+        { key: '3', content: 'Americium' },
+        { key: '4', content: 'Curium' },
+        { key: '5', content: 'Berkelium' },
+        { key: '6', content: 'Californium' },
+        { key: '7', content: 'Einsteinium' },
+        { key: '8', content: 'Fermium' },
+    ];
+
+    return (
+        <div style={{ width: 320 }}>
+            <SelectMobile
+                allowUnselect={true}
+                size='m'
+                options={options}
+                placeholder='Закроется после выбора'
+                Option={BaseOption}
+                block={true}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <SelectMobile
+                allowUnselect={true}
+                size='m'
+                options={options}
+                placeholder='Не закроется после выбора'
+                Option={BaseOption}
+                block={true}
+                closeOnSelect={false}
             />
         </div>
     );
 });
 ```
 
-Стандартный компонент **Field** позволяет управлять рендером выбранных пунктов с помощью `valueRenderer`
+### OptionShape вместо ключей для выбранных пунктов
 
-```jsx live
-const OptionWithIcon = ({ content }) => (
-    <span style={{ display: 'flex', alignItems: 'center' }} key={content}>
-        <StarMIcon />
-        {content.toUpperCase()}
-    </span>
-);
+Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
+В этом случае просто передавайте их через свойство `selected`.
 
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-];
-
-const valueRenderer = ({ selected }) => (selected ? <OptionWithIcon {...selected} /> : null);
-
-render(<Select options={options} valueRenderer={valueRenderer} size='m' label='С иконкой' />);
-```
-
-Селект позволяет заменять или кастомизировать компоненты **Field**, **Option**, **OptionsList**, **Optgroup**, **Arrow**
-
-```jsx live
-const BoldOption = props => (
-    <Option {...props}>
-        <b>{props.option.content}</b>
-    </Option>
-);
-
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-];
-
-render(<Select options={options} label='Bold options' Option={BoldOption} />);
-```
-
-```jsx live
-const CustomField = props => <Field {...props} leftAddons={props.selected && <StarMIcon />} />;
-
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-];
-
-render(<Select label='With addons' options={options} Field={CustomField} />);
-```
-
-Для корректой работы выпадающего списка с компонентом `Button`,
-необходимо сделать обертку над компонентом кнопки и передать обертке `ref`
-
-```jsx live
-const CustomField = ({ selected, innerProps: { ref, ...restInnerProps }, ...restProps }) => (
-    <div ref={ref}>
-        <Button {...restInnerProps} {...restProps} size='xs'>
-            {selected ? selected.content : 'Pick'}
-        </Button>
-    </div>
-);
-
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-];
-
-render(
-    <Select
-        allowUnselect={true}
-        popoverPosition='bottom-start'
-        options={options}
-        Field={CustomField}
-    />,
-);
-```
-
-## Управление размером пунктов меню
-
-По умолчанию размер пунктов меню совпадает с размером селекта, но с помощью свойства `optionsSize` можно задать размер отдельно.
-
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-];
-
-render(<Select size='l' options={options} label='optionsSize' optionsSize='s' />);
-```
-
-## Селект с заголовком меню и футером
-
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-];
-
-render(
-    <Select
-        label='С заголовком меню'
-        options={options}
-        optionsListProps={{
-            header: <div style={{ padding: 'var(--gap-xs)' }}>Заголовок меню</div>,
-            footer: <div style={{ padding: 'var(--gap-xs)' }}>Футер</div>,
-        }}
-    />,
-);
-```
-
-## Ширина выпадающего меню
-
-По умолчанию ширину выпадающего меню задает контент пунктов.
-Если контент слишком длинный, то может понадобиться изменить это поведение.
-
-Это можно сделать с помощью свойства `optionsListWidth='field'` — в этом случае ширина выпадающего меню будет равна ширине поля, а лишний контент обрежется.
-
-```jsx live
-const LongContent = ({ text }) => (
-    <span style={{ whiteSpace: 'nowrap' }} title={text}>
-        {text}
-    </span>
-);
-
-const longOptions = [
-    { key: '1', content: <LongContent text='Великий Новгород' /> },
-    { key: '2', content: <LongContent text='Гусь-Хрустальный' /> },
-    { key: '3', content: <LongContent text='Каменск-Шахтинский' /> },
-    { key: '4', content: <LongContent text='Очень длинное название' /> },
-];
-
-render(
-    <div style={{ width: 160 }}>
-        <Select block={true} label='Города' options={longOptions} optionsListWidth='field' />
-    </div>,
-);
-```
-
-## Группированный селект
-
-```jsx live
-const groups = [
-    {
-        label: 'Группа №1',
-        options: [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-        ],
-    },
-    {
-        label: 'Группа №2',
-        options: [
-            { key: '3', content: 'Berkelium' },
-            { key: '4', content: 'Californium' },
-        ],
-    },
-];
-
-render(<Select options={groups} label='Группированный селект' multiple={true} />);
-```
-
-## Нативный селект
-
-Рендерит нативный селект вместо выпадающего меню. (стоит использовать только для мобильных устройств)
-
-```jsx live
-const groups = [
-    {
-        label: 'Группа №1',
-        options: [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-        ],
-    },
-    {
-        label: 'Группа №2',
-        options: [
-            { key: '3', content: 'Berkelium' },
-            { key: '4', content: 'Californium' },
-        ],
-    },
-];
-
-render(<Select options={groups} label='Нативный селект' nativeSelect={true} />);
-```
-
-## Рендер длинных списков
-
-Используйте `OptionsList={VirtualOptionsList}` для рендера большого количества данных
-
-```jsx live
-const options = new Array(10000).fill().map((_, index) => {
-    const variableSizeText = `Вы восхитительны! `.repeat(Math.round(Math.random() * 10));
-
-    return {
-        key: index,
-        content: `${index}. ${variableSizeText}`,
-    };
-});
-
-render(
-    <div style={{ width: 320 }}>
-        <Select
-            block={true}
-            label='10 тысяч пунктов'
-            options={options}
-            OptionsList={VirtualOptionsList}
-            circularNavigation={true}
-            allowUnselect={true}
-            visibleOptions={3}
-        />
-    </div>,
-);
-```
-
-```jsx live
-const groups = new Array(100).fill().reduce((acc, _, groupIndex) => {
-    return acc.concat({
-        label: `Группа №${groupIndex + 1}`,
-        options: new Array(5).fill().map((_, index) => ({
-            key: index,
-            content: `Пункт ${groupIndex + 1}.${index + 1}`,
-        })),
-    });
-}, []);
-
-render(
-    <Select
-        label='Длинный сгруппированный список'
-        multiple={true}
-        allowUnselect={true}
-        circularNavigation={true}
-        options={groups}
-        OptionsList={VirtualOptionsList}
-    />,
-);
-```
-
-## Пресеты
-
-
-### Выбор с подтверждением
-
-Используйте пресет `useSelectWithApply`, чтобы реализовать логику подтверждения выбора.
-
-Кнопка сброса по умолчанию появляется, если выбран хотя бы один пункт списка. Скрыть кнопку можно с помощью свойства `showClear`.
-
-С помощью свойства `showSelectAll` можно добавить пункт "Выбрать все".
-
-```jsx live
-const options = [
-    { key: "40708810300024636781", content: "Валютный счёт $ ··6781", value: "USD ··6781" },
-    { key: "40701810200000000593", content: "Рублёвый счёт ₽ ··0593", value: "RUB ··0593" },
-    { key: "40700810000000017103", content: "Рублёвый счёт ₽ ··7103", value: "RUB ··7103" },
-    { key: "40817810668001680128", content: "Рублёвый счёт ₽ ··0128", value: "RUB ··0128" },
-    { key: "40832810700000000212", content: "Валютный счёт € ··0212", value: "EUR ··0212" },
-];
-
+```jsx live mobileHeight=640
 render(() => {
-    const [selected, setSelected] = React.useState([]);
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState([options[2], options[3]]);
 
     const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map(option => option.key));
+        setSelected(selectedMultiple);
     };
 
     return (
-        <div style={{ width: 320 }}>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
-                placeholder='Выберите элемент'
-                label='Выбор с подтверждением'
+                allowUnselect={true}
                 block={true}
-                optionsListWidth='field'
-                {...useSelectWithApply({
-                    options,
-                    selected,
-                    onChange: handleChange,
-                    OptionsList: VirtualOptionsList,
-                })}
-            />
-        </div>
-    );
-});
-```
-
-### Селект со скелетной загрузкой
-
-```jsx live
-const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-];
-
-render(() => {
-    const [loading, setLoading] = React.useState(true);
-
-    const loadingProps = useSelectWithLoading({
-        visibleOptions: 6,
-        loading,
-    });
-
-    const handleOpen = () => {
-        setLoading(true);
-        setTimeout(() => setLoading(false), 2000);
-    };
-
-    return (
-        <div style={{ width: 320 }}>
-            <Select
-                label='Селект со скелетной загрузкой'
-                block={true}
-                size='l'
+                size='m'
                 options={options}
-                onOpen={handleOpen}
-                {...loadingProps}
+                placeholder='Выберите элемент'
+                multiple={true}
+                onChange={handleChange}
+                selected={selected}
             />
         </div>
     );
 });
 ```
 
-### Ленивая загрузка опций
+### Другие селекты
 
-#### Простая ленивая загрузка
+На основе селекта построены такие компоненты как [PickerButton](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-pickerbutton--picker-button) и
+[InputAutocomplete](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-inputautocomplete--input-autocomplete).
+
+### Морфология поля ввода
+
+Компонент является оберткой над [FormControl](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control), поэтому наследует все доступные для него настройки.
+
+### Строение списка
+
+Список состоит из трех частей: `Header`, `Body`, `Footer`. Каждая часть содержит слот в который можно передать кастомный контент.
 
 ```jsx live
-const LIMIT = 10;
-
-const sleep = () => new Promise(r => setTimeout(r, 2000));
-const mockOptions = offset => ({
-    options: Array(LIMIT)
-        .fill(0)
-        .map((_, i) => ({
-            key: `${offset}${i}`,
-            content: `Option number ${offset}${i}`,
-        })),
-    hasMore: offset < 4,
-});
-
 render(() => {
-    const fetchOptions = offset => {
-        return sleep().then(() => {
-            return mockOptions(offset);
-        });
-    };
-    const { optionsProps } = useLazyLoading({
-        limit: LIMIT,
-        optionsFetcher: fetchOptions,
-    });
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+        ],
+        [],
+    );
 
     return (
-        <div style={{ width: 320 }}>
-            <Select
-                label='Простая ленивая загрузка'
-                preventFlip={false}
-                size='l'
-                {...optionsProps}
+        <div
+            style={{
+                width: document.body.clientWidth < 450 ? '100%' : 320,
+                paddingTop: 'var(--select-options-list-top-padding)',
+                paddingBottom: 'var(--select-options-list-bottom-padding)',
+                boxShadow: 'var(--select-options-list-box-shadow)',
+                borderRadius: 'var(--select-options-list-border-radius)',
+                background: 'var(--select-option-background)',
+                overflow: 'hidden',
+            }}
+        >
+            <OptionsList
+                Option={BaseOption}
+                getOptionProps={(option, index) => ({
+                    index,
+                    option,
+                    innerProps: {
+                        style: {
+                            background: '#EBF2FF',
+                            borderBottom:
+                                index + 1 !== options.length ? '1px solid #D2DCEE' : 'none',
+                        },
+                    },
+                })}
+                options={options}
+                header={
+                    <div
+                        style={{
+                            height: 12,
+                            background: 'linear-gradient(0deg, #FFE6E6, #FFE6E6), #FFFFFF',
+                        }}
+                    ></div>
+                }
+                footer={
+                    <div
+                        style={{
+                            height: 12,
+                            background: 'linear-gradient(0deg, #FFE6E6, #FFE6E6), #FFFFFF',
+                        }}
+                    ></div>
+                }
             />
         </div>
     );
 });
 ```
 
-#### Ленивая загрузка с поддержкой поиска по строке
+### Ширина списка
 
-```jsx live
-const LIMIT = 15;
+По умолчанию ширину выпадающего меню задает контент пунктов.
+Если контент слишком длинный, с помощью свойства `optionsListWidth='field'` можно установить ширину списка равной ширине инициирующего контрола,
+а лишний контент перенесётся или обрежется. При необходимости можно задать кастомную ширину списка.
 
-const sleep = () => new Promise(r => setTimeout(r, 2000));
-const mockOptions = (offset, limit, queryString) => ({
-    options: Array(LIMIT)
-        .fill(0)
-        .map((_, i) => ({
-            key: `${offset}${i}`,
-            content: queryString
-                ? `Опция ${offset * limit + i}, удовлетворяющая поисковой строке "${queryString}"`
-                : `Option number ${offset * limit + i}`,
-        })),
-    hasMore: offset < 4,
-});
+### Высота списка
 
-// Для корректной работы Input должен принимать в себя ...inputProps,
-// OptionsList должен принимать ref и остальные ...props
-const CustomOptionsList = React.forwardRef(({ inputProps, ...props }, ref) => {
-    const inputRef = React.useRef();
+Максимальную высоту списка можно настраивать с помощью свойства `visibleOptions`. По умолчанию она равна 5,5 ячейкам (`visibleOptions=5`).
 
-    React.useLayoutEffect(() => {
-        // Нужно для того, чтобы инпут фокусировался в поле уже после того, как OptionsList
-        // спозиционируется относительно инпута, и тогда не произойдет скачка экрана
-        setTimeout(() => inputRef.current.focus(), 0);
-    }, []);
+### Позиционирование списка
 
-    return (
-        <div>
-            <div style={{ padding: '5px' }}>
-                <Input label='Поиск' {...inputProps} block={true} ref={inputRef} />
-            </div>
-            <OptionsList {...props} ref={ref} />
-        </div>
-    );
-});
+По умолчанию список располагается под вызвавшим его контролом.
+При необходимости положение выпадающего списка можно изменить с помощью свойства `popoverPosition`.
 
-render(() => {
-    const fetchOptions = (offset, limit, queryString) => {
-        return sleep().then(() => {
-            return mockOptions(offset, limit, queryString);
-        });
-    };
-    const { optionsProps } = useLazyLoading({
-        limit: LIMIT,
-        optionsFetcher: fetchOptions,
-    });
+### Строение ячейки
 
-    return (
-        <div style={{ width: 320 }}>
-            <Select
-                label='Ленивая загрузка с поддержкой поиска по строке'
-                preventFlip={false}
-                size='l'
-                {...optionsProps}
-                OptionsList={CustomOptionsList}
-            />
-        </div>
-    );
-});
-```
+Для кастомных списков можно использовать ячейку [PureCell](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-purecell--pure-cell) с расширением в виде контрола.
+Благодаря гибкой настройке [PureCell](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-purecell--pure-cell) можно получить необходимую конфигурацию элементов списка.

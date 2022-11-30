@@ -1,4 +1,6 @@
-Компонент чекбокса.
+## Размеры
+
+Стандартный размер компонента — m. Размер s устарел и не рекомендован к использованию.
 
 ```jsx live
 render(() => {
@@ -7,31 +9,68 @@ render(() => {
     const handleChange = () => setChecked(!checked);
 
     return (
-        <Checkbox
-            onChange={handleChange}
-            checked={checked}
-            label='Согласен с условиями'
-            hint='Соглашайтесь, будьте любезны'
-        />
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Checkbox
+                block={true}
+                size='m'
+                onChange={handleChange}
+                checked={checked}
+                label='Согласен с условиями'
+                hint='И внимательно их прочитал'
+            />
+        </div>
     );
 });
 ```
 
-### Чекбокс c неопределенным (indeterminate) состоянием
+## Состояния
+
+Чекбокс может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть неопределённым.
+Если чекбокс заблокирован, но пользователь может совершить какие-то действия чтобы его разблокировать, используется состояние «неактивен».
+Если чекбокс заблокирован и его нельзя разблокировать, то используется состояние «недоступен».
 
 ```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleChange = () => setChecked(!checked);
-
     return (
-        <Checkbox
-            onChange={handleChange}
-            checked={checked}
-            label='Выберите опции'
-            indeterminate={true}
-        />
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Checkbox size='m' label='Неопределён' indeterminate={true} block={true} />
+            <Gap size='xl' />
+            <Checkbox size='m' label='Выбран' checked={true} block={true} />
+            <Gap size='m' />
+            <Checkbox
+                size='m'
+                label='Выбран и недоступен'
+                disabled={true}
+                checked={true}
+                block={true}
+            />
+            <Gap size='m' />
+            <Checkbox
+                size='m'
+                label='Выбран и неактивен'
+                inactive={true}
+                checked={true}
+                block={true}
+            />
+            <Gap size='xl' />
+            <Checkbox size='m' label='По умолчанию' checked={false} block={true} />
+            <Gap size='m' />
+            <Checkbox
+                size='m'
+                label='По умолчанию и недоступен'
+                checked={false}
+                disabled={true}
+                block={true}
+            />
+            <Gap size='m' />
+            <Checkbox
+                size='m'
+                label='По умолчанию и неактивен'
+                checked={false}
+                inactive={true}
+                block={true}
+            />
+        </div>
     );
 });
 ```

@@ -2,21 +2,16 @@ import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import StarLineMIcon from '@alfalab/icons-glyph/StarLineMIcon';
-import {ActionButton} from '@alfalab/core-components-action-button';
+import { ActionButton } from '@alfalab/core-components-action-button';
 
-import { ActionButton as ActionButtonTS} from '../';
+import { ActionButton as ActionButtonTS } from '../';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import defaultColorStyles from '!!raw-loader!../default.module.css';
 import invertedColorStyles from '!!raw-loader!../inverted.module.css';
 
-
-<Meta
-    title='Компоненты/ActionButton'
-    component={ActionButton}
-/>
-
+<Meta title='Компоненты/Кнопки/ActionButton' component={ActionButton} />
 
 <!-- Canvas -->
 
@@ -24,31 +19,35 @@ import invertedColorStyles from '!!raw-loader!../inverted.module.css';
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted', 'static'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <ActionButton
-                    colors={ colors }
-                    view={ select('view', ['primary', 'secondary'], 'primary') }
-                    href={ text('href', '') }
-                    icon={ <StarLineMIcon /> }
-                    size={ select('size', ['s'], 's') }
-                    disabled={ boolean('disabled', false) }
-                    loading={ boolean('loading', false) }
+                    colors={colors}
+                    view={select('view', ['primary', 'secondary'], 'primary')}
+                    href={text('href', '')}
+                    icon={<StarLineMIcon />}
+                    size={select('size', ['s'], 's')}
+                    disabled={boolean('disabled', false)}
+                    loading={boolean('loading', false)}
                 >
-                    { text('children', 'Пополнить карту') }
+                    {text('children', 'Пополнить карту')}
                 </ActionButton>
             </div>
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -58,7 +57,6 @@ import invertedColorStyles from '!!raw-loader!../inverted.module.css';
     package='@alfalab/core-components/action-button'
 />
 
-
 ```tsx
 import { ActionButton } from '@alfalab/core-components/action-button';
 ```
@@ -67,5 +65,11 @@ import { ActionButton } from '@alfalab/core-components/action-button';
     description={<Description />}
     changelog={<Changelog />}
     props={<ArgsTable components={{ ActionButton: ActionButtonTS }} />}
-    cssVars={<CssVars css={`${defaultColorStyles}${invertedColorStyles}`} />}
+    cssVars={
+        <CssVars
+            css={`
+                ${defaultColorStyles}${invertedColorStyles}
+            `}
+        />
+    }
 />
