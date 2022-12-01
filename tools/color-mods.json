@@ -56,7 +56,7 @@
         "shade": [10, 30]
     },
     "light-graphic-negative": {
-        "alpha": [30],
+        "alpha": [30,40],
         "tint": [20, 30],
         "shade": [7, 15, 30]
     },
