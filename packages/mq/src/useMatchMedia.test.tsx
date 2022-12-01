@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { useMatchMedia } from './useMatchMedia';
 import { getMatchMedia } from './utils';
+import * as Hooks from '@alfalab/hooks';
 
 jest.mock('./utils');
 
@@ -16,7 +17,7 @@ function mockGetMatchMedia(matches: boolean) {
 describe('useMatchMedia', () => {
     beforeEach(() => {
         jest.clearAllMocks();
-        jest.spyOn(React, 'useEffect');
+        jest.spyOn(Hooks, 'useLayoutEffect_SAFE_FOR_SSR');
     });
 
     it('should try to reconcile each time', () => {
@@ -30,12 +31,12 @@ describe('useMatchMedia', () => {
         const { rerender, container } = render(<Example />);
 
         expect(container.firstElementChild).toHaveTextContent('false');
-        expect(React.useEffect).toHaveBeenCalledTimes(1);
+        expect(Hooks.useLayoutEffect_SAFE_FOR_SSR).toHaveBeenCalledTimes(1);
 
         rerender(<Example />);
 
         expect(container.firstElementChild).toHaveTextContent('false');
-        expect(React.useEffect).toHaveBeenCalledTimes(2);
+        expect(Hooks.useLayoutEffect_SAFE_FOR_SSR).toHaveBeenCalledTimes(3);
     });
 
     it('should be able to change the query dynamically', () => {
@@ -49,13 +50,13 @@ describe('useMatchMedia', () => {
         const { rerender, container } = render(<Example query='--small-only' />);
 
         expect(container.firstElementChild).toHaveTextContent('false');
-        expect(React.useEffect).toHaveBeenCalledTimes(1);
+        expect(Hooks.useLayoutEffect_SAFE_FOR_SSR).toHaveBeenCalledTimes(1);
 
         mockGetMatchMedia(true);
 
         rerender(<Example query='--desktop-m' />);
         expect(container.firstElementChild).toHaveTextContent('true');
 
-        expect(React.useEffect).toHaveBeenCalledTimes(3);
+        expect(Hooks.useLayoutEffect_SAFE_FOR_SSR).toHaveBeenCalledTimes(3);
     });
 });
