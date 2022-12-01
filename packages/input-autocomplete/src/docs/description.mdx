@@ -125,7 +125,7 @@ render(() => {
     const [multiple, setMultiple] = React.useState(false);
     const [value, setValue] = React.useState('');
     const [filter, setFilter] = React.useState('');
-    
+
     const options = [
         { key: 'Neptunium' },
         { key: 'Plutonium' },
@@ -164,16 +164,16 @@ render(() => {
         let newValue = '';
 
         if (payload && payload.selectedMultiple) {
-            newValue = payload.selectedMultiple.length
-                ? payload.selectedMultiple.map((option) => option.key).join(', ') + ', '
-                : '';
+          newValue = payload.selectedMultiple.length
+                ? payload.selectedMultiple.map((option) => option.key).join(', ') + `${multiple ? `,` : ''}`
+                : ''; 
         } else {
             newValue = payload || '';
         }
 
         setValue(newValue);
         setFilter(newValue);
-    };
+    }
 
     const filteredOptions =
         filterValues.length === selected.length
@@ -188,16 +188,17 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <InputAutocompleteMobile
+                size='m'
                 block={true}
                 value={value}
                 Arrow={shownChevron ? Arrow : undefined}
                 filter={filter}
                 options={filteredOptions}
-                placeholder='Выберите элемент'
-                label='Элемент'
+                label='Инпут с автокомплитом'
+                placeholder='Начните вводить название'
                 multiple={multiple}
                 selected={selected}
-                closeOnSelect={false}
+                closeOnSelect={!multiple}
                 allowUnselect={true}
                 onChange={handleChange}
                 onFilter={handleFilter}
