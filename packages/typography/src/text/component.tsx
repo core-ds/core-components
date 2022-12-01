@@ -5,6 +5,7 @@ import { Color } from '../colors';
 
 import colors from '../colors.module.css';
 import styles from './index.module.css';
+import { TextElementType } from '../types';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
 
@@ -69,8 +70,6 @@ type TextPTagProps = Omit<TextBaseProps, 'tag' | 'defaultMargins'> & {
 };
 
 export type TextProps = Omit<NativeProps, 'color'> & (TextBaseProps | TextPTagProps);
-
-type TextElementType = HTMLParagraphElement | HTMLSpanElement | HTMLDivElement;
 
 export const Text = forwardRef<TextElementType, TextProps>(
     (
