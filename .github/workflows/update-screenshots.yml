@@ -19,14 +19,6 @@ jobs:
       - name: Install dependencies
         run: yarn --pure-lockfile
 
-      - uses: microsoft/playwright-github-action@v1
-
-      - name: Build storybook
-        run: yarn build-storybook-from-dist
-
-      - name: Serve storybook
-        run: yarn serve-storybook &
-
       - name: Update screenshots tests
         run: yarn test:screenshots -u
         env:
@@ -36,7 +28,7 @@ jobs:
 
       - name: Check git status
         id: git_status
-        run: echo "::set-output name=porcelain::$(git status --porcelain)"
+        run: echo "porcelain=$(git status --porcelain)" >> $GITHUB_OUTPUT
 
       - name: Change commit
         if: ${{ steps.git_status.outputs.porcelain }} == 'MM'
