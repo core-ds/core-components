@@ -22347,6 +22347,14 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-canvas-pattern-lock@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-canvas-pattern-lock/-/react-canvas-pattern-lock-1.0.0.tgz#7258b0e53cec19e6674fd60e484b1627decb0da2"
+  integrity sha512-fBPCy32DQ0NYYBbpscd4YaL0+Y0tfjnCv2zgxHIcXNLzOskFrlW6nhTYT2qxWNbcAuYAM4wo4OO6VOwtoHaGLA==
+  dependencies:
+    react-merge-refs "^1.1.0"
+    react-use-event-hook "^0.9.3"
+
 react-clientside-effect@^1.2.6:
   version "1.2.6"
   resolved "https://registry.npmjs.org/react-clientside-effect/-/react-clientside-effect-1.2.6.tgz"
@@ -22687,6 +22695,11 @@ react-transition-group@^4.4.1:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-use-event-hook@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/react-use-event-hook/-/react-use-event-hook-0.9.3.tgz#08dc42eaa866dff57d2a0b1386b8d453adfc2ea4"
+  integrity sha512-8edWglTZ9Z5kfl31EuRjr4MDkTcEczHvrbo2EG1WVrX/a1B2sP3S9RCXjtSwrEnYRw29ldErlvDQNbTOxHNcmQ==
 
 react-virtual@^2.3.2:
   version "2.10.4"

@@ -1,0 +1,45 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { radios, text } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { PatternLock } from '@alfalab/core-components-pattern-lock';
+
+import { version } from '../../package.json';
+import Development from './development.mdx';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+<Meta title='Компоненты/Авторизация/PatternLock' component={PatternLock} />
+
+<!-- Canvas -->
+
+<Story name='PatternLock'>
+    {React.createElement(() => {
+        return (
+            <PatternLock
+                observeTokens={true}
+                themeState={radios(
+                    'themeState',
+                    { initial: 'initial', success: 'success', failure: 'failure' },
+                    'initial',
+                )}
+                justifyNodes={radios(
+                    'justifyNodes',
+                    { 'space-around': 'space-around', 'space-between': 'space-between' },
+                    'space-between',
+                )}
+                error={text('error', '')}
+            />
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PatternLock'
+    version={version}
+    package='@alfalab/core-components/pattern-lock'
+    children='Компонент для авторизации пользователя с помощью графического ключа.'
+/>
+
+<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
