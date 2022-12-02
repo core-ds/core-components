@@ -1,0 +1,16 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    max-width: var(--pass-code-max-width);
+    margin: var(--gap-xs) 0;
+}
+
+.error {
+    @mixin paragraph_primary_medium;
+
+    display: flex;
+    justify-content: center;
+    min-height: 24px;
+    color: var(--color-light-text-negative);
+}
