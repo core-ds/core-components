@@ -29,14 +29,14 @@ glob(
         });
 
         shell.exec(
-            `echo ::set-output name=has-non-existent-vars::${
+            `echo "has-non-existent-vars=${
                 Object.keys(nonExistentVars).length > 0
-            }`,
+            }" >> $GITHUB_OUTPUT`,
         );
         shell.exec(
-            `echo ::set-output name=non-existent-css-vars::${JSON.stringify(
+            `echo "non-existent-css-vars=${JSON.stringify(
                 JSON.stringify(nonExistentVars),
-            )}`,
+            )}" >> $GITHUB_OUTPUT`,
         );
     },
 );
