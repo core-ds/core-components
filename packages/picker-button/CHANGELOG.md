@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+### [#370](https://github.com/core-ds/core-components/pull/370)
+
+-   feat(picker-button): extend options type
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.1
+
 ## 10.0.4
 
 ### Patch Changes
