@@ -1,13 +1,16 @@
 import globby from 'globby';
+import { createRequire } from 'module';
 import postcss from 'postcss';
 import path from 'path';
 
-import { readFile, writeFile, checkOrCreateDir } from './common';
+import { readFile, writeFile, checkOrCreateDir } from './common.mjs';
 
-const cleanerPlugin = postcss.plugin('styles-cleaner-plugin', () => root => {
+const require = createRequire(import.meta.url);
+
+const cleanerPlugin = postcss.plugin('styles-cleaner-plugin', () => (root) => {
     // Удаляем все правила, где нет цветов
-    root.walkDecls(decl => {
-        const hasColor = ['rgb', '#', 'transparent'].some(token => decl.value.includes(token));
+    root.walkDecls((decl) => {
+        const hasColor = ['rgb', '#', 'transparent'].some((token) => decl.value.includes(token));
 
         if (!hasColor) {
             decl.remove();
@@ -15,17 +18,17 @@ const cleanerPlugin = postcss.plugin('styles-cleaner-plugin', () => root => {
     });
 
     // Удаляем комменты
-    root.walkComments(comment => comment.remove());
+    root.walkComments((comment) => comment.remove());
 
     // Удаляем пустые atrule
-    root.walkAtRules(atRule => {
+    root.walkAtRules((atRule) => {
         if (atRule.nodes.length === 1 && atRule.nodes[0].nodes.length === 0) {
             atRule.remove();
         }
     });
 
     // Удаляем пустые правила
-    root.walkRules(rule => {
+    root.walkRules((rule) => {
         if (rule.nodes.length === 0) {
             rule.remove();
         }
@@ -33,8 +36,8 @@ const cleanerPlugin = postcss.plugin('styles-cleaner-plugin', () => root => {
 });
 
 const setupPostcss = (theme, mode, palette) => {
-    const colorsPath = path.resolve(__dirname, 'packages/vars/dist');
-    const themesPath = path.resolve(__dirname, 'packages/themes/dist');
+    const colorsPath = path.resolve(process.cwd(), '../vars/dist');
+    const themesPath = path.resolve(process.cwd(), '../themes/dist');
 
     return [
         require('postcss-custom-properties')({
@@ -77,7 +80,7 @@ export function compiledDarkmodeGenerator(dist) {
             const saveTheme = async (css, fileName) => {
                 if (!css.trim()) return;
 
-                const dir = `${__dirname}/packages/themes/dist/compiled`;
+                const dir = path.resolve(process.cwd(), `../themes/dist/compiled`);
 
                 await checkOrCreateDir(dir);
 
@@ -86,14 +89,14 @@ export function compiledDarkmodeGenerator(dist) {
                 });
             };
 
-            const generate = configString =>
+            const generate = (configString) =>
                 Promise.all(
-                    componentStyles.map(cssFile =>
+                    componentStyles.map((cssFile) =>
                         generateTheme(cssFile, ...configString.split('-')),
                     ),
                 )
-                    .then(styles => styles.join('\n'))
-                    .then(css => saveTheme(css, configString));
+                    .then((styles) => styles.join('\n'))
+                    .then((css) => saveTheme(css, configString));
 
             return Promise.all(generationConfig.map(generate));
         },

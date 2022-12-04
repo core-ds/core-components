@@ -1,7 +1,7 @@
 import globby from 'globby';
 import path from 'path';
 
-import { checkOrCreateDir, readFile, writeFile } from './common';
+import { checkOrCreateDir, readFile, writeFile } from './common.mjs';
 
 const importTypesRegexp = /((?:from |import\()['"])@alfalab\/core-components-(.+?)(['"])/;
 
