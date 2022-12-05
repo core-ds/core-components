@@ -1,6 +1,5 @@
-import React, { forwardRef, Fragment, ReactNode } from 'react';
+import React, { ElementType, forwardRef, Fragment, ReactNode } from 'react';
 import cn from 'classnames';
-
 import { getPath, PathsMap } from './utils';
 
 import styles from './index.module.css';
@@ -29,6 +28,11 @@ export type BaseShapeProps = {
     imageUrl?: string;
 
     /**
+     * Фоновое изображение. Имеет приоритет над иконкой и заливкой
+     */
+    icon?: ElementType<{ width?: number; height?: number }>;
+
+    /**
      * Сss класс для стилизации общей обёртки
      */
     className?: string;
@@ -42,6 +46,11 @@ export type BaseShapeProps = {
      * Слот снизу
      */
     bottomAddons?: ReactNode;
+
+    /**
+     * Слот индикатора сверху
+     */
+    indicator?: ReactNode;
 
     /**
      * Фигуры
@@ -66,10 +75,12 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             border = false,
             backgroundColor = 'var(--color-light-bg-secondary)',
             imageUrl,
+            icon: Icon,
             className,
             children,
             topAddons,
             bottomAddons,
+            indicator,
             pathsMap,
             dataTestId,
         },
@@ -77,10 +88,13 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
     ) => {
         const imagePatternId = imageUrl && `${imageUrl.replace(/[^a-z]+/g, '')}_${size}`;
 
-        const hasTopAddons = Boolean(topAddons) && size > 24;
+        const svgPatternId = Icon && `svg_${size}`;
 
-        const hasBottomAddons = Boolean(bottomAddons) && size > 24;
+        const hasTopAddons = Boolean(topAddons) && size > 32;
 
+        const hasBottomAddons = Boolean(bottomAddons) && size > 32;
+
+        const hasIndicstor = Boolean(indicator) && size < 128;
         return (
             <div
                 className={cn(styles.componentWrapper, styles[`size_${size}`], className)}
@@ -104,6 +118,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                 size,
                                 hasTopAddons,
                                 hasBottomAddons,
+                                hasIndicstor,
                                 pathsMap: pathsMap.shape,
                             })}
                         />
@@ -129,6 +144,30 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                         size,
                                         hasTopAddons,
                                         hasBottomAddons,
+                                        hasIndicstor,
+                                        pathsMap: pathsMap.shape,
+                                    })}
+                                />
+                            </Fragment>
+                        )}
+
+                        {Icon && !imageUrl && (
+                            <Fragment>
+                                <defs>
+                                    <pattern id={svgPatternId} width='100%' height='100%'>
+                                        <Icon width={size} height={size} />
+                                    </pattern>
+                                </defs>
+
+                                <path
+                                    style={{
+                                        fill: `url(#${svgPatternId})`,
+                                    }}
+                                    d={getPath({
+                                        size,
+                                        hasTopAddons,
+                                        hasBottomAddons,
+                                        hasIndicstor,
                                         pathsMap: pathsMap.shape,
                                     })}
                                 />
@@ -142,13 +181,14 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                     size,
                                     hasTopAddons,
                                     hasBottomAddons,
+                                    hasIndicstor,
                                     pathsMap: pathsMap.border,
                                 })}
                             />
                         )}
                     </svg>
 
-                    {!imageUrl && <div className={styles.children}>{children}</div>}
+                    {!imageUrl && !Icon && <div className={styles.children}>{children}</div>}
                 </div>
 
                 {hasTopAddons && (
@@ -157,6 +197,10 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
                 {hasBottomAddons && (
                     <div className={cn(styles.addons, styles.bottomAddons)}>{bottomAddons}</div>
+                )}
+
+                {hasIndicstor && !hasTopAddons && (
+                    <div className={cn(styles.addons, styles.indicator)}>{indicator}</div>
                 )}
             </div>
         );
