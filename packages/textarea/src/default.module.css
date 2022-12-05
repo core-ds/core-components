@@ -1,5 +1,6 @@
 @import '../../themes/src/default.css';
 @import '../../input/src/default.module.css';
+@import '../../form-control/src/vars.css';
 
 .textarea {
     color: var(--input-color);
@@ -31,4 +32,12 @@
 
 .textarea:focus::placeholder {
     color: var(--input-focus-placeholder-color);
+}
+
+.hint {
+    color: var(--form-control-hint-color);
+}
+
+.error {
+    color: var(--form-control-error-color);
 }

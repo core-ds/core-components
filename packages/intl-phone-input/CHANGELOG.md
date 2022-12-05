@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+### [#364](https://github.com/core-ds/core-components/pull/364)
+
+-   Замена иконок флагов на новые, если для страны нет соответствующего флага в наборе, вместо него выводится заглушка.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.1
+    -   input-autocomplete@9.1.4
+
 ## 9.1.3
 
 ### Patch Changes

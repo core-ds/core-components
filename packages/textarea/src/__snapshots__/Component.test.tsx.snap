@@ -45,7 +45,6 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
           <textarea
             autocomplete="on"
             class="textarea textarea s filled"
-            maxlength="500"
             rows="1"
           >
             value
@@ -176,7 +175,6 @@ exports[`Textarea Snapshots tests should match snapshot with default counter 1`]
           <textarea
             autocomplete="on"
             class="textarea textarea s filled"
-            maxlength="500"
             rows="1"
           >
             value

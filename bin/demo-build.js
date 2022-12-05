@@ -94,7 +94,7 @@ const storybookUrl = buildStorybookUrl();
 console.log(`=> Storybook deployed to: ${storybookUrl}`);
 
 // store storybook url
-shell.exec(`echo ::set-output name=storybook_url::${storybookUrl}`);
+shell.exec(`echo "storybook_url=${storybookUrl}" >> $GITHUB_OUTPUT`);
 
 function buildStorybookUrl() {
     const branchFolder = sourceBranch === 'master' ? 'master' : tempOutputDir;

@@ -90,3 +90,11 @@
     --form-control-l-border-radius: var(--border-radius-m);
     --form-control-xl-border-radius: var(--border-radius-l);
 }
+
+@define-mixin form-control-sub {
+    display: block;
+
+    /* adjusting overall height 👌 */
+    margin-top: 6px;
+    padding: var(--form-control-sub-paddings);
+}

@@ -53,10 +53,11 @@
         "shade": [7, 10, 15, 30]
     },
     "light-graphic-positive": {
+        "alpha": [10],
         "shade": [10, 30]
     },
     "light-graphic-negative": {
-        "alpha": [30],
+        "alpha": [10, 30, 40],
         "tint": [20, 30],
         "shade": [7, 15, 30]
     },

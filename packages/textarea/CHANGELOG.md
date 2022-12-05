@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+### [#357](https://github.com/core-ds/core-components/pull/357)
+
+-   Добавлена механика переполнения в Textarea. Теперь ввод будет доступен даже если количество введённых символов превышает maxLength. Символы, позиция которых превышает maxLength, будут выделены цветом ошибки.
+
 ## 8.0.1
 
 ### Patch Changes
