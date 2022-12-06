@@ -30,7 +30,7 @@ export type BaseShapeProps = {
     /**
      * Фоновое svg. Имеет приоритет над иконкой и заливкой
      */
-    icon?: ElementType<{ width?: number; height?: number }>;
+    backgroundIcon?: ElementType<{ width?: number; height?: number }>;
 
     /**
      * Сss класс для стилизации общей обёртки
@@ -75,7 +75,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             border = false,
             backgroundColor = 'var(--color-light-bg-secondary)',
             imageUrl,
-            icon: Icon,
+            backgroundIcon: Icon,
             className,
             children,
             topAddons,
