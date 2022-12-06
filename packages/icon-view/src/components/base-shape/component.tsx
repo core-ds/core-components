@@ -28,7 +28,7 @@ export type BaseShapeProps = {
     imageUrl?: string;
 
     /**
-     * Фоновое изображение. Имеет приоритет над иконкой и заливкой
+     * Фоновое svg. Имеет приоритет над иконкой и заливкой
      */
     icon?: ElementType<{ width?: number; height?: number }>;
 
@@ -94,7 +94,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
 
         const hasBottomAddons = Boolean(bottomAddons) && size > 32;
 
-        const hasIndicstor = Boolean(indicator) && size < 128;
+        const hasIndicator = Boolean(indicator) && size < 128;
         return (
             <div
                 className={cn(styles.componentWrapper, styles[`size_${size}`], className)}
@@ -118,7 +118,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                 size,
                                 hasTopAddons,
                                 hasBottomAddons,
-                                hasIndicstor,
+                                hasIndicator,
                                 pathsMap: pathsMap.shape,
                             })}
                         />
@@ -144,7 +144,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                         size,
                                         hasTopAddons,
                                         hasBottomAddons,
-                                        hasIndicstor,
+                                        hasIndicator,
                                         pathsMap: pathsMap.shape,
                                     })}
                                 />
@@ -167,7 +167,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                         size,
                                         hasTopAddons,
                                         hasBottomAddons,
-                                        hasIndicstor,
+                                        hasIndicator,
                                         pathsMap: pathsMap.shape,
                                     })}
                                 />
@@ -181,7 +181,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                     size,
                                     hasTopAddons,
                                     hasBottomAddons,
-                                    hasIndicstor,
+                                    hasIndicator,
                                     pathsMap: pathsMap.border,
                                 })}
                             />
@@ -199,7 +199,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                     <div className={cn(styles.addons, styles.bottomAddons)}>{bottomAddons}</div>
                 )}
 
-                {hasIndicstor && !hasTopAddons && (
+                {hasIndicator && !hasTopAddons && (
                     <div className={cn(styles.addons, styles.indicator)}>{indicator}</div>
                 )}
             </div>

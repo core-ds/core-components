@@ -13,7 +13,7 @@ type GetPathParams = {
     size: number;
     hasTopAddons: boolean;
     hasBottomAddons: boolean;
-    hasIndicstor: boolean;
+    hasIndicator: boolean;
     pathsMap: SizePathsMap;
 };
 
@@ -26,14 +26,14 @@ export const getPath = ({
     size,
     hasTopAddons,
     hasBottomAddons,
-    hasIndicstor,
+    hasIndicator,
     pathsMap,
 }: GetPathParams): string => {
     if (hasBottomAddons && hasTopAddons) {
         return pathsMap[size].topBottom || '';
     }
 
-    if (hasBottomAddons && hasIndicstor) {
+    if (hasBottomAddons && hasIndicator) {
         return pathsMap[size].indicatorBottom || '';
     }
 
@@ -45,7 +45,7 @@ export const getPath = ({
         return pathsMap[size].top || '';
     }
 
-    if (hasIndicstor) {
+    if (hasIndicator) {
         return pathsMap[size].indicator || '';
     }
 
