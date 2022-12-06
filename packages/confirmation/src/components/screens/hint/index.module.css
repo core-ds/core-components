@@ -1,12 +1,6 @@
 @import '../../../vars.css';
 
-.center {
-    & .hintWrap {
-        align-items: center;
-    }
-}
-
-.hintWrap {
+.component {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -15,11 +9,16 @@
     }
 }
 
-.text {
+.center {
+    align-items: center;
+    text-align: center;
+}
+
+.text.text {
     margin-bottom: var(--gap-xl);
 }
 
-.typographyTheme {
+.typographyTheme.typographyTheme {
     @mixin _confirmation-text;
 }
 
@@ -37,7 +36,7 @@
     }
 }
 
-.phoneLink {
+.phoneLink.phoneLink {
     @mixin action_primary_medium;
 }
 
