@@ -37,10 +37,10 @@ describe('Badge', () => {
             expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
-        it('should set `outlineCount` class', () => {
+        it('should set `outline` class', () => {
             const { container } = render(<Badge view='count' visibleIconOutline={true} />);
 
-            expect(container.firstElementChild).toHaveClass('outlineCount');
+            expect(container.firstElementChild).toHaveClass('outline');
         });
 
         it('should set `size` class', () => {

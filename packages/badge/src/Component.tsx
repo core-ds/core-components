@@ -86,9 +86,9 @@ export const Badge = ({
                 iconColor && styles[iconColor],
                 {
                     [styles[size]]: !isCountView,
-                    [styles.outline]: !isCountView && visibleIconOutline,
-                    [styles.outlineColor]: visibleColorOutline,
-                    [styles.outlineCount]: isCountView && visibleIconOutline,
+                    [styles.outline]: visibleIconOutline,
+                    [styles.outlineColor]: !isCountView && visibleColorOutline,
+                    [styles.outlineCount]: isCountView && visibleColorOutline,
                     [styles.count]: isCountView,
                 },
                 className,
