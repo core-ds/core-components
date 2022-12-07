@@ -3,6 +3,7 @@ import { text, boolean, number, select as selectKnob } from '@storybook/addon-kn
 
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Select } from '@alfalab/core-components-select';
+import { SelectResponsive } from '@alfalab/core-components-select/responsive';
 import { SelectMobile } from '@alfalab/core-components-select/components/select-mobile';
 import { SelectModalMobile } from '@alfalab/core-components-select/components/select-modal-mobile';
 import { Arrow } from '@alfalab/core-components-select/components/arrow';
@@ -77,6 +78,7 @@ export const POSITION_OPTIONS = [
     />
 </Story>
 
+
 <Story name='SelectMobile'>
     <SelectMobile
         block={boolean('block', false)}
@@ -95,6 +97,30 @@ export const POSITION_OPTIONS = [
         labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
         defaultOpen={boolean('defaultOpen', false)}
         swipeable={boolean('swipeable', true)}
+    />
+</Story>
+
+<Story name='SelectResponsive'>
+    <SelectResponsive
+        block={boolean('block', false)}
+        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        error={text('error', '')}
+        hint={text('hint', '')}
+        options={options}
+        multiple={boolean('multiple', false)}
+        allowUnselect={boolean('allowUnselect', true)}
+        closeOnSelect={boolean('closeOnSelect', true)}
+        Arrow={boolean('Arrow', true) ? Arrow : () => null}
+        circularNavigation={boolean('circularNavigation', false)}
+        nativeSelect={boolean('nativeSelect', false)}
+        placeholder={text('placeholder', 'Выберите элемент')}
+        label={text('label', 'Элемент')}
+        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
+        visibleOptions={number('visibleOptions', 5)}
+        defaultOpen={boolean('defaultOpen', false)}
+        popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
+        optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
     />
 </Story>
 
@@ -128,7 +154,9 @@ export const POSITION_OPTIONS = [
 />
 
 ```jsx
-import { Select } from '@alfalab/core-components/select';
+import { Select } from '@alfalab/core-components/select;
+import { SelectMobile } from '@alfalab/core-components/select';
+import { SelectResponsive } from '@alfalab/core-components/select/responsive';
 ```
 
 <Tabs
