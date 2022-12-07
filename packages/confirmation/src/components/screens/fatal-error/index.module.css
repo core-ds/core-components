@@ -1,6 +1,11 @@
 @import '../../../vars.css';
 
-.typographyTheme {
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
+.typographyTheme.typographyTheme {
     @mixin _confirmation-text;
 }
 
@@ -10,6 +15,7 @@
 
 .center {
     align-items: center;
+    text-align: center;
 }
 
 .button {

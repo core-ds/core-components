@@ -111,10 +111,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
 
     return (
         <ConfirmationContext.Provider value={contextValue}>
-            <div
-                className={cn(styles.component, styles[alignContent], className)}
-                data-test-id={dataTestId}
-            >
+            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
                 {CurrentScreen && <CurrentScreen mobile={mobile} />}
             </div>
         </ConfirmationContext.Provider>
