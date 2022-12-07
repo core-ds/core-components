@@ -19,8 +19,8 @@ render(() => {
             <Row>
                 {SIZES.map(size => (
                     <Col key={size}>
-                        <Component size={size}  style={{ marginRight: '20px'}}>
-                            <SfTouchIdXxlIcon/>
+                        <Component size={size} >
+                         { size === '128' || size === '80' ?  <DiamondsXxlIcon/> : size === '20' ? <DiamondsSIcon/> : <DiamondsMIcon/>}
                         </Component>
                     </Col>
                 ))}
@@ -64,7 +64,7 @@ render(() => {
         <Col>
             <SuperEllipse
                 size='80'
-                icon={DiamondsMIcon}
+                backgroundIcon={DiamondsMIcon}
                 backgroundColor='transparent'
             />
         </Col>
@@ -130,8 +130,8 @@ const negative = <Badge
     content={<CrossCircleMIcon />}
 />;
 
-const iconViewSvg = <Circle size='20'> <DiamondsMIcon /> </Circle>
-const iconViewImage = <Circle size='20' imageUrl="./images/alfa.png"/>
+const iconViewSvg = <Circle size='24'> <DiamondsMIcon /> </Circle>
+const iconViewImage = <Circle size='24' imageUrl="./images/alfa.png"/>
 
 const style = {
     width: '24px',
@@ -175,19 +175,6 @@ render(
 
 Counter всегда отображается в верхнем аддоне. Если в Counter не передан контент его следует отображать в специальном слоте Indicator и использовать соответствующую форму выреза.
 ```jsx live
-
-const count = <Badge
-    view='conut'
-    size='m'
-/>;
-const negative = <Badge
-    view='icon'
-    size='m'
-    iconColor='negative'
-    visibleColorOutline={true}
-    content={<CrossCircleMIcon />}
-/>;
-
 render(
     <Container>
         <Row>
