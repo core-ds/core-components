@@ -1,3 +1,27 @@
+## 36.3.1
+
+<sup><time>08.12.2022</time></sup>
+
+### [#400](https://github.com/core-ds/core-components/pull/400)
+
+#### Что изменилось
+- Исправлена верстка fatal-error экрана
+- Поднята специфичность стилей Confirmation, чтобы они всегда перебивали стили других компонентов.<br />
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+### [#388](https://github.com/core-ds/core-components/pull/388)
+
+#### Что изменилось
+- Исправлен импорт PickerButtonDesktop компонента
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+
 ## 36.3.0
 
 <sup><time>02.12.2022</time></sup>
