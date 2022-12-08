@@ -26,9 +26,15 @@ lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-them
 lerna exec --scope @alfalab/core-components-vars -- node $(pwd)/bin/export-css-custom-properties-as-js-vars.js
 
 # собираю все подпакеты с компонентами
+#lerna exec --concurrency $CONCURRENCY \
+#    --scope @alfalab/core-components-vars \
+#    --ignore @alfalab/core-components-codemod \
+#    -- $(pwd)/bin/rollup.sh
+
+# собираю все подпакеты с компонентами
 lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-codemod \
-    -- $(pwd)/bin/rollup.sh
+    -- node $(pwd)/tools/esbuild/build.js
 
 # копирую собранные css пакеты в корневой пакет
 copy_to_root="cp -rp dist/ ../../dist/\${PWD##*/}"
