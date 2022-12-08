@@ -1,5 +1,14 @@
 # Change Log
 
+## 12.3.4
+
+### Patch Changes
+
+### [#400](https://github.com/core-ds/core-components/pull/400)
+
+-   Исправлена верстка fatal-error экрана
+-   Поднята специфичность стилей Confirmation, чтобы они всегда перебивали стили других компонентов.<br />
+
 ## 12.3.3
 
 ### Patch Changes
