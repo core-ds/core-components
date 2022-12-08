@@ -7,7 +7,6 @@ SidePanel построен как Compound Components.
 ```tsx live
 // import { Typography } from '@alfalab/core-components/typography';
 
-);
 render(() => {
     const [open, setOpen] = React.useState(false);
     const handleModalOpen = () => setOpen(!open);
@@ -16,7 +15,6 @@ render(() => {
         fixedСontent: 'yes',
         header: 'header',
         navigation: 'closer',
-        version: 'desktop',
         footerContent: 'yes',
         placement: 'right',
         scrollbar: 'native'
@@ -25,13 +23,6 @@ render(() => {
     const handleStateChange = (key, _, payload) => {
         setState(state => ({ ...state, [key]: payload.value }));
     }
-
-    const SidePanelComponent = React.useMemo(() => {
-        return {
-            'desktop': SidePanelDesktop,
-            'mobile': SidePanelMobile,
-        }[state.version]
-    }, [state.version]);
 
     const Text = () => (
         <p style={{ margin: '15px 0 16px' }}>
@@ -47,12 +38,12 @@ render(() => {
             <Button type='button' size='xs' onClick={handleModalOpen}>
                 Открыть сайд-панель
             </Button>
-            <SidePanelComponent open={open} onClose={handleModalOpen} size='s' placement={state.placement} nativeScrollbar={state.scrollbar === 'native'}>
-                <SidePanelComponent.Header
+            <SidePanelDesktop open={open} onClose={handleModalOpen} size='s' placement={state.placement} nativeScrollbar={state.scrollbar === 'native'}>
+                <SidePanelDesktop.Header
                     hasCloser={state.navigation === 'closer'}
                     sticky={state.fixedСontent === 'yes'}
                     title ={state.header === 'header' && 'Почему банк проверяет мои операции?'}/>
-                <SidePanelComponent.Content>
+                <SidePanelDesktop.Content>
                     <div style={{position: 'relative'}}>
                         {state.header === 'content' &&
                             <Typography.Title view='small' tag='div'>Почему банк проверяет мои операции?</Typography.Title>}
@@ -62,56 +53,151 @@ render(() => {
                             <Text/>
                             <Text/>
                     </div>
-                </SidePanelComponent.Content>
-                <SidePanelComponent.Footer sticky={state.fixedСontent === 'yes'}>
+                </SidePanelDesktop.Content>
+                <SidePanelDesktop.Footer sticky={state.fixedСontent === 'yes'}>
                     {state.footerContent === 'yes' && <Button view='primary' size='s' onClick={handleModalOpen}>
                         Понятно
                     </Button>}
-                </SidePanelComponent.Footer>
-            </SidePanelComponent>
+                </SidePanelDesktop.Footer>
+            </SidePanelDesktop>
 
             <div style={{ margin: '40px 0' }}>
                 <RadioGroup
-                    label="Версия"
+                    label="Размещение"
                     direction="vertical"
-                    name="radioGroupFourth"
-                    onChange={handleStateChange.bind(null, 'version')}
-                    value={state.version}
+                    name="placement"
+                    onChange={handleStateChange.bind(null, 'placement')}
+                    value={state.placement}
                 >
-                    <Radio label="Десктопная" value="desktop" />
-                    <Radio label="Мобильная" value="mobile" />
+                    <Radio label="Слева" value="left" />
+                    <Radio label="Справа" value="right" />
                 </RadioGroup>
             </div>
 
-            {state.version === 'desktop' && (
-                <>
-                <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Размещение"
-                        direction="vertical"
-                        name="placement"
-                        onChange={handleStateChange.bind(null, 'placement')}
-                        value={state.placement}
-                    >
-                        <Radio label="Слева" value="left" />
-                        <Radio label="Справа" value="right" />
-                    </RadioGroup>
-                </div>
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Скроллбар"
+                    direction="vertical"
+                    name="scrollbar"
+                    onChange={handleStateChange.bind(null, 'scrollbar')}
+                    value={state.scrollbar}
+                >
+                    <Radio label="Нативный" value='native' />
+                    <Radio label="Кастомный" value='custom' />
+                </RadioGroup>
+            </div>
 
-                <div style={{ margin: '40px 0' }}>
-                    <RadioGroup
-                        label="Скроллбар"
-                        direction="vertical"
-                        name="scrollbar"
-                        onChange={handleStateChange.bind(null, 'scrollbar')}
-                        value={state.scrollbar}
-                    >
-                        <Radio label="Нативный" value='native' />
-                        <Radio label="Кастомный" value='custom' />
-                    </RadioGroup>
-                </div>
-                </>
-            )}
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Футер и хедер"
+                    direction="vertical"
+                    name="radioGroupFirst"
+                    onChange={handleStateChange.bind(null, 'fixedСontent')}
+                    value={state.fixedСontent}
+                >
+                    <Radio label="Фиксированные" value="yes" />
+                    <Radio label="Нефиксированные" value="no" />
+                </RadioGroup>
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер и хедер без контента не могут быть закреплёнными.</Typography.Text>
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Заголовок"
+                    direction="vertical"
+                    name="radioGroupSecond"
+                    onChange={handleStateChange.bind(null, 'header')}
+                    value={state.header}
+                >
+                    <Radio label="В шапке" value="header" />
+                    <Radio label="В контентной части" value="content" />
+                </RadioGroup>
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Навигация"
+                    direction="vertical"
+                    name="radioGroupThird"
+                    onChange={handleStateChange.bind(null, 'navigation')}
+                    value={state.navigation}
+                >
+                    <Radio label="Закрыть" value="closer" />
+                    <Radio label="Без навигации" value="no" />
+                </RadioGroup>
+            </div>
+
+            <div style={{ margin: '40px 0' }}>
+                <RadioGroup
+                    label="Контент футера"
+                    direction="vertical"
+                    name="radioGroupFifth"
+                    onChange={handleStateChange.bind(null, 'footerContent')}
+                    value={state.footerContent}
+                >
+                    <Radio label="Кнопка" value="yes" />
+                    <Radio label="Нет контента" value="no" />
+                </RadioGroup>
+
+                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
+            </div>
+        </React.Fragment>
+    );
+});
+//MOBILE
+// import { Typography } from '@alfalab/core-components/typography';
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const handleModalOpen = () => setOpen(!open);
+
+    const [state, setState] = React.useState({
+        fixedСontent: 'yes',
+        header: 'header',
+        navigation: 'closer',
+        footerContent: 'yes',
+    });
+
+    const handleStateChange = (key, _, payload) => {
+        setState(state => ({ ...state, [key]: payload.value }));
+    }
+
+    const Text = () => (
+        <p style={{ margin: '15px 0 16px' }}>
+            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
+            Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
+            потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
+            полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+        </p>
+    )
+
+    return (
+        <React.Fragment>
+            <Button type='button' size='xs' onClick={handleModalOpen}>
+                Открыть сайд-панель
+            </Button>
+            <SidePanelMobile open={open} onClose={handleModalOpen} size='s' placement={state.placement} nativeScrollbar={state.scrollbar === 'native'}>
+                <SidePanelMobile.Header
+                    hasCloser={state.navigation === 'closer'}
+                    sticky={state.fixedСontent === 'yes'}
+                    title ={state.header === 'header' && 'Почему банк проверяет мои операции?'}/>
+                <SidePanelMobile.Content>
+                    <div style={{position: 'relative'}}>
+                        {state.header === 'content' &&
+                            <Typography.Title view='small' tag='div'>Почему банк проверяет мои операции?</Typography.Title>}
+                            <Text/>
+                            <Text/>
+                            <Text/>
+                            <Text/>
+                            <Text/>
+                    </div>
+                </SidePanelMobile.Content>
+                <SidePanelMobile.Footer sticky={state.fixedСontent === 'yes'}>
+                    {state.footerContent === 'yes' && <Button view='primary' size='s' onClick={handleModalOpen}>
+                        Понятно
+                    </Button>}
+                </SidePanelMobile.Footer>
+            </SidePanelMobile>
 
             <div style={{ margin: '40px 0' }}>
                 <RadioGroup
