@@ -1,0 +1,34 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { SidePanelMobile as SidePanelMobileTS } from '../Component.mobile';
+import { SidePanelDesktop as SidePanelDesktopTS } from '../Component.desktop';
+import { SidePanelResponsive as SidePanelResponsiveTS } from '../Component.responsive';
+import { HeaderDesktop as HeaderTS } from '../components/header/Component.desktop';
+import { ContentDesktop as ContentTS } from '../components/content/Component.desktop';
+import { FooterDesktop as FooterTS } from '../components/footer/Component.desktop';
+import vars from '!!raw-loader!../vars.css';
+
+## Подключение
+
+```tsx
+import { SidePanelResponsive } from '@alfalab/core-components/side-panel/responsive';
+import { SidePanelDesktop } from '@alfalab/core-components/side-panel/desktop';
+import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
+```
+
+## Свойства
+
+<ArgsTable
+    components={{
+        SidePanelDesktop: SidePanelDesktopTS,
+        SidePanelMobile: SidePanelMobileTS,
+        SidePanelResponsive: SidePanelResponsiveTS,
+        'SidePanel.Header': HeaderTS,
+        'SidePanel.Content': ContentTS,
+        'SidePanel.Footer': FooterTS,
+    }}
+/>
+
+## Переменные
+
+<CssVars css={vars} />

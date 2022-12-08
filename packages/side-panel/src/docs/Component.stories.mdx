@@ -1,22 +1,16 @@
-import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
 import { SidePanelMobile } from '@alfalab/core-components-side-panel/Component.mobile';
 import { SidePanelDesktop } from '@alfalab/core-components-side-panel/Component.desktop';
 import { SidePanelResponsive } from '@alfalab/core-components-side-panel/Component.responsive';
 
-import { SidePanelMobile as SidePanelMobileTS } from '../Component.mobile';
-import { SidePanelDesktop as SidePanelDesktopTS } from '../Component.desktop';
-import { SidePanelResponsive as SidePanelResponsiveTS } from '../Component.responsive';
-import { HeaderDesktop as HeaderTS } from '../components/header/Component.desktop';
-import { ContentDesktop as ContentTS } from '../components/content/Component.desktop';
-import { FooterDesktop as FooterTS } from '../components/footer/Component.desktop';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
-import vars from '!!raw-loader!../vars.css';
 
 <Meta title='Компоненты/Модалки и поповеры/SidePanel' />
 
@@ -136,26 +130,8 @@ export const Content = () => {
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
 />
 
-```tsx
-import { SidePanelResponsive } from '@alfalab/core-components/side-panel/responsive';
-import { SidePanelDesktop } from '@alfalab/core-components/side-panel/desktop';
-import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
-```
-
 <Tabs
     description={<Description />}
+    development={<Development />}
     changelog={<Changelog />}
-    cssVars={<CssVars css={vars} />}
-    props={
-        <ArgsTable
-            components={{
-                SidePanelDesktop: SidePanelDesktopTS,
-                SidePanelMobile: SidePanelMobileTS,
-                SidePanelResponsive: SidePanelResponsiveTS,
-                'SidePanel.Header': HeaderTS,
-                'SidePanel.Content': ContentTS,
-                'SidePanel.Footer': FooterTS,
-            }}
-        />
-    }
 />
