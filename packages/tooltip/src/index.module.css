@@ -3,7 +3,7 @@
 .component {
     @mixin paragraph_primary_small;
     padding: var(--gap-m);
-    max-width: 400px;
+    max-width: var(--tooltip-max-width);
 }
 
 .popper {
