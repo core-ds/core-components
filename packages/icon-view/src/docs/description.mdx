@@ -39,6 +39,55 @@ render(() => {
         </Container>
     );
 });
+//MOBILE
+render(() => {
+    const BIG_SIZES = ['128', '80', '64'];
+    const SMALL_SIZES = ['48', '40', '32', '24', '20'];
+
+    const [component, setComponent] = React.useState('ellipse');
+
+    const Component = component === 'circle' ? Circle : SuperEllipse
+
+    const onChange = (_, payload) => {
+        setComponent(payload.value);
+    };
+
+    return (
+        <Container>
+            <Row >
+                {BIG_SIZES.map(size => (
+                    <Col key={size}>
+                        <Component size={size} >
+                            { size !== '64' ? <DiamondsXxlIcon/> : <DiamondsMIcon/>}
+                        </Component>
+                    </Col>
+                ))}
+            </Row>
+            <Row >
+                {SMALL_SIZES.map(size => (
+                    <Col key={size}>
+                        <Component size={size} >
+                            { size !== '20' ? <DiamondsMIcon/> : <DiamondsSIcon/>}
+                        </Component>
+                    </Col>
+                ))}
+            </Row>
+
+
+            <Row>
+                <RadioGroup
+                name='radioGroup'
+                onChange={onChange}
+                hint='Выберите один из вариантов'
+                value={component}
+            >
+                <Radio label='SuperEllipse' value='ellipse' size='m' />
+                <Radio label='Circle' value='circle' size='m' />
+            </RadioGroup>
+            </Row>
+        </Container>
+    );
+});
 ```
 
 ## Шейп
@@ -169,6 +218,61 @@ render(
         </Row>
     </Container>
 );
+//MOBILE
+const positive = <Badge
+    view='icon'
+    size='m'
+    iconColor='positive'
+    visibleColorOutline={true}
+    content={<CheckmarkCircleMIcon />}
+/>;
+const negative = <Badge
+    view='icon'
+    size='m'
+    iconColor='negative'
+    visibleColorOutline={true}
+    content={<CrossCircleMIcon />}
+/>;
+
+const iconViewSvg = <Circle size='24'> <DiamondsMIcon /> </Circle>
+const iconViewImage = <Circle size='24' imageUrl="./images/alfa.png"/>
+
+const style = {
+    width: '24px',
+    height: '24px',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(55, 120, 251, 0.1)',
+    border: '1px dashed rgb(55, 120, 251)',
+    boxSizing: 'border-box',
+}
+
+const blank= <div style={style} ></div>
+
+render(
+    <Container>
+        <Row>
+            <Col>
+                <SuperEllipse size='80'  topAddons={blank} bottomAddons={blank}/>
+            </Col>
+
+            <Col>
+                <SuperEllipse size='80' topAddons={iconViewImage} />
+            </Col> 
+            <Col>
+                <SuperEllipse size='80' bottomAddons={iconViewSvg} />
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+                <SuperEllipse
+                    size='80'
+                    topAddons={positive}
+                    bottomAddons={negative}
+                />
+            </Col>
+        </Row>
+    </Container>
+);
 ```
 
 ## Indicator и Counter
@@ -179,7 +283,7 @@ render(
     <Container>
         <Row>
             <Col>
-                <SuperEllipse size='80' indicator={<Badge view='count' height={20} />} />
+                <SuperEllipse size='80' indicator={<Badge view='count' />} />
             </Col>
 
             <Col>
@@ -190,6 +294,29 @@ render(
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={20} content={25} />} />
             </Col>
 
+            <Col>
+                <SuperEllipse size='80' topAddons={<Badge view='count' height={20} content={100} />}
+                />
+            </Col>
+        </Row>
+    </Container>
+);
+//MOBILE
+render(
+    <Container>
+        <Row>
+            <Col>
+                <SuperEllipse size='80' indicator={<Badge view='count' />} />
+            </Col>
+
+            <Col>
+                <SuperEllipse size='80' topAddons={<Badge view='count' height={20} content={1}/>} />
+            </Col> 
+            <Col>
+                <SuperEllipse size='80' topAddons={<Badge view='count' height={20} content={25} />} />
+            </Col>
+</Row>
+<Row>
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={20} content={100} />}
                 />
