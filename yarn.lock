@@ -134,7 +134,12 @@
     string-hash "^1.1.3"
     style-inject "^0.3.0"
 
-"@alfalab/stylelint-core-vars@1.4.0", "@alfalab/stylelint-core-vars@^1.4.0":
+"@alfalab/stylelint-core-vars@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.5.0.tgz#2eb559978a9835a80afb1bf7d8ba36c7b12b6a49"
+  integrity sha512-3gYD2jZa0Vv/FvoiLVRec/U5JMBpg2AUrIipyUne7ymlnOH9ETM3ecZVPTWAh3K3kPoPFSvVV8vSrKkG/qEliw==
+
+"@alfalab/stylelint-core-vars@^1.4.0":
   version "1.4.0"
   resolved "https://registry.npmjs.org/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.4.0.tgz"
   integrity sha512-6BOJJppFlPTsA/m53zjlBDTm49PF1O+wcrSDL7s3uOdMkChc0F/NXKTq+Oz/k4tI4yG5ZnyACcmD8g7vbjvVag==
@@ -8266,12 +8271,12 @@ arui-cssvars@1.2.0:
   resolved "https://registry.yarnpkg.com/arui-cssvars/-/arui-cssvars-1.2.0.tgz#08e3f5cf8228bcd932d5fbe41befa746f21a2c1a"
   integrity sha512-TqDsAL/GxXkKsLXKLZIwz4yHaUZipaUtXlcbsRezHvAlf4FCNmhavDEMJpindUM0MNw2uchN0Y4j3AeeVW2sZA==
 
-arui-presets-lint@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/arui-presets-lint/-/arui-presets-lint-6.0.1.tgz#c25ee008a766e9a660aa8f08aab9dbad9c390e9d"
-  integrity sha512-tDy4/yW3hP6rkX8Yq8zMOQl3ORAZjUPkwVl8kSk8QMkjItuoeKnKvV2T3IEoZ3kO09IyBlegAId93xoO1ick0A==
+arui-presets-lint@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/arui-presets-lint/-/arui-presets-lint-6.1.0.tgz#44b1d64e4a5d5015ab0f509b20d13e9f09a3372b"
+  integrity sha512-gVGtFSuWc9Mid2fcbRy8zu1QDcyD/m5Lv7NtIdvKCSDtplJfffpna4DkG0FoVajNv09MTYxVuy9by+ltxk/j8A==
   dependencies:
-    "@alfalab/stylelint-core-vars" "1.4.0"
+    "@alfalab/stylelint-core-vars" "1.5.0"
     "@commitlint/cli" "16.3.0"
     "@commitlint/config-conventional" "16.2.4"
     arui-cssvars "1.2.0"
