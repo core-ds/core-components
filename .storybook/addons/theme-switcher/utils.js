@@ -1,4 +1,4 @@
-import { getOrCreateStyleTag } from '../utils';
+import { getMobileFrames, getOrCreateStyleTag } from '../utils';
 import { MODE_COLORS_TAG_ID } from '../mode-switcher/utils';
 
 import bluetintColors from '!!postcss-loader!../../../packages/vars/src/colors-bluetint.css';
@@ -18,21 +18,32 @@ export const themes = {
     intranet,
 };
 
-export const THEME_DATA_ATTR = 'theme';
+export const THEME_TAG_ID = 'theme';
 
 export function setThemeStylesInIframeHtmlPage() {
     const matches = /&theme=([^&]*)/.exec(document.location.search);
 
     if (matches) {
-        setStyles(matches[1], document);
+        setThemeStyles(matches[1], document);
     }
+}
+
+export function setThemeStylesInMobileFrame(theme) {
+    getMobileFrames().forEach((iframe) => {
+        setThemeStyles(theme, iframe.contentDocument);
+    });
 }
 
 export function getThemeStyles(theme) {
     const bluetintThemes = ['mobile', 'intranet'];
-    return [themes[theme], bluetintThemes.some(x => x.includes(theme)) ? bluetintColors : ''].join('\n');
+    return [
+        themes[theme],
+        bluetintThemes.some((x) => x.includes(theme)) ? bluetintColors : '',
+    ].join('\n');
 }
 
-export function setStyles(theme, doc) {
-    getOrCreateStyleTag('theme', MODE_COLORS_TAG_ID, doc).innerHTML = getThemeStyles(theme);
+export function setThemeStyles(theme, doc) {
+    const themeStyles = getThemeStyles(theme);
+
+    getOrCreateStyleTag(THEME_TAG_ID, MODE_COLORS_TAG_ID, doc).innerHTML = themeStyles;
 }

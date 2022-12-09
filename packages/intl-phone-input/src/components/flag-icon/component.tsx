@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
+import { flagSprite } from './flagSprite';
 import styles from './index.module.css';
 
 export type FlagIconProps = {
@@ -18,6 +19,12 @@ export type FlagIconProps = {
 /**
  * Компонент флага в виде иконки.
  */
-export const FlagIcon: FC<FlagIconProps> = ({ country = '', className }) => (
-    <span className={cn(styles.flagIcon, styles[country], className)} />
-);
+export const FlagIcon: FC<FlagIconProps> = ({ country = '', className }) =>
+    flagSprite[country] ? (
+        <span
+            className={cn(styles.flagIcon, className)}
+            dangerouslySetInnerHTML={{ __html: flagSprite[country] }}
+        />
+    ) : (
+        <div className={cn(styles.flagPlaceholder, className)} />
+    );

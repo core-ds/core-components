@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.8.0
+
+### Minor Changes
+
+### [#377](https://github.com/core-ds/core-components/pull/377)
+
+-   Добавлены новые токены light-graphic-positive-alpha-10 и light-graphic-negative-alpha-10
+
 ## 9.7.0
 
 ### Minor Changes

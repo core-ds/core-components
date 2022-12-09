@@ -1,16 +1,24 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+### [#377](https://github.com/core-ds/core-components/pull/377)
+
+-   Добавлены новые токены light-graphic-positive-alpha-10 и light-graphic-negative-alpha-10
+
 ## 7.0.0
 
 ### Major Changes
 
 -   [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
 
-  Удалённые миксины с текстовыми стилями были помечены как deprecated более двух лет назад и в макетах давно не используются.
+Удалённые миксины с текстовыми стилями были помечены как deprecated более двух лет назад и в макетах давно не используются.
 
-  Основное изменение, про которое нужно знать — удалены текстовые transparent цвета.
-  При обновлении достаточно убрать `-transparent` из названий:
-  `--color-light-text-secondary-transparent` → `--color-light-text-secondary`
+Основное изменение, про которое нужно знать — удалены текстовые transparent цвета.
+При обновлении достаточно убрать `-transparent` из названий:
+`--color-light-text-secondary-transparent` → `--color-light-text-secondary`
 
 ## 6.5.1
 

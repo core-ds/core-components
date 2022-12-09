@@ -1,3 +1,121 @@
+## 36.3.1
+
+<sup><time>08.12.2022</time></sup>
+
+### [#400](https://github.com/core-ds/core-components/pull/400)
+
+#### Что изменилось
+- Исправлена верстка fatal-error экрана
+- Поднята специфичность стилей Confirmation, чтобы они всегда перебивали стили других компонентов.<br />
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+### [#388](https://github.com/core-ds/core-components/pull/388)
+
+#### Что изменилось
+- Исправлен импорт PickerButtonDesktop компонента
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+
+## 36.3.0
+
+<sup><time>02.12.2022</time></sup>
+
+### [#377](https://github.com/core-ds/core-components/pull/377)
+
+#### Что изменилось
+- Добавлен новый компонент PatternLock
+
+#### Влияние на компоненты
+- Минорное<br />`pattern-lock`
+
+<br />
+
+#### Что изменилось
+- Добавлены новые токены light-graphic-positive-alpha-10 и light-graphic-negative-alpha-10
+
+#### Влияние на компоненты
+- Минорное<br />`themes` `vars`
+
+
+### [#364](https://github.com/core-ds/core-components/pull/364)
+
+#### Что изменилось
+- Замена иконок флагов на новые, если для страны нет соответствующего флага в наборе, вместо него выводится заглушка.
+
+#### Влияние на компоненты
+- Минорное<br />`intl-phone-input`
+
+
+### [#383](https://github.com/core-ds/core-components/pull/383)
+
+#### Что изменилось
+- Добавлен новый компонент PassCode
+
+#### Влияние на компоненты
+- Минорное<br />`pass-code`
+
+
+### [#370](https://github.com/core-ds/core-components/pull/370)
+
+#### Что изменилось
+- feat(picker-button): extend options type
+
+#### Влияние на компоненты
+- Минорное<br />`picker-button`
+
+
+### [#390](https://github.com/core-ds/core-components/pull/390)
+
+#### Что изменилось
+- Подправлена типизация для компонента Typography.Text, чтобы можно было передавать ref
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+### [#381](https://github.com/core-ds/core-components/pull/381)
+
+#### Что изменилось
+- В хук useMatchMedia добавлено значение по-умолчанию. Также useEffect заменен на useLayoutEffect
+
+#### Влияние на компоненты
+- Минорное<br />`mq`
+
+
+### [#357](https://github.com/core-ds/core-components/pull/357)
+
+#### Что изменилось
+- Добавлена механика переполнения в Textarea. Теперь ввод будет доступен даже если количество введённых символов превышает maxLength. Символы, позиция которых превышает maxLength, будут выделены цветом ошибки.
+
+#### Влияние на компоненты
+- Минорное<br />`textarea`
+
+
+### [#376](https://github.com/core-ds/core-components/pull/376)
+
+#### Что изменилось
+- Убрали дополнительную обертку, которая ограничивала применение пропа `className`
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#362](https://github.com/core-ds/core-components/pull/362)
+
+#### Что изменилось
+- Исправлена ошибка в onChange обработчике, из-за которой некорректно работала вставка значений с пробелом.
+
+#### Влияние на компоненты
+- Патчи<br />`slider-input`
+
+
+
 ## 36.2.0
 
 <sup><time>23.11.2022</time></sup>

@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.1.1
+
+### Patch Changes
+
+### [#362](https://github.com/core-ds/core-components/pull/362)
+
+-   Исправлена ошибка в onChange обработчике, из-за которой некорректно работала вставка значений с пробелом.
+
 ## 7.1.0
 
 ### Minor Changes

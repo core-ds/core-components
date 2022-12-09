@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.3.3
+
+### Patch Changes
+
+### [#376](https://github.com/core-ds/core-components/pull/376)
+
+-   Убрали дополнительную обертку, которая ограничивала применение пропа `className`
+
 ## 6.3.2
 
 ### Patch Changes

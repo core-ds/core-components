@@ -156,4 +156,17 @@ describe('Render tests', () => {
             expect(container.getElementsByClassName('sideGap')).not.toBeNull();
         },
     );
+
+    it.each(pickerButtonVariants)('options group should have label', async (Component) => {
+        render(<Component options={[{ label: 'Валютный счёт', options }]} />);
+
+        clickPickerButton();
+
+        await waitFor(() => {
+            const renderedGroup = document.querySelector('.optgroup');
+
+            expect(renderedGroup).not.toBeNull();
+            expect(renderedGroup).toHaveTextContent('Валютный счёт');
+        });
+    });
 });

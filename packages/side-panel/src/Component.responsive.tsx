@@ -41,7 +41,7 @@ function createResponsive<DesktopType extends FC, MobileType extends FC>(
     desktop: DesktopType,
     mobile: MobileType,
 ) {
-    function ResponsiveChild(props: never) {
+    function ResponsiveChild(props: any) {
         const { view } = useContext(ResponsiveContext);
 
         const Child = view === 'desktop' ? desktop : mobile;

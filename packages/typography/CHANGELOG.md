@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.6
+
+### Patch Changes
+
+### [#390](https://github.com/core-ds/core-components/pull/390)
+
+-   Подправлена типизация для компонента Typography.Text, чтобы можно было передавать ref
+
 ## 3.0.5
 
 ### Patch Changes

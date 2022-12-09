@@ -250,7 +250,7 @@ export const BaseSelectMobile = forwardRef(
             },
         });
 
-        const menuProps = (getMenuProps as (options: object, additional: object) => void)(
+        const menuProps = (getMenuProps as (options: object, additional: object) => Record<string, any>)(
             { ref: listRef },
             { suppressRefError: true },
         );
@@ -402,7 +402,7 @@ export const BaseSelectMobile = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...fieldProps}
+                    {...fieldProps as Record<string, any>}
                 />
 
                 {name && renderValue()}
@@ -424,7 +424,7 @@ export const BaseSelectMobile = forwardRef(
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
                                 showFooter={multiple}
-                                {...optionsListProps}
+                                {...optionsListProps as Record<string, any>}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
@@ -454,7 +454,7 @@ export const BaseSelectMobile = forwardRef(
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
                                 showFooter={multiple}
-                                {...optionsListProps}
+                                {...optionsListProps as Record<string, any>}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}

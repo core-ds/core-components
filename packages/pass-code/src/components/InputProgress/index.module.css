@@ -1,0 +1,28 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.dot {
+    margin: 0 6px;
+    width: 12px;
+    height: 12px;
+    background: var(--color-light-bg-quaternary);
+    border-radius: var(--border-radius-circle);
+    flex-shrink: 0;
+    transition: background 75ms ease-in;
+
+    &.error {
+        background: var(--color-light-graphic-negative);
+        transition: none;
+    }
+}
+
+.filled {
+    background: var(--color-light-graphic-primary);
+}

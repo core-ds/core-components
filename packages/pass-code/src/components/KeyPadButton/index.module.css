@@ -1,0 +1,69 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.button.button {
+    @mixin action_component_secondary;
+
+    border-radius: var(--border-radius-circle);
+    padding: 0;
+    min-width: 64px;
+    width: 64px;
+    height: 64px;
+    text-align: center;
+
+    & > span {
+        vertical-align: middle;
+
+        & > * {
+            vertical-align: middle;
+        }
+    }
+}
+
+.secondary.secondary {
+    color: var(--color-light-text-primary);
+    background: var(--button-bg-color);
+
+    &:hover {
+        color: var(--color-light-text-primary);
+    }
+
+    &:active {
+        background: var(--button-bg-color-active);
+    }
+}
+
+.ghost.ghost {
+    color: var(--color-light-text-primary);
+
+    &:hover {
+        color: var(--color-light-text-primary);
+    }
+
+    &:active {
+        background: var(--button-bg-color-active);
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .button.button {
+        min-width: 76px;
+        height: 76px;
+        width: 76px;
+    }
+}
+
+@media screen and (min-width: 390px) {
+    .button.button {
+        min-width: 86px;
+        width: 86px;
+        height: 86px;
+    }
+}
