@@ -62,6 +62,7 @@ export const AutocompleteMobileField = ({
                 labelView={labelView}
                 error={error}
                 hint={hint}
+                rightAddons={Arrow}
                 data-test-id={dataTestId}
                 {...restProps}
                 {...innerProps}
