@@ -1,19 +1,20 @@
-Компонент подтверждения операции по коду.
+## Примеры
+
+1. Корректный код: любой введеный код будет корректным.
+2. Некорректный код: любой введеный код будет некорректным.
+3. Закончились попытки ввода кода: после ввода кода пользователю будет сообщено, что у него закончились попытки.
+4. Закончились попытки запроса кода: после запроса следующего кода запрос нового будет заблокирован.
+5. Временная блокировка формы: после ввода кода форма будет заблокирована на 24 часа.
 
 ```jsx live
 render(() => {
+    const isMobileFrame = document.body.clientWidth < 450;
     const variants = [
-        { key: 'success', content: 'Успешный сценарий' },
-        { key: 'error', content: 'Сценарий с ошибкой' },
-        { key: 'fatal', content: 'Сценарий с критичной ошибкой' },
-        {
-            key: 'attempts-left',
-            content: 'Сценарий, когда кончились попытки запроса смс',
-        },
-        {
-            key: 'temp-block',
-            content: 'Сценарий, когда форма временно заблокирована',
-        },
+        { key: 'success', content: 'Корректный код' },
+        { key: 'error', content: 'Некорректный код' },
+        { key: 'fatal', content: 'Закончились попытки ввода кода' },
+        { key: 'sms-requests-ended', content: 'Закончились попытки запроса кода' },
+        { key: 'temp-block', content: 'Сценарий, когда форма временно заблокирована' },
     ];
 
     const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий' });
@@ -39,7 +40,7 @@ render(() => {
                 case 'fatal':
                     setConfirmationScreen('FATAL_ERROR');
                     break;
-                case 'attempts-left':
+                case 'sms-requests-ended':
                     setConfirmationState('CODE_ERROR');
                     break;
                 case 'temp-block':
@@ -53,7 +54,7 @@ render(() => {
 
     const handleSmsRetryClick = () => {
         setTimeout(() => {
-            if (variant.key === 'attempts-left') {
+            if (variant.key === 'sms-requests-ended') {
                 setConfirmationBlockSmsRetry(true);
             }
             setConfirmationState('INITIAL');
@@ -65,9 +66,12 @@ render(() => {
         setConfirmationState('CODE_SENDING');
     };
 
+    const Component = isMobileFrame ? ConfirmationMobile : Confirmation;
+
     return (
-        <div>
+        <div style={{ margin: '0 auto', width: isMobileFrame ? '100%' : 388 }}>
             <Select
+                block={true}
                 options={variants}
                 onChange={({ selected }) => {
                     setConfirmationState('INITIAL');
@@ -76,19 +80,18 @@ render(() => {
                     setVariant(selected);
                 }}
                 selected={variant.key}
+                Option={BaseOption}
             />
             <div
                 key={variant.key}
                 style={{
-                    display: 'flex',
-                    width: '500px',
                     margin: '16px 0 0',
                     padding: '16px',
                     boxShadow: '0 0 0 1px #eeeff1',
                     boxSizing: 'border-box',
                 }}
             >
-                <Confirmation
+                <Component
                     screen={confirmationScreen}
                     state={confirmationState}
                     alignContent='center'
@@ -107,124 +110,6 @@ render(() => {
 });
 ```
 
-### Как пользоваться
+## Использование компонента
 
-Компонент содержит в себе несколько экранов и может быть в нескольких состояниях:
-
-```jsx
-export type ConfirmationScreen =
-    | 'INITIAL' // начальный экран
-    | 'HINT' // экран "Не приходит смс?"
-    | 'FATAL_ERROR' // экран критической ошибки
-    | 'TEMP_BLOCK'; // экран временной блокировки
-
-export type ConfirmationState =
-    | 'INITIAL' // начальное состояние
-    | 'CODE_CHECKING' // проверка кода
-    | 'CODE_SENDING' // повторная отправка кода
-    | 'CODE_ERROR'; // ошибка, когда ввели неверный код
-```
-
-Для управления экранами и состояниями можно воспользоваться хуком:
-
-```jsx
-import { Confirmation, useConfirmation } from '@alfalab/core-components/confirmation';
-
-const Example = () => {
-    const {
-        confirmationState,
-        confirmationScreen,
-        setConfirmationState,
-        setConfirmationScreen,
-    } = useConfirmation();
-
-    const handleInputFinished = async code => {
-        const res = await checkCode(code);
-
-        if (!res.ok) {
-            setConfirmationState('CODE_ERROR');
-        }
-    };
-
-    const handleSmsRetryClick = () => {
-        await resendCode();
-
-        setConfirmationState('INITIAL');
-    };
-
-    return (
-        <ConfirmationDesktop
-            screen={confirmationScreen}
-            state={confirmationState}
-            onChangeState={setConfirmationState}
-            onChangeScreen={setConfirmationScreen}
-            onInputFinished={handleInputFinished}
-            onSmsRetryClick={handleSmsRetryClick}
-        />
-    );
-};
-```
-
-На каждом экране можно кастомизировать тексты. Для этого есть специальное свойство `texts`:
-
-```jsx
-export type ConfirmationTexts = {
-    /**
-     * Экран INITIAL
-     */
-    title?: ReactNode; // заголовок
-    codeError?: string; // ошибка проверки кода
-    codeChecking?: string; // код проверяется
-    codeSending?: string; // код отправляется
-    codeSended?: string; // код отправлен
-    buttonRetry?: string; // кнопка повторной отправки кода
-    linkToHint?: string; // ссылка на экран HINT
-    noAttemptsLeft?: string; // не осталось попыток запроса кода
-    countdown?: string; // 'запросить повторно можно через'
-
-    /**
-     * Экран HINT
-     */
-    hintButton?: string; // кнопка 'Вернуться'
-
-    /**
-     * Экран FATAL_ERROR
-     */
-    fatalErrorTitle?: ReactNode; // заголовок
-    fatalErrorDescription?: ReactNode; // описание
-    fatalErrorButton?: string; // кнопка
-
-    /**
-     * Экран TEMP_BLOCK
-     */
-    tempBlockTitle?: ReactNode; // заголовок
-    tempBlockDescription?: ReactNode; // описание
-};
-```
-
-Также есть возможность добавить кастомные экраны:
-
-```jsx
-const Example = () => {
-    const {
-        confirmationState,
-        confirmationScreen,
-        setConfirmationState,
-        setConfirmationScreen,
-    } = useConfirmation();
-
-    return (
-        <Confirmation
-            screen={confirmationScreen}
-            state={confirmationState}
-            onChangeState={setConfirmationState}
-            onChangeScreen={setConfirmationScreen}
-            getScreensMap={screensMap => ({
-                ...screensMap,
-                HINT: () => <>Custom hint screen</>,
-                CUSTOM_SCREEN: () => <>Custom screen</>,
-            })}
-        />
-    );
-};
-```
+Компонент встраивается в необходимый контекст, например в модальное окно или сайд-панель.
