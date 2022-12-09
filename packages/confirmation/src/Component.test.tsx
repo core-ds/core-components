@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
 
 /**
@@ -258,6 +258,28 @@ describe('Confirmation', () => {
             fireEvent.click(button);
 
             expect(onFatalErrorOkButtonClick).toBeCalledTimes(1);
+        });
+
+        it('should call onChangeState when error occurred', async () => {
+            const onChangeState = jest.fn();
+
+            const { container } = render(
+                <ConfirmationDesktop
+                    {...baseProps}
+                    state='CODE_ERROR'
+                    clearCodeOnError={true}
+                    onChangeState={onChangeState}
+                />,
+            );
+
+            const codeInput = container.querySelector('div[class*="codeInput"]') as HTMLDivElement;
+
+            fireEvent.animationEnd(codeInput);
+
+            await waitFor(() => {
+                expect(onChangeState).toBeCalledTimes(1);
+                expect(onChangeState).toBeCalledWith('INITIAL');
+            });
         });
     });
 });
