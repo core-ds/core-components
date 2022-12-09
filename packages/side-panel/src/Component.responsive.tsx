@@ -24,6 +24,12 @@ export type SidePanelResponsiveProps = BaseModalProps &
          * @default false
          */
         hasCloser?: boolean;
+
+        /**
+         * Контрольная точка, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
     };
 
 type View = 'desktop' | 'mobile';
@@ -53,11 +59,11 @@ function createResponsive<DesktopType extends FC, MobileType extends FC>(
 }
 
 const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelResponsiveProps>(
-    ({ children, ...restProps }, ref) => {
+    ({ children, breakpoint = 1024, ...restProps }, ref) => {
         const [view] = useMedia<View>(
             [
-                ['mobile', '(max-width: 1023px)'],
-                ['desktop', '(min-width: 1024px)'],
+                ['mobile', `(max-width: ${breakpoint - 1}px)`],
+                ['desktop', `(min-width: ${breakpoint}px)`],
             ],
             'desktop',
         );

@@ -1,1 +1,4 @@
-export * from './Component';
+export {
+    DateTimeInputResponsive as DateTimeInput,
+    DateTimeInputResponsiveProps as DateTimeInputProps,
+} from './responsive';
