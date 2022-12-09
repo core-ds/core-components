@@ -1,3 +1,58 @@
+## 36.4.0
+
+<sup><time>09.12.2022</time></sup>
+
+### [#402](https://github.com/core-ds/core-components/pull/402)
+
+#### Что изменилось
+- Добавлено свойство `max-width` для Tooltip.
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [#407](https://github.com/core-ds/core-components/pull/407)
+
+#### Что изменилось
+- В CodeInput добавлен новый проп onErrorAnimationEnd
+- В Confirmation теперь сбрасывается состоянии ошибки при включенном пропе clearCodeOnError<br />
+- В Confirmation исправлена ошибка, из-за которой не показывался текст из пропа texts.blockSmsRetry<br />
+
+#### Влияние на компоненты
+- Минорное<br />`code-input`
+
+
+- Патчи<br />`confirmation`
+
+
+### [#394](https://github.com/core-ds/core-components/pull/394)
+
+#### Что изменилось
+- Исправлена генерация типов в .d.ts
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#375](https://github.com/core-ds/core-components/pull/375)
+
+#### Что изменилось
+- Добавлен опциональный prop `multiple` в компонент InputAutocompleteMobile. Теперь есть возможность выбрать несколько значений
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete`
+
+
+### [#399](https://github.com/core-ds/core-components/pull/399)
+
+#### Что изменилось
+- Исправлено некорректное выделение текста который превышает maxLength
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+
 ## 36.3.1
 
 <sup><time>08.12.2022</time></sup>
