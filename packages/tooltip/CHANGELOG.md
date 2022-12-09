@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.13
+
+### Patch Changes
+
+### [#402](https://github.com/core-ds/core-components/pull/402)
+
+-   Добавлено свойство `max-width` для Tooltip.
+
 ## 6.1.12
 
 ### Patch Changes

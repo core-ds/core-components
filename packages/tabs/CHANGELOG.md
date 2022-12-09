@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.1.1
+
 ## 7.2.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.2
+
 ## 10.1.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.3
+
+### Patch Changes
+
+### [#394](https://github.com/core-ds/core-components/pull/394)
+
+-   Исправлена генерация типов в .d.ts
+
 ## 6.1.2
 
 ### Patch Changes

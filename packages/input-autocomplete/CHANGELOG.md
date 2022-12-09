@@ -1,5 +1,18 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+### [#375](https://github.com/core-ds/core-components/pull/375)
+
+-   Добавлен опциональный prop `multiple` в компонент InputAutocompleteMobile. Теперь есть возможность выбрать несколько значений
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.2
+
 ## 9.1.4
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 12.3.5
+
+### Patch Changes
+
+### [#407](https://github.com/core-ds/core-components/pull/407)
+
+-   В CodeInput добавлен новый проп onErrorAnimationEnd
+-   В Confirmation теперь сбрасывается состоянии ошибки при включенном пропе clearCodeOnError<br />
+-   В Confirmation исправлена ошибка, из-за которой не показывался текст из пропа texts.blockSmsRetry<br />
+
+-   Обновлены зависимости
+    -   code-input@2.3.0
+
 ## 12.3.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.1.1
+
+### Patch Changes
+
+### [#399](https://github.com/core-ds/core-components/pull/399)
+
+-   Исправлено некорректное выделение текста который превышает maxLength
+
 ## 8.1.0
 
 ### Minor Changes
