@@ -1,26 +1,32 @@
-Компонент текстового ввода даты с указанием времени
+## Стандартный вид компонента
 
-## Примеры
+Стандартный вид компонента — поле ввода с маской ДД.ММ.ГГГГ, ЧЧ:ММ
 
-### Без пикера
 ```jsx live
 render(
-    <div style={{ width: 225 }}>
-        <DateTimeInput label="Укажите дату и время" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" block />
-    </div>
-)
+    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' block size='m' />
+    </div>,
+);
 ```
 
+## Пикер
 
-### С пикером
-```jsx live
+Пикер используется, когда выбор дат ограничен. Например, если нельзя указывать выходные дни.
+При наличии пикера допустимо блокировать ввод с клавиатуры.
+Если дата указывается с пикера, или пользователь покинул поле после ввода даты и не заполнил время, считаем время равным 00:00
+
+```jsx live mobileHeight=640
 render(
-    <div style={{ width: 230 }}>
-        <DateTimeInput label="Укажите дату и время" placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ" picker block/>
-    </div>
-)
+    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' picker block size='m' />
+    </div>,
+);
 ```
 
+## Морфология
 
-### Пикер
-Для настроек пикера см. компонент DatePicker
+Поле ввода является оберткой над [FormControl](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control),
+поэтому наследует все доступные для него настройки. Пикер это
+[Calendar](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-calendar--calendar)
+в [Popover](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-popover--popover).

@@ -85,11 +85,7 @@
 
 .sub {
     @mixin paragraph_component_secondary;
-    display: block;
-
-    /* adjusting overall height 👌 */
-    margin-top: 6px;
-    padding: var(--form-control-sub-paddings);
+    @mixin form-control-sub;
 }
 
 .above {
@@ -231,8 +227,7 @@
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .component {
-        float: left;
-        clear: left;
+        display: inline-block;
     }
 
     .inner:after {

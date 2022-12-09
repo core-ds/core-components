@@ -28,7 +28,7 @@ export type AdditionalMobileProps = {
     bottomSheetProps?: Partial<BottomSheetProps>;
 };
 
-export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> &
+export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> &
     AdditionalMobileProps;
 
 export const SelectMobile = forwardRef(

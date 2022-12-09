@@ -11,12 +11,7 @@ import Changelog from '../../CHANGELOG.md';
 import defaultStyles from '!!raw-loader!../default.module.css';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/IconButton'
-    component={IconButton}
-/>
-
+<Meta title='Компоненты/Кнопки/IconButton' component={IconButton} />
 
 <!-- Canvas -->
 
@@ -24,28 +19,36 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <IconButton
                     size={select('size', ['xxs', 'xs', 's'], 's')}
-                    view={select('view', ['primary', 'secondary', 'tertiary', 'negative', 'transparent'], 'primary')}
+                    view={select(
+                        'view',
+                        ['primary', 'secondary', 'tertiary', 'negative', 'transparent'],
+                        'primary',
+                    )}
                     icon={StarMIcon}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     loading={boolean('loading', false)}
                 />
             </div>
-        )
+        );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -60,10 +63,15 @@ import styles from '!!raw-loader!../index.module.css';
 import { IconButton } from '@alfalab/core-components/icon-button';
 ```
 
-
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
     props={<ArgsTable of={IconButtonTS} />}
-    cssVars={<CssVars css={`${styles}${defaultStyles}`} />}
+    cssVars={
+        <CssVars
+            css={`
+                ${styles}${defaultStyles}
+            `}
+        />
+    }
 />

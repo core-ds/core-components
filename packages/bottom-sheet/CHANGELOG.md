@@ -1,5 +1,34 @@
 # Change Log
 
+## 5.1.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.6
+
+## 5.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.5
+    -   base-modal@5.0.6
+
+## 5.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.4
+
+## 5.1.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.0.1
+
 ## 5.1.8
 
 ### Patch Changes

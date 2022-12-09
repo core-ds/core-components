@@ -7,10 +7,7 @@ import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
 
-export type SelectModalMobileProps = Omit<
-    BaseSelectProps,
-    'OptionsList' | 'Checkmark' | 'onScroll'
->;
+export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'>;
 
 export const SelectModalMobile = forwardRef(
     (

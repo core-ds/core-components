@@ -6,7 +6,6 @@ import {
     BaseSelect,
     BaseSelectProps,
     Optgroup as DefaultOptgroup,
-    OptionShape,
     OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select';
 
@@ -39,7 +38,7 @@ export type PickerButtonDesktopProps = Omit<
 > &
     Pick<ButtonProps, 'view' | 'loading' | 'leftAddons' | 'rightAddons'> & {
         options: Array<
-            OptionShape & {
+            BaseSelectProps['options'][0] & {
                 /**
                  * Иконка, отображающаяся слева от текстового представления пункта
                  */

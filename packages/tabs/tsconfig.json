@@ -6,8 +6,15 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-modal/*": ["../modal/src/*"],
+            "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"]
         }
     },
-    "references": [{ "path": "../tag" }, { "path": "../keyboard-focusable" }]
+    "references": [
+      { "path": "../tag" },
+      { "path": "../keyboard-focusable" },
+      { "path": "../picker-button" },
+      { "path": "../badge" }
+    ]
 }

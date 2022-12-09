@@ -11,17 +11,12 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/BankCard'
-    component={BankCard}
-/>
-
+<Meta title='Компоненты/Прочие компоненты/BankCard' component={BankCard} />
 
 export const logo = {
-    'default': <AlfaBankLIcon />,
-    'custom': <AlfaInvestEnLogoShortLIcon />
-}
+    default: <AlfaBankLIcon />,
+    custom: <AlfaInvestEnLogoShortLIcon />,
+};
 
 <!-- Canvas -->
 
@@ -32,14 +27,9 @@ export const logo = {
     />
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='BankCard'
-    version={version}
-    package='@alfalab/core-components/bank-card'
-/>
+<ComponentHeader name='BankCard' version={version} package='@alfalab/core-components/bank-card' />
 
 ```jsx
 import { BankCard } from '@alfalab/core-components/bank-card';

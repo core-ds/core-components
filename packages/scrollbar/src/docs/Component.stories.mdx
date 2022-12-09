@@ -1,15 +1,15 @@
 import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import {boolean, select, number} from '@storybook/addon-knobs';
+import { boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, CssVars, Tabs } from 'storybook/blocks';
-import { Scrollbar } from "@alfalab/core-components-scrollbar";
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
-import { Scrollbar as ScrollbarTS } from "../Component";
+import { Scrollbar as ScrollbarTS } from '../Component';
 import Description from './description.mdx';
 import { version } from '../../package.json';
 import styles from '!!raw-loader!../index.module.css';
 import colorsStyles from '!!raw-loader!../default.module.css';
 
-<Meta title='Компоненты/Scrollbar' component={Scrollbar} />
+<Meta title='Компоненты/Прочие компоненты/Scrollbar' component={Scrollbar} />
 
 <!-- Canvas -->
 
@@ -19,7 +19,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
         const colors = select('colors', ['default', 'inverted'], 'default');
         const autoHide = boolean('autoHide', false);
         const autoHideTimeout = number('autoHideTimeout', 1000);
-        const clickOnTrack= boolean('clickOnTrack', true);
+        const clickOnTrack = boolean('clickOnTrack', true);
         const getChildVerticalStyle = (bgColor, color) => ({
             height: 80,
             textAlign: 'center',
@@ -27,7 +27,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
             fontSize: 40,
             fontWeight: 700,
             color: `var(${color})`,
-            background: `var(${bgColor})`
+            background: `var(${bgColor})`,
         });
         const getChildHorizontalStyle = (bgColor, color) => ({
             display: 'inline-block',
@@ -38,7 +38,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
             fontSize: 40,
             fontWeight: 700,
             color: `var(${color})`,
-            background: `var(${bgColor})`
+            background: `var(${bgColor})`,
         });
         const bgColorMap = {
             default: {
@@ -46,44 +46,68 @@ import colorsStyles from '!!raw-loader!../default.module.css';
                 color: '--color-light-text-tertiary',
             },
             inverted: {
-                background: ['--color-light-bg-tertiary-inverted', '--color-light-bg-secondary-inverted'],
+                background: [
+                    '--color-light-bg-tertiary-inverted',
+                    '--color-light-bg-secondary-inverted',
+                ],
                 color: '--color-light-text-tertiary-inverted',
             },
         };
-        const getBgColor = (idx) => idx % 2 === 0 ? bgColorMap[colors].background[0] : bgColorMap[colors].background[1];
+        const getBgColor = (idx) =>
+            idx % 2 === 0 ? bgColorMap[colors].background[0] : bgColorMap[colors].background[1];
         const textColor = bgColorMap[colors].color;
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
-                {direction === 'vertical' ?
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                {direction === 'vertical' ? (
                     <Scrollbar
-                        style={{height: 200, width: 1000}}
+                        style={{ height: 200, width: 1000 }}
                         autoHide={autoHide}
                         colors={colors}
                         autoHideTimeout={autoHideTimeout}
                         clickOnTrack={clickOnTrack}
                     >
-                        {new Array(51).fill(null).map((_, idx) => <div key={idx} style={getChildVerticalStyle(getBgColor(idx), textColor)}>{idx}</div>)}
-                    </Scrollbar> :
-                    <Scrollbar
-                        style={{height: 200, width: 1000, whiteSpace: 'nowrap'}}
-                        autoHide={autoHide}
-                        colors={colors}
-                        autoHideTimeout={autoHideTimeout}
-                        clickOnTrack={clickOnTrack}
-                    >
-                        {new Array(51).fill(null).map((_, idx) => <div key={idx} style={getChildHorizontalStyle(getBgColor(idx), textColor)}>{idx}</div>)}
+                        {new Array(51).fill(null).map((_, idx) => (
+                            <div
+                                key={idx}
+                                style={getChildVerticalStyle(getBgColor(idx), textColor)}
+                            >
+                                {idx}
+                            </div>
+                        ))}
                     </Scrollbar>
-                }
+                ) : (
+                    <Scrollbar
+                        style={{ height: 200, width: 1000, whiteSpace: 'nowrap' }}
+                        autoHide={autoHide}
+                        colors={colors}
+                        autoHideTimeout={autoHideTimeout}
+                        clickOnTrack={clickOnTrack}
+                    >
+                        {new Array(51).fill(null).map((_, idx) => (
+                            <div
+                                key={idx}
+                                style={getChildHorizontalStyle(getBgColor(idx), textColor)}
+                            >
+                                {idx}
+                            </div>
+                        ))}
+                    </Scrollbar>
+                )}
             </div>
-        )
+        );
     })}
 </Story>
 
@@ -96,7 +120,6 @@ import colorsStyles from '!!raw-loader!../default.module.css';
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=186%3A20513'
 />
 
-
 ```jsx
 import { Scrollbar } from '@alfalab/core-components/scrollbar';
 ```
@@ -104,5 +127,11 @@ import { Scrollbar } from '@alfalab/core-components/scrollbar';
 <Tabs
     description={<Description />}
     props={<ArgsTable of={ScrollbarTS} />}
-    cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
+    cssVars={
+        <CssVars
+            css={`
+                ${styles}${colorsStyles}
+            `}
+        />
+    }
 />

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collapse Display tests should display radio group with one child correctly 1`] = `
+exports[`Collapse Display tests should display childrens correctly 1`] = `
 <div>
   <div
     class="collapse"
@@ -10,6 +10,11 @@ exports[`Collapse Display tests should display radio group with one child correc
       style="height: 0px;"
     >
       <div>
+        <p
+          style="margin: 0px 0px 16px 0px;"
+        >
+          Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
+        </p>
         <p
           style="margin: 0px 0px 16px 0px;"
         >
@@ -58,7 +63,7 @@ exports[`Collapse Display tests should display radio group with one child correc
 </div>
 `;
 
-exports[`Collapse Display tests should display with children like boolean or string or others react children type correctly 1`] = `
+exports[`Collapse Display tests should display one child correctly 1`] = `
 <div>
   <div
     class="collapse"
@@ -68,13 +73,46 @@ exports[`Collapse Display tests should display with children like boolean or str
       style="height: 0px;"
     >
       <div>
-        <p
-          style="margin: 0px 0px 16px 0px;"
-        >
-          Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
-        </p>
+        test text
       </div>
     </div>
+    <button
+      class="component primary pseudo withAddons"
+      type="button"
+    >
+      <span>
+        <span
+          class="text"
+        >
+          Показать
+        </span>
+      </span>
+      <span
+        class="addons"
+      >
+        <svg
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 24h24V0H0z"
+            />
+            <path
+              d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+              fill="#000"
+              fill-rule="nonzero"
+            />
+          </g>
+        </svg>
+      </span>
+    </button>
   </div>
 </div>
 `;

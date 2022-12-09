@@ -1,7 +1,7 @@
 import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, text, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
-import { Button } from "@alfalab/core-components-button";
+import { Button } from '@alfalab/core-components-button';
 import { Notification } from '@alfalab/core-components-notification';
 
 import { Notification as NotificationTS } from '../Component';
@@ -10,11 +10,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Notification'
-    component={Notification}
-/>
+<Meta title='Компоненты/Уведомления/Notification' component={Notification} />
 
 <!-- Canvas -->
 
@@ -22,29 +18,44 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '10px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '10px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <Notification
-                    colors ={colors}
+                    colors={colors}
                     visible={boolean('visible', false)}
-                    badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
+                    badge={select(
+                        'badge',
+                        ['negative', 'positive', 'attention', undefined],
+                        'positive',
+                    )}
                     title={text('title', 'Поздравляем, полный успех')}
                     hasCloser={boolean('hasCloser', true)}
-                    actionButton={boolean('renderActionButton', false) ? <Button view="link" size="s" colors="inverted">Action Button</Button> : null }
+                    actionButton={
+                        boolean('renderActionButton', false) ? (
+                            <Button view='link' size='s' colors='inverted'>
+                                Action Button
+                            </Button>
+                        ) : null
+                    }
                     offset={number('offset', 48)}
                     onClose={() => {}}
                 >
                     {text('children', 'Вам одобрено. Согласитесь на предложение')}
                 </Notification>
             </div>
-        )
+        );
     })}
 </Story>
 

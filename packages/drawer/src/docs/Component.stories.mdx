@@ -12,14 +12,9 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Drawer'
-    component={Drawer}
-/>
+<Meta title='Компоненты/Модалки и поповеры/Drawer' component={Drawer} />
 
 <!-- Canvas -->
-
 
 <Story name='Drawer'>
     {React.createElement(() => {
@@ -27,27 +22,24 @@ import styles from '!!raw-loader!../index.module.css';
         const handleModalOpen = () => setOpen(!open);
         return (
             <React.Fragment>
-                <Button size="xs" onClick={handleModalOpen}>Открыть Drawer</Button>
+                <Button size='xs' onClick={handleModalOpen}>
+                    Открыть Drawer
+                </Button>
                 <Drawer
                     open={open}
                     onClose={handleModalOpen}
                     keepMounted={boolean('keepMounted', false)}
                 >
-                    <Content/>
+                    <Content />
                 </Drawer>
             </React.Fragment>
         );
     })}
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='Drawer'
-    version={version}
-    package='@alfalab/core-components/drawer'
-    />
+<ComponentHeader name='Drawer' version={version} package='@alfalab/core-components/drawer' />
 
 ```jsx
 import { Drawer } from '@alfalab/core-components/drawer';

@@ -4,24 +4,22 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { ConfirmationV1 } from '@alfalab/core-components-confirmation-v1';
 import { Select } from '@alfalab/core-components-select';
 
-import { ConfirmationV1 as  ConfirmationV1TS} from '../component';
+import { ConfirmationV1 as ConfirmationV1TS } from '../component';
 import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 import vars from '!!raw-loader!../vars.css';
 
-
-<Meta
-    title='Компоненты/ConfirmationV1'
-    component={ConfirmationV1}
-/>
-
+<Meta title='Компоненты/Авторизация/ConfirmationV1' component={ConfirmationV1} />
 
 <!-- Canvas -->
 
 <Story name='ConfirmationV1'>
     {React.createElement(() => {
-        const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий'});
+        const [variant, setVariant] = React.useState({
+            key: 'success',
+            content: 'Успешный сценарий',
+        });
         const [value, setValue] = React.useState('');
         const [codeChecking, setCodeChecking] = React.useState(false);
         const [codeSending, setCodeSending] = React.useState(false);
@@ -30,8 +28,12 @@ import vars from '!!raw-loader!../vars.css';
         const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState('');
         const [errorOverlimit, setErrorOverlimit] = React.useState(false);
         const [errorOverlimitIsFatal, setErrorOverlimitIsFatal] = React.useState(false);
-        const [overlimitTitle, setOverlimitTitle] = React.useState('Превышено количество\n попыток ввода кода');
-        const [overlimitText, setOverlimitText] = React.useState('Повторное подтверждение кодом из SMS\n будет возможно через');
+        const [overlimitTitle, setOverlimitTitle] = React.useState(
+            'Превышено количество\n попыток ввода кода',
+        );
+        const [overlimitText, setOverlimitText] = React.useState(
+            'Повторное подтверждение кодом из SMS\n будет возможно через',
+        );
         const [overlimitCountdownDuration, setOverlimitCountdownDuration] = React.useState(10000);
         const setCode = (code) => {
             setValue(code);
@@ -57,14 +59,18 @@ import vars from '!!raw-loader!../vars.css';
                         break;
                     case 'overlimit-input':
                         setOverlimitTitle('Превышено количество\n попыток ввода кода');
-                        setOverlimitText('Повторное подтверждение кодом из SMS\n будет возможно через 1 минуту');
+                        setOverlimitText(
+                            'Повторное подтверждение кодом из SMS\n будет возможно через 1 минуту',
+                        );
                         setOverlimitCountdownDuration(60000);
                         setErrorOverlimit(true);
                         setErrorOverlimitIsFatal(false);
                         break;
                     case 'overlimit-attempts':
                         setOverlimitTitle('Превышено количество\n попыток запроса кода');
-                        setOverlimitText('Повторное подтверждение кода из SMS\n будет возможно через 24 часа ');
+                        setOverlimitText(
+                            'Повторное подтверждение кода из SMS\n будет возможно через 24 часа ',
+                        );
                         setOverlimitCountdownDuration(86400000);
                         setErrorOverlimit(true);
                         setErrorOverlimitIsFatal(true);
@@ -102,21 +108,32 @@ import vars from '!!raw-loader!../vars.css';
             <div>
                 <Select
                     options={[
-                        { key: 'success', content: 'Успешный сценарий'},
-                        { key: 'error', content: 'Сценарий с ошибкой'},
-                        { key: 'fatal', content: 'Сценарий с критичной ошибкой'},
-                        { key: 'attempts-left', content: 'Сценарий, когда кончились попытки запроса смс'},
-                        { key: 'overlimit-input', content: 'Сценарий, когда кончились попытки ввода и форма заблокирована'},
-                        { key: 'overlimit-attempts', content: 'Сценарий, когда кончились попытки запроса смс и форма заблокирована'},
+                        { key: 'success', content: 'Успешный сценарий' },
+                        { key: 'error', content: 'Сценарий с ошибкой' },
+                        { key: 'fatal', content: 'Сценарий с критичной ошибкой' },
+                        {
+                            key: 'attempts-left',
+                            content: 'Сценарий, когда кончились попытки запроса смс',
+                        },
+                        {
+                            key: 'overlimit-input',
+                            content:
+                                'Сценарий, когда кончились попытки ввода и форма заблокирована',
+                        },
+                        {
+                            key: 'overlimit-attempts',
+                            content:
+                                'Сценарий, когда кончились попытки запроса смс и форма заблокирована',
+                        },
                     ]}
                     onChange={({ selected }) => {
                         setError('');
                         setCode('');
-                        setVariant(selected)
+                        setVariant(selected);
                     }}
                     selected={variant.key}
                 />
-                <div style={{display: 'flex'}}>
+                <div style={{ display: 'flex' }}>
                     <div
                         style={{
                             display: 'flex',
@@ -125,7 +142,7 @@ import vars from '!!raw-loader!../vars.css';
                             margin: '16px 0 0',
                             padding: '16px',
                             boxShadow: '0 0 0 1px #eeeff1',
-                            boxSizing: 'border-box'
+                            boxSizing: 'border-box',
                         }}
                     >
                         <ConfirmationV1
@@ -157,7 +174,6 @@ import vars from '!!raw-loader!../vars.css';
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 

@@ -9,12 +9,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Spinner'
-    component={Spinner}
-/>
-
+<Meta title='Компоненты/Прогресс/Spinner' component={Spinner} />
 
 <!-- Canvas -->
 
@@ -22,25 +17,29 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <Spinner
-                    size={ select('size', ['xs', 's', 'm'], 's') }
-                    visible={ boolean('visible', true) }
-                    colors={ colors }
+                    size={select('size', ['xs', 's', 'm'], 's')}
+                    visible={boolean('visible', true)}
+                    colors={colors}
                 />
             </div>
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 

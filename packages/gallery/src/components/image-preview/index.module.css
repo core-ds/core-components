@@ -1,5 +1,4 @@
 @import '../../../../themes/src/default.css';
-@import '../../vars.css';
 
 .component {
     display: flex;
@@ -59,9 +58,6 @@
 .brokenIcon {
     width: 40px;
     height: 40px;
-    background-image: var(--gallery-broken-image-icon);
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .focused {

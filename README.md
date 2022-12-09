@@ -34,7 +34,7 @@ import { Button } from '@alfalab/core-components/button';
 
 ## Темизация
 
-[Гайд по настройке темизации](https://core-ds.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
+[Гайд по настройке темизации](https://core-ds.github.io/core-components/master/?path=/docs/инструкции-темизация--page)
 
 ## Поддерживаемые браузеры
 
@@ -117,7 +117,7 @@ $ yarn start
     '@alfalab/core-components-gap': major
     ---
 
-    Добавили новый компонент Gap
+    Добавлен новый компонент Gap
     ```
 
 ## Запуск bash скриптов на Windows
@@ -196,7 +196,7 @@ import { Button } from '@alfalab/core-components-button';
 ```tsx
 import { Button } from '@alfalab/core-components/button/cssm';
 // или
-import { Button } from '@alfalab/core-components-button/dist/cssm';
+import { Button } from '@alfalab/core-components-button/cssm';
 ```
 
 Импорт `ES2020`:
@@ -204,7 +204,7 @@ import { Button } from '@alfalab/core-components-button/dist/cssm';
 ```tsx
 import { Button } from '@alfalab/core-components/button/modern';
 // или
-import { Button } from '@alfalab/core-components-button/dist/modern';
+import { Button } from '@alfalab/core-components-button/modern';
 ```
 
 ## Правила контрибьютинга

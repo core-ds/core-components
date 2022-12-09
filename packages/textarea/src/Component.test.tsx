@@ -16,9 +16,9 @@ describe('Textarea', () => {
             const { container } = render(
                 <Textarea
                     value='value'
-                    showCounter={true}
                     maxLength={500}
                     nativeScrollbar={true}
+                    showCounter={true}
                 />,
             );
 
@@ -30,8 +30,8 @@ describe('Textarea', () => {
                 <Textarea
                     nativeScrollbar={true}
                     value='value'
-                    showCounter={true}
                     maxLength={500}
+                    showCounter={true}
                     getCounterText={() => 'Custom counter'}
                 />,
             );

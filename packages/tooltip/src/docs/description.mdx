@@ -14,17 +14,18 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
     >
         <List>
             <span>
-                В мобильной версии следует использовать компонент{' '}
-                <a href="/core-components/master/?path=/docs/компоненты-bottomsheet--bottom-sheet">
+                В мобильной версии следует использовать компонент &nbsp;
+                <a href='/docs/компоненты-модалки-и-поповеры-bottomsheet--bottom-sheet'>
                     BottomSheet
                 </a>
             </span>
             <span>
-                В пакете таже доступна <a href="#tooltip-responsive">адаптивная версия тултипа</a>:
+                В пакете таже доступна <a href='#tooltip-responsive'>адаптивная версия тултипа</a>:
                 на мобильных устройствах отрендерится{' '}
-                <a href="/core-components/master/?path=/docs/компоненты-bottomsheet--bottom-sheet">
+                <a href='/docs/компоненты-модалки-и-поповеры-bottomsheet--bottom-sheet'>
                     BottomSheet
-                </a>, а на десктопе обычный тултип
+                </a>
+                , а на десктопе обычный тултип
             </span>
         </List>
     </Plate>
@@ -50,8 +51,10 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
         position='left'
         trigger='click'
         content={
-            <div style={{ width: '215px' }}>
-                Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф это позволяет
+            <div>
+                Ставка от 4% до 29,49% годовых определяется для каждого заёмщика индивидуально.
+                Ставка действительна на весь срок кредитования.Неустойка за просрочку платежа — 0,1%
+                за каждый день просрочки.
             </div>
         }
         fallbackPlacements={['bottom', 'top']}
@@ -79,10 +82,10 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
     <Tooltip
         position='left'
         trigger='click'
-        preventOverflow={ false }
-        availableHeight={ true }
+        preventOverflow={false}
+        availableHeight={true}
         content={
-            <div style={{ width: '215px', lineHeight: '1000px' }}>
+            <div style={{ lineHeight: '1000px' }}>
                 Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф это позволяет
             </div>
         }
@@ -114,7 +117,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
 </div>
 ```
 
-<a name="tooltip-responsive" />
+<a name='tooltip-responsive' />
 
 ### Компонент `TooltipResponsive`.
 

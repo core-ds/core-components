@@ -11,25 +11,24 @@ import styles from '!!raw-loader!../index.module.css';
 
 export const SIZES = ['xxs', 'xs', 's'];
 
-<Meta
-    title='Компоненты/FilterTag'
-    component={FilterTag}
-/>
+<Meta title='Компоненты/Прочие компоненты/FilterTag' component={FilterTag} />
 
 <!-- Canvas -->
 
 <Story name='FilterTag'>
-    <div style={{
-        padding: '8px',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-    }}>
+    <div
+        style={{
+            padding: '8px',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+        }}
+    >
         <FilterTag
             size={select('size', SIZES, 's')}
-            variant={select('variant',['default', 'alt'], 'default')}
+            variant={select('variant', ['default', 'alt'], 'default')}
             disabled={boolean('disabled', false)}
             checked={boolean('checked', false)}
             open={boolean('open', false)}

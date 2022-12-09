@@ -307,6 +307,7 @@ Object {
     <div>
       <a
         class="component secondary m component secondary iconOnly loading"
+        disabled=""
         href="https://some-url"
       >
         <svg
@@ -371,6 +372,7 @@ Object {
   "container": <div>
     <a
       class="component secondary m component secondary iconOnly loading"
+      disabled=""
       href="https://some-url"
     >
       <svg

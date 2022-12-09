@@ -9,7 +9,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../vars.css';
 
-<Meta title='Компоненты/CodeInput' component={CodeInput} />
+<Meta title='Компоненты/Инпуты/CodeInput' component={CodeInput} />
 
 <!-- Canvas -->
 
@@ -20,7 +20,7 @@ import styles from '!!raw-loader!../vars.css';
                 fields={number('fields', 4)}
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
-                initialValues="1234"
+                initialValues='1234'
             />
         );
     })}
@@ -28,11 +28,7 @@ import styles from '!!raw-loader!../vars.css';
 
 <!-- Docs -->
 
-<ComponentHeader
-    name='CodeInput'
-    version={version}
-    package='@alfalab/core-components/code-input'
-/>
+<ComponentHeader name='CodeInput' version={version} package='@alfalab/core-components/code-input' />
 
 ```jsx
 import { CodeInput } from '@alfalab/core-components/code-input';
@@ -42,5 +38,5 @@ import { CodeInput } from '@alfalab/core-components/code-input';
     description={<Description />}
     changelog={<Changelog />}
     props={<ArgsTable of={CodeInputTS} />}
-    cssVars={<CssVars css={styles}/>}
+    cssVars={<CssVars css={styles} />}
 />

@@ -1,5 +1,7 @@
 import kebab from 'lodash.kebabcase';
 
+import findComponentGroupPath from '../../tools/storybook/findComponentPath';
+
 import { STORYBOOK_URL } from './setupScreenshotTesting';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,7 +46,7 @@ export function createStorybookUrl({
     inverted = false,
     knobs = {},
     mockDate,
-}: CreateStorybookUrlParams) {
+}: CreateStorybookUrlParams): string {
     const knobsQuery = Object.keys(knobs).reduce(
         (acc, knobName) => `${acc}&knob-${knobName}=${knobs[knobName]}`,
         '',
@@ -57,11 +59,19 @@ export function createStorybookUrl({
         }`;
     }
 
-    const componentPath = subComponentName
-        ? `-${packageName.replace(/-/g, '')}--${kebab(subComponentName)}`
-        : `-${packageName.replace(/-/g, '')}--${kebab(componentName)}`;
+    const groupPath = findComponentGroupPath(componentName, packageName);
 
-    return `${url}?id=компоненты${componentPath}${knobsQuery}&mockDate=${mockDate || ''}`;
+    const packagePath = packageName.replace(/-/g, '');
+
+    const componentPath = subComponentName
+        ? `-${packagePath}--${kebab(subComponentName)}`
+        : `-${packagePath}--${kebab(componentName)}`;
+
+    const storybookUrl = `${url}?id=${groupPath}${componentPath}${knobsQuery}&mockDate=${
+        mockDate || ''
+    }`;
+
+    return storybookUrl;
 }
 
 export function createSpriteStorybookUrl({
@@ -73,7 +83,7 @@ export function createSpriteStorybookUrl({
     inverted = false,
     size,
     mockDate,
-}: CreateSpriteStorybookUrlParams) {
+}: CreateSpriteStorybookUrlParams): string {
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
 
     // TODO: укоротить (переписать на qs.stringify)

@@ -10,12 +10,7 @@ import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import vars from '!!raw-loader!../vars.css';
 
-
-<Meta
-    title='Компоненты/Slider'
-    component={Slider}
-/>
-
+<Meta title='Компоненты/Контролы/Slider' component={Slider} />
 
 <!-- Canvas -->
 
@@ -36,7 +31,6 @@ import vars from '!!raw-loader!../vars.css';
     })}
 </Story>
 
-
 <!-- Docs -->
 
 <ComponentHeader
@@ -50,10 +44,15 @@ import vars from '!!raw-loader!../vars.css';
 import { Slider } from '@alfalab/core-components/slider';
 ```
 
-
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
     props={<ArgsTable of={SliderTS} />}
-    cssVars={<CssVars css={`${vars}${styles}`} />}
+    cssVars={
+        <CssVars
+            css={`
+                ${vars}${styles}
+            `}
+        />
+    }
 />

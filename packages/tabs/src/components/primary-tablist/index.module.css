@@ -53,6 +53,11 @@
     @mixin focus-outline;
 }
 
+.collapsed {
+    order: 99;
+    visibility: collapse;
+}
+
 .selected {
     cursor: default;
     color: var(--primary-tablist-selected-color);
@@ -88,6 +93,14 @@
     & .title + .title {
         margin-left: var(--primary-tablist-s-gaps);
     }
+
+    & .pickerWrapper {
+        margin-left: var(--primary-tablist-s-gaps);
+    }
+
+    & .option {
+        padding: 0;
+    }
 }
 
 .m {
@@ -101,6 +114,14 @@
 
     & .title + .title {
         margin-left: var(--primary-tablist-m-gaps);
+    }
+
+    & .pickerWrapper {
+        margin-left: var(--primary-tablist-m-gaps);
+    }
+
+    & .option {
+        padding: 0;
     }
 }
 
@@ -116,6 +137,14 @@
     & .title + .title {
         margin-left: var(--primary-tablist-l-gaps);
     }
+
+    & .pickerWrapper {
+        margin-left: var(--primary-tablist-l-gaps);
+    }
+
+    & .option {
+        padding: 0;
+    }
 }
 
 .xl {
@@ -130,8 +159,19 @@
     & .title + .title {
         margin-left: var(--primary-tablist-xl-gaps);
     }
+
+    & .pickerWrapper {
+        margin-left: var(--primary-tablist-xl-gaps);
+    }
+
+    & .option {
+        padding: 0;
+    }
 }
 
 .rightAddons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: var(--gap-xs);
 }

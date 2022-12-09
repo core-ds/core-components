@@ -13,30 +13,27 @@ import styles from '!!raw-loader!../index.module.css';
 export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 export const CONTENT_COLORS = ['white', 'black'];
 
-<Meta
-    title='Компоненты/CustomButton'
-    component={CustomButton}
-/>
-
+<Meta title='Компоненты/Кнопки/CustomButton' component={CustomButton} />
 
 <!-- Canvas -->
-
 
 <Story name='CustomButton'>
     {React.createElement(() => {
         return (
-            <div style={{
-                backgroundColor: 'transparent',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
+            <div
+                style={{
+                    backgroundColor: 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
                 <CustomButton
                     size={select('size', SIZES, 'm')}
-                    backgroundColor={color('backgroundColor',"#FF45C3")}
+                    backgroundColor={color('backgroundColor', '#FF45C3')}
                     contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                     href={text('href', '')}
                     loading={boolean('loading', false)}
@@ -49,10 +46,9 @@ export const CONTENT_COLORS = ['white', 'black'];
                     {text('label', 'Оплатить')}
                 </CustomButton>
             </div>
-        )
+        );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -69,6 +65,12 @@ import { CustomButton } from '@alfalab/core-components/сustom-button';
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
-    props={<ArgsTable of={CustomButtonTS} /> }
-    cssVars={<CssVars css={`${styles}`} />}
+    props={<ArgsTable of={CustomButtonTS} />}
+    cssVars={
+        <CssVars
+            css={`
+                ${styles}
+            `}
+        />
+    }
 />

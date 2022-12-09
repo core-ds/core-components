@@ -1,12 +1,4 @@
-import React, {
-    ChangeEvent,
-    forwardRef,
-    ReactNode,
-    TextareaHTMLAttributes,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
@@ -14,6 +6,8 @@ import cn from 'classnames';
 import { FormControl } from '@alfalab/core-components-form-control';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { useFocus, useMedia } from '@alfalab/hooks';
+import { TextareaProps } from './typings';
+import { PseudoTextArea } from './components';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -22,148 +16,6 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
-
-export type TextareaProps = Omit<
-    NativeProps,
-    'size' | 'style' | 'value' | 'defaultValue' | 'onChange'
-> & {
-    /**
-     * Значение поля ввода
-     */
-    value?: string;
-
-    /**
-     * Начальное значение поля
-     */
-    defaultValue?: string;
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
-
-    /**
-     * Размер компонента
-     */
-    size?: 's' | 'm' | 'l' | 'xl';
-
-    /**
-     * Набор цветов для компонента
-     */
-    colors?: 'default' | 'inverted';
-
-    /**
-     * Отображение ошибки
-     */
-    error?: ReactNode | boolean;
-
-    /**
-     * Текст подсказки
-     */
-    hint?: ReactNode;
-
-    /**
-     * Лейбл компонента
-     */
-    label?: React.ReactNode;
-
-    /**
-     * Вид лейбла внутри / снаружи
-     */
-    labelView?: 'inner' | 'outer';
-
-    /**
-     * Слот слева
-     */
-    leftAddons?: React.ReactNode;
-
-    /**
-     * Слот справа
-     */
-    rightAddons?: React.ReactNode;
-
-    /**
-     * Слот под компонентом
-     */
-    bottomAddons?: React.ReactNode;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для поля
-     */
-    fieldClassName?: string;
-
-    /**
-     * Дополнительный класс textarea
-     */
-    textareaClassName?: string;
-
-    /**
-     * Управление возможностью подстраивать высоту компонента под высоту текста
-     */
-    autosize?: boolean;
-
-    /**
-     * Максимальное количество отображаемых строк (работает только вместе с autosize)
-     */
-    maxRows?: number;
-
-    /**
-     * Минимальное количество отображаемых строк (работает только вместе c autosize)
-     */
-    minRows?: number;
-
-    /**
-     * Максимальная высота элемента
-     */
-    maxHeight?: number;
-
-    /**
-     * Управление возможностью изменения размеров компонента (не работает вместе c autosize)
-     */
-    resize?: 'vertical' | 'none';
-
-    /**
-     * Обработчик ввода
-     */
-    onChange?: (event: ChangeEvent<HTMLTextAreaElement>, payload: { value: string }) => void;
-
-    /**
-     * Обработчик события изменения высоты компонента (работает только вместе c autosize)
-     */
-    onHeightChange?: (height?: number) => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Максимальное количество символов (native prop)
-     */
-    maxLength?: number;
-
-    /**
-     * Показывать счетчик введенных символов
-     */
-    showCounter?: boolean;
-
-    /**
-     * Функция, возвращающая текст для счетчика
-     */
-    getCounterText?: (textLength: number, maxLength?: number) => string;
-
-    /**
-     * Нужно ли использовать нативный скроллбар.
-     */
-    nativeScrollbar?: boolean;
 };
 
 export const getDefaultCounterText = (textLength: number, maxLength = 0): string =>
@@ -209,21 +61,30 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref,
     ) => {
         const uncontrolled = value === undefined;
-
         let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
 
         nativeScrollbar = resize !== 'none' || Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
         const textareaRef = useRef<HTMLTextAreaElement>(null);
+        const pseudoTextareaRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
         const [scrollableHeight, setScrollableHeight] = useState<number>();
+        const [scrollPosition, setScrollPosition] = useState(0);
 
         const [focusVisible] = useFocus(textareaRef, 'keyboard');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
+        const hasOverflow = Boolean(maxLength && stateValue.slice(maxLength));
+
+        useEffect(() => {
+            const pseudoNode = pseudoTextareaRef.current;
+            if (pseudoNode) {
+                pseudoNode.scrollTop = scrollPosition;
+            }
+        }, [scrollPosition, stateValue]);
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
@@ -260,12 +121,23 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         };
 
         const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+            const {
+                target: { value },
+            } = event;
+
             if (onChange) {
-                onChange(event, { value: event.target.value });
+                onChange(event, { value });
             }
 
             if (uncontrolled) {
-                setStateValue(event.target.value);
+                setStateValue(value);
+            }
+        };
+
+        const handleTeaxtareaScroll = (event: React.UIEvent) => {
+            if (maxLength) {
+                const value = (event.target as HTMLElement).scrollTop;
+                setScrollPosition(value);
             }
         };
 
@@ -277,28 +149,22 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             return (value as string).length;
         };
 
-        const getHint = () => {
-            if (showCounter) {
-                return getCounterText(getValueLength(), maxLength);
-            }
-
-            return hint;
-        };
+        const textareaClassNameCalc = cn(
+            styles.textarea,
+            colorStyles[colors].textarea,
+            styles[size],
+            {
+                [styles.hasInnerLabel]: nativeScrollbar && hasInnerLabel,
+                [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
+                [styles.filled]: nativeScrollbar && filled,
+                [styles.resizeVertical]: resize === 'vertical',
+            },
+            textareaClassName,
+        );
 
         const textareaProps = {
             ...restProps,
-            className: cn(
-                styles.textarea,
-                colorStyles[colors].textarea,
-                styles[size],
-                {
-                    [styles.hasInnerLabel]: nativeScrollbar && hasInnerLabel,
-                    [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
-                    [styles.filled]: nativeScrollbar && filled,
-                    [styles.resizeVertical]: resize === 'vertical',
-                },
-                textareaClassName,
-            ),
+            className: textareaClassNameCalc,
             autoComplete,
             disabled,
             onBlur: handleTextareaBlur,
@@ -308,7 +174,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             rows,
             ref: mergeRefs([ref, textareaRef]),
             'data-test-id': dataTestId,
-            maxLength,
+            onScroll: handleTeaxtareaScroll,
         };
 
         const renderWithNativeScrollbar = () =>
@@ -337,6 +203,19 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                     widthPropName='width'
                     contentNodeProps={{ className: styles.scrollableWrapper }}
                 >
+                    {hasOverflow && (
+                        <PseudoTextArea
+                            stateValue={stateValue}
+                            size={size}
+                            maxLength={maxLength}
+                            pseudoTextareaClassName={cn(
+                                textareaClassNameCalc,
+                                styles.customScrollbar,
+                            )}
+                            ref={pseudoTextareaRef}
+                        />
+                    )}
+
                     <TextareaAutosize {...textareaProps} minRows={minRowsValue} />
 
                     {/* Используется только для вычисления размера контейнера */}
@@ -360,6 +239,25 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             );
         };
 
+        const getBottomAddons = () => {
+            const counterIsVisible = Boolean(maxLength && showCounter);
+            return (
+                <>
+                    {counterIsVisible && (
+                        <span
+                            className={cn(styles.sub, {
+                                [colorStyles[colors].error]: hasOverflow,
+                                [colorStyles[colors].hint]: !hasOverflow,
+                            })}
+                        >
+                            {getCounterText(getValueLength(), maxLength)}
+                        </span>
+                    )}
+                    {bottomAddons}
+                </>
+            );
+        };
+
         return (
             <FormControl
                 className={cn(className)}
@@ -375,12 +273,30 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 error={error}
                 label={label}
                 labelView={labelView}
-                hint={getHint()}
+                hint={hint}
                 leftAddons={leftAddons}
                 rightAddons={rightAddons}
-                bottomAddons={bottomAddons}
+                bottomAddons={getBottomAddons()}
             >
-                {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
+                {nativeScrollbar ? (
+                    <>
+                        {hasOverflow && (
+                            <PseudoTextArea
+                                stateValue={stateValue}
+                                size={size}
+                                maxLength={maxLength}
+                                pseudoTextareaClassName={cn(
+                                    textareaClassNameCalc,
+                                    styles.nativeScrollbar,
+                                )}
+                                ref={pseudoTextareaRef}
+                            />
+                        )}
+                        {renderWithNativeScrollbar()}
+                    </>
+                ) : (
+                    renderWithCustomScrollbar()
+                )}
             </FormControl>
         );
     },

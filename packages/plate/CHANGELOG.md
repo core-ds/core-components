@@ -1,5 +1,47 @@
 # Change Log
 
+## 6.3.3
+
+### Patch Changes
+
+### [#376](https://github.com/core-ds/core-components/pull/376)
+
+-   Убрали дополнительную обертку, которая ограничивала применение пропа `className`
+
+## 6.3.2
+
+### Patch Changes
+
+### [#371](https://github.com/core-ds/core-components/pull/371)
+
+-   Добавлен новый опциональный prop `rowLimit` в компонент Plate. Теперь есть возможность ограничивать количество строк для передаваемого текста в `children` (от 1 до 3).
+
+## 6.3.1
+
+### Patch Changes
+
+### [#360](https://github.com/core-ds/core-components/pull/360)
+
+-   Исправили max-height контента. Теперь max-height добавляется только раскрываемому(foldable) контенту.
+
+## 6.3.0
+
+### Minor Changes
+
+### [#331](https://github.com/core-ds/core-components/pull/331)
+
+-   Изменен фоновый цвет на light/specialbg/secondary-transparent для компонента Plate в режиме common
+
+### [#340](https://github.com/core-ds/core-components/pull/340)
+
+-   В компоненте Plate иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.1
+    -   icon-button@6.0.1
+
 ## 6.2.2
 
 ### Patch Changes

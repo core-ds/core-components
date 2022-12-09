@@ -20,22 +20,24 @@ import {
 
 import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { BaseOption } from '@alfalab/core-components-select';
 
 import { getDataTestId } from '../../../../utils/getDataTestId';
 import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
-import { BaseSelectProps, OptionShape } from '../../typings';
+import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
+import { BaseCheckmark } from '../base-checkmark';
 import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
 
 import { Checkmark } from './checkmark';
-import { OptionsList } from './options-list';
+import { OptionsList as DefaultOptionsList } from './options-list';
 
 import styles from './index.module.css';
 
-export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
+export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> & {
     /**
      * Футер
      * @deprecated Используйте bottomSheetProps.actionButton
@@ -99,6 +101,7 @@ export const BaseSelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            OptionsList = DefaultOptionsList,
             swipeable,
             footer,
             isBottomSheet,
@@ -247,7 +250,7 @@ export const BaseSelectMobile = forwardRef(
             },
         });
 
-        const menuProps = (getMenuProps as (options: object, additional: object) => void)(
+        const menuProps = (getMenuProps as (options: object, additional: object) => Record<string, any>)(
             { ref: listRef },
             { suppressRefError: true },
         );
@@ -294,26 +297,36 @@ export const BaseSelectMobile = forwardRef(
             }
         };
 
-        const getOptionProps = (option: OptionShape, index: number) => ({
-            ...(optionProps as object),
-            className: cn(styles.option, optionClassName),
-            innerProps: getItemProps({
+        const getOptionProps = (option: OptionShape, index: number): OptionProps => {
+            const selectedItem = selectedItems.includes(option);
+
+            return {
+                ...(optionProps as object),
+                mobile: true,
+                className: cn(styles.option, optionClassName),
+                innerProps: getItemProps({
+                    index,
+                    item: option,
+                    disabled: option.disabled,
+                    onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                }),
+                multiple,
                 index,
-                item: option,
+                option,
+                size: optionsSize,
                 disabled: option.disabled,
-                onMouseDown: (event: MouseEvent) => event.preventDefault(),
-            }),
-            multiple,
-            index,
-            option,
-            size: optionsSize,
-            disabled: option.disabled,
-            highlighted: index === highlightedIndex,
-            selected: selectedItems.includes(option),
-            dataTestId: getDataTestId(dataTestId, 'option'),
-            // eslint-disable-next-line react/no-unstable-nested-components
-            Checkmark: () => <Checkmark selected={selectedItems.includes(option)} />,
-        });
+                highlighted: index === highlightedIndex,
+                selected: selectedItem,
+                dataTestId: getDataTestId(dataTestId, 'option'),
+                // eslint-disable-next-line react/no-unstable-nested-components
+                Checkmark: () =>
+                    Option === BaseOption ? (
+                        <BaseCheckmark selected={selectedItem} multiple={multiple} />
+                    ) : (
+                        <Checkmark selected={selectedItem} />
+                    ),
+            };
+        };
 
         useEffect(() => {
             if (defaultOpen) openMenu();
@@ -389,7 +402,7 @@ export const BaseSelectMobile = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...fieldProps}
+                    {...fieldProps as Record<string, any>}
                 />
 
                 {name && renderValue()}
@@ -408,12 +421,9 @@ export const BaseSelectMobile = forwardRef(
                         swipeable={swipeable}
                         {...bottomSheetProps}
                     >
-                        <div
-                            {...menuProps}
-                            className={cn(optionsListClassName, styles.optionsList)}
-                        >
+                        <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
-                                {...optionsListProps}
+                                {...optionsListProps as Record<string, any>}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
@@ -440,18 +450,10 @@ export const BaseSelectMobile = forwardRef(
                         contentClassName={styles.sheetContent}
                         hasCloser={true}
                     >
-                        <ModalMobile.Header
-                            hasCloser={true}
-                            title={placeholder}
-                            sticky={true}
-                            className={styles.sticky}
-                        />
-                        <div
-                            {...menuProps}
-                            className={cn(optionsListClassName, styles.optionsList)}
-                        >
+                        <ModalMobile.Header hasCloser={true} title={placeholder} sticky={true} />
+                        <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
-                                {...optionsListProps}
+                                {...optionsListProps as Record<string, any>}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}

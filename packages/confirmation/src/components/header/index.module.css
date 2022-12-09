@@ -1,10 +1,10 @@
 @import '../../vars.css';
 
-.header {
+.header.header {
     margin-bottom: var(--gap-xl);
 }
 
-.typography {
+.typography.typography {
     font-feature-settings: var(--confirmation-header-font-feature-settings);
     font-size: var(--confirmation-header-desktop-font-size);
     line-height: var(--confirmation-header-desktop-line-height);
@@ -12,7 +12,7 @@
     font-family: var(--confirmation-header-desktop-font-family);
 }
 
-.typographyMobile {
+.typographyMobile.typographyMobile {
     font-feature-settings: var(--confirmation-header-font-feature-settings);
     font-size: var(--confirmation-header-mobile-font-size);
     line-height: var(--confirmation-header-mobile-line-height);

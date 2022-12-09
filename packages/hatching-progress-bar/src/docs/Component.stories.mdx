@@ -8,12 +8,7 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/HatchingProgressBar'
-    component={HatchingProgressBar}
-/>
-
+<Meta title='Компоненты/Прогресс/HatchingProgressBar' component={HatchingProgressBar} />
 
 <!-- Canvas -->
 
@@ -21,10 +16,18 @@ import styles from '!!raw-loader!../index.module.css';
     <HatchingProgressBar
         value={number('value', 40)}
         hatchValue={number('hatchValue', 60)}
-        view={select('view', ['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent'])}
+        view={select('view', [
+            'positive',
+            'negative',
+            'attention',
+            'link',
+            'tertiary',
+            'secondary',
+            'primary',
+            'accent',
+        ])}
     />
 </Story>
-
 
 <!-- Docs -->
 

@@ -27,76 +27,66 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <div className={styles.hintWrap}>
-                <Header mobile={mobile}>Не&nbsp;приходит сообщение?</Header>
+            <Header mobile={mobile}>Не&nbsp;приходит сообщение?</Header>
 
-                <Typography.Text
-                    view='primary-medium'
-                    color='primary'
-                    className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
-                >
-                    Если у&nbsp;вас изменился номер телефона, позвоните нам или обратитесь
-                    в&nbsp;любое отделение банка.
-                </Typography.Text>
+            <Typography.Text
+                view='primary-medium'
+                color='primary'
+                className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
+            >
+                Если у&nbsp;вас изменился номер телефона, позвоните нам или обратитесь в&nbsp;любое
+                отделение банка.
+            </Typography.Text>
 
-                <div className={styles.phonesWrap}>
-                    <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
-                        <Link
-                            href='tel:+78002000000'
-                            underline={false}
-                            className={styles.phoneLink}
-                        >
-                            8 800 200-00-00
-                        </Link>
-                        <Typography.Text
-                            view='primary-medium'
-                            color='primary'
-                            className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
-                        >
-                            {mobile
-                                ? 'Для\u00A0 звонков по\u00A0России'
-                                : ' \u2014\u00A0для звонков по\u00A0России'}
-                        </Typography.Text>
-                    </div>
-
-                    <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
-                        <Link
-                            href='tel:+74957888878'
-                            underline={false}
-                            className={styles.phoneLink}
-                        >
-                            +7 495 78-888-78
-                        </Link>
-                        <Typography.Text
-                            view='primary-medium'
-                            color='primary'
-                            className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
-                        >
-                            {mobile
-                                ? 'В\u00A0Москве и\u00A0за\u00A0границей'
-                                : ' \u2014\u00A0в\u00A0Москве и\u00A0за\u00A0границей'}
-                        </Typography.Text>
-                    </div>
+            <div className={styles.phonesWrap}>
+                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
+                    <Link href='tel:+78002000000' underline={false} className={styles.phoneLink}>
+                        8 800 200-00-00
+                    </Link>
+                    <Typography.Text
+                        view='primary-medium'
+                        color='primary'
+                        className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
+                    >
+                        {mobile
+                            ? 'Для\u00A0 звонков по\u00A0России'
+                            : ' \u2014\u00A0для звонков по\u00A0России'}
+                    </Typography.Text>
                 </div>
 
-                <Typography.Text
-                    view='primary-medium'
-                    color='primary'
-                    className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
-                >
-                    Если номер не&nbsp;менялся, возможно, перегружен сервис отправки сообщений.
-                    Попробуйте повторить действие через несколько минут.
-                </Typography.Text>
-
-                <Button
-                    size={mobile ? 'xs' : 's'}
-                    view='secondary'
-                    onClick={handleReturnButtonClick}
-                    className={styles.hintButton}
-                >
-                    {texts.hintButton}
-                </Button>
+                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
+                    <Link href='tel:+74957888878' underline={false} className={styles.phoneLink}>
+                        +7 495 78-888-78
+                    </Link>
+                    <Typography.Text
+                        view='primary-medium'
+                        color='primary'
+                        className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
+                    >
+                        {mobile
+                            ? 'В\u00A0Москве и\u00A0за\u00A0границей'
+                            : ' \u2014\u00A0в\u00A0Москве и\u00A0за\u00A0границей'}
+                    </Typography.Text>
+                </div>
             </div>
+
+            <Typography.Text
+                view='primary-medium'
+                color='primary'
+                className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
+            >
+                Если номер не&nbsp;менялся, возможно, перегружен сервис отправки сообщений.
+                Попробуйте повторить действие через несколько минут.
+            </Typography.Text>
+
+            <Button
+                size={mobile ? 'xs' : 's'}
+                view='secondary'
+                onClick={handleReturnButtonClick}
+                className={styles.hintButton}
+            >
+                {texts.hintButton}
+            </Button>
         </div>
     );
 };

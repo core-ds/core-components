@@ -1,5 +1,25 @@
 # Change Log
 
+## 2.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.6
+    -   drawer@4.2.1
+
+## 2.4.1
+
+### Patch Changes
+
+### [#350](https://github.com/core-ds/core-components/pull/350)
+
+-   В документацию добавлены пропсы и их описание для подкомпонентов SidePanel
+
+-   Обновлены зависимости
+    -   button@7.0.1
+    -   icon-button@6.0.1
+
 ## 2.4.0
 
 ### Minor Changes

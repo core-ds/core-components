@@ -1,5 +1,44 @@
 # @alfalab/core-components-date-time-input
 
+## 2.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.1.14
+
+## 2.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.0.4
+    -   calendar@6.1.13
+
+## 2.1.0
+
+### Minor Changes
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+-   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.0
+    -   calendar@6.1.12
+
+## 2.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.0.3
+    -   calendar@6.1.11
+    -   input@11.0.2
+    -   icon-button@6.0.1
+
 ## 2.0.1
 
 ### Patch Changes

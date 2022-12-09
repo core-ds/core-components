@@ -207,7 +207,6 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                         </div>
                     )}
                 </div>
-
                 {bottomAddons}
 
                 {errorMessage && (

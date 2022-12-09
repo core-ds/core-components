@@ -9,44 +9,36 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Skeleton'
-    component={Skeleton}
-/>
-
+<Meta title='Компоненты/Прогресс/Skeleton' component={Skeleton} />
 
 <!-- Canvas -->
 
 <Story name='Skeleton'>
-    <div style={{
-        width: 150,
-        height: 150,
-    }}>
+    <div
+        style={{
+            width: 150,
+            height: 150,
+        }}
+    >
         <Skeleton
-            visible={ boolean('visible', true) }
-            className={ text('className', '') }
-            dataTestId={ text('dataTestId', '') }
-            animate={ boolean('animate', true) }
+            visible={boolean('visible', true)}
+            className={text('className', '')}
+            dataTestId={text('dataTestId', '')}
+            animate={boolean('animate', true)}
         >
             <img
-                width={ 150 }
-                height={ 150 }
-                alt="Фижер"
-                src="https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg"
+                width={150}
+                height={150}
+                alt='Фижер'
+                src='https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg'
             />
         </Skeleton>
     </div>
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='Skeleton'
-    version={version}
-    package='@alfalab/core-components/skeleton'
-/>
+<ComponentHeader name='Skeleton' version={version} package='@alfalab/core-components/skeleton' />
 
 ```jsx
 import { Skeleton } from '@alfalab/core-components/skeleton';

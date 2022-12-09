@@ -1,5 +1,60 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+### [#370](https://github.com/core-ds/core-components/pull/370)
+
+-   feat(picker-button): extend options type
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.1
+
+## 10.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.0
+
+## 10.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.1.2
+
+## 10.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.1.1
+
+## 10.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.1.0
+
+## 10.0.0
+
+### Major Changes
+
+### [#344](https://github.com/core-ds/core-components/pull/344)
+
+-   При наличии правого аддона, дефолтная иконка кнопки не исчезает
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.1
+    -   select@13.0.3
+
 ## 9.0.2
 
 ### Patch Changes

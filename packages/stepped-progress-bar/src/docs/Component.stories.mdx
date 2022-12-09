@@ -8,10 +8,7 @@ import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta
-    title='Компоненты/SteppedProgressBar'
-    component={SteppedProgressBar}
-/>
+<Meta title='Компоненты/Прогресс/SteppedProgressBar' component={SteppedProgressBar} />
 
 <!-- Canvas -->
 
@@ -19,8 +16,17 @@ import Changelog from '../../CHANGELOG.md';
     <SteppedProgressBar
         step={number('step', 1)}
         maxStep={number('maxStep', 3)}
-        description={text('description', "Выбор карты")}
-        view={select('view', ['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent'])}
+        description={text('description', 'Выбор карты')}
+        view={select('view', [
+            'positive',
+            'negative',
+            'attention',
+            'link',
+            'tertiary',
+            'secondary',
+            'primary',
+            'accent',
+        ])}
     />
 </Story>
 
@@ -42,4 +48,3 @@ import { SteppedProgressBar } from '@alfalab/core-components/stepped-progress-ba
     description={<Description />}
     changelog={<Changelog />}
 />
-

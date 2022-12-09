@@ -1,5 +1,33 @@
 # Change Log
 
+## 7.1.1
+
+### Patch Changes
+
+### [#362](https://github.com/core-ds/core-components/pull/362)
+
+-   Исправлена ошибка в onChange обработчике, из-за которой некорректно работала вставка значений с пробелом.
+
+## 7.1.0
+
+### Minor Changes
+
+### [#342](https://github.com/core-ds/core-components/pull/342)
+
+-   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.0
+
+## 7.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.0.2
+
 ## 7.0.2
 
 ### Patch Changes

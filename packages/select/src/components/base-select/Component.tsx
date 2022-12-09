@@ -211,7 +211,7 @@ export const BaseSelect = forwardRef(
             },
         });
 
-        const menuProps = (getMenuProps as (options: object, additional: object) => void)(
+        const menuProps = (getMenuProps as (options: object, additional: object) => Record<string, any>)(
             { ref: listRef },
             { suppressRefError: true },
         );
@@ -426,7 +426,7 @@ export const BaseSelect = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...fieldProps}
+                    {...fieldProps as Record<string, any>}
                 />
 
                 {name && !nativeSelect && renderValue()}
@@ -448,7 +448,7 @@ export const BaseSelect = forwardRef(
                                 className={cn(optionsListClassName, styles.optionsList)}
                             >
                                 <OptionsList
-                                    {...optionsListProps}
+                                    {...optionsListProps as Record<string, any>}
                                     optionsListWidth={optionsListWidth}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}

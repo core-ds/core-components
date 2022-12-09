@@ -9,25 +9,17 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import { colors } from '../colors';
 
-
-<Meta title='Компоненты/Typography' component={Typography} />
-
+<Meta title='Компоненты/Прочие компоненты/Typography' component={Typography} />
 
 <!-- Canvas -->
 
 <Story name='Typography.Title'>
     {React.createElement(() => {
-        const VIEW_TYPES = [
-            'xlarge',
-            'large',
-            'medium',
-            'small',
-            'xsmall',
-        ];
+        const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
         const color = select('color', colors, '');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
         const font = select('font', ['styrene', 'system'], 'styrene');
-        return VIEW_TYPES.map(view => (
+        return VIEW_TYPES.map((view) => (
             <Typography.Title
                 defaultMargins={boolean('defaultMargins', false)}
                 view={view}
@@ -38,23 +30,17 @@ import { colors } from '../colors';
             >
                 заголовок view='{view}'
             </Typography.Title>
-        ))
+        ));
     })}
 </Story>
 
 <Story name='Typography.TitleResponsive'>
     {React.createElement(() => {
-        const VIEW_TYPES = [
-            'xlarge',
-            'large',
-            'medium',
-            'small',
-            'xsmall',
-        ];
+        const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
         const color = select('color', colors, '');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
         const font = select('font', ['styrene', 'system'], 'styrene');
-        return VIEW_TYPES.map(view => (
+        return VIEW_TYPES.map((view) => (
             <Typography.TitleResponsive
                 defaultMargins={boolean('defaultMargins', false)}
                 view={view}
@@ -65,23 +51,17 @@ import { colors } from '../colors';
             >
                 заголовок view='{view}'
             </Typography.TitleResponsive>
-        ))
+        ));
     })}
 </Story>
 
 <Story name='Typography.TitleMobile'>
     {React.createElement(() => {
-        const VIEW_TYPES = [
-            'xlarge',
-            'large',
-            'medium',
-            'small',
-            'xsmall',
-        ];
+        const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
         const color = select('color', colors, '');
         const weight = select('weight', ['regular', 'medium', 'bold', '-'], '-');
         const font = select('font', ['styrene', 'system'], 'styrene');
-        return VIEW_TYPES.map(view => (
+        return VIEW_TYPES.map((view) => (
             <Typography.TitleMobile
                 view={view}
                 color={color}
@@ -91,7 +71,7 @@ import { colors } from '../colors';
             >
                 заголовок view='{view}'
             </Typography.TitleMobile>
-        ))
+        ));
     })}
 </Story>
 
@@ -111,16 +91,24 @@ import { colors } from '../colors';
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold', undefined], 'regular');
         const monospace = boolean('monospaceNumbers', false);
-        return VIEW_TYPES.map(view => (
-            <Typography.Text view={view} color={color} tag={tag} weight={weight} monospaceNumbers={monospace} key={view}>
-                {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
-                когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
-                планковских значений. 1234567890, например.
+        const defaultMargins = tag === 'p' ? boolean('defaultMargins', true) : undefined;
+        return VIEW_TYPES.map((view) => (
+            <Typography.Text
+                view={view}
+                color={color}
+                tag={tag}
+                weight={weight}
+                monospaceNumbers={monospace}
+                key={view}
+                defaultMargins={defaultMargins}
+            >
+                {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент
+                времени в прошлом, когда плотность энергии (материи) и кривизна пространства-времени
+                были очень велики — порядка планковских значений. 1234567890, например.
             </Typography.Text>
         ));
     })}
 </Story>
-
 
 <!-- Docs -->
 

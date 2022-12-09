@@ -7,24 +7,17 @@ import { Typography } from '@alfalab/core-components-typography';
 import { Mq, useMatchMedia } from '@alfalab/core-components-mq';
 
 import { Mq as MqTS } from '../Component';
-import {  version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
-<Meta
-    title='Компоненты/Mq'
-    component={Mq}
-/>
-
+<Meta title='Компоненты/Прочие компоненты/Mq' component={Mq} />
 
 <!-- Canvas -->
 
 <Story name='Mq'>
     <Space>
-        <Typography.Title view='small'>
-            Сожми экран
-        </Typography.Title>
+        <Typography.Title view='small'>Сожми экран</Typography.Title>
         <Mq query='--mobile'>
             <Button>Mobile кнопка</Button>
         </Mq>
@@ -34,21 +27,12 @@ import Changelog from '../../CHANGELOG.md';
     </Space>
 </Story>
 
-
 <!-- Docs -->
 
-<ComponentHeader
-    name='Mq'
-    version={version}
-    package='@alfalab/core-components/mq'
-/>
+<ComponentHeader name='Mq' version={version} package='@alfalab/core-components/mq' />
 
 ```jsx
 import { Mq, useMatchMedia } from '@alfalab/core-components/mq';
 ```
 
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={<ArgsTable of={MqTS} />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={MqTS} />} />

@@ -1,0 +1,247 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title='Инструкции/Валидация' parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# Валидация
+
+Процесс проверки значений, указанных пользователем с последующим отображением найденных ошибок.
+
+## Принципы
+
+Лучшая валидация — это отсутствие потребности в валидации. Старайтесь проектировать интерфейс таким образом,
+чтобы пользователю было сложно совершить ошибку. Для этого:
+
+1. Используйте маски, чтобы ограничить ввод неподходящих символов и задать корректный формат ввода.
+2. Используйте пикеры и другие контролы, не позволяющие указать ошибочное значение.
+3. Пишите подсказки для пользователя, используйте тултипы, хинты или плейсхолдеры там, где это необходимо.
+
+## Паттерны валидации
+
+В порядке скорости реагирования:
+
+1. Мгновенная.
+2. При потере фокуса.
+3. При отправке формы.
+
+В интерфейсах нужно стремиться сообщить об ошибке как можно раньше, чтобы пользователю не приходилось возвращаться.
+При проектировании необходимо учитывать возможные технические ограничения и подбирать оптимальный паттерн под задачу.
+
+## Мгновенная валидация
+
+Если в процессе ввода значения можно проверить его на корректность, можно использовать мгновенную валидацию.
+Ошибки, которые может подсветить такая валидация, обычно связаны с вводом недопустимых символов,
+например ввод букв в цифровое поле. В подобных случаях более сильным решением будет использование масок в полях ввода,
+которые не допустят ввод ошибочных значений. А значит такая валидация будет не нужна.
+
+В примере ниже поля предназначены для ввода цифр.
+
+```jsx live
+const NumberInput = () => {
+    const [value, setValue] = React.useState('');
+    const [error, setError] = React.useState();
+
+    const handleChange = (e) => {
+        const inputValue = e.target.value;
+        setValue(inputValue);
+
+        if (!/^\d*$/.test(inputValue)) {
+            setError('Введено недопустимое значение');
+        } else {
+            setError(false);
+        }
+    };
+
+    return (
+        <Input
+            value={value}
+            onChange={handleChange}
+            size='m'
+            block={true}
+            placeholder='Мгновенная валидация'
+            error={error}
+        />
+    );
+};
+
+const MaskedNumberInput = () => {
+    const [value, setValue] = React.useState('');
+
+    return (
+        <MaskedInput
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            size='m'
+            block={true}
+            placeholder='Маска'
+            mask={(rawValue) => new Array(rawValue.length).fill(/\d/)}
+        />
+    );
+};
+
+render(() => {
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <NumberInput />
+            <Gap size='m' />
+            <MaskedNumberInput />
+        </div>
+    );
+});
+```
+
+## Валидация по потере фокуса
+
+Валидация срабатывает сразу после потери валидируемым компонентом фокуса.
+Если найдена ошибка, компонент переходит в состояние ошибки, но фокус к нему не возвращается.
+Состояние ошибки должно быть снято как только пользователь начнет изменять значение.
+
+Паттерн хорошо подходит для всех случаев, кроме проверки на заполненность обязательных полей.
+У пользователя может быть свой план заполнения полей, которого он придерживается.
+Только после отправки формы мы можем с уверенностью сказать, что какие-то из обязательных полей не заполнены и это ошибка.
+
+```jsx live
+const InputWrapper = ({ patronymic, placeholder, errMsg }) => {
+    const [value, setValue] = React.useState('');
+    const [error, setError] = React.useState(false);
+
+    const validate = () => {
+        if (value.toLowerCase() !== patronymic) {
+            setError(errMsg);
+        }
+    };
+
+    const handleChange = (e) => {
+        setValue(e.target.value);
+        setError(false);
+    };
+
+    const handleBlur = () => validate();
+
+    return (
+        <Input
+            value={value}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            size='m'
+            block={true}
+            placeholder={placeholder}
+            error={error}
+        />
+    );
+};
+
+render(() => {
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <InputWrapper
+                placeholder='Отчество Александра Пушкина'
+                patronymic='сергеевич'
+                errMsg='Александр Сергеевич – наше всё'
+            />
+            <Gap size='m' />
+            <InputWrapper
+                placeholder='Отчество Афанасия Фета'
+                patronymic='афанасьевич'
+                errMsg='Отца Афанасия тоже звали Афанасием'
+            />
+        </div>
+    );
+});
+```
+
+## Валидация по отправке формы
+
+Проверка происходит после того, как пользователь нажал кнопку отправки данных:
+все поля с ошибками на форме переходят в состояние ошибки, первый контрол с ошибкой получает фокус,
+страница прокручивается к нему.
+
+Подобный паттерн хорошо подходит для проверки на заполненность обязательных полей,
+так как в случае отправки формы мы уверены что пользователь считает форму заполненной.
+
+```jsx live
+const data = {
+    pushkin: {
+        patronymic: 'сергеевич',
+        desc: 'Отчество Александра Пушкина',
+        errMsg: 'Александр Сергеевич – наше всё',
+    },
+    fet: {
+        patronymic: 'афанасьевич',
+        desc: 'Отчество Афанасия Фета',
+        errMsg: 'Отца Афанасия тоже звали Афанасием',
+    },
+};
+
+const dataKeys = Object.keys(data);
+
+const validateForm = (form) => {
+    let errors = {};
+
+    dataKeys.forEach((key) => {
+        if (data[key].patronymic !== form.values[key].toLowerCase()) {
+            errors[key] = data[key].errMsg;
+        }
+    });
+
+    return Object.keys(errors).length > 0 ? errors : null;
+};
+
+const getInitialState = () => {
+    const initialValues = dataKeys.reduce((result, key) => {
+        result[key] = '';
+        return result;
+    }, {});
+
+    return { values: initialValues, errors: initialValues };
+};
+
+render(() => {
+    const [form, setForm] = React.useState(getInitialState);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const errors = validateForm(form);
+        if (errors) {
+            setForm((prevState) => ({ ...prevState, errors: { ...prevState.errors, ...errors } }));
+        }
+    };
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+
+        setForm((prevState) => ({
+            ...prevState,
+            values: { ...prevState.values, ...{ [name]: e.target.value } },
+            errors: { ...prevState.errors, ...{ [name]: '' } },
+        }));
+    };
+
+    return (
+        <form
+            style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}
+            onSubmit={handleSubmit}
+        >
+            {dataKeys.map((key, idx) => (
+                <React.Fragment key={key}>
+                    <Input
+                        value={form.values[key]}
+                        error={form.errors[key]}
+                        name={key}
+                        onChange={handleChange}
+                        size='m'
+                        block={true}
+                        placeholder={data[key].desc}
+                    />
+                    {idx !== dataKeys.length - 1 && <Gap size='m' />}
+                </React.Fragment>
+            ))}
+
+            <Gap size='m' />
+            <Button view='primary' size='m' type='submit'>
+                Отправить форму
+            </Button>
+        </form>
+    );
+});
+```

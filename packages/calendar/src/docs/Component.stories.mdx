@@ -16,22 +16,14 @@ import Description from './description.mdx';
 import styles from '!!raw-loader!../desktop.module.css';
 import vars from '!!raw-loader!../vars.css';
 
-
-<Meta
-    title='Компоненты/Calendar'
-    component={Calendar}
-/>
-
+<Meta title='Компоненты/Календари/Calendar' component={Calendar} />
 
 <!-- Canvas -->
 
 <Story name='Calendar'>
     {React.createElement(() => {
         const offDays = [new Date().setDate(7)];
-        const events = [
-            new Date().setDate(3),
-            new Date().setDate(17),
-        ];
+        const events = [new Date().setDate(3), new Date().setDate(17)];
         const [open, setOpen] = React.useState(false);
         const [value, setValue] = React.useState();
         const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
@@ -49,14 +41,11 @@ import vars from '!!raw-loader!../vars.css';
                         defaultView={defaultView}
                         selectorView={selectorView}
                     />
-                )
-            }
-            else if (selectorView === 'full') {
+                );
+            } else if (selectorView === 'full') {
                 return (
                     <>
-                        <Button onClick={() => setOpen(true)}>
-                            Открыть календарь
-                        </Button>
+                        <Button onClick={() => setOpen(true)}>Открыть календарь</Button>
                         <CalendarMobile
                             onClose={() => setOpen(false)}
                             open={open}
@@ -66,14 +55,11 @@ import vars from '!!raw-loader!../vars.css';
                             selectorView={selectorView}
                         />
                     </>
-                )
-            }
-            else {
+                );
+            } else {
                 return (
                     <>
-                        <Button onClick={() => setOpen(true)}>
-                            Открыть календарь (период)
-                        </Button>
+                        <Button onClick={() => setOpen(true)}>Открыть календарь (период)</Button>
                         <CalendarMobile
                             onClose={() => setOpen(false)}
                             open={open}
@@ -84,13 +70,12 @@ import vars from '!!raw-loader!../vars.css';
                             selectorView={selectorView}
                         />
                     </>
-                )
+                );
             }
-        }
+        };
         return renderContent();
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -115,4 +100,3 @@ import { CalendarMobile } from '@alfalab/core-components/calendar/mobile';
     props={<ArgsTable components={{ Calendar: CalendarDesktopTS, CalendarMobile: CalendarMobileTS, CalendarResponsive: CalendarResponsiveTS, PeriodSlider: PeriodSliderTS }} />}
     cssVars={<CssVars css={`${styles}${vars}`} />}
 />
-

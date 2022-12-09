@@ -3,12 +3,13 @@ const fs = require('fs');
 const { promisify } = require('util');
 const camelCase = require('lodash.camelcase');
 const upperfirst = require('lodash.upperfirst');
+const findComponentPath = require('../tools/storybook/findComponentPath');
 
 const readDir = promisify(fs.readdir);
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const excludedPackages = ['codemod', 'screenshot-utils', 'themes', 'utils', 'vars'];
+const excludedPackages = ['codemod', 'screenshot-utils', 'themes', 'utils', 'vars', 'global-store'];
 
 const isComponent = (dir) => !excludedPackages.includes(dir) && !dir.includes('.');
 
@@ -26,32 +27,45 @@ async function main() {
         ),
     );
 
-    const components = packagesInfos.map((packageInfo) => {
-        const packageName = packageInfo.name.replace('@alfalab/core-components-', '');
-        const componentName = upperfirst(camelCase(packageName));
+    const components = packagesInfos
+        .map((packageInfo) => {
+            const packageName = packageInfo.name.replace('@alfalab/core-components-', '');
+            const componentName = upperfirst(camelCase(packageName));
+            const cPath = findComponentPath(componentName, packageName);
 
-        return {
-            name: componentName,
-            docsUrl: `/iframe.html?id=компоненты-${packageName.replace(
-                /-/g,
-                '',
-            )}--${packageName}&viewMode=docs`,
-        };
-    });
+            if (cPath) {
+                const group = cPath.replace('компоненты-', '');
+
+                return {
+                    group,
+                    name: componentName,
+                    docsUrl: `/iframe.html?id=${cPath}-${packageName.replace(
+                        /-/g,
+                        '',
+                    )}--${packageName}&viewMode=docs`,
+                };
+            }
+
+            return null;
+        })
+        .filter(Boolean);
 
     const json = {
         components,
         breakPoints: {
+            group: 'Инструкции',
             name: 'Брейкпоинты',
-            docsUrl: '/iframe.html?id=гайдлайны-брейкпоинты--page',
+            docsUrl: '/iframe.html?id=инструкции-брейкпоинты--page&viewMode=docs',
         },
         gaps: {
+            group: 'Токены и ассеты',
             name: 'Отступы',
-            docsUrl: '/iframe.html?id=гайдлайны-отступы--page',
+            docsUrl: '/iframe.html?id=токены-и-ассеты-отступы--page&viewMode=docs',
         },
         cssVars: {
+            group: 'Токены и ассеты',
             name: 'CSS-переменные',
-            docsUrl: '/iframe.html?id=гайдлайны-css-переменные--page',
+            docsUrl: '/iframe.html?id=токены-и-ассеты-css-переменные--page&viewMode=docs',
         },
     };
 

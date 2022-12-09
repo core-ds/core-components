@@ -21,10 +21,68 @@ describe(
                     componentName: 'Plate',
                     knobs: {
                         title: 'Поздравляем, полный успех',
-                        children: ['', 'Вам одобрено. Согласитесь на предложение'],
-                        view: ['negative', 'positive', 'attention', 'common'],
+                        children: [
+                            '',
+                            'Вам одобрено. Согласитесь на предложение, спустя какое-то время специалист с Вами свяжется для уточнения информации',
+                        ],
                         hasCloser: [false, true],
                         foldable: [false, true],
+                    },
+                    size: { width: 400, height: 120 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 840,
+            height: 100,
+        },
+    }),
+);
+
+describe(
+    'Plate | view',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Plate',
+                    knobs: {
+                        title: 'Поздравляем, полный успех',
+                        children:
+                            'Вам одобрено. Согласитесь на предложение, спустя какое-то время специалист с Вами свяжется для уточнения информации',
+                        view: ['negative', 'positive', 'attention', 'common'],
+                    },
+                    size: { width: 400, height: 120 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 840,
+            height: 100,
+        },
+    }),
+);
+
+describe(
+    'Plate | rowLimit',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Plate',
+                    knobs: {
+                        title: 'Поздравляем, полный успех',
+                        children:
+                            'Вам одобрено. Согласитесь на предложение, спустя какое-то время специалист с Вами свяжется для уточнения информации',
+                        rowLimit: [undefined, 1, 2, 3],
                     },
                     size: { width: 400, height: 120 },
                 }),
@@ -72,5 +130,32 @@ describe(
             },
         }),
         viewport: { width: 500, height: 160 },
+    }),
+);
+
+describe(
+    'Plate | shadow and border',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Plate',
+                    knobs: {
+                        title: 'Поздравляем, полный успех',
+                        shadow: [true, false],
+                        border: [true, false],
+                    },
+                    size: { width: 400, height: 120 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 840,
+            height: 100,
+        },
     }),
 );

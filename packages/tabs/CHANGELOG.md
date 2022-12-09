@@ -1,5 +1,55 @@
 # Change Log
 
+## 7.2.5
+
+### Patch Changes
+
+### [#388](https://github.com/core-ds/core-components/pull/388)
+
+-   Исправлен импорт PickerButtonDesktop компонента
+
+## 7.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.1.0
+
+## 7.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.0.4
+
+## 7.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.0.3
+
+## 7.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.0.2
+
+## 7.2.0
+
+### Minor Changes
+
+### [#336](https://github.com/core-ds/core-components/pull/336)
+
+-   Добавлен пропс collapsible, при включении которого не помещающиеся в окне табы сворачиваются в PickerButton.
+-   Добавлен хук use-collapsible-elements, который следит за изменением ширины контейнера и возвращает те элементы, которые не помещаются в данном контейнере.<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.0.1
+
 ## 7.1.2
 
 ### Patch Changes

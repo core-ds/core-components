@@ -42,7 +42,7 @@ render(() => {
         </React.Fragment>
     );
 });
-@MOBILE@
+//MOBILE
 render(() => {
     const [open, setOpen] = React.useState(false);
     const handleModalOpen = () => setOpen(!open);
@@ -82,6 +82,56 @@ render(() => {
         </React.Fragment>
     );
 });
+```
+
+### Адаптивная версия модального окна
+
+```jsx live
+function Form() {
+    const [form, setForm] = React.useState({ name: '', lastName: '' });
+
+    const handleChange = (field, value) =>
+        setForm((prevState) => ({ ...prevState, [field]: value }));
+
+    return (
+        <Space>
+            <Input
+                placeholder='Введите имя'
+                onChange={(e) => handleChange('name', e.target.value)}
+                value={form.name}
+            />
+            <Input
+                placeholder='Введите фамилию'
+                onChange={(e) => handleChange('lastName', e.target.value)}
+                value={form.lastName}
+            />
+        </Space>
+    );
+}
+
+function Modal() {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <>
+            <ModalResponsive onClose={() => setOpen(false)} open={open}>
+                <ModalResponsive.Header>Заполните форму</ModalResponsive.Header>
+                <ModalResponsive.Content>
+                    <Form />
+                </ModalResponsive.Content>
+                <ModalResponsive.Footer>
+                    <Button onClick={() => setOpen(false)}>Готово</Button>
+                </ModalResponsive.Footer>
+            </ModalResponsive>
+
+            <Button size='xs' onClick={() => setOpen(true)}>
+                Открыть модалку
+            </Button>
+        </>
+    );
+}
+
+render(<Modal />);
 ```
 
 ### Фиксации верхнего края
@@ -155,7 +205,7 @@ render(() => {
 
 Компонент модального окна предоставляет доступ к контекту, что позволяет гибко настраивать и расширять компонент, а также упрощает использование.
 
-```jsx
+```tsx
 export type ModalContext = {
     // Указывает, используется ли футер
     hasFooter?: boolean;
@@ -172,9 +222,9 @@ export type ModalContext = {
     // Коллбэк, который должна вызвать кастомный футер
     setHasFooter: (exists: boolean) => void;
     // Позволяет закрыть модальное окно
-    onClose: (event: MouseEvent<HTMLElement>) => void;
+    onClose: (event: React.MouseEvent<HTMLElement>) => void;
     // Реф, который должен быть установлен контентой области
-    contentRef: Ref<HTMLElement>;
+    contentRef: React.Ref<HTMLElement>;
 };
 ```
 

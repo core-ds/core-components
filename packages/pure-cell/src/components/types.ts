@@ -20,7 +20,7 @@ export type FooterElement =
     | Array<ReactElement<FooterButtonElement> | FooterTitleElement>
     | CommentElement;
 export type MainElement =
-    | Array<TextElement | AmountElement | AmountTitleElement>
+    | Array<undefined | '' | TextElement | AmountElement | AmountTitleElement>
     | (TextElement | AmountElement | AmountTitleElement);
 export type ContentElement = Array<MainElement | AddonElement | FooterElement> | MainElement;
 export type AddonElement = Array<TextElement | ReactNode> | TextElement | ReactNode;

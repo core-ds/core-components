@@ -9,10 +9,11 @@ render(() => {
     return (
         <>
             <BankCard value={value} onChange={handleChange} />
-
+            <Gap size='s' />
             <Button size='xs' onClick={() => setValue('4111111111111111')}>
                 Вставить номер карты
             </Button>
+            <Gap size='s' direction='horizontal' />
             <Button size='xs' onClick={() => setValue('')}>
                 Очистить
             </Button>

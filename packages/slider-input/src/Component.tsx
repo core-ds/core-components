@@ -152,7 +152,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         ref,
     ) => {
         const getValidInputValue = useCallback((inputValue: string) => {
-            const number = parseInt(inputValue, 10);
+            const number = parseInt(inputValue.replace(/\s/g, ''), 10);
 
             return inputValue === '' || Number.isNaN(number) ? '' : Math.abs(number);
         }, []);

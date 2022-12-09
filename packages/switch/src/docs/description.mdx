@@ -1,82 +1,58 @@
-Компонент переключателя.
+## Как использовать
+
+Свитч это аналог [Checkbox](?path=/docs/компоненты-checkbox--checkbox). Для применения выбранного состояния не нужно совершать дополнительных действий,
+таких как отправка формы или нажатие кнопки «применить». Свитч может располагаться слева или справа от контента.
+
+Если свитч нельзя использовать, его следует заблокировать. Валидация для свитчей не требуется.
 
 ```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleChange = () => setChecked(!checked);
+    const [checked1, setChecked1] = React.useState(false);
+    const [checked2, setChecked2] = React.useState(false);
 
     return (
-        <Switch
-            checked={checked}
-            disabled={boolean('disabled', false)}
-            reversed={boolean('reversed', false)}
-            className={text('className', '')}
-            dataTestId={text('dataTestId', '')}
-            label={text('label', 'Условие тоггла')}
-            hint={text('hint', 'Описание пункта')}
-            onChange={handleChange}
-        />
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Switch
+                block={true}
+                checked={checked1}
+                label='Сделать всё хорошо'
+                hint='Бесплатно без СМС'
+                onChange={() => setChecked1((prevState) => !prevState)}
+            />
+            <Gap size='xl' />
+            <Switch
+                block={true}
+                reversed={true}
+                checked={checked2}
+                label='Сделать всё хорошо'
+                hint='Бесплатно без СМС'
+                onChange={() => setChecked2((prevState) => !prevState)}
+            />
+        </div>
     );
 });
 ```
 
-### Переключатель без текста
+## Состояния
+
+Свитч может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть недоступным для редактирования.
 
 ```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleChange = () => setChecked(!checked);
-
-    return <Switch checked={checked} onChange={handleChange} />;
-});
-```
-
-### Кастомный контент
-
-```jsx live
-render(() => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleChange = () => setChecked(!checked);
-
     return (
-        <Switch
-            checked={checked}
-            onChange={handleChange}
-            label={
-                <span style={{ display: 'flex' }}>
-                    <span style={{ marginRight: '8px' }}>Согласен</span>
-                    <StarMIcon />
-                </span>
-            }
-            hint={
-                <span>
-                    вы соглашаетесь с <Button view='ghost'>условиями</Button>
-                </span>
-            }
-        />
-    );
-});
-```
-
-### Переключатель справа от контента
-
-```jsx live
-render(() => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleChange = () => setChecked(!checked);
-
-    return (
-        <Switch
-            checked={checked}
-            onChange={handleChange}
-            reversed={true}
-            label='Условие тоггла'
-            hint='Описание пункта'
-        />
+        <>
+            <Switch checked={true} label='Выбран' />
+            <Gap size='m' />
+            <Switch checked={true} label='Выбран и недоступен' disabled={true} />
+            <Gap size='m' />
+            <Switch checked={true} label='Выбран и неактивен' inactive={true} />
+            <Gap size='xl' />
+            <Switch checked={false} label='По умолчанию' />
+            <Gap size='m' />
+            <Switch checked={false} label='По умолчанию и недоступен' disabled={true} />
+            <Gap size='m' />
+            <Switch checked={false} label='По умолчанию и неактивен' inactive={true} />
+        </>
     );
 });
 ```

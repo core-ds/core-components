@@ -13,9 +13,9 @@ import cn from 'classnames';
 
 import { ComponentProps as ButtonProps } from '@alfalab/core-components-button';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
-import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { useFocus } from '@alfalab/hooks';
+import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { ButtonList } from './components/button-list/component';
 
@@ -139,6 +139,11 @@ export type PlateProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Количество строк (не поддерживает IE)
+     */
+    rowLimit?: 1 | 2 | 3;
 };
 
 /* eslint-disable complexity */
@@ -168,6 +173,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             onClick,
             onClose,
             onToggle,
+            rowLimit,
         },
         ref,
     ) => {
@@ -189,6 +195,8 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         const hasContent = children || hasButtons;
         const hasSubAddons = !!subAddons && typeof subAddons !== 'boolean';
         const hasAnyAddons = leftAddons || subAddons || foldable || hasCloser;
+
+        const rowLimitStyles = rowLimit && styles[`rowLimit${rowLimit}`];
 
         const handleClick = useCallback(
             (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
@@ -240,106 +248,99 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         );
 
         return (
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
-                className={cn({
-                    [styles.shadow]: shadow,
-                    [styles.rounded]: rounded,
-                })}
+                className={cn(
+                    styles.component,
+                    styles[view],
+                    {
+                        [styles.foldable]: foldable,
+                        [styles.focused]: focused,
+                        [styles.isHidden]: hasCloser && isHidden,
+                        [styles.isFolded]: foldable && folded,
+                        [styles.rounded]: rounded,
+                        [styles.rect]: !rounded,
+                        [styles.noBorder]: !border,
+                        [styles.shadow]: shadow,
+                    },
+                    className,
+                )}
+                onClick={handleClick}
+                onKeyDown={handleClick}
+                role='alert'
+                ref={mergeRefs([plateRef, ref])}
+                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                tabIndex={foldable ? 0 : -1}
+                data-test-id={dataTestId}
             >
-                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-                <div
-                    className={cn(
-                        styles.component,
-                        styles[view],
-                        {
-                            [styles.foldable]: foldable,
-                            [styles.focused]: focused,
-                            [styles.isHidden]: hasCloser && isHidden,
-                            [styles.isFolded]: foldable && folded,
-                            [styles.rounded]: rounded,
-                            [styles.rect]: !rounded,
-                            [styles.noBorder]: !border,
-                        },
-                        className,
-                    )}
-                    onClick={handleClick}
-                    onKeyDown={handleClick}
-                    role='alert'
-                    ref={mergeRefs([plateRef, ref])}
-                    /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
-                    tabIndex={foldable ? 0 : -1}
-                    data-test-id={dataTestId}
-                >
-                    <div className={styles.inner}>
-                        {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
-                        <div
-                            className={cn(styles.contentContainer, contentClassName, {
-                                [styles.withoutTitle]: !title && hasAnyAddons,
-                                [styles.limitWidth]: limitContentWidth,
-                            })}
-                        >
-                            {title && <div className={styles[titleView]}>{title}</div>}
-                            {hasContent && (
-                                <div
-                                    ref={contentRef}
-                                    className={cn(styles.content, {
-                                        [styles.isFolded]: foldable && folded,
-                                    })}
-                                >
-                                    {children && (
-                                        <div className={styles.description}>{children}</div>
-                                    )}
+                <div className={styles.inner}>
+                    {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
+                    <div
+                        className={cn(styles.contentContainer, contentClassName, {
+                            [styles.withoutTitle]: !title && hasAnyAddons,
+                            [styles.limitWidth]: limitContentWidth,
+                        })}
+                    >
+                        {title && <div className={styles[titleView]}>{title}</div>}
+                        {hasContent && (
+                            <div
+                                ref={contentRef}
+                                className={cn(styles.content, {
+                                    [styles.isFolded]: foldable && folded,
+                                })}
+                            >
+                                {children && (
+                                    <div className={cn(styles.description, rowLimitStyles)}>
+                                        {children}
+                                    </div>
+                                )}
 
-                                    {hasButtons && (
-                                        <div className={styles.footer}>
-                                            <ButtonList
-                                                buttons={buttons}
-                                                containerClassName={buttonsClassName}
-                                                buttonClassName={cn(
-                                                    styles.button,
-                                                    buttonsClassName,
-                                                )}
-                                            />
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-                        </div>
-
-                        {hasSubAddons && (
-                            <div ref={subAddonsRef} className={styles.subAddons}>
-                                <ButtonList
-                                    buttons={subAddons}
-                                    containerClassName={subAddonsClassName}
-                                    buttonClassName={styles.button}
-                                />
-                            </div>
-                        )}
-
-                        {foldable && (
-                            <div className={styles.rightAddons}>
-                                <div
-                                    className={cn(styles.folder, {
-                                        [styles.isFolded]: folded,
-                                    })}
-                                >
-                                    <ChevronDownMIcon />
-                                </div>
-                            </div>
-                        )}
-
-                        {hasCloser && !foldable && (
-                            <div className={styles.rightAddons}>
-                                <IconButton
-                                    className={styles.closer}
-                                    aria-label='закрыть'
-                                    icon={CrossMIcon}
-                                    size='xxs'
-                                    onClick={handleClose}
-                                />
+                                {hasButtons && (
+                                    <div className={styles.footer}>
+                                        <ButtonList
+                                            buttons={buttons}
+                                            containerClassName={buttonsClassName}
+                                            buttonClassName={cn(styles.button, buttonsClassName)}
+                                        />
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
+
+                    {hasSubAddons && (
+                        <div ref={subAddonsRef} className={styles.subAddons}>
+                            <ButtonList
+                                buttons={subAddons}
+                                containerClassName={subAddonsClassName}
+                                buttonClassName={styles.button}
+                            />
+                        </div>
+                    )}
+
+                    {foldable && (
+                        <div className={styles.rightAddons}>
+                            <div
+                                className={cn(styles.folder, {
+                                    [styles.isFolded]: folded,
+                                })}
+                            >
+                                <ChevronDownMIcon />
+                            </div>
+                        </div>
+                    )}
+
+                    {hasCloser && !foldable && (
+                        <div className={styles.rightAddons}>
+                            <IconButton
+                                className={styles.closer}
+                                aria-label='закрыть'
+                                icon={CrossMIcon}
+                                size='xxs'
+                                onClick={handleClose}
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
         );

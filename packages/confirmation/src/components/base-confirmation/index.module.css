@@ -1,15 +1,8 @@
 @import '../../../../themes/src/default.css';
 
 .component {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     max-width: 388px;
     margin: 0 auto;
     color: var(--color-light-text-secondary);
-}
-
-.center {
-    align-items: center;
-    text-align: center;
 }
