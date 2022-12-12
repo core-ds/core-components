@@ -47,7 +47,10 @@
     justify-content: center;
     align-items: center;
     border-radius: var(--border-radius-pill);
-    padding: var(--gap-3xs);
+}
+
+.outlineCount {
+    border: 2px solid var(--badge-icon-bg-color);
 }
 
 .s {
@@ -91,6 +94,10 @@
 .heightXXL {
     @mixin accent_primary_medium;
     padding: 0 var(--gap-m);
+}
+
+.heightS.outlineCount {
+    border: 1px solid var(--badge-icon-bg-color);
 }
 
 .icon {
@@ -193,6 +200,10 @@
     height: 8px;
     min-width: 0;
     padding: 0;
+}
+
+.dot.outlineCount {
+    border: 1px solid var(--badge-icon-bg-color);
 }
 
 .isHidden {

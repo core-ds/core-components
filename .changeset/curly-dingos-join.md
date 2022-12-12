@@ -1,7 +1,7 @@
 ---
-"@alfalab/core-components-badge": minor
+"@alfalab/core-components-badge": major
 ---
 
 - Обновлен размер 's' c 18px на 20px для Badge view='icon'
-- Добавлена цветная обводка для Badge view='count'
 - Исправлено сжатие svg в размерах 's' и 'm'
+- Обводка для Badge view='count' изменена с внешней на внутреннюю
