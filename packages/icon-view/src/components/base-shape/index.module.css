@@ -90,7 +90,7 @@
 
     & .indicator {
         top: -6px;
-        right: -12px;
+        right: -14px;
     }
 }
 
@@ -117,7 +117,7 @@
 
     & .indicator {
         top: -8px;
-        right: -14px;
+        right: -16px;
     }
 }
 
@@ -144,7 +144,7 @@
 
     & .indicator {
         top: -7px;
-        right: -11px;
+        right: -13px;
     }
 }
 
@@ -171,7 +171,7 @@
 
     & .indicator {
         top: -7px;
-        right: -11px;
+        right: -13px;
     }
 }
 
@@ -182,8 +182,8 @@
     }
 
     & .indicator {
-        top: -4px;
-        right: -4px;
+        top: -2px;
+        right: -2px;
     }
 }
 
@@ -194,8 +194,8 @@
     }
 
     & .indicator {
-        top: -4px;
-        right: -4px;
+        top: -2px;
+        right: -2px;
     }
 }
 
@@ -206,7 +206,7 @@
     }
 
     & .indicator {
-        top: -5px;
-        right: -5px;
+        top: -3px;
+        right: -3px;
     }
 }
