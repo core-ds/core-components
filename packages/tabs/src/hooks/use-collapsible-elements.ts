@@ -22,10 +22,15 @@ export const useCollapsibleElements = <
             if (!container) return;
 
             const addon = addonRef.current;
-            const containerWidth = inlineSize || container.clientWidth;
+            const moreElement = (
+                Array.from(container.querySelectorAll('[role="tablist"]')) as HTMLElement[]
+            ).pop();
             const elements = Array.from(container.querySelectorAll(selectors)) as HTMLElement[];
+            const containerWidth =
+                (inlineSize || container.clientWidth) -
+                (moreElement?.clientWidth ? moreElement.clientWidth + 10 : 0);
 
-            const idsCollapsedElements = elements.reduce<string[]>((acc, element) => {
+            const collapsedIds = elements.reduce<string[]>((acc, element) => {
                 const { offsetLeft, offsetWidth, id } = element;
                 const elementOffset = offsetLeft + offsetWidth;
                 const isCollapsedElement = getComputedStyle(element).visibility === 'collapse';
@@ -40,7 +45,7 @@ export const useCollapsibleElements = <
                 return acc;
             }, []);
 
-            setIdsCollapsedElements(idsCollapsedElements);
+            setIdsCollapsedElements(collapsedIds);
         };
 
         const handleElementsResize = (entries: ResizeObserverEntry[]) => {

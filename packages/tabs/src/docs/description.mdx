@@ -172,6 +172,7 @@ render(() => {
     const [count, setCount] = React.useState('7');
     const [component, setComponent] = React.useState('TabsResponsive');
     const [collapsible, setCollapsible] = React.useState(false);
+    const [collapsibleTabsIds, setCollapsibleTabsIds] = React.useState({ "tab-1": true });
 
     const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
     const handleWidthChange = (event, { value }) => setWidth(value);
@@ -181,6 +182,15 @@ render(() => {
         setComponent(value);
         setCollapsible(value === 'TabsCollapsibleDesktop');
     };
+    const handleTabsChange = (event, payload) => {
+        setCollapsibleTabsIds({ ...collapsibleTabsIds, [payload.name]: payload.checked });
+        console.log("payload", { payload }, collapsibleTabsIds);
+    }
+
+    const manuallyCollapsedTabs = React.useMemo(() => {
+        const v = Object.keys(collapsibleTabsIds).filter((k) => !!collapsibleTabsIds[k]);
+        return v.length ? v : undefined;
+    }, [collapsibleTabsIds]);
 
     const TabsComponent = React.useMemo(
         () =>
@@ -202,6 +212,7 @@ render(() => {
                     {...props}
                     scrollable={true}
                     collapsible={collapsible}
+                    collapsedTabsIds={ manuallyCollapsedTabs }
                     selectedId={selectedId}
                     onChange={handleChange}
                     view={view}
@@ -256,6 +267,25 @@ render(() => {
                         <Radio label='Mobile' value='TabsMobile' />
                         <Radio label='Responsive' value='TabsResponsive' />
                     </RadioGroup>
+                    {
+                        collapsible && (
+                            <CheckboxGroup
+                                label='Схлопнутые вкладки'
+                                name='tabsCheckboxGroup'
+                                direction='vertical'
+                                value={collapsibleTabsIds}
+                                onChange={handleTabsChange}
+                            >
+                                {
+                                    tabs
+                                        .slice(0, +count)
+                                        .map((t) => (
+                                            <Checkbox key={ t.id } label={ t.title } name={ t.id } checked={ !!collapsibleTabsIds[t.id] } />
+                                        ))
+                                }
+                            </CheckboxGroup>
+                        )
+                    }
                 </Space>
             </div>
         </>
