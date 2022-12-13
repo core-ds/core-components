@@ -3,20 +3,8 @@
 Обычно фильтры объединяются в группу, в рамках группы используется один паттерн отображения лейбла. 
 
 ```jsx live
-render(() => {
-
-    const options = [
-        { key: '1', content: 'Auurum' },
-        { key: '2', content: 'Bercelium' },
-        { key: '3', content: 'Curium' },
-        { key: '4', content: 'Neptunium' },
-        { key: '5', content: 'Plutonuim' }
-    ];
-   
-    const [label, setLabel] = React.useState(false)
-
     // Одиночный выбор
-    const CustomField = ({ selected, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
+    const CustomField = ({ label, selected, setSelectedItems, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
     
     const checkedContent = (
         <span>
@@ -30,7 +18,7 @@ render(() => {
         <div ref={ref}>
             <FilterTag
                 size='xxs'
-                onClear={() => setSelected([])}
+                onClear={() => setSelectedItems([])}
                 checked={selected}
                 {...restInnerProps} {...restProps}
             >
@@ -38,16 +26,9 @@ render(() => {
             </FilterTag>
     </div>
     )};
-
-    const [selected, setSelected] = React.useState([]);
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple);
-    };
     
-    // ------------------------------------------------
-
     // Множественный выбор 
-    const CustomFieldMultiple = ({ selected, selectedMultiple, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
+    const CustomFieldMultiple = ({ label, selected, setSelectedItems, selectedMultiple, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
     
     const content = selected && selected.content
     
@@ -63,7 +44,7 @@ render(() => {
         <div ref={ref}>
             <FilterTag
                 size='xxs'
-                onClear={() => setSelectedMultiple([])}
+                onClear={() => setSelectedItems([])}
                 checked={selected}
                 {...restInnerProps} {...restProps}
             >
@@ -71,24 +52,38 @@ render(() => {
             </FilterTag>
     </div>
     )};
+
+render(() => {
+
+    const options = [
+        { key: '1', content: 'Auurum' },
+        { key: '2', content: 'Bercelium' },
+        { key: '3', content: 'Curium' },
+        { key: '4', content: 'Neptunium' },
+        { key: '5', content: 'Plutonuim' }
+    ];
+   
+    const [label, setLabel] = React.useState(false)
+
+    const [selected, setSelected] = React.useState([]);
+    
+    const handleChangeSelected = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
     
     const [selectedMultiple, setSelectedMultiple] = React.useState([]);
     const handleChangeMultiple = ({ selectedMultiple }) => {
         setSelectedMultiple(selectedMultiple.map(option => option.key));
     };
     
-    // ------------------------------------------------
-
     // Диапазон значений
-    
-
     const [filterTag, setFilterTag] = React.useState(null);
     const [open, setOpen] = React.useState(false);
-    const toggle = () => {
+    const handleOpen = () => {
         setOpen(!open);
     };
     
-    const clear = () => {
+    const handleClear = () => {
         setOpen(false);
         updatePeriod(null, null)
     };
@@ -132,8 +127,9 @@ return(
             popoverPosition='bottom-start'
             options={options}
             Field={CustomField}
-            onChange={handleChange}
+            onChange={handleChangeSelected}
             selected={selected}
+            label={label}
         />
         <Gap size='xl' />
         <Select
@@ -144,6 +140,7 @@ return(
             onChange={handleChangeMultiple}
             selected={selectedMultiple}
             multiple={true}
+            label={label}
         />
         <Gap size='xl' />
         <Popover anchorElement={filterTag}  open={open} preventFlip={true} position='bottom-start'>
@@ -159,8 +156,8 @@ return(
       <FilterTag
            ref={handleFilterTagRef}
             size='s'
-            onClick={toggle}
-            onClear={clear}
+            onClick={handleOpen}
+            onClear={handleClear}
             checked={selectedRange}
             open={open}
         >
