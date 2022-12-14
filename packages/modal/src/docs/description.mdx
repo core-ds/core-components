@@ -1,316 +1,427 @@
-Компонент модального окна, построенный как Compound Components.
+## Анатомия
 
-Предоставляет стандартные компоненты `Header`, `Closer`, `Content`, `Footer`, а также доступ к контексту.
+Modal построен как Compound Components. Состоит из Header, Content, Footer, содержащих в себе кастомизируемые слоты. Чтобы во время скролла заголовок и кнопки оставались неподвижны, их нужно расположить в `header` и `footer`. Текст и изображения всегда располагаются в `content` части.
 
-```jsx live
-render(() => {
-    const [open, setOpen] = React.useState(false);
-    const handleModalOpen = () => setOpen(!open);
+```jsx live mobileHeight=640
+
+const Header = () => {
+    const { setHasHeader } = React.useContext(ModalContext);
+
+    React.useEffect(() => setHasHeader(true), [setHasHeader]);
+
+    const styleAddons = {
+        width: '48px',
+        height: '48px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+    const styleWrapper = {
+        display: 'flex',
+        justifyContent: 'center',
+        margin: 'var(--gap-xs) var(--gap-xs) var(--gap-m)'
+    }
+
+    const styleTitle={
+        width: '488px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+
     return (
-        <React.Fragment>
-            <Button type='button' size='xs' onClick={handleModalOpen}>
-                Открыть модалку
-            </Button>
-            <ModalDesktop open={open} onClose={handleModalOpen} size='m'>
+        <div style={styleWrapper} >
+            <div style={styleAddons} />
+            <div style={styleTitle} />
+            <div style={styleAddons} />
+        </div>
+    );
+};
+
+const Text = () => (
+    <>
+        <Typography.Text tag='p'>
+            Сейчас много говорят об отказах банков в проведении операций, блокировках
+            интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+            выявлять операции своих клиентов, потенциально нарушающие требования
+            Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+            доходов, полученных преступным путем, и финансированию терроризма».
+        </Typography.Text>
+        <br/>
+        <Typography.Text tag='p'>
+            Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+            предотвращать проведение таких операций и поэтому могут запросить
+            дополнительную информацию и документы, ограничить доступ к платежам через
+            интернет-банк или даже отказать в исполнении платежа.
+        </Typography.Text>
+    </>
+);
+
+render(() => {
+    const [modalAnatomy , setModalAnatomy] = React.useState(false);
+    const handleModalAnatomy = () => setModalAnatomy(!modalAnatomy);
+
+    const [modalSticky , setModalSticky] = React.useState(false);
+    const handleModalSticky = () => setModalSticky(!modalSticky);
+
+    const [modal, setModal] = React.useState(false);
+    const handleModal = () => setModal(!modal);
+
+    const styleContent = {
+        width: '488px',
+        height: '600px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }   
+
+    const styleFooter = {
+        width: '100%',
+        height: '48px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+
+    return (
+        <Container>
+            <div style={{marginBottom: 16}}>
+                <Button type='button' size='xs' onClick={handleModalAnatomy}>
+                    Показать анатомию
+                </Button>
+                <ModalDesktop open={modalAnatomy} onClose={handleModalAnatomy} size='m'>
+                    <Header />
+                    <ModalDesktop.Content>
+                        <div style={styleContent}></div>
+                    </ModalDesktop.Content>
+                    <ModalDesktop.Footer>
+                        <div style={styleFooter}></div>
+                    </ModalDesktop.Footer>
+                </ModalDesktop>
+            </div>
+
+            <div style={{marginBottom: 16}}>
+                <Button type='button' size='xs' onClick={handleModalSticky}>
+                    Фиксация шапки и футера
+                </Button>
+                <ModalDesktop open={modalSticky} onClose={handleModalSticky} size='m'>
+                    <ModalDesktop.Header hasCloser={true}  sticky={true}/>
+                    <ModalDesktop.Content>
+                        <Typography.Title tag='div' view='small'>
+                            Почему банк проверяет мои операции?
+                        </Typography.Title>
+                        <br />
+                        <Text/>
+                        <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+                        <Text/>
+                        <Text/>
+                        <Text/>
+                        </Collapse>
+                    </ModalDesktop.Content>
+                    <ModalDesktop.Footer sticky={true}>
+                        <Button view='primary' size='s' onClick={handleModalSticky}>
+                            Понятно
+                        </Button>
+                    </ModalDesktop.Footer>
+                </ModalDesktop>
+            </div>
+
+            <div>
+                <Button type='button' size='xs' onClick={handleModal}>
+                    Без фиксации шапки и футера
+                </Button>
+                <ModalDesktop open={modal} onClose={handleModal} size='m'>
+                    <ModalDesktop.Header hasCloser={true} />
+                    <ModalDesktop.Content>
+                        <Typography.Title tag='div' view='small'>
+                            Почему банк проверяет мои операции?
+                        </Typography.Title>
+                        <br />
+                        <Text/>
+                        <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+                        <Text/>
+                        <Text/>
+                        <Text/>
+                        </Collapse>
+                        <br />
+                        <br />
+                        <Button view='primary' size='s' onClick={handleModal}>
+                            Понятно
+                        </Button>
+                    </ModalDesktop.Content>
+                </ModalDesktop>
+            </div>
+        </Container>
+    );
+});
+//MOBILE
+const Header = () => {
+    const { setHasHeader } = React.useContext(ModalContext);
+
+    React.useEffect(() => setHasHeader(true), [setHasHeader]);
+
+    const styleAddons = {
+        width: '48px',
+        height: '48px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+    const styleWrapper = {
+        display: 'flex',
+        justifyContent: 'center',
+        margin: '0 var(--gap-xs)'
+    }
+
+    const styleTitle={
+        width: '230px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+
+    return (
+        <div style={styleWrapper} >
+            <div style={styleAddons} />
+            <div style={styleTitle} />
+            <div style={styleAddons} />
+        </div>
+    );
+};
+
+const Text = () => (
+    <>
+        <Typography.Text tag='p'>
+            Сейчас много говорят об отказах банков в проведении операций, блокировках
+            интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+            выявлять операции своих клиентов, потенциально нарушающие требования
+            Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+            доходов, полученных преступным путем, и финансированию терроризма».
+        </Typography.Text>
+        <Typography.Text tag='p'>
+                Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+                предотвращать проведение таких операций и поэтому могут запросить
+                дополнительную информацию и документы.
+            </Typography.Text>
+        <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+            <Typography.Text tag='p'>
+                Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+                предотвращать проведение таких операций и поэтому могут запросить
+                дополнительную информацию и документы, ограничить доступ к платежам через
+                интернет-банк или даже отказать в исполнении платежа.
+            </Typography.Text>
+        </Collapse>
+    </>
+);
+
+render(() => {
+    const [modalAnatomy , setModalAnatomy] = React.useState(false);
+    const handleModalAnatomy = () => setModalAnatomy(!modalAnatomy);
+
+    const [modalSticky , setModalSticky] = React.useState(false);
+    const handleModalSticky = () => setModalSticky(!modalSticky);
+
+    const [modal, setModal] = React.useState(false);
+    const handleModal = () => setModal(!modal);
+    
+    const styleContent = {
+        width: '313px',
+        height: '672px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }   
+
+    const styleFooter = {
+        width: '313px',
+        height: '48px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+
+    return (
+        <Container>
+            <div style={{marginBottom: 16}}>
+                <Button type='button' size='xs' onClick={handleModalAnatomy}>
+                    Показать анатомию
+                </Button>
+                <ModalMobile open={modalAnatomy} onClose={handleModalAnatomy} size='m'>
+                    <Header />
+                    <ModalMobile.Content>
+                        <div style={styleContent}></div>
+                    </ModalMobile.Content>
+                    <ModalMobile.Footer>
+                        <div style={styleFooter}></div>
+                    </ModalMobile.Footer>
+                </ModalMobile>
+            </div>
+
+            <div style={{marginBottom: 16}}>
+                <Button type='button' size='xs' onClick={handleModalSticky}>
+                    Фиксация шапки и футера
+                </Button>
+                <ModalMobile open={modalSticky} onClose={handleModalSticky} size='m'>
+                    <ModalMobile.Header hasCloser={true}  sticky={true}>
+                        Почему банк проверяет мои операции?
+                    </ModalMobile.Header>                    
+                    <ModalMobile.Content>
+                        <Text/>
+                    </ModalMobile.Content>
+                    <ModalMobile.Footer sticky={true}>
+                        <Button block={true} view='primary' size='s' onClick={handleModalSticky}>
+                            Понятно
+                        </Button>
+                    </ModalMobile.Footer>
+                </ModalMobile>
+            </div>
+
+            <div>
+                <Button type='button' size='xs' onClick={handleModal}>
+                    Без фиксации шапки и футера                
+                </Button>
+                <ModalMobile open={modal} onClose={handleModal} size='m'>
+                    <ModalMobile.Header hasCloser={true}>
+                        Почему банк проверяет мои операции?
+                    </ModalMobile.Header>                    
+                    <ModalMobile.Content>
+                        <Text/>
+                        <br/>
+                        <Button block={true} view='primary' size='s' onClick={handleModal}>
+                            Понятно
+                        </Button>
+                    </ModalMobile.Content>
+                </ModalMobile>
+            </div>
+        </Container>
+    );
+});
+```
+
+## Размеры
+
+Десктопный компонент поддерживает размеры S,M,L,XL, FullScreen. В мобильной версии все модальные окна открываются на полный экран.
+
+```jsx live mobileHeight=640
+
+const Text = () => (
+    <>
+        <Typography.Text tag='p'>
+            Сейчас много говорят об отказах банков в проведении операций, блокировках
+            интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+            выявлять операции своих клиентов, потенциально нарушающие требования
+            Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+            доходов, полученных преступным путем, и финансированию терроризма».
+        </Typography.Text>
+        <br/>
+        <Typography.Text tag='p'>
+            Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+            предотвращать проведение таких операций и поэтому могут запросить
+            дополнительную информацию и документы, ограничить доступ к платежам через
+            интернет-банк или даже отказать в исполнении платежа.
+        </Typography.Text>
+    </>
+);
+
+render(() => {
+    const SIZES = ['s', 'm', 'l', 'xl', 'fullscreen'];
+    const [modal, setModal] = React.useState(false);
+    const [sizeModal, setModalSize] = React.useState('s');
+    const handleModal = () => setModal(!modal);
+
+    const handleModalSize =(size) => () => { 
+        setModalSize(size)
+        handleModal()
+    }
+
+    return (
+        <Container>
+            <div style ={{width: '320px'}}>
+                {SIZES.map((size) => (
+                    <>
+                        <Button key={size} block={true} type='button' size='xs' onClick={handleModalSize(size)}>
+                            {size !== 'fullscreen'? size.toUpperCase() : 'FullScreen'}
+                        </Button>
+                        <br/>
+                    </>
+                ))}
+            </div>
+            <ModalDesktop open={modal} onClose={handleModal} size={sizeModal}>
                 <ModalDesktop.Header hasCloser={true} />
                 <ModalDesktop.Content>
                     <Typography.Title tag='div' view='small'>
                         Почему банк проверяет мои операции?
                     </Typography.Title>
                     <br />
-                    <Typography.Text tag='p'>
-                        Сейчас много говорят об отказах банков в проведении операций, блокировках
-                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
-                        выявлять операции своих клиентов, потенциально нарушающие требования
-                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
-                        доходов, полученных преступным путем, и финансированию терроризма».
-                    </Typography.Text>
-                    <br />
-                    <Typography.Text tag='p'>
-                        Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
-                        предотвращать проведение таких операций и поэтому могут запросить
-                        дополнительную информацию и документы, ограничить доступ к платежам через
-                        интернет-банк или даже отказать в исполнении платежа.
-                    </Typography.Text>
+                    <Text/>
                 </ModalDesktop.Content>
                 <ModalDesktop.Footer>
-                    <Button view='primary' size='s' onClick={handleModalOpen}>
+                    <Button view='primary' size='s' onClick={handleModal}>
                         Понятно
                     </Button>
                 </ModalDesktop.Footer>
             </ModalDesktop>
-        </React.Fragment>
+        </Container>
     );
 });
 //MOBILE
+const Text = () => (
+    <>
+        <Typography.Text tag='p'>
+            Сейчас много говорят об отказах банков в проведении операций, блокировках
+            интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
+            выявлять операции своих клиентов, потенциально нарушающие требования
+            Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
+            доходов, полученных преступным путем, и финансированию терроризма».
+        </Typography.Text>
+        <Typography.Text tag='p'>
+            Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+            предотвращать проведение таких операций и поэтому могут запросить
+            дополнительную информацию и документы, ограничить доступ к платежам через
+            интернет-банк или даже отказать в исполнении платежа.
+        </Typography.Text>
+    </>
+);
+
 render(() => {
-    const [open, setOpen] = React.useState(false);
-    const handleModalOpen = () => setOpen(!open);
+    const SIZES = ['s', 'm', 'l', 'xl', 'fullscreen'];
+    const [modal, setModal] = React.useState(false);
+    const handleModal = () => setModal(!modal);
+    
     return (
-        <React.Fragment>
-            <Button type='button' size='xs' onClick={handleModalOpen}>
-                Открыть модалку
-            </Button>
-            <ModalMobile open={open} onClose={handleModalOpen} size='m'>
-                <ModalMobile.Header hasCloser={true} />
+        <Container>
+            <div style ={{width: '320px'}}>
+                {SIZES.map((size) => (
+                    <>
+                        <Button key={size} block={true} type='button' size='xs' onClick={handleModal}>
+                            {size !== 'fullscreen'? size.toUpperCase() : 'FullScreen'}
+                        </Button>
+                        <br/>
+                    </>
+                ))}
+            </div>
+            <ModalMobile open={modal} onClose={handleModal}>
+                <ModalMobile.Header hasCloser={true}  sticky={true}>
+                    Почему банк проверяет мои операции?
+                </ModalMobile.Header>                    
                 <ModalMobile.Content>
-                    <Typography.Title tag='div' view='small'>
-                        Почему банк проверяет мои операции?
-                    </Typography.Title>
-                    <br />
-                    <Typography.Text tag='p'>
-                        Сейчас много говорят об отказах банков в проведении операций, блокировках
-                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
-                        выявлять операции своих клиентов, потенциально нарушающие требования
-                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
-                        доходов, полученных преступным путем, и финансированию терроризма».
-                    </Typography.Text>
-                    <br />
-                    <Typography.Text tag='p'>
-                        Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
-                        предотвращать проведение таких операций и поэтому могут запросить
-                        дополнительную информацию и документы, ограничить доступ к платежам через
-                        интернет-банк или даже отказать в исполнении платежа.
-                    </Typography.Text>
+                    <Text/>
                 </ModalMobile.Content>
-                <ModalMobile.Footer>
-                    <Button view='primary' size='s' onClick={handleModalOpen}>
+                <ModalMobile.Footer sticky={true}>
+                    <Button block={true} view='primary' size='s' onClick={handleModal}>
                         Понятно
                     </Button>
                 </ModalMobile.Footer>
             </ModalMobile>
-        </React.Fragment>
-    );
-});
-```
-
-### Адаптивная версия модального окна
-
-```jsx live
-function Form() {
-    const [form, setForm] = React.useState({ name: '', lastName: '' });
-
-    const handleChange = (field, value) =>
-        setForm((prevState) => ({ ...prevState, [field]: value }));
-
-    return (
-        <Space>
-            <Input
-                placeholder='Введите имя'
-                onChange={(e) => handleChange('name', e.target.value)}
-                value={form.name}
-            />
-            <Input
-                placeholder='Введите фамилию'
-                onChange={(e) => handleChange('lastName', e.target.value)}
-                value={form.lastName}
-            />
-        </Space>
-    );
-}
-
-function Modal() {
-    const [open, setOpen] = React.useState(false);
-
-    return (
-        <>
-            <ModalResponsive onClose={() => setOpen(false)} open={open}>
-                <ModalResponsive.Header>Заполните форму</ModalResponsive.Header>
-                <ModalResponsive.Content>
-                    <Form />
-                </ModalResponsive.Content>
-                <ModalResponsive.Footer>
-                    <Button onClick={() => setOpen(false)}>Готово</Button>
-                </ModalResponsive.Footer>
-            </ModalResponsive>
-
-            <Button size='xs' onClick={() => setOpen(true)}>
-                Открыть модалку
-            </Button>
-        </>
-    );
-}
-
-render(<Modal />);
-```
-
-### Фиксации верхнего края
-
-```jsx live
-// import { Spinner } from '@alfalab/core-components/spinner';
-
-const Text = () => (
-    <p style={{ margin: '0 0 16px' }}>
-        Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
-        Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-        потенциально нарушающие требования Федерального закона «О противодействии легализации
-        (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-    </p>
-);
-
-render(() => {
-    const [open, setOpen] = React.useState(false);
-    const [loaded, setLoaded] = React.useState(false);
-
-    const handleModalOpen = () => setOpen(!open);
-
-    React.useEffect(() => {
-        let timer;
-
-        if (open) {
-            setLoaded(false);
-            timer = setTimeout(() => setLoaded(true), 1500);
-        }
-
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [open]);
-
-    return (
-        <React.Fragment>
-            <Button type='button' size='xs' onClick={handleModalOpen}>
-                Открыть модалку
-            </Button>
-            <ModalDesktop open={open} onClose={handleModalOpen} fixedPosition={true}>
-                <ModalDesktop.Header />
-                <ModalDesktop.Content>
-                    <p>Сейчас появится контент, который изменит высоту модального окна</p>
-                    {loaded ? (
-                        <Text />
-                    ) : (
-                        <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <Spinner visible={true} />
-                        </div>
-                    )}
-                </ModalDesktop.Content>
-                <ModalDesktop.Footer>
-                    <Button view='primary' size='s' onClick={handleModalOpen}>
-                        Понятно
-                    </Button>
-                </ModalDesktop.Footer>
-            </ModalDesktop>
-        </React.Fragment>
-    );
-});
-```
-
-## Использование контекста и кастомные компоненты
-
-Компонент модального окна предоставляет доступ к контекту, что позволяет гибко настраивать и расширять компонент, а также упрощает использование.
-
-```tsx
-export type ModalContext = {
-    // Указывает, используется ли футер
-    hasFooter?: boolean;
-    // Указывает, используется ли шапка (например, позволяет гибко настраивать отступы)
-    hasHeader?: boolean;
-    // Указывает наличие скролла
-    hasScroll?: boolean;
-    // Указывает, что контент прокручен
-    headerHighlighted?: boolean;
-    // Указывает, что контент прокручен не до конца
-    footerHighlighted?: boolean;
-    // Коллбэк, который должна вызвать кастомная шапка
-    setHasHeader: (exists: boolean) => void;
-    // Коллбэк, который должна вызвать кастомный футер
-    setHasFooter: (exists: boolean) => void;
-    // Позволяет закрыть модальное окно
-    onClose: (event: React.MouseEvent<HTMLElement>) => void;
-    // Реф, который должен быть установлен контентой области
-    contentRef: React.Ref<HTMLElement>;
-};
-```
-
-```jsx live
-const Header = () => {
-    const { setHasHeader } = React.useContext(ModalContext);
-
-    React.useEffect(() => setHasHeader(true), [setHasHeader]);
-
-    return (
-        <>
-            <div
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    height: '60px',
-                    padding: '0 var(--gap-4xl)',
-                    marginBottom: 'var(--gap-xl)',
-                    background: 'var(--color-light-bg-secondary-inverted)',
-                    fontSize: '22px',
-                    fontWeight: 'bold',
-                    color: 'var(--color-light-text-primary-inverted)',
-                    borderTopLeftRadius: 'var(--modal-border-radius)',
-                    borderTopRightRadius: 'var(--modal-border-radius)',
-                }}
-            >
-                Шапка
-            </div>
-            <div
-                style={{
-                    position: 'absolute',
-                    height: '100%',
-                    right: '10px',
-                    paddingTop: '6px',
-                }}
-            >
-                <ModalDesktop.Closer />
-            </div>
-        </>
-    );
-};
-
-const Content = () => {
-    const [showMore, setShowMore] = React.useState(false);
-    return (
-        <>
-            <Text />
-            {(showMore || boolean('showMore')) && (
-                <>
-                    <Text />
-                    <Text />
-                    <Text />
-                </>
-            )}
-            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
-                {showMore ? 'Скрыть' : 'Показать еще'}
-            </Button>
-        </>
-    );
-};
-
-const Text = () => (
-    <p style={{ margin: '0 0 16px' }}>
-        Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
-        Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-        потенциально нарушающие требования Федерального закона «О противодействии легализации
-        (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-    </p>
-);
-
-render(() => {
-    const [open, setOpen] = React.useState(false);
-    const handleModalOpen = () => setOpen(!open);
-
-    return (
-        <React.Fragment>
-            <Button type='button' size='xs' onClick={handleModalOpen}>
-                Открыть модалку
-            </Button>
-            <ModalDesktop open={open} onClose={handleModalOpen}>
-                <Header />
-                <ModalDesktop.Content>
-                    <Content />
-                </ModalDesktop.Content>
-            </ModalDesktop>
-        </React.Fragment>
+        </Container>
     );
 });
 ```

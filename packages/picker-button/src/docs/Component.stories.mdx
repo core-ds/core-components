@@ -1,4 +1,4 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { CarMIcon } from '@alfalab/icons-glyph/CarMIcon';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
@@ -8,9 +8,9 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
 import { PickerButtonMobile } from '@alfalab/core-components-picker-button/mobile';
 import { PickerButtonDesktop } from '@alfalab/core-components-picker-button/desktop';
 
-import { PickerButtonDesktop as PickerButtonDesktopTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
 export const options = [
@@ -82,18 +82,11 @@ export const options = [
     version={version}
     package='@alfalab/core-components/picker-button'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=3422%3A32180'
-/>
-
-```jsx
-import { PickerButton } from '@alfalab/core-components/picker-button';
-import { PickerButtonResponsive } from '@alfalab/core-components/picker-button/responsive'
-import { PickerButtonMobile } from '@alfalab/core-components-picker-button/mobile';
-import { PickerButtonDesktop } from '@alfalab/core-components-picker-button/desktop';
-```
-Из индекса импортируется responsive версия компонента.  
+    children='Кнопка используется для скрытия редких или одинаковых по контексту действий.'
+/> 
 
 <Tabs
     description={<Description />}
-    props={<ArgsTable of={PickerButtonDesktopTS} />}
+    development={<Development />}
     changelog={<Changelog />}
 />
