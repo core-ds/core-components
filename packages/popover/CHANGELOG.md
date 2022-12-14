@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.0.5
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   portal@3.1.2
+    -   stack@4.0.2
+
 ## 6.0.4
 
 ### Patch Changes

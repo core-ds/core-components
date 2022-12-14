@@ -1,5 +1,18 @@
 # Change Log
 
+## 11.1.1
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   badge@4.0.4
+    -   button@7.0.2
+    -   form-control@9.0.2
+
 ## 11.1.0
 
 ### Minor Changes

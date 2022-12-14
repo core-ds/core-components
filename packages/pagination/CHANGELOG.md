@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.0.8
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   button@7.0.2
+    -   tag@5.0.3
+
 ## 2.0.7
 
 ### Patch Changes

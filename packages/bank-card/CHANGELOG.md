@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.8
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   masked-input@6.1.1
+
 ## 5.2.7
 
 ### Patch Changes
