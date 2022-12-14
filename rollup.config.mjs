@@ -76,6 +76,7 @@ const es5 = {
         {
             dir: 'dist',
             format: 'cjs',
+            hoistTransitiveImports: false,
             plugins: [addCssImports({ currentPackageDir })],
         },
     ],
@@ -106,6 +107,7 @@ const modern = {
             dir: 'dist/modern',
             format: 'esm',
             generatedCode: 'es2015',
+            hoistTransitiveImports: false,
             plugins: [
                 addCssImports({ currentPackageDir }),
                 coreComponentsResolver({ importFrom: 'modern' }),
@@ -139,6 +141,7 @@ const cssm = {
         {
             dir: 'dist/cssm',
             format: 'cjs',
+            hoistTransitiveImports: false,
             plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
         },
     ],
@@ -168,6 +171,7 @@ const esm = {
         {
             dir: 'dist/esm',
             format: 'esm',
+            hoistTransitiveImports: false,
             plugins: [
                 addCssImports({ currentPackageDir }),
                 coreComponentsResolver({ importFrom: 'esm' }),
