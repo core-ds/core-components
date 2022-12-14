@@ -184,7 +184,6 @@ render(() => {
     };
     const handleTabsChange = (event, payload) => {
         setCollapsibleTabsIds({ ...collapsibleTabsIds, [payload.name]: payload.checked });
-        console.log("payload", { payload }, collapsibleTabsIds);
     }
 
     const manuallyCollapsedTabs = React.useMemo(() => {

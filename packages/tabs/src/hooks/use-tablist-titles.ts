@@ -46,22 +46,32 @@ export const useTablistTitles = ({
             });
         }
 
-        return titles
-            .map((title) => ({
-                ...title,
-                collapsed: idsCollapsedTitles.includes(String(title.id)),
-                selected: title.id === selectedId,
-            }))
-            .sort((a, b) => {
-                if (a.collapsed === b.collapsed) {
+        const titlesMapped = titles.map((title) => ({
+            ...title,
+            collapsed: idsCollapsedTitles.includes(String(title.id)),
+            selected: title.id === selectedId,
+        }));
+
+        if (collapsedTabsIds?.length) {
+            titlesMapped.sort((a, b) => {
+                const hasA = collapsedTabsIds.includes(String(a.id));
+                const hasB = collapsedTabsIds.includes(String(b.id));
+
+                if (hasA === hasB) {
                     return 0;
                 }
-                if (a.collapsed) {
-                    return 1;
-                }
 
-                return -1;
+                return hasA ? 1 : -1;
             });
+        }
+
+        return titlesMapped.sort((a, b) => {
+            if (a.collapsed === b.collapsed) {
+                return 0;
+            }
+
+            return a.collapsed ? 1 : -1;
+        });
     }, [collapsedTabsIds, idsCollapsedElements, view, collapsible, titles, selectedId]);
 
     const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
