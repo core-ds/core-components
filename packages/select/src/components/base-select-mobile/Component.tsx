@@ -250,10 +250,9 @@ export const BaseSelectMobile = forwardRef(
             },
         });
 
-        const menuProps = (getMenuProps as (options: object, additional: object) => void)(
-            { ref: listRef },
-            { suppressRefError: true },
-        );
+        const menuProps = (
+            getMenuProps as (options: object, additional: object) => Record<string, any>
+        )({ ref: listRef }, { suppressRefError: true });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
         useEffect(() => {
@@ -402,7 +401,7 @@ export const BaseSelectMobile = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...fieldProps}
+                    {...(fieldProps as Record<string, any>)}
                 />
 
                 {name && renderValue()}
@@ -423,7 +422,8 @@ export const BaseSelectMobile = forwardRef(
                     >
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
-                                {...optionsListProps}
+                                showFooter={multiple}
+                                {...(optionsListProps as Record<string, any>)}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
@@ -437,7 +437,6 @@ export const BaseSelectMobile = forwardRef(
                                 getOptionProps={getOptionProps}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                showFooter={multiple}
                                 onApply={handleApply}
                                 onClear={handleClear}
                             />
@@ -453,7 +452,8 @@ export const BaseSelectMobile = forwardRef(
                         <ModalMobile.Header hasCloser={true} title={placeholder} sticky={true} />
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
-                                {...optionsListProps}
+                                showFooter={multiple}
+                                {...(optionsListProps as Record<string, any>)}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
@@ -467,7 +467,6 @@ export const BaseSelectMobile = forwardRef(
                                 getOptionProps={getOptionProps}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                showFooter={multiple}
                                 onApply={handleApply}
                                 onClear={handleClear}
                             />

@@ -1,19 +1,17 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Select } from '@alfalab/core-components-select';
 import { SelectResponsive } from '@alfalab/core-components-select/responsive';
 import { SelectMobile } from '@alfalab/core-components-select/components/select-mobile';
 import { SelectModalMobile } from '@alfalab/core-components-select/components/select-modal-mobile';
 import { Arrow } from '@alfalab/core-components-select/components/arrow';
-import { Checkmark } from "@alfalab/core-components-select/components/checkmark";
 
-import { Select as SelectTS } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
-import vars from '!!raw-loader!../vars.css';
 
 export const options = [
     { key: '1', content: 'Neptunium' },
@@ -77,7 +75,6 @@ export const POSITION_OPTIONS = [
         optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
     />
 </Story>
-
 
 <Story name='SelectMobile'>
     <SelectMobile
@@ -151,17 +148,7 @@ export const POSITION_OPTIONS = [
     version={version}
     package='@alfalab/core-components/select'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=184%3A19405'
+    children='Поле ввода с выпадающим списком.'
 />
 
-```jsx
-import { Select } from '@alfalab/core-components/select;
-import { SelectMobile } from '@alfalab/core-components/select';
-import { SelectResponsive } from '@alfalab/core-components/select/responsive';
-```
-
-<Tabs
-    description={<Description />}
-    props={<ArgsTable of={SelectTS} />}
-    cssVars={<CssVars css={vars} />}
-    changelog={<Changelog />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />

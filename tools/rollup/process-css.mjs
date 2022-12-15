@@ -1,8 +1,10 @@
 import globby from 'globby';
 import postcss from 'postcss';
 import path from 'path';
+import { checkOrCreateDir, readFile, writeFile } from './common.mjs';
+import { createRequire } from 'module'
 
-import { checkOrCreateDir, readFile, writeFile } from './common';
+const require = createRequire(import.meta.url)
 
 const postcssConfig = require(path.join(process.env.LERNA_ROOT_PATH, 'postcss.config'));
 

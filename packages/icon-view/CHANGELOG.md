@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.2.1
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
 ## 2.2.0
 
 ### Minor Changes

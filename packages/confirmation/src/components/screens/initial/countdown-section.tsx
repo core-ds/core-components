@@ -59,7 +59,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         );
     }
 
-    if (blockSmsRetry) renderText(texts.noAttemptsLeft);
+    if (blockSmsRetry) return renderText(texts.noAttemptsLeft);
 
     if (timePassed) {
         return (
@@ -74,5 +74,5 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         );
     }
 
-    return renderText(`${texts.countdown} ${formatMsAsMinutes(timeLeft)}`)
+    return renderText(`${texts.countdown} ${formatMsAsMinutes(timeLeft)}`);
 };

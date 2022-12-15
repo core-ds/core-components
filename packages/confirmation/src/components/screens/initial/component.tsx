@@ -76,6 +76,12 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         onSmsRetryClick();
     };
 
+    const handleErrorAnimationEnd = () => {
+        if (clearCodeOnError && state !== 'INITIAL') {
+            onChangeState('INITIAL');
+        }
+    };
+
     const clearTimer = useCallback(() => {
         window.clearTimeout(timerId.current);
     }, []);
@@ -148,6 +154,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}
                 clearCodeOnError={clearCodeOnError}
+                onErrorAnimationEnd={handleErrorAnimationEnd}
             />
             <CountdownSection
                 processing={processing}

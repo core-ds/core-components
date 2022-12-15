@@ -28,7 +28,7 @@ type Trigger = 'click' | 'hover';
 
 type RefElement = HTMLDivElement | null;
 
-export type TooltipProps = {
+export type TooltipDesktopProps = {
     /**
      * Контент тултипа
      */
@@ -163,7 +163,7 @@ export type TooltipProps = {
     useAnchorWidth?: boolean;
 };
 
-export const Tooltip: FC<TooltipProps> = ({
+export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     children,
     content,
     trigger = 'hover',

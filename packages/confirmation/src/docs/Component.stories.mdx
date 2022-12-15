@@ -1,19 +1,16 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { select, number } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Select } from '@alfalab/core-components-select';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationMobile } from '@alfalab/core-components-confirmation/component.mobile';
 import { Confirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationResponsive } from '@alfalab/core-components-confirmation/component.responsive';
-import { ConfirmationMobile as ConfirmationMobileTS } from '../component.mobile';
-import { ConfirmationDesktop as ConfirmationDesktopTS } from '../component.desktop';
-import { ConfirmationResponsive as ConfirmationResponsiveTS } from '../component.responsive';
 import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
-import vars from '!!raw-loader!../vars.css';
+import Development from './development.mdx';
 
 <Meta title='Компоненты/Авторизация/Confirmation' />
 
@@ -143,25 +140,7 @@ import vars from '!!raw-loader!../vars.css';
     version={version}
     package='@alfalab/core-components/confirmation'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=8514%3A52278'
+    children='Используется для ввода кода подтверждения.'
 />
 
-```jsx
-import { Confirmation } from '@alfalab/core-components/confirmation';
-import { ConfirmationResponsive } from '@alfalab/core-components/confirmation/responsive';
-import { ConfirmationMobile } from '@alfalab/core-components/confirmation/mobile';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    props={
-        <ArgsTable
-            components={{
-                Confirmation: ConfirmationDesktopTS,
-                ConfirmationMobile: ConfirmationMobileTS,
-                ConfirmationResponsive: ConfirmationResponsiveTS,
-            }}
-        />
-    }
-    cssVars={<CssVars css={vars} />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
