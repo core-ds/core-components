@@ -1,0 +1,66 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+}
+
+/* *alignment */
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.leftSide {
+    display: flex;
+    flex: 1;
+    word-break: break-all;
+}
+
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.row-limit-1 {
+    @mixin row_limit 1;
+}
+
+.row-limit-2 {
+    @mixin row_limit 2;
+}
+
+.row-limit-3 {
+    @mixin row_limit 3;
+}
+
+.row-limit-4 {
+    @mixin row_limit 4;
+}
+
+.rightSide {
+    display: flex;
+    word-break: break-all;
+}
