@@ -14,7 +14,7 @@ render(() => {
         <Container >
             <Row align='middle'>
                 {SIZES.map((size) => (
-                    <Col key={size}>
+                    <div key={size} style={{marginRight: 12}}>
                         <Tag
                             size={size}
                             checked={checked[size]}
@@ -22,7 +22,7 @@ render(() => {
                         >
                             Label
                         </Tag>
-                    </Col>
+                    </div>
                 ))}
             </Row>
         </Container>
@@ -59,24 +59,24 @@ render(() => {
     return (
         <Container>
             <Row>
-                <Col>
+                <div style={{marginRight: 12}}>
                     <Tag size='s'>Label</Tag>
-                </Col>
-                <Col>
+                </div>
+                <div style={{marginRight: 12}}>
                     <Tag size='s' rightAddons={addon} leftAddons={addon}>
                         Label
                     </Tag>
-                </Col>
-                 <Col>
+                </div>
+                 <div style={{marginRight: 12}}>
                     <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
                         Label
                     </Tag>
-                </Col>
-                <Col>
+                </div>
+                <div style={{marginRight: 12}}>
                     <Tag size='s' rightAddons={amountAddon}>
                         Label
                     </Tag>
-                </Col>
+                </div>
             </Row>
         </Container>
     );
@@ -105,27 +105,27 @@ render(() => {
     return (
         <Container>
             <Row>
-                <Col>
+                <div style={{marginRight: 12}}>
                     <Tag size='s'>Label</Tag>
-                </Col>
-                <Col>
+                </div>
+                <div>
                     <Tag size='s' rightAddons={addon} leftAddons={addon}>
                         Label
                     </Tag>
-                </Col>
+                </div>
             </Row> 
-            <Row>
-                 <Col>
+            <div style={{display: 'flex', marginTop: 16}}>
+                 <div style={{marginRight: 12}}>
                     <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
                         Label
                     </Tag>
-                </Col>
-                <Col>
+                </div>
+                <div>
                     <Tag size='s' rightAddons={amountAddon}>
                         Label
                     </Tag>
-                </Col>
-            </Row>
+                </div>
+            </div>
         </Container>
     );
 });
@@ -139,21 +139,21 @@ render(() => {
 render(() => (
     <Container>
         <Row>
-            <Col>
+            <div style={{marginRight: 12}}>
                 <Tag size='s' >Label</Tag>
-            </Col>
-            <Col>
+            </div>
+            <div>
                 <Tag size='s' disabled={true} >Label</Tag>
-            </Col>
+            </div>
         </Row>
-         <Row>
-            <Col>
+         <div style={{display: 'flex', marginTop: 16}}>
+            <div style={{marginRight: 12}}>
                 <Tag size='s' checked={true} >Label</Tag>
-            </Col>
+            </div>
             <Col>
                 <Tag size='s' checked={true} disabled={true}>Label</Tag>
             </Col>
-        </Row>
+        </div>
     </Container>
 ));
 ```
@@ -166,14 +166,14 @@ render(() => (
 render(() => (
     <Container>
         <Row>
-            <Col>
+            <div style={{marginRight: 12}}>
                 <Tag size='s'>Label</Tag>
-            </Col>
-            <Col>
+            </div>
+            <div>
                 <Tag size='s' variant='alt'>
                     Label
                 </Tag>
-            </Col>
+            </div>
         </Row>
     </Container>
 ));
