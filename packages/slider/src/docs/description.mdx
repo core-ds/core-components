@@ -1,4 +1,4 @@
-### Сегменты и шаг слайдера
+## Сегменты и шаг слайдера
 
 Можно настроить количество сегментов и шаг внутри сегмента.
 
@@ -47,7 +47,7 @@ render(() => {
 });
 ```
 
-### Подписи
+## Подписи
 
 Слайдер может использоваться с подписями и без.
 
@@ -87,7 +87,7 @@ render(() => {
 });
 ```
 
-### Размеры
+## Размеры
 
 Доступны M и S размеры компонента.
 
@@ -116,8 +116,33 @@ render(() => {
         </>
     );
 });
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState(0);
+    const [slider, setSlider] = React.useState(0);
+
+    const handleChange = ({ value }) => setValue(value);
+    const handleChangeSlider = ({ value }) => setSlider(value);
+
+    return (
+        <>
+            <div style={{marginBottom: 80}}>
+                <Slider
+                    size='m'
+                    value={value}
+                    onChange={handleChange}
+                />
+            </div>
+            <Slider
+                size='s'
+                value={slider}
+                onChange={handleChangeSlider}
+            />
+        </>
+    );
+});
 ```
 
-### Связанные компоненты
+## Связанные компоненты
 
 Слайдер используется в [SliderInput](/docs/компоненты-инпуты-sliderinput--slider-input).
