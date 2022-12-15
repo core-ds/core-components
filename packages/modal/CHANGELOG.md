@@ -1,5 +1,27 @@
 # Change Log
 
+## 6.1.4
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   base-modal@5.0.7
+    -   button@7.0.2
+    -   icon-button@6.0.2
+    -   mq@4.1.1
+
+## 6.1.3
+
+### Patch Changes
+
+### [#394](https://github.com/core-ds/core-components/pull/394)
+
+-   Исправлена генерация типов в .d.ts
+
 ## 6.1.2
 
 ### Patch Changes

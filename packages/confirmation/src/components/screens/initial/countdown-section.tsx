@@ -27,20 +27,20 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
 }) => {
     const { state, texts, timeLeft, blockSmsRetry } = useContext(ConfirmationContext);
 
-    if (codeSendHintVisible) {
-        return (
-            <Typography.Text
-                className={cn(styles.countdownContainer, {
-                    [styles.countdownMobile]: mobile,
-                    [styles.typographyTheme]: !mobile,
-                })}
-                view={mobile ? 'primary-small' : 'primary-medium'}
-                tag='div'
-            >
-                {texts.codeSended}
-            </Typography.Text>
-        );
-    }
+    const renderText = (text?: string) => (
+        <Typography.Text
+            className={cn(styles.countdownContainer, {
+                [styles.countdownMobile]: mobile,
+                [styles.typographyTheme]: !mobile,
+            })}
+            view={mobile ? 'primary-small' : 'primary-medium'}
+            tag='div'
+        >
+            {text}
+        </Typography.Text>
+    );
+
+    if (codeSendHintVisible) return renderText(texts.codeSended);
 
     if (processing) {
         return (
@@ -59,20 +59,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         );
     }
 
-    if (blockSmsRetry) {
-        return (
-            <Typography.Text
-                className={cn(styles.countdownContainer, {
-                    [styles.countdownMobile]: mobile,
-                    [styles.typographyTheme]: !mobile,
-                })}
-                view={mobile ? 'primary-small' : 'primary-medium'}
-                tag='div'
-            >
-                {texts.noAttemptsLeft}
-            </Typography.Text>
-        );
-    }
+    if (blockSmsRetry) return renderText(texts.noAttemptsLeft);
 
     if (timePassed) {
         return (
@@ -87,16 +74,5 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
         );
     }
 
-    return (
-        <Typography.Text
-            className={cn(styles.countdown, styles.countdownContainer, {
-                [styles.countdownMobile]: mobile,
-                [styles.typographyTheme]: !mobile,
-            })}
-            view={mobile ? 'primary-small' : 'primary-medium'}
-            tag='div'
-        >
-            {texts.countdown} {formatMsAsMinutes(timeLeft)}
-        </Typography.Text>
-    );
+    return renderText(`${texts.countdown} ${formatMsAsMinutes(timeLeft)}`);
 };

@@ -16,9 +16,9 @@ import { SelectorView, View } from './typings';
 import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
 
-import styles from './index.module.css';
+import styles from './desktop.module.css';
 
-export type CalendarProps = {
+export type CalendarDesktopProps = {
     /**
      * Дополнительный класс
      */
@@ -125,7 +125,7 @@ export type CalendarProps = {
     responsive?: boolean;
 };
 
-export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
+export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
     (
         {
             className,

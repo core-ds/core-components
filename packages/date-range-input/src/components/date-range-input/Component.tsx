@@ -11,36 +11,32 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import dateFnsIsValid from 'date-fns/isValid';
 
 import {
     Calendar as DefaultCalendar,
-    CalendarMobile as DefaultCalendarMobile,
     CalendarMobileProps,
     CalendarProps,
-    dateInLimits,
+    usePeriod,
 } from '@alfalab/core-components-calendar';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
-import { useMedia } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import {
+    DATE_FORMAT,
     DATE_MASK,
     format,
-    getDateWithoutTime,
-    getFullDateTime,
     isCompleteDateInput,
     isValid,
+    parseDateString,
     parseTimestampToDate,
-    setTimeToDate,
-} from './utils';
+} from '../../utils';
 
 import styles from './index.module.css';
 
-type View = 'desktop' | 'mobile';
-
-export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
+export type DateRangeInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Дополнительный класс
      */
@@ -65,22 +61,22 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Обработчик изменения значения
      */
     onChange?: (
-        event: ChangeEvent<HTMLInputElement>,
-        payload: { date: Date; value: string },
+        payload: { dateFrom?: Date; dateTo?: Date; value: string },
+        event?: ChangeEvent<HTMLInputElement>,
     ) => void;
 
     /**
      * Обработчик окончания ввода
      */
     onComplete?: (
-        event: ChangeEvent<HTMLInputElement>,
-        payload: { date: Date; value: string },
+        payload: { dateFrom: Date; dateTo: Date; value: string },
+        event?: ChangeEvent<HTMLInputElement>,
     ) => void;
 
     /**
      * Компонент календаря
      */
-    Calendar?: ElementType<CalendarProps>;
+    Calendar?: ElementType;
 
     /**
      * Доп. пропсы для календаря
@@ -144,9 +140,14 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Растягивает компонент на ширину контейнера
      */
     block?: boolean;
+
+    /**
+     * Отображение компонента в мобильном или десктопном виде
+     */
+    view?: 'desktop' | 'mobile';
 };
 
-export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputProps>(
+export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputProps>(
     (
         {
             className,
@@ -173,30 +174,18 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             offDays = calendarProps.offDays || [],
             events = calendarProps.events || [],
             defaultOpen = false,
-            error,
+            view = 'desktop',
             ...restProps
         },
         ref,
     ) => {
-        const [view] = useMedia<View>(
-            [
-                ['mobile', '(max-width: 1023px)'],
-                ['desktop', '(min-width: 1024px)'],
-            ],
-            'desktop',
-        );
-
         const inputRef = useRef<HTMLInputElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const [value, setValue] = useState(propValue || defaultValue);
         const [open, setOpen] = useState(false);
 
-        const calendarValue = value ? getDateWithoutTime(value).getTime() : undefined;
-
         const inputDisabled = disabled || readOnly;
-
-        const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
@@ -204,17 +193,35 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             setOpen(defaultOpen);
         }, [defaultOpen]);
 
-        const checkInputValueIsValid = (newInputValue?: string) => {
-            if (!newInputValue || error) return false;
+        const handlePeriodChange = (selectedFrom?: number, selectedTo?: number) => {
+            if (selectedFrom && !selectedTo && value.length === DATE_MASK.length) {
+                setValue(parseTimestampToDate(selectedFrom));
+            } else if (
+                (!selectedFrom && !selectedTo && value.length === DATE_FORMAT.length) ||
+                (selectedFrom === selectedTo && value.length === DATE_MASK.length)
+            ) {
+                setValue('');
+            }
 
-            const dateValue = getDateWithoutTime(newInputValue).getTime();
-
-            return (
-                dateValue &&
-                dateInLimits(dateValue, minDate, maxDate) &&
-                !offDays.includes(dateValue)
-            );
+            if (onChange) {
+                onChange({
+                    dateFrom: selectedFrom ? new Date(selectedFrom) : undefined,
+                    dateTo: selectedTo ? new Date(selectedTo) : undefined,
+                    value,
+                });
+            }
+            if (onComplete && selectedFrom && selectedTo) {
+                onComplete({
+                    dateFrom: new Date(selectedFrom),
+                    dateTo: new Date(selectedTo),
+                    value,
+                });
+            }
         };
+
+        const { selectedFrom, selectedTo, updatePeriod, resetPeriod, setStart, setEnd } = usePeriod(
+            { onPeriodChange: handlePeriodChange },
+        );
 
         const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {
@@ -230,7 +237,6 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
 
                 if (calendarRef.current && calendarRef.current.contains(target) === false) {
                     setOpen(false);
-                    setValue((prevValue) => setTimeToDate(prevValue));
                 }
             }
         };
@@ -240,38 +246,54 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
 
             if (newValue.length > DATE_MASK.length) return;
 
-            // Позволяем вводить только цифры, точки, запятую, двоеточие и пробел
-            if (/[^\d., :\d.]/.test(newValue)) {
+            // Позволяем вводить только цифры, точки, дефис и пробелы
+            if (/[^\d. \- \d.]/.test(newValue)) {
                 return;
             }
 
             const dots = newValue.match(/\./g);
-            const colon = newValue.match(/\:/g);
-            const comma = newValue.match(/\,/g);
+            const hyphen = newValue.match(/\-/g);
 
-            // Не даем вводить больше, чем 2 точки, 1 двоеточие и 1 запятую
-            if (
-                (dots && dots.length > 2) ||
-                (colon && colon.length > 1) ||
-                (comma && comma.length > 1)
-            ) {
+            // Не даем вводить больше, чем 4 точки и 1 дефис
+            if ((dots && dots.length > 4) || (hyphen && hyphen.length > 1)) {
                 return;
             }
 
             const formattedValue = format(newValue);
-            const date = getFullDateTime(formattedValue);
+
+            const dateArr = formattedValue.split(' - ');
+            const dateFrom = parseDateString(dateArr[0]);
+            const dateTo = parseDateString(dateArr[1]);
+
+            if (selectedFrom && formattedValue.length < DATE_FORMAT.length) {
+                setStart();
+            } else if (selectedFrom && selectedTo) {
+                setEnd();
+            } else if (
+                dateFnsIsValid(dateFrom) &&
+                dateArr[0]?.length === DATE_FORMAT.length &&
+                dateFrom.getTime() !== selectedFrom
+            ) {
+                setStart(dateFrom.getTime());
+            } else if (
+                dateFnsIsValid(dateTo) &&
+                dateArr[1]?.length === DATE_FORMAT.length &&
+                dateTo.getTime() !== selectedTo
+            ) {
+                setEnd(dateTo.getTime());
+            }
 
             setValue(formattedValue);
 
-            if (onChange) onChange(event, { date, value: formattedValue });
+            if (onChange) onChange({ dateFrom, dateTo, value: formattedValue }, event);
 
             if (isCompleteDateInput(formattedValue)) {
-                const valid = isValid(formattedValue);
+                const valid = isValid(formattedValue, dateArr[0], dateArr[1]);
 
                 if (!valid) return;
 
                 if (onComplete) {
-                    onComplete(event, { date, value: formattedValue });
+                    onComplete({ dateFrom, dateTo, value: formattedValue }, event);
                 }
             }
         };
@@ -282,13 +304,24 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
 
         const handleClear = () => {
             setValue('');
+            resetPeriod();
         };
 
         const handleCalendarChange = (date?: number) => {
             if (date) {
-                setValue(parseTimestampToDate(date));
+                updatePeriod(date);
             }
         };
+
+        useEffect(() => {
+            if (selectedFrom && selectedTo) {
+                setValue(
+                    `${parseTimestampToDate(selectedFrom)} - ${parseTimestampToDate(selectedTo)}`,
+                );
+            } else if (selectedFrom && value.length < DATE_FORMAT.length) {
+                setValue(parseTimestampToDate(selectedFrom));
+            }
+        }, [selectedFrom, selectedTo, value]);
 
         const handleCalendarWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
             // Не дает инпуту терять фокус при выборе даты
@@ -308,14 +341,15 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
         const renderCalendar = () => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <CalendarComponent
+                <Calendar
                     {...calendarProps}
                     responsive={calendarResponsive}
                     open={open}
                     onClose={handleCalendarClose}
                     ref={calendarRef}
                     defaultMonth={defaultMonth}
-                    value={checkInputValueIsValid(value) ? calendarValue : undefined}
+                    selectedFrom={selectedFrom}
+                    selectedTo={selectedTo}
                     onChange={handleCalendarChange}
                     minDate={minDate}
                     maxDate={maxDate}
@@ -344,7 +378,6 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                     readOnly={readOnly}
                     className={inputClassName}
                     onClear={handleClear}
-                    error={error}
                     rightAddons={
                         <React.Fragment>
                             {rightAddons}

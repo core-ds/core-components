@@ -20,7 +20,8 @@
         "paths": {
             "@alfalab/core-components-modal/*": ["packages/modal/src/*"],
             "@alfalab/core-components-*": ["packages/*/src"],
-            "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"]
+            "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
+            "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { requireRegExp } from './common';
+import { requireRegExp } from './common.mjs';
 
 /**
  * Заменяет все импорты кор-компонентов на относительные пути.

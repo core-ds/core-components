@@ -48,6 +48,12 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
      *  Дополнительные пропсы компонента BottomSheet
      */
     bottomSheetProps?: Partial<BottomSheetProps>;
+
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 };
 
 export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
@@ -62,12 +68,13 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     targetRef,
     targetClassName,
     bottomSheetProps,
+    breakpoint = 1024,
     ...restProps
 }) => {
     const [view] = useMedia<View>(
         [
-            ['mobile', '(max-width: 1024px)'],
-            ['desktop', '(min-width: 1025px)'],
+            ['mobile', `(max-width: ${breakpoint - 1}px)`],
+            ['desktop', `(min-width: ${breakpoint}px)`],
         ],
         defaultMatch,
     );

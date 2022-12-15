@@ -1,5 +1,33 @@
 # Change Log
 
+## 13.2.3
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   badge@4.0.4
+    -   base-modal@5.0.7
+    -   bottom-sheet@5.1.13
+    -   button@7.0.2
+    -   checkbox@3.0.6
+    -   form-control@9.0.2
+    -   input@11.1.1
+    -   modal@6.1.4
+    -   popover@6.0.5
+    -   scrollbar@2.1.2
+    -   skeleton@4.0.3
+
+## 13.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@6.1.3
+
 ## 13.2.1
 
 ### Patch Changes

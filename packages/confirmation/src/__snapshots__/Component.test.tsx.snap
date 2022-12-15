@@ -3,7 +3,7 @@
 exports[`Confirmation Snapshot tests should match snapshot 1`] = `
 <div>
   <div
-    class="component left"
+    class="component"
   >
     <div
       class="component left"
@@ -62,11 +62,9 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="countdown countdownContainer typographyTheme primary-medium"
+        class="countdownContainer typographyTheme primary-medium"
       >
-        Запросить повторно можно через
-         
-        01:00
+        Запросить повторно можно через 01:00
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -86,7 +84,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
 exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING state 1`] = `
 <div>
   <div
-    class="component left"
+    class="component"
   >
     <div
       class="component left"
@@ -181,7 +179,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
 exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state 1`] = `
 <div>
   <div
-    class="component left"
+    class="component"
   >
     <div
       class="component left"
@@ -246,11 +244,9 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         </div>
       </div>
       <div
-        class="countdown countdownContainer typographyTheme primary-medium"
+        class="countdownContainer typographyTheme primary-medium"
       >
-        Запросить повторно можно через
-         
-        01:00
+        Запросить повторно можно через 01:00
       </div>
       <button
         class="component secondary pseudo smsComeLink"
@@ -270,7 +266,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
 exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING state 1`] = `
 <div>
   <div
-    class="component left"
+    class="component"
   >
     <div
       class="component left"
@@ -365,7 +361,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
 exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR screen 1`] = `
 <div>
   <div
-    class="component left"
+    class="component"
   >
     <div
       class="component left"
@@ -398,38 +394,42 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
 exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] = `
 <div>
   <div
-    class="component left"
+    class="component"
   >
-    <h3
-      class="component header typography styrene-medium medium primary"
-    >
-      Превышено количество попыток запроса кода
-    </h3>
-    <span
-      class="description typographyTheme primary primary-medium"
-    >
-      Повторное подтверждение кодом будет возможно через 24 часа
-    </span>
     <div
-      class="countdownWrap typographyTheme"
+      class="component left"
     >
-      <svg
-        class="loader"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
+      <h3
+        class="component header typography styrene-medium medium primary"
       >
-        <circle
-          class="circle"
-          cx="8"
-          cy="8"
-          r="7"
-          stroke-dasharray="43.98"
-          stroke-dashoffset="0.00"
-          transform="rotate(-90 8 8)"
-        />
-      </svg>
-      24:00:00
+        Превышено количество попыток запроса кода
+      </h3>
+      <span
+        class="description typographyTheme primary primary-medium"
+      >
+        Повторное подтверждение кодом будет возможно через 24 часа
+      </span>
+      <div
+        class="countdownWrap typographyTheme"
+      >
+        <svg
+          class="loader"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+        >
+          <circle
+            class="circle"
+            cx="8"
+            cy="8"
+            r="7"
+            stroke-dasharray="43.98"
+            stroke-dashoffset="0.00"
+            transform="rotate(-90 8 8)"
+          />
+        </svg>
+        24:00:00
+      </div>
     </div>
   </div>
 </div>
@@ -438,82 +438,78 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
 exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] = `
 <div>
   <div
-    class="component left"
+    class="component"
   >
     <div
       class="component left"
     >
-      <div
-        class="hintWrap"
+      <h3
+        class="component header typography styrene-medium medium primary"
       >
-        <h3
-          class="component header typography styrene-medium medium primary"
-        >
-          Не приходит сообщение?
-        </h3>
-        <span
-          class="text typographyTheme primary primary-medium"
-        >
-          Если у вас изменился номер телефона, позвоните нам или обратитесь в любое отделение банка.
-        </span>
+        Не приходит сообщение?
+      </h3>
+      <span
+        class="text typographyTheme primary primary-medium"
+      >
+        Если у вас изменился номер телефона, позвоните нам или обратитесь в любое отделение банка.
+      </span>
+      <div
+        class="phonesWrap"
+      >
         <div
-          class="phonesWrap"
+          class="phoneWrap"
         >
-          <div
-            class="phoneWrap"
+          <a
+            class="component primary withoutUnderline phoneLink"
+            href="tel:+78002000000"
           >
-            <a
-              class="component primary withoutUnderline phoneLink"
-              href="tel:+78002000000"
-            >
-              <span
-                class="text"
-              >
-                8 800 200-00-00
-              </span>
-            </a>
             <span
-              class="text typographyTheme primary primary-medium"
+              class="text"
             >
-               — для звонков по России
+              8 800 200-00-00
             </span>
-          </div>
-          <div
-            class="phoneWrap"
-          >
-            <a
-              class="component primary withoutUnderline phoneLink"
-              href="tel:+74957888878"
-            >
-              <span
-                class="text"
-              >
-                +7 495 78-888-78
-              </span>
-            </a>
-            <span
-              class="text typographyTheme primary primary-medium"
-            >
-               — в Москве и за границей
-            </span>
-          </div>
-        </div>
-        <span
-          class="text typographyTheme primary primary-medium"
-        >
-          Если номер не менялся, возможно, перегружен сервис отправки сообщений. Попробуйте повторить действие через несколько минут.
-        </span>
-        <button
-          class="component secondary s component secondary hintButton"
-          type="button"
-        >
+          </a>
           <span
-            class="text stretchText"
+            class="text typographyTheme primary primary-medium"
           >
-            Вернуться к вводу кода
+             — для звонков по России
           </span>
-        </button>
+        </div>
+        <div
+          class="phoneWrap"
+        >
+          <a
+            class="component primary withoutUnderline phoneLink"
+            href="tel:+74957888878"
+          >
+            <span
+              class="text"
+            >
+              +7 495 78-888-78
+            </span>
+          </a>
+          <span
+            class="text typographyTheme primary primary-medium"
+          >
+             — в Москве и за границей
+          </span>
+        </div>
       </div>
+      <span
+        class="text typographyTheme primary primary-medium"
+      >
+        Если номер не менялся, возможно, перегружен сервис отправки сообщений. Попробуйте повторить действие через несколько минут.
+      </span>
+      <button
+        class="component secondary s component secondary hintButton"
+        type="button"
+      >
+        <span
+          class="text stretchText"
+        >
+          Вернуться к вводу кода
+        </span>
+      </button>
     </div>
   </div>
 </div>

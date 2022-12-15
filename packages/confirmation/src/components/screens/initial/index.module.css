@@ -4,11 +4,12 @@
     display: flex;
     flex-direction: column;
 }
-.typographyTheme {
+
+.typographyTheme.typographyTheme {
     @mixin _confirmation-text;
 }
 
-.phone {
+.phone.phone {
     color: var(--color-light-text-primary);
     margin-bottom: var(--gap-2xl);
 }
@@ -43,16 +44,16 @@
     margin-bottom: var(--gap-s);
 }
 
-.smsComeLink {
+.smsComeLink.smsComeLink {
     @mixin action_primary_small;
 }
 
-.countdownContainer {
+.countdownContainer.countdownContainer {
     color: var(--color-light-text-secondary);
     margin-bottom: var(--gap-xl);
 }
 
-.countdownMobile {
+.countdownMobile.countdownMobile {
     margin-bottom: var(--gap-l);
 }
 .countdownLoaderMobile {

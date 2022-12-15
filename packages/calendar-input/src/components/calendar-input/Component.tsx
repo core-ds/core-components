@@ -15,7 +15,6 @@ import cn from 'classnames';
 
 import {
     Calendar as DefaultCalendar,
-    CalendarMobile as DefaultCalendarMobile,
     CalendarMobileProps,
     CalendarProps,
     dateInLimits,
@@ -28,14 +27,11 @@ import {
     parseDateString,
 } from '@alfalab/core-components-date-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
-import { useMedia } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
-import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
+import { SUPPORTS_INPUT_TYPE_DATE } from '../../utils';
 
 import styles from './index.module.css';
-
-type View = 'desktop' | 'mobile';
 
 export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
     /**
@@ -119,7 +115,7 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     /**
      * Компонент календаря
      */
-    Calendar?: ElementType<CalendarProps>;
+    Calendar?: ElementType;
 
     /**
      * Обработчик изменения значения
@@ -156,6 +152,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Календарь будет принимать ширину инпута
      */
     useAnchorWidth?: boolean;
+
+    /**
+     * Отображение компонента в мобильном или десктопном виде
+     */
+    view?: 'desktop' | 'mobile';
 };
 
 export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
@@ -191,20 +192,11 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             useAnchorWidth,
             rightAddons,
             error,
+            view = 'desktop',
             ...restProps
         },
         ref,
     ) => {
-        const [view] = useMedia<View>(
-            [
-                ['mobile', '(max-width: 1023px)'],
-                ['desktop', '(min-width: 1024px)'],
-            ],
-            'desktop',
-        );
-
-        const CalendarComponent = view === 'desktop' ? Calendar : DefaultCalendarMobile;
-
         const calendarResponsive = calendarProps?.responsive ?? true;
         const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
         const shouldRenderOnlyInput = mobileMode === 'input';
@@ -367,7 +359,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const renderCalendar = () => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <CalendarComponent
+                <Calendar
                     {...calendarProps}
                     responsive={calendarResponsive}
                     open={open}

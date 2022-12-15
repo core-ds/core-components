@@ -9,7 +9,8 @@ import startOfMonth from 'date-fns/startOfMonth';
 import { Button } from '@alfalab/core-components-button';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
-import { Calendar, CalendarProps, limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
+import { limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
+import { CalendarDesktop, CalendarDesktopProps } from '../../Component.desktop';
 import { Month } from '../../typings';
 import { dateArrayToHashTable, generateMonths, generateWeeks } from '../../utils';
 import { DaysTable } from '../days-table';
@@ -21,7 +22,7 @@ if (typeof window !== 'undefined' && !window.ResizeObserver) {
     window.ResizeObserver = ResizeObserverPolyfill;
 }
 
-export type CalendarMobileProps = CalendarProps & {
+export type CalendarMobileProps = CalendarDesktopProps & {
     /**
      * Управление видимостью модалки
      */
@@ -253,7 +254,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             }
 
             return (
-                <Calendar
+                <CalendarDesktop
                     responsive={true}
                     className={styles.calendar}
                     {...commonProps}

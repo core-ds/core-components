@@ -1,21 +1,26 @@
-import { ScriptTarget } from 'typescript';
+import { createRequire } from 'module';
+import ts from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports, generateClassNameHash } from '@alfalab/rollup-plugin-postcss';
 import wildcardExternal from '@oat-sa/rollup-plugin-wildcard-external';
-import typescript from '@wessberg/rollup-plugin-ts';
+import typescript from 'rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
 
 import {
     coreComponentsRootPackageResolver,
     coreComponentsResolver,
-} from './tools/rollup/core-components-resolver';
-import ignoreCss from './tools/rollup/ignore-css';
-import processCss from './tools/rollup/process-css';
-import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver';
-import createPackageJson from './tools/rollup/create-package-json';
-import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator';
+} from './tools/rollup/core-components-resolver.mjs';
+import ignoreCss from './tools/rollup/ignore-css.mjs';
+import processCss from './tools/rollup/process-css.mjs';
+import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver.mjs';
+import createPackageJson from './tools/rollup/create-package-json.mjs';
+import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator.mjs';
+
+const require = createRequire(import.meta.url);
+
+const { ScriptTarget } = ts;
 
 const currentPackageDir = process.cwd();
 
@@ -27,6 +32,7 @@ const pkg = require(currentPkg);
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
 
 const baseConfig = {
+    cache: false,
     input: [
         'src/**/*.{ts,tsx}',
         '!src/**/*.{test,stories}.{ts,tsx}',
@@ -37,7 +43,7 @@ const baseConfig = {
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
 
-const multiInputPlugin = multiInput();
+const multiInputPlugin = multiInput.default();
 
 const copyPlugin = (dest) =>
     copy({
@@ -45,7 +51,7 @@ const copyPlugin = (dest) =>
         targets: [{ src: ['src/**/*.{png,svg,jpg,jpeg}', '!**/__image_snapshots__/**'], dest }],
     });
 
-const postcssPlugin = postcss({
+const postcssPlugin = postcss.default({
     modules: {
         generateScopedName: function (name, fileName) {
             const relativeFileName = path.relative(currentPackageDir, fileName);
@@ -70,6 +76,7 @@ const es5 = {
         {
             dir: 'dist',
             format: 'cjs',
+            interop: 'compat',
             plugins: [addCssImports({ currentPackageDir })],
         },
     ],
@@ -85,10 +92,7 @@ const es5 = {
         json(),
         postcssPlugin,
         copyPlugin('dist'),
-        copy({
-            targets: [{ src: ['../../bin/send-stats.js'], dest: 'dist' }],
-        }),
-        copy({ targets: [{ src: ['package.json'], dest: 'dist' }] }),
+        copy({ targets: [{ src: ['../../bin/send-stats.js', 'package.json'], dest: 'dist' }] }),
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };
@@ -102,6 +106,7 @@ const modern = {
         {
             dir: 'dist/modern',
             format: 'esm',
+            generatedCode: 'es2015',
             plugins: [
                 addCssImports({ currentPackageDir }),
                 coreComponentsResolver({ importFrom: 'modern' }),
@@ -135,6 +140,7 @@ const cssm = {
         {
             dir: 'dist/cssm',
             format: 'cjs',
+            interop: 'compat',
             plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
         },
     ],
@@ -196,7 +202,7 @@ const root = {
     external: baseConfig.external,
     plugins: [
         ...baseConfig.plugins,
-        multiInput({
+        multiInput.default({
             relative: 'dist',
         }),
         copy({

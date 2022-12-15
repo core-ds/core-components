@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
+import { Badge } from '@alfalab/core-components-badge';
+import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import {
     PickerButtonDesktop,
     PickerButtonDesktopProps,
-} from '@alfalab/core-components/picker-button/desktop';
-import { Badge } from '@alfalab/core-components-badge';
-import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
+} from '@alfalab/core-components-picker-button/desktop';
 
 import { useTablistTitles } from '../../hooks/use-tablist-titles';
 import { createSyntheticMouseEvent } from '../../synthetic-events';

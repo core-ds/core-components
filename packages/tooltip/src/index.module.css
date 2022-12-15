@@ -1,8 +1,13 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --tooltip-max-width: 368px;
+}
+
 .component {
     @mixin paragraph_primary_small;
     padding: var(--gap-m);
+    max-width: var(--tooltip-max-width);
 }
 
 .popper {
