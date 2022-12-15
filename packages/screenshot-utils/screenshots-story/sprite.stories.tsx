@@ -80,5 +80,5 @@ export const ScreenshotsSprite = () => {
 };
 
 export default {
-    title: 'Компоненты',
+    title: 'Components',
 };
