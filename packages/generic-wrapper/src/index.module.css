@@ -1,0 +1,58 @@
+@import '../../themes/src/default.css';
+
+.component {
+}
+
+.full-width {
+    max-width: none;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl {
+    .padding-top-$(size) {
+        padding-top: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl {
+    .padding-right-$(size) {
+        padding-right: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl {
+    .padding-bottom-$(size) {
+        padding-bottom: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl {
+    .padding-left-$(size) {
+        padding-left: var(--gap-$(size));
+    }
+}
