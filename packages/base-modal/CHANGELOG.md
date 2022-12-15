@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.0.7
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   backdrop@3.0.2
+    -   global-store@2.0.3
+    -   portal@3.1.2
+    -   stack@4.0.2
+
 ## 5.0.6
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 9.2.2
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.3.0
+    -   input@11.1.1
+    -   select@13.2.3
+
 ## 9.2.1
 
 ### Patch Changes

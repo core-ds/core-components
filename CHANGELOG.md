@@ -1,3 +1,29 @@
+## 36.5.0
+
+<sup><time>14.12.2022</time></sup>
+
+### [#334](https://github.com/core-ds/core-components/pull/334)
+
+#### Что изменилось
+- В компонентах DateRangeInput, DateTimeInput и CalendarInput добавлены mobile и desktop версии компонентов. Название компонентов было изменено по схеме Component → ComponentDesktop
+- В компонентах Calendar и InputAutocomplete добавлена responsive версия компонентов. Название компонентов было изменено по схеме Component → ComponentResponsive<br />
+- В компонентах PickerButton и Tooltip добавлен новый пропс breakpoint. Название компонентов было изменено по схеме Component -→ ComponentResponsive для PickerButton и Component → ComponentDesktop для Tooltip<br />
+- В компонентах Confirmation и SidePanel добавлен новый пропс breakpoint<br />
+
+#### Влияние на компоненты
+- Минорное<br />`calendar-input` `calendar` `confirmation` `date-range-input` `date-time-input`<br /> `input-autocomplete` `picker-button` `side-panel` `tooltip`
+
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+#### Что изменилось
+- Исправлена проблема с default-импортом в cjs форматах
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `alert` `amount` `amount-input` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `date-input` `date-range-input` `date-time-input`<br /> `divider` `drawer` `dropzone` `file-upload-item` `filter-tag`<br /> `form-control` `gallery` `gap` `global-store` `grid`<br /> `hatching-progress-bar` `icon-button` `icon-view` `input` `input-autocomplete`<br /> `intl-phone-input` `keyboard-focusable` `link` `list` `list-header`<br /> `loader` `masked-input` `modal` `mq` `notification`<br /> `notification-manager` `pagination` `pass-code` `password-input` `pattern-lock`<br /> `phone-input` `picker-button` `plate` `popover` `portal`<br /> `progress-bar` `pure-cell` `pure-input` `radio` `radio-group`<br /> `scrollbar` `select` `select-with-tags` `side-panel` `skeleton`<br /> `slider` `slider-input` `space` `spinner` `stack`<br /> `status` `stepped-progress-bar` `steps` `switch` `table`<br /> `tabs` `tag` `textarea` `themes` `time-input`<br /> `toast` `toast-plate` `tooltip` `typography` `vars`<br /> `with-suffix`
+
+
+
 ## 36.4.0
 
 <sup><time>09.12.2022</time></sup>
