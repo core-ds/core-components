@@ -36,11 +36,7 @@ const GenericWrapperComponent = ({
     };
     const alignmentStyles = alignItems && styles[`align-${alignItems}`];
 
-    return (
-        <div className={cn(styles.component, styles[direction], alignmentStyles, paddingStyles)}>
-            {children}
-        </div>
-    );
+    return <div className={cn(styles[direction], alignmentStyles, paddingStyles)}>{children}</div>;
 };
 
 export const GenericWrapper = Object.assign(GenericWrapperComponent, { Slot });
