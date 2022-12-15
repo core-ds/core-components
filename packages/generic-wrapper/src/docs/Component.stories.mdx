@@ -1,0 +1,47 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { Gap } from '@alfalab/core-components-gap';
+import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
+import { Button } from '@alfalab/core-components-button';
+import { BankCard } from '@alfalab/core-components-bank-card';
+import { text, select, object, radios } from '@storybook/addon-knobs';
+
+import { GenericWrapper } from '../Component';
+
+<Meta title='Компоненты/Ячейки/GenericWrapper' component={GenericWrapper} />
+
+<Story name='GenericWrapper'>
+    {() => {
+        const alignItems = select('alignItems', ['end', 'start', 'center'], 'start');
+        const direction = radios(
+            'direction',
+            { vertical: 'vertical', horizontal: 'horizontal' },
+            'horizontal',
+        );
+        const padding = object('padding', { top: 'xxl', left: 'l', right: 'm', bottom: 'xl' });
+        const gapSize = select('gapSize', ['l', 'xl', '2xl'], 'l');
+        const gapDirection = radios(
+            'gapDirection',
+            { vertical: 'vertical', horizontal: 'horizontal' },
+            'horizontal',
+        );
+        return (
+            <div
+                style={{
+                    width: 1000,
+                }}
+            >
+                <GenericWrapper alignItems={alignItems} direction={direction} padding={padding}>
+                    <GenericWrapper.Slot grow>saddasadadda</GenericWrapper.Slot>
+                    <Gap direction={gapDirection} size={gapSize} />
+                    <GenericWrapper.Slot>
+                        <CircularProgressBar value={25} size='xxl' />
+                    </GenericWrapper.Slot>
+                    <Gap direction='horizontal' size='7xl' />
+                    <GenericWrapper.Slot grow>
+                        <BankCard value={'20'} onChange={() => {}} />
+                    </GenericWrapper.Slot>
+                </GenericWrapper>
+            </div>
+        );
+    }}
+</Story>
