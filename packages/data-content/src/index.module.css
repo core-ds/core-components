@@ -1,0 +1,6 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+}
