@@ -27,5 +27,5 @@ export const Screenshots = () => {
 };
 
 export default {
-    title: 'Компоненты',
+    title: 'Components',
 };
