@@ -54,7 +54,7 @@ export function createStorybookUrl({
 
     if (testStory) {
         // TODO: укоротить (переписать на qs.stringify)
-        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&inverted=${inverted}&${knobsQuery}&mockDate=${
+        return `${url}?id=components--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&inverted=${inverted}&${knobsQuery}&mockDate=${
             mockDate || ''
         }`;
     }
@@ -87,7 +87,7 @@ export function createSpriteStorybookUrl({
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
 
     // TODO: укоротить (переписать на qs.stringify)
-    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
+    return `${url}?id=components--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
         knobs,
     )}&mockDate=${mockDate || ''}`;
 }

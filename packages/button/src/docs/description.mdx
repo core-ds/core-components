@@ -34,44 +34,40 @@ const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
 render(
     <Container>
         <Row>
-            {SIZES.map(size => (
+            {SIZES.map((size) => (
                 <Col key={size}>
-                    <Button size={size} view="primary">
+                    <Button size={size} view='primary'>
                         Label
                     </Button>
                 </Col>
             ))}
         </Row>
-    </Container>
-)
+    </Container>,
+);
 ```
 
-## Ширина 
+## Ширина
 
-Кнопка адаптируется под длину контента. Для каждого вертикального размера кнопки задан минимальный горизонтальный размер. 
+Кнопка адаптируется под длину контента. Для каждого вертикального размера кнопки задан минимальный горизонтальный размер.
 С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
 
 ```jsx live
-    <Container>
-        <Row>
-            <Col>
-                <Button>
-                    0
-                </Button>
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-                <Button>
-                    Очень длинный лейбл
-                </Button>
-            </Col>
-        </Row>
-        <br/>
-        <Button block={true} size='m' nowrap={true}>
-            Занимает всю ширину контейнера
-        </Button>
-    </Container>
+<Container>
+    <Row>
+        <Col>
+            <Button>0</Button>
+        </Col>
+    </Row>
+    <Row>
+        <Col>
+            <Button>Очень длинный лейбл</Button>
+        </Col>
+    </Row>
+    <br />
+    <Button block={true} size='m' nowrap={true}>
+        Занимает всю ширину контейнера
+    </Button>
+</Container>
 ```
 
 ## Анатомия
@@ -93,7 +89,11 @@ render(() => {
         <Container>
             <Row>
                 <Col>
-                    <Button leftAddons={leftAddons && <StarMIcon/>} rightAddons={rightAddons && <StarMIcon/>} view="primary">
+                    <Button
+                        leftAddons={leftAddons && <StarMIcon />}
+                        rightAddons={rightAddons && <StarMIcon />}
+                        view='primary'
+                    >
                         {label && 'Label'}
                     </Button>
                 </Col>
@@ -104,13 +104,20 @@ render(() => {
             </Row>
 
             <Row align='middle'>
-                <Switch label={<span>LeftAddons</span>} checked={leftAddons} onChange={handleLeftAddonsChange} />
+                <Switch
+                    label={<span>LeftAddons</span>}
+                    checked={leftAddons}
+                    onChange={handleLeftAddonsChange}
+                />
             </Row>
 
             <Row align='middle'>
-                <Switch label={<span>RightAddons</span>} checked={rightAddons} onChange={handleRightAddonsChange} />
+                <Switch
+                    label={<span>RightAddons</span>}
+                    checked={rightAddons}
+                    onChange={handleRightAddonsChange}
+                />
             </Row>
-
         </Container>
     );
 });
@@ -128,15 +135,19 @@ render(() => {
 
     return (
         <Container>
-        <div style={{ display: 'flex', width: '180px' }}>
-            <Button view="primary" nowrap={checked}>
-                Пример длинного текста 
-            </Button>
-        </div>
-        <Row align='middle'>
-            <Switch label={<span>Запретить перенос строки</span>} checked={checked} onChange={handleChange} />
-        </Row>
-    </Container>
+            <div style={{ display: 'flex', width: '180px' }}>
+                <Button view='primary' nowrap={checked}>
+                    Пример длинного текста
+                </Button>
+            </div>
+            <Row align='middle'>
+                <Switch
+                    label={<span>Запретить перенос строки</span>}
+                    checked={checked}
+                    onChange={handleChange}
+                />
+            </Row>
+        </Container>
     );
 });
 ```
@@ -150,22 +161,22 @@ render(() => {
 render(() => {
     const [loading, setLoading] = React.useState({
         primary: false,
-        secondary: false
+        secondary: false,
     });
 
     const handleClick = (buttonName, timeout) => {
-        setLoading({...loading, [buttonName]: true});
+        setLoading({ ...loading, [buttonName]: true });
         setTimeout(() => {
-            setLoading({...loading, [buttonName]: false});
-        }, timeout)
-    }
+            setLoading({ ...loading, [buttonName]: false });
+        }, timeout);
+    };
 
     return (
         <Container>
-            <Row align="middle">
+            <Row align='middle'>
                 <Col>
                     <Button
-                        view="primary"
+                        view='primary'
                         loading={loading.primary}
                         onClick={() => handleClick('primary', 30)}
                     >
@@ -174,7 +185,7 @@ render(() => {
                 </Col>
                 <Col>
                     <Button
-                        view="secondary"
+                        view='secondary'
                         loading={loading.secondary}
                         onClick={() => handleClick('secondary', 1500)}
                     >
@@ -193,9 +204,9 @@ render(() => {
 
 ```jsx live
 <Container>
-    <Row align="middle">
+    <Row align='middle'>
         <Col>
-            <Button view="primary" href="https://alfabank.ru" target="_blank">
+            <Button view='primary' href='https://alfabank.ru' target='_blank'>
                 Кнопка-ссылка
             </Button>
         </Col>
@@ -205,8 +216,8 @@ render(() => {
 
 ## Другие кнопки
 
-Если нужна кнопка с одной иконкой, но без подложки, используйте <a href="/docs/компоненты-iconbutton--icon-button">IconButton</a>.
+Если нужна кнопка с одной иконкой, но без подложки, используйте <a href="/docs/components-actions-iconbutton--icon-button">IconButton</a>.
 
-Если нужна кнопка с другим цветом фона, используйте <a href="/docs/компоненты-custombutton--custom-button">CustomButton</a>.
+Если нужна кнопка с другим цветом фона, используйте <a href="/docs/components-actions-custombutton--custom-button">CustomButton</a>.
 
-Если нужна кнопка с выпадающим списком, используйте <a href="/docs/компоненты-pickerbutton--picker-button">PickerButton</a>.
+Если нужна кнопка с выпадающим списком, используйте <a href="/docs/components-actions-pickerbutton--picker-button">PickerButton</a>.
