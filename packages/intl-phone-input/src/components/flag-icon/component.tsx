@@ -23,6 +23,7 @@ export const FlagIcon: FC<FlagIconProps> = ({ country = '', className }) =>
     flagSprite[country] ? (
         <span
             className={cn(styles.flagIcon, className)}
+            data-test-id={`flag-icon-${country}`}
             dangerouslySetInnerHTML={{ __html: flagSprite[country] }}
         />
     ) : (
