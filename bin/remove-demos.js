@@ -66,7 +66,7 @@ if (currentBranch === defaultConfig.targetBranch) {
     console.log(`=> Commit changes with message: ${defaultConfig.commitMessage}`);
     shell.exec('git add .', execOptions);
     shell.exec('git reset node_modules', execOptions);
-    shell.exec(`git commit -m "${defaultConfig.commitMessage}"`, execOptions);
+    shell.exec(`git commit -m "${defaultConfig.commitMessage} [skip ci]"`, execOptions);
 
     console.log('=> Push changes');
     shell.exec(
