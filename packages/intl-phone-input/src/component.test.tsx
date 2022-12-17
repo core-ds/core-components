@@ -367,7 +367,7 @@ describe('IntlPhoneInput', () => {
 
         const input = screen.getByDisplayValue('+7 928 123-45-67');
 
-        userEvent.clear(input);
+        await userEvent.clear(input);
 
         await waitFor(() => {
             expect(onChange).toHaveBeenCalledWith('+7');
