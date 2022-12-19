@@ -11,6 +11,7 @@ import {
 import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 
 import { CalendarRangeProps } from '../Component';
+import { Divider } from '../components/divider';
 import { usePopoverViewMonthes } from '../hooks';
 
 import styles from './index.module.css';
@@ -190,7 +191,7 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
                 }}
             />
 
-            <span className={styles.divider} />
+            <Divider inputFromProps={inputFromProps} inputToProps={inputToProps} />
 
             <CalendarInput
                 {...inputToProps}
