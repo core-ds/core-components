@@ -17,7 +17,8 @@ render(() => {
         { key: 'temp-block', content: 'Сценарий, когда форма временно заблокирована' },
     ];
 
-    const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий' });
+    const [variant, setVariant] = React.useState(variants[0]);
+    const [shownSuccessScreen, setShownSuccessScreen] = React.useState(false);
 
     const {
         confirmationState,
@@ -32,6 +33,7 @@ render(() => {
         setTimeout(() => {
             switch (variant.key) {
                 case 'success':
+                    setShownSuccessScreen(true);
                     setConfirmationState('INITIAL');
                     break;
                 case 'error':
@@ -74,6 +76,7 @@ render(() => {
                 block={true}
                 options={variants}
                 onChange={({ selected }) => {
+                    setShownSuccessScreen(false);
                     setConfirmationState('INITIAL');
                     setConfirmationScreen('INITIAL');
                     setConfirmationBlockSmsRetry(false);
@@ -81,6 +84,7 @@ render(() => {
                 }}
                 selected={variant.key}
                 Option={BaseOption}
+                optionsListWidth='field'
             />
             <div
                 key={variant.key}
@@ -91,19 +95,54 @@ render(() => {
                     boxSizing: 'border-box',
                 }}
             >
-                <Component
-                    screen={confirmationScreen}
-                    state={confirmationState}
-                    alignContent='center'
-                    blockSmsRetry={confirmationBlockSmsRetry}
-                    countdownDuration={10000}
-                    onChangeState={setConfirmationState}
-                    onChangeScreen={setConfirmationScreen}
-                    onInputFinished={handleInputFinished}
-                    onSmsRetryClick={handleSmsRetryClick}
-                    onTempBlockFinished={handleTempBlockFinished}
-                    phone='+7 ··· ··· 07-24'
-                />
+                {shownSuccessScreen ? (
+                    <div style={{ display: 'flex', flexFlow: 'column nowrap', height: 266 }}>
+                        <Gap size='2xl' />
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexFlow: 'column nowrap',
+                                alignItems: 'center',
+                                flex: 1,
+                            }}
+                        >
+                            <div style={{ textAlign: 'center' }}>
+                                <SuperEllipse
+                                    size={80}
+                                    backgroundColor='var(--color-light-graphic-positive)'
+                                >
+                                    <CheckmarkMIcon style={{ fill: '#fff' }} />
+                                </SuperEllipse>
+
+                                <Gap size='m' />
+
+                                <Typography.Text view='primary-medium' weight='bold'>
+                                    Введён корректный код
+                                </Typography.Text>
+                            </div>
+
+                            <Gap size={isMobileFrame ? '2xl' : '4xl'} />
+
+                            <Button onClick={() => setShownSuccessScreen(false)} size='xs'>
+                                Попробовать ещё раз
+                            </Button>
+                        </div>
+                    </div>
+                ) : (
+                    <Component
+                        screen={confirmationScreen}
+                        state={confirmationState}
+                        alignContent='center'
+                        blockSmsRetry={confirmationBlockSmsRetry}
+                        countdownDuration={10000}
+                        onChangeState={setConfirmationState}
+                        onChangeScreen={setConfirmationScreen}
+                        onInputFinished={handleInputFinished}
+                        onSmsRetryClick={handleSmsRetryClick}
+                        onTempBlockFinished={handleTempBlockFinished}
+                        phone='+7 ··· ··· 07-24'
+                    />
+                )}
             </div>
         </div>
     );
