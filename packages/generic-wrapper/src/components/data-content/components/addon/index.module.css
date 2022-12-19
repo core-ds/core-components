@@ -1,10 +1,8 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../../../themes/src/default.css';
 
 .component {
     display: flex;
 }
-
-/* *alignment */
 
 .align-start {
     align-items: flex-start;

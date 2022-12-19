@@ -5,7 +5,6 @@ import { Gap, GapProps } from '@alfalab/core-components-gap';
 
 import styles from './index.module.css';
 
-// TODO add more types
 export type JustifyContentType = 'center' | 'start' | 'end' | 'between' | 'around';
 
 export type LeftSideOptions = {
@@ -20,13 +19,13 @@ export type RightSideOptions = {
     gapSize?: GapProps['size'];
 };
 
-export type LineProps = {
+export type AddonProps = {
     leftSide: LeftSideOptions;
     rightSide?: RightSideOptions;
     alignItems?: 'center' | 'end' | 'start';
 };
 
-export const Line = ({ leftSide, rightSide, alignItems }: LineProps) => {
+export const Addon = ({ leftSide, rightSide, alignItems }: AddonProps) => {
     const justifyContentStyles =
         leftSide.justifyContent && styles[`justify-content-${leftSide.justifyContent}`];
     const rowLimitStyles = leftSide.rowLimit && styles[`row-limit-${leftSide.rowLimit}`];

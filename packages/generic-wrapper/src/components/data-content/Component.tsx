@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import { Line } from './components/line';
+import { Addon } from './components/addon';
 
 import styles from './index.module.css';
 
@@ -14,5 +14,5 @@ const DataContentComponent = ({ children }: DataContentProps) => (
 );
 
 export const DataContent = Object.assign(DataContentComponent, {
-    Line,
+    Addon,
 });

@@ -3,11 +3,11 @@ import cn from 'classnames';
 
 import styles from './index.module.css';
 
-export type GenericWrapperSlotProps = {
+export type GenericWrapperAddonProps = {
     children: ReactNode;
     grow?: boolean;
 };
 
-export const Slot = ({ children, grow }: GenericWrapperSlotProps) => (
+export const Addon = ({ children, grow }: GenericWrapperAddonProps) => (
     <div className={cn({ [styles.grow]: grow })}>{children}</div>
 );

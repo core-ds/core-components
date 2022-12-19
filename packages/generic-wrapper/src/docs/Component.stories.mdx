@@ -1,5 +1,6 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { Gap } from '@alfalab/core-components-gap';
+import { Typography } from '@alfalab/core-components-typography';
 import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
 import { Button } from '@alfalab/core-components-button';
 import { BankCard } from '@alfalab/core-components-bank-card';
@@ -31,16 +32,110 @@ import { GenericWrapper } from '../Component';
                 }}
             >
                 <GenericWrapper alignItems={alignItems} direction={direction} padding={padding}>
-                    <GenericWrapper.Slot grow>saddasadadda</GenericWrapper.Slot>
+                    <GenericWrapper.Addon grow>saddasadadda</GenericWrapper.Addon>
                     <Gap direction={gapDirection} size={gapSize} />
-                    <GenericWrapper.Slot>
+                    <GenericWrapper.Addon>
                         <CircularProgressBar value={25} size='xxl' />
-                    </GenericWrapper.Slot>
+                    </GenericWrapper.Addon>
                     <Gap direction='horizontal' size='7xl' />
-                    <GenericWrapper.Slot grow>
+                    <GenericWrapper.Addon grow>
                         <BankCard value={'20'} onChange={() => {}} />
-                    </GenericWrapper.Slot>
+                    </GenericWrapper.Addon>
                 </GenericWrapper>
+            </div>
+        );
+    }}
+</Story>
+
+<Story name='DataContent'>
+    {() => {
+        const justifyContent = select('justifyContent', ['end', 'start', 'center'], 'start');
+        const rowLimit = select('rowLimit', [1, 2, 3, undefined], undefined);
+        const leftSide = object('leftSide', {
+            content: 'some content',
+            justifyContent: 'center',
+            rowLimit: 1,
+        });
+        const leftSideContent = text('leftSide.content', 'Left Side');
+        const leftSideRowLimit = select('leftSide.rowLimit', [1, 2, 3, undefined], undefined);
+        const rightSideContent = text('rightSide.content', 'Right Side');
+        const rightSideGapSize = text('rightSide.gapSize', 'l');
+        const verticalGap = text('vertical custom gap', 'l');
+        const alignItems = select(
+            'alignItems (line with buttons)',
+            ['center', 'end', 'start'],
+            undefined,
+        );
+        const rightSideJustifyContent = select(
+            'rightSide.JustifyContent (line with buttons)',
+            ['between', 'end', 'around', 'center', 'start'],
+            undefined,
+        );
+        return (
+            <div
+                style={{
+                    width: 300,
+                }}
+            >
+                <GenericWrapper.DataContent>
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: <Typography.Text tag='p'>{leftSideContent}</Typography.Text>,
+                            rowLimit: leftSideRowLimit,
+                        }}
+                        rightSide={{
+                            content: <Typography.Text tag='p'>{rightSideContent}</Typography.Text>,
+                            gapSize: rightSideGapSize,
+                        }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: (
+                                <Typography.Text tag='p'>some content is here</Typography.Text>
+                            ),
+                            rowLimit: 3,
+                        }}
+                        rightSide={{
+                            content: <Amount value={1234500} currency='RUR' minority={100} />,
+                            gapSize: 'xl',
+                        }}
+                    />
+                    <Gap direction='vertical' size={verticalGap} />
+                    <GenericWrapper.DataContent.Addon
+                        alignItems={alignItems}
+                        leftSide={{
+                            content: (
+                                <>
+                                    <Button view='primary' size={'xxs'}>
+                                        Primary
+                                    </Button>
+                                    <Button view='primary' size={'xxs'}>
+                                        Secondary
+                                    </Button>
+                                </>
+                            ),
+                            justifyContent: rightSideJustifyContent,
+                        }}
+                        rightSide={{ content: <div>kek</div> }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={leftSide}
+                        rightSide={{ content: <div>kek</div>, gapSize: 'xl' }}
+                    />
+                    <Gap direction='vertical' size='l' />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: 'lol',
+                            rowLimit,
+                        }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: 'some content here',
+                            justifyContent,
+                        }}
+                    />
+                </GenericWrapper.DataContent>
             </div>
         );
     }}

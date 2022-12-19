@@ -3,7 +3,8 @@ import cn from 'classnames';
 
 import { GapProps } from '@alfalab/core-components-gap';
 
-import { Slot } from './components/slot';
+import { Addon } from './components/addon';
+import { DataContent } from './components/data-content';
 
 import styles from './index.module.css';
 
@@ -39,4 +40,4 @@ const GenericWrapperComponent = ({
     return <div className={cn(styles[direction], alignmentStyles, paddingStyles)}>{children}</div>;
 };
 
-export const GenericWrapper = Object.assign(GenericWrapperComponent, { Slot });
+export const GenericWrapper = Object.assign(GenericWrapperComponent, { Addon, DataContent });
