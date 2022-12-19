@@ -1,6 +1,3 @@
-export {
-    PickerButtonResponsive as PickerButton,
-    PickerButtonResponsiveProps as PickerButtonProps,
-} from './responsive';
-
-export { PickerButtonDesktopProps, PickerButtonSize, PickerButtonVariant } from './Component';
+export { PickerButtonResponsive as PickerButton } from './responsive';
+export type { PickerButtonResponsiveProps as PickerButtonProps } from './responsive';
+export type { PickerButtonDesktopProps, PickerButtonSize, PickerButtonVariant } from './Component';
