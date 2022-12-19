@@ -6,7 +6,7 @@ const globby = require('globby');
 const apiUrl = 'http://digital/design-system-usage/api/stats/component-usages';
 
 async function fetchUsages(component) {
-    const fetch = async url => {
+    const fetch = async (url) => {
         const r = await axios.get(url);
         return r.data.byDateStats.slice(-1)[0]?.core;
     };
@@ -34,22 +34,25 @@ async function fetchUsages(component) {
 async function fetchUsagesForStory(storyPath) {
     const story = await fs.readFile(storyPath, 'utf-8');
 
-    const m = /ComponentHeader\s+name=['"](.*)['"]/gm.exec(story);
+    const m = /ComponentHeader\s+name=['"](.*?)['"]/gm.exec(story);
     const name = m?.[1];
 
     if (!name) throw new Error('Invalid story');
 
-    const components = story.includes(`${name}Desktop`)
-        ? [`${name}Desktop`, `${name}Mobile`, `${name}Responsive`]
+    const hasMultipleEntryPoints =
+        story.includes(`${name}Desktop`) || story.includes(`${name}Mobile`);
+    const components = hasMultipleEntryPoints
+        ? [name, `${name}Desktop`, `${name}Mobile`, `${name}Responsive`]
         : [name];
 
     let usages = {
         projects: 0,
         imports: 0,
+        search: hasMultipleEntryPoints ? `${name}*` : name,
     };
 
     await Promise.all(
-        components.map(async component => {
+        components.map(async (component) => {
             componentUsages = await fetchUsages(component);
 
             usages.projects += componentUsages.projects;
@@ -71,23 +74,23 @@ async function updateUsages() {
 
     const usages = {};
 
-    await Promise.all(
-        files.map(async storyPath => {
-            try {
-                const componentUsages = await fetchUsagesForStory(storyPath);
-                usages[componentUsages.name] = componentUsages.usages;
+    while (files.length > 0) {
+        const storyPath = files.pop();
 
-                console.log('[+]', componentUsages);
-            } catch (e) {
-                console.log(`[!] ${storyPath}: ${e.message}`);
-            }
-        }),
-    );
+        try {
+            const componentUsages = await fetchUsagesForStory(storyPath);
+            usages[componentUsages.name] = componentUsages.usages;
+
+            console.log('[+]', componentUsages);
+        } catch (e) {
+            console.log(`[!] ${storyPath}: ${e.message}`);
+        }
+    }
 
     await fs.writeFile(
         path.join(process.cwd(), '.storybook/usages.json'),
         JSON.stringify({
-            updatedAt: +new Date(),
+            updatedAt: Date.now(),
             ...usages,
         }),
     );

@@ -6,22 +6,31 @@ import { ConfirmationDesktop } from './component.desktop';
 import { ConfirmationMobile } from './component.mobile';
 import { ConfirmationProps } from './types';
 
-export type ResponsiveConfirmationProps = Omit<ConfirmationProps, 'confirmationScreens'>;
+export type ResponsiveConfirmationProps = Omit<ConfirmationProps, 'confirmationScreens'> & {
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
+};
 
 export type ConfirmationMedia = 'desktop' | 'mobile';
 
-export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = (props) => {
+export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = ({
+    breakpoint = 1024,
+    ...restProps
+}) => {
     const [view] = useMedia<ConfirmationMedia>(
         [
-            ['mobile', '(max-width: 1023px)'],
-            ['desktop', '(min-width: 1024px)'],
+            ['mobile', `(max-width: ${breakpoint - 1}px)`],
+            ['desktop', `(min-width: ${breakpoint}px)`],
         ],
         'desktop',
     );
 
     return view === 'desktop' ? (
-        <ConfirmationDesktop {...props} />
+        <ConfirmationDesktop {...restProps} />
     ) : (
-        <ConfirmationMobile {...props} />
+        <ConfirmationMobile {...restProps} />
     );
 };

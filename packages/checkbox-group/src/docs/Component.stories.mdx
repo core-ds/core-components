@@ -4,13 +4,12 @@ import { Checkbox } from '@alfalab/core-components-checkbox';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';
 
-
 import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 import Development from './development.mdx';
 
-<Meta title='Компоненты/Контролы/CheckboxGroup' component={CheckboxGroup} />
+<Meta title='Components/Forms/Selects/CheckboxGroup' component={CheckboxGroup} />
 
 <!-- Canvas -->
 
@@ -53,8 +52,4 @@ import Development from './development.mdx';
     children='Используется для выбора одного или нескольких доступных значений.'
 />
 
-<Tabs
-    description={<Description />}
-    changelog={<Changelog />}
-    development={<Development />}
-/>
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />

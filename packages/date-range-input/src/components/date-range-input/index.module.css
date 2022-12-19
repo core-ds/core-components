@@ -1,5 +1,5 @@
-@import '../../themes/src/default.css';
-@import '../../calendar/src/vars.css';
+@import '../../../../themes/src/default.css';
+@import '../../../../calendar/src/vars.css';
 
 :root {
     --calendar-popover-border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);

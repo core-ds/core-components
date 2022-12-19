@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.1.9
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   icon-button@6.0.2
+    -   link@5.0.2
+    -   spinner@3.0.3
+
 ## 5.1.8
 
 ### Patch Changes

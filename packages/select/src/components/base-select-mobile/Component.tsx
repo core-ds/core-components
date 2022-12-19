@@ -423,6 +423,7 @@ export const BaseSelectMobile = forwardRef(
                     >
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
+                                showFooter={multiple}
                                 {...optionsListProps as Record<string, any>}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
@@ -437,7 +438,6 @@ export const BaseSelectMobile = forwardRef(
                                 getOptionProps={getOptionProps}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                showFooter={multiple}
                                 onApply={handleApply}
                                 onClear={handleClear}
                             />
@@ -453,6 +453,7 @@ export const BaseSelectMobile = forwardRef(
                         <ModalMobile.Header hasCloser={true} title={placeholder} sticky={true} />
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
+                                showFooter={multiple}
                                 {...optionsListProps as Record<string, any>}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
@@ -467,7 +468,6 @@ export const BaseSelectMobile = forwardRef(
                                 getOptionProps={getOptionProps}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                showFooter={multiple}
                                 onApply={handleApply}
                                 onClear={handleClear}
                             />

@@ -6,6 +6,7 @@ import React, {
     RefObject,
     useEffect,
     useImperativeHandle,
+    useMemo,
     useRef,
     useState,
 } from 'react';
@@ -53,6 +54,11 @@ export type CodeInputProps = {
     clearCodeOnError?: boolean;
 
     /**
+     * Коллбэк вызываемый после окончания проигрывания анимации при возникновении ошибки.
+     */
+    onErrorAnimationEnd?: () => void;
+
+    /**
      * Коллбек ввода значения
      */
     onChange?: (code: string) => void;
@@ -79,7 +85,7 @@ interface CredentialOtp extends Credential {
 }
 
 /** После истечения этого времени код очищается */
-const CODE_ERROR_HINT_VISIBLE_DURATION = 200;
+const CODE_ERROR_HINT_VISIBLE_DURATION = 300;
 
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
     (
@@ -91,14 +97,19 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             initialValues = '',
             dataTestId,
             clearCodeOnError = true,
+            onErrorAnimationEnd,
             onChange,
             onComplete,
         },
         ref,
     ) => {
-        const inputRefs = Array(fields)
-            .fill({})
-            .map(() => createRef<HTMLInputElement>());
+        const inputRefs = useMemo(
+            () =>
+                Array(fields)
+                    .fill({})
+                    .map(() => createRef<HTMLInputElement>()),
+            [fields],
+        );
 
         const [values, setValues] = useState(initialValues.split(''));
 
@@ -284,11 +295,15 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             });
         };
 
-        const handleClearCode = () => {
+        const handleErrorAnimationEnd = () => {
             clearErrorTimerId.current = setTimeout(() => {
-                focus();
-                /** Очищаем только в случае, если код не изменился */
-                setValues((prevState) => (values === prevState ? [] : prevState));
+                if (clearCodeOnError) {
+                    focus();
+                    /** Очищаем только в случае, если код не изменился */
+                    setValues((prevState) => (values === prevState ? [] : prevState));
+                }
+
+                onErrorAnimationEnd?.();
             }, CODE_ERROR_HINT_VISIBLE_DURATION);
         };
 
@@ -304,6 +319,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
 
         useEffect(() => {
             let ac: AbortController | null = null;
+            const unMountReason = 'component unMount';
 
             if ('OTPCredential' in window && navigator?.credentials?.get) {
                 ac = new AbortController();
@@ -318,13 +334,15 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                         if (res?.code) handleChange(res.code, 0, true);
                     })
                     .catch((err) => {
-                        // eslint-disable-next-line no-console
-                        console.error(err);
+                        if (err !== unMountReason) {
+                            // eslint-disable-next-line no-console
+                            console.error(err);
+                        }
                     });
             }
 
             return () => {
-                if (ac) ac.abort();
+                if (ac) ac.abort(unMountReason);
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
@@ -333,7 +351,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             <div
                 className={cn(styles.component, className)}
                 data-test-id={dataTestId}
-                onAnimationEnd={clearCodeOnError ? handleClearCode : undefined}
+                onAnimationEnd={handleErrorAnimationEnd}
             >
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
                     {/* eslint-disable react/no-array-index-key */}
