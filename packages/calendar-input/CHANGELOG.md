@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.2.1
+
+### Patch Changes
+
+### [#422](https://github.com/core-ds/core-components/pull/422)
+
+-   "export" типов заменен на "export type"
+
+-   Обновлены зависимости
+    -   calendar@6.2.1
+    -   date-input@4.1.2
+
 ## 8.2.0
 
 ### Minor Changes

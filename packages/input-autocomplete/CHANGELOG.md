@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.3.1
+
+### Patch Changes
+
+### [#422](https://github.com/core-ds/core-components/pull/422)
+
+-   "export" типов заменен на "export type"
+
+-   Обновлены зависимости
+    -   input@11.1.2
+    -   select@13.2.4
+
 ## 9.3.0
 
 ### Minor Changes

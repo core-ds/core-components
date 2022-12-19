@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.2.2
+
+### Patch Changes
+
+### [#428](https://github.com/core-ds/core-components/pull/428)
+
+-   Исправлен patternId для imageUrl
+
 ## 2.2.1
 
 ### Patch Changes
