@@ -8,11 +8,13 @@ import { DataContent } from './components/data-content';
 
 import styles from './index.module.css';
 
+type ReducedGapType = Omit<GapProps['size'], '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl'>;
+
 export type PaddingPropType = {
-    top?: GapProps['size'];
-    right?: GapProps['size'];
-    bottom?: GapProps['size'];
-    left?: GapProps['size'];
+    top?: ReducedGapType;
+    right?: ReducedGapType;
+    bottom?: ReducedGapType;
+    left?: ReducedGapType;
 };
 
 export type GenericWrapperProps = {

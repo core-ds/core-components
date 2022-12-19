@@ -16,7 +16,7 @@ export type LeftSideOptions = {
 export type RightSideOptions = {
     content: ReactNode;
     justifyContent?: JustifyContentType;
-    gapSize?: GapProps['size'];
+    gapSize?: Omit<GapProps['size'], '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl'>;
 };
 
 export type AddonProps = {
@@ -36,7 +36,9 @@ export const Addon = ({ leftSide, rightSide, alignItems }: AddonProps) => {
             <div className={cn(styles.leftSide, justifyContentStyles, rowLimitStyles)}>
                 {leftSide.content}
             </div>
-            {rightSide?.gapSize && <Gap size={rightSide.gapSize} direction='horizontal' />}
+            {rightSide?.gapSize && (
+                <Gap size={rightSide.gapSize as GapProps['size']} direction='horizontal' />
+            )}
             {rightSide && <div className={cn(styles.rightSide)}>{rightSide.content}</div>}
         </div>
     );
