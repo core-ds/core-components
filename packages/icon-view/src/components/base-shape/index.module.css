@@ -39,117 +39,16 @@
 
 .addons {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-shrink: 0;
     position: absolute;
     line-height: 0;
-
-    & svg {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.size_24 {
-    & .children {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-.size_40 {
-    & .children {
-        width: 24px;
-        height: 24px;
-    }
-
-    & .addons {
-        width: 18px;
-        height: 18px;
-    }
-
-    & .topAddons {
-        top: -8px;
-        right: -8px;
-    }
-
-    & .bottomAddons {
-        bottom: -8px;
-        right: -8px;
-    }
-}
-
-.size_48 {
-    & .children {
-        width: 24px;
-        height: 24px;
-    }
-
-    & .addons {
-        width: 18px;
-        height: 18px;
-    }
-
-    & .topAddons {
-        top: -4px;
-        right: -4px;
-    }
-
-    & .bottomAddons {
-        bottom: -4px;
-        right: -4px;
-    }
-}
-
-.size_64 {
-    & .children {
-        width: 32px;
-        height: 32px;
-    }
-
-    & .addons {
-        width: 18px;
-        height: 18px;
-    }
-
-    & .topAddons {
-        top: -2px;
-        right: -2px;
-    }
-
-    & .bottomAddons {
-        bottom: -2px;
-        right: -2px;
-    }
-}
-
-.size_80 {
-    & .children {
-        width: 48px;
-        height: 48px;
-    }
-
-    & .addons {
-        width: 24px;
-        height: 24px;
-    }
-
-    & .topAddons {
-        top: -4px;
-        right: -4px;
-    }
-
-    & .bottomAddons {
-        bottom: -4px;
-        right: -4px;
-    }
 }
 
 .size_128 {
     & .children {
-        width: 60px;
-        height: 60px;
+        width: 64px;
+        height: 64px;
     }
 
     & .addons {
@@ -165,5 +64,149 @@
     & .bottomAddons {
         bottom: -8px;
         right: -8px;
+    }
+}
+
+.size_80 {
+    & .children {
+        width: 48px;
+        height: 48px;
+    }
+
+    & .addons {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .topAddons {
+        top: -3px;
+        right: -3px;
+    }
+
+    & .bottomAddons {
+        bottom: -3px;
+        right: -3px;
+    }
+
+    & .indicator {
+        top: -6px;
+        right: -14px;
+    }
+}
+
+.size_64 {
+    & .children {
+        width: 32px;
+        height: 32px;
+    }
+
+    & .addons {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .topAddons {
+        top: -7px;
+        right: -7px;
+    }
+
+    & .bottomAddons {
+        bottom: -7px;
+        right: -7px;
+    }
+
+    & .indicator {
+        top: -8px;
+        right: -16px;
+    }
+}
+
+.size_48 {
+    & .children {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .addons {
+        width: 20px;
+        height: 20px;
+    }
+
+    & .topAddons {
+        top: -7px;
+        right: -7px;
+    }
+
+    & .bottomAddons {
+        bottom: -7px;
+        right: -7px;
+    }
+
+    & .indicator {
+        top: -7px;
+        right: -13px;
+    }
+}
+
+.size_40 {
+    & .children {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .addons {
+        width: 20px;
+        height: 20px;
+    }
+
+    & .topAddons {
+        top: -7px;
+        right: -7px;
+    }
+
+    & .bottomAddons {
+        bottom: -7px;
+        right: -7px;
+    }
+
+    & .indicator {
+        top: -7px;
+        right: -13px;
+    }
+}
+
+.size_32 {
+    & .children {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .indicator {
+        top: -2px;
+        right: -2px;
+    }
+}
+
+.size_24 {
+    & .children {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .indicator {
+        top: -2px;
+        right: -2px;
+    }
+}
+
+.size_20 {
+    & .children {
+        width: 16px;
+        height: 16px;
+    }
+
+    & .indicator {
+        top: -3px;
+        right: -3px;
     }
 }
