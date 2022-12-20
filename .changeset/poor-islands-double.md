@@ -1,5 +1,5 @@
 ---
-"@alfalab/core-components-icon-view": minor
+"@alfalab/core-components-icon-view": major
 ---
 
 - Добавлен новый вид выреза под индикатор
