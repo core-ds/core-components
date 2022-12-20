@@ -1,5 +1,31 @@
 # Change Log
 
+## 5.0.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.1
+
+## 5.0.20
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   calendar@6.2.0
+    -   skeleton@4.0.3
+
+## 5.0.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.1.15
+
 ## 5.0.18
 
 ### Patch Changes

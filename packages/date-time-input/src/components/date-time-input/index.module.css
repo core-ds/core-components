@@ -1,0 +1,32 @@
+@import '../../../../themes/src/default.css';
+@import '../../../../calendar/src/vars.css';
+
+:root {
+    --calendar-popover-border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);
+}
+
+.component {
+    display: inline-block;
+    outline: none;
+    position: relative;
+}
+
+.calendarContainer {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: var(--calendar-popover-border-radius);
+
+    @media (max-width: 374px) {
+        width: 100%;
+        min-width: 288px;
+    }
+}
+
+.calendarResponsive {
+    width: var(--calendar-width);
+    padding: 0 var(--gap-m);
+}
+
+.block {
+    width: 100%;
+}

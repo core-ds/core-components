@@ -20,6 +20,7 @@ import {
 } from '@alfalab/core-components-date-input';
 
 import { CalendarRangeProps } from '../Component';
+import { Divider } from '../components/divider';
 import { useSelectionProps, useStaticViewMonthes } from '../hooks';
 import { isDayButton } from '../utils';
 
@@ -274,7 +275,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                 />
             </div>
 
-            <span className={styles.divider} />
+            <Divider inputFromProps={inputFromProps} inputToProps={inputToProps} />
 
             <div>
                 <DateInput

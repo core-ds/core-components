@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.2.2
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   base-modal@5.0.7
+    -   scrollbar@2.1.2
+
 ## 4.2.1
 
 ### Patch Changes

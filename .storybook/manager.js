@@ -20,10 +20,7 @@ addons.register('TitleAddon', (api) => {
             title = libName;
         } else {
             let kind = storyData.kind;
-            kind = kind
-                .replace('Компоненты/', '')
-                .replace('Инструкции/', '')
-                .replace('Токены и ассеты/', '');
+            kind = kind.replace('Components/', '');
             kind = kind.includes('|') ? kind.match(/\|(.*)/)[1] : kind;
 
             let name = storyData.name;

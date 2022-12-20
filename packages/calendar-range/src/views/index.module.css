@@ -17,23 +17,6 @@
     }
 }
 
-.divider {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    margin: 0 var(--gap-xs);
-
-    &:after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: var(--color-light-graphic-primary);
-    }
-}
-
 .static {
     & .calendar {
         width: var(--calendar-inner-width);

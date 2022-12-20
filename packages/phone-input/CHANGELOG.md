@@ -1,5 +1,23 @@
 # Change Log
 
+## 7.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.1.2
+
+## 7.1.1
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   masked-input@6.1.1
+
 ## 7.1.0
 
 ### Minor Changes

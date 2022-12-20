@@ -18,8 +18,8 @@ export const PseudoTextArea = forwardRef<HTMLDivElement, PseudoTextAreaProps>(
         >
             <span>{stateValue.slice(0, maxLength)}</span>
             <span className={cn(styles.overflow)}>{stateValue.slice(maxLength)}</span>
-            {/* Пробел нужен для правильной позиции */}
-            &nbsp;
+            {/* Перенос строки нужен для правильной позиции */}
+            <br />
         </div>
     ),
 );

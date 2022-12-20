@@ -1,5 +1,44 @@
 # Change Log
 
+## 10.2.1
+
+### Patch Changes
+
+### [#422](https://github.com/core-ds/core-components/pull/422)
+
+-   "export" типов заменен на "export type"
+
+-   Обновлены зависимости
+    -   select@13.2.4
+
+## 10.2.0
+
+### Minor Changes
+
+### [#334](https://github.com/core-ds/core-components/pull/334)
+
+-   В компонентах DateRangeInput, DateTimeInput и CalendarInput добавлены mobile и desktop версии компонентов. Название компонентов было изменено по схеме Component → ComponentDesktop
+-   В компонентах Calendar и InputAutocomplete добавлена responsive версия компонентов. Название компонентов было изменено по схеме Component → ComponentResponsive<br />
+-   В компонентах PickerButton и Tooltip добавлен новый пропс breakpoint. Название компонентов было изменено по схеме Component -→ ComponentResponsive для PickerButton и Component → ComponentDesktop для Tooltip<br />
+-   В компонентах Confirmation и SidePanel добавлен новый пропс breakpoint<br />
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   button@7.0.2
+    -   select@13.2.3
+
+## 10.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.2
+
 ## 10.1.0
 
 ### Minor Changes

@@ -27,7 +27,7 @@ const findComponentPath = (() => {
             if (pathsEls.length > 0 && pathsEls[pathsEls.length - 1] === componentName) {
                 result = pathsEls
                     .slice(0, pathsEls.length - 1)
-                    .map((el) => `${el.toLowerCase().replace(/\s/g, '-')}`)
+                    .map((el) => `${el.toLowerCase().replace(/[\s&]/g, '-')}`)
                     .join('-');
 
                 break;

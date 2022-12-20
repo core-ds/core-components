@@ -5,12 +5,12 @@ import cn from 'classnames';
 import { Input as DefaultInput } from '@alfalab/core-components-input';
 import { FieldProps } from '@alfalab/core-components-select';
 
-import { InputAutocompleteProps } from '../Component';
+import { InputAutocompleteDesktopProps } from '../Component.desktop';
 
 import styles from './index.module.css';
 
 export type AutocompleteFieldProps = FieldProps &
-    Pick<InputAutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'>;
+    Pick<InputAutocompleteDesktopProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'>;
 
 export const AutocompleteField = ({
     label,

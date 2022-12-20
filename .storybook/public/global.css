@@ -168,7 +168,7 @@ a[href='#storybook-preview-wrapper'] {
 
 /* Главные пункты sidebar */
 div.sidebar-subheading {
-    padding: 0 0 0 36px;
+    padding: 0 0 0 34px;
     margin-bottom: var(--gap-xs);
     color: var(--color-light-text-secondary);
     font-size: 12px;
@@ -177,14 +177,25 @@ div.sidebar-subheading {
     letter-spacing: 1.25px;
 }
 
-div.sidebar-subheading > button > span:first-of-type {
-    display: none;
+/* Главные заголовки разелов */
+div.sidebar-subheading > button {
+    margin-left: -34px;
 }
 
+div.sidebar-subheading > button > span:first-of-type {
+    border-radius: 1px;
+    margin-right: 8px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 6px;
+    border-left-color: #b6bcc3;
+}
+
+/* Заголовки папок */
 .sidebar-container .sidebar-item {
     position: relative;
-    padding-top: var(--gap-xs);
-    padding-bottom: var(--gap-xs);
+    padding-top: var(--gap-2xs);
+    padding-bottom: var(--gap-2xs);
     color: var(--color-light-text-primary);
     font-weight: 400;
     font-size: 16px;
@@ -195,11 +206,17 @@ div.sidebar-subheading > button > span:first-of-type {
 }
 
 .sidebar-container .sidebar-item > span:first-child {
-    display: none;
+    margin-top: 0;
+    margin-right: 8px;
+    border-radius: 1px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 6px;
+    border-left-color: #b6bcc3;
 }
 
 .sidebar-container .sidebar-item[data-nodetype='group'] {
-    padding-left: 18px;
+    /* padding-left: 18px; */
 }
 
 .sidebar-container .sidebar-item .item-label {
@@ -210,6 +227,7 @@ div.sidebar-subheading > button > span:first-of-type {
 .sidebar-container .sidebar-item .sidebar-icon {
     color: #b6bcc3;
     flex-shrink: 0;
+    margin-right: 2px;
 }
 
 .sidebar-container .sidebar-item:hover,
@@ -878,8 +896,10 @@ div.lib-welcome {
     white-space: normal;
 }
 
-#компоненты--screenshots,
-#компоненты--screenshots-sprite,
+/* */
+.sidebar-item#components,
+#components--screenshots,
+#components--screenshots-sprite,
 #mobileframe--page {
     display: none;
 }
