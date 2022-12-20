@@ -1,5 +1,17 @@
 # @alfalab/core-components-date-range-input
 
+## 2.2.1
+
+### Patch Changes
+
+### [#422](https://github.com/core-ds/core-components/pull/422)
+
+-   "export" типов заменен на "export type"
+
+-   Обновлены зависимости
+    -   input@11.1.2
+    -   calendar@6.2.1
+
 ## 2.2.0
 
 ### Minor Changes

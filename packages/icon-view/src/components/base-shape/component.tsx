@@ -86,7 +86,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         },
         ref,
     ) => {
-        const imagePatternId = imageUrl && `${imageUrl.replace(/[^a-z]+/g, '')}_${size}`;
+        const imagePatternId = imageUrl && `${imageUrl.replace(/[^a-z0-9]+/g, '')}_${size}`;
 
         const svgPatternId = Icon && `svg_${size}`;
 

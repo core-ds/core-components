@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.1.2
+
+### Patch Changes
+
+### [#423](https://github.com/core-ds/core-components/pull/423)
+
+-   Исправлен импорт компонента Badge
+
 ## 11.1.1
 
 ### Patch Changes

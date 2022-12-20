@@ -1,31 +1,36 @@
 const { PurgeCSS } = require('purgecss');
 const glob = require('glob');
 const fs = require('fs');
+const path = require('path');
 const { promisify } = require('util');
 
 const writeFile = promisify(fs.writeFile);
 
 const ignorePackages = ['themes', 'vars', 'grid'];
 
+const cwd = process.cwd();
+const pkgPath = path.resolve(cwd, 'package.json');
+const pkgName = require(pkgPath).name.replace('@alfalab/core-components-', '');
+
 const shouldSkipPath = (path) =>
     ignorePackages.some(
         (package) => path.includes(`dist/${package}`) || path.includes(`packages/${package}`),
     );
 
-// Скипаем purgecss при запуске из лерны внутри пакета
-if (shouldSkipPath(process.cwd())) process.exit(0);
+// Скипаем purgecss для пакетов в ignorePackages списке
+if (shouldSkipPath(cwd)) process.exit(0);
 
-const matches = glob.sync('dist/**/*.css');
+// Ищем css внутри пакета в packages и в root бандле
+const matches = glob.sync(`{dist/**/*.css,../../dist/${pkgName}/**/*.css}`);
 
 matches.forEach((match) => {
     const purge = new PurgeCSS();
 
-    // Скипаем purgecss при запуске в рут пакете
-    if (shouldSkipPath(match)) return;
+    const isRootPkg = match.startsWith('../../dist');
 
     purge
         .purge({
-            content: ['dist/**/*.js'],
+            content: [isRootPkg ? `../../dist/${pkgName}/**/*.js` : 'dist/**/*.js'],
             css: [match],
             variables: true,
             /**

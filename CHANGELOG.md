@@ -1,3 +1,44 @@
+## 36.5.1
+
+<sup><time>19.12.2022</time></sup>
+
+### [#423](https://github.com/core-ds/core-components/pull/423)
+
+#### Что изменилось
+- Исправлен импорт компонента Badge
+
+#### Влияние на компоненты
+- Патчи<br />`input` `select`
+
+
+### [#422](https://github.com/core-ds/core-components/pull/422)
+
+#### Что изменилось
+- "export" типов заменен на "export type"
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input` `calendar` `date-range-input` `date-time-input` `input-autocomplete`<br /> `picker-button` `tooltip`
+
+
+### [#428](https://github.com/core-ds/core-components/pull/428)
+
+#### Что изменилось
+- Исправлен patternId для imageUrl
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#411](https://github.com/core-ds/core-components/pull/411)
+
+#### Что изменилось
+- Исправлен отступ у лоадера в мобильной версии
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+
 ## 36.5.0
 
 <sup><time>14.12.2022</time></sup>
