@@ -214,10 +214,21 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             return targetCountry;
         };
 
+        const addCountryCode = (inputValue: string) => {
+            if (clearableCountryCode || !countryIso2) {
+                return inputValue.length === 1 && inputValue !== '+'
+                    ? `+${inputValue}`
+                    : inputValue;
+            }
+            const country = countriesHash[countryIso2];
+
+            return formatPhoneWithUnclearableCountryCode(inputValue, country);
+        };
+
         const setCountryByDialCode = (inputValue: string) => {
             const country = getCountryByNumber(inputValue);
 
-            onChange(formatPhone(inputValue));
+            onChange(formatPhone(addCountryCode(inputValue)));
             if (country) {
                 setCountryIso2(country.iso2);
                 handleCountryChange(country.iso2);
@@ -235,17 +246,6 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     setCountryByDialCode(inputValue);
                 }
             }
-        };
-
-        const addCountryCode = (inputValue: string) => {
-            if (clearableCountryCode || !countryIso2) {
-                return inputValue.length === 1 && inputValue !== '+'
-                    ? `+${inputValue}`
-                    : inputValue;
-            }
-            const country = countriesHash[countryIso2];
-
-            return formatPhoneWithUnclearableCountryCode(inputValue, country);
         };
 
         const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
