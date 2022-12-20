@@ -4,14 +4,37 @@
     --badge-icon-bg-color: var(--color-light-bg-primary);
 }
 
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-circle);
+    box-sizing: border-box;
+
+    &.s {
+        padding: var(--gap-3xs);
+        width: 20px;
+        height: 20px;
+    }
+
+    &.m {
+        padding: var(--gap-3xs);
+        width: 24px;
+        height: 24px;
+    }
+
+    &.xl {
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
 .component {
     @mixin accent_secondary_medium;
 
     position: relative;
     z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     box-sizing: border-box;
     border-radius: var(--border-radius-pill);
     background-color: var(--color-light-bg-accent);
@@ -21,12 +44,13 @@
 
 .count {
     display: inline-flex;
-    padding: var(--gap-3xs);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-pill);
 }
 
 .outlineCount {
-    background-color: var(--badge-icon-bg-color);
-    border-radius: var(--border-radius-pill);
+    border: 2px solid var(--badge-icon-bg-color);
 }
 
 .s {
@@ -72,31 +96,12 @@
     padding: 0 var(--gap-m);
 }
 
-.wrapper {
-    border-radius: var(--border-radius-circle);
-    box-sizing: border-box;
-
-    &.s {
-        padding: var(--gap-3xs);
-        width: 18px;
-        height: 18px;
-    }
-
-    &.m {
-        padding: var(--gap-3xs);
-        width: 24px;
-        height: 24px;
-    }
-
-    &.xl {
-        padding: 5px;
-        width: 40px;
-        height: 40px;
-    }
+.heightS.outlineCount {
+    border: 1px solid var(--badge-icon-bg-color);
 }
 
 .icon {
-    height: auto;
+    max-height: 30px;
     min-width: 0;
     padding: 0;
     color: var(--color-light-graphic-positive);
@@ -138,8 +143,8 @@
 }
 
 .icon.s {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
 }
 
 .icon:before {
@@ -159,6 +164,8 @@
 }
 
 .outlineColor {
+    background-color: var(--color-light-bg-accent);
+
     &.attention {
         background-color: var(--color-light-graphic-attention);
     }
@@ -175,7 +182,7 @@
         background-color: var(--color-light-graphic-link);
     }
 
-    & .tertiary {
+    &.tertiary {
         background-color: var(--color-light-graphic-tertiary);
     }
 
@@ -195,14 +202,25 @@
     padding: 0;
 }
 
+.dot.outlineCount {
+    border: 1px solid var(--badge-icon-bg-color);
+}
+
 .isHidden {
     display: none;
 }
 
-.m svg {
-    width: 20px;
-    height: 20px;
+.icon svg {
+    position: relative;
 }
+
+.m svg {
+    top: -2px;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+}
+
 .xl svg {
     width: 30px;
     height: 30px;
