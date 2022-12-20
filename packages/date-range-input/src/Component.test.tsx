@@ -41,7 +41,7 @@ describe('DateRangeInput', () => {
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
 
             await waitFor(() => {
                 expect(input).toHaveValue(value);
@@ -60,7 +60,7 @@ describe('DateRangeInput', () => {
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
 
             await waitFor(() => {
                 expect(onComplete).toBeCalledTimes(2);

@@ -134,7 +134,12 @@
     string-hash "^1.1.3"
     style-inject "^0.3.0"
 
-"@alfalab/stylelint-core-vars@1.4.0", "@alfalab/stylelint-core-vars@^1.4.0":
+"@alfalab/stylelint-core-vars@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.5.0.tgz#2eb559978a9835a80afb1bf7d8ba36c7b12b6a49"
+  integrity sha512-3gYD2jZa0Vv/FvoiLVRec/U5JMBpg2AUrIipyUne7ymlnOH9ETM3ecZVPTWAh3K3kPoPFSvVV8vSrKkG/qEliw==
+
+"@alfalab/stylelint-core-vars@^1.4.0":
   version "1.4.0"
   resolved "https://registry.npmjs.org/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.4.0.tgz"
   integrity sha512-6BOJJppFlPTsA/m53zjlBDTm49PF1O+wcrSDL7s3uOdMkChc0F/NXKTq+Oz/k4tI4yG5ZnyACcmD8g7vbjvVag==
@@ -8266,12 +8271,12 @@ arui-cssvars@1.2.0:
   resolved "https://registry.yarnpkg.com/arui-cssvars/-/arui-cssvars-1.2.0.tgz#08e3f5cf8228bcd932d5fbe41befa746f21a2c1a"
   integrity sha512-TqDsAL/GxXkKsLXKLZIwz4yHaUZipaUtXlcbsRezHvAlf4FCNmhavDEMJpindUM0MNw2uchN0Y4j3AeeVW2sZA==
 
-arui-presets-lint@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/arui-presets-lint/-/arui-presets-lint-6.0.1.tgz#c25ee008a766e9a660aa8f08aab9dbad9c390e9d"
-  integrity sha512-tDy4/yW3hP6rkX8Yq8zMOQl3ORAZjUPkwVl8kSk8QMkjItuoeKnKvV2T3IEoZ3kO09IyBlegAId93xoO1ick0A==
+arui-presets-lint@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/arui-presets-lint/-/arui-presets-lint-6.1.0.tgz#44b1d64e4a5d5015ab0f509b20d13e9f09a3372b"
+  integrity sha512-gVGtFSuWc9Mid2fcbRy8zu1QDcyD/m5Lv7NtIdvKCSDtplJfffpna4DkG0FoVajNv09MTYxVuy9by+ltxk/j8A==
   dependencies:
-    "@alfalab/stylelint-core-vars" "1.4.0"
+    "@alfalab/stylelint-core-vars" "1.5.0"
     "@commitlint/cli" "16.3.0"
     "@commitlint/config-conventional" "16.2.4"
     arui-cssvars "1.2.0"
@@ -23661,10 +23666,10 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.12.0.tgz"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-1.0.9.tgz#ad2883c02f6e377ca2d178b6c32db4fe98803991"
-  integrity sha512-yW27r0I+11WMLmJ6Bt/BEaaoHWdFuNtUjSpbzusYu2+Q4/fQRTQ8DVBjG4vx4fOAYravpoudLF9DrqkR+aaFWg==
+storybook-addon-live-examples@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-1.0.10.tgz#d8329415383f9f014878c65c5e1b14ed6bc5a19e"
+  integrity sha512-NCCZpO9aj3KkDznf+Rhy95HWiZeJpFnIwDgWwm3E8TSxM+3C25tHA5gohetYtr8IqqodOhyY9kXCoDwBeVW7+Q==
   dependencies:
     "@alfalab/core-components" "^35.1.0"
     "@alfalab/icons-glyph" "^2.66.0"

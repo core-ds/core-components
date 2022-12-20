@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.0.2
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   spinner@3.0.3
+
 ## 7.0.1
 
 ### Patch Changes

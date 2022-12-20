@@ -4,46 +4,52 @@ import { Gap } from './components/Gap.jsx';
 import { DocumentIcon } from './components/icons/DocumentIcon.jsx';
 import { ComponentIcon } from './components/icons/ComponentIcon.jsx';
 import { FolderIcon } from './components/icons/FolderIcon.jsx';
-import { DocumentBlankIcon } from './components/icons/DocumentBlankIcon.jsx';
 import { DiamondsBlankIcon } from './components/icons/DiamondsBlankIcon.jsx';
+import { FlashIcon } from './components/icons/FlashIcon.jsx';
 // import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
-import SandboxIcon from './public/images/sandbox.svg';
+import SandboxIcon from './public/images/sandbox-icon.svg';
 
 const renderIcon = (type, parent, depth, name) => {
     switch (type) {
         case 'component': {
-            if (name === 'Песочница') {
+            if (name === 'Sandbox') {
                 // Сложная иконка песочницы не отображается svg компонентом
                 return <img src={SandboxIcon} className='sidebar-icon' />;
             }
-            if (parent === 'инструкции-доступность') {
-                return <DocumentBlankIcon />;
+            if (name === 'Intro') {
+                return <FlashIcon />;
             }
-            if (parent && parent.includes('компоненты')) {
+            if (parent && parent.includes('components')) {
                 return (
                     <>
-                        <Gap size={name === 'KeyboardFocusable' ? 8 : 24} />
+                        {name === 'KeyboardFocusable' && <Gap size={8} />}
                         <ComponentIcon />
+                    </>
+                );
+            }
+            if (
+                (parent && parent.includes('instructions')) ||
+                (parent && parent.includes('guidelines'))
+            ) {
+                return (
+                    <>
+                        <Gap size={depth > 1 ? 10 : 6} />
+                        <DocumentIcon />
                     </>
                 );
             }
             return <DocumentIcon />;
         }
         case 'story': {
-            return depth > 2 ? (
+            return (
                 <>
-                    <Gap size={16} />
-                    <DiamondsBlankIcon />
-                </>
-            ) : (
-                <>
-                    <Gap size={8} />
+                    <Gap size={6} />
                     <ComponentIcon />
                 </>
             );
         }
         case 'group': {
-            return parent === 'инструкции' ? <DocumentIcon /> : <FolderIcon />;
+            return <FolderIcon />;
         }
         default:
             return null;

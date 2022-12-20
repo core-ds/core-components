@@ -34,7 +34,7 @@ async function main() {
             const cPath = findComponentPath(componentName, packageName);
 
             if (cPath) {
-                const group = cPath.replace('компоненты-', '');
+                const group = cPath.replace('components-', '');
 
                 return {
                     group,
@@ -53,19 +53,21 @@ async function main() {
     const json = {
         components,
         breakPoints: {
-            group: 'Инструкции',
+            group: 'Instructions',
             name: 'Брейкпоинты',
-            docsUrl: '/iframe.html?id=инструкции-брейкпоинты--page&viewMode=docs',
+            docsUrl: '/iframe.html?id=instructions-брейкпоинты--page&viewMode=docs',
         },
         gaps: {
-            group: 'Токены и ассеты',
+            group: 'Guidelines',
             name: 'Отступы',
-            docsUrl: '/iframe.html?id=токены-и-ассеты-отступы--page&viewMode=docs',
+            docsUrl:
+                '/iframe.html?id=guidelines-дизайн-токены-и-ассеты-отступы--page&viewMode=docs',
         },
         cssVars: {
-            group: 'Токены и ассеты',
+            group: 'Guidelines',
             name: 'CSS-переменные',
-            docsUrl: '/iframe.html?id=токены-и-ассеты-css-переменные--page&viewMode=docs',
+            docsUrl:
+                '/iframe.html?id=guidelines-дизайн-токены-и-ассеты-css-переменные--page&viewMode=docs',
         },
     };
 
