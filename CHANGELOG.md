@@ -1,3 +1,73 @@
+## 37.0.0
+
+<sup><time>20.12.2022</time></sup>
+
+### [#397](https://github.com/core-ds/core-components/pull/397)
+
+#### Что изменилось
+- Обновлен размер 's' c 18px на 20px для Badge view='icon'
+- Исправлено сжатие svg в размерах 's' и 'm'<br />
+- Обводка для Badge view='count' изменена с внешней на внутреннюю<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`badge`
+
+
+### [#393](https://github.com/core-ds/core-components/pull/393)
+
+#### Что изменилось
+- Исправлен borderRadius у календаря
+- Исправлена ошибка, из-за которой коллбэки onChange и onComplete в компоненте DateTimeInput не вызывались, если даты выбиралась с помощью календаря<br />
+- В компоненте DateTimeInput изменена типизация onChange и onComplete коллбэков. Теперь event опциональный, так как при выборе даты в пикере ChangeEvent в инпуте не происходит<br />
+- В компоненте DateTimeInput исправлена ошибка, из-за которой не подставлялось время после закрытия мобильного календаря<br />
+- В компоненте DateRangeInput исправлены ошибки, из-за которых в коллбэке onComplete передавалось неверное значение value и при полной очистке инпута период в календаре не сбрасывался<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`date-time-input`
+
+
+- Патчи<br />`date-range-input`
+
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+#### Что изменилось
+- Добавлен новый вид выреза под индикатор
+- Добавлены новые размеры 32px и 20px<br />
+- В старых размерах изменены вырезы под аддон и размер аддонов (в 64 размере с 18px до 24px, в 48 и 40 размерах с 18px до 20px)<br />
+- Добавлена возможность прокидывать иконку в шейп<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`icon-view`
+
+<br />
+
+#### Что изменилось
+- Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+#### Влияние на компоненты
+- Патчи<br />`attach` `bank-card` `calendar` `checkbox` `confirmation-v1`<br /> `confirmation` `dropzone` `file-upload-item` `gallery` `input`<br /> `modal` `pass-code` `password-input` `picker-button` `select-with-tags`<br /> `select` `steps` `toast-plate`
+
+
+### [#429](https://github.com/core-ds/core-components/pull/429)
+
+#### Что изменилось
+- Исправлено переполнение контейнера PureCell.Text
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#426](https://github.com/core-ds/core-components/pull/426)
+
+#### Что изменилось
+- Исправлен дефект позволяющий удалить `dialCode` при выключеном `clearableCountryCode`
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+
 ## 36.5.1
 
 <sup><time>19.12.2022</time></sup>
