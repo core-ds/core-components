@@ -59,7 +59,7 @@ import Changelog from '../../CHANGELOG.md';
                 bottomAddons={bottomAddons && addonsIcon}
                 indicator={indicator && <Badge view='count' />}
             >
-                <SfTouchIdXxlIcon />
+                { size === '128' || size === '80' ?  <DiamondsXxlIcon/> : size === '20' ? <DiamondsSIcon/> : <DiamondsMIcon/>}
             </Circle>
         );
     })}
