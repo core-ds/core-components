@@ -21,17 +21,18 @@ import {
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { useDidUpdateEffect } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import {
-    DATE_MASK,
+    addTimeToDate,
+    DATE_WITH_TIME_LENGTH,
     format,
     getDateWithoutTime,
     getFullDateTime,
     isCompleteDateInput,
     isValid,
     parseTimestampToDate,
-    setTimeToDate,
 } from '../../utils';
 
 import styles from './index.module.css';
@@ -61,7 +62,7 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Обработчик изменения значения
      */
     onChange?: (
-        event: ChangeEvent<HTMLInputElement>,
+        event: ChangeEvent<HTMLInputElement> | null,
         payload: { date: Date; value: string },
     ) => void;
 
@@ -69,7 +70,7 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Обработчик окончания ввода
      */
     onComplete?: (
-        event: ChangeEvent<HTMLInputElement>,
+        event: ChangeEvent<HTMLInputElement> | null,
         payload: { date: Date; value: string },
     ) => void;
 
@@ -196,6 +197,12 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             setOpen(defaultOpen);
         }, [defaultOpen]);
 
+        useDidUpdateEffect(() => {
+            const newPropValue = propValue || '';
+
+            setValue((prevValue) => (prevValue === propValue ? prevValue : newPropValue));
+        }, [propValue]);
+
         const checkInputValueIsValid = (newInputValue?: string) => {
             if (!newInputValue || error) return false;
 
@@ -208,8 +215,26 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             );
         };
 
+        const setTimeToDate = () => {
+            setValue((prevValue) => {
+                const dateWithTime = addTimeToDate(prevValue);
+
+                if (dateWithTime !== prevValue && dateWithTime.length === DATE_WITH_TIME_LENGTH) {
+                    onComplete?.(null, {
+                        date: getFullDateTime(dateWithTime),
+                        value: dateWithTime,
+                    });
+                }
+
+                return dateWithTime;
+            });
+        };
+
         const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {
+                if (picker) {
+                    setOpen(true);
+                }
                 if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
                     calendarRef.current.focus();
                 }
@@ -222,7 +247,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
 
                 if (calendarRef.current && calendarRef.current.contains(target) === false) {
                     setOpen(false);
-                    setValue((prevValue) => setTimeToDate(prevValue));
+                    setTimeToDate();
                 }
             }
         };
@@ -230,16 +255,16 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             const { value: newValue } = event.target;
 
-            if (newValue.length > DATE_MASK.length) return;
+            if (newValue.length > DATE_WITH_TIME_LENGTH) return;
 
             // Позволяем вводить только цифры, точки, запятую, двоеточие и пробел
-            if (/[^\d., :\d.]/.test(newValue)) {
+            if (/[^\d., :]/.test(newValue)) {
                 return;
             }
 
             const dots = newValue.match(/\./g);
-            const colon = newValue.match(/\:/g);
-            const comma = newValue.match(/\,/g);
+            const colon = newValue.match(/:/g);
+            const comma = newValue.match(/,/g);
 
             // Не даем вводить больше, чем 2 точки, 1 двоеточие и 1 запятую
             if (
@@ -268,8 +293,9 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             }
         };
 
-        const handleCalendarClose = () => {
+        const handleMobileCalendarClose = () => {
             setOpen(false);
+            setTimeToDate();
         };
 
         const handleClear = () => {
@@ -278,7 +304,10 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
 
         const handleCalendarChange = (date?: number) => {
             if (date) {
-                setValue(parseTimestampToDate(date));
+                const newValue = parseTimestampToDate(date);
+
+                setValue(newValue);
+                onChange?.(null, { date: getFullDateTime(newValue), value: newValue });
             }
         };
 
@@ -287,14 +316,12 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             event.preventDefault();
         };
 
-        const handleInputWrapperClick = () => {
-            if (view === 'desktop' && !open) {
-                setOpen(true);
-            }
-        };
-
         const handleIconButtonClick = () => {
             if (!open) setOpen(true);
+
+            if (view === 'desktop' && inputRef.current) {
+                inputRef.current.focus();
+            }
         };
 
         const renderCalendar = () => (
@@ -304,7 +331,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                     {...calendarProps}
                     responsive={calendarResponsive}
                     open={open}
-                    onClose={handleCalendarClose}
+                    onClose={handleMobileCalendarClose}
                     ref={calendarRef}
                     defaultMonth={defaultMonth}
                     value={checkInputValueIsValid(value) ? calendarValue : undefined}
@@ -322,7 +349,6 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                 className={cn(styles.component, className, {
                     [styles.block]: block,
                 })}
-                onClick={inputDisabled ? undefined : handleInputWrapperClick}
                 onFocus={inputDisabled ? undefined : handleInputWrapperFocus}
                 onBlur={handleBlur}
             >

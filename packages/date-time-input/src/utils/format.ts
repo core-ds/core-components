@@ -24,11 +24,10 @@ export const DATE_MASK = [
     /\d/,
 ];
 
-export const isCompleteDateInput = (input: string) => input.length === DATE_MASK.length;
-
+export const DATE_WITH_TIME_LENGTH = DATE_MASK.length;
+export const isCompleteDateInput = (input: string) => input.length === DATE_WITH_TIME_LENGTH;
 export const parseDateString = (value: string, dateFormat = DATE_FORMAT) =>
     parse(value, dateFormat, new Date());
-
 export const isValidTimeFormat = (value: string): boolean => {
     const timeArr = value.split(':');
     const hours = timeArr[0];
@@ -143,11 +142,13 @@ export const getFullDateTime = (value: string): Date => {
     fullDate.setFullYear(Number(year), Number(month) - 1, Number(day));
     fullDate.setHours(Number(hours) || 0);
     fullDate.setMinutes(Number(mins) || 0);
+    fullDate.setSeconds(0);
+    fullDate.setMilliseconds(0);
 
     return fullDate;
 };
 
-export const setTimeToDate = (value: string): string => {
+export const addTimeToDate = (value: string): string => {
     if (value.length === 10 && dateFnsIsValid(parseDateString(value))) {
         return `${value}, 00:00`;
     }

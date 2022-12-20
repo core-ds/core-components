@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/addon-docs';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { DateTimeInput } from '@alfalab/core-components-date-time-input';
@@ -23,6 +23,7 @@ import Development from './development.mdx';
                 label={text('label', '')}
                 picker={boolean('picker', false)}
                 clear={boolean('clear', false)}
+                defaultMonth={number('defaultMonth', undefined)}
             />
         );
     })}

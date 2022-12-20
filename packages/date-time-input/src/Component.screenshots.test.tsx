@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createStorybookUrl, openBrowserPage, matchHtml, closeBrowser
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -116,3 +120,31 @@ describe(
         },
     }),
 );
+
+describe('DateTimeInput | picker', () =>
+    test('open calendar', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'DateTimeInput',
+            testStory: false,
+            knobs: {
+                picker: true,
+                size: 'm',
+                defaultMonth: 1769310391747,
+            },
+        });
+
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+
+        try {
+            await page.click('input');
+
+            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error((error as Error).message);
+
+            throw error;
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    }));

@@ -22,6 +22,7 @@ import {
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { useDidUpdateEffect } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import {
@@ -193,6 +194,12 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             setOpen(defaultOpen);
         }, [defaultOpen]);
 
+        useDidUpdateEffect(() => {
+            const newPropValue = propValue || '';
+
+            setValue((prevValue) => (prevValue === newPropValue ? prevValue : newPropValue));
+        }, [propValue]);
+
         const handlePeriodChange = (selectedFrom?: number, selectedTo?: number) => {
             if (selectedFrom && !selectedTo && value.length === DATE_MASK.length) {
                 setValue(parseTimestampToDate(selectedFrom));
@@ -203,18 +210,24 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                 setValue('');
             }
 
-            if (onChange) {
-                onChange({
-                    dateFrom: selectedFrom ? new Date(selectedFrom) : undefined,
-                    dateTo: selectedTo ? new Date(selectedTo) : undefined,
-                    value,
-                });
-            }
-            if (onComplete && selectedFrom && selectedTo) {
-                onComplete({
-                    dateFrom: new Date(selectedFrom),
-                    dateTo: new Date(selectedTo),
-                    value,
+            const dateFrom = selectedFrom ? new Date(selectedFrom) : undefined;
+            const dateTo = selectedTo ? new Date(selectedTo) : undefined;
+
+            const newValue = ([selectedFrom, selectedTo].filter(Boolean) as number[])
+                .map((timestamp) => parseTimestampToDate(timestamp))
+                .join(' - ');
+
+            onChange?.({
+                dateFrom,
+                dateTo,
+                value: newValue,
+            });
+
+            if (dateFrom && dateTo) {
+                onComplete?.({
+                    dateFrom,
+                    dateTo,
+                    value: newValue,
                 });
             }
         };
@@ -225,6 +238,10 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
 
         const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {
+                if (picker) {
+                    setOpen(true);
+                }
+
                 if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
                     calendarRef.current.focus();
                 }
@@ -247,7 +264,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             if (newValue.length > DATE_MASK.length) return;
 
             // Позволяем вводить только цифры, точки, дефис и пробелы
-            if (/[^\d. \- \d.]/.test(newValue)) {
+            if (/[^\d. -]/.test(newValue)) {
                 return;
             }
 
@@ -262,20 +279,24 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             const formattedValue = format(newValue);
 
             const dateArr = formattedValue.split(' - ');
-            const dateFrom = parseDateString(dateArr[0]);
-            const dateTo = parseDateString(dateArr[1]);
+            const dateFrom = dateArr[0] ? parseDateString(dateArr[0]) : undefined;
+            const dateTo = dateArr[1] ? parseDateString(dateArr[1]) : undefined;
 
-            if (selectedFrom && formattedValue.length < DATE_FORMAT.length) {
+            if (!dateFrom && !dateTo) {
+                resetPeriod();
+            } else if (selectedFrom && formattedValue.length < DATE_FORMAT.length) {
                 setStart();
             } else if (selectedFrom && selectedTo) {
                 setEnd();
             } else if (
+                dateFrom &&
                 dateFnsIsValid(dateFrom) &&
                 dateArr[0]?.length === DATE_FORMAT.length &&
                 dateFrom.getTime() !== selectedFrom
             ) {
                 setStart(dateFrom.getTime());
             } else if (
+                dateTo &&
                 dateFnsIsValid(dateTo) &&
                 dateArr[1]?.length === DATE_FORMAT.length &&
                 dateTo.getTime() !== selectedTo
@@ -285,15 +306,15 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
 
             setValue(formattedValue);
 
-            if (onChange) onChange({ dateFrom, dateTo, value: formattedValue }, event);
+            onChange?.({ dateFrom, dateTo, value: formattedValue }, event);
 
             if (isCompleteDateInput(formattedValue)) {
                 const valid = isValid(formattedValue, dateArr[0], dateArr[1]);
 
                 if (!valid) return;
 
-                if (onComplete) {
-                    onComplete({ dateFrom, dateTo, value: formattedValue }, event);
+                if (dateFrom && dateTo) {
+                    onComplete?.({ dateFrom, dateTo, value: formattedValue }, event);
                 }
             }
         };
@@ -328,14 +349,12 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             event.preventDefault();
         };
 
-        const handleInputWrapperClick = () => {
-            if (view === 'desktop' && !open) {
-                setOpen(true);
-            }
-        };
-
         const handleIconButtonClick = () => {
             if (!open) setOpen(true);
+
+            if (view === 'desktop' && inputRef.current) {
+                inputRef.current.focus();
+            }
         };
 
         const renderCalendar = () => (
@@ -364,7 +383,6 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                 className={cn(styles.component, className, {
                     [styles.block]: block,
                 })}
-                onClick={inputDisabled ? undefined : handleInputWrapperClick}
                 onFocus={inputDisabled ? undefined : handleInputWrapperFocus}
                 onBlur={handleBlur}
             >
