@@ -56,7 +56,7 @@
 .countdownMobile.countdownMobile {
     margin-bottom: var(--gap-l);
 }
-.countdownLoaderMobile {
+.countdownLoaderMobile.countdownLoaderMobile {
     margin-bottom: var(--gap-m);
 }
 

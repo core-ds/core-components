@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.4.1
+
+### Patch Changes
+
+### [#411](https://github.com/core-ds/core-components/pull/411)
+
+-   Исправлен отступ у лоадера в мобильной версии
+
 ## 12.4.0
 
 ### Minor Changes
