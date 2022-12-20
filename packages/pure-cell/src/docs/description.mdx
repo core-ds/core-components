@@ -328,7 +328,7 @@ render(() => (
 
 ```jsx live
 render(() => (
-    <Container align='center'>
+    <Container>
         <Row align='top'>
             <Col>
                 <PureCell
@@ -353,7 +353,7 @@ render(() => (
                 </PureCell>
             </Col>
             <Col>
-                <div style={{ width: '350px', margin: '0 30px' }}>
+                <div style={{ width: '300px', margin: '0 30px' }}>
                     <PureCell
                         href='#CatalogCell'
                         padding={select(
@@ -385,15 +385,15 @@ render(() => (
             <Col>
                 <div style={{ width: '200px' }}>
                     <PureCell href='#CatalogCell' direction='vertical' padding='tiny'>
-                        <PureCell.Graphics>
+                        <PureCell.Graphics verticalAlign='center'>
                             <SuperEllipse view='inverted'>
                                 <StarMIcon />
                             </SuperEllipse>
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <PureCell.Text titleColor='primary' view='component'>
-                                    Идейные соображения высшего порядка{' '}
+                                <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
+                                    Идейные соображения высшего порядка
                                 </PureCell.Text>
                             </PureCell.Main>
                         </PureCell.Content>
