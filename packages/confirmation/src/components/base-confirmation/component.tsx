@@ -37,7 +37,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     onFatalErrorOkButtonClick,
     onTempBlockFinished,
     mobile,
-    clearCodeOnError,
+    clearCodeOnError = true,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);

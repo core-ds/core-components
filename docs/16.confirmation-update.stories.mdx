@@ -2,7 +2,7 @@ import { Checkbox } from '../packages/checkbox/src/Component';
 import { Meta } from '@storybook/addon-docs';
 
 <Meta
-    title='Инструкции/Обновление Confirmation'
+    title='Instructions/Пользователям/Обновление Confirmation'
     parameters={{ previewTabs: { canvas: { hidden: true } } }}
 />
 
@@ -132,22 +132,18 @@ render(() => {
         );
     };
 
-    const {
-        confirmationState,
-        confirmationScreen,
-        setConfirmationState,
-        setConfirmationScreen,
-    } = useConfirmation();
+    const { confirmationState, confirmationScreen, setConfirmationState, setConfirmationScreen } =
+        useConfirmation();
 
     const handleInputFinished = () => {
         setConfirmationScreen('CODE_SUCCESS');
     };
 
-    const handleChangeScreen = screen => {
+    const handleChangeScreen = (screen) => {
         setConfirmationScreen(screen);
     };
 
-    const getScreensMap = screenMap => ({ ...screenMap, CODE_SUCCESS: CodeSuccesScreen });
+    const getScreensMap = (screenMap) => ({ ...screenMap, CODE_SUCCESS: CodeSuccesScreen });
 
     return (
         <Confirmation

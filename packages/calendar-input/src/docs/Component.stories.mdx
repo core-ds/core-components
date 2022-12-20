@@ -4,13 +4,13 @@ import { formatDate } from '@alfalab/core-components-date-input';
 import { CalendarInput } from '@alfalab/core-components-calendar-input';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { CalendarInput as CalendarInputTS } from '../Component';
+import { CalendarInputResponsive as CalendarInputTS } from '../responsive';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
+import styles from '!!raw-loader!../components/calendar-input/index.module.css';
 
-<Meta title='Компоненты/Инпуты/CalendarInput' component={CalendarInput} />
+<Meta title='Components/Forms/Inputs/CalendarInput' component={CalendarInput} />
 
 <!-- Canvas -->
 
@@ -46,7 +46,12 @@ import styles from '!!raw-loader!../index.module.css';
 
 ```jsx
 import { CalendarInput } from '@alfalab/core-components/calendar-input';
+import { CalendarInputDesktop } from '@alfalab/core-components/calendar-input/desktop';
+import { CalendarInputMobile } from '@alfalab/core-components/calendar-input/mobile';
+import { CalendarInputResponsive } from '@alfalab/core-components/calendar-input/responsive';
 ```
+
+Из индекса импортируется responsive версия компонента.
 
 <Tabs
     description={<Description />}

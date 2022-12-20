@@ -1,9 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Badge } from '@alfalab/core-components/badge';
+import { Badge } from '@alfalab/core-components-badge';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
+
 import { CheckmarkProps } from '../../../typings';
 
 import styles from './index.module.css';

@@ -1,5 +1,28 @@
 # Change Log
 
+## 2.5.0
+
+### Minor Changes
+
+### [#334](https://github.com/core-ds/core-components/pull/334)
+
+-   В компонентах DateRangeInput, DateTimeInput и CalendarInput добавлены mobile и desktop версии компонентов. Название компонентов было изменено по схеме Component → ComponentDesktop
+-   В компонентах Calendar и InputAutocomplete добавлена responsive версия компонентов. Название компонентов было изменено по схеме Component → ComponentResponsive<br />
+-   В компонентах PickerButton и Tooltip добавлен новый пропс breakpoint. Название компонентов было изменено по схеме Component -→ ComponentResponsive для PickerButton и Component → ComponentDesktop для Tooltip<br />
+-   В компонентах Confirmation и SidePanel добавлен новый пропс breakpoint<br />
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   base-modal@5.0.7
+    -   button@7.0.2
+    -   drawer@4.2.2
+    -   icon-button@6.0.2
+
 ## 2.4.2
 
 ### Patch Changes

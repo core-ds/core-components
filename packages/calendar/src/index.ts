@@ -1,4 +1,6 @@
-export * from './Component';
+export { CalendarDesktop as Calendar } from './desktop';
+export type { CalendarDesktopProps as CalendarProps } from './desktop';
+export * from './responsive';
 export { usePeriod, usePeriodWithReset } from './usePeriod';
 export { useCalendar } from './useCalendar';
 export * from './components/period-slider';

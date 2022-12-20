@@ -1,5 +1,25 @@
 # Change Log
 
+## 8.1.2
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   form-control@9.0.2
+    -   scrollbar@2.1.2
+
+## 8.1.1
+
+### Patch Changes
+
+### [#399](https://github.com/core-ds/core-components/pull/399)
+
+-   Исправлено некорректное выделение текста который превышает maxLength
+
 ## 8.1.0
 
 ### Minor Changes
