@@ -1,5 +1,23 @@
 # @alfalab/core-components-date-time-input
 
+## 3.0.0
+
+### Major Changes
+
+### [#393](https://github.com/core-ds/core-components/pull/393)
+
+-   Исправлен borderRadius у календаря
+-   Исправлена ошибка, из-за которой коллбэки onChange и onComplete в компоненте DateTimeInput не вызывались, если даты выбиралась с помощью календаря<br />
+-   В компоненте DateTimeInput изменена типизация onChange и onComplete коллбэков. Теперь event опциональный, так как при выборе даты в пикере ChangeEvent в инпуте не происходит<br />
+-   В компоненте DateTimeInput исправлена ошибка, из-за которой не подставлялось время после закрытия мобильного календаря<br />
+-   В компоненте DateRangeInput исправлены ошибки, из-за которых в коллбэке onComplete передавалось неверное значение value и при полной очистке инпута период в календаре не сбрасывался<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.2
+    -   input@11.1.3
+
 ## 2.2.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @alfalab/core-components-steps
 
+## 1.1.4
+
+### Patch Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   badge@5.0.0
+
 ## 1.1.3
 
 ### Patch Changes

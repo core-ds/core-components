@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.5
+
+### Patch Changes
+
+### [#429](https://github.com/core-ds/core-components/pull/429)
+
+-   Исправлено переполнение контейнера PureCell.Text
+
 ## 4.1.4
 
 ### Patch Changes

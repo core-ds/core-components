@@ -1,5 +1,13 @@
 # @alfalab/core-components-pass-code
 
+## 1.0.2
+
+### Patch Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
 ## 1.0.1
 
 ### Patch Changes

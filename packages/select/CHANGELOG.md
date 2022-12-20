@@ -1,5 +1,19 @@
 # Change Log
 
+## 13.2.5
+
+### Patch Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   badge@5.0.0
+    -   checkbox@3.0.7
+    -   input@11.1.3
+    -   modal@6.1.5
+
 ## 13.2.4
 
 ### Patch Changes

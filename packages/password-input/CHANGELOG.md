@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.1.3
+
+### Patch Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   input@11.1.3
+
 ## 4.1.2
 
 ### Patch Changes

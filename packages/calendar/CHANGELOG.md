@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.2.2
+
+### Patch Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   modal@6.1.5
+
 ## 6.2.1
 
 ### Patch Changes
