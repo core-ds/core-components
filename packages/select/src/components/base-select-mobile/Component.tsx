@@ -250,10 +250,9 @@ export const BaseSelectMobile = forwardRef(
             },
         });
 
-        const menuProps = (getMenuProps as (options: object, additional: object) => Record<string, any>)(
-            { ref: listRef },
-            { suppressRefError: true },
-        );
+        const menuProps = (
+            getMenuProps as (options: object, additional: object) => Record<string, any>
+        )({ ref: listRef }, { suppressRefError: true });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
         useEffect(() => {
@@ -402,7 +401,7 @@ export const BaseSelectMobile = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...fieldProps as Record<string, any>}
+                    {...(fieldProps as Record<string, any>)}
                 />
 
                 {name && renderValue()}
@@ -424,7 +423,7 @@ export const BaseSelectMobile = forwardRef(
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
                                 showFooter={multiple}
-                                {...optionsListProps as Record<string, any>}
+                                {...(optionsListProps as Record<string, any>)}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
@@ -454,7 +453,7 @@ export const BaseSelectMobile = forwardRef(
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
                                 showFooter={multiple}
-                                {...optionsListProps as Record<string, any>}
+                                {...(optionsListProps as Record<string, any>)}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
