@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { DataContent } from '.';
+import { DataContent } from './component';
 
 describe('GenericWrapper.DataContent', () => {
     it('should set data-test-id attribute', () => {

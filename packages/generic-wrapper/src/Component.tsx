@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 import { GapProps } from '@alfalab/core-components-gap';
 
-import { Addon } from './components/addon';
-import { DataContent } from './components/data-content';
+import { Addon } from './components/addon/component';
+import { DataContent } from './components/data-content/component';
 
 import styles from './index.module.css';
 

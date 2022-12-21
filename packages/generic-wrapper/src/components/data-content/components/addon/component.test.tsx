@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Addon } from '.';
+import { Addon } from './component';
 
 describe('GenericWrapper.DataContent.Addon', () => {
     it('should set data-test-id attribute', () => {

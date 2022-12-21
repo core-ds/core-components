@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import { Addon } from './components/addon';
+import { Addon } from './components/addon/component';
 
 import styles from './index.module.css';
 
