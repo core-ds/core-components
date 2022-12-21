@@ -56,3 +56,71 @@ describe('GenericWrapper', () => {
         expect(screen.getByTestId('data-test-id').classList.contains('className')).toBe(true);
     });
 });
+
+describe('GenericWrapper.DataContent', () => {
+    it('should set data-test-id attribute', () => {
+        render(
+            <GenericWrapper.DataContent dataTestId='data-test-id'>
+                <GenericWrapper.DataContent.Addon leftSide={{ content: 'test' }} />
+            </GenericWrapper.DataContent>,
+        );
+
+        screen.getByTestId('data-test-id');
+    });
+
+    it('should set custom className', () => {
+        render(
+            <GenericWrapper.DataContent dataTestId='data-test-id' className='className'>
+                <GenericWrapper.DataContent.Addon leftSide={{ content: 'test' }} />
+            </GenericWrapper.DataContent>,
+        );
+
+        expect(screen.getByTestId('data-test-id').classList.contains('className')).toBe(true);
+    });
+});
+
+describe('GenericWrapper.DataContent.Addon', () => {
+    it('should set data-test-id attribute', () => {
+        render(
+            <GenericWrapper.DataContent.Addon
+                leftSide={{ content: 'test' }}
+                dataTestId='data-test-id'
+            />,
+        );
+
+        screen.getByTestId('data-test-id');
+    });
+
+    it('should set custom className', () => {
+        render(
+            <GenericWrapper.DataContent.Addon
+                leftSide={{ content: 'testLeft', className: 'leftSide' }}
+                rightSide={{ content: 'testRight', className: 'rightSide' }}
+                dataTestId='data-test-id'
+                className='className'
+            />,
+        );
+
+        expect(screen.getByTestId('data-test-id').classList.contains('className')).toBe(true);
+        expect(screen.getByText('testLeft').classList.contains('leftSide')).toBe(true);
+        expect(screen.getByText('testRight').classList.contains('rightSide')).toBe(true);
+    });
+});
+
+describe('GenericWrapper.Addon', () => {
+    it('should set data-test-id attribute', () => {
+        render(<GenericWrapper.Addon dataTestId='data-test-id'>test</GenericWrapper.Addon>);
+
+        screen.getByTestId('data-test-id');
+    });
+
+    it('should set custom className', () => {
+        render(
+            <GenericWrapper.Addon dataTestId='data-test-id' className='className'>
+                test
+            </GenericWrapper.Addon>,
+        );
+
+        expect(screen.getByTestId('data-test-id').classList.contains('className')).toBe(true);
+    });
+});
