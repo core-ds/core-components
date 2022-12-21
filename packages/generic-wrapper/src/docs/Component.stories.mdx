@@ -3,15 +3,22 @@ import { Gap } from '@alfalab/core-components-gap';
 import { Typography } from '@alfalab/core-components-typography';
 import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
 import { Button } from '@alfalab/core-components-button';
+import { Amount } from '@alfalab/core-components-amount';
 import { BankCard } from '@alfalab/core-components-bank-card';
-import { text, select, object, radios } from '@storybook/addon-knobs';
-
+import { text, select, object, radios, boolean } from '@storybook/addon-knobs';
+import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { GenericWrapper } from '../Component';
 
-<Meta title='Компоненты/Ячейки/GenericWrapper' component={GenericWrapper} />
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+<Meta title='Компоненты/Ячейки' component={GenericWrapper} />
 
 <Story name='GenericWrapper'>
     {() => {
+        const gapSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl'];
         const alignItems = select('alignItems', ['end', 'start', 'center'], 'start');
         const direction = radios(
             'direction',
@@ -25,6 +32,17 @@ import { GenericWrapper } from '../Component';
             { vertical: 'vertical', horizontal: 'horizontal' },
             'horizontal',
         );
+        const leftSideContent1 = text('leftSideContent1', 'Left Side Content 1');
+        const rightSideContent1 = text('rightSideContent1', 'Right Side Content 1');
+        const leftSideContent2 = text('leftSideContent2', 'Left Side Content 2');
+        const rightSideContent2 = text('rightSideContent2', 'Right Side Content 2');
+        const gapSize1 = select('gapSize1', gapSizes, 'l');
+        const gapSize2 = select('gapSize2', gapSizes, 'l');
+        const justifyContent = select(
+            'justifyContent for first line',
+            ['between', 'around', 'center', 'end', 'start'],
+            'start',
+        );
         return (
             <div
                 style={{
@@ -32,14 +50,48 @@ import { GenericWrapper } from '../Component';
                 }}
             >
                 <GenericWrapper alignItems={alignItems} direction={direction} padding={padding}>
-                    <GenericWrapper.Addon grow>saddasadadda</GenericWrapper.Addon>
+                    <GenericWrapper.Addon grow>
+                        <Typography.Text>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.
+                        </Typography.Text>
+                    </GenericWrapper.Addon>
                     <Gap direction={gapDirection} size={gapSize} />
                     <GenericWrapper.Addon>
                         <CircularProgressBar value={25} size='xxl' />
                     </GenericWrapper.Addon>
                     <Gap direction='horizontal' size='7xl' />
-                    <GenericWrapper.Addon grow>
-                        <BankCard value={'20'} onChange={() => {}} />
+                    <GenericWrapper.Addon>
+                        <GenericWrapper.DataContent>
+                            <GenericWrapper.DataContent.Addon
+                                leftSide={{
+                                    content: (
+                                        <Typography.Text>
+                                            Some random content on the left side
+                                        </Typography.Text>
+                                    ),
+                                    justifyContent,
+                                }}
+                            />
+                            <GenericWrapper.DataContent.Addon
+                                leftSide={{
+                                    content: <Typography.Text>{leftSideContent1}</Typography.Text>,
+                                }}
+                                rightSide={{
+                                    content: <Typography.Text>{rightSideContent1}</Typography.Text>,
+                                    gapSize: gapSize1,
+                                }}
+                            />
+                            <GenericWrapper.DataContent.Addon
+                                leftSide={{
+                                    content: <Typography.Text>{leftSideContent2}</Typography.Text>,
+                                }}
+                                rightSide={{
+                                    content: <Typography.Text>{rightSideContent2}</Typography.Text>,
+                                    gapSize: gapSize2,
+                                }}
+                            />
+                        </GenericWrapper.DataContent>
                     </GenericWrapper.Addon>
                 </GenericWrapper>
             </div>
@@ -47,96 +99,14 @@ import { GenericWrapper } from '../Component';
     }}
 </Story>
 
-<Story name='DataContent'>
-    {() => {
-        const justifyContent = select('justifyContent', ['end', 'start', 'center'], 'start');
-        const rowLimit = select('rowLimit', [1, 2, 3, undefined], undefined);
-        const leftSide = object('leftSide', {
-            content: 'some content',
-            justifyContent: 'center',
-            rowLimit: 1,
-        });
-        const leftSideContent = text('leftSide.content', 'Left Side');
-        const leftSideRowLimit = select('leftSide.rowLimit', [1, 2, 3, undefined], undefined);
-        const rightSideContent = text('rightSide.content', 'Right Side');
-        const rightSideGapSize = text('rightSide.gapSize', 'l');
-        const verticalGap = text('vertical custom gap', 'l');
-        const alignItems = select(
-            'alignItems (line with buttons)',
-            ['center', 'end', 'start'],
-            undefined,
-        );
-        const rightSideJustifyContent = select(
-            'rightSide.JustifyContent (line with buttons)',
-            ['between', 'end', 'around', 'center', 'start'],
-            undefined,
-        );
-        return (
-            <div
-                style={{
-                    width: 300,
-                }}
-            >
-                <GenericWrapper.DataContent>
-                    <GenericWrapper.DataContent.Addon
-                        leftSide={{
-                            content: <Typography.Text tag='p'>{leftSideContent}</Typography.Text>,
-                            rowLimit: leftSideRowLimit,
-                        }}
-                        rightSide={{
-                            content: <Typography.Text tag='p'>{rightSideContent}</Typography.Text>,
-                            gapSize: rightSideGapSize,
-                        }}
-                    />
-                    <GenericWrapper.DataContent.Addon
-                        leftSide={{
-                            content: (
-                                <Typography.Text tag='p'>some content is here</Typography.Text>
-                            ),
-                            rowLimit: 3,
-                        }}
-                        rightSide={{
-                            content: <Amount value={1234500} currency='RUR' minority={100} />,
-                            gapSize: 'xl',
-                        }}
-                    />
-                    <Gap direction='vertical' size={verticalGap} />
-                    <GenericWrapper.DataContent.Addon
-                        alignItems={alignItems}
-                        leftSide={{
-                            content: (
-                                <>
-                                    <Button view='primary' size={'xxs'}>
-                                        Primary
-                                    </Button>
-                                    <Button view='primary' size={'xxs'}>
-                                        Secondary
-                                    </Button>
-                                </>
-                            ),
-                            justifyContent: rightSideJustifyContent,
-                        }}
-                        rightSide={{ content: <div>kek</div> }}
-                    />
-                    <GenericWrapper.DataContent.Addon
-                        leftSide={leftSide}
-                        rightSide={{ content: <div>kek</div>, gapSize: 'xl' }}
-                    />
-                    <Gap direction='vertical' size='l' />
-                    <GenericWrapper.DataContent.Addon
-                        leftSide={{
-                            content: 'lol',
-                            rowLimit,
-                        }}
-                    />
-                    <GenericWrapper.DataContent.Addon
-                        leftSide={{
-                            content: 'some content here',
-                            justifyContent,
-                        }}
-                    />
-                </GenericWrapper.DataContent>
-            </div>
-        );
-    }}
-</Story>
+<!-- Docs -->
+
+<ComponentHeader
+    name='GenericWrapper'
+    version={version}
+    design='https://www.figma.com/file/MqpSYcvpzj0NG58uLTGJKK/NewStorybook?node-id=1047%3A144827&t=SW9AOiirB8ah7S3l-0'
+    package='@alfalab/core-components/generic-wrapper'
+    children='Многофункциональная ячейка.'
+/>
+
+<Tabs development={<Development />} description={<Description />} changelog={<Changelog />} />

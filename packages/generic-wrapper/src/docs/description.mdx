@@ -1,0 +1,282 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { GenericWrapper as GenericWrapperTS } from '../Component';
+import { Gap } from '@alfalab/core-components-gap';
+import { Typography } from '@alfalab/core-components-typography';
+import { Container } from 'storybook/blocks';
+import { Circle } from '@alfalab/core-components-icon-view/circle';
+import { HeartMIcon } from '@alfalab/icons-glyph/HeartMIcon';
+import { Comment } from '@alfalab/core-components-comment';
+import { Button } from '@alfalab/core-components-comment';
+import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
+
+### Лейаут
+
+Компонент представляет из себя структуру с тремя вертикально или горизонтально расположенными слотами. Каждый слот может принять в себя любой компонент или кастомную верстку. Вертикальные и горизонтальные отступы можно настраивать независимо друг от друга.
+
+```jsx live
+render(() => {
+    const [state, setState] = React.useState({
+        direction: 'horizontal',
+    });
+
+    const [direction, setCalendarPosition] = React.useState('horizontal');
+
+    const addon = (
+        <div
+            style={{
+                background: 'rgba(55, 120, 251, 0.1)',
+                border: '1px dashed #3778FB',
+                borderRadius: '8px',
+                height: '64px',
+                width: '64px',
+                boxSizing: 'border-box',
+            }}
+        />
+    );
+
+    return (
+        <Container>
+            <Row>
+                <div style={{ backgroundColor: 'rgba(55, 120, 251, 0.1)', padding: '16px' }}>
+                    <GenericWrapper direction={direction}>
+                        <GenericWrapper.Addon>{addon}</GenericWrapper.Addon>
+                        <Gap size='l' direction={direction} />
+                        <GenericWrapper.Addon>{addon}</GenericWrapper.Addon>
+                        <Gap size='l' direction={direction} />
+                        <GenericWrapper.Addon>{addon}</GenericWrapper.Addon>
+                    </GenericWrapper>
+                </div>
+            </Row>
+            <div style={{ marginTop: '20px' }}>
+                <RadioGroup
+                    label='Направление'
+                    direction='vertical'
+                    name='radioGroupFirst'
+                    onChange={(_, { value }) => setCalendarPosition(value)}
+                    value={direction}
+                >
+                    <Radio label='Горизонтальное' value='horizontal' />
+                    <Radio label='Вертикальное' value='vertical' />
+                </RadioGroup>
+            </div>
+        </Container>
+    );
+});
+```
+
+### Примеры
+
+На базе компонента могут быть собраны готовые для использования в продукте пресеты ячеек.
+
+```jsx live
+<Container>
+    <div style={{ width: '340px' }}>
+        <GenericWrapper alignItems='center'>
+            <GenericWrapper.Addon>
+                <Circle size={48}>
+                    <HeartMIcon />
+                </Circle>
+            </GenericWrapper.Addon>
+            <Gap size='m' direction='horizontal' />
+            <GenericWrapper.Addon>
+                <GenericWrapper.DataContent>
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: <Typography.Text>Благотворительность</Typography.Text>,
+                        }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{ content: <Typography.Text>25 000 ₽</Typography.Text> }}
+                    />
+                </GenericWrapper.DataContent>
+            </GenericWrapper.Addon>
+        </GenericWrapper>
+        <Gap size='m' />
+        <GenericWrapper alignItems='center'>
+            <GenericWrapper.Addon>
+                <Circle size={48}>
+                    <HeartMIcon />
+                </Circle>
+            </GenericWrapper.Addon>
+            <Gap size='m' direction='horizontal' />
+            <GenericWrapper.Addon grow>
+                <GenericWrapper.DataContent>
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{ content: <Typography.Text>Перекрёсток</Typography.Text> }}
+                        rightSide={{
+                            content: <Typography.Text>−6 231 ₽</Typography.Text>,
+                            gapSize: 'm',
+                        }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{ content: <Typography.Text>25 000 ₽</Typography.Text> }}
+                        rightSide={{ content: <Typography.Text>+62 ₽</Typography.Text> }}
+                    />
+                </GenericWrapper.DataContent>
+            </GenericWrapper.Addon>
+        </GenericWrapper>
+        <Gap size='m' />
+        <GenericWrapper>
+            <GenericWrapper.Addon>
+                <Circle size={48}>
+                    <HeartMIcon />
+                </Circle>
+            </GenericWrapper.Addon>
+            <Gap size='m' direction='horizontal' />
+            <GenericWrapper.Addon>
+                <GenericWrapper.DataContent>
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: <Typography.Text>Между своими счетами</Typography.Text>,
+                        }}
+                        rightSide={{
+                            content: <Typography.Text>+18 328 ₽</Typography.Text>,
+                            gapSize: 'l',
+                        }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{ content: <Typography.Text>Пополнение</Typography.Text> }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{ content: <Comment>Коплю на мечту</Comment> }}
+                    />
+                </GenericWrapper.DataContent>
+            </GenericWrapper.Addon>
+        </GenericWrapper>
+        <Gap size='m' />
+        <GenericWrapper justifyContent='between'>
+            <GenericWrapper.Addon>
+                <GenericWrapper.DataContent>
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: <Typography.Text>Платёж 14 октября</Typography.Text>,
+                        }}
+                    />
+                    <Gap size='xs' direction='vertical' />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: <Typography.Text>Сумма платежа</Typography.Text>,
+                        }}
+                    />
+                    <GenericWrapper.DataContent.Addon
+                        leftSide={{
+                            content: <Typography.Text>30 600,90 ₽</Typography.Text>,
+                        }}
+                    />
+                </GenericWrapper.DataContent>
+            </GenericWrapper.Addon>
+            <CircularProgressBar value={25} subtitle='дней' size='l' />
+        </GenericWrapper>
+        <Gap size='l' />
+
+        <GenericWrapper direction='horizontal'>
+            <GenericWrapper.Addon>
+                <GenericWrapper alignItems='center'>
+                    <GenericWrapper.Addon>
+                        <Circle size={48}>
+                            <HeartMIcon />
+                        </Circle>
+                    </GenericWrapper.Addon>
+                    <Gap size='m' direction='horizontal' />
+                    <GenericWrapper.Addon grow>
+                        <GenericWrapper.DataContent>
+                            <GenericWrapper.DataContent.Addon
+                                leftSide={{
+                                    content: (
+                                        <Typography.Text>Используется вложенность</Typography.Text>
+                                    ),
+                                }}
+                            />
+                            <GenericWrapper.DataContent.Addon
+                                leftSide={{
+                                    content: (
+                                        <Typography.Text>Одной ячейки в другую</Typography.Text>
+                                    ),
+                                }}
+                            />
+                        </GenericWrapper.DataContent>
+                    </GenericWrapper.Addon>
+                    <Gap size='m' direction='horizontal' />
+                </GenericWrapper>
+            </GenericWrapper.Addon>
+        </GenericWrapper>
+        <Gap size='m' direction='horizontal' />
+        <GenericWrapper.Addon>
+            <Button block>Понятно</Button>
+        </GenericWrapper.Addon>
+    </div>
+</Container>
+```
+
+### GenericWrapper.DataContent
+
+Компонент из четырех вертикальных слотов и может использоваться только в качестве контента слота GenericWrapper.Addon. Каждый из слотов может иметь левую и правую части. Отступы внутри компонента могут быть настроены вручную.
+
+```jsx live
+render(() => {
+    const Addon = ({ width = 320 }) => (
+        <div
+            style={{
+                background: 'rgba(55, 120, 251, 0.1)',
+                border: '1px dashed #3778FB',
+                borderRadius: '8px',
+                height: '20px',
+                width: `${width}px`,
+                boxSizing: 'border-box',
+            }}
+        />
+    );
+    return (
+        <Container>
+            <GenericWrapper direction='vertical'>
+                <GenericWrapper.Addon>
+                    <GenericWrapper.DataContent>
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={208} /> }}
+                            rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
+                        />
+                        <Gap direction='vertical' size='3xs' />
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={208} /> }}
+                            rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
+                        />
+                        <Gap direction='vertical' size='3xs' />
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={320} /> }}
+                        />
+                        <Gap direction='vertical' size='3xs' />
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={320} /> }}
+                        />
+                    </GenericWrapper.DataContent>
+                </GenericWrapper.Addon>
+                <Gap direction='vertical' size='2xl' />
+                <GenericWrapper.Addon>
+                    <GenericWrapper.DataContent>
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={320} /> }}
+                        />
+                        <Gap direction='vertical' size='3xs' />
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={320} /> }}
+                        />
+                    </GenericWrapper.DataContent>
+                </GenericWrapper.Addon>
+                <Gap direction='vertical' size='2xl' />
+                <GenericWrapper.Addon>
+                    <GenericWrapper.DataContent>
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={208} /> }}
+                            rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
+                        />
+                        <Gap direction='vertical' size='3xs' />
+                        <GenericWrapper.DataContent.Addon
+                            leftSide={{ content: <Addon width={320} /> }}
+                        />
+                    </GenericWrapper.DataContent>
+                </GenericWrapper.Addon>
+            </GenericWrapper>
+        </Container>
+    );
+});
+```
