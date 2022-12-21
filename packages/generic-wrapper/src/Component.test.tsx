@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { GenericWrapper, ReducedGapType } from '.';
+import { GenericWrapper, ReducedGapType } from './index';
 
 describe('GenericWrapper', () => {
     it('should render GenericWrapper.Addon correctly inside of GenericWrapper', () => {
