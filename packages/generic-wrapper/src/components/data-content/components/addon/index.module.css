@@ -18,8 +18,7 @@
 
 .leftSide {
     display: flex;
-    flex: 1;
-    word-break: break-all;
+    flex-grow: 1;
 }
 
 .justify-content-start {
@@ -42,23 +41,6 @@
     justify-content: space-around;
 }
 
-.row-limit-1 {
-    @mixin row_limit 1;
-}
-
-.row-limit-2 {
-    @mixin row_limit 2;
-}
-
-.row-limit-3 {
-    @mixin row_limit 3;
-}
-
-.row-limit-4 {
-    @mixin row_limit 4;
-}
-
 .rightSide {
     display: flex;
-    word-break: break-all;
 }

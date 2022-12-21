@@ -30,6 +30,22 @@
     align-items: center;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
 @each $size in 3xs, 2xs, xs, s, m, l, xl {
     .padding-top-$(size) {
         padding-top: var(--gap-$(size));

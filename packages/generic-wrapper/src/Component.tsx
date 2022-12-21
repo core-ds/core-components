@@ -8,7 +8,10 @@ import { DataContent } from './components/data-content';
 
 import styles from './index.module.css';
 
-type ReducedGapType = Omit<GapProps['size'], '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl'>;
+export type ReducedGapType = Omit<
+    GapProps['size'],
+    '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl'
+>;
 
 export type PaddingPropType = {
     top?: ReducedGapType;
@@ -18,11 +21,40 @@ export type PaddingPropType = {
 };
 
 export type GenericWrapperProps = {
+    /**
+     * Дочерние элементы. Ожидаются компоненты `GenericWrapper.Addon`, `GenericWrapper.DataContent`
+     */
     children: ReactNode;
+
+    /**
+     * Свойство управляет направлением основной оси внутри флекс-контейнера
+     */
     direction?: 'horizontal' | 'vertical';
+
+    /**
+     * Внутренние отступы
+     */
     padding?: PaddingPropType;
-    full?: boolean;
+
+    /**
+     * Свойство для выравнивания элементов внутри контейнера по поперечной оси.
+     */
     alignItems?: 'stretch' | 'end' | 'start' | 'center';
+
+    /**
+     * Свойство выравнивает флекс-элементы внутри флекс-контейнера по основной оси.
+     */
+    justifyContent?: 'between' | 'around' | 'evenly' | 'center';
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 const GenericWrapperComponent = ({
@@ -30,6 +62,9 @@ const GenericWrapperComponent = ({
     padding,
     direction = 'horizontal',
     alignItems,
+    justifyContent,
+    className,
+    dataTestId,
 }: GenericWrapperProps) => {
     const paddingStyles = padding && {
         [styles[`padding-top-${padding.top}`]]: padding.top,
@@ -38,8 +73,22 @@ const GenericWrapperComponent = ({
         [styles[`padding-left-${padding.left}`]]: padding.left,
     };
     const alignmentStyles = alignItems && styles[`align-${alignItems}`];
+    const justifyContentStyles = justifyContent && styles[`justify-${justifyContent}`];
 
-    return <div className={cn(styles[direction], alignmentStyles, paddingStyles)}>{children}</div>;
+    return (
+        <div
+            className={cn(
+                styles[direction],
+                alignmentStyles,
+                paddingStyles,
+                justifyContentStyles,
+                className,
+            )}
+            data-test-id={dataTestId}
+        >
+            {children}
+        </div>
+    );
 };
 
 export const GenericWrapper = Object.assign(GenericWrapperComponent, { Addon, DataContent });
