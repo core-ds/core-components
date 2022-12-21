@@ -5,6 +5,7 @@ import { GapProps } from '@alfalab/core-components-gap';
 
 import { Addon } from './components/addon/component';
 import { DataContent } from './components/data-content/component';
+import { Line } from './components/line';
 
 import styles from './index.module.css';
 
@@ -91,4 +92,4 @@ const GenericWrapperComponent = ({
     );
 };
 
-export const GenericWrapper = Object.assign(GenericWrapperComponent, { Addon, DataContent });
+export const GenericWrapper = Object.assign(GenericWrapperComponent, { Addon, DataContent, Line });

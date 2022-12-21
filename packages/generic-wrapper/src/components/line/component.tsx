@@ -41,7 +41,7 @@ export type RightSideOptions = {
     className?: string;
 };
 
-export type AddonProps = {
+export type LineProps = {
     /**
      * Левая часть.
      */
@@ -68,7 +68,7 @@ export type AddonProps = {
     dataTestId?: string;
 };
 
-export const Addon = ({ leftSide, rightSide, alignItems, className, dataTestId }: AddonProps) => {
+export const Line = ({ leftSide, rightSide, alignItems, className, dataTestId }: LineProps) => {
     const justifyContentStyles =
         leftSide.justifyContent && styles[`justify-content-${leftSide.justifyContent}`];
     const alignItemsStyles = alignItems && styles[`align-${alignItems}`];

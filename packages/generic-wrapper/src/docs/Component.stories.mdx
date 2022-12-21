@@ -7,7 +7,7 @@ import { Amount } from '@alfalab/core-components-amount';
 import { BankCard } from '@alfalab/core-components-bank-card';
 import { text, select, object, radios, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
-import { GenericWrapper } from '../Component';
+import { GenericWrapper } from '../component';
 
 import { version } from '../../package.json';
 import Description from './description.mdx';
@@ -63,7 +63,7 @@ import Changelog from '../../CHANGELOG.md';
                     <Gap direction='horizontal' size='7xl' />
                     <GenericWrapper.Addon>
                         <GenericWrapper.DataContent>
-                            <GenericWrapper.DataContent.Addon
+                            <GenericWrapper.Line
                                 leftSide={{
                                     content: (
                                         <Typography.Text>
@@ -73,7 +73,7 @@ import Changelog from '../../CHANGELOG.md';
                                     justifyContent,
                                 }}
                             />
-                            <GenericWrapper.DataContent.Addon
+                            <GenericWrapper.Line
                                 leftSide={{
                                     content: <Typography.Text>{leftSideContent1}</Typography.Text>,
                                 }}
@@ -82,7 +82,7 @@ import Changelog from '../../CHANGELOG.md';
                                     gapSize: gapSize1,
                                 }}
                             />
-                            <GenericWrapper.DataContent.Addon
+                            <GenericWrapper.Line
                                 leftSide={{
                                     content: <Typography.Text>{leftSideContent2}</Typography.Text>,
                                 }}

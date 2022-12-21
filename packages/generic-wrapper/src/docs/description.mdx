@@ -1,5 +1,5 @@
 import { ArgsTable } from '@storybook/addon-docs';
-import { GenericWrapper as GenericWrapperTS } from '../Component';
+import { GenericWrapper as GenericWrapperTS } from '../component';
 import { Gap } from '@alfalab/core-components-gap';
 import { Typography } from '@alfalab/core-components-typography';
 import { Container } from 'storybook/blocks';
@@ -80,12 +80,12 @@ render(() => {
             <Gap size='m' direction='horizontal' />
             <GenericWrapper.Addon>
                 <GenericWrapper.DataContent>
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{
                             content: <Typography.Text>Благотворительность</Typography.Text>,
                         }}
                     />
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{ content: <Typography.Text>25 000 ₽</Typography.Text> }}
                     />
                 </GenericWrapper.DataContent>
@@ -101,14 +101,14 @@ render(() => {
             <Gap size='m' direction='horizontal' />
             <GenericWrapper.Addon grow>
                 <GenericWrapper.DataContent>
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{ content: <Typography.Text>Перекрёсток</Typography.Text> }}
                         rightSide={{
                             content: <Typography.Text>−6 231 ₽</Typography.Text>,
                             gapSize: 'm',
                         }}
                     />
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{ content: <Typography.Text>25 000 ₽</Typography.Text> }}
                         rightSide={{ content: <Typography.Text>+62 ₽</Typography.Text> }}
                     />
@@ -125,7 +125,7 @@ render(() => {
             <Gap size='m' direction='horizontal' />
             <GenericWrapper.Addon>
                 <GenericWrapper.DataContent>
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{
                             content: <Typography.Text>Между своими счетами</Typography.Text>,
                         }}
@@ -134,10 +134,10 @@ render(() => {
                             gapSize: 'l',
                         }}
                     />
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{ content: <Typography.Text>Пополнение</Typography.Text> }}
                     />
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{ content: <Comment>Коплю на мечту</Comment> }}
                     />
                 </GenericWrapper.DataContent>
@@ -147,18 +147,18 @@ render(() => {
         <GenericWrapper justifyContent='between'>
             <GenericWrapper.Addon>
                 <GenericWrapper.DataContent>
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{
                             content: <Typography.Text>Платёж 14 октября</Typography.Text>,
                         }}
                     />
                     <Gap size='xs' direction='vertical' />
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{
                             content: <Typography.Text>Сумма платежа</Typography.Text>,
                         }}
                     />
-                    <GenericWrapper.DataContent.Addon
+                    <GenericWrapper.Line
                         leftSide={{
                             content: <Typography.Text>30 600,90 ₽</Typography.Text>,
                         }}
@@ -180,14 +180,14 @@ render(() => {
                     <Gap size='m' direction='horizontal' />
                     <GenericWrapper.Addon grow>
                         <GenericWrapper.DataContent>
-                            <GenericWrapper.DataContent.Addon
+                            <GenericWrapper.Line
                                 leftSide={{
                                     content: (
                                         <Typography.Text>Используется вложенность</Typography.Text>
                                     ),
                                 }}
                             />
-                            <GenericWrapper.DataContent.Addon
+                            <GenericWrapper.Line
                                 leftSide={{
                                     content: (
                                         <Typography.Text>Одной ячейки в другую</Typography.Text>
@@ -210,7 +210,7 @@ render(() => {
 
 ### GenericWrapper.DataContent
 
-Компонент из четырех вертикальных слотов и может использоваться только в качестве контента слота GenericWrapper.Addon. Каждый из слотов может иметь левую и правую части. Отступы внутри компонента могут быть настроены вручную.
+Компонент из четырех вертикальных слотов (GenericWrapper.Line) и может использоваться только в качестве контента слота GenericWrapper.Addon. Каждый из слотов может иметь левую и правую части. Отступы внутри компонента могут быть настроены вручную.
 
 ```jsx live
 render(() => {
@@ -231,48 +231,38 @@ render(() => {
             <GenericWrapper direction='vertical'>
                 <GenericWrapper.Addon>
                     <GenericWrapper.DataContent>
-                        <GenericWrapper.DataContent.Addon
+                        <GenericWrapper.Line
                             leftSide={{ content: <Addon width={208} /> }}
                             rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
                         />
                         <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.DataContent.Addon
+                        <GenericWrapper.Line
                             leftSide={{ content: <Addon width={208} /> }}
                             rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
                         />
                         <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.DataContent.Addon
-                            leftSide={{ content: <Addon width={320} /> }}
-                        />
+                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
                         <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.DataContent.Addon
-                            leftSide={{ content: <Addon width={320} /> }}
-                        />
+                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
                     </GenericWrapper.DataContent>
                 </GenericWrapper.Addon>
                 <Gap direction='vertical' size='2xl' />
                 <GenericWrapper.Addon>
                     <GenericWrapper.DataContent>
-                        <GenericWrapper.DataContent.Addon
-                            leftSide={{ content: <Addon width={320} /> }}
-                        />
+                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
                         <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.DataContent.Addon
-                            leftSide={{ content: <Addon width={320} /> }}
-                        />
+                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
                     </GenericWrapper.DataContent>
                 </GenericWrapper.Addon>
                 <Gap direction='vertical' size='2xl' />
                 <GenericWrapper.Addon>
                     <GenericWrapper.DataContent>
-                        <GenericWrapper.DataContent.Addon
+                        <GenericWrapper.Line
                             leftSide={{ content: <Addon width={208} /> }}
                             rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
                         />
                         <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.DataContent.Addon
-                            leftSide={{ content: <Addon width={320} /> }}
-                        />
+                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
                     </GenericWrapper.DataContent>
                 </GenericWrapper.Addon>
             </GenericWrapper>

@@ -17,7 +17,7 @@ describe('GenericWrapper', () => {
                 </GenericWrapper.Addon>
                 <GenericWrapper.Addon>
                     <GenericWrapper.DataContent>
-                        <GenericWrapper.DataContent.Addon
+                        <GenericWrapper.Line
                             leftSide={{ content: 'leftSide' }}
                             rightSide={{
                                 content: 'rightSide',
@@ -61,7 +61,7 @@ describe('GenericWrapper.DataContent', () => {
     it('should set data-test-id attribute', () => {
         render(
             <GenericWrapper.DataContent dataTestId='data-test-id'>
-                <GenericWrapper.DataContent.Addon leftSide={{ content: 'test' }} />
+                <GenericWrapper.Line leftSide={{ content: 'test' }} />
             </GenericWrapper.DataContent>,
         );
 
@@ -71,7 +71,7 @@ describe('GenericWrapper.DataContent', () => {
     it('should set custom className', () => {
         render(
             <GenericWrapper.DataContent dataTestId='data-test-id' className='className'>
-                <GenericWrapper.DataContent.Addon leftSide={{ content: 'test' }} />
+                <GenericWrapper.Line leftSide={{ content: 'test' }} />
             </GenericWrapper.DataContent>,
         );
 
@@ -79,21 +79,16 @@ describe('GenericWrapper.DataContent', () => {
     });
 });
 
-describe('GenericWrapper.DataContent.Addon', () => {
+describe('GenericWrapper.Line', () => {
     it('should set data-test-id attribute', () => {
-        render(
-            <GenericWrapper.DataContent.Addon
-                leftSide={{ content: 'test' }}
-                dataTestId='data-test-id'
-            />,
-        );
+        render(<GenericWrapper.Line leftSide={{ content: 'test' }} dataTestId='data-test-id' />);
 
         screen.getByTestId('data-test-id');
     });
 
     it('should set custom className', () => {
         render(
-            <GenericWrapper.DataContent.Addon
+            <GenericWrapper.Line
                 leftSide={{ content: 'testLeft', className: 'leftSide' }}
                 rightSide={{ content: 'testRight', className: 'rightSide' }}
                 dataTestId='data-test-id'

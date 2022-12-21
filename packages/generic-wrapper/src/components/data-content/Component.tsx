@@ -1,13 +1,11 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import { Addon } from './components/addon/component';
-
 import styles from './index.module.css';
 
 export type DataContentProps = {
     /**
-     * Дочерние элементы. Ожидаются компоненты `GenericWrapper.DataContent.Addon`
+     * Дочерние элементы. Ожидаются компоненты `GenericWrapper.Line`, `Gap`
      */
     children: ReactNode;
 
@@ -22,12 +20,8 @@ export type DataContentProps = {
     dataTestId?: string;
 };
 
-const DataContentComponent = ({ children, className, dataTestId }: DataContentProps) => (
+export const DataContent = ({ children, className, dataTestId }: DataContentProps) => (
     <div className={cn(styles.component, className)} data-test-id={dataTestId}>
         {children}
     </div>
 );
-
-export const DataContent = Object.assign(DataContentComponent, {
-    Addon,
-});
