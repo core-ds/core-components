@@ -30,6 +30,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             rightAddons,
             size,
             bottomSheetProps,
+            showArrow,
             ...restProps
         },
         ref,
@@ -55,6 +56,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
                 buttonVariant: variant,
                 leftAddons,
                 rightAddons,
+                showArrow,
             }}
             ref={ref}
             options={options}

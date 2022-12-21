@@ -169,4 +169,28 @@ describe('Render tests', () => {
             expect(renderedGroup).toHaveTextContent('Валютный счёт');
         });
     });
+
+    it.each(pickerButtonVariants)('should`t render arrow if showArrow = false', (Component) => {
+        const { container } = render(
+            <Component showArrow={false} options={[{ label: 'Валютный счёт', options }]} />,
+        );
+
+        expect(container.querySelector('[data-test-id=picker-button-icon]')).toBeNull();
+    });
+
+    it.each(pickerButtonVariants)(
+        'should render icon if variant = compact & showArrow = false ',
+        (Component) => {
+            const { getByTestId } = render(
+                <Component
+                    showArrow={false}
+                    variant='compact'
+                    options={[{ label: 'Валютный счёт', options }]}
+                />,
+            );
+            const icon = getByTestId('picker-button-icon');
+
+            expect(icon).toBeInTheDocument();
+        },
+    );
 });
