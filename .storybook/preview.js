@@ -65,6 +65,7 @@ addParameters({
                     'Authentication',
                     'Cells',
                     'Forms',
+                    ['Calendars', 'File Upload', 'Inputs', 'Selects'],
                     'Modals&Overlays',
                     'Notifications',
                     'Progress',
