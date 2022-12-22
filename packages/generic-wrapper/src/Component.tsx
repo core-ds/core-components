@@ -58,7 +58,7 @@ export type GenericWrapperProps = {
     dataTestId?: string;
 };
 
-export const GenericWrapper = ({
+const GenericWrapperComponent = ({
     children,
     padding,
     direction = 'horizontal',
@@ -92,6 +92,8 @@ export const GenericWrapper = ({
     );
 };
 
-GenericWrapper.Addon = Addon;
-GenericWrapper.DataContent = DataContent;
-GenericWrapper.Line = Line;
+export const GenericWrapper = Object.assign(GenericWrapperComponent, {
+    Addon,
+    DataContent,
+    Line,
+});
