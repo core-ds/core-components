@@ -34,7 +34,7 @@ import { Button } from '@alfalab/core-components/button';
 
 ## Темизация
 
-[Гайд по настройке темизации](https://core-ds.github.io/core-components/master/?path=/docs/инструкции-темизация--page)
+[Гайд по настройке темизации](https://core-ds.github.io/core-components/master/?path=/docs/instructions-пользователям-темизация--page)
 
 ## Поддерживаемые браузеры
 
