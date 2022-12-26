@@ -9,7 +9,7 @@ import { Comment } from '@alfalab/core-components-comment';
 import { Button } from '@alfalab/core-components-comment';
 import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
 
-### Лейаут
+## Лейаут
 
 Компонент представляет из себя структуру с тремя вертикально или горизонтально расположенными слотами. Каждый слот может принять в себя любой компонент или кастомную верстку. Вертикальные и горизонтальные отступы можно настраивать независимо друг от друга.
 
@@ -64,13 +64,13 @@ render(() => {
 });
 ```
 
-### Примеры
+## Примеры
 
 На базе компонента могут быть собраны готовые для использования в продукте пресеты ячеек.
 
 ```jsx live
 <Container>
-    <div style={{ width: '340px' }}>
+    <div style={{ width: '328px' }}>
         <GenericWrapper alignItems='center'>
             <GenericWrapper.Addon>
                 <Circle size={48}>
@@ -137,6 +137,7 @@ render(() => {
                     <GenericWrapper.Line
                         leftSide={{ content: <Typography.Text>Пополнение</Typography.Text> }}
                     />
+                    <Gap size='xs' />
                     <GenericWrapper.Line
                         leftSide={{ content: <Comment>Коплю на мечту</Comment> }}
                     />
@@ -208,7 +209,7 @@ render(() => {
 </Container>
 ```
 
-### GenericWrapper.DataContent
+## GenericWrapper.DataContent
 
 Компонент из четырех вертикальных слотов (GenericWrapper.Line) и может использоваться только в качестве контента слота GenericWrapper.Addon. Каждый из слотов может иметь левую и правую части. Отступы внутри компонента могут быть настроены вручную.
 
