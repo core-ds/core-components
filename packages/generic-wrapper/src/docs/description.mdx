@@ -15,11 +15,7 @@ import { CircularProgressBar } from '@alfalab/core-components-circular-progress-
 
 ```jsx live
 render(() => {
-    const [state, setState] = React.useState({
-        direction: 'horizontal',
-    });
-
-    const [direction, setCalendarPosition] = React.useState('horizontal');
+    const [direction, setDirection] = React.useState('row');
 
     const addon = (
         <div
@@ -34,29 +30,31 @@ render(() => {
         />
     );
 
+    const gap = <Gap size='l' direction={direction === 'row' ? 'horizontal' : 'vertical'} />;
+
     return (
         <Container>
             <Row>
                 <div style={{ backgroundColor: 'rgba(55, 120, 251, 0.1)', padding: '16px' }}>
                     <GenericWrapper direction={direction}>
-                        <GenericWrapper.Addon>{addon}</GenericWrapper.Addon>
-                        <Gap size='l' direction={direction} />
-                        <GenericWrapper.Addon>{addon}</GenericWrapper.Addon>
-                        <Gap size='l' direction={direction} />
-                        <GenericWrapper.Addon>{addon}</GenericWrapper.Addon>
+                        <GenericWrapper>{addon}</GenericWrapper>
+                        {gap}
+                        <GenericWrapper>{addon}</GenericWrapper>
+                        {gap}
+                        <GenericWrapper>{addon}</GenericWrapper>
                     </GenericWrapper>
                 </div>
             </Row>
             <div style={{ marginTop: '20px' }}>
                 <RadioGroup
                     label='Направление'
-                    direction='vertical'
+                    direction='column'
                     name='radioGroupFirst'
-                    onChange={(_, { value }) => setCalendarPosition(value)}
+                    onChange={(_, { value }) => setDirection(value)}
                     value={direction}
                 >
-                    <Radio label='Горизонтальное' value='horizontal' />
-                    <Radio label='Вертикальное' value='vertical' />
+                    <Radio label='Горизонтальное' value='row' />
+                    <Radio label='Вертикальное' value='column' />
                 </RadioGroup>
             </div>
         </Container>
@@ -70,204 +68,98 @@ render(() => {
 
 ```jsx live
 <Container>
-    <div style={{ width: '328px' }}>
-        <GenericWrapper alignItems='center'>
-            <GenericWrapper.Addon>
+    <div style={{ width: '288px' }}>
+        <GenericWrapper direction={'column'}>
+            <Typography.Text>Title</Typography.Text>
+            <Gap size={'3xs'} />
+            <Typography.Text>Subtitle</Typography.Text>
+        </GenericWrapper>
+        <Gap size={'l'} />
+        <GenericWrapper alignItems={'center'}>
+            <GenericWrapper>
                 <Circle size={48}>
                     <HeartMIcon />
                 </Circle>
-            </GenericWrapper.Addon>
-            <Gap size='m' direction='horizontal' />
-            <GenericWrapper.Addon>
-                <GenericWrapper.DataContent>
-                    <GenericWrapper.Line
-                        leftSide={{
-                            content: <Typography.Text>Благотворительность</Typography.Text>,
-                        }}
-                    />
-                    <GenericWrapper.Line
-                        leftSide={{ content: <Typography.Text>25 000 ₽</Typography.Text> }}
-                    />
-                </GenericWrapper.DataContent>
-            </GenericWrapper.Addon>
-        </GenericWrapper>
-        <Gap size='m' />
-        <GenericWrapper alignItems='center'>
-            <GenericWrapper.Addon>
-                <Circle size={48}>
-                    <HeartMIcon />
-                </Circle>
-            </GenericWrapper.Addon>
-            <Gap size='m' direction='horizontal' />
-            <GenericWrapper.Addon grow>
-                <GenericWrapper.DataContent>
-                    <GenericWrapper.Line
-                        leftSide={{ content: <Typography.Text>Перекрёсток</Typography.Text> }}
-                        rightSide={{
-                            content: <Typography.Text>−6 231 ₽</Typography.Text>,
-                            gapSize: 'm',
-                        }}
-                    />
-                    <GenericWrapper.Line
-                        leftSide={{ content: <Typography.Text>25 000 ₽</Typography.Text> }}
-                        rightSide={{ content: <Typography.Text>+62 ₽</Typography.Text> }}
-                    />
-                </GenericWrapper.DataContent>
-            </GenericWrapper.Addon>
-        </GenericWrapper>
-        <Gap size='m' />
-        <GenericWrapper>
-            <GenericWrapper.Addon>
-                <Circle size={48}>
-                    <HeartMIcon />
-                </Circle>
-            </GenericWrapper.Addon>
-            <Gap size='m' direction='horizontal' />
-            <GenericWrapper.Addon>
-                <GenericWrapper.DataContent>
-                    <GenericWrapper.Line
-                        leftSide={{
-                            content: <Typography.Text>Между своими счетами</Typography.Text>,
-                        }}
-                        rightSide={{
-                            content: <Typography.Text>+18 328 ₽</Typography.Text>,
-                            gapSize: 'l',
-                        }}
-                    />
-                    <GenericWrapper.Line
-                        leftSide={{ content: <Typography.Text>Пополнение</Typography.Text> }}
-                    />
-                    <Gap size='xs' />
-                    <GenericWrapper.Line
-                        leftSide={{ content: <Comment>Коплю на мечту</Comment> }}
-                    />
-                </GenericWrapper.DataContent>
-            </GenericWrapper.Addon>
-        </GenericWrapper>
-        <Gap size='m' />
-        <GenericWrapper justifyContent='between'>
-            <GenericWrapper.Addon>
-                <GenericWrapper.DataContent>
-                    <GenericWrapper.Line
-                        leftSide={{
-                            content: <Typography.Text>Платёж 14 октября</Typography.Text>,
-                        }}
-                    />
-                    <Gap size='xs' direction='vertical' />
-                    <GenericWrapper.Line
-                        leftSide={{
-                            content: <Typography.Text>Сумма платежа</Typography.Text>,
-                        }}
-                    />
-                    <GenericWrapper.Line
-                        leftSide={{
-                            content: <Typography.Text>30 600,90 ₽</Typography.Text>,
-                        }}
-                    />
-                </GenericWrapper.DataContent>
-            </GenericWrapper.Addon>
-            <CircularProgressBar value={25} subtitle='дней' size='l' />
-        </GenericWrapper>
-        <Gap size='l' />
-
-        <GenericWrapper direction='horizontal'>
-            <GenericWrapper.Addon>
-                <GenericWrapper alignItems='center'>
-                    <GenericWrapper.Addon>
-                        <Circle size={48}>
-                            <HeartMIcon />
-                        </Circle>
-                    </GenericWrapper.Addon>
-                    <Gap size='m' direction='horizontal' />
-                    <GenericWrapper.Addon grow>
-                        <GenericWrapper.DataContent>
-                            <GenericWrapper.Line
-                                leftSide={{
-                                    content: (
-                                        <Typography.Text>Используется вложенность</Typography.Text>
-                                    ),
-                                }}
-                            />
-                            <GenericWrapper.Line
-                                leftSide={{
-                                    content: (
-                                        <Typography.Text>Одной ячейки в другую</Typography.Text>
-                                    ),
-                                }}
-                            />
-                        </GenericWrapper.DataContent>
-                    </GenericWrapper.Addon>
-                    <Gap size='m' direction='horizontal' />
+            </GenericWrapper>
+            <Gap size={'m'} direction={'horizontal'} />
+            <GenericWrapper>
+                <GenericWrapper direction={'column'}>
+                    <Typography.Text>Благотворительность</Typography.Text>
+                    <Gap size={'3xs'} />
+                    <Typography.Text>25 000 ₽</Typography.Text>
                 </GenericWrapper>
-            </GenericWrapper.Addon>
+            </GenericWrapper>
         </GenericWrapper>
-        <Gap size='m' direction='horizontal' />
-        <GenericWrapper.Addon>
-            <Button block>Понятно</Button>
-        </GenericWrapper.Addon>
+        <Gap size={'l'} />
+        <GenericWrapper alignItems={'center'}>
+            <GenericWrapper>
+                <Circle size={48}>
+                    <HeartMIcon />
+                </Circle>
+            </GenericWrapper>
+            <Gap size={'m'} direction={'horizontal'} />
+            <GenericWrapper grow>
+                <GenericWrapper direction={'column'} grow>
+                    <GenericWrapper justifyContent={'between'} grow>
+                        <Typography.Text>Перекрёсток</Typography.Text>
+                        <Typography.Text>−6 231 ₽</Typography.Text>
+                    </GenericWrapper>
+                    <Gap size={'3xs'} />
+                    <GenericWrapper justifyContent={'between'} grow>
+                        <Typography.Text>Гипермаркет</Typography.Text>
+                        <Typography.Text>+62 ₽</Typography.Text>
+                    </GenericWrapper>
+                </GenericWrapper>
+            </GenericWrapper>
+        </GenericWrapper>
+        <Gap size={'l'} />
+        <GenericWrapper alignItems={'start'}>
+            <GenericWrapper>
+                <Circle size={48}>
+                    <HeartMIcon />
+                </Circle>
+            </GenericWrapper>
+            <Gap size={'m'} direction={'horizontal'} />
+            <GenericWrapper direction={'column'} grow>
+                <GenericWrapper justifyContent={'between'} grow>
+                    <Typography.Text>
+                        <div style={{ maxWidth: '133px' }}>Между своими счетами</div>
+                    </Typography.Text>
+                    <Typography.Text>+18 777 ₽</Typography.Text>
+                </GenericWrapper>
+                <Gap size={'3xs'} />
+                <Typography.Text>Пополнение</Typography.Text>
+                <Gap size={'xs'} />
+                <Comment>Коплю на мечту</Comment>
+            </GenericWrapper>
+        </GenericWrapper>
+        <Gap size={'l'} />
+        <GenericWrapper justifyContent={'between'}>
+            <GenericWrapper direction={'column'}>
+                <Typography.Text>Платёж 14 октября</Typography.Text>
+                <Gap size={'xs'} />
+                <Typography.Text>Сумма платежа</Typography.Text>
+                <Typography.Text>30 600,90 ₽</Typography.Text>
+            </GenericWrapper>
+            <GenericWrapper>
+                <CircularProgressBar value={25} subtitle='дней' size='l' />
+            </GenericWrapper>
+        </GenericWrapper>
+        <Gap size={'l'} />
+        <GenericWrapper>
+            <GenericWrapper>
+                <Circle size={48}>
+                    <HeartMIcon />
+                </Circle>
+            </GenericWrapper>
+            <Gap size={'m'} direction={'horizontal'} />
+            <GenericWrapper direction={'column'}>
+                <Typography.Text>Используется вложенность</Typography.Text>
+                <Typography.Text>Одной ячейки в другую</Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+        <Gap size={'m'} />
+        <Button block>Понятно</Button>
     </div>
 </Container>
-```
-
-## GenericWrapper.DataContent
-
-Компонент из четырех вертикальных слотов (GenericWrapper.Line) и может использоваться только в качестве контента слота GenericWrapper.Addon. Каждый из слотов может иметь левую и правую части. Отступы внутри компонента могут быть настроены вручную.
-
-```jsx live
-render(() => {
-    const Addon = ({ width = 320 }) => (
-        <div
-            style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '20px',
-                width: `${width}px`,
-                boxSizing: 'border-box',
-            }}
-        />
-    );
-    return (
-        <Container>
-            <GenericWrapper direction='vertical'>
-                <GenericWrapper.Addon>
-                    <GenericWrapper.DataContent>
-                        <GenericWrapper.Line
-                            leftSide={{ content: <Addon width={208} /> }}
-                            rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
-                        />
-                        <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.Line
-                            leftSide={{ content: <Addon width={208} /> }}
-                            rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
-                        />
-                        <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
-                        <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
-                    </GenericWrapper.DataContent>
-                </GenericWrapper.Addon>
-                <Gap direction='vertical' size='2xl' />
-                <GenericWrapper.Addon>
-                    <GenericWrapper.DataContent>
-                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
-                        <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
-                    </GenericWrapper.DataContent>
-                </GenericWrapper.Addon>
-                <Gap direction='vertical' size='2xl' />
-                <GenericWrapper.Addon>
-                    <GenericWrapper.DataContent>
-                        <GenericWrapper.Line
-                            leftSide={{ content: <Addon width={208} /> }}
-                            rightSide={{ content: <Addon width={96} />, gapSize: 'm' }}
-                        />
-                        <Gap direction='vertical' size='3xs' />
-                        <GenericWrapper.Line leftSide={{ content: <Addon width={320} /> }} />
-                    </GenericWrapper.DataContent>
-                </GenericWrapper.Addon>
-            </GenericWrapper>
-        </Container>
-    );
-});
 ```

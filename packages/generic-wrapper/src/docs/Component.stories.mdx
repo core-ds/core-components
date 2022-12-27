@@ -1,12 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { Gap } from '@alfalab/core-components-gap';
-import { Typography } from '@alfalab/core-components-typography';
-import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
-import { Button } from '@alfalab/core-components-button';
-import { Amount } from '@alfalab/core-components-amount';
-import { BankCard } from '@alfalab/core-components-bank-card';
-import { text, select, object, radios, boolean } from '@storybook/addon-knobs';
-import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
+import { select, object, radios, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { GenericWrapper } from '../Component';
 
 import { version } from '../../package.json';
@@ -14,86 +9,96 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta title='Компоненты/Ячейки' component={GenericWrapper} />
+<Meta title='Components/GenericWrapper' component={GenericWrapper} />
 
 <Story name='GenericWrapper'>
     {() => {
         const gapSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl'];
-        const alignItems = select('alignItems', ['end', 'start', 'center'], 'start');
-        const direction = radios(
-            'direction',
-            { vertical: 'vertical', horizontal: 'horizontal' },
-            'horizontal',
+        const alignItems = select('alignItems', ['end', 'start', 'center', 'baseline'], 'start');
+        const justifyContent = select(
+            'justifyContent',
+            ['between', 'around', 'evenly', 'center', 'start', 'end'],
+            undefined,
         );
-        const padding = object('padding', { top: 'xxl', left: 'l', right: 'm', bottom: 'xl' });
-        const gapSize = select('gapSize', ['l', 'xl', '2xl'], 'l');
+        const direction = radios('direction', { column: 'column', row: 'row' }, 'row');
+        const padding = object('padding', {
+            top: 'xl',
+            left: 'l',
+            right: 'm',
+            bottom: 'xl',
+        });
         const gapDirection = radios(
             'gapDirection',
-            { vertical: 'vertical', horizontal: 'horizontal' },
+            {
+                vertical: 'vertical',
+                horizontal: 'horizontal',
+            },
             'horizontal',
         );
-        const leftSideContent1 = text('leftSideContent1', 'Left Side Content 1');
-        const rightSideContent1 = text('rightSideContent1', 'Right Side Content 1');
-        const leftSideContent2 = text('leftSideContent2', 'Left Side Content 2');
-        const rightSideContent2 = text('rightSideContent2', 'Right Side Content 2');
-        const gapSize1 = select('gapSize1', gapSizes, 'l');
-        const gapSize2 = select('gapSize2', gapSizes, 'l');
-        const justifyContent = select(
-            'justifyContent for first line',
-            ['between', 'around', 'center', 'end', 'start'],
-            'start',
-        );
+        const growElement1 = boolean('grow (1st element)', false);
+        const growElement2 = boolean('grow (2st element)', false);
+        const growElement3 = boolean(`grow (3d element)`, false);
+        const gapSize1 = select('1st Gap size', gapSizes, 'l');
+        const gapSize2 = select('2nd Gap size', gapSizes, 'l');
         return (
             <div
                 style={{
                     width: 1000,
                 }}
             >
-                <GenericWrapper alignItems={alignItems} direction={direction} padding={padding}>
-                    <GenericWrapper.Addon grow>
-                        <Typography.Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.
-                        </Typography.Text>
-                    </GenericWrapper.Addon>
-                    <Gap direction={gapDirection} size={gapSize} />
-                    <GenericWrapper.Addon>
-                        <CircularProgressBar value={25} size='xxl' />
-                    </GenericWrapper.Addon>
-                    <Gap direction='horizontal' size='7xl' />
-                    <GenericWrapper.Addon>
-                        <GenericWrapper.DataContent>
-                            <GenericWrapper.Line
-                                leftSide={{
-                                    content: (
-                                        <Typography.Text>
-                                            Some random content on the left side
-                                        </Typography.Text>
-                                    ),
-                                    justifyContent,
+                <div
+                    style={{
+                        border: '1px dashed #EFC2D5',
+                        borderRadius: '8px',
+                    }}
+                >
+                    <GenericWrapper
+                        alignItems={alignItems}
+                        direction={direction}
+                        padding={padding}
+                        justifyContent={justifyContent}
+                    >
+                        <GenericWrapper grow={growElement1}>
+                            <div
+                                style={{
+                                    background: 'rgba(55, 120, 251, 0.1)',
+                                    border: '1px dashed #3778FB',
+                                    borderRadius: '8px',
+                                    height: 128,
+                                    width: 128,
+                                    boxSizing: 'border-box',
                                 }}
                             />
-                            <GenericWrapper.Line
-                                leftSide={{
-                                    content: <Typography.Text>{leftSideContent1}</Typography.Text>,
-                                }}
-                                rightSide={{
-                                    content: <Typography.Text>{rightSideContent1}</Typography.Text>,
-                                    gapSize: gapSize1,
-                                }}
-                            />
-                            <GenericWrapper.Line
-                                leftSide={{
-                                    content: <Typography.Text>{leftSideContent2}</Typography.Text>,
-                                }}
-                                rightSide={{
-                                    content: <Typography.Text>{rightSideContent2}</Typography.Text>,
-                                    gapSize: gapSize2,
+                        </GenericWrapper>
+                        <Gap direction={gapDirection} size={gapSize1} />
+                        <GenericWrapper grow={growElement2}>
+                            <div
+                                style={{
+                                    background: 'rgba(55, 120, 251, 0.1)',
+                                    border: '1px dashed #3778FB',
+                                    borderRadius: '8px',
+                                    height: 64,
+                                    width: 64,
+                                    boxSizing: 'border-box',
                                 }}
                             />
-                        </GenericWrapper.DataContent>
-                    </GenericWrapper.Addon>
-                </GenericWrapper>
+                        </GenericWrapper>
+                        <Gap direction={gapDirection} size={gapSize2} />
+                        <GenericWrapper grow={growElement3}>
+                            <div
+                                style={{
+                                    background: 'rgba(55, 120, 251, 0.1)',
+                                    border: '1px dashed #3778FB',
+                                    borderRadius: '8px',
+                                    height: 164,
+                                    width: 164,
+                                    boxSizing: 'border-box',
+                                }}
+                            />
+                        </GenericWrapper>
+                    </GenericWrapper>
+                </div>
+                <Gap size='l' direction='horizontal' />
             </div>
         );
     }}

@@ -3,8 +3,6 @@ import cn from 'classnames';
 
 import { GapProps } from '@alfalab/core-components-gap';
 
-import { Addon, DataContent, Line } from './components';
-
 import styles from './index.module.css';
 
 export type ReducedGapType = Omit<
@@ -21,14 +19,14 @@ export type PaddingPropType = {
 
 export type GenericWrapperProps = {
     /**
-     * Дочерние элементы. Ожидаются компоненты `GenericWrapper.Addon`, `GenericWrapper.DataContent`
+     * Дочерние элементы.
      */
     children: ReactNode;
 
     /**
      * Свойство управляет направлением основной оси внутри флекс-контейнера
      */
-    direction?: 'horizontal' | 'vertical';
+    direction?: 'row' | 'column';
 
     /**
      * Внутренние отступы
@@ -38,12 +36,12 @@ export type GenericWrapperProps = {
     /**
      * Свойство для выравнивания элементов внутри контейнера по поперечной оси.
      */
-    alignItems?: 'stretch' | 'end' | 'start' | 'center';
+    alignItems?: 'stretch' | 'end' | 'start' | 'center' | 'baseline';
 
     /**
      * Свойство выравнивает флекс-элементы внутри флекс-контейнера по основной оси.
      */
-    justifyContent?: 'between' | 'around' | 'evenly' | 'center';
+    justifyContent?: 'between' | 'around' | 'evenly' | 'center' | 'start' | 'end';
 
     /**
      * Дополнительный класс
@@ -54,16 +52,22 @@ export type GenericWrapperProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Позволяет заполнить всё доступное пространство родительского элемента.
+     */
+    grow?: boolean;
 };
 
-const GenericWrapperComponent = ({
+export const GenericWrapper = ({
     children,
     padding,
-    direction = 'horizontal',
+    direction = 'row',
     alignItems,
     justifyContent,
     className,
     dataTestId,
+    grow = false,
 }: GenericWrapperProps) => {
     const paddingStyles = padding && {
         [styles[`padding-top-${padding.top}`]]: padding.top,
@@ -73,6 +77,7 @@ const GenericWrapperComponent = ({
     };
     const alignmentStyles = alignItems && styles[`align-${alignItems}`];
     const justifyContentStyles = justifyContent && styles[`justify-${justifyContent}`];
+    const growStyles = grow && styles.grow;
 
     return (
         <div
@@ -81,6 +86,7 @@ const GenericWrapperComponent = ({
                 alignmentStyles,
                 paddingStyles,
                 justifyContentStyles,
+                growStyles,
                 className,
             )}
             data-test-id={dataTestId}
@@ -89,9 +95,3 @@ const GenericWrapperComponent = ({
         </div>
     );
 };
-
-export const GenericWrapper = Object.assign(GenericWrapperComponent, {
-    Addon,
-    DataContent,
-    Line,
-});

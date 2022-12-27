@@ -1,15 +1,11 @@
 @import '../../themes/src/default.css';
 
-.full-width {
-    max-width: none;
-}
-
-.horizontal {
+.row {
     display: flex;
     flex-direction: row;
 }
 
-.vertical {
+.column {
     display: flex;
     flex-direction: column;
 }
@@ -30,6 +26,10 @@
     align-items: center;
 }
 
+.align-baseline {
+    align-items: baseline;
+}
+
 .justify-center {
     justify-content: center;
 }
@@ -44,6 +44,18 @@
 
 .justify-evenly {
     justify-content: space-evenly;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.grow {
+    flex-grow: 1;
 }
 
 @each $size in 3xs, 2xs, xs, s, m, l, xl {
