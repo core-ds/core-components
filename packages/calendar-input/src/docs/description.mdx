@@ -5,6 +5,7 @@
 
 ```jsx live mobileHeight=640
 render(() => {
+    const [keyPress, setKeyPress] = React.useState(false);
     // import startOfDay from 'date-fns/startOfDay';
     const defaultMonth = new Date('December 1, 2022 00:00:00'); 
 
@@ -35,7 +36,12 @@ render(() => {
         new Date().setDate(31),
     ];
 
+    const handleChange = (event) => {
+        event.preventDefault()
+    };
+        
     return (
+    <Space size={24}>
         <CalendarInputDesktop 
             label='Укажите дату'
             defaultMonth={defaultMonth}  
@@ -43,15 +49,24 @@ render(() => {
             offDays={offDays}                 
             minDate={minDate.getTime()}
             maxDate={maxDate.getTime()} 
+            onKeyPress={keyPress ? handleChange: null}
             calendarProps={{
             selectorView: 'month-only',
             holidays: holidays,
             }}
         />
+        <Switch
+                block={true}
+                checked={keyPress}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setKeyPress(!keyPress)}
+            />
+      </Space>
     );
 });
 //MOBILE
 render(() => {
+    const [keyPress, setKeyPress] = React.useState(false);
     // import startOfDay from 'date-fns/startOfDay';
     const defaultMonth = new Date('December 1, 2022 00:00:00'); 
 
@@ -82,19 +97,32 @@ render(() => {
         new Date().setDate(31),
     ];
 
+    const handleChange = (event) => {
+        event.preventDefault()
+    };
+
     return (
-        <CalendarInputMobile 
-            label='Укажите дату'  
-            defaultMonth={defaultMonth} 
-            events={events}
-            offDays={offDays}                 
-            minDate={minDate.getTime()}
-            maxDate={maxDate.getTime()} 
-            calendarProps={{
-            selectorView: 'month-only',
-            holidays: holidays,
-            }}
-        />
+        <Space size={24}>
+            <CalendarInputMobile 
+                label='Укажите дату'  
+                defaultMonth={defaultMonth} 
+                events={events}
+                offDays={offDays}                 
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()} 
+                onKeyPress={keyPress ? handleChange: null}
+                calendarProps={{
+                selectorView: 'month-only',
+                holidays: holidays,
+                }}
+            />
+                <Switch
+                block={true}
+                checked={keyPress}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setKeyPress(!keyPress)}
+            />
+      </Space>
     );
 });
 ```
