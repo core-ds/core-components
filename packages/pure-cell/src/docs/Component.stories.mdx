@@ -1,6 +1,6 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { PureCell } from '@alfalab/core-components-pure-cell';
@@ -8,9 +8,9 @@ import { Typography } from '@alfalab/core-components-typography';
 import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
-import { PureCell as PureCellTS } from '../component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
 export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
@@ -854,32 +854,11 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     version={version}
     package='@alfalab/core-components/pure-cell'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=57194%3A101560'
+    children='Многофункциональная ячейка. Используется в многошаге.'
 />
-
-```jsx
-import { PureCell } from '@alfalab/core-components/pure-cell';
-```
 
 <Tabs
     description={<Description />}
+    development={<Development />}
     changelog={<Changelog />}
-    props={
-        <ArgsTable
-            components={{
-                PureCell: PureCellTS,
-                Addon: PureCellTS.Addon,
-                Amount: PureCellTS.Amount,
-                AmountTitle: PureCellTS.AmountTitle,
-                Category: PureCellTS.Category,
-                Comment: PureCellTS.Comment,
-                Content: PureCellTS.Content,
-                Footer: PureCellTS.Footer,
-                FooterButton: PureCellTS.FooterButton,
-                ExtraSubtitle: PureCellTS.ExtraSubtitle,
-                Graphics: PureCellTS.Graphics,
-                Main: PureCellTS.Main,
-                Text: PureCellTS.Text,
-            }}
-        />
-    }
 />

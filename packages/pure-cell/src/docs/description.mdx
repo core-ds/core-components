@@ -1,988 +1,621 @@
 import { Container, Row, Col } from 'storybook/blocks';
 
-### ☝️ Компонент не поддерживает IE
+## Лейаут
 
-Пример для компонента Динамическое поле
+Компонент представляет из себя структуру с двумя вертикально или горизонтально расположенными слотами: Graphic и Content. 
+Горизонтальные и вертикальные отступы могут принимать предустановленные значения.
 
-#### Компонент не поддерживает следующие свойства [Confluence - DATA_VIEW](http://confluence.moscow.alfaintra.net/pages/viewpage.action?pageId=209085417):
-
--   titleTypography: "HeadlineXSmall",
--   valueTypography: "HeadlineXSmall",
--   iconURL : "URL"
--   iconStyle : "noShape"
-
-```jsx live
+```jsx live desktopOnly
 render(() => {
-    const [multiline, setMultiline] = React.useState(false);
-    const [revert, setRevert] = React.useState(false);
+    const [graphics, setGraphicsRadioValue] = React.useState('left');
 
-    const handleMultiline = () => setMultiline(!multiline);
-    const handleRevert = () => setRevert(!revert);
+    const onGraphicsRadioChange = React.useCallback((_, payload) => {
+        setGraphicsRadioValue(payload.value);
+    }, []);
+
+    const styleAddons = {
+        width: '40px',
+        height: '40px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+
+    const styleFooter = {
+        width: '263px',
+        height: '16px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+
+    const styleContent = {
+        width: '207px',
+        height: '20px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+
+    const styleGraphics = {
+        width: '64px',
+        height: '64px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
 
     return (
-        <div style={{ width: '450px' }}>
-            <Row>
-                <Col>
-                    <Button type='button' size='xs' onClick={handleMultiline}>
-                        multiline
-                    </Button>
-                </Col>
-                <Col>
-                    <Button type='button' size='xs' onClick={handleRevert}>
-                        revert
-                    </Button>
-                </Col>
-            </Row>
-            <PureCell href={text('href', '')} padding='default' direction='horizontal' verticalPadding='default'>
-                <PureCell.Graphics>
-                    <SuperEllipse
-                        size='48'
-                        bottomAddons={<CDNIcon name='glyph_arrow-up-circle_m' color='attention' />}
-                        topAddons={<Badge view='count' height={16} content={2} />}
-                    >
-                        <CDNIcon name='glyph_debt_m' color='black' />
-                    </SuperEllipse>
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main isReverse={revert}>
-                        <PureCell.Text
-                            titleColor='primary'
-                            valueColor='secondary'
-                            value='Value'
-                            view='component'
-                            rowLimit={multiline ? undefined : 1}
-                        >
-                            Сейчас много говорят об отказах банков в проведении операций,
-                            блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
-                            обязывает банки выявлять операции своих клиентов, потенциально
-                            нарушающие требования Федерального закона 115-ФЗ «О противодействии
-                            легализации (отмыванию) доходов, полученных преступным путем, и
-                            финансированию терроризма». Ознакомиться с требованиями ЦБ РФ можно на
-                            официальном сайте. Банки обязаны предотвращать проведение таких операций
-                            и поэтому могут запросить дополнительную информацию и документы,
-                            ограничить доступ к платежам через интернет-банк или даже отказать в
-                            исполнении платежа
-                        </PureCell.Text>
-                        <PureCell.Text
-                            titleColor='positive'
-                            valueColor='negative'
-                            value='SubValue'
-                            view='primary-small'
-                            rowLimit={1}
-                        >
-                            Сейчас много говорят об отказах банков в проведении операций,
-                            блокировках интернет-банка. Это связано с тем, что Центральный банк РФ
-                            обязывает банки выявлять операции своих клиентов, потенциально
-                            нарушающие требования Федерального закона 115-ФЗ «О противодействии
-                            легализации (отмыванию) доходов, полученных преступным путем, и
-                            финансированию терроризма». Ознакомиться с требованиями ЦБ РФ можно на
-                            официальном сайте. Банки обязаны предотвращать проведение таких операций
-                            и поэтому могут запросить дополнительную информацию и документы,
-                            ограничить доступ к платежам через интернет-банк или даже отказать в
-                            исполнении платежа
-                        </PureCell.Text>
-                    </PureCell.Main>
-                    <PureCell.Addon verticalAlign='center'>
-                        <InformationCircleMIcon style={{ color: '#c5c5c7' }} />
-                    </PureCell.Addon>
-                    <PureCell.Footer footerPadding='default'>
-                        <PureCell.ExtraSubtitle color='secondary'>Status</PureCell.ExtraSubtitle>
-                    </PureCell.Footer>
-                </PureCell.Content>
-            </PureCell>
-        </div>
+        <Space size={20}>
+            <div style={{ width: '340px', backgroundColor: 'rgba(55, 120, 251, 0.1)', padding: '12px 16px' }}>
+                <PureCell  padding='default' direction={graphics !== 'top' ? 'horizontal' : 'vertical' }>
+                   { graphics !== 'right'  && <PureCell.Graphics verticalAlign='center'>
+                        <div style={styleGraphics} />
+                    </PureCell.Graphics> }
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <div style={styleContent} />
+                            <div style={styleContent} />
+                        </PureCell.Main>
+                        <PureCell.Addon verticalAlign='center'>
+                            <div style={styleAddons} />
+                        </PureCell.Addon>
+                        <PureCell.Footer footerPadding='default'>
+                            <div style={styleFooter} />
+                        </PureCell.Footer>
+                    </PureCell.Content>
+                    { graphics === 'right' && <PureCell.Graphics>
+                        <div style={styleGraphics} />
+                    </PureCell.Graphics> }
+                </PureCell>
+            </div>
+            
+            <RadioGroup
+                direction='vertical'
+                name='radioGroup'
+                onChange={onGraphicsRadioChange}
+                value={graphics}
+            >
+                <Radio label='Графика слева' value='left' />
+                <Radio label='Графика справа' value='right' />
+                <Radio label='Графика сверху' value='top' />
+            </RadioGroup>
+        </Space>
     );
 });
 ```
 
-### PureCell
+## Примеры
 
-Универсальный конструктор для сборки любой ячейки
+На базе компонента могут быть собраны готовые для использования в продукте пресеты ячеек.
 
-```jsx live
-render(() => {
-    const padding = select('padding', ['airy', 'default', 'compact', 'tiny'], 'default');
-    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
-
-    return (
-        <PureCell href={text('href', '')} padding={padding} direction={direction}>
+```jsx live desktopOnly
+render(() =>  (
+    <div style={{ width: '370px' }}>
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
             <PureCell.Graphics>
-                <Circle />
+                <SuperEllipse
+                    size='48'
+                    backgroundColor='rgba(229, 159, 114, 1)'
+                >
+                    <HeartMIcon fill='#fff'/>
+                </SuperEllipse>
             </PureCell.Graphics>
             <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor='primary' view='component'>
+                <PureCell.Main >
+                    <PureCell.Text
+                        titleColor='primary'
+                        valueColor='secondary'
+                        view='component'
+                        value={ 
+                            <Typography.Text font='system'>
+                                <Amount value={100099} minority={100} transparentMinor={true} bold='full' currency="RUB"/>
+                            </Typography.Text>
+                        }
+                    >
                         Title
                     </PureCell.Text>
-                    <PureCell.Text titleColor='secondary' view='primary-small'>
-                        Label
+                    <PureCell.Text
+                        titleColor='secondary'
+                        valueColor='secondary'
+                        view='primary-small'
+                        value='Subvalue'
+                    >
+                        Subtitle
                     </PureCell.Text>
                 </PureCell.Main>
             </PureCell.Content>
         </PureCell>
-    );
-});
-```
 
-### Product Cell
-
-```jsx live
-render(() => (
-    <Container>
-        <Row align='top'>
-            <Col>
-                <PureCell
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell.Graphics>
+                <SuperEllipse
+                    size='48'
+                    backgroundColor='rgba(229, 159, 114, 1)'
                 >
-                    <PureCell.Graphics></PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Product Name ··0000
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100000099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={ 'withZeroMinorPart' }
-                                transparentMinor={true}
-                                textView='primary-medium'
-                            />
-                        </PureCell.Main>
-                        <PureCell.Footer>
-                            <Typography.Text color='secondary' view='primary-small'>
-                                Caption Secondary{' '}
+                    <HeartMIcon fill='#fff'/>
+                </SuperEllipse>
+            </PureCell.Graphics>
+            <PureCell.Content>
+                <PureCell.Main >
+                    <PureCell.Text
+                        titleColor='primary'
+                        valueColor='secondary'
+                        view='component'
+                    >
+                        Title
+                    </PureCell.Text>
+                    <PureCell.Text
+                        titleColor='secondary'
+                        valueColor='secondary'
+                        view='primary-small'
+                    >
+                        Subtitle
+                    </PureCell.Text>
+                </PureCell.Main>
+            </PureCell.Content>
+            <PureCell.Addon verticalAlign='center'>
+                <ChevronRightMIcon fill='rgba(116, 116, 116, 1)' />
+            </PureCell.Addon>
+        </PureCell>
+
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell.Graphics>
+                <SuperEllipse
+                    size='48'
+                    backgroundColor='rgba(138, 138, 142, 1)'
+                >
+                    <ArrowDownLineDownMIcon fill='#fff'/>
+                </SuperEllipse>
+            </PureCell.Graphics>
+            <PureCell.Content>
+                <PureCell.Main >
+                    <PureCell.Text
+                        titleColor='primary'
+                        view='component'
+                        value={ 
+                            <Typography.Text font='system' color='positive'>
+                                <Amount value={18777} showPlus={true} currency="RUB" minority={1} bold='none'/>
                             </Typography.Text>
-                            <PureCell.FooterButton>Action</PureCell.FooterButton>
-                        </PureCell.Footer>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-            <Col>
-                <PureCell
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics></PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Product Name ··0000
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100000099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={ 'withZeroMinorPart' }
-                                transparentMinor={true}
-                                teaxtView='primary-medium'
-                            />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-        </Row>
-    </Container>
-));
-```
-
-### Card Cell
-
-```jsx live
-render(() => (
-    <Container align='stretch'>
-        <Row align='top'>
-            <Col>
-                <PureCell
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics>
-                        <CardImage
-                            cardId='EG'
-                            width={100}
-                            rounded={false}
-                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                            className='some name'
-                            id='some id'
-                            dataTestId='test id'
-                        />
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Card Name
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-            <Col>
-                <PureCell
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics>
-                        <CardImage
-                            cardId='EG'
-                            width={100}
-                            rounded={false}
-                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                            className='some name'
-                            id='some id'
-                            dataTestId='test id'
-                        />
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='primary' view='component'>
-                                Card Name
-                            </PureCell.Text>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Additional Info
-                            </PureCell.Text>
-                        </PureCell.Main>
-                        <PureCell.Addon verticalAlign='center'>
-                            <InformationCircleMIcon style={{ color: '#c5c5c7' }} />
-                        </PureCell.Addon>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-            <Col>
-                <PureCell
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='primary' view='component'>
-                                Card Name
-                            </PureCell.Text>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Additional Info
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
-                    <PureCell.Graphics>
-                        <CardImage
-                            cardId='EG'
-                            width={100}
-                            rounded={false}
-                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                            className='some name'
-                            id='some id'
-                            dataTestId='test id'
-                        />
-                    </PureCell.Graphics>
-                </PureCell>
-            </Col>
-        </Row>
-    </Container>
-));
-```
-
-### Vertical Card Cell
-
-```jsx live
-render(() => (
-    <Container>
-        <Row align='middle'>
-            <Col>
-                <div style={{ width: '200px' }}>
-                    <PureCell
-                        direction='vertical'
-                        padding={select(
-                            'padding',
-                            ['airy', 'default', 'compact', 'tiny'],
-                            'default',
-                        )}
+                        }
                     >
-                        <PureCell.Graphics>
-                            <CardImage
-                                cardId='EG'
-                                width={100}
-                                rounded={false}
-                                baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                                className='some name'
-                                id='some id'
-                                dataTestId='test id'
-                            />
-                        </PureCell.Graphics>
-                        <PureCell.Content>
-                            <PureCell.Main>
-                                <PureCell.Text view='component' titleColor='primary' rowLimit={1}>
-                                    Альфа-карта с преимуществами
-                                </PureCell.Text>
-                                <PureCell.Text view='primary-small' titleColor='secondary'>
-                                    Не активирована
-                                </PureCell.Text>
-                            </PureCell.Main>
-                        </PureCell.Content>
-                    </PureCell>
-                </div>
-            </Col>
-        </Row>
-    </Container>
-));
-```
-
-### Catalog Cell
-
-```jsx live
-render(() => (
-    <Container>
-        <Row align='top'>
-            <Col>
-                <PureCell
-                    href='#CatalogCell'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics>
-                        <SuperEllipse>
-                            <StarMIcon />
-                        </SuperEllipse>
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='primary' view='component'>
-                                Title
-                            </PureCell.Text>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Label
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-            <Col>
-                <div style={{ width: '300px', margin: '0 30px' }}>
-                    <PureCell
-                        href='#CatalogCell'
-                        padding={select(
-                            'padding',
-                            ['airy', 'default', 'compact', 'tiny'],
-                            'default',
-                        )}
+                        Title
+                    </PureCell.Text>
+                    <PureCell.Text
+                        titleColor='secondary'
+                        valueColor='secondary'
+                        view='primary-small'
                     >
-                        <PureCell.Graphics>
-                            <SuperEllipse view='inverted'>
-                                <StarMIcon />
-                            </SuperEllipse>
-                        </PureCell.Graphics>
-                        <PureCell.Content>
-                            <PureCell.Main>
-                                <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
-                                    Идейные соображения высшего порядка Идейные соображения высшего
-                                    порядка
-                                </PureCell.Text>
-                                <PureCell.Text titleColor='secondary' view='primary-small' rowLimit={1}>
-                                    Идейные соображения высшего порядка Идейные соображения высшего
-                                    порядка
-                                </PureCell.Text>
-                            </PureCell.Main>
-                        </PureCell.Content>
-                    </PureCell>
-                </div>
-            </Col>
-            <Col>
-                <div style={{ width: '200px' }}>
-                    <PureCell href='#CatalogCell' direction='vertical' padding='tiny'>
-                        <PureCell.Graphics verticalAlign='center'>
-                            <SuperEllipse view='inverted'>
-                                <StarMIcon />
-                            </SuperEllipse>
-                        </PureCell.Graphics>
-                        <PureCell.Content>
-                            <PureCell.Main>
-                                <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
-                                    Идейные соображения высшего порядка
-                                </PureCell.Text>
-                            </PureCell.Main>
-                        </PureCell.Content>
-                    </PureCell>
-                </div>
-            </Col>
-        </Row>
-    </Container>
-));
-```
+                        Пополнение
+                    </PureCell.Text>
+                </PureCell.Main>
+                <PureCell.Footer footerPadding='default'>
+                    <Comment>Коплю на мечту</Comment>
+                </PureCell.Footer>
+            </PureCell.Content>
+        </PureCell>
 
-### SBP Contact Cell
-
-```jsx live
-render(() => (
-    <Container>
-        <Row align='top'>
-            <Col>
-                <PureCell
-                    direction='vertical'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics>
-                        <Circle view='negative'>
-                            <AddMIcon />
-                        </Circle>
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='primary' view='component'>
-                                {'Новый\r\nперевод'}
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-            <Col>
-                <div style={{ margin: '0 30px' }}>
-                    <PureCell
-                        direction='vertical'
-                        padding={select(
-                            'padding',
-                            ['airy', 'default', 'compact', 'tiny'],
-                            'default',
-                        )}
-                    >
-                        <PureCell.Graphics>
-                            <Circle />
-                        </PureCell.Graphics>
-                        <PureCell.Content>
-                            <PureCell.Main>
-                                <PureCell.Text titleColor='primary' view='component'>
-                                    Имя Отчество Ф.
-                                </PureCell.Text>
-                            </PureCell.Main>
-                        </PureCell.Content>
-                    </PureCell>
-                </div>
-            </Col>
-            <Col>
-                <PureCell
-                    direction='vertical'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics>
-                        <Circle />
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='primary' view='component'>
-                                {'Себе в другой\r\nбанк'}
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-        </Row>
-    </Container>
-));
-```
-
-### Static Cell
-
-```jsx live
-render(() => (
-    <Container>
-        <Row align='top'>
-            <Col>
-                <PureCell
-                    href='#StaticCell'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics>
-                        <SuperEllipse>
-                            <StarMIcon />
-                        </SuperEllipse>
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Caption Secondary
-                            </PureCell.Text>
-                            <PureCell.Text titleColor='primary' view='component'>
-                                Title Primary
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-            <Col>
-                <PureCell
-                    href='#StaticCell'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Graphics>
-                        <SuperEllipse>
-                            <StarMIcon />
-                        </SuperEllipse>
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Caption Secondary
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100000099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={ 'withZeroMinorPart' }
-                                transparentMinor={true}
-                                textView='primary-medium'
-                            />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-                <PureCell
-                    href='#StaticCell'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Caption Secondary
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100000099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={ 'withZeroMinorPart' }
-                                transparentMinor={true}
-                                textView='primary-medium'
-                            />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-            <Col>
-                <PureCell
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Caption Secondary
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100000099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={ 'withZeroMinorPart' }
-                                transparentMinor={true}
-                                textView='primary-medium'
-                            />
-                        </PureCell.Main>
-                        <PureCell.Addon verticalAlign='center'>
-                            <Tooltip
-                                content={
-                                    <Typography.Text>
-                                        Дополнительная информация к ячейке.
-                                    </Typography.Text>
-                                }
-                                position='left'
-                            >
-                                <InformationCircleMIcon style={{ color: '#c5c5c7' }} />
-                            </Tooltip>
-                        </PureCell.Addon>
-                    </PureCell.Content>
-                </PureCell>
-            </Col>
-        </Row>
-    </Container>
-));
-```
-
-### Action Cell
-
-```jsx live
-render(() => (
-    <Container>
-        <Row align='top'>
-            <div style={{ width: '400px', marginRight: '30px' }}>
-                <PureCell
-                    href='#StaticCell'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Caption Secondary
-                            </PureCell.Text>
-                            <PureCell.Text titleColor='primary' view='component'>
-                                Title Primary
-                            </PureCell.Text>
-                        </PureCell.Main>
-                    </PureCell.Content>
-                    <PureCell.Graphics>
-                        <SuperEllipse>
-                            <StarMIcon />
-                        </SuperEllipse>
-                    </PureCell.Graphics>
-                </PureCell>
-            </div>
-            <PureCell
-                href='#StaticCell'
-                padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-            >
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell.Content>
+                <PureCell.Main>
+                    <PureCell.Text titleColor='secondary' view='primary-small'>
+                        Product Name ··0000
+                    </PureCell.Text>
+                    <PureCell.Amount
+                        value={100000054}
+                        minorUnits={100}
+                        currency='RUR'
+                        color='primary'
+                        view={ 'withZeroMinorPart' }
+                        transparentMinor={true}
+                        textView='primary-medium'
+                    />
+                </PureCell.Main>
+                <PureCell.Footer>
+                    <Typography.Text color='secondary' view='primary-small'>
+                        Статус продукта
+                    </Typography.Text>
+                    <PureCell.FooterButton>Action</PureCell.FooterButton>
+                </PureCell.Footer>
+            </PureCell.Content>
+        </PureCell>
+        <div style={{ width: 240 }}>
+            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
-                            Caption Secondary
+                            Account Name ··0000
                         </PureCell.Text>
-                        <PureCell.Text titleColor='primary' view='component'>
-                            Title Primary
-                        </PureCell.Text>
+                        <PureCell.Amount
+                            value={100000099}
+                            minorUnits={100}
+                            currency='RUR'
+                            color='primary'
+                            view={ 'withZeroMinorPart' }
+                            transparentMinor={true}
+                            textView='primary-medium'
+                        />
                     </PureCell.Main>
                     <PureCell.Addon verticalAlign='center'>
-                        <StarMIcon />
+                        <div style={{ display: 'flex', gridColumnGap: '8px' }}>
+                            <CashMoneyMIcon style={{ color: '#c5c5c7' }} />
+                            <EyeMIcon style={{ color: '#c5c5c7' }} />
+                        </div>
                     </PureCell.Addon>
                 </PureCell.Content>
             </PureCell>
-        </Row>
-        <Row align='top'>
-            <div style={{ width: '400px', marginRight: '30px' }}>
-                <PureCell
-                    href='#StaticCell'
-                    padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-                >
+        </div>
+
+        <div style={{ width: 80 }}>
+            <PureCell padding='default' direction='vertical' verticalPadding='default'>
+                <PureCell.Graphics verticalAlign='center'>
+                    <SuperEllipse size='48'>
+                        <AddMIcon />
+                    </SuperEllipse>
+                </PureCell.Graphics>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='primary' view='component'>
+                            {'Новый\r\nперевод'}
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell></div>
+        </div>
+));
+```
+
+## .Content
+
+Компонент является внутренней структурой PureCell. Состоит из слотов main (зеленый), addon (фиолетовый) и footer (желтый). 
+Каждый из слотов является опциональным. 
+Отступы до аддона и футера могут иметь дефолтное значение или отсутствовать.
+
+```jsx live desktopOnly
+render(() => {
+
+    const styleWrapper = {
+        display: 'flex', 
+        justifyContent: 'space-between'
+    }
+    const styleFooter = {
+        width: '263px',
+        height: '16px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(255, 168, 0, 0.1)',
+        border: '1px dashed rgba(255, 168, 0, 1)',
+        boxSizing: 'border-box',
+    }
+
+    const styleContent = {
+        width: '263px',
+        height: '20px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(0, 255, 85, 0.1)',
+        border: '1px dashed rgba(0, 255, 85, 1)',
+        boxSizing: 'border-box',
+    }
+
+    const styleAddon = {
+        width: '40px',
+        height: '40px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(0, 0, 255, 0.1)',
+        border: '1px dashed rgba(0, 0, 255, 1)',
+        boxSizing: 'border-box',
+    }
+
+    return (
+        <Space size={33}>
+            <div style={{ width: 263 }}>
+                <PureCell  padding='default' direction='horizontal'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
-                                Account Name ··0000
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={100000099}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={ 'withZeroMinorPart' }
-                                transparentMinor={true}
-                                textView='primary-medium'
-                            />
-                        </PureCell.Main>
-                        <PureCell.Addon verticalAlign='center'>
-                            <div style={{ display: 'flex', gridColumnGap: '8px' }}>
-                                <CashMoneyMIcon style={{ color: '#c5c5c7' }} />
-                                <EyeMIcon style={{ color: '#c5c5c7' }} />
+                            <div style={styleWrapper}>
+                                <div style={{...styleContent, width: '131px'}} />
+                                <div style={{...styleContent, width: '60px'}} />
                             </div>
+                            
+                            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                <div style={{...styleContent, width: '131px'}} />
+                                <div style={{...styleContent, width: '60px'}} />
+                            </div>
+                        </PureCell.Main>
+                        <PureCell.Addon>
+                            <div style={styleAddon} />
+                        </PureCell.Addon>
+                        <PureCell.Footer footerPadding='default'>
+                            <div style={styleFooter} />
+                        </PureCell.Footer>
+                    </PureCell.Content>
+                </PureCell>
+            </div>
+
+            <div style={{ width: 263 }}>
+                <PureCell  padding='default' direction='horizontal'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <div style={styleContent} />
+                            <div style={styleContent} />
+                        </PureCell.Main>
+                        <PureCell.Footer footerPadding='default'>
+                            <div style={styleFooter} />
+                        </PureCell.Footer>
+                    </PureCell.Content>
+                </PureCell>
+            </div>
+
+            <div style={{ width: 263 }}>
+                <PureCell  padding='default' direction='horizontal'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <div style={styleWrapper}>
+                                <div style={{...styleContent, width: '131px'}} />
+                                <div style={{...styleContent, width: '60px'}} />
+                            </div>
+                            <div style={{...styleContent, width: '207px'}} />
+                        </PureCell.Main>
+                        <PureCell.Addon>
+                            <div style={styleAddon} />
                         </PureCell.Addon>
                     </PureCell.Content>
                 </PureCell>
             </div>
-            <PureCell
-                href='#StaticCell'
-                padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}
-            >
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
-                            Title Primary
-                        </PureCell.Text>
-                    </PureCell.Main>
-                    <PureCell.Addon verticalAlign='center'>
-                        <ChevronForwardMIcon />
-                    </PureCell.Addon>
-                </PureCell.Content>
-            </PureCell>
-        </Row>
-    </Container>
-));
+        </Space>
+    );
+});
 ```
 
-### Template Cell
+## Примеры контента для слотов .Content
 
-```jsx live
-render(() => (
-    <Container>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
+Слоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку. 
+Контент основных слотов может занимать одну, две или несколько строк. 
+Контент правой части не может быть многострочным.
+
+## .Main
+
+```jsx live desktopOnly
+render(() =>  {
+        const styleContent = {
+        width: '159px',
+        height: '20px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(0, 255, 85, 0.1)',
+        border: '1px dashed rgba(0, 255, 85, 1)',
+        boxSizing: 'border-box',
+    }
+
+    return (
+    <div style={{ width: '320px' }}>
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
             <PureCell.Content>
                 <PureCell.Main>
                     <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
-                        Item Title
-                    </PureCell.Text>
-                    <PureCell.Text titleColor='secondary' view='primary-small'>
-                        Description
+                        Пример отсечения контента в одну строку
                     </PureCell.Text>
                 </PureCell.Main>
-                <PureCell.Addon>
+            </PureCell.Content>
+        </PureCell>
+
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell.Content>
+                <PureCell.Main>
+                    <PureCell.Text rowLimit={2} titleColor='primary' view='component'>
+                        Пример отсечения текста в несколько строк.
+                        Пример отсечения текста в несколько строк
+                    </PureCell.Text>
+                </PureCell.Main>
+            </PureCell.Content>
+        </PureCell>
+
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell.Content>
+                <PureCell.Main>
+                    <PureCell.Text 
+                        titleColor='primary' 
+                        view='component' 
+                        value='SubtitleRight' 
+                        valueColor='secondary' 
+                    >
+                        Поведение правой части при многострочной левой
+                    </PureCell.Text>
+                </PureCell.Main>
+            </PureCell.Content>
+        </PureCell>
+
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell.Content>
+                <PureCell.Main>
+                    <PureCell.Text 
+                        titleColor='secondary' 
+                        view='component'  
+                    >
+                        Text
+                    </PureCell.Text>
+                </PureCell.Main>
+            </PureCell.Content>
+        </PureCell>
+
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell.Content>
+                <PureCell.Main>
                     <PureCell.Amount
                         value={100000099}
                         minorUnits={100}
                         currency='RUR'
                         color='primary'
-                        view={ 'withZeroMinorPart' }
+                        view='withZeroMinorPart'
                         transparentMinor={true}
                     />
-                </PureCell.Addon>
-                <PureCell.Footer>
-                    <Typography.Text view='primary-small' color='positive'>
-                        Caption Positive
-                    </Typography.Text>
-                </PureCell.Footer>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor='primary' view='component' rowLimit={2}>
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                    <PureCell.Text titleColor='secondary' view='primary-small'>
-                        Description
-                    </PureCell.Text>
                 </PureCell.Main>
-                <PureCell.Addon>
-                    <PureCell.Amount
-                        value={100000099}
-                        minorUnits={100}
-                        currency='RUR'
-                        color='primary'
-                        view={ 'withZeroMinorPart' }
-                        transparentMinor={true}
-                    />
-                </PureCell.Addon>
-                <PureCell.Footer>
-                    <Typography.Text view='primary-small' color='positive'>
-                        Caption Positive
-                    </Typography.Text>
-                </PureCell.Footer>
             </PureCell.Content>
         </PureCell>
-    </Container>
-));
-```
 
-### Transaction Cell
-
-```jsx live
-render(() => (
-    <div style={{ width: '450px' }}>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
+        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text titleColor='primary' view='component' rowLimit={1}>
-                        Яндекс Лавка
-                    </PureCell.Text>
-                    <PureCell.Category
-                        categoryName='Кафе, рестораны, столовые, бары Кафе, рестораны, столовые, бары Кафе, рестораны, столовые, бары'
-                        categoryPercent={10}
-                        rightAddon={<ShoppingListSIcon color='var(--color-light-graphic-secondary-inverted)' />}
-                    />
-                </PureCell.Main>
-                <PureCell.Footer>
-                    <PureCell.Comment>Комментарий есть</PureCell.Comment>
-                </PureCell.Footer>
-            </PureCell.Content>
-        </PureCell>
-    </div>
-));
-```
-
-### Other Cell
-
-```jsx live
-render(() => (
-    <Container>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor='secondary' view='primary-small'>
-                        Общий баланс
-                    </PureCell.Text>
                     <PureCell.AmountTitle
                         value={100000099}
                         minorUnits={100}
                         currency='RUR'
                         color='primary'
-                        view={ 'withZeroMinorPart' }
+                        view='withZeroMinorPart'
                         transparentMinor={true}
                     />
                 </PureCell.Main>
-                <PureCell.Addon verticalAlign='center'>
-                    <ChevronForwardMIcon />
-                </PureCell.Addon>
             </PureCell.Content>
         </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor='secondary' view='primary-small'>
-                        Общий баланс
-                    </PureCell.Text>
-                    <PureCell.Amount
-                        value={100000099}
-                        minorUnits={100}
-                        currency='RUR'
-                        color='primary'
-                        view={ 'withZeroMinorPart' }
-                        transparentMinor={true}
-                        weight='bold'
-                        textView='primary-medium'
-                    />
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign='center'>
-                    <ChevronForwardMIcon />
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor='primary' view='component'>
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                    <PureCell.Text titleColor='secondary' view='primary-small'>
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign='center'>
-                    <ChevronForwardMIcon />
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                    <PureCell.Text rowLimit={1} titleColor='secondary' view='primary-small'>
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign='center'>
-                    <ChevronForwardMIcon />
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text titleColor='primary' view='component' rowLimit={2}>
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                    <PureCell.Text titleColor='secondary' view='primary-small' rowLimit={2}>
-                        Если текст дискрипшена или текст кэпшена не помещается в контейнер,
-                        отображаем сколько влезло
-                    </PureCell.Text>
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign='center'>
-                    <ChevronForwardMIcon />
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        <div />
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
-                        Яндекс Лавка
-                    </PureCell.Text>
-                    <PureCell.Category categoryName='Кафе, рестораны, столовые, бары' />
-                </PureCell.Main>
-                <PureCell.Addon>
-                    <PureCell.Text titleColor='secondary' view='component'>
-                        22.11.2021
-                    </PureCell.Text>
-                </PureCell.Addon>
-                <PureCell.Footer>
-                    <PureCell.ExtraSubtitle>Status</PureCell.ExtraSubtitle>
-                    <PureCell.FooterButton>Button</PureCell.FooterButton>
-                </PureCell.Footer>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
-                        Яндекс Лавка
-                    </PureCell.Text>
-                    <PureCell.Category categoryName='Кафе, рестораны, столовые, бары' />
-                </PureCell.Main>
-                <PureCell.Addon>
-                    <PureCell.Amount
-                        value={100000099}
-                        minorUnits={100}
-                        currency='RUR'
-                        color='primary'
-                        view={ 'withZeroMinorPart' }
-                        transparentMinor={true}
-                    />
-                    <PureCell.Text titleColor='secondary' view='component'>
-                        22.11.2021
-                    </PureCell.Text>
-                </PureCell.Addon>
-                <PureCell.Footer>
-                    <PureCell.ExtraSubtitle color='attention'>Status</PureCell.ExtraSubtitle>
-                    <PureCell.FooterButton>Button</PureCell.FooterButton>
-                </PureCell.Footer>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <SuperEllipse>
-                    <StarMIcon />
-                </SuperEllipse>
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
-                        Детские товары
-                    </PureCell.Text>
-                </PureCell.Main>
-                <PureCell.Addon verticalAlign='center'>
-                    <PureCell.Text titleColor='secondary' view='component'>
-                        22
-                    </PureCell.Text>
-                </PureCell.Addon>
-            </PureCell.Content>
-        </PureCell>
-        <PureCell padding={select('padding', ['airy', 'default', 'compact', 'tiny'], 'default')}>
-            <PureCell.Graphics>
-                <Circle />
-            </PureCell.Graphics>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
-                        Яндекс Лавка
-                    </PureCell.Text>
-                    <PureCell.Category categoryName='Кафе, рестораны, столовые, бары' rightAddon={<ShoppingListSIcon color='var(--color-light-graphic-secondary-inverted)' />} />
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
+        <div style={{width: 207}}>
+            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text 
+                            view='component' 
+                            value='Text' 
+                            valueColor='secondary' 
+                        >
+                            <div style={styleContent}></div>
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+
+            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text 
+                            view='component' 
+                            value='Text' 
+                            valueColor='primary' 
+                        >
+                            <div style={styleContent}></div>
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+        </div>
+    </div>
+)});
+```
+
+## .Addon
+
+```jsx live desktopOnly
+render(() =>  (
+    <Container>
+        <div style={{width: 80}}>
+            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Addon addonPadding='none'>
+                        <PureCell.Amount
+                            value={100099}
+                            minorUnits={100}
+                            currency='RUR'
+                            color='primary'
+                            view={ 'withZeroMinorPart' }
+                            transparentMinor={true}
+                        />
+                        <PureCell.Text 
+                            titleColor='secondary' 
+                            view='component'  
+                        >
+                            Text
+                        </PureCell.Text>
+                    </PureCell.Addon>
+                </PureCell.Content>
+            </PureCell>
+        </div>
+        <div style={{width: 110}}>
+            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Addon addonPadding='none'>
+                        <div style={{display: 'flex', gap: '6px'}}>
+                            <PureCell.Amount
+                                value={100099}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view='withZeroMinorPart'
+                                transparentMinor={true}
+                            />
+                            <Badge view='icon' iconColor='secondary' content={<ClockMIcon />} />
+                        </div>
+                        <div style={{display: 'flex', gap: '6px'}}>
+                            <PureCell.Amount
+                                value={100}
+                                minorUnits={1}
+                                color='primary'
+                                showPlus={true}
+                                transparentMinor={true}
+                            />
+                            <AirplaneSIcon fill='#EF3124'/>
+                        </div>
+                        
+                    </PureCell.Addon>
+                </PureCell.Content>
+            </PureCell>
+        </div>
+
+        <div style={{width: 64}}>
+            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Addon addonPadding='none'>
+                        <div style={{display: 'flex', gap: '16px'}}>
+                            <StarMIcon/>
+                            <StarMIcon/>
+                        </div>
+                    </PureCell.Addon>
+                </PureCell.Content>
+            </PureCell>
+        </div>
+
+        <div style={{width: 110}}>
+            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Addon addonPadding='none'>
+                        <Button size='xxs'>
+                            Button Text
+                        </Button>
+                    </PureCell.Addon>
+                </PureCell.Content>
+            </PureCell>
+        </div>
     </Container>
+));
+```
+
+## .Footer
+
+```jsx live desktopOnly
+render(() =>  (
+    <Space size={25}>
+        <PureCell padding='default' direction='horizontal' >
+            <PureCell.Content>
+                <PureCell.Footer>
+                    <PureCell.FooterButton>
+                        Button Text
+                    </PureCell.FooterButton>
+                </PureCell.Footer>
+            </PureCell.Content>
+        </PureCell>
+
+        <PureCell padding='default' direction='horizontal' >
+            <PureCell.Content>
+                <PureCell.Footer>
+                    <Typography.Text color='secondary' view='primary-small'>
+                        Neutral Status
+                    </Typography.Text>
+                    <PureCell.FooterButton>
+                        Button Text
+                    </PureCell.FooterButton>
+                </PureCell.Footer>
+            </PureCell.Content>
+        </PureCell>
+    
+    </Space>
 ));
 ```
