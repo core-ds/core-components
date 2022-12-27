@@ -20,7 +20,7 @@ import Changelog from '../../CHANGELOG.md';
             ['between', 'around', 'evenly', 'center', 'start', 'end'],
             undefined,
         );
-        const direction = radios('direction', { column: 'column', row: 'row' }, 'row');
+        const column = boolean('column', false);
         const padding = object('padding', {
             top: 'xl',
             left: 'l',
@@ -54,7 +54,7 @@ import Changelog from '../../CHANGELOG.md';
                 >
                     <GenericWrapper
                         alignItems={alignItems}
-                        direction={direction}
+                        column={column}
                         padding={padding}
                         justifyContent={justifyContent}
                     >
