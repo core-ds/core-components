@@ -3,7 +3,6 @@ import {
     createStorybookUrl,
     createSpriteStorybookUrl,
 } from '../../screenshot-utils';
-import React from 'react';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
