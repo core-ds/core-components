@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { Gap } from '@alfalab/core-components-gap';
-import { select, object, radios, boolean } from '@storybook/addon-knobs';
+import { select, radios, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { GenericWrapper } from '../Component';
 
@@ -21,12 +21,10 @@ import Changelog from '../../CHANGELOG.md';
             undefined,
         );
         const column = boolean('column', false);
-        const padding = object('padding', {
-            top: 'xl',
-            left: 'l',
-            right: 'm',
-            bottom: 'xl',
-        });
+        const paddingTop = select('padding.top', gapSizes, 'l');
+        const paddingRight = select('padding.right', gapSizes, 'l');
+        const paddingBottom = select('padding.bottom', gapSizes, 'l');
+        const paddingLeft = select('padding.left', gapSizes, 'l');
         const gapDirection = radios(
             'gapDirection',
             {
@@ -55,7 +53,12 @@ import Changelog from '../../CHANGELOG.md';
                     <GenericWrapper
                         alignItems={alignItems}
                         column={column}
-                        padding={padding}
+                        padding={{
+                            top: paddingTop,
+                            right: paddingRight,
+                            bottom: paddingBottom,
+                            left: paddingLeft,
+                        }}
                         justifyContent={justifyContent}
                     >
                         <GenericWrapper grow={growElement1}>
