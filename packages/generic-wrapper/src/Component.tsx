@@ -26,7 +26,7 @@ export type GenericWrapperProps = {
     /**
      * Свойство управляет направлением основной оси внутри флекс-контейнера
      */
-    direction?: 'row' | 'column';
+    column?: boolean;
 
     /**
      * Внутренние отступы
@@ -62,11 +62,11 @@ export type GenericWrapperProps = {
 export const GenericWrapper = ({
     children,
     padding,
-    direction = 'row',
     alignItems,
     justifyContent,
     className,
     dataTestId,
+    column = false,
     grow = false,
 }: GenericWrapperProps) => {
     const paddingStyles = padding && {
@@ -78,11 +78,13 @@ export const GenericWrapper = ({
     const alignmentStyles = alignItems && styles[`align-${alignItems}`];
     const justifyContentStyles = justifyContent && styles[`justify-${justifyContent}`];
     const growStyles = grow && styles.grow;
+    const columnsStyles = column && styles.column;
 
     return (
         <div
             className={cn(
-                styles[direction],
+                styles.component,
+                columnsStyles,
                 alignmentStyles,
                 paddingStyles,
                 justifyContentStyles,

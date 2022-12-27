@@ -1,8 +1,7 @@
 @import '../../themes/src/default.css';
 
-.row {
+.component {
     display: flex;
-    flex-direction: row;
 }
 
 .column {
