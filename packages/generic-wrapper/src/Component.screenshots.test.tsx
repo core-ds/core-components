@@ -61,7 +61,7 @@ describe(
                 x: 0,
                 y: 0,
                 width: 1000,
-                height: 500,
+                height: 450,
             },
         },
     }),
