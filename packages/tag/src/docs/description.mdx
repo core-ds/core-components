@@ -1,6 +1,6 @@
 ## Размеры
 
-Рекомендуется использовать S, XS и XXS размеры. Размеры  XL, L, M — не рекомендованы к использованию.
+Рекомендуется использовать S, XS и XXS размеры. Размеры XL, L, M — не рекомендованы к использованию.
 
 ```jsx live
 render(() => {
@@ -11,10 +11,10 @@ render(() => {
     );
 
     return (
-        <Container >
+        <Container>
             <Row align='middle'>
                 {SIZES.map((size) => (
-                    <div key={size} style={{marginRight: 12}}>
+                    <div key={size} style={{ marginRight: 12 }}>
                         <Tag
                             size={size}
                             checked={checked[size]}
@@ -59,20 +59,20 @@ render(() => {
     return (
         <Container>
             <Row>
-                <div style={{marginRight: 12}}>
+                <div style={{ marginRight: 12 }}>
                     <Tag size='s'>Label</Tag>
                 </div>
-                <div style={{marginRight: 12}}>
+                <div style={{ marginRight: 12 }}>
                     <Tag size='s' rightAddons={addon} leftAddons={addon}>
                         Label
                     </Tag>
                 </div>
-                 <div style={{marginRight: 12}}>
+                <div style={{ marginRight: 12 }}>
                     <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
                         Label
                     </Tag>
                 </div>
-                <div style={{marginRight: 12}}>
+                <div style={{ marginRight: 12 }}>
                     <Tag size='s' rightAddons={amountAddon}>
                         Label
                     </Tag>
@@ -105,7 +105,7 @@ render(() => {
     return (
         <Container>
             <Row>
-                <div style={{marginRight: 12}}>
+                <div style={{ marginRight: 12 }}>
                     <Tag size='s'>Label</Tag>
                 </div>
                 <div>
@@ -113,9 +113,9 @@ render(() => {
                         Label
                     </Tag>
                 </div>
-            </Row> 
-            <div style={{display: 'flex', marginTop: 16}}>
-                 <div style={{marginRight: 12}}>
+            </Row>
+            <div style={{ display: 'flex', marginTop: 16 }}>
+                <div style={{ marginRight: 12 }}>
                     <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
                         Label
                     </Tag>
@@ -139,19 +139,25 @@ render(() => {
 render(() => (
     <Container>
         <Row>
-            <div style={{marginRight: 12}}>
-                <Tag size='s' >Label</Tag>
+            <div style={{ marginRight: 12 }}>
+                <Tag size='s'>Label</Tag>
             </div>
             <div>
-                <Tag size='s' disabled={true} >Label</Tag>
+                <Tag size='s' disabled={true}>
+                    Label
+                </Tag>
             </div>
         </Row>
-         <div style={{display: 'flex', marginTop: 16}}>
-            <div style={{marginRight: 12}}>
-                <Tag size='s' checked={true} >Label</Tag>
+        <div style={{ display: 'flex', marginTop: 16 }}>
+            <div style={{ marginRight: 12 }}>
+                <Tag size='s' checked={true}>
+                    Label
+                </Tag>
             </div>
             <Col>
-                <Tag size='s' checked={true} disabled={true}>Label</Tag>
+                <Tag size='s' checked={true} disabled={true}>
+                    Label
+                </Tag>
             </Col>
         </div>
     </Container>
@@ -166,7 +172,7 @@ render(() => (
 render(() => (
     <Container>
         <Row>
-            <div style={{marginRight: 12}}>
+            <div style={{ marginRight: 12 }}>
                 <Tag size='s'>Label</Tag>
             </div>
             <div>
@@ -184,4 +190,4 @@ render(() => (
 Служат триггерами для переключения контекста, см. компонент [Tabs](/docs/components-forms-selects-tabs--tabs).  
 Используются для фильтрации контента, см. компонент [FilterTag](/docs/components-forms-selects-filtertag--filter-tag).  
 Выполняют роль радио-кнопок см. компонент [RadioGroup](/docs/components-forms-selects-radiogroup--radio-group).  
-Выполняют роль чекбоксов см. компонент [CheckboxGroup](/docs/components-forms-selects-checkboxgroup--checkbox-group).  
+Выполняют роль чекбоксов см. компонент [CheckboxGroup](/docs/components-forms-selects-checkboxgroup--checkbox-group).

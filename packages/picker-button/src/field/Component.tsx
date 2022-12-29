@@ -13,6 +13,7 @@ type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | '
     ButtonProps & {
         buttonSize?: PickerButtonSize;
         buttonVariant?: PickerButtonVariant;
+        showArrow?: boolean;
     };
 
 export const Field = ({
@@ -31,6 +32,7 @@ export const Field = ({
     setSelectedItems,
     toggleMenu,
     valueRenderer,
+    showArrow = true,
     ...restProps
 }: FieldProps) => {
     const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(buttonVariant, buttonSize);
@@ -52,14 +54,16 @@ export const Field = ({
                             <span className={styles.addonsContainer}>{rightAddons}</span>
                         )}
 
-                        <span
-                            className={cn(
-                                styles.iconContainer,
-                                buttonVariant !== 'compact' && open && styles.open,
-                            )}
-                        >
-                            <Icon data-test-id='picker-button-icon' />
-                        </span>
+                        {(showArrow || buttonVariant === 'compact') && (
+                            <span
+                                className={cn(
+                                    styles.iconContainer,
+                                    buttonVariant !== 'compact' && open && styles.open,
+                                )}
+                            >
+                                <Icon data-test-id='picker-button-icon' />
+                            </span>
+                        )}
                     </Fragment>
                 }
                 block={true}

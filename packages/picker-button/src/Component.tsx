@@ -55,6 +55,12 @@ export type PickerButtonDesktopProps = Omit<
          * Тип кнопки
          */
         variant?: PickerButtonVariant;
+
+        /**
+         * Показывать стрелку
+         * @default true
+         */
+        showArrow?: boolean;
     };
 
 export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesktopProps>(
@@ -73,6 +79,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             popperClassName,
             optionsListClassName,
             optionClassName,
+            showArrow,
             ...restProps
         },
         ref,
@@ -96,6 +103,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
                     buttonVariant: variant,
                     leftAddons,
                     rightAddons,
+                    showArrow,
                 }}
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}

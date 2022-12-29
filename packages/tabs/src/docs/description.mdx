@@ -6,24 +6,24 @@
 ```jsx live
 render(() => {
     tabs = [
-    { title: 'Aurum', id: 'tab-1' },
-    { title: 'Bercelium', id: 'tab-2' },
-    { title: 'Curium', id: 'tab-3' },
-    { title: 'Neptunium', id: 'tab-4' },
-    { title: 'Plutonuim', id: 'tab-5' },
-    { title: 'Rubidium', id: 'tab-6' },
-    { title: 'Californium', id: 'tab-7' },
-]   ;
+        { title: 'Aurum', id: 'tab-1' },
+        { title: 'Bercelium', id: 'tab-2' },
+        { title: 'Curium', id: 'tab-3' },
+        { title: 'Neptunium', id: 'tab-4' },
+        { title: 'Plutonuim', id: 'tab-5' },
+        { title: 'Rubidium', id: 'tab-6' },
+        { title: 'Californium', id: 'tab-7' },
+    ];
 
     const [selectedId, setSelectedId] = React.useState('tab-1');
     const [title, setTitle] = React.useState('Aurum');
 
-    const handleChange = (event, {selectedId}) => {
-        const currentTab = tabs.filter(tab => tab.id === selectedId)[0]
-        setSelectedId(selectedId)
-        setTitle(currentTab.title)
+    const handleChange = (event, { selectedId }) => {
+        const currentTab = tabs.filter((tab) => tab.id === selectedId)[0];
+        setSelectedId(selectedId);
+        setTitle(currentTab.title);
     };
-    
+
     return (
         <>
             <TabsDesktop selectedId={selectedId} onChange={handleChange}>
@@ -35,7 +35,7 @@ render(() => {
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
             </TabsDesktop>
-            <br/>
+            <br />
             <div>Выбран таб: {title}</div>
         </>
     );
@@ -43,27 +43,27 @@ render(() => {
 //MOBILE
 render(() => {
     tabs = [
-    { title: 'Aurum', id: 'tab-1' },
-    { title: 'Bercelium', id: 'tab-2' },
-    { title: 'Curium', id: 'tab-3' },
-    { title: 'Neptunium', id: 'tab-4' },
-    { title: 'Plutonuim', id: 'tab-5' },
-    { title: 'Rubidium', id: 'tab-6' },
-    { title: 'Californium', id: 'tab-7' },
-]   ;
+        { title: 'Aurum', id: 'tab-1' },
+        { title: 'Bercelium', id: 'tab-2' },
+        { title: 'Curium', id: 'tab-3' },
+        { title: 'Neptunium', id: 'tab-4' },
+        { title: 'Plutonuim', id: 'tab-5' },
+        { title: 'Rubidium', id: 'tab-6' },
+        { title: 'Californium', id: 'tab-7' },
+    ];
 
     const [selectedId, setSelectedId] = React.useState('tab-1');
     const [title, setTitle] = React.useState('Aurum');
 
-    const handleChange = (event, {selectedId}) => {
-        const currentTab = tabs.filter(tab => tab.id === selectedId)[0]
-        setSelectedId(selectedId)
-        setTitle(currentTab.title)
+    const handleChange = (event, { selectedId }) => {
+        const currentTab = tabs.filter((tab) => tab.id === selectedId)[0];
+        setSelectedId(selectedId);
+        setTitle(currentTab.title);
     };
-    
+
     return (
         <>
-            <TabsMobile  selectedId={selectedId} onChange={handleChange}>
+            <TabsMobile selectedId={selectedId} onChange={handleChange}>
                 <Tab title='Aurum' id='tab-1' />
                 <Tab title='Bercelium' id='tab-2' />
                 <Tab title='Curium' id='tab-3' />
@@ -72,7 +72,7 @@ render(() => {
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
             </TabsMobile>
-            <br/>
+            <br />
             <div>Выбран таб: {title}</div>
         </>
     );
@@ -87,24 +87,24 @@ render(() => {
 ```jsx live
 render(() => {
     tabs = [
-    { title: 'Aurum', id: 'tab-1' },
-    { title: 'Bercelium', id: 'tab-2' },
-    { title: 'Curium', id: 'tab-3' },
-    { title: 'Neptunium', id: 'tab-4' },
-    { title: 'Plutonuim', id: 'tab-5' },
-    { title: 'Rubidium', id: 'tab-6' },
-    { title: 'Californium', id: 'tab-7' },
+        { title: 'Aurum', id: 'tab-1' },
+        { title: 'Bercelium', id: 'tab-2' },
+        { title: 'Curium', id: 'tab-3' },
+        { title: 'Neptunium', id: 'tab-4' },
+        { title: 'Plutonuim', id: 'tab-5' },
+        { title: 'Rubidium', id: 'tab-6' },
+        { title: 'Californium', id: 'tab-7' },
     ];
 
     const [selectSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');
     const [title, setTitle] = React.useState('Aurum');
 
-    const handleSecondaryChange = (event, {selectedId}) => {
-        const currentTab = tabs.filter(tab => tab.id === selectedId)[0]
-        setSelectedSecondaryId(selectedId)
-        setTitle(currentTab.title)
+    const handleSecondaryChange = (event, { selectedId }) => {
+        const currentTab = tabs.filter((tab) => tab.id === selectedId)[0];
+        setSelectedSecondaryId(selectedId);
+        setTitle(currentTab.title);
     };
-    
+
     return (
         <div style={{ marginTop: 20 }}>
             <TabsDesktop
@@ -121,7 +121,7 @@ render(() => {
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
             </TabsDesktop>
-            <br/>
+            <br />
             <div>Выбран таб: {title}</div>
         </div>
     );
@@ -129,24 +129,24 @@ render(() => {
 //MOBILE
 render(() => {
     tabs = [
-    { title: 'Aurum', id: 'tab-1' },
-    { title: 'Bercelium', id: 'tab-2' },
-    { title: 'Curium', id: 'tab-3' },
-    { title: 'Neptunium', id: 'tab-4' },
-    { title: 'Plutonuim', id: 'tab-5' },
-    { title: 'Rubidium', id: 'tab-6' },
-    { title: 'Californium', id: 'tab-7' },
+        { title: 'Aurum', id: 'tab-1' },
+        { title: 'Bercelium', id: 'tab-2' },
+        { title: 'Curium', id: 'tab-3' },
+        { title: 'Neptunium', id: 'tab-4' },
+        { title: 'Plutonuim', id: 'tab-5' },
+        { title: 'Rubidium', id: 'tab-6' },
+        { title: 'Californium', id: 'tab-7' },
     ];
 
     const [selectSecondaryId, setSelectedSecondaryId] = React.useState('tab-1');
     const [title, setTitle] = React.useState('Aurum');
 
-    const handleSecondaryChange = (event, {selectedId}) => {
-        const currentTab = tabs.filter(tab => tab.id === selectedId)[0]
-        setSelectedSecondaryId(selectedId)
-        setTitle(currentTab.title)
+    const handleSecondaryChange = (event, { selectedId }) => {
+        const currentTab = tabs.filter((tab) => tab.id === selectedId)[0];
+        setSelectedSecondaryId(selectedId);
+        setTitle(currentTab.title);
     };
-    
+
     return (
         <div style={{ marginTop: 20 }}>
             <TabsMobile
@@ -162,7 +162,7 @@ render(() => {
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
             </TabsMobile>
-            <br/>
+            <br />
             <div>Выбран таб: {title}</div>
         </div>
     );
@@ -183,7 +183,7 @@ const tabs = [
     { title: 'Plutonuim', id: 'tab-5' },
     { title: 'Rubidium', id: 'tab-6' },
     { title: 'Californium', id: 'tab-7' },
-    { title: 'Einsteinium', id: 'tab-8', rightAddons: <Badge view='count' content={1} />},
+    { title: 'Einsteinium', id: 'tab-8', rightAddons: <Badge view='count' content={1} /> },
     { title: 'Fermium', id: 'tab-9' },
     { title: 'Mendelevium', id: 'tab-10' },
 ];
@@ -192,32 +192,31 @@ render(() => {
     const [title, setTitle] = React.useState('Aurum');
     const [view, setView] = React.useState('primary');
     const [overflow, setOverflow] = React.useState('scrollable');
-    const [collapsibleTabsIds, setCollapsibleTabsIds] = React.useState({ "tab-1": true });
-    
+    const [collapsibleTabsIds, setCollapsibleTabsIds] = React.useState({ 'tab-1': true });
 
-    const handleChange = (event, {selectedId}) => {
-        const currentTab = tabs.filter(tab => tab.id === selectedId)[0]
-        setSelectedId(selectedId)
-        setTitle(currentTab.title)
+    const handleChange = (event, { selectedId }) => {
+        const currentTab = tabs.filter((tab) => tab.id === selectedId)[0];
+        setSelectedId(selectedId);
+        setTitle(currentTab.title);
     };
     const handleViewChange = (event, { value }) => setView(value);
     const handleOverflowChange = (event, { value }) => setOverflow(value);
 
     const handleCollapsedTabsChange = (event, payload) => {
-         setCollapsibleTabsIds({ ...collapsibleTabsIds, [payload.name]: payload.checked });
-     }
+        setCollapsibleTabsIds({ ...collapsibleTabsIds, [payload.name]: payload.checked });
+    };
 
-     const manuallyCollapsedTabs = React.useMemo(() => {
-         const v = Object.keys(collapsibleTabsIds).filter((k) => !!collapsibleTabsIds[k]);
-         return v.length ? v : undefined;
-     }, [collapsibleTabsIds]);
+    const manuallyCollapsedTabs = React.useMemo(() => {
+        const v = Object.keys(collapsibleTabsIds).filter((k) => !!collapsibleTabsIds[k]);
+        return v.length ? v : undefined;
+    }, [collapsibleTabsIds]);
 
     return (
-        <>
+        <div>
             <TabsDesktop
                 scrollable={overflow !== 'collapsible'}
                 collapsible={overflow !== 'scrollable'}
-                collapsedTabsIds={ overflow === 'collapsible' && manuallyCollapsedTabs }
+                collapsedTabsIds={overflow === 'collapsible' && manuallyCollapsedTabs}
                 selectedId={selectedId}
                 onChange={handleChange}
                 view={view}
@@ -226,10 +225,10 @@ render(() => {
                     <Tab key={tab.id} {...tab} />
                 ))}
             </TabsDesktop>
-            <br/>
+            <br />
             <div>Выбран таб: {title}</div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div style={{ marginTop: 12 }}>
                 <Space size={40}>
                     <RadioGroup
@@ -252,24 +251,24 @@ render(() => {
                         <Radio label='Scrollable' value='scrollable' />
                         <Radio label='Collapsible' value='collapsible' />
                     </RadioGroup>
-                    {
-                         overflow === 'collapsible' && (
-                             <CheckboxGroup
-                                 label='Схлопнутые вкладки'
-                                 name='tabsCheckboxGroup'
-                                 direction='vertical'
-                                 value={collapsibleTabsIds}
-                                 onChange={handleCollapsedTabsChange}
-                             >
-                                 {
-                                     tabs
-                                         .map((t) => (
-                                             <Checkbox key={ t.id } label={ t.title } name={ t.id } checked={ !!collapsibleTabsIds[t.id] } />
-                                         ))
-                                 }
-                             </CheckboxGroup>
-                         )
-                     }
+                    {overflow === 'collapsible' && (
+                        <CheckboxGroup
+                            label='Схлопнутые вкладки'
+                            name='tabsCheckboxGroup'
+                            direction='vertical'
+                            value={collapsibleTabsIds}
+                            onChange={handleCollapsedTabsChange}
+                        >
+                            {tabs.map((t) => (
+                                <Checkbox
+                                    key={t.id}
+                                    label={t.title}
+                                    name={t.id}
+                                    checked={!!collapsibleTabsIds[t.id]}
+                                />
+                            ))}
+                        </CheckboxGroup>
+                    )}
                 </Space>
             </div>
         </>
@@ -279,12 +278,12 @@ render(() => {
 const tabs = [
     { title: 'Aurum', id: 'tab-1' },
     { title: 'Bercelium', id: 'tab-2' },
-    { title: 'Curium', id: 'tab-3' , rightAddons: <Badge view='count' content={1} />},
+    { title: 'Curium', id: 'tab-3', rightAddons: <Badge view='count' content={1} /> },
     { title: 'Neptunium', id: 'tab-4' },
     { title: 'Plutonuim', id: 'tab-5' },
     { title: 'Rubidium', id: 'tab-6' },
     { title: 'Californium', id: 'tab-7' },
-    { title: 'Einsteinium', id: 'tab-8'},
+    { title: 'Einsteinium', id: 'tab-8' },
     { title: 'Fermium', id: 'tab-9' },
     { title: 'Mendelevium', id: 'tab-10' },
 ];
@@ -294,16 +293,16 @@ render(() => {
     const [view, setView] = React.useState('primary');
     const [overflow, setOverflow] = React.useState('scrollable');
 
-    const handleChange = (event, {selectedId}) => {
-        const currentTab = tabs.filter(tab => tab.id === selectedId)[0]
-        setSelectedId(selectedId)
-        setTitle(currentTab.title)
+    const handleChange = (event, { selectedId }) => {
+        const currentTab = tabs.filter((tab) => tab.id === selectedId)[0];
+        setSelectedId(selectedId);
+        setTitle(currentTab.title);
     };
     const handleViewChange = (event, { value }) => setView(value);
     const handleOverflowChange = (event, { value }) => setOverflow(value);
 
     return (
-        <>
+        <div>
             <TabsMobile
                 scrollable={overflow}
                 selectedId={selectedId}
@@ -314,10 +313,10 @@ render(() => {
                     <Tab key={tab.id} {...tab} />
                 ))}
             </TabsMobile>
-            <br/>
+            <br />
             <div>Выбран таб: {title}</div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div style={{ marginTop: 12 }}>
                 <Space size={40}>
                     <RadioGroup
@@ -444,7 +443,7 @@ render(() => {
 
 ## Состояния
 
-Таб может находиться в активном и неактивном состоянии. Взаимодействие может быть ограничено с помощью свойства `disabled`. 
+Таб может находиться в активном и неактивном состоянии. Взаимодействие может быть ограничено с помощью свойства `disabled`.
 Дисейблить активный таб недопустимо.
 
 ```jsx live
@@ -458,10 +457,10 @@ render(() => {
     return (
         <>
             <TabsDesktop size='xs' selectedId={selectedId} onChange={handleChange}>
-                <Tab title='Aurum' id='tab-1'  />
-                <Tab title='Bercelium' id='tab-2'  disabled={true}/>
-                <Tab title='Curium' id='tab-3'  />
-                <Tab title='Neptunium' id='tab-4'  />
+                <Tab title='Aurum' id='tab-1' />
+                <Tab title='Bercelium' id='tab-2' disabled={true} />
+                <Tab title='Curium' id='tab-3' />
+                <Tab title='Neptunium' id='tab-4' />
                 <Tab title='Plutonuim' id='tab-5' />
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
@@ -473,10 +472,10 @@ render(() => {
                     view='secondary'
                     size='xs'
                 >
-                    <Tab title='Aurum' id='tab-1'  />
+                    <Tab title='Aurum' id='tab-1' />
                     <Tab title='Bercelium' id='tab-2' disabled={true} />
-                    <Tab title='Curium' id='tab-3'  />
-                    <Tab title='Neptunium' id='tab-4'  />
+                    <Tab title='Curium' id='tab-3' />
+                    <Tab title='Neptunium' id='tab-4' />
                     <Tab title='Plutonuim' id='tab-5' />
                     <Tab title='Rubidium' id='tab-6' />
                     <Tab title='Californium' id='tab-7' />
@@ -496,10 +495,10 @@ render(() => {
     return (
         <>
             <TabsMobile size='xs' selectedId={selectedId} onChange={handleChange}>
-                <Tab title='Aurum' id='tab-1'  />
+                <Tab title='Aurum' id='tab-1' />
                 <Tab title='Bercelium' id='tab-2' disabled={true} />
-                <Tab title='Curium' id='tab-3'  />
-                <Tab title='Neptunium' id='tab-4'  />
+                <Tab title='Curium' id='tab-3' />
+                <Tab title='Neptunium' id='tab-4' />
                 <Tab title='Plutonuim' id='tab-5' />
                 <Tab title='Rubidium' id='tab-6' />
                 <Tab title='Californium' id='tab-7' />
@@ -511,10 +510,10 @@ render(() => {
                     view='secondary'
                     size='xs'
                 >
-                    <Tab title='Aurum' id='tab-1'  />
+                    <Tab title='Aurum' id='tab-1' />
                     <Tab title='Bercelium' id='tab-2' disabled={true} />
-                    <Tab title='Curium' id='tab-3'  />
-                    <Tab title='Neptunium' id='tab-4'  />
+                    <Tab title='Curium' id='tab-3' />
+                    <Tab title='Neptunium' id='tab-4' />
                     <Tab title='Plutonuim' id='tab-5' />
                     <Tab title='Rubidium' id='tab-6' />
                     <Tab title='Californium' id='tab-7' />
