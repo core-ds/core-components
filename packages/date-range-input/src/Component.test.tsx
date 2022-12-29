@@ -1,8 +1,9 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 import { DateRangeInput } from './index';
+import { parseDateString } from './utils';
 
 describe('DateRangeInput', () => {
     describe('Display tests', () => {
@@ -41,7 +42,7 @@ describe('DateRangeInput', () => {
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
 
             await waitFor(() => {
                 expect(input).toHaveValue(value);
@@ -60,11 +61,75 @@ describe('DateRangeInput', () => {
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
 
             await waitFor(() => {
                 expect(onComplete).toBeCalledTimes(2);
                 expect(onChange).toBeCalledTimes(value.length + 2);
+            });
+        });
+
+        it('should calls onComplete and onChange callbacks with picker prop', async () => {
+            const calendarTestId = 'calendar-test-id';
+            const onComplete = jest.fn();
+            const onChange = jest.fn();
+            const { queryByRole, getByTestId, getByText } = render(
+                <DateRangeInput
+                    onComplete={onComplete}
+                    onChange={onChange}
+                    picker={true}
+                    calendarProps={{ dataTestId: calendarTestId }}
+                />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            act(() => {
+                input.focus();
+            });
+
+            await waitFor(() => {
+                expect(getByTestId(calendarTestId)).toBeInTheDocument();
+            });
+
+            const dayFrom = '10';
+            const dateFrom = new Date();
+            const monthFrom = dateFrom.getMonth() + 1;
+            const yearFrom = dateFrom.getFullYear();
+            dateFrom.setDate(parseInt(dayFrom));
+            const dateAsStringFrom = `${dayFrom}.${monthFrom}.${yearFrom}`;
+
+            act(() => {
+                fireEvent.click(getByText(dayFrom));
+            });
+
+            await waitFor(() => {
+                expect(onChange).toBeCalledTimes(1);
+                expect(onChange).toBeCalledWith({
+                    dateFrom: parseDateString(dateAsStringFrom),
+                    dateTo: undefined,
+                    value: dateAsStringFrom,
+                });
+            });
+
+            const dayTo = '12';
+            const dateTo = new Date();
+            const monthTo = dateTo.getMonth() + 1;
+            const yearTo = dateTo.getFullYear();
+            dateTo.setDate(parseInt(dayTo));
+            const dateAsStringTo = `${dayTo}.${monthTo}.${yearTo}`;
+
+            act(() => {
+                fireEvent.click(getByText(dayTo));
+            });
+
+            await waitFor(() => {
+                expect(onComplete).toBeCalledTimes(1);
+                expect(onComplete).toBeCalledWith({
+                    dateFrom: parseDateString(dateAsStringFrom),
+                    dateTo: parseDateString(dateAsStringTo),
+                    value: `${dateAsStringFrom} - ${dateAsStringTo}`,
+                });
             });
         });
     });

@@ -1,4 +1,5 @@
-export { CalendarDesktop as Calendar, CalendarDesktopProps as CalendarProps } from './desktop';
+export { CalendarDesktop as Calendar } from './desktop';
+export type { CalendarDesktopProps as CalendarProps } from './desktop';
 export * from './responsive';
 export { usePeriod, usePeriodWithReset } from './usePeriod';
 export { useCalendar } from './useCalendar';

@@ -146,7 +146,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s component ghost button primary component"
+                            class="component ghost s component ghost cc-icon-button button primary component"
                             type="button"
                           >
                             <span
@@ -232,10 +232,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               />
                             </svg>
                             <div
-                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                              class="wrapper positive m displayBadge"
                             >
                               <div
-                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                                class="component m icon positive"
                               >
                                 <svg
                                   fill="currentColor"
@@ -278,10 +278,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               />
                             </svg>
                             <div
-                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                              class="wrapper positive m displayBadge"
                             >
                               <div
-                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                                class="component m icon positive"
                               >
                                 <svg
                                   fill="currentColor"
@@ -326,10 +326,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               />
                             </svg>
                             <div
-                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                              class="wrapper positive m displayBadge"
                             >
                               <div
-                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                                class="component m icon positive"
                               >
                                 <svg
                                   fill="currentColor"
@@ -372,10 +372,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               />
                             </svg>
                             <div
-                              class="badge__wrapper_1woed badge__positive_1woed badge__m_1woed displayBadge"
+                              class="wrapper positive m displayBadge"
                             >
                               <div
-                                class="badge__component_1woed badge__m_1woed badge__icon_1woed badge__positive_1woed"
+                                class="component m icon positive"
                               >
                                 <svg
                                   fill="currentColor"

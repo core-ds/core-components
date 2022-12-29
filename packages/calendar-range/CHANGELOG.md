@@ -1,5 +1,36 @@
 # Change Log
 
+## 7.0.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.2
+    -   calendar-input@8.2.2
+    -   date-input@4.1.3
+
+## 7.0.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar-input@8.2.1
+    -   calendar@6.2.1
+    -   date-input@4.1.2
+
+## 7.0.7
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   calendar-input@8.2.0
+    -   calendar@6.2.0
+    -   date-input@4.1.1
+
 ## 7.0.6
 
 ### Patch Changes

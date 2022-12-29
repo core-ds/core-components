@@ -1,5 +1,33 @@
 # Change Log
 
+## 7.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.3
+    -   with-suffix@4.0.18
+
+## 7.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.2
+    -   with-suffix@4.0.17
+
+## 7.2.2
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   input@11.1.1
+    -   with-suffix@4.0.16
+
 ## 7.2.1
 
 ### Patch Changes

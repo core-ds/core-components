@@ -211,10 +211,9 @@ export const BaseSelect = forwardRef(
             },
         });
 
-        const menuProps = (getMenuProps as (options: object, additional: object) => Record<string, any>)(
-            { ref: listRef },
-            { suppressRefError: true },
-        );
+        const menuProps = (
+            getMenuProps as (options: object, additional: object) => Record<string, any>
+        )({ ref: listRef }, { suppressRefError: true });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
@@ -426,7 +425,7 @@ export const BaseSelect = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...fieldProps as Record<string, any>}
+                    {...(fieldProps as Record<string, any>)}
                 />
 
                 {name && !nativeSelect && renderValue()}
@@ -448,7 +447,7 @@ export const BaseSelect = forwardRef(
                                 className={cn(optionsListClassName, styles.optionsList)}
                             >
                                 <OptionsList
-                                    {...optionsListProps as Record<string, any>}
+                                    {...(optionsListProps as Record<string, any>)}
                                     optionsListWidth={optionsListWidth}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}

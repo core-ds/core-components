@@ -1,60 +1,48 @@
-## Компонент спиннера
-
-Default
-
-```jsx live
-<Spinner visible={true} size='s' />
-```
-
-Inverted
-
-```jsx live
-<div style={{
-    backgroundColor: 'var(--color-light-bg-primary-inverted)',
-    padding: '18px 20px',
-}}>
-    <Spinner visible={true} size='s' colors='inverted' />
-</div>
-```
-
-<!-- Spacer -->
-
-## Кастомизация
-
-Для указания размера следует задать класс с указанием одинаковых width, height.
-
-Переменные для кастомизации:
-
--   --spinner-display-visible
--   --spinner-animation-duration
--   --spinner-animation-timing-function
--   --spinner-default-color
--   --spinner-inverted-color
-
 ## Примеры
 
-Spinner `size=xs`:
+У компонента есть стандартные размеры: 16, 24 и 48px.
 
 ```jsx live
-<Spinner size='xs' visible={true} />
+const SIZES = ['m', 's', 'xs'];
+
+render(
+    <Container>
+        <Row align='middle'>
+            {SIZES.map(size => (
+                <div key={size} style={{marginRight: 20}}>
+                    <Spinner visible={true} size={size} />
+                </div>
+            ))}
+        </Row>
+    </Container>
+)
 ```
 
-Spinner `size=s`:
+## Использование в других компонентах
+
+Часто используется в [Button](/docs/компоненты-кнопки-button--button).
 
 ```jsx live
-<Spinner size='s' visible={true} />
-```
-
-Spinner `size=m`:
-
-```jsx live
-<Spinner size='m' visible={true} />
-```
-
-Spinner `size=s` in button:
-
-```jsx live
-<Button leftAddons={<Spinner visible={true} />} size='s'>
-    Документы загружаются...
-</Button>
+    <Container>
+        <div style={{marginBottom: 20}}>
+            <Button view="primary" loading={true} size='m'>
+               Label
+            </Button>
+        </div>
+        <div>
+            <Button leftAddons={<Spinner visible={true} />} size='m'>
+                Дела делаются
+            </Button>        
+        </div>
+    </Container>
+//MOBILE
+    <Container>
+        <Button view="primary" block={true} loading={true} size='m'>
+            Label
+        </Button>
+        <br/>
+        <Button block={true} leftAddons={<Spinner visible={true} />} size='m'>
+            Дела делаются
+        </Button>        
+    </Container>
 ```

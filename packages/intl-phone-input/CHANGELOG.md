@@ -1,5 +1,40 @@
 # Change Log
 
+## 9.2.4
+
+### Patch Changes
+
+### [#426](https://github.com/core-ds/core-components/pull/426)
+
+-   Исправлен дефект позволяющий удалить `dialCode` при выключеном `clearableCountryCode`
+
+-   Обновлены зависимости
+    -   input@11.1.3
+    -   select@13.2.5
+    -   input-autocomplete@9.3.2
+
+## 9.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.2
+    -   select@13.2.4
+    -   input-autocomplete@9.3.1
+
+## 9.2.2
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.3.0
+    -   input@11.1.1
+    -   select@13.2.3
+
 ## 9.2.1
 
 ### Patch Changes

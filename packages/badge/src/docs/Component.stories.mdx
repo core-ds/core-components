@@ -2,7 +2,8 @@ import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { CheckmarkCircleSIcon } from '@alfalab/icons-glyph/CheckmarkCircleSIcon';
 import { Badge } from '@alfalab/core-components-badge';
 
 import { Badge as BadgeTS } from '../Component';
@@ -11,13 +12,14 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-<Meta title='Компоненты/Прочие компоненты/Badge' component={Badge} />
+<Meta title='Components/Badge' component={Badge} />
 
 <!-- Canvas -->
 
 <Story name='Badge'>
     {React.createElement(() => {
         const view = select('view', ['count', 'icon'], 'count');
+        const size = select('size', ['s', 'm', 'xl'], 'm');
         const props =
             view === 'count'
                 ? {
@@ -29,8 +31,8 @@ import styles from '!!raw-loader!../index.module.css';
                   }
                 : {
                       view,
-                      size: select('size', ['s', 'm', 'xl'], 'm'),
-                      content: <AlertCircleMIcon />,
+                      size,
+                      content: size === 's' ? <CheckmarkCircleSIcon /> : <CheckmarkCircleMIcon />,
                       visibleIconOutline: boolean('visibleIconOutline', false),
                       visibleColorOutline: boolean('visibleColorOutline', false),
                       iconColor: select(

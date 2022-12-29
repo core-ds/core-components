@@ -1,4 +1,2 @@
-export {
-    DateRangeInputResponsive as DateRangeInput,
-    DateRangeInputResponsiveProps as DateRangeInputProps,
-} from './responsive';
+export { DateRangeInputResponsive as DateRangeInput } from './responsive';
+export type { DateRangeInputResponsiveProps as DateRangeInputProps } from './responsive';

@@ -1,5 +1,32 @@
 # Change Log
 
+## 2.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.5
+
+## 2.2.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.4
+
+## 2.2.8
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   button@7.0.2
+    -   pagination@2.0.8
+    -   select@13.2.3
+
 ## 2.2.7
 
 ### Patch Changes

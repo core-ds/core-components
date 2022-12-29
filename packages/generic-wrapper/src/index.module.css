@@ -1,0 +1,82 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl {
+    .padding-top-$(size) {
+        padding-top: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl {
+    .padding-right-$(size) {
+        padding-right: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl {
+    .padding-bottom-$(size) {
+        padding-bottom: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl {
+    .padding-left-$(size) {
+        padding-left: var(--gap-$(size));
+    }
+}

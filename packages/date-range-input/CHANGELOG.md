@@ -1,5 +1,56 @@
 # @alfalab/core-components-date-range-input
 
+## 2.2.2
+
+### Patch Changes
+
+### [#393](https://github.com/core-ds/core-components/pull/393)
+
+-   Исправлен borderRadius у календаря
+-   Исправлена ошибка, из-за которой коллбэки onChange и onComplete в компоненте DateTimeInput не вызывались, если даты выбиралась с помощью календаря<br />
+-   В компоненте DateTimeInput изменена типизация onChange и onComplete коллбэков. Теперь event опциональный, так как при выборе даты в пикере ChangeEvent в инпуте не происходит<br />
+-   В компоненте DateTimeInput исправлена ошибка, из-за которой не подставлялось время после закрытия мобильного календаря<br />
+-   В компоненте DateRangeInput исправлены ошибки, из-за которых в коллбэке onComplete передавалось неверное значение value и при полной очистке инпута период в календаре не сбрасывался<br />
+
+-   Обновлены зависимости
+    -   calendar@6.2.2
+    -   input@11.1.3
+
+## 2.2.1
+
+### Patch Changes
+
+### [#422](https://github.com/core-ds/core-components/pull/422)
+
+-   "export" типов заменен на "export type"
+
+-   Обновлены зависимости
+    -   input@11.1.2
+    -   calendar@6.2.1
+
+## 2.2.0
+
+### Minor Changes
+
+### [#334](https://github.com/core-ds/core-components/pull/334)
+
+-   В компонентах DateRangeInput, DateTimeInput и CalendarInput добавлены mobile и desktop версии компонентов. Название компонентов было изменено по схеме Component → ComponentDesktop
+-   В компонентах Calendar и InputAutocomplete добавлена responsive версия компонентов. Название компонентов было изменено по схеме Component → ComponentResponsive<br />
+-   В компонентах PickerButton и Tooltip добавлен новый пропс breakpoint. Название компонентов было изменено по схеме Component -→ ComponentResponsive для PickerButton и Component → ComponentDesktop для Tooltip<br />
+-   В компонентах Confirmation и SidePanel добавлен новый пропс breakpoint<br />
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   calendar@6.2.0
+    -   icon-button@6.0.2
+    -   input@11.1.1
+    -   popover@6.0.5
+
 ## 2.1.3
 
 ### Patch Changes

@@ -1,21 +1,18 @@
-import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
 import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
 import { ModalDesktop } from '@alfalab/core-components-modal/Component.desktop';
 import { ModalResponsive } from '@alfalab/core-components-modal/Component.responsive';
 
-import { ModalMobile as ModalMobileTS } from '../Component.mobile';
-import { ModalDesktop as ModalDesktopTS } from '../Component.desktop';
-import { ModalResponsive as ModalResponsiveTS } from '../Component.responsive';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
-import vars from '!!raw-loader!../vars.css';
 
-<Meta title='Компоненты/Модалки и поповеры/Modal' />
+<Meta title='Components/Modals&Overlays/Modal' />
 
 export const Text = () => (
     <p style={{ margin: '0 0 16px' }}>
@@ -138,25 +135,11 @@ export const Content = () => {
     version={version}
     package='@alfalab/core-components/modal'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
+    children='Модальное окно. Используется для отображения контента в модальном слое.'
 />
-
-```jsx
-import { ModalResponsive } from '@alfalab/core-components/modal/responsive';
-import { ModalDesktop } from '@alfalab/core-components/modal/desktop';
-import { ModalMobile } from '@alfalab/core-components/modal/mobile';
-```
 
 <Tabs
     description={<Description />}
+    development={<Development />}
     changelog={<Changelog />}
-    cssVars={<CssVars css={vars} />}
-    props={
-        <ArgsTable
-            components={{
-                ModalDesktop: ModalDesktopTS,
-                ModalMobile: ModalMobileTS,
-                ModalResponsive: ModalResponsiveTS,
-            }}
-        />
-    }
 />

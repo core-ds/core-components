@@ -46,6 +46,24 @@ describe(
 );
 
 describe(
+    'IconView | SuperEllipse indicator',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconView',
+            subComponentName: 'SuperEllipse',
+            knobs: {
+                size: '80',
+                indicator: 'true',
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 150, height: 150 },
+        },
+    }),
+);
+
+describe(
     'IconView | Circle size, border',
     screenshotTesting({
         cases: generateTestCases({
@@ -74,6 +92,24 @@ describe(
                 topAddons: [true, false],
                 bottomAddons: [true, false],
                 border: [true, false],
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 150, height: 150 },
+        },
+    }),
+);
+
+describe(
+    'IconView | Circle indicator',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconView',
+            subComponentName: 'Circle',
+            knobs: {
+                size: '80',
+                indicator: 'true',
             },
             testStory: false,
         }),

@@ -76,6 +76,7 @@ const es5 = {
         {
             dir: 'dist',
             format: 'cjs',
+            interop: 'compat',
             plugins: [addCssImports({ currentPackageDir })],
         },
     ],
@@ -139,6 +140,7 @@ const cssm = {
         {
             dir: 'dist/cssm',
             format: 'cjs',
+            interop: 'compat',
             plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
         },
     ],

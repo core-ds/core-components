@@ -73,8 +73,8 @@ export const Badge = ({
 
     const isHidden = isCountView && typeof content === 'number' && content <= 0;
     const componentContent = isCountView && content && content >= 100 ? '99+' : content;
-    const isHeightS = isCountView && height >= 16 && height <= 17;
-    const isHeightM = isCountView && height >= 18 && height <= 24;
+    const isHeightS = isCountView && height >= 16 && height <= 18;
+    const isHeightM = isCountView && height >= 19 && height <= 24;
     const isHeightL = isCountView && height >= 25 && height <= 32;
     const isHeightXL = isCountView && height >= 33 && height <= 40;
     const isHeightXXL = isCountView && height >= 41 && height <= 48;
@@ -86,9 +86,8 @@ export const Badge = ({
                 iconColor && styles[iconColor],
                 {
                     [styles[size]]: !isCountView,
-                    [styles.outline]: !isCountView && visibleIconOutline,
-                    [styles.outlineColor]: visibleColorOutline,
-                    [styles.outlineCount]: isCountView && visibleIconOutline,
+                    [styles.outline]: visibleIconOutline,
+                    [styles.outlineColor]: !isCountView && visibleColorOutline,
                     [styles.count]: isCountView,
                 },
                 className,
@@ -109,6 +108,7 @@ export const Badge = ({
                     {
                         [styles.isHidden]: isHidden,
                         [styles.dot]: !content,
+                        [styles.outlineCount]: isCountView && visibleIconOutline,
                     },
                 )}
                 style={{

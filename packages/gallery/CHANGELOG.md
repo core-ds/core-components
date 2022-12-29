@@ -1,5 +1,34 @@
 # Change Log
 
+## 5.1.7
+
+### Patch Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+## 5.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@6.2.1
+
+## 5.1.5
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   tooltip@6.2.0
+    -   base-modal@5.0.7
+    -   icon-button@6.0.2
+    -   typography@3.0.7
+
 ## 5.1.4
 
 ### Patch Changes

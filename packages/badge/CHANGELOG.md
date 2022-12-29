@@ -1,5 +1,23 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+### [#397](https://github.com/core-ds/core-components/pull/397)
+
+-   Обновлен размер 's' c 18px на 20px для Badge view='icon'
+-   Исправлено сжатие svg в размерах 's' и 'm'<br />
+-   Обводка для Badge view='count' изменена с внешней на внутреннюю<br />
+
+## 4.0.4
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
 ## 4.0.3
 
 ### Patch Changes

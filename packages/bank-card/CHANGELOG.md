@@ -1,5 +1,34 @@
 # Change Log
 
+## 5.2.10
+
+### Patch Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   masked-input@6.1.3
+
+## 5.2.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.1.2
+
+## 5.2.8
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   masked-input@6.1.1
+
 ## 5.2.7
 
 ### Patch Changes

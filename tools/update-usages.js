@@ -3,7 +3,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const globby = require('globby');
 
-const apiUrl = 'http://digital/design-system-usage/api/stats/component-usages';
+const apiUrl = 'http://design/design-system-usage/api/stats/component-usages';
 
 async function fetchUsages(component) {
     const fetch = async (url) => {

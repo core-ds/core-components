@@ -1,5 +1,32 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+### [#396](https://github.com/core-ds/core-components/pull/396)
+
+-   Добавлен новый вид выреза под индикатор
+-   Добавлены новые размеры 32px и 20px<br />
+-   В старых размерах изменены вырезы под аддон и размер аддонов (в 64 размере с 18px до 24px, в 48 и 40 размерах с 18px до 20px)<br />
+-   Добавлена возможность прокидывать иконку в шейп<br />
+
+## 2.2.2
+
+### Patch Changes
+
+### [#428](https://github.com/core-ds/core-components/pull/428)
+
+-   Исправлен patternId для imageUrl
+
+## 2.2.1
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
 ## 2.2.0
 
 ### Minor Changes

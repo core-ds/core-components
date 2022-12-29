@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/addon-docs';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { DateRangeInput } from '@alfalab/core-components-date-range-input';
 
@@ -8,7 +8,7 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 
-<Meta title='Компоненты/Инпуты/DateRangeInput' component={DateRangeInput} />
+<Meta title='Components/Forms/Inputs/DateRangeInput' component={DateRangeInput} />
 
 <!-- Canvas -->
 
@@ -23,6 +23,7 @@ import Development from './development.mdx';
                 label={text('label', '')}
                 picker={boolean('picker', false)}
                 clear={boolean('clear', false)}
+                defaultMonth={number('defaultMonth', undefined)}
             />
         );
     })}

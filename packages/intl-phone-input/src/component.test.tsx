@@ -59,11 +59,11 @@ describe('IntlPhoneInput', () => {
     });
 
     it('should have default country flag icon', () => {
-        const { container } = render(<IntlPhoneInput value='' onChange={jest.fn()} />);
+        render(<IntlPhoneInput value='' onChange={jest.fn()} />);
 
-        const flagComponent = container.querySelector('.flagIcon');
+        const flagComponent = screen.getByTestId('flag-icon-ru');
 
-        expect(flagComponent).toHaveClass('ru');
+        expect(flagComponent).toBeInTheDocument();
     });
 
     it('should have passed country flag icon', () => {
@@ -73,13 +73,18 @@ describe('IntlPhoneInput', () => {
 
         const flagComponent = container.querySelector('.flagIcon');
 
-        expect(flagComponent).toHaveClass('az');
+        expect(flagComponent).toHaveAttribute('data-test-id', 'flag-icon-az');
     });
 
     it('should set new country flag icon from props', async () => {
         const { container } = render(<IntlPhoneInput value='+61' onChange={jest.fn()} />);
 
-        await waitFor(() => expect(container.querySelector('.flagIcon')).toHaveClass('au'));
+        await waitFor(() =>
+            expect(container.querySelector('.flagIcon')).toHaveAttribute(
+                'data-test-id',
+                'flag-icon-au',
+            ),
+        );
     });
 
     it('should call `onChange` callback after select was changed', async () => {
@@ -315,7 +320,7 @@ describe('IntlPhoneInput', () => {
         });
     });
 
-    it.only('should format number when set unformated value', async () => {
+    it('should format number when set unformated value', async () => {
         const onChange = jest.fn();
         const onCountryChange = jest.fn();
         const RenderComponent = () => {
@@ -347,6 +352,25 @@ describe('IntlPhoneInput', () => {
         await waitFor(async () => {
             expect(onChange).toHaveBeenCalledWith('+7 949 123-45-67');
             expect(onCountryChange).toHaveBeenCalledWith('RU');
+        });
+    });
+
+    it('should be not clearable country code', async () => {
+        const onChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                clearableCountryCode={false}
+                value='+7 928 123-45-67'
+                onChange={onChange}
+            />,
+        );
+
+        const input = screen.getByDisplayValue('+7 928 123-45-67');
+
+        await userEvent.clear(input);
+
+        await waitFor(() => {
+            expect(onChange).toHaveBeenCalledWith('+7');
         });
     });
 });

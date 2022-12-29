@@ -47,7 +47,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component ghost s component ghost arrow primary component"
+              class="component ghost s component ghost cc-icon-button arrow primary component"
               type="button"
             >
               <span
@@ -79,7 +79,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component ghost s component ghost arrow primary component"
+              class="component ghost s component ghost cc-icon-button arrow primary component"
               type="button"
             >
               <span
@@ -699,7 +699,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
       </div>
     </div>
     <span
-      class="divider"
+      class="component s"
     />
     <div>
       <div
@@ -743,7 +743,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           >
             <button
               aria-label="Предыдущий период"
-              class="component ghost s component ghost arrow primary component"
+              class="component ghost s component ghost cc-icon-button arrow primary component"
               type="button"
             >
               <span
@@ -775,7 +775,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </span>
             <button
               aria-label="Следующий период"
-              class="component ghost s component ghost arrow primary component"
+              class="component ghost s component ghost cc-icon-button arrow primary component"
               type="button"
             >
               <span

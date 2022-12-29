@@ -1,5 +1,27 @@
 # Change Log
 
+## 4.1.5
+
+### Patch Changes
+
+### [#429](https://github.com/core-ds/core-components/pull/429)
+
+-   Исправлено переполнение контейнера PureCell.Text
+
+## 4.1.4
+
+### Patch Changes
+
+### [#418](https://github.com/core-ds/core-components/pull/418)
+
+-   Исправлена проблема с default-импортом в cjs форматах
+
+-   Обновлены зависимости
+    -   amount@3.1.1
+    -   button@7.0.2
+    -   comment@2.1.5
+    -   typography@3.0.7
+
 ## 4.1.3
 
 ### Patch Changes
