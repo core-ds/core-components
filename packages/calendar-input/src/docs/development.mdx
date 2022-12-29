@@ -1,0 +1,22 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { CalendarInputResponsive as CalendarInputTS } from '../responsive';
+import styles from '!!raw-loader!../components/calendar-input/index.module.css';
+
+## Подключение
+
+```jsx
+import { CalendarInput } from '@alfalab/core-components/calendar-input';
+import { CalendarInputDesktop } from '@alfalab/core-components/calendar-input/desktop';
+import { CalendarInputMobile } from '@alfalab/core-components/calendar-input/mobile';
+import { CalendarInputResponsive } from '@alfalab/core-components/calendar-input/responsive';
+```
+Из индекса импортируется responsive версия компонента.
+
+## Свойства
+
+<ArgsTable of={CalendarInputTS} />
+
+## Переменные
+
+<CssVars css={styles} />

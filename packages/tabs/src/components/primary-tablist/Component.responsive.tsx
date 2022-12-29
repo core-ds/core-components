@@ -11,6 +11,7 @@ export const PrimaryTabListResponsive = ({
     size,
     defaultMatch = 'desktop',
     collapsible,
+    collapsedTabsIds,
     fullWidthScroll,
     ...restProps
 }: TabListProps) => {
@@ -23,7 +24,12 @@ export const PrimaryTabListResponsive = ({
     );
 
     return view === 'desktop' ? (
-        <PrimaryTabListDesktop collapsible={collapsible} size={size} {...restProps} />
+        <PrimaryTabListDesktop
+            collapsible={collapsible}
+            collapsedTabsIds={collapsedTabsIds}
+            size={size}
+            {...restProps}
+        />
     ) : (
         <PrimaryTabListMobile fullWidthScroll={fullWidthScroll} {...restProps} />
     );

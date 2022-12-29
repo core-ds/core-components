@@ -1,67 +1,52 @@
-Компонент `Popover`. Под капотом использует `popper.js` и `react-transition-group`.
+## Пример
 
-```jsx live
+Под капотом использует popper.js и react-transition-group. 
+Если положение поповера не пересчитывается (например, при измененнии размера элемента-якоря), то можно воспользоваться методом update:
+
+```jsx live mobileWidth=400
 render(() => {
-    const [open, setOpen] = React.useState(false);
-
+    const [count, setCount] = React.useState(0);
     const [buttonElement, setButtonElement] = React.useState(null);
 
-    const toggle = () => {
-        setOpen(!open);
-    };
+    const label = {
+        0: 'Показать поповер снизу' ,  
+        1: 'Показать поповер сверху',
+        2: 'Показать слева',
+        3: 'Показать справа',
+        4: 'Скрыть',
+    }
 
-    const handleButtonRef = node => {
-        setButtonElement(node);
-    };
-
-    return (
-        <div
-            style={{
-                width: '100%',
-                height: '300px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
-            <Popover anchorElement={buttonElement} open={open} preventFlip={true}>
-                <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
-            </Popover>
-
-            <Button ref={handleButtonRef} size='xs' onClick={toggle}>
-                {open ? 'Скрыть' : 'Показать'} Popover
-            </Button>
-        </div>
-    );
-});
-```
-
-В редких случаях, если положение поповера не пересчитывается (например, при измененнии размера элемента-якоря),
-то можно воспользоваться методом `update`:
-
-```jsx live
-render(() => {
-    const [count, setCount] = React.useState(1);
-    const [buttonElement, setButtonElement] = React.useState(null);
+    const position = {
+        1: 'bottom',
+        2: 'top',
+        3: 'left',
+        4: 'right',
+    }
 
     // updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера
     const updatePopover = React.useRef();
 
     const onClick = () => {
         setCount(count => count + 1);
+
         if (updatePopover.current) {
             // Обновляем положение поповера
             updatePopover.current();
         }
+        if (count === 4) {
+            setCount(0)
+        }
     };
 
     const handleButtonRef = node => {
-        setButtonElement(node);
-    };
-
-    const popoverChildren = React.useMemo(
-        () => <div style={{ padding: '15px', width: '156px' }}>I am popover</div>,
-        [],
+        if (count !== 0) {
+            setButtonElement(node);
+        }
+    }
+    const popoverChildren = (
+    <>
+        {count !== 0 && <div style={{ padding: '15px', width: '156px' }}>Popover</div>}
+    </>
     );
 
     return (
@@ -77,19 +62,97 @@ render(() => {
             <Popover
                 anchorElement={buttonElement}
                 useAnchorWidth={true}
-                position='bottom'
-                open={true}
+                position={position[count]}
+                open={count !== 0 }
                 update={updatePopover}
+                offset={[0,4]}
             >
                 {popoverChildren}
             </Popover>
 
             <Button
+                size='s'
                 ref={handleButtonRef}
                 onClick={onClick}
-                style={{ height: `${56 * count}px`, width: `${128 * count}px` }}
             >
-                Нажми на меня
+                {label[count]}
+            </Button>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [count, setCount] = React.useState(0);
+    const [buttonElement, setButtonElement] = React.useState(null);
+
+    const label = {
+        0: 'Показать поповер снизу' ,  
+        1: 'Показать поповер сверху',
+        2: 'Показать слева',
+        3: 'Показать справа',
+        4: 'Скрыть',
+    }
+
+    const position = {
+        1: 'bottom',
+        2: 'top',
+        3: 'left',
+        4: 'right',
+    }
+
+    // updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера
+    const updatePopover = React.useRef();
+
+    const onClick = () => {
+        setCount(count => count + 1);
+
+        if (updatePopover.current) {
+            // Обновляем положение поповера
+            updatePopover.current();
+        }
+        if (count === 4) {
+            setCount(0)
+        }
+    };
+
+    const handleButtonRef = node => {
+        if (count !== 0) {
+            setButtonElement(node);
+        }
+    }
+    const popoverChildren = (
+    <>
+        {count !== 0 && <div style={{ padding: '15px', width: '66px' }}>Popover</div>}
+    </>
+    );
+
+    return (
+        <div
+            style={{
+                width: '100%',
+                height: '300px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Popover
+                anchorElement={buttonElement}
+                useAnchorWidth={position[count] !== 'left'}
+                position={position[count]}
+                open={count !== 0 }
+                update={updatePopover}
+                offset={[0,4]}
+            >
+                {popoverChildren}
+            </Popover>
+
+            <Button
+                size='s'
+                ref={handleButtonRef}
+                onClick={onClick}
+            >
+                {label[count]}
             </Button>
         </div>
     );

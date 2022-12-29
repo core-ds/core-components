@@ -1,98 +1,450 @@
-import { Container, Row, Col } from 'storybook/blocks';
+## Группа фильтров
 
-Компонент используется для отображения фильтров с различными вариантами фильтрации.
+Обычно фильтры объединяются в группу, в рамках группы используется один паттерн отображения лейбла. 
 
 ```jsx live
-render(() => {
+    // Одиночный выбор
+    const CustomField = ({ label, selected, setSelectedItems, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
+    
     const checkedContent = (
         <span>
-            Время года:<b> Весна</b>
+            {!label && 'Одиночный выбор:'}<b> {selected && selected.content }</b>
         </span>
     );
-    const content = <span>Время года</span>;
-
-    const [checked, setChecked] = React.useState(false);
-
+    
+    const contentLabel = <span>Одиночный выбор</span>;
+    
     return (
-        <FilterTag
-            size='xxs'
-            onClick={() => setChecked(true)}
-            onClear={() => setChecked(false)}
-            checked={checked}
-        >
-            {checked ? checkedContent : content}
-        </FilterTag>
+        <div ref={ref}>
+            <FilterTag
+                onClear={() => setSelectedItems([])}
+                checked={selected}
+                {...restInnerProps} {...restProps}
+            >
+                {selected? checkedContent : contentLabel}
+            </FilterTag>
+    </div>
+    )};
+    
+    // Множественный выбор 
+    const CustomFieldMultiple = ({ label, selected, setSelectedItems, selectedMultiple, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
+    
+    const content = selected && selected.content
+    
+    const checkedContent = (
+        <span>
+            {!label && 'Множественный выбор:'}<b> { selectedMultiple.length !== 1 ? `Выбрано: ${selectedMultiple.length}`: content }</b>
+        </span>
     );
+    
+    const contentLabel = <span>Множественный выбор</span>;
+    
+    return (
+        <div ref={ref}>
+            <FilterTag
+                onClear={() => setSelectedItems([])}
+                checked={selected}
+                {...restInnerProps} {...restProps}
+            >
+                {selected? checkedContent : contentLabel}
+            </FilterTag>
+    </div>
+    )};
+
+render(() => {
+
+    const options = [
+        { key: '1', content: 'Auurum' },
+        { key: '2', content: 'Bercelium' },
+        { key: '3', content: 'Curium' },
+        { key: '4', content: 'Neptunium' },
+        { key: '5', content: 'Plutonuim' }
+    ];
+   
+    const [label, setLabel] = React.useState(false)
+
+    const [selected, setSelected] = React.useState([]);
+    
+    const handleChangeSelected = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
+    
+    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
+    const handleChangeMultiple = ({ selectedMultiple }) => {
+        setSelectedMultiple(selectedMultiple.map(option => option.key));
+    };
+    
+    // Диапазон значений
+    const [filterTag, setFilterTag] = React.useState(null);
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState();
+    const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
+
+    const handleOpen = () => {
+        setOpen(!open);
+    };
+    
+    const handleClear = () => {
+        setOpen(false);
+        updatePeriod(null, null)
+    };
+
+
+    const handleUpdatePeriodr = (date) => {
+        updatePeriod(date)
+
+        if (selectedFrom) {
+            setOpen(false);
+        }
+    }
+
+    const handleFilterTagRef = node => {
+        setFilterTag(node);
+    };
+    
+    const getDateString = React.useCallback((date) => {
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${day}.${month}.${year}`;
+}, []);
+
+    const selectedRange = React.useMemo(() => {
+        if (selectedFrom && selectedTo) {
+            const selectedFromDate = new Date(selectedFrom);
+            const selectedToDate = new Date(selectedTo);
+            return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
+        }
+        return '';
+    }, [ selectedFrom, selectedTo]);
+    
+    const checkedContent = (
+        <span>
+            {!label && 'Диапазон значений:'}<b> {selectedRange && selectedRange}</b>
+        </span>
+    );
+    const content = <span>Диапазон значений</span>;
+
+    const css = `
+        div {
+            border-radius: 8px;
+        }
+    `;
+
+return(
+    <>
+        <Select
+            size='xxs'
+            allowUnselect={true}
+            popoverPosition='bottom-start'
+            options={options}
+            Field={CustomField}
+            onChange={handleChangeSelected}
+            selected={selected}
+            label={label}
+        />
+        <Gap size='m' />
+        <Select
+            size='xxs'
+            allowUnselect={true}
+            popoverPosition='bottom-start'
+            options={options}
+            Field={CustomFieldMultiple}
+            onChange={handleChangeMultiple}
+            selected={selectedMultiple}
+            multiple={true}
+            label={label}
+        />
+        <Gap size='m' />
+        <Popover anchorElement={filterTag} offset={[0, 4]} open={open} preventFlip={true} position='bottom-start'>
+        <style>{css}</style>
+        <div style={{width: 344}}>
+            <Calendar
+                responsive={true}
+                value={value}
+                selectedFrom={selectedFrom}
+                selectedTo={selectedTo}
+                onChange={handleUpdatePeriodr}
+                selectorView='month-only'
+            />
+        </div>
+        </Popover>
+      
+        <FilterTag
+           ref={handleFilterTagRef}
+            size='xxs'
+            onClick={handleOpen}
+            onClear={handleClear}
+            checked={selectedRange}
+            open={open}
+        >
+            {selectedRange ? checkedContent : content}
+        </FilterTag>
+        <Gap size='m' />
+        <Switch
+            block={true}
+            checked={label}
+            label='Скрывать лейбл после выбора'
+            onChange={() => setLabel(!label)}
+        />
+    </>
+    )
+});
+//MOBILE
+    // Одиночный выбор
+    const CustomField = ({ label, selected, setSelectedItems, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
+    
+    const checkedContent = (
+        <span>
+            {!label && 'Одиночный выбор:'}<b> {selected && selected.content }</b>
+        </span>
+    );
+    
+    const contentLabel = <span>Одиночный выбор</span>;
+    
+    return (
+        <div ref={ref}>
+            <FilterTag
+                onClear={() => setSelectedItems([])}
+                checked={selected}
+                {...restInnerProps} {...restProps}
+            >
+                {selected? checkedContent : contentLabel}
+            </FilterTag>
+    </div>
+    )};
+    
+    // Множественный выбор 
+    const CustomFieldMultiple = ({ label, selected, setSelectedItems, selectedMultiple, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
+    
+    const content = selected && selected.content
+    
+    const checkedContent = (
+        <span>
+            {!label && 'Множественный выбор:'}<b> { selectedMultiple.length !== 1 ? `Выбрано: ${selectedMultiple.length}`: content }</b>
+        </span>
+    );
+    
+    const contentLabel = <span>Множественный выбор</span>;
+    
+    return (
+        <div ref={ref}>
+            <FilterTag
+                onClear={() => setSelectedItems([])}
+                checked={selected}
+                {...restInnerProps} {...restProps}
+            >
+                {selected? checkedContent : contentLabel}
+            </FilterTag>
+    </div>
+    )};
+
+render(() => {
+
+    const options = [
+        { key: '1', content: 'Auurum' },
+        { key: '2', content: 'Bercelium' },
+        { key: '3', content: 'Curium' },
+        { key: '4', content: 'Neptunium' },
+        { key: '5', content: 'Plutonuim' }
+    ];
+   
+    const [label, setLabel] = React.useState(false)
+
+    const [selected, setSelected] = React.useState([]);
+    
+    const handleChangeSelected = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
+    
+    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
+    const handleChangeMultiple = ({ selectedMultiple }) => {
+        setSelectedMultiple(selectedMultiple.map(option => option.key));
+    };
+    
+    // Диапазон значений
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState();
+    const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
+
+    const handleOpen = () => {
+        setOpen(!open);
+    };
+    
+    const handleClear = () => {
+        setOpen(false);
+        updatePeriod(null, null)
+    };
+    
+    const handleUpdatePeriodr = (date) => {
+        updatePeriod(date)
+
+        if (selectedFrom) {
+            setOpen(false);
+        }
+    }
+    
+    const getDateString = React.useCallback((date) => {
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${day}.${month}.${year}`;
+}, []);
+
+    const selectedRange = React.useMemo(() => {
+        if (selectedFrom && selectedTo) {
+            const selectedFromDate = new Date(selectedFrom);
+            const selectedToDate = new Date(selectedTo);
+            return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
+        }
+        return '';
+    }, [ selectedFrom, selectedTo]);
+    
+    const checkedContent = (
+        <span>
+            {!label && 'Диапазон значений:'}<b> {selectedRange && selectedRange}</b>
+        </span>
+    );
+    const content = <span>Диапазон значений</span>;
+
+return(
+    <>
+        <SelectMobile
+            placeholder='Одиночный выбор'
+            size='xxs'
+            allowUnselect={true}
+            popoverPosition='bottom-start'
+            options={options}
+            Field={CustomField}
+            onChange={handleChangeSelected}
+            selected={selected}
+            label={label}
+        />
+        <Gap size='m' />
+        <SelectMobile
+            placeholder='Множественный выбор'
+            size='xxs'
+            allowUnselect={true}
+            popoverPosition='bottom-start'
+            options={options}
+            Field={CustomFieldMultiple}
+            onChange={handleChangeMultiple}
+            selected={selectedMultiple}
+            multiple={true}
+            label={label}
+        />
+        <Gap size='m' />
+        <CalendarMobile
+            open={open}
+            onClose={()=> setOpen(false)}
+            value={value}
+            selectedFrom={selectedFrom}
+            selectedTo={selectedTo}
+            onChange={handleUpdatePeriodr}
+            selectorView='month-only'
+        />
+      <FilterTag
+            size='xxs'
+            onClick={handleOpen}
+            onClear={handleClear}
+            checked={selectedRange}
+            open={open}
+        >
+            {selectedRange ? checkedContent : content}
+        </FilterTag>
+      <Gap size='m' />
+        <Switch
+            block={true}
+            checked={label}
+            label='Скрывать лейбл после выбора'
+            onChange={() => setLabel(!label)}
+        />
+    </>
+    )
 });
 ```
 
-## Архитектура
+## Состояния
 
-Компонент используется в комбинациях с [Select](/docs/components-selects-select--select), [Сalendar](/docs/components-forms-calendars-calendar--calendar),
-и другими кастомными контролами вместо стандартного field.
-
-## Примеры
-
-### Размеры
-
-Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
+Таб может находиться в активном и неактивном состоянии. Взаимодействие может быть ограничено с помощью свойства `disabled`.
 
 ```jsx live
 render(() => {
-    const SIZES = ['s', 'xs', 'xxs'];
     const checkedContent = (
         <span>
-            Время года:<b> Весна</b>
+            Label:<b> Value</b>
         </span>
     );
-    const content = <span>Время года</span>;
+    const content = <span>Label</span>;
     const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
 
     return (
         <Container>
             <Row align='middle'>
-                {SIZES.map((size) => (
-                    <Col key={size}>
-                        <FilterTag
-                            size={size}
-                            onClick={() => setCheckedFilterTag([...checkedFilterTag, size])}
-                            onClear={() =>
-                                setCheckedFilterTag(
-                                    checkedFilterTag.filter((item) => item !== size),
-                                )
-                            }
-                            checked={checkedFilterTag.includes(size)}
-                        >
-                            {checkedFilterTag === size ? checkedContent : content}
-                        </FilterTag>
-                    </Col>
-                ))}
+                <div style={{marginRight: 12}}>
+                    <FilterTag
+                        size='xxs'
+                        checked={false}
+                    >
+                        {content}
+                    </FilterTag>
+                </div>
+                <div>
+                    <FilterTag
+                        size='xxs'
+                        checked={false}
+                        disabled={true}
+                    >
+                        {content}
+                    </FilterTag>
+                </div>
             </Row>
+            <div style={{display: 'flex', marginTop: 12}}>
+                <div style={{marginRight: 12}}>
+                    <FilterTag
+                        size='xxs'
+                        checked={true}
+                    >
+                        {checkedContent}
+                    </FilterTag>
+                </div>
+                <div>
+                    <FilterTag
+                        size='xxs'
+                        checked={true}
+                        disabled={true}
+                    >
+                        {checkedContent}
+                    </FilterTag>
+                </div>
+            </div>
         </Container>
     );
 });
 ```
 
-### Варианты
+## Стиль
 
-Доступны два варианта компонента в рамках одной темы: `variant=default`, `variant=alt`.
+С помощью `variant` можно задать атернативный стиль тэгу, например, с другим радиусом скругления.
 
 ```jsx live
 render(() => {
     const variants = ['default', 'alt'];
     const checkedContent = (
         <span>
-            Время года:<b> Весна</b>
+            Label:<b> Value</b>
         </span>
     );
-    const content = <span>Время года</span>;
+    const content = <span>Label</span>;
     const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
 
     return (
         <Container>
             <Row align='middle'>
                 {variants.map((variant) => (
-                    <Col key={variant}>
+                    <div style={{marginRight: 12}} key={variant}>
                         <FilterTag
                             size='xxs'
                             onClick={() => setCheckedFilterTag([...checkedFilterTag, variant])}
@@ -106,53 +458,7 @@ render(() => {
                         >
                             {checkedFilterTag.includes(variant) ? checkedContent : content}
                         </FilterTag>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-    );
-});
-```
-
-### Варианты отображения значения
-
-В зависимости от контекста может быть использован один из следующих паттернов с отображением и скрытием лейбла в выбранном состоянии:
-
-```jsx live
-render(() => {
-    const label = <span>Время года</span>;
-    const content = {
-        labelItem: (
-            <span>
-                Время года:<b> Весна</b>
-            </span>
-        ),
-        labelCount: (
-            <span>
-                Время года:<b> Выбрано 2</b>
-            </span>
-        ),
-        checkedItem: <b>Весна</b>,
-    };
-
-    const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
-
-    return (
-        <Container>
-            <Row align='middle'>
-                {Object.entries(content).map(([key, value]) => (
-                    <Col key={key}>
-                        <FilterTag
-                            size='xxs'
-                            onClick={() => setCheckedFilterTag([...checkedFilterTag, key])}
-                            onClear={() =>
-                                setCheckedFilterTag(checkedFilterTag.filter((item) => item !== key))
-                            }
-                            checked={checkedFilterTag.includes(key)}
-                        >
-                            {checkedFilterTag.includes(key) ? value : label}
-                        </FilterTag>
-                    </Col>
+                    </div>
                 ))}
             </Row>
         </Container>

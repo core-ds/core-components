@@ -1,111 +1,134 @@
-import styles from '../stories.module.css';
+## Пример
 
-Компонент для ввода даты.
+Пикер используется, когда выбор дат ограничен. Например, если нельзя указывать выходные дни. 
+При наличии пикера допустимо блокировать ввод с клавиатуры чтобы исключить ввод недоступных значений.
 
-```jsx live
+```jsx live mobileHeight=640
 render(() => {
-    const defaultMonth = new Date('December 1, 2010 00:00:00');
+    const [keyPress, setKeyPress] = React.useState(false);
+    // import startOfDay from 'date-fns/startOfDay';
+    const defaultMonth = new Date('December 1, 2022 00:00:00'); 
 
-    return <CalendarInput label='Дата регистрации' defaultMonth={defaultMonth} />;
-});
-```
+    const minDate = startOfDay(new Date());
+    minDate.setDate(1);
+    minDate.setMonth(11);
 
-### Controlled-way
+    const maxDate = startOfDay(new Date());
+    maxDate.setDate(31);
+    maxDate.setMonth(11);
+    
+    const events = [new Date().setDate(13), new Date().setDate(19)];
 
-Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+    const offDays = [
+        new Date().setDate(8),
+        new Date().setDate(9),
+    ];
 
-```jsx live
-render(() => {
-    const [value, setValue] = React.useState('');
+    const holidays = [
+        new Date().setDate(3),
+        new Date().setDate(4),
+        new Date().setDate(10),
+        new Date().setDate(11),
+        new Date().setDate(17),
+        new Date().setDate(18),
+        new Date().setDate(24),
+        new Date().setDate(25),
+        new Date().setDate(31),
+    ];
 
-    const handleChange = (event, { value }) => setValue(value);
-
+    const handleChange = (event) => {
+        event.preventDefault()
+    };
+        
     return (
-        <Space>
-            <CalendarInput value={value} onChange={handleChange} label='Дата регистрации' />
-            <Button type='button' onClick={() => setValue('')}>
-                Reset
-            </Button>
-        </Space>
-    );
-});
-```
-
-### Рендер календаря под инпутом
-
-Календарь может рендериться как в поповере, так и под инпутом
-
-```jsx live
-render(() => {
-    const [value, setValue] = React.useState('');
-
-    const handleChange = (event, { value }) => setValue(value);
-
-    return (
-        <CalendarInput
-            value={value}
-            onChange={handleChange}
-            label='Дата регистрации'
-            calendarPosition='static'
+    <Space size={24}>
+        <CalendarInputDesktop 
+            label='Укажите дату'
+            defaultMonth={defaultMonth}  
+            events={events}
+            offDays={offDays}                 
+            minDate={minDate.getTime()}
+            maxDate={maxDate.getTime()} 
+            onKeyPress={keyPress ? handleChange: null}
+            calendarProps={{
+            selectorView: 'month-only',
+            holidays: holidays,
+            }}
         />
+        <Switch
+                block={true}
+                checked={keyPress}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setKeyPress(!keyPress)}
+            />
+      </Space>
     );
 });
-```
-
-### Минимальная и максимальная дата
-
-Календарь может рендериться как в поповере, так и под инпутом
-
-```jsx live
-// import { startOfDay, subMonths, addMonths } from 'date-fns';
-// import { parseDateString } from '@alfalab/core-components/calendar-input';
-
+//MOBILE
 render(() => {
-    const minDate = subMonths(startOfDay(new Date()), 2).getTime();
-    const maxDate = addMonths(startOfDay(new Date()), 2).getTime();
+    const [keyPress, setKeyPress] = React.useState(false);
+    // import startOfDay from 'date-fns/startOfDay';
+    const defaultMonth = new Date('December 1, 2022 00:00:00'); 
 
-    const [error, setError] = React.useState('');
-    const [value, setValue] = React.useState('');
+    const minDate = startOfDay(new Date());
+    minDate.setDate(1);
+    minDate.setMonth(11);
 
-    const handleChange = (event, { value }) => {
-        setValue(value);
+    const maxDate = startOfDay(new Date());
+    maxDate.setDate(31);
+    maxDate.setMonth(11);
+    
+    const events = [new Date().setDate(13), new Date().setDate(19)];
+
+    const offDays = [
+        new Date().setDate(8),
+        new Date().setDate(9),
+    ];
+
+    const holidays = [
+        new Date().setDate(3),
+        new Date().setDate(4),
+        new Date().setDate(10),
+        new Date().setDate(11),
+        new Date().setDate(17),
+        new Date().setDate(18),
+        new Date().setDate(24),
+        new Date().setDate(25),
+        new Date().setDate(31),
+    ];
+
+    const handleChange = (event) => {
+        event.preventDefault()
     };
 
-    const handleBlur = event => {
-        if (value) {
-            const date = parseDateString(value);
-            if (Number.isNaN(date.getTime()) || date < minDate || date > maxDate)
-                setError('Некорректная дата');
-        }
-    };
-
-    const handleFocus = () => setError('');
-
     return (
-        <CalendarInput
-            label='Дата регистрации'
-            value={value}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
-            minDate={minDate}
-            maxDate={maxDate}
-            error={error}
-        />
+        <Space size={24}>
+            <CalendarInputMobile 
+                label='Укажите дату'  
+                defaultMonth={defaultMonth} 
+                events={events}
+                offDays={offDays}                 
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()} 
+                onKeyPress={keyPress ? handleChange: null}
+                calendarProps={{
+                selectorView: 'month-only',
+                holidays: holidays,
+                }}
+            />
+                <Switch
+                block={true}
+                checked={keyPress}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setKeyPress(!keyPress)}
+            />
+      </Space>
     );
 });
 ```
 
-### Инпут по ширине календаря
+## Морфология
 
-Используя css-переменную `--calendar-width` можно задать инпуту такую же ширину, как у компонента календаря
-
-```jsx
-/*
-.calendarWidth {
-    width: var(--calendar-width);
-}
-*/
-
-<CalendarInput className={styles.calendarWidth} />
-```
+Поле ввода является оберткой над [FormControl](/docs/компоненты-инпуты-formcontrol--form-control),
+поэтому наследует все доступные для него настройки. Пикер это
+[Calendar](/docs/компоненты-календари-calendar--calendar) переданный в [Popover](/docs/компоненты-модалки-и-поповеры-popover--popover).

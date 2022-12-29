@@ -1,7 +1,10 @@
 import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
-    createStorybookUrl, openBrowserPage, matchHtml, closeBrowser
+    createStorybookUrl,
+    openBrowserPage,
+    matchHtml,
+    closeBrowser,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({

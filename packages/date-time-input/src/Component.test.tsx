@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 import { DateTimeInput } from '.';
-import {addTimeToDate, getFullDateTime} from './utils';
+import { addTimeToDate, getFullDateTime } from './utils';
 
 describe('DateTimeInput', () => {
     describe('Display tests', () => {
@@ -113,13 +113,13 @@ describe('DateTimeInput', () => {
 
             act(() => {
                 input.blur();
-            })
+            });
 
             await waitFor(() => {
                 expect(onComplete).toBeCalledTimes(1);
                 expect(onComplete).toBeCalledWith(null, {
                     date: getFullDateTime(dateAsString),
-                    value: addTimeToDate(dateAsString)
+                    value: addTimeToDate(dateAsString),
                 });
             });
         });

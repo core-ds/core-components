@@ -1,13 +1,12 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { FilterTag } from '@alfalab/core-components-filter-tag';
 
-import { FilterTag as FilterTagTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
 
 export const SIZES = ['xxs', 'xs', 's'];
 
@@ -45,15 +44,11 @@ export const SIZES = ['xxs', 'xs', 's'];
     version={version}
     package='@alfalab/core-components/filter-tag'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=7300%3A40133'
+    children='Используется чтобы вывести параметры фильтрации и отобразить примененное значение.'
 />
-
-```jsx
-import { FilterTag } from '@alfalab/core-components/filter-tag';
-```
 
 <Tabs
     description={<Description />}
-    props={<ArgsTable of={FilterTagTS} />}
-    cssVars={<CssVars css={styles} />}
+    development={<Development />}
     changelog={<Changelog />}
 />

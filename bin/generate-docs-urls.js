@@ -55,19 +55,19 @@ async function main() {
         breakPoints: {
             group: 'Instructions',
             name: 'Брейкпоинты',
-            docsUrl: '/iframe.html?id=instructions-брейкпоинты--page&viewMode=docs',
+            docsUrl: '/iframe.html?viewMode=docs&id=instructions-пользователям-брейкпоинты--page',
         },
         gaps: {
             group: 'Guidelines',
             name: 'Отступы',
             docsUrl:
-                '/iframe.html?id=guidelines-дизайн-токены-и-ассеты-отступы--page&viewMode=docs',
+                '/iframe.html?viewMode=docs&id=guidelines-дизайн-токены-и-ассеты-отступы--page',
         },
         cssVars: {
             group: 'Guidelines',
             name: 'CSS-переменные',
             docsUrl:
-                '/iframe.html?id=guidelines-дизайн-токены-и-ассеты-css-переменные--page&viewMode=docs',
+                '/iframe.html?viewMode=docs&id=guidelines-дизайн-токены-и-ассеты-css-переменные--page',
         },
     };
 

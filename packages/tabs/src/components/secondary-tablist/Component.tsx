@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 import { Tag } from '@alfalab/core-components-tag';
 
-import { SecondaryTabListProps, Styles } from '../../typings';
 import { useTabs } from '../../hooks/use-tabs';
+import { SecondaryTabListProps, Styles } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
 
 export const SecondaryTabList = ({

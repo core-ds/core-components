@@ -29,6 +29,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
             <button
                 {...restProps}
                 ref={ref}
+                disabled={disabled}
                 type='button'
                 id={String(id)}
                 className={cn(

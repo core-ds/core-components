@@ -1,5 +1,9 @@
 @import '../../themes/src/default.css';
 
+.gap {
+    flex-shrink: 0;
+}
+
 .vertical {
     overflow: hidden;
     display: block;

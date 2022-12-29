@@ -1,234 +1,49 @@
-Компонент используется для скрытия редких или одинаковых по контексту действий.
-
-```jsx live
-const options = [
-    { key: 'Название опции 1' },
-    { key: 'Название опции 2' },
-    { key: 'Название опции 3' },
-];
-
-const optionsWithIcons = [
-    { key: 'Название опции 1', icon: CarMIcon },
-    { key: 'Название опции 2', icon: StarMIcon },
-    { key: 'Название опции 3', icon: CardTransferMIcon },
-];
-
-render(
-    <Space>
-        <Space direction='horizontal'>
-            <PickerButton options={options} view='primary' label='Picker button' />
-            <PickerButton options={optionsWithIcons} view='primary' variant='compact' />
-        </Space>
-        <PickerButtonMobile options={options} view='primary' label='Mobile' />
-        <PickerButtonDesktop options={options} view='primary' label='Responsive' />
-    </Space>,
-);
-```
-
-## Архитектура
-
-PickerButton это [Select](/docs/components-forms-selects-select--select) с [Button](/docs/components-actions-button--button) вместо стандартного `field`.
-Поэтому PickerButton доступен во всех `size` и `view`, которые есть у [Button](/docs/components-actions-button--button).
-
-```jsx live
-const options = [
-    { key: 'Название опции 1' },
-    { key: 'Название опции 2' },
-    { key: 'Название опции 3' },
-];
-
-render(
-    <Space direction='horizontal'>
-        <PickerButton label='Picker button' options={options} view='primary' size='m' />
-        <PickerButton label='Picker button' options={options} view='secondary' size='s' />
-        <PickerButton label='Picker button' options={options} view='tertiary' size='xxs' />
-    </Space>,
-);
-```
-
 ## Примеры
 
-### Позиционирование
-
-Если места достаточно, список открывается под контролом, если недостасточно над ним.
-
-```jsx live
+```jsx live mobileHeight=640
 const options = [
-    { key: 'Пример длинного названия' },
-    { key: 'Название опции' },
-    { key: 'Название опции' },
-];
-
-render(
-    <Space direction='horizontal'>
-        <PickerButton
-            label='Слева'
-            options={options}
-            popoverPosition='bottom-start'
-            view='primary'
-        />
-        <PickerButton label='По центру' options={options} popoverPosition='bottom' view='primary' />
-        <PickerButton
-            label='Справа'
-            options={options}
-            popoverPosition='bottom-end'
-            view='primary'
-        />
-    </Space>,
-);
-```
-
-### Ширина выпадающего списка
-
-#### Дефолтная
-
-Обычно ширину выпадающего списка задает контент.
-Если контент слишком длинный, то можно изменить это поведение.
-
-```jsx live
-const options = [
-    { key: 'Пример длинного названия' },
-    { key: 'Название опции' },
-    { key: 'Название опции' },
-];
-
-render(<PickerButton options={options} view='primary' label='Picker button' />);
-```
-
-#### Равная вызывающему контролу
-
-Можно использовать `optionsListWidth='field'`
-— в этом случае ширина выпадающего меню будет равна ширине контрола, а лишний контент обрежется.
-
-```jsx live
-const LongContent = ({ text }) => (
-    <span style={{ whiteSpace: 'nowrap' }} title={text}>
-        {text}
-    </span>
-);
-
-const options = [
-    { key: '1', content: <LongContent text='Пример длинного названия' /> },
-    { key: '2', content: <LongContent text='Название опции' /> },
-    { key: '3', content: <LongContent text='Название опции' /> },
-];
-
-render(
-    <PickerButton
-        options={options}
-        view='primary'
-        optionsListWidth='field'
-        label='Picker button'
-    />,
-);
-```
-
-#### Кастомная
-
-Кастомную ширину можно задать с помощью стилей и `optionsListClassName`
-
-```jsx
-/*
-css
-.customWidth {
-    width: 300px;
-}
-*/
-
-<PickerButton
-    options={options}
-    optionsListClassName={styles.customWidth}
-    view='primary'
-    label='Picker button'
-/>
-```
-
-### Высота выпадающего списка
-
-Если в списке менее шести элементов — он отображается полноразмерно.
-Если элементов больше — высота списка устанавливается равной 5,5 ячейкам и появляется скролл.
-
-```jsx live
-const options = [
-    { key: 'Название опции 1' },
-    { key: 'Название опции 2' },
-    { key: 'Название опции 3' },
-    { key: 'Название опции 4' },
-    { key: 'Название опции 5' },
-];
-
-const moreOptions = [
-    ...options,
-    { key: 'Название опции 6' },
-    { key: 'Название опции 7' },
-    { key: 'Название опции 8' },
-    { key: 'Название опции 9' },
-];
-
-render(
-    <Space direction='horizontal'>
-        <PickerButton options={options} view='primary' label='До пяти элементов' />
-        <PickerButton options={moreOptions} view='primary' label='Больше пяти элементов' />
-    </Space>,
-);
-```
-
-### Ячейки
-
-Используется кастомная ячейка высотой 48рх.
-
-```jsx live
-const options = [
-    { key: 'Название опции 1' },
-    { key: 'Название опции 2' },
-    { key: 'Название опции 3' },
+    { key: 'Car' },
+    { key: 'Star' },
+    { key: 'Flower' },
+    { key: 'Banknote' },
 ];
 
 const optionsWithIcons = [
-    { key: 'Название опции 1', icon: CarMIcon },
-    { key: 'Название опции 2', icon: StarMIcon },
-    { key: 'Название опции 3', icon: CardTransferMIcon },
+    { key: 'Car', icon: CarMIcon },
+    { key: 'Star', icon: StarMIcon },
+    { key: 'Flower', icon: FlowerMMIcon },
+    { key: 'Banknote', icon: BanknoteMIcon },
 ];
 
 render(
     <Space direction='horizontal'>
-        <PickerButton options={options} optionsSize='s' view='primary' label='Без иконки' />
-        <PickerButton options={optionsWithIcons} optionsSize='s' view='primary' label='С иконкой' />
-    </Space>,
+        <PickerButtonDesktop options={optionsWithIcons} view='primary' label='Picker button' />
+        <PickerButtonDesktop options={options} view='primary' variant='compact' />
+    </Space>
 );
-```
-
-### Кастомный контент
-
-Компонент позволяет использовать html в качестве `content` у вариантов выбора.
-
-```jsx live
-const Card = ({ name, balance }) => (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-        <div
-            style={{ width: '76px', height: '48px', marginRight: '16px', background: '#E7E9EB' }}
-        />
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '14px' }}>{name}</span>
-            <span style={{ fontSize: '16px' }}>{balance}</span>
-        </div>
-    </div>
-);
-
+//MOBILE
 const options = [
-    { key: 'Account1', content: <Card name='Account1 Name ··0000' balance='100 000,00 ₽' /> },
-    { key: 'Account2', content: <Card name='Account2 Name ··0000' balance='150 000,00 ₽' /> },
-    { key: 'Account3', content: <Card name='Account3 Name ··0000' balance='230 000,00 ₽' /> },
-    { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
+    { key: 'Car' },
+    { key: 'Star' },
+    { key: 'Flower' },
+    { key: 'Banknote' },
+];
+
+const optionsWithIcons = [
+    { key: 'Car', icon: CarMIcon },
+    { key: 'Star', icon: StarMIcon },
+    { key: 'Flower', icon: FlowerMMIcon },
+    { key: 'Banknote', icon: BanknoteMIcon },
 ];
 
 render(
-    <PickerButton
-        size='m'
-        options={options}
-        view='primary'
-        label='Выберите карту'
-        preventFlip={false}
-    />,
+    <Space direction='horizontal'>
+        <PickerButtonMobile options={optionsWithIcons} view='primary' label='Picker button' />
+        <PickerButtonMobile options={options} view='primary' variant='compact' />
+    </Space>
 );
 ```
+
+## Морфология
+
+Компонент представляет из себя [Select](/docs/компоненты-селекты-select--select) с [Button](/docs/компоненты-кнопки-button--button) вместо стандартного `field`.

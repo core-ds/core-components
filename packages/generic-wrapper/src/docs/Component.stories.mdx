@@ -1,0 +1,120 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { Gap } from '@alfalab/core-components-gap';
+import { select, radios, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { GenericWrapper } from '../Component';
+
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+<Meta title='Components/Cells/GenericWrapper' component={GenericWrapper} />
+
+<Story name='GenericWrapper'>
+    {() => {
+        const gapSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl'];
+        const alignItems = select('alignItems', ['end', 'start', 'center', 'baseline'], 'start');
+        const justifyContent = select(
+            'justifyContent',
+            ['between', 'around', 'evenly', 'center', 'start', 'end'],
+            undefined,
+        );
+        const column = boolean('column', false);
+        const paddingTop = select('padding.top', gapSizes, 'l');
+        const paddingRight = select('padding.right', gapSizes, 'l');
+        const paddingBottom = select('padding.bottom', gapSizes, 'l');
+        const paddingLeft = select('padding.left', gapSizes, 'l');
+        const gapDirection = radios(
+            'gapDirection',
+            {
+                vertical: 'vertical',
+                horizontal: 'horizontal',
+            },
+            'horizontal',
+        );
+        const growElement1 = boolean('grow (1st element)', false);
+        const growElement2 = boolean('grow (2st element)', false);
+        const growElement3 = boolean(`grow (3d element)`, false);
+        const gapSize1 = select('1st Gap size', gapSizes, 'l');
+        const gapSize2 = select('2nd Gap size', gapSizes, 'l');
+        return (
+            <div
+                style={{
+                    width: 1000,
+                }}
+            >
+                <div
+                    style={{
+                        border: '1px dashed #EFC2D5',
+                        borderRadius: '8px',
+                    }}
+                >
+                    <GenericWrapper
+                        alignItems={alignItems}
+                        column={column}
+                        padding={{
+                            top: paddingTop,
+                            right: paddingRight,
+                            bottom: paddingBottom,
+                            left: paddingLeft,
+                        }}
+                        justifyContent={justifyContent}
+                    >
+                        <GenericWrapper grow={growElement1}>
+                            <div
+                                style={{
+                                    background: 'rgba(55, 120, 251, 0.1)',
+                                    border: '1px dashed #3778FB',
+                                    borderRadius: '8px',
+                                    height: 128,
+                                    width: 128,
+                                    boxSizing: 'border-box',
+                                }}
+                            />
+                        </GenericWrapper>
+                        <Gap direction={gapDirection} size={gapSize1} />
+                        <GenericWrapper grow={growElement2}>
+                            <div
+                                style={{
+                                    background: 'rgba(55, 120, 251, 0.1)',
+                                    border: '1px dashed #3778FB',
+                                    borderRadius: '8px',
+                                    height: 64,
+                                    width: 64,
+                                    boxSizing: 'border-box',
+                                }}
+                            />
+                        </GenericWrapper>
+                        <Gap direction={gapDirection} size={gapSize2} />
+                        <GenericWrapper grow={growElement3}>
+                            <div
+                                style={{
+                                    background: 'rgba(55, 120, 251, 0.1)',
+                                    border: '1px dashed #3778FB',
+                                    borderRadius: '8px',
+                                    height: 164,
+                                    width: 164,
+                                    boxSizing: 'border-box',
+                                }}
+                            />
+                        </GenericWrapper>
+                    </GenericWrapper>
+                </div>
+                <Gap size='l' direction='horizontal' />
+            </div>
+        );
+    }}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='GenericWrapper'
+    version={version}
+    design='https://www.figma.com/file/MqpSYcvpzj0NG58uLTGJKK/NewStorybook?node-id=1047%3A144827&t=SW9AOiirB8ah7S3l-0'
+    package='@alfalab/core-components/generic-wrapper'
+    children='Многофункциональная ячейка.'
+/>
+
+<Tabs development={<Development />} description={<Description />} changelog={<Changelog />} />

@@ -1,26 +1,6 @@
-import { Container, Row, Col } from 'storybook/blocks';
+## Размеры
 
-Компонент используется для отображения фильтров,
-вариантов выбора в [RadioGroup](/docs/components-forms-radiogroup--radio-group),
-и [Tabs secondary](/docs/components-forms-tabs--tabs).
-
-```jsx live
-render(() => {
-    const [checked, setChecked] = React.useState(false);
-    const handleClick = () => setChecked(!checked);
-    return (
-        <Tag size='s' checked={checked} onClick={handleClick}>
-            Label
-        </Tag>
-    );
-});
-```
-
-## Примеры
-
-### Размеры
-
-Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
+Рекомендуется использовать S, XS и XXS размеры. Размеры XL, L, M — не рекомендованы к использованию.
 
 ```jsx live
 render(() => {
@@ -32,9 +12,9 @@ render(() => {
 
     return (
         <Container>
-            <Row>
+            <Row align='middle'>
                 {SIZES.map((size) => (
-                    <Col key={size}>
+                    <div key={size} style={{ marginRight: 12 }}>
                         <Tag
                             size={size}
                             checked={checked[size]}
@@ -42,7 +22,7 @@ render(() => {
                         >
                             Label
                         </Tag>
-                    </Col>
+                    </div>
                 ))}
             </Row>
         </Container>
@@ -50,31 +30,10 @@ render(() => {
 });
 ```
 
-### Скругления
+## Анатомия
 
-Доступны два варианта компонента в рамках одной темы: `variant=default`, `variant=alt`.
-
-```jsx live
-render(() => (
-    <Container>
-        <Row>
-            <Col>
-                <Tag size='xxs'>Label</Tag>
-            </Col>
-            <Col>
-                <Tag size='xxs' variant='alt'>
-                    Label
-                </Tag>
-            </Col>
-        </Row>
-    </Container>
-));
-```
-
-### Слоты
-
-С помощью слотов leftAddons и rightAddons можно кастомизировать тэг. Например, добавить иконку.
-Переданный контент будет отрисован слева или справа от лейбла.
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать тэг.  
+Например, добавить иконку. Переданный контент будет отрисован слева или справа от текста тэга.
 
 ```jsx live
 render(() => {
@@ -83,6 +42,7 @@ render(() => {
             style={{
                 background: 'rgba(55, 120, 251, 0.1)',
                 border: '1px dashed #3778FB',
+                borderRadius: '8px',
                 height: '24px',
                 width: '24px',
                 boxSizing: 'border-box',
@@ -90,77 +50,144 @@ render(() => {
         />
     );
 
-    return (
-        <Container>
-            <Row>
-                <Col>
-                    <Tag size='xxs'>Label</Tag>
-                </Col>
-                <Col>
-                    <Tag size='xxs' leftAddons={addon}>
-                        Label
-                    </Tag>
-                </Col>
-                <Col>
-                    <Tag size='xxs' rightAddons={addon}>
-                        Label
-                    </Tag>
-                </Col>
-                <Col>
-                    <Tag size='xxs'>{addon}</Tag>
-                </Col>
-            </Row>
-        </Container>
-    );
-});
-```
-
-### Кастомные слоты
-
-В некоторых случаях допустимо дополнительно настраивать отступ внутри аддона, см. пример с Amount.
-
-```jsx live
-render(() => {
-    const addon = (
-        <div
-            style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
-                height: '24px',
-                width: '24px',
-            }}
-        />
-    );
-
     const amountAddon = (
         <div style={{ paddingRight: '4px' }}>
-            <Amount view='withZeroMinorPart' value={123456700} currency='RUR' minority={100} />
+            <Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />
         </div>
     );
 
     return (
         <Container>
             <Row>
-                <Col>
-                    <Tag size='xxs'>Label</Tag>
-                </Col>
-                <Col>
-                    <Tag size='xxs' rightAddons={<StarSIcon />}>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size='s'>Label</Tag>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size='s' rightAddons={addon} leftAddons={addon}>
                         Label
                     </Tag>
-                </Col>
-                <Col>
-                    <Tag size='xxs' rightAddons={<Badge view='count' content={1} />}>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
                         Label
                     </Tag>
-                </Col>
-                <Col>
-                    <Tag size='xxs' rightAddons={amountAddon}>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size='s' rightAddons={amountAddon}>
                         Label
                     </Tag>
-                </Col>
+                </div>
             </Row>
         </Container>
     );
 });
+//MOBILE
+render(() => {
+    const addon = (
+        <div
+            style={{
+                background: 'rgba(55, 120, 251, 0.1)',
+                border: '1px dashed #3778FB',
+                borderRadius: '8px',
+                height: '24px',
+                width: '24px',
+                boxSizing: 'border-box',
+            }}
+        />
+    );
+
+    const amountAddon = (
+        <div style={{ paddingRight: '4px' }}>
+            <Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />
+        </div>
+    );
+
+    return (
+        <Container>
+            <Row>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size='s'>Label</Tag>
+                </div>
+                <div>
+                    <Tag size='s' rightAddons={addon} leftAddons={addon}>
+                        Label
+                    </Tag>
+                </div>
+            </Row>
+            <div style={{ display: 'flex', marginTop: 16 }}>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
+                        Label
+                    </Tag>
+                </div>
+                <div>
+                    <Tag size='s' rightAddons={amountAddon}>
+                        Label
+                    </Tag>
+                </div>
+            </div>
+        </Container>
+    );
+});
 ```
+
+## Состояния
+
+Таб может находиться в активном и неактивном состоянии. Взаимодействие может быть ограничено с помощью свойства `disabled`.
+
+```jsx live
+render(() => (
+    <Container>
+        <Row>
+            <div style={{ marginRight: 12 }}>
+                <Tag size='s'>Label</Tag>
+            </div>
+            <div>
+                <Tag size='s' disabled={true}>
+                    Label
+                </Tag>
+            </div>
+        </Row>
+        <div style={{ display: 'flex', marginTop: 16 }}>
+            <div style={{ marginRight: 12 }}>
+                <Tag size='s' checked={true}>
+                    Label
+                </Tag>
+            </div>
+            <Col>
+                <Tag size='s' checked={true} disabled={true}>
+                    Label
+                </Tag>
+            </Col>
+        </div>
+    </Container>
+));
+```
+
+## Стиль
+
+С помощью `variant` можно задать альтернативный стиль тэгу, например, с другим радиусом скругления.
+
+```jsx live
+render(() => (
+    <Container>
+        <Row>
+            <div style={{ marginRight: 12 }}>
+                <Tag size='s'>Label</Tag>
+            </div>
+            <div>
+                <Tag size='s' variant='alt'>
+                    Label
+                </Tag>
+            </div>
+        </Row>
+    </Container>
+));
+```
+
+## Связанные компоненты
+
+Служат триггерами для переключения контекста, см. компонент [Tabs](/docs/components-forms-selects-tabs--tabs).  
+Используются для фильтрации контента, см. компонент [FilterTag](/docs/components-forms-selects-filtertag--filter-tag).  
+Выполняют роль радио-кнопок см. компонент [RadioGroup](/docs/components-forms-selects-radiogroup--radio-group).  
+Выполняют роль чекбоксов см. компонент [CheckboxGroup](/docs/components-forms-selects-checkboxgroup--checkbox-group).
