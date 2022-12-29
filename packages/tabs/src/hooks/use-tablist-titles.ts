@@ -11,9 +11,10 @@ export const useTablistTitles = ({
     titles = [],
     selectedId,
     collapsible,
+    collapsedTabsIds,
     breakpoint,
     onChange,
-}: Pick<TabListProps, 'titles' | 'selectedId' | 'collapsible' | 'onChange'> &
+}: Pick<TabListProps, 'titles' | 'selectedId' | 'collapsible' | 'collapsedTabsIds' | 'onChange'> &
     Required<Pick<TabListProps, 'breakpoint'>>) => {
     const { containerRef, addonRef, idsCollapsedElements } = useCollapsibleElements<
         HTMLDivElement,
@@ -27,26 +28,51 @@ export const useTablistTitles = ({
 
     const tablistTitles = useMemo(() => {
         const idsCollapsedTitles: string[] = [];
+        const idsCollapsed = idsCollapsedElements.concat(collapsedTabsIds || []);
 
         if (view === 'desktop' && collapsible) {
-            const visibleTitles = titles.filter(
-                ({ id }) => !idsCollapsedElements.includes(String(id)),
-            );
-            const lastVisibleTitle = visibleTitles[visibleTitles.length - 1];
+            const visibleTitles = titles.filter(({ id }) => !idsCollapsed.includes(String(id)));
+            const lastVisibleTitle = collapsedTabsIds
+                ? null
+                : visibleTitles[visibleTitles.length - 1];
 
-            idsCollapsedElements.forEach((id) => {
-                idsCollapsedTitles.push(
-                    selectedId === id && lastVisibleTitle ? String(lastVisibleTitle.id) : id,
-                );
+            idsCollapsed.forEach((id) => {
+                if (selectedId === id && lastVisibleTitle) {
+                    idsCollapsedTitles.push(String(lastVisibleTitle.id));
+                }
+                if (selectedId !== id) {
+                    idsCollapsedTitles.push(id);
+                }
             });
         }
 
-        return titles.map((title) => ({
+        const titlesMapped = titles.map((title) => ({
             ...title,
             collapsed: idsCollapsedTitles.includes(String(title.id)),
             selected: title.id === selectedId,
         }));
-    }, [titles, collapsible, selectedId, idsCollapsedElements, view]);
+
+        if (collapsedTabsIds?.length) {
+            titlesMapped.sort((a, b) => {
+                const hasA = collapsedTabsIds.includes(String(a.id));
+                const hasB = collapsedTabsIds.includes(String(b.id));
+
+                if (hasA === hasB) {
+                    return 0;
+                }
+
+                return hasA ? 1 : -1;
+            });
+        }
+
+        return titlesMapped.sort((a, b) => {
+            if (a.collapsed === b.collapsed) {
+                return 0;
+            }
+
+            return a.collapsed ? 1 : -1;
+        });
+    }, [collapsedTabsIds, idsCollapsedElements, view, collapsible, titles, selectedId]);
 
     const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
         titles: tablistTitles,

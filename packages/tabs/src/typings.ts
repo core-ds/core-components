@@ -58,6 +58,11 @@ export type TabsProps = {
     collapsible?: boolean;
 
     /**
+     * Список табов, для контроля переноса вкладок в PickerButton
+     */
+    collapsedTabsIds?: string[];
+
+    /**
      * При скроле табы будут уходить в край экрана
      */
     fullWidthScroll?: boolean;
@@ -155,6 +160,7 @@ export type TabListProps = Pick<
     | 'selectedId'
     | 'scrollable'
     | 'collapsible'
+    | 'collapsedTabsIds'
     | 'onChange'
     | 'dataTestId'
     | 'fullWidthScroll'

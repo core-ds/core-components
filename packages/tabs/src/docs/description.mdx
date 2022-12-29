@@ -192,6 +192,8 @@ render(() => {
     const [title, setTitle] = React.useState('Aurum');
     const [view, setView] = React.useState('primary');
     const [overflow, setOverflow] = React.useState('scrollable');
+    const [collapsibleTabsIds, setCollapsibleTabsIds] = React.useState({ "tab-1": true });
+    
 
     const handleChange = (event, {selectedId}) => {
         const currentTab = tabs.filter(tab => tab.id === selectedId)[0]
@@ -201,11 +203,21 @@ render(() => {
     const handleViewChange = (event, { value }) => setView(value);
     const handleOverflowChange = (event, { value }) => setOverflow(value);
 
+    const handleCollapsedTabsChange = (event, payload) => {
+         setCollapsibleTabsIds({ ...collapsibleTabsIds, [payload.name]: payload.checked });
+     }
+
+     const manuallyCollapsedTabs = React.useMemo(() => {
+         const v = Object.keys(collapsibleTabsIds).filter((k) => !!collapsibleTabsIds[k]);
+         return v.length ? v : undefined;
+     }, [collapsibleTabsIds]);
+
     return (
         <>
             <TabsDesktop
                 scrollable={overflow !== 'collapsible'}
                 collapsible={overflow !== 'scrollable'}
+                collapsedTabsIds={ overflow === 'collapsible' && manuallyCollapsedTabs }
                 selectedId={selectedId}
                 onChange={handleChange}
                 view={view}
@@ -240,6 +252,24 @@ render(() => {
                         <Radio label='Scrollable' value='scrollable' />
                         <Radio label='Collapsible' value='collapsible' />
                     </RadioGroup>
+                    {
+                         overflow === 'collapsible' && (
+                             <CheckboxGroup
+                                 label='Схлопнутые вкладки'
+                                 name='tabsCheckboxGroup'
+                                 direction='vertical'
+                                 value={collapsibleTabsIds}
+                                 onChange={handleCollapsedTabsChange}
+                             >
+                                 {
+                                     tabs
+                                         .map((t) => (
+                                             <Checkbox key={ t.id } label={ t.title } name={ t.id } checked={ !!collapsibleTabsIds[t.id] } />
+                                         ))
+                                 }
+                             </CheckboxGroup>
+                         )
+                     }
                 </Space>
             </div>
         </>

@@ -55,9 +55,15 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             {...restProps}
             ref={ref}
             view='ghost'
-            className={cn('cc-icon-button', className, colorStyles[colors][view], colorStyles[colors].component, {
-                [colorStyles[colors].loader]: restProps.loading,
-            })}
+            className={cn(
+                'cc-icon-button',
+                className,
+                colorStyles[colors][view],
+                colorStyles[colors].component,
+                {
+                    [colorStyles[colors].loader]: restProps.loading,
+                },
+            )}
             size='s'
         >
             <span className={cn(styles.iconWrapper, styles[size])}>

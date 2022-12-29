@@ -23,6 +23,7 @@ export const PrimaryTabList = ({
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     collapsible,
+    collapsedTabsIds,
     fullWidthScroll,
     onChange,
     dataTestId,
@@ -35,6 +36,7 @@ export const PrimaryTabList = ({
             titles,
             selectedId,
             collapsible,
+            collapsedTabsIds,
             breakpoint,
             onChange,
         });
@@ -99,7 +101,7 @@ export const PrimaryTabList = ({
             ))}
 
             {collapsedOptions.length ? (
-                <span ref={addonRef} className={styles.pickerWrapper}>
+                <span ref={addonRef} role='tablist' className={styles.pickerWrapper}>
                     <PickerButtonDesktop
                         fieldClassName={styles.title}
                         optionClassName={cn(styles.pickerOption, size && styles[size])}

@@ -12,9 +12,9 @@
         }
     },
     "references": [
-      { "path": "../tag" },
-      { "path": "../keyboard-focusable" },
-      { "path": "../picker-button" },
-      { "path": "../badge" }
+        { "path": "../tag" },
+        { "path": "../keyboard-focusable" },
+        { "path": "../picker-button" },
+        { "path": "../badge" }
     ]
 }
