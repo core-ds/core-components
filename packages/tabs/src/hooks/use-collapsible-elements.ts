@@ -27,8 +27,7 @@ export const useCollapsibleElements = <
             ).pop();
             const elements = Array.from(container.querySelectorAll(selectors)) as HTMLElement[];
             const containerWidth =
-                (inlineSize || container.clientWidth) -
-                (moreElement?.clientWidth ? moreElement.clientWidth + 10 : 0);
+                (inlineSize || container.clientWidth) - (moreElement?.clientWidth || 0);
 
             const collapsedIds = elements.reduce<string[]>((acc, element) => {
                 const { offsetLeft, offsetWidth, id } = element;

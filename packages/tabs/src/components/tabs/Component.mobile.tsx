@@ -11,7 +11,10 @@ const views = {
     secondary: SecondaryTabListMobile,
 };
 
-export type TabsMobileProps = Omit<TabsProps, 'TabList' | 'size' | 'collapsible'>;
+export type TabsMobileProps = Omit<
+    TabsProps,
+    'TabList' | 'size' | 'collapsible' | 'collapsedTabsIds'
+>;
 
 export const TabsMobile = ({
     view = 'primary',
