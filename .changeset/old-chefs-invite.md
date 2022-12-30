@@ -3,4 +3,4 @@
 '@alfalab/core-components-gap': minor
 ---
 
-Добавлен компонент `GenericWrapper`. Исправлено поведение компонента `Gap` для flex лейаута
+Добавлен новый компонент GenericWrapper. Исправлено поведение компонента Gap для flex лейаута
