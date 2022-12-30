@@ -1,3 +1,80 @@
+## 37.1.0
+
+<sup><time>30.12.2022</time></sup>
+
+### [#430](https://github.com/core-ds/core-components/pull/430)
+
+#### Что изменилось
+- Поднята специфичность стилей
+
+#### Влияние на компоненты
+- Патчи<br />`icon-button`
+
+
+### [#436](https://github.com/core-ds/core-components/pull/436)
+
+#### Что изменилось
+- Исправлен font-weight для TitleResponsive
+
+#### Влияние на компоненты
+- Патчи<br />`typography`
+
+
+### [#410](https://github.com/core-ds/core-components/pull/410)
+
+#### Что изменилось
+- Исправлено поведение таба при disabled-состоянии
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#419](https://github.com/core-ds/core-components/pull/419)
+
+#### Что изменилось
+- Добавлен новый компонент GenericWrapper. Исправлено поведение компонента Gap для flex лейаута
+
+#### Влияние на компоненты
+- Минорное<br />`generic-wrapper` `gap`
+
+
+### [#413](https://github.com/core-ds/core-components/pull/413)
+
+#### Что изменилось
+- Добавлен проп `collapsedTabsIds`, позволяющий заранее определять и контроллировать список вкладок, вынесенный под меню «Ещё»
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#432](https://github.com/core-ds/core-components/pull/432)
+
+#### Что изменилось
+- Обновлен тип для props 'size'
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#433](https://github.com/core-ds/core-components/pull/433)
+
+#### Что изменилось
+- Добавлен новый опциональный prop `showClear` в компонент FilterTag. Теперь есть возможность скрывать наличие крестика в активном состоянии тэга
+
+#### Влияние на компоненты
+- Патчи<br />`filter-tag`
+
+
+### [#431](https://github.com/core-ds/core-components/pull/431)
+
+#### Что изменилось
+- Добавленa возможность убирать стрелку через пропс showArrow
+
+#### Влияние на компоненты
+- Минорное<br />`picker-button`
+
+
+
 ## 37.0.0
 
 <sup><time>20.12.2022</time></sup>
