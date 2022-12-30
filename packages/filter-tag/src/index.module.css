@@ -181,12 +181,20 @@
             &:disabled {
                 border-radius: var(--tag-border-radius);
             }
+
+            &.close {
+                border-radius: var(--tag-border-radius);
+            }
         }
 
         &.alt {
             border-radius: var(--tag-alt-border-radius) 0 0 var(--tag-alt-border-radius);
 
             &:disabled {
+                border-radius: var(--tag-alt-border-radius);
+            }
+
+            &.close {
                 border-radius: var(--tag-alt-border-radius);
             }
         }

@@ -59,6 +59,11 @@ export type FilterTagProps = {
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Показывать крестик для очистки выбора
+     */
+    showClear?: boolean;
 };
 
 const isKeyBoardEvent = (
@@ -77,6 +82,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             size = 's',
             variant = 'default',
             onClear = () => null,
+            showClear = true,
             className,
             dataTestId,
             ...restProps
@@ -130,6 +136,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     className={cn(styles.valueButton, styles[size], styles[variantClassName], {
                         [styles.checked]: checked,
                         [styles.open]: open,
+                        [styles.close]: !showClear,
                     })}
                 >
                     <span>{children}</span>
@@ -138,7 +145,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     </span>
                 </button>
 
-                {checked && !disabled && (
+                {checked && !disabled && showClear && (
                     <div
                         role='button'
                         className={cn(styles.clear, styles[size], styles[variantClassName])}
