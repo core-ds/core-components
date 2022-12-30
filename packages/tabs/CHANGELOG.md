@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.3.0
+
+### Minor Changes
+
+### [#413](https://github.com/core-ds/core-components/pull/413)
+
+-   Добавлен проп `collapsedTabsIds`, позволяющий заранее определять и контроллировать список вкладок, вынесенный под меню «Ещё»
+
+### Patch Changes
+
+### [#410](https://github.com/core-ds/core-components/pull/410)
+
+-   Исправлено поведение таба при disabled-состоянии
+
+-   Обновлены зависимости
+    -   picker-button@10.3.0
+
 ## 7.2.9
 
 ### Patch Changes

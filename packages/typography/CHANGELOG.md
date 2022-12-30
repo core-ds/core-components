@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.8
+
+### Patch Changes
+
+### [#436](https://github.com/core-ds/core-components/pull/436)
+
+-   Исправлен font-weight для TitleResponsive
+
 ## 3.0.7
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.1.11
+
 ## 5.1.10
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.0.3
+    -   modal@6.1.6
+
 ## 6.2.2
 
 ### Patch Changes

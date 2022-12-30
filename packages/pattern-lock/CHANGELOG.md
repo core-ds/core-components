@@ -1,5 +1,12 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   gap@1.1.0
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.3.0
+
+### Minor Changes
+
+### [#431](https://github.com/core-ds/core-components/pull/431)
+
+-   Добавленa возможность убирать стрелку через пропс showArrow
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.6
+
 ## 10.2.2
 
 ### Patch Changes

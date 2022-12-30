@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@3.0.8
+
 ## 3.1.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.3
+
 ## 8.2.2
 
 ### Patch Changes

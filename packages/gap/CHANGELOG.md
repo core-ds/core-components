@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+### [#419](https://github.com/core-ds/core-components/pull/419)
+
+-   Добавлен новый компонент GenericWrapper. Исправлено поведение компонента Gap для flex лейаута
+
 ## 1.0.1
 
 ### Patch Changes

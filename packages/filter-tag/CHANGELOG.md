@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.0.12
+
+### Patch Changes
+
+### [#433](https://github.com/core-ds/core-components/pull/433)
+
+-   Добавлен новый опциональный prop `showClear` в компонент FilterTag. Теперь есть возможность скрывать наличие крестика в активном состоянии тэга
+
+-   Обновлены зависимости
+    -   icon-button@6.0.3
+
 ## 2.0.11
 
 ### Patch Changes

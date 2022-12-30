@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.0.3
+
+### Patch Changes
+
+### [#430](https://github.com/core-ds/core-components/pull/430)
+
+-   Поднята специфичность стилей
+
 ## 6.0.2
 
 ### Patch Changes

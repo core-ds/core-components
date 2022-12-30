@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+### [#432](https://github.com/core-ds/core-components/pull/432)
+
+-   Обновлен тип для props 'size'
+
 ## 3.0.0
 
 ### Major Changes
