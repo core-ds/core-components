@@ -93,7 +93,7 @@ function groupByReleaseType(cs) {
 
             // Новые компоненты публикуем миноркой, а не мажоркой.
             if (rel.type === 'major' && ~newComponentPhraseIdx) {
-                const simplify = (str = '') => str.replace(/[^a-zA-z]/g, '').toLowerCase();
+                const simplify = (str = '') => str.replace(/[^a-zA-Z]/g, '').toLowerCase();
 
                 const newPackage = cs.summary
                     .slice(newComponentPhraseIdx + NEW_COMPONENT_PHRASE.length)
