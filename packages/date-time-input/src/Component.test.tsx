@@ -94,10 +94,11 @@ describe('DateTimeInput', () => {
 
             const day = '10';
             const date = new Date();
-            const month = date.getMonth() + 1;
+            const month = '0' + (date.getMonth() + 1);
             const year = date.getFullYear();
             date.setDate(parseInt(day));
             const dateAsString = `${day}.${month}.${year}`;
+            console.log(dateAsString, 'dateAsString');
 
             act(() => {
                 fireEvent.click(getByText(day));

@@ -94,7 +94,7 @@ describe('DateRangeInput', () => {
 
             const dayFrom = '10';
             const dateFrom = new Date();
-            const monthFrom = dateFrom.getMonth() + 1;
+            const monthFrom = '0' + (dateFrom.getMonth() + 1);
             const yearFrom = dateFrom.getFullYear();
             dateFrom.setDate(parseInt(dayFrom));
             const dateAsStringFrom = `${dayFrom}.${monthFrom}.${yearFrom}`;
@@ -114,7 +114,7 @@ describe('DateRangeInput', () => {
 
             const dayTo = '12';
             const dateTo = new Date();
-            const monthTo = dateTo.getMonth() + 1;
+            const monthTo = '0' + (dateTo.getMonth() + 1);
             const yearTo = dateTo.getFullYear();
             dateTo.setDate(parseInt(dayTo));
             const dateAsStringTo = `${dayTo}.${monthTo}.${yearTo}`;
