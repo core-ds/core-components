@@ -98,7 +98,6 @@ describe('DateTimeInput', () => {
             const year = date.getFullYear();
             date.setDate(parseInt(day));
             const dateAsString = `${day}.${month}.${year}`;
-            console.log(dateAsString, 'dateAsString');
 
             act(() => {
                 fireEvent.click(getByText(day));
