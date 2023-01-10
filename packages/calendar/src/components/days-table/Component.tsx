@@ -79,12 +79,15 @@ export const DaysTable: FC<DaysTableProps> = ({
     responsive,
 }) => {
     const activeMonthRef = useRef(activeMonth);
+    const directionRef = useRef<'right' | 'left' | undefined>();
 
     activeMonthRef.current = activeMonth;
 
     const prevActiveMonth = usePrevious(activeMonth);
 
-    const direction = prevActiveMonth && (activeMonth < prevActiveMonth ? 'right' : 'left');
+    if (prevActiveMonth && prevActiveMonth !== activeMonth) {
+        directionRef.current = activeMonth < prevActiveMonth ? 'right' : 'left';
+    }
 
     const selection = getSelectionRange(selectedFrom, selectedTo, highlighted);
 
@@ -197,7 +200,7 @@ export const DaysTable: FC<DaysTableProps> = ({
 
     return (
         <table
-            className={cn(styles.daysTable, direction && styles[direction], {
+            className={cn(styles.daysTable, directionRef.current && styles[directionRef.current], {
                 [styles.responsive]: responsive,
             })}
         >
