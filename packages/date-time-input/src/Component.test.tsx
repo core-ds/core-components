@@ -97,7 +97,7 @@ describe('DateTimeInput', () => {
             const month = date.getMonth() + 1;
             const year = date.getFullYear();
             date.setDate(parseInt(day));
-            const dateAsString = `${day}.${month}.${year}`;
+            const dateAsString = `${day}.${month.toString().padStart(2, '0')}.${year}`;
 
             act(() => {
                 fireEvent.click(getByText(day));

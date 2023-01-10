@@ -97,7 +97,9 @@ describe('DateRangeInput', () => {
             const monthFrom = dateFrom.getMonth() + 1;
             const yearFrom = dateFrom.getFullYear();
             dateFrom.setDate(parseInt(dayFrom));
-            const dateAsStringFrom = `${dayFrom}.${monthFrom}.${yearFrom}`;
+            const dateAsStringFrom = `${dayFrom}.${monthFrom
+                .toString()
+                .padStart(2, '0')}.${yearFrom}`;
 
             act(() => {
                 fireEvent.click(getByText(dayFrom));
@@ -117,7 +119,7 @@ describe('DateRangeInput', () => {
             const monthTo = dateTo.getMonth() + 1;
             const yearTo = dateTo.getFullYear();
             dateTo.setDate(parseInt(dayTo));
-            const dateAsStringTo = `${dayTo}.${monthTo}.${yearTo}`;
+            const dateAsStringTo = `${dayTo}.${monthTo.toString().padStart(2, '0')}.${yearTo}`;
 
             act(() => {
                 fireEvent.click(getByText(dayTo));
