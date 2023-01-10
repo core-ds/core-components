@@ -1,10 +1,10 @@
 @define-mixin form-control-intranet {
     /* theme */
-    --form-control-border-radius: var(--border-radius-l);
-    --form-control-s-border-radius: var(--border-radius-l);
-    --form-control-m-border-radius: var(--border-radius-l);
-    --form-control-l-border-radius: var(--border-radius-l);
-    --form-control-xl-border-radius: var(--border-radius-l);
+    --form-control-border-radius: 10px;
+    --form-control-s-border-radius: 10px;
+    --form-control-m-border-radius: 10px;
+    --form-control-l-border-radius: 10px;
+    --form-control-xl-border-radius: 10px;
     --form-control-border-bottom: 0;
     --form-control-inverted-border-bottom: 0;
     --form-control-bg-color: var(--color-light-bg-secondary);

@@ -42,6 +42,8 @@ const groups = [
     },
 ];
 
+const THEMES_FOR_TESTING = ['default', 'click', 'intranet'];
+
 describe('Select', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -88,7 +90,7 @@ describe('Select', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    THEMES_FOR_TESTING.map(testCase);
 });
 
 describe(
@@ -166,7 +168,7 @@ describe('Select | interactions tests', () => {
             }
         });
 
-    ['default', 'click'].map(testCase);
+    THEMES_FOR_TESTING.map(testCase);
 
     test('Visible options', async () => {
         const pageUrl = createStorybookUrl({
@@ -267,7 +269,7 @@ describe('Select | optgroup', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    THEMES_FOR_TESTING.map(testCase);
 });
 
 describe('Select | multiple', () => {
@@ -295,5 +297,5 @@ describe('Select | multiple', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    THEMES_FOR_TESTING.map(testCase);
 });

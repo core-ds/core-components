@@ -1,4 +1,8 @@
 @define-mixin select-intranet {
+    /* options list */
+    --select-options-list-border-radius: 10px;
+    --select-options-list-offset: var(--gap-xs);
+
     /* select mobile footer */
     --select-mobile-footer-border-top: 1px solid var(--color-light-border-primary);
 }

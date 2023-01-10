@@ -7,6 +7,8 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
+const THEMES_FOR_TESTING = ['default', 'click', 'site', 'mobile', 'intranet'];
+
 describe('FormControl | screenshots main props', () => {
     const testCase = (theme: string, colors: string) =>
         screenshotTesting({
@@ -35,7 +37,7 @@ describe('FormControl | screenshots main props', () => {
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        THEMES_FOR_TESTING.forEach((theme) => testCase(theme, colors));
     });
 });
 
@@ -65,6 +67,6 @@ describe('FormControl | screenshots hint and error', () => {
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        THEMES_FOR_TESTING.forEach((theme) => testCase(theme, colors));
     });
 });
