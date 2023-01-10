@@ -366,6 +366,90 @@ return(
 });
 ```
 
+## Предзаполненное значение фильтра
+
+Компонент может иметь предзаполненное значение, в таком случае в заполненном состоянии у него не может быть крестика очистки. 
+
+```jsx live
+const CustomField = (({ label, selected, setSelectedItems, innerProps: { ref, ...restInnerProps }, ...restProps }) => (
+    <div ref={ref}>
+        <FilterTag
+            checked={selected}
+            showClear={false}
+            {...restInnerProps} {...restProps}
+        >
+            {selected.content}
+        </FilterTag>
+    </div>
+));
+render(() => {
+
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'По возрастанию' },
+            { key: '2', content: 'По убыванию' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState([options[0]]);
+    
+    const handleChangeSelected = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
+    
+    return (
+        <Select
+            size='xxs'
+            popoverPosition='bottom-start'
+            options={options}
+            Field={CustomField}
+            onChange={handleChangeSelected}
+            selected={selected}
+        />
+    )
+});
+//MOBILE
+const CustomField = (({ label, selected, setSelectedItems, innerProps: { ref, ...restInnerProps }, ...restProps }) => (
+    <div ref={ref}>
+        <FilterTag
+            checked={selected}
+            showClear={false}
+            {...restInnerProps} {...restProps}
+        >
+            {selected.content}
+        </FilterTag>
+    </div>
+));
+render(() => {
+
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'По возрастанию' },
+            { key: '2', content: 'По убыванию' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState([options[0]]);
+    
+    const handleChangeSelected = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
+    
+    return (
+        <SelectMobile
+            size='xxs'
+            popoverPosition='bottom-start'
+            options={options}
+            Field={CustomField}
+            onChange={handleChangeSelected}
+            selected={selected}
+        />
+    )
+});
+```
+
 ## Состояния
 
 Таб может находиться в активном и неактивном состоянии. Взаимодействие может быть ограничено с помощью свойства `disabled`.
