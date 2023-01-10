@@ -124,7 +124,7 @@ describe(
     }),
 );
 
-describe('DateTimeInput | picker', () =>
+describe('DateTimeInput | picker', () => {
     test('open calendar', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'DateTimeInput',
@@ -150,4 +150,5 @@ describe('DateTimeInput | picker', () =>
         } finally {
             await closeBrowser({ browser, context, page });
         }
-    }));
+    });
+});
