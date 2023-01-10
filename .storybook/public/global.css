@@ -485,6 +485,10 @@ pre.sbdocs-pre > div {
     margin: 0;
 }
 
+pre.sbdocs-pre div[code] {
+    font-family: Menlo, Monaco, 'Courier New', monospace !important;
+}
+
 pre.sbdocs-pre.sbdocs {
     margin: var(--gap-xl) 0;
 }
