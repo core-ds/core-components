@@ -8,19 +8,19 @@ const SIZES = ['m', 's', 'xs'];
 render(
     <Container>
         <Row align='middle'>
-            {SIZES.map(size => (
-                <div key={size} style={{marginRight: 20}}>
+            {SIZES.map((size) => (
+                <div key={size} style={{ marginRight: 20 }}>
                     <Spinner visible={true} size={size} />
                 </div>
             ))}
         </Row>
-    </Container>
-)
+    </Container>,
+);
 ```
 
 ## Использование в других компонентах
 
-Часто используется в [Button](/docs/компоненты-кнопки-button--button).
+Часто используется в [Button](/docs/button--button).
 
 ```jsx live
     <Container>
@@ -32,7 +32,7 @@ render(
         <div>
             <Button leftAddons={<Spinner visible={true} />} size='m'>
                 Дела делаются
-            </Button>        
+            </Button>
         </div>
     </Container>
 //MOBILE
@@ -43,6 +43,6 @@ render(
         <br/>
         <Button block={true} leftAddons={<Spinner visible={true} />} size='m'>
             Дела делаются
-        </Button>        
+        </Button>
     </Container>
 ```

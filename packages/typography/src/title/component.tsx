@@ -14,7 +14,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
     tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
     /**
-     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/инструкции-типографика--page)
+     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--page)
      */
     view?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 

@@ -109,18 +109,13 @@ function buildStorybookUrl() {
                 .join('');
         };
 
-        const getComponentFolder = () => {
-            if (affectedPackage.startsWith('typography')) return 'typography';
-            return affectedPackage.replace(/-/g, '');
-        };
-
-        const groupPath = findComponentPath(
+        const componentPath = findComponentPath(
             packageToComponentName(affectedPackage),
             affectedPackage,
         );
 
-        if (groupPath) {
-            url += `/?path=/docs/${groupPath}-${getComponentFolder()}--${affectedPackage}`;
+        if (componentPath.url) {
+            url += `/?path=/docs/${componentPath.url}--${affectedPackage}`;
         }
     }
 

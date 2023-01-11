@@ -2,16 +2,16 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import { Color } from '../colors';
+import { TextElementType } from '../types';
 
 import colors from '../colors.module.css';
 import styles from './index.module.css';
-import { TextElementType } from '../types';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
 
 type TextBaseProps = {
     /**
-     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/инструкции-типографика--page)
+     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--page)
      */
     view?:
         | 'primary-large'
