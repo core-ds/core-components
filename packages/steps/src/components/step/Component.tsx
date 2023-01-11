@@ -111,7 +111,7 @@ export const Step: React.FC<StepProps> = ({
     const [focused] = useFocus(stepRef, 'keyboard');
 
     const handleButtonClick = () => {
-        if (!disabled && onClick) {
+        if (!disabled && interactive && onClick) {
             onClick(stepNumber);
         }
     };
