@@ -51,7 +51,14 @@ export const Field = ({
                 rightAddons={
                     <Fragment>
                         {rightAddons && (
-                            <span className={styles.addonsContainer}>{rightAddons}</span>
+                            <span
+                                className={cn(styles.addonsContainer, {
+                                    [styles.showControlIcon]:
+                                        showArrow || buttonVariant === 'compact',
+                                })}
+                            >
+                                {rightAddons}
+                            </span>
                         )}
 
                         {(showArrow || buttonVariant === 'compact') && (
