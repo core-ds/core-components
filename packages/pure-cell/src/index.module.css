@@ -11,14 +11,20 @@
 .horizontal {
     display: flex;
     width: 100%;
-    grid-column-gap: var(--gap-m);
+
+    & > section:not(:last-child) {
+        margin-right: var(--gap-m);
+    }
 }
 
 .vertical {
     display: flex;
     align-items: center;
     flex-direction: column;
-    grid-row-gap: var(--gap-s);
+
+    & > section:not(:last-child) {
+        margin-bottom: var(--gap-s);
+    }
 }
 
 .button {
