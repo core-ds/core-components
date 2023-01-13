@@ -1,79 +1,98 @@
 ## Группа фильтров
 
-Обычно фильтры объединяются в группу, в рамках группы используется один паттерн отображения лейбла. 
+Обычно фильтры объединяются в группу, в рамках группы используется один паттерн отображения лейбла.
 
 ```jsx live
-    // Одиночный выбор
-    const CustomField = ({ label, selected, setSelectedItems, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
-    
+// Одиночный выбор
+const CustomField = ({
+    label,
+    selected,
+    setSelectedItems,
+    innerProps: { ref, ...restInnerProps },
+    ...restProps
+}) => {
     const checkedContent = (
         <span>
-            {!label && 'Одиночный выбор:'}<b> {selected && selected.content }</b>
+            {!label && 'Одиночный выбор:'}
+            <b> {selected && selected.content}</b>
         </span>
     );
-    
+
     const contentLabel = <span>Одиночный выбор</span>;
-    
+
     return (
         <div ref={ref}>
             <FilterTag
                 onClear={() => setSelectedItems([])}
                 checked={selected}
-                {...restInnerProps} {...restProps}
+                {...restInnerProps}
+                {...restProps}
             >
-                {selected? checkedContent : contentLabel}
+                {selected ? checkedContent : contentLabel}
             </FilterTag>
-    </div>
-    )};
-    
-    // Множественный выбор 
-    const CustomFieldMultiple = ({ label, selected, setSelectedItems, selectedMultiple, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
-    
-    const content = selected && selected.content
-    
+        </div>
+    );
+};
+
+// Множественный выбор
+const CustomFieldMultiple = ({
+    label,
+    selected,
+    setSelectedItems,
+    selectedMultiple,
+    innerProps: { ref, ...restInnerProps },
+    ...restProps
+}) => {
+    const content = selected && selected.content;
+
     const checkedContent = (
         <span>
-            {!label && 'Множественный выбор:'}<b> { selectedMultiple.length !== 1 ? `Выбрано: ${selectedMultiple.length}`: content }</b>
+            {!label && 'Множественный выбор:'}
+            <b>
+                {' '}
+                {selectedMultiple.length !== 1 ? `Выбрано: ${selectedMultiple.length}` : content}
+            </b>
         </span>
     );
-    
+
     const contentLabel = <span>Множественный выбор</span>;
-    
+
     return (
         <div ref={ref}>
             <FilterTag
                 onClear={() => setSelectedItems([])}
                 checked={selected}
-                {...restInnerProps} {...restProps}
+                {...restInnerProps}
+                {...restProps}
             >
-                {selected? checkedContent : contentLabel}
+                {selected ? checkedContent : contentLabel}
             </FilterTag>
-    </div>
-    )};
+        </div>
+    );
+};
 
 render(() => {
-
     const options = [
         { key: '1', content: 'Auurum' },
         { key: '2', content: 'Bercelium' },
         { key: '3', content: 'Curium' },
         { key: '4', content: 'Neptunium' },
-        { key: '5', content: 'Plutonuim' }
+        { key: '5', content: 'Plutonuim' },
     ];
-   
-    const [label, setLabel] = React.useState(false)
+
+    const [label, setLabel] = React.useState(false);
 
     const [selected, setSelected] = React.useState([]);
-    
+
     const handleChangeSelected = ({ selectedMultiple }) => {
         setSelected(selectedMultiple);
     };
-    
+
     const [selectedMultiple, setSelectedMultiple] = React.useState([]);
     const handleChangeMultiple = ({ selectedMultiple }) => {
-        setSelectedMultiple(selectedMultiple.map(option => option.key));
+        setSelectedMultiple(selectedMultiple.map((option) => option.key));
     };
-    
+
     // Диапазон значений
     const [filterTag, setFilterTag] = React.useState(null);
     const [open, setOpen] = React.useState(false);
@@ -83,32 +102,31 @@ render(() => {
     const handleOpen = () => {
         setOpen(!open);
     };
-    
+
     const handleClear = () => {
         setOpen(false);
-        updatePeriod(null, null)
+        updatePeriod(null, null);
     };
 
-
     const handleUpdatePeriodr = (date) => {
-        updatePeriod(date)
+        updatePeriod(date);
 
         if (selectedFrom) {
             setOpen(false);
         }
-    }
+    };
 
-    const handleFilterTagRef = node => {
+    const handleFilterTagRef = (node) => {
         setFilterTag(node);
     };
-    
-    const getDateString = React.useCallback((date) => {
-    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const year = date.getFullYear();
 
-    return `${day}.${month}.${year}`;
-}, []);
+    const getDateString = React.useCallback((date) => {
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        return `${day}.${month}.${year}`;
+    }, []);
 
     const selectedRange = React.useMemo(() => {
         if (selectedFrom && selectedTo) {
@@ -117,11 +135,12 @@ render(() => {
             return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
         }
         return '';
-    }, [ selectedFrom, selectedTo]);
-    
+    }, [selectedFrom, selectedTo]);
+
     const checkedContent = (
         <span>
-            {!label && 'Диапазон значений:'}<b> {selectedRange && selectedRange}</b>
+            {!label && 'Диапазон значений:'}
+            <b> {selectedRange && selectedRange}</b>
         </span>
     );
     const content = <span>Диапазон значений</span>;
@@ -132,137 +151,162 @@ render(() => {
         }
     `;
 
-return(
-    <>
-        <Select
-            size='xxs'
-            allowUnselect={true}
-            popoverPosition='bottom-start'
-            options={options}
-            Field={CustomField}
-            onChange={handleChangeSelected}
-            selected={selected}
-            label={label}
-        />
-        <Gap size='m' />
-        <Select
-            size='xxs'
-            allowUnselect={true}
-            popoverPosition='bottom-start'
-            options={options}
-            Field={CustomFieldMultiple}
-            onChange={handleChangeMultiple}
-            selected={selectedMultiple}
-            multiple={true}
-            label={label}
-        />
-        <Gap size='m' />
-        <Popover anchorElement={filterTag} offset={[0, 4]} open={open} preventFlip={true} position='bottom-start'>
-        <style>{css}</style>
-        <div style={{width: 344}}>
-            <Calendar
-                responsive={true}
-                value={value}
-                selectedFrom={selectedFrom}
-                selectedTo={selectedTo}
-                onChange={handleUpdatePeriodr}
-                selectorView='month-only'
+    return (
+        <>
+            <Select
+                size='s'
+                allowUnselect={true}
+                popoverPosition='bottom-start'
+                options={options}
+                Field={CustomField}
+                onChange={handleChangeSelected}
+                selected={selected}
+                label={label}
             />
-        </div>
-        </Popover>
-      
-        <FilterTag
-           ref={handleFilterTagRef}
-            size='xxs'
-            onClick={handleOpen}
-            onClear={handleClear}
-            checked={selectedRange}
-            open={open}
-        >
-            {selectedRange ? checkedContent : content}
-        </FilterTag>
-        <Gap size='m' />
-        <Switch
-            block={true}
-            checked={label}
-            label='Скрывать лейбл после выбора'
-            onChange={() => setLabel(!label)}
-        />
-    </>
-    )
+            <Gap size='m' />
+            <Select
+                size='s'
+                allowUnselect={true}
+                popoverPosition='bottom-start'
+                options={options}
+                Field={CustomFieldMultiple}
+                onChange={handleChangeMultiple}
+                selected={selectedMultiple}
+                multiple={true}
+                label={label}
+            />
+            <Gap size='m' />
+            <Popover
+                anchorElement={filterTag}
+                offset={[0, 4]}
+                open={open}
+                preventFlip={true}
+                position='bottom-start'
+            >
+                <style>{css}</style>
+                <div style={{ width: 344 }}>
+                    <Calendar
+                        responsive={true}
+                        value={value}
+                        selectedFrom={selectedFrom}
+                        selectedTo={selectedTo}
+                        onChange={handleUpdatePeriodr}
+                        selectorView='month-only'
+                    />
+                </div>
+            </Popover>
+
+            <FilterTag
+                ref={handleFilterTagRef}
+                size='s'
+                onClick={handleOpen}
+                onClear={handleClear}
+                checked={selectedRange}
+                open={open}
+            >
+                {selectedRange ? checkedContent : content}
+            </FilterTag>
+            <Gap size='m' />
+            <Switch
+                block={true}
+                checked={label}
+                label='Скрывать лейбл после выбора'
+                onChange={() => setLabel(!label)}
+            />
+        </>
+    );
 });
 //MOBILE
-    // Одиночный выбор
-    const CustomField = ({ label, selected, setSelectedItems, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
-    
+// Одиночный выбор
+const CustomField = ({
+    label,
+    selected,
+    setSelectedItems,
+    innerProps: { ref, ...restInnerProps },
+    ...restProps
+}) => {
     const checkedContent = (
         <span>
-            {!label && 'Одиночный выбор:'}<b> {selected && selected.content }</b>
+            {!label && 'Одиночный выбор:'}
+            <b> {selected && selected.content}</b>
         </span>
     );
-    
+
     const contentLabel = <span>Одиночный выбор</span>;
-    
+
     return (
         <div ref={ref}>
             <FilterTag
                 onClear={() => setSelectedItems([])}
                 checked={selected}
-                {...restInnerProps} {...restProps}
+                {...restInnerProps}
+                {...restProps}
             >
-                {selected? checkedContent : contentLabel}
+                {selected ? checkedContent : contentLabel}
             </FilterTag>
-    </div>
-    )};
-    
-    // Множественный выбор 
-    const CustomFieldMultiple = ({ label, selected, setSelectedItems, selectedMultiple, innerProps: { ref, ...restInnerProps }, ...restProps }) => {
-    
-    const content = selected && selected.content
-    
+        </div>
+    );
+};
+
+// Множественный выбор
+const CustomFieldMultiple = ({
+    label,
+    selected,
+    setSelectedItems,
+    selectedMultiple,
+    innerProps: { ref, ...restInnerProps },
+    ...restProps
+}) => {
+    const content = selected && selected.content;
+
     const checkedContent = (
         <span>
-            {!label && 'Множественный выбор:'}<b> { selectedMultiple.length !== 1 ? `Выбрано: ${selectedMultiple.length}`: content }</b>
+            {!label && 'Множественный выбор:'}
+            <b>
+                {' '}
+                {selectedMultiple.length !== 1 ? `Выбрано: ${selectedMultiple.length}` : content}
+            </b>
         </span>
     );
-    
+
     const contentLabel = <span>Множественный выбор</span>;
-    
+
     return (
         <div ref={ref}>
             <FilterTag
                 onClear={() => setSelectedItems([])}
                 checked={selected}
-                {...restInnerProps} {...restProps}
+                {...restInnerProps}
+                {...restProps}
             >
-                {selected? checkedContent : contentLabel}
+                {selected ? checkedContent : contentLabel}
             </FilterTag>
-    </div>
-    )};
+        </div>
+    );
+};
 
 render(() => {
-
     const options = [
         { key: '1', content: 'Auurum' },
         { key: '2', content: 'Bercelium' },
         { key: '3', content: 'Curium' },
         { key: '4', content: 'Neptunium' },
-        { key: '5', content: 'Plutonuim' }
+        { key: '5', content: 'Plutonuim' },
     ];
-   
-    const [label, setLabel] = React.useState(false)
+
+    const [label, setLabel] = React.useState(false);
 
     const [selected, setSelected] = React.useState([]);
-    
+
     const handleChangeSelected = ({ selectedMultiple }) => {
         setSelected(selectedMultiple);
     };
-    
+
     const [selectedMultiple, setSelectedMultiple] = React.useState([]);
     const handleChangeMultiple = ({ selectedMultiple }) => {
-        setSelectedMultiple(selectedMultiple.map(option => option.key));
+        setSelectedMultiple(selectedMultiple.map((option) => option.key));
     };
-    
+
     // Диапазон значений
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState();
@@ -271,27 +315,27 @@ render(() => {
     const handleOpen = () => {
         setOpen(!open);
     };
-    
+
     const handleClear = () => {
         setOpen(false);
-        updatePeriod(null, null)
+        updatePeriod(null, null);
     };
-    
+
     const handleUpdatePeriodr = (date) => {
-        updatePeriod(date)
+        updatePeriod(date);
 
         if (selectedFrom) {
             setOpen(false);
         }
-    }
-    
-    const getDateString = React.useCallback((date) => {
-    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const year = date.getFullYear();
+    };
 
-    return `${day}.${month}.${year}`;
-}, []);
+    const getDateString = React.useCallback((date) => {
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        return `${day}.${month}.${year}`;
+    }, []);
 
     const selectedRange = React.useMemo(() => {
         if (selectedFrom && selectedTo) {
@@ -300,69 +344,70 @@ render(() => {
             return `${getDateString(selectedFromDate)} - ${getDateString(selectedToDate)}`;
         }
         return '';
-    }, [ selectedFrom, selectedTo]);
-    
+    }, [selectedFrom, selectedTo]);
+
     const checkedContent = (
         <span>
-            {!label && 'Диапазон значений:'}<b> {selectedRange && selectedRange}</b>
+            {!label && 'Диапазон значений:'}
+            <b> {selectedRange && selectedRange}</b>
         </span>
     );
     const content = <span>Диапазон значений</span>;
 
-return(
-    <>
-        <SelectMobile
-            placeholder='Одиночный выбор'
-            size='xxs'
-            allowUnselect={true}
-            popoverPosition='bottom-start'
-            options={options}
-            Field={CustomField}
-            onChange={handleChangeSelected}
-            selected={selected}
-            label={label}
-        />
-        <Gap size='m' />
-        <SelectMobile
-            placeholder='Множественный выбор'
-            size='xxs'
-            allowUnselect={true}
-            popoverPosition='bottom-start'
-            options={options}
-            Field={CustomFieldMultiple}
-            onChange={handleChangeMultiple}
-            selected={selectedMultiple}
-            multiple={true}
-            label={label}
-        />
-        <Gap size='m' />
-        <CalendarMobile
-            open={open}
-            onClose={()=> setOpen(false)}
-            value={value}
-            selectedFrom={selectedFrom}
-            selectedTo={selectedTo}
-            onChange={handleUpdatePeriodr}
-            selectorView='month-only'
-        />
-      <FilterTag
-            size='xxs'
-            onClick={handleOpen}
-            onClear={handleClear}
-            checked={selectedRange}
-            open={open}
-        >
-            {selectedRange ? checkedContent : content}
-        </FilterTag>
-      <Gap size='m' />
-        <Switch
-            block={true}
-            checked={label}
-            label='Скрывать лейбл после выбора'
-            onChange={() => setLabel(!label)}
-        />
-    </>
-    )
+    return (
+        <>
+            <SelectMobile
+                placeholder='Одиночный выбор'
+                size='s'
+                allowUnselect={true}
+                popoverPosition='bottom-start'
+                options={options}
+                Field={CustomField}
+                onChange={handleChangeSelected}
+                selected={selected}
+                label={label}
+            />
+            <Gap size='m' />
+            <SelectMobile
+                placeholder='Множественный выбор'
+                size='s'
+                allowUnselect={true}
+                popoverPosition='bottom-start'
+                options={options}
+                Field={CustomFieldMultiple}
+                onChange={handleChangeMultiple}
+                selected={selectedMultiple}
+                multiple={true}
+                label={label}
+            />
+            <Gap size='m' />
+            <CalendarMobile
+                open={open}
+                onClose={() => setOpen(false)}
+                value={value}
+                selectedFrom={selectedFrom}
+                selectedTo={selectedTo}
+                onChange={handleUpdatePeriodr}
+                selectorView='month-only'
+            />
+            <FilterTag
+                size='xxs'
+                onClick={handleOpen}
+                onClear={handleClear}
+                checked={selectedRange}
+                open={open}
+            >
+                {selectedRange ? checkedContent : content}
+            </FilterTag>
+            <Gap size='m' />
+            <Switch
+                block={true}
+                checked={label}
+                label='Скрывать лейбл после выбора'
+                onChange={() => setLabel(!label)}
+            />
+        </>
+    );
 });
 ```
 
@@ -383,39 +428,25 @@ render(() => {
     return (
         <Container>
             <Row align='middle'>
-                <div style={{marginRight: 12}}>
-                    <FilterTag
-                        size='xxs'
-                        checked={false}
-                    >
+                <div style={{ marginRight: 12 }}>
+                    <FilterTag size='xxs' checked={false}>
                         {content}
                     </FilterTag>
                 </div>
                 <div>
-                    <FilterTag
-                        size='xxs'
-                        checked={false}
-                        disabled={true}
-                    >
+                    <FilterTag size='xxs' checked={false} disabled={true}>
                         {content}
                     </FilterTag>
                 </div>
             </Row>
-            <div style={{display: 'flex', marginTop: 12}}>
-                <div style={{marginRight: 12}}>
-                    <FilterTag
-                        size='xxs'
-                        checked={true}
-                    >
+            <div style={{ display: 'flex', marginTop: 12 }}>
+                <div style={{ marginRight: 12 }}>
+                    <FilterTag size='xxs' checked={true}>
                         {checkedContent}
                     </FilterTag>
                 </div>
                 <div>
-                    <FilterTag
-                        size='xxs'
-                        checked={true}
-                        disabled={true}
-                    >
+                    <FilterTag size='xxs' checked={true} disabled={true}>
                         {checkedContent}
                     </FilterTag>
                 </div>
@@ -444,7 +475,7 @@ render(() => {
         <Container>
             <Row align='middle'>
                 {variants.map((variant) => (
-                    <div style={{marginRight: 12}} key={variant}>
+                    <div style={{ marginRight: 12 }} key={variant}>
                         <FilterTag
                             size='xxs'
                             onClick={() => setCheckedFilterTag([...checkedFilterTag, variant])}
