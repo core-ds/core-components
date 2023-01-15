@@ -4,7 +4,7 @@
     /* unchecked */
     --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-border-color: var(--color-light-graphic-secondary);
-    --checkbox-hover-bg-color: linear-gradient(0deg, var(--checkbox-hover-bg-color-gradient-color), var(--checkbox-hover-bg-color-gradient-color)), #FFFFFF;
+    --checkbox-hover-bg-color: linear-gradient(0deg, var(--checkbox-hover-bg-color-gradient-color), var(--checkbox-hover-bg-color-gradient-color)), #FFF;
     --checkbox-hover-border-color: var(--color-light-graphic-secondary);
 
     /* active */
