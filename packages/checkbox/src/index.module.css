@@ -29,6 +29,7 @@
     /* inactive */
     --checkbox-inactive-border-color: var(--color-light-border-underline);
     --checkbox-checked-inactive-color: var(--color-light-graphic-tertiary);
+    --checkbox-checked-inactive-check-icon-color: var(--color-light-bg-primary);
 
     /* disabled and checked */
     --checkbox-checked-disabled-bg-color: var(--color-light-bg-quaternary);
@@ -92,7 +93,7 @@
 }
 
 .component:hover:not(.disabled):not(.inactive) .box {
-    background-color: var(--checkbox-hover-bg-color);
+    background: var(--checkbox-hover-bg-color);
     border-color: var(--checkbox-hover-border-color);
 }
 
@@ -209,6 +210,10 @@
 
 .inactive .indeterminateLine {
     background-color: var(--checkbox-checked-inactive-color);
+}
+
+.inactive .checkedIcon {
+    color: var(--checkbox-checked-inactive-check-icon-color);
 }
 
 .indeterminateLine {

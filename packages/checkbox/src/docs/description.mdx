@@ -33,7 +33,28 @@ render(() => {
 render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Checkbox size='m' label='Неопределён' indeterminate={true} block={true} />
+            <Checkbox
+                size='m'
+                label='Неопределён'
+                indeterminate={true}
+                block={true}
+            />
+            <Gap size='m' />
+            <Checkbox
+                size='m'
+                label='Неопределён и недоступен'
+                indeterminate={true}
+                disabled={true}
+                block={true}
+            />
+            <Gap size='m' />
+            <Checkbox
+                size='m'
+                label='Неопределён и неактивен'
+                indeterminate={true}
+                inactive={true}
+                block={true}
+            />
             <Gap size='xl' />
             <Checkbox size='m' label='Выбран' checked={true} block={true} />
             <Gap size='m' />
