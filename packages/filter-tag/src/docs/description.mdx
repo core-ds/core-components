@@ -89,7 +89,6 @@ render(() => {
         updatePeriod(null, null)
     };
 
-
     const handleUpdatePeriodr = (date) => {
         updatePeriod(date)
 
@@ -102,6 +101,27 @@ render(() => {
         setFilterTag(node);
     };
     
+    const handleBlur = (ref, handleClick) => {
+        React.useEffect(() => {
+            const listener = (event) => {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    handleClick(event);
+                }
+            };
+
+            document.addEventListener("mousedown", listener);
+            document.addEventListener("touchstart", listener);
+
+            return () => {
+                document.removeEventListener("mousedown", listener);
+                document.removeEventListener("touchstart", listener);
+            };
+    }, [ref, handleClick]);
+};
+    const calendarRef = React.useRef(null);
+
+    handleBlur(calendarRef, () => handleOpen());
+
     const getDateString = React.useCallback((date) => {
     const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
@@ -159,8 +179,9 @@ return(
         <Gap size='m' />
         <Popover anchorElement={filterTag} offset={[0, 4]} open={open} preventFlip={true} position='bottom-start'>
         <style>{css}</style>
-        <div style={{width: 344}}>
+        <div style={{width: 344, padding: '0 16px'}}>
             <Calendar
+                ref={calendarRef}
                 responsive={true}
                 value={value}
                 selectedFrom={selectedFrom}
@@ -172,7 +193,7 @@ return(
         </Popover>
       
         <FilterTag
-           ref={handleFilterTagRef}
+            ref={handleFilterTagRef}
             size='xxs'
             onClick={handleOpen}
             onClear={handleClear}
