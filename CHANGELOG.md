@@ -1,3 +1,35 @@
+## 37.1.1
+
+<sup><time>16.01.2023</time></sup>
+
+### [af01ec20e](https://github.com/core-ds/core-components/commit/af01ec20ec987a524a73aa1f0686652979d383fc)
+
+#### Что изменилось
+- grid-row-gap и grid-column-gap заменены на margin
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#449](https://github.com/core-ds/core-components/pull/449)
+
+#### Что изменилось
+- Убран правый отступ у контейнера аддонов, если нет стрелки действия
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button`
+
+
+### [#448](https://github.com/core-ds/core-components/pull/448)
+
+#### Что изменилось
+- Исправлен interactive режим
+
+#### Влияние на компоненты
+- Патчи<br />`steps`
+
+
+
 ## 37.1.0
 
 <sup><time>30.12.2022</time></sup>
