@@ -1,5 +1,13 @@
 # @alfalab/core-components-steps
 
+## 1.1.5
+
+### Patch Changes
+
+### [#448](https://github.com/core-ds/core-components/pull/448)
+
+-   Исправлен interactive режим
+
 ## 1.1.4
 
 ### Patch Changes

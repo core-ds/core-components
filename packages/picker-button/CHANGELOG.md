@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.3.1
+
+### Patch Changes
+
+### [#449](https://github.com/core-ds/core-components/pull/449)
+
+-   Убран правый отступ у контейнера аддонов, если нет стрелки действия
+
 ## 10.3.0
 
 ### Minor Changes

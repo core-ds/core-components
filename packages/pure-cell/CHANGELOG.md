@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.7
+
+### Patch Changes
+
+### [af01ec20e](https://github.com/core-ds/core-components/commit/af01ec20ec987a524a73aa1f0686652979d383fc)
+
+-   grid-row-gap и grid-column-gap заменены на margin
+
 ## 4.1.6
 
 ### Patch Changes
