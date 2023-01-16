@@ -1,6 +1,10 @@
 name: Demo build
 
-on: [push]
+on:
+  push:
+  pull_request:
+    branches:
+      - master
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
