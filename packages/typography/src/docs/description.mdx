@@ -30,16 +30,42 @@ import { Space } from '@alfalab/core-components/space';
 
 ```jsx live
 render(() => {
-    const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
+    const VIEW_TYPES = ['xLarge', 'Large', 'Medium', 'Small', 'xSmall'];
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Font: System' },
+            { key: '2', content: 'Font: Styrene' },
+        ],
+        [],
+    );
 
-    return VIEW_TYPES.map((view) => (
-        <>
-            <Typography.Title font='system' view={view} color={color} key={view} tag='div'>
-                {view}
-            </Typography.Title>
-            <Gap size='m' />
-        </>
-    ));
+    const [selected, setSelected] = React.useState(options[0]);
+
+    const handleChange = ({selected}) => {
+        setSelected(selected);
+    };
+
+    return (
+    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <Select
+            allowUnselect={true}
+            block={true}
+            size='m'
+            options={options}
+            onChange={handleChange}
+            selected={selected}
+        />
+        <Gap size='xl' />
+        {VIEW_TYPES.map((view) => (
+            <>
+                <Typography.TitleResponsive font={selected.key === '1' ? 'system' : 'styrene'} view={view.toLowerCase()} color={color} key={view} tag='div'>
+                    {view}
+                </Typography.TitleResponsive>
+                <Gap size='m' />
+            </>
+    ))}
+    </div>
+    )
 });
 ```
 
