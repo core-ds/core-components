@@ -1,21 +1,89 @@
+## Стандартный вид компонента
+
+Компонент умеет принимать только целые и дробные числа с разным знаком. 
+Вид разделителя и количество знаков в дробной части можно настраивать.
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState('+11234,567');
+    const [value, setValue] = React.useState('');
+
+    const [allowSignsRadioValue, setAllowSignsRadioValue] = React.useState('comma');
+    const [minorityRadioValue, setMinorityRadioValue] = React.useState('notLimited');
+    const [signsRadioValue, setSignsRadioValue] = React.useState('allowSigns');
+
+    
+    const handleChange = (e, paylaod) => {
+        setValue(paylaod.value)
+    }
+
+    const handleAllowSignsRadioChange = React.useCallback((_, payload) => {
+        setAllowSignsRadioValue(payload.value);
+    }, []);
+
+    const handleMinorityRadioChange = React.useCallback((_, payload) => {
+        setMinorityRadioValue(payload.value);
+    }, []);
+
+    const handleSignsRadioChange = React.useCallback((_, payload) => {
+        setSignsRadioValue(payload.value);
+    }, []);
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <NumberInput
                 value={value}
                 block={true}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={handleChange}
                 label='Label'
+                signs={allowSignsRadioValue === 'comma' ? ',' : '.'}
+                minority={minorityRadioValue === 'limited' ? 2 : null}
+                allowSigns={signsRadioValue === 'allowSigns'}
                 size='m'
                 clear={true}
                 onClear={() => setValue('')}
             />
-        </div>
-    );
+            <div style={{ margin: "40px 0" }}>
+                <RadioGroup
+                label="Отделять дробную часть"
+                direction="vertical"
+                name="radioGroupFirst"
+                onChange={handleAllowSignsRadioChange}
+                value={allowSignsRadioValue}
+                >
+                <Radio label="Запятой" value="comma" />
+                <Radio label="Точкой" value="dot" />
+                </RadioGroup>
+            </div>
+            <div style={{ margin: "40px 0" }}>
+                <RadioGroup
+                label="Длина дробной части"
+                direction="vertical"
+                name="radioGroupSecond"
+                onChange={handleMinorityRadioChange}
+                value={minorityRadioValue}
+                >
+                <Radio label="Не ограничена" value="notLimited" />
+                <Radio label="2 знака" value="limited" />
+                </RadioGroup>
+            </div>
+
+            <div style={{ margin: "40px 0" }}>
+                <RadioGroup
+                label="Работа со знаками"
+                direction="vertical"
+                name="radioGroupThird"
+                onChange={handleSignsRadioChange}
+                value={signsRadioValue}
+                >
+                <Radio label="Разрешить указывать знак" value="allowSigns" />
+                <Radio label="Не позволять указать знак" value="banSigns" />
+                </RadioGroup>
+            </div>
+        </div>    
+    )
 });
 ```
 
+## Морфология
+
+Поле ввода является оберткой над [FormControl](/docs/components-forms-inputs-formcontrol--form-control), поэтому наследует все доступные для него настройки.

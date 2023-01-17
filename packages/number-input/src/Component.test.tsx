@@ -57,7 +57,7 @@ describe('NumberInput', () => {
             const value = '+123';
             const value2 = '123';
             const { getByTestId } = render(
-                <NumberInput onChange={cb} showSigns={false} dataTestId={dataTestId} />,
+                <NumberInput onChange={cb} allowSigns={false} dataTestId={dataTestId} />,
             );
 
             const inputNumber = getByTestId(dataTestId) as HTMLInputElement;

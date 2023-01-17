@@ -8,13 +8,36 @@ export type NumberInputProps = InputProps & {
     /**
      * Учитывать знаки '+' и '-'
      */
-    showSigns?: boolean;
+    allowSigns?: boolean;
+
+    /**
+     * Знак ',' или '.'
+     */
+    separator?: string;
+
+    /**
+     * Количество единицы после знака
+     */
+    minority?: number;
 };
 
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
-    ({ value: propValue = '', onChange, onBlur, showSigns = true, ...restProps }, ref) => {
+    (
+        {
+            value: propValue,
+            onChange,
+            onBlur,
+            allowSigns = true,
+            separator = ',',
+            minority,
+            defaultValue,
+            ...restProps
+        },
+        ref,
+    ) => {
+        const uncontrolled = propValue === undefined;
         const inputRef = useRef<HTMLInputElement>(null);
-        const [value, setValue] = useState(propValue);
+        const [value, setValue] = useState(defaultValue || '');
 
         const handleChange = (
             event: ChangeEvent<HTMLInputElement>,
@@ -22,45 +45,65 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 value: string;
             },
         ) => {
-            setValue(payload.value);
-
             if (onChange) {
                 onChange(event, payload);
+            }
+
+            if (uncontrolled) {
+                setValue(payload.value);
             }
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-            setValue(value.replace(/[,]0+$/, '').replace(/,$/, ''));
+            const valueBlur = event.target.value
+                .replace(new RegExp(`\\${separator}0+$`), '')
+                .replace(new RegExp(`\\${separator}$`), '');
+
+            if (onChange) {
+                onChange(event, { value: valueBlur });
+            }
+
+            if (uncontrolled) {
+                setValue(valueBlur);
+            }
 
             if (onBlur) onBlur(event);
         };
 
         const handleMask = (valueInput: string) => {
-            const mask = showSigns ? [/[+-\d]/] : [/\d/];
+            let mask = allowSigns ? [/[+-\d]/] : [/\d/];
 
             if (valueInput.length <= 1) return mask;
 
             mask.push(...Array(valueInput.length - 1).fill(/\d/));
 
-            const dotIndex = valueInput.indexOf(',');
-            const startWithDigit = /[\d,]/.test(valueInput[0]);
+            const dotIndex = valueInput.indexOf(separator);
+
+            const signRegexp = new RegExp(`[\\d${separator}]`);
+
+            const startWithDigit = signRegexp.test(valueInput[0]);
 
             if (dotIndex > (startWithDigit ? 0 : 1)) {
-                mask[dotIndex] = /[\d,]/;
+                mask[dotIndex] = signRegexp;
             }
 
+            if (minority && dotIndex !== -1) {
+                const endMaskLength = dotIndex + minority + 1;
+                mask = mask.slice(0, endMaskLength);
+            }
             return mask;
         };
+
+        const visibleValue = uncontrolled ? value : propValue;
 
         return (
             <MaskedInput
                 ref={mergeRefs([ref, inputRef])}
                 mask={handleMask}
-                value={value}
+                value={visibleValue}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                inputMode='tel'
-                pattern='[+-]?[0-9]+[,][0-9]*'
+                inputMode='decimal'
                 {...restProps}
             />
         );

@@ -16,8 +16,7 @@ exports[`NumberInput Snapshots tests should match snapshot 1`] = `
         >
           <input
             class="input input"
-            inputmode="tel"
-            pattern="[+-]?[0-9]+[,][0-9]*"
+            inputmode="decimal"
             type="text"
             value="1234567"
           />
