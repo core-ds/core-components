@@ -22,18 +22,26 @@
 
     &.checkmarkBefore {
         padding: 0 0 0 var(--gap-s);
+
+        &.mobile {
+            padding-left: var(--gap-m);
+        }
     }
 
     &.checkmarkAfter {
         padding: 0 var(--gap-s) 0 0;
+
+        &.mobile {
+            padding-right: var(--gap-l);
+        }
     }
 
     &.textContent {
         padding: var(--gap-s);
-    }
 
-    &.mobileTextContent {
-        padding: var(--gap-m);
+        &.mobile {
+            padding: var(--gap-m) var(--gap-l) var(--gap-m) var(--gap-m);
+        }
     }
 }
 

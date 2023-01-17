@@ -40,8 +40,8 @@ export const BaseOption: FC<OptionProps> = ({
                 [styles.highlighted]: highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
-                [styles.textContent]: isTextContent && !mobile,
-                [styles.mobileTextContent]: isTextContent && mobile,
+                [styles.textContent]: isTextContent,
+                [styles.mobile]: mobile,
                 [styles.checkmarkAfter]: !isTextContent && checkmarkPosition === 'after',
                 [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
             })}
