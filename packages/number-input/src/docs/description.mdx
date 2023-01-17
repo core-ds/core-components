@@ -8,7 +8,7 @@ render(() => {
     const [value, setValue] = React.useState('');
 
     const [allowSignsRadioValue, setAllowSignsRadioValue] = React.useState('comma');
-    const [minorityRadioValue, setMinorityRadioValue] = React.useState('notLimited');
+    const [fractionLengthRadioValue, setFractionLengthRadioValue] = React.useState('notLimited');
     const [signsRadioValue, setSignsRadioValue] = React.useState('allowSigns');
 
     
@@ -20,8 +20,8 @@ render(() => {
         setAllowSignsRadioValue(payload.value);
     }, []);
 
-    const handleMinorityRadioChange = React.useCallback((_, payload) => {
-        setMinorityRadioValue(payload.value);
+    const handleFractionLengthRadioChange = React.useCallback((_, payload) => {
+        setFractionLengthRadioValue(payload.value);
     }, []);
 
     const handleSignsRadioChange = React.useCallback((_, payload) => {
@@ -35,8 +35,8 @@ render(() => {
                 block={true}
                 onChange={handleChange}
                 label='Label'
-                signs={allowSignsRadioValue === 'comma' ? ',' : '.'}
-                minority={minorityRadioValue === 'limited' ? 2 : null}
+                separator={allowSignsRadioValue === 'comma' ? ',' : '.'}
+                fractionLength={fractionLengthRadioValue === 'limited' ? 2 : null}
                 allowSigns={signsRadioValue === 'allowSigns'}
                 size='m'
                 clear={true}
@@ -59,8 +59,8 @@ render(() => {
                 label="Длина дробной части"
                 direction="vertical"
                 name="radioGroupSecond"
-                onChange={handleMinorityRadioChange}
-                value={minorityRadioValue}
+                onChange={handleFractionLengthRadioChange}
+                value={fractionLengthRadioValue}
                 >
                 <Radio label="Не ограничена" value="notLimited" />
                 <Radio label="2 знака" value="limited" />

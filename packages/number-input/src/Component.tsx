@@ -13,12 +13,12 @@ export type NumberInputProps = InputProps & {
     /**
      * Знак ',' или '.'
      */
-    separator?: string;
+    separator?: '.' | ',';
 
     /**
      * Количество единицы после знака
      */
-    minority?: number;
+    fractionLength?: number;
 };
 
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
@@ -29,7 +29,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             onBlur,
             allowSigns = true,
             separator = ',',
-            minority,
+            fractionLength,
             defaultValue,
             ...restProps
         },
@@ -87,8 +87,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 mask[dotIndex] = signRegexp;
             }
 
-            if (minority && dotIndex !== -1) {
-                const endMaskLength = dotIndex + minority + 1;
+            if (fractionLength && dotIndex !== -1) {
+                const endMaskLength = dotIndex + fractionLength + 1;
                 mask = mask.slice(0, endMaskLength);
             }
             return mask;
