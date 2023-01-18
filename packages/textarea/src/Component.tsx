@@ -77,7 +77,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
-        const hasOverflow = Boolean(maxLength && stateValue.slice(maxLength));
+        const hasOverflow = Boolean(
+            (maxLength && stateValue.slice(maxLength)) || (maxLength && value?.slice(maxLength)),
+        );
 
         useEffect(() => {
             const pseudoNode = pseudoTextareaRef.current;
@@ -205,7 +207,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 >
                     {hasOverflow && (
                         <PseudoTextArea
-                            stateValue={stateValue}
+                            value={value ?? stateValue}
                             size={size}
                             maxLength={maxLength}
                             pseudoTextareaClassName={cn(
@@ -216,7 +218,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                         />
                     )}
 
-                    <TextareaAutosize {...textareaProps} minRows={minRowsValue} />
+                    <TextareaAutosize
+                        {...textareaProps}
+                        minRows={minRowsValue}
+                        style={{ overflow: 'hidden' }}
+                    />
 
                     {/* Используется только для вычисления размера контейнера */}
                     <TextareaAutosize
@@ -282,7 +288,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                     <>
                         {hasOverflow && (
                             <PseudoTextArea
-                                stateValue={stateValue}
+                                value={value ?? stateValue}
                                 size={size}
                                 maxLength={maxLength}
                                 pseudoTextareaClassName={cn(
