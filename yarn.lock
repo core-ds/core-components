@@ -21523,10 +21523,10 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-canvas-pattern-lock@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-canvas-pattern-lock/-/react-canvas-pattern-lock-1.0.0.tgz#7258b0e53cec19e6674fd60e484b1627decb0da2"
-  integrity sha512-fBPCy32DQ0NYYBbpscd4YaL0+Y0tfjnCv2zgxHIcXNLzOskFrlW6nhTYT2qxWNbcAuYAM4wo4OO6VOwtoHaGLA==
+react-canvas-pattern-lock@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-canvas-pattern-lock/-/react-canvas-pattern-lock-1.0.2.tgz#64092d4f12bb5beae75bd1bc659d4386130e2754"
+  integrity sha512-5AB8a6aaSscg9aEBP5oBOGx6bz3rItyatt6TEw1Eegwoq/5LDnRHN4XWo2AnBk4HEM6UgLrzUWAHzNAnQ3+tvw==
   dependencies:
     react-merge-refs "^1.1.0"
     react-use-event-hook "^0.9.3"
