@@ -1,5 +1,13 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.0.3
+
+### Patch Changes
+
+### [#466](https://github.com/core-ds/core-components/pull/466)
+
+-   Обновлена версия библиотеки react-canvas-pattern-lock до 1.0.2
+
 ## 1.0.2
 
 ### Patch Changes
