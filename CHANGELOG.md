@@ -1,3 +1,17 @@
+## 37.1.2
+
+<sup><time>18.01.2023</time></sup>
+
+### [#466](https://github.com/core-ds/core-components/pull/466)
+
+#### Что изменилось
+- Обновлена версия библиотеки react-canvas-pattern-lock до 1.0.2
+
+#### Влияние на компоненты
+- Патчи<br />`pattern-lock`
+
+
+
 ## 37.1.1
 
 <sup><time>16.01.2023</time></sup>
