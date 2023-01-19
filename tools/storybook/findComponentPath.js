@@ -13,20 +13,21 @@ const findComponentPath = (() => {
             {},
         );
 
-        let result = '';
+        let result = { url: '' };
 
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
-            const doc = fs.readFileSync(file).toString().replace(/\n/g, '');
-            const metaTag = (/<Meta.+?\/>/.exec(doc) || [''])[0].trim();
+            const doc = fs.readFileSync(file).toString();
+            const idProp = /<Meta[^>]*?id=['"](.*?)['"]/.exec(doc)?.[1].trim() || '';
+            const titleProp = /<Meta[^>]*?title=['"](.*?)['"]/.exec(doc)?.[1].trim() || '';
+            const urlSegments = idProp ? idProp.split('/') : titleProp.split('/');
 
-            const titlePropValue = (/(?<=title=').*(?=')/.exec(metaTag) || [''])[0].trim();
+            if (urlSegments.length > 0 && urlSegments[urlSegments.length - 1] === componentName) {
+                const group = titleProp.split('/') || [];
 
-            const pathsEls = titlePropValue.split('/');
-
-            if (pathsEls.length > 0 && pathsEls[pathsEls.length - 1] === componentName) {
-                result = pathsEls
-                    .slice(0, pathsEls.length - 1)
+                result.group =
+                    group.length > 1 ? group.slice(0, group.length - 1).join('/') : undefined;
+                result.url = urlSegments
                     .map((el) => `${el.toLowerCase().replace(/[\s&]/g, '-')}`)
                     .join('-');
 

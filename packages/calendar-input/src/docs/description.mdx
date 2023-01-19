@@ -1,13 +1,13 @@
 ## Пример
 
-Пикер используется, когда выбор дат ограничен. Например, если нельзя указывать выходные дни. 
+Пикер используется, когда выбор дат ограничен. Например, если нельзя указывать выходные дни.
 При наличии пикера допустимо блокировать ввод с клавиатуры чтобы исключить ввод недоступных значений.
 
 ```jsx live mobileHeight=640
 render(() => {
     const [keyPress, setKeyPress] = React.useState(false);
     // import startOfDay from 'date-fns/startOfDay';
-    const defaultMonth = new Date('December 1, 2022 00:00:00'); 
+    const defaultMonth = new Date('December 1, 2022 00:00:00');
 
     const minDate = startOfDay(new Date());
     minDate.setDate(1);
@@ -16,13 +16,10 @@ render(() => {
     const maxDate = startOfDay(new Date());
     maxDate.setDate(31);
     maxDate.setMonth(11);
-    
+
     const events = [new Date().setDate(13), new Date().setDate(19)];
 
-    const offDays = [
-        new Date().setDate(8),
-        new Date().setDate(9),
-    ];
+    const offDays = [new Date().setDate(8), new Date().setDate(9)];
 
     const holidays = [
         new Date().setDate(3),
@@ -37,38 +34,38 @@ render(() => {
     ];
 
     const handleChange = (event) => {
-        event.preventDefault()
+        event.preventDefault();
     };
-        
+
     return (
-    <Space size={24}>
-        <CalendarInputDesktop 
-            label='Укажите дату'
-            defaultMonth={defaultMonth}  
-            events={events}
-            offDays={offDays}                 
-            minDate={minDate.getTime()}
-            maxDate={maxDate.getTime()} 
-            onKeyPress={keyPress ? handleChange: null}
-            calendarProps={{
-            selectorView: 'month-only',
-            holidays: holidays,
-            }}
-        />
-        <Switch
+        <Space size={24}>
+            <CalendarInputDesktop
+                label='Укажите дату'
+                defaultMonth={defaultMonth}
+                events={events}
+                offDays={offDays}
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()}
+                onKeyPress={keyPress ? handleChange : null}
+                calendarProps={{
+                    selectorView: 'month-only',
+                    holidays: holidays,
+                }}
+            />
+            <Switch
                 block={true}
                 checked={keyPress}
                 label='Запретить ввод с клавиатуры'
                 onChange={() => setKeyPress(!keyPress)}
             />
-      </Space>
+        </Space>
     );
 });
 //MOBILE
 render(() => {
     const [keyPress, setKeyPress] = React.useState(false);
     // import startOfDay from 'date-fns/startOfDay';
-    const defaultMonth = new Date('December 1, 2022 00:00:00'); 
+    const defaultMonth = new Date('December 1, 2022 00:00:00');
 
     const minDate = startOfDay(new Date());
     minDate.setDate(1);
@@ -77,13 +74,10 @@ render(() => {
     const maxDate = startOfDay(new Date());
     maxDate.setDate(31);
     maxDate.setMonth(11);
-    
+
     const events = [new Date().setDate(13), new Date().setDate(19)];
 
-    const offDays = [
-        new Date().setDate(8),
-        new Date().setDate(9),
-    ];
+    const offDays = [new Date().setDate(8), new Date().setDate(9)];
 
     const holidays = [
         new Date().setDate(3),
@@ -98,37 +92,37 @@ render(() => {
     ];
 
     const handleChange = (event) => {
-        event.preventDefault()
+        event.preventDefault();
     };
 
     return (
         <Space size={24}>
-            <CalendarInputMobile 
-                label='Укажите дату'  
-                defaultMonth={defaultMonth} 
+            <CalendarInputMobile
+                label='Укажите дату'
+                defaultMonth={defaultMonth}
                 events={events}
-                offDays={offDays}                 
+                offDays={offDays}
                 minDate={minDate.getTime()}
-                maxDate={maxDate.getTime()} 
-                onKeyPress={keyPress ? handleChange: null}
+                maxDate={maxDate.getTime()}
+                onKeyPress={keyPress ? handleChange : null}
                 calendarProps={{
-                selectorView: 'month-only',
-                holidays: holidays,
+                    selectorView: 'month-only',
+                    holidays: holidays,
                 }}
             />
-                <Switch
+            <Switch
                 block={true}
                 checked={keyPress}
                 label='Запретить ввод с клавиатуры'
                 onChange={() => setKeyPress(!keyPress)}
             />
-      </Space>
+        </Space>
     );
 });
 ```
 
 ## Морфология
 
-Поле ввода является оберткой над [FormControl](/docs/компоненты-инпуты-formcontrol--form-control),
+Поле ввода является оберткой над [FormControl](/docs/formcontrol--form-control),
 поэтому наследует все доступные для него настройки. Пикер это
-[Calendar](/docs/компоненты-календари-calendar--calendar) переданный в [Popover](/docs/компоненты-модалки-и-поповеры-popover--popover).
+[Calendar](/docs/calendar--calendar) переданный в [Popover](/docs/popover--popover).

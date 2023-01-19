@@ -12,7 +12,7 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta title='Components/Modals&Overlays/Modal' />
+<Meta title='Components/Modals&Overlays/Modal' id='Modal' />
 
 export const Text = () => (
     <p style={{ margin: '0 0 16px' }}>
@@ -138,8 +138,4 @@ export const Content = () => {
     children='Модальное окно. Используется для отображения контента в модальном слое.'
 />
 
-<Tabs
-    description={<Description />}
-    development={<Development />}
-    changelog={<Changelog />}
-/>
+<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />

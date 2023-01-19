@@ -12,7 +12,7 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta title='Components/Modals&Overlays/SidePanel' />
+<Meta title='Components/Modals&Overlays/SidePanel' id='SidePanel' />
 
 export const Text = () => (
     <p style={{ margin: '0 0 16px' }}>
@@ -130,8 +130,4 @@ export const Content = () => {
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
 />
 
-<Tabs
-    description={<Description />}
-    development={<Development />}
-    changelog={<Changelog />}
-/>
+<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />

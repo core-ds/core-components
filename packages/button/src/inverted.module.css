@@ -76,6 +76,10 @@
 
     &:hover {
         background-color: var(--button-inverted-primary-hover-bg-color);
+
+        @media (hover: none) {
+            background-color: var(--button-inverted-primary-base-bg-color);
+        }
     }
 
     &:active {
@@ -94,6 +98,10 @@
 
     &:hover {
         background-color: var(--button-inverted-secondary-hover-bg-color);
+
+        @media (hover: none) {
+            background-color: var(--button-inverted-secondary-base-bg-color);
+        }
     }
 
     &:active {
@@ -112,6 +120,10 @@
 
     &:hover {
         background-color: var(--button-inverted-outlined-hover-bg-color);
+
+        @media (hover: none) {
+            background-color: var(--button-inverted-outlined-base-bg-color);
+        }
     }
 
     &:active {
@@ -127,6 +139,11 @@
     &:hover {
         background-color: var(--button-inverted-tertiary-hover-bg-color);
         border-color: var(--button-inverted-tertiary-hover-border-color);
+
+        @media (hover: none) {
+            background-color: var(--button-inverted-tertiary-base-bg-color);
+            border-color: var(--button-inverted-tertiary-base-border-color);
+        }
     }
 
     &:active {
@@ -144,6 +161,10 @@
 
     &:hover {
         background-color: color-mod(var(--color-dark-bg-quaternary) tint(15%));
+
+        @media (hover: none) {
+            background-color: var(--color-dark-bg-quaternary);
+        }
     }
 
     &:active {
@@ -157,6 +178,10 @@
 
     &:hover {
         background-color: color-mod(var(--color-light-bg-primary) alpha(20%));
+
+        @media (hover: none) {
+            background-color: color-mod(var(--color-light-bg-primary) alpha(10%));
+        }
     }
 
     &:active {
@@ -172,6 +197,10 @@
 
     &:hover {
         background-color: var(--button-inverted-link-hover-bg-color);
+
+        @media (hover: none) {
+            background-color: transparent;
+        }
     }
 
     &:active {
@@ -189,6 +218,10 @@
 
     &:hover {
         color: var(--button-inverted-ghost-hover-color);
+
+        @media (hover: none) {
+            color: var(--button-inverted-ghost-base-color);
+        }
     }
 
     &:active {

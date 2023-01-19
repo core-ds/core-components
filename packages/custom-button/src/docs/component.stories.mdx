@@ -12,8 +12,9 @@ import styles from '!!raw-loader!../index.module.css';
 
 export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 export const CONTENT_COLORS = ['white', 'black'];
+export const STATE_TYPES = ['darkening', 'lightening'];
 
-<Meta title='Components/Actions/CustomButton' component={CustomButton} />
+<Meta title='Components/Actions/CustomButton' component={CustomButton} id='CustomButton' />
 
 <!-- Canvas -->
 
@@ -35,6 +36,7 @@ export const CONTENT_COLORS = ['white', 'black'];
                     size={select('size', SIZES, 'm')}
                     backgroundColor={color('backgroundColor', '#FF45C3')}
                     contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+                    stateType={select('stateType', STATE_TYPES, 'darkening')}
                     href={text('href', '')}
                     loading={boolean('loading', false)}
                     disabled={boolean('disabled', false)}

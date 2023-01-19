@@ -164,16 +164,17 @@ render(() => {
         let newValue = '';
 
         if (payload && payload.selectedMultiple) {
-          newValue = payload.selectedMultiple.length
-                ? payload.selectedMultiple.map((option) => option.key).join(', ') + `${multiple ? `,` : ''}`
-                : ''; 
+            newValue = payload.selectedMultiple.length
+                ? payload.selectedMultiple.map((option) => option.key).join(', ') +
+                  `${multiple ? `,` : ''}`
+                : '';
         } else {
             newValue = payload || '';
         }
 
         setValue(newValue);
         setFilter(newValue);
-    }
+    };
 
     const filteredOptions =
         filterValues.length === selected.length
@@ -482,9 +483,9 @@ render(() => {
 
 ## Морфология
 
-Компонент является оберткой над [FormControl](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control),
+Компонент является оберткой над [FormControl](?path=/docs/formcontrol--form-control),
 поэтому наследует все доступные для него настройки.
-Список это кастомизируемый [Popover](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-popover--popover)
-в десктопной версии и [Bottomsheet](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-bottomsheet--bottom-sheet)
-или [Modal](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-modal--modal)
+Список это кастомизируемый [Popover](?path=/docs/popover--popover)
+в десктопной версии и [Bottomsheet](?path=/docs/bottomsheet--bottom-sheet)
+или [Modal](?path=/docs/modal--modal)
 в мобильной.

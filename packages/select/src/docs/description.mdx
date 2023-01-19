@@ -1,7 +1,7 @@
 ## Стандартный вид компонента
 
-По умолчанию селект вызывает [Popover](/docs/components-modals-overlays-popover--popover) с вариантами выбора.
-На мобильных устройствах варианты выбора отображаются в [BottomSheet](/docs/components-modals-overlays-bottomsheet--bottom-sheet).
+По умолчанию селект вызывает [Popover](/docs/popover--popover) с вариантами выбора.
+На мобильных устройствах варианты выбора отображаются в [BottomSheet](/docs/bottomsheet--bottom-sheet).
 
 ```jsx live mobileHeight=640
 render(() => {
@@ -482,45 +482,39 @@ render(() => {
         />
     );
 
-    const renderPureCell = ({
-        text,
-        amount,
-        icon,
-        horizontalPadding = 'left',
-        iconSize = 48,
-        verticalPadding = 'default',
-    }) => {
+    const renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {
         return (
-            <PureCell verticalPadding={verticalPadding} horizontalPadding={horizontalPadding}>
-                <PureCell.Graphics verticalAlign='center'>
+            <GenericWrapper alignItems='center' padding={padding}>
+                <GenericWrapper>
                     <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                </GenericWrapper>
+                <Gap size='m' direction='horizontal' />
+                <GenericWrapper>
+                    <GenericWrapper column>
+                        <Typography.Text color='secondary' view='primary-small'>
                             {text}
-                        </PureCell.Text>
-                        <PureCell.Amount
-                            value={amount}
-                            minorUnits={100}
-                            currency='RUR'
-                            color='primary'
-                            view={'withZeroMinorPart'}
-                            transparentMinor={true}
-                            teaxtView='primary-medium'
-                        />
-                    </PureCell.Main>
-                </PureCell.Content>
-            </PureCell>
+                        </Typography.Text>
+                        <Gap size='3xs' />
+                        <Typography.Text>
+                            <Amount
+                                value={amount}
+                                minority={100}
+                                currency='RUR'
+                                view='withZeroMinorPart'
+                                transparentMinor={true}
+                            />
+                        </Typography.Text>
+                    </GenericWrapper>
+                </GenericWrapper>
+            </GenericWrapper>
         );
     };
 
     const renderSelected = ({ selected }) => {
         return selected
-            ? renderPureCell({
+            ? renderOption({
                   ...selected.value,
-                  horizontalPadding: 'none',
-                  verticalPadding: 'none',
+                  padding: undefined,
                   iconSize: 40,
               })
             : undefined;
@@ -529,17 +523,27 @@ render(() => {
     const data = [
         {
             key: 'Account1',
-            value: { text: 'Зарплатный счёт', amount: 3405161, icon: <StarMIcon /> },
+            value: {
+                text: 'Зарплатный счёт',
+                amount: 3405161,
+                icon: <StarMIcon />,
+                padding: { top: 's', bottom: 's', left: 'm' },
+            },
         },
         {
             key: 'Account2',
-            value: { text: 'Накопительный счёт', amount: 6000024, icon: <SafeBoxMIcon /> },
+            value: {
+                text: 'Накопительный счёт',
+                amount: 6000024,
+                icon: <SafeBoxMIcon />,
+                padding: { top: 's', bottom: 's', left: 'm' },
+            },
         },
     ];
 
     const pureCellOptions = data.map((item) => ({
         ...item,
-        content: renderPureCell(item.value),
+        content: renderOption(item.value),
     }));
 
     const selectWithPureCell = (
@@ -564,45 +568,39 @@ render(() => {
 });
 //MOBILE
 render(() => {
-    const renderPureCell = ({
-        text,
-        amount,
-        icon,
-        horizontalPadding = 'left',
-        iconSize = 48,
-        verticalPadding = 'default',
-    }) => {
+    const renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {
         return (
-            <PureCell verticalPadding={verticalPadding} horizontalPadding={horizontalPadding}>
-                <PureCell.Graphics verticalAlign='center'>
+            <GenericWrapper alignItems='center' padding={padding}>
+                <GenericWrapper>
                     <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <PureCell.Text titleColor='secondary' view='primary-small'>
+                </GenericWrapper>
+                <Gap size='m' direction='horizontal' />
+                <GenericWrapper>
+                    <GenericWrapper column>
+                        <Typography.Text color='secondary' view='primary-small'>
                             {text}
-                        </PureCell.Text>
-                        <PureCell.Amount
-                            value={amount}
-                            minorUnits={100}
-                            currency='RUR'
-                            color='primary'
-                            view={'withZeroMinorPart'}
-                            transparentMinor={true}
-                            teaxtView='primary-medium'
-                        />
-                    </PureCell.Main>
-                </PureCell.Content>
-            </PureCell>
+                        </Typography.Text>
+                        <Gap size='3xs' />
+                        <Typography.Text>
+                            <Amount
+                                value={amount}
+                                minority={100}
+                                currency='RUR'
+                                view='withZeroMinorPart'
+                                transparentMinor={true}
+                            />
+                        </Typography.Text>
+                    </GenericWrapper>
+                </GenericWrapper>
+            </GenericWrapper>
         );
     };
 
     const renderSelected = ({ selected }) => {
         return selected
-            ? renderPureCell({
+            ? renderOption({
                   ...selected.value,
-                  horizontalPadding: 'none',
-                  verticalPadding: 'none',
+                  padding: undefined,
                   iconSize: 40,
               })
             : undefined;
@@ -611,17 +609,27 @@ render(() => {
     const data = [
         {
             key: 'Account1',
-            value: { text: 'Зарплатный счёт', amount: 3405161, icon: <StarMIcon /> },
+            value: {
+                text: 'Зарплатный счёт',
+                amount: 3405161,
+                icon: <StarMIcon />,
+                padding: { top: 's', bottom: 's', left: 'm' },
+            },
         },
         {
             key: 'Account2',
-            value: { text: 'Накопительный счёт', amount: 6000024, icon: <SafeBoxMIcon /> },
+            value: {
+                text: 'Накопительный счёт',
+                amount: 6000024,
+                icon: <SafeBoxMIcon />,
+                padding: { top: 's', bottom: 's', left: 'm' },
+            },
         },
     ];
 
     const pureCellOptions = data.map((item) => ({
         ...item,
-        content: renderPureCell(item.value),
+        content: renderOption(item.value),
     }));
 
     return (
@@ -643,8 +651,8 @@ render(() => {
 ## Формат отображения списков на мобильных устройствах
 
 В редких кейсах может потребоваться использовать селект с нативным выпадающим списком или
-открывать его в [Modal](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-modal--modal)
-вместо [BottomSheet](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-bottomsheet--bottom-sheet).
+открывать его в [Modal](?path=/docs/modal--modal)
+вместо [BottomSheet](?path=/docs/bottomsheet--bottom-sheet).
 
 ```jsx live mobileHeight=640
 const groups = [
@@ -944,12 +952,12 @@ render(() => {
 
 ## Другие селекты
 
-На основе селекта построены такие компоненты как [PickerButton](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-pickerbutton--picker-button) и
-[InputAutocomplete](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-inputautocomplete--input-autocomplete).
+На основе селекта построены такие компоненты как [PickerButton](?path=/docs/pickerbutton--picker-button) и
+[InputAutocomplete](?path=/docs/inputautocomplete--input-autocomplete).
 
 ## Морфология поля ввода
 
-Компонент является оберткой над [FormControl](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control), поэтому наследует все доступные для него настройки.
+Компонент является оберткой над [FormControl](?path=/docs/formcontrol--form-control), поэтому наследует все доступные для него настройки.
 
 ## Строение списка
 
@@ -1033,5 +1041,5 @@ render(() => {
 
 ## Строение ячейки
 
-Для кастомных списков можно использовать ячейку [PureCell](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-purecell--pure-cell) с расширением в виде контрола.
-Благодаря гибкой настройке [PureCell](https://core-ds.github.io/core-components/master/?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-purecell--pure-cell) можно получить необходимую конфигурацию элементов списка.
+Для кастомных списков можно использовать ячейку [PureCell](?path=/docs/purecell--pure-cell) с расширением в виде контрола.
+Благодаря гибкой настройке [PureCell](?path=/docs/purecell--pure-cell) можно получить необходимую конфигурацию элементов списка.

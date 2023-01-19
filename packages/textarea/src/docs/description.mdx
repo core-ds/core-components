@@ -11,11 +11,17 @@
 
 ```jsx live
 <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-    <Textarea placeholder='Автоматическое изменение высоты' block={true}/>
+    <Textarea placeholder='Автоматическое изменение высоты' block={true} />
     <Gap size='m' />
-    <Textarea placeholder='Высота в три строки' minRows={3} autosize={false} block={true}/>
+    <Textarea placeholder='Высота в три строки' minRows={3} autosize={false} block={true} />
     <Gap size='m' />
-    <Textarea placeholder='Ручное управление высотой' autosize={false} resize='vertical' minRows={3} block={true}/>
+    <Textarea
+        placeholder='Ручное управление высотой'
+        autosize={false}
+        resize='vertical'
+        minRows={3}
+        block={true}
+    />
 </div>
 ```
 
@@ -25,11 +31,11 @@
 
 ```jsx live
 <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-    <Textarea label='Label' block={true} minRows={3} maxLength={96} showCounter={true}/>
+    <Textarea label='Label' block={true} minRows={3} maxLength={96} showCounter={true} />
 </div>
 ```
 
 ## Морфология
 
-Поле ввода является оберткой над [FormControl](?path=/docs/%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B-formcontrol--form-control),
+Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--form-control),
 поэтому наследует все доступные для него настройки.

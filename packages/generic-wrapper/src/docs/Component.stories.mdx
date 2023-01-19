@@ -2,14 +2,14 @@ import { Meta, Story } from '@storybook/addon-docs';
 import { Gap } from '@alfalab/core-components-gap';
 import { select, radios, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { GenericWrapper } from '../Component';
+import { GenericWrapper } from '@alfalab/core-components-generic-wrapper';
 
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta title='Components/Cells/GenericWrapper' component={GenericWrapper} />
+<Meta title='Components/Cells/GenericWrapper' component={GenericWrapper} id='GenericWrapper' />
 
 <Story name='GenericWrapper'>
     {() => {
