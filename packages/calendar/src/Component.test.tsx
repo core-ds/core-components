@@ -680,6 +680,23 @@ describe('Calendar', () => {
                 },
             );
 
+            it('should calculated correct direction with multiple rerenders', async () => {
+                const { container, rerender } = render(<Calendar selectorView='month-only' />);
+
+                await pressTab();
+
+                await act(() => {
+                    keyDown(getActiveElement(), 'ArrowLeft');
+                    keyDown(getActiveElement(), 'ArrowLeft');
+                });
+
+                rerender(<Calendar selectorView='month-only' />);
+
+                expect(
+                    container.firstElementChild?.querySelector('table') as HTMLTableElement,
+                ).toHaveClass('right');
+            });
+
             describe('ArrowLeft', () => {
                 it('should move focus to prev day', async () => {
                     const prevDayOfMonth = (+defaultDateOfMonth - 1).toString();
