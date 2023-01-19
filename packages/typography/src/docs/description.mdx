@@ -7,10 +7,10 @@ import { Space } from '@alfalab/core-components/space';
 
 ## Используемые шрифты
 
-Большинство интерфейсов использует только системные шрифты: --font-family-system: system-ui, 
--apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif. Они не требуют подключения.  
+Большинство интерфейсов использует только системные шрифты: `--font-family-system: system-ui, 
+-apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif`. Они не требуют подключения.  
 
-Некоторые продукты используют заголовки, набранные шрифтами Styrene A или Styrene B. Их необходимо подключать к проекту.
+Некоторые продукты используют заголовки, набранные шрифтами Styrene A или Styrene B (Styrene UI). Их необходимо подключать к проекту.
 
 ## Наборы стилей
 
@@ -18,14 +18,14 @@ import { Space } from '@alfalab/core-components/space';
 2. Headline Mobile — набор из пяти уровней заголовков для мобильной версии интерфейса.
 3. Promo — набор из пяти уровней акцидентных заголовков для десктопной версии интерфейса.
 4. Paragraph — набор интерфейсных стилей с Font Weight = 400.
-5. Monospace — набор интерфейсных моноширинных стилей с Font Weight = 400.
+5. Monospace — набор интерфейсных стилей с моноширинными цифрами, Font Weight = 400.
 6. Action — набор интерфейсных стилей с Font Weight = 500.
 7. Accent — набор интерфейсных стилей с Font Weight = 700.
 
 ## Адаптивность
 
 На базовом уровне адаптивность типографики достигается через адаптивность заголовочных стилей. 
-Каждому десктопному заголовоному стилю поставлен в соответствие мобильный. 
+Каждому десктопному заголовочному стилю поставлен в соответствие мобильный. 
 Чтобы смена происходила автоматически, используйте [Typography.TitleResponsive](/docs/components-typography--typography-title-responsive), для ручного управления — [Typography.Title](/docs/components-typography--typography-title).
 
 ```jsx live
@@ -46,7 +46,7 @@ render(() => {
     };
 
     return (
-    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+    <div style={{ width: 320 }}>
         <Select
             allowUnselect={true}
             block={true}
@@ -67,6 +67,45 @@ render(() => {
     </div>
     )
 });
+//MOBILE
+render(() => {
+    const VIEW_TYPES = ['xLarge', 'Large', 'Medium', 'Small', 'xSmall'];
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Font: System' },
+            { key: '2', content: 'Font: Styrene' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState(options[0]);
+
+    const handleChange = ({selected}) => {
+        setSelected(selected);
+    };
+
+    return (
+    <div>
+        <Select
+            allowUnselect={true}
+            block={true}
+            size='m'
+            options={options}
+            onChange={handleChange}
+            selected={selected}
+        />
+        <Gap size='xl' />
+        {VIEW_TYPES.map((view) => (
+            <>
+                <Typography.TitleMobile font={selected.key === '1' ? 'system' : 'styrene'} view={view.toLowerCase()} color={color} key={view} tag='div'>
+                    {view}
+                </Typography.TitleMobile>
+                <Gap size='m' />
+            </>
+    ))}
+    </div>
+    )
+});
 ```
 
 <Plate
@@ -79,16 +118,16 @@ render(() => {
         <>
             <Typography.Text tag='p' view='primary-large'>Для <b>font: system</b> используется два брейкпоинта:</Typography.Text>
             <Typography.Text tag='p' view='primary-large'>до 599px — Mobile (M)</Typography.Text>
-            <Typography.Text tag='p' view='primary-large'>от 600px до 1023px — Laptop (L)</Typography.Text>
+            <Typography.Text tag='p' view='primary-large'>от 600px до 1023px — Tablet (T)</Typography.Text>
             <Typography.Text tag='p' view='primary-large'>от 1024px — Desktop (D)</Typography.Text>
         </>
         <>
             <Typography.Text tag='p' view='primary-large'>Типографика для каждого из заголовков на указанных брейкпоинтах будет следующей:</Typography.Text>
-            <Typography.Text tag='p' view='primary-large'>M: 30/36, L: 40/48, D: 48/52  — xLarge</Typography.Text>
-            <Typography.Text tag='p' view='primary-large'>M: 20/26, L: 30/36, D: 40/48  — Large</Typography.Text>
-            <Typography.Text tag='p' view='primary-large'>M: 18/22, L: 22/26, D: 30/36  — Medium</Typography.Text>
-            <Typography.Text tag='p' view='primary-large'>M: 18/22, L: 22/26, D: 22/26  — Small</Typography.Text>
-            <Typography.Text tag='p' view='primary-large'>M: 18/22, L: 18/22, D: 18/22  — xSmall</Typography.Text>
+            <Typography.Text tag='p' view='primary-large'>M: 30/36, T: 40/48, D: 48/52  — xLarge</Typography.Text>
+            <Typography.Text tag='p' view='primary-large'>M: 20/26, T: 30/36, D: 40/48  — Large</Typography.Text>
+            <Typography.Text tag='p' view='primary-large'>M: 18/22, T: 22/26, D: 30/36  — Medium</Typography.Text>
+            <Typography.Text tag='p' view='primary-large'>M: 18/22, T: 22/26, D: 22/26  — Small</Typography.Text>
+            <Typography.Text tag='p' view='primary-large'>M: 18/22, T: 18/22, D: 18/22  — xSmall</Typography.Text>
             </>
         <>
             <Typography.Text tag='p' view='primary-large'>Для <b>font: styrene</b> используется один брейкпоинт:</Typography.Text>
