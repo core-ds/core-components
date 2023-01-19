@@ -3,6 +3,7 @@ import mergeRefs from 'react-merge-refs';
 
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { InputProps } from '@alfalab/core-components-input';
+import { TextMaskConfig } from 'text-mask-core';
 
 export type NumberInputProps = InputProps & {
     /**
@@ -45,6 +46,13 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 value: string;
             },
         ) => {
+            const sign = event.target.value.substring(event.target.value.length - 1) === separator;
+
+            if (sign) {
+                const input = event.target;
+                input.selectionStart = event.target.value.length;
+            }
+
             if (onChange) {
                 onChange(event, payload);
             }
@@ -54,10 +62,32 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             }
         };
 
+        const handleBeforeDisplay: TextMaskConfig['pipe'] = (
+            conformedValue,
+            { rawValue, previousConformedValue },
+        ) => {
+            const isSignIndex = conformedValue.includes(separator);
+            const signComma = rawValue.substring(rawValue.length - 1) === '.';
+            const signDot = rawValue.substring(rawValue.length - 1) === ',';
+            const isTwoSign = rawValue.length - conformedValue.length >= 1;
+
+            if (separator === ',' && signComma && !isSignIndex) {
+                return rawValue.replace(/\./g, ',');
+            }
+
+            if (separator === '.' && signDot && !isSignIndex) {
+                return rawValue.replace(',', '.');
+            }
+
+            if (isTwoSign && previousConformedValue) {
+                return previousConformedValue;
+            }
+
+            return conformedValue;
+        };
+
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-            const valueBlur = event.target.value
-                .replace(new RegExp(`\\${separator}0+$`), '')
-                .replace(new RegExp(`\\${separator}$`), '');
+            const valueBlur = event.target.value.replace(new RegExp(`\\${separator}$`), '');
 
             if (onChange) {
                 onChange(event, { value: valueBlur });
@@ -78,9 +108,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             mask.push(...Array(valueInput.length - 1).fill(/\d/));
 
             const dotIndex = valueInput.indexOf(separator);
-
             const signRegexp = new RegExp(`[\\d${separator}]`);
-
             const startWithDigit = signRegexp.test(valueInput[0]);
 
             if (dotIndex > (startWithDigit ? 0 : 1)) {
@@ -104,6 +132,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 onBlur={handleBlur}
                 onChange={handleChange}
                 inputMode='decimal'
+                onBeforeDisplay={handleBeforeDisplay}
                 {...restProps}
             />
         );
