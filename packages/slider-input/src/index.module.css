@@ -67,6 +67,12 @@
     }
 }
 
+.hidePips {
+    & :global(.noUi-pips) {
+        display: none;
+    }
+}
+
 .component .field {
     &.s {
         border-bottom-left-radius: var(--slider-input-s-border-bottom-radius);
