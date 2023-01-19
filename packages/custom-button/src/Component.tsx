@@ -18,6 +18,11 @@ export type ComponentProps = Omit<ButtonComponentProps, 'view' | 'colors'> & {
      * Цвет контента
      */
     contentColor?: 'black' | 'white';
+
+    /**
+     * Затемнение или осветление кнопки при hover и active
+     */
+    stateType?: 'darkening' | 'lightening';
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -36,6 +41,7 @@ export const CustomButton = React.forwardRef<
             loading,
             backgroundColor = DEFAULT_BUTTON_COLOR,
             contentColor = DEFAULT_CONTENT_COLOR,
+            stateType = 'darkening',
             ...restProps
         },
         ref,
@@ -45,9 +51,15 @@ export const CustomButton = React.forwardRef<
             ...restProps,
         };
 
-        const buttonClassName = cn(styles.customButton, className, styles[contentColor], {
-            [styles.customLoading]: loading,
-        });
+        const buttonClassName = cn(
+            styles.customButton,
+            className,
+            styles[contentColor],
+            styles[stateType],
+            {
+                [styles.customLoading]: loading,
+            },
+        );
 
         return (
             <Button

@@ -44,6 +44,7 @@ render(
 
 -   Кнопка может принимать пропс `backgroundColor` отвечающий за цвет фона.
 -   Кнопка может принимать пропс `contentColor = white | black` отвечающий за цвет контента.
+-   Кнопка может принимать пропс `stateType = darkening | lightening` отвечающий за затемнение / осветление цвета фона.
 
 ```jsx live
 const WHITE_CONTENT_COLORS = [
@@ -56,6 +57,7 @@ const BLACK_CONTENT_COLORS = [
     'linear-gradient(80.38deg, #4AF2FD 0%, #4AFD9C 100%)',
     '#4AFDA2',
 ];
+const STATE_TYPES = ['darkening', 'lightening'];
 
 render(
     <Container>
@@ -70,6 +72,15 @@ render(
             {BLACK_CONTENT_COLORS.map((color) => (
                 <Col key={color}>
                     <CustomButton backgroundColor={color} contentColor='black'>
+                        Кнопка
+                    </CustomButton>
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {STATE_TYPES.map((stateType) => (
+                <Col key={stateType}>
+                    <CustomButton backgroundColor='#FF45C3' stateType={stateType} contentColor='white'>
                         Кнопка
                     </CustomButton>
                 </Col>
