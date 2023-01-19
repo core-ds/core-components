@@ -78,8 +78,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
         const hasOverflow = Boolean(
-            (maxLength && stateValue.slice(maxLength)) || (maxLength && value?.slice(maxLength)),
-        );
+            (maxLength && value?.slice(maxLength)) || (maxLength && stateValue.slice(maxLength)),
+        );  
 
         useEffect(() => {
             const pseudoNode = pseudoTextareaRef.current;
@@ -209,7 +209,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                         <PseudoTextArea
                             value={value ?? stateValue}
                             size={size}
-                            maxLength={maxLength}
+                            maxLength={maxLength as number}
                             pseudoTextareaClassName={cn(
                                 textareaClassNameCalc,
                                 styles.customScrollbar,
@@ -290,7 +290,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                             <PseudoTextArea
                                 value={value ?? stateValue}
                                 size={size}
-                                maxLength={maxLength}
+                                maxLength={maxLength as number}
                                 pseudoTextareaClassName={cn(
                                     textareaClassNameCalc,
                                     styles.nativeScrollbar,

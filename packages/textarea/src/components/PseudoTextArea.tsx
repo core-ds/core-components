@@ -13,7 +13,11 @@ type PseudoTextAreaProps = {
      * Значение PseudoTextArea, разделяется на 2 части по maxLength
      */
     value: string;
-} & Pick<TextareaIncomeProps, 'size' | 'maxLength'>;
+    /**
+     * Максимальное количество символов, символы свыше maxLength будут выделены
+     */
+    maxLength: number;
+} & Pick<TextareaIncomeProps, 'size'>;
 
 export const PseudoTextArea = forwardRef<HTMLDivElement, PseudoTextAreaProps>(
     ({ size = 's', pseudoTextareaClassName, maxLength, value }, ref) => (
