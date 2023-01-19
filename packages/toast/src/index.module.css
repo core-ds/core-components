@@ -28,7 +28,6 @@
 .fixed {
     position: fixed;
     bottom: var(--gap-2xl);
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 
     &.enter {
         opacity: 0;
@@ -38,6 +37,7 @@
     &.enterActive {
         opacity: 1;
         transform: scale(1);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     }
 
     &.exit {
@@ -48,5 +48,6 @@
     &.exitActive {
         opacity: 0;
         transform: scale(0.98);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     }
 }

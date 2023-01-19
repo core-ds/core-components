@@ -21,6 +21,6 @@
         "@alfalab/core-components-portal": "^3.1.2",
         "@alfalab/core-components-stack": "^4.0.2",
         "classnames": "^2.3.1",
-        "react-transition-group": "^4.4.1"
+        "react-transition-group": "^4.4.5"
     }
 }

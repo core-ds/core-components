@@ -18,22 +18,22 @@
 .enter {
     visibility: hidden;
     transform: translate(0, -500px);
-    transition: transform 0.4s ease-out;
 }
 
 .enterActive {
     visibility: visible;
     transform: translate(0);
+    transition: transform 0.4s ease-out;
 }
 
 .exit {
     opacity: 0;
-    transition: opacity 0.15s ease-in-out;
 }
 
 .exitActive {
     visibility: hidden;
     opacity: 0;
+    transition: opacity 0.15s ease-in-out;
 }
 
 @media (--tablet-s) {
