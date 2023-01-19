@@ -6,6 +6,7 @@ import { setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
 
 import guidelinesStyles from '!!postcss-loader!./public/guidelines.css';
+import './blocks/code-editor/github-light-theme.css';
 
 import alfaTheme from './theme';
 import scope from './scope';
@@ -17,8 +18,11 @@ if (window.location.href.includes('guidelines')) {
     setGuidelinesStyles(guidelinesStyles);
 }
 
+const editorTheme = { styles: [] };
+
 addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
+        editorTheme,
         sandboxPath: '/docs/sandbox--page',
         mobileFrameName: 'mobileframe--page',
         desktopText: 'Переключить на декстопную версию',
