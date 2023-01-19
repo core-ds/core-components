@@ -33,16 +33,15 @@ async function main() {
             const componentName = upperfirst(camelCase(packageName));
             const cPath = findComponentPath(componentName, packageName);
 
-            if (cPath) {
-                const group = cPath.replace('components-', '');
+            if (cPath.url) {
+                const groupSegments = cPath.group?.split('/') || [];
+                const group =
+                    groupSegments.length > 1 ? groupSegments.slice(1).join('/') : undefined;
 
                 return {
                     group,
                     name: componentName,
-                    docsUrl: `/iframe.html?id=${cPath}-${packageName.replace(
-                        /-/g,
-                        '',
-                    )}--${packageName}&viewMode=docs`,
+                    docsUrl: `/iframe.html?id=${cPath.url}--${packageName}&viewMode=docs`,
                 };
             }
 
@@ -55,19 +54,17 @@ async function main() {
         breakPoints: {
             group: 'Instructions',
             name: 'Брейкпоинты',
-            docsUrl: '/iframe.html?viewMode=docs&id=instructions-пользователям-брейкпоинты--page',
+            docsUrl: '/iframe.html?viewMode=docs&id=instructions-breakpoints--page',
         },
         gaps: {
             group: 'Guidelines',
             name: 'Отступы',
-            docsUrl:
-                '/iframe.html?viewMode=docs&id=guidelines-дизайн-токены-и-ассеты-отступы--page',
+            docsUrl: '/iframe.html?viewMode=docs&id=guidelines-gaps--page',
         },
         cssVars: {
             group: 'Guidelines',
             name: 'CSS-переменные',
-            docsUrl:
-                '/iframe.html?viewMode=docs&id=guidelines-дизайн-токены-и-ассеты-css-переменные--page',
+            docsUrl: '/iframe.html?viewMode=docs&id=guidelines-css-vars--page',
         },
     };
 

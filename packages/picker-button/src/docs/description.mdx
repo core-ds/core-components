@@ -1,12 +1,7 @@
 ## Примеры
 
 ```jsx live mobileHeight=640
-const options = [
-    { key: 'Car' },
-    { key: 'Star' },
-    { key: 'Flower' },
-    { key: 'Banknote' },
-];
+const options = [{ key: 'Car' }, { key: 'Star' }, { key: 'Flower' }, { key: 'Banknote' }];
 
 const optionsWithIcons = [
     { key: 'Car', icon: CarMIcon },
@@ -19,15 +14,10 @@ render(
     <Space direction='horizontal'>
         <PickerButtonDesktop options={optionsWithIcons} view='primary' label='Picker button' />
         <PickerButtonDesktop options={options} view='primary' variant='compact' />
-    </Space>
+    </Space>,
 );
 //MOBILE
-const options = [
-    { key: 'Car' },
-    { key: 'Star' },
-    { key: 'Flower' },
-    { key: 'Banknote' },
-];
+const options = [{ key: 'Car' }, { key: 'Star' }, { key: 'Flower' }, { key: 'Banknote' }];
 
 const optionsWithIcons = [
     { key: 'Car', icon: CarMIcon },
@@ -40,10 +30,10 @@ render(
     <Space direction='horizontal'>
         <PickerButtonMobile options={optionsWithIcons} view='primary' label='Picker button' />
         <PickerButtonMobile options={options} view='primary' variant='compact' />
-    </Space>
+    </Space>,
 );
 ```
 
 ## Морфология
 
-Компонент представляет из себя [Select](/docs/компоненты-селекты-select--select) с [Button](/docs/компоненты-кнопки-button--button) вместо стандартного `field`.
+Компонент представляет из себя [Select](/docs/select--select) с [Button](/docs/компоненты-кнопки-button--button) вместо стандартного `field`.

@@ -1,6 +1,6 @@
 import kebab from 'lodash.kebabcase';
 
-import findComponentGroupPath from '../../tools/storybook/findComponentPath';
+import findComponentPath from '../../tools/storybook/findComponentPath';
 
 import { STORYBOOK_URL } from './setupScreenshotTesting';
 
@@ -59,17 +59,9 @@ export function createStorybookUrl({
         }`;
     }
 
-    const groupPath = findComponentGroupPath(componentName, packageName);
-
-    const packagePath = packageName.replace(/-/g, '');
-
-    const componentPath = subComponentName
-        ? `-${packagePath}--${kebab(subComponentName)}`
-        : `-${packagePath}--${kebab(componentName)}`;
-
-    const storybookUrl = `${url}?id=${groupPath}${componentPath}${knobsQuery}&mockDate=${
-        mockDate || ''
-    }`;
+    const cPath = findComponentPath(componentName, packageName).url;
+    const cTitle = subComponentName ? kebab(subComponentName) : kebab(componentName);
+    const storybookUrl = `${url}?id=${cPath}--${cTitle}${knobsQuery}&mockDate=${mockDate || ''}`;
 
     return storybookUrl;
 }

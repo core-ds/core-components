@@ -13,7 +13,7 @@ render(() => {
     return (
         <>
             <div>Value:{value}</div>
-            <br/>
+            <br />
             <Slider
                 size='m'
                 value={value}
@@ -28,10 +28,10 @@ render(() => {
                     max: [100],
                 }}
             />
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div>Value:{slider}</div>
-            <br/>
+            <br />
             <Slider
                 size='m'
                 value={slider}
@@ -81,7 +81,7 @@ render(() => {
             <br />
             <div>Value: {slider}</div>
             <br />
-            <Slider size='m' value={slider} onChange={handleChangeSlider} />            
+            <Slider size='m' value={slider} onChange={handleChangeSlider} />
         </>
     );
 });
@@ -101,18 +101,10 @@ render(() => {
 
     return (
         <>
-            <Slider
-                size='m'
-                value={value}
-                onChange={handleChange}
-            />
+            <Slider size='m' value={value} onChange={handleChange} />
             <br />
             <br />
-            <Slider
-                size='s'
-                value={slider}
-                onChange={handleChangeSlider}
-            />
+            <Slider size='s' value={slider} onChange={handleChangeSlider} />
         </>
     );
 });
@@ -126,18 +118,10 @@ render(() => {
 
     return (
         <>
-            <div style={{marginBottom: 80}}>
-                <Slider
-                    size='m'
-                    value={value}
-                    onChange={handleChange}
-                />
+            <div style={{ marginBottom: 80 }}>
+                <Slider size='m' value={value} onChange={handleChange} />
             </div>
-            <Slider
-                size='s'
-                value={slider}
-                onChange={handleChangeSlider}
-            />
+            <Slider size='s' value={slider} onChange={handleChangeSlider} />
         </>
     );
 });
@@ -145,4 +129,4 @@ render(() => {
 
 ## Связанные компоненты
 
-Слайдер используется в [SliderInput](/docs/components-forms-inputs-sliderinput--slider-input).
+Слайдер используется в [SliderInput](/docs/sliderinput--slider-input).
