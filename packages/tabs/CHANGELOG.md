@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.3.2
+
+### Patch Changes
+
+### [#451](https://github.com/core-ds/core-components/pull/451)
+
+-   Фокусная рамка таба больше не обрезается
+
+### [#459](https://github.com/core-ds/core-components/pull/459)
+
+-   Исправлена ошибка 'Cannot read property 'clientHeight' of null' при `scrollable={true}`
+
+-   Обновлены зависимости
+    -   picker-button@10.3.2
+
 ## 7.3.1
 
 ### Patch Changes

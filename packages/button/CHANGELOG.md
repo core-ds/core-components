@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.3
+
+### Patch Changes
+
+### [#453](https://github.com/core-ds/core-components/pull/453)
+
+-   Отключен hover-эффект на touch устройствах
+
 ## 7.0.2
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Change Log
 
+## 13.2.7
+
+### Patch Changes
+
+### [#463](https://github.com/core-ds/core-components/pull/463)
+
+-   Исправлен отступ элементов в выпадающем списке
+
+-   Обновлены зависимости
+    -   button@7.0.3
+    -   input@11.1.4
+    -   modal@6.1.7
+    -   bottom-sheet@5.1.15
+
 ## 13.2.6
 
 ### Patch Changes

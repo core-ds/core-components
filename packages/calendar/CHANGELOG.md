@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.2.4
+
+### Patch Changes
+
+### [#443](https://github.com/core-ds/core-components/pull/443)
+
+-   Исправлена ошибка с анимацией при множественных ререндерах
+
+-   Обновлены зависимости
+    -   button@7.0.3
+    -   icon-button@6.0.4
+    -   modal@6.1.7
+
 ## 6.2.3
 
 ### Patch Changes

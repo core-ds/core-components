@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.1.5
+
+### Patch Changes
+
+### [#441](https://github.com/core-ds/core-components/pull/441)
+
+-   Исправлено скрытие pips при ошибке или подсказке
+
+-   Обновлены зависимости
+    -   input@11.1.4
+
 ## 7.1.4
 
 ### Patch Changes

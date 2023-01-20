@@ -1,5 +1,18 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+### [#456](https://github.com/core-ds/core-components/pull/456)
+
+-   Добавлен новый пропс stateType, отвечающий за затемнение / осветление цвета фона
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.3
+
 ## 3.0.2
 
 ### Patch Changes
