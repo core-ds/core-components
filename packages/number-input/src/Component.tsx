@@ -68,11 +68,12 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         ) => {
             const hasSign = conformedValue.includes(separator);
             const signDot = rawValue.substring(rawValue.length - 1) === '.';
-            const signComma = rawValue.substring(rawValue.length - 1) === ',';
 
             if (separator === ',' && signDot && !hasSign) {
                 return rawValue.replace('.', ',');
             }
+
+            const signComma = rawValue.substring(rawValue.length - 1) === ',';
 
             if (separator === '.' && signComma && !hasSign) {
                 return rawValue.replace(',', '.');
