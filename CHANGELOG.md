@@ -1,3 +1,71 @@
+## 37.2.0
+
+<sup><time>20.01.2023</time></sup>
+
+### [#463](https://github.com/core-ds/core-components/pull/463)
+
+#### Что изменилось
+- Исправлен отступ элементов в выпадающем списке
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#456](https://github.com/core-ds/core-components/pull/456)
+
+#### Что изменилось
+- Добавлен новый пропс stateType, отвечающий за затемнение / осветление цвета фона
+
+#### Влияние на компоненты
+- Минорное<br />`custom-button`
+
+
+### [#451](https://github.com/core-ds/core-components/pull/451)
+
+#### Что изменилось
+- Фокусная рамка таба больше не обрезается
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#453](https://github.com/core-ds/core-components/pull/453)
+
+#### Что изменилось
+- Отключен hover-эффект на touch устройствах
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#459](https://github.com/core-ds/core-components/pull/459)
+
+#### Что изменилось
+- Исправлена ошибка 'Cannot read property 'clientHeight' of null' при `scrollable={true}`
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#441](https://github.com/core-ds/core-components/pull/441)
+
+#### Что изменилось
+- Исправлено скрытие pips при ошибке или подсказке
+
+#### Влияние на компоненты
+- Патчи<br />`slider-input`
+
+
+### [#443](https://github.com/core-ds/core-components/pull/443)
+
+#### Что изменилось
+- Исправлена ошибка с анимацией при множественных ререндерах
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+
 ## 37.1.2
 
 <sup><time>18.01.2023</time></sup>
