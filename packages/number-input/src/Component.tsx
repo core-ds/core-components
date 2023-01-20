@@ -46,7 +46,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 value: string;
             },
         ) => {
-            const sign = event.target.value.substring(event.target.value.length - 1) === separator;
+            const sign = event.target.value.slice(-1) === separator;
 
             if (sign) {
                 const input = event.target;
@@ -66,18 +66,19 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             conformedValue,
             { rawValue, previousConformedValue },
         ) => {
-            const isSignIndex = conformedValue.includes(separator);
-            const signComma = rawValue.substring(rawValue.length - 1) === '.';
-            const signDot = rawValue.substring(rawValue.length - 1) === ',';
-            const isTwoSign = rawValue.length - conformedValue.length >= 1;
+            const hasSign = conformedValue.includes(separator);
+            const signDot = rawValue.substring(rawValue.length - 1) === '.';
+            const signComma = rawValue.substring(rawValue.length - 1) === ',';
 
-            if (separator === ',' && signComma && !isSignIndex) {
-                return rawValue.replace(/\./g, ',');
+            if (separator === ',' && signDot && !hasSign) {
+                return rawValue.replace('.', ',');
             }
 
-            if (separator === '.' && signDot && !isSignIndex) {
+            if (separator === '.' && signComma && !hasSign) {
                 return rawValue.replace(',', '.');
             }
+
+            const isTwoSign = rawValue.length - conformedValue.length >= 1;
 
             if (isTwoSign && previousConformedValue) {
                 return previousConformedValue;
