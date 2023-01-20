@@ -12,12 +12,12 @@ export type NumberInputProps = InputProps & {
     allowSigns?: boolean;
 
     /**
-     * Знак ',' или '.'
+     * Разделитель ',' или '.'
      */
     separator?: '.' | ',';
 
     /**
-     * Количество единицы после знака
+     * Количество символов после разделителя
      */
     fractionLength?: number;
 };
