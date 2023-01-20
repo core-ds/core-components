@@ -10,7 +10,7 @@ import { Option as DefaultOption } from './components/option';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { BaseSelectProps } from './typings';
 
-export type SelectFieldProps = FormControlProps & Record<string, unknown>;
+export type SelectFieldProps = Omit<FormControlProps, 'size'> & Record<string, unknown>;
 
 export type SelectProps = Omit<BaseSelectProps, 'fieldProps'> & {
     /**
