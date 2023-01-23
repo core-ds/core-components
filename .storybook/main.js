@@ -96,6 +96,7 @@ module.exports = {
     stories: ['../packages/**/*.stories.@(ts|md)x', '../docs/**/*.stories.@(ts|md)x'],
     addons: [
         '@storybook/addon-knobs',
+        '@storybook/addon-a11y',
         {
             name: '@storybook/addon-docs',
             options: { transcludeMarkdown: true },
