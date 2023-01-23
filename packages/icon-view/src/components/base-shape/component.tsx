@@ -1,5 +1,6 @@
 import React, { ElementType, forwardRef, Fragment, ReactNode } from 'react';
 import cn from 'classnames';
+
 import { getPath, PathsMap } from './utils';
 
 import styles from './index.module.css';
@@ -30,7 +31,7 @@ export type BaseShapeProps = {
     /**
      * Фоновое svg. Имеет приоритет над иконкой и заливкой
      */
-    backgroundIcon?: ElementType<{ width?: number; height?: number }>;
+    backgroundIcon?: ElementType;
 
     /**
      * Сss класс для стилизации общей обёртки
@@ -95,6 +96,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         const hasBottomAddons = Boolean(bottomAddons) && size > 32;
 
         const hasIndicator = Boolean(indicator) && size < 128;
+
         return (
             <div
                 className={cn(styles.componentWrapper, styles[`size_${size}`], className)}
