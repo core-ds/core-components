@@ -14,6 +14,7 @@ export const useCollapsibleElements = <
 
     const containerRef = useRef<ContainerType>(null);
     const addonRef = useRef<AddonType>(null);
+    const moreButtonWidth = useRef(0);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const collapseElements = (inlineSize?: number) => {
@@ -23,21 +24,33 @@ export const useCollapsibleElements = <
 
             const addon = addonRef.current;
             const moreElement = (
-                Array.from(container.querySelectorAll('[role="tablist"]')) as HTMLElement[]
+                Array.from(container.querySelectorAll('[role="menu"]')) as HTMLElement[]
             ).pop();
             const moreElementRect = moreElement?.getBoundingClientRect();
+
+            if (addon || moreElementRect) {
+                moreButtonWidth.current = addon
+                    ? addon.offsetWidth + parseFloat(getComputedStyle(addon).marginLeft)
+                    : moreElementRect?.width || 0;
+            }
+
             const elements = Array.from(container.querySelectorAll(selectors)) as HTMLElement[];
             const containerWidth =
-                (inlineSize || container.clientWidth) - (moreElementRect?.width || 0) * 1.5; // при рассчётах, даём кнопке "Ещё" чуть больше места, чтобы точно влезла
+                (inlineSize || container.clientWidth) - (moreButtonWidth.current || 100);
+            /*
+             * при расчётах, даём кнопке "Ещё" чуть больше места, чтобы точно влезла
+             * используем ширину в 100 пикселей как фоллбэк значение
+             */
 
             const collapsedIds = elements.reduce<string[]>((acc, element) => {
                 const { offsetLeft, offsetWidth, id } = element;
-                const elementOffset = offsetLeft + offsetWidth;
+                const elementOffset = offsetLeft + (offsetWidth || 100);
+                // если offsetWidth = 0 (случается в Firefox), подставим 100 как фоллбэк значение ширины
+
                 const isCollapsedElement = getComputedStyle(element).visibility === 'collapse';
                 const maxWidth =
-                    addon && !isCollapsedElement
-                        ? containerWidth -
-                          (addon.offsetWidth + parseFloat(getComputedStyle(addon).marginLeft))
+                    moreButtonWidth.current && !isCollapsedElement
+                        ? containerWidth - moreButtonWidth.current
                         : containerWidth;
 
                 if (elementOffset >= maxWidth) acc.push(id);
