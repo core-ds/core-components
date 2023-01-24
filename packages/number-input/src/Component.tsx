@@ -46,11 +46,12 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 value: string;
             },
         ) => {
-            const sign = event.target.value.slice(-1) === separator;
+            const input = event.target;
+            const positionСursor = input.selectionStart || 0;
 
-            if (sign) {
-                const input = event.target;
-                input.selectionStart = event.target.value.length;
+            if (input.value[positionСursor] === separator) {
+                const index = (input.selectionStart as number) + 1;
+                input.selectionStart = index;
             }
 
             if (onChange) {
@@ -66,22 +67,32 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             conformedValue,
             { rawValue, previousConformedValue },
         ) => {
-            const hasSign = conformedValue.includes(separator);
-            const signDot = rawValue.substring(rawValue.length - 1) === '.';
-
-            if (separator === ',' && signDot && !hasSign) {
-                return rawValue.replace('.', ',');
-            }
-
-            const signComma = rawValue.substring(rawValue.length - 1) === ',';
-
-            if (separator === '.' && signComma && !hasSign) {
-                return rawValue.replace(',', '.');
-            }
-
             const isTwoSign = rawValue.length - conformedValue.length >= 1;
 
             if (isTwoSign && previousConformedValue) {
+                if (rawValue.length !== conformedValue.length && fractionLength) {
+                    const valueLength = conformedValue.length - fractionLength;
+                    const sign = separator === ',' ? '.' : ',';
+
+                    if (
+                        rawValue.indexOf(sign) !== valueLength &&
+                        rawValue.indexOf(sign) !== conformedValue.length
+                    ) {
+                        return previousConformedValue;
+                    }
+                }
+
+                const hasSign = conformedValue.includes(separator);
+                const isOneSign = rawValue.length - conformedValue.length === 1;
+
+                if (separator === ',' && !hasSign && isOneSign) {
+                    return rawValue.replace('.', ',');
+                }
+
+                if (separator === '.' && !hasSign && isOneSign) {
+                    return rawValue.replace(',', '.');
+                }
+
                 return previousConformedValue;
             }
 

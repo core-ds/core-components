@@ -18,14 +18,17 @@ render(() => {
 
     const handleAllowSignsRadioChange = React.useCallback((_, payload) => {
         setAllowSignsRadioValue(payload.value);
+        setValue('');
     }, []);
 
     const handleFractionLengthRadioChange = React.useCallback((_, payload) => {
         setFractionLengthRadioValue(payload.value);
+        setValue('');
     }, []);
 
     const handleSignsRadioChange = React.useCallback((_, payload) => {
         setSignsRadioValue(payload.value);
+        setValue('');
     }, []);
 
     return (
