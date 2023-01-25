@@ -225,6 +225,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                         maxRows={maxRows}
                         minRows={minRowsValue}
                         value={textareaProps.value}
+                        role='none'
                         onHeightChange={(height) => {
                             if (autosize) {
                                 setScrollableHeight(height);

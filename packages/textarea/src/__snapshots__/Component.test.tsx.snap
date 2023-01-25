@@ -119,6 +119,7 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
                       </textarea>
                       <textarea
                         class="textarea textarea s textareaHidden"
+                        role="none"
                         rows="1"
                       >
                         value

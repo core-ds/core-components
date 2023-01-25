@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Textarea } from './index';
@@ -49,16 +49,16 @@ describe('Textarea', () => {
     it('should forward ref to textarea', () => {
         const textareaRef = jest.fn();
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<Textarea ref={textareaRef} dataTestId={dataTestId} />);
+        render(<Textarea ref={textareaRef} dataTestId={dataTestId} />);
 
-        expect(textareaRef.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+        expect(textareaRef.mock.calls).toEqual([[screen.getByTestId(dataTestId)]]);
     });
 
     it('should set `data-test-id` attribute to textarea', () => {
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<Textarea block={true} dataTestId={dataTestId} />);
+        render(<Textarea block={true} dataTestId={dataTestId} />);
 
-        expect(getByTestId(dataTestId).tagName).toBe('TEXTAREA');
+        expect(screen.getByTestId(dataTestId).tagName).toBe('TEXTAREA');
     });
 
     describe('Classes tests', () => {
@@ -69,78 +69,51 @@ describe('Textarea', () => {
         });
 
         it('should set `textareaClassName` class to textarea', () => {
-            const dataTestId = 'test-id';
             const className = 'test-class';
-            const { getByTestId } = render(
-                <Textarea textareaClassName={className} dataTestId={dataTestId} />,
-            );
+            render(<Textarea textareaClassName={className} />);
 
-            expect(getByTestId(dataTestId)).toHaveClass(className);
+            expect(screen.getByRole('textbox')).toHaveClass(className);
         });
 
         describe('when component is controlled', () => {
             it('should set `filled` class when value passed', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(
-                    <Textarea value='some value' dataTestId={dataTestId} nativeScrollbar={true} />,
-                );
+                render(<Textarea value='some value' nativeScrollbar={true} />);
 
-                expect(getByTestId(dataTestId)).toHaveClass('filled');
+                expect(screen.getByRole('textbox')).toHaveClass('filled');
             });
 
             it('should not set `filled` class if the value is empty', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(<Textarea value='' dataTestId={dataTestId} />);
+                render(<Textarea value='' />);
 
-                expect(getByTestId(dataTestId)).not.toHaveClass('filled');
+                expect(screen.getByRole('textbox')).not.toHaveClass('filled');
             });
 
             it('should unset `filled` class if the value becomes empty', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId, rerender } = render(
-                    <Textarea value='some value' dataTestId={dataTestId} />,
-                );
+                const { rerender } = render(<Textarea value='some value' />);
 
-                rerender(<Textarea value='' dataTestId={dataTestId} />);
+                rerender(<Textarea value='' />);
 
-                expect(getByTestId(dataTestId)).not.toHaveClass('filled');
+                expect(screen.getByRole('textbox')).not.toHaveClass('filled');
             });
         });
 
         describe('when component is uncontrolled', () => {
             it('should set `filled` class when defaultValue passed', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(
-                    <Textarea
-                        defaultValue='some value'
-                        dataTestId={dataTestId}
-                        nativeScrollbar={true}
-                    />,
-                );
+                render(<Textarea defaultValue='some value' nativeScrollbar={true} />);
 
-                expect(getByTestId(dataTestId)).toHaveClass('filled');
+                expect(screen.getByRole('textbox')).toHaveClass('filled');
             });
 
             it('should not set `filled` class if the value is empty', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(
-                    <Textarea dataTestId={dataTestId} nativeScrollbar={true} />,
-                );
+                render(<Textarea nativeScrollbar={true} />);
 
-                expect(getByTestId(dataTestId)).not.toHaveClass('filled');
+                expect(screen.getByRole('textbox')).not.toHaveClass('filled');
             });
 
             it('should unset `filled` class if value becomes empty', async () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(
-                    <Textarea
-                        defaultValue='some value'
-                        dataTestId={dataTestId}
-                        nativeScrollbar={true}
-                    />,
-                );
+                render(<Textarea defaultValue='some value' nativeScrollbar={true} />);
 
-                const textarea = getByTestId(dataTestId) as HTMLInputElement;
+                const textarea = screen.getByRole('textbox') as HTMLInputElement;
 
                 await userEvent.type(textarea, '{backspace}', {
                     initialSelectionStart: 0,
@@ -155,63 +128,43 @@ describe('Textarea', () => {
         });
 
         it('should set `hasInnerLabel` class', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Textarea label='label' dataTestId={dataTestId} />);
+            render(<Textarea label='label' />);
 
-            expect(getByTestId(dataTestId)).toHaveClass('hasInnerLabel');
+            expect(screen.getByRole('textbox')).toHaveClass('hasInnerLabel');
         });
 
         it('should set `resizeVertical` class', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Textarea resize='vertical' dataTestId={dataTestId} />);
+            render(<Textarea resize='vertical' />);
 
-            expect(getByTestId(dataTestId)).toHaveClass('resizeVertical');
+            expect(screen.getByRole('textbox')).toHaveClass('resizeVertical');
         });
 
         it('should set `disabled` attribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Textarea disabled={true} dataTestId={dataTestId} />);
+            render(<Textarea disabled={true} />);
 
-            expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
+            expect(screen.getByRole('textbox')).toHaveAttribute('disabled');
         });
 
         it('should set `maxHeight` style with autosize on', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <Textarea
-                    nativeScrollbar={true}
-                    autosize={true}
-                    maxHeight={100}
-                    dataTestId={dataTestId}
-                />,
-            );
+            render(<Textarea nativeScrollbar={true} autosize={true} maxHeight={100} />);
 
-            expect(getByTestId(dataTestId)).toHaveStyle('max-height: 100px');
+            expect(screen.getByRole('textbox')).toHaveStyle('max-height: 100px');
         });
 
         it('should set `maxHeight` style with autosize off', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <Textarea
-                    nativeScrollbar={true}
-                    autosize={false}
-                    maxHeight={100}
-                    dataTestId={dataTestId}
-                />,
-            );
+            render(<Textarea nativeScrollbar={true} autosize={false} maxHeight={100} />);
 
-            expect(getByTestId(dataTestId)).toHaveStyle('max-height: 100px');
+            expect(screen.getByRole('textbox')).toHaveStyle('max-height: 100px');
         });
     });
 
     describe('Callbacks tests', () => {
         it('should call `onChange` prop', () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
             const value = '123';
-            const { getByTestId } = render(<Textarea onChange={cb} dataTestId={dataTestId} />);
+            render(<Textarea onChange={cb} />);
 
-            const textarea = getByTestId(dataTestId) as HTMLTextAreaElement;
+            const textarea = screen.getByRole('textbox') as HTMLTextAreaElement;
 
             fireEvent.change(textarea, { target: { value } });
 
@@ -221,34 +174,29 @@ describe('Textarea', () => {
 
         it('should call `onFocus` prop', () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Textarea onFocus={cb} dataTestId={dataTestId} />);
+            render(<Textarea onFocus={cb} />);
 
-            fireEvent.focus(getByTestId(dataTestId));
+            fireEvent.focus(screen.getByRole('textbox'));
 
             expect(cb).toBeCalledTimes(1);
         });
 
         it('should call `onBlur` prop', () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Textarea onBlur={cb} dataTestId={dataTestId} />);
+            render(<Textarea onBlur={cb} />);
 
-            fireEvent.blur(getByTestId(dataTestId));
+            fireEvent.blur(screen.getByRole('textbox'));
 
             expect(cb).toBeCalledTimes(1);
         });
 
-        it('should not call `onChange` prop if disabled', async () => {
+        it('should not call `onChange` prop if disabled', () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <Textarea onChange={cb} dataTestId={dataTestId} disabled={true} />,
-            );
+            render(<Textarea onChange={cb} disabled={true} />);
 
-            const textarea = getByTestId(dataTestId) as HTMLTextAreaElement;
+            const textarea = screen.getByRole('textbox') as HTMLTextAreaElement;
 
-            await userEvent.type(textarea, '123');
+            userEvent.type(textarea, '123');
 
             expect(cb).not.toBeCalled();
         });
