@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+### [#477](https://github.com/core-ds/core-components/pull/477)
+
+-   Исправлен тип у свойства backgroundIcon
+
 ## 3.0.1
 
 ### Patch Changes

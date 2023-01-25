@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.2.13
+
+### Patch Changes
+
+### [#467](https://github.com/core-ds/core-components/pull/467)
+
+-   Исправлены типы у Table и TRow. Теперь Table может состоять только из TBody, а TRow из одной ячейки
+
 ## 2.2.12
 
 ### Patch Changes

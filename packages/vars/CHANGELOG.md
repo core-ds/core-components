@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+### [#450](https://github.com/core-ds/core-components/pull/450)
+
+-   Добавлен экспорт css-переменных из палитры bluetint в js файл
+
 ## 7.1.1
 
 ### Patch Changes
