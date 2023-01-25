@@ -26,7 +26,7 @@ export type TableProps = TableHTMLAttributes<HTMLTableElement> & {
     /**
      * Дочерние компоненты
      */
-    children: React.ReactElement[];
+    children: React.ReactElement | React.ReactElement[];
 
     /**
      * Оборачивает таблицу в стилизованный контейнер
