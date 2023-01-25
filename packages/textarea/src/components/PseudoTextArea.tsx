@@ -5,19 +5,29 @@ import styles from '../index.module.css';
 import { TextareaIncomeProps } from '../typings';
 
 type PseudoTextAreaProps = {
-    pseudoTextareaClassName: string;
-    stateValue: string;
-} & TextareaIncomeProps;
+    /**
+     * Дополнительный класс компонента
+     */
+    pseudoTextareaClassName?: string;
+    /**
+     * Значение PseudoTextArea, разделяется на 2 части по maxLength
+     */
+    value: string;
+    /**
+     * Максимальное количество символов, символы свыше maxLength будут выделены
+     */
+    maxLength: number;
+} & Pick<TextareaIncomeProps, 'size'>;
 
 export const PseudoTextArea = forwardRef<HTMLDivElement, PseudoTextAreaProps>(
-    ({ size = 's', pseudoTextareaClassName = '', maxLength, stateValue }, ref) => (
+    ({ size = 's', pseudoTextareaClassName, maxLength, value }, ref) => (
         <div
             className={cn(styles.pseudoTextarea, styles[size], pseudoTextareaClassName)}
             ref={ref}
             hidden={true}
         >
-            <span>{stateValue.slice(0, maxLength)}</span>
-            <span className={cn(styles.overflow)}>{stateValue.slice(maxLength)}</span>
+            <span>{value.slice(0, maxLength)}</span>
+            <span className={cn(styles.overflow)}>{value.slice(maxLength)}</span>
             {/* Перенос строки нужен для правильной позиции */}
             <br />
         </div>
