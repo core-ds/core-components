@@ -1,3 +1,53 @@
+## 37.3.0
+
+<sup><time>25.01.2023</time></sup>
+
+### [#467](https://github.com/core-ds/core-components/pull/467)
+
+#### Что изменилось
+- Исправлены типы у Table и TRow. Теперь Table может состоять только из TBody, а TRow из одной ячейки
+
+#### Влияние на компоненты
+- Патчи<br />`table`
+
+
+### [#477](https://github.com/core-ds/core-components/pull/477)
+
+#### Что изменилось
+- Исправлен тип у свойства backgroundIcon
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#468](https://github.com/core-ds/core-components/pull/468)
+
+#### Что изменилось
+- Исправлен баг в textarea, при передаче пропа value не работала механика переполнения
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#450](https://github.com/core-ds/core-components/pull/450)
+
+#### Что изменилось
+- Добавлен экспорт css-переменных из палитры bluetint в js файл
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#483](https://github.com/core-ds/core-components/pull/483)
+
+#### Что изменилось
+- Экспорт пропсов из индексного файла компонента
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+
 ## 37.2.1
 
 <sup><time>25.01.2023</time></sup>
