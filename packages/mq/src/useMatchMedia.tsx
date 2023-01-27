@@ -9,7 +9,7 @@ import { getMatchMedia, releaseMatchMedia } from './utils';
  * @param query media выражение или кастомный запрос из `mq.json`, например `--mobile`.
  * @param defaultValue Значение по-умолчанию.
  */
-export const useMatchMedia = (query: string, defaultValue = false) => {
+export const useMatchMedia = (query: string, defaultValue: boolean | (() => boolean) = false) => {
     const [matches, setMatches] = useState(defaultValue);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
