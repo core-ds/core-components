@@ -1,0 +1,24 @@
+@import '../../themes/src/default.css';
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-light-bg-primary);
+    color: var(--text-primary-color);
+    font-family: var(--font-family-system);
+    font-style: normal;
+    font-weight: 400;
+}
