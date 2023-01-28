@@ -66,6 +66,21 @@ export function processOptions(
     return { flatOptions, selectedOptions };
 }
 
+export const getFilteredOptions = (
+    options: Array<OptionShape | GroupShape>,
+    filterValue: string,
+    filterFunction: (
+        options: Array<OptionShape | GroupShape>,
+        filterValue: string,
+    ) => Array<OptionShape | GroupShape>,
+): Array<OptionShape | GroupShape> => {
+    if (!filterFunction || !filterValue) {
+        return options;
+    }
+
+    return filterFunction(options, filterValue);
+};
+
 // eslint-disable-next-line @typescript-eslint/naming-convention
 type useVisibleOptionsArgs = {
     /**

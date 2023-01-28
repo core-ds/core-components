@@ -37,6 +37,11 @@ export type OptionShape = {
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value?: any;
+
+    /**
+     * Уникальный id, необходим в случае, если нужно фильтровать / сортировать options
+     */
+    id?: number;
 };
 
 export type GroupShape = {
@@ -56,6 +61,21 @@ export type BaseSelectChangePayload = {
     selectedMultiple: OptionShape[];
     initiator: OptionShape | null;
     name?: string;
+};
+
+export type FilterProps = {
+    /**
+     * Фильтр функция для переданных options
+     */
+    filterFunction?: (
+        options: Array<OptionShape | GroupShape>,
+        filterValue: string,
+    ) => Array<OptionShape | GroupShape>;
+
+    /**
+     * Поисковая строка для фильтра
+     */
+    filterValue?: string;
 };
 
 export type BaseSelectProps = {
@@ -311,6 +331,11 @@ export type BaseSelectProps = {
      * Показывать OptionsList, если он пустой
      */
     showEmptyOptionsList?: boolean;
+
+    /**
+     * Возможность фильтровать options внутри select
+     */
+    filterProps?: FilterProps;
 };
 
 // TODO: использовать InputProps
@@ -556,6 +581,12 @@ export type OptionsListProps = {
      * Обработчик отмены изменений
      */
     onClear?: () => void;
+
+    /**
+     * Использовать поле id из OptionShape в качестве индекса option в OptionList
+     * Необходимо для корректной работы option после сортировки / фильтрации массива options
+     */
+    useOptionsIds?: boolean;
 };
 
 export type OptgroupProps = {

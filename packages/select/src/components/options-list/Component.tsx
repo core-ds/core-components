@@ -37,6 +37,7 @@ export const OptionsList = forwardRef(
             footer,
             optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
+            useOptionsIds = false,
         }: OptionsListProps,
         ref,
     ) => {
@@ -58,7 +59,9 @@ export const OptionsList = forwardRef(
                 key={group.label}
                 size={size}
             >
-                {group.options.map((option) => renderOption(option, counter()))}
+                {group.options.map((option) =>
+                    renderOption(option, useOptionsIds ? option.id || 0 : counter()),
+                )}
             </Optgroup>
         );
 
@@ -77,7 +80,9 @@ export const OptionsList = forwardRef(
         const renderListItems = () => (
             <React.Fragment>
                 {options.map((option) =>
-                    isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
+                    isGroup(option)
+                        ? renderGroup(option)
+                        : renderOption(option, useOptionsIds ? option.id || 0 : counter()),
                 )}
 
                 {emptyPlaceholder && options.length === 0 && (

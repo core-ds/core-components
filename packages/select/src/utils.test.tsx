@@ -1,6 +1,6 @@
 import React from 'react';
-import { joinOptions, processOptions } from './utils';
-import { OptionShape } from './typings';
+import { getFilteredOptions, joinOptions, processOptions } from './utils';
+import { GroupShape, OptionShape } from './typings';
 
 describe('joinOptions', () => {
     const textOptions: OptionShape[] = [
@@ -123,5 +123,39 @@ describe('processOptions', () => {
             options[1],
             options[2],
         ]);
+    });
+});
+
+describe('getFilteredOptions', () => {
+    const textOptions: OptionShape[] = [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+        { key: '3', content: 'Americium' },
+        { key: '42', content: 'Curium' },
+    ];
+
+    const filterFunction = (options: Array<OptionShape | GroupShape>, filterValue: string) => {
+        return options.filter((option) =>
+            (option as OptionShape).key.toLowerCase().includes(filterValue.toLowerCase()),
+        );
+    };
+
+    it('should return 1 option with key contains "1"', () => {
+        expect(getFilteredOptions(textOptions, '1', filterFunction)).toEqual([textOptions[0]]);
+    });
+
+    it('should return 2 options with key contains "2"', () => {
+        expect(getFilteredOptions(textOptions, '2', filterFunction)).toEqual([
+            textOptions[1],
+            textOptions[3],
+        ]);
+    });
+
+    it('should return 0 options with key contains "333"', () => {
+        expect(getFilteredOptions(textOptions, '333', filterFunction)).toEqual([]);
+    });
+
+    it('should return exact same options array with empty filterValue', () => {
+        expect(getFilteredOptions(textOptions, '', filterFunction)).toEqual(textOptions);
     });
 });

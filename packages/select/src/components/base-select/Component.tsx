@@ -23,7 +23,7 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { getDataTestId } from '../../../../utils/getDataTestId';
 import { BaseSelectProps, OptionShape } from '../../typings';
-import { processOptions } from '../../utils';
+import { getFilteredOptions, processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';
 
 import styles from './index.module.css';
@@ -79,6 +79,7 @@ export const BaseSelect = forwardRef(
             zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
+            filterProps: { filterFunction, filterValue } = {},
         }: BaseSelectProps,
         ref,
     ) => {
@@ -345,10 +346,18 @@ export const BaseSelect = forwardRef(
             };
         }, [calcOptionsListWidth, open, optionsListWidth]);
 
+        const finalOptions = useMemo(() => {
+            if (filterFunction) {
+                return getFilteredOptions(options, filterValue || '', filterFunction);
+            }
+
+            return options;
+        }, [filterFunction, filterValue, options]);
+
         useLayoutEffect_SAFE_FOR_SSR(calcOptionsListWidth, [
             open,
             optionsListWidth,
-            options,
+            finalOptions,
             selectedItems,
         ]);
 
@@ -374,10 +383,18 @@ export const BaseSelect = forwardRef(
                     name={name}
                     value={value}
                     onChange={handleNativeSelectChange}
-                    options={options}
+                    options={finalOptions}
                 />
             );
-        }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, options, menuProps]);
+        }, [
+            multiple,
+            selectedItems,
+            disabled,
+            name,
+            handleNativeSelectChange,
+            finalOptions,
+            menuProps,
+        ]);
 
         const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList;
 
@@ -453,7 +470,7 @@ export const BaseSelect = forwardRef(
                                     highlightedIndex={highlightedIndex}
                                     open={open}
                                     size={size}
-                                    options={options}
+                                    options={finalOptions}
                                     Optgroup={Optgroup}
                                     Option={Option}
                                     selectedItems={selectedItems}

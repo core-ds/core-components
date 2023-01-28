@@ -950,6 +950,66 @@ render(() => {
 });
 ```
 
+## Возможность фильтрации списка `options`
+
+```jsx live mobileHeight=640
+render(() => {
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState();
+
+    const [search, setSearch] = React.useState();
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
+
+    const filterFunction = (optionsToFilter, filterValue) => {
+        return optionsToFilter.filter(
+            (item) =>
+                item.key.toLowerCase().includes(filterValue.toLowerCase()) ||
+                item.content.toLowerCase().includes(filterValue.toLowerCase())
+        );
+    }
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Input value={search}  onChange={ (_, { value }) => setSearch(value) } placeholder="Введите значение" />
+            <br />
+            <Select
+                allowUnselect={true}
+                block={true}
+                size='m'
+                options={options}
+                placeholder='Выберите элемент'
+                multiple={true}
+                onChange={handleChange}
+                selected={selected}
+                optionsListProps={
+                    useOptionsIds: true,
+                }
+                filterProps={{
+                    filterFunction: filterFunction,
+                    filterValue: search,
+                }}
+            />
+        </div>
+    );
+});
+```
+
 ## Другие селекты
 
 На основе селекта построены такие компоненты как [PickerButton](?path=/docs/pickerbutton--picker-button) и

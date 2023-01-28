@@ -25,7 +25,7 @@ import { BaseOption } from '@alfalab/core-components-select';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
-import { processOptions } from '../../utils';
+import { getFilteredOptions, processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseCheckmark } from '../base-checkmark';
 import { Field as DefaultField } from '../field';
@@ -106,6 +106,7 @@ export const BaseSelectMobile = forwardRef(
             footer,
             isBottomSheet,
             bottomSheetProps,
+            filterProps: { filterFunction, filterValue } = {},
         }: SelectMobileProps,
         ref,
     ) => {
@@ -360,6 +361,14 @@ export const BaseSelectMobile = forwardRef(
             toggleMenu();
         };
 
+        const finalOptions = useMemo(() => {
+            if (filterFunction) {
+                return getFilteredOptions(options, filterValue || '', filterFunction);
+            }
+
+            return options;
+        }, [filterFunction, filterValue, options]);
+
         return (
             <div
                 {...getComboboxProps({
@@ -427,7 +436,7 @@ export const BaseSelectMobile = forwardRef(
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
-                                options={options}
+                                options={finalOptions}
                                 OptionsList={OptionsList}
                                 Optgroup={Optgroup}
                                 Option={Option}
@@ -457,7 +466,7 @@ export const BaseSelectMobile = forwardRef(
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
-                                options={options}
+                                options={finalOptions}
                                 OptionsList={OptionsList}
                                 Optgroup={Optgroup}
                                 Option={Option}
