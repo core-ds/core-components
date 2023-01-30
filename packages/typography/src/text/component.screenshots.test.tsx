@@ -89,3 +89,38 @@ describe(
         },
     }),
 );
+
+describe(
+    'Typography.Text | rowLimit',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Typography',
+                    subComponentName: 'Text',
+                    knobs: {
+                        children:
+                            'Съешь ещё этих мягких французских булок, да выпей чаю. Съешь ещё этих мягких французских булок, да выпей чаю',
+                        view: [
+                            'primary-large',
+                            'primary-medium',
+                            'primary-small',
+                            'secondary-large',
+                            'secondary-medium',
+                            'secondary-small',
+                            'component',
+                            'caps',
+                        ],
+                        rowLimit: [1, 2, 3],
+                    },
+                    size: { width: 250, height: 100 },
+                }),
+            ],
+        ],
+        viewport: { width: 1100, height: 100 },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);

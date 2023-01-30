@@ -52,6 +52,11 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
      * Контент (native prop)
      */
     children?: React.ReactNode;
+
+    /**
+     * Количество строк (не поддерживает IE)
+     */
+    rowLimit?: 1 | 2 | 3;
 };
 
 type Styles = {
@@ -74,6 +79,7 @@ export const Title = forwardRef<TitleElementType, TitleProps & Styles>(
             className,
             dataTestId,
             children,
+            rowLimit,
             styles,
             ...restProps
         },
@@ -87,6 +93,7 @@ export const Title = forwardRef<TitleElementType, TitleProps & Styles>(
                 defaultMargins && styles[`margins-${view}`],
                 styles[weight],
                 color && colors[color],
+                { [styles[`rowLimit${rowLimit}`]]: rowLimit },
             )}
             data-test-id={dataTestId}
             ref={ref}
