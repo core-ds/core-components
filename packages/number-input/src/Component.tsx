@@ -5,7 +5,12 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { InputProps } from '@alfalab/core-components-input';
 import { TextMaskConfig } from 'text-mask-core';
 
-export type NumberInputProps = InputProps & {
+export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
+    /**
+     * Значение поля ввода
+     */
+    value?: string | number | null;
+
     /**
      * Учитывать знаки '+' и '-'
      */
@@ -20,6 +25,23 @@ export type NumberInputProps = InputProps & {
      * Количество символов после разделителя
      */
     fractionLength?: number;
+
+    /**
+     * Обработчик события изменения значения
+     */
+    onChange?: (
+        e: React.ChangeEvent<HTMLInputElement>,
+        payload: {
+            /**
+             * Числовое значение инпута
+             */
+            value: number | null;
+            /**
+             * Строковое значение инпута
+             */
+            valueString: string;
+        },
+    ) => void;
 };
 
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
@@ -38,7 +60,14 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     ) => {
         const uncontrolled = propValue === undefined;
         const inputRef = useRef<HTMLInputElement>(null);
-        const [value, setValue] = useState(defaultValue || '');
+        const [value, setValue] = useState<string>(defaultValue || '');
+
+        const getNumberValueFromStr = (valueString: string) => {
+            if (valueString.includes(',')) {
+                return parseFloat(valueString.replace(',', '.'));
+            }
+            return parseFloat(valueString);
+        };
 
         const handleChange = (
             event: ChangeEvent<HTMLInputElement>,
@@ -55,7 +84,10 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             }
 
             if (onChange) {
-                onChange(event, payload);
+                onChange(event, {
+                    value: getNumberValueFromStr(input.value),
+                    valueString: input.value,
+                });
             }
 
             if (uncontrolled) {
@@ -63,11 +95,35 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             }
         };
 
+        const formatSeparatorValue = (separator: '.' | ',', rawValue: string) => {
+            const singsRegexp = /\W+/;
+            const sings = singsRegexp.exec(rawValue);
+            if (sings && sings[0] !== ',' && sings[0] !== '.') {
+                return rawValue.replace(sings[0], '');
+            }
+
+            if (separator === ',') {
+                return rawValue.replace('.', ',');
+            }
+
+            if (separator === '.') {
+                return rawValue.replace(',', '.');
+            }
+
+            return rawValue;
+        };
+
         const handleBeforeDisplay: TextMaskConfig['pipe'] = (
             conformedValue,
             { rawValue, previousConformedValue },
         ) => {
             const isTwoSign = rawValue.length - conformedValue.length >= 1;
+            const isOneSign = rawValue.length - conformedValue.length === 1;
+            const signRegexp = /\.|,/;
+
+            if (fractionLength === 0 && signRegexp.test(rawValue)) {
+                return previousConformedValue;
+            }
 
             if (isTwoSign && previousConformedValue) {
                 if (rawValue.length !== conformedValue.length && fractionLength) {
@@ -83,19 +139,16 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 }
 
                 const hasSign = conformedValue.includes(separator);
-                const isOneSign = rawValue.length - conformedValue.length === 1;
 
-                if (separator === ',' && !hasSign && isOneSign) {
-                    return rawValue.replace('.', ',');
+                if (!hasSign && isOneSign) {
+                    return formatSeparatorValue(separator, rawValue);
                 }
-
-                if (separator === '.' && !hasSign && isOneSign) {
-                    return rawValue.replace(',', '.');
-                }
-
                 return previousConformedValue;
             }
 
+            if (isOneSign && !uncontrolled) {
+                return formatSeparatorValue(separator, rawValue);
+            }
             return conformedValue;
         };
 
@@ -103,7 +156,10 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             const valueBlur = event.target.value.replace(new RegExp(`\\${separator}$`), '');
 
             if (onChange) {
-                onChange(event, { value: valueBlur });
+                onChange(event, {
+                    value: getNumberValueFromStr(valueBlur),
+                    valueString: valueBlur,
+                });
             }
 
             if (uncontrolled) {
@@ -135,7 +191,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             return mask;
         };
 
-        const visibleValue = uncontrolled ? value : propValue;
+        const visibleValue = uncontrolled ? value : propValue?.toString();
 
         return (
             <MaskedInput
