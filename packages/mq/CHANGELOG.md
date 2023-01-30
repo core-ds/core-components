@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.1.2
+
+### Patch Changes
+
+### [#484](https://github.com/core-ds/core-components/pull/484)
+
+-   Исправлен тип для значения по-умолчанию у хука useMatchMedia
+-   В side-panel добавлена возможность указать значение по-умолчанию для useMatchMedia<br />
+
 ## 4.1.1
 
 ### Patch Changes
