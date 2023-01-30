@@ -1,3 +1,49 @@
+## 37.4.0
+
+<sup><time>30.01.2023</time></sup>
+
+### [#469](https://github.com/core-ds/core-components/pull/469)
+
+#### Что изменилось
+- Для компонента Typography добавлен новый пропс rowLimit отвечающий за ограничение максимального количества строк
+- Для компонентов PureCell и Plate изменено отсечение текста в несколько строк<br />
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+- Патчи<br />`pure-cell` `plate`
+
+
+### [#484](https://github.com/core-ds/core-components/pull/484)
+
+#### Что изменилось
+- Исправлен тип для значения по-умолчанию у хука useMatchMedia
+- В side-panel добавлена возможность указать значение по-умолчанию для useMatchMedia<br />
+
+#### Влияние на компоненты
+- Патчи<br />`mq` `side-panel`
+
+
+### [#462](https://github.com/core-ds/core-components/pull/462)
+
+#### Что изменилось
+- Исправлены размеры border-radius у кнопок в темах mobile и intranet
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#473](https://github.com/core-ds/core-components/pull/473)
+
+#### Что изменилось
+- Исправлены темы mobile и intranet в компонентах FormControl, Select, CalendarInput
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+
 ## 37.3.0
 
 <sup><time>25.01.2023</time></sup>
