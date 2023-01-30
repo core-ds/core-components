@@ -146,6 +146,11 @@ export type DateRangeInputProps = Omit<InputProps, 'onChange'> & {
      * Отображение компонента в мобильном или десктопном виде
      */
     view?: 'desktop' | 'mobile';
+
+    /**
+     * Обработчик закрытия календаря в мобильной версии
+     */
+    onClose?: () => void;
 };
 
 export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputProps>(
@@ -161,6 +166,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             value: propValue,
             onChange,
             onComplete,
+            onClose,
             rightAddons,
             useAnchorWidth,
             block,
@@ -320,6 +326,9 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         };
 
         const handleCalendarClose = () => {
+            if (onClose && picker) {
+                onClose();
+            }
             setOpen(false);
         };
 
