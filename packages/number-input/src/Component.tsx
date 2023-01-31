@@ -103,8 +103,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 return rawValue.replace(sings[0], '');
             }
 
-            const signRegexp = /\.|,/;
-            if (rawValue.length === 1 && signRegexp.test(rawValue)) return '';
+            const separatorRegexp = /\.|,/;
+            if (rawValue.length === 1 && separatorRegexp.test(rawValue)) return '';
 
             if (separator === ',') {
                 return rawValue.replace('.', ',');
@@ -127,6 +127,13 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
 
             if (fractionLength === 0 && signRegexp.test(rawValue)) {
                 return previousConformedValue;
+            }
+
+            const zeroRegexp = /^[+|-]?00+$/;
+
+            if (zeroRegexp.test(rawValue)) {
+                const index = rawValue.search(/[+|-]/) !== -1 ? 2 : 1;
+                return rawValue.slice(0, index);
             }
 
             if (isTwoSign && previousConformedValue) {
