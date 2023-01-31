@@ -1,7 +1,4 @@
 @import './amount/click.css';
-@import './form-control/click.css';
-@import './input/click.css';
-@import './button/click.css';
 @import './checkbox/click.css';
 @import './checkbox-group/click.css';
 @import './radio/click.css';
@@ -9,7 +6,6 @@
 @import './tabs/click.css';
 @import './tag/click.css';
 @import './link/click.css';
-@import './select/click.css';
 @import './confirmation/click.css';
 @import './calendar/click.css';
 @import './modal/click.css';
@@ -17,21 +13,16 @@
 @import './list/click.css';
 @import './skeleton/click.css';
 @import './backdrop/click.css';
-@import './slider/click.css';
 @import './dropzone/click.css';
 @import './bottom-sheet/click.css';
 @import './icon-button/click.css';
 @import './circular-progress-bar/click.css';
-@import './slider-input/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(-180deg);
 
     @mixin amount-click;
-    @mixin form-control-click;
-    @mixin input-click;
-    @mixin button-click;
     @mixin checkbox-click;
     @mixin checkbox-group-click;
     @mixin radio-click;
@@ -39,7 +30,6 @@
     @mixin tabs-click;
     @mixin tag-click;
     @mixin link-click;
-    @mixin select-click;
     @mixin confirmation-click;
     @mixin calendar-click;
     @mixin modal-click;
@@ -47,10 +37,8 @@
     @mixin list-click;
     @mixin skeleton-click;
     @mixin backdrop-click;
-    @mixin slider-click;
     @mixin dropzone-click;
     @mixin bottom-sheet-click;
     @mixin icon-button-click;
     @mixin circular-progress-bar-click;
-    @mixin slider-input-click;
 }
