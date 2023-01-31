@@ -42,14 +42,14 @@ type ConditionalProps =
           /**
            * Обработчик изменения значения
            */
-          picker: true;
+          picker?: true;
 
           /**
            * Обработчик закрытия календаря
            */
           onClose?: () => void;
       }
-    | { picker?: false; onClose?: never };
+    | { picker?: never; onClose?: never };
 
 export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
     ConditionalProps & {
@@ -192,6 +192,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         ref,
     ) => {
         const inputRef = useRef<HTMLInputElement>(null);
+        const iconRef = useRef<HTMLButtonElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const [value, setValue] = useState(propValue || defaultValue);
@@ -263,8 +264,16 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             if (view === 'desktop') {
                 const target = (event.relatedTarget || document.activeElement) as HTMLElement;
 
-                if (calendarRef.current && calendarRef.current.contains(target) === false) {
+                if (
+                    calendarRef.current?.contains(target) === false &&
+                    inputRef.current?.contains(target) === false &&
+                    iconRef.current?.contains(target) === false
+                ) {
                     setOpen(false);
+
+                    if (onClose) {
+                        onClose();
+                    }
                 }
             }
         };
@@ -331,9 +340,10 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         };
 
         const handleCalendarClose = () => {
-            if (onClose) {
+            if (view === 'mobile' && onClose) {
                 onClose();
             }
+
             setOpen(false);
         };
 
@@ -415,6 +425,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                             {rightAddons}
                             {picker && (
                                 <IconButton
+                                    ref={iconRef}
                                     onClick={inputDisabled ? undefined : handleIconButtonClick}
                                     icon={CalendarMIcon}
                                     size='xxs'
