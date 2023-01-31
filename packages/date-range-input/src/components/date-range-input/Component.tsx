@@ -37,121 +37,126 @@ import {
 
 import styles from './index.module.css';
 
-export type DateRangeInputProps = Omit<InputProps, 'onChange'> & {
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
+type ConditionalProps =
+    | {
+          /**
+           * Обработчик изменения значения
+           */
+          picker: true;
 
-    /**
-     * Дополнительный класс для инпута
-     */
-    inputClassName?: string;
+          /**
+           * Обработчик закрытия календаря
+           */
+          onClose?: () => void;
+      }
+    | { picker?: false; onClose?: never };
 
-    /**
-     * Дополнительный класс для поповера
-     */
-    popoverClassName?: string;
+export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
+    ConditionalProps & {
+        /**
+         * Дополнительный класс
+         */
+        className?: string;
 
-    /**
-     * Обработчик изменения значения
-     */
-    picker?: boolean;
+        /**
+         * Дополнительный класс для инпута
+         */
+        inputClassName?: string;
 
-    /**
-     * Обработчик изменения значения
-     */
-    onChange?: (
-        payload: { dateFrom?: Date; dateTo?: Date; value: string },
-        event?: ChangeEvent<HTMLInputElement>,
-    ) => void;
+        /**
+         * Дополнительный класс для поповера
+         */
+        popoverClassName?: string;
 
-    /**
-     * Обработчик окончания ввода
-     */
-    onComplete?: (
-        payload: { dateFrom: Date; dateTo: Date; value: string },
-        event?: ChangeEvent<HTMLInputElement>,
-    ) => void;
+        /**
+         * Обработчик изменения значения
+         */
+        onChange?: (
+            payload: { dateFrom?: Date; dateTo?: Date; value: string },
+            event?: ChangeEvent<HTMLInputElement>,
+        ) => void;
 
-    /**
-     * Компонент календаря
-     */
-    Calendar?: ElementType;
+        /**
+         * Обработчик окончания ввода
+         */
+        onComplete?: (
+            payload: { dateFrom: Date; dateTo: Date; value: string },
+            event?: ChangeEvent<HTMLInputElement>,
+        ) => void;
 
-    /**
-     * Доп. пропсы для календаря
-     */
-    calendarProps?:
-        | (CalendarProps & Record<string, unknown>)
-        | (CalendarMobileProps & Record<string, unknown>);
+        /**
+         * Компонент календаря
+         */
+        Calendar?: ElementType;
 
-    /**
-     * Месяц в календаре по умолчанию (timestamp)
-     */
-    defaultMonth?: number;
+        /**
+         * Доп. пропсы для календаря
+         */
+        calendarProps?:
+            | (CalendarProps & Record<string, unknown>)
+            | (CalendarMobileProps & Record<string, unknown>);
 
-    /**
-     * Минимальная дата, доступная для выбора (timestamp)
-     */
-    minDate?: number;
+        /**
+         * Месяц в календаре по умолчанию (timestamp)
+         */
+        defaultMonth?: number;
 
-    /**
-     * Максимальная дата, доступная для выбора (timestamp)
-     */
-    maxDate?: number;
+        /**
+         * Минимальная дата, доступная для выбора (timestamp)
+         */
+        minDate?: number;
 
-    /**
-     * Список событий
-     */
-    events?: Array<Date | number>;
+        /**
+         * Максимальная дата, доступная для выбора (timestamp)
+         */
+        maxDate?: number;
 
-    /**
-     * Список выходных
-     */
-    offDays?: Array<Date | number>;
+        /**
+         * Список событий
+         */
+        events?: Array<Date | number>;
 
-    /**
-     * Состояние открытия по умолчанию
-     */
-    defaultOpen?: boolean;
+        /**
+         * Список выходных
+         */
+        offDays?: Array<Date | number>;
 
-    /**
-     * Позиционирование поповера с календарем
-     */
-    popoverPosition?: PopoverProps['position'];
+        /**
+         * Состояние открытия по умолчанию
+         */
+        defaultOpen?: boolean;
 
-    /**
-     * z-index Popover
-     */
-    zIndexPopover?: PopoverProps['zIndex'];
+        /**
+         * Позиционирование поповера с календарем
+         */
+        popoverPosition?: PopoverProps['position'];
 
-    /**
-     * Запрещает поповеру менять свою позицию.
-     * Например, если места снизу недостаточно,то он все равно будет показан снизу
-     */
-    preventFlip?: boolean;
+        /**
+         * z-index Popover
+         */
+        zIndexPopover?: PopoverProps['zIndex'];
 
-    /**
-     * Календарь будет принимать ширину инпута
-     */
-    useAnchorWidth?: boolean;
+        /**
+         * Запрещает поповеру менять свою позицию.
+         * Например, если места снизу недостаточно,то он все равно будет показан снизу
+         */
+        preventFlip?: boolean;
 
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
+        /**
+         * Календарь будет принимать ширину инпута
+         */
+        useAnchorWidth?: boolean;
 
-    /**
-     * Отображение компонента в мобильном или десктопном виде
-     */
-    view?: 'desktop' | 'mobile';
+        /**
+         * Растягивает компонент на ширину контейнера
+         */
+        block?: boolean;
 
-    /**
-     * Обработчик закрытия календаря в мобильной версии
-     */
-    onClose?: () => void;
-};
+        /**
+         * Отображение компонента в мобильном или десктопном виде
+         */
+        view?: 'desktop' | 'mobile';
+    };
 
 export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputProps>(
     (
@@ -326,7 +331,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         };
 
         const handleCalendarClose = () => {
-            if (onClose && picker) {
+            if (onClose) {
                 onClose();
             }
             setOpen(false);
