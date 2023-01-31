@@ -98,9 +98,13 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         const formatSeparatorValue = (separator: '.' | ',', rawValue: string) => {
             const singsRegexp = /\W+/;
             const sings = singsRegexp.exec(rawValue);
+
             if (sings && sings[0] !== ',' && sings[0] !== '.') {
                 return rawValue.replace(sings[0], '');
             }
+
+            const signRegexp = /\.|,/;
+            if (rawValue.length === 1 && signRegexp.test(rawValue)) return '';
 
             if (separator === ',') {
                 return rawValue.replace('.', ',');
