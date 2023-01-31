@@ -14,6 +14,7 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
+import { PortalProps } from '@alfalab/core-components-portal';
 
 import { getDataTestId } from '../../utils';
 
@@ -45,6 +46,13 @@ export type BottomSheetProps = {
      * Кнопка действия (обычно, это кнопка закрытия)
      */
     actionButton?: ReactNode;
+
+    /**
+     * Нода, компонент или функция возвращающая их
+     *
+     * Контейнер к которому будут добавляться порталы
+     */
+    container?: PortalProps['getPortalContainer'];
 
     /**
      * Дополнительный класс
@@ -229,6 +237,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         {
             open,
             title,
+            container,
             actionButton,
             contentClassName,
             containerClassName,
@@ -447,6 +456,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             <BaseModal
                 open={open}
                 ref={ref}
+                container={container}
                 dataTestId={dataTestId}
                 zIndex={zIndex}
                 onClose={onClose}
