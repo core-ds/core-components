@@ -3,6 +3,10 @@
 .content {
     box-sizing: border-box;
     width: 100%;
+
+    &.withHeader {
+        padding-top: 0;
+    }
 }
 
 .flex {

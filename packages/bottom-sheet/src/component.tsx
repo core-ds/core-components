@@ -16,6 +16,7 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
+import type { NavigationBarProps } from '@alfalab/core-components-navigation-bar';
 
 import { getDataTestId } from '../../utils';
 
@@ -42,6 +43,16 @@ export type BottomSheetProps = {
      * Заголовок
      */
     title?: ReactNode;
+
+    /**
+     * Размер заголовка
+     */
+    titleSize?: NavigationBarProps['titleSize'];
+
+    /**
+     * Подзаголовок.
+     */
+    subtitle?: NavigationBarProps['subtitle'];
 
     /**
      * Кнопка действия (обычно, это кнопка закрытия)
@@ -244,6 +255,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             open,
             title,
             container,
+            titleSize = 'default',
+            subtitle,
             actionButton,
             contentClassName,
             containerClassName,
@@ -290,28 +303,36 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
         const scrollableContainerScrollValue = useRef(0);
 
-        const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
+        const emptyHeader = !hasCloser && !leftAddons && !title && !hasBacker && !rightAddons;
 
         // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
         const fullHeight = use100vh()!;
         const targetHeight = `${fullHeight - HEADER_OFFSET}px`;
 
+        const titleIsReactElement = React.isValidElement(title);
+
         const headerProps: HeaderProps = {
-            title,
-            headerClassName,
+            ...(titleIsReactElement
+                ? { children: title }
+                : { title: title ? title?.toString() : undefined }),
+            parentRef: scrollableContainer,
+            className: headerClassName,
             addonClassName,
             closerClassName,
-            backerClassName,
+            backButtonClassName: backerClassName,
             leftAddons,
             rightAddons,
             bottomAddons,
             hasCloser,
-            hasBacker,
-            titleAlign,
-            trimTitle,
+            hasBackButton: hasBacker,
+            align: titleAlign,
+            trim: trimTitle,
             sticky: stickyHeader,
             dataTestId: getDataTestId(dataTestId, 'header'),
             onBack,
+            titleSize,
+            subtitle,
+            onClose,
         };
 
         const getBackdropOpacity = (offset: number): number => {

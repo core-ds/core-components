@@ -13,10 +13,6 @@
 
 .s {
     padding: var(--side-panel-s-header-paddings);
-
-    &:not(.hasContent) {
-        padding-bottom: 0;
-    }
 }
 
 .sticky {

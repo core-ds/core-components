@@ -1,259 +1,815 @@
-SidePanel построен как Compound Components.
+## Анатомия
 
-## Архитектура
+SidePanel построен как Compound Components. Состоит из Header, Content, Footer, содержащих в себе кастомизируемые слоты.
+Чтобы во время скролла заголовок и кнопки оставались неподвижны, их нужно расположить в `header` и `footer`.
+Текст и изображения всегда располагаются в `content` части.
 
-Содержит компоненты Header, Content, Footer, содержащие в себе кастомизируемые слоты.
+```jsx live
+const Header = () => {
+    const { setHasHeader, onClose } = React.useContext(ModalContext);
 
-```tsx live
-// import { Typography } from '@alfalab/core-components/typography';
+    React.useEffect(() => setHasHeader(true), [setHasHeader]);
+
+    const commonStyles = {
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+        borderRadius: '8px',
+        height: '48px',
+    };
+
+    const addonsStyles = {
+        ...commonStyles,
+        width: '48px',
+    };
+
+    const innerAddonsStyles = {
+        ...addonsStyles,
+        backgroundColor: 'rgba(207, 112, 255, 0.1)',
+    };
+
+    const bottomAddonsStyles = {
+        ...commonStyles,
+        width: '100%',
+    };
+
+    const wrapperStyles = {
+        display: 'flex',
+        justifyContent: 'center',
+    };
+
+    const titleStyles = {
+        ...commonStyles,
+        flexGrow: 1,
+    };
+
+    return (
+        <div style={{ margin: 'var(--side-panel-s-header-paddings)' }}>
+            <div style={wrapperStyles}>
+                <div style={innerAddonsStyles} />
+                <div style={addonsStyles} />
+                <div style={titleStyles} />
+                <div style={addonsStyles} />
+                <div style={innerAddonsStyles} onClick={onClose} />
+            </div>
+            <div style={bottomAddonsStyles} />
+        </div>
+    );
+};
 
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const handleModalOpen = () => setOpen(!open);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
-    const [state, setState] = React.useState({
-        fixedСontent: 'yes',
-        header: 'header',
-        navigation: 'closer',
-        footerContent: 'yes',
+    const commonStyle = {
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+        width: '100%',
+    };
+
+    const contentStyle = {
+        ...commonStyle,
+        height: '100%',
+    };
+
+    const footerStyle = {
+        ...commonStyle,
+        height: '48px',
+    };
+
+    return (
+        <Container>
+            <Button type='button' size='s' onClick={handleOpen}>
+                Показать анатомию
+            </Button>
+            <SidePanelDesktop open={open} onClose={handleClose}>
+                <Header />
+                <SidePanelDesktop.Content>
+                    <div style={contentStyle}></div>
+                </SidePanelDesktop.Content>
+                <SidePanelDesktop.Footer>
+                    <div style={footerStyle}></div>
+                </SidePanelDesktop.Footer>
+            </SidePanelDesktop>
+        </Container>
+    );
+});
+//MOBILE
+const Header = () => {
+    const { setHasHeader, onClose } = React.useContext(ModalContext);
+
+    React.useEffect(() => setHasHeader(true), [setHasHeader]);
+
+    const commonStyles = {
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+        borderRadius: '8px',
+        height: '48px',
+    };
+
+    const addonsStyles = {
+        ...commonStyles,
+        width: '48px',
+    };
+
+    const innerAddonsStyles = {
+        ...addonsStyles,
+        backgroundColor: 'rgba(207, 112, 255, 0.1)',
+    };
+
+    const bottomAddonsStyles = {
+        ...commonStyles,
+        width: '100%',
+    };
+
+    const wrapperStyles = {
+        display: 'flex',
+        justifyContent: 'center',
+    };
+
+    const titleStyles = {
+        ...commonStyles,
+        flexGrow: 1,
+    };
+
+    return (
+        <div style={{ margin: 'var(--side-panel-header-mobile-paddings)' }}>
+            <div style={wrapperStyles}>
+                <div style={innerAddonsStyles} />
+                <div style={addonsStyles} />
+                <div style={titleStyles} />
+                <div style={addonsStyles} />
+                <div style={innerAddonsStyles} onClick={onClose} />
+            </div>
+            <div style={bottomAddonsStyles} />
+        </div>
+    );
+};
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const commonStyle = {
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+        width: '100%',
+    };
+
+    const contentStyle = {
+        ...commonStyle,
+        height: '100%',
+    };
+
+    const footerStyle = {
+        ...commonStyle,
+        height: '48px',
+    };
+
+    return (
+        <Container>
+            <Button type='button' size='xs' onClick={handleOpen}>
+                Показать анатомию
+            </Button>
+            <SidePanelMobile open={open} onClose={handleClose}>
+                <Header />
+                <SidePanelMobile.Content>
+                    <div style={contentStyle}></div>
+                </SidePanelMobile.Content>
+                <SidePanelMobile.Footer>
+                    <div style={footerStyle}></div>
+                </SidePanelMobile.Footer>
+            </SidePanelMobile>
+        </Container>
+    );
+});
+```
+
+## Пресеты
+
+Ниже представлены самые популярные кейсы настройки сайд-панели.
+
+```jsx live
+const Text = () => (
+    <>
+        <Typography.Text tag='p'>
+            В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+            легализации доходов, полученных преступным путём, и финансированию терроризма». В рамках
+            закона банки могут блокировать карты, отказывать в проведении сомнительных операций,
+            ограничить доступ в интернет-банк или запрашивать документы, если по операции клиента
+            возникли подозрения.
+        </Typography.Text>
+        <br />
+        <Typography.Text tag='p'>
+            Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
+            предприниматели не всегда успевают за ними следить. Последствия нарушений
+            «антиотмывочного» законодательства всегда неприятны: приходится остановить
+            бизнес-процессы и доказать банку законность операций. Специалисты «Альфа-банка» собрали
+            понятные рекомендации, как сэкономить время на объяснения и предотвратить блокировки
+        </Typography.Text>
+        <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+            <Typography.Text tag='p'>
+                115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто пользуется
+                банковским счётом для бизнеса, крупных денежных переводов или личных расчётов.
+                Ограничения интернет-банка, блокировка карт добросовестных компаний могут произойти
+                из-за неправильно оформленных документов, ошибок в платёжке или попыток снизить
+                налоги.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Клиенты воспринимают ограничения как атаку со стороны банка, но чаще всего сами
+                допускают ошибки или нарушения, которых можно избежать. Банки не преследуют цели
+                доставить неудобства клиентам — они обязаны соблюдать законодательство и следовать
+                инструкциям и рекомендациям ЦБ, а в противном случае рискуют лишиться лицензии.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Обналичивание — сомнительные операции, когда юрлицо или предприниматель снимает со
+                счёта более 80% от оборота или переводит деньги на счета физлиц, которые затем
+                снимают в наличной форме.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Вывод капитала за границу — это переводы нерезидентам по договорам об импорте
+                работ/услуг и результатов интеллектуальной деятельности, по которым проведение
+                расчётов осуществляется без одновременной уплаты НДС; по сделкам купли-продажи
+                ценных бумаг, а также товаров, которые не пересекают границу России.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Транзитные операции — операции, в процессе которых деньги поступают на счёт компании
+                от других резидентов и списываются в короткие сроки. При этом, как правило, в этих
+                случаях по счёту нет начислений зарплат, уплаты налогов, и они не соответствуют
+                заявленному компанией виду деятельности.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Запрашивать могут любые документы и устанавливать разные сроки их предоставления —
+                это зависит от службы контроля конкретного банка. Обычно банки запрашивают чеки,
+                счета или договора с контрагентами. В некоторых случаях бывает достаточно устных
+                объяснений. Для проверки информации и пересмотра уровня риска банк может пригласить
+                клиента в банк для устного разъяснения или выехать по месту ведения бизнеса клиента.
+            </Typography.Text>
+        </Collapse>
+    </>
+);
+
+const HEADER_SETTINGS = [
+    { label: 'Заголовок', name: 'hasTitle' },
+    { label: 'Крестик', name: 'hasCloser' },
+    { label: 'Стрелка назад', name: 'hasBackButton' },
+    { label: 'Фиксация шапки при скролле', name: 'sticky' },
+];
+
+const FOOTER_SETTINGS = [
+    { label: 'Primary Button', name: 'hasPrimaryButton' },
+    { label: 'Secondary Button', name: 'hasSecondaryButton' },
+    { label: 'Фиксация футера при скролле', name: 'sticky' },
+];
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    const [radioState, setRadioState] = React.useState({
         placement: 'right',
-        scrollbar: 'native'
+        scrollbar: 'native',
     });
 
-    const handleStateChange = (key, _, payload) => {
-        setState(state => ({ ...state, [key]: payload.value }));
-    }
+    const [headerSettings, setHeaderSettings] = React.useState(() => ({
+        ...HEADER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
+        titleInContent: false,
+    }));
 
-    const Text = () => (
-        <p style={{ margin: '15px 0 16px' }}>
-            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
-            Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-            потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
-            полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-        </p>
-    )
+    const [footerSettings, setFooterSettings] = React.useState(() =>
+        FOOTER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
+    );
+
+    const getKey = () => JSON.stringify(headerSettings);
+
+    const handleRadioStateChange = (key, _, payload) => {
+        setRadioState((state) => ({ ...state, [key]: payload.value }));
+    };
+
+    const handleOpen = () => setOpen(true);
+
+    const handleClose = () => setOpen(false);
+
+    const handleHeaderSettingsChange = (_, { name, checked }) => {
+        setHeaderSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
+    const handleFooterSettingsChange = (_, { name, checked }) => {
+        setFooterSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
+    const showHeader =
+        headerSettings.hasTitle || headerSettings.hasCloser || headerSettings.hasBackButton;
+
+    const showFooter = footerSettings.hasPrimaryButton || footerSettings.hasSecondaryButton;
 
     return (
         <React.Fragment>
-            <Button type='button' size='xs' onClick={handleModalOpen}>
+            <Button type='button' size='s' onClick={handleOpen}>
                 Открыть сайд-панель
             </Button>
-            <SidePanelDesktop open={open} onClose={handleModalOpen} size='s' placement={state.placement} nativeScrollbar={state.scrollbar === 'native'}>
-                <SidePanelDesktop.Header
-                    hasCloser={state.navigation === 'closer'}
-                    sticky={state.fixedСontent === 'yes'}
-                    title ={state.header === 'header' && 'Почему банк проверяет мои операции?'}/>
+
+            <Gap size='2xl' />
+
+            <SidePanelDesktop
+                key={getKey()}
+                open={open}
+                onClose={handleClose}
+                placement={radioState.placement}
+                nativeScrollbar={radioState.scrollbar === 'native'}
+            >
+                {showHeader && (
+                    <SidePanelDesktop.Header
+                        hasBackButton={headerSettings.hasBackButton}
+                        hasCloser={headerSettings.hasCloser}
+                        sticky={headerSettings.sticky}
+                        title={
+                            headerSettings.hasTitle
+                                ? 'Почему банк проверяет мои операции?'
+                                : undefined
+                        }
+                    />
+                )}
                 <SidePanelDesktop.Content>
-                    <div style={{position: 'relative'}}>
-                        {state.header === 'content' &&
-                            <Typography.Title view='small' tag='div'>Почему банк проверяет мои операции?</Typography.Title>}
-                            <Text/>
-                            <Text/>
-                            <Text/>
-                            <Text/>
-                            <Text/>
+                    <div style={{ position: 'relative' }}>
+                        {headerSettings.titleInContent ? (
+                            <>
+                                <Typography.Title view='medium' tag='h3' font='system'>
+                                    {`Почему банк проверяет мои операции?`}
+                                </Typography.Title>
+                                <Gap size='m' />
+                            </>
+                        ) : undefined}
+                        <Text />
                     </div>
                 </SidePanelDesktop.Content>
-                <SidePanelDesktop.Footer sticky={state.fixedСontent === 'yes'}>
-                    {state.footerContent === 'yes' && <Button view='primary' size='s' onClick={handleModalOpen}>
-                        Понятно
-                    </Button>}
-                </SidePanelDesktop.Footer>
+                {showFooter && (
+                    <SidePanelDesktop.Footer sticky={footerSettings.sticky}>
+                        {footerSettings.hasPrimaryButton && (
+                            <Button view='primary' size='s' onClick={handleClose}>
+                                Primary
+                            </Button>
+                        )}
+                        {footerSettings.hasSecondaryButton && (
+                            <Button view='secondary' size='s' onClick={handleClose}>
+                                Secondary
+                            </Button>
+                        )}
+                    </SidePanelDesktop.Footer>
+                )}
             </SidePanelDesktop>
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Размещение"
-                    direction="vertical"
-                    name="placement"
-                    onChange={handleStateChange.bind(null, 'placement')}
-                    value={state.placement}
-                >
-                    <Radio label="Слева" value="left" />
-                    <Radio label="Справа" value="right" />
-                </RadioGroup>
-            </div>
+            <RadioGroup
+                label='Размещение'
+                direction='vertical'
+                name='placement'
+                onChange={handleRadioStateChange.bind(null, 'placement')}
+                value={radioState.placement}
+            >
+                <Radio label='Слева' value='left' />
+                <Radio label='Справа' value='right' />
+            </RadioGroup>
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Скроллбар"
-                    direction="vertical"
-                    name="scrollbar"
-                    onChange={handleStateChange.bind(null, 'scrollbar')}
-                    value={state.scrollbar}
-                >
-                    <Radio label="Нативный" value='native' />
-                    <Radio label="Кастомный" value='custom' />
-                </RadioGroup>
-            </div>
+            <Gap size='2xl' />
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Футер и хедер"
-                    direction="vertical"
-                    name="radioGroupFirst"
-                    onChange={handleStateChange.bind(null, 'fixedСontent')}
-                    value={state.fixedСontent}
-                >
-                    <Radio label="Фиксированные" value="yes" />
-                    <Radio label="Нефиксированные" value="no" />
-                </RadioGroup>
-                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер и хедер без контента не могут быть закреплёнными.</Typography.Text>
-            </div>
+            <RadioGroup
+                label='Скроллбар'
+                direction='vertical'
+                name='scrollbar'
+                onChange={handleRadioStateChange.bind(null, 'scrollbar')}
+                value={radioState.scrollbar}
+            >
+                <Radio label='Нативный' value='native' />
+                <Radio label='Кастомный' value='custom' />
+            </RadioGroup>
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Заголовок"
-                    direction="vertical"
-                    name="radioGroupSecond"
-                    onChange={handleStateChange.bind(null, 'header')}
-                    value={state.header}
-                >
-                    <Radio label="В шапке" value="header" />
-                    <Radio label="В контентной части" value="content" />
-                </RadioGroup>
-            </div>
+            <Gap size='2xl' />
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Навигация"
-                    direction="vertical"
-                    name="radioGroupThird"
-                    onChange={handleStateChange.bind(null, 'navigation')}
-                    value={state.navigation}
-                >
-                    <Radio label="Закрыть" value="closer" />
-                    <Radio label="Без навигации" value="no" />
-                </RadioGroup>
-            </div>
+            <CheckboxGroup label='Настройки шапки' onChange={handleHeaderSettingsChange}>
+                {HEADER_SETTINGS.map((item) => (
+                    <Switch
+                        key={item.name}
+                        size='m'
+                        label={item.label}
+                        name={item.name}
+                        checked={headerSettings[item.name]}
+                    />
+                ))}
+            </CheckboxGroup>
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Контент футера"
-                    direction="vertical"
-                    name="radioGroupFifth"
-                    onChange={handleStateChange.bind(null, 'footerContent')}
-                    value={state.footerContent}
-                >
-                    <Radio label="Кнопка" value="yes" />
-                    <Radio label="Нет контента" value="no" />
-                </RadioGroup>
+            <Gap size='2xl' />
 
-                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
-            </div>
+            <CheckboxGroup
+                label='Примеры наполнения контентной части'
+                onChange={handleHeaderSettingsChange}
+            >
+                <Switch
+                    size='m'
+                    label='Заголовок в контентной области'
+                    name='titleInContent'
+                    checked={headerSettings.titleInContent}
+                />
+            </CheckboxGroup>
+
+            <Gap size='2xl' />
+
+            <CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>
+                {FOOTER_SETTINGS.map((item) => (
+                    <Switch
+                        key={item.name}
+                        size='m'
+                        label={item.label}
+                        name={item.name}
+                        checked={footerSettings[item.name]}
+                    />
+                ))}
+            </CheckboxGroup>
         </React.Fragment>
     );
 });
 //MOBILE
-// import { Typography } from '@alfalab/core-components/typography';
+const Text = ({ onClose }) => (
+    <>
+        <Typography.Text tag='p'>
+            В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+            легализации доходов, полученных преступным путём, и финансированию терроризма». В рамках
+            закона банки могут блокировать карты, отказывать в проведении сомнительных операций,
+            ограничить доступ в интернет-банк или запрашивать документы, если по операции клиента
+            возникли подозрения.{' '}
+            <Link onClick={onClose}>Нажмите сюда, чтобы закрыть модалку без крестика</Link>
+        </Typography.Text>
+        <br />
+        <Typography.Text tag='p'>
+            Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
+            предприниматели не всегда успевают за ними следить. Последствия нарушений
+            «антиотмывочного» законодательства всегда неприятны: приходится остановить
+            бизнес-процессы и доказать банку законность операций. Специалисты «Альфа-банка» собрали
+            понятные рекомендации, как сэкономить время на объяснения и предотвратить блокировки
+        </Typography.Text>
+        <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+            <Typography.Text tag='p'>
+                115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто пользуется
+                банковским счётом для бизнеса, крупных денежных переводов или личных расчётов.
+                Ограничения интернет-банка, блокировка карт добросовестных компаний могут произойти
+                из-за неправильно оформленных документов, ошибок в платёжке или попыток снизить
+                налоги.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Клиенты воспринимают ограничения как атаку со стороны банка, но чаще всего сами
+                допускают ошибки или нарушения, которых можно избежать. Банки не преследуют цели
+                доставить неудобства клиентам — они обязаны соблюдать законодательство и следовать
+                инструкциям и рекомендациям ЦБ, а в противном случае рискуют лишиться лицензии.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Обналичивание — сомнительные операции, когда юрлицо или предприниматель снимает со
+                счёта более 80% от оборота или переводит деньги на счета физлиц, которые затем
+                снимают в наличной форме.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Вывод капитала за границу — это переводы нерезидентам по договорам об импорте
+                работ/услуг и результатов интеллектуальной деятельности, по которым проведение
+                расчётов осуществляется без одновременной уплаты НДС; по сделкам купли-продажи
+                ценных бумаг, а также товаров, которые не пересекают границу России.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Транзитные операции — операции, в процессе которых деньги поступают на счёт компании
+                от других резидентов и списываются в короткие сроки. При этом, как правило, в этих
+                случаях по счёту нет начислений зарплат, уплаты налогов, и они не соответствуют
+                заявленному компанией виду деятельности.
+            </Typography.Text>
+            <br />
+            <Typography.Text tag='p'>
+                Запрашивать могут любые документы и устанавливать разные сроки их предоставления —
+                это зависит от службы контроля конкретного банка. Обычно банки запрашивают чеки,
+                счета или договора с контрагентами. В некоторых случаях бывает достаточно устных
+                объяснений. Для проверки информации и пересмотра уровня риска банк может пригласить
+                клиента в банк для устного разъяснения или выехать по месту ведения бизнеса клиента.
+            </Typography.Text>
+        </Collapse>
+    </>
+);
+
+const HEADER_SELECT_OPTIONS = [
+    { key: 'withoutTitle', content: 'Нет заголовка' },
+    { key: 'defaultTitle', content: 'Стандартный' },
+    { key: 'compactTitle', content: 'Компактный' },
+    { key: 'compactTitleWithSubtitle', content: 'Компактный с подписью' },
+    { key: 'compactTitleWithCenterAlign', content: 'Компактный центрированный' },
+    {
+        key: 'compactTitleWithSubtitleAndCenterAlign',
+        content: 'Компактный центрированный с подписью',
+    },
+];
+
+const FOOTER_SELECT_OPTIONS = [
+    { key: 'vertical', content: 'Вертикальный' },
+    { key: 'horizontal', content: 'Горизонтальный' },
+];
+
+const HEADER_SETTINGS = [
+    { label: 'Крестик', name: 'hasCloser' },
+    { label: 'Стрелка назад', name: 'hasBackButton' },
+    { label: 'Фиксация шапки при скролле', name: 'sticky' },
+];
+
+const FOOTER_SETTINGS = [
+    { label: 'Primary Button', name: 'hasPrimaryButton' },
+    { label: 'Secondary Button', name: 'hasSecondaryButton' },
+    { label: 'Фиксация футера при скролле', name: 'sticky' },
+];
 
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const handleModalOpen = () => setOpen(!open);
+    const [headerViewSelected, setHeaderView] = React.useState(HEADER_SELECT_OPTIONS[0].key);
+    const [footerViewSelected, setFooterView] = React.useState(FOOTER_SELECT_OPTIONS[0].key);
+    const [headerSettings, setHeaderSettings] = React.useState(() => ({
+        ...HEADER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
+        titleInContent: false,
+    }));
+    const [footerSettings, setFooterSettings] = React.useState(() =>
+        FOOTER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
+    );
 
-    const [state, setState] = React.useState({
-        fixedСontent: 'yes',
-        header: 'header',
-        navigation: 'closer',
-        footerContent: 'yes',
-    });
+    const showHeader =
+        headerViewSelected !== HEADER_SELECT_OPTIONS[0].key ||
+        headerSettings.hasCloser ||
+        headerSettings.hasBackButton;
 
-    const handleStateChange = (key, _, payload) => {
-        setState(state => ({ ...state, [key]: payload.value }));
-    }
+    const showFooter = footerSettings.hasPrimaryButton || footerSettings.hasSecondaryButton;
 
-    const Text = () => (
-        <p style={{ margin: '15px 0 16px' }}>
-            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
-            Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-            потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
-            полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-        </p>
-    )
+    const getKey = () =>
+        `${JSON.stringify(headerSettings)}-${headerViewSelected}-${footerViewSelected}`;
+
+    const handleOpen = () => setOpen(true);
+
+    const handleClose = () => setOpen(false);
+
+    const handleHeaderSettingsChange = (_, { name, checked }) => {
+        setHeaderSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
+    const handleFooterSettingsChange = (_, { name, checked }) => {
+        setFooterSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
 
     return (
-        <React.Fragment>
-            <Button type='button' size='xs' onClick={handleModalOpen}>
-                Открыть сайд-панель
+        <Container>
+            <Button size='xs' onClick={handleOpen}>
+                Открыть сайд панель
             </Button>
-            <SidePanelMobile open={open} onClose={handleModalOpen} size='s' placement={state.placement} nativeScrollbar={state.scrollbar === 'native'}>
-                <SidePanelMobile.Header
-                    hasCloser={state.navigation === 'closer'}
-                    sticky={state.fixedСontent === 'yes'}
-                    title ={state.header === 'header' && 'Почему банк проверяет мои операции?'}/>
+
+            <Gap size='2xl' />
+
+            <p style={{ margin: '0 0 var(--gap-s) 0' }}>Настройки шапки</p>
+
+            <SelectMobile
+                block={true}
+                options={HEADER_SELECT_OPTIONS}
+                label='Заголовок'
+                selected={headerViewSelected}
+                onChange={({ selected }) => setHeaderView(selected.key)}
+                Option={BaseOption}
+            />
+
+            <Gap size='m' />
+
+            <CheckboxGroup onChange={handleHeaderSettingsChange}>
+                {HEADER_SETTINGS.map((item) => (
+                    <Switch
+                        key={item.name}
+                        size='m'
+                        label={item.label}
+                        name={item.name}
+                        checked={headerSettings[item.name]}
+                    />
+                ))}
+            </CheckboxGroup>
+
+            <Gap size='2xl' />
+
+            <CheckboxGroup
+                label='Примеры наполнения контентной части'
+                onChange={handleHeaderSettingsChange}
+            >
+                <Switch
+                    size='m'
+                    label='Заголовок в контентной области'
+                    name='titleInContent'
+                    checked={headerSettings.titleInContent}
+                />
+            </CheckboxGroup>
+
+            <Gap size='2xl' />
+
+            <p style={{ margin: '0 0 var(--gap-s) 0' }}>Настройки футера</p>
+
+            <SelectMobile
+                block={true}
+                options={FOOTER_SELECT_OPTIONS}
+                label='Лейаут'
+                selected={footerViewSelected}
+                onChange={({ selected }) => setFooterView(selected.key)}
+                Option={BaseOption}
+            />
+
+            <Gap size='m' />
+
+            <CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>
+                {FOOTER_SETTINGS.map((item) => (
+                    <Switch
+                        key={item.name}
+                        size='m'
+                        label={item.label}
+                        name={item.name}
+                        checked={footerSettings[item.name]}
+                    />
+                ))}
+            </CheckboxGroup>
+
+            <SidePanelMobile open={open} onClose={handleClose} key={getKey()}>
+                {showHeader && (
+                    <SidePanelMobile.Header
+                        hasCloser={headerSettings.hasCloser}
+                        hasBackButton={headerSettings.hasBackButton}
+                        sticky={headerSettings.sticky}
+                        align={
+                            [
+                                'compactTitleWithCenterAlign',
+                                'compactTitleWithSubtitleAndCenterAlign',
+                            ].includes(headerViewSelected)
+                                ? 'center'
+                                : undefined
+                        }
+                        title={
+                            [
+                                'defaultTitle',
+                                'compactTitle',
+                                'compactTitleWithSubtitle',
+                                'compactTitleWithCenterAlign',
+                                'compactTitleWithSubtitleAndCenterAlign',
+                            ].includes(headerViewSelected)
+                                ? 'Почему банк проверяет мои операции?'
+                                : undefined
+                        }
+                        titleSize={
+                            [
+                                'compactTitle',
+                                'compactTitleWithSubtitle',
+                                'compactTitleWithCenterAlign',
+                                'compactTitleWithSubtitleAndCenterAlign',
+                            ].includes(headerViewSelected)
+                                ? 'compact'
+                                : undefined
+                        }
+                        subtitle={
+                            [
+                                'compactTitleWithSubtitle',
+                                'compactTitleWithSubtitleAndCenterAlign',
+                            ].includes(headerViewSelected)
+                                ? 'Почему банк проверяет мои операции?'
+                                : undefined
+                        }
+                    />
+                )}
                 <SidePanelMobile.Content>
-                    <div style={{position: 'relative'}}>
-                        {state.header === 'content' &&
-                            <Typography.Title view='small' tag='div'>Почему банк проверяет мои операции?</Typography.Title>}
-                            <Text/>
-                            <Text/>
-                            <Text/>
-                            <Text/>
-                            <Text/>
-                    </div>
+                    {headerSettings.titleInContent ? (
+                        <>
+                            <Typography.Title view='xsmall' tag='div' font='system'>
+                                {`Почему банк проверяет мои операции?`}
+                            </Typography.Title>
+                            <Gap size='m' />
+                        </>
+                    ) : undefined}
+
+                    <Text onClose={handleClose} />
                 </SidePanelMobile.Content>
-                <SidePanelMobile.Footer sticky={state.fixedСontent === 'yes'}>
-                    {state.footerContent === 'yes' && <Button view='primary' size='s' onClick={handleModalOpen}>
-                        Понятно
-                    </Button>}
-                </SidePanelMobile.Footer>
+                {showFooter && (
+                    <SidePanelMobile.Footer
+                        sticky={footerSettings.sticky}
+                        layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
+                    >
+                        {footerSettings.hasPrimaryButton && (
+                            <Button view='primary' size='s' onClick={handleClose} block={true}>
+                                Primary
+                            </Button>
+                        )}
+
+                        {footerSettings.hasSecondaryButton && (
+                            <Button view='secondary' size='s' onClick={handleClose} block={true}>
+                                Secondary
+                            </Button>
+                        )}
+                    </SidePanelMobile.Footer>
+                )}
             </SidePanelMobile>
+        </Container>
+    );
+});
+```
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Футер и хедер"
-                    direction="vertical"
-                    name="radioGroupFirst"
-                    onChange={handleStateChange.bind(null, 'fixedСontent')}
-                    value={state.fixedСontent}
-                >
-                    <Radio label="Фиксированные" value="yes" />
-                    <Radio label="Нефиксированные" value="no" />
-                </RadioGroup>
-                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер и хедер без контента не могут быть закреплёнными.</Typography.Text>
-            </div>
+## Последовательность шагов
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Заголовок"
-                    direction="vertical"
-                    name="radioGroupSecond"
-                    onChange={handleStateChange.bind(null, 'header')}
-                    value={state.header}
-                >
-                    <Radio label="В шапке" value="header" />
-                    <Radio label="В контентной части" value="content" />
-                </RadioGroup>
-            </div>
+Компонент можно настроить для реализации многошаговых сценариев.
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Навигация"
-                    direction="vertical"
-                    name="radioGroupThird"
-                    onChange={handleStateChange.bind(null, 'navigation')}
-                    value={state.navigation}
-                >
-                    <Radio label="Закрыть" value="closer" />
-                    <Radio label="Без навигации" value="no" />
-                </RadioGroup>
-            </div>
+```jsx live mobileHeight=640
+const DATA = {
+    1: {
+        title: 'Первый уровень',
+        btnText: 'Дальше',
+        bg: 'rgba(55, 120, 251, 0.1)',
+        color: '#3778FB',
+    },
+    2: {
+        title: 'Второй уровень',
+        btnText: 'Дальше',
+        bg: 'rgba(207, 112, 255, 0.1)',
+        color: '#CF70FF',
+    },
+    3: {
+        title: 'Третий уровень',
+        btnText: 'Готово',
+        bg: 'rgba(112, 255, 126, 0.1)',
+        color: '#058102',
+    },
+};
 
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label="Контент футера"
-                    direction="vertical"
-                    name="radioGroupFifth"
-                    onChange={handleStateChange.bind(null, 'footerContent')}
-                    value={state.footerContent}
-                >
-                    <Radio label="Кнопка" value="yes" />
-                    <Radio label="Нет контента" value="no" />
-                </RadioGroup>
+render(() => {
+    const [step, setStep] = React.useState(1);
+    const [open, setOpen] = React.useState(false);
 
-                <Typography.Text style={{ marginTop: '15px' }} view='primary-small' color='secondary' tag='p'>Футер без контента не может быть фиксированным</Typography.Text>
-            </div>
-        </React.Fragment>
+    const handleOpen = () => {
+        setOpen(true);
+        setStep(1);
+    };
+    const handleClose = () => setOpen(false);
+
+    const item = DATA[step];
+
+    const commonStyles = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'background 0.2s ease-in, border 0.2s ease-in',
+        borderRadius: '8px',
+        background: item.bg,
+        border: `1px dashed ${item.color}`,
+        color: item.color,
+        width: '100%',
+        boxSizing: 'border-box',
+    };
+
+    return (
+        <Container>
+            <Button size={document.body.clientWidth < 450 ? 'xs' : 's'} onClick={handleOpen}>
+                Открыть сайд панель
+            </Button>
+
+            <SidePanelResponsive open={open} onClose={handleClose}>
+                <SidePanelResponsive.Header
+                    sticky={true}
+                    hasCloser={true}
+                    hasBackButton={step !== 1}
+                    title={item.title}
+                    onBack={() => setStep(step - 1)}
+                />
+                <SidePanelResponsive.Content flex={true}>
+                    <div
+                        style={{
+                            ...commonStyles,
+                            height: '100%',
+                        }}
+                    >
+                        <span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>
+                    </div>
+                </SidePanelResponsive.Content>
+                <SidePanelResponsive.Footer sticky={true}>
+                    <Button
+                        size={document.body.clientWidth < 450 ? 'xs' : 's'}
+                        view='primary'
+                        onClick={
+                            item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose
+                        }
+                    >
+                        {item.btnText}
+                    </Button>
+                </SidePanelResponsive.Footer>
+            </SidePanelResponsive>
+        </Container>
     );
 });
 ```

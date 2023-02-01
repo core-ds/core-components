@@ -1,22 +1,23 @@
 @import '../../../../themes/src/default.css';
 
 :root {
-    --bottom-sheet-header-border-bottom: none;
+    --bottom-sheet-header-border-bottom: 1px solid var(--color-light-border-primary);
     --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
     --bottom-sheet-title-font-size: 18px;
     --bottom-sheet-title-font-weight: 700;
     --bottom-sheet-title-line-height: 24px;
     --bottom-sheet-title-font-family: var(--font-family-system);
-    --bottom-sheet-title-margin-vertical: var(--gap-2xs);
 }
 
 .headerWrapper {
-    padding: var(--gap-xs);
-    padding-bottom: 0;
-    background-color: var(--color-light-bg-primary);
+    padding: var(--gap-s) var(--gap-xs) var(--gap-2xs);
     border-top-right-radius: var(--border-radius-xl);
     border-top-left-radius: var(--border-radius-xl);
     z-index: 1;
+}
+
+.hasContent {
+    background-color: var(--color-light-bg-primary);
 }
 
 .header {
@@ -48,19 +49,8 @@
     position: fixed;
 }
 
-.addonLeft {
-    left: 0;
-    margin-left: var(--gap-xs);
-}
-
-.addonRight {
-    right: 0;
-    margin-right: var(--gap-xs);
-}
-
 .title {
-    padding: var(--gap-xs) var(--gap-xs);
-    margin: var(--bottom-sheet-title-margin-vertical) 0;
+    padding: var(--gap-s) var(--gap-xs);
     width: 100%;
     font-size: var(--bottom-sheet-title-font-size);
     font-weight: var(--bottom-sheet-title-font-weight);
@@ -80,16 +70,4 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.titleBigIndentHorizontal {
-    margin: var(--bottom-sheet-title-margin-vertical) var(--gap-4xl);
-}
-
-.titleIndentRight {
-    margin-right: var(--gap-4xl);
-}
-
-.titleIndentLeft {
-    margin-left: var(--gap-4xl);
 }

@@ -22,6 +22,7 @@
         "@alfalab/core-components-base-modal": "^5.0.10",
         "@alfalab/core-components-icon-button": "^6.0.7",
         "@alfalab/core-components-typography": "^3.1.1",
+        "@alfalab/core-components-navigation-bar": "^0.0.0",
         "classnames": "^2.3.1",
         "react-div-100vh": "^0.7.0",
         "react-merge-refs": "^1.1.0",

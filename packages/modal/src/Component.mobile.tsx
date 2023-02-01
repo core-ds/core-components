@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
-import { Closer } from './components/closer/Component';
+import { Closer } from '@alfalab/core-components-navigation-bar';
+
 import { Content } from './components/content/Component';
 import { Footer } from './components/footer/Component';
 import { Header } from './components/header/Component';

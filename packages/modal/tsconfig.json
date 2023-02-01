@@ -13,6 +13,7 @@
         { "path": "../base-modal" },
         { "path": "../mq" },
         { "path": "../button" },
-        { "path": "../icon-button" }
+        { "path": "../icon-button" },
+        { "path": "../navigation-bar" }
     ]
 }

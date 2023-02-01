@@ -55,7 +55,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.hasCloser': [true, false],
                     ModalComponent: 'ModalMobile',
                 },
@@ -66,7 +66,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.trim': [true, false],
                     ModalComponent: 'ModalMobile',
                 },
@@ -244,7 +244,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.hasCloser': [true, false],
                     ModalComponent: 'ModalDesktop',
                 },
@@ -255,7 +255,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.trim': [true, false],
                     ModalComponent: 'ModalDesktop',
                 },
