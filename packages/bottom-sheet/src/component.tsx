@@ -47,6 +47,13 @@ export type BottomSheetProps = {
     actionButton?: ReactNode;
 
     /**
+     * Нода, компонент или функция возвращающая их
+     *
+     * Контейнер к которому будут добавляться порталы
+     */
+    container?: BaseModalProps['container'];
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -229,6 +236,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         {
             open,
             title,
+            container,
             actionButton,
             contentClassName,
             containerClassName,
@@ -447,6 +455,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             <BaseModal
                 open={open}
                 ref={ref}
+                container={container}
                 dataTestId={dataTestId}
                 zIndex={zIndex}
                 onClose={onClose}
