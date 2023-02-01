@@ -14,7 +14,6 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
-import { PortalProps } from '@alfalab/core-components-portal';
 
 import { getDataTestId } from '../../utils';
 
@@ -52,7 +51,7 @@ export type BottomSheetProps = {
      *
      * Контейнер к которому будут добавляться порталы
      */
-    container?: PortalProps['getPortalContainer'];
+    container?: BaseModalProps['container'];
 
     /**
      * Дополнительный класс
