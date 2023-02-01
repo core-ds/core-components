@@ -12,7 +12,6 @@
 @import './toast-plate/click.css';
 @import './list/click.css';
 @import './skeleton/click.css';
-@import './backdrop/click.css';
 @import './dropzone/click.css';
 @import './bottom-sheet/click.css';
 @import './icon-button/click.css';
@@ -36,7 +35,6 @@
     @mixin toast-plate-click;
     @mixin list-click;
     @mixin skeleton-click;
-    @mixin backdrop-click;
     @mixin dropzone-click;
     @mixin bottom-sheet-click;
     @mixin icon-button-click;
