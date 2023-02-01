@@ -267,6 +267,12 @@
                         "global"
                     ]
                 }
+            ],
+            "stylelint-core-vars/do-not-use-old-vars": [
+                true,
+                {
+                    "severity": "warning"
+                }
             ]
         }
     },
