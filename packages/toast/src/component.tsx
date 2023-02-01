@@ -180,7 +180,6 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     offset={offset}
                     popperClassName={styles.popoverInner}
                     className={cn({ [styles.block]: block })}
-                    transition={{ timeout: 150 }}
                     getPortalContainer={getPortalContainer}
                     zIndex={zIndex}
                     useAnchorWidth={useAnchorWidth}
@@ -198,6 +197,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                             unmountOnExit={true}
                             in={open}
                             timeout={150}
+                            nodeRef={plateRef}
                             classNames={CSS_TRANSITION_CLASS_NAMES}
                         >
                             <ToastPlate

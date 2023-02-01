@@ -96,7 +96,6 @@ Object {
       >
         <div
           class="inner popper tooltip tooltip"
-          style="transition-duration: 150ms;"
         >
           <div
             class=""
@@ -205,7 +204,6 @@ Object {
       >
         <div
           class="inner popper hint hint"
-          style="transition-duration: 150ms;"
         >
           <div
             class=""
