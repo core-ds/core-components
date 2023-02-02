@@ -3,6 +3,7 @@ import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import addMonths from 'date-fns/addMonths';
 import endOfMonth from 'date-fns/endOfMonth';
+import isSameMonth from 'date-fns/isSameMonth';
 import max from 'date-fns/max';
 import startOfMonth from 'date-fns/startOfMonth';
 import subMonths from 'date-fns/subMonths';
@@ -237,6 +238,8 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     const CalendarFromComponent = dateInputFromProps.Calendar || Calendar;
     const CalendarToComponent = dateInputToProps.Calendar || Calendar;
 
+    const minMaxInSameMonth = minDate && maxDate && isSameMonth(minDate, maxDate);
+
     return (
         // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
         <div
@@ -270,7 +273,11 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     onChange={period.updatePeriod}
                     onMonthChange={handleMonthFromChange}
                     minDate={minDate}
-                    maxDate={maxDate && max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()}
+                    maxDate={
+                        minMaxInSameMonth
+                            ? maxDate
+                            : maxDate && max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()
+                    }
                     {...rangeProps}
                 />
             </div>
@@ -302,7 +309,11 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     events={events}
                     onChange={period.updatePeriod}
                     onMonthChange={handleMonthToChange}
-                    minDate={minDate && startOfMonth(addMonths(minDate, 1)).getTime()}
+                    minDate={
+                        minMaxInSameMonth
+                            ? minDate
+                            : minDate && startOfMonth(addMonths(minDate, 1)).getTime()
+                    }
                     maxDate={maxDate}
                     {...rangeProps}
                 />

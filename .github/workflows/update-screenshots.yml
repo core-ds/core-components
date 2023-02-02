@@ -28,10 +28,10 @@ jobs:
 
       - name: Check git status
         id: git_status
-        run: echo "porcelain=$(git status --porcelain)" >> $GITHUB_OUTPUT
+        run: echo "porcelain=$(git status --porcelain | sed 's/ //g' | cut -b1)" | head -1 >> $GITHUB_OUTPUT
 
       - name: Change commit
-        if: ${{ steps.git_status.outputs.porcelain }} == 'MM'
+        if: ${{ steps.git_status.outputs.porcelain }} == 'M'
         uses: EndBug/add-and-commit@v9
         with:
           author_name: core-ds-bot,

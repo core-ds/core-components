@@ -12,6 +12,8 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
+import { useDidUpdateEffect } from '@alfalab/hooks';
+
 import styles from './index.module.css';
 
 export type Direction = 'horizontal' | 'vertical';
@@ -115,39 +117,40 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         },
         ref,
     ) => {
-        const [stateValue, setStateValue] = useState<string>('');
+        const [stateValue, setStateValue] = useState<RadioGroupProps['value']>('');
+
+        useDidUpdateEffect(() => {
+            setStateValue(value);
+        }, [value]);
+
+        const isChecked = (childValue: string) =>
+            value !== null && (value || stateValue) === childValue;
+
+        const handleChange = (event: ChangeEvent | MouseEvent, childValue: string) => {
+            setStateValue(childValue);
+            if (onChange) {
+                onChange(event, { name, value: childValue });
+            }
+        };
 
         const renderRadio = (child: ReactElement) => {
-            const { className: childClassName } = child.props;
-            const checked = value !== null && (value || stateValue) === child.props.value;
-            const handleChange = (event: ChangeEvent) => {
-                setStateValue(child.props.value);
-                if (onChange) {
-                    onChange(event, { name, value: child.props.value });
-                }
-            };
+            const { className: childClassName, value: childValue } = child.props;
 
             return cloneElement(child, {
-                onChange: handleChange,
+                onChange: (event: ChangeEvent) => handleChange(event, childValue),
                 disabled,
                 ...child.props,
-                checked,
+                checked: isChecked(childValue),
                 name,
                 className: cn(childClassName, styles.radio),
             });
         };
 
         const renderTag = (child: ReactElement) => {
-            const checked = value !== null && (value || stateValue) === child.props.value;
-            const handleChange = (event: ChangeEvent | MouseEvent) => {
-                setStateValue(child.props.value);
-                if (onChange) {
-                    onChange(event, { name, value: child.props.value });
-                }
-            };
-
+            const childValue = child.props.value;
+            const checked = isChecked(childValue);
             const clone = cloneElement(child, {
-                onClick: handleChange,
+                onClick: (event: MouseEvent) => handleChange(event, childValue),
                 disabled,
                 ...child.props,
                 checked,
@@ -155,13 +158,12 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             });
 
             return (
-                // eslint-disable-next-line jsx-a11y/label-has-associated-control
                 <label className={cn(styles.radio, styles.tagLabel)}>
                     {clone}
                     <input
                         type='radio'
                         autoComplete='off'
-                        onChange={handleChange}
+                        onChange={(event: ChangeEvent) => handleChange(event, childValue)}
                         disabled={disabled || child.props.disabled}
                         name={name}
                         checked={checked}
@@ -213,12 +215,3 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-RadioGroup.defaultProps = {
-    direction: 'vertical',
-    type: 'radio',
-    disabled: false,
-};
