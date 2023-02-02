@@ -31,7 +31,7 @@ describe('FilterTag | main props', () => {
                             checked: [false, true],
                             disabled: [false, true],
                             open: [false, true],
-                            variant: ['default', 'alt'],
+                            shape: ['rounded', 'rectangular'],
                         },
                         size: { width: 160, height: 90 },
                     }),

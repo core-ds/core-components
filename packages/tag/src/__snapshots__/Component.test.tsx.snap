@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant"
+        class="component component s rounded outlined rounded"
         type="button"
       >
         <span>
@@ -17,7 +17,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant"
+      class="component component s rounded outlined rounded"
       type="button"
     >
       <span>
@@ -79,13 +79,13 @@ Object {
 }
 `;
 
-exports[`Snapshots tests should match snapshot variant=alt 1`] = `
+exports[`Snapshots tests should match snapshot shape=rectangular 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <button
-        class="component component s alt"
+        class="component component s rectangular outlined rounded"
         type="button"
       >
         <span>
@@ -96,7 +96,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component s alt"
+      class="component component s rectangular outlined rounded"
       type="button"
     >
       <span>
@@ -164,7 +164,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant withLeftAddons"
+        class="component component s rounded outlined rounded withLeftAddons"
         type="button"
       >
         <span
@@ -182,7 +182,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant withLeftAddons"
+      class="component component s rounded outlined rounded withLeftAddons"
       type="button"
     >
       <span
@@ -257,7 +257,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant withRightAddons"
+        class="component component s rounded outlined rounded withRightAddons"
         type="button"
       >
         <span>
@@ -275,7 +275,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant withRightAddons"
+      class="component component s rounded outlined rounded withRightAddons"
       type="button"
     >
       <span>
@@ -350,14 +350,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component component s defaultVariant"
+        class="component component s rounded outlined rounded"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component component s defaultVariant"
+      class="component component s rounded outlined rounded"
       type="button"
     />
   </div>,
