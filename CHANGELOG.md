@@ -1,3 +1,80 @@
+## 37.5.0
+
+<sup><time>02.02.2023</time></sup>
+
+### [#492](https://github.com/core-ds/core-components/pull/492)
+
+#### Что изменилось
+- Добавлены тени для палитры bluetint (shadows-bluetint.css) и продуктовые бандлы переменных (vars/bundle/corp.css и др.)
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#455](https://github.com/core-ds/core-components/pull/455)
+
+#### Что изменилось
+- Добавлен новый компонент NumberInput
+
+#### Влияние на компоненты
+- Минорное<br />`number-input`
+
+
+### [#464](https://github.com/core-ds/core-components/pull/464)
+
+#### Что изменилось
+- Исправлена ошибка из-за которой tooltip не закрывался на touch устройствах
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [06cb65be9](https://github.com/core-ds/core-components/commit/06cb65be9eade56697f8e5494b8960d5917a5fad)
+
+#### Что изменилось
+- Добавлено свойство container. Теперь есть возможность указать ноду, в которой будет рендериться bottom-sheet
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+#### Что изменилось
+- Обновлена версия react-transition-group
+
+#### Влияние на компоненты
+- Патчи<br />`backdrop` `base-modal` `bottom-sheet` `calendar-with-skeleton` `modal`<br /> `notification-manager` `pass-code` `popover` `toast`
+
+
+### [#476](https://github.com/core-ds/core-components/pull/476)
+
+#### Что изменилось
+- Исправлено вычисление свойств minDate и maxDate, если они в одном месяце
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-range`
+
+
+### [#472](https://github.com/core-ds/core-components/pull/472)
+
+#### Что изменилось
+- Убрано свойство size из fieldProps. Теперь можно прокидывать любое значение
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#465](https://github.com/core-ds/core-components/pull/465)
+
+#### Что изменилось
+- Исправлена ошибка из-за которой происходил рассинхрон состояний
+
+#### Влияние на компоненты
+- Патчи<br />`radio-group`
+
+
+
 ## 37.4.0
 
 <sup><time>30.01.2023</time></sup>
