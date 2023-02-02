@@ -1,5 +1,6 @@
 ---
-'@alfalab/core-components-themes': minor
+'@alfalab/core-components-themes': major
+'@alfalab/core-components-confirmation-v1': minor
 '@alfalab/core-components-button': patch
 '@alfalab/core-components-filter-tag': patch
 '@alfalab/core-components-tag': patch
