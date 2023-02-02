@@ -27,7 +27,7 @@ const execOptions = {
 
 const lastCommitHash = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
 /** Current git branch */
-const sourceBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
+const sourceBranch = process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF_NAME;
 /** Temporary dir for builded file = branch name + last git commit hash */
 const tempOutputDir = sourceBranch.replace(/[^a-zA-Z0-9]/g, '_') + '_' + lastCommitHash;
 /** Try to get affected component name from last commit message **/
