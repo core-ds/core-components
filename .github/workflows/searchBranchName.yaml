@@ -1,0 +1,27 @@
+name: Demo build
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: BRANCH NAME
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo GITHUB_HEAD_REF
+        run: echo "$GITHUB_HEAD_REF"
+
+      - name: echo GITHUB_REF_NAME
+        run: echo "$GITHUB_REF_NAME"
+
