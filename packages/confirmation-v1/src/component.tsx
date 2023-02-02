@@ -410,7 +410,7 @@ export const ConfirmationV1 = forwardRef<HTMLDivElement, ConfirmationV1Props>(
 
                         <Button
                             className={styles.repeatButton}
-                            size='xxs'
+                            size='xs'
                             view='secondary'
                             onClick={handleSmsRetryFromHintClick}
                         >
