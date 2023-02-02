@@ -1,5 +1,13 @@
 # @alfalab/core-components-pass-code
 
+## 1.0.5
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
 ## 1.0.4
 
 ### Patch Changes

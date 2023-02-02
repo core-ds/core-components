@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.3.0
+
+### Minor Changes
+
+### [#492](https://github.com/core-ds/core-components/pull/492)
+
+-   Добавлены тени для палитры bluetint (shadows-bluetint.css) и продуктовые бандлы переменных (vars/bundle/corp.css и др.)
+
 ## 7.2.0
 
 ### Minor Changes

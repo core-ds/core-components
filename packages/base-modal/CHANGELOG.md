@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.0.8
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
+-   Обновлены зависимости
+    -   backdrop@3.0.3
+
 ## 5.0.7
 
 ### Patch Changes
