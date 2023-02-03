@@ -144,7 +144,7 @@ export const openBrowserPage = async (
         page.goto(pageUrl),
     ]);
 
-    const css = `${mainCss?.data}\n${vendorCss?.data}`;
+    const css = `${vendorCss?.data}\n${mainCss?.data}`;
 
     return { browser, context, page, css };
 };
