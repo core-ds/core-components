@@ -17,12 +17,14 @@
 @import './bottom-sheet/click.css';
 @import './icon-button/click.css';
 @import './circular-progress-bar/click.css';
+@import './progress-bar/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(-180deg);
 
     @mixin button-click;
+    @mixin progress-bar-click;
     @mixin amount-click;
     @mixin checkbox-click;
     @mixin checkbox-group-click;
