@@ -5,7 +5,7 @@ const postcss = require('postcss');
 const fs = require('fs');
 const shell = require('shelljs');
 
-const distPath = '../dist/vars/';
+const distPath = '../packages/vars/dist';
 
 fs.mkdirSync(path.resolve(__dirname, distPath), { recursive: true });
 
