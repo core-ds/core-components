@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+### [#469](https://github.com/core-ds/core-components/pull/469)
+
+-   Для компонента Typography добавлен новый пропс rowLimit отвечающий за ограничение максимального количества строк
+-   Для компонентов PureCell и Plate изменено отсечение текста в несколько строк<br />
+
 ## 3.0.8
 
 ### Patch Changes

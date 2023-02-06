@@ -5,11 +5,13 @@ import { TCell, TCellProps } from '../tcell';
 
 import styles from './index.module.css';
 
+type TCellElement = React.ReactElement<TCellProps, typeof TCell>;
+
 export type TRowProps = HTMLAttributes<HTMLTableRowElement> & {
     /**
      * Компоненты ячеек
      */
-    children: Array<React.ReactElement<TCellProps, typeof TCell>>;
+    children: TCellElement | TCellElement[];
 
     /**
      * Дополнительный класс

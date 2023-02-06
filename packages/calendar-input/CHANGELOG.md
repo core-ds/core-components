@@ -1,5 +1,20 @@
 # Change Log
 
+## 8.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.0.6
+    -   calendar@6.2.6
+
+## 8.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.5
+
 ## 8.2.4
 
 ### Patch Changes

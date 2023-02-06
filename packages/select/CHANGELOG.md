@@ -1,5 +1,27 @@
 # Change Log
 
+## 13.2.9
+
+### Patch Changes
+
+### [#472](https://github.com/core-ds/core-components/pull/472)
+
+-   Убрано свойство size из fieldProps. Теперь можно прокидывать любое значение
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.2.0
+    -   base-modal@5.0.8
+    -   modal@6.1.9
+    -   popover@6.0.6
+
+## 13.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.1.16
+    -   modal@6.1.8
+
 ## 13.2.7
 
 ### Patch Changes

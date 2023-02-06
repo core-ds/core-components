@@ -2,7 +2,9 @@ import React, { FC, forwardRef, useContext, useMemo } from 'react';
 
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components-mq';
+
+import { isClient } from '../../utils';
 
 import { Closer } from './components/closer/Component';
 import { SidePanelDesktop } from './Component.desktop';
@@ -30,6 +32,11 @@ export type SidePanelResponsiveProps = BaseModalProps &
          * @default 1024
          */
         breakpoint?: number;
+
+        /**
+         * Значение по-умолчанию для хука useMatchMedia
+         */
+        defaultMatchMediaValue?: boolean | (() => boolean);
     };
 
 type View = 'desktop' | 'mobile';
@@ -59,18 +66,17 @@ function createResponsive<DesktopType extends FC, MobileType extends FC>(
 }
 
 const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelResponsiveProps>(
-    ({ children, breakpoint = 1024, ...restProps }, ref) => {
-        const [view] = useMedia<View>(
-            [
-                ['mobile', `(max-width: ${breakpoint - 1}px)`],
-                ['desktop', `(min-width: ${breakpoint}px)`],
-            ],
-            'desktop',
-        );
+    ({ children, breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+        const query = `(min-width: ${breakpoint}px)`;
+        const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
+
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue ?? getDefaultValue);
+
+        const view = isDesktop ? 'desktop' : 'mobile';
 
         const contextValue = useMemo<ResponsiveContext>(() => ({ view }), [view]);
 
-        const Component = view === 'desktop' ? SidePanelDesktop : SidePanelMobile;
+        const Component = isDesktop ? SidePanelDesktop : SidePanelMobile;
 
         return (
             <ResponsiveContext.Provider value={contextValue}>

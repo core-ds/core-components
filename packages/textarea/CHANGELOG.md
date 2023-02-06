@@ -1,5 +1,26 @@
 # Change Log
 
+## 8.1.4
+
+### Patch Changes
+
+### [#468](https://github.com/core-ds/core-components/pull/468)
+
+-   Исправлен баг в textarea, при передаче пропа value не работала механика переполнения
+
+### [#483](https://github.com/core-ds/core-components/pull/483)
+
+-   Экспорт пропсов из индексного файла компонента
+
+## 8.1.3
+
+### Patch Changes
+
+### [#474](https://github.com/core-ds/core-components/pull/474)
+
+-   Добавлен role="none" для элемента, который используется только для вычисления размера контейнера.
+    Рефакторинг тестов.<br />
+
 ## 8.1.2
 
 ### Patch Changes

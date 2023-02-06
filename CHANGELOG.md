@@ -1,3 +1,191 @@
+## 37.5.0
+
+<sup><time>02.02.2023</time></sup>
+
+### [#492](https://github.com/core-ds/core-components/pull/492)
+
+#### Что изменилось
+- Добавлены тени для палитры bluetint (shadows-bluetint.css) и продуктовые бандлы переменных (vars/bundle/corp.css и др.)
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#455](https://github.com/core-ds/core-components/pull/455)
+
+#### Что изменилось
+- Добавлен новый компонент NumberInput
+
+#### Влияние на компоненты
+- Минорное<br />`number-input`
+
+
+### [#464](https://github.com/core-ds/core-components/pull/464)
+
+#### Что изменилось
+- Исправлена ошибка из-за которой tooltip не закрывался на touch устройствах
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [06cb65be9](https://github.com/core-ds/core-components/commit/06cb65be9eade56697f8e5494b8960d5917a5fad)
+
+#### Что изменилось
+- Добавлено свойство container. Теперь есть возможность указать ноду, в которой будет рендериться bottom-sheet
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+#### Что изменилось
+- Обновлена версия react-transition-group
+
+#### Влияние на компоненты
+- Патчи<br />`backdrop` `base-modal` `bottom-sheet` `calendar-with-skeleton` `modal`<br /> `notification-manager` `pass-code` `popover` `toast`
+
+
+### [#476](https://github.com/core-ds/core-components/pull/476)
+
+#### Что изменилось
+- Исправлено вычисление свойств minDate и maxDate, если они в одном месяце
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-range`
+
+
+### [#472](https://github.com/core-ds/core-components/pull/472)
+
+#### Что изменилось
+- Убрано свойство size из fieldProps. Теперь можно прокидывать любое значение
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#465](https://github.com/core-ds/core-components/pull/465)
+
+#### Что изменилось
+- Исправлена ошибка из-за которой происходил рассинхрон состояний
+
+#### Влияние на компоненты
+- Патчи<br />`radio-group`
+
+
+
+## 37.4.0
+
+<sup><time>30.01.2023</time></sup>
+
+### [#469](https://github.com/core-ds/core-components/pull/469)
+
+#### Что изменилось
+- Для компонента Typography добавлен новый пропс rowLimit отвечающий за ограничение максимального количества строк
+- Для компонентов PureCell и Plate изменено отсечение текста в несколько строк<br />
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+- Патчи<br />`pure-cell` `plate`
+
+
+### [#484](https://github.com/core-ds/core-components/pull/484)
+
+#### Что изменилось
+- Исправлен тип для значения по-умолчанию у хука useMatchMedia
+- В side-panel добавлена возможность указать значение по-умолчанию для useMatchMedia<br />
+
+#### Влияние на компоненты
+- Патчи<br />`mq` `side-panel`
+
+
+### [#462](https://github.com/core-ds/core-components/pull/462)
+
+#### Что изменилось
+- Исправлены размеры border-radius у кнопок в темах mobile и intranet
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#473](https://github.com/core-ds/core-components/pull/473)
+
+#### Что изменилось
+- Исправлены темы mobile и intranet в компонентах FormControl, Select, CalendarInput
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+
+## 37.3.0
+
+<sup><time>25.01.2023</time></sup>
+
+### [#467](https://github.com/core-ds/core-components/pull/467)
+
+#### Что изменилось
+- Исправлены типы у Table и TRow. Теперь Table может состоять только из TBody, а TRow из одной ячейки
+
+#### Влияние на компоненты
+- Патчи<br />`table`
+
+
+### [#477](https://github.com/core-ds/core-components/pull/477)
+
+#### Что изменилось
+- Исправлен тип у свойства backgroundIcon
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#468](https://github.com/core-ds/core-components/pull/468)
+
+#### Что изменилось
+- Исправлен баг в textarea, при передаче пропа value не работала механика переполнения
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#450](https://github.com/core-ds/core-components/pull/450)
+
+#### Что изменилось
+- Добавлен экспорт css-переменных из палитры bluetint в js файл
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#483](https://github.com/core-ds/core-components/pull/483)
+
+#### Что изменилось
+- Экспорт пропсов из индексного файла компонента
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+
+## 37.2.1
+
+<sup><time>25.01.2023</time></sup>
+
+### [#474](https://github.com/core-ds/core-components/pull/474)
+
+#### Что изменилось
+- Добавлен role="none" для элемента, который используется только для вычисления размера контейнера.
+Рефакторинг тестов.<br />
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+
 ## 37.2.0
 
 <sup><time>20.01.2023</time></sup>

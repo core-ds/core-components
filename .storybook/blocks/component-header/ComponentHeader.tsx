@@ -4,6 +4,7 @@ import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 import { Space } from '@alfalab/core-components-space';
 import { pluralize } from '@alfalab/utils';
+import { GithubIcon } from 'storybook/components/icons/GithubIcon';
 
 import usages from 'storybook/usages.json';
 
@@ -57,6 +58,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
                     Figma
                 </a>
                 <a className={styles.github} href={githubLink} target='_blank'>
+                    <GithubIcon fill='var(--color-light-graphic-primary)' />
                     Github
                 </a>
             </div>

@@ -321,11 +321,6 @@ export type FieldProps = {
     className?: string;
 
     /**
-     * Размер компонента
-     */
-    size?: 's' | 'm' | 'l' | 'xl';
-
-    /**
      * Выбранный пункт
      */
     selected?: OptionShape;
@@ -416,7 +411,7 @@ export type FieldProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+} & Record<string, any>;
 
 export type ArrowProps = {
     /**

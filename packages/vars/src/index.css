@@ -1,9 +1,9 @@
-@import './colors.css';
-@import './colors-addons.css';
+@import './colors.css'; /* deprecated */
 @import './colors-indigo.css';
+@import './colors-addons.css';
 @import './colors-transparent.css';
 @import './shadows-indigo.css';
+@import './border-radius.css';
 @import './gaps.css';
 @import './typography.css';
-@import './border-radius.css';
 @import './mixins.css';

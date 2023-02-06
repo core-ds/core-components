@@ -62,6 +62,11 @@ type TextBaseProps = {
      * Добавляет отступы к тэгу 'p'
      */
     defaultMargins?: never;
+
+    /**
+     * Количество строк (не поддерживает IE)
+     */
+    rowLimit?: 1 | 2 | 3;
 };
 
 type TextPTagProps = Omit<TextBaseProps, 'tag' | 'defaultMargins'> & {
@@ -83,6 +88,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
             className,
             dataTestId,
             children,
+            rowLimit,
             ...restProps
         },
         ref,
@@ -93,6 +99,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
                     [styles.paragraph]: Component === 'p' && !defaultMargins,
                     [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
                     [styles.monospace]: monospaceNumbers,
+                    [styles[`rowLimit${rowLimit}`]]: rowLimit,
                 },
                 className,
                 color && colors[color],

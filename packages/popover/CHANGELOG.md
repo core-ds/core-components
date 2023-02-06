@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.0.6
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
 ## 6.0.5
 
 ### Patch Changes

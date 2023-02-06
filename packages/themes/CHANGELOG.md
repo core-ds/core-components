@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.8.2
+
+### Patch Changes
+
+### [#462](https://github.com/core-ds/core-components/pull/462)
+
+-   Исправлены размеры border-radius у кнопок в темах mobile и intranet
+
+### [#473](https://github.com/core-ds/core-components/pull/473)
+
+-   Исправлены темы mobile и intranet в компонентах FormControl, Select, CalendarInput
+
 ## 9.8.1
 
 ### Patch Changes

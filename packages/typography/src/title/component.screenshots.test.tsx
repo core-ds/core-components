@@ -81,3 +81,29 @@ describe(
         },
     }),
 );
+
+describe(
+    'Typography.Title | rowLimit',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Typography',
+                    subComponentName: 'Title',
+                    knobs: {
+                        children:
+                            'Съешь ещё этих мягких французских булок, да выпей чаю. Съешь ещё этих мягких французских булок, да выпей чаю',
+                        view: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
+                        rowLimit: [1, 2, 3],
+                    },
+                    size: { width: 550, height: 350 },
+                }),
+            ],
+        ],
+        viewport: { width: 1920, height: 1080 },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);

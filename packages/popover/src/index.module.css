@@ -14,8 +14,6 @@
     background-color: var(--color-light-bg-primary);
     box-shadow: var(--shadow-m);
     border: 1px solid var(--popover-border-color);
-    transition-property: opacity, transform;
-    transition-timing-function: ease-in-out;
     box-sizing: border-box;
     will-change: transform;
 }
@@ -130,6 +128,9 @@
 .enterActive .inner {
     opacity: 1;
     transform: scale(1);
+    transition-property: opacity, transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 150ms;
 }
 
 .exit .inner {
@@ -140,4 +141,7 @@
 .exitActive .inner {
     opacity: 0;
     transform: scale(0.98);
+    transition-property: opacity, transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 150ms;
 }

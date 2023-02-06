@@ -50,9 +50,16 @@
     position: relative;
 }
 
-.github {
-    background-image: url(https://github.githubassets.com/favicons/favicon.svg);
-    background-size: 16px 16px;
+.links > .github {
+    display: flex;
+    align-items: center;
+    padding-left: var(--gap-xs);
+}
+
+.github > svg {
+    width: 16px;
+    height: 16px;
+    padding-right: var(--gap-xs);
 }
 
 .design {

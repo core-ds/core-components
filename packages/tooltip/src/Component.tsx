@@ -243,7 +243,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     );
 
     useEffect(() => {
-        const handleBodyClick = (event: MouseEvent) => {
+        const handleBodyClick = (event: MouseEvent | TouchEvent) => {
             const eventTarget = event.target as Element;
 
             if (clickedOutside(eventTarget)) {
@@ -252,9 +252,11 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
         };
 
         document.body.addEventListener('click', handleBodyClick);
+        document.body.addEventListener('touchstart', handleBodyClick);
 
         return () => {
             document.body.removeEventListener('click', handleBodyClick);
+            document.body.removeEventListener('touchstart', handleBodyClick);
 
             clearTimeout(timer.current);
         };

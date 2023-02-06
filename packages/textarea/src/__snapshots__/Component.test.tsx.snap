@@ -114,11 +114,13 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
                         autocomplete="on"
                         class="textarea textarea s"
                         rows="1"
+                        style="overflow: hidden;"
                       >
                         value
                       </textarea>
                       <textarea
                         class="textarea textarea s textareaHidden"
+                        role="none"
                         rows="1"
                       >
                         value

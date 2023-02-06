@@ -1,5 +1,25 @@
 # Change Log
 
+## 2.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.8
+    -   drawer@4.2.3
+
+## 2.5.3
+
+### Patch Changes
+
+### [#484](https://github.com/core-ds/core-components/pull/484)
+
+-   Исправлен тип для значения по-умолчанию у хука useMatchMedia
+-   В side-panel добавлена возможность указать значение по-умолчанию для useMatchMedia<br />
+
+-   Обновлены зависимости
+    -   mq@4.1.2
+
 ## 2.5.2
 
 ### Patch Changes

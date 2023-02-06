@@ -143,7 +143,7 @@ export type PopoverProps = {
     children?: ReactNode;
 };
 
-const DEFAULT_TRANSITION = {
+const DEFAULT_TRANSITION: PopoverProps['transition'] = {
     timeout: 150,
 };
 
@@ -214,6 +214,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const [arrowShift, setArrowShift] = useState(false);
 
         const updatePopperRef = useRef<() => void>();
+
+        const popperRef = useRef<HTMLDivElement>(null);
+        const innerRef = useRef<HTMLDivElement>(null);
 
         const popperModifiers = useMemo(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
@@ -317,9 +320,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             }
         }, [referenceElement, position]);
 
-        const renderContent = (computedZIndex: number, style?: CSSProperties) => (
+        const renderContent = (computedZIndex: number) => (
             <div
-                ref={mergeRefs([ref, setPopperElement])}
+                ref={mergeRefs([ref, popperRef, setPopperElement])}
                 style={{
                     zIndex: computedZIndex,
                     width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
@@ -332,7 +335,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 })}
                 {...attributes.popper}
             >
-                <div className={cn(styles.inner, popperClassName)} style={style}>
+                <div className={cn(styles.inner, popperClassName)} ref={innerRef}>
                     <div className={cn({ [styles.scrollableContent]: availableHeight })}>
                         {children}
                     </div>
@@ -356,10 +359,24 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                             <CSSTransition
                                 unmountOnExit={true}
                                 classNames={CSS_TRANSITION_CLASS_NAMES}
+                                nodeRef={popperRef}
                                 {...transition}
                                 in={open}
+                                onEntering={(node: HTMLElement, isAppearing: boolean) => {
+                                    // Меняем transition-duration только в случае, если передано значение отличное от дефолтного.
+                                    if (
+                                        innerRef.current &&
+                                        transitionDuration !== `${DEFAULT_TRANSITION.timeout}ms`
+                                    ) {
+                                        innerRef.current.style.setProperty(
+                                            'transition-duration',
+                                            transitionDuration,
+                                        );
+                                    }
+                                    transition?.onEntering?.(node, isAppearing);
+                                }}
                             >
-                                {renderContent(computedZIndex, { transitionDuration })}
+                                {renderContent(computedZIndex)}
                             </CSSTransition>
                         ) : (
                             open && renderContent(computedZIndex)
