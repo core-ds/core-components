@@ -1,0 +1,13 @@
+@define-mixin select-click {
+    /* checkmark */
+
+    --select-checkmark-margin-after: 0 0 0 var(--gap-s);
+    --select-checkmark-size: 24px;
+    --select-checkmark-before-display: none;
+    --select-checkmark-after-display: none;
+    --select-checkmark-background: none;
+    --select-checkmark-border-radius: 0;
+    --select-checkmark-after-display-single: block;
+    --select-mobile-checkmark-display-icon: block;
+    --select-mobile-checkmark-display-badge: none;
+}
