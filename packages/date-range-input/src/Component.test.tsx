@@ -1,6 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, getByTestId, render, waitFor } from '@testing-library/react';
 
 import { DateRangeInput } from './index';
 import { parseDateString } from './utils';
@@ -46,6 +46,51 @@ describe('DateRangeInput', () => {
 
             await waitFor(() => {
                 expect(input).toHaveValue(value);
+            });
+        });
+    });
+
+    describe('Controlled-way', () => {
+        test('calendar must have the correct month when opened', async () => {
+            const calendarTestId = 'calendar-test-id';
+            const value = '12.04.2021 - 15.04.2021';
+            const { queryByRole, getByTestId } = render(
+                <DateRangeInput
+                    picker={true}
+                    calendarProps={{ dataTestId: calendarTestId }}
+                    value={value}
+                />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            act(() => {
+                input.focus();
+            });
+
+            await waitFor(() => {
+                expect(
+                    getByTestId(calendarTestId).querySelector('button[class*="month"]'),
+                ).toHaveTextContent('Апрель');
+
+                expect(
+                    getByTestId(calendarTestId).querySelector('button[class*="year"]'),
+                ).toHaveTextContent('2021');
+            });
+        });
+
+        it('should respond to changes from the outside', async () => {
+            const value = '12.04.2021 - 15.04.2021';
+            const newValue = '16.04.2021 - 20.04.2021';
+            const { queryByRole, rerender } = render(
+                <DateRangeInput picker={true} value={value} />,
+            );
+
+            rerender(<DateRangeInput picker={true} value={newValue} />);
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            await waitFor(() => {
+                expect(input).toHaveValue(newValue);
             });
         });
     });
