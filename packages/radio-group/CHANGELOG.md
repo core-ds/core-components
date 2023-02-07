@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.4
+
+### Patch Changes
+
+### [#465](https://github.com/core-ds/core-components/pull/465)
+
+-   Исправлена ошибка из-за которой происходил рассинхрон состояний
+
 ## 3.0.3
 
 ### Patch Changes

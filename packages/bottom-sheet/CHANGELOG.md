@@ -1,5 +1,23 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [06cb65be9](https://github.com/core-ds/core-components/commit/06cb65be9eade56697f8e5494b8960d5917a5fad)
+
+-   Добавлено свойство container. Теперь есть возможность указать ноду, в которой будет рендериться bottom-sheet
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
+-   Обновлены зависимости
+    -   backdrop@3.0.3
+    -   base-modal@5.0.8
+
 ## 5.1.16
 
 ### Patch Changes

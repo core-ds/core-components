@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.1.9
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
+-   Обновлены зависимости
+    -   base-modal@5.0.8
+
 ## 6.1.8
 
 ### Patch Changes
