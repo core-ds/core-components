@@ -1,5 +1,19 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+### [#500](https://github.com/core-ds/core-components/pull/500)
+
+-   Обвновлён bundle site.css для перехода на палитру bluetint
+
+### Patch Changes
+
+### [#503](https://github.com/core-ds/core-components/pull/503)
+
+-   Обновление палитры bluetint: корректировка контраста text и graphic цветов
+
 ## 7.3.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   input@11.1.5
+    -   modal@6.1.10
+    -   bottom-sheet@5.2.1
+
 ## 13.2.9
 
 ### Patch Changes
