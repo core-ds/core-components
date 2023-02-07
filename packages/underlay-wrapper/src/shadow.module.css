@@ -1,0 +1,81 @@
+@import '../../themes/src/default.css';
+
+.shadow-xs {
+    box-shadow: var(--shadow-xs);
+}
+
+.shadow-s {
+    box-shadow: var(--shadow-s);
+}
+
+.shadow-m {
+    box-shadow: var(--shadow-m);
+}
+
+.shadow-l {
+    box-shadow: var(--shadow-l);
+}
+
+.shadow-xl {
+    box-shadow: var(--shadow-xl);
+}
+
+.shadow-xs-hard {
+    box-shadow: var(--shadow-xs-hard);
+}
+
+.shadow-s-hard {
+    box-shadow: var(--shadow-s-hard);
+}
+
+.shadow-m-hard {
+    box-shadow: var(--shadow-m-hard);
+}
+
+.shadow-l-hard {
+    box-shadow: var(--shadow-l-hard);
+}
+
+.shadow-xl-hard {
+    box-shadow: var(--shadow-xl-hard);
+}
+
+.shadow-xs-up {
+    box-shadow: var(--shadow-xs-up);
+}
+
+.shadow-s-up {
+    box-shadow: var(--shadow-s-up);
+}
+
+.shadow-m-up {
+    box-shadow: var(--shadow-m-up);
+}
+
+.shadow-l-up {
+    box-shadow: var(--shadow-l-up);
+}
+
+.shadow-xl-up {
+    box-shadow: var(--shadow-xl-up);
+}
+
+.shadow-xs-hard-up {
+    box-shadow: var(--shadow-xs-hard-up);
+}
+
+.shadow-s-hard-up {
+    box-shadow: var(--shadow-s-hard-up);
+}
+
+.shadow-m-hard-up {
+    box-shadow: var(--shadow-m-hard-up);
+}
+
+.shadow-l-hard-up {
+    box-shadow: var(--shadow-l-hard-up);
+}
+
+.shadow-xl-hard-up {
+    box-shadow: var(--shadow-xl-hard-up);
+}

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnderlayWrapper Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component info graphic-link border-width-2 hadow-l"
+    role="button"
+    style="width: 200px; height: 200px; box-shadow: hadow-l;"
+    tabindex="0"
+  >
+    Content
+  </div>
+</div>
+`;

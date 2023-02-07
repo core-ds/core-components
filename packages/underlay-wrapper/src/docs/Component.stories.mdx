@@ -1,0 +1,65 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { select, text } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { UnderlayWrapper } from '@alfalab/core-components-underlay-wrapper';
+import { SHADOW, BORDER_COLOR, BACKGROUND } from '../types'
+
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+<Meta title='Components/Cells/UnderlayWrapper' component={UnderlayWrapper} id='UnderlayWrapper' />
+
+<!-- Canvas -->
+
+<Story name='UnderlayWrapper'>
+ {React.createElement(() => {
+    const paddingSizes = [ '0', '2', '4', '8', '12', '16', '20', '24', '32', '40', '48'];
+    const borderRadius = select('borderRadius', ['0', '8', '16', '20'], '0');
+    const width = select('width', [100, 200, 500, 'max-content', 'auto'], 'auto');
+    const height = select('height', [50, 100, 150, 'max-content', 'auto'], 'auto');
+    const borderSize = select('borderSize', ['1', '2', '4', 'none'], 'none');
+    const paddingTop = select('padding.top', paddingSizes, '16');
+    const paddingRight = select('padding.right', paddingSizes, '16');
+    const paddingBottom = select('padding.bottom', paddingSizes, '16');
+    const paddingLeft = select('padding.left', paddingSizes, '16');
+    return (
+        <UnderlayWrapper
+            borderRadius={borderRadius}
+            borderSize={borderSize}
+            imageUrl={text('imageUrl', '')}
+            shadow={select('shadow', SHADOW, 'shadow-l')}
+            backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
+            borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
+            height={height}
+            width={width}
+            padding={{
+                    top: paddingTop,
+                    right: paddingRight,
+                    bottom: paddingBottom,
+                    left: paddingLeft,
+                }}
+        >
+            {text('children', 'Вам одобрено. Согласитесь на предложение')}
+        </UnderlayWrapper>
+    );
+})}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='UnderlayWrapper'
+    version={version}
+    package='@alfalab/core-components/underlay-wrapper'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=317%3A37759'
+    children='Подложка под любой вид контента.'
+/>
+
+<Tabs 
+    description={<Description />} 
+    development={<Development />}
+    changelog={<Changelog />} 
+/>

@@ -1,0 +1,15 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    box-sizing: border-box;
+
+    &.backgroundImage {
+        background: center no-repeat;
+        background-size: cover;
+    }
+
+    &.cursorPointer {
+        cursor: pointer;
+    }
+}

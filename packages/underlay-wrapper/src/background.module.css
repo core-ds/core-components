@@ -1,0 +1,89 @@
+@import '../../themes/src/default.css';
+
+.accent {
+    background-color: var(--color-light-bg-accent);
+}
+
+.info {
+    background-color: var(--color-light-bg-info);
+}
+
+.attention-muted {
+    background-color: var(--color-light-bg-attention-muted);
+}
+
+.positive-muted {
+    background-color: var(--color-light-bg-positive-muted);
+}
+
+.negative-muted {
+    background-color: var(--color-light-bg-negative-muted);
+}
+
+.primary {
+    background-color: var(--color-light-bg-primary);
+}
+
+.primary-inverted {
+    background-color: var(--color-light-bg-primary-inverted);
+}
+
+.secondary {
+    background-color: var(--color-light-bg-secondary);
+}
+
+.secondary-inverted {
+    background-color: var(--color-light-bg-secondary-inverted);
+}
+
+.tertiary {
+    background-color: var(--color-light-bg-tertiary);
+}
+
+.tertiary-inverted {
+    background-color: var(--color-light-bg-tertiary-inverted);
+}
+
+.quaternary {
+    background-color: var(--color-light-bg-quaternary);
+}
+
+.quaternary-inverted {
+    background-color: var(--color-light-bg-quaternary-inverted);
+}
+
+.specialbg-component {
+    background-color: var(--color-light-specialbg-component);
+}
+
+.specialbg-component-inverted {
+    background-color: var(--color-light-specialbg-component-inverted);
+}
+
+.specialbg-primary-grouped {
+    background-color: var(--color-light-specialbg-primary-grouped);
+}
+
+.specialbg-secondary-grouped {
+    background-color: var(--color-light-specialbg-secondary-grouped);
+}
+
+.specialbg-tertiary-grouped {
+    background-color: var(--color-light-specialbg-tertiary-grouped);
+}
+
+.specialbg-secondary-transparent {
+    background-color: var(--color-light-specialbg-secondary-transparent);
+}
+
+.specialbg-secondary-transparent-inverted {
+    background-color: var(--color-light-specialbg-secondary-transparent-inverted);
+}
+
+.specialbg-tertiary-transparent {
+    background-color: var(--color-light-specialbg-tertiary-transparent);
+}
+
+.specialbg-tertiary-transparent-inverted {
+    background-color: var(--color-light-specialbg-tertiary-transparent-inverted);
+}

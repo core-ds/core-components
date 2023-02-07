@@ -1,0 +1,58 @@
+## Размеры и отступы
+
+Компоненту можно задать любые размеры явно, либо подстроить их под вложенный контент или внешний контейнер.
+
+## Примеры
+
+Настраиваются: тип фона, тень, радиус скругления, величина отступов, цвет и толщина обводки. 
+При необходимости, можно сделать компонент кликабельным.
+
+```jsx live
+render(() => {
+    const styleContent = {
+        width: '288px',
+        height: '168px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+    
+    const handleClick = () => {
+      alert('Клик!')
+    } 
+
+    return (
+    <Container>
+        <UnderlayWrapper 
+            onClick={handleClick}
+            borderSize={1}
+            borderRadius={16}
+            padding={{
+                top: 16,
+                left: 16,
+                bottom: 16,
+                right: 16
+            }}
+            width={320}
+            height={200}
+            backgroundColor='positive-muted'
+            borderColor='graphic-positive'
+        >
+                <div style={styleContent}/>
+        </UnderlayWrapper>
+        <Gap size='l'/>
+        <UnderlayWrapper 
+            padding={{
+                top: 16,
+                left: 16,
+                bottom: 16,
+                right: 16
+            }}
+            width='max-content'>
+                <div style={styleContent}/>
+        </UnderlayWrapper>
+    </Container>
+    );
+});
+```
