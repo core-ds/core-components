@@ -1,3 +1,53 @@
+## 38.0.0
+
+<sup><time>07.02.2023</time></sup>
+
+### [#500](https://github.com/core-ds/core-components/pull/500)
+
+#### Что изменилось
+- Обвновлён bundle site.css для перехода на палитру bluetint
+
+#### Влияние на компоненты
+- Мажорное<br />`vars`
+
+
+### [#493](https://github.com/core-ds/core-components/pull/493)
+
+#### Что изменилось
+- Удаление темизации click для компонентов input, button, form-control, slider, slider-input, backdrop. Теперь эти компоненты соответствуют default теме.
+<br />
+Компоненты button, radio, checkbox теперь соответствуют теме mobile.<br />
+<br />
+Переработан компонент select в теме click, вместо badge используется checkbox для multiple и CheckmarkMIcon для одинчного выбора.<br />
+<br />
+Замена токена --circular-progress-bar-bg-color на --circular-progress-bar-stroke-color<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`themes`
+
+
+### [#503](https://github.com/core-ds/core-components/pull/503)
+
+#### Что изменилось
+- Обновление палитры bluetint: корректировка контраста text и graphic цветов
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+### [#491](https://github.com/core-ds/core-components/pull/491)
+
+#### Что изменилось
+- Обновлены внутренние переменные (themes/default.css) для размеров кнопок (xxs добавлен, xs исправлен)
+
+#### Влияние на компоненты
+- Мажорное<br />`themes`
+
+
+- Патчи<br />`button` `filter-tag` `tag`
+
+
+
 ## 37.5.1
 
 <sup><time>07.02.2023</time></sup>
