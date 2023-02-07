@@ -1,3 +1,26 @@
+## 37.5.1
+
+<sup><time>07.02.2023</time></sup>
+
+### [#508](https://github.com/core-ds/core-components/pull/508)
+
+#### Что изменилось
+- Исправлена ошщибка "replace is not a funcion", если кастомный инпут в onChange обработчике возвращал число, а не строку
+
+#### Влияние на компоненты
+- Патчи<br />`slider-input`
+
+
+### [#502](https://github.com/core-ds/core-components/pull/502)
+
+#### Что изменилось
+- Исправлен экспорт css-переменных в js. Теперь js-файл есть как в рут пакете, так и core-components-vars
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+
 ## 37.5.0
 
 <sup><time>02.02.2023</time></sup>
