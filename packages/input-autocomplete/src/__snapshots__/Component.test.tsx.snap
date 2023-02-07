@@ -231,28 +231,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 fill-rule="evenodd"
                               />
                             </svg>
-                            <div
-                              class="wrapper positive m displayBadge"
-                            >
-                              <div
-                                class="component m icon positive"
-                              >
-                                <svg
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
                           </div>
                           <div
                             class="content textContent"
@@ -277,28 +255,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 fill-rule="evenodd"
                               />
                             </svg>
-                            <div
-                              class="wrapper positive m displayBadge"
-                            >
-                              <div
-                                class="component m icon positive"
-                              >
-                                <svg
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
                           </div>
                         </div>
                         <div
@@ -325,28 +281,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 fill-rule="evenodd"
                               />
                             </svg>
-                            <div
-                              class="wrapper positive m displayBadge"
-                            >
-                              <div
-                                class="component m icon positive"
-                              >
-                                <svg
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
                           </div>
                           <div
                             class="content textContent"
@@ -371,28 +305,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 fill-rule="evenodd"
                               />
                             </svg>
-                            <div
-                              class="wrapper positive m displayBadge"
-                            >
-                              <div
-                                class="component m icon positive"
-                              >
-                                <svg
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11.5 4L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </div>
