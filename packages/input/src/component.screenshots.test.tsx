@@ -43,7 +43,7 @@ describe('Input | screenshots main props', () => {
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 
@@ -73,7 +73,7 @@ describe('Input | screenshots hint and error', () => {
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 

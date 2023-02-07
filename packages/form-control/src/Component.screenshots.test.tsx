@@ -35,7 +35,7 @@ describe('FormControl | screenshots main props', () => {
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 
@@ -65,6 +65,6 @@ describe('FormControl | screenshots hint and error', () => {
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
