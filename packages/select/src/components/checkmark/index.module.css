@@ -31,7 +31,7 @@
 
     &.multiple {
         margin-right: var(--gap-s);
-        display: var(--select-checkmark-before-display-multiply);
+        display: var(--select-checkmark-before-display-multiple);
     }
 }
 
