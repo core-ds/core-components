@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.3.1
+
+### Patch Changes
+
+### [#502](https://github.com/core-ds/core-components/pull/502)
+
+-   Исправлен экспорт css-переменных в js. Теперь js-файл есть как в рут пакете, так и core-components-vars
+
 ## 7.3.0
 
 ### Minor Changes
