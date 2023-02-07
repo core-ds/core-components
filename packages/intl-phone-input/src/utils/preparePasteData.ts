@@ -9,6 +9,7 @@ export function preparePasteData(
     phoneFromBuffer: string,
     selectionStart?: number,
     selectionEnd?: number,
+    ruNumberPriority?: boolean,
 ) {
     const trimNuber = phoneFromBuffer.trim();
     const cutNumberWithPlus = trimNuber.replace(/[^+\d]/g, '');
@@ -43,9 +44,12 @@ export function preparePasteData(
             // вставка номера начинающегося с "7" или "8" в пустое поле
         } else if (isRuNumberInBuffer) {
             resultNumber = `+7${cutNumber.substring(1)}`;
-            // вставка номера начинающегося НЕ с "7", "8", "+" в пустое поле
-        } else {
+            // вставка номера начинающегося НЕ с "7", "8", "+" в пустое поле с российским флагом
+        } else if (ruNumberPriority) {
             resultNumber = `+7${cutNumber}`;
+            // вставка номера начинающегося НЕ с "7", "8", "+" в пустое поле без российского флага
+        } else {
+            resultNumber = `+${cutNumber}`;
         }
     }
 
