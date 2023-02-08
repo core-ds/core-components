@@ -121,7 +121,8 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             onClear();
         };
 
-        const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
+        const variantClassName =
+            variant === 'default' && shape === 'rounded' ? 'rounded' : 'rectangular';
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
@@ -130,7 +131,6 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     className,
                     [styles.component],
                     styles[variantClassName],
-                    styles[shape],
                     styles[size],
                     {
                         [styles.checked]: checked,
@@ -152,7 +152,6 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                         styles.valueButton,
                         styles[size],
                         styles[variantClassName],
-                        styles[shape],
                         styles[view],
                         {
                             [styles.checked]: checked,
@@ -170,12 +169,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                 {checked && !disabled && showClear && (
                     <div
                         role='button'
-                        className={cn(
-                            styles.clear,
-                            styles[size],
-                            styles[variantClassName],
-                            styles[shape],
-                        )}
+                        className={cn(styles.clear, styles[size], styles[variantClassName])}
                         onClick={handleClear}
                         onKeyDown={handleClear}
                         tabIndex={0}

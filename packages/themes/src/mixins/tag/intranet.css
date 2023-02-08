@@ -13,7 +13,11 @@
     --tag-border-color-active: transparent;
     --tag-border-color-checked: transparent;
     --tag-border-color-disabled: transparent;
-    --tag-rectangular-xxs-border-radius: var(--border-radius-s);
-    --tag-rectangular-xs-border-radius: var(--border-radius-s);
-    --tag-rectangular-s-border-radius: var(--border-radius-s);
+    --tag-border-radius: var(--border-radius-l);
+    --tag-rectangular-xxs-border-radius: var(--border-radius-m);
+    --tag-rectangular-xs-border-radius: var(--border-radius-l);
+    --tag-rectangular-s-border-radius: var(--border-radius-l);
+    --tag-rounded-xxs-border-radius: var(--border-radius-m);
+    --tag-rounded-xs-border-radius: var(--border-radius-l);
+    --tag-rounded-s-border-radius: var(--border-radius-l);
 }

@@ -15,6 +15,9 @@
     --tag-rectangular-xxs-border-radius: 6px;
     --tag-rectangular-xs-border-radius: var(--border-radius-m);
     --tag-rectangular-s-border-radius: var(--border-radius-m);
+    --tag-rounded-xxs-border-radius: var(--border-radius-pill);
+    --tag-rounded-xs-border-radius: var(--border-radius-pill);
+    --tag-rounded-s-border-radius: var(--border-radius-pill);
 
     /* background-color outlined */
     --tag-outlined-background-color: transparent;

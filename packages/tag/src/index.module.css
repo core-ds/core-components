@@ -203,7 +203,23 @@
 }
 
 .rounded {
-    border-radius: var(--tag-border-radius);
+    &.xxs {
+        border-radius: var(--tag-rounded-xxs-border-radius);
+    }
+
+    &.xs {
+        border-radius: var(--tag-rounded-xs-border-radius);
+    }
+
+    &.s {
+        border-radius: var(--tag-rounded-s-border-radius);
+    }
+
+    &.m,
+    &.l,
+    &.xl {
+        border-radius: var(--tag-border-radius);
+    }
 }
 
 .rectangular {

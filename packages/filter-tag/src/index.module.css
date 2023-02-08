@@ -15,7 +15,17 @@
     }
 
     &.rounded {
-        border-radius: var(--tag-border-radius);
+        &.xxs {
+            border-radius: var(--tag-rounded-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rounded-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rounded-s-border-radius);
+        }
     }
 
     &.rectangular {
@@ -93,7 +103,17 @@
     }
 
     &.rounded {
-        border-radius: var(--tag-border-radius);
+        &.xxs {
+            border-radius: var(--tag-rounded-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rounded-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rounded-s-border-radius);
+        }
     }
 
     &.rectangular {
@@ -224,7 +244,20 @@
         color: var(--tag-text-color-checked);
 
         &.rounded {
-            border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
+            &.xxs {
+                border-radius: var(--tag-rounded-xxs-border-radius) 0 0
+                    var(--tag-rounded-xxs-border-radius);
+            }
+
+            &.xs {
+                border-radius: var(--tag-rounded-xs-border-radius) 0 0
+                    var(--tag-rounded-xs-border-radius);
+            }
+
+            &.s {
+                border-radius: var(--tag-rounded-s-border-radius) 0 0
+                    var(--tag-rounded-s-border-radius);
+            }
 
             &:disabled,
             &.close {
@@ -301,7 +334,19 @@
     background-color: var(--tag-background-color-checked);
 
     &.rounded {
-        border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
+        &.xxs {
+            border-radius: 0 var(--tag-rounded-xxs-border-radius)
+                var(--tag-rounded-xxs-border-radius) 0;
+        }
+
+        &.xs {
+            border-radius: 0 var(--tag-rounded-xs-border-radius) var(--tag-rounded-xs-border-radius)
+                0;
+        }
+
+        &.s {
+            border-radius: 0 var(--tag-rounded-s-border-radius) var(--tag-rounded-s-border-radius) 0;
+        }
     }
 
     &.rectangular {
