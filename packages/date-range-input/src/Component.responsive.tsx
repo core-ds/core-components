@@ -6,15 +6,19 @@ import { useMedia } from '@alfalab/hooks';
 import { InputProps } from '@alfalab/core-components-input';
 import { DateRangeInputDesktop } from './Component.desktop';
 import { DateRangeInputMobile } from './Component.mobile';
-import { DateRangeInputProps } from './components/date-range-input/Component';
+import { DateRangeInputProps, ConditionalProps } from './components/date-range-input/Component';
 
-export type DateRangeInputResponsiveProps = Omit<DateRangeInputProps, 'view'> & {
-    /**
-     * Контрольная точка, с нее начинается desktop версия
-     * @default 1024
-     */
-    breakpoint?: number;
-};
+export type DateRangeInputResponsiveProps = Omit<
+    DateRangeInputProps,
+    'view' | 'picker' | 'onClose'
+> &
+    ConditionalProps & {
+        /**
+         * Контрольная точка, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
+    };
 
 export type DateRangeInputMedia = 'desktop' | 'mobile';
 

@@ -37,19 +37,19 @@ import {
 
 import styles from './index.module.css';
 
-type ConditionalProps =
+export type ConditionalProps =
     | {
           /**
            * Обработчик изменения значения
            */
-          picker?: true;
+          picker: true;
 
           /**
            * Обработчик закрытия календаря
            */
           onClose?: () => void;
       }
-    | { picker?: never; onClose?: never };
+    | { picker?: false; onClose?: never };
 
 export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
     ConditionalProps & {
