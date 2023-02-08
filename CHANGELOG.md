@@ -1,3 +1,153 @@
+## 38.0.0
+
+<sup><time>07.02.2023</time></sup>
+
+### [#500](https://github.com/core-ds/core-components/pull/500)
+
+#### Что изменилось
+- Обвновлён bundle site.css для перехода на палитру bluetint
+
+#### Влияние на компоненты
+- Мажорное<br />`vars`
+
+
+### [#493](https://github.com/core-ds/core-components/pull/493)
+
+#### Что изменилось
+- Удаление темизации click для компонентов input, button, form-control, slider, slider-input, backdrop. Теперь эти компоненты соответствуют default теме.
+<br />
+Компоненты button, radio, checkbox теперь соответствуют теме mobile.<br />
+<br />
+Переработан компонент select в теме click, вместо badge используется checkbox для multiple и CheckmarkMIcon для одинчного выбора.<br />
+<br />
+Замена токена --circular-progress-bar-bg-color на --circular-progress-bar-stroke-color<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`themes`
+
+
+### [#503](https://github.com/core-ds/core-components/pull/503)
+
+#### Что изменилось
+- Обновление палитры bluetint: корректировка контраста text и graphic цветов
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+### [#491](https://github.com/core-ds/core-components/pull/491)
+
+#### Что изменилось
+- Обновлены внутренние переменные (themes/default.css) для размеров кнопок (xxs добавлен, xs исправлен)
+
+#### Влияние на компоненты
+- Мажорное<br />`themes`
+
+
+- Патчи<br />`button` `filter-tag` `tag`
+
+
+
+## 37.5.1
+
+<sup><time>07.02.2023</time></sup>
+
+### [#508](https://github.com/core-ds/core-components/pull/508)
+
+#### Что изменилось
+- Исправлена ошщибка "replace is not a funcion", если кастомный инпут в onChange обработчике возвращал число, а не строку
+
+#### Влияние на компоненты
+- Патчи<br />`slider-input`
+
+
+### [#502](https://github.com/core-ds/core-components/pull/502)
+
+#### Что изменилось
+- Исправлен экспорт css-переменных в js. Теперь js-файл есть как в рут пакете, так и core-components-vars
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+
+## 37.5.0
+
+<sup><time>02.02.2023</time></sup>
+
+### [#492](https://github.com/core-ds/core-components/pull/492)
+
+#### Что изменилось
+- Добавлены тени для палитры bluetint (shadows-bluetint.css) и продуктовые бандлы переменных (vars/bundle/corp.css и др.)
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#455](https://github.com/core-ds/core-components/pull/455)
+
+#### Что изменилось
+- Добавлен новый компонент NumberInput
+
+#### Влияние на компоненты
+- Минорное<br />`number-input`
+
+
+### [#464](https://github.com/core-ds/core-components/pull/464)
+
+#### Что изменилось
+- Исправлена ошибка из-за которой tooltip не закрывался на touch устройствах
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [06cb65be9](https://github.com/core-ds/core-components/commit/06cb65be9eade56697f8e5494b8960d5917a5fad)
+
+#### Что изменилось
+- Добавлено свойство container. Теперь есть возможность указать ноду, в которой будет рендериться bottom-sheet
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+#### Что изменилось
+- Обновлена версия react-transition-group
+
+#### Влияние на компоненты
+- Патчи<br />`backdrop` `base-modal` `bottom-sheet` `calendar-with-skeleton` `modal`<br /> `notification-manager` `pass-code` `popover` `toast`
+
+
+### [#476](https://github.com/core-ds/core-components/pull/476)
+
+#### Что изменилось
+- Исправлено вычисление свойств minDate и maxDate, если они в одном месяце
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-range`
+
+
+### [#472](https://github.com/core-ds/core-components/pull/472)
+
+#### Что изменилось
+- Убрано свойство size из fieldProps. Теперь можно прокидывать любое значение
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#465](https://github.com/core-ds/core-components/pull/465)
+
+#### Что изменилось
+- Исправлена ошибка из-за которой происходил рассинхрон состояний
+
+#### Влияние на компоненты
+- Патчи<br />`radio-group`
+
+
+
 ## 37.4.0
 
 <sup><time>30.01.2023</time></sup>

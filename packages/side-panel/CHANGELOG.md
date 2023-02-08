@@ -1,5 +1,21 @@
 # Change Log
 
+## 2.5.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   icon-button@6.0.5
+
+## 2.5.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.8
+    -   drawer@4.2.3
+
 ## 2.5.3
 
 ### Patch Changes

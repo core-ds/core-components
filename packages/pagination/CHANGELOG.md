@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   tag@5.0.4
+
 ## 2.0.9
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # Change Log
 
+## 4.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.11
+
+## 4.2.13
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
+-   Обновлены зависимости
+    -   popover@6.0.6
+
 ## 4.2.12
 
 ### Patch Changes

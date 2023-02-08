@@ -25046,15 +25046,15 @@ uglify-js@^3.1.4:
   resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.12.3.tgz"
   integrity sha512-feZzR+kIcSVuLi3s/0x0b2Tx4Iokwqt+8PJM7yRHKuldg4MLdam4TCFeICv+lgDtuYiCtdmrtIP+uN9LWvDasw==
 
+ui-primitives@^10.9.0:
+  version "10.9.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-10.9.0.tgz#90b8c6bb87ee37840aa1ac13f88d92479a3a1238"
+  integrity sha512-z7XQpJ53a1HphXQIa5AKlLVnUdHBqxzYudayjJooMDYALyfxKgGX49cwT/0Z+tuMBagJ1aZfQ0ZIq0B6bXJKBA==
+
 ui-primitives@^8.10.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-8.10.0.tgz#f3f823c8697b9de902c79a09ed0dc92a8c7eb3cc"
   integrity sha512-1ej984PE6wlEqctLcxjIOajBSiPXiu+mKM7Fy0/5Cqf4vdaU7Jy45oGt6HKb1Ua7rRK03SNcT/Ffya98KmUI+g==
-
-ui-primitives@^9.4.0:
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-9.4.0.tgz#ecd04f94bd98b82959b22882c75424db83b5328a"
-  integrity sha512-ST8Ogb2pv9M8EZLh+wzqf6hi3Lww8PpKMzliC1BqoYkRIXjCRYJHU7w+Ug87160rDN2r1DxUx+rry1esYd0HDw==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

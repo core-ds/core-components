@@ -35,7 +35,7 @@ export function setThemeStylesInMobileFrame(theme) {
 }
 
 export function getThemeStyles(theme) {
-    const bluetintThemes = ['mobile', 'intranet'];
+    const bluetintThemes = ['mobile', 'intranet', 'click'];
     return [
         themes[theme],
         bluetintThemes.some((x) => x.includes(theme)) ? bluetintColors : '',
