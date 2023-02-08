@@ -1,5 +1,20 @@
 # Change Log
 
+## 7.1.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.5
+
+## 7.1.6
+
+### Patch Changes
+
+### [#508](https://github.com/core-ds/core-components/pull/508)
+
+-   Исправлена ошщибка "replace is not a funcion", если кастомный инпут в onChange обработчике возвращал число, а не строку
+
 ## 7.1.5
 
 ### Patch Changes

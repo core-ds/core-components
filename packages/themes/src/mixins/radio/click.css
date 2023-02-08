@@ -1,9 +1,19 @@
 @define-mixin radio-click {
-    /* theme */
-    --radio-checked-bg-color: var(--color-light-graphic-positive);
-    --radio-checked-border-color: transparent;
-    --radio-checked-hover-bg-color: var(--color-light-graphic-positive-shade-10);
-    --radio-checked-hover-border-color: transparent;
-    --radio-checked-active-bg-color: var(--color-light-graphic-positive-shade-30);
-    --radio-checked-active-border-color: transparent;
+    /* unchecked */
+    --radio-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-border-color: var(--color-light-graphic-secondary);
+    --radio-hover-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-hover-border-color: var(--color-light-graphic-secondary);
+
+    /* active */
+    --radio-active-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-active-border-color: var(--color-light-border-key);
+
+    /* checked */
+    --radio-checked-hover-bg-color: var(--color-light-graphic-primary-shade-10);
+    --radio-checked-active-bg-color: var(--color-light-graphic-primary-shade-30);
+    --radio-checked-bg-color: var(--color-light-graphic-primary);
+
+    /* icon */
+    --radio-icon-color: var(--color-light-graphic-primary-inverted);
 }

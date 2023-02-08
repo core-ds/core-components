@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.1.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   notification@6.1.13
+
+## 5.1.13
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
 ## 5.1.12
 
 ### Patch Changes

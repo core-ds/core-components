@@ -4,6 +4,10 @@
 .checkmark {
     flex-shrink: 0;
     margin: var(--select-checkmark-margin);
+
+    &.after {
+        margin: var(--select-checkmark-margin-after);
+    }
 }
 
 .single {
@@ -27,11 +31,16 @@
 
     &.multiple {
         margin-right: var(--gap-s);
+        display: var(--select-checkmark-before-display-multiple);
     }
 }
 
 .after {
     display: var(--select-checkmark-after-display);
+
+    &.single {
+        display: var(--select-checkmark-after-display-single);
+    }
 }
 
 .colorIcon {

@@ -1,5 +1,23 @@
 # Change Log
 
+## 10.0.0
+
+### Major Changes
+
+### [#493](https://github.com/core-ds/core-components/pull/493)
+
+-   Удаление темизации click для компонентов input, button, form-control, slider, slider-input, backdrop. Теперь эти компоненты соответствуют default теме.
+    <br />
+    Компоненты button, radio, checkbox теперь соответствуют теме mobile.<br />
+    <br />
+    Переработан компонент select в теме click, вместо badge используется checkbox для multiple и CheckmarkMIcon для одинчного выбора.<br />
+    <br />
+    Замена токена --circular-progress-bar-bg-color на --circular-progress-bar-stroke-color<br />
+
+### [#491](https://github.com/core-ds/core-components/pull/491)
+
+-   Обновлены внутренние переменные (themes/default.css) для размеров кнопок (xxs добавлен, xs исправлен)
+
 ## 9.8.2
 
 ### Patch Changes

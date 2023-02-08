@@ -88,7 +88,7 @@
 
     &.xxs {
         min-width: 60px;
-        min-height: var(--size-xs-height);
+        min-height: var(--size-xxs-height);
 
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
@@ -99,7 +99,7 @@
 
     &.xs {
         min-width: 72px;
-        min-height: 40px;
+        min-height: var(--size-xs-height);
 
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height

@@ -1,5 +1,35 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+### [#500](https://github.com/core-ds/core-components/pull/500)
+
+-   Обвновлён bundle site.css для перехода на палитру bluetint
+
+### Patch Changes
+
+### [#503](https://github.com/core-ds/core-components/pull/503)
+
+-   Обновление палитры bluetint: корректировка контраста text и graphic цветов
+
+## 7.3.1
+
+### Patch Changes
+
+### [#502](https://github.com/core-ds/core-components/pull/502)
+
+-   Исправлен экспорт css-переменных в js. Теперь js-файл есть как в рут пакете, так и core-components-vars
+
+## 7.3.0
+
+### Minor Changes
+
+### [#492](https://github.com/core-ds/core-components/pull/492)
+
+-   Добавлены тени для палитры bluetint (shadows-bluetint.css) и продуктовые бандлы переменных (vars/bundle/corp.css и др.)
+
 ## 7.2.0
 
 ### Minor Changes

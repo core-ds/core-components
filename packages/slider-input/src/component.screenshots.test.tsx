@@ -48,5 +48,5 @@ describe('SliderInput | sprite', () => {
             theme,
         })();
 
-    ['default', 'click', 'mobile'].map(testCase);
+    ['default', 'mobile'].map(testCase);
 });

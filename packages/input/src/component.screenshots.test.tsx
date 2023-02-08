@@ -39,11 +39,12 @@ describe('Input | screenshots main props', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (page) => page.waitForTimeout(300),
             theme,
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 
@@ -69,11 +70,12 @@ describe('Input | screenshots hint and error', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (page) => page.waitForTimeout(300),
             theme,
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 
