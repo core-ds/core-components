@@ -34,8 +34,11 @@ import { Option as DefaultOption } from '../option';
 
 import { Checkmark } from './checkmark';
 import { OptionsList as DefaultOptionsList } from './options-list';
+import { VirtualOptionsList as DefaultVirtualOptionsList } from './virtual-options-list';
 
 import styles from './index.module.css';
+
+const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> & {
     /**
@@ -101,7 +104,9 @@ export const BaseSelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            OptionsList = DefaultOptionsList,
+            OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
+                ? DefaultVirtualOptionsList
+                : DefaultOptionsList,
             swipeable,
             footer,
             isBottomSheet,
@@ -122,6 +127,7 @@ export const BaseSelectMobile = forwardRef(
         );
 
         const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
+        const scrollableContainerRef = useRef<HTMLDivElement>(null);
 
         const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
@@ -418,6 +424,7 @@ export const BaseSelectMobile = forwardRef(
                         stickyHeader={true}
                         hasCloser={true}
                         swipeable={swipeable}
+                        scrollableContainerRef={scrollableContainerRef}
                         {...bottomSheetProps}
                     >
                         <div {...menuProps} className={optionsListClassName}>
@@ -439,6 +446,7 @@ export const BaseSelectMobile = forwardRef(
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
                                 onApply={handleApply}
                                 onClear={handleClear}
+                                ref={scrollableContainerRef}
                             />
                         </div>
                     </BottomSheet>
@@ -448,6 +456,7 @@ export const BaseSelectMobile = forwardRef(
                         onClose={handleClose}
                         contentClassName={styles.sheetContent}
                         hasCloser={true}
+                        ref={scrollableContainerRef}
                     >
                         <ModalMobile.Header hasCloser={true} title={placeholder} sticky={true} />
                         <div {...menuProps} className={optionsListClassName}>
@@ -469,6 +478,7 @@ export const BaseSelectMobile = forwardRef(
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
                                 onApply={handleApply}
                                 onClear={handleClear}
+                                ref={scrollableContainerRef}
                             />
                         </div>
                     </ModalMobile>
