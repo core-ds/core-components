@@ -39,6 +39,7 @@ describe('Input | screenshots main props', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (page) => page.waitForTimeout(300),
             theme,
         })();
 
@@ -69,6 +70,7 @@ describe('Input | screenshots hint and error', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (page) => page.waitForTimeout(300),
             theme,
         })();
 

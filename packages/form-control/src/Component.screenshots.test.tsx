@@ -31,6 +31,7 @@ describe('FormControl | screenshots main props', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (page) => page.waitForTimeout(300),
             theme,
         })();
 
