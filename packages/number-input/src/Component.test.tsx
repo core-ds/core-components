@@ -55,7 +55,6 @@ describe('NumberInput', () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
             const value = '+123';
-            const value2 = '123';
             const { getByTestId } = render(
                 <NumberInput onChange={cb} allowSigns={false} dataTestId={dataTestId} />,
             );
@@ -64,8 +63,8 @@ describe('NumberInput', () => {
 
             fireEvent.change(inputNumber, { target: { value } });
 
-            expect(cb).toBeCalledTimes(1);
-            expect(inputNumber.value).toBe(value2);
+            expect(cb).toBeCalledTimes(0);
+            expect(inputNumber.value).toBe('');
         });
 
         it('should set value to input with plus sign', () => {

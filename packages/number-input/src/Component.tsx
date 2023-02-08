@@ -1,9 +1,9 @@
-import React, { ChangeEvent, FocusEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, FocusEvent, KeyboardEvent, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 
-import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { InputProps } from '@alfalab/core-components-input';
-import { TextMaskConfig } from 'text-mask-core';
+import { Input, InputProps } from '@alfalab/core-components-input';
+
+import { createSeparatorsRegExp } from './utils';
 
 export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
@@ -44,6 +44,9 @@ export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     ) => void;
 };
 
+const SIGNS = ['-', '+'];
+export const SEPARATORS = [',', '.'];
+
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     (
         {
@@ -66,101 +69,86 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             if (valueString.includes(',')) {
                 return parseFloat(valueString.replace(',', '.'));
             }
+
             return parseFloat(valueString);
         };
 
-        const handleChange = (
-            event: ChangeEvent<HTMLInputElement>,
-            payload: {
-                value: string;
-            },
-        ) => {
-            const input = event.target;
-            const positionСursor = input.selectionStart || 0;
+        const getNumberRegExp = (): RegExp => {
+            let reStr = '[0-9]+';
 
-            if (input.value[positionСursor] === separator) {
-                const index = (input.selectionStart as number) + 1;
-                input.selectionStart = index;
+            if (fractionLength !== 0) {
+                reStr = `${reStr}[${SEPARATORS.map((s) => `\\${s}`).join('')}]?[0-9]{0,${
+                    fractionLength || Number.MAX_SAFE_INTEGER
+                }}`;
             }
 
-            if (onChange) {
-                onChange(event, {
-                    value: getNumberValueFromStr(input.value),
-                    valueString: input.value,
+            return new RegExp(`^${reStr}$`);
+        };
+
+        const restoreCaret = (target: HTMLInputElement) => {
+            const input = target;
+            const positionCursor = input.selectionStart || 0;
+            const isEndPosition = input.value.length === positionCursor;
+
+            const enteredSign = SIGNS.some((s) => s === input.value[positionCursor - 1]);
+            const enteredSeparator = SEPARATORS.filter((s) => s !== separator).some(
+                (s) => s === input.value[positionCursor - 1],
+            );
+
+            const shouldRestore = enteredSeparator || enteredSign;
+
+            if (!isEndPosition && shouldRestore) {
+                setTimeout(() => {
+                    input.selectionStart = positionCursor;
+                    input.selectionEnd = positionCursor;
                 });
             }
+        };
 
-            if (uncontrolled) {
-                setValue(payload.value);
+        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+            const input = event.target;
+
+            const numberRe = getNumberRegExp();
+            const testedValue =
+                allowSigns && SIGNS.some((s) => s === input.value[0])
+                    ? input.value.slice(1)
+                    : input.value;
+
+            if (testedValue === '' || numberRe.test(testedValue)) {
+                const newValue = input.value.replace(createSeparatorsRegExp(), separator);
+
+                if (onChange) {
+                    onChange(event, {
+                        value: getNumberValueFromStr(newValue),
+                        valueString: newValue,
+                    });
+                }
+
+                if (uncontrolled) {
+                    setValue(newValue);
+                }
+
+                restoreCaret(input);
             }
         };
 
-        const formatSeparatorValue = (separator: '.' | ',', rawValue: string) => {
-            const singsRegexp = /\W+/;
-            const sings = singsRegexp.exec(rawValue);
+        const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+            const disallowedSymbols = /[/|?!@#$%^&*()_=A-Za-zА-Яа-яЁё ]/;
+            const oneKeyPress =
+                !event.altKey && !event.metaKey && !event.ctrlKey && !event.shiftKey;
 
-            if (sings && sings[0] !== ',' && sings[0] !== '.') {
-                return rawValue.replace(sings[0], '');
+            // Запрещаем вводить неразрешенные символы за исключением комбинций клавиш
+            if (oneKeyPress && event.key.length === 1 && disallowedSymbols.test(event.key)) {
+                event.preventDefault();
             }
 
-            const separatorRegexp = /\.|,/;
-            if (rawValue.length === 1 && separatorRegexp.test(rawValue)) return '';
-
-            if (separator === ',') {
-                return rawValue.replace('.', ',');
+            // Запрещаем вводить второй сепаратор
+            if (
+                SEPARATORS.some((s) => s === event.key) &&
+                (event.target.value.match(createSeparatorsRegExp()) || []).length
+            ) {
+                event.preventDefault();
             }
-
-            if (separator === '.') {
-                return rawValue.replace(',', '.');
-            }
-
-            return rawValue;
-        };
-
-        const handleBeforeDisplay: TextMaskConfig['pipe'] = (
-            conformedValue,
-            { rawValue, previousConformedValue },
-        ) => {
-            const isTwoSign = rawValue.length - conformedValue.length >= 1;
-            const isOneSign = rawValue.length - conformedValue.length === 1;
-            const signRegexp = /\.|,/;
-
-            if (fractionLength === 0 && signRegexp.test(rawValue)) {
-                return previousConformedValue;
-            }
-
-            const zeroRegexp = /^[+|-]?00+$/;
-
-            if (zeroRegexp.test(rawValue)) {
-                const index = rawValue.search(/[+|-]/) !== -1 ? 2 : 1;
-                return rawValue.slice(0, index);
-            }
-
-            if (isTwoSign && previousConformedValue) {
-                if (rawValue.length !== conformedValue.length && fractionLength) {
-                    const valueLength = conformedValue.length - fractionLength;
-                    const sign = separator === ',' ? '.' : ',';
-
-                    if (
-                        rawValue.indexOf(sign) !== valueLength &&
-                        rawValue.indexOf(sign) !== conformedValue.length
-                    ) {
-                        return previousConformedValue;
-                    }
-                }
-
-                const hasSign = conformedValue.includes(separator);
-
-                if (!hasSign && isOneSign) {
-                    return formatSeparatorValue(separator, rawValue);
-                }
-                return previousConformedValue;
-            }
-
-            if (isOneSign && !uncontrolled) {
-                return formatSeparatorValue(separator, rawValue);
-            }
-            return conformedValue;
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
@@ -180,39 +168,16 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             if (onBlur) onBlur(event);
         };
 
-        const handleMask = (valueInput: string) => {
-            let mask = allowSigns ? [/[+-\d]/] : [/\d/];
-
-            if (valueInput.length <= 1) return mask;
-
-            mask.push(...Array(valueInput.length - 1).fill(/\d/));
-
-            const dotIndex = valueInput.indexOf(separator);
-            const signRegexp = new RegExp(`[\\d${separator}]`);
-            const startWithDigit = signRegexp.test(valueInput[0]);
-
-            if (dotIndex > (startWithDigit ? 0 : 1)) {
-                mask[dotIndex] = signRegexp;
-            }
-
-            if (fractionLength && dotIndex !== -1) {
-                const endMaskLength = dotIndex + fractionLength + 1;
-                mask = mask.slice(0, endMaskLength);
-            }
-            return mask;
-        };
-
         const visibleValue = uncontrolled ? value : propValue?.toString();
 
         return (
-            <MaskedInput
+            <Input
                 ref={mergeRefs([ref, inputRef])}
-                mask={handleMask}
                 value={visibleValue}
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onKeyDown={handleKeyDown}
                 inputMode='decimal'
-                onBeforeDisplay={handleBeforeDisplay}
                 {...restProps}
             />
         );
