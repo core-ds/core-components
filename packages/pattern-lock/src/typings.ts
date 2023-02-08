@@ -1,5 +1,30 @@
-import { ReactNode } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 import { ReactPatternLockProps } from 'react-canvas-pattern-lock';
+
+type ConditionalProps =
+    | {
+          /**
+           * Текст кнопки "забыли код"
+           * @default "Забыли код?"
+           */
+          showForgotCodeBtn: true;
+
+          /**
+           * Текст кнопки "забыли код"
+           * @default "Забыли код?"
+           */
+          forgotCodeBtnText?: string;
+
+          /**
+           * Коллбэк, вызываемый при клике на кнопку "Забыли код"
+           */
+          onForgotBtnClick: (event: MouseEvent<HTMLButtonElement>) => void;
+      }
+    | {
+          showForgotCodeBtn?: false;
+          onForgotBtnClick?: never;
+          forgotCodeBtnText?: never;
+      };
 
 export type PatternLockProps = {
     /**
@@ -30,7 +55,8 @@ export type PatternLockProps = {
         getTarget?: () => Node;
         options?: MutationObserverInit;
     };
-} & Omit<ReactPatternLockProps, 'theme' | 'width' | 'height' | 'rows' | 'cols'>;
+} & Omit<ReactPatternLockProps, 'theme' | 'width' | 'height' | 'rows' | 'cols'> &
+    ConditionalProps;
 
 export type ObservableTokens = {
     ACCENT_INITIAL: string;
