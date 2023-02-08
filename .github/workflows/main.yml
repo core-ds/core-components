@@ -20,6 +20,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 3
+
+    - name: Set PR head SHA
+      run: |
+        if [ "${{ github.event.pull_request.head.sha }}" != '' ];
+        then
+          echo "PR_LAST_COMMIT_SHA=$(echo "${{ github.event.pull_request.head.sha }}")" >> $GITHUB_ENV
+        fi
 
     - name: Install dependencies
       run: yarn
