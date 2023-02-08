@@ -3,7 +3,7 @@ import mergeRefs from 'react-merge-refs';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
 
-import { createSeparatorsRegExp } from './utils';
+import { createSeparatorsRegExp, SIGNS, SEPARATORS } from './utils';
 
 export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
@@ -43,9 +43,6 @@ export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
         },
     ) => void;
 };
-
-const SIGNS = ['-', '+'];
-export const SEPARATORS = [',', '.'];
 
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     (
