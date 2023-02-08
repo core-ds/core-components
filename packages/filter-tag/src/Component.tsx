@@ -93,7 +93,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             onClick,
             size = 's',
             variant = 'default',
-            shape = 'rounded',
+            shape,
             view = 'outlined',
             onClear = () => null,
             showClear = true,
@@ -121,24 +121,19 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             onClear();
         };
 
-        const variantClassName =
-            variant === 'default' && shape === 'rounded' ? 'rounded' : 'rectangular';
+        const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
+
+        const shapeClassName = shape || variantClassName;
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
-                className={cn(
-                    className,
-                    [styles.component],
-                    styles[variantClassName],
-                    styles[size],
-                    {
-                        [styles.checked]: checked,
-                        [styles.disabled]: disabled,
-                        [styles.focused]: focused,
-                        [styles.open]: open,
-                    },
-                )}
+                className={cn(className, [styles.component], styles[shapeClassName], styles[size], {
+                    [styles.checked]: checked,
+                    [styles.disabled]: disabled,
+                    [styles.focused]: focused,
+                    [styles.open]: open,
+                })}
                 ref={ref}
                 data-test-id={dataTestId}
                 onClick={disabled ? undefined : onClick}
@@ -151,7 +146,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     className={cn(
                         styles.valueButton,
                         styles[size],
-                        styles[variantClassName],
+                        styles[shapeClassName],
                         styles[view],
                         {
                             [styles.checked]: checked,
@@ -169,7 +164,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                 {checked && !disabled && showClear && (
                     <div
                         role='button'
-                        className={cn(styles.clear, styles[size], styles[variantClassName])}
+                        className={cn(styles.clear, styles[size], styles[shapeClassName])}
                         onClick={handleClear}
                         onKeyDown={handleClear}
                         tabIndex={0}

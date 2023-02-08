@@ -94,7 +94,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             colors = 'default',
             onClick,
             variant = 'default',
-            shape = 'rounded',
+            shape,
             view = 'outlined',
             ...restProps
         },
@@ -106,8 +106,9 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
 
         const [focused] = useFocus(tagRef, 'keyboard');
 
-        const variantClassName =
-            variant === 'default' && shape === 'rounded' ? 'rounded' : 'rectangular';
+        const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
+
+        const shapeClassName = shape || variantClassName;
 
         const tagProps = {
             className: cn(
@@ -115,7 +116,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                 colorStyles.component,
                 styles[size],
                 colorStyles[view],
-                styles[variantClassName],
+                styles[shapeClassName],
                 {
                     [styles.checked]: checked,
                     [colorStyles.checked]: checked,
