@@ -64,6 +64,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     Tag = DefaultTag,
     setSelectedItems,
     toggleMenu,
+    labelView,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
@@ -182,13 +183,16 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     }, [transformCollapsedTagText, isShowMoreEnabled, selectedMultiple.length, visibleElements]);
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
+    const hasInnerLabel = Boolean(label) && labelView !== 'outer';
 
     /**
      * Флаг который позволит добавлять класс с вертикальными
      * отступами если элементы не помещаются в один ряд,
      * для того чтобы не менялась высота инпута
      */
-    const shouldAddVerticalMargin = Boolean((!collapseTagList || isShowMoreEnabled) && !label);
+    const shouldAddVerticalMargin = Boolean(
+        (!collapseTagList || isShowMoreEnabled) && !hasInnerLabel,
+    );
 
     return (
         <div
@@ -214,10 +218,11 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 addonsClassName={cn(styles.addons, styles[`addons-size-${size}`])}
                 label={label}
                 labelClassName={styles.label}
+                labelView={labelView}
             >
                 <div
                     className={cn(styles.contentWrapper, {
-                        [styles.hasLabel]: Boolean(label),
+                        [styles.hasInnerLabel]: hasInnerLabel,
                         [styles.hasTags]: selectedMultiple.length > 0,
                         [styles.contentWrapperVertical]: shouldAddVerticalMargin,
                     })}
