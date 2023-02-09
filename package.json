@@ -88,6 +88,7 @@
         "simplebar": "^5.3.8",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
+        "tslib": "^2.4.0",
         "ui-primitives": "^10.9.0"
     },
     "devDependencies": {
@@ -204,7 +205,6 @@
         "stylelint-config-standard": "^20.0.0",
         "svgo": "^3.0.2",
         "ts-jest": "^26.4.4",
-        "tslib": "^2.4.0",
         "typescript": "~4.7.4",
         "url-loader": "^4.1.1"
     },

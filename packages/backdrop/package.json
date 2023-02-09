@@ -15,7 +15,8 @@
     },
     "dependencies": {
         "classnames": "^2.3.1",
-        "react-transition-group": "^4.4.5"
+        "react-transition-group": "^4.4.5",
+        "tslib": "^2.4.0"
     },
     "devDependencies": {
         "@types/react-transition-group": "^4.4.5"

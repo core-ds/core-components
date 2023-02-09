@@ -25,6 +25,7 @@
         "@alfalab/icons-glyph": "^2.89.0",
         "classnames": "^2.3.1",
         "element-closest": "^3.0.2",
-        "swiper": "^6.8.2"
+        "swiper": "^6.8.2",
+        "tslib": "^2.4.0"
     }
 }

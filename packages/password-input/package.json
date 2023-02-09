@@ -18,6 +18,7 @@
         "@alfalab/core-components-icon-button": "^6.0.6",
         "@alfalab/core-components-input": "^11.1.6",
         "@alfalab/icons-glyph": "^2.89.0",
-        "classnames": "^2.3.1"
+        "classnames": "^2.3.1",
+        "tslib": "^2.4.0"
     }
 }

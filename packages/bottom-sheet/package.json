@@ -26,6 +26,7 @@
         "react-div-100vh": "^0.7.0",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^5.5.1",
-        "react-transition-group": "^4.4.5"
+        "react-transition-group": "^4.4.5",
+        "tslib": "^2.4.0"
     }
 }
