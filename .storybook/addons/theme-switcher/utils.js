@@ -41,7 +41,7 @@ export function getThemeStyles(selectedTheme) {
 
     return [
         themes[selectedTheme],
-        bluetintThemes.some((theme) => theme.includes(selectedTheme)) ? bluetintVars : '',
+        bluetintThemes.some((theme) => theme === selectedTheme) ? bluetintVars : '',
     ].join('\n');
 }
 
