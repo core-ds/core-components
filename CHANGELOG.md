@@ -1,3 +1,84 @@
+## 38.1.0
+
+<sup><time>10.02.2023</time></sup>
+
+### [#520](https://github.com/core-ds/core-components/pull/520)
+
+#### Что изменилось
+- Исправлено некорректное поведение collapsible вкладок в браузере Firefox
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#499](https://github.com/core-ds/core-components/pull/499)
+
+#### Что изменилось
+- Исправлен размер 40 для компонента Сircle
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#509](https://github.com/core-ds/core-components/pull/509)
+
+#### Что изменилось
+- Добавлен экспорт TooltipResponsiveProps
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [#512](https://github.com/core-ds/core-components/pull/512)
+
+#### Что изменилось
+- fix(intl-phone-input): исправлена вставка в пустое поле номера без "+"
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+### [#510](https://github.com/core-ds/core-components/pull/510)
+
+#### Что изменилось
+- В Select исправлено выделение опций на iOS с пропом `Options={BaseOptions}`
+- В Checkbox добавлен проп hiddenInput, с помощью которого можно скрыть нативный input<br />
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox`
+
+
+- Патчи<br />`select`
+
+
+### [#505](https://github.com/core-ds/core-components/pull/505)
+
+#### Что изменилось
+- Исправлена позиция лоадера при display: block
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#523](https://github.com/core-ds/core-components/pull/523)
+
+#### Что изменилось
+- Обновлена зависимость react-focus-lock
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#486](https://github.com/core-ds/core-components/pull/486)
+
+#### Что изменилось
+- Добавлен файл main.css с базовыми стилями
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+
 ## 38.0.0
 
 <sup><time>07.02.2023</time></sup>
