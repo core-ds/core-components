@@ -1,5 +1,26 @@
 # Change Log
 
+## 13.2.11
+
+### Patch Changes
+
+### [#510](https://github.com/core-ds/core-components/pull/510)
+
+-   В Select исправлено выделение опций на iOS с пропом `Options={BaseOptions}`
+-   В Checkbox добавлен проп hiddenInput, с помощью которого можно скрыть нативный input<br />
+
+### [#497](https://github.com/core-ds/core-components/pull/497)
+
+-   fix(select): virtual options list
+
+-   Обновлены зависимости
+    -   checkbox@3.1.0
+    -   bottom-sheet@5.3.0
+    -   button@7.0.5
+    -   base-modal@5.0.9
+    -   input@11.1.6
+    -   modal@6.1.11
+
 ## 13.2.10
 
 ### Patch Changes
