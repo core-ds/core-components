@@ -11,9 +11,7 @@ describe('UnderlayWrapper', () => {
                     borderSize={2}
                     backgroundColor='info'
                     borderColor='graphic-link'
-                    shadow='hadow-l'
-                    width={200}
-                    height={200}
+                    shadow='shadow-l'
                 >
                     Content
                 </UnderlayWrapper>,
@@ -41,24 +39,24 @@ describe('UnderlayWrapper', () => {
             expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
-        it('should set `accent` class if `backgroundColor` prop is `accent`', () => {
+        it('should set `background-accent` class if `backgroundColor` prop is `accent`', () => {
             const backgroundColor = 'accent';
             const dataTestId = 'test-id';
             const { getByTestId } = render(
                 <UnderlayWrapper backgroundColor={backgroundColor} dataTestId={dataTestId} />,
             );
 
-            expect(getByTestId(dataTestId)).toHaveClass(backgroundColor);
+            expect(getByTestId(dataTestId)).toHaveClass(`background-${backgroundColor}`);
         });
 
-        it('should set `accent` class if `borderColor` prop is `accent`', () => {
+        it('should set `border-color-accent` class if `borderColor` prop is `accent`', () => {
             const borderColor = 'accent';
             const dataTestId = 'test-id';
             const { getByTestId } = render(
                 <UnderlayWrapper borderColor={borderColor} dataTestId={dataTestId} />,
             );
 
-            expect(getByTestId(dataTestId)).toHaveClass(borderColor);
+            expect(getByTestId(dataTestId)).toHaveClass(`border-color-${borderColor}`);
         });
 
         it('should set `shadow-xs` class if `shadow` prop is `shadow-xs`', () => {

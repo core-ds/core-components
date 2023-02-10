@@ -1,81 +1,14 @@
-export const BACKGROUND = [
-    'accent',
-    'info',
-    'attention-muted',
-    'positive-muted',
-    'negative-muted',
-    'primary',
-    'primary-inverted',
-    'secondary',
-    'secondary-inverted',
-    'tertiary',
-    'tertiary-inverted',
-    'quaternary',
-    'quaternary-inverted',
-    'specialbg-component',
-    'specialbg-component-inverted',
-    'specialbg-primary-grouped',
-    'specialbg-secondary-grouped',
-    'specialbg-tertiary-grouped',
-    'specialbg-secondary-transparent',
-    'specialbg-secondary-transparent-inverted',
-    'specialbg-tertiary-transparent',
-    'specialbg-tertiary-transparent-inverted',
-] as const;
+import { GapProps } from '@alfalab/core-components-gap';
+
+import { BACKGROUND, BORDER_COLOR, SHADOW } from './consts';
 
 export type BackgroundColorType = typeof BACKGROUND[number];
 
-export const BORDER_COLOR = [
-    'accent',
-    'key',
-    'key-inverted',
-    'link',
-    'primary',
-    'primary-inverted',
-    'secondary',
-    'secondary-inverted',
-    'tertiary',
-    'tertiary-inverted',
-    'underline',
-    'underline-inverted',
-    'graphic-attention',
-    'graphic-link',
-    'graphic-negative',
-    'graphic-positive',
-    'specialbg-secondary-transparent',
-    'specialbg-secondary-transparent-inverted',
-    'specialbg-tertiary-transparent',
-    'specialbg-tertiary-transparent-inverted',
-] as const;
-
 export type BorderColorType = typeof BORDER_COLOR[number];
-
-export const SHADOW = [
-    'shadow-xs',
-    'shadow-s',
-    'shadow-m',
-    'shadow-l',
-    'shadow-xl',
-    'shadow-xs-hard',
-    'shadow-s-hard',
-    'shadow-m-hard',
-    'shadow-l-hard',
-    'shadow-xl-hard',
-    'shadow-xs-up',
-    'shadow-s-up',
-    'shadow-m-up',
-    'shadow-l-up',
-    'shadow-xl-up',
-    'shadow-xs-hard-up',
-    'shadow-s-hard-up',
-    'shadow-m-hard-up',
-    'shadow-l-hard-up',
-    'shadow-xl-hard-up',
-] as const;
 
 export type ShadowType = typeof SHADOW[number];
 
-export type PaddingType = 0 | 2 | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 40 | 48;
+export type PaddingType = Omit<GapProps['size'], '5xl' | '6xl' | '7xl' | '8xl'>;
 
 export type PaddingPropType = {
     top?: PaddingType;

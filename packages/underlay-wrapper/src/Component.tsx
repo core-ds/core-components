@@ -1,46 +1,25 @@
-import React, { ReactNode, MouseEvent } from 'react';
+import React, { ReactNode, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import {
-    BackgroundColorType,
-    BorderColorType,
-    ShadowType,
-    PaddingPropType,
-    BORDER_COLOR,
-    BACKGROUND,
-    SHADOW,
-} from './types';
+import { BackgroundColorType, BorderColorType, ShadowType, PaddingPropType } from './types';
 
-import background from './background.module.css';
-import border from './border.module.css';
-import boxShadow from './shadow.module.css';
 import styles from './index.module.css';
 
-export type UnderlayProps = {
+export type UnderlayProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Внутренние отступы
      */
     padding?: PaddingPropType;
 
     /**
-     * Высота компонента
-     */
-    height?: number | string;
-
-    /**
-     * Ширина компонента
-     */
-    width?: number | string;
-
-    /**
      * Радиус
      */
-    borderRadius?: 0 | 8 | 16 | 20;
+    borderRadius?: 'm' | 'xl' | 'xxl';
 
     /**
      * Цвет фона
      */
-    backgroundColor?: BackgroundColorType | string;
+    backgroundColor?: BackgroundColorType;
 
     /**
      * Ширина бордера
@@ -50,22 +29,12 @@ export type UnderlayProps = {
     /**
      * Цвет бордера
      */
-    borderColor?: BorderColorType | string;
+    borderColor?: BorderColorType;
 
     /**
      * Тень
      */
-    shadow?: ShadowType | string;
-
-    /**
-     * Фоновое изображение. Имеет приоритет над заливкой
-     */
-    imageUrl?: string;
-
-    /**
-     * Обработчик клика
-     */
-    onClick?: (event?: MouseEvent<HTMLDivElement>) => void;
+    shadow?: ShadowType;
 
     /**
      * Дополнительный класс
@@ -86,68 +55,36 @@ export type UnderlayProps = {
 export const UnderlayWrapper: React.FC<UnderlayProps> = ({
     children,
     borderRadius,
-    imageUrl,
-    shadow = 'none',
-    borderSize = 'none',
-    backgroundColor = 'none',
-    borderColor = 'none',
-    width,
-    height,
+    shadow,
+    borderSize,
+    backgroundColor,
+    borderColor,
     className,
     padding,
-    onClick,
     dataTestId,
+    ...restProps
 }) => {
-    const tokenShadow = !SHADOW.includes(shadow as ShadowType);
-    const tokenBorderColor = !BORDER_COLOR.includes(borderColor as BorderColorType);
-    const tokenBackground = !BACKGROUND.includes(backgroundColor as BackgroundColorType);
-
-    const handleClick = (
-        event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>,
-    ) => {
-        if (onClick) {
-            onClick(event as React.MouseEvent<HTMLDivElement>);
-        }
-    };
-
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-        if (event.key === 'Enter') {
-            handleClick(event);
-        }
+    const paddingStyles = padding && {
+        [styles[`padding-top-${padding.top}`]]: padding.top,
+        [styles[`padding-right-${padding.right}`]]: padding.right,
+        [styles[`padding-bottom-${padding.bottom}`]]: padding.bottom,
+        [styles[`padding-left-${padding.left}`]]: padding.left,
     };
 
     return (
         <div
             className={cn(
                 styles.component,
-                {
-                    [styles.cursorPointer]: onClick,
-                    [styles.backgroundImage]: imageUrl,
-                    [border[`border-radius-${borderRadius}`]]: borderRadius,
-                },
-                background[backgroundColor],
-                border[borderColor],
-                border[`border-width-${borderSize}`],
-                boxShadow[shadow],
+                paddingStyles,
+                backgroundColor && styles[`background-${backgroundColor}`],
+                borderRadius && styles[`border-radius-${borderRadius}`],
+                borderColor && styles[`border-color-${borderColor}`],
+                borderSize && styles[`border-width-${borderSize}`],
+                shadow && styles[shadow],
                 className,
             )}
-            style={{
-                ...(width && { width }),
-                ...(height && { height }),
-                ...(tokenBorderColor && { borderColor }),
-                ...(tokenShadow && { boxShadow: shadow }),
-                ...(tokenBackground && { backgroundColor }),
-                ...(imageUrl && { backgroundImage: `url(${imageUrl})` }),
-                ...(padding?.bottom && { paddingBottom: `${padding.bottom}px` }),
-                ...(padding?.right && { paddingRight: `${padding.right}px` }),
-                ...(padding?.left && { paddingLeft: `${padding.left}px` }),
-                ...(padding?.top && { paddingTop: `${padding.top}px` }),
-            }}
-            onClick={handleClick}
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
-            role='button'
             data-test-id={dataTestId}
+            {...restProps}
         >
             {children}
         </div>

@@ -3,7 +3,7 @@ import { select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { UnderlayWrapper } from '@alfalab/core-components-underlay-wrapper';
-import { SHADOW, BORDER_COLOR, BACKGROUND } from '../types'
+import { SHADOW, BORDER_COLOR, BACKGROUND } from '../consts'
 
 import { version } from '../../package.json';
 import Description from './description.mdx';
@@ -16,25 +16,20 @@ import Changelog from '../../CHANGELOG.md';
 
 <Story name='UnderlayWrapper'>
  {React.createElement(() => {
-    const paddingSizes = [ '0', '2', '4', '8', '12', '16', '20', '24', '32', '40', '48'];
-    const borderRadius = select('borderRadius', ['0', '8', '16', '20'], '0');
-    const width = select('width', [100, 200, 500, 'max-content', 'auto'], 'auto');
-    const height = select('height', [50, 100, 150, 'max-content', 'auto'], 'auto');
-    const borderSize = select('borderSize', ['1', '2', '4', 'none'], 'none');
-    const paddingTop = select('padding.top', paddingSizes, '16');
-    const paddingRight = select('padding.right', paddingSizes, '16');
-    const paddingBottom = select('padding.bottom', paddingSizes, '16');
-    const paddingLeft = select('padding.left', paddingSizes, '16');
+    const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
+    const borderRadius = select('borderRadius', ['m', 'xl', 'xxl'], 'm');
+    const borderSize = select('borderSize', ['1', '2', '4', 'none'], '2');
+    const paddingTop = select('padding.top', paddingSizes, 'm');
+    const paddingRight = select('padding.right', paddingSizes, 'm');
+    const paddingBottom = select('padding.bottom', paddingSizes, 'm');
+    const paddingLeft = select('padding.left', paddingSizes, 'm');
     return (
         <UnderlayWrapper
             borderRadius={borderRadius}
             borderSize={borderSize}
-            imageUrl={text('imageUrl', '')}
             shadow={select('shadow', SHADOW, 'shadow-l')}
             backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
             borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
-            height={height}
-            width={width}
             padding={{
                     top: paddingTop,
                     right: paddingRight,
