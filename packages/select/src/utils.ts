@@ -105,7 +105,7 @@ export function useVisibleOptions({
         const list = listRef.current;
         const styleTarget = styleTargetRef.current;
 
-        if (open && list && styleTarget) {
+        if (open && list && styleTarget && visibleOptions > 0) {
             const optionsNodes = ([] as HTMLElement[]).slice.call(
                 list.children,
                 0,
