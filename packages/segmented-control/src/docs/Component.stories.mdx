@@ -1,0 +1,47 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { select } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { SegmentedControl, Segment } from '@alfalab/core-components-segmented-control';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import { version } from '../../package.json';
+
+<Meta title='Components/SegmentedControl' component={SegmentedControl} id='SegmentedControl' />
+
+<!-- Canvas -->
+
+<Story name='SegmentedControl'>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState(1);
+        const handleChange = (id) => setSelectedId(id)
+        return (
+            <SegmentedControl
+                size={select('size', ['xs', 'xxs'], 'xs')}
+                view={select('view', ['rounded', 'rect'], 'rect')}
+                onChange={handleChange}
+                selectedId={selectedId}
+            >
+                <Segment id={1} title='Сегмент 1'>Сегмент 1</Segment>
+                <Segment id={2} title='Сегмент 2'>Сегмент 2</Segment>
+                <Segment id={3} title='Сегмент 3'>Сегмент 3</Segment>
+                <Segment id={4} title='Сегмент 4'>Сегмент 4</Segment>
+            </SegmentedControl>
+        )
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SegmentedControl'
+    version={version}
+    package='@alfalab/core-components/segmented-control'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/branch/HdEcrs2QMpvWPPHgfUIq2q/Web-%3A%3A-Core-Default-Components?node-id=75987%3A83551&t=eZpYvbDpqVyYyLV9-0'
+    children='Используется для переключения или фильтрации контента.'
+/>
+
+<Tabs
+    description={<Description />}
+    development={<Development />}
+/>

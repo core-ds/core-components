@@ -1,0 +1,57 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --segmented-control-font-family: var(--font-family-system);
+}
+
+.wrapper {
+    position: relative;
+    background-color: var(--color-light-specialbg-secondary-transparent);
+}
+
+.container {
+    margin: var(--gap-3xs);
+}
+
+.inner {
+    display: flex;
+}
+
+.xs {
+    height: 40px;
+}
+
+.xxs {
+    height: 32px;
+}
+
+.rounded {
+    border-radius: var(--border-radius-xl);
+}
+
+.rect {
+    border-radius: calc(var(--border-radius-l) / 2);
+}
+
+.selectedBox {
+    position: absolute;
+    left: 0;
+    bottom: var(--gap-3xs);
+    top: var(--gap-3xs);
+    box-shadow: var(--shadow-s);
+    background-color: var(--color-light-bg-primary);
+    transition: width 0.2s ease, transform 0.2s ease;
+}
+
+.segment {
+    @mixin paragraph_primary_small;
+}
+
+.selected {
+    @mixin action_primary_small;
+
+    &:before,
+    & + .segment:before {
+        opacity: 0;
+    }
+}
