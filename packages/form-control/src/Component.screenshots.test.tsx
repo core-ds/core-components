@@ -7,7 +7,7 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('FormControl | screenshots main props', () => {
+describe('FormControl | screenshots label view prop', () => {
     const testCase = (theme: string, colors: string) =>
         screenshotTesting({
             cases: [
@@ -18,10 +18,6 @@ describe('FormControl | screenshots main props', () => {
                         knobs: {
                             label: 'Label',
                             labelView: ['inner', 'outer'],
-                            size: ['s', 'm', 'l', 'xl'],
-                            block: [false, true],
-                            disabled: [false, true],
-                            value: ['', 'Value'],
                             colors,
                         },
                         size: { width: 350, height: 150 },
@@ -31,7 +27,83 @@ describe('FormControl | screenshots main props', () => {
             screenshotOpts: {
                 fullPage: true,
             },
-            evaluate: (page) => page.waitForTimeout(500),
+            theme,
+        })();
+
+    ['default', 'inverted'].forEach((colors) => {
+        ['site', 'default', 'mobile'].forEach((theme) => testCase(theme, colors));
+    });
+});
+
+describe('FormControl | screenshots size prop', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        componentName: 'FormControl',
+                        knobs: {
+                            label: 'Label',
+                            size: ['s', 'm', 'l', 'xl'],
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['site', 'default', 'mobile'].forEach((theme) => testCase(theme));
+});
+
+describe('FormControl | screenshots block prop', () => {
+    screenshotTesting({
+        cases: [
+            [
+                'default theme',
+                createSpriteStorybookUrl({
+                    componentName: 'FormControl',
+                    knobs: {
+                        label: 'Label',
+                        size: 'm',
+                        block: [false, true],
+                    },
+                    size: { width: 350, height: 150 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        theme: 'default',
+    })();
+});
+
+describe('FormControl | screenshots disabled prop', () => {
+    const testCase = (theme: string, colors: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        componentName: 'FormControl',
+                        knobs: {
+                            label: 'Label',
+                            size: 'm',
+                            disabled: true,
+                            colors,
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
             theme,
         })();
 

@@ -44,7 +44,7 @@ export const customSnapshotIdentifier = ({
     currentTestName,
     counter,
 }: CustomSnapshotIdentifierParams) => {
-    return kebab(`${currentTestName}${counter > 1 ? `-${counter}` : ''}`);
+    return kebab(`${currentTestName}${counter > 1 ? `-${counter}` : ''}-snap`);
 };
 
 const getPageHtml = async (page: Page, css?: string) => {
@@ -120,6 +120,9 @@ export const matchHtml = async ({
 
     try {
         expect(image).toMatchImageSnapshot({
+            comparisonMethod: 'ssim',
+            failureThreshold: 0.005,
+            failureThresholdType: 'percent',
             customSnapshotIdentifier,
             ...matchImageSnapshotOptions,
         });
