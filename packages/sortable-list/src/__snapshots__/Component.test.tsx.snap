@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollableList Display tests should display correctly 1`] = `
+<div>
+  <div
+    class="component primary"
+    data-test-id="sortable-container"
+  >
+    <div
+      aria-describedby="DndDescribedBy-0"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      class="component activator-cell primary"
+      data-test-id="sortable-item_1"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="content"
+      >
+        <div>
+          1
+        </div>
+      </div>
+      <div
+        class="icon"
+      >
+        <svg
+          aria-label="drag control"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M8.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm0 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm1.5 5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm1.5 5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm-1.5 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    id="DndDescribedBy-0"
+    style="display: none;"
+  >
+    Чтобы выбрать перетаскиваемый элемент, нажмите пробел.
+При перетаскивании используйте клавиши со стрелками для перемещения элемента.
+Снова нажмите пробел, чтобы переместить элемент в его новое положение или нажмите escape для отмены.
+  </div>
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-0"
+    role="status"
+    style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />
+</div>
+`;
