@@ -1,0 +1,176 @@
+import React, { forwardRef } from 'react';
+import {
+    closestCenter,
+    DndContext,
+    DragEndEvent,
+    DragOverEvent,
+    DragOverlay,
+    DragStartEvent,
+    KeyboardSensor,
+    MouseSensor,
+    TouchSensor,
+    UniqueIdentifier,
+    useSensor,
+    useSensors,
+} from '@dnd-kit/core';
+import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import cn from 'classnames';
+
+import { getDataTestId } from '../../../../utils';
+import type { SortableWrapperProps } from '../../types';
+import { restrictToParentElement, restrictToVerticalAxis } from '../../utils';
+import { SortableItem } from '../sortable-item/Components';
+
+import styles from './index.module.css';
+
+const DEFAULT_INSTRUCTION =
+    'Чтобы выбрать перетаскиваемый элемент, нажмите пробел.\n' +
+    'При перетаскивании используйте клавиши со стрелками для перемещения элемента.\n' +
+    'Снова нажмите пробел, чтобы переместить элемент в его новое положение или нажмите escape для отмены.';
+
+const DEFAULT_ANNOUNCEMENTS = {
+    onDragStart({ active }: DragStartEvent) {
+        return `Выбран элемент ${active.id}.`;
+    },
+    onDragOver({ active, over }: DragOverEvent) {
+        if (over) {
+            return `Выбранный элемент ${active.id} находится над элементом ${over.id}.`;
+        }
+
+        return `Выбранный элемент ${active.id} находится за пределами droppable зоны.`;
+    },
+    onDragEnd({ active, over }: DragEndEvent) {
+        if (over) {
+            return `Выбранный элемент ${active.id} был перемещен на место ${over.id}`;
+        }
+
+        return `Выбранный элемент ${active.id} не был перемещен.`;
+    },
+    onDragCancel() {
+        return 'Перемещение было отменено';
+    },
+};
+
+export const SortableWrapper = forwardRef<HTMLDivElement, SortableWrapperProps>(
+    (
+        {
+            className,
+            itemClassName,
+            items,
+            renderItem,
+            borderRadius,
+            activatorNode = 'cell',
+            view = 'primary',
+            padding,
+            dataTestId,
+            announcements = DEFAULT_ANNOUNCEMENTS,
+            screenReaderInstructions = DEFAULT_INSTRUCTION,
+            onDragStart,
+            onDragEnd,
+        },
+        ref,
+    ) => {
+        const [activeId, setActiveId] = React.useState<UniqueIdentifier | null>(null);
+        const sensors = useSensors(
+            useSensor(KeyboardSensor),
+            useSensor(TouchSensor),
+            useSensor(MouseSensor),
+        );
+
+        const paddingClassName = padding && {
+            [styles[`padding-top-${padding.top}`]]: padding.top,
+            [styles[`padding-right-${padding.right}`]]: padding.right,
+            [styles[`padding-bottom-${padding.bottom}`]]: padding.bottom,
+            [styles[`padding-left-${padding.left}`]]: padding.left,
+        };
+
+        const commonClassName = cn(styles[view], {
+            [styles[`border-radius-${borderRadius}`]]: borderRadius,
+        });
+
+        const sortableItemClassName = cn(commonClassName, itemClassName);
+
+        const handleDragStart = (event: DragStartEvent) => {
+            const { active } = event;
+
+            setActiveId(active.id);
+
+            onDragStart?.(event);
+        };
+
+        const handleDragEnd = (event: DragEndEvent) => {
+            const { active, over } = event;
+
+            if (over?.id && active.id !== over.id) {
+                const oldIndex = items.findIndex((item) => item.id === active.id);
+                const newIndex = items.findIndex((item) => item.id === over.id);
+
+                onDragEnd?.(event, arrayMove(items, oldIndex, newIndex));
+            }
+
+            setActiveId(null);
+        };
+
+        const renderDragOverlay = () => {
+            const activeItem = items.find((item) => item.id === activeId);
+
+            if (activeId && activeItem) {
+                return (
+                    <SortableItem
+                        id={activeId}
+                        isDragOverlay={true}
+                        className={sortableItemClassName}
+                        activatorNode={activatorNode}
+                        dataTestId={dataTestId}
+                    >
+                        {renderItem(activeItem)}
+                    </SortableItem>
+                );
+            }
+
+            return null;
+        };
+
+        return (
+            <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragStart={handleDragStart}
+                onDragEnd={handleDragEnd}
+                modifiers={[restrictToParentElement, restrictToVerticalAxis]}
+                accessibility={{
+                    announcements,
+                    screenReaderInstructions: { draggable: screenReaderInstructions },
+                }}
+            >
+                <SortableContext items={items} strategy={verticalListSortingStrategy}>
+                    <div
+                        ref={ref}
+                        className={cn(
+                            styles.component,
+                            paddingClassName,
+                            commonClassName,
+                            className,
+                        )}
+                        data-test-id={getDataTestId(dataTestId, 'container')}
+                    >
+                        {items.map((item) => (
+                            <SortableItem
+                                key={item.id}
+                                id={item.id}
+                                className={sortableItemClassName}
+                                activatorNode={activatorNode}
+                                disabled={typeof item === 'object' ? item.disabled : false}
+                                dataTestId={dataTestId}
+                            >
+                                {renderItem(item)}
+                            </SortableItem>
+                        ))}
+                    </div>
+                </SortableContext>
+
+                <DragOverlay>{activeId ? renderDragOverlay() : null}</DragOverlay>
+            </DndContext>
+        );
+    },
+);
