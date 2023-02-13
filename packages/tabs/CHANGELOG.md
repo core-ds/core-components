@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.3.6
+
+### Patch Changes
+
+### [#520](https://github.com/core-ds/core-components/pull/520)
+
+-   Исправлено некорректное поведение collapsible вкладок в браузере Firefox
+
+-   Обновлены зависимости
+    -   picker-button@10.3.6
+
 ## 7.3.5
 
 ### Patch Changes

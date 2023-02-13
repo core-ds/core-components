@@ -31,12 +31,12 @@ describe('FormControl | screenshots main props', () => {
             screenshotOpts: {
                 fullPage: true,
             },
-            evaluate: (page) => page.waitForTimeout(300),
+            evaluate: (page) => page.waitForTimeout(500),
             theme,
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['site', 'default', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 

@@ -101,7 +101,7 @@ export const PrimaryTabList = ({
             ))}
 
             {collapsedOptions.length ? (
-                <span ref={addonRef} role='tablist' className={styles.pickerWrapper}>
+                <span ref={addonRef} role='menu' className={styles.pickerWrapper}>
                     <PickerButtonDesktop
                         fieldClassName={styles.title}
                         optionClassName={cn(styles.pickerOption, size && styles[size])}
