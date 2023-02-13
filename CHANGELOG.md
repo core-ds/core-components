@@ -1,3 +1,17 @@
+## 38.3.0
+
+<sup><time>13.02.2023</time></sup>
+
+### [#529](https://github.com/core-ds/core-components/pull/529)
+
+#### Что изменилось
+- В `PureCell.Text` добавлена пропса `titleWeight` и два варианта `view`
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+
 ## 38.2.0
 
 <sup><time>10.02.2023</time></sup>
