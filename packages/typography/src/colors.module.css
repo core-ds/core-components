@@ -49,3 +49,31 @@
 .negative {
     color: var(--color-light-text-negative);
 }
+
+.primary-static-light {
+    color: var(--color-static-text-primary-light);
+}
+
+.secondary-static-light {
+    color: var(--color-static-text-secondary-light);
+}
+
+.tertiary-static-light {
+    color: var(--color-static-text-tertiary-light);
+}
+
+.primary-static-dark {
+    color: var(--color-static-text-primary-dark);
+}
+
+.secondary-static-dark {
+    color: var(--color-static-text-secondary-dark);
+}
+
+.tertiary-static-dark {
+    color: var(--color-static-text-tertiary-dark);
+}
+
+.accent-static {
+    color: var(--color-static-text-accent);
+}
