@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UnderlayWrapper Snapshots tests should match snapshot 1`] = `
+exports[`Underlay Snapshots tests should match snapshot 1`] = `
 <div>
   <div
     class="component background-info border-color-graphic-link border-width-2 shadow-l"

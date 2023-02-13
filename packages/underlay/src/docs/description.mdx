@@ -26,14 +26,14 @@ render(() => {
         }
         
         div[data-test-id='test2'] {
-            background-image: url(./images/underlayWrapper.png);
+            background-image: url(./images/underlay.png);
             background-repeat: no-repeat;            
         }
     `;
 
     return (
     <Container>
-        <UnderlayWrapper 
+        <Underlay 
             onClick={handleClick}
             borderSize={1}
             borderRadius='xl'
@@ -48,10 +48,10 @@ render(() => {
             dataTestId='test1'
         >
             <div style={styleContent} />
-        </UnderlayWrapper>
+        </Underlay>
         <style>{css}</style>
         <Gap size='l'/>
-        <UnderlayWrapper 
+        <Underlay 
             padding={{
                 top: 'm',
                 left:'m',
@@ -61,7 +61,7 @@ render(() => {
             dataTestId='test2'
             >
                 <div style={styleContent}/>
-        </UnderlayWrapper>
+        </Underlay>
     </Container>
     );
 });

@@ -5,24 +5,6 @@
     box-sizing: border-box;
 }
 
-.border-width-1 {
-    border-width: 1px;
-    border-style: solid;
-}
-
-.border-width-2 {
-    border-width: 2px;
-    border-style: solid;
-}
-.border-width-4 {
-    border-width: 4px;
-    border-style: solid;
-}
-
-.border-width-none {
-    border-width: none;
-}
-
 @each $backgroundColorBg in accent, info, attention-muted, positive-muted, negative-muted, primary,
     primary-inverted, secondary, secondary-inverted, tertiary, tertiary-inverted, quaternary,
     quaternary-inverted
@@ -96,5 +78,12 @@
 @each $radius in m, xl, xxl {
     .border-radius-$(radius) {
         border-radius: var(--border-radius-$(radius));
+    }
+}
+
+@each $width in 1, 2, 4 {
+    .border-width-$(width) {
+        border-width: $(width) px;
+        border-style: solid;
     }
 }

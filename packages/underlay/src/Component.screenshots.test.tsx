@@ -8,13 +8,13 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 describe(
-    'UnderlayWrapper | backgroundColor props',
+    'Underlay | backgroundColor props',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
-                    componentName: 'UnderlayWrapper',
+                    componentName: 'Underlay',
                     knobs: {
                         children: 'Content',
                         backgroundColor: [
@@ -43,7 +43,7 @@ describe(
             [
                 'sprite-inverted',
                 createSpriteStorybookUrl({
-                    componentName: 'UnderlayWrapper',
+                    componentName: 'Underlay',
                     inverted: true,
                     knobs: {
                         backgroundColor: [
@@ -68,13 +68,13 @@ describe(
 );
 
 describe(
-    'UnderlayWrapper | border props',
+    'Underlay | border props',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
-                    componentName: 'UnderlayWrapper',
+                    componentName: 'Underlay',
                     knobs: {
                         borderRadius: 'm',
                         children: 'Content',
@@ -106,7 +106,7 @@ describe(
             [
                 'sprite-inverted',
                 createSpriteStorybookUrl({
-                    componentName: 'UnderlayWrapper',
+                    componentName: 'Underlay',
                     inverted: true,
                     knobs: {
                         borderColor: [
@@ -133,13 +133,13 @@ describe(
     }),
 );
 describe(
-    'UnderlayWrapper | shadow props',
+    'Underlay | shadow props',
     screenshotTesting({
         cases: [
             [
                 'sprite',
                 createSpriteStorybookUrl({
-                    componentName: 'UnderlayWrapper',
+                    componentName: 'Underlay',
                     knobs: {
                         children: 'Content',
                         backgroundColor: 'info',

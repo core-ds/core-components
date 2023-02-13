@@ -1,20 +1,20 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import { UnderlayWrapper } from './index';
+import { Underlay } from './index';
 
-describe('UnderlayWrapper', () => {
+describe('Underlay', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { container } = render(
-                <UnderlayWrapper
+                <Underlay
                     borderSize={2}
                     backgroundColor='info'
                     borderColor='graphic-link'
                     shadow='shadow-l'
                 >
                     Content
-                </UnderlayWrapper>,
+                </Underlay>,
             );
 
             expect(container).toMatchSnapshot();
@@ -23,7 +23,7 @@ describe('UnderlayWrapper', () => {
 
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<UnderlayWrapper dataTestId={dataTestId} />);
+        const { getByTestId } = render(<Underlay dataTestId={dataTestId} />);
 
         expect(getByTestId(dataTestId).tagName).toBe('DIV');
     });
@@ -33,7 +33,7 @@ describe('UnderlayWrapper', () => {
             const className = 'test-class';
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <UnderlayWrapper className={className} dataTestId={dataTestId} />,
+                <Underlay className={className} dataTestId={dataTestId} />,
             );
 
             expect(getByTestId(dataTestId)).toHaveClass(className);
@@ -43,7 +43,7 @@ describe('UnderlayWrapper', () => {
             const backgroundColor = 'accent';
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <UnderlayWrapper backgroundColor={backgroundColor} dataTestId={dataTestId} />,
+                <Underlay backgroundColor={backgroundColor} dataTestId={dataTestId} />,
             );
 
             expect(getByTestId(dataTestId)).toHaveClass(`background-${backgroundColor}`);
@@ -53,7 +53,7 @@ describe('UnderlayWrapper', () => {
             const borderColor = 'accent';
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <UnderlayWrapper borderColor={borderColor} dataTestId={dataTestId} />,
+                <Underlay borderColor={borderColor} dataTestId={dataTestId} />,
             );
 
             expect(getByTestId(dataTestId)).toHaveClass(`border-color-${borderColor}`);
@@ -62,9 +62,7 @@ describe('UnderlayWrapper', () => {
         it('should set `shadow-xs` class if `shadow` prop is `shadow-xs`', () => {
             const shadow = 'shadow-xs';
             const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <UnderlayWrapper shadow={shadow} dataTestId={dataTestId} />,
-            );
+            const { getByTestId } = render(<Underlay shadow={shadow} dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId)).toHaveClass(shadow);
         });
@@ -73,7 +71,7 @@ describe('UnderlayWrapper', () => {
             const borderSize = 1;
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <UnderlayWrapper borderSize={borderSize} dataTestId={dataTestId} />,
+                <Underlay borderSize={borderSize} dataTestId={dataTestId} />,
             );
 
             expect(getByTestId(dataTestId)).toHaveClass(`border-width-${borderSize}`);
@@ -84,9 +82,7 @@ describe('UnderlayWrapper', () => {
         it('should call `onClick` prop', async () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <UnderlayWrapper onClick={cb} dataTestId={dataTestId} />,
-            );
+            const { getByTestId } = render(<Underlay onClick={cb} dataTestId={dataTestId} />);
 
             const el = getByTestId(dataTestId);
 
@@ -97,7 +93,7 @@ describe('UnderlayWrapper', () => {
     });
 
     it('should unmount without errors', () => {
-        const { unmount } = render(<UnderlayWrapper />);
+        const { unmount } = render(<Underlay />);
 
         expect(unmount).not.toThrowError();
     });

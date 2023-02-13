@@ -24,7 +24,7 @@ export type UnderlayProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Ширина бордера
      */
-    borderSize?: 1 | 2 | 4 | 'none';
+    borderSize?: 1 | 2 | 4;
 
     /**
      * Цвет бордера
@@ -52,7 +52,7 @@ export type UnderlayProps = HTMLAttributes<HTMLDivElement> & {
     children?: ReactNode;
 };
 
-export const UnderlayWrapper: React.FC<UnderlayProps> = ({
+export const Underlay: React.FC<UnderlayProps> = ({
     children,
     borderRadius,
     shadow,

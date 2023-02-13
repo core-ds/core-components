@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/addon-docs';
 import { select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import { UnderlayWrapper } from '@alfalab/core-components-underlay-wrapper';
+import { Underlay } from '@alfalab/core-components-underlay';
 import { SHADOW, BORDER_COLOR, BACKGROUND } from '../consts'
 
 import { version } from '../../package.json';
@@ -10,21 +10,21 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-<Meta title='Components/Cells/UnderlayWrapper' component={UnderlayWrapper} id='UnderlayWrapper' />
+<Meta title='Components/Cells/Underlay' component={Underlay} id='Underlay' />
 
 <!-- Canvas -->
 
-<Story name='UnderlayWrapper'>
+<Story name='Underlay'>
  {React.createElement(() => {
     const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
     const borderRadius = select('borderRadius', ['m', 'xl', 'xxl'], 'm');
-    const borderSize = select('borderSize', ['1', '2', '4', 'none'], '2');
+    const borderSize = select('borderSize', ['1', '2', '4'], '2');
     const paddingTop = select('padding.top', paddingSizes, 'm');
     const paddingRight = select('padding.right', paddingSizes, 'm');
     const paddingBottom = select('padding.bottom', paddingSizes, 'm');
     const paddingLeft = select('padding.left', paddingSizes, 'm');
     return (
-        <UnderlayWrapper
+        <Underlay
             borderRadius={borderRadius}
             borderSize={borderSize}
             shadow={select('shadow', SHADOW, 'shadow-l')}
@@ -38,7 +38,7 @@ import Changelog from '../../CHANGELOG.md';
                 }}
         >
             {text('children', 'Вам одобрено. Согласитесь на предложение')}
-        </UnderlayWrapper>
+        </Underlay>
     );
 })}
 </Story>
@@ -46,9 +46,9 @@ import Changelog from '../../CHANGELOG.md';
 <!-- Docs -->
 
 <ComponentHeader
-    name='UnderlayWrapper'
+    name='Underlay'
     version={version}
-    package='@alfalab/core-components/underlay-wrapper'
+    package='@alfalab/core-components/underlay'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=317%3A37759'
     children='Подложка под любой вид контента.'
 />

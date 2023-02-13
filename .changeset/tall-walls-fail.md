@@ -1,5 +1,5 @@
 ---
-"@alfalab/core-components-underlay-wrapper": major
+"@alfalab/core-components-underlay": major
 ---
 
-Добавлен новый компонент UnderlayWrapper
+Добавлен новый компонент Underlay
