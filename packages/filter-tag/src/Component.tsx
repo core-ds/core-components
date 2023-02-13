@@ -85,7 +85,6 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             showClear = true,
             className,
             dataTestId,
-            ...restProps
         },
         ref,
     ) => {
@@ -127,7 +126,6 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                 ref={ref}
                 data-test-id={dataTestId}
                 onClick={disabled ? undefined : onClick}
-                {...restProps}
             >
                 <button
                     type='button'
