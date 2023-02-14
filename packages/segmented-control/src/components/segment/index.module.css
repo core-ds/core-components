@@ -3,11 +3,15 @@
 .segment {
     flex: 1;
     z-index: 1;
-    padding: var(--gap-xs);
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--gap-xs);
     border: none;
     background-color: transparent;
     position: relative;
-    font-family: var(--segmented-control-font-family);
+    font-family: var(--font-family-system);
     color: var(--color-light-text-primary);
     transition: font-weight 0.2s ease;
     cursor: pointer;

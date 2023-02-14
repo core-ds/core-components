@@ -1,4 +1,5 @@
-import React, { FC, ReactElement, useEffect, useMemo, useRef } from 'react';
+import React, { FC, ReactElement, useCallback, useEffect, useRef } from 'react';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
 import { SegmentProps } from './components';
@@ -29,9 +30,9 @@ export type SegmentedControlProps = {
     size?: 'xs' | 'xxs';
 
     /**
-     * Вид компонента
+     * Форма компонента
      */
-    view?: 'rounded' | 'rect';
+    shape?: 'rounded' | 'rectangular';
 
     /**
      * Дочерние элементы
@@ -48,75 +49,78 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     className,
     selectedId,
     onChange,
-    view = 'rect',
+    shape = 'rectangle',
     size = 'xxs',
     children,
     dataTestId,
 }) => {
-    const handler = useRef(onChange);
+    const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
     const selectedBoxRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        handler.current = onChange;
-    }, [onChange]);
+    const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
+    const isPositionFounded = selectedSegmentPosition !== -1;
+    const content = isPositionFounded && children[selectedSegmentPosition].props.children;
+    const contentClassName =
+        isPositionFounded && children[selectedSegmentPosition].props.contentClassName;
 
-    useEffect(() => {
-        const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
-
-        if (selectedSegmentPosition !== -1 && innerRef.current && selectedBoxRef.current) {
-            const selectedSegment = Array.from(innerRef.current.children)[
-                selectedSegmentPosition
-            ] as HTMLDivElement;
-            const { width } = selectedSegment.getBoundingClientRect();
+    const setSelectedBoxStyles = useCallback(() => {
+        if (innerRef.current && selectedBoxRef.current) {
+            const segments = Array.from(innerRef.current.children);
+            const { width: parentWidth } = innerRef.current.getBoundingClientRect();
+            const width = parentWidth / segments.length;
+            const offsetLeft = width * selectedSegmentPosition;
 
             selectedBoxRef.current.style.width = `${width}px`;
-            selectedBoxRef.current.style.transform = `translateX(${selectedSegment.offsetLeft}px)`;
+            selectedBoxRef.current.style.transform = `translateX(${offsetLeft}px)`;
         }
-    }, [children, selectedId]);
+    }, [selectedSegmentPosition]);
 
-    const context: ContextType = useMemo(
-        () => ({
-            onChange: (id) => handler.current(id),
-        }),
-        [],
-    );
+    const setSelectedBoxStylesRef = useRef(setSelectedBoxStyles);
 
-    const { segments, content, contentClassName } = useMemo(() => {
-        const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
-        const isPositionFounded = selectedSegmentPosition !== -1;
+    useEffect(() => {
+        setSelectedBoxStylesRef.current = setSelectedBoxStyles;
+        setSelectedBoxStyles();
+    }, [setSelectedBoxStyles]);
 
-        const segments = React.Children.map(children, (item) =>
-            React.cloneElement(item, {
-                className: cn(
-                    styles.segment,
-                    {
-                        [styles.selected]: item.props.id === selectedId,
-                    },
-                    item.props.className,
-                ),
-            }),
-        );
+    useEffect(() => {
+        if (!wrapperRef.current) return undefined;
 
-        return {
-            segments,
-            content: isPositionFounded && children[selectedSegmentPosition].props.children,
-            contentClassName:
-                isPositionFounded && children[selectedSegmentPosition].props.contentClassName,
-        };
-    }, [selectedId, children]);
+        const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
+
+        const observer = new ResizeObserver(() => setSelectedBoxStylesRef.current());
+
+        observer.observe(wrapperRef.current);
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <SegmentedControlContext.Provider value={context}>
-            <div className={cn(styles.wrapper, styles[view], className)} data-test-id={dataTestId}>
+        // eslint-disable-next-line react/jsx-no-constructed-context-values
+        <SegmentedControlContext.Provider value={{ onChange }}>
+            <div
+                ref={wrapperRef}
+                className={cn(styles.wrapper, styles[shape], styles[size], className)}
+                data-test-id={dataTestId}
+            >
                 <div className={cn(styles.container)}>
-                    <div className={cn(styles.selectedBox, styles[view])} ref={selectedBoxRef} />
-                    <div className={cn(styles.inner, styles[size])} ref={innerRef}>
-                        {segments}
+                    <div className={cn(styles.selectedBox, styles[shape])} ref={selectedBoxRef} />
+                    <div className={cn(styles.inner)} ref={innerRef}>
+                        {React.Children.map(children, (item) =>
+                            React.cloneElement(item, {
+                                className: cn(
+                                    styles.segment,
+                                    {
+                                        [styles.selected]: item.props.id === selectedId,
+                                    },
+                                    item.props.className,
+                                ),
+                            }),
+                        )}
                     </div>
                 </div>
             </div>
-            <div className={cn(contentClassName)}>{content}</div>
+            {content && <div className={cn(contentClassName)}>{content}</div>}
         </SegmentedControlContext.Provider>
     );
 };

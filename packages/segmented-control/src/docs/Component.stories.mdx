@@ -18,7 +18,7 @@ import { version } from '../../package.json';
         return (
             <SegmentedControl
                 size={select('size', ['xs', 'xxs'], 'xs')}
-                view={select('view', ['rounded', 'rect'], 'rect')}
+                shape={select('shape', ['rounded', 'rect'], 'rect')}
                 onChange={handleChange}
                 selectedId={selectedId}
             >

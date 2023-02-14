@@ -1,46 +1,28 @@
 @import '../../themes/src/default.css';
 
-:root {
-    --segmented-control-font-family: var(--font-family-system);
-}
-
 .wrapper {
-    position: relative;
     background-color: var(--color-light-specialbg-secondary-transparent);
+    display: flex;
 }
 
 .container {
-    margin: var(--gap-3xs);
+    position: relative;
+    display: flex;
+    flex: 1;
 }
 
 .inner {
     display: flex;
-}
-
-.xs {
-    height: 40px;
-}
-
-.xxs {
-    height: 32px;
+    flex: 1;
+    margin: 0 var(--gap-3xs);
 }
 
 .rounded {
     border-radius: var(--border-radius-xl);
 }
 
-.rect {
+.rectangle {
     border-radius: calc(var(--border-radius-l) / 2);
-}
-
-.selectedBox {
-    position: absolute;
-    left: 0;
-    bottom: var(--gap-3xs);
-    top: var(--gap-3xs);
-    box-shadow: var(--shadow-s);
-    background-color: var(--color-light-bg-primary);
-    transition: width 0.2s ease, transform 0.2s ease;
 }
 
 .segment {
@@ -54,4 +36,34 @@
     & + .segment:before {
         opacity: 0;
     }
+}
+
+.xs {
+    height: var(--size-xs-height);
+
+    & .rounded,
+    &:has(.rounded) {
+        border-radius: var(--border-radius-xxl);
+    }
+
+    & .rectangle,
+    &:has(.rectangle) {
+        border-radius: var(--border-radius-m);
+    }
+}
+
+.xxs {
+    height: var(--size-xxs-height);
+}
+
+.selectedBox {
+    border: 0.5px solid var(--color-light-border-tertiary);
+    box-sizing: border-box;
+    position: absolute;
+    top: var(--gap-3xs);
+    bottom: var(--gap-3xs);
+    left: var(--gap-3xs);
+    box-shadow: var(--shadow-s);
+    background-color: var(--color-light-bg-primary);
+    transition: width 0.2s ease, transform 0.2s ease;
 }

@@ -1,25 +1,26 @@
 {
-  "name": "@alfalab/core-components-segmented-control",
-  "version": "1.0.0",
-  "description": "SegmentedControl component",
-  "keywords": [],
-  "license": "MIT",
-  "main": "index.js",
-  "module": "./esm/index.js",
-  "scripts": {
-    "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-  },
-  "publishConfig": {
-    "access": "public",
-    "directory": "dist"
-  },
-  "peerDependencies": {
-    "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-    "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
-  },
-  "dependencies": {
-    "@alfalab/hooks": "^1.4.1",
-    "classnames": "^2.3.1",
-    "react-merge-refs": "^1.1.0"
-  }
+    "name": "@alfalab/core-components-segmented-control",
+    "version": "0.0.0",
+    "description": "SegmentedControl component",
+    "keywords": [],
+    "license": "MIT",
+    "main": "index.js",
+    "module": "./esm/index.js",
+    "scripts": {
+        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+    },
+    "dependencies": {
+        "@alfalab/hooks": "^1.4.1",
+        "classnames": "^2.3.1",
+        "react-merge-refs": "^1.1.0",
+        "@juggle/resize-observer": "^3.3.1"
+    }
 }
