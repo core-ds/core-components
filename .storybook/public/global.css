@@ -45,6 +45,7 @@ body {
 
 body.sb-show-main,
 body.sb-show-main.sb-main-padded {
+    height: calc(100% - 2 * var(--gap-xs));
     margin: var(--gap-xs);
     padding: 0;
     overflow-x: hidden;
