@@ -17,7 +17,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^6.1.6",
+        "@alfalab/core-components-input": "^11.1.5",
         "react-merge-refs": "^1.1.0"
     }
 }

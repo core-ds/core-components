@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { NumberInput } from './index';
@@ -51,21 +51,23 @@ describe('NumberInput', () => {
     });
 
     describe('Controlled-way', () => {
-        it('should set value to input without plus sign', () => {
+        it('should set value to input without signs', () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
-            const value = '+123';
-            const value2 = '123';
             const { getByTestId } = render(
                 <NumberInput onChange={cb} allowSigns={false} dataTestId={dataTestId} />,
             );
 
             const inputNumber = getByTestId(dataTestId) as HTMLInputElement;
 
-            fireEvent.change(inputNumber, { target: { value } });
+            fireEvent.change(inputNumber, { target: { value: '+' } });
+            expect(inputNumber.value).toBe('');
 
-            expect(cb).toBeCalledTimes(1);
-            expect(inputNumber.value).toBe(value2);
+            fireEvent.change(inputNumber, { target: { value: '-' } });
+            expect(inputNumber.value).toBe('');
+
+            fireEvent.change(inputNumber, { target: { value: '123' } });
+            expect(inputNumber.value).toBe('123');
         });
 
         it('should set value to input with plus sign', () => {
