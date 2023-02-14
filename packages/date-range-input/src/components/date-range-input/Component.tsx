@@ -11,6 +11,7 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import { startOfMonth } from 'date-fns';
 import dateFnsIsValid from 'date-fns/isValid';
 
 import {
@@ -158,6 +159,8 @@ export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
         view?: 'desktop' | 'mobile';
     };
 
+type GetDatesRet = { formattedValue: string; dateFrom?: Date; dateTo?: Date; dateArr: string[] };
+
 export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputProps>(
     (
         {
@@ -196,23 +199,71 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const [value, setValue] = useState(propValue || defaultValue);
-        const [open, setOpen] = useState(false);
+        const [open, setOpen] = useState(defaultOpen);
 
         const inputDisabled = disabled || readOnly;
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
+        const { selectedFrom, selectedTo, updatePeriod, resetPeriod, setStart, setEnd } = usePeriod(
+            { onPeriodChange: handlePeriodChange },
+        );
+
         useEffect(() => {
-            setOpen(defaultOpen);
-        }, [defaultOpen]);
+            if (value) {
+                setCalendarPeriod(getDates(value));
+            }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
+
+        useEffect(() => {
+            setValue((prevValue) => {
+                if (selectedFrom && selectedTo) {
+                    const from = parseTimestampToDate(selectedFrom);
+                    const to = parseTimestampToDate(selectedTo);
+
+                    return `${from} - ${to}`;
+                }
+                if (selectedFrom && prevValue.length < DATE_FORMAT.length) {
+                    return parseTimestampToDate(selectedFrom);
+                }
+
+                return prevValue;
+            });
+        }, [selectedFrom, selectedTo]);
 
         useDidUpdateEffect(() => {
             const newPropValue = propValue || '';
 
-            setValue((prevValue) => (prevValue === newPropValue ? prevValue : newPropValue));
+            setValue((prevValue) => {
+                if (prevValue === newPropValue) {
+                    return prevValue;
+                }
+
+                const dates = getDates(newPropValue);
+
+                setCalendarPeriod(dates);
+
+                return dates.formattedValue;
+            });
         }, [propValue]);
 
-        const handlePeriodChange = (selectedFrom?: number, selectedTo?: number) => {
+        function getDates(val: string): GetDatesRet {
+            const formattedValue = format(val);
+
+            const dateArr = formattedValue.split('-').map((v) => v.trim());
+            const dateFrom = dateArr[0] ? parseDateString(dateArr[0]) : undefined;
+            const dateTo = dateArr[1] ? parseDateString(dateArr[1]) : undefined;
+
+            return { formattedValue, dateFrom, dateTo, dateArr };
+        }
+
+        function setCalendarPeriod({ dateFrom, dateTo }: GetDatesRet) {
+            setStart(dateFrom?.getTime());
+            setEnd(dateTo?.getTime());
+        }
+
+        function handlePeriodChange(selectedFrom?: number, selectedTo?: number) {
             if (selectedFrom && !selectedTo && value.length === DATE_MASK.length) {
                 setValue(parseTimestampToDate(selectedFrom));
             } else if (
@@ -242,11 +293,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                     value: newValue,
                 });
             }
-        };
-
-        const { selectedFrom, selectedTo, updatePeriod, resetPeriod, setStart, setEnd } = usePeriod(
-            { onPeriodChange: handlePeriodChange },
-        );
+        }
 
         const handleInputWrapperFocus = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {
@@ -296,11 +343,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                 return;
             }
 
-            const formattedValue = format(newValue);
-
-            const dateArr = formattedValue.split(' - ');
-            const dateFrom = dateArr[0] ? parseDateString(dateArr[0]) : undefined;
-            const dateTo = dateArr[1] ? parseDateString(dateArr[1]) : undefined;
+            const { formattedValue, dateFrom, dateTo, dateArr } = getDates(newValue);
 
             if (!dateFrom && !dateTo) {
                 resetPeriod();
@@ -358,16 +401,6 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             }
         };
 
-        useEffect(() => {
-            if (selectedFrom && selectedTo) {
-                setValue(
-                    `${parseTimestampToDate(selectedFrom)} - ${parseTimestampToDate(selectedTo)}`,
-                );
-            } else if (selectedFrom && value.length < DATE_FORMAT.length) {
-                setValue(parseTimestampToDate(selectedFrom));
-            }
-        }, [selectedFrom, selectedTo, value]);
-
         const handleCalendarWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
             // Не дает инпуту терять фокус при выборе даты
             event.preventDefault();
@@ -381,26 +414,32 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             }
         };
 
-        const renderCalendar = () => (
-            // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-            <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <Calendar
-                    {...calendarProps}
-                    responsive={calendarResponsive}
-                    open={open}
-                    onClose={handleCalendarClose}
-                    ref={calendarRef}
-                    defaultMonth={defaultMonth}
-                    selectedFrom={selectedFrom}
-                    selectedTo={selectedTo}
-                    onChange={handleCalendarChange}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    offDays={offDays}
-                    events={events}
-                />
-            </div>
-        );
+        const renderCalendar = () => {
+            const activeMonth =
+                (selectedTo && startOfMonth(selectedTo)) ||
+                (selectedFrom && startOfMonth(selectedFrom));
+
+            return (
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+                <div onMouseDown={handleCalendarWrapperMouseDown}>
+                    <Calendar
+                        {...calendarProps}
+                        responsive={calendarResponsive}
+                        open={open}
+                        onClose={handleCalendarClose}
+                        ref={calendarRef}
+                        defaultMonth={activeMonth || defaultMonth}
+                        selectedFrom={selectedFrom}
+                        selectedTo={selectedTo}
+                        onChange={handleCalendarChange}
+                        minDate={minDate}
+                        maxDate={maxDate}
+                        offDays={offDays}
+                        events={events}
+                    />
+                </div>
+            );
+        };
 
         return (
             <div

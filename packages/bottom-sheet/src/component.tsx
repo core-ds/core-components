@@ -3,12 +3,14 @@ import React, {
     forwardRef,
     HTMLAttributes,
     ReactNode,
+    RefObject,
     useCallback,
     useEffect,
     useRef,
     useState,
 } from 'react';
 import { use100vh } from 'react-div-100vh';
+import mergeRefs from 'react-merge-refs';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
@@ -45,6 +47,13 @@ export type BottomSheetProps = {
      * Кнопка действия (обычно, это кнопка закрытия)
      */
     actionButton?: ReactNode;
+
+    /**
+     * Нода, компонент или функция возвращающая их
+     *
+     * Контейнер к которому будут добавляться порталы
+     */
+    container?: BaseModalProps['container'];
 
     /**
      * Дополнительный класс
@@ -204,6 +213,11 @@ export type BottomSheetProps = {
     backdropProps?: BaseModalProps['backdropProps'];
 
     /**
+     * Реф на контейнер, в котором происходит скролл
+     */
+    scrollableContainerRef?: RefObject<HTMLElement>;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -229,6 +243,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         {
             open,
             title,
+            container,
             actionButton,
             contentClassName,
             containerClassName,
@@ -261,6 +276,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             dataTestId,
             swipeable = true,
             backdropProps,
+            scrollableContainerRef = () => null,
             onClose,
             onBack,
         },
@@ -447,6 +463,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             <BaseModal
                 open={open}
                 ref={ref}
+                container={container}
                 dataTestId={dataTestId}
                 zIndex={zIndex}
                 onClose={onClose}
@@ -493,7 +510,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                     [styles.scrollLocked]: scrollLocked,
                                 },
                             )}
-                            ref={scrollableContainer}
+                            ref={mergeRefs([scrollableContainer, scrollableContainerRef])}
                         >
                             {swipeable && <div className={cn(styles.marker)} />}
 

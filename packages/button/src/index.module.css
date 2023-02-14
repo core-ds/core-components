@@ -62,6 +62,9 @@
 
 .loader {
     position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 /* Size */
@@ -70,25 +73,25 @@
 для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
 .xxs {
     min-width: 80px;
-    min-height: var(--size-xs-height);
+    min-height: var(--size-xxs-height);
     padding: 0 15px;
     font-size: 14px;
     border-radius: var(--button-xxs-size-border-radius);
 
     &.iconOnly {
-        min-width: var(--size-xs-height);
+        min-width: var(--size-xxs-height);
     }
 }
 
 .xs {
     min-width: 88px;
-    min-height: 40px;
+    min-height: var(--size-xs-height);
     padding: 0 19px;
     font-size: 14px;
     border-radius: var(--button-xs-size-border-radius);
 
     &.iconOnly {
-        min-width: 40px;
+        min-width: var(--size-xs-height);
     }
 }
 

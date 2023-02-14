@@ -1,5 +1,35 @@
 # Change Log
 
+## 9.2.10
+
+### Patch Changes
+
+### [#512](https://github.com/core-ds/core-components/pull/512)
+
+-   fix(intl-phone-input): исправлена вставка в пустое поле номера без "+"
+
+-   Обновлены зависимости
+    -   select@13.2.11
+    -   input-autocomplete@9.3.8
+    -   input@11.1.6
+
+## 9.2.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.5
+    -   input-autocomplete@9.3.7
+    -   select@13.2.10
+
+## 9.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.9
+    -   input-autocomplete@9.3.6
+
 ## 9.2.7
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/addon-docs';
-import { radios, text } from '@storybook/addon-knobs';
+import { radios, text, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { PatternLock } from '@alfalab/core-components-pattern-lock';
 
@@ -28,6 +28,7 @@ import Changelog from '../../CHANGELOG.md';
                     'space-between',
                 )}
                 error={text('error', '')}
+                showForgotCodeBtn={boolean('showForgotCodeBtn', false)}
             />
         );
     })}

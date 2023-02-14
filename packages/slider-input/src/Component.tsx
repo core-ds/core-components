@@ -151,8 +151,8 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         },
         ref,
     ) => {
-        const getValidInputValue = useCallback((inputValue: string) => {
-            const number = parseInt(inputValue.replace(/\s/g, ''), 10);
+        const getValidInputValue = useCallback((inputValue: string | number) => {
+            const number = parseInt(inputValue?.toString().replace(/\s/g, ''), 10);
 
             return inputValue === '' || Number.isNaN(number) ? '' : Math.abs(number);
         }, []);
@@ -166,7 +166,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         );
 
         const handleInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => {
+            (event: ChangeEvent<HTMLInputElement>, payload: { value: string | number }) => {
                 if (onChange) onChange(event, { value: getValidInputValue(payload.value) });
                 if (onInputChange)
                     onInputChange(event, { value: getValidInputValue(payload.value) });

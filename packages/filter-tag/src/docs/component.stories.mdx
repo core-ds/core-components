@@ -28,9 +28,12 @@ export const SIZES = ['xxs', 'xs', 's'];
         <FilterTag
             size={select('size', SIZES, 's')}
             variant={select('variant', ['default', 'alt'], 'default')}
+            shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
+            view={select('view', ['outlined', 'filled'], 'outlined')}
             disabled={boolean('disabled', false)}
             checked={boolean('checked', false)}
             open={boolean('open', false)}
+            showClear={boolean('showClear', true)}
         >
             {text('children', 'FilterTag')}
         </FilterTag>

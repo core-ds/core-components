@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+### [#510](https://github.com/core-ds/core-components/pull/510)
+
+-   В Select исправлено выделение опций на iOS с пропом `Options={BaseOptions}`
+-   В Checkbox добавлен проп hiddenInput, с помощью которого можно скрыть нативный input<br />
+
 ## 3.0.7
 
 ### Patch Changes

@@ -131,58 +131,126 @@ render(() => {
 });
 ```
 
-## Состояния
+## Состояния и стили
 
-Таб может находиться в активном и неактивном состоянии. Взаимодействие может быть ограничено с помощью свойства `disabled`.
+У тега есть две опции, отвечающие за внешний вид: 
+* shape (форма) — овальные или прямоугольные.
+* view (стиль) — залитые или бордерные. 
 
-```jsx live
-render(() => (
-    <Container>
-        <Row>
-            <div style={{ marginRight: 12 }}>
-                <Tag size='s'>Label</Tag>
-            </div>
-            <div>
-                <Tag size='s' disabled={true}>
-                    Label
-                </Tag>
-            </div>
-        </Row>
-        <div style={{ display: 'flex', marginTop: 16 }}>
-            <div style={{ marginRight: 12 }}>
-                <Tag size='s' checked={true}>
-                    Label
-                </Tag>
-            </div>
-            <Col>
-                <Tag size='s' checked={true} disabled={true}>
-                    Label
-                </Tag>
-            </Col>
-        </div>
-    </Container>
-));
-```
-
-## Стиль
-
-С помощью `variant` можно задать альтернативный стиль тэгу, например, с другим радиусом скругления.
+Тег может находиться в активном и неактивном состоянии. 
+Взаимодействие с тегом может быть ограничено с помощью свойства `disabled`.
 
 ```jsx live
-render(() => (
-    <Container>
-        <Row>
-            <div style={{ marginRight: 12 }}>
-                <Tag size='s'>Label</Tag>
-            </div>
-            <div>
-                <Tag size='s' variant='alt'>
-                    Label
-                </Tag>
-            </div>
-        </Row>
-    </Container>
-));
+render(() => {
+    const [disabled, setDisabled] = React.useState(false);
+
+    const VIEWS = [
+        {key: 'outlinedRounded', view:'outlined', shape: 'rounded' }, 
+        {key: 'filledRounded', view:'filled', shape: 'rounded' }, 
+        {key: 'outlinedRectangular',view:'outlined', shape: 'rectangular' }, 
+        {key: 'filledRectangular', view:'filled', shape: 'rectangular' }
+    ]
+
+    const [checked, setChecked] = React.useState(
+        Object.fromEntries(VIEWS.map((item) => [item.key, false])),
+    );
+
+    return (
+        <Container>
+        
+            <Row align='middle'>
+                {VIEWS.map((item) => (
+                    <div key={item.key} style={{ marginRight: 12 }}>
+                        <Tag
+                            size='s'
+                            view={item.view}
+                            shape={item.shape}
+                            disabled={disabled}
+                            checked={checked[item.key]}
+                            onClick={() => setChecked({ ...checked, [item.key]: !checked[item.key] })}
+                        >
+                            Label
+                        </Tag>
+                    </div>
+                ))}
+            </Row>
+
+            <Gap size='l' />
+
+            <Switch
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+                label='Disabled'
+            />
+        </Container>
+    )
+});
+//MOBILE
+render(() => {
+    const [disabled, setDisabled] = React.useState(false);
+
+    const ROUNDEDS= [
+        {key: 'outlinedRounded', view:'outlined', shape: 'rounded' }, 
+        {key: 'filledRounded', view:'filled', shape: 'rounded' }, 
+    ]
+
+    const RECTANGLES= [
+        {key: 'outlinedRectangular',view:'outlined', shape: 'rectangular' }, 
+        {key: 'filledRectangular', view:'filled', shape: 'rectangular' }
+    ]
+    const [checkedRounded, setCheckedRounded] = React.useState(
+        Object.fromEntries(ROUNDEDS.map((item) => [item.key, false])),
+    );
+    const [checkedRectangular, setCheckedRectangular] = React.useState(
+        Object.fromEntries(ROUNDEDS.map((item) => [item.key, false])),
+    );
+
+    return (
+        <Container>
+        
+            <Row align='middle'>
+                {ROUNDEDS.map((item) => (
+                    <div key={item.key} style={{ marginRight: 12 }}>
+                        <Tag
+                            size='s'
+                            view={item.view}
+                            shape={item.shape}
+                            disabled={disabled}
+                            checked={checkedRounded[item.key]}
+                            onClick={() => setCheckedRounded({ ...checkedRounded, [item.key]: !checkedRounded[item.key] })}
+                        >
+                            Label
+                        </Tag>
+                    </div>
+                ))}
+            </Row>
+            <Row align='middle'>
+                {RECTANGLES.map((item) => (
+                    <div key={item.key} style={{ marginRight: 12 }}>
+                        <Tag
+                            size='s'
+                            view={item.view}
+                            shape={item.shape}
+                            disabled={disabled}
+                            checked={checkedRectangular[item.key]}
+                            onClick={() => setCheckedRectangular({ ...checkedRectangular, [item.key]: !checkedRectangular[item.key] })}
+                        >
+                            Label
+                        </Tag>
+                    </div>
+                ))}
+            </Row>
+
+            <Gap size='l' />
+
+            <Switch
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+                label='Disabled'
+            />
+        </Container>
+    )
+});
 ```
 
 ## Связанные компоненты

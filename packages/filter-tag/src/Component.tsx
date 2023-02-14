@@ -51,11 +51,6 @@ export type FilterTagProps = {
     size?: 'xxs' | 'xs' | 's';
 
     /**
-     * Вариант тега
-     */
-    variant?: 'default' | 'alt';
-
-    /**
      * Дополнительный класс
      */
     className?: string;
@@ -64,6 +59,23 @@ export type FilterTagProps = {
      * Показывать крестик для очистки выбора
      */
     showClear?: boolean;
+
+    /**
+     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
+     * Используйте props shape и view
+     * Вариант тега
+     */
+    variant?: 'default' | 'alt';
+
+    /**
+     * Форма тега
+     */
+    shape?: 'rounded' | 'rectangular';
+
+    /**
+     * Стиль тега
+     */
+    view?: 'outlined' | 'filled';
 };
 
 const isKeyBoardEvent = (
@@ -81,6 +93,8 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             onClick,
             size = 's',
             variant = 'default',
+            shape,
+            view = 'outlined',
             onClear = () => null,
             showClear = true,
             className,
@@ -107,23 +121,19 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             onClear();
         };
 
-        const variantClassName = variant === 'default' ? 'defaultVariant' : variant;
+        const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
+
+        const shapeClassName = shape || variantClassName;
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
-                className={cn(
-                    className,
-                    [styles.component],
-                    styles[variantClassName],
-                    styles[size],
-                    {
-                        [styles.checked]: checked,
-                        [styles.disabled]: disabled,
-                        [styles.focused]: focused,
-                        [styles.open]: open,
-                    },
-                )}
+                className={cn(className, [styles.component], styles[shapeClassName], styles[size], {
+                    [styles.checked]: checked,
+                    [styles.disabled]: disabled,
+                    [styles.focused]: focused,
+                    [styles.open]: open,
+                })}
                 ref={ref}
                 data-test-id={dataTestId}
                 onClick={disabled ? undefined : onClick}
@@ -133,11 +143,17 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     type='button'
                     ref={valueRef}
                     disabled={disabled}
-                    className={cn(styles.valueButton, styles[size], styles[variantClassName], {
-                        [styles.checked]: checked,
-                        [styles.open]: open,
-                        [styles.close]: !showClear,
-                    })}
+                    className={cn(
+                        styles.valueButton,
+                        styles[size],
+                        styles[shapeClassName],
+                        styles[view],
+                        {
+                            [styles.checked]: checked,
+                            [styles.open]: open,
+                            [styles.close]: !showClear,
+                        },
+                    )}
                 >
                     <span>{children}</span>
                     <span className={styles.chevron}>
@@ -148,7 +164,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                 {checked && !disabled && showClear && (
                     <div
                         role='button'
-                        className={cn(styles.clear, styles[size], styles[variantClassName])}
+                        className={cn(styles.clear, styles[size], styles[shapeClassName])}
                         onClick={handleClear}
                         onKeyDown={handleClear}
                         tabIndex={0}

@@ -38,6 +38,8 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
                 <Tag
                     size={select('size', SIZES, 'm')}
                     variant={select('variant', ['default', 'alt'], 'default')}
+                    shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
+                    view={select('view', ['outlined', 'filled'], 'outlined')}
                     disabled={boolean('disabled', false)}
                     checked={checked || boolean('checked', false)}
                     rightAddons={boolean('rightAddons', false) && <CopyMIcon />}

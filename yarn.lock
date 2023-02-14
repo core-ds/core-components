@@ -6741,14 +6741,14 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest-image-snapshot@^4.1.3":
-  version "4.1.3"
-  resolved "https://registry.npmjs.org/@types/jest-image-snapshot/-/jest-image-snapshot-4.1.3.tgz"
-  integrity sha512-JqDoqKInxfMhD0aN/iGzli4ZqRSwfjyPpFoE5BrshfGBHpW1BUCIEI3OUu3bwxzfogI/aLo2OLVKkbOyxxDrFg==
+"@types/jest-image-snapshot@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@types/jest-image-snapshot/-/jest-image-snapshot-6.1.0.tgz#d74176821cbdf24458f39819743e9adb3d3146e9"
+  integrity sha512-wYayjKQGdI0ZbmsAq7OPt+5wMMi1CDXXkF3LfoGj4eRC0dOqlYJdXqLwfC89Qf2apQdlL9StgCkw0iTDb8lpUw==
   dependencies:
     "@types/jest" "*"
     "@types/pixelmatch" "*"
-    ssim.js "^3.1.0"
+    ssim.js "^3.1.1"
 
 "@types/jest@*", "@types/jest@26.x", "@types/jest@^26.0.15":
   version "26.0.19"
@@ -6972,10 +6972,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-transition-group@^4.2.4":
-  version "4.4.0"
-  resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.0.tgz"
-  integrity sha512-/QfLHGpu+2fQOqQaXh8MG9q03bFENooTb/it4jr5kKaZlDQfWvjqWZg48AwzPVMBHlRuTRAY7hRHCEOXz5kV6w==
+"@types/react-transition-group@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.5.tgz#aae20dcf773c5aa275d5b9f7cdbca638abc5e416"
+  integrity sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==
   dependencies:
     "@types/react" "*"
 
@@ -13598,10 +13598,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-focus-lock@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.npmjs.org/focus-lock/-/focus-lock-0.11.2.tgz#aeef3caf1cea757797ac8afdebaec8fd9ab243ed"
-  integrity sha512-pZ2bO++NWLHhiKkgP1bEXHhR1/OjVcSvlCJ98aNJDFeb7H5OOQaO+SKOZle6041O9rv2tmbrO4JzClAvDUHf0g==
+focus-lock@^0.11.2, focus-lock@^0.11.5:
+  version "0.11.5"
+  resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.11.5.tgz#bef1bf86000ce5ee634a7fedeecf28a580dfbc9d"
+  integrity sha512-1mTr6pl9HBpJ8CqY7hRc38MCrcuTZIeYAkBD1gBTzbx5/to+bRBaBYtJ68iDq7ryTzAAbKrG3dVKjkrWTaaEaw==
   dependencies:
     tslib "^2.0.3"
 
@@ -16434,12 +16434,12 @@ jest-haste-map@^26.6.2:
   optionalDependencies:
     fsevents "^2.1.2"
 
-jest-image-snapshot@^4.2.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/jest-image-snapshot/-/jest-image-snapshot-4.3.0.tgz"
-  integrity sha512-GFwhOQiWyECcndHvOTLYXpghHP+S9R58B7Ru1Y/74IJYpY0IIc2D0GOwEzKMWqhXHS1KedpymZGZfMqZDlyYiQ==
+jest-image-snapshot@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/jest-image-snapshot/-/jest-image-snapshot-6.1.0.tgz#96a17b00530e1358eae657f6c9bb948e29ee7510"
+  integrity sha512-LZYoks6V1HAkYqyi80gUjMWVsa++Oy0fckAGMLBQseVweZT9AmJNKAINwHLqX1fpeMy2hTG5CCEe4IUX2N3Nmg==
   dependencies:
-    chalk "^1.1.3"
+    chalk "^4.0.0"
     get-stdin "^5.0.1"
     glur "^1.1.2"
     lodash "^4.17.4"
@@ -21693,13 +21693,25 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
-react-focus-lock@2.9.1, react-focus-lock@^2.9.1:
+react-focus-lock@2.9.1:
   version "2.9.1"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.1.tgz#094cfc19b4f334122c73bb0bff65d77a0c92dd16"
   integrity sha512-pSWOQrUmiKLkffPO6BpMXN7SNKXMsuOakl652IBuALAu1esk+IcpJyM+ALcYzPTTFz1rD0R54aB9A4HuP5t1Wg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     focus-lock "^0.11.2"
+    prop-types "^15.6.2"
+    react-clientside-effect "^1.2.6"
+    use-callback-ref "^1.3.0"
+    use-sidecar "^1.1.2"
+
+react-focus-lock@^2.9.3:
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.3.tgz#147bc783f4325b7ab52ac580c8afffdfc1d7ce23"
+  integrity sha512-cGNkz9p5Fpqio6hBHlkKxzRYrBYtcPosFOL6Q3N/LSbHjwP/PTBqHpvbgaOYoE7rWfzw8qXPKTB3Tk/VPgw4NQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    focus-lock "^0.11.5"
     prop-types "^15.6.2"
     react-clientside-effect "^1.2.6"
     use-callback-ref "^1.3.0"
@@ -21905,20 +21917,10 @@ react-transition-group@2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-transition-group@^4.3.0:
-  version "4.4.1"
-  resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.1.tgz"
-  integrity sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    dom-helpers "^5.0.1"
-    loose-envify "^1.4.0"
-    prop-types "^15.6.2"
-
-react-transition-group@^4.4.1:
-  version "4.4.2"
-  resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
-  integrity sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==
+react-transition-group@^4.3.0, react-transition-group@^4.4.1, react-transition-group@^4.4.5:
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
+  integrity sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==
   dependencies:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"
@@ -23617,7 +23619,7 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-ssim.js@^3.1.0, ssim.js@^3.1.1:
+ssim.js@^3.1.1:
   version "3.5.0"
   resolved "https://registry.npmjs.org/ssim.js/-/ssim.js-3.5.0.tgz"
   integrity sha512-Aj6Jl2z6oDmgYFFbQqK7fght19bXdOxY7Tj03nF+03M9gCBAjeIiO8/PlEGMfKDwYpw4q6iBqVq2YuREorGg/g==
@@ -25056,15 +25058,15 @@ uglify-js@^3.1.4:
   resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.12.3.tgz"
   integrity sha512-feZzR+kIcSVuLi3s/0x0b2Tx4Iokwqt+8PJM7yRHKuldg4MLdam4TCFeICv+lgDtuYiCtdmrtIP+uN9LWvDasw==
 
+ui-primitives@^10.9.0:
+  version "10.9.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-10.9.0.tgz#90b8c6bb87ee37840aa1ac13f88d92479a3a1238"
+  integrity sha512-z7XQpJ53a1HphXQIa5AKlLVnUdHBqxzYudayjJooMDYALyfxKgGX49cwT/0Z+tuMBagJ1aZfQ0ZIq0B6bXJKBA==
+
 ui-primitives@^8.10.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-8.10.0.tgz#f3f823c8697b9de902c79a09ed0dc92a8c7eb3cc"
   integrity sha512-1ej984PE6wlEqctLcxjIOajBSiPXiu+mKM7Fy0/5Cqf4vdaU7Jy45oGt6HKb1Ua7rRK03SNcT/Ffya98KmUI+g==
-
-ui-primitives@^9.4.0:
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-9.4.0.tgz#ecd04f94bd98b82959b22882c75424db83b5328a"
-  integrity sha512-ST8Ogb2pv9M8EZLh+wzqf6hi3Lww8PpKMzliC1BqoYkRIXjCRYJHU7w+Ug87160rDN2r1DxUx+rry1esYd0HDw==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

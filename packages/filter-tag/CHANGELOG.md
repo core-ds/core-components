@@ -1,5 +1,24 @@
 # Change Log
 
+## 2.0.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.0.6
+
+## 2.0.14
+
+### Patch Changes
+
+### [#491](https://github.com/core-ds/core-components/pull/491)
+
+-   Обновлены внутренние переменные (themes/default.css) для размеров кнопок (xxs добавлен, xs исправлен)
+
+-   Обновлены зависимости
+    -   tag@5.0.4
+    -   icon-button@6.0.5
+
 ## 2.0.13
 
 ### Patch Changes

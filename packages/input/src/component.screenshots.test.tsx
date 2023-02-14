@@ -15,7 +15,7 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 350, height: 150 };
 
-describe('Input | screenshots main props', () => {
+describe('Input | screenshots label view and value prop', () => {
     const testCase = (theme: string, colors: string) =>
         screenshotTesting({
             cases: [
@@ -26,9 +26,6 @@ describe('Input | screenshots main props', () => {
                         knobs: {
                             label: 'Label',
                             labelView: ['inner', 'outer'],
-                            size: ['s', 'm', 'l', 'xl'],
-                            block: [false, true],
-                            disabled: [false, true],
                             value: ['', 'Value'],
                             colors,
                         },
@@ -43,7 +40,84 @@ describe('Input | screenshots main props', () => {
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['site', 'default', 'mobile'].forEach((theme) => testCase(theme, colors));
+    });
+});
+
+describe('Input | screenshots size prop', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Input',
+                        knobs: {
+                            label: 'Label',
+                            size: ['s', 'm', 'l', 'xl'],
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['site', 'default', 'mobile'].forEach((theme) => testCase(theme));
+});
+
+describe('Input | screenshots block prop', () => {
+    screenshotTesting({
+        cases: [
+            [
+                'default theme',
+                createSpriteStorybookUrl({
+                    componentName: 'Input',
+                    knobs: {
+                        label: 'Label',
+                        size: 'm',
+                        block: [false, true],
+                    },
+                    size: { width: 350, height: 150 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        theme: 'default',
+    })();
+});
+
+describe('Input | screenshots disabled prop', () => {
+    const testCase = (theme: string, colors: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Input',
+                        knobs: {
+                            label: 'Label',
+                            size: 'm',
+                            disabled: true,
+                            colors,
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['default', 'inverted'].forEach((colors) => {
+        ['site', 'default', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 
@@ -69,11 +143,12 @@ describe('Input | screenshots hint and error', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (page) => page.waitForTimeout(300),
             theme,
         })();
 
     ['default', 'inverted'].forEach((colors) => {
-        ['default', 'click', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
+        ['default', 'site', 'mobile'].forEach((theme) => testCase(theme, colors));
     });
 });
 

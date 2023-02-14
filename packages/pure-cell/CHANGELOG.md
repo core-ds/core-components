@@ -1,5 +1,27 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+### [#529](https://github.com/core-ds/core-components/pull/529)
+
+-   В `PureCell.Text` добавлена пропса `titleWeight` и два варианта `view`
+
+## 4.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.5
+
+## 4.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.4
+
 ## 4.1.9
 
 ### Patch Changes

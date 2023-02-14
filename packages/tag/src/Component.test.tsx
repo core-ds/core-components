@@ -8,8 +8,8 @@ describe('Snapshots tests', () => {
         expect(render(<Tag>Press me</Tag>)).toMatchSnapshot();
     });
 
-    it('should match snapshot variant=alt', () => {
-        expect(render(<Tag variant='alt'>Press me</Tag>)).toMatchSnapshot();
+    it('should match snapshot shape=rectangular', () => {
+        expect(render(<Tag shape='rectangular'>Press me</Tag>)).toMatchSnapshot();
     });
 
     it('should match without children snapshot', () => {
@@ -52,10 +52,10 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass('checked');
     });
 
-    it('should set `alt` class if prop `variant=alt`', () => {
-        const { container } = render(<Tag variant='alt' />);
+    it('should set `rectangular` class if prop `shape=rectangular`', () => {
+        const { container } = render(<Tag shape='rectangular' />);
 
-        expect(container.firstElementChild).toHaveClass('alt');
+        expect(container.firstElementChild).toHaveClass('rectangular');
     });
 });
 

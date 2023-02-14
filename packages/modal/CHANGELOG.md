@@ -1,5 +1,33 @@
 # Change Log
 
+## 6.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.5
+    -   base-modal@5.0.9
+    -   icon-button@6.0.6
+
+## 6.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.0.4
+    -   icon-button@6.0.5
+
+## 6.1.9
+
+### Patch Changes
+
+### [#470](https://github.com/core-ds/core-components/pull/470)
+
+-   Обновлена версия react-transition-group
+
+-   Обновлены зависимости
+    -   base-modal@5.0.8
+
 ## 6.1.8
 
 ### Patch Changes

@@ -3,7 +3,10 @@ import type { Theme, TPatternLockInstance } from 'react-canvas-pattern-lock';
 import { ReactCanvasPatternLock } from 'react-canvas-pattern-lock';
 import cn from 'classnames';
 
+import { Button } from '@alfalab/core-components-button';
 import { Gap } from '@alfalab/core-components-gap';
+
+import { getDataTestId } from '../../utils';
 
 import { OBSERVABLE_TOKENS, OBSERVE_OPTIONS, THEME_STATE } from './consts';
 import type { PatternLockProps } from './typings';
@@ -20,6 +23,9 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
             className,
             error,
             dataTestId,
+            forgotCodeBtnText = 'Забыли код?',
+            showForgotCodeBtn = false,
+            onForgotBtnClick,
             ...restProps
         },
         ref,
@@ -74,12 +80,11 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
                 className={cn(styles.component, className, { [styles.hidden]: !params })}
                 data-test-id={dataTestId}
             >
-                <Gap size='m' />
-                <Gap size='s' />
+                <Gap size='xs' />
 
                 <div className={styles.error}>{error}</div>
 
-                <Gap size='xl' />
+                <Gap size='3xl' />
 
                 <ReactCanvasPatternLock
                     {...restProps}
@@ -89,6 +94,19 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
                     cols={3}
                     justifyNodes={justifyNodes}
                 />
+
+                {showForgotCodeBtn ? (
+                    <Button
+                        view='link'
+                        className={styles.forgotBtn}
+                        onClick={onForgotBtnClick}
+                        dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
+                    >
+                        {forgotCodeBtnText}
+                    </Button>
+                ) : (
+                    <div className={styles.forgotBtn} />
+                )}
             </div>
         );
     },
