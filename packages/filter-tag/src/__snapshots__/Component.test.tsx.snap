@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component defaultVariant s"
+        class="component rounded s"
       >
         <button
-          class="valueButton s defaultVariant"
+          class="valueButton s rounded outlined"
           type="button"
         >
           <span>
@@ -37,10 +37,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component defaultVariant s"
+      class="component rounded s"
     >
       <button
-        class="valueButton s defaultVariant"
+        class="valueButton s rounded outlined"
         type="button"
       >
         <span>
@@ -119,16 +119,16 @@ Object {
 }
 `;
 
-exports[`Snapshots tests should match snapshot variant=alt 1`] = `
+exports[`Snapshots tests should match snapshot shape=rectangular 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="component alt s"
+        class="component rectangular s"
       >
         <button
-          class="valueButton s alt"
+          class="valueButton s rectangular outlined"
           type="button"
         >
           <span>
@@ -156,10 +156,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component alt s"
+      class="component rectangular s"
     >
       <button
-        class="valueButton s alt"
+        class="valueButton s rectangular outlined"
         type="button"
       >
         <span>
@@ -238,16 +238,16 @@ Object {
 }
 `;
 
-exports[`Snapshots tests should match snapshot with alt variant  1`] = `
+exports[`Snapshots tests should match snapshot with rectangular shape  1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="component alt s"
+        class="component rectangular s"
       >
         <button
-          class="valueButton s alt"
+          class="valueButton s rectangular outlined"
           type="button"
         >
           <span>
@@ -275,10 +275,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component alt s"
+      class="component rectangular s"
     >
       <button
-        class="valueButton s alt"
+        class="valueButton s rectangular outlined"
         type="button"
       >
         <span>
@@ -363,10 +363,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component defaultVariant s"
+        class="component rounded s"
       >
         <button
-          class="valueButton s defaultVariant"
+          class="valueButton s rounded outlined"
           type="button"
         >
           <span />
@@ -392,10 +392,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component defaultVariant s"
+      class="component rounded s"
     >
       <button
-        class="valueButton s defaultVariant"
+        class="valueButton s rounded outlined"
         type="button"
       >
         <span />

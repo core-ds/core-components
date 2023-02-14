@@ -11,15 +11,35 @@
     box-sizing: border-box;
 
     &.disabled {
-        background-color: var(--tag-background-color-disabled);
+        background-color: var(--tag-outlined-background-color-disabled);
     }
 
-    &.defaultVariant {
-        border-radius: var(--tag-border-radius);
+    &.rounded {
+        &.xxs {
+            border-radius: var(--tag-rounded-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rounded-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rounded-s-border-radius);
+        }
     }
 
-    &.alt {
-        border-radius: var(--tag-alt-border-radius);
+    &.rectangular {
+        &.xxs {
+            border-radius: var(--tag-rectangular-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rectangular-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rectangular-s-border-radius);
+        }
     }
 
     &.checked {
@@ -71,19 +91,43 @@
     white-space: nowrap;
     font-family: var(--font-family);
     color: var(--tag-text-color);
-    background-color: var(--tag-background-color);
+    background-color: var(--tag-outlined-background-color);
     border-width: var(--tag-border-width);
     border-color: var(--tag-border-color);
     border-style: solid;
     transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     margin: 0;
 
-    &.defaultVariant {
-        border-radius: var(--tag-border-radius);
+    &:disabled {
+        cursor: var(--disabled-cursor);
     }
 
-    &.alt {
-        border-radius: var(--tag-alt-border-radius);
+    &.rounded {
+        &.xxs {
+            border-radius: var(--tag-rounded-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rounded-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rounded-s-border-radius);
+        }
+    }
+
+    &.rectangular {
+        &.xxs {
+            border-radius: var(--tag-rectangular-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rectangular-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rectangular-s-border-radius);
+        }
     }
 
     &.xxs {
@@ -119,21 +163,45 @@
         }
     }
 
-    &:not(:disabled):hover {
-        background-color: var(--tag-background-color-hover);
-        border-color: var(--tag-border-color-hover);
+    &.outlined {
+        color: var(--tag-text-color);
+        border-color: var(--tag-border-color);
+        background-color: var(--tag-outlined-background-color);
+
+        &:disabled {
+            border-color: var(--tag-border-color-disabled);
+            color: var(--tag-text-color-disabled);
+            background-color: var(--tag-outlined-background-color-disabled);
+        }
+
+        &:not(:disabled):hover {
+            border-color: var(--tag-border-color-hover);
+            background-color: var(--tag-outlined-background-color-hover);
+        }
+
+        &:not(:disabled):active {
+            border-color: var(--tag-border-color-active);
+            background-color: var(--tag-outlined-background-color-active);
+        }
     }
 
-    &:not(:disabled):active {
-        background-color: var(--tag-background-color-active);
-        border-color: var(--tag-border-color-active);
-    }
+    &.filled {
+        color: var(--tag-text-color);
+        border-color: var(--tag-filled-border-color);
+        background-color: var(--tag-filled-background-color);
 
-    &:disabled {
-        cursor: not-allowed;
-        background-color: var(--tag-background-color-disabled);
-        border-color: var(--tag-border-color-disabled);
-        color: var(--tag-text-color-disabled);
+        &:disabled {
+            color: var(--tag-text-color-disabled);
+            background-color: var(--tag-filled-background-color-disabled);
+        }
+
+        &:not(:disabled):hover {
+            background-color: var(--tag-filled-background-color-hover);
+        }
+
+        &:not(:disabled):active {
+            background-color: var(--tag-filled-background-color-active);
+        }
     }
 
     &.s {
@@ -175,27 +243,57 @@
         border-width: 0;
         color: var(--tag-text-color-checked);
 
-        &.defaultVariant {
-            border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
-
-            &:disabled {
-                border-radius: var(--tag-border-radius);
+        &.rounded {
+            &.xxs {
+                border-radius: var(--tag-rounded-xxs-border-radius) 0 0
+                    var(--tag-rounded-xxs-border-radius);
             }
 
+            &.xs {
+                border-radius: var(--tag-rounded-xs-border-radius) 0 0
+                    var(--tag-rounded-xs-border-radius);
+            }
+
+            &.s {
+                border-radius: var(--tag-rounded-s-border-radius) 0 0
+                    var(--tag-rounded-s-border-radius);
+            }
+
+            &:disabled,
             &.close {
                 border-radius: var(--tag-border-radius);
             }
         }
 
-        &.alt {
-            border-radius: var(--tag-alt-border-radius) 0 0 var(--tag-alt-border-radius);
-
-            &:disabled {
-                border-radius: var(--tag-alt-border-radius);
+        &.rectangular {
+            &.xxs {
+                border-radius: var(--tag-rectangular-xxs-border-radius) 0 0
+                    var(--tag-rectangular-xxs-border-radius);
             }
 
+            &.xs {
+                border-radius: var(--tag-rectangular-xs-border-radius) 0 0
+                    var(--tag-rectangular-xs-border-radius);
+            }
+
+            &.s {
+                border-radius: var(--tag-rectangular-s-border-radius) 0 0
+                    var(--tag-rectangular-s-border-radius);
+            }
+
+            &:disabled,
             &.close {
-                border-radius: var(--tag-alt-border-radius);
+                &.xxs {
+                    border-radius: var(--tag-rectangular-xxs-border-radius);
+                }
+
+                &.xs {
+                    border-radius: var(--tag-rectangular-xs-border-radius);
+                }
+
+                &.s {
+                    border-radius: var(--tag-rectangular-s-border-radius);
+                }
             }
         }
 
@@ -235,12 +333,37 @@
     color: var(--color-light-graphic-tertiary);
     background-color: var(--tag-background-color-checked);
 
-    &.defaultVariant {
-        border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
+    &.rounded {
+        &.xxs {
+            border-radius: 0 var(--tag-rounded-xxs-border-radius)
+                var(--tag-rounded-xxs-border-radius) 0;
+        }
+
+        &.xs {
+            border-radius: 0 var(--tag-rounded-xs-border-radius) var(--tag-rounded-xs-border-radius)
+                0;
+        }
+
+        &.s {
+            border-radius: 0 var(--tag-rounded-s-border-radius) var(--tag-rounded-s-border-radius) 0;
+        }
     }
 
-    &.alt {
-        border-radius: 0 var(--tag-alt-border-radius) var(--tag-alt-border-radius) 0;
+    &.rectangular {
+        &.xxs {
+            border-radius: 0 var(--tag-rectangular-xxs-border-radius)
+                var(--tag-rectangular-xxs-border-radius) 0;
+        }
+
+        &.xs {
+            border-radius: 0 var(--tag-rectangular-xs-border-radius)
+                var(--tag-rectangular-xs-border-radius) 0;
+        }
+
+        &.s {
+            border-radius: 0 var(--tag-rectangular-s-border-radius)
+                var(--tag-rectangular-s-border-radius) 0;
+        }
     }
 
     &:before {

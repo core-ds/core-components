@@ -72,13 +72,16 @@ const CustomFieldMultiple = ({
 };
 
 render(() => {
-    const options = [
-        { key: '1', content: 'Auurum' },
-        { key: '2', content: 'Bercelium' },
-        { key: '3', content: 'Curium' },
-        { key: '4', content: 'Neptunium' },
-        { key: '5', content: 'Plutonuim' },
-    ];
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Auurum' },
+            { key: '2', content: 'Bercelium' },
+            { key: '3', content: 'Curium' },
+            { key: '4', content: 'Neptunium' },
+            { key: '5', content: 'Plutonuim' },
+        ],
+        [],
+    );
 
     const [label, setLabel] = React.useState(false);
 
@@ -139,7 +142,11 @@ render(() => {
     };
     const calendarRef = React.useRef(null);
 
-    handleBlur(calendarRef, () => handleOpen());
+    handleBlur(calendarRef, (event) => {
+      if (filterTag && !filterTag.contains(event.target)) {
+          handleOpen()
+        }
+    });
 
     const getDateString = React.useCallback((date) => {
         const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
@@ -181,6 +188,7 @@ render(() => {
                 Field={CustomField}
                 onChange={handleChangeSelected}
                 selected={selected}
+                Option={BaseOption}
                 label={label}
                 fieldProps={{ size: 'xxs' }}
             />
@@ -447,7 +455,7 @@ const CustomField = ({
 }) => (
     <div ref={ref}>
         <FilterTag checked={selected} showClear={false} {...restInnerProps} {...restProps}>
-            {selected.content}
+           <b>{selected.content}</b> 
         </FilterTag>
     </div>
 );
@@ -566,41 +574,6 @@ render(() => {
 
 ## Стиль
 
-С помощью `variant` можно задать атернативный стиль тэгу, например, с другим радиусом скругления.
-
-```jsx live
-render(() => {
-    const variants = ['default', 'alt'];
-    const checkedContent = (
-        <span>
-            Label:<b> Value</b>
-        </span>
-    );
-    const content = <span>Label</span>;
-    const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
-
-    return (
-        <Container>
-            <Row align='middle'>
-                {variants.map((variant) => (
-                    <div style={{ marginRight: 12 }} key={variant}>
-                        <FilterTag
-                            size='xxs'
-                            onClick={() => setCheckedFilterTag([...checkedFilterTag, variant])}
-                            onClear={() =>
-                                setCheckedFilterTag(
-                                    checkedFilterTag.filter((item) => item !== variant),
-                                )
-                            }
-                            checked={checkedFilterTag.includes(variant)}
-                            variant={variant}
-                        >
-                            {checkedFilterTag.includes(variant) ? checkedContent : content}
-                        </FilterTag>
-                    </div>
-                ))}
-            </Row>
-        </Container>
-    );
-});
-```
+Компонент наследует опции компонента [Tag](/docs/tag--tag), отвечающие за внешний вид: 
+* shape (форма) — овальные или прямоугольные.
+* view (стиль) — залитые или бордерные. 

@@ -579,7 +579,7 @@ Object {
             class="radio tagLabel"
           >
             <button
-              class="component component s defaultVariant my-tag"
+              class="component component s outlined rounded my-tag"
               type="button"
               value="one"
             >
@@ -598,7 +598,7 @@ Object {
             class="radio tagLabel"
           >
             <button
-              class="component component s defaultVariant"
+              class="component component s outlined rounded"
               type="button"
               value="two"
             >
@@ -617,7 +617,7 @@ Object {
             class="radio tagLabel"
           >
             <button
-              class="component component s defaultVariant"
+              class="component component s outlined rounded"
               type="button"
               value="three"
             >
@@ -652,7 +652,7 @@ Object {
           class="radio tagLabel"
         >
           <button
-            class="component component s defaultVariant my-tag"
+            class="component component s outlined rounded my-tag"
             type="button"
             value="one"
           >
@@ -671,7 +671,7 @@ Object {
           class="radio tagLabel"
         >
           <button
-            class="component component s defaultVariant"
+            class="component component s outlined rounded"
             type="button"
             value="two"
           >
@@ -690,7 +690,7 @@ Object {
           class="radio tagLabel"
         >
           <button
-            class="component component s defaultVariant"
+            class="component component s outlined rounded"
             type="button"
             value="three"
           >
