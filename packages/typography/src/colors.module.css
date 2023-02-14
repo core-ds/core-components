@@ -50,30 +50,30 @@
     color: var(--color-light-text-negative);
 }
 
-.primary-static-light {
+.static-primary-light {
     color: var(--color-static-text-primary-light);
 }
 
-.secondary-static-light {
+.static-secondary-light {
     color: var(--color-static-text-secondary-light);
 }
 
-.tertiary-static-light {
+.static-tertiary-light {
     color: var(--color-static-text-tertiary-light);
 }
 
-.primary-static-dark {
+.static-primary-dark {
     color: var(--color-static-text-primary-dark);
 }
 
-.secondary-static-dark {
+.static-secondary-dark {
     color: var(--color-static-text-secondary-dark);
 }
 
-.tertiary-static-dark {
+.static-tertiary-dark {
     color: var(--color-static-text-tertiary-dark);
 }
 
-.accent-static {
+.static-accent {
     color: var(--color-static-text-accent);
 }
