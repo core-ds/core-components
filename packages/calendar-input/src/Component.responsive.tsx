@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
-
-import { useMedia } from '@alfalab/hooks';
+import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { DateInputProps } from '@alfalab/core-components-date-input';
+import { useMedia } from '@alfalab/hooks';
+
+import { CalendarInputProps } from './components/calendar-input/Component';
 import { CalendarInputDesktop } from './Component.desktop';
 import { CalendarInputMobile } from './Component.mobile';
-import { CalendarInputProps } from './components/calendar-input/Component';
 
 export type CalendarInputResponsiveProps = Omit<CalendarInputProps, 'view'> & {
     /**
@@ -18,21 +18,20 @@ export type CalendarInputResponsiveProps = Omit<CalendarInputProps, 'view'> & {
 
 export type CalendarInputMedia = 'desktop' | 'mobile';
 
-export const CalendarInputResponsive: FC<CalendarInputResponsiveProps> = ({
-    breakpoint = 1024,
-    ...restProps
-}) => {
-    const [view] = useMedia<CalendarInputMedia>(
-        [
-            ['mobile', `(max-width: ${breakpoint - 1}px)`],
-            ['desktop', `(min-width: ${breakpoint}px)`],
-        ],
-        'desktop',
-    );
+export const CalendarInputResponsive = forwardRef<HTMLInputElement, CalendarInputResponsiveProps>(
+    ({ breakpoint = 1024, ...restProps }, ref) => {
+        const [view] = useMedia<CalendarInputMedia>(
+            [
+                ['mobile', `(max-width: ${breakpoint - 1}px)`],
+                ['desktop', `(min-width: ${breakpoint}px)`],
+            ],
+            'desktop',
+        );
 
-    return view === 'desktop' ? (
-        <CalendarInputDesktop {...restProps} />
-    ) : (
-        <CalendarInputMobile {...restProps} />
-    );
-};
+        return view === 'desktop' ? (
+            <CalendarInputDesktop {...restProps} ref={ref} />
+        ) : (
+            <CalendarInputMobile {...restProps} ref={ref} />
+        );
+    },
+);
