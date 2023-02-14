@@ -1,11 +1,4 @@
-import React, {
-    ChangeEvent,
-    forwardRef,
-    InputHTMLAttributes,
-    ReactNode,
-    useCallback,
-    useRef,
-} from 'react';
+import React, { ChangeEvent, forwardRef, InputHTMLAttributes, ReactNode, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -68,8 +61,8 @@ export type SwitchProps = Omit<
      * Обработчик переключения компонента
      */
     onChange?: (
-        event?: ChangeEvent<HTMLInputElement>,
-        payload?: {
+        event: ChangeEvent<HTMLInputElement>,
+        payload: {
             checked: boolean;
             name: InputHTMLAttributes<HTMLInputElement>['name'];
         },
@@ -106,14 +99,11 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
 
         const [focused] = useFocus(labelRef, 'keyboard');
 
-        const handleChange = useCallback(
-            (e: ChangeEvent<HTMLInputElement>) => {
-                if (onChange) {
-                    onChange(e, { checked: e.target.checked, name });
-                }
-            },
-            [onChange, name],
-        );
+        const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+            if (onChange) {
+                onChange(e, { checked: e.target.checked, name });
+            }
+        };
 
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
