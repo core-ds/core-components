@@ -38,116 +38,126 @@ import {
 
 import styles from './index.module.css';
 
-export type DateRangeInputProps = Omit<InputProps, 'onChange'> & {
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
+export type ConditionalProps =
+    | {
+          /**
+           * Обработчик изменения значения
+           */
+          picker: true;
 
-    /**
-     * Дополнительный класс для инпута
-     */
-    inputClassName?: string;
+          /**
+           * Обработчик закрытия календаря
+           */
+          onClose?: () => void;
+      }
+    | { picker?: false; onClose?: never };
 
-    /**
-     * Дополнительный класс для поповера
-     */
-    popoverClassName?: string;
+export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
+    ConditionalProps & {
+        /**
+         * Дополнительный класс
+         */
+        className?: string;
 
-    /**
-     * Обработчик изменения значения
-     */
-    picker?: boolean;
+        /**
+         * Дополнительный класс для инпута
+         */
+        inputClassName?: string;
 
-    /**
-     * Обработчик изменения значения
-     */
-    onChange?: (
-        payload: { dateFrom?: Date; dateTo?: Date; value: string },
-        event?: ChangeEvent<HTMLInputElement>,
-    ) => void;
+        /**
+         * Дополнительный класс для поповера
+         */
+        popoverClassName?: string;
 
-    /**
-     * Обработчик окончания ввода
-     */
-    onComplete?: (
-        payload: { dateFrom: Date; dateTo: Date; value: string },
-        event?: ChangeEvent<HTMLInputElement>,
-    ) => void;
+        /**
+         * Обработчик изменения значения
+         */
+        onChange?: (
+            payload: { dateFrom?: Date; dateTo?: Date; value: string },
+            event?: ChangeEvent<HTMLInputElement>,
+        ) => void;
 
-    /**
-     * Компонент календаря
-     */
-    Calendar?: ElementType;
+        /**
+         * Обработчик окончания ввода
+         */
+        onComplete?: (
+            payload: { dateFrom: Date; dateTo: Date; value: string },
+            event?: ChangeEvent<HTMLInputElement>,
+        ) => void;
 
-    /**
-     * Доп. пропсы для календаря
-     */
-    calendarProps?:
-        | (CalendarProps & Record<string, unknown>)
-        | (CalendarMobileProps & Record<string, unknown>);
+        /**
+         * Компонент календаря
+         */
+        Calendar?: ElementType;
 
-    /**
-     * Месяц в календаре по умолчанию (timestamp)
-     */
-    defaultMonth?: number;
+        /**
+         * Доп. пропсы для календаря
+         */
+        calendarProps?:
+            | (CalendarProps & Record<string, unknown>)
+            | (CalendarMobileProps & Record<string, unknown>);
 
-    /**
-     * Минимальная дата, доступная для выбора (timestamp)
-     */
-    minDate?: number;
+        /**
+         * Месяц в календаре по умолчанию (timestamp)
+         */
+        defaultMonth?: number;
 
-    /**
-     * Максимальная дата, доступная для выбора (timestamp)
-     */
-    maxDate?: number;
+        /**
+         * Минимальная дата, доступная для выбора (timestamp)
+         */
+        minDate?: number;
 
-    /**
-     * Список событий
-     */
-    events?: Array<Date | number>;
+        /**
+         * Максимальная дата, доступная для выбора (timestamp)
+         */
+        maxDate?: number;
 
-    /**
-     * Список выходных
-     */
-    offDays?: Array<Date | number>;
+        /**
+         * Список событий
+         */
+        events?: Array<Date | number>;
 
-    /**
-     * Состояние открытия по умолчанию
-     */
-    defaultOpen?: boolean;
+        /**
+         * Список выходных
+         */
+        offDays?: Array<Date | number>;
 
-    /**
-     * Позиционирование поповера с календарем
-     */
-    popoverPosition?: PopoverProps['position'];
+        /**
+         * Состояние открытия по умолчанию
+         */
+        defaultOpen?: boolean;
 
-    /**
-     * z-index Popover
-     */
-    zIndexPopover?: PopoverProps['zIndex'];
+        /**
+         * Позиционирование поповера с календарем
+         */
+        popoverPosition?: PopoverProps['position'];
 
-    /**
-     * Запрещает поповеру менять свою позицию.
-     * Например, если места снизу недостаточно,то он все равно будет показан снизу
-     */
-    preventFlip?: boolean;
+        /**
+         * z-index Popover
+         */
+        zIndexPopover?: PopoverProps['zIndex'];
 
-    /**
-     * Календарь будет принимать ширину инпута
-     */
-    useAnchorWidth?: boolean;
+        /**
+         * Запрещает поповеру менять свою позицию.
+         * Например, если места снизу недостаточно,то он все равно будет показан снизу
+         */
+        preventFlip?: boolean;
 
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
+        /**
+         * Календарь будет принимать ширину инпута
+         */
+        useAnchorWidth?: boolean;
 
-    /**
-     * Отображение компонента в мобильном или десктопном виде
-     */
-    view?: 'desktop' | 'mobile';
-};
+        /**
+         * Растягивает компонент на ширину контейнера
+         */
+        block?: boolean;
+
+        /**
+         * Отображение компонента в мобильном или десктопном виде
+         */
+        view?: 'desktop' | 'mobile';
+    };
 
 type GetDatesRet = { formattedValue: string; dateFrom?: Date; dateTo?: Date; dateArr: string[] };
 
@@ -164,6 +174,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             value: propValue,
             onChange,
             onComplete,
+            onClose,
             rightAddons,
             useAnchorWidth,
             block,
@@ -184,6 +195,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         ref,
     ) => {
         const inputRef = useRef<HTMLInputElement>(null);
+        const iconRef = useRef<HTMLButtonElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const [value, setValue] = useState(propValue || defaultValue);
@@ -299,8 +311,16 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             if (view === 'desktop') {
                 const target = (event.relatedTarget || document.activeElement) as HTMLElement;
 
-                if (calendarRef.current && calendarRef.current.contains(target) === false) {
+                if (
+                    calendarRef.current?.contains(target) === false &&
+                    inputRef.current?.contains(target) === false &&
+                    iconRef.current?.contains(target) === false
+                ) {
                     setOpen(false);
+
+                    if (onClose) {
+                        onClose();
+                    }
                 }
             }
         };
@@ -363,6 +383,10 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         };
 
         const handleCalendarClose = () => {
+            if (view === 'mobile' && onClose) {
+                onClose();
+            }
+
             setOpen(false);
         };
 
@@ -440,6 +464,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                             {rightAddons}
                             {picker && (
                                 <IconButton
+                                    ref={iconRef}
                                     onClick={inputDisabled ? undefined : handleIconButtonClick}
                                     icon={CalendarMIcon}
                                     size='xxs'
