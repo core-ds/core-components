@@ -1,10 +1,26 @@
 import { Container, Row, Col } from 'storybook/blocks';
+import { Plate } from '@alfalab/core-components/plate';
+import { Badge } from '@alfalab/core-components/badge';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
+
+<Plate
+    view='attention'
+    border={true}
+    limitContentWidth={false}
+    leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}
+> В скором времени мы планируем смену палитры дефолтной темы с Indigo на BlueTint. 
+Вместе с этим обновлением изменится view primary — кнопка станет чёрной.
+</Plate>
+
 
 ## Виды кнопок
 
 ```jsx live
 <Container>
     <Row align='middle'>
+        <Col>
+            <Button view='accent'>Accent</Button>
+        </Col>
         <Col>
             <Button view='primary'>Primary</Button>
         </Col>

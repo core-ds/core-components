@@ -9,6 +9,14 @@
     --button-primary-color: var(--color-static-text-primary-light);
     --button-primary-disabled-color: var(--color-light-text-tertiary);
 
+    /* accent */
+    --button-accent-base-bg-color: var(--color-light-bg-accent);
+    --button-accent-hover-bg-color: var(--color-light-bg-accent-shade-7);
+    --button-accent-active-bg-color: var(--color-light-bg-accent-shade-15);
+    --button-accent-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-accent-color: var(--color-static-text-primary-light);
+    --button-accent-disabled-color: var(--color-light-text-tertiary);
+
     /* secondary */
     --button-secondary-base-bg-color: var(--color-light-specialbg-tertiary-transparent);
     --button-secondary-hover-bg-color: var(--color-light-specialbg-tertiary-transparent-shade-7);
@@ -55,6 +63,28 @@
     /* loader */
     --button-spinner-static-color: var(--color-static-graphic-light);
     --button-spinner-default-color: var(--color-light-graphic-primary);
+}
+
+.accent {
+    color: var(--button-accent-color);
+    background-color: var(--button-accent-base-bg-color);
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: var(--button-accent-hover-bg-color);
+
+        @media (hover: none) {
+            background-color: var(--button-accent-base-bg-color);
+        }
+    }
+
+    &:active {
+        background-color: var(--button-accent-active-bg-color);
+    }
+
+    & > .loader {
+        color: var(--button-spinner-static-color);
+    }
 }
 
 .primary {
