@@ -25,3 +25,30 @@
     min-height: 24px;
     color: var(--color-light-text-negative);
 }
+
+.forgotBtn {
+    display: block;
+    min-height: var(--size-xs-height);
+    margin: var(--gap-xl) auto 0;
+}
+
+@media screen and (min-width: 360px) {
+    .forgotBtn {
+        margin-top: var(--gap-2xl);
+        min-height: var(--size-s-height);
+    }
+
+    .component {
+        margin-bottom: var(--gap-s);
+    }
+}
+
+@media screen and (min-width: 390px) {
+    .forgotBtn {
+        min-height: var(--size-m-height);
+    }
+
+    .component {
+        margin-bottom: var(--gap-l);
+    }
+}

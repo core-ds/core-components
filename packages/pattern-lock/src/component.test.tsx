@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { PatternLock } from './Component';
 import { getSizes } from './utils';
 
@@ -64,6 +64,25 @@ describe('PatternLock test', () => {
             const errorElement = getByText(errorMessage);
 
             expect(errorElement).toBeInTheDocument();
+        });
+
+        it('should call onForgotBtnClick', () => {
+            const testId = 'pattern-lock';
+            const onForgotBtnClick = jest.fn();
+            const { getByTestId } = render(
+                <PatternLock
+                    showForgotCodeBtn={true}
+                    onForgotBtnClick={onForgotBtnClick}
+                    dataTestId={testId}
+                />,
+            );
+
+            const buttonEl = getByTestId(`${testId}-forgot-code-btn`);
+
+            fireEvent.click(buttonEl);
+
+            expect(buttonEl).toBeInTheDocument();
+            expect(onForgotBtnClick).toBeCalledTimes(1);
         });
     });
 
