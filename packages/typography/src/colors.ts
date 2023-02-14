@@ -11,13 +11,13 @@ export const colors = [
     'secondary-inverted',
     'link',
     'negative',
-    'primary-static-light',
-    'secondary-static-light',
-    'tertiary-static-light',
-    'primary-static-dark',
-    'secondary-static-dark',
-    'tertiary-static-dark',
-    'accent-static',
+    'static-primary-light',
+    'static-secondary-light',
+    'static-tertiary-light',
+    'static-primary-dark',
+    'static-secondary-dark',
+    'static-tertiary-dark',
+    'static-accent',
 ] as const;
 
 export type Color = typeof colors[number];
