@@ -23,27 +23,27 @@
     }
 
     &.checked {
-        &:not(.component.disabled) {
+        &:not(.disabled) {
             background-color: var(--tag-background-color-checked);
         }
 
-        &:not(.component.disabled).xxs {
+        &:not(.disabled).xxs {
             min-width: 84px;
         }
 
-        &:not(.component.disabled).xs {
+        &:not(.disabled).xs {
             min-width: 104px;
         }
 
-        &:not(.component.disabled).s {
+        &:not(.disabled).s {
             min-width: 116px;
         }
 
-        &:not(.component.disabled):hover {
+        &:not(.disabled):hover {
             background-color: var(--tag-background-color-checked-hover);
         }
 
-        &:not(.component.disabled):active {
+        &:not(.disabled):active {
             background-color: var(--tag-background-color-checked-active);
         }
     }
@@ -119,12 +119,12 @@
         }
     }
 
-    &:not(.valueButton:disabled):hover {
+    &:not(:disabled):hover {
         background-color: var(--tag-background-color-hover);
         border-color: var(--tag-border-color-hover);
     }
 
-    &:not(.valueButton:disabled):active {
+    &:not(:disabled):active {
         background-color: var(--tag-background-color-active);
         border-color: var(--tag-border-color-active);
     }
@@ -199,24 +199,24 @@
             }
         }
 
-        &:not(.valueButton:disabled) {
+        &:not(:disabled) {
             padding-right: 0;
             border-right-width: 0;
         }
 
-        &:not(.valueButton:disabled):hover {
+        &:not(:disabled):hover {
             background-color: var(--tag-background-color-checked-hover);
         }
 
-        &:not(.valueButton:disabled):active {
+        &:not(:disabled):active {
             background-color: var(--tag-background-color-checked-active);
         }
 
-        &:not(.valueButton:disabled):hover + .clear:before {
+        &:not(:disabled):hover + .clear:before {
             background-color: var(--filter-tag-separator-background-color-hover);
         }
 
-        &:not(.valueButton:disabled):active + .clear:before {
+        &:not(:disabled):active + .clear:before {
             background-color: transparent;
         }
 
