@@ -42,17 +42,17 @@
     width: 100%;
     margin: var(--gap-2xs-neg);
 
-    &:not(.contentWrapperVertical):not(.hasLabel) {
+    &:not(.contentWrapperVertical):not(.hasInnerLabel) {
         padding-top: 0;
         padding-bottom: 0;
     }
 
-    &.hasLabel {
+    &.hasInnerLabel {
         margin-top: var(--gap-xs);
         padding-bottom: var(--gap-xs);
     }
 
-    &.hasTags.hasLabel {
+    &.hasTags.hasInnerLabel {
         margin-top: var(--gap-m);
         padding-bottom: var(--gap-s);
     }
