@@ -36,7 +36,12 @@ console.log(`Source branch = ${sourceBranch}`);
 /** Temporary dir for builded file = branch name + last git commit hash */
 const tempOutputDir = sourceBranch.replace(/[^a-zA-Z0-9]/g, '_') + '_' + lastCommitHash;
 /** Try to get affected component name from last commit message **/
-const lastCommitMessage = shell.exec('git show-branch --no-name HEAD', execOptions).stdout.trim();
+
+console.log(`pr head sha = ${process.env.PR_LAST_COMMIT_SHA}`);
+
+const lastCommitMessage = process.env.PR_LAST_COMMIT_SHA
+    ? shell.exec(`git log --format=%B -n 1 ${process.env.PR_LAST_COMMIT_SHA}`).stdout.trim()
+    : shell.exec('git show-branch --no-name HEAD', execOptions).stdout.trim();
 console.log(`Last commit message = ${lastCommitMessage}`);
 
 /** Parse affected package from last commit message */

@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.5
+
+### Patch Changes
+
+### [#505](https://github.com/core-ds/core-components/pull/505)
+
+-   Исправлена позиция лоадера при display: block
+
 ## 7.0.4
 
 ### Patch Changes

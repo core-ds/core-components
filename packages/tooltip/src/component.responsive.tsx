@@ -5,23 +5,18 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 import { Button } from '@alfalab/core-components-button';
 import { useMedia } from '@alfalab/hooks';
 
+import { TooltipDesktop, TooltipDesktopProps } from './desktop';
 import { useControlled } from './utils';
-import { Tooltip, TooltipProps } from '.';
 
 import styles from './responsive.module.css';
 
 type View = 'desktop' | 'mobile';
 
-type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> & {
+export type TooltipResponsiveProps = Omit<TooltipDesktopProps, 'onClose' | 'onOpen'> & {
     /**
      * Режим отображения по умолчанию
      */
     defaultMatch?: View;
-
-    /**
-     * Управление видимостью
-     */
-    open?: boolean;
 
     /**
      * Обработчик открытия
@@ -127,7 +122,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
             </div>
         </Fragment>
     ) : (
-        <Tooltip
+        <TooltipDesktop
             {...restProps}
             open={open}
             content={content}
@@ -137,6 +132,6 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
             targetRef={targetRef}
         >
             {children}
-        </Tooltip>
+        </TooltipDesktop>
     );
 };

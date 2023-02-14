@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.2.7
+
+### Patch Changes
+
+### [#509](https://github.com/core-ds/core-components/pull/509)
+
+-   Добавлен экспорт TooltipResponsiveProps
+
+-   Обновлены зависимости
+    -   bottom-sheet@5.3.0
+    -   button@7.0.5
+
 ## 6.2.6
 
 ### Patch Changes

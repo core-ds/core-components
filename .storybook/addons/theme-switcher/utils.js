@@ -2,6 +2,7 @@ import { getMobileFrames, getOrCreateStyleTag } from '../utils';
 import { MODE_COLORS_TAG_ID } from '../mode-switcher/utils';
 
 import bluetintColors from '!!postcss-loader!../../../packages/vars/src/colors-bluetint.css';
+import bluetintShadows from '!!postcss-loader!../../../packages/vars/src/shadows-bluetint.css';
 
 import click from '!!postcss-loader!./themes/click.css';
 import mobile from '!!postcss-loader!./themes/mobile.css';
@@ -34,16 +35,16 @@ export function setThemeStylesInMobileFrame(theme) {
     });
 }
 
-export function getThemeStyles(theme) {
+export function getThemeStyles(selectedTheme) {
     const bluetintThemes = ['mobile', 'intranet', 'click'];
+    const bluetintVars = [bluetintColors, bluetintShadows].join('\n');
+
     return [
-        themes[theme],
-        bluetintThemes.some((x) => x.includes(theme)) ? bluetintColors : '',
+        themes[selectedTheme],
+        bluetintThemes.some((theme) => theme === selectedTheme) ? bluetintVars : '',
     ].join('\n');
 }
 
 export function setThemeStyles(theme, doc) {
-    const themeStyles = getThemeStyles(theme);
-
-    getOrCreateStyleTag(THEME_TAG_ID, MODE_COLORS_TAG_ID, doc).innerHTML = themeStyles;
+    getOrCreateStyleTag(THEME_TAG_ID, MODE_COLORS_TAG_ID, doc).innerHTML = getThemeStyles(theme);
 }

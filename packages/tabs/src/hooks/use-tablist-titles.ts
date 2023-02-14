@@ -19,7 +19,7 @@ export const useTablistTitles = ({
     const { containerRef, addonRef, idsCollapsedElements } = useCollapsibleElements<
         HTMLDivElement,
         HTMLInputElement
-    >('[role=tab]', [titles]);
+    >('[role=tab]', [titles, collapsedTabsIds]);
 
     const [view] = useMedia<TabsMatchMedia>(
         [['desktop', `(min-width: ${breakpoint}px)`]],

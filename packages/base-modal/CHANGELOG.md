@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.9
+
+### Patch Changes
+
+### [#523](https://github.com/core-ds/core-components/pull/523)
+
+-   Обновлена зависимость react-focus-lock
+
 ## 5.0.8
 
 ### Patch Changes

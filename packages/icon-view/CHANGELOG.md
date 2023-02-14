@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.3
+
+### Patch Changes
+
+### [#499](https://github.com/core-ds/core-components/pull/499)
+
+-   Исправлен размер 40 для компонента Сircle
+
 ## 3.0.2
 
 ### Patch Changes

@@ -15,7 +15,6 @@ export const BaseCheckmark = ({
     multiple,
 }: CheckmarkProps) => {
     const checkmarkClassNames = cn(styles.checkmark, className, {
-        [styles.multiple]: multiple,
         [styles.single]: !multiple,
         [styles.selected]: selected,
     });
@@ -26,7 +25,7 @@ export const BaseCheckmark = ({
             disabled={disabled}
             className={checkmarkClassNames}
             size='m'
-            onClick={(event) => event.stopPropagation()}
+            hiddenInput={true}
         />
     ) : (
         <CheckmarkMIcon className={checkmarkClassNames} />

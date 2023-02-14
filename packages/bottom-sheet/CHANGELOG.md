@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+### [#497](https://github.com/core-ds/core-components/pull/497)
+
+-   fix(select): virtual options list
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.0.9
+    -   icon-button@6.0.6
+
 ## 5.2.1
 
 ### Patch Changes

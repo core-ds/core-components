@@ -427,6 +427,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 text,
                 selectionStart || 0,
                 selectionEnd || 0,
+                ruNumberPriority && countryIso2 === 'ru',
             );
             const targetCountry = getCountryByNumber(preparedNumber);
             const maxPhoneLength =

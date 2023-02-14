@@ -20,8 +20,8 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Обработчик переключения чекбокса
      */
     onChange?: (
-        event?: ChangeEvent<HTMLInputElement>,
-        payload?: {
+        event: ChangeEvent<HTMLInputElement>,
+        payload: {
             checked: boolean;
             name?: string;
         },
@@ -91,6 +91,12 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Отображение ошибки
      */
     error?: ReactNode | boolean;
+
+    /**
+     * Флаг для скрытия нативного инпута.
+     * @default false
+     */
+    hiddenInput?: boolean;
 };
 
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
@@ -112,6 +118,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             inactive,
             dataTestId,
             indeterminate = false,
+            hiddenInput = false,
             error,
             ...restProps
         },
@@ -142,14 +149,16 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
-                <input
-                    type='checkbox'
-                    onChange={handleChange}
-                    disabled={disabled || inactive}
-                    checked={checked}
-                    data-test-id={dataTestId}
-                    {...restProps}
-                />
+                {!hiddenInput && (
+                    <input
+                        type='checkbox'
+                        onChange={handleChange}
+                        disabled={disabled || inactive}
+                        checked={checked}
+                        data-test-id={dataTestId}
+                        {...restProps}
+                    />
+                )}
                 <span className={cn(styles.box, boxClassName)}>
                     {checked && <CheckmarkCompactMIcon className={styles.checkedIcon} />}
 

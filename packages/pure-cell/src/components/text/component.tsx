@@ -22,7 +22,12 @@ type Props = {
     /**
      * Размер текста
      */
-    view: 'primary-small' | 'component';
+    view: 'primary-large' | 'primary-medium' | 'primary-small' | 'component';
+
+    /**
+     * Толщина title
+     */
+    titleWeight?: 'regular' | 'bold';
 
     /**
      * Цвет title
@@ -50,6 +55,7 @@ export const Text: React.FC<Props> = ({
     value,
     rowLimit,
     view = 'component',
+    titleWeight,
     titleColor,
     valueColor,
     dataTestId,
@@ -67,6 +73,7 @@ export const Text: React.FC<Props> = ({
                 {typeof children === 'string' ? (
                     <Typography.Text
                         view={view}
+                        weight={titleWeight}
                         color={titleColor}
                         className={className}
                         data-test-id={getDataTestId(dataTestId, 'text')}

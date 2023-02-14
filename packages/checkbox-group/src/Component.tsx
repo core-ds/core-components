@@ -56,8 +56,8 @@ export type CheckboxGroupProps = {
      * Обработчик изменения значения 'checked' одного из дочерних компонентов
      */
     onChange?: (
-        event?: ChangeEvent | MouseEvent,
-        payload?: {
+        event: ChangeEvent | MouseEvent,
+        payload: {
             checked: boolean;
             name?: string;
         },

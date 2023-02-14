@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+### [#486](https://github.com/core-ds/core-components/pull/486)
+
+-   Добавлен файл main.css с базовыми стилями
+
 ## 8.0.0
 
 ### Major Changes
