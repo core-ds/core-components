@@ -1,3 +1,134 @@
+## 38.4.0
+
+<sup><time>15.02.2023</time></sup>
+
+### [#516](https://github.com/core-ds/core-components/pull/516)
+
+#### Что изменилось
+- Добавлена кнопка "Забыли код?"
+
+#### Влияние на компоненты
+- Минорное<br />`pattern-lock`
+
+
+### [#517](https://github.com/core-ds/core-components/pull/517)
+
+#### Что изменилось
+- Изменили внутренний компонент с MaskedInput на Input
+
+#### Влияние на компоненты
+- Патчи<br />`number-input`
+
+
+### [#498](https://github.com/core-ds/core-components/pull/498)
+
+#### Что изменилось
+- Добавлены новые пропс shape и view отвечающие за форму и стиль тега
+
+#### Влияние на компоненты
+- Минорное<br />`filter-tag` `tag`
+
+
+### [#490](https://github.com/core-ds/core-components/pull/490)
+
+#### Что изменилось
+- Добавлен новый пропс onClose - обработчик закрытия календаря
+
+#### Влияние на компоненты
+- Патчи<br />`date-range-input`
+
+
+### [#513](https://github.com/core-ds/core-components/pull/513)
+
+#### Что изменилось
+- Изменены типы onChange коллбэка.
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox` `checkbox-group` `radio` `radio-group` `switch`<br />
+
+
+### [#504](https://github.com/core-ds/core-components/pull/504)
+
+#### Что изменилось
+- Исправлена ошибка с label в SelectMobile. Теперь, чтобы задать заголовок выпадающему списку достаточно передать только проп label. До исправления заголовок устанавливался только пропом placeholder
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#534](https://github.com/core-ds/core-components/pull/534)
+
+#### Что изменилось
+- Удалены restProps
+
+#### Влияние на компоненты
+- Патчи<br />`filter-tag`
+
+
+### [#525](https://github.com/core-ds/core-components/pull/525)
+
+#### Что изменилось
+- Исправлены отступы с labelView='outer'
+
+#### Влияние на компоненты
+- Патчи<br />`select-with-tags`
+
+
+### [#507](https://github.com/core-ds/core-components/pull/507)
+
+#### Что изменилось
+- Исправлены ошибки, из-за которых компонент неверно реагировал на изменение свойства value извне и неверно отображался активный месяц в календаре
+
+#### Влияние на компоненты
+- Патчи<br />`date-range-input`
+
+
+### [#524](https://github.com/core-ds/core-components/pull/524)
+
+#### Что изменилось
+- Исправлен баг, из-за которого отсутствовал hover-эффект на старых браузерах
+
+#### Влияние на компоненты
+- Патчи<br />`filter-tag`
+
+
+### [#537](https://github.com/core-ds/core-components/pull/537)
+
+#### Что изменилось
+- Доработан скрипт сборки тем
+
+#### Влияние на компоненты
+- Патчи<br />`vars` `themes`
+
+
+### [#527](https://github.com/core-ds/core-components/pull/527)
+
+#### Что изменилось
+- Добавлен новый view: 'accent'
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+#### Что изменилось
+- В зависимости добавлена библиотека tslib
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `alert` `amount` `amount-input` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `date-input` `date-range-input` `date-time-input`<br /> `divider` `drawer` `dropzone` `file-upload-item` `filter-tag`<br /> `form-control` `gallery` `gap` `generic-wrapper` `grid`<br /> `hatching-progress-bar` `icon-button` `icon-view` `input` `input-autocomplete`<br /> `intl-phone-input` `keyboard-focusable` `link` `list` `list-header`<br /> `loader` `masked-input` `modal` `mq` `notification`<br /> `notification-manager` `number-input` `pagination` `pass-code` `password-input`<br /> `pattern-lock` `phone-input` `picker-button` `plate` `popover`<br /> `portal` `progress-bar` `pure-cell` `pure-input` `radio`<br /> `radio-group` `scrollbar` `select` `select-with-tags` `side-panel`<br /> `skeleton` `slider` `slider-input` `space` `spinner`<br /> `stack` `status` `stepped-progress-bar` `steps` `switch`<br /> `table` `tabs` `tag` `textarea` `time-input`<br /> `toast` `toast-plate` `tooltip` `typography` `with-suffix`<br />
+
+
+### [#522](https://github.com/core-ds/core-components/pull/522)
+
+#### Что изменилось
+- Исправлена TS ошибка "ref does not exist on type"
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input` `date-range-input` `date-time-input` `calendar` `input-autocomplete`<br />
+
+
+
 ## 38.3.0
 
 <sup><time>13.02.2023</time></sup>
