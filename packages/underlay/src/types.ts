@@ -1,18 +1,59 @@
-import { GapProps } from '@alfalab/core-components-gap';
+import { BackgroundColorType, BorderColorType, ShadowType, GapType } from '../../types';
 
-import { BACKGROUND, BORDER_COLOR, SHADOW } from './consts';
+type PaddingSize = Omit<GapType, '5xl' | '6xl' | '7xl' | '8xl'>;
 
-export type BackgroundColorType = typeof BACKGROUND[number];
+type PaddingType = {
+    top?: PaddingSize;
+    right?: PaddingSize;
+    bottom?: PaddingSize;
+    left?: PaddingSize;
+};
 
-export type BorderColorType = typeof BORDER_COLOR[number];
+type BorderRadiusType = 'm' | 'l' | 'xxl';
 
-export type ShadowType = typeof SHADOW[number];
+export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
+    /**
+     * Внутренние отступы
+     */
+    padding?: PaddingType | string;
 
-export type PaddingType = Omit<GapProps['size'], '5xl' | '6xl' | '7xl' | '8xl'>;
+    /**
+     * Радиус
+     */
+    borderRadius?: BorderRadiusType;
 
-export type PaddingPropType = {
-    top?: PaddingType;
-    right?: PaddingType;
-    bottom?: PaddingType;
-    left?: PaddingType;
+    /**
+     * Цвет фона
+     */
+    backgroundColor?: BackgroundColorType;
+
+    /**
+     * Ширина бордера
+     */
+    borderSize?: 1 | 2 | 4;
+
+    /**
+     * Цвет бордера
+     */
+    borderColor?: BorderColorType;
+
+    /**
+     * Тень
+     */
+    shadow?: ShadowType;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
+     *  Содержимое подложки
+     */
+    children?: React.ReactNode;
 };

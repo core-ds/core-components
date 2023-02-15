@@ -81,9 +81,10 @@
     }
 }
 
+/* prettier-ignore */
 @each $width in 1, 2, 4 {
     .border-width-$(width) {
-        border-width: $(width) px;
+        border-width: $(width)px;
         border-style: solid;
     }
 }
