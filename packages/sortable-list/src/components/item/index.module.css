@@ -1,0 +1,73 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 48px;
+
+    &:hover {
+        & .icon {
+            color: var(--color-light-graphic-primary);
+        }
+    }
+}
+
+.activator-cell:not(.disabled) {
+    cursor: grab;
+
+    &.dragOverlay {
+        cursor: grabbing;
+    }
+}
+
+.activator-control:not(.disabled) {
+    & .icon {
+        cursor: grab;
+    }
+
+    &.dragOverlay .icon {
+        cursor: grabbing;
+    }
+}
+
+.content {
+    flex: 1;
+}
+
+.icon {
+    flex-shrink: 0;
+    color: var(--color-light-graphic-secondary);
+}
+
+.dragging {
+    opacity: 0;
+}
+
+.dragOverlay {
+    box-shadow: var(--shadow-s);
+    animation: pop 200ms ease;
+
+    & .icon {
+        color: var(--color-light-graphic-primary);
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l {
+    .control-left-padding-$(size) {
+        padding-left: var(--gap-$(size));
+    }
+
+    .control-right-padding-$(size) {
+        padding-right: var(--gap-$(size));
+    }
+}
+
+@keyframes pop {
+    from {
+        box-shadow: none;
+    }
+    to {
+        box-shadow: var(--shadow-s);
+    }
+}

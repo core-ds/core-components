@@ -1,0 +1,83 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { select } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Typography } from '@alfalab/core-components-typography';
+import { SortableList } from '@alfalab/core-components-sortable-list';
+import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
+import { GenericWrapper } from '@alfalab/core-components-generic-wrapper';
+import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
+import { Gap } from '@alfalab/core-components-gap';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+<Meta title='Components/SortableList' component={SortableList} id='SortableList' />
+
+<!-- Canvas -->
+
+<Story name='SortableList'>
+    {React.createElement(() => {
+        const [items, setItems] = React.useState(() =>
+            [1, 2, 3, 4, 5, 6].map((item) => ({ id: item })),
+        );
+        const renderItem = (item) => {
+            return (
+                <GenericWrapper alignItems='center' padding={{ top: 's', bottom: 's', left: 'm' }}>
+                    <GenericWrapper>
+                        <SuperEllipse size={48}>
+                            <DiamondsMIcon aria-label='diamonds' />
+                        </SuperEllipse>
+                    </GenericWrapper>
+                    <Gap size='m' direction='horizontal' />
+                    <GenericWrapper>
+                        <GenericWrapper column>
+                            <Typography.Text view='component'>{`Элемент списка ${item.id}`}</Typography.Text>
+                            <Gap size='2xs' />
+                            <Typography.Text view='primary-small' color='secondary'>
+                                Перетащи меня
+                            </Typography.Text>
+                        </GenericWrapper>
+                    </GenericWrapper>
+                </GenericWrapper>
+            );
+        };
+        const paddingSizes = [undefined, '3xs', '2xs', 'xs', 's', 'm', 'l'];
+        const paddingTop = select('padding.top', paddingSizes, undefined);
+        const paddingRight = select('padding.right', paddingSizes, undefined);
+        const paddingBottom = select('padding.bottom', paddingSizes, undefined);
+        const paddingLeft = select('padding.left', paddingSizes, undefined);
+        return (
+            <div style={{ maxWidth: 350 }}>
+                <SortableList
+                    items={items}
+                    onDragEnd={(_, newIds) => setItems(newIds)}
+                    padding={{
+                        top: paddingTop,
+                        right: paddingRight,
+                        bottom: paddingBottom,
+                        left: paddingLeft,
+                    }}
+                    borderRadius={select('border-radius', [undefined, 'm', 'l', 'xl'], undefined)}
+                    renderItem={renderItem}
+                    activatorNode={select('activatorNode', ['cell', 'control'], 'cell')}
+                    view={select('view', ['primary', 'secondary'], 'primary')}
+                    controlPadding={select('controlPadding', paddingSizes, 'xs')}
+                    controlPosition={select('controlPosition', ['left', 'right'], 'right')}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SortableList'
+    version={version}
+    package='@alfalab/core-components/sortable-list'
+    children='Список перетаскиваемых элементов'
+/>
+
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
