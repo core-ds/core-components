@@ -22,6 +22,7 @@
         "@alfalab/core-components-select": "^13.2.11",
         "@alfalab/icons-classic": "^2.3.0",
         "@alfalab/icons-glyph": "^2.89.0",
-        "classnames": "^2.3.1"
+        "classnames": "^2.3.1",
+        "tslib": "^2.4.0"
     }
 }

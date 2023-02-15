@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^11.1.5",
-        "react-merge-refs": "^1.1.0"
+        "react-merge-refs": "^1.1.0",
+        "tslib": "^2.4.0"
     }
 }
