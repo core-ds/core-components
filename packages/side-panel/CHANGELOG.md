@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.5.7
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   base-modal@5.0.10
+    -   drawer@4.2.5
+    -   icon-button@6.0.7
+    -   mq@4.1.3
+
 ## 2.5.6
 
 ### Patch Changes

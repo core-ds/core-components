@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.1.1
+
+### Patch Changes
+
+### [#537](https://github.com/core-ds/core-components/pull/537)
+
+-   Доработан скрипт сборки тем
+
 ## 8.1.0
 
 ### Minor Changes

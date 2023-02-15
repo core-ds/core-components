@@ -1,5 +1,18 @@
 # Change Log
 
+## 11.1.7
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   badge@5.0.1
+    -   form-control@9.0.3
+
 ## 11.1.6
 
 ### Patch Changes

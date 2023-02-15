@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.1.2
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   link@5.0.3
+
 ## 4.1.1
 
 ### Patch Changes

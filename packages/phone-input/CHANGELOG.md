@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.1.7
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   masked-input@6.1.7
+
 ## 7.1.6
 
 ### Patch Changes

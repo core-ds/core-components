@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.0.29
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   calendar@6.2.9
+    -   skeleton@4.0.4
+
 ## 5.0.28
 
 ### Patch Changes

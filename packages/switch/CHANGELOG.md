@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.0.3
+
+### Patch Changes
+
+### [#513](https://github.com/core-ds/core-components/pull/513)
+
+-   Изменены типы onChange коллбэка.
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
 ## 3.0.2
 
 ### Patch Changes

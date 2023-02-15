@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.2.5
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   base-modal@5.0.10
+    -   scrollbar@2.1.3
+
 ## 4.2.4
 
 ### Patch Changes

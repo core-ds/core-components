@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.2.9
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+### [#522](https://github.com/core-ds/core-components/pull/522)
+
+-   Исправлена TS ошибка "ref does not exist on type"
+
+-   Обновлены зависимости
+    -   calendar@6.2.9
+    -   date-input@4.1.7
+    -   popover@6.0.7
+
 ## 8.2.8
 
 ### Patch Changes

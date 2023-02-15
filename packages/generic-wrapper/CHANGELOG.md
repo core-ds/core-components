@@ -1,5 +1,16 @@
 # @alfalab/core-components-generic-wrapper
 
+## 1.0.1
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   gap@1.1.1
+
 ## 1.0.0
 
 ### Major Changes

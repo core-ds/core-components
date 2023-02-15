@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+### [#498](https://github.com/core-ds/core-components/pull/498)
+
+-   Добавлены новые пропс shape и view отвечающие за форму и стиль тега
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
 ## 5.0.4
 
 ### Patch Changes

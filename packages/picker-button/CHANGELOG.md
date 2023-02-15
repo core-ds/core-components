@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.3.7
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   select@13.2.12
+    -   button@7.1.0
+
 ## 10.3.6
 
 ### Patch Changes

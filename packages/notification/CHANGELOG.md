@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.1.15
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   portal@3.1.3
+    -   stack@4.0.3
+    -   toast-plate@5.1.13
+
 ## 6.1.14
 
 ### Patch Changes

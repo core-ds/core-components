@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.2.8
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   input@11.1.7
+    -   with-suffix@4.0.22
+
 ## 7.2.7
 
 ### Patch Changes

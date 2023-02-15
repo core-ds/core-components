@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.3.2
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
 ## 2.3.1
 
 ### Patch Changes

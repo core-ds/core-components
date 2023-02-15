@@ -1,5 +1,31 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+### [#498](https://github.com/core-ds/core-components/pull/498)
+
+-   Добавлены новые пропс shape и view отвечающие за форму и стиль тега
+
+### Patch Changes
+
+### [#534](https://github.com/core-ds/core-components/pull/534)
+
+-   Удалены restProps
+
+### [#524](https://github.com/core-ds/core-components/pull/524)
+
+-   Исправлен баг, из-за которого отсутствовал hover-эффект на старых браузерах
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   tag@5.1.0
+    -   icon-button@6.0.7
+
 ## 2.0.15
 
 ### Patch Changes

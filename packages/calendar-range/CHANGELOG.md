@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.0.16
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   calendar@6.2.9
+    -   calendar-input@8.2.9
+    -   date-input@4.1.7
+
 ## 7.0.15
 
 ### Patch Changes
