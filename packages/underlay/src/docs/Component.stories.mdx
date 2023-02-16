@@ -1,0 +1,128 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { select, text } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Underlay } from '@alfalab/core-components-underlay';
+
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+export const BACKGROUND = [
+    'accent',
+    'info',
+    'attention-muted',
+    'positive-muted',
+    'negative-muted',
+    'primary',
+    'primary-inverted',
+    'secondary',
+    'secondary-inverted',
+    'tertiary',
+    'tertiary-inverted',
+    'quaternary',
+    'quaternary-inverted',
+    'specialbg-component',
+    'specialbg-component-inverted',
+    'specialbg-primary-grouped',
+    'specialbg-secondary-grouped',
+    'specialbg-tertiary-grouped',
+    'specialbg-secondary-transparent',
+    'specialbg-secondary-transparent-inverted',
+    'specialbg-tertiary-transparent',
+    'specialbg-tertiary-transparent-inverted',
+];
+export const BORDER_COLOR = [
+    'accent',
+    'key',
+    'key-inverted',
+    'link',
+    'primary',
+    'primary-inverted',
+    'secondary',
+    'secondary-inverted',
+    'tertiary',
+    'tertiary-inverted',
+    'underline',
+    'underline-inverted',
+    'graphic-attention',
+    'graphic-link',
+    'graphic-negative',
+    'graphic-positive',
+    'specialbg-secondary-transparent',
+    'specialbg-secondary-transparent-inverted',
+    'specialbg-tertiary-transparent',
+    'specialbg-tertiary-transparent-inverted',
+];
+export const SHADOW = [
+    'shadow-xs',
+    'shadow-s',
+    'shadow-m',
+    'shadow-l',
+    'shadow-xl',
+    'shadow-xs-hard',
+    'shadow-s-hard',
+    'shadow-m-hard',
+    'shadow-l-hard',
+    'shadow-xl-hard',
+    'shadow-xs-up',
+    'shadow-s-up',
+    'shadow-m-up',
+    'shadow-l-up',
+    'shadow-xl-up',
+    'shadow-xs-hard-up',
+    'shadow-s-hard-up',
+    'shadow-m-hard-up',
+    'shadow-l-hard-up',
+    'shadow-xl-hard-up',
+];
+
+<Meta title='Components/Cells/Underlay' component={Underlay} id='Underlay' />
+
+<!-- Canvas -->
+
+<Story name='Underlay'>
+ {React.createElement(() => {
+    const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
+    const borderRadius = select('borderRadius', ['m', 'xl', 'xxl'], 'm');
+    const borderSize = select('borderSize', ['1', '2', '4'], '2');
+    const paddingTop = select('padding.top', paddingSizes, 'm');
+    const paddingRight = select('padding.right', paddingSizes, 'm');
+    const paddingBottom = select('padding.bottom', paddingSizes, 'm');
+    const paddingLeft = select('padding.left', paddingSizes, 'm');
+    return (
+        <Underlay
+            borderRadius={borderRadius}
+            borderSize={borderSize}
+            shadow={select('shadow', SHADOW, 'shadow-l')}
+            backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
+            borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
+            padding={{
+                    top: paddingTop,
+                    right: paddingRight,
+                    bottom: paddingBottom,
+                    left: paddingLeft,
+                }}
+        >
+            {text('children', 'Вам одобрено. Согласитесь на предложение')}
+        </Underlay>
+    );
+})}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Underlay'
+    version={version}
+    package='@alfalab/core-components/underlay'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=317%3A37759'
+    children='Подложка под любой вид контента.'
+/>
+
+<Tabs 
+    description={<Description />} 
+    development={<Development />}
+    changelog={<Changelog />} 
+/>

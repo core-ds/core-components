@@ -1,0 +1,90 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    box-sizing: border-box;
+}
+
+@each $backgroundColorBg in accent, info, attention-muted, positive-muted, negative-muted, primary,
+    primary-inverted, secondary, secondary-inverted, tertiary, tertiary-inverted, quaternary,
+    quaternary-inverted
+{
+    .background-$(backgroundColorBg) {
+        background-color: var(--color-light-bg-$(backgroundColorBg));
+    }
+}
+
+@each $backgroundColor in specialbg-component, specialbg-component-inverted,
+    specialbg-primary-grouped, specialbg-secondary-grouped, specialbg-tertiary-grouped,
+    specialbg-secondary-transparent, specialbg-secondary-transparent-inverted,
+    specialbg-tertiary-transparent, specialbg-tertiary-transparent-inverted
+{
+    .background-$(backgroundColor) {
+        background-color: var(--color-light-$(backgroundColor));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
+    .padding-top-$(size) {
+        padding-top: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
+    .padding-right-$(size) {
+        padding-right: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
+    .padding-bottom-$(size) {
+        padding-bottom: var(--gap-$(size));
+    }
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
+    .padding-left-$(size) {
+        padding-left: var(--gap-$(size));
+    }
+}
+
+@each $shadow in shadow-xs, shadow-s, shadow-m, shadow-l, shadow-xl, shadow-xs-hard, shadow-s-hard,
+    shadow-m-hard, shadow-l-hard, shadow-xl-hard, shadow-xs-up, shadow-s-up, shadow-m-up,
+    shadow-l-up, shadow-xl-up, shadow-xs-hard-up, shadow-s-hard-up, shadow-m-hard-up,
+    shadow-l-hard-up, shadow-xl-hard-up
+{
+    .$(shadow) {
+        box-shadow: var(--$(shadow));
+    }
+}
+
+@each $borderColor in accent, key, key-inverted, link, primary, primary-inverted, secondary,
+    secondary-inverted, tertiary, tertiary-inverted, underline, underline-inverted
+{
+    .border-color-$(borderColor) {
+        border-color: var(--color-light-border-$(borderColor));
+    }
+}
+
+@each $color in graphic-attention, graphic-link, graphic-negative, graphic-positive,
+    specialbg-secondary-transparent, specialbg-secondary-transparent-inverted,
+    specialbg-tertiary-transparent, specialbg-tertiary-transparent-inverted
+{
+    .border-color-$(color) {
+        border-color: var(--color-light-$(color));
+    }
+}
+
+@each $radius in m, xl, xxl {
+    .border-radius-$(radius) {
+        border-radius: var(--border-radius-$(radius));
+    }
+}
+
+/* prettier-ignore */
+@each $width in 1, 2, 4 {
+    .border-width-$(width) {
+        border-width: $(width)px;
+        border-style: solid;
+    }
+}
