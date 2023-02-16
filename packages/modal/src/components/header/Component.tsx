@@ -33,7 +33,7 @@ export const Header: FC<HeaderProps> = ({
     return (
         <NavigationBar
             {...restProps}
-            parentRef={parentRef}
+            scrollableParentRef={parentRef}
             hasCloser={hasCloser}
             sticky={sticky}
             view={view}
