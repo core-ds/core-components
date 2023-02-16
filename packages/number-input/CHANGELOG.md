@@ -1,5 +1,20 @@
 # @alfalab/core-components-number-input
 
+## 1.0.3
+
+### Patch Changes
+
+### [#517](https://github.com/core-ds/core-components/pull/517)
+
+-   Изменили внутренний компонент с MaskedInput на Input
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   input@11.1.7
+
 ## 1.0.2
 
 ### Patch Changes

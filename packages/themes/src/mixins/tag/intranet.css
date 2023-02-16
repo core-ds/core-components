@@ -1,9 +1,9 @@
 @define-mixin tag-intranet {
     /* theme */
-    --tag-background-color: var(--color-light-bg-secondary);
-    --tag-background-color-hover: var(--color-light-bg-secondary-shade-7);
-    --tag-background-color-active: var(--color-light-bg-secondary-shade-15);
-    --tag-background-color-disabled: var(--color-light-bg-secondary-alpha-30);
+    --tag-outlined-background-color: var(--color-light-bg-secondary);
+    --tag-outlined-background-color-hover: var(--color-light-bg-secondary-shade-7);
+    --tag-outlined-background-color-active: var(--color-light-bg-secondary-shade-15);
+    --tag-outlined-background-color-disabled: var(--color-light-bg-secondary-alpha-30);
     --tag-background-color-checked: var(--color-light-bg-secondary-inverted);
     --tag-background-color-checked-hover: var(--color-light-bg-secondary-inverted-tint-15);
     --tag-background-color-checked-active: var(--color-light-bg-secondary-inverted-tint-20);
@@ -13,4 +13,11 @@
     --tag-border-color-active: transparent;
     --tag-border-color-checked: transparent;
     --tag-border-color-disabled: transparent;
+    --tag-border-radius: var(--border-radius-l);
+    --tag-rectangular-xxs-border-radius: var(--border-radius-m);
+    --tag-rectangular-xs-border-radius: var(--border-radius-l);
+    --tag-rectangular-s-border-radius: var(--border-radius-l);
+    --tag-rounded-xxs-border-radius: var(--border-radius-m);
+    --tag-rounded-xs-border-radius: var(--border-radius-l);
+    --tag-rounded-s-border-radius: var(--border-radius-l);
 }

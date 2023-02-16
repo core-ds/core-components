@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.1.5
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   form-control@9.0.3
+    -   scrollbar@2.1.3
+
 ## 8.1.4
 
 ### Patch Changes

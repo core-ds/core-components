@@ -87,8 +87,8 @@ export type RadioProps = Omit<
      * Обработчик на выбор элемента
      */
     onChange?: (
-        event?: ChangeEvent<HTMLInputElement>,
-        payload?: {
+        event: ChangeEvent<HTMLInputElement>,
+        payload: {
             checked: boolean;
             name?: string;
         },

@@ -1,0 +1,37 @@
+@import '../../themes/src/default.css';
+
+.component {
+    box-sizing: border-box;
+}
+
+.primary {
+    background: var(--color-light-bg-primary);
+}
+
+.secondary {
+    background: var(--color-light-bg-secondary);
+}
+
+@each $size in 3xs, 2xs, xs, s, m, l {
+    .padding-top-$(size) {
+        padding-top: var(--gap-$(size));
+    }
+
+    .padding-bottom-$(size) {
+        padding-bottom: var(--gap-$(size));
+    }
+
+    .padding-left-$(size) {
+        padding-left: var(--gap-$(size));
+    }
+
+    .padding-right-$(size) {
+        padding-right: var(--gap-$(size));
+    }
+}
+
+@each $size in m, l, xl {
+    .border-radius-$(size) {
+        border-radius: var(--border-radius-$(size));
+    }
+}

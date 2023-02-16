@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.1.9
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   input@11.1.7
+    -   slider@4.1.4
+
 ## 7.1.8
 
 ### Patch Changes

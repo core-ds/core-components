@@ -8,16 +8,16 @@ describe('Snapshots tests', () => {
         expect(render(<FilterTag>Press me</FilterTag>)).toMatchSnapshot();
     });
 
-    it('should match snapshot variant=alt', () => {
-        expect(render(<FilterTag variant='alt'>Press me</FilterTag>)).toMatchSnapshot();
+    it('should match snapshot shape=rectangular', () => {
+        expect(render(<FilterTag shape='rectangular'>Press me</FilterTag>)).toMatchSnapshot();
     });
 
     it('should match without children snapshot', () => {
         expect(render(<FilterTag />)).toMatchSnapshot();
     });
 
-    it('should match snapshot with alt variant ', () => {
-        expect(render(<FilterTag variant='alt'>Press me</FilterTag>)).toMatchSnapshot();
+    it('should match snapshot with rectangular shape ', () => {
+        expect(render(<FilterTag shape='rectangular'>Press me</FilterTag>)).toMatchSnapshot();
     });
 });
 
@@ -54,10 +54,10 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass('open');
     });
 
-    it('should set `alt` class if prop `variant=alt`', () => {
-        const { container } = render(<FilterTag variant='alt' />);
+    it('should set `rectangular` class if prop `shape=alt`', () => {
+        const { container } = render(<FilterTag shape='rectangular' />);
 
-        expect(container.firstElementChild).toHaveClass('alt');
+        expect(container.firstElementChild).toHaveClass('rectangular');
     });
 
     it('should set `disabled` class if prop `disabled` is present`', () => {

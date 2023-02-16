@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.2.8
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   bottom-sheet@5.3.1
+    -   popover@6.0.7
+
 ## 6.2.7
 
 ### Patch Changes

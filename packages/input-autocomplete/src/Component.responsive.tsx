@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
-import { useMedia } from '@alfalab/hooks';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { BaseSelectProps } from '@alfalab/core-components-select';
+import { useMedia } from '@alfalab/hooks';
+
 import { InputAutocompleteDesktop, InputAutocompleteDesktopProps } from './Component.desktop';
 import { InputAutocompleteMobile, InputAutocompleteMobileProps } from './Component.mobile';
 
@@ -17,10 +18,10 @@ export type InputAutocompleteResponsiveProps = InputAutocompleteDesktopProps &
 
 export type InputAutocompleteMedia = 'desktop' | 'mobile';
 
-export const InputAutocompleteResponsive: FC<InputAutocompleteResponsiveProps> = ({
-    breakpoint = 1024,
-    ...restProps
-}) => {
+export const InputAutocompleteResponsive = forwardRef<
+    HTMLInputElement | HTMLDivElement,
+    InputAutocompleteResponsiveProps
+>(({ breakpoint = 1024, ...restProps }, ref) => {
     const [view] = useMedia<InputAutocompleteMedia>(
         [
             ['mobile', `(max-width: ${breakpoint - 1}px)`],
@@ -30,8 +31,8 @@ export const InputAutocompleteResponsive: FC<InputAutocompleteResponsiveProps> =
     );
 
     return view === 'desktop' ? (
-        <InputAutocompleteDesktop {...restProps} />
+        <InputAutocompleteDesktop {...restProps} ref={ref as React.Ref<HTMLInputElement>} />
     ) : (
-        <InputAutocompleteMobile {...restProps} />
+        <InputAutocompleteMobile {...restProps} ref={ref} />
     );
-};
+});

@@ -1,5 +1,22 @@
 # Change Log
 
+## 6.2.9
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+### [#522](https://github.com/core-ds/core-components/pull/522)
+
+-   Исправлена TS ошибка "ref does not exist on type"
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   icon-button@6.0.7
+    -   modal@6.1.12
+
 ## 6.2.8
 
 ### Patch Changes

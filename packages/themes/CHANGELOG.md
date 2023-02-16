@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.0.1
+
+### Patch Changes
+
+### [#537](https://github.com/core-ds/core-components/pull/537)
+
+-   Доработан скрипт сборки тем
+
 ## 10.0.0
 
 ### Major Changes

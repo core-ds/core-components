@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.2.18
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   select@13.2.12
+    -   button@7.1.0
+    -   pagination@2.0.12
+
 ## 2.2.17
 
 ### Patch Changes

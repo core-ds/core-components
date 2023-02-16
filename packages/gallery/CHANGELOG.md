@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.14
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   base-modal@5.0.10
+    -   icon-button@6.0.7
+    -   tooltip@6.2.8
+    -   typography@3.1.1
+
 ## 5.1.13
 
 ### Patch Changes

@@ -1,0 +1,73 @@
+## Анатомия
+
+Ячейка состоит из кастомизируемого слота и контрола. У ячейки можно настроить фон, скругление и отступ от контрола.
+
+```jsx live
+render(() => {
+    const renderItem = () => {
+        return (
+            <div
+                style={{
+                    background: 'rgba(55, 120, 251, 0.1)',
+                    border: '1px dashed #3778FB',
+                    height: 48,
+                    boxSizing: 'border-box',
+                }}
+            />
+        );
+    };
+
+    return (
+        <div style={{ maxWidth: 340 }}>
+            <SortableList items={[{ id: 0, disabled: true }]} renderItem={renderItem} />
+        </div>
+    );
+});
+```
+
+## Примеры
+
+Для враппера можно настроить внутренние отступы и фон.
+
+```jsx live
+render(() => {
+    const [items, setItems] = React.useState(() =>
+        [1, 2, 3, 4, 5, 6].map((item) => ({ id: item })),
+    );
+
+    const renderItem = (item) => {
+        return (
+            <GenericWrapper alignItems='center' padding={{ top: 's', bottom: 's', left: 'm' }}>
+                <GenericWrapper>
+                    <SuperEllipse size={48}>
+                        <DiamondsMIcon />
+                    </SuperEllipse>
+                </GenericWrapper>
+                <Gap size='m' direction='horizontal' />
+                <GenericWrapper>
+                    <GenericWrapper column>
+                        <Typography.Text view='component'>{`Элемент списка ${item.id}`}</Typography.Text>
+                        <Gap size='2xs' />
+                        <Typography.Text view='primary-small' color='secondary'>
+                            Перетащи меня
+                        </Typography.Text>
+                    </GenericWrapper>
+                </GenericWrapper>
+            </GenericWrapper>
+        );
+    };
+
+    return (
+        <div style={{ maxWidth: 350 }}>
+            <SortableList
+                items={items}
+                onDragEnd={(_, newIds) => setItems(newIds)}
+                padding='xs'
+                borderRadius='m'
+                controlPadding='s'
+                renderItem={renderItem}
+            />
+        </div>
+    );
+});
+```

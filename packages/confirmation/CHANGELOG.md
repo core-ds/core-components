@@ -1,5 +1,20 @@
 # Change Log
 
+## 12.4.8
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   code-input@2.3.2
+    -   link@5.0.3
+    -   loader@3.0.5
+    -   typography@3.1.1
+
 ## 12.4.7
 
 ### Patch Changes

@@ -1,5 +1,27 @@
 # Change Log
 
+## 4.2.1
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   amount@3.1.2
+    -   comment@2.1.8
+    -   typography@3.1.1
+
+## 4.2.0
+
+### Minor Changes
+
+### [#529](https://github.com/core-ds/core-components/pull/529)
+
+-   В `PureCell.Text` добавлена пропса `titleWeight` и два варианта `view`
+
 ## 4.1.11
 
 ### Patch Changes

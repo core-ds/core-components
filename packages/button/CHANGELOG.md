@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+### [#527](https://github.com/core-ds/core-components/pull/527)
+
+-   Добавлен новый view: 'accent'
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   spinner@3.0.4
+
 ## 7.0.5
 
 ### Patch Changes

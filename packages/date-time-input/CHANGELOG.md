@@ -1,5 +1,23 @@
 # @alfalab/core-components-date-time-input
 
+## 3.0.7
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+### [#522](https://github.com/core-ds/core-components/pull/522)
+
+-   Исправлена TS ошибка "ref does not exist on type"
+
+-   Обновлены зависимости
+    -   calendar@6.2.9
+    -   icon-button@6.0.7
+    -   input@11.1.7
+    -   popover@6.0.7
+
 ## 3.0.6
 
 ### Patch Changes

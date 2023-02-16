@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.0.19
+
+### Patch Changes
+
+### [#525](https://github.com/core-ds/core-components/pull/525)
+
+-   Исправлены отступы с labelView='outer'
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   tag@5.1.0
+    -   select@13.2.12
+    -   form-control@9.0.3
+
 ## 7.0.18
 
 ### Patch Changes

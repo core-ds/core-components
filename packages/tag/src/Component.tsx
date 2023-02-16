@@ -63,9 +63,21 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     colors?: 'default' | 'inverted';
 
     /**
+     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
+     * Используйте props shape и view
      * Вариант тега
      */
     variant?: 'default' | 'alt';
+
+    /**
+     * Форма тега
+     */
+    shape?: 'rounded' | 'rectangular';
+
+    /**
+     * Стиль тега
+     */
+    view?: 'outlined' | 'filled';
 };
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
@@ -82,6 +94,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             colors = 'default',
             onClick,
             variant = 'default',
+            shape,
+            view = 'outlined',
             ...restProps
         },
         ref,
@@ -92,14 +106,17 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
 
         const [focused] = useFocus(tagRef, 'keyboard');
 
-        const variantClassName = variant === 'default' ? 'defaultVariant' : variant;
+        const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
+
+        const shapeClassName = shape || variantClassName;
 
         const tagProps = {
             className: cn(
                 styles.component,
                 colorStyles.component,
                 styles[size],
-                styles[variantClassName],
+                colorStyles[view],
+                styles[shapeClassName],
                 {
                     [styles.checked]: checked,
                     [colorStyles.checked]: checked,

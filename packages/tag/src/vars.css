@@ -3,6 +3,7 @@
 :root {
     /* border */
     --tag-border-color: var(--color-light-border-underline);
+    --tag-filled-border-color: transparent;
     --tag-border-color-hover: var(--color-light-border-key);
     --tag-border-color-active: var(--color-light-border-key);
     --tag-border-color-checked: var(--color-light-border-key);
@@ -11,12 +12,28 @@
     --tag-border-width: 1px;
     --tag-border-radius: var(--border-radius-pill);
     --tag-alt-border-radius: var(--border-radius-s);
+    --tag-rectangular-xxs-border-radius: 6px;
+    --tag-rectangular-xs-border-radius: var(--border-radius-m);
+    --tag-rectangular-s-border-radius: var(--border-radius-m);
+    --tag-rounded-xxs-border-radius: var(--border-radius-pill);
+    --tag-rounded-xs-border-radius: var(--border-radius-pill);
+    --tag-rounded-s-border-radius: var(--border-radius-pill);
 
-    /* background-color */
-    --tag-background-color: transparent;
-    --tag-background-color-hover: transparent;
-    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
-    --tag-background-color-disabled: transparent;
+    /* background-color outlined */
+    --tag-outlined-background-color: transparent;
+    --tag-outlined-background-color-hover: transparent;
+    --tag-outlined-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
+    --tag-outlined-background-color-disabled: transparent;
+
+    /* background-color filled */
+    --tag-filled-background-color: var(--color-light-specialbg-tertiary-transparent);
+    --tag-filled-background-color-hover: var(--color-light-specialbg-tertiary-transparent-shade-7);
+    --tag-filled-background-color-active: var(
+        --color-light-specialbg-tertiary-transparent-shade-15
+    );
+    --tag-filled-background-color-disabled: var(--color-light-specialbg-tertiary-transparent);
+
+    /* background-color checked */
     --tag-background-color-checked: var(--color-light-bg-primary-inverted);
     --tag-background-color-checked-hover: var(--color-light-bg-primary-inverted-tint-15);
     --tag-background-color-checked-active: var(--color-light-bg-primary-inverted-tint-20);
@@ -32,17 +49,34 @@
 
     /* border */
     --tag-inverted-border-color: var(--color-dark-border-underline);
+    --tag-inverted-filled-border-color: transparent;
     --tag-inverted-border-color-hover: var(--color-dark-border-key);
     --tag-inverted-border-color-active: var(--color-dark-border-key);
     --tag-inverted-border-color-checked: var(--color-dark-border-key);
     --tag-inverted-border-color-disabled: var(--color-dark-border-primary);
     --tag-inverted-border-color-checked-disabled: transparent;
 
-    /* background-color */
-    --tag-inverted-background-color: transparent;
-    --tag-inverted-background-color-hover: transparent;
-    --tag-inverted-background-color-disabled: transparent;
-    --tag-inverted-background-color-active: var(--color-dark-bg-primary-inverted-alpha-7);
+    /* background-color outlined */
+    --tag-inverted-outlined-background-color: transparent;
+    --tag-inverted-outlined-background-color-hover: transparent;
+    --tag-inverted-outlined-background-color-disabled: transparent;
+    --tag-inverted-outlined-background-color-active: var(--color-dark-bg-primary-inverted-alpha-7);
+
+    /* background-color filled */
+    --tag-inverted-filled-background-color: var(
+        --color-light-specialbg-tertiary-transparent-inverted
+    );
+    --tag-inverted-filled-background-color-hover: var(
+        --color-light-specialbg-tertiary-transparent-inverted-tint-15
+    );
+    --tag-inverted-filled-background-color-disabled: var(
+        --color-light-specialbg-tertiary-transparent-inverted
+    );
+    --tag-inverted-filled-background-color-active: var(
+        --color-light-specialbg-tertiary-transparent-inverted-tint-20
+    );
+
+    /* background-color checked */
     --tag-inverted-background-color-checked: var(--color-dark-bg-primary-inverted);
     --tag-inverted-background-color-checked-hover: var(--color-dark-bg-primary-inverted-shade-7);
     --tag-inverted-background-color-checked-active: var(--color-dark-bg-primary-inverted-shade-15);

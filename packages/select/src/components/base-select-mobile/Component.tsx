@@ -419,7 +419,7 @@ export const BaseSelectMobile = forwardRef(
                         className={styles.sheet}
                         contentClassName={styles.sheetContent}
                         containerClassName={styles.sheetContainer}
-                        title={placeholder}
+                        title={label || placeholder}
                         actionButton={footer}
                         stickyHeader={true}
                         hasCloser={true}
@@ -458,7 +458,9 @@ export const BaseSelectMobile = forwardRef(
                         hasCloser={true}
                         ref={scrollableContainerRef}
                     >
-                        <ModalMobile.Header hasCloser={true} title={placeholder} sticky={true} />
+                        <ModalMobile.Header hasCloser={true} sticky={true}>
+                            {label || placeholder}
+                        </ModalMobile.Header>
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
                                 showFooter={multiple}

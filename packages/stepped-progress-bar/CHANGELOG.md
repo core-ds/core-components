@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.0.10
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   typography@3.1.1
+
 ## 2.0.9
 
 ### Patch Changes

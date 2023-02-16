@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.1.15
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   icon-button@6.0.7
+    -   link@5.0.3
+    -   spinner@3.0.4
+
 ## 5.1.14
 
 ### Patch Changes

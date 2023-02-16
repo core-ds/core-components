@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.0.22
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   input@11.1.7
+    -   portal@3.1.3
+
 ## 4.0.21
 
 ### Patch Changes

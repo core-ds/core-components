@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
 import { useMedia } from '@alfalab/hooks';
 
-import { CalendarDesktop, CalendarDesktopProps } from './Component.desktop';
 import { CalendarMobile, CalendarMobileProps } from './components/calendar-mobile';
+import { CalendarDesktop, CalendarDesktopProps } from './Component.desktop';
 
 export type ResponsiveCalendarProps = CalendarDesktopProps &
     CalendarMobileProps & {
@@ -16,21 +16,20 @@ export type ResponsiveCalendarProps = CalendarDesktopProps &
 
 export type CalendarMedia = 'desktop' | 'mobile';
 
-export const CalendarResponsive: FC<ResponsiveCalendarProps> = ({
-    breakpoint = 1024,
-    ...restProps
-}) => {
-    const [view] = useMedia<CalendarMedia>(
-        [
-            ['mobile', `(max-width: ${breakpoint - 1}px)`],
-            ['desktop', `(min-width: ${breakpoint}px)`],
-        ],
-        'desktop',
-    );
+export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarProps>(
+    ({ breakpoint = 1024, ...restProps }, ref) => {
+        const [view] = useMedia<CalendarMedia>(
+            [
+                ['mobile', `(max-width: ${breakpoint - 1}px)`],
+                ['desktop', `(min-width: ${breakpoint}px)`],
+            ],
+            'desktop',
+        );
 
-    return view === 'desktop' ? (
-        <CalendarDesktop {...restProps} />
-    ) : (
-        <CalendarMobile {...restProps} />
-    );
-};
+        return view === 'desktop' ? (
+            <CalendarDesktop {...restProps} ref={ref} />
+        ) : (
+            <CalendarMobile {...restProps} ref={ref} />
+        );
+    },
+);

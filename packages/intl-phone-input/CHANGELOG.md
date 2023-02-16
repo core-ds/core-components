@@ -1,5 +1,18 @@
 # Change Log
 
+## 9.2.11
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   select@13.2.12
+    -   input@11.1.7
+    -   input-autocomplete@9.3.9
+
 ## 9.2.10
 
 ### Patch Changes

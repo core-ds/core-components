@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.0.7
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   keyboard-focusable@4.0.4
+    -   progress-bar@3.0.3
+
 ## 6.0.6
 
 ### Patch Changes

@@ -1,5 +1,30 @@
 # Change Log
 
+## 13.2.12
+
+### Patch Changes
+
+### [#504](https://github.com/core-ds/core-components/pull/504)
+
+-   Исправлена ошибка с label в SelectMobile. Теперь, чтобы задать заголовок выпадающему списку достаточно передать только проп label. До исправления заголовок устанавливался только пропом placeholder
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   checkbox@3.1.1
+    -   button@7.1.0
+    -   badge@5.0.1
+    -   base-modal@5.0.10
+    -   bottom-sheet@5.3.1
+    -   form-control@9.0.3
+    -   input@11.1.7
+    -   modal@6.1.12
+    -   popover@6.0.7
+    -   scrollbar@2.1.3
+    -   skeleton@4.0.4
+
 ## 13.2.11
 
 ### Patch Changes

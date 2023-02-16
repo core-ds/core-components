@@ -1,5 +1,31 @@
 # @alfalab/core-components-date-range-input
 
+## 2.2.9
+
+### Patch Changes
+
+### [#490](https://github.com/core-ds/core-components/pull/490)
+
+-   Добавлен новый пропс onClose - обработчик закрытия календаря
+
+### [#507](https://github.com/core-ds/core-components/pull/507)
+
+-   Исправлены ошибки, из-за которых компонент неверно реагировал на изменение свойства value извне и неверно отображался активный месяц в календаре
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+### [#522](https://github.com/core-ds/core-components/pull/522)
+
+-   Исправлена TS ошибка "ref does not exist on type"
+
+-   Обновлены зависимости
+    -   calendar@6.2.9
+    -   icon-button@6.0.7
+    -   input@11.1.7
+    -   popover@6.0.7
+
 ## 2.2.8
 
 ### Patch Changes

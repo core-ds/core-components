@@ -1,5 +1,23 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.1.0
+
+### Minor Changes
+
+### [#516](https://github.com/core-ds/core-components/pull/516)
+
+-   Добавлена кнопка "Забыли код?"
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   button@7.1.0
+    -   gap@1.1.1
+
 ## 1.0.3
 
 ### Patch Changes

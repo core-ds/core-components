@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.0.10
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   backdrop@3.0.4
+    -   portal@3.1.3
+    -   stack@4.0.3
+
 ## 5.0.9
 
 ### Patch Changes

@@ -59,8 +59,8 @@ export type RadioGroupProps = {
      * Обработчик изменения значения 'checked' одного из дочерних компонентов
      */
     onChange?: (
-        event?: ChangeEvent | MouseEvent,
-        payload?: {
+        event: ChangeEvent | MouseEvent,
+        payload: {
             value: string;
             name?: string;
         },

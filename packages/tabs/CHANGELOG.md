@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.3.7
+
+### Patch Changes
+
+### [#526](https://github.com/core-ds/core-components/pull/526)
+
+-   В зависимости добавлена библиотека tslib
+
+-   Обновлены зависимости
+    -   tag@5.1.0
+    -   badge@5.0.1
+    -   keyboard-focusable@4.0.4
+    -   picker-button@10.3.7
+
 ## 7.3.6
 
 ### Patch Changes

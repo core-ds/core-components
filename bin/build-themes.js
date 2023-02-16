@@ -9,14 +9,14 @@ const postcssMixins = require('postcss-mixins');
 
 const replaceMixinToRoot = (css) => css.replace(/@define-mixin.*$/m, ':root {');
 
-const bluetintThemes = ['mobile', 'intranet'];
+const bluetintThemes = ['mobile', 'intranet', 'click'];
 const getPalette = (cssFile) =>
     bluetintThemes.some((x) => cssFile.includes(x)) ? 'bluetint' : 'indigo';
 
 const createColorsByPaletteFilter = (palette) => {
     return (filePath) => {
-        if (palette === 'indigo' && filePath.includes('colors-bluetint')) return false;
-        if (palette === 'bluetint' && filePath.includes('colors-indigo')) return false;
+        if (palette === 'indigo' && filePath.includes('bluetint')) return false;
+        if (palette === 'bluetint' && filePath.includes('indigo')) return false;
         return true;
     };
 };
@@ -42,13 +42,17 @@ const processComponentTheme = (cssFile) => {
 };
 
 const processRootTheme = (cssFile) => {
+    const ignorePattern = ['**/colors-x5.css'];
     const getImports = () => {
         if (cssFile.includes('dark.css')) return [];
 
         const palette = getPalette(cssFile);
 
         return glob
-            .sync(path.resolve(__dirname, '../packages/vars/src/*.css'))
+            .sync('../../../../packages/vars/src/*.css', {
+                absolute: true,
+                ignore: ignorePattern,
+            })
             .filter(createColorsByPaletteFilter(palette))
             .filter((varFile) => varFile.includes('index.css') === false)
             .map((varFile) => `@import '${varFile}';`);

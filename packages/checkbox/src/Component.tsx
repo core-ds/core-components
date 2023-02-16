@@ -20,8 +20,8 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Обработчик переключения чекбокса
      */
     onChange?: (
-        event?: ChangeEvent<HTMLInputElement>,
-        payload?: {
+        event: ChangeEvent<HTMLInputElement>,
+        payload: {
             checked: boolean;
             name?: string;
         },

@@ -29,6 +29,7 @@ export type ComponentProps = {
      * Тип кнопки
      */
     view?:
+        | 'accent'
         | 'primary'
         | 'secondary'
         | 'tertiary'
