@@ -17,14 +17,6 @@
     margin: 0 var(--gap-3xs);
 }
 
-.rounded {
-    border-radius: var(--border-radius-xl);
-}
-
-.rectangle {
-    border-radius: calc(var(--border-radius-l) / 2);
-}
-
 .segment {
     @mixin paragraph_primary_small;
 }
@@ -46,14 +38,29 @@
         border-radius: var(--border-radius-xxl);
     }
 
-    & .rectangle,
-    &:has(.rectangle) {
+    &:has(.rectangular) {
         border-radius: var(--border-radius-m);
+
+        & .selectedBox {
+            border-radius: calc(var(--border-radius-l) / 2);
+        }
     }
 }
 
 .xxs {
     height: var(--size-xxs-height);
+}
+
+.rounded {
+    border-radius: var(--border-radius-xl);
+}
+
+.rectangular {
+    border-radius: calc(var(--border-radius-l) / 2);
+
+    & .selectedBox {
+        border-radius: var(--border-radius-s);
+    }
 }
 
 .selectedBox {

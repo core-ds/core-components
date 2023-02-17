@@ -18,7 +18,7 @@ import { version } from '../../package.json';
         return (
             <SegmentedControl
                 size={select('size', ['xs', 'xxs'], 'xs')}
-                shape={select('shape', ['rounded', 'rect'], 'rect')}
+                shape={select('shape', ['rounded', 'rectangular'], 'rectangular')}
                 onChange={handleChange}
                 selectedId={selectedId}
             >
@@ -26,6 +26,10 @@ import { version } from '../../package.json';
                 <Segment id={2} title='Сегмент 2'>Сегмент 2</Segment>
                 <Segment id={3} title='Сегмент 3'>Сегмент 3</Segment>
                 <Segment id={4} title='Сегмент 4'>Сегмент 4</Segment>
+                <Segment id={5} title='Сегмент 4'>Сегмент 4</Segment>
+                <Segment id={6} title='Сегмент 4'>Сегмент 4</Segment>
+                <Segment id={7} title='Сегмент 4'>Сегмент 4</Segment>
+                <Segment id={8} title='Сегмент 4'>Сегмент 4</Segment>
             </SegmentedControl>
         )
     })}

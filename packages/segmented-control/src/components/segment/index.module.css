@@ -26,6 +26,7 @@
         transition: opacity 0.2s ease;
         width: 1px;
         top: 8px;
+        border-radius: 0.5px;
         bottom: 8px;
         left: 0;
     }

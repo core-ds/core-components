@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
 
 import { SegmentedControlContext } from '../../context';
+import { IDType } from '../../typing';
 
 import styles from './index.module.css';
 
@@ -22,7 +23,7 @@ export type SegmentProps = {
     /**
      * ID сегмента
      */
-    id: string;
+    id: IDType;
 
     /**
      * Заголовок сегмента

@@ -12,6 +12,7 @@ render(() => {
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
+        <div style={{ width: 360 }}>
         <Space fullWidth size={24}>
             <SegmentedControl size='xs' onChange={(id) => handleChange('1', id)} selectedId={selectedId["1"]}>
                 <Segment id={1} title='Таб 1' />
@@ -30,6 +31,7 @@ render(() => {
                 <Segment id={2} title='Таб 2' />
             </SegmentedControl>
         </Space>
+    </div>
     )
 })
 //MOBILE
@@ -79,6 +81,7 @@ render(() => {
     });
     const handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });
     return (
+        <div style={{ width: 360 }}>
         <Space fullWidth size={24}>
             <SegmentedControl selectedId={selectedId["1"]} onChange={(id) => handleChange('1', id)}>
                 <Segment id={1} title='Таб 1' />
@@ -103,6 +106,7 @@ render(() => {
                 <Segment id={5} title='Таб 5' />
             </SegmentedControl>
         </Space>
+    </div>
     )
 })
 //MOBILE

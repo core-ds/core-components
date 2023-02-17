@@ -45,18 +45,21 @@ export type SegmentedControlProps = {
     dataTestId?: string;
 };
 
+const MAX_SEGMENTS = 5;
+
 export const SegmentedControl: FC<SegmentedControlProps> = ({
     className,
     selectedId,
     onChange,
-    shape = 'rectangle',
+    shape = 'rectangular',
     size = 'xxs',
-    children,
+    children: defaultChildren,
     dataTestId,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
     const selectedBoxRef = useRef<HTMLDivElement>(null);
+    const children = defaultChildren.slice(0, MAX_SEGMENTS);
 
     const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
     const isPositionFounded = selectedSegmentPosition !== -1;
