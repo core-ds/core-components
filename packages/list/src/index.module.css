@@ -1,10 +1,5 @@
 @import '../../themes/src/default.css';
 
-:root {
-    --list-marker-color: var(--color-light-text-primary);
-    --list-item-margin: var(--gap-s);
-}
-
 .list {
     margin: 0;
     padding: 0;
@@ -19,29 +14,41 @@
 
 .lowerAlpha {
     list-style-type: lower-alpha;
+    padding-left: 22px;
 }
 
 .decimal {
     list-style-type: decimal;
 }
 
-.item {
-    margin-top: var(--list-item-margin);
+ol.ui.list {
+    counter-reset: ordered;
+    display: flex;
+    flex-direction: column;
 
-    &:first-child {
-        margin-top: 0;
+    &.reversed {
+        flex-direction: column-reverse;
     }
 }
 
-.unorderedItem {
+ol.ui.list li {
     display: flex;
 }
 
-.orderedItem {
-    padding-left: var(--gap-2xs);
+ol.ui.list li:before {
+    position: relative;
+    margin-left: var(--gap-l-neg);
+    counter-increment: ordered;
+    content: counters(ordered, '.') '.';
+    display: flex;
+    justify-content: start;
+    font-variant-numeric: tabular-nums;
 }
 
-.slot {
-    margin-right: var(--gap-xs);
-    color: var(--list-marker-color);
+@each $color in tertiary, accent, primary, attention, positive, secondary, tertiary-inverted,
+    primary-inverted, secondary-inverted, link, negative
+{
+    ol.ui.list.color-marker-$(color) li:before {
+        color: var(--color-light-text-$(color));
+    }
 }

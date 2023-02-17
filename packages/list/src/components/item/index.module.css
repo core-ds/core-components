@@ -1,0 +1,63 @@
+@import '../../../../themes/src/default.css';
+
+:root {
+    --list-marker-color: var(--color-light-text-primary);
+    --list-item-margin: var(--gap-s);
+}
+
+.item {
+    margin-top: var(--list-item-margin);
+    display: flex;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &.reversed:first-child {
+        margin-top: var(--list-item-margin);
+    }
+
+    &.reversed:last-child {
+        margin-top: 0;
+    }
+
+    &.unorderedItem {
+        display: list-item;
+    }
+}
+
+.orderedItem {
+    padding-left: var(--gap-2xs);
+}
+
+.slot {
+    color: var(--list-marker-color);
+    min-width: 20px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: start;
+    padding-right: 6px;
+    min-inline-size: auto;
+
+    &.disc {
+        justify-content: center;
+        padding: 0 6px;
+    }
+}
+
+@each $color in tertiary, accent, primary, attention, positive, secondary, tertiary-inverted,
+    primary-inverted, secondary-inverted, link, negative
+{
+    .slot.color-marker-$(color) {
+        color: var(--color-light-text-$(color));
+    }
+}
+
+ol .content {
+    margin-left: var(--gap-2xs);
+}
+
+.caption {
+    @mixin paragraph_primary_small;
+    color: var(--color-light-text-secondary);
+}

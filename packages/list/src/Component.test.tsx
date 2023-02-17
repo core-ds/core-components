@@ -5,10 +5,22 @@ import { List } from './index';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
-        expect(render(<List>List</List>)).toMatchSnapshot();
+        expect(
+            render(
+                <List>
+                    <List.ListItem>List</List.ListItem>
+                </List>,
+            ),
+        ).toMatchSnapshot();
     });
     it('should match snapshot', () => {
-        expect(render(<List tag='ol'>List</List>)).toMatchSnapshot();
+        expect(
+            render(
+                <List tag='ol'>
+                    <List.ListItem>List</List.ListItem>
+                </List>,
+            ),
+        ).toMatchSnapshot();
     });
 });
 
@@ -16,9 +28,24 @@ describe('Classes tests', () => {
     it('should set custom class', () => {
         const className = 'custom-class';
 
-        const { container } = render(<List className={className}>List</List>);
+        const { container } = render(
+            <List className={className}>
+                <List.ListItem>List</List.ListItem>
+            </List>,
+        );
 
         expect(container.firstElementChild).toHaveClass(className);
+    });
+
+    it('should set reversed class', () => {
+        const dataTestId = 'link-test-id';
+        const { container } = render(
+            <List tag='ol' reversed={true} dataTestId={dataTestId}>
+                <List.ListItem>List</List.ListItem>
+            </List>,
+        );
+
+        expect(container.firstElementChild).toHaveClass('reversed');
     });
 });
 
@@ -26,7 +53,11 @@ describe('Attributes tests', () => {
     it('should set data-test-id attribute', () => {
         const dataTestId = 'link-test-id';
 
-        const { container } = render(<List dataTestId={dataTestId}>List</List>);
+        const { container } = render(
+            <List dataTestId={dataTestId}>
+                <List.ListItem>List</List.ListItem>
+            </List>,
+        );
 
         const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
 
@@ -38,7 +69,7 @@ describe('Attributes tests', () => {
 
         const { getByTestId } = render(
             <List tag='ol' dataTestId={dataTestId}>
-                List
+                <List.ListItem>List</List.ListItem>
             </List>,
         );
 
@@ -58,20 +89,8 @@ describe('Attributes tests', () => {
 
         const listEl = getByTestId(dataTestId);
 
-        expect(listEl).toHaveAttribute('start');
-        expect(listEl.getAttribute('start')).toEqual(String(startValue));
-    });
-
-    it('should set reversed attribute', () => {
-        const dataTestId = 'link-test-id';
-        const { getByTestId } = render(
-            <List tag='ol' reversed dataTestId={dataTestId}>
-                List
-            </List>,
-        );
-
-        const listEl = getByTestId(dataTestId);
-        expect(listEl).toHaveAttribute('reversed');
+        expect(listEl).toHaveAttribute('style');
+        expect(listEl.getAttribute('style')).toEqual('counter-set: ordered 9;');
     });
 });
 
@@ -79,7 +98,11 @@ describe('Props tests', () => {
     it('should set marker', () => {
         const marker = '•';
 
-        const { container } = render(<List marker={marker}>Item</List>);
+        const { container } = render(
+            <List marker={marker}>
+                <List.ListItem>List</List.ListItem>
+            </List>,
+        );
 
         expect(container.querySelector('.item')?.firstElementChild).toHaveTextContent(marker);
     });

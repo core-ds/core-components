@@ -1,58 +1,52 @@
+## Анатомия
+
+Компонент состоит из кастомизируемого слота под маркер и текстовой части.
+
 ```jsx live
-<Space>
-    <List tag='ul'>
-        <Typography.Text view='primary-medium'>Накопительные счета</Typography.Text>
-        <Typography.Text view='primary-medium'>Депозиты</Typography.Text>
-        <Typography.Text view='primary-medium'>Кредиты</Typography.Text>
-    </List>
+render(() => {
+    const styleContent = {
+        width: '24px',
+        height: '24px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
 
-    <List tag='ul' marker='•'>
-        <Typography.Text view='primary-medium'>
-            Индивидуальное обслуживание в любом отделении в России
-        </Typography.Text>
-        <Typography.Text view='primary-medium'>Повышенные % ставки по депозитам</Typography.Text>
-        <Typography.Text view='primary-medium'>Льготная конвертация валют.</Typography.Text>
-    </List>
-
-    <List tag='ol'>
-        <Typography.Text view='primary-medium'>Ипотечный кредит</Typography.Text>
-        <Typography.Text view='primary-medium'>Потребительский кредит</Typography.Text>
-        <Typography.Text view='primary-medium'>Бесплатные сервисы для накоплений</Typography.Text>
-    </List>
-</Space>
+    return (
+      <Container>
+        <Row align='middle'>
+          <div style={styleContent}></div> 
+          <Typography.Text view='primary-medium'>Пример текстовой части</Typography.Text>
+        </Row>
+      </Container>
+    );
+});
 ```
 
-## Использование в Webview
+## Примеры
 
-[Описание компонента для Webview](https://www.figma.com/file/2qkmYHFmV1rEmJyb6cEsW9/Web-%3A%3A-Mobile-Components?node-id=1153%3A300671)
-
-При использовании списков в Webview можно использовать следующий сниппет.
-
-Чтобы избежать дублирования и упростить ипользование компонента — можно создать на основе `List` преднастроенный компонент в своей локальной библиотеке.
-
+Доступны нумерованные и маркированные виды списков. 
+При необходимости, цвет маркера можно изменить. Каждому пункту можно добавить подпись.
 
 ```jsx live
-// import { Space } from '@alfalab/core-components/space';
-// import { Typography, typographyPresets } from '@alfalab/core-components/typography';
-// import { listPres } from '@alfalab/core-components/list';
+<Space>
+  <Typography.Text view='primary-medium'>Пример маркированного списка:</Typography.Text>    
+     <List tag='ul' marker='•'>
+        <List.ListItem>Пример элемента списка</List.ListItem>
+        <List.ListItem>Пример элемента списка</List.ListItem>
+        <List.ListItem>Пример элемента списка</List.ListItem>
+         <List.ListItem>Пример элемента списка</List.ListItem>
+        <List.ListItem>Пример элемента списка</List.ListItem>
+    </List>
+  <Typography.Text view='primary-medium'>Пример нумерованного списка:</Typography.Text>    
 
-<List {...listPresets.mobile}>
-    <Space size={2}>
-        <Typography.Text {...typographyPresets.mobile.list.text.primary}>
-            Накопительные счета
-        </Typography.Text>
-        <Typography.Text {...typographyPresets.mobile.list.text.secondary}>
-            Индивидуальное обслуживание в любом отделении в России
-        </Typography.Text>
-    </Space>
-
-    <Space size={2}>
-        <Typography.Text  {...typographyPresets.mobile.list.text.primary}>
-            Депозиты
-        </Typography.Text>
-        <Typography.Text {...typographyPresets.mobile.list.text.secondary}>
-            Повышенные % ставки по депозитам
-        </Typography.Text>
-    </Space>
-</List>
+     <List tag='ol' colorMarker='tertiary'>
+        <List.ListItem caption='Пример подписи'>Пример элемента списка</List.ListItem>
+        <List.ListItem caption='Пример подписи'>Пример элемента списка</List.ListItem>
+        <List.ListItem caption='Пример подписи'>Пример элемента списка</List.ListItem>
+            <List.ListItem caption='Пример подписи'>Пример элемента списка</List.ListItem>
+        <List.ListItem caption='Пример подписи'>Пример элемента списка</List.ListItem>
+    </List>
+</Space>
 ```

@@ -6,34 +6,50 @@ Object {
   "baseElement": <body>
     <div>
       <ul
-        class="list"
+        class="ui list"
       >
         <li
-          class="item unorderedItem"
+          class="item"
         >
           <div
             class="slot"
           >
             —
           </div>
-          List
+          <div
+            class="content"
+          >
+            <span
+              class="children"
+            >
+              List
+            </span>
+          </div>
         </li>
       </ul>
     </div>
   </body>,
   "container": <div>
     <ul
-      class="list"
+      class="ui list"
     >
       <li
-        class="item unorderedItem"
+        class="item"
       >
         <div
           class="slot"
         >
           —
         </div>
-        List
+        <div
+          class="content"
+        >
+          <span
+            class="children"
+          >
+            List
+          </span>
+        </div>
       </li>
     </ul>
   </div>,
@@ -97,24 +113,40 @@ Object {
   "baseElement": <body>
     <div>
       <ol
-        class="list decimal orderedList"
+        class="ui list decimal orderedList"
       >
         <li
           class="item orderedItem"
         >
-          List
+          <div
+            class="content"
+          >
+            <span
+              class="children"
+            >
+              List
+            </span>
+          </div>
         </li>
       </ol>
     </div>
   </body>,
   "container": <div>
     <ol
-      class="list decimal orderedList"
+      class="ui list decimal orderedList"
     >
       <li
         class="item orderedItem"
       >
-        List
+        <div
+          class="content"
+        >
+          <span
+            class="children"
+          >
+            List
+          </span>
+        </div>
       </li>
     </ol>
   </div>,
