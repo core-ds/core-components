@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -76,12 +76,31 @@ export const CardImage: FC<CardImageProps> = ({
     const [loaded, setLoaded] = useState(false);
     const image = useRef<HTMLImageElement>(null);
     const height = width * ASPECT_RATIO;
-    const handleLoadedImage = useCallback(() => {
-        setLoaded(true);
-        if (onLoad) {
-            onLoad();
-        }
-    }, [onLoad]);
+
+    useEffect(() => {
+        setLoaded((prevLoaded) => {
+            if (!prevLoaded && image.current?.complete) {
+                onLoad?.();
+
+                return true;
+            }
+
+            return prevLoaded;
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const handleLoadedImage = () => {
+        setLoaded((prevLoaded) => {
+            if (!prevLoaded) {
+                onLoad?.();
+
+                return true;
+            }
+
+            return prevLoaded;
+        });
+    };
 
     const cardImageUrl = `${baseUrl}${cardId}/images?layers=${layers}&width=${width}`;
     const cardImageUrl2x = `${baseUrl}${cardId}/images?layers=${layers}&width=${width * 2}`;
