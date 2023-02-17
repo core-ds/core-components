@@ -29,6 +29,7 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
         }, []);
         const [textContent, setTextContent] = React.useState('');
         const renderActionButton = boolean('renderActionButton', true);
+        const hideOverlay = boolean('hideOverlay', false);
         return (
             <div>
                 <Button
@@ -51,6 +52,20 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
                 >
                     Окрыть шторку с длинным контентом
                 </Button>
+                {
+                    hideOverlay &&
+                    <>
+                        <Button
+                            onClick={() => {
+                                alert('Клик сработал!');
+                            }}
+                            style={{ margin: '15px' }}
+                            id='button-3'
+                        >
+                            Проверить клик
+                        </Button>
+                    </>
+                }
                 <BottomSheet
                     key={textContent}
                     open={open}
@@ -64,6 +79,7 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
                     }
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
+                    hideScrollbar={boolean('hideScrollbar', false)}
                     titleAlign={select('titleAlign', ['center', 'left'], 'center')}
                     trimTitle={boolean('trimTitle', false)}
                     stickyHeader={boolean('stickyHeader', false)}
@@ -73,9 +89,13 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
                     rightAddons={select('rightAddons', [true, false], false)}
                     stickyFooter={boolean('stickyFooter', true)}
                     initialHeight={select('initialHeight', ['default', 'full'], 'default')}
-                    hideOverlay={boolean('hideOverlay', false)}
+                    visibleHeight={text('visibleHeight')}
+                    hideOverlay={hideOverlay}
                     hideHeader={boolean('hideHeader', false)}
                     disableOverlayClick={boolean('disableOverlayClick', false)}
+                    magneticAreas={text('magneticAreas', '20, 100px, 25%, 50%').split(',').map((item) => item.trim())}
+                    stickyThreshold={text('stickyThreshold', '20px')}
+                    onMagnetic={(index) => console.log(`Примагнитились к magneticAreas[${index}]`)}
                     backgroundColor={select('backgroundColor', BACKGROUND, undefined)}
                 >
                     <div style={{ whiteSpace: 'pre-wrap' }}>{textContent}</div>

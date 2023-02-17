@@ -13,6 +13,14 @@
     max-width: 600px;
 }
 
+.disabledPointerEvents {
+    pointer-events: none;
+}
+
+.enabledPointerEvents {
+    pointer-events: all;
+}
+
 .component {
     overflow: hidden;
     position: relative;
@@ -35,6 +43,15 @@
     position: relative;
     height: 100%;
     background-color: inherit;
+}
+
+.withoutScrollbar {
+    scrollbar-width: none;
+}
+.withoutScrollbar::-webkit-scrollbar {
+    display:none;
+    width: 0 !important;
+    background: transparent;
 }
 
 .marker {

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext, useEffect } from 'react';
+import React, { ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
@@ -22,7 +22,7 @@ export type FooterProps = {
     className?: string;
 };
 
-export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
+export const Footer = React.forwardRef<HTMLDivElement, FooterProps>(({ children, className, sticky }, ref) => {
     const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
 
     useEffect(() => {
@@ -31,6 +31,7 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
 
     return (
         <div
+            ref={ref}
             className={cn(styles.footer, className, {
                 [styles.sticky]: sticky,
                 [styles.highlighted]: footerHighlighted && sticky,
@@ -39,4 +40,4 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
             {children}
         </div>
     );
-};
+});

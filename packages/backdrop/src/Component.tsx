@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from 'react';
+import React, { CSSProperties, MouseEvent, ReactNode } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionClassNames } from 'react-transition-group/CSSTransition';
 import { TransitionProps } from 'react-transition-group/Transition';
@@ -43,6 +43,11 @@ export type BackdropProps = Partial<TransitionProps> & {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Дополнительные стили backdrop
+     */
+    style?: CSSProperties
 };
 
 export const Backdrop: React.FC<BackdropProps> = ({

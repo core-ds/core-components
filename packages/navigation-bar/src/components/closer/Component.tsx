@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ElementType, FC } from 'react';
+import React, { ButtonHTMLAttributes, ElementType } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
@@ -47,7 +47,7 @@ export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     ) => void;
 }
 
-export const Closer: FC<CloserProps> = ({
+export const Closer = React.forwardRef<HTMLButtonElement, CloserProps>(({
     view,
     className,
     sticky,
@@ -55,7 +55,7 @@ export const Closer: FC<CloserProps> = ({
     dataTestId,
     onClose,
     ...restProps
-}) => {
+}, ref) => {
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         onClose?.(event, 'closerClick');
     };
@@ -67,6 +67,7 @@ export const Closer: FC<CloserProps> = ({
             })}
         >
             <IconButton
+                ref={ref}
                 size={view === 'desktop' ? 's' : 'xs'}
                 className={cn(styles.button, { [styles.mobile]: view === 'mobile' })}
                 aria-label='закрыть'
@@ -77,4 +78,4 @@ export const Closer: FC<CloserProps> = ({
             />
         </div>
     );
-};
+});

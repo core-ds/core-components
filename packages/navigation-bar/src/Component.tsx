@@ -30,7 +30,9 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     titleSize = 'default',
     subtitle,
     hasCloser,
+    closerRef,
     hasBackButton,
+    backButtonRef,
     backButtonClassName,
     dataTestId,
     imageUrl,
@@ -124,6 +126,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         return (
             <div className={cn(styles.addon, backButtonClassName)}>
                 <BackArrowAddon
+                    ref={backButtonRef}
                     textOpacity={textOpacity}
                     view={view}
                     onClick={onBack}
@@ -163,6 +166,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     const renderCloser = () => (
         <div className={cn(styles.addon, styles.closer, closerClassName)}>
             <Closer
+                ref={closerRef}
                 view={view}
                 icon={closerIcon}
                 dataTestId={getDataTestId(dataTestId, 'closer')}

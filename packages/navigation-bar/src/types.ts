@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, {ReactNode, RefObject} from 'react';
 
 import type { CloserProps } from './components/closer';
 
@@ -54,9 +54,19 @@ export type NavigationBarProps = {
     hasCloser?: boolean;
 
     /**
+     * Ref крестика
+     */
+    closerRef?: RefObject<HTMLButtonElement>;
+
+    /**
      * Наличие кнопки "Назад"
      */
     hasBackButton?: boolean;
+
+    /**
+     * Ref кнопки назад
+     */
+    backButtonRef?: RefObject<HTMLButtonElement>;
 
     /**
      * Дополнительный класс для правого аддона

@@ -5,6 +5,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
   style="padding-right: 0px; overflow: hidden;"
 >
   <div />
+  <div />
   <div
     alfa-portal-container=""
   >
@@ -17,7 +18,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
       data-focus-lock-disabled="false"
     >
       <div
-        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100; pointer-events: auto;"
       >
         <div
           aria-hidden="true"
@@ -27,27 +28,28 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
       <div
         class="wrapper"
         role="dialog"
-        style="z-index: 100;"
+        style="z-index: 100; pointer-events: auto;"
         tabindex="0"
       >
         <div
-          class="component modal appear appearActive"
+          class="component modal disabledPointerEvents appear appearActive"
         >
           <div
             class="content"
           >
             <div
+              class="disabledPointerEvents"
               style="max-height: 744px;"
             >
               <div
-                class="component withTransition"
+                class="component enabledPointerEvents withTransition"
                 style="max-height: 744px;"
               >
                 <div
-                  class="scrollableContainer"
+                  class="scrollableContainer enabledPointerEvents"
                 >
                   <div
-                    class="marker"
+                    class="marker disabledPointerEvents"
                   />
                   <div
                     class="header headerWrapper hasContent"
@@ -106,7 +108,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
       data-focus-lock-disabled="false"
     >
       <div
-        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100; pointer-events: auto;"
       >
         <div
           aria-hidden="true"
@@ -116,27 +118,28 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
       <div
         class="wrapper"
         role="dialog"
-        style="z-index: 100;"
+        style="z-index: 100; pointer-events: auto;"
         tabindex="0"
       >
         <div
-          class="component modal appear appearActive"
+          class="component modal disabledPointerEvents appear appearActive"
         >
           <div
             class="content"
           >
             <div
+              class="disabledPointerEvents"
               style="max-height: 744px;"
             >
               <div
-                class="component withTransition"
+                class="component enabledPointerEvents withTransition"
                 style="max-height: 744px;"
               >
                 <div
-                  class="scrollableContainer"
+                  class="scrollableContainer enabledPointerEvents"
                 >
                   <div
-                    class="marker"
+                    class="marker disabledPointerEvents"
                   />
                   <div
                     class="header headerWrapper hasContent"

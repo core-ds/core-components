@@ -35,18 +35,19 @@ export interface BackArrowAddonProps extends React.HTMLAttributes<HTMLButtonElem
     onClick?: () => void;
 }
 
-export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
+export const BackArrowAddon = React.forwardRef<HTMLButtonElement, BackArrowAddonProps>(({
     text = 'Назад',
     onClick,
     className,
     textOpacity = 1,
     view,
     ...htmlAttributes
-}) => {
+}, ref) => {
     const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon;
 
     return (
         <Button
+            ref={ref}
             view='ghost'
             size={view === 'mobile' ? 'xxs' : 's'}
             onClick={onClick}
@@ -79,4 +80,4 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
             </div>
         </Button>
     );
-};
+});

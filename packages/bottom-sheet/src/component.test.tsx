@@ -1,5 +1,11 @@
-import React, { useState, forwardRef } from 'react';
-import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import React, { useState, forwardRef, useRef } from 'react';
+import {
+    fireEvent,
+    render,
+    renderHook,
+    waitFor,
+    waitForElementToBeRemoved
+} from '@testing-library/react';
 
 import { act } from 'react-dom/test-utils';
 import { BottomSheet, BottomSheetProps, CLOSE_OFFSET } from '.';
@@ -33,6 +39,7 @@ const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>
 const dataTestId = 'test-id';
 
 let getBoundingClientRect: () => DOMRect;
+let sheetContainerRef: React.RefObject<HTMLDivElement>;
 
 const mockGetBoundingClientRect = (height: number) => {
     if (!getBoundingClientRect) {
@@ -52,6 +59,16 @@ const mockGetBoundingClientRect = (height: number) => {
     });
 };
 
+const mockElementsFromPoint = () => {
+    const element = renderHook(() => useRef<HTMLDivElement>(null));
+    const spyFunc = () => [element.result.current.current];
+
+    Object.defineProperty(document, 'elementsFromPoint', {
+        value: spyFunc,
+    });
+    sheetContainerRef = element.result.current;
+}
+
 const clearGetBoundingClientRect = () => {
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 };
@@ -59,6 +76,7 @@ const clearGetBoundingClientRect = () => {
 describe('Bottom sheet', () => {
     beforeAll(() => {
         mockGetBoundingClientRect(100);
+        mockElementsFromPoint();
     });
 
     afterAll(() => {
@@ -218,6 +236,7 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper
                     dataTestId={dataTestId}
                     className={className}
+                    sheetContainerRef={sheetContainerRef}
                     transitionProps={{
                         timeout: 0,
                         onEntered,
@@ -267,6 +286,7 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper
                     dataTestId={dataTestId}
                     className={className}
+                    sheetContainerRef={sheetContainerRef}
                     transitionProps={{
                         timeout: 0,
                         onEntered,
@@ -309,6 +329,7 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper
                     dataTestId={dataTestId}
                     className={className}
+                    sheetContainerRef={sheetContainerRef}
                     transitionProps={{
                         timeout: 0,
                         onEntered,

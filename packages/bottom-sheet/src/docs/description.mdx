@@ -179,6 +179,10 @@ const FOOTER_SETTINGS = [
 const MECHANICS_SETTINGS = [
     { label: 'Высота подстраивается под размер контента', name: 'adaptive' },
     { label: 'Разрешить закрывать свайпом', name: 'swipeable' },
+    { label: 'Скрыть оверлей', name: 'hideOverlay' },
+    { label: 'Скрыть скроллбар внутри bottom-sheet', name: 'hideScrollbar' },
+    { label: 'Магнитные области - 20px, 50%', name: 'magAreas' },
+    { label: 'Изначально заданная высота 50%', name: 'initialVisibleHeight' },
 ];
 
 render(() => {
@@ -359,8 +363,12 @@ render(() => {
                         ? 'Почему банк проверяет мои операции?'
                         : undefined
                 }
+                hideOverlay={mechanics['hideOverlay']}
+                hideScrollbar={mechanics['hideScrollbar']}
+                visibleHeight={mechanics['initialVisibleHeight'] ? '50%' : undefined}
+                magneticAreas={mechanics['magAreas'] ? ['40px', '50%'] : []}
                 stickyFooter={footerSettings.sticky}
-                swipeable={mechanics.swipeable}
+                swipeable={mechanics.swipeable || mechanics['magAreas']}
                 initialHeight={mechanics.adaptive ? 'default' : 'full'}
                 actionButton={
                     showFooter ? (

@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, {
+    CSSProperties,
     FC,
     forwardRef,
     KeyboardEvent,
@@ -124,6 +125,11 @@ export type BaseModalProps = {
     wrapperClassName?: string;
 
     /**
+     * Дополнительные стили для обертки (Modal)
+     */
+    wrapperStyle?: CSSProperties;
+
+    /**
      * Обработчик скролла контента
      */
     scrollHandler?: 'wrapper' | 'content' | MutableRefObject<HTMLDivElement | null>;
@@ -232,6 +238,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             className,
             contentClassName,
             wrapperClassName,
+            wrapperStyle = {},
             onBackdropClick,
             onClose,
             onEscapeKeyDown,
@@ -516,6 +523,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                         open={open}
                                         style={{
                                             zIndex: computedZIndex,
+                                            ...backdropProps?.style
                                         }}
                                     />
                                 )}
@@ -533,6 +541,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     data-test-id={dataTestId}
                                     style={{
                                         zIndex: computedZIndex,
+                                        ...wrapperStyle
                                     }}
                                 >
                                     <CSSTransition
