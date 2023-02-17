@@ -6,9 +6,11 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { isClient } from '../../utils';
 
-import { Closer } from './components/closer/Component';
+import { Header } from './components/header/Component';
 import { SidePanelDesktop } from './Component.desktop';
 import { SidePanelMobile } from './Component.mobile';
+import { ResponsiveContext } from './ResponsiveContext';
+import { TResponsiveModalContext } from './typings';
 
 export type SidePanelResponsiveProps = BaseModalProps &
     Pick<
@@ -39,23 +41,12 @@ export type SidePanelResponsiveProps = BaseModalProps &
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
 
-type View = 'desktop' | 'mobile';
-
-type ResponsiveContext = {
-    view?: View;
-};
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-const ResponsiveContext = React.createContext<ResponsiveContext>({
-    view: 'desktop',
-});
-
 function createResponsive<DesktopType extends FC, MobileType extends FC>(
     desktop: DesktopType,
     mobile: MobileType,
 ) {
     function ResponsiveChild(props: any) {
-        const { view } = useContext(ResponsiveContext);
+        const { view = 'desktop' } = useContext(ResponsiveContext) || {};
 
         const Child = view === 'desktop' ? desktop : mobile;
 
@@ -66,7 +57,7 @@ function createResponsive<DesktopType extends FC, MobileType extends FC>(
 }
 
 const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelResponsiveProps>(
-    ({ children, breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+    ({ children, breakpoint = 1024, size = 's', defaultMatchMediaValue, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
         const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
 
@@ -74,13 +65,13 @@ const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelRespons
 
         const view = isDesktop ? 'desktop' : 'mobile';
 
-        const contextValue = useMemo<ResponsiveContext>(() => ({ view }), [view]);
+        const contextValue = useMemo<TResponsiveModalContext>(() => ({ view, size }), [view, size]);
 
         const Component = isDesktop ? SidePanelDesktop : SidePanelMobile;
 
         return (
             <ResponsiveContext.Provider value={contextValue}>
-                <Component ref={ref} {...restProps}>
+                <Component ref={ref} size={size} {...restProps}>
                     {children}
                 </Component>
             </ResponsiveContext.Provider>
@@ -89,8 +80,7 @@ const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelRespons
 );
 
 export const SidePanelResponsive = Object.assign(SidePanelResponsiveComponent, {
-    Header: createResponsive(SidePanelDesktop.Header, SidePanelMobile.Header),
+    Header,
     Content: createResponsive(SidePanelDesktop.Content, SidePanelMobile.Content),
     Footer: createResponsive(SidePanelDesktop.Footer, SidePanelMobile.Footer),
-    Closer,
 });

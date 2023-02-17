@@ -74,7 +74,7 @@ describe('InputAutocompleteMobile', () => {
                 <InputAutocompleteMobileWrapper label={label} open={true} />,
             );
 
-            expect(getByRole('dialog').querySelector('span[class^="title"]')).toBeInTheDocument();
+            expect(getByRole('dialog').querySelector('div[class^="title"]')).toBeInTheDocument();
         });
     });
 

@@ -11,28 +11,30 @@
     --side-panel-s-width: 500px;
 
     /* paddings */
-    --side-panel-s-header-paddings: var(--gap-xs) var(--gap-xs) var(--gap-m);
-    --side-panel-s-content-paddings: 0 56px;
-    --side-panel-s-footer-paddings: var(--gap-xl) 56px var(--gap-2xl);
+    --side-panel-s-header-paddings: 28px 28px 0;
+    --side-panel-s-content-paddings: var(--gap-3xl) var(--gap-3xl) 0;
+    --side-panel-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
 
     /* scroll */
     --side-panel-header-highlight-background: var(--color-light-bg-primary);
     --side-panel-footer-highlight-background: var(--color-light-bg-primary);
-    --side-panel-header-highlight-box-shadow: none;
-    --side-panel-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-border-primary);
+    --side-panel-header-highlight-box-shadow: 0 1px 0 0 var(--color-light-border-secondary);
+    --side-panel-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-border-secondary);
 
     /* desktop */
-    --side-panel-s-header-desktop-content-paddings: var(--gap-s) var(--gap-m) 0 0;
-    --side-panel-s-header-desktop-font-size: 22px;
+    --side-panel-s-header-desktop-content-paddings: var(--gap-s);
+    --side-panel-s-header-desktop-font-size: 20px;
     --side-panel-s-header-desktop-line-height: 26px;
     --side-panel-header-desktop-font-weight: bold;
     --side-panel-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --side-panel-header-mobile-content-paddings: var(--gap-s) var(--gap-xs) var(--gap-s)
-        var(--gap-m);
+    --side-panel-header-mobile-content-paddings: var(--gap-s) var(--gap-xs);
     --side-panel-header-mobile-font-size: 18px;
     --side-panel-header-mobile-line-height: 24px;
     --side-panel-header-mobile-font-family: var(--font-family-system);
     --side-panel-header-mobile-font-weight: bold;
+
+    /* paddings */
+    --side-panel-header-mobile-paddings: var(--gap-2xs) var(--gap-xs);
 }

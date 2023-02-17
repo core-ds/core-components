@@ -1,0 +1,28 @@
+@import '../../../../themes/src/default.css';
+
+.closer {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    background: var(--color-light-bg-primary-alpha-40);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    color: var(--color-light-graphic-primary);
+
+    &.mobile {
+        background: var(--color-light-specialbg-secondary-transparent);
+        color: var(--color-light-graphic-secondary);
+    }
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}

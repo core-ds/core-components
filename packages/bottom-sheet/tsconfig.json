@@ -13,6 +13,7 @@
         { "path": "../backdrop" },
         { "path": "../base-modal" },
         { "path": "../icon-button" },
-        { "path": "../typography" }
+        { "path": "../typography" },
+        { "path": "../navigation-bar" }
     ]
 }

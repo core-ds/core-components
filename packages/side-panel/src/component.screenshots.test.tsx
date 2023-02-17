@@ -42,7 +42,7 @@ describe('SidePanelMobile', () => {
         })();
     };
 
-    ['default', 'click'].map(testCase);
+    ['default'].map(testCase);
 });
 
 describe(
@@ -55,7 +55,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.hasCloser': [true, false],
                     SidePanelComponent: 'SidePanelMobile',
                 },
@@ -66,7 +66,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.trim': [true, false],
                     SidePanelComponent: 'SidePanelMobile',
                 },
@@ -204,7 +204,7 @@ describe('SidePanelDesktop', () => {
         })();
     };
 
-    ['default', 'click'].map(testCase);
+    ['default'].map(testCase);
 });
 
 describe(
@@ -243,7 +243,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.hasCloser': [true, false],
                     SidePanelComponent: 'SidePanelDesktop',
                 },
@@ -254,7 +254,7 @@ describe(
                 knobs: {
                     open: true,
                     header: true,
-                    'header.title': 'Очень очень длинный заголовок-заголовок',
+                    'header.title': 'Очень очень длинный заголовок-заголовок заголовок',
                     'header.trim': [true, false],
                     SidePanelComponent: 'SidePanelDesktop',
                 },

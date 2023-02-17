@@ -14,6 +14,7 @@
         { "path": "../drawer" },
         { "path": "../button" },
         { "path": "../icon-button" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../navigation-bar" }
     ]
 }
