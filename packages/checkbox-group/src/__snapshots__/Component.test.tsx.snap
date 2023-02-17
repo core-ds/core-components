@@ -575,6 +575,7 @@ Object {
             <input
               autocomplete="off"
               class="hiddenInput"
+              tabindex="-1"
               type="checkbox"
             />
           </label>
@@ -592,6 +593,7 @@ Object {
             <input
               autocomplete="off"
               class="hiddenInput"
+              tabindex="-1"
               type="checkbox"
             />
           </label>
@@ -609,6 +611,7 @@ Object {
             <input
               autocomplete="off"
               class="hiddenInput"
+              tabindex="-1"
               type="checkbox"
             />
           </label>
@@ -642,6 +645,7 @@ Object {
           <input
             autocomplete="off"
             class="hiddenInput"
+            tabindex="-1"
             type="checkbox"
           />
         </label>
@@ -659,6 +663,7 @@ Object {
           <input
             autocomplete="off"
             class="hiddenInput"
+            tabindex="-1"
             type="checkbox"
           />
         </label>
@@ -676,6 +681,7 @@ Object {
           <input
             autocomplete="off"
             class="hiddenInput"
+            tabindex="-1"
             type="checkbox"
           />
         </label>
