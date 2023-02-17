@@ -1,5 +1,14 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+### [#494](https://github.com/core-ds/core-components/pull/494)
+
+-   В ModalContext у base-modal добавлен ref на div-обертку модальных окон
+-   У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
+
 ## 5.0.10
 
 ### Patch Changes
