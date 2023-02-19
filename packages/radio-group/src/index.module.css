@@ -79,7 +79,7 @@
     opacity: 0;
 
     &:focus ~ button {
-        outline: 2px solid var(--focus-color);
+        @mixin focus-outline;
     }
 }
 
