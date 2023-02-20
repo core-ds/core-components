@@ -7,7 +7,8 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-const clip = { x: 0, y: 0, width: 600, height: 200 };
+const clipCheckbox = { x: 0, y: 0, width: 600, height: 200 };
+const clipTag = { x: 0, y: 0, width: 600, height: 300 };
 
 describe(
     'RadioGroup | main props',
@@ -23,7 +24,7 @@ describe(
             },
         }),
         screenshotOpts: {
-            clip,
+            clip: clipCheckbox,
         },
     }),
 );
@@ -39,7 +40,44 @@ describe(
             },
         }),
         screenshotOpts: {
-            clip,
+            clip: clipCheckbox,
+        },
+    }),
+);
+
+describe(
+    'RadioGroup | main props tags',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'RadioGroup',
+            testStory: false,
+            knobs: {
+                type: 'tag',
+                direction: ['horizontal', 'vertical'],
+                label: ['', 'Заголовок'],
+                error: ['', 'Ошибка'],
+                hint: ['', 'Подсказка'],
+            },
+        }),
+        screenshotOpts: {
+            clip: clipTag,
+        },
+    }),
+);
+
+describe(
+    'RadioGroup | disabled tags',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'RadioGroup',
+            testStory: false,
+            knobs: {
+                type: 'tag',
+                disabled: true,
+            },
+        }),
+        screenshotOpts: {
+            clip: clipTag,
         },
     }),
 );
