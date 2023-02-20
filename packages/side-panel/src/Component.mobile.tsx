@@ -1,11 +1,12 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from './components/content/Component.mobile';
 import { FooterMobile } from './components/footer/Component.mobile';
-import { HeaderMobile } from './components/header/Component.mobile';
+import { Header } from './components/header/Component';
+import { ResponsiveContext } from './ResponsiveContext';
 
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';
@@ -18,24 +19,38 @@ export type SidePanelMobileProps = BaseModalProps & {
     hasCloser?: boolean;
 };
 
+const contextValue = { size: 's', view: 'mobile' } as const;
+
 const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps>(
-    ({ children, className, transitionProps, ...restProps }, ref) => (
-        <BaseModal
-            {...restProps}
-            ref={ref}
-            transitionProps={{
-                classNames: transitions,
-                ...transitionProps,
-            }}
-            className={cn(className, styles.component)}
-        >
-            {children}
-        </BaseModal>
-    ),
+    ({ children, className, transitionProps, ...restProps }, ref) => {
+        const responsiveContext = useContext(ResponsiveContext);
+
+        const renderContent = () => (
+            <BaseModal
+                {...restProps}
+                ref={ref}
+                transitionProps={{
+                    classNames: transitions,
+                    ...transitionProps,
+                }}
+                className={cn(className, styles.component)}
+            >
+                <div className={styles.mobileContent}>{children}</div>
+            </BaseModal>
+        );
+
+        const renderWithContext = () => (
+            <ResponsiveContext.Provider value={contextValue}>
+                {renderContent()}
+            </ResponsiveContext.Provider>
+        );
+
+        return responsiveContext ? renderContent() : renderWithContext();
+    },
 );
 
 export const SidePanelMobile = Object.assign(SidePanelMobileComponent, {
     Content: ContentMobile,
-    Header: HeaderMobile,
+    Header,
     Footer: FooterMobile,
 });

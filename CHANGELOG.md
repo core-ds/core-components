@@ -1,3 +1,60 @@
+## 39.0.0
+
+<sup><time>17.02.2023</time></sup>
+
+### [#494](https://github.com/core-ds/core-components/pull/494)
+
+#### Что изменилось
+- В ModalContext у base-modal добавлен ref на div-обертку модальных окон
+- У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`bottom-sheet` `modal` `side-panel`
+
+
+- Минорное<br />`base-modal` `navigation-bar`
+
+
+- Патчи<br />`themes`
+
+
+### [#531](https://github.com/core-ds/core-components/pull/531)
+
+#### Что изменилось
+- Добавлены static цвета для Typography
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#532](https://github.com/core-ds/core-components/pull/532)
+
+#### Что изменилось
+- Добавлен новый компонент SortableList
+
+#### Влияние на компоненты
+- Минорное<br />`sortable-list`
+
+
+### [#521](https://github.com/core-ds/core-components/pull/521)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не вызывался onLoad callback
+
+#### Влияние на компоненты
+- Патчи<br />`card-image`
+
+
+### [#511](https://github.com/core-ds/core-components/pull/511)
+
+#### Что изменилось
+- Добавлен новый компонент Underlay
+
+#### Влияние на компоненты
+- Минорное<br />`underlay`
+
+
+
 ## 38.4.0
 
 <sup><time>15.02.2023</time></sup>

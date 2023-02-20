@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#531](https://github.com/core-ds/core-components/pull/531)
+
+-   Добавлены static цвета для Typography
+
 ## 3.1.1
 
 ### Patch Changes

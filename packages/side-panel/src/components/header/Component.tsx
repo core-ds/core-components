@@ -1,123 +1,59 @@
-import React, { FC, ReactNode, useContext, useEffect } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
+import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
+
 import { ModalContext } from '../../Context';
+import { ResponsiveContext } from '../../ResponsiveContext';
 
+import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
+import mobileStyles from './mobile.module.css';
 
-export type HeaderProps = {
-    /**
-     * Контент шапки
-     */
-    children?: ReactNode;
-
-    /**
-     * Слот слева
-     */
-    leftAddons?: ReactNode;
-
-    /**
-     * Компонент крестика
-     */
-    closer?: ReactNode;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для аддонов
-     */
-    addonClassName?: string;
-
-    /**
-     * Дополнительный класс для контента
-     */
-    contentClassName?: string;
-
-    /**
-     * Заголовок шапки
-     */
-    title?: string;
-
-    /**
-     * Выравнивание заголовка
-     */
-    align?: 'left' | 'center';
-
-    /**
-     * Обрезать ли заголовок
-     */
-    trim?: boolean;
-
-    /**
-     * Фиксирует шапку
-     */
-    sticky?: boolean;
-
-    /**
-     * Фоновое изображение
-     */
-    imageUrl?: string;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-};
+export type HeaderProps = Omit<NavigationBarProps, 'size' | 'view' | 'parentRef'>;
 
 export const Header: FC<HeaderProps> = ({
     className,
-    addonClassName,
-    contentClassName,
-    leftAddons,
     children,
-    align = 'left',
-    trim = true,
+    contentClassName,
     title,
-    closer,
     sticky,
-    imageUrl,
-    dataTestId,
+    hasCloser = true,
+    ...restProps
 }) => {
-    const { headerHighlighted, setHasHeader } = useContext(ModalContext);
-
-    const hasContent = Boolean(title || children);
+    const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
+    const { size = 's', view = 'desktop' } = useContext(ResponsiveContext) || {};
 
     useEffect(() => {
         setHasHeader(true);
     }, [setHasHeader]);
 
+    const hasContent = Boolean(title || children);
+
     return (
-        <div
+        <NavigationBar
+            {...restProps}
+            scrollableParentRef={componentRef}
+            view={view}
+            sticky={sticky}
+            title={title}
+            hasCloser={hasCloser}
+            onClose={onClose}
             className={cn(styles.header, className, {
-                [styles.backgroundImage]: imageUrl,
                 [styles.highlighted]: hasContent && sticky && headerHighlighted,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
+                [desktopStyles.sticky]: view === 'desktop' && sticky,
+                [desktopStyles[size]]: view === 'desktop',
+                [mobileStyles.sticky]: view === 'mobile' && sticky,
+                [mobileStyles.header]: view === 'mobile',
             })}
-            data-test-id={dataTestId}
-            style={{
-                ...(imageUrl && { backgroundImage: `url(${imageUrl})` }),
-            }}
+            contentClassName={cn(contentClassName, {
+                [desktopStyles.content]: view === 'desktop',
+                [mobileStyles.content]: view === 'mobile',
+            })}
         >
-            {leftAddons && <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>}
-
-            {hasContent && (
-                <div
-                    className={cn(styles.content, contentClassName, styles[align], {
-                        [styles.trim]: trim,
-                    })}
-                >
-                    {children}
-                    {title && <div className={styles.title}>{title}</div>}
-                </div>
-            )}
-
-            {closer && (
-                <div className={cn(styles.addon, styles.closer, addonClassName)}>{closer}</div>
-            )}
-        </div>
+            {children}
+        </NavigationBar>
     );
 };
