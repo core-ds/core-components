@@ -6,4 +6,7 @@
     --button-primary-disabled-bg-color: var(--color-light-bg-secondary-inverted);
     --button-primary-disabled-color: var(--color-light-text-tertiary-inverted);
     --button-primary-color: var(--color-light-text-primary-inverted);
+
+    /* loader */
+    --button-spinner-static-color: var(--color-light-graphic-primary-inverted);
 }
