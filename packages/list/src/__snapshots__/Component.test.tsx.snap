@@ -22,7 +22,24 @@ Object {
             <span
               class="children"
             >
-              List
+              <li
+                class="item"
+              >
+                <div
+                  class="slot"
+                >
+                  —
+                </div>
+                <div
+                  class="content"
+                >
+                  <span
+                    class="children"
+                  >
+                    List
+                  </span>
+                </div>
+              </li>
             </span>
           </div>
         </li>
@@ -47,7 +64,24 @@ Object {
           <span
             class="children"
           >
-            List
+            <li
+              class="item"
+            >
+              <div
+                class="slot"
+              >
+                —
+              </div>
+              <div
+                class="content"
+              >
+                <span
+                  class="children"
+                >
+                  List
+                </span>
+              </div>
+            </li>
           </span>
         </div>
       </li>
@@ -124,7 +158,19 @@ Object {
             <span
               class="children"
             >
-              List
+              <li
+                class="item orderedItem"
+              >
+                <div
+                  class="content"
+                >
+                  <span
+                    class="children"
+                  >
+                    List
+                  </span>
+                </div>
+              </li>
             </span>
           </div>
         </li>
@@ -144,7 +190,19 @@ Object {
           <span
             class="children"
           >
-            List
+            <li
+              class="item orderedItem"
+            >
+              <div
+                class="content"
+              >
+                <span
+                  class="children"
+                >
+                  List
+                </span>
+              </div>
+            </li>
           </span>
         </div>
       </li>

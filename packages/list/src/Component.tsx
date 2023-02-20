@@ -1,7 +1,8 @@
-import React, { ReactNode, useMemo } from 'react';
+import React, { Children, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
 import { ListItem } from './components/item';
+import { isListItem } from './utils';
 
 import styles from './index.module.css';
 
@@ -18,7 +19,7 @@ export type ListContext = {
     markerType?: 'lower-alpha' | 'decimal' | string | ReactNode;
 
     /**
-     * Css-класс для стилизации
+     * Цвет маркера
      */
     colorMarker?: ColorMarkerType;
 
@@ -63,14 +64,9 @@ export type ListProps = {
     className?: string;
 
     /**
-     * Css-класс для стилизации
+     * Цвет маркера
      */
     colorMarker?: ColorMarkerType;
-
-    /**
-     * Css-класс для стилизации
-     */
-    caption?: string;
 
     /**
      * Список обратного счета
@@ -88,7 +84,7 @@ export type ListProps = {
     dataTestId?: string;
 
     /**
-     * Дочерние элементы.
+     * Дочерние элементы
      */
     children?: ReactNode;
 } & Omit<React.OlHTMLAttributes<HTMLOListElement>, 'type'>;
@@ -98,7 +94,6 @@ const ListComponent: React.FC<ListProps> = ({
     marker,
     className,
     dataTestId,
-    caption,
     colorMarker,
     children,
     reversed,
@@ -139,7 +134,17 @@ const ListComponent: React.FC<ListProps> = ({
             data-test-id={dataTestId}
             {...restProps}
         >
-            <ListContext.Provider value={ComponentProviderValue}>{children}</ListContext.Provider>
+            {isListItem(children) ? (
+                <ListContext.Provider value={ComponentProviderValue}>
+                    {children}
+                </ListContext.Provider>
+            ) : (
+                Children.map(children, (child) => (
+                    <ListContext.Provider value={ComponentProviderValue}>
+                        <ListItem>{child}</ListItem>
+                    </ListContext.Provider>
+                ))
+            )}
         </Component>
     );
 };
