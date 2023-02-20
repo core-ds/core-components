@@ -35,7 +35,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     closerIcon,
     onClose,
     view,
-    parentRef,
+    scrollableParentRef,
     sticky,
     onBack,
 }) => {
@@ -58,7 +58,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     const headerPaddingTop = mainLinePaddingTopRef.current;
 
     useEffect(() => {
-        const parent = parentRef?.current;
+        const parent = scrollableParentRef?.current;
 
         const handleScroll = (ev: Event) => {
             const divElement = ev.target as HTMLDivElement;
@@ -75,7 +75,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         }
 
         return () => parent?.removeEventListener('scroll', handleScroll);
-    }, [parentRef, withAnimation]);
+    }, [scrollableParentRef, withAnimation]);
 
     const renderBackButton = () => {
         let textOpacity = 1;

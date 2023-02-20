@@ -315,7 +315,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             ...(titleIsReactElement
                 ? { children: title }
                 : { title: title ? title?.toString() : undefined }),
-            parentRef: scrollableContainer,
+            scrollableParentRef: scrollableContainer,
             className: headerClassName,
             addonClassName,
             closerClassName,

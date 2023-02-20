@@ -35,7 +35,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
                 }}
                 className={cn(className, styles.component)}
             >
-                {children}
+                <div className={styles.mobileContent}>{children}</div>
             </BaseModal>
         );
 

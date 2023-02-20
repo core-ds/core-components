@@ -21,7 +21,7 @@ export const Header: FC<HeaderProps> = ({
     hasCloser = true,
     ...restProps
 }) => {
-    const { setHasHeader, headerHighlighted, parentRef, onClose } = useContext(ModalContext);
+    const { setHasHeader, headerHighlighted, onClose, componentRef } = useContext(ModalContext);
     const { size = 's', view = 'desktop' } = useContext(ResponsiveContext) || {};
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export const Header: FC<HeaderProps> = ({
     return (
         <NavigationBar
             {...restProps}
-            parentRef={parentRef}
+            scrollableParentRef={componentRef}
             view={view}
             sticky={sticky}
             title={title}

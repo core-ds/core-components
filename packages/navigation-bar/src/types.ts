@@ -124,9 +124,9 @@ export type NavigationBarProps = {
     view: 'desktop' | 'mobile';
 
     /**
-     * Ссылка на родительскую ноду.
+     * Ссылка на родительскую ноду overflow: auto
      */
-    parentRef?: React.RefObject<HTMLDivElement>;
+    scrollableParentRef?: React.RefObject<HTMLDivElement>;
 };
 
 export type ContentParams = {
