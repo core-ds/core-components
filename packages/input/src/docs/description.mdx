@@ -94,6 +94,7 @@ render(() => {
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <style>{`.target {display: flex;}`}</style>
             <Input
                 block={true}
                 placeholder='Инпут с плейсхолдером'
@@ -102,6 +103,7 @@ render(() => {
                 rightAddons={
                     <TooltipResponsive
                         open={open}
+                        targetClassName='target'
                         content={
                             <span
                                 style={{ whiteSpace: 'pre-wrap' }}
