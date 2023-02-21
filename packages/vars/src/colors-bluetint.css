@@ -147,6 +147,44 @@
     --color-static-text-secondary-light: rgba(235, 235, 245, 0.54);
     --color-static-text-tertiary-dark: rgba(60, 60, 67, 0.4);
     --color-static-text-tertiary-light: rgba(235, 235, 245, 0.32);
+    --color-dark-bg-component: rgba(255, 255, 255, 0.1); /* deprecated */
+    --color-dark-bg-component-inverted: rgba(0, 0, 0, 0.08); /* deprecated */
+    --color-dark-bg-link-muted: #001c3c; /* deprecated */
+    --color-dark-bg-neutral: #3a3a3c; /* deprecated */
+    --color-dark-bg-nulled: rgba(0, 0, 0, 0); /* deprecated */
+    --color-dark-bg-primary-grouped: #1a1a1d; /* deprecated */
+    --color-dark-bg-secondary-grouped: #2a2a2e; /* deprecated */
+    --color-dark-bg-tertiary-grouped: #404045; /* deprecated */
+    --color-dark-graphic-neutral: #2a2a2c; /* deprecated */
+    --color-dark-specialbg-overlay: rgba(0, 0, 0, 0.8); /* deprecated */
+    --color-dark-text-disabled-transparent: rgba(220, 220, 243, 0.14); /* deprecated */
+    --color-dark-text-secondary-inverted-transparent: rgba(3, 3, 16, 0.56); /* deprecated */
+    --color-dark-text-secondary-transparent: rgba(239, 239, 254, 0.53); /* deprecated */
+    --color-dark-text-tertiary-inverted-transparent: rgba(1, 1, 18, 0.41); /* deprecated */
+    --color-dark-text-tertiary-transparent: rgba(233, 233, 251, 0.35); /* deprecated */
+    --color-light-bg-component: rgba(19, 19, 73, 0.11); /* deprecated */
+    --color-light-bg-component-inverted: rgba(223, 223, 246, 0.13); /* deprecated */
+    --color-light-bg-link-muted: #d6e8fc; /* deprecated */
+    --color-light-bg-neutral: #dcdcdd; /* deprecated */
+    --color-light-bg-nulled: rgba(0, 0, 0, 0); /* deprecated */
+    --color-light-bg-primary-grouped: #f2f2f6; /* deprecated */
+    --color-light-bg-secondary-grouped: #fff; /* deprecated */
+    --color-light-bg-tertiary-grouped: #f2f2f6; /* deprecated */
+    --color-light-graphic-neutral: #dcdcdd; /* deprecated */
+    --color-light-specialbg-overlay: rgba(0, 0, 0, 0.6); /* deprecated */
+    --color-light-text-disabled-transparent: rgba(1, 1, 24, 0.26); /* deprecated */
+    --color-light-text-secondary-inverted-transparent: rgba(239, 239, 254, 0.53); /* deprecated */
+    --color-light-text-secondary-transparent: rgba(3, 3, 16, 0.56); /* deprecated */
+    --color-light-text-tertiary-inverted-transparent: rgba(233, 233, 251, 0.35); /* deprecated */
+    --color-light-text-tertiary-transparent: rgba(1, 1, 18, 0.41); /* deprecated */
+    --color-static-bg-dark: #000; /* deprecated */
+    --color-static-bg-light: #fff; /* deprecated */
+    --color-static-bg-neutral-dark: #3a3a3c; /* deprecated */
+    --color-static-bg-neutral-light: #dcdcdd; /* deprecated */
+    --color-static-text-secondary-dark-transparent: rgba(3, 3, 16, 0.56); /* deprecated */
+    --color-static-text-secondary-light-transparent: rgba(235, 235, 245, 0.6); /* deprecated */
+    --color-static-text-tertiary-dark-transparent: rgba(1, 1, 18, 0.41); /* deprecated */
+    --color-static-text-tertiary-light-transparent: rgba(235, 235, 245, 0.3); /* deprecated */
     --color-dark-bg-accent-alpha-30: rgba(239, 49, 36, 0.3);
     --color-dark-bg-accent-shade-15: rgb(203, 42, 31);
     --color-dark-bg-accent-shade-20: rgb(191, 39, 29);

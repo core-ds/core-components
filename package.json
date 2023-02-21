@@ -91,7 +91,7 @@
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0",
-        "ui-primitives": "^10.9.0"
+        "ui-primitives": "^11.0.0"
     },
     "devDependencies": {
         "@a110/storybook-expand-all": "^1.1.1",

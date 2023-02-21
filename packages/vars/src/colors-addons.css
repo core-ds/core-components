@@ -88,6 +88,35 @@
     --color-static-status-purple: #673ab7;
     --color-static-status-red: #d91d0b;
     --color-static-status-teal: #219187;
+    --color-static-graphic-blue-chill-old: #0f9c8c; /* deprecated */
+    --color-static-graphic-boulder-old: #7a7a7a; /* deprecated */
+    --color-static-graphic-brink-pink-old: #fc617c; /* deprecated */
+    --color-static-graphic-burnt-sienna-old: #eb7a58; /* deprecated */
+    --color-static-graphic-chatelle-old: #bfafc6; /* deprecated */
+    --color-static-graphic-chathams-blue-old: #155966; /* deprecated */
+    --color-static-graphic-curious-blue-light-old: #3b99d9; /* deprecated */
+    --color-static-graphic-fun-blue-old: #1d6ab5; /* deprecated */
+    --color-static-graphic-hippie-blue-old: #5aa4b0; /* deprecated */
+    --color-static-graphic-jaffa-light-old: #f18836; /* deprecated */
+    --color-static-graphic-java-old: #15c0e0; /* deprecated */
+    --color-static-graphic-mantis-old: #63cd4f; /* deprecated */
+    --color-static-graphic-matisse-old: #16548f; /* deprecated */
+    --color-static-graphic-maya: #7eb3ff; /* deprecated */
+    --color-static-graphic-milano-red-old: #cd1501; /* deprecated */
+    --color-static-graphic-mirage-old: #1d2434; /* deprecated */
+    --color-static-graphic-nevada-old: #626b75; /* deprecated */
+    --color-static-graphic-olivine-old: #87b965; /* deprecated */
+    --color-static-graphic-permission: #ff5c5c; /* deprecated */
+    --color-static-graphic-pewter-old: #96a5a5; /* deprecated */
+    --color-static-graphic-pickled-bluewood-old: #2d3f50; /* deprecated */
+    --color-static-graphic-porsche-old: #e7b965; /* deprecated */
+    --color-static-graphic-red-damask-old: #da713c; /* deprecated */
+    --color-static-graphic-saffron-old: #f0c330; /* deprecated */
+    --color-static-graphic-sandybrown-old: #f38f6f; /* deprecated */
+    --color-static-graphic-turkish-rose-old: #b56a6b; /* deprecated */
+    --color-static-graphic-turquoise-blue-old: #6bd3e6; /* deprecated */
+    --color-static-graphic-valencia-old: #d8463b; /* deprecated */
+    --color-static-graphic-waikawa-gray-old: #5b6d9c; /* deprecated */
     --color-static-status-blue-alpha-10: rgba(0, 122, 255, 0.1);
     --color-static-status-green-alpha-10: rgba(19, 164, 99, 0.1);
     --color-static-status-grey-alpha-10: rgba(109, 121, 134, 0.1);
