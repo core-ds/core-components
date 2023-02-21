@@ -40,6 +40,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         timeLeft,
         phone,
         clearCodeOnError,
+        hideCountdownSection,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -156,13 +157,15 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 clearCodeOnError={clearCodeOnError}
                 onErrorAnimationEnd={handleErrorAnimationEnd}
             />
-            <CountdownSection
-                processing={processing}
-                timePassed={timePassed}
-                codeSendHintVisible={codeSendHintVisible}
-                handleSmsRetryClick={handleSmsRetryClick}
-                mobile={mobile}
-            />
+            {!hideCountdownSection && (
+                <CountdownSection
+                    processing={processing}
+                    timePassed={timePassed}
+                    codeSendHintVisible={codeSendHintVisible}
+                    handleSmsRetryClick={handleSmsRetryClick}
+                    mobile={mobile}
+                />
+            )}
 
             {mobile ? (
                 <Button onClick={handleSmsHintLinkClick} view='link' size='xs'>

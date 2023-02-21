@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/addon-docs';
-import { select, number } from '@storybook/addon-knobs';
+import { select, number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Select } from '@alfalab/core-components-select';
@@ -114,6 +114,7 @@ import Development from './development.mdx';
                     }}
                 >
                     <ConfirmationComponent
+                        hideCountdownSection={boolean('hideCountdownSection', false)}
                         screen={confirmationScreen}
                         state={confirmationState}
                         alignContent={select('alignContent', ['left', 'center'], 'center')}

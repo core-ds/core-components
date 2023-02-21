@@ -105,6 +105,12 @@ export type ConfirmationProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Скрыть секцию с повторной отправкой кода
+     * @default false
+     */
+    hideCountdownSection?: boolean;
 };
 
 export type TConfirmationContext = Required<
@@ -122,6 +128,7 @@ export type TConfirmationContext = Required<
         | 'onChangeScreen'
         | 'onFatalErrorOkButtonClick'
         | 'tempBlockDuration'
+        | 'hideCountdownSection'
     >
 > &
     Pick<
