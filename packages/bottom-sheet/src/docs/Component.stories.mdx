@@ -94,8 +94,9 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
                     hideHeader={boolean('hideHeader', false)}
                     disableOverlayClick={boolean('disableOverlayClick', false)}
                     magneticAreas={text('magneticAreas', '20, 100px, 25%, 50%').split(',').map((item) => item.trim())}
-                    stickyThreshold={text('stickyThreshold', '20px')}
-                    onMagnetic={(index) => console.log(`Примагнитились к magneticAreas[${index}]`)}
+                    magneticThresholdUp={text('magneticThresholdUp', '20px')}
+                    magneticThresholdDown={text('magneticThresholdDown', '50%')}
+                    onMagnetic={(index) => console.log(index === -1 ? 'Отмагнитились' : `Примагнитились к magneticAreas[${index}]`)}
                     backgroundColor={select('backgroundColor', BACKGROUND, undefined)}
                 >
                     <div style={{ whiteSpace: 'pre-wrap' }}>{textContent}</div>

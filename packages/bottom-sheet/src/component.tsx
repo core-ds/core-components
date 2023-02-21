@@ -152,7 +152,7 @@ export type BottomSheetProps = {
      * Скрыть скроллбар внутри шторки
      * @default false
      */
-    hideScrollbar?: boolean
+    hideScrollbar?: boolean;
 
     /**
      * Слот слева
@@ -271,9 +271,17 @@ export type BottomSheetProps = {
 
     /**
      * Значение, больше которого нужно игнорировать притягивание к самой верхней точке вне `magneticAreas`
+     * при свайпе вверх
      * @default 20px
      */
-    magneticThreshold?: (string | number);
+    magneticThresholdUp?: (string | number);
+
+    /**
+     * Значение, меньше которого нужно игнорировать притягивание к самой верхней точке вне `magneticAreas`
+     * при свайпе вниз
+     * @default 80%
+     */
+    magneticThresholdDown?: (string | number);
 
     /**
      * Вызывается после притягивания к одной из `magneticAreas`
@@ -347,8 +355,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             magneticAreas: rawMagneticAreas = [],
             ignoreSwipeRefs = [],
             hideScrollbar = false,
-            magneticThreshold =  20,
-            onMagnetic
+            magneticThresholdUp = 20,
+            magneticThresholdDown = '80%',
+            onMagnetic,
         },
         ref,
     ) => {
@@ -367,6 +376,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const sheetWindowOffset = useRef(0);
         const sheetContainer = useRef<HTMLDivElement | null>(null);
         const sheetIsCaught = useRef<boolean>(false);
+        const initialScrollY = useRef<number | null>(null);
 
         const emptyHeader = !hasCloser && !leftAddons && !title && !hasBacker && !rightAddons;
 
@@ -404,6 +414,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const getBackdropOpacity = (offset: number): number => {
             const containerHeight = modalRef?.current?.getBoundingClientRect()?.height ?? 0;
+
             if (containerHeight === 0) return MIN_BACKDROP_OPACITY;
 
             const opacity = 1 - (1 - MIN_BACKDROP_OPACITY) * (offset / containerHeight);
@@ -418,7 +429,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 if (typeof visibleHeightNumber === 'string') {
                     visibleHeightNumber = visibleHeightNumber.includes('%')
                         ? fullHeight * (Number(visibleHeightNumber.replace('%', '')) / 100)
-                        : Number(visibleHeightNumber.replace('px', ''))
+                        : Number(visibleHeightNumber.replace('px', ''));
                 }
 
                 return visibleHeightNumber;
@@ -437,6 +448,17 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const offset = getOffsetFromVisibleHeight(visibleHeight) + deltaY;
 
             return Math.floor(Math.max(0, offset));
+        };
+
+        /**
+         * При блокировки скролла, нужно переместить позицию скролла в изначальное положение,
+         * чтобы избежать лока свайпа шторки
+         */
+        const setScrollLock = (locked: boolean) => {
+            if (scrollableContainer.current?.scrollTo && locked) {
+                scrollableContainer.current.scrollTo(0, 0);
+            }
+            setScrollLocked(locked);
         };
 
         /**
@@ -499,13 +521,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 if (direction === 'Up') {
                     return 0;
                 }
+
                 return null;
             }
             const magneticAreas = rawMagneticAreas.map((area) => getNumberFromVisibleHeight(area));
             const sheetContainerWindowTopOffset = sheetContainer.current?.getBoundingClientRect()?.y;
 
-            // Игнорируем свайпы Вправо и Влево
-            if (['Left', 'Right'].includes(direction) || !sheetContainerWindowTopOffset) {
+            // Игнорируем свайпы Вправо и Влево в верхнем положении
+            if ((['Left', 'Right'].includes(direction) && sheetOffset === 0) || !sheetContainerWindowTopOffset) {
                 return null;
             }
 
@@ -534,10 +557,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                  */
                 const magnetizeArea = magneticAreas[targetIndex];
 
-                if (direction === 'Up' && Math.abs(visibleHeight - magnetizeArea) > getNumberFromVisibleHeight(magneticThreshold)) {
+                const unmagnetize = direction === 'Up'
+                    ? Math.abs(visibleHeight - magnetizeArea) > getNumberFromVisibleHeight(magneticThresholdUp)
+                    : Math.abs(visibleHeight - magnetizeArea) < getNumberFromVisibleHeight(magneticThresholdDown);
+
+                if ((direction === 'Up' && unmagnetize) || (direction === 'Down' && !unmagnetize)) {
                     onMagnetic?.(-1);
+
                     return 0;
                 }
+
                 onMagnetic?.(targetIndex);
 
                 return getOffsetFromVisibleHeight(magnetizeArea);
@@ -557,7 +586,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                  * нижняя точка в сегменте у нас будет первое число в паре
                  * верхняя - второе
                  */
-                const up = magneticAreas[i+1];
+                const up = magneticAreas[i + 1];
                 const down = magneticAreas[i];
 
                 // если видимая высота bottom-sheet находится между точками сегмента
@@ -571,63 +600,72 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
                     onMagnetic?.(
                         // выбираем индекс той magneticArea, которая ближе к видимой высоте
-                        distanceToUp > distanceToDown ? i : i + 1
+                        distanceToUp > distanceToDown ? i : i + 1,
                     );
 
                     return getOffsetFromVisibleHeight(
                         // выбираем ту magneticArea, которая ближе к видимой высоте
-                        distanceToUp > distanceToDown ? down : up
+                        distanceToUp > distanceToDown ? down : up,
                     );
                 }
             }
 
             return null;
-        }
+        };
 
-        const handleSheetSwipeStart: SwipeCallback = ({event}) => {
+        const handleSheetSwipeStart: SwipeCallback = ({ event }) => {
             sheetWindowOffset.current = sheetContainer.current?.getBoundingClientRect()?.y ?? 0;
+            initialScrollY.current = null;
 
             if (sheetContainer.current !== null) {
                 const mainEvent = event instanceof MouseEvent ? event : (event as TouchEvent).touches[0];
                 const clickElements = document.elementsFromPoint(mainEvent.clientX, mainEvent.clientY);
+
                 sheetIsCaught.current = clickElements.includes(sheetContainer.current);
 
-                if (!sheetIsCaught.current){
+                if (!sheetIsCaught.current) {
                     return;
                 }
 
                 const ignoreElements = [...ignoreSwipeRefs, footerRef];
 
-                if (hasBacker){
+                if (hasBacker) {
                     ignoreElements.push(backButtonRef);
                 }
 
-                if (hasCloser){
+                if (hasCloser) {
                     ignoreElements.push(closerRef);
                 }
 
                 ignoreElements.forEach((ignoreRef) => {
                     const elementExists = ignoreRef.current ? clickElements.includes(ignoreRef.current) : false;
+
                     sheetIsCaught.current = sheetIsCaught.current && !elementExists;
                 });
 
-                if (sheetIsCaught.current){
+                if (sheetIsCaught.current) {
                     setWithTransition(false);
                 }
             }
         };
 
-        const handleSheetSwiping: SwipeCallback = ({ deltaY, initial }) => {
-            // Игнорим свайп вниз, если пользователь нажал вне bottom-sheet или по кнопкам
-            if (!sheetIsCaught.current) return;
+        const handleSheetSwiping: SwipeCallback = ({ initial, event }) => {
+            const Y = event instanceof MouseEvent ? event.clientY : (event as TouchEvent).touches[(event as TouchEvent).touches.length - 1].clientY;
 
-            const offsetY = initial[1];
+            // Игнорим свайп, если свайп заблокирован или пользователь нажал вне bottom-sheet либо по кнопкам
+            if (!sheetIsCaught.current || shouldSkipSwiping(initial[1])) return;
 
-            if (shouldSkipSwiping(offsetY)) {
-                return;
+            /*
+             * initial[1] не всегда равен initialScrollY.current
+             * initialScrollY.current - это изначальный Y, когда свайп стал доступен
+             * недоступен свайп может быть если внутри шторки у нас есть контейнер со скроллом
+             */
+            if (initialScrollY.current === null) {
+                initialScrollY.current = Y;
             }
 
-            const offset = getSheetOffset(deltaY);
+            // считаем собственную дельту Y
+            const offset = getSheetOffset(Y - initialScrollY.current);
             const opacity = getBackdropOpacity(offset);
 
             setSheetOffset(offset);
@@ -637,24 +675,26 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
              * Если шторка начинает свайпаться, то блокируем скролл внутри нее
              */
             if (offset > 0) {
-                setScrollLocked(true);
+                setScrollLock(true);
             }
         };
 
-        const handleSheetSwiped: SwipeCallback = ({ dir }) => {
-            // Игнорим свайп вниз, если свайп заблокирован или пользователь нажал вне bottom-sheet либо по кнопкам
-            if (!sheetIsCaught.current || !swipeable) return;
+        const handleSheetSwiped: SwipeCallback = ({ dir, initial }) => {
+            // Игнорим свайп, если свайп заблокирован или пользователь нажал вне bottom-sheet либо по кнопкам
+            if (!sheetIsCaught.current || shouldSkipSwiping(initial[1])) return;
 
-            setScrollLocked(false);
             setWithTransition(true);
             scrollableContainerScrollValue.current = 0;
 
             const offset = getMagnetizeOffset(dir);
-            if (offset !== null){
+
+            if (offset !== null) {
                 const opacity = getBackdropOpacity(offset);
+
                 setSheetOffset(offset);
                 setBackdropOpacity(opacity);
             }
+            setScrollLock(offset !== 0);
         };
 
         const backdropSwipeablehandlers = useSwipeable({
@@ -677,10 +717,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 if (!targetVisibleHeight) return;
                 const offset = getOffsetFromVisibleHeight(
                     // Выставляем нужную видимую высоту
-                    getNumberFromVisibleHeight(targetVisibleHeight)
+                    getNumberFromVisibleHeight(targetVisibleHeight),
                 );
                 const opacity = getBackdropOpacity(offset);
 
+                setScrollLock(offset !== 0);
                 setSheetOffset(offset);
                 setBackdropOpacity(opacity);
             },
@@ -725,72 +766,68 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     opacityTimeout: TIMEOUT,
                     invisible: hideOverlay,
                     style: {
-                        pointerEvents: hideOverlay ? 'none': 'auto'
-                    }
+                        pointerEvents: hideOverlay ? 'none' : 'auto',
+                    },
                 }}
                 wrapperStyle={{
-                    pointerEvents: hideOverlay ? 'none': 'auto'
+                    pointerEvents: hideOverlay ? 'none' : 'auto',
                 }}
-                disableBackdropClick={hideOverlay ? true : disableOverlayClick}
-                className={cn(styles.modal, styles.disabledPointerEvents, modalClassName)}
-                wrapperClassName={modalWrapperClassName}
-                disableBlockingScroll={disableBlockingScroll}
-                transitionProps={{
+                disableBackdropClick={ hideOverlay ? true : disableOverlayClick }
+                className={ cn(styles.modal, styles.disabledPointerEvents, modalClassName) }
+                wrapperClassName={ modalWrapperClassName }
+                disableBlockingScroll={ disableBlockingScroll }
+                transitionProps={ {
                     appear: true,
                     timeout: TIMEOUT,
                     classNames: styles,
                     ...transitionProps,
                 }}
             >
-                <div className={styles.disabledPointerEvents} style={{ ...getHeightStyles() }} ref={modalRef}>
+                <div className={ styles.disabledPointerEvents } style={ { ...getHeightStyles() } } ref={ modalRef }>
                     <div
-                        className={cn(styles.component, bgClassName, styles.enabledPointerEvents, className, {
+                        className={ cn(styles.component, bgClassName, styles.enabledPointerEvents, className, {
                             [styles.withTransition]: withTransition,
-                        })}
-                        style={{
+                        }) }
+                        style={ {
                             ...getSwipeStyles(),
                             ...getHeightStyles(),
-                        }}
-                        {...sheetSwipeablehandlers}
-                        ref={mergeRefs([sheetSwipeablehandlers.ref, sheetContainer, sheetContainerRef])}
+                        } }
+                        { ...sheetSwipeablehandlers }
+                        ref={ mergeRefs([sheetSwipeablehandlers.ref, sheetContainer, sheetContainerRef]) }
                     >
                         <div
-                            {...containerProps}
-                            className={cn(
+                            { ...containerProps }
+                            className={ cn(
                                 styles.scrollableContainer,
                                 styles.enabledPointerEvents,
                                 containerProps?.className,
                                 containerClassName,
                                 {
                                     [styles.scrollLocked]: scrollLocked,
-                                    [styles.withoutScrollbar]: hideScrollbar
+                                    [styles.withoutScrollbar]: hideScrollbar,
                                 },
-                            )}
-                            style={{ ...containerProps?.style }}
-                            ref={mergeRefs([scrollableContainer, scrollableContainerRef])}
+                            ) }
+                            style={ { ...containerProps?.style } }
+                            ref={ mergeRefs([scrollableContainer, scrollableContainerRef]) }
                         >
-                            {swipeable && <div className={cn(styles.marker, styles.disabledPointerEvents)} />}
+                            { swipeable && <div className={ cn(styles.marker, styles.disabledPointerEvents) } /> }
 
-                            {!hideHeader && !emptyHeader && <Header {...headerProps} />}
+                            { !hideHeader && !emptyHeader && <Header { ...headerProps } /> }
 
                             <div
-                                className={cn(styles.content, contentClassName, {
+                                className={ cn(styles.content, contentClassName, {
                                     [styles.noHeader]: hideHeader || emptyHeader,
                                     [styles.noFooter]: !actionButton,
-                                })}
+                                }) }
                             >
-                                {children}
+                                { children }
                             </div>
 
-                            {actionButton && (
-                                <Footer
-                                    ref={footerRef}
-                                    sticky={stickyFooter}
-                                    className={cn(bgClassName, footerClassName)}
-                                >
-                                    {actionButton}
+                            { actionButton && (
+                                <Footer ref={ footerRef } sticky={ stickyFooter } className={ cn(bgClassName,footerClassName )}>
+                                    { actionButton }
                                 </Footer>
-                            )}
+                            ) }
                         </div>
                     </div>
                 </div>

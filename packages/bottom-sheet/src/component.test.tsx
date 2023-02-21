@@ -253,12 +253,15 @@ describe('Bottom sheet', () => {
             const initial = { x: left + 10, y: top + 10 };
 
             let swipeDelta = 20;
-
-            fireEvent.touchStart(swipeableBottomSheet, {
-                touches: [{ clientX: initial.x, clientY: initial.y }],
+            fireEvent.touchMove(swipeableBottomSheet, {
+                touches: [
+                    { clientX: initial.x, clientY: initial.y },
+                ],
             });
             fireEvent.touchMove(swipeableBottomSheet, {
-                touches: [{ clientX: initial.x, clientY: initial.y + swipeDelta }],
+                touches: [
+                    { clientX: initial.x, clientY: initial.y + swipeDelta },
+                ],
             });
 
             expect(getComputedStyle(swipeableBottomSheet).transform).toBe(
