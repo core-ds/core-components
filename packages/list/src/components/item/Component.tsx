@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { useContext, ReactNode } from 'react';
 import cn from 'classnames';
 import { ListContext } from '../../Component';
 
@@ -28,6 +28,7 @@ export const ListItem: React.FC<ListItemProps> = ({ caption, children }) => {
     });
 
     const isDisc = markerType === '•';
+
     return (
         <li className={cn(itemClassNames)}>
             {!orderedList && !markerLowerAlpha && (
@@ -48,3 +49,5 @@ export const ListItem: React.FC<ListItemProps> = ({ caption, children }) => {
         </li>
     );
 };
+
+ListItem.displayName = 'ListItem';

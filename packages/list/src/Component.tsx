@@ -6,7 +6,7 @@ import { isListItem } from './utils';
 
 import styles from './index.module.css';
 
-export type ListContext = {
+export type TListContext = {
     /**
      * Упорядоченный список
      */
@@ -29,8 +29,7 @@ export type ListContext = {
     reversed?: boolean;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const ListContext = React.createContext<ListContext>({});
+export const ListContext = React.createContext<TListContext>({});
 
 type ColorMarkerType =
     | 'tertiary'
@@ -134,17 +133,11 @@ const ListComponent: React.FC<ListProps> = ({
             data-test-id={dataTestId}
             {...restProps}
         >
-            {isListItem(children) ? (
+            {Children.map(children, (child) => (
                 <ListContext.Provider value={ComponentProviderValue}>
-                    {children}
+                    {isListItem(children) ? child : <ListItem>{child}</ListItem>}
                 </ListContext.Provider>
-            ) : (
-                Children.map(children, (child) => (
-                    <ListContext.Provider value={ComponentProviderValue}>
-                        <ListItem>{child}</ListItem>
-                    </ListContext.Provider>
-                ))
-            )}
+            ))}
         </Component>
     );
 };
