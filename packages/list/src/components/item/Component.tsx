@@ -4,7 +4,7 @@ import { ListContext } from '../../Component';
 
 import styles from './index.module.css';
 
-export type ListItemProps = {
+export type ItemProps = {
     /**
      * Дополнительный текст
      */
@@ -16,8 +16,15 @@ export type ListItemProps = {
     children?: ReactNode;
 };
 
-export const ListItem: React.FC<ListItemProps> = ({ caption, children }) => {
-    const { orderedList, markerType, colorMarker, reversed } = useContext(ListContext);
+export const Item: React.FC<ItemProps> = ({ caption, children }) => {
+    const {
+        orderedList,
+        markerType,
+        colorMarker,
+        reversed,
+        index = 0,
+        start = 0,
+    } = useContext(ListContext);
 
     const markerLowerAlpha = markerType === 'lower-alpha';
 
@@ -29,17 +36,20 @@ export const ListItem: React.FC<ListItemProps> = ({ caption, children }) => {
 
     const isDisc = markerType === '•';
 
+    const count = start !== 0 ? start + index : index + 1;
+    const marker = orderedList || markerType === 'decimal' ? `${count}.` : markerType;
+
     return (
         <li className={cn(itemClassNames)}>
-            {!orderedList && !markerLowerAlpha && (
+            {!markerLowerAlpha && (
                 <div
                     className={cn(
                         styles.slot,
                         colorMarker && styles[`color-marker-${colorMarker}`],
-                        { [styles.disc]: isDisc },
+                        { [styles.disc]: isDisc && !orderedList },
                     )}
                 >
-                    {markerType}
+                    {marker}
                 </div>
             )}
             <div className={styles.content}>
@@ -50,4 +60,4 @@ export const ListItem: React.FC<ListItemProps> = ({ caption, children }) => {
     );
 };
 
-ListItem.displayName = 'ListItem';
+Item.displayName = 'ListItem';

@@ -119,6 +119,11 @@ Object {
           class="item orderedItem"
         >
           <div
+            class="slot"
+          >
+            1.
+          </div>
+          <div
             class="content"
           >
             <span
@@ -138,6 +143,11 @@ Object {
       <li
         class="item orderedItem"
       >
+        <div
+          class="slot"
+        >
+          1.
+        </div>
         <div
           class="content"
         >

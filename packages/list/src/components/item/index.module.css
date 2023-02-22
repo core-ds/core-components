@@ -26,22 +26,18 @@
     }
 }
 
-.orderedItem {
-    padding-left: var(--gap-2xs);
-}
-
 .slot {
     color: var(--list-marker-color);
     min-width: 20px;
     display: flex;
     box-sizing: border-box;
     justify-content: start;
-    padding-right: 6px;
-    min-inline-size: auto;
+    padding-right: var(--gap-2xs);
+    flex-shrink: 0;
 
     &.disc {
         justify-content: center;
-        padding: 0 6px;
+        padding: 0 var(--gap-2xs);
     }
 }
 
@@ -51,10 +47,6 @@
     .slot.color-marker-$(color) {
         color: var(--color-light-text-$(color));
     }
-}
-
-ol .content {
-    margin-left: var(--gap-2xs);
 }
 
 .caption {

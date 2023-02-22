@@ -8,7 +8,7 @@ describe('Snapshots tests', () => {
         expect(
             render(
                 <List>
-                    <List.ListItem>List</List.ListItem>
+                    <List.Item>List</List.Item>
                 </List>,
             ),
         ).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe('Snapshots tests', () => {
         expect(
             render(
                 <List tag='ol'>
-                    <List.ListItem>List</List.ListItem>
+                    <List.Item>List</List.Item>
                 </List>,
             ),
         ).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe('Classes tests', () => {
 
         const { container } = render(
             <List className={className}>
-                <List.ListItem>List</List.ListItem>
+                <List.Item>List</List.Item>
             </List>,
         );
 
@@ -41,7 +41,7 @@ describe('Classes tests', () => {
         const dataTestId = 'link-test-id';
         const { container } = render(
             <List tag='ol' reversed={true} dataTestId={dataTestId}>
-                <List.ListItem>List</List.ListItem>
+                <List.Item>List</List.Item>
             </List>,
         );
 
@@ -55,7 +55,7 @@ describe('Attributes tests', () => {
 
         const { container } = render(
             <List dataTestId={dataTestId}>
-                <List.ListItem>List</List.ListItem>
+                <List.Item>List</List.Item>
             </List>,
         );
 
@@ -69,7 +69,7 @@ describe('Attributes tests', () => {
 
         const { getByTestId } = render(
             <List tag='ol' dataTestId={dataTestId}>
-                <List.ListItem>List</List.ListItem>
+                <List.Item>List</List.Item>
             </List>,
         );
 
@@ -81,16 +81,15 @@ describe('Attributes tests', () => {
     it('should set start attribute', () => {
         const dataTestId = 'link-test-id';
         const startValue = 10;
-        const { getByTestId } = render(
+        const { container } = render(
             <List tag='ol' start={startValue} dataTestId={dataTestId}>
                 List
             </List>,
         );
 
-        const listEl = getByTestId(dataTestId);
+        const marker = container.querySelector('.slot');
 
-        expect(listEl).toHaveAttribute('style');
-        expect(listEl.getAttribute('style')).toEqual('counter-set: ordered 9;');
+        expect(marker).toHaveTextContent('10.');
     });
 });
 
@@ -100,7 +99,7 @@ describe('Props tests', () => {
 
         const { container } = render(
             <List marker={marker}>
-                <List.ListItem>List</List.ListItem>
+                <List.Item>List</List.Item>
             </List>,
         );
 

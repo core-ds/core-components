@@ -1,8 +1,8 @@
-import React, { Children, ReactNode, useMemo } from 'react';
+import React, { Children, ReactNode } from 'react';
 import cn from 'classnames';
 
-import { ListItem } from './components/item';
-import { isListItem } from './utils';
+import { Item } from './components/item';
+import { isItem } from './utils';
 
 import styles from './index.module.css';
 
@@ -27,6 +27,16 @@ export type TListContext = {
      * Список обратного счета
      */
     reversed?: boolean;
+
+    /**
+     * Номер пункта
+     */
+    index?: number;
+
+    /**
+     * Начало отсчета элементов списка
+     */
+    start?: number;
 };
 
 export const ListContext = React.createContext<TListContext>({});
@@ -119,23 +129,14 @@ const ListComponent: React.FC<ListProps> = ({
         className,
     );
 
-    const ComponentProviderValue = useMemo(
-        () => ({ orderedList, markerType, colorMarker, reversed }),
-        [orderedList, markerType, colorMarker, reversed],
-    );
-
+    /* eslint-disable react/jsx-no-constructed-context-values */
     return (
-        <Component
-            className={listClassNames}
-            style={{
-                ...(start && { counterSet: `ordered ${start - 1}` }),
-            }}
-            data-test-id={dataTestId}
-            {...restProps}
-        >
-            {Children.map(children, (child) => (
-                <ListContext.Provider value={ComponentProviderValue}>
-                    {isListItem(children) ? child : <ListItem>{child}</ListItem>}
+        <Component className={listClassNames} data-test-id={dataTestId} {...restProps}>
+            {Children.map(children, (child, index) => (
+                <ListContext.Provider
+                    value={{ orderedList, markerType, colorMarker, reversed, index, start }}
+                >
+                    {isItem(child) ? child : <Item>{child}</Item>}
                 </ListContext.Provider>
             ))}
         </Component>
@@ -143,5 +144,5 @@ const ListComponent: React.FC<ListProps> = ({
 };
 
 export const List = Object.assign(ListComponent, {
-    ListItem,
+    Item,
 });
