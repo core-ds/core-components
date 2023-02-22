@@ -11,7 +11,7 @@
 }
 
 .active {
-    border-color: var(--color-light-border-key-inverted);
+    border-color: var(--color-static-graphic-light);
 
     & > .image {
         opacity: 0.7;

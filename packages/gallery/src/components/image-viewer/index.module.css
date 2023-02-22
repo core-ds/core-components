@@ -5,7 +5,7 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-light-bg-primary-inverted-alpha-50);
+    background-color: var(--color-static-bg-primary-dark);
 }
 
 .swiper {
@@ -78,16 +78,16 @@
     width: 96px;
     height: 100%;
     cursor: pointer;
-    color: var(--color-light-graphic-primary-inverted);
+    color: var(--color-static-graphic-light);
     transition: background-color 0.15s ease-in-out;
     outline: none;
 
     &:hover {
-        background-color: var(--color-light-bg-primary-inverted-alpha-10);
+        background-color: var(--color-static-bg-primary-dark-alpha-20);
     }
 
     &:active {
-        background-color: var(--color-light-bg-primary-inverted-alpha-20);
+        background-color: var(--color-static-bg-primary-dark-alpha-15);
     }
 }
 

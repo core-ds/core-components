@@ -6,11 +6,14 @@
     flex-shrink: 0;
     width: 100%;
     padding: var(--gap-m) var(--gap-xl);
-    background-color: var(--color-light-bg-tertiary-inverted);
     box-sizing: border-box;
 }
 
 .buttons {
     display: flex;
     padding-left: var(--gap-2xl);
+
+    & path {
+        color: var(--color-static-graphic-light);
+    }
 }
