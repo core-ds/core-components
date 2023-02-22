@@ -63,5 +63,5 @@
     --button-inverted-primary-color: var(--color-light-text-primary);
 
     /* loader */
-    --button-spinner-static-color: var(--color-light-graphic-primary-inverted);
+    --button-spinner-static-primary-color: var(--color-light-graphic-primary-inverted);
 }
