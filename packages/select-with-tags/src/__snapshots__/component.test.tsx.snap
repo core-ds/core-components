@@ -91,90 +91,108 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
               <div
                 class="contentWrapper hasTags contentWrapperVertical"
               >
-                <button
-                  class="component component xxs outlined rounded checked tag"
-                  type="button"
+                <div
+                  class="tooltip__target_1edo9"
                 >
-                  <span>
+                  <button
+                    class="component component xxs outlined rounded checked tag"
+                    type="button"
+                  >
                     <span
-                      class="tagContentWrap"
+                      class="childrenOverflow"
                     >
-                      H
                       <span
-                        class="tagCross"
+                        class="tagContentWrap"
                       >
-                        <svg
-                          fill="currentColor"
-                          focusable="false"
-                          height="24"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="24"
+                        H
+                        <span
+                          class="tagCross"
                         >
-                          <path
-                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
-                          />
-                        </svg>
+                          <svg
+                            fill="currentColor"
+                            focusable="false"
+                            height="24"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="24"
+                          >
+                            <path
+                              d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </button>
-                <button
-                  class="component component xxs outlined rounded checked tag"
-                  type="button"
+                  </button>
+                </div>
+                <div
+                  class="tooltip__target_1edo9"
                 >
-                  <span>
+                  <button
+                    class="component component xxs outlined rounded checked tag"
+                    type="button"
+                  >
                     <span
-                      class="tagContentWrap"
+                      class="childrenOverflow"
                     >
-                      Li
                       <span
-                        class="tagCross"
+                        class="tagContentWrap"
                       >
-                        <svg
-                          fill="currentColor"
-                          focusable="false"
-                          height="24"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="24"
+                        Li
+                        <span
+                          class="tagCross"
                         >
-                          <path
-                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
-                          />
-                        </svg>
+                          <svg
+                            fill="currentColor"
+                            focusable="false"
+                            height="24"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="24"
+                          >
+                            <path
+                              d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </button>
-                <button
-                  class="component component xxs outlined rounded checked tag"
-                  type="button"
+                  </button>
+                </div>
+                <div
+                  class="tooltip__target_1edo9"
                 >
-                  <span>
+                  <button
+                    class="component component xxs outlined rounded checked tag"
+                    type="button"
+                  >
                     <span
-                      class="tagContentWrap"
+                      class="childrenOverflow"
                     >
-                      Na
                       <span
-                        class="tagCross"
+                        class="tagContentWrap"
                       >
-                        <svg
-                          fill="currentColor"
-                          focusable="false"
-                          height="24"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="24"
+                        Na
+                        <span
+                          class="tagCross"
                         >
-                          <path
-                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
-                          />
-                        </svg>
+                          <svg
+                            fill="currentColor"
+                            focusable="false"
+                            height="24"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="24"
+                          >
+                            <path
+                              d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </button>
+                  </button>
+                </div>
                 <input
                   aria-autocomplete="list"
                   aria-controls="downshift-3-menu"

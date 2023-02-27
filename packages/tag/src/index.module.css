@@ -16,6 +16,7 @@
     user-select: none;
     cursor: pointer;
     outline: none;
+    white-space: nowrap;
 
     &:disabled {
         cursor: var(--disabled-cursor);
@@ -240,4 +241,9 @@
     &.xl {
         border-radius: var(--tag-alt-border-radius);
     }
+}
+
+.childrenOverflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

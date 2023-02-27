@@ -1,8 +1,18 @@
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef } from 'react';
+import React, {
+    ButtonHTMLAttributes,
+    forwardRef,
+    ReactNode,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
+import { TooltipResponsive } from '@alfalab/core-components/tooltip/responsive';
+
+import { calculatePaddingWidth } from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -104,6 +114,10 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
 
         const tagRef = useRef<HTMLButtonElement>(null);
 
+        const childrenRef = useRef<HTMLSpanElement>(null);
+
+        const [childrenOverflow, setChildrenOverflow] = useState(false);
+
         const [focused] = useFocus(tagRef, 'keyboard');
 
         const variantClassName = variant === 'default' ? 'rounded' : 'rectangular';
@@ -135,7 +149,16 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             }
         };
 
-        return (
+        useLayoutEffect(() => {
+            if (tagRef.current && childrenRef.current) {
+                const tagWidthWithoutPaddings =
+                    tagRef.current?.offsetWidth - calculatePaddingWidth(tagRef.current);
+                const childrenWidth = childrenRef.current?.offsetWidth;
+                setChildrenOverflow(childrenWidth > tagWidthWithoutPaddings);
+            }
+        }, [children]);
+
+        const tag = (
             <button
                 ref={mergeRefs([tagRef, ref])}
                 type='button'
@@ -145,10 +168,25 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             >
                 {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
 
-                {children && <span>{children}</span>}
+                {children && (
+                    <span
+                        className={cn({
+                            [styles.childrenOverflow]: childrenOverflow,
+                        })}
+                        ref={childrenRef}
+                    >
+                        {children}
+                    </span>
+                )}
 
                 {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
             </button>
+        );
+
+        return childrenOverflow ? (
+            <TooltipResponsive content={children}>{tag}</TooltipResponsive>
+        ) : (
+            tag
         );
     },
 );

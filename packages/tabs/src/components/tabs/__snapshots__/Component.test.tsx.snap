@@ -112,66 +112,96 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         class="component s"
         role="tablist"
       >
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded withRightAddons title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 1
-          </span>
-          <span
-            class="addons"
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded withRightAddons title"
+            role="tab"
+            tabindex="-1"
+            type="button"
           >
-            addon
-          </span>
-        </button>
-        <button
-          aria-selected="true"
-          class="component component s outlined rounded checked title"
-          role="tab"
-          tabindex="0"
-          type="button"
+            <span
+              class="childrenOverflow"
+            >
+              Таб 1
+            </span>
+            <span
+              class="addons"
+            >
+              addon
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 2
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="true"
+            class="component component s outlined rounded checked title"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 2
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 3
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 3
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 4
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 4
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 5
-          </span>
-        </button>
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 5
+            </span>
+          </button>
+        </div>
       </div>
     </div>
     <div
@@ -294,66 +324,96 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
         class=""
         role="tablist"
       >
-        <button
-          aria-selected="false"
-          class="component component xs outlined rounded withRightAddons"
-          role="tab"
-          tabindex="-1"
-          type="button"
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 1
-          </span>
-          <span
-            class="addons"
+          <button
+            aria-selected="false"
+            class="component component xs outlined rounded withRightAddons"
+            role="tab"
+            tabindex="-1"
+            type="button"
           >
-            addon
-          </span>
-        </button>
-        <button
-          aria-selected="true"
-          class="component component xs outlined rounded checked"
-          role="tab"
-          tabindex="0"
-          type="button"
+            <span
+              class="childrenOverflow"
+            >
+              Таб 1
+            </span>
+            <span
+              class="addons"
+            >
+              addon
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 2
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component xs outlined rounded"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="true"
+            class="component component xs outlined rounded checked"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 2
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 3
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component xs outlined rounded"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="false"
+            class="component component xs outlined rounded"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 3
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 4
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component xs outlined rounded"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="false"
+            class="component component xs outlined rounded"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 4
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 5
-          </span>
-        </button>
+          <button
+            aria-selected="false"
+            class="component component xs outlined rounded"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 5
+            </span>
+          </button>
+        </div>
       </div>
     </div>
     <div
@@ -479,66 +539,96 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         class="component s"
         role="tablist"
       >
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded withRightAddons title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 1
-          </span>
-          <span
-            class="addons"
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded withRightAddons title"
+            role="tab"
+            tabindex="-1"
+            type="button"
           >
-            addon
-          </span>
-        </button>
-        <button
-          aria-selected="true"
-          class="component component s outlined rounded checked title"
-          role="tab"
-          tabindex="0"
-          type="button"
+            <span
+              class="childrenOverflow"
+            >
+              Таб 1
+            </span>
+            <span
+              class="addons"
+            >
+              addon
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 2
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="true"
+            class="component component s outlined rounded checked title"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 2
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 3
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 3
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 4
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component s outlined rounded title"
-          role="tab"
-          tabindex="-1"
-          type="button"
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 4
+            </span>
+          </button>
+        </div>
+        <div
+          class="tooltip__target_1edo9"
         >
-          <span>
-            Таб 5
-          </span>
-        </button>
+          <button
+            aria-selected="false"
+            class="component component s outlined rounded title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="childrenOverflow"
+            >
+              Таб 5
+            </span>
+          </button>
+        </div>
       </div>
     </div>
     <div

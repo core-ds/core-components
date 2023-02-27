@@ -564,14 +564,20 @@ Object {
           <label
             class="checkbox tagLabel"
           >
-            <button
-              class="component component s outlined rounded my-tag"
-              type="button"
+            <div
+              class="tooltip__target_1edo9"
             >
-              <span>
-                Первый вариант
-              </span>
-            </button>
+              <button
+                class="component component s outlined rounded my-tag"
+                type="button"
+              >
+                <span
+                  class="childrenOverflow"
+                >
+                  Первый вариант
+                </span>
+              </button>
+            </div>
             <input
               autocomplete="off"
               class="hiddenInput"
@@ -581,14 +587,20 @@ Object {
           <label
             class="checkbox tagLabel"
           >
-            <button
-              class="component component s outlined rounded"
-              type="button"
+            <div
+              class="tooltip__target_1edo9"
             >
-              <span>
-                Второй вариант
-              </span>
-            </button>
+              <button
+                class="component component s outlined rounded"
+                type="button"
+              >
+                <span
+                  class="childrenOverflow"
+                >
+                  Второй вариант
+                </span>
+              </button>
+            </div>
             <input
               autocomplete="off"
               class="hiddenInput"
@@ -598,14 +610,20 @@ Object {
           <label
             class="checkbox tagLabel"
           >
-            <button
-              class="component component s outlined rounded"
-              type="button"
+            <div
+              class="tooltip__target_1edo9"
             >
-              <span>
-                Третий вариант
-              </span>
-            </button>
+              <button
+                class="component component s outlined rounded"
+                type="button"
+              >
+                <span
+                  class="childrenOverflow"
+                >
+                  Третий вариант
+                </span>
+              </button>
+            </div>
             <input
               autocomplete="off"
               class="hiddenInput"
@@ -631,14 +649,20 @@ Object {
         <label
           class="checkbox tagLabel"
         >
-          <button
-            class="component component s outlined rounded my-tag"
-            type="button"
+          <div
+            class="tooltip__target_1edo9"
           >
-            <span>
-              Первый вариант
-            </span>
-          </button>
+            <button
+              class="component component s outlined rounded my-tag"
+              type="button"
+            >
+              <span
+                class="childrenOverflow"
+              >
+                Первый вариант
+              </span>
+            </button>
+          </div>
           <input
             autocomplete="off"
             class="hiddenInput"
@@ -648,14 +672,20 @@ Object {
         <label
           class="checkbox tagLabel"
         >
-          <button
-            class="component component s outlined rounded"
-            type="button"
+          <div
+            class="tooltip__target_1edo9"
           >
-            <span>
-              Второй вариант
-            </span>
-          </button>
+            <button
+              class="component component s outlined rounded"
+              type="button"
+            >
+              <span
+                class="childrenOverflow"
+              >
+                Второй вариант
+              </span>
+            </button>
+          </div>
           <input
             autocomplete="off"
             class="hiddenInput"
@@ -665,14 +695,20 @@ Object {
         <label
           class="checkbox tagLabel"
         >
-          <button
-            class="component component s outlined rounded"
-            type="button"
+          <div
+            class="tooltip__target_1edo9"
           >
-            <span>
-              Третий вариант
-            </span>
-          </button>
+            <button
+              class="component component s outlined rounded"
+              type="button"
+            >
+              <span
+                class="childrenOverflow"
+              >
+                Третий вариант
+              </span>
+            </button>
+          </div>
           <input
             autocomplete="off"
             class="hiddenInput"

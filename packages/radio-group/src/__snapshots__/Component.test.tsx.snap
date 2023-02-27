@@ -578,15 +578,21 @@ Object {
           <label
             class="radio tagLabel"
           >
-            <button
-              class="component component s outlined rounded my-tag"
-              type="button"
-              value="one"
+            <div
+              class="tooltip__target_1edo9"
             >
-              <span>
-                Первый вариант
-              </span>
-            </button>
+              <button
+                class="component component s outlined rounded my-tag"
+                type="button"
+                value="one"
+              >
+                <span
+                  class="childrenOverflow"
+                >
+                  Первый вариант
+                </span>
+              </button>
+            </div>
             <input
               autocomplete="off"
               class="hiddenInput"
@@ -597,15 +603,21 @@ Object {
           <label
             class="radio tagLabel"
           >
-            <button
-              class="component component s outlined rounded"
-              type="button"
-              value="two"
+            <div
+              class="tooltip__target_1edo9"
             >
-              <span>
-                Второй вариант
-              </span>
-            </button>
+              <button
+                class="component component s outlined rounded"
+                type="button"
+                value="two"
+              >
+                <span
+                  class="childrenOverflow"
+                >
+                  Второй вариант
+                </span>
+              </button>
+            </div>
             <input
               autocomplete="off"
               class="hiddenInput"
@@ -616,15 +628,21 @@ Object {
           <label
             class="radio tagLabel"
           >
-            <button
-              class="component component s outlined rounded"
-              type="button"
-              value="three"
+            <div
+              class="tooltip__target_1edo9"
             >
-              <span>
-                Третий вариант
-              </span>
-            </button>
+              <button
+                class="component component s outlined rounded"
+                type="button"
+                value="three"
+              >
+                <span
+                  class="childrenOverflow"
+                >
+                  Третий вариант
+                </span>
+              </button>
+            </div>
             <input
               autocomplete="off"
               class="hiddenInput"
@@ -651,15 +669,21 @@ Object {
         <label
           class="radio tagLabel"
         >
-          <button
-            class="component component s outlined rounded my-tag"
-            type="button"
-            value="one"
+          <div
+            class="tooltip__target_1edo9"
           >
-            <span>
-              Первый вариант
-            </span>
-          </button>
+            <button
+              class="component component s outlined rounded my-tag"
+              type="button"
+              value="one"
+            >
+              <span
+                class="childrenOverflow"
+              >
+                Первый вариант
+              </span>
+            </button>
+          </div>
           <input
             autocomplete="off"
             class="hiddenInput"
@@ -670,15 +694,21 @@ Object {
         <label
           class="radio tagLabel"
         >
-          <button
-            class="component component s outlined rounded"
-            type="button"
-            value="two"
+          <div
+            class="tooltip__target_1edo9"
           >
-            <span>
-              Второй вариант
-            </span>
-          </button>
+            <button
+              class="component component s outlined rounded"
+              type="button"
+              value="two"
+            >
+              <span
+                class="childrenOverflow"
+              >
+                Второй вариант
+              </span>
+            </button>
+          </div>
           <input
             autocomplete="off"
             class="hiddenInput"
@@ -689,15 +719,21 @@ Object {
         <label
           class="radio tagLabel"
         >
-          <button
-            class="component component s outlined rounded"
-            type="button"
-            value="three"
+          <div
+            class="tooltip__target_1edo9"
           >
-            <span>
-              Третий вариант
-            </span>
-          </button>
+            <button
+              class="component component s outlined rounded"
+              type="button"
+              value="three"
+            >
+              <span
+                class="childrenOverflow"
+              >
+                Третий вариант
+              </span>
+            </button>
+          </div>
           <input
             autocomplete="off"
             class="hiddenInput"
