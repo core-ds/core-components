@@ -16,7 +16,7 @@ const screenshotTesting = setupScreenshotTesting({
 const clip = { x: 0, y: 0, width: 200, height: 100 };
 
 describe(
-    'Button | views & sizes',
+    'Button | view & sizes',
     screenshotTesting({
         cases: [
             [
@@ -26,7 +26,31 @@ describe(
                     size: { width: 200, height: 80 },
                     knobs: {
                         children: 'Оплатить',
-                        view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
+                        view: ['accent', 'primary'],
+                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 200, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['secondary', 'tertiary'],
+                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 200, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['link', 'ghost'],
                         size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                     },
                 }),

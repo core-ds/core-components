@@ -26,6 +26,18 @@ describe(
                             'primary-inverted',
                             'secondary',
                             'secondary-inverted',
+                        ],
+                    },
+                    size: { width: 400, height: 60 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Underlay',
+                    knobs: {
+                        children: 'Content',
+                        backgroundColor: [
                             'tertiary',
                             'tertiary-inverted',
                             'quaternary',
@@ -37,7 +49,7 @@ describe(
                             'specialbg-tertiary-transparent',
                         ],
                     },
-                    size: { width: 400, height: 120 },
+                    size: { width: 400, height: 60 },
                 }),
             ],
             [
@@ -88,6 +100,21 @@ describe(
                             'secondary-inverted',
                             'tertiary',
                             'tertiary-inverted',
+                        ],
+                        borderSize: 2,
+                        backgroundColor: 'primary',
+                    },
+                    size: { width: 400, height: 60 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Underlay',
+                    knobs: {
+                        borderRadius: 'm',
+                        children: 'Content',
+                        borderColor: [
                             'underline',
                             'underline-inverted',
                             'graphic-attention',
@@ -100,7 +127,7 @@ describe(
                         borderSize: 2,
                         backgroundColor: 'primary',
                     },
-                    size: { width: 400, height: 120 },
+                    size: { width: 400, height: 60 },
                 }),
             ],
             [
@@ -154,6 +181,19 @@ describe(
                             'shadow-m-hard',
                             'shadow-l-hard',
                             'shadow-xl-hard',
+                        ],
+                    },
+                    size: { width: 400, height: 60 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Underlay',
+                    knobs: {
+                        children: 'Content',
+                        backgroundColor: 'info',
+                        shadow: [
                             'shadow-xs-up',
                             'shadow-s-up',
                             'shadow-m-up',
@@ -166,7 +206,7 @@ describe(
                             'shadow-xl-hard-up',
                         ],
                     },
-                    size: { width: 400, height: 120 },
+                    size: { width: 400, height: 60 },
                 }),
             ],
         ],

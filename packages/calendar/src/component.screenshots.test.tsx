@@ -20,12 +20,37 @@ describe(
                     size: { width: 350, height: 400 },
                     knobs: {
                         month: [1613310391747, 1610718391747],
-                        defaultView: ['years', 'months', 'days'],
+                        defaultView: 'years',
+                    },
+                    mockDate: 1613310391747,
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Calendar',
+                    size: { width: 350, height: 400 },
+                    knobs: {
+                        month: [1613310391747, 1610718391747],
+                        defaultView: 'months',
+                    },
+                    mockDate: 1613310391747,
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Calendar',
+                    size: { width: 350, height: 400 },
+                    knobs: {
+                        month: [1613310391747, 1610718391747],
+                        defaultView: 'days',
                     },
                     mockDate: 1613310391747,
                 }),
             ],
         ],
+
         screenshotOpts: {
             fullPage: true,
         },

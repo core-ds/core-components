@@ -25,7 +25,20 @@ describe('ToastPlate | main props', () => {
                         knobs: {
                             children: 'Вам одобрено. Согласитесь на предложение',
                             badge: ['attention', 'positive', 'negative', ''],
-                            title: ['', 'Поздравляем, полный успех'],
+                            title: '',
+                            hasCloser: [false, true],
+                        },
+                        size: clip,
+                    }),
+                ],
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        componentName: 'ToastPlate',
+                        knobs: {
+                            children: 'Вам одобрено. Согласитесь на предложение',
+                            badge: ['attention', 'positive', 'negative', ''],
+                            title: 'Поздравляем, полный успех',
                             hasCloser: [false, true],
                         },
                         size: clip,

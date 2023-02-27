@@ -20,7 +20,22 @@ describe('Textarea | sprite', () => {
                             block: true,
                             size: ['s', 'm', 'l', 'xl'],
                             label: ['', 'Лейбл'],
-                            labelView: ['inner', 'outer'],
+                            labelView: 'inner',
+                            placeholder: 'Плейсхолдер',
+                        },
+                        size: { width: 240, height: 100 },
+                    }),
+                ],
+                [
+                    `${theme} - main props`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Textarea',
+                        knobs: {
+                            value: 'Компонент текстового поля ввода.',
+                            block: true,
+                            size: ['s', 'm', 'l', 'xl'],
+                            label: ['', 'Лейбл'],
+                            labelView: 'outer',
                             placeholder: 'Плейсхолдер',
                         },
                         size: { width: 240, height: 100 },
