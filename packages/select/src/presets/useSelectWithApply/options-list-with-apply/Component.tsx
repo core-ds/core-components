@@ -1,5 +1,4 @@
 import React, { forwardRef, RefAttributes, useCallback, useEffect, useRef } from 'react';
-import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 
@@ -96,10 +95,7 @@ export const OptionsListWithApply = forwardRef(
                     <div
                         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                         tabIndex={0}
-                        className={cn(styles.footer, {
-                            [styles.withBorder]:
-                                visibleOptions && flatOptions.length > visibleOptions,
-                        })}
+                        className={styles.footer}
                         ref={footerRef}
                     >
                         <Button size='xxs' view='primary' onClick={handleApply}>

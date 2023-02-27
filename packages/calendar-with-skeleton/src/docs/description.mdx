@@ -18,7 +18,18 @@ render(() => {
 ## Использование с другими компонентами
 
 ```jsx live
-<CalendarInput Calendar={CalendarWithSkeleton} calendarProps={{ calendarVisible: false }} />
+const CalendarCustom = React.forwardRef((props, ref) => {
+    return (
+        <>
+            <style>{`.custom{width: calc(var(--calendar-width) - 2 * var(--gap-m))}`}</style>
+            <CalendarWithSkeleton {...props} ref={ref} className='custom' />
+        </>
+    );
+});
+
+render(() => {
+    return <CalendarInput Calendar={CalendarCustom} calendarProps={{ calendarVisible: false }} />;
+});
 ```
 
 ```jsx live
