@@ -18,10 +18,7 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 <Story name='Tag'>
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
-        const handleClick = () => {
-            console.log('i work!!!');
-            setChecked(!checked);
-        };
+        const handleClick = () => setChecked(!checked);
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div
