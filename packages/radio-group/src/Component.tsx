@@ -155,11 +155,11 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                 ...child.props,
                 checked,
                 name,
+                tabIndex: -1,
             });
 
             return (
                 <label className={cn(styles.radio, styles.tagLabel)}>
-                    {clone}
                     <input
                         type='radio'
                         autoComplete='off'
@@ -170,6 +170,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                         className={styles.hiddenInput}
                         value={child.props.value}
                     />
+                    {clone}
                 </label>
             );
         };

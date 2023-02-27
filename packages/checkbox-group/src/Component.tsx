@@ -137,6 +137,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
                     disabled={disabled || child.props.disabled}
                     checked={checked}
                     className={styles.hiddenInput}
+                    tabIndex={-1}
                 />
             </label>
         );
