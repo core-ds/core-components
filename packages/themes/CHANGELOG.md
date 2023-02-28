@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.0.3
+
+### Patch Changes
+
+### [#543](https://github.com/core-ds/core-components/pull/543)
+
+-   Исправлен цвет лоадера в mobile, click, intranet темах
+
 ## 10.0.2
 
 ### Patch Changes

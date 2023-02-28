@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.2.3
+
+### Patch Changes
+
+### [c8ff5d47b](https://github.com/core-ds/core-components/commit/c8ff5d47b5326a0ffbb5f0b751fa45d80770a8e9)
+
+-   Удален line-height
+
+-   Обновлены зависимости
+    -   button@7.1.1
+
 ## 4.2.2
 
 ### Patch Changes

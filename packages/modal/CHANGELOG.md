@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+### [#540](https://github.com/core-ds/core-components/pull/540)
+
+-   Изменена нода с overflow: auto в SidePanelMobile
+
+-   Обновлены зависимости
+    -   base-modal@5.1.1
+    -   navigation-bar@0.1.1
+    -   button@7.1.1
+    -   icon-button@6.0.8
+
 ## 7.0.0
 
 ### Major Changes

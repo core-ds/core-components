@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.0.31
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.11
+
 ## 5.0.30
 
 ### Patch Changes
