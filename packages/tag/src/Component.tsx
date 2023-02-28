@@ -1,16 +1,8 @@
-import React, {
-    ButtonHTMLAttributes,
-    forwardRef,
-    ReactNode,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useLayoutEffect, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
-import { TooltipResponsive } from '@alfalab/core-components/tooltip/responsive';
 
 import { calculatePaddingWidth } from './utils';
 
@@ -68,6 +60,12 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     ) => void;
 
     /**
+     * Обработчик переполнения children
+     */
+
+    onOverflow?: (overflow: boolean) => void;
+
+    /**
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
@@ -106,6 +104,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             variant = 'default',
             shape,
             view = 'outlined',
+            onOverflow,
             ...restProps
         },
         ref,
@@ -115,8 +114,6 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         const tagRef = useRef<HTMLButtonElement>(null);
 
         const childrenRef = useRef<HTMLSpanElement>(null);
-
-        const [childrenOverflow, setChildrenOverflow] = useState(false);
 
         const [focused] = useFocus(tagRef, 'keyboard');
 
@@ -150,15 +147,19 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         };
 
         useLayoutEffect(() => {
-            if (tagRef.current && childrenRef.current) {
-                const tagWidthWithoutPaddings =
-                    tagRef.current?.offsetWidth - calculatePaddingWidth(tagRef.current);
-                const childrenWidth = childrenRef.current?.offsetWidth;
-                setChildrenOverflow(childrenWidth > tagWidthWithoutPaddings);
-            }
-        }, [children]);
+            const handlerAndNodesExist = onOverflow && tagRef.current && childrenRef.current;
+            if (!handlerAndNodesExist) return;
 
-        const tag = (
+            const tagWidthWithoutPaddings =
+                tagRef.current?.offsetWidth - calculatePaddingWidth(tagRef.current);
+            const childrenWidth = childrenRef.current?.offsetWidth;
+
+            if (childrenWidth > tagWidthWithoutPaddings) {
+                onOverflow(true);
+            }
+        }, []);
+
+        return (
             <button
                 ref={mergeRefs([tagRef, ref])}
                 type='button'
@@ -168,25 +169,10 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             >
                 {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
 
-                {children && (
-                    <span
-                        className={cn({
-                            [styles.childrenOverflow]: childrenOverflow,
-                        })}
-                        ref={childrenRef}
-                    >
-                        {children}
-                    </span>
-                )}
+                {children && <span ref={childrenRef}>{children}</span>}
 
                 {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
             </button>
-        );
-
-        return childrenOverflow ? (
-            <TooltipResponsive content={children}>{tag}</TooltipResponsive>
-        ) : (
-            tag
         );
     },
 );

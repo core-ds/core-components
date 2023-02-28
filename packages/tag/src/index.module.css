@@ -243,7 +243,3 @@
     }
 }
 
-.childrenOverflow {
-    overflow: hidden;
-    text-overflow: ellipsis;
-}

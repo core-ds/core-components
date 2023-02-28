@@ -5,37 +5,25 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="tooltip__target_1edo9"
-      >
-        <button
-          class="component component s outlined rounded"
-          type="button"
-        >
-          <span
-            class="childrenOverflow"
-          >
-            Press me
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="tooltip__target_1edo9"
-    >
       <button
         class="component component s outlined rounded"
         type="button"
       >
-        <span
-          class="childrenOverflow"
-        >
+        <span>
           Press me
         </span>
       </button>
     </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component component s outlined rounded"
+      type="button"
+    >
+      <span>
+        Press me
+      </span>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -96,37 +84,25 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="tooltip__target_1edo9"
-      >
-        <button
-          class="component component s outlined rectangular"
-          type="button"
-        >
-          <span
-            class="childrenOverflow"
-          >
-            Press me
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="tooltip__target_1edo9"
-    >
       <button
         class="component component s outlined rectangular"
         type="button"
       >
-        <span
-          class="childrenOverflow"
-        >
+        <span>
           Press me
         </span>
       </button>
     </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component component s outlined rectangular"
+      type="button"
+    >
+      <span>
+        Press me
+      </span>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -187,33 +163,6 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="tooltip__target_1edo9"
-      >
-        <button
-          class="component component s outlined rounded withLeftAddons"
-          type="button"
-        >
-          <span
-            class="addons"
-          >
-            <span>
-              10 000 $
-            </span>
-          </span>
-          <span
-            class="childrenOverflow"
-          >
-            Press me
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="tooltip__target_1edo9"
-    >
       <button
         class="component component s outlined rounded withLeftAddons"
         type="button"
@@ -225,13 +174,28 @@ Object {
             10 000 $
           </span>
         </span>
-        <span
-          class="childrenOverflow"
-        >
+        <span>
           Press me
         </span>
       </button>
     </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component component s outlined rounded withLeftAddons"
+      type="button"
+    >
+      <span
+        class="addons"
+      >
+        <span>
+          10 000 $
+        </span>
+      </span>
+      <span>
+        Press me
+      </span>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -292,40 +256,11 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="tooltip__target_1edo9"
-      >
-        <button
-          class="component component s outlined rounded withRightAddons"
-          type="button"
-        >
-          <span
-            class="childrenOverflow"
-          >
-            Press me
-          </span>
-          <span
-            class="addons"
-          >
-            <span>
-              10 000 $
-            </span>
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="tooltip__target_1edo9"
-    >
       <button
         class="component component s outlined rounded withRightAddons"
         type="button"
       >
-        <span
-          class="childrenOverflow"
-        >
+        <span>
           Press me
         </span>
         <span
@@ -337,6 +272,23 @@ Object {
         </span>
       </button>
     </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component component s outlined rounded withRightAddons"
+      type="button"
+    >
+      <span>
+        Press me
+      </span>
+      <span
+        class="addons"
+      >
+        <span>
+          10 000 $
+        </span>
+      </span>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
