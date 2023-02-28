@@ -1,8 +1,8 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { NumberInput } from './index';
+import { NumberInput } from '.';
 
 describe('NumberInput', () => {
     describe('Snapshots tests', () => {
@@ -143,6 +143,20 @@ describe('NumberInput', () => {
             fireEvent.click(getByLabelText('Очистить'));
 
             expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should call `onChange` with valid value, when initial state is bad', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <NumberInput onChange={cb} dataTestId={dataTestId} value='Вася123,Гена33' />,
+            );
+
+            const inputNumber = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.type(inputNumber, '{backspace}');
+
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 123.3, valueString: '123,3' });
         });
     });
 
