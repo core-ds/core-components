@@ -151,8 +151,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             if (!handlerAndNodesExist) return;
 
             const tagWidthWithoutPaddings =
-                tagRef.current?.offsetWidth - calculatePaddingWidth(tagRef.current);
-            const childrenWidth = childrenRef.current?.offsetWidth;
+                tagRef.current.offsetWidth - calculatePaddingWidth(tagRef.current);
+            const childrenWidth = childrenRef.current.offsetWidth;
 
             if (childrenWidth > tagWidthWithoutPaddings) {
                 onOverflow(true);
