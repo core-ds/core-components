@@ -47,11 +47,6 @@
     color: var(--color-light-text-primary);
     z-index: 1;
 
-    @media (max-width: 374px) {
-        width: 36px;
-        height: 36px;
-    }
-
     &.highlighted,
     &.range.highlighted:not(.disabled) {
         color: var(--calendar-highlighted-color);
@@ -336,4 +331,33 @@
 .daysEnterActive,
 .daysExitActive {
     transition: opacity 200ms, transform 300ms;
+}
+
+@media (max-width: 374px) {
+    .dayWrapper:before {
+        height: 36px;
+    }
+
+    .day {
+        width: 36px;
+        height: 36px;
+    }
+
+    .rangeStart {
+        &:before {
+            width: calc(50% + 18px);
+        }
+    }
+    .rangeEnd {
+        &:before {
+            width: calc(50% + 18px);
+        }
+    }
+
+    .transitLeft,
+    .transitRight {
+        &:after {
+            height: 36px;
+        }
+    }
 }
