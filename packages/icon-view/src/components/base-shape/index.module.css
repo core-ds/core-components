@@ -1,5 +1,9 @@
 @import '../../../../themes/src/default.css';
 
+:root {
+    --icon-view-color: var(--color-light-graphic-secondary);
+}
+
 .componentWrapper {
     position: relative;
     display: inline-flex;
@@ -8,7 +12,7 @@
 .component {
     display: flex;
     position: relative;
-    color: var(--color-light-graphic-secondary);
+    color: var(--icon-view-color);
 }
 
 .bg {
