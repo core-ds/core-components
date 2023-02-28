@@ -1,3 +1,44 @@
+## 39.1.0
+
+<sup><time>28.02.2023</time></sup>
+
+### [c8ff5d47b](https://github.com/core-ds/core-components/commit/c8ff5d47b5326a0ffbb5f0b751fa45d80770a8e9)
+
+#### Что изменилось
+- Удален line-height
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#540](https://github.com/core-ds/core-components/pull/540)
+
+#### Что изменилось
+- Изменена нода с overflow: auto в SidePanelMobile
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet` `modal` `navigation-bar` `side-panel`<br />
+
+
+### [#543](https://github.com/core-ds/core-components/pull/543)
+
+#### Что изменилось
+- Исправлен цвет лоадера в mobile, click, intranet темах
+
+#### Влияние на компоненты
+- Патчи<br />`button` `themes`
+
+
+### [#528](https://github.com/core-ds/core-components/pull/528)
+
+#### Что изменилось
+- Добавлен новый компонент SegmentedControl.
+
+#### Влияние на компоненты
+- Минорное<br />`segmented-control`
+
+
+
 ## 39.0.0
 
 <sup><time>17.02.2023</time></sup>
