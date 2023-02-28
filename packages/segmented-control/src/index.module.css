@@ -1,0 +1,76 @@
+@import '../../themes/src/default.css';
+
+.wrapper {
+    background-color: var(--color-light-specialbg-secondary-transparent);
+    display: flex;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex: 1;
+}
+
+.inner {
+    display: flex;
+    flex: 1;
+    margin: 0 var(--gap-3xs);
+}
+
+.segment {
+    @mixin paragraph_primary_small;
+}
+
+.selected {
+    @mixin action_primary_small;
+
+    &:before,
+    & + .segment:before {
+        opacity: 0;
+    }
+}
+
+.xs {
+    height: var(--size-xs-height);
+
+    & .rounded,
+    &:has(.rounded) {
+        border-radius: var(--border-radius-xxl);
+    }
+
+    &:has(.rectangular) {
+        border-radius: var(--border-radius-m);
+
+        & .selectedBox {
+            border-radius: calc(var(--border-radius-l) / 2);
+        }
+    }
+}
+
+.xxs {
+    height: var(--size-xxs-height);
+}
+
+.rounded {
+    border-radius: var(--border-radius-xl);
+}
+
+.rectangular {
+    border-radius: calc(var(--border-radius-l) / 2);
+
+    & .selectedBox {
+        border-radius: var(--border-radius-s);
+    }
+}
+
+.selectedBox {
+    border: 0.5px solid var(--color-light-border-tertiary);
+    box-sizing: border-box;
+    position: absolute;
+    top: var(--gap-3xs);
+    bottom: var(--gap-3xs);
+    left: var(--gap-3xs);
+    box-shadow: var(--shadow-s);
+    background-color: var(--color-light-bg-primary);
+    transition: width 0.2s ease, transform 0.2s ease;
+}
