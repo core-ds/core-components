@@ -1,7 +1,7 @@
 export const calculatePaddingWidth = (element: HTMLElement) => {
     const { paddingLeft, paddingRight } = getComputedStyle(element);
     const result = parseInt(paddingLeft, 10) + parseInt(paddingRight, 10);
-    if (isNaN(result)) {
+    if (Number.isNaN(result)) {
         return 0;
     }
     return result;
