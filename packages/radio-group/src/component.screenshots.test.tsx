@@ -7,7 +7,7 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-const clipCheckbox = { x: 0, y: 0, width: 600, height: 200 };
+const clipRadio = { x: 0, y: 0, width: 600, height: 200 };
 const clipTag = { x: 0, y: 0, width: 600, height: 300 };
 
 describe(
@@ -24,7 +24,7 @@ describe(
             },
         }),
         screenshotOpts: {
-            clip: clipCheckbox,
+            clip: clipRadio,
         },
     }),
 );
@@ -40,7 +40,7 @@ describe(
             },
         }),
         screenshotOpts: {
-            clip: clipCheckbox,
+            clip: clipRadio,
         },
     }),
 );

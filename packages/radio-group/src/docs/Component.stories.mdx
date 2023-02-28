@@ -31,7 +31,7 @@ import Changelog from '../../CHANGELOG.md';
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
-        const size = select('Checkbox.size', ['s', 'm'], 's');
+        const size = select('Radio.size', ['s', 'm'], 's');
         const type = select('type', ['radio', 'tag'], 'radio');
         return (
             <RadioGroup
