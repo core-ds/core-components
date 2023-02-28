@@ -9,7 +9,15 @@ const readDir = promisify(fs.readdir);
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const excludedPackages = ['codemod', 'screenshot-utils', 'themes', 'utils', 'vars', 'global-store'];
+const excludedPackages = [
+    'codemod',
+    'screenshot-utils',
+    'themes',
+    'utils',
+    'vars',
+    'global-store',
+    'types',
+];
 
 const isComponent = (dir) => !excludedPackages.includes(dir) && !dir.includes('.');
 
