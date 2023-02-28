@@ -61,4 +61,7 @@
     --button-inverted-primary-disabled-bg-color: var(--color-light-bg-secondary);
     --button-inverted-primary-disabled-color: var(--color-light-text-tertiary);
     --button-inverted-primary-color: var(--color-light-text-primary);
+
+    /* loader */
+    --button-spinner-static-primary-color: var(--color-light-graphic-primary-inverted);
 }

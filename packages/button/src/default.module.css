@@ -62,6 +62,7 @@
 
     /* loader */
     --button-spinner-static-color: var(--color-static-graphic-light);
+    --button-spinner-static-primary-color: var(--color-static-graphic-light);
     --button-spinner-default-color: var(--color-light-graphic-primary);
 }
 
@@ -105,7 +106,7 @@
     }
 
     & > .loader {
-        color: var(--button-spinner-static-color);
+        color: var(--button-spinner-static-primary-color);
     }
 }
 
