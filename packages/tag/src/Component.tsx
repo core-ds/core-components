@@ -157,7 +157,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             if (childrenWidth > tagWidthWithoutPaddings) {
                 onOverflow(true);
             }
-        }, []);
+        }, [onOverflow]);
 
         return (
             <button
