@@ -38,6 +38,7 @@ export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
             value: number | null;
             /**
              * Строковое значение инпута
+             * Используйте для изменения значения инпута
              */
             valueString: string;
         },
@@ -63,6 +64,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         const [value, setValue] = useState<string>(defaultValue || '');
 
         const getNumberValueFromStr = (valueString: string) => {
+            if (valueString === '') return null;
+
             if (valueString.includes(',')) {
                 return parseFloat(valueString.replace(',', '.'));
             }
