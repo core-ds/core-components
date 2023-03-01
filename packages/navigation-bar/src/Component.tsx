@@ -2,6 +2,8 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+
 import { getDataTestId } from '../../utils';
 
 import { BackArrowAddon } from './components/back-arrow-addon';
@@ -40,9 +42,12 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     onBack,
 }) => {
     const [scrollTop, setScrollTop] = useState(0);
+    const [titleMargin, setTitleMargin] = useState({ left: 0, right: 0 });
     const bottomContentRef = useRef<HTMLDivElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
     const mainLinePaddingTopRef = useRef<string>('0px');
+    const leftAddonsRef = useRef<HTMLDivElement>(null);
+    const rightAddonsRef = useRef<HTMLDivElement>(null);
 
     const compactTitle = view === 'mobile' && titleSize === 'compact';
     const hasLeftPart = Boolean(leftAddons || hasBackButton);
@@ -56,6 +61,34 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     const showAnimatedContentOnTop = withAnimation && showContentOnBot && scrollTop > ADDONS_HEIGHT;
     const showAnimatedContentOnBot = withAnimation && showContentOnBot;
     const headerPaddingTop = mainLinePaddingTopRef.current;
+
+    useLayoutEffect_SAFE_FOR_SSR(() => {
+        if (align === 'center' && (showStaticContentOnTop || showAnimatedContentOnTop)) {
+            const leftAddonsWidth = leftAddonsRef.current?.offsetWidth || 0;
+            const rightAddonsWidth = rightAddonsRef.current?.offsetWidth || 0;
+
+            const marginSize = Math.abs(rightAddonsWidth - leftAddonsWidth);
+            const shouldAddLeftMargin = rightAddonsWidth - leftAddonsWidth > 0;
+
+            setTitleMargin((prev) => {
+                const newState = shouldAddLeftMargin
+                    ? { left: marginSize, right: 0 }
+                    : { left: 0, right: marginSize };
+
+                const isStateChanged = prev.left !== newState.left || prev.right !== newState.right;
+
+                return isStateChanged ? newState : prev;
+            });
+        }
+    }, [
+        align,
+        showStaticContentOnTop,
+        showAnimatedContentOnTop,
+        leftAddons,
+        rightAddons,
+        hasBackButton,
+        hasCloser,
+    ]);
 
     useEffect(() => {
         const parent = scrollableParentRef?.current;
@@ -164,7 +197,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
                 }}
             >
                 {hasLeftPart && (
-                    <div className={styles.addonsWrapper}>
+                    <div className={styles.addonsWrapper} ref={leftAddonsRef}>
                         {hasBackButton && renderBackButton()}
                         {leftAddons && (
                             <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>
@@ -172,18 +205,34 @@ export const NavigationBar: FC<NavigationBarProps> = ({
                     </div>
                 )}
 
-                {showStaticContentOnTop && renderContent()}
+                {showStaticContentOnTop &&
+                    renderContent({
+                        ...(align === 'center'
+                            ? {
+                                  style: {
+                                      marginLeft: titleMargin.left,
+                                      marginRight: titleMargin.right,
+                                  },
+                              }
+                            : null),
+                    })}
 
                 {showAnimatedContentOnTop &&
                     renderContent({
                         extraClassName: styles.withBothAddons,
                         style: {
                             opacity: Math.min(1, (scrollTop - ADDONS_HEIGHT) / ADDONS_HEIGHT),
+                            ...(align === 'center'
+                                ? { marginLeft: titleMargin.left, marginRight: titleMargin.right }
+                                : null),
                         },
                     })}
 
                 {hasRightPart && (
-                    <div className={cn(styles.addonsWrapper, styles.rightAddons)}>
+                    <div
+                        className={cn(styles.addonsWrapper, styles.rightAddons)}
+                        ref={rightAddonsRef}
+                    >
                         {rightAddons && (
                             <div className={cn(styles.addon, addonClassName)}>{rightAddons}</div>
                         )}
