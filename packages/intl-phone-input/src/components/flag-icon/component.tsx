@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { flagSprite } from './flagSprite';
+
 import styles from './index.module.css';
 
 export type FlagIconProps = {
@@ -24,6 +25,7 @@ export const FlagIcon: FC<FlagIconProps> = ({ country = '', className }) =>
         <span
             className={cn(styles.flagIcon, className)}
             data-test-id={`flag-icon-${country}`}
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: flagSprite[country] }}
         />
     ) : (

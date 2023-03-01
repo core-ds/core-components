@@ -21,8 +21,8 @@ import {
 import { Popover } from '@alfalab/core-components-popover';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { getDataTestId } from '../../../../utils/getDataTestId';
-import { BaseSelectProps, OptionShape } from '../../typings';
+import { getDataTestId } from '../../../../utils';
+import { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';
 
@@ -211,9 +211,10 @@ export const BaseSelect = forwardRef(
             },
         });
 
-        const menuProps = (
-            getMenuProps as (options: object, additional: object) => Record<string, any>
-        )({ ref: listRef }, { suppressRefError: true });
+        const menuProps = (getMenuProps as (options: object, additional: object) => AnyObject)(
+            { ref: listRef },
+            { suppressRefError: true },
+        );
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
@@ -267,6 +268,7 @@ export const BaseSelect = forwardRef(
         const handleNativeSelectChange = useCallback(
             (event: React.ChangeEvent<HTMLSelectElement>) => {
                 setSelectedItems(
+                    // eslint-disable-next-line
                     [...(event.target.options as any)].reduce(
                         (acc, option, index) =>
                             option.selected ? acc.concat(flatOptions[index]) : acc,
@@ -425,7 +427,7 @@ export const BaseSelect = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...(fieldProps as Record<string, any>)}
+                    {...(fieldProps as AnyObject)}
                 />
 
                 {name && !nativeSelect && renderValue()}
@@ -447,7 +449,7 @@ export const BaseSelect = forwardRef(
                                 className={cn(optionsListClassName, styles.optionsList)}
                             >
                                 <OptionsList
-                                    {...(optionsListProps as Record<string, any>)}
+                                    {...(optionsListProps as AnyObject)}
                                     optionsListWidth={optionsListWidth}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}

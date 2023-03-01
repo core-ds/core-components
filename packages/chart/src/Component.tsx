@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 import {
@@ -25,12 +26,15 @@ import { Tick } from './components/Tick';
 import { TooltipContent } from './components/TooltipContent';
 import { CustomizedHOC } from './hoc/Customized';
 import { useSettings } from './hooks/useSettings';
-import { ToggleChartProps } from './types/chart.types';
-import { OptionsProps } from './types/options.types';
-import { SeriaProps } from './types/seria.types';
-import { CoordinatesProps } from './types/utils/coordinates.types';
-import { DataDynamicBooleanProps, DataDynamicProps } from './types/utils/data.types';
-import { ActiveDotProps } from './types/utils/dot.types';
+import {
+    ActiveDotProps,
+    CoordinatesProps,
+    DataDynamicBooleanProps,
+    DataDynamicProps,
+    OptionsProps,
+    SeriaProps,
+    ToggleChartProps,
+} from './types';
 
 import styles from './index.module.css';
 

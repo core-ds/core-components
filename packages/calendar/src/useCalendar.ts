@@ -411,17 +411,17 @@ export function useCalendar({
         };
     };
 
-    const getMonthProps = (month: Month) => {
-        const monthselected = isSameMonth(activeMonth, month.date);
+    const getMonthProps = (currMonth: Month) => {
+        const monthselected = isSameMonth(activeMonth, currMonth.date);
 
         return {
-            'data-date': month.date.getTime(),
+            'data-date': currMonth.date.getTime(),
             'aria-selected': monthselected,
             ref: (node: HTMLButtonElement) => {
-                handleDateRef(node, month.date.getMonth());
+                handleDateRef(node, currMonth.date.getMonth());
             },
             tabIndex: monthselected ? 0 : -1,
-            disabled: month.disabled,
+            disabled: currMonth.disabled,
             onClick: handleMonthClick,
         };
     };

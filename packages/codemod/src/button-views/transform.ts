@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign, no-shadow */
+/* eslint-disable */
 import { ASTPath, JSXElement, Transform } from 'jscodeshift';
 
 const buttonViewsTransform: Transform = (fileInfo, api) => {

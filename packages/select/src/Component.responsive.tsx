@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useMedia } from '@alfalab/hooks';
 
-import { SelectFieldProps, Select } from './Component';
+import { Select, SelectFieldProps } from './Component';
 import { AdditionalMobileProps, SelectMobile } from './components';
 import { BaseSelectProps } from './typings';
 

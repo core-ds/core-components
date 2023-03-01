@@ -22,9 +22,9 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { BaseOption } from '@alfalab/core-components-select';
 
-import { getDataTestId } from '../../../../utils/getDataTestId';
+import { getDataTestId } from '../../../../utils';
 import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
-import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
+import { AnyObject, BaseSelectProps, OptionProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseCheckmark } from '../base-checkmark';
@@ -256,9 +256,10 @@ export const BaseSelectMobile = forwardRef(
             },
         });
 
-        const menuProps = (
-            getMenuProps as (options: object, additional: object) => Record<string, any>
-        )({ ref: listRef }, { suppressRefError: true });
+        const menuProps = (getMenuProps as (options: object, additional: object) => AnyObject)(
+            { ref: listRef },
+            { suppressRefError: true },
+        );
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
         useEffect(() => {
@@ -407,7 +408,7 @@ export const BaseSelectMobile = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
-                    {...(fieldProps as Record<string, any>)}
+                    {...(fieldProps as AnyObject)}
                 />
 
                 {name && renderValue()}
@@ -430,7 +431,7 @@ export const BaseSelectMobile = forwardRef(
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
                                 showFooter={multiple}
-                                {...(optionsListProps as Record<string, any>)}
+                                {...(optionsListProps as AnyObject)}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}
@@ -464,7 +465,7 @@ export const BaseSelectMobile = forwardRef(
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsListWithApply
                                 showFooter={multiple}
-                                {...(optionsListProps as Record<string, any>)}
+                                {...(optionsListProps as AnyObject)}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 size={size}

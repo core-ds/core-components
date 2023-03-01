@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement } from 'react';
 import { RectangleProps } from 'recharts';
 import { DataKey } from 'recharts/types/util/types';

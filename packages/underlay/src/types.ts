@@ -1,4 +1,6 @@
-import { BackgroundColorType, BorderColorType, ShadowType, GapType } from '../../types';
+import React from 'react';
+
+import { BackgroundColorType, BorderColorType, GapType, ShadowType } from '../../types';
 
 type PaddingSize = Omit<GapType, '5xl' | '6xl' | '7xl' | '8xl'>;
 

@@ -12,12 +12,12 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { Badge } from '@alfalab/core-components-badge';
 import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
-import { Badge } from '@alfalab/core-components-badge';
 import { useFocus } from '@alfalab/hooks';
-import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
 import defaultColors from './default.module.css';

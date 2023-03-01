@@ -6,10 +6,14 @@ import {
     ReactElement,
     ReactNode,
     RefAttributes,
+    SVGProps,
 } from 'react';
 
 import { InputProps } from '@alfalab/core-components-input';
 import { PopoverProps } from '@alfalab/core-components-popover';
+
+// eslint-disable-next-line
+export type AnyObject = Record<string, any>;
 
 export type OptionShape = {
     /**
@@ -411,7 +415,7 @@ export type FieldProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-} & Record<string, any>;
+} & AnyObject;
 
 export type ArrowProps = {
     /**
@@ -683,5 +687,5 @@ export type CheckmarkProps = {
     /**
      * Иконка выбранного пункта
      */
-    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+    icon?: FC<SVGProps<SVGSVGElement>>;
 };

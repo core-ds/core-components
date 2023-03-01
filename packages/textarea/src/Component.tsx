@@ -6,8 +6,9 @@ import cn from 'classnames';
 import { FormControl } from '@alfalab/core-components-form-control';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { useFocus, useMedia } from '@alfalab/hooks';
-import { TextareaProps } from './typings';
+
 import { PseudoTextArea } from './components';
+import { TextareaProps } from './typings';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -79,10 +80,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const hasInnerLabel = label && labelView === 'inner';
         const hasOverflow = Boolean(
             (maxLength && value?.slice(maxLength)) || (maxLength && stateValue.slice(maxLength)),
-        );  
+        );
 
         useEffect(() => {
             const pseudoNode = pseudoTextareaRef.current;
+
             if (pseudoNode) {
                 pseudoNode.scrollTop = scrollPosition;
             }
@@ -124,22 +126,23 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
             const {
-                target: { value },
+                target: { value: newValue },
             } = event;
 
             if (onChange) {
-                onChange(event, { value });
+                onChange(event, { value: newValue });
             }
 
             if (uncontrolled) {
-                setStateValue(value);
+                setStateValue(newValue);
             }
         };
 
         const handleTeaxtareaScroll = (event: React.UIEvent) => {
             if (maxLength) {
-                const value = (event.target as HTMLElement).scrollTop;
-                setScrollPosition(value);
+                const val = (event.target as HTMLElement).scrollTop;
+
+                setScrollPosition(val);
             }
         };
 
@@ -248,8 +251,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const getBottomAddons = () => {
             const counterIsVisible = Boolean(maxLength && showCounter);
+
             return (
-                <>
+                <React.Fragment>
                     {counterIsVisible && (
                         <span
                             className={cn(styles.sub, {
@@ -261,7 +265,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                         </span>
                     )}
                     {bottomAddons}
-                </>
+                </React.Fragment>
             );
         };
 
@@ -286,7 +290,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 bottomAddons={getBottomAddons()}
             >
                 {nativeScrollbar ? (
-                    <>
+                    <React.Fragment>
                         {hasOverflow && (
                             <PseudoTextArea
                                 value={value ?? stateValue}
@@ -300,7 +304,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                             />
                         )}
                         {renderWithNativeScrollbar()}
-                    </>
+                    </React.Fragment>
                 ) : (
                     renderWithCustomScrollbar()
                 )}

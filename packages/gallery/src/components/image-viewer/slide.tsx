@@ -5,6 +5,7 @@ import { Typography } from '@alfalab/core-components-typography';
 
 import { GalleryImage, ImageMeta } from '../../types';
 import { getImageAlt, isSmallImage, TestIds } from '../../utils';
+
 import { NoImagePaths } from './paths';
 
 import styles from './index.module.css';

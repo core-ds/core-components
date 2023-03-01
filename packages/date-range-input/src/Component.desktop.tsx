@@ -2,11 +2,12 @@ import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { InputProps } from '@alfalab/core-components-input';
+
 import {
+    ConditionalProps,
     DateRangeInput,
     DateRangeInputProps,
-    ConditionalProps,
-} from './components/date-range-input/Component';
+} from './components/date-range-input';
 
 export type DateRangeInputDesktopProps = Omit<DateRangeInputProps, 'view' | 'picker' | 'onClose'> &
     ConditionalProps;

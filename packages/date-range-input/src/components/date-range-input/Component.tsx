@@ -139,7 +139,7 @@ export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
 
         /**
          * Запрещает поповеру менять свою позицию.
-         * Например, если места снизу недостаточно,то он все равно будет показан снизу
+         * Например, если места снизу недостаточно, то он все равно будет показан снизу
          */
         preventFlip?: boolean;
 
@@ -263,20 +263,20 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             setEnd(dateTo?.getTime());
         }
 
-        function handlePeriodChange(selectedFrom?: number, selectedTo?: number) {
-            if (selectedFrom && !selectedTo && value.length === DATE_MASK.length) {
-                setValue(parseTimestampToDate(selectedFrom));
+        function handlePeriodChange(from?: number, to?: number) {
+            if (from && !to && value.length === DATE_MASK.length) {
+                setValue(parseTimestampToDate(from));
             } else if (
-                (!selectedFrom && !selectedTo && value.length === DATE_FORMAT.length) ||
-                (selectedFrom === selectedTo && value.length === DATE_MASK.length)
+                (!from && !to && value.length === DATE_FORMAT.length) ||
+                (from === to && value.length === DATE_MASK.length)
             ) {
                 setValue('');
             }
 
-            const dateFrom = selectedFrom ? new Date(selectedFrom) : undefined;
-            const dateTo = selectedTo ? new Date(selectedTo) : undefined;
+            const dateFrom = from ? new Date(from) : undefined;
+            const dateTo = to ? new Date(to) : undefined;
 
-            const newValue = ([selectedFrom, selectedTo].filter(Boolean) as number[])
+            const newValue = ([from, to].filter(Boolean) as number[])
                 .map((timestamp) => parseTimestampToDate(timestamp))
                 .join(' - ');
 
@@ -325,6 +325,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             }
         };
 
+        // eslint-disable-next-line complexity
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             const { value: newValue } = event.target;
 

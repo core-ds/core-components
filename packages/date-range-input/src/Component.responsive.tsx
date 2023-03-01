@@ -4,9 +4,9 @@ import React, { forwardRef } from 'react';
 import { InputProps } from '@alfalab/core-components-input';
 import { useMedia } from '@alfalab/hooks';
 
+import { ConditionalProps, DateRangeInputProps } from './components/date-range-input';
 import { DateRangeInputDesktop } from './Component.desktop';
 import { DateRangeInputMobile } from './Component.mobile';
-import { DateRangeInputProps, ConditionalProps } from './components/date-range-input/Component';
 
 export type DateRangeInputResponsiveProps = Omit<
     DateRangeInputProps,

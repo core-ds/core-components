@@ -58,6 +58,7 @@ export type BadgeProps = {
     dataTestId?: string;
 };
 
+// eslint-disable-next-line complexity
 export const Badge = ({
     className,
     size = 'm',

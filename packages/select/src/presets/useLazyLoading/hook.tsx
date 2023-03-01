@@ -194,8 +194,8 @@ export function useLazyLoading({
              * Таким образом, загрузка следующей "страницы" начнется когда юзер доскроллит список
              * до верхнего края последней опции, что обеспечивает плавность
              */
-            const options = listRef.current?.querySelectorAll('[role="option"]');
-            const lastOption = options?.[options.length - 1];
+            const optionList = listRef.current?.querySelectorAll('[role="option"]');
+            const lastOption = optionList?.[optionList.length - 1];
 
             if (lastOption) {
                 observer.observe(lastOption);

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement, ReactText, SVGProps } from 'react';
 import { AnimationTiming } from 'recharts/types/util/types';
 

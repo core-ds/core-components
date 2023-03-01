@@ -15,6 +15,7 @@ export const parseKnobs = () =>
         }
 
         return acc;
+        // eslint-disable-next-line
     }, {} as Record<string, any>);
 
 export function parseValue(value: string) {
