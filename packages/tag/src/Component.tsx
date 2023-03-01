@@ -34,6 +34,11 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     children?: ReactNode;
 
     /**
+     * Дополнительный класс для обёртки children
+     */
+    childrenClassName?: string;
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -105,6 +110,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             shape,
             view = 'outlined',
             onOverflow,
+            childrenClassName,
             ...restProps
         },
         ref,
@@ -169,7 +175,11 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             >
                 {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
 
-                {children && <span ref={childrenRef}>{children}</span>}
+                {children && (
+                    <span ref={childrenRef} className={childrenClassName}>
+                        {children}
+                    </span>
+                )}
 
                 {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
             </button>
