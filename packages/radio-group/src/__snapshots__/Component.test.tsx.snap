@@ -578,8 +578,15 @@ Object {
           <label
             class="radio tagLabel"
           >
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="radio"
+              value="one"
+            />
             <button
               class="component component s outlined rounded my-tag"
+              tabindex="-1"
               type="button"
               value="one"
             >
@@ -587,18 +594,19 @@ Object {
                 Первый вариант
               </span>
             </button>
-            <input
-              autocomplete="off"
-              class="hiddenInput"
-              type="radio"
-              value="one"
-            />
           </label>
           <label
             class="radio tagLabel"
           >
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="radio"
+              value="two"
+            />
             <button
               class="component component s outlined rounded"
+              tabindex="-1"
               type="button"
               value="two"
             >
@@ -606,18 +614,19 @@ Object {
                 Второй вариант
               </span>
             </button>
-            <input
-              autocomplete="off"
-              class="hiddenInput"
-              type="radio"
-              value="two"
-            />
           </label>
           <label
             class="radio tagLabel"
           >
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="radio"
+              value="three"
+            />
             <button
               class="component component s outlined rounded"
+              tabindex="-1"
               type="button"
               value="three"
             >
@@ -625,12 +634,6 @@ Object {
                 Третий вариант
               </span>
             </button>
-            <input
-              autocomplete="off"
-              class="hiddenInput"
-              type="radio"
-              value="three"
-            />
           </label>
         </div>
       </div>
@@ -651,8 +654,15 @@ Object {
         <label
           class="radio tagLabel"
         >
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="radio"
+            value="one"
+          />
           <button
             class="component component s outlined rounded my-tag"
+            tabindex="-1"
             type="button"
             value="one"
           >
@@ -660,18 +670,19 @@ Object {
               Первый вариант
             </span>
           </button>
-          <input
-            autocomplete="off"
-            class="hiddenInput"
-            type="radio"
-            value="one"
-          />
         </label>
         <label
           class="radio tagLabel"
         >
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="radio"
+            value="two"
+          />
           <button
             class="component component s outlined rounded"
+            tabindex="-1"
             type="button"
             value="two"
           >
@@ -679,18 +690,19 @@ Object {
               Второй вариант
             </span>
           </button>
-          <input
-            autocomplete="off"
-            class="hiddenInput"
-            type="radio"
-            value="two"
-          />
         </label>
         <label
           class="radio tagLabel"
         >
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="radio"
+            value="three"
+          />
           <button
             class="component component s outlined rounded"
+            tabindex="-1"
             type="button"
             value="three"
           >
@@ -698,12 +710,6 @@ Object {
               Третий вариант
             </span>
           </button>
-          <input
-            autocomplete="off"
-            class="hiddenInput"
-            type="radio"
-            value="three"
-          />
         </label>
       </div>
     </div>
