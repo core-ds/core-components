@@ -1,5 +1,22 @@
 # Change Log
 
+## 10.0.3
+
+### Patch Changes
+
+### [#543](https://github.com/core-ds/core-components/pull/543)
+
+-   Исправлен цвет лоадера в mobile, click, intranet темах
+
+## 10.0.2
+
+### Patch Changes
+
+### [#494](https://github.com/core-ds/core-components/pull/494)
+
+-   В ModalContext у base-modal добавлен ref на div-обертку модальных окон
+-   У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
+
 ## 10.0.1
 
 ### Patch Changes

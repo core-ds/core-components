@@ -130,67 +130,72 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     class="marker"
                   />
                   <div
-                    class="headerWrapper sticky"
+                    class="header headerWrapper sticky"
                   >
                     <div
-                      class="header justifyEnd"
+                      class="mainLine"
                     >
-                      <span
-                        class="title titleLeft primary primary-large bold"
-                      />
                       <div
-                        class="addon"
+                        class="addonsWrapper rightAddons"
                       >
                         <div
-                          class="closer"
+                          class="addon closer"
                         >
-                          <button
-                            aria-label="закрыть"
-                            class="component ghost s component ghost cc-icon-button button primary component"
-                            type="button"
+                          <div
+                            class="closer"
                           >
-                            <span
-                              class="text stretchText"
+                            <button
+                              aria-label="закрыть"
+                              class="component ghost s component ghost cc-icon-button button mobile primary component"
+                              type="button"
                             >
                               <span
-                                class="iconWrapper xs"
+                                class="text stretchText"
                               >
-                                <svg
-                                  class="icon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
+                                <span
+                                  class="iconWrapper xs"
                                 >
-                                  <path
-                                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                                  />
-                                </svg>
+                                  <svg
+                                    class="icon"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="24"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                  >
+                                    <path
+                                      d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                                    />
+                                  </svg>
+                                </span>
                               </span>
-                            </span>
-                          </button>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="component component bottomSheetInput s block"
+                      class="bottomAddons"
                     >
                       <div
-                        class="inner inner"
+                        class="component component bottomSheetInput s block"
                       >
                         <div
-                          class="inputWrapper"
+                          class="inner inner"
                         >
                           <div
-                            class="input"
+                            class="inputWrapper"
                           >
-                            <input
-                              class="input input"
-                              type="text"
-                              value=""
-                            />
+                            <div
+                              class="input"
+                            >
+                              <input
+                                class="input input"
+                                type="text"
+                                value=""
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>

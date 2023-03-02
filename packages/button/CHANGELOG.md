@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.1.1
+
+### Patch Changes
+
+### [#543](https://github.com/core-ds/core-components/pull/543)
+
+-   Исправлен цвет лоадера в mobile, click, intranet темах
+
 ## 7.1.0
 
 ### Minor Changes

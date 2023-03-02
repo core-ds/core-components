@@ -1,5 +1,34 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+### [#540](https://github.com/core-ds/core-components/pull/540)
+
+-   Изменена нода с overflow: auto в SidePanelMobile
+
+-   Обновлены зависимости
+    -   base-modal@5.1.1
+    -   navigation-bar@0.1.1
+    -   icon-button@6.0.8
+
+## 6.0.0
+
+### Major Changes
+
+### [#494](https://github.com/core-ds/core-components/pull/494)
+
+-   В ModalContext у base-modal добавлен ref на div-обертку модальных окон
+-   У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.1.0
+    -   navigation-bar@0.1.0
+    -   typography@3.2.0
+
 ## 5.3.1
 
 ### Patch Changes

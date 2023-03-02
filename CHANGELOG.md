@@ -1,3 +1,101 @@
+## 39.1.0
+
+<sup><time>28.02.2023</time></sup>
+
+### [c8ff5d47b](https://github.com/core-ds/core-components/commit/c8ff5d47b5326a0ffbb5f0b751fa45d80770a8e9)
+
+#### Что изменилось
+- Удален line-height
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#540](https://github.com/core-ds/core-components/pull/540)
+
+#### Что изменилось
+- Изменена нода с overflow: auto в SidePanelMobile
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet` `modal` `navigation-bar` `side-panel`<br />
+
+
+### [#543](https://github.com/core-ds/core-components/pull/543)
+
+#### Что изменилось
+- Исправлен цвет лоадера в mobile, click, intranet темах
+
+#### Влияние на компоненты
+- Патчи<br />`button` `themes`
+
+
+### [#528](https://github.com/core-ds/core-components/pull/528)
+
+#### Что изменилось
+- Добавлен новый компонент SegmentedControl.
+
+#### Влияние на компоненты
+- Минорное<br />`segmented-control`
+
+
+
+## 39.0.0
+
+<sup><time>17.02.2023</time></sup>
+
+### [#494](https://github.com/core-ds/core-components/pull/494)
+
+#### Что изменилось
+- В ModalContext у base-modal добавлен ref на div-обертку модальных окон
+- У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
+
+#### Влияние на компоненты
+- Мажорное<br />`bottom-sheet` `modal` `side-panel`
+
+
+- Минорное<br />`base-modal` `navigation-bar`
+
+
+- Патчи<br />`themes`
+
+
+### [#531](https://github.com/core-ds/core-components/pull/531)
+
+#### Что изменилось
+- Добавлены static цвета для Typography
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#532](https://github.com/core-ds/core-components/pull/532)
+
+#### Что изменилось
+- Добавлен новый компонент SortableList
+
+#### Влияние на компоненты
+- Минорное<br />`sortable-list`
+
+
+### [#521](https://github.com/core-ds/core-components/pull/521)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не вызывался onLoad callback
+
+#### Влияние на компоненты
+- Патчи<br />`card-image`
+
+
+### [#511](https://github.com/core-ds/core-components/pull/511)
+
+#### Что изменилось
+- Добавлен новый компонент Underlay
+
+#### Влияние на компоненты
+- Минорное<br />`underlay`
+
+
+
 ## 38.4.0
 
 <sup><time>15.02.2023</time></sup>

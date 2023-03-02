@@ -1,14 +1,18 @@
-import React, { ButtonHTMLAttributes, ElementType, FC, useCallback, useContext } from 'react';
+import React, { ButtonHTMLAttributes, ElementType, FC } from 'react';
 import cn from 'classnames';
 
-import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
-
-import { ModalContext } from '../../Context';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import styles from './index.module.css';
 
-export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export interface CloserProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    /**
+     * Вид компонента
+     */
+    view: 'desktop' | 'mobile';
+
     /**
      * Дополнительный класс
      */
@@ -18,11 +22,6 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      * Позиция крестика
      */
     align?: 'left' | 'right';
-
-    /**
-     * Размер кнопки
-     */
-    size?: IconButtonProps['size'];
 
     /**
      * Фиксирует крестик
@@ -38,27 +37,28 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
 
-/**
- * @deprecated Компонент только для внутреннего использования. Используйте <Header />
- */
+    /**
+     * Коллбэк закрытия.
+     */
+    onClose?: (
+        event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+        reason?: 'backdropClick' | 'escapeKeyDown' | 'closerClick',
+    ) => void;
+}
+
 export const Closer: FC<CloserProps> = ({
+    view,
     className,
-    size = 's',
     sticky,
-    icon = CrossHeavyMIcon,
+    icon = view === 'desktop' ? CrossHeavyMIcon : CrossMIcon,
     dataTestId,
+    onClose,
     ...restProps
 }) => {
-    const { onClose } = useContext(ModalContext);
-
-    const handleClick = useCallback(
-        (event: React.MouseEvent<HTMLButtonElement>) => {
-            onClose(event, 'closerClick');
-        },
-        [onClose],
-    );
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        onClose?.(event, 'closerClick');
+    };
 
     return (
         <div
@@ -67,8 +67,8 @@ export const Closer: FC<CloserProps> = ({
             })}
         >
             <IconButton
-                size={size}
-                className={styles.button}
+                size={view === 'desktop' ? 's' : 'xs'}
+                className={cn(styles.button, { [styles.mobile]: view === 'mobile' })}
                 aria-label='закрыть'
                 onClick={handleClick}
                 icon={icon}

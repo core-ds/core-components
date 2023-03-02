@@ -3,9 +3,6 @@
 .header {
     width: 100%;
     box-sizing: border-box;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
     transition: box-shadow 0.2s ease, background 0.2s ease;
 
     &:not(.hasContent) {
@@ -51,16 +48,6 @@
 
 .closer {
     margin-left: auto;
-}
-
-.left {
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.center {
-    justify-content: center;
-    text-align: center;
 }
 
 .right {

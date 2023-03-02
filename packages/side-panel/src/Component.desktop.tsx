@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, isValidElement, useRef } from 'react';
+import React, { cloneElement, forwardRef, isValidElement, useContext, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -7,7 +7,9 @@ import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 
 import { ContentDesktop } from './components/content/Component.desktop';
 import { FooterDesktop } from './components/footer/Component.desktop';
-import { HeaderDesktop } from './components/header/Component.desktop';
+import { Header } from './components/header/Component';
+import { ResponsiveContext } from './ResponsiveContext';
+import { TResponsiveModalContext } from './typings';
 
 import styles from './desktop.module.css';
 import transitions from './transitions.desktop.module.css';
@@ -44,6 +46,7 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
         },
         ref,
     ) => {
+        const responsiveContext = useContext(ResponsiveContext);
         const modalRef = useRef<HTMLElement>(null);
 
         const enterCn = cn({
@@ -56,7 +59,12 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
             [transitions.exitActiveLeft]: placement === 'left',
         });
 
-        return (
+        const contextValue = React.useMemo<TResponsiveModalContext>(
+            () => ({ size, view: 'desktop' }),
+            [size],
+        );
+
+        const renderContent = () => (
             <Drawer
                 {...restProps}
                 ref={mergeRefs([ref, modalRef])}
@@ -82,11 +90,19 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
                 )}
             </Drawer>
         );
+
+        const renderWithContext = () => (
+            <ResponsiveContext.Provider value={contextValue}>
+                {renderContent()}
+            </ResponsiveContext.Provider>
+        );
+
+        return responsiveContext ? renderContent() : renderWithContext();
     },
 );
 
 export const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {
     Content: ContentDesktop,
-    Header: HeaderDesktop,
+    Header,
     Footer: FooterDesktop,
 });

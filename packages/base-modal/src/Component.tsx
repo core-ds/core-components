@@ -180,6 +180,8 @@ export type BaseModalProps = {
 };
 
 export type BaseModalContext = {
+    parentRef: React.RefObject<HTMLDivElement>;
+    componentRef: React.RefObject<HTMLDivElement>;
     hasFooter?: boolean;
     hasHeader?: boolean;
     hasScroll?: boolean;
@@ -195,6 +197,8 @@ export type BaseModalContext = {
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const BaseModalContext = React.createContext<BaseModalContext>({
+    parentRef: { current: null },
+    componentRef: { current: null },
     hasFooter: false,
     hasHeader: false,
     hasScroll: false,
@@ -466,6 +470,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const contextValue = useMemo<BaseModalContext>(
             () => ({
+                parentRef: wrapperRef,
+                componentRef: componentNodeRef,
                 hasHeader,
                 hasFooter,
                 hasScroll,

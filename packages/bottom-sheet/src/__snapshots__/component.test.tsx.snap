@@ -50,16 +50,21 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                     class="marker"
                   />
                   <div
-                    class="headerWrapper"
+                    class="header headerWrapper hasContent"
                   >
                     <div
-                      class="header"
+                      class="mainLine"
                     >
-                      <span
-                        class="title titleLeft primary primary-large bold"
+                      <div
+                        class="content title left trim"
+                        style="visibility: visible;"
                       >
-                        Bottom sheet title
-                      </span>
+                        <div
+                          class="title"
+                        >
+                          Bottom sheet title
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -134,16 +139,21 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                     class="marker"
                   />
                   <div
-                    class="headerWrapper"
+                    class="header headerWrapper hasContent"
                   >
                     <div
-                      class="header"
+                      class="mainLine"
                     >
-                      <span
-                        class="title titleLeft primary primary-large bold"
+                      <div
+                        class="content title left trim"
+                        style="visibility: visible;"
                       >
-                        Bottom sheet title
-                      </span>
+                        <div
+                          class="title"
+                        >
+                          Bottom sheet title
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div

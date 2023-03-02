@@ -1,5 +1,9 @@
 @import '../../vars.css';
 
+.header {
+    padding: var(--side-panel-header-mobile-paddings);
+}
+
 .sticky {
     top: 0;
 }
