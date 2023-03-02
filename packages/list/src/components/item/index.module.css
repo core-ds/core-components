@@ -27,7 +27,6 @@
 }
 
 .slot {
-    color: var(--list-marker-color);
     min-width: 20px;
     display: flex;
     box-sizing: border-box;
@@ -35,21 +34,16 @@
     padding-right: var(--gap-2xs);
     flex-shrink: 0;
 
+    &.defaultColor {
+        color: var(--list-marker-color);
+    }
+
     &.disc {
         justify-content: center;
         padding: 0 var(--gap-2xs);
     }
 }
 
-@each $color in tertiary, accent, primary, attention, positive, secondary, tertiary-inverted,
-    primary-inverted, secondary-inverted, link, negative
-{
-    .slot.color-marker-$(color) {
-        color: var(--color-light-text-$(color));
-    }
-}
-
 .caption {
-    @mixin paragraph_primary_small;
-    color: var(--color-light-text-secondary);
+    margin-top: var(--gap-3xs);
 }

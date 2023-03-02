@@ -12,18 +12,16 @@ Object {
           class="item"
         >
           <div
-            class="slot"
+            class="monospace slot defaultColor primary-medium"
           >
             —
           </div>
-          <div
-            class="content"
-          >
-            <span
-              class="children"
+          <div>
+            <div
+              class="primary-medium"
             >
               List
-            </span>
+            </div>
           </div>
         </li>
       </ul>
@@ -37,18 +35,16 @@ Object {
         class="item"
       >
         <div
-          class="slot"
+          class="monospace slot defaultColor primary-medium"
         >
           —
         </div>
-        <div
-          class="content"
-        >
-          <span
-            class="children"
+        <div>
+          <div
+            class="primary-medium"
           >
             List
-          </span>
+          </div>
         </div>
       </li>
     </ul>
@@ -119,18 +115,16 @@ Object {
           class="item orderedItem"
         >
           <div
-            class="slot"
+            class="monospace slot defaultColor primary-medium"
           >
             1.
           </div>
-          <div
-            class="content"
-          >
-            <span
-              class="children"
+          <div>
+            <div
+              class="primary-medium"
             >
               List
-            </span>
+            </div>
           </div>
         </li>
       </ol>
@@ -144,18 +138,16 @@ Object {
         class="item orderedItem"
       >
         <div
-          class="slot"
+          class="monospace slot defaultColor primary-medium"
         >
           1.
         </div>
-        <div
-          class="content"
-        >
-          <span
-            class="children"
+        <div>
+          <div
+            class="primary-medium"
           >
             List
-          </span>
+          </div>
         </div>
       </li>
     </ol>

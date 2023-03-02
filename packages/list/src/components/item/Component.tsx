@@ -1,5 +1,8 @@
 import React, { useContext, ReactNode } from 'react';
 import cn from 'classnames';
+
+import { Typography } from '@alfalab/core-components-typography';
+
 import { ListContext } from '../../Component';
 
 import styles from './index.module.css';
@@ -42,19 +45,33 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
     return (
         <li className={cn(itemClassNames)}>
             {!markerLowerAlpha && (
-                <div
-                    className={cn(
-                        styles.slot,
-                        colorMarker && styles[`color-marker-${colorMarker}`],
-                        { [styles.disc]: isDisc && !orderedList },
-                    )}
+                <Typography.Text
+                    tag='div'
+                    color={colorMarker}
+                    monospaceNumbers={true}
+                    view='primary-medium'
+                    className={cn(styles.slot, {
+                        [styles.disc]: isDisc && !orderedList,
+                        [styles.defaultColor]: !colorMarker,
+                    })}
                 >
                     {marker}
-                </div>
+                </Typography.Text>
             )}
-            <div className={styles.content}>
-                <span className={styles.children}>{children}</span>
-                {caption && <div className={styles.caption}>{caption}</div>}
+            <div>
+                <Typography.Text tag='div' view='primary-medium'>
+                    {children}
+                </Typography.Text>
+                {caption && (
+                    <Typography.Text
+                        tag='div'
+                        view='primary-small'
+                        color='secondary'
+                        className={styles.caption}
+                    >
+                        {caption}
+                    </Typography.Text>
+                )}
             </div>
         </li>
     );
