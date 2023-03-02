@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.4.11
+
+### Patch Changes
+
+### [#545](https://github.com/core-ds/core-components/pull/545)
+
+-   Добавлен пропс hideCountdownSection, с помощью которого можно скрыть секцию с обратным отсчетом и кнопкой с повторным запросом кода
+
 ## 12.4.10
 
 ### Patch Changes

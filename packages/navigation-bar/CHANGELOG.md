@@ -1,5 +1,13 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.1.2
+
+### Patch Changes
+
+### [#570](https://github.com/core-ds/core-components/pull/570)
+
+-   Исправлено выравнивание по центру
+
 ## 0.1.1
 
 ### Patch Changes

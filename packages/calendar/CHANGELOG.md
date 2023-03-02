@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@7.0.2
+
 ## 6.2.11
 
 ### Patch Changes
