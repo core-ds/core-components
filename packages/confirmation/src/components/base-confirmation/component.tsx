@@ -38,6 +38,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     onTempBlockFinished,
     mobile,
     clearCodeOnError = true,
+    hideCountdownSection = false,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);
@@ -86,6 +87,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
 
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     const contextValue: TConfirmationContext = {
+        hideCountdownSection,
         alignContent,
         texts: { ...defaultTexts, ...restProps.texts },
         state,
