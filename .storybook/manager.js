@@ -1,10 +1,13 @@
-import { addons } from '@storybook/addons';
+import {addons} from '@storybook/addons';
 import alfaTheme from './theme';
 
-import { STORY_RENDERED } from '@storybook/core-events';
-import { renderLabel } from './render-label';
+import {STORY_RENDERED} from '@storybook/core-events';
+import {renderLabel} from './render-label';
 
 import '../packages/themes/src/default.css';
+import {setMetricsConnection} from './addons/utils';
+
+setMetricsConnection()
 
 addons.register('TitleAddon', (api) => {
     const libName = 'Core Components';
@@ -14,7 +17,8 @@ addons.register('TitleAddon', (api) => {
         let storyData = null;
         try {
             storyData = api.getCurrentStoryData();
-        } catch (e) {}
+        } catch (e) {
+        }
         let title;
         if (!storyData) {
             title = libName;
