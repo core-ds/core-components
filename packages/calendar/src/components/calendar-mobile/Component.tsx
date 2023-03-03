@@ -317,8 +317,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         <ModalMobile.Header
                             hasCloser={true}
                             title={title}
-                            align='center'
-                            leftAddons={<div />}
                             sticky={true}
                             className={cn({ [styles.withZIndex]: selectorView === 'full' })}
                         />
