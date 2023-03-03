@@ -1,3 +1,143 @@
+## 39.2.0
+
+<sup><time>03.03.2023</time></sup>
+
+### [#547](https://github.com/core-ds/core-components/pull/547)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#566](https://github.com/core-ds/core-components/pull/566)
+
+#### Что изменилось
+- Изменен цвет иконки в теме click
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view` `themes`
+
+
+### [#564](https://github.com/core-ds/core-components/pull/564)
+
+#### Что изменилось
+- Значение value при сбросе изменено на null
+
+#### Влияние на компоненты
+- Патчи<br />`number-input`
+
+
+### [#561](https://github.com/core-ds/core-components/pull/561)
+
+#### Что изменилось
+- Замена css-переменных для миксина кнопок в corp теме на переменные из default темы
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#546](https://github.com/core-ds/core-components/pull/546)
+
+#### Что изменилось
+- Обновление vars из последней версии ui-primitives, deprecated и 'old' цвета отмечены комментарием /* deprecated */
+
+#### Влияние на компоненты
+- Патчи<br />`themes` `vars`
+
+
+### [#574](https://github.com/core-ds/core-components/pull/574)
+
+#### Что изменилось
+- Сброшена темизация скругления в теме intranet для shape: rounded
+
+#### Влияние на компоненты
+- Минорное<br />`tag` `themes`
+
+
+### [#550](https://github.com/core-ds/core-components/pull/550)
+
+#### Что изменилось
+- Исправлен цвет выделения диапазона в темной теме
+
+#### Влияние на компоненты
+- Патчи<br />`calendar` `themes` `vars`
+
+
+### [#569](https://github.com/core-ds/core-components/pull/569)
+
+#### Что изменилось
+- Исправлены типы в InputAutocompleteResponsive
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#555](https://github.com/core-ds/core-components/pull/555)
+
+#### Что изменилось
+- Убрана фокусная рамка
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar`
+
+
+### [#563](https://github.com/core-ds/core-components/pull/563)
+
+#### Что изменилось
+- Исправлены стили диапозона в календаре
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#549](https://github.com/core-ds/core-components/pull/549)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer и header
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#551](https://github.com/core-ds/core-components/pull/551)
+
+#### Что изменилось
+- Исправлена высота плашки при наличии аддонов
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#548](https://github.com/core-ds/core-components/pull/548)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer и header
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+### [#562](https://github.com/core-ds/core-components/pull/562)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой компоненты обёрнутые в PureCell.Text не получали стили от Typography
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#542](https://github.com/core-ds/core-components/pull/542)
+
+#### Что изменилось
+- Добавили props colorMarker и caption, отвечающие за цвет маркера и дополнительный текст. Изменили размер контейнера для маркера
+
+#### Влияние на компоненты
+- Минорное<br />`list`
+
+
+
 ## 39.1.1
 
 <sup><time>02.03.2023</time></sup>
