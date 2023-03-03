@@ -1,0 +1,33 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.column {
+    flex-flow: column nowrap;
+
+    & > * {
+        margin-bottom: var(--gap-m);
+    }
+
+    & > *:last-child,
+    & > *:only-child {
+        margin-bottom: 0;
+    }
+}
+
+.row {
+    flex-flow: row nowrap;
+
+    & > * {
+        margin-right: var(--gap-m);
+    }
+
+    & > *:last-child,
+    & > *:only-child {
+        margin-right: 0;
+    }
+}

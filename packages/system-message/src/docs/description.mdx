@@ -1,0 +1,312 @@
+## Примеры
+
+Компонент может использоваться как индикатор состояния системы или конкретного интерфейсного элемента,
+для уведомления пользователя об ошибках и вывода других сообщений системы, адресованных пользователю.
+
+```jsx live mobileHeight=770
+const IS_MOBILE = document.body.clientWidth < 450;
+const SETTINGS_KEY = {
+    subtitle: 'subtitle',
+    caption: 'caption',
+    primary: 'primary',
+    secondary: 'secondary',
+    button_columns: 'button_columns',
+    graphic_icon: 'graphic_icon',
+    graphic_img: 'graphic_img',
+    graphic_none: 'graphic_none',
+};
+
+const SETTINGS_MAP = {
+    [SETTINGS_KEY.subtitle]: 'Subtitle',
+    [SETTINGS_KEY.caption]: 'Caption',
+    [SETTINGS_KEY.primary]: 'Button primary',
+    [SETTINGS_KEY.secondary]: 'Button secondary',
+    ...(IS_MOBILE ? { [SETTINGS_KEY.button_columns]: 'Buttons vertical layout' } : null),
+};
+
+const SELECT_OPTIONS = [
+    {
+        key: SETTINGS_KEY.graphic_icon,
+        content: 'IconView',
+    },
+    {
+        key: SETTINGS_KEY.graphic_img,
+        content: 'Img',
+    },
+    {
+        key: SETTINGS_KEY.graphic_none,
+        content: 'None',
+    },
+];
+
+render(() => {
+    const [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);
+    const [settings, setSettings] = React.useState(() =>
+        Object.keys(SETTINGS_MAP).reduce((res, name) => ({ ...res, [name]: true }), {}),
+    );
+
+    const handleSettingsChange = (_, { name, checked }) => {
+        setSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
+    const renderGraphic = () => {
+        if (graphic === SETTINGS_KEY.graphic_icon) {
+            return (
+                <SystemMessage.Graphic>
+                    <SuperEllipse size={80}>
+                        <MobilePhoneBubbleLineMIcon color='var(--color-light-graphic-primary)' />
+                    </SuperEllipse>
+                </SystemMessage.Graphic>
+            );
+        }
+
+        if (graphic === SETTINGS_KEY.graphic_img) {
+            return (
+                <SystemMessage.Graphic>
+                    <img
+                        src='./images/system-message_graphic.png'
+                        alt='system message graphic'
+                        width='100%'
+                    />
+                </SystemMessage.Graphic>
+            );
+        }
+
+        return null;
+    };
+
+    return (
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: IS_MOBILE ? 730 : undefined,
+            }}
+        >
+            <div style={{ maxWidth: 440 }}>
+                <SystemMessage dataTestId='system-message'>
+                    {renderGraphic()}
+
+                    <SystemMessage.Title>Подтвердите подключение кодом из смс</SystemMessage.Title>
+
+                    {settings[SETTINGS_KEY.subtitle] && (
+                        <SystemMessage.Subtitle>
+                            Проверили вашу заявку — всё в порядке. Осталось подтвердить подключение
+                        </SystemMessage.Subtitle>
+                    )}
+
+                    {settings[SETTINGS_KEY.caption] && (
+                        <SystemMessage.Caption>
+                            Для этого нажмите на кнопочку ниже
+                        </SystemMessage.Caption>
+                    )}
+
+                    {(settings[SETTINGS_KEY.primary] || settings[SETTINGS_KEY.secondary]) && (
+                        <SystemMessage.Controls
+                            direction={settings[SETTINGS_KEY.button_columns] ? 'column' : 'row'}
+                        >
+                            {settings[SETTINGS_KEY.primary] && (
+                                <Button size='s' view='primary'>
+                                    Получить код
+                                </Button>
+                            )}
+
+                            {settings[SETTINGS_KEY.secondary] && <Button size='s'>Отмена</Button>}
+                        </SystemMessage.Controls>
+                    )}
+                </SystemMessage>
+            </div>
+
+            <div>
+                <Gap size='m' />
+
+                <Divider />
+
+                <Gap size='m' />
+
+                <div style={{ maxWidth: 320 }}>
+                    <SelectResponsive
+                        block={true}
+                        label='Graphic'
+                        options={SELECT_OPTIONS}
+                        selected={graphic}
+                        onChange={({ selected }) => setGraphic(selected.key)}
+                        Option={BaseOption}
+                    />
+                </div>
+
+                <Gap size='m' />
+
+                <CheckboxGroup onChange={handleSettingsChange}>
+                    {Object.keys(SETTINGS_MAP).map((name) => (
+                        <Switch
+                            key={name}
+                            size='m'
+                            label={SETTINGS_MAP[name]}
+                            name={name}
+                            checked={settings[name]}
+                        />
+                    ))}
+                </CheckboxGroup>
+            </div>
+        </div>
+    );
+});
+```
+
+## Использование в модалках
+
+При использовании в модалках футер и хедер не фиксируются. В мобильных модалках контентная часть растягивается на всю доступную высоту.
+
+```jsx live mobileHeight=640
+const IS_MOBILE = document.body.clientWidth < 450;
+const SETTINGS_KEY = {
+    subtitle: 'subtitle',
+    caption: 'caption',
+    primary: 'primary',
+    secondary: 'secondary',
+    button_columns: 'button_columns',
+    graphic_icon: 'graphic_icon',
+    graphic_img: 'graphic_img',
+    graphic_none: 'graphic_none',
+};
+
+const SETTINGS_MAP = {
+    [SETTINGS_KEY.subtitle]: 'Subtitle',
+    [SETTINGS_KEY.caption]: 'Caption',
+    [SETTINGS_KEY.primary]: 'Button primary',
+    [SETTINGS_KEY.secondary]: 'Button secondary',
+    ...(IS_MOBILE ? { [SETTINGS_KEY.button_columns]: 'Buttons vertical layout' } : null),
+};
+
+const SELECT_OPTIONS = [
+    {
+        key: SETTINGS_KEY.graphic_icon,
+        content: 'IconView',
+    },
+    {
+        key: SETTINGS_KEY.graphic_img,
+        content: 'Img',
+    },
+    {
+        key: SETTINGS_KEY.graphic_none,
+        content: 'None',
+    },
+];
+
+render(() => {
+    const [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);
+    const [open, setOpen] = React.useState(false);
+    const [settings, setSettings] = React.useState(() =>
+        Object.keys(SETTINGS_MAP).reduce((res, name) => ({ ...res, [name]: true }), {}),
+    );
+
+    const handleSettingsChange = (_, { name, checked }) => {
+        setSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
+    const renderGraphic = () => {
+        if (graphic === SETTINGS_KEY.graphic_icon) {
+            return (
+                <SystemMessage.Graphic>
+                    <SuperEllipse size={80}>
+                        <MobilePhoneBubbleLineMIcon color='var(--color-light-graphic-primary)' />
+                    </SuperEllipse>
+                </SystemMessage.Graphic>
+            );
+        }
+
+        if (graphic === SETTINGS_KEY.graphic_img) {
+            return (
+                <SystemMessage.Graphic>
+                    <img
+                        src='./images/system-message_graphic.png'
+                        alt='system message graphic'
+                        width='100%'
+                    />
+                </SystemMessage.Graphic>
+            );
+        }
+
+        return null;
+    };
+
+    return (
+        <>
+            <ModalResponsive open={open} onClose={() => setOpen(false)}>
+                <ModalResponsive.Header hasCloser={true} />
+                <ModalResponsive.Content flex={true}>
+                    <SystemMessage fullHeight={true}>
+                        {renderGraphic()}
+
+                        <SystemMessage.Title>
+                            Подтвердите подключение кодом из смс
+                        </SystemMessage.Title>
+
+                        {settings[SETTINGS_KEY.subtitle] && (
+                            <SystemMessage.Subtitle>
+                                Проверили вашу заявку — всё в порядке. Осталось подтвердить
+                                подключение
+                            </SystemMessage.Subtitle>
+                        )}
+
+                        {settings[SETTINGS_KEY.caption] && (
+                            <SystemMessage.Caption>
+                                Для этого нажмите на кнопочку ниже
+                            </SystemMessage.Caption>
+                        )}
+
+                        {(settings[SETTINGS_KEY.primary] || settings[SETTINGS_KEY.secondary]) && (
+                            <SystemMessage.Controls
+                                direction={settings[SETTINGS_KEY.button_columns] ? 'column' : 'row'}
+                            >
+                                {settings[SETTINGS_KEY.primary] && (
+                                    <Button size='s' view='primary'>
+                                        Получить код
+                                    </Button>
+                                )}
+
+                                {settings[SETTINGS_KEY.secondary] && (
+                                    <Button size='s' onClick={() => setOpen(false)}>
+                                        Отмена
+                                    </Button>
+                                )}
+                            </SystemMessage.Controls>
+                        )}
+                    </SystemMessage>
+                </ModalResponsive.Content>
+            </ModalResponsive>
+
+            <Button onClick={() => setOpen(true)}>Открыть модалку</Button>
+
+            <Gap size='m' />
+
+            <div style={{ maxWidth: 320 }}>
+                <SelectResponsive
+                    block={true}
+                    label='Graphic'
+                    options={SELECT_OPTIONS}
+                    selected={graphic}
+                    onChange={({ selected }) => setGraphic(selected.key)}
+                    Option={BaseOption}
+                />
+            </div>
+
+            <Gap size='m' />
+
+            <CheckboxGroup onChange={handleSettingsChange}>
+                {Object.keys(SETTINGS_MAP).map((name) => (
+                    <Switch
+                        key={name}
+                        size='m'
+                        label={SETTINGS_MAP[name]}
+                        name={name}
+                        checked={settings[name]}
+                    />
+                ))}
+            </CheckboxGroup>
+        </>
+    );
+});
+```

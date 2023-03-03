@@ -1,0 +1,107 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { boolean, select } from '@storybook/addon-knobs';
+
+import { MobilePhoneBubbleLineMIcon } from '@alfalab/icons-glyph/MobilePhoneBubbleLineMIcon';
+import { SystemMessage } from '@alfalab/core-components-system-message';
+import { Button } from '@alfalab/core-components-button';
+import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
+
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+<Meta title='Components/SystemMessage' component={SystemMessage} id='SystemMessage' />
+
+<!-- Canvas -->
+
+<Story name='SystemMessage'>
+    {React.createElement(() => {
+        const graphic = select('graphic', ['IconView', 'Img', 'None'], 'IconView');
+        const title = boolean('title', true);
+        const subtitle = boolean('subtitle', true);
+        const caption = boolean('caption', true);
+        const controls = boolean('controls', true);
+        const controlDirection = select('direction', ['row', 'column'], 'row');
+        const showPrimaryButton = boolean('showPrimaryButton', true);
+        const showSecondaryButton = boolean('showSecondaryButton', true);
+        const fullHeight = boolean('fullHeight', false);
+        const renderGraphic = () => {
+            if (graphic === 'IconView') {
+                return (
+                    <SystemMessage.Graphic>
+                        <SuperEllipse size={80}>
+                            <MobilePhoneBubbleLineMIcon
+                                color='var(--color-light-graphic-primary)'
+                                aria-label='mobile phone bubble'
+                            />
+                        </SuperEllipse>
+                    </SystemMessage.Graphic>
+                );
+            }
+            if (graphic === 'Img') {
+                return (
+                    <SystemMessage.Graphic>
+                        <img
+                            src='./images/system-message_graphic.png'
+                            alt='system message graphic'
+                            width='100%'
+                        />
+                    </SystemMessage.Graphic>
+                );
+            }
+            return null;
+        };
+        return (
+            <div
+                style={{
+                    boxSizing: 'border-box',
+                    maxWidth: 440,
+                    height: 640,
+                }}
+            >
+                <SystemMessage dataTestId='system-message' fullHeight={fullHeight}>
+                    {renderGraphic()}
+                    {title && (
+                        <SystemMessage.Title>
+                            Подтвердите подключение кодом из смс
+                        </SystemMessage.Title>
+                    )}
+                    {subtitle && (
+                        <SystemMessage.Subtitle>
+                            Проверили вашу заявку — всё в порядке. Осталось подтвердить подключение
+                        </SystemMessage.Subtitle>
+                    )}
+                    {caption && (
+                        <SystemMessage.Caption>
+                            Для этого нажмите на кнопочку ниже
+                        </SystemMessage.Caption>
+                    )}
+                    {controls && (
+                        <SystemMessage.Controls direction={controlDirection}>
+                            {showPrimaryButton && (
+                                <Button size='s' view='primary'>
+                                    Получить код
+                                </Button>
+                            )}
+                            {showSecondaryButton && <Button size='s'>Отмена</Button>}
+                        </SystemMessage.Controls>
+                    )}
+                </SystemMessage>
+            </div>
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SystemMessage'
+    version={version}
+    package='@alfalab/core-components/system-message'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/branch/DsVsF0dh7exJgSuxso8eu1/Web-%3A%3A-Core-Default-Components?node-id=79240%3A149328&t=WRMYe9kF3VSI0FDa-0'
+    children='Используется для отображения системных сообщений.'
+/>
+
+<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
