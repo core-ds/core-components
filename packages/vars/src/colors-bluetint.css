@@ -248,6 +248,7 @@
     --color-dark-graphic-accent-tint-10: rgb(241, 70, 58);
     --color-dark-graphic-accent-tint-15: rgb(241, 80, 69);
     --color-dark-graphic-accent-tint-30: rgb(244, 111, 102);
+    --color-dark-graphic-link-alpha-15: rgba(0, 114, 239, 0.15);
     --color-dark-graphic-negative-alpha-10: rgba(217, 29, 11, 0.1);
     --color-dark-graphic-negative-alpha-30: rgba(217, 29, 11, 0.3);
     --color-dark-graphic-negative-alpha-40: rgba(217, 29, 11, 0.4);
@@ -398,6 +399,7 @@
     --color-light-graphic-accent-shade-10: rgb(215, 44, 32);
     --color-light-graphic-accent-shade-15: rgb(203, 42, 31);
     --color-light-graphic-accent-shade-30: rgb(167, 34, 25);
+    --color-light-graphic-link-alpha-15: rgba(0, 114, 239, 0.15);
     --color-light-graphic-negative-alpha-10: rgba(241, 80, 69, 0.1);
     --color-light-graphic-negative-alpha-30: rgba(241, 80, 69, 0.3);
     --color-light-graphic-negative-alpha-40: rgba(241, 80, 69, 0.4);

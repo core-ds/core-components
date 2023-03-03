@@ -40,7 +40,7 @@
     /* range */
     --calendar-range-color: var(--color-light-text-primary);
     --calendar-range-background: var(--color-light-specialbg-component);
-    --calendar-range-complete-background: var(--color-static-graphic-solitude);
+    --calendar-range-complete-background: var(--color-light-graphic-link-alpha-15);
 
     /* selected */
     --calendar-selected-color: var(--color-light-text-primary-inverted);

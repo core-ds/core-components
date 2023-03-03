@@ -155,6 +155,7 @@
     --color-light-graphic-accent-shade-10: var(--color-dark-graphic-accent-tint-10);
     --color-light-graphic-accent-shade-15: var(--color-dark-graphic-accent-tint-15);
     --color-light-graphic-accent-shade-30: var(--color-dark-graphic-accent-tint-30);
+    --color-light-graphic-link-alpha-15: var(--color-dark-graphic-link-alpha-15);
     --color-light-graphic-negative-alpha-10: var(--color-dark-graphic-negative-alpha-10);
     --color-light-graphic-negative-alpha-30: var(--color-dark-graphic-negative-alpha-30);
     --color-light-graphic-negative-alpha-40: var(--color-dark-graphic-negative-alpha-40);
