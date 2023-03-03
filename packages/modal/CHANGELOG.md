@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.3
+
+### Patch Changes
+
+### [#549](https://github.com/core-ds/core-components/pull/549)
+
+-   Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer и header
+
 ## 7.0.2
 
 ### Patch Changes

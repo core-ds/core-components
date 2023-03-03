@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.2.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.16
+    -   pagination@2.0.14
+
 ## 2.2.21
 
 ### Patch Changes

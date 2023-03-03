@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.4
+
+### Patch Changes
+
+### [#562](https://github.com/core-ds/core-components/pull/562)
+
+-   Исправлена ошибка, из-за которой компоненты обёрнутые в PureCell.Text не получали стили от Typography
+
 ## 4.2.3
 
 ### Patch Changes

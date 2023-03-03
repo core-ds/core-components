@@ -1,5 +1,16 @@
 # Change Log
 
+## 9.3.13
+
+### Patch Changes
+
+### [#569](https://github.com/core-ds/core-components/pull/569)
+
+-   Исправлены типы в InputAutocompleteResponsive
+
+-   Обновлены зависимости
+    -   select@13.2.16
+
 ## 9.3.12
 
 ### Patch Changes

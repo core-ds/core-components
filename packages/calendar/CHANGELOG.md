@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.2.13
+
+### Patch Changes
+
+### [#550](https://github.com/core-ds/core-components/pull/550)
+
+-   Исправлен цвет выделения диапазона в темной теме
+
+### [#563](https://github.com/core-ds/core-components/pull/563)
+
+-   Исправлены стили диапозона в календаре
+
+-   Обновлены зависимости
+    -   modal@7.0.3
+
 ## 6.2.12
 
 ### Patch Changes

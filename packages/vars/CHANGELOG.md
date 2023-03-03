@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.1.2
+
+### Patch Changes
+
+### [#546](https://github.com/core-ds/core-components/pull/546)
+
+-   Обновление vars из последней версии ui-primitives, deprecated и 'old' цвета отмечены комментарием /_ deprecated _/
+
+### [#550](https://github.com/core-ds/core-components/pull/550)
+
+-   Исправлен цвет выделения диапазона в темной теме
+
 ## 8.1.1
 
 ### Patch Changes

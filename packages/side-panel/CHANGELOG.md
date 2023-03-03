@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.3
+
+### Patch Changes
+
+### [#548](https://github.com/core-ds/core-components/pull/548)
+
+-   Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer и header
+
+-   Обновлены зависимости
+    -   drawer@4.2.8
+
 ## 3.0.2
 
 ### Patch Changes

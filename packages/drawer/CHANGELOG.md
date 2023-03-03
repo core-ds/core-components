@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@2.1.4
+
 ## 4.2.7
 
 ### Patch Changes

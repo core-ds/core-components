@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [#574](https://github.com/core-ds/core-components/pull/574)
+
+-   Сброшена темизация скругления в теме intranet для shape: rounded
+
 ## 5.1.0
 
 ### Minor Changes

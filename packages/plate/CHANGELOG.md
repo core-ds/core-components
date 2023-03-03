@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.3.12
+
+### Patch Changes
+
+### [#551](https://github.com/core-ds/core-components/pull/551)
+
+-   Исправлена высота плашки при наличии аддонов
+
 ## 6.3.11
 
 ### Patch Changes
