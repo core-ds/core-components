@@ -38,7 +38,7 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
 
     const isDisc = markerType === '•';
 
-    const count = start !== 0 ? start + index : index + 1;
+    const count = start === 0 ? index + 1 : start + index;
     const marker = orderedList || markerType === 'decimal' ? `${count}.` : markerType;
 
     return (
