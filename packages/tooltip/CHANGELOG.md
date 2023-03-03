@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.2.13
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.0.4
+
 ## 6.2.12
 
 ### Patch Changes

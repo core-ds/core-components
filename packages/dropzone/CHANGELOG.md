@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.7
+
+### Patch Changes
+
+### [#554](https://github.com/core-ds/core-components/pull/554)
+
+-   Изменена ширина бордера с 2 пикселей на 1
+
 ## 3.0.6
 
 ### Patch Changes

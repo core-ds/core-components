@@ -1,5 +1,13 @@
 # @alfalab/core-components-date-time-input
 
+## 3.0.12
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
 ## 3.0.11
 
 ### Patch Changes

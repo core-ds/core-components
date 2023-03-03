@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.34
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
 ## 5.0.33
 
 ### Patch Changes
