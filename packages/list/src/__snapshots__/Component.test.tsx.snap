@@ -9,14 +9,20 @@ Object {
         class="list"
       >
         <li
-          class="item unorderedItem"
+          class="item"
         >
           <div
-            class="slot"
+            class="monospace slot defaultColor primary-medium"
           >
             —
           </div>
-          List
+          <div>
+            <div
+              class="primary-medium"
+            >
+              List
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -26,14 +32,20 @@ Object {
       class="list"
     >
       <li
-        class="item unorderedItem"
+        class="item"
       >
         <div
-          class="slot"
+          class="monospace slot defaultColor primary-medium"
         >
           —
         </div>
-        List
+        <div>
+          <div
+            class="primary-medium"
+          >
+            List
+          </div>
+        </div>
       </li>
     </ul>
   </div>,
@@ -97,24 +109,46 @@ Object {
   "baseElement": <body>
     <div>
       <ol
-        class="list decimal orderedList"
+        class="list decimal"
       >
         <li
-          class="item orderedItem"
+          class="item"
         >
-          List
+          <div
+            class="monospace slot defaultColor primary-medium"
+          >
+            1.
+          </div>
+          <div>
+            <div
+              class="primary-medium"
+            >
+              List
+            </div>
+          </div>
         </li>
       </ol>
     </div>
   </body>,
   "container": <div>
     <ol
-      class="list decimal orderedList"
+      class="list decimal"
     >
       <li
-        class="item orderedItem"
+        class="item"
       >
-        List
+        <div
+          class="monospace slot defaultColor primary-medium"
+        >
+          1.
+        </div>
+        <div>
+          <div
+            class="primary-medium"
+          >
+            List
+          </div>
+        </div>
       </li>
     </ol>
   </div>,
