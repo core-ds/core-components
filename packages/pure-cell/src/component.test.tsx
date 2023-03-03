@@ -189,4 +189,54 @@ describe('PureCell', () => {
         expect(cb).toBeCalledTimes(1);
         expect(screen.getByTestId('cell-pure').tagName).toBe('BUTTON');
     });
+
+    describe('PureCell.Text', () => {
+        it('should wrap children into Typography', function () {
+            const pureCellTextDti = 'pure-cell';
+            const linkDti = 'link';
+
+            const { getByTestId } = render(
+                <PureCell>
+                    <PureCell.Text
+                        titleColor='primary'
+                        view='component'
+                        dataTestId={pureCellTextDti}
+                    >
+                        <a data-test-id={linkDti}>Text</a>
+                    </PureCell.Text>
+                </PureCell>,
+            );
+
+            const link = getByTestId(linkDti);
+            const textTypography = getByTestId(`${pureCellTextDti}-text_content`);
+
+            expect(textTypography).toHaveClass('component primary');
+            expect(link.parentElement).toBe(textTypography);
+        });
+
+        it('should wrap value into Typography', function () {
+            const pureCellTextDti = 'pure-cell';
+            const linkDti = 'link';
+
+            const { getByTestId } = render(
+                <PureCell>
+                    <PureCell.Text
+                        titleColor='primary'
+                        view='component'
+                        valueColor='link'
+                        dataTestId={pureCellTextDti}
+                        value={<a data-test-id={linkDti}>Text</a>}
+                    >
+                        Text
+                    </PureCell.Text>
+                </PureCell>,
+            );
+
+            const link = getByTestId(linkDti);
+            const valueTypography = getByTestId(`${pureCellTextDti}-text_value`);
+
+            expect(valueTypography).toHaveClass('component link');
+            expect(link.parentElement).toBe(valueTypography);
+        });
+    });
 });
