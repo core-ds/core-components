@@ -1,3 +1,26 @@
+## 39.2.1
+
+<sup><time>03.03.2023</time></sup>
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+#### Что изменилось
+- Добавлены бордеры у выпадающих меню
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet` `calendar-input` `calendar-with-skeleton` `date-range-input` `date-time-input`<br /> `picker-button` `select` `tooltip`
+
+
+### [#554](https://github.com/core-ds/core-components/pull/554)
+
+#### Что изменилось
+- Изменена ширина бордера с 2 пикселей на 1
+
+#### Влияние на компоненты
+- Патчи<br />`dropzone`
+
+
+
 ## 39.2.0
 
 <sup><time>03.03.2023</time></sup>
