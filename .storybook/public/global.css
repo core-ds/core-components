@@ -959,3 +959,12 @@ table.docblock-argstable tbody.docblock-argstable-body td div:only-child span {
         margin-top: calc(var(--gap-xl) + var(--gap-2xl));
     }
 }
+
+div.sb-alert {
+    width: max-content;
+    margin: 16px 0;
+    padding: 16px;
+    background-color: #fff3e0;
+    border: 1px solid #de6a01;
+    border-radius: 8px;
+}

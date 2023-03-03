@@ -263,6 +263,8 @@
 
 <sup><time>13.02.2023</time></sup>
 
+<div class="sb-alert">Версия не рекомендуется к использованию, сломана темизация, используйте 38.4.0 и выше.</div>
+
 ### [#529](https://github.com/core-ds/core-components/pull/529)
 
 #### Что изменилось
@@ -276,6 +278,8 @@
 ## 38.2.0
 
 <sup><time>10.02.2023</time></sup>
+
+<div class="sb-alert">Версия не рекомендуется к использованию, сломана темизация, используйте 38.4.0 и выше.</div>
 
 ### [#520](https://github.com/core-ds/core-components/pull/520)
 
