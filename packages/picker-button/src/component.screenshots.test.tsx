@@ -103,8 +103,50 @@ describe(
                         label: 'Открыть',
                         size: ['xs', 's', 'm'],
                         view: ['link', 'primary', 'secondary'],
-                        variant: ['default', 'compact'],
-                        disabled: [true, false],
+                        variant: 'default',
+                        disabled: true,
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'PickerButton',
+                    knobs: {
+                        options: [options],
+                        label: 'Открыть',
+                        size: ['xs', 's', 'm'],
+                        view: ['link', 'primary', 'secondary'],
+                        variant: 'default',
+                        disabled: false,
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'PickerButton',
+                    knobs: {
+                        options: [options],
+                        label: 'Открыть',
+                        size: ['xs', 's', 'm'],
+                        view: ['link', 'primary', 'secondary'],
+                        variant: 'compact',
+                        disabled: true,
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'PickerButton',
+                    knobs: {
+                        options: [options],
+                        label: 'Открыть',
+                        size: ['xs', 's', 'm'],
+                        view: ['link', 'primary', 'secondary'],
+                        variant: 'compact',
+                        disabled: false,
                     },
                 }),
             ],

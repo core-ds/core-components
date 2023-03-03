@@ -27,10 +27,37 @@ describe('FilterTag | main props', () => {
                         componentName: 'FilterTag',
                         knobs: {
                             children: 'Фильтр',
-                            size: ['xxs', 'xs', 's'],
-                            checked: [false, true],
+                            size: 'xxs',
+                            checked: false,
                             disabled: [false, true],
                             open: [false, true],
+                            shape: ['rounded', 'rectangular'],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: 'xxs',
+                            checked: true,
+                            disabled: [false, true],
+                            open: [false, true],
+                            shape: ['rounded', 'rectangular'],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'FilterTag',
+                        knobs: {
+                            children: 'Фильтр',
+                            size: ['xxs', 'xs', 's'],
                             shape: ['rounded', 'rectangular'],
                         },
                         size: { width: 160, height: 90 },

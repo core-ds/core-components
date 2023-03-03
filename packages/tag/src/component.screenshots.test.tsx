@@ -28,7 +28,20 @@ describe('Tag | main props', () => {
                         knobs: {
                             children: 'Оплатить',
                             size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
-                            checked: [false, true],
+                            checked: false,
+                            disabled: [false, true],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Оплатить',
+                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                            checked: true,
                             disabled: [false, true],
                         },
                         size: { width: 160, height: 90 },
@@ -82,7 +95,21 @@ describe('Tag | inverted', () => {
                         knobs: {
                             children: 'Оплатить',
                             size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
-                            checked: [false, true],
+                            checked: false,
+                            disabled: [false, true],
+                            colors: 'inverted',
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Оплатить',
+                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                            checked: true,
                             disabled: [false, true],
                             colors: 'inverted',
                         },

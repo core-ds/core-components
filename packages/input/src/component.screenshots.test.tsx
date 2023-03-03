@@ -191,8 +191,50 @@ describe(
                         rightAddons: ['right', false],
                         leftAddons: ['left', false],
                         bottomAddons: ['bottom', false],
-                        success: [false, true],
-                        value: ['', 'Value'],
+                        success: false,
+                        value: '',
+                    },
+                    size: { width: 350, height: 150 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Input',
+                    knobs: {
+                        rightAddons: ['right', false],
+                        leftAddons: ['left', false],
+                        bottomAddons: ['bottom', false],
+                        success: true,
+                        value: '',
+                    },
+                    size: { width: 350, height: 150 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Input',
+                    knobs: {
+                        rightAddons: ['right', false],
+                        leftAddons: ['left', false],
+                        bottomAddons: ['bottom', false],
+                        success: false,
+                        value: 'Value',
+                    },
+                    size: { width: 350, height: 150 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Input',
+                    knobs: {
+                        rightAddons: ['right', false],
+                        leftAddons: ['left', false],
+                        bottomAddons: ['bottom', false],
+                        success: true,
+                        value: 'Value',
                     },
                     size: { width: 350, height: 150 },
                 }),
