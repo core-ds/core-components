@@ -117,7 +117,6 @@ const ListComponent: React.FC<ListProps> = ({
     const orderedList = Component === 'ol';
 
     const listClassNames = cn(
-        styles.ui,
         styles.list,
         colorMarker && styles[`color-marker-${colorMarker}`],
         {

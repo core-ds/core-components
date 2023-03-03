@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <ul
-        class="ui list"
+        class="list"
       >
         <li
           class="item"
@@ -29,7 +29,7 @@ Object {
   </body>,
   "container": <div>
     <ul
-      class="ui list"
+      class="list"
     >
       <li
         class="item"
@@ -109,7 +109,7 @@ Object {
   "baseElement": <body>
     <div>
       <ol
-        class="ui list decimal orderedList"
+        class="list decimal orderedList"
       >
         <li
           class="item orderedItem"
@@ -132,7 +132,7 @@ Object {
   </body>,
   "container": <div>
     <ol
-      class="ui list decimal orderedList"
+      class="list decimal orderedList"
     >
       <li
         class="item orderedItem"

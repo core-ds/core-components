@@ -17,7 +17,7 @@
     list-style-type: decimal;
 }
 
-ol.ui.list {
+ol.list {
     display: flex;
     flex-direction: column;
 
