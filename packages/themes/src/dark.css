@@ -69,8 +69,25 @@
     --color-light-text-secondary-inverted: var(--color-dark-text-secondary-inverted);
     --color-light-text-tertiary: var(--color-dark-text-tertiary);
     --color-light-text-tertiary-inverted: var(--color-dark-text-tertiary-inverted);
+    --color-light-bg-component: var(--color-dark-bg-component);
+    --color-light-bg-component-inverted: var(--color-dark-bg-component-inverted);
+    --color-light-bg-link-muted: var(--color-dark-bg-link-muted);
     --color-light-bg-neutral: var(--color-dark-bg-neutral);
+    --color-light-bg-nulled: var(--color-dark-bg-nulled);
+    --color-light-bg-primary-grouped: var(--color-dark-bg-primary-grouped);
+    --color-light-bg-secondary-grouped: var(--color-dark-bg-secondary-grouped);
+    --color-light-bg-tertiary-grouped: var(--color-dark-bg-tertiary-grouped);
     --color-light-graphic-neutral: var(--color-dark-graphic-neutral);
+    --color-light-specialbg-overlay: var(--color-dark-specialbg-overlay);
+    --color-light-text-disabled-transparent: var(--color-dark-text-disabled-transparent);
+    --color-light-text-secondary-inverted-transparent: var(
+        --color-dark-text-secondary-inverted-transparent
+    );
+    --color-light-text-secondary-transparent: var(--color-dark-text-secondary-transparent);
+    --color-light-text-tertiary-inverted-transparent: var(
+        --color-dark-text-tertiary-inverted-transparent
+    );
+    --color-light-text-tertiary-transparent: var(--color-dark-text-tertiary-transparent);
     --color-light-bg-accent-alpha-30: var(--color-dark-bg-accent-alpha-30);
     --color-light-bg-accent-tint-15: var(--color-dark-bg-accent-shade-15);
     --color-light-bg-accent-tint-20: var(--color-dark-bg-accent-shade-20);
