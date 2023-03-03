@@ -466,6 +466,7 @@ export const BaseSelect = forwardRef(
                                     onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 />
+                                <div className={styles.optionsListBorder} />
                             </div>
                         )}
                     </Popover>

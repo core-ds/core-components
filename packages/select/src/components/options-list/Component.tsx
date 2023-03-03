@@ -37,6 +37,7 @@ export const OptionsList = forwardRef(
             footer,
             optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
+            flatOptions = [],
         }: OptionsListProps,
         ref,
     ) => {
@@ -117,11 +118,20 @@ export const OptionsList = forwardRef(
                 {...(nativeScrollbar && { 'data-test-id': dataTestId })}
                 className={cn(styles.optionsList, styles[size], className)}
             >
-                {header}
+                {header && <div className={styles.optionsListHeader}>{header}</div>}
 
                 {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
-                {footer}
+                {footer && (
+                    <div
+                        className={cn(styles.optionsListFooter, {
+                            [styles.withBorder]:
+                                visibleOptions && flatOptions.length > visibleOptions,
+                        })}
+                    >
+                        {footer}
+                    </div>
+                )}
             </div>
         );
     },

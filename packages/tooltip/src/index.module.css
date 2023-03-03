@@ -12,6 +12,7 @@
 
 .popper {
     border-radius: var(--border-radius-m);
+    box-sizing: border-box;
 }
 
 .hint .component {

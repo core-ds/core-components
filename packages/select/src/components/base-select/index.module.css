@@ -18,6 +18,7 @@
 }
 
 .optionsList {
+    position: relative;
     padding-top: var(--select-options-list-top-padding);
     padding-bottom: var(--select-options-list-bottom-padding);
     box-shadow: var(--select-options-list-box-shadow);
@@ -25,6 +26,17 @@
     background: var(--select-option-background);
     overflow: hidden;
     will-change: transform;
+}
+
+.optionsListBorder {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 0 0 0 1px var(--color-light-border-secondary);
+    border-radius: var(--select-options-list-border-radius);
+    pointer-events: none;
 }
 
 .nativeSelect {

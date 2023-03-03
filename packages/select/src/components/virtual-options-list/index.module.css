@@ -8,6 +8,20 @@
     position: relative;
 }
 
+.virtualOptionsListHeader {
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--color-light-border-secondary);
+}
+
+.virtualOptionsListFooter {
+    box-sizing: border-box;
+    border-top: 1px solid transparent;
+
+    &.withBorder {
+        border-top: 1px solid var(--color-light-border-secondary);
+    }
+}
+
 .scrollable {
     overflow: auto;
     width: 100%;

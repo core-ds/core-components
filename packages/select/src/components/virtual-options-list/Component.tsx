@@ -175,7 +175,7 @@ export const VirtualOptionsList = ({
             className={cn(styles.virtualOptionsList, styles[size], className)}
             data-test-id={dataTestId}
         >
-            {header}
+            {header && <div className={styles.virtualOptionsListHeader}>{header}</div>}
 
             {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
@@ -183,7 +183,15 @@ export const VirtualOptionsList = ({
                 <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
             )}
 
-            {footer}
+            {footer && (
+                <div
+                    className={cn(styles.virtualOptionsListFooter, {
+                        [styles.withBorder]: visibleOptions && flatOptions.length > visibleOptions,
+                    })}
+                >
+                    {footer}
+                </div>
+            )}
         </div>
     );
 };

@@ -4,59 +4,85 @@
 На мобильных устройствах варианты выбора отображаются в [BottomSheet](/docs/bottomsheet--bottom-sheet).
 
 ```jsx live mobileHeight=640
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
 render(() => {
-    const options = [
-        { key: '1', content: 'Neptunium' },
-        { key: '2', content: 'Plutonium' },
-        { key: '3', content: 'Americium' },
-        { key: '4', content: 'Curium' },
-        { key: '5', content: 'Berkelium' },
-        { key: '6', content: 'Californium' },
-        { key: '7', content: 'Einsteinium' },
-        { key: '8', content: 'Fermium' },
-    ];
+    const [selected, setSelected] = React.useState([]);
+    const isAllSelected = OPTIONS.length === selected.length;
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map((option) => option.key));
+    };
+
+    const handleSelectAll = () => {
+        setSelected(isAllSelected ? [] : OPTIONS.map((v) => v.key));
+    };
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
-                options={options}
+                options={OPTIONS}
                 placeholder='Одиночный выбор'
                 Option={BaseOption}
                 block={true}
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <Select
+                selected={selected}
                 allowUnselect={true}
                 size='m'
-                options={options}
+                options={OPTIONS}
                 placeholder='Множественный выбор'
                 Option={BaseOption}
                 multiple={true}
                 block={true}
+                onChange={handleChange}
+                optionsListProps={{
+                    header: (
+                        <div style={{ padding: 'var(--gap-s)' }}>
+                            <Checkbox
+                                block={true}
+                                size='m'
+                                onChange={handleSelectAll}
+                                checked={isAllSelected}
+                                label='Выбрать все'
+                            />
+                        </div>
+                    ),
+                }}
             />
         </div>
     );
 });
 //MOBILE
-render(() => {
-    const options = [
-        { key: '1', content: 'Neptunium' },
-        { key: '2', content: 'Plutonium' },
-        { key: '3', content: 'Americium' },
-        { key: '4', content: 'Curium' },
-        { key: '5', content: 'Berkelium' },
-        { key: '6', content: 'Californium' },
-        { key: '7', content: 'Einsteinium' },
-        { key: '8', content: 'Fermium' },
-    ];
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
 
+render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
                 allowUnselect={true}
-                options={options}
+                options={OPTIONS}
                 placeholder='Одиночный выбор'
                 Option={BaseOption}
                 block={true}
@@ -64,7 +90,7 @@ render(() => {
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
                 allowUnselect={true}
-                options={options}
+                options={OPTIONS}
                 placeholder='Множественный выбор'
                 Option={BaseOption}
                 multiple={true}
@@ -84,21 +110,18 @@ render(() => {
 3. После нажатия на кнопку подтверждения в дропдауне.
 
 ```jsx live mobileHeight=640
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
 
+render(() => {
     const [selected, setSelected] = React.useState([]);
 
     const handleChange = ({ selectedMultiple }) => {
@@ -110,7 +133,7 @@ render(() => {
             <Select
                 allowUnselect={true}
                 size='m'
-                options={options}
+                options={OPTIONS}
                 placeholder='Без подтверждения'
                 Option={BaseOption}
                 block={true}
@@ -124,7 +147,7 @@ render(() => {
                 Option={BaseOption}
                 size='m'
                 {...useSelectWithApply({
-                    options,
+                    options: OPTIONS,
                     selected,
                     onChange: handleChange,
                 })}
@@ -133,26 +156,23 @@ render(() => {
     );
 });
 //MOBILE
-render(() => {
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
 
+render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
                 allowUnselect={true}
-                options={options}
+                options={OPTIONS}
                 placeholder='Без подтверждения'
                 Option={BaseOption}
                 block={true}
@@ -160,7 +180,7 @@ render(() => {
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
                 allowUnselect={true}
-                options={options}
+                options={OPTIONS}
                 placeholder='С подтверждением'
                 Option={BaseOption}
                 multiple={true}
@@ -447,12 +467,7 @@ render(() => {
 
     const renderHeader = () => {
         return (
-            <div
-                style={{
-                    padding: 'var(--gap-s)',
-                    boxShadow: 'inset 0 -1px 0 var(--color-light-border-secondary)',
-                }}
-            >
+            <div style={{ padding: 'var(--gap-s)' }}>
                 <Checkbox
                     checked={selected.length === options.length}
                     size='m'
