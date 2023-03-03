@@ -33,7 +33,6 @@ export const Item: React.FC<ItemProps> = ({ caption, children }) => {
 
     const itemClassNames = cn(styles.item, {
         [styles.unorderedItem]: markerLowerAlpha,
-        [styles.orderedItem]: orderedList,
         [styles.reversed]: reversed,
     });
 

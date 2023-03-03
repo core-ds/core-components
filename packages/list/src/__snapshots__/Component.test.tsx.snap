@@ -109,10 +109,10 @@ Object {
   "baseElement": <body>
     <div>
       <ol
-        class="list decimal orderedList"
+        class="list decimal"
       >
         <li
-          class="item orderedItem"
+          class="item"
         >
           <div
             class="monospace slot defaultColor primary-medium"
@@ -132,10 +132,10 @@ Object {
   </body>,
   "container": <div>
     <ol
-      class="list decimal orderedList"
+      class="list decimal"
     >
       <li
-        class="item orderedItem"
+        class="item"
       >
         <div
           class="monospace slot defaultColor primary-medium"

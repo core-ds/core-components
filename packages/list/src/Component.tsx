@@ -118,11 +118,9 @@ const ListComponent: React.FC<ListProps> = ({
 
     const listClassNames = cn(
         styles.list,
-        colorMarker && styles[`color-marker-${colorMarker}`],
         {
             [styles.lowerAlpha]: alphaMarker,
             [styles.decimal]: decimalMarker,
-            [styles.orderedList]: orderedList,
             [styles.reversed]: reversed,
         },
         className,
