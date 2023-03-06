@@ -79,6 +79,7 @@ export const BaseSelect = forwardRef(
             zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
+            defaultInputMode = 'text',
         }: BaseSelectProps,
         ref,
     ) => {
@@ -427,6 +428,7 @@ export const BaseSelect = forwardRef(
                             : undefined,
                     }}
                     dataTestId={getDataTestId(dataTestId, 'field')}
+                    defaultInputMode={defaultInputMode}
                     {...(fieldProps as AnyObject)}
                 />
 

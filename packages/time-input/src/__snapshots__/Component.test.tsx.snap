@@ -16,6 +16,7 @@ exports[`TimeInput Display tests should match snapshot 1`] = `
         >
           <input
             class="input input"
+            inputmode="text"
             type="text"
             value="19:37"
           />

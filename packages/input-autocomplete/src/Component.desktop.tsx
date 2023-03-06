@@ -38,6 +38,20 @@ export type InputAutocompleteDesktopProps = Omit<BaseSelectProps, 'Field' | 'nat
     success?: boolean;
 
     /**
+     * Устанавливает тип отображаемой по умолчанию клавиатуры
+     */
+    defaultInputMode?:
+        | 'email'
+        | 'tel'
+        | 'text'
+        | 'search'
+        | 'url'
+        | 'none'
+        | 'numeric'
+        | 'decimal'
+        | undefined;
+
+    /**
      * Обработчик ввода
      */
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -62,6 +76,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             readOnly,
             closeOnSelect = false,
             options,
+            defaultInputMode = 'text',
             ...restProps
         },
         ref,
@@ -83,6 +98,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             }}
             Optgroup={Optgroup}
             OptionsList={OptionsList}
+            defaultInputMode={defaultInputMode}
             {...restProps}
         />
     ),

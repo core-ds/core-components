@@ -101,6 +101,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
               autocomplete="off"
               class="input input"
               id="downshift-0-input"
+              inputmode="text"
               tabindex="0"
               type="tel"
               value="+7 111 111 11 11"

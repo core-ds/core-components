@@ -70,6 +70,7 @@ export const matchOption = (option, inputValue) =>
                 onChange={handleChange}
                 onInput={handleInput}
                 value={value}
+                defaultInputMode={text('defaultInputMode', 'text')}
             />
         );
     })}
@@ -141,6 +142,7 @@ export const matchOption = (option, inputValue) =>
                         onEnter: () => setFilter(value),
                     },
                 }}
+                defaultInputMode={text('defaultInputMode', 'text')}
             />
         );
     })}

@@ -17,6 +17,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
       >
         <div
           class="field inner inner"
+          defaultinputmode="text"
         >
           <div
             class="inputWrapper"
@@ -81,6 +82,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
       >
         <div
           class="field inner inner filled"
+          defaultinputmode="text"
         >
           <div
             class="inputWrapper"

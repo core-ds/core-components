@@ -315,6 +315,20 @@ export type BaseSelectProps = {
      * Показывать OptionsList, если он пустой
      */
     showEmptyOptionsList?: boolean;
+
+    /**
+     * Устанавливает тип отображаемой по умолчанию клавиатуры
+     */
+    defaultInputMode?:
+        | 'email'
+        | 'tel'
+        | 'text'
+        | 'search'
+        | 'url'
+        | 'none'
+        | 'numeric'
+        | 'decimal'
+        | undefined;
 };
 
 // TODO: использовать InputProps

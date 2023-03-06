@@ -19,7 +19,7 @@ exports[`SliderInput should match snapshot 1`] = `
           >
             <input
               class="input input"
-              inputmode="numeric"
+              inputmode="text"
               pattern="[0-9]*"
               type="text"
               value=""

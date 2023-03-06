@@ -17,6 +17,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
           >
             <input
               class="input input input"
+              inputmode="text"
               type="password"
               value=""
             />

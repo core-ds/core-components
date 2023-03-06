@@ -22,6 +22,7 @@ Object {
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
               class="field inner inner"
+              defaultinputmode="text"
               id="downshift-0-input"
               tabindex="0"
             >
@@ -80,6 +81,7 @@ Object {
             aria-controls="downshift-1-menu"
             aria-labelledby="downshift-1-label"
             class="field inner inner"
+            defaultinputmode="text"
             id="downshift-0-input"
             tabindex="0"
           >
@@ -189,6 +191,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
           aria-controls="downshift-3-menu"
           aria-labelledby="downshift-3-label"
           class="field inner inner hasError"
+          defaultinputmode="text"
           id="downshift-2-input"
           tabindex="0"
         >
@@ -253,6 +256,7 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
           aria-controls="downshift-5-menu"
           aria-labelledby="downshift-5-label"
           class="field inner inner focused"
+          defaultinputmode="text"
           id="downshift-4-input"
           tabindex="0"
         >

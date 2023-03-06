@@ -72,6 +72,20 @@ export type InputAutocompleteMobileProps = Omit<
     cancelButtonProps?: ButtonProps;
 
     /**
+     * Устанавливает тип отображаемой по умолчанию клавиатуры
+     */
+    defaultInputMode?:
+        | 'email'
+        | 'tel'
+        | 'text'
+        | 'search'
+        | 'url'
+        | 'none'
+        | 'numeric'
+        | 'decimal'
+        | undefined;
+
+    /**
      * Кастомный инпут
      */
     Input?: ElementType;
@@ -102,6 +116,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             cancelButtonProps,
             selected,
             multiple,
+            defaultInputMode = 'text',
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -207,6 +222,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         onInput={onFilter}
                         placeholder={placeholder}
                         onFocus={handleInputFocus}
+                        defaultInputMode={defaultInputMode}
                         {...bottomSheetHeaderAddonsProps}
                         className={cn(
                             styles.bottomSheetInput,

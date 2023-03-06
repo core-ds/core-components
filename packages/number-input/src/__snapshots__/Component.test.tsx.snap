@@ -16,7 +16,7 @@ exports[`NumberInput Snapshots tests should match snapshot 1`] = `
         >
           <input
             class="input input"
-            inputmode="decimal"
+            inputmode="text"
             type="text"
             value="1234.567"
           />

@@ -156,6 +156,20 @@ export type InputProps = Omit<
     filledClassName?: string;
 
     /**
+     * Устанавливает тип отображаемой по умолчанию клавиатуры
+     */
+    defaultInputMode?:
+        | 'email'
+        | 'tel'
+        | 'text'
+        | 'search'
+        | 'url'
+        | 'none'
+        | 'numeric'
+        | 'decimal'
+        | undefined;
+
+    /**
      * Обработчик поля ввода
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
@@ -223,6 +237,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             defaultValue,
             wrapperRef,
             readOnly,
+            defaultInputMode = 'text',
             ...restProps
         },
         ref,
@@ -413,6 +428,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     readOnly={readOnly}
                     data-test-id={dataTestId}
                     aria-label={typeof label === 'string' ? label : undefined}
+                    inputMode={defaultInputMode}
                 />
             </FormControl>
         );

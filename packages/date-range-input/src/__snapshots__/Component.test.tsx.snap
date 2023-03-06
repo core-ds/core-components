@@ -19,6 +19,7 @@ exports[`DateRangeInput Display tests should match snapshot 1`] = `
           >
             <input
               class="input input"
+              inputmode="text"
               type="text"
               value="12.12.2021 - 10.04.2022"
             />
