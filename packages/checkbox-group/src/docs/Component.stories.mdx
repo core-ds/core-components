@@ -1,8 +1,10 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
-import { Checkbox } from '@alfalab/core-components-checkbox';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Checkbox } from '@alfalab/core-components-checkbox';
 import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';
+import { Tag } from '@alfalab/core-components-tag';
 
 import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
@@ -19,12 +21,18 @@ import Development from './development.mdx';
         const onChange = (_, payload) => {
             setValue({ ...value, [payload.name]: payload.checked });
         };
+        const order = {
+            0: ['Первый', 'one'],
+            1: ['Второй', 'two'],
+            2: ['Третий', 'three'],
+        };
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const error = text('error', '');
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
         const size = select('Checkbox.size', ['s', 'm'], 's');
+        const type = select('type', ['checkbox', 'tag'], 'checkbox');
         return (
             <CheckboxGroup
                 label={label}
@@ -33,10 +41,28 @@ import Development from './development.mdx';
                 direction={direction}
                 error={error}
                 disabled={disabled}
+                type={type}
             >
-                <Checkbox size={size} label='Первый вариант' name='one' checked={value.one} />
-                <Checkbox size={size} label='Второй вариант' name='two' checked={value.two} />
-                <Checkbox size={size} label='Третий вариант' name='three' checked={value.three} />
+                {Array.from({ length: 3 }).map((_, index) =>
+                    type === 'checkbox' ? (
+                        <Checkbox
+                            key={`${index}-check`}
+                            size={size}
+                            label={`${order[index][0]} вариант`}
+                            name={`${order[index][1]}`}
+                            checked={value[order[index][1]]}
+                        />
+                    ) : (
+                        <Tag
+                            key={`${index}-tag`}
+                            size={size}
+                            name={`${order[index][1]}`}
+                            checked={value[order[index][1]]}
+                        >
+                            {`${order[index][0]} вариант`}
+                        </Tag>
+                    ),
+                )}
             </CheckboxGroup>
         );
     })}

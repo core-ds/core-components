@@ -1,4 +1,5 @@
 :root {
+    --color-dynamic-nulled: rgba(0, 0, 0, 0);
     --color-dynamic-primary-dark: rgba(0, 0, 0, 0.8);
     --color-dynamic-primary-light: rgba(255, 255, 255, 0.8);
     --color-dynamic-quaternary-dark: rgba(0, 0, 0, 0.32);
@@ -11,6 +12,7 @@
     --color-dynamic-senary-light: rgba(255, 255, 255, 0.12);
     --color-dynamic-tertiary-dark: rgba(0, 0, 0, 0.48);
     --color-dynamic-tertiary-light: rgba(255, 255, 255, 0.48);
+    --color-static-nulled: rgba(0, 0, 0, 0);
     --color-static-primary-dark: rgba(0, 0, 0, 0.8);
     --color-static-primary-light: rgba(255, 255, 255, 0.8);
     --color-static-quaternary-dark: rgba(0, 0, 0, 0.32);

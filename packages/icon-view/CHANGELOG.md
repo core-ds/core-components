@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+### [#566](https://github.com/core-ds/core-components/pull/566)
+
+-   Изменен цвет иконки в теме click
+
 ## 3.0.4
 
 ### Patch Changes

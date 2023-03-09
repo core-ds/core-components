@@ -1,5 +1,38 @@
 # Change Log
 
+## 10.3.12
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
+-   Обновлены зависимости
+    -   select@13.2.17
+
+## 10.3.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.16
+
+## 10.3.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.15
+
+## 10.3.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@7.1.1
+    -   select@13.2.14
+
 ## 10.3.8
 
 ### Patch Changes

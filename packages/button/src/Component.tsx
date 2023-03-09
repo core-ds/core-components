@@ -244,6 +244,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             if (disabled || showLoader) {
                 e.preventDefault();
                 e.stopPropagation();
+
                 return;
             }
             onClick?.(e);

@@ -58,6 +58,7 @@ export function isTouchSupported() {
     return (
         'ontouchstart' in window ||
         window.navigator.maxTouchPoints > 0 ||
+        // eslint-disable-next-line
         (window.navigator as any).msMaxTouchPoints > 0
     );
 }

@@ -45,6 +45,7 @@ function createResponsive<DesktopType extends FC, MobileType extends FC>(
     desktop: DesktopType,
     mobile: MobileType,
 ) {
+    // eslint-disable-next-line
     function ResponsiveChild(props: any) {
         const { view = 'desktop' } = useContext(ResponsiveContext) || {};
 

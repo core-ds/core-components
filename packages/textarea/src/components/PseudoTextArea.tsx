@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import styles from '../index.module.css';
 import { TextareaIncomeProps } from '../typings';
+
+import styles from '../index.module.css';
 
 type PseudoTextAreaProps = {
     /**

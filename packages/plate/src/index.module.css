@@ -134,6 +134,7 @@
 
 .leftAddons,
 .rightAddons {
+    display: inline-flex;
     padding: var(--gap-2xs);
 }
 

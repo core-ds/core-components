@@ -26,7 +26,20 @@ describe(
                     packageName: 'confirmation-v1',
                     size: { width: 450, height: 450 },
                     knobs: {
-                        code: ['', '1234'],
+                        code: '',
+                        alignContent: ['left', 'center'],
+                        requiredCharAmount: [3, 5],
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'ConfirmationV1',
+                    packageName: 'confirmation-v1',
+                    size: { width: 450, height: 450 },
+                    knobs: {
+                        code: '1234',
                         alignContent: ['left', 'center'],
                         requiredCharAmount: [3, 5],
                     },

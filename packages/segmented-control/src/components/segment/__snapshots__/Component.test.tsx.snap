@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`segment should display correctly 1`] = `
+<div>
+  <button
+    class="segment"
+    type="button"
+  >
+    Title
+  </button>
+</div>
+`;

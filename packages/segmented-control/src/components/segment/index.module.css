@@ -1,0 +1,37 @@
+@import '../../../../themes/src/default.css';
+
+.segment {
+    flex: 1;
+    z-index: 1;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--gap-xs);
+    border: none;
+    background-color: transparent;
+    position: relative;
+    font-family: var(--font-family-system);
+    color: var(--color-light-text-primary);
+    transition: font-weight 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:not(:first-child):before {
+        content: '';
+        position: absolute;
+        background-color: var(--color-light-border-primary);
+        transition: opacity 0.2s ease;
+        width: 1px;
+        top: 8px;
+        border-radius: 0.5px;
+        bottom: 8px;
+        left: 0;
+    }
+}
+
+.focused {
+    @mixin focus-outline;
+}

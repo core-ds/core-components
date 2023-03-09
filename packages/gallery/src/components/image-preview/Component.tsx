@@ -5,6 +5,7 @@ import { useFocus } from '@alfalab/hooks';
 
 import { GalleryContext } from '../../context';
 import { GalleryImage } from '../../types';
+
 import { NoImagePaths } from './paths';
 
 import styles from './index.module.css';

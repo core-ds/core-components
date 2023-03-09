@@ -17,7 +17,6 @@ describe(
             testStory: false,
             knobs: {
                 error: [false, true],
-                overlayVisible: [false, true],
             },
         }),
         screenshotOpts: {

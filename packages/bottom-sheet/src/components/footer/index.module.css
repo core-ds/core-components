@@ -1,7 +1,7 @@
 @import '../../../../themes/src/default.css';
 
 :root {
-    --bottom-sheet-footer-border-top: 1px solid var(--color-light-border-primary);
+    --bottom-sheet-footer-border-top: 1px solid var(--color-light-border-secondary);
     --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
 }
 
@@ -13,6 +13,7 @@
 .sticky {
     position: sticky;
     bottom: 0;
+    z-index: 1;
 }
 
 .highlighted {

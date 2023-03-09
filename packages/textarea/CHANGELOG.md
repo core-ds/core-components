@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@2.1.4
+
 ## 8.1.5
 
 ### Patch Changes

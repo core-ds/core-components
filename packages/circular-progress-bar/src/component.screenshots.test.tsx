@@ -16,10 +16,52 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'CircularProgressBar',
                     knobs: {
-                        value: [30, 60],
+                        value: 30,
                         title: ['', 'Title'],
                         subtitle: ['', 'SubTitle'],
-                        view: ['positive', 'negative'],
+                        view: 'positive',
+                        size: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+                    },
+                    size: { width: 200, height: 200 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'CircularProgressBar',
+                    knobs: {
+                        value: 60,
+                        title: ['', 'Title'],
+                        subtitle: ['', 'SubTitle'],
+                        view: 'positive',
+                        size: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+                    },
+                    size: { width: 200, height: 200 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'CircularProgressBar',
+                    knobs: {
+                        value: 30,
+                        title: ['', 'Title'],
+                        subtitle: ['', 'SubTitle'],
+                        view: 'negative',
+                        size: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+                    },
+                    size: { width: 200, height: 200 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'CircularProgressBar',
+                    knobs: {
+                        value: 60,
+                        title: ['', 'Title'],
+                        subtitle: ['', 'SubTitle'],
+                        view: 'negative',
                         size: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
                     },
                     size: { width: 200, height: 200 },
@@ -42,8 +84,23 @@ describe(
                     componentName: 'CircularProgressBar',
                     knobs: {
                         value: 60,
-                        title: ['', 'Title'],
+                        title: 'Title',
                         subtitle: ['', 'SubTitle'],
+                        contentColor: ['primary', 'secondary', 'tertiary', 'positive', 'negative'],
+                        view: 'positive',
+                        size: 'l',
+                    },
+                    size: { width: 200, height: 200 },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'CircularProgressBar',
+                    knobs: {
+                        value: 60,
+                        title: ['', 'Title'],
+                        subtitle: 'SubTitle',
                         contentColor: ['primary', 'secondary', 'tertiary', 'positive', 'negative'],
                         view: 'positive',
                         size: 'l',

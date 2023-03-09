@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
+
 import { CheckmarkProps } from '../../../typings';
 
 import styles from './index.module.css';

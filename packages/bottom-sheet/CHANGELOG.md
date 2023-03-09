@@ -1,5 +1,41 @@
 # Change Log
 
+## 6.0.4
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
+## 6.0.3
+
+### Patch Changes
+
+### [#547](https://github.com/core-ds/core-components/pull/547)
+
+-   Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer
+
+## 6.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.1.2
+
+## 6.0.1
+
+### Patch Changes
+
+### [#540](https://github.com/core-ds/core-components/pull/540)
+
+-   Изменена нода с overflow: auto в SidePanelMobile
+
+-   Обновлены зависимости
+    -   base-modal@5.1.1
+    -   navigation-bar@0.1.1
+    -   icon-button@6.0.8
+
 ## 6.0.0
 
 ### Major Changes

@@ -18,3 +18,11 @@
     background-color: var(--tooltip-hint-bg-color);
     border-color: var(--tooltip-hint-bg-color);
 }
+
+.tooltip {
+    border: 1px solid var(--color-light-border-secondary);
+
+    & .arrow:after {
+        border-color: var(--color-light-border-secondary);
+    }
+}

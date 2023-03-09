@@ -1,5 +1,44 @@
 # Change Log
 
+## 13.2.17
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.0.4
+
+## 13.2.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.0.3
+    -   scrollbar@2.1.4
+    -   modal@7.0.3
+
+## 13.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.0.2
+    -   modal@7.0.2
+
+## 13.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.1.1
+    -   bottom-sheet@6.0.1
+    -   modal@7.0.1
+    -   button@7.1.1
+    -   input@11.1.8
+
 ## 13.2.13
 
 ### Patch Changes

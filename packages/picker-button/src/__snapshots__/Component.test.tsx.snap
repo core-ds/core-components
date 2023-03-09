@@ -601,6 +601,9 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               </div>
             </div>
           </div>
+          <div
+            class="optionsListBorder"
+          />
         </div>
       </div>
     </div>
@@ -1044,6 +1047,9 @@ exports[`Snapshots tests should display opened correctly 4`] = `
               </div>
             </div>
           </div>
+          <div
+            class="optionsListBorder"
+          />
         </div>
       </div>
     </div>
@@ -1487,6 +1493,9 @@ exports[`Snapshots tests should display opened correctly 6`] = `
               </div>
             </div>
           </div>
+          <div
+            class="optionsListBorder"
+          />
         </div>
       </div>
     </div>

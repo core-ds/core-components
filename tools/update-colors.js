@@ -20,12 +20,8 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
         let css = '';
 
         Object.entries(colors).forEach(([color, token]) => {
-            if (token.deprecated) {
-                return;
-            }
-
             let value = token.hex && token.hex.length <= 7 ? token.hex : token.rgba;
-            css += `    ${buildVarName(color)}: ${value};\n`;
+            css += `    ${buildVarName(color)}: ${value};  ${token.deprecated ? '/* deprecated */' : ''}\n`;
         });
 
         const cssPath = path.resolve(

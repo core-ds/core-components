@@ -1,3 +1,239 @@
+## 39.2.1
+
+<sup><time>03.03.2023</time></sup>
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+#### Что изменилось
+- Добавлены бордеры у выпадающих меню
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet` `calendar-input` `calendar-with-skeleton` `date-range-input` `date-time-input`<br /> `picker-button` `select` `tooltip`
+
+
+### [#554](https://github.com/core-ds/core-components/pull/554)
+
+#### Что изменилось
+- Изменена ширина бордера с 2 пикселей на 1
+
+#### Влияние на компоненты
+- Патчи<br />`dropzone`
+
+
+
+## 39.2.0
+
+<sup><time>03.03.2023</time></sup>
+
+### [#547](https://github.com/core-ds/core-components/pull/547)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#566](https://github.com/core-ds/core-components/pull/566)
+
+#### Что изменилось
+- Изменен цвет иконки в теме click
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view` `themes`
+
+
+### [#564](https://github.com/core-ds/core-components/pull/564)
+
+#### Что изменилось
+- Значение value при сбросе изменено на null
+
+#### Влияние на компоненты
+- Патчи<br />`number-input`
+
+
+### [#561](https://github.com/core-ds/core-components/pull/561)
+
+#### Что изменилось
+- Замена css-переменных для миксина кнопок в corp теме на переменные из default темы
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#546](https://github.com/core-ds/core-components/pull/546)
+
+#### Что изменилось
+- Обновление vars из последней версии ui-primitives, deprecated и 'old' цвета отмечены комментарием /* deprecated */
+
+#### Влияние на компоненты
+- Патчи<br />`themes` `vars`
+
+
+### [#574](https://github.com/core-ds/core-components/pull/574)
+
+#### Что изменилось
+- Сброшена темизация скругления в теме intranet для shape: rounded
+
+#### Влияние на компоненты
+- Минорное<br />`tag` `themes`
+
+
+### [#550](https://github.com/core-ds/core-components/pull/550)
+
+#### Что изменилось
+- Исправлен цвет выделения диапазона в темной теме
+
+#### Влияние на компоненты
+- Патчи<br />`calendar` `themes` `vars`
+
+
+### [#569](https://github.com/core-ds/core-components/pull/569)
+
+#### Что изменилось
+- Исправлены типы в InputAutocompleteResponsive
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#555](https://github.com/core-ds/core-components/pull/555)
+
+#### Что изменилось
+- Убрана фокусная рамка
+
+#### Влияние на компоненты
+- Патчи<br />`scrollbar`
+
+
+### [#563](https://github.com/core-ds/core-components/pull/563)
+
+#### Что изменилось
+- Исправлены стили диапозона в календаре
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#549](https://github.com/core-ds/core-components/pull/549)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer и header
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#551](https://github.com/core-ds/core-components/pull/551)
+
+#### Что изменилось
+- Исправлена высота плашки при наличии аддонов
+
+#### Влияние на компоненты
+- Патчи<br />`plate`
+
+
+### [#548](https://github.com/core-ds/core-components/pull/548)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer и header
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+### [#562](https://github.com/core-ds/core-components/pull/562)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой компоненты обёрнутые в PureCell.Text не получали стили от Typography
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#542](https://github.com/core-ds/core-components/pull/542)
+
+#### Что изменилось
+- Добавили props colorMarker и caption, отвечающие за цвет маркера и дополнительный текст. Изменили размер контейнера для маркера
+
+#### Влияние на компоненты
+- Минорное<br />`list`
+
+
+
+## 39.1.1
+
+<sup><time>02.03.2023</time></sup>
+
+### [#559](https://github.com/core-ds/core-components/pull/559)
+
+#### Что изменилось
+- Фикс доступности с клавиатуры, добавление скриншот тестов для компонентов с использованием Tag
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox-group` `radio-group`
+
+
+### [#545](https://github.com/core-ds/core-components/pull/545)
+
+#### Что изменилось
+- Добавлен пропс hideCountdownSection, с помощью которого можно скрыть секцию с обратным отсчетом и кнопкой с повторным запросом кода
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+### [#570](https://github.com/core-ds/core-components/pull/570)
+
+#### Что изменилось
+- Исправлено выравнивание по центру
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+
+## 39.1.0
+
+<sup><time>28.02.2023</time></sup>
+
+### [c8ff5d47b](https://github.com/core-ds/core-components/commit/c8ff5d47b5326a0ffbb5f0b751fa45d80770a8e9)
+
+#### Что изменилось
+- Удален line-height
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#540](https://github.com/core-ds/core-components/pull/540)
+
+#### Что изменилось
+- Изменена нода с overflow: auto в SidePanelMobile
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `bottom-sheet` `modal` `navigation-bar` `side-panel`<br />
+
+
+### [#543](https://github.com/core-ds/core-components/pull/543)
+
+#### Что изменилось
+- Исправлен цвет лоадера в mobile, click, intranet темах
+
+#### Влияние на компоненты
+- Патчи<br />`button` `themes`
+
+
+### [#528](https://github.com/core-ds/core-components/pull/528)
+
+#### Что изменилось
+- Добавлен новый компонент SegmentedControl.
+
+#### Влияние на компоненты
+- Минорное<br />`segmented-control`
+
+
+
 ## 39.0.0
 
 <sup><time>17.02.2023</time></sup>
@@ -190,6 +426,8 @@
 
 <sup><time>13.02.2023</time></sup>
 
+<div class="sb-alert">Версия не рекомендуется к использованию, сломана темизация, используйте 38.4.0 и выше.</div>
+
 ### [#529](https://github.com/core-ds/core-components/pull/529)
 
 #### Что изменилось
@@ -203,6 +441,8 @@
 ## 38.2.0
 
 <sup><time>10.02.2023</time></sup>
+
+<div class="sb-alert">Версия не рекомендуется к использованию, сломана темизация, используйте 38.4.0 и выше.</div>
 
 ### [#520](https://github.com/core-ds/core-components/pull/520)
 

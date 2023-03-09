@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.6
+
+### Patch Changes
+
+### [#559](https://github.com/core-ds/core-components/pull/559)
+
+-   Фикс доступности с клавиатуры, добавление скриншот тестов для компонентов с использованием Tag
+
 ## 3.0.5
 
 ### Patch Changes

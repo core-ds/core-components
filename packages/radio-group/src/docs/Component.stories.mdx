@@ -4,6 +4,7 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Radio } from '@alfalab/core-components-radio';
 import { RadioGroup } from '@alfalab/core-components-radio-group';
+import { Tag } from '@alfalab/core-components-tag';
 
 import { version } from '../../package.json';
 import Description from './description.mdx';
@@ -20,12 +21,18 @@ import Changelog from '../../CHANGELOG.md';
         const onChange = (_, payload) => {
             setValue(payload.value);
         };
+        const order = {
+            0: ['Первый', 'one'],
+            1: ['Второй', 'two'],
+            2: ['Третий', 'three'],
+        };
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const error = text('error', '');
         const disabled = boolean('disabled', false);
-        const label = text('label', '');
+        const label = text('label', 'Заголовок группы');
         const hint = text('hint', '');
         const size = select('Radio.size', ['s', 'm'], 's');
+        const type = select('type', ['radio', 'tag'], 'radio');
         return (
             <RadioGroup
                 label={label}
@@ -34,12 +41,23 @@ import Changelog from '../../CHANGELOG.md';
                 direction={direction}
                 error={error}
                 disabled={disabled}
-                name='radioGroup'
+                type={type}
                 value={value}
             >
-                <Radio size={size} label='Первый вариант' value='one' />
-                <Radio size={size} label='Второй вариант' value='two' />
-                <Radio size={size} label='Третий вариант' value='three' />
+                {Array.from({ length: 3 }).map((_, index) =>
+                    type === 'radio' ? (
+                        <Radio
+                            key={`${index}-check`}
+                            size={size}
+                            label={`${order[index][0]} вариант`}
+                            value={order[index][1]}
+                        />
+                    ) : (
+                        <Tag key={`${index}-tag`} size={size} value={order[index][1]}>
+                            {`${order[index][0]} вариант`}
+                        </Tag>
+                    ),
+                )}
             </RadioGroup>
         );
     })}

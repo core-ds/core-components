@@ -1,5 +1,35 @@
 # Change Log
 
+## 8.2.14
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
+## 8.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.13
+
+## 8.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.12
+
+## 8.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.11
+    -   date-input@4.1.8
+
 ## 8.2.10
 
 ### Patch Changes

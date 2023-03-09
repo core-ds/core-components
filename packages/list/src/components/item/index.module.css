@@ -1,0 +1,49 @@
+@import '../../../../themes/src/default.css';
+
+:root {
+    --list-marker-color: var(--color-light-text-primary);
+    --list-item-margin: var(--gap-s);
+}
+
+.item {
+    margin-top: var(--list-item-margin);
+    display: flex;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &.reversed:first-child {
+        margin-top: var(--list-item-margin);
+    }
+
+    &.reversed:last-child {
+        margin-top: 0;
+    }
+
+    &.unorderedItem {
+        display: list-item;
+    }
+}
+
+.slot {
+    min-width: 20px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: start;
+    padding-right: var(--gap-2xs);
+    flex-shrink: 0;
+
+    &.defaultColor {
+        color: var(--list-marker-color);
+    }
+
+    &.disc {
+        justify-content: center;
+        padding: 0 var(--gap-2xs);
+    }
+}
+
+.caption {
+    margin-top: var(--gap-3xs);
+}

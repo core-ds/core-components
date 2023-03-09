@@ -91,6 +91,9 @@
         "tint": [15, 20],
         "shade": [10, 30]
     },
+    "light-graphic-link": {
+        "alpha": [15]
+    },
     "light-text-link": {
         "tint": [30, 50],
         "shade": [20, 40]

@@ -11,6 +11,7 @@ export function useClickOutside(
     cb: (e: React.MouseEvent | React.TouchEvent) => void,
 ): void {
     React.useEffect(() => {
+        // eslint-disable-next-line
         const handler = (event: any) => {
             if (!ref.current || ref.current.contains(event.target)) {
                 return;

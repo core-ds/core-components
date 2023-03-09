@@ -1,5 +1,36 @@
 # @alfalab/core-components-date-range-input
 
+## 2.2.14
+
+### Patch Changes
+
+### [#557](https://github.com/core-ds/core-components/pull/557)
+
+-   Добавлены бордеры у выпадающих меню
+
+## 2.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.13
+
+## 2.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.12
+
+## 2.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.11
+    -   icon-button@6.0.8
+    -   input@11.1.8
+
 ## 2.2.10
 
 ### Patch Changes

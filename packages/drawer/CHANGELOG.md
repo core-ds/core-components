@@ -1,5 +1,19 @@
 # Change Log
 
+## 4.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   scrollbar@2.1.4
+
+## 4.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.1.1
+
 ## 4.2.6
 
 ### Patch Changes

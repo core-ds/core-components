@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#542](https://github.com/core-ds/core-components/pull/542)
+
+-   Добавили props colorMarker и caption, отвечающие за цвет маркера и дополнительный текст. Изменили размер контейнера для маркера
+
 ## 3.1.2
 
 ### Patch Changes

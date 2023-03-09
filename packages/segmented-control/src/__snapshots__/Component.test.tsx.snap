@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`segmented-control should display correctly 1`] = `
+<div>
+  <div
+    class="wrapper rectangular xxs"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="selectedBox rectangular"
+        style="width: 0px; transform: translateX(0px);"
+      />
+      <div
+        class="inner"
+      >
+        <button
+          class="segment segment selected"
+          type="button"
+        >
+          Label 1
+        </button>
+        <button
+          class="segment segment"
+          data-test-id="SEGMENT"
+          type="button"
+        >
+          Label 2
+        </button>
+        <button
+          class="segment segment"
+          type="button"
+        >
+          Label 3
+        </button>
+        <button
+          class="segment segment"
+          type="button"
+        >
+          Label 4
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

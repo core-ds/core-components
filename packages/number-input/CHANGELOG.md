@@ -1,5 +1,20 @@
 # @alfalab/core-components-number-input
 
+## 1.0.5
+
+### Patch Changes
+
+### [#564](https://github.com/core-ds/core-components/pull/564)
+
+-   Значение value при сбросе изменено на null
+
+## 1.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.8
+
 ## 1.0.3
 
 ### Patch Changes

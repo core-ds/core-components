@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.4
+
+### Patch Changes
+
+### [#555](https://github.com/core-ds/core-components/pull/555)
+
+-   Убрана фокусная рамка
+
 ## 2.1.3
 
 ### Patch Changes

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement, SVGProps } from 'react';
 
 export interface AxisProps {

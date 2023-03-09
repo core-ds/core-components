@@ -6,6 +6,7 @@ const packages = req.keys().reduce((acc, key) => {
     acc[packageName] = req(key);
 
     return acc;
+    // eslint-disable-next-line
 }, {} as Record<string, any>);
 
 export const getComponent = (

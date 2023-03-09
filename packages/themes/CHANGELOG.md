@@ -1,5 +1,39 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+### [#561](https://github.com/core-ds/core-components/pull/561)
+
+-   Замена css-переменных для миксина кнопок в corp теме на переменные из default темы
+
+### [#574](https://github.com/core-ds/core-components/pull/574)
+
+-   Сброшена темизация скругления в теме intranet для shape: rounded
+
+### Patch Changes
+
+### [#566](https://github.com/core-ds/core-components/pull/566)
+
+-   Изменен цвет иконки в теме click
+
+### [#546](https://github.com/core-ds/core-components/pull/546)
+
+-   Обновление vars из последней версии ui-primitives, deprecated и 'old' цвета отмечены комментарием /_ deprecated _/
+
+### [#550](https://github.com/core-ds/core-components/pull/550)
+
+-   Исправлен цвет выделения диапазона в темной теме
+
+## 10.0.3
+
+### Patch Changes
+
+### [#543](https://github.com/core-ds/core-components/pull/543)
+
+-   Исправлен цвет лоадера в mobile, click, intranet темах
+
 ## 10.0.2
 
 ### Patch Changes
