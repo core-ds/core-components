@@ -4,8 +4,6 @@ import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
 
-import { calculatePaddingWidth } from './utils';
-
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -68,7 +66,7 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
      * Обработчик переполнения children
      */
 
-    onOverflow?: (overflow: boolean) => void;
+    onOverflow?: (tag: HTMLButtonElement, children: HTMLSpanElement) => void;
 
     /**
      * Набор цветов для компонента
@@ -153,15 +151,9 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         };
 
         useLayoutEffect(() => {
-            const handlerAndNodesExist = onOverflow && tagRef.current && childrenRef.current;
-            if (!handlerAndNodesExist) return;
-
-            const tagWidthWithoutPaddings =
-                tagRef.current.offsetWidth - calculatePaddingWidth(tagRef.current);
-            const childrenWidth = childrenRef.current.offsetWidth;
-
-            if (childrenWidth > tagWidthWithoutPaddings) {
-                onOverflow(true);
+            const handlerAndNodesExist = onOverflow && tagRef.current && tagRef.current;
+            if (handlerAndNodesExist) {
+                onOverflow(tagRef.current, tagRef.current);
             }
         }, [onOverflow]);
 
