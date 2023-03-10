@@ -1,4 +1,4 @@
-import {setMetricConfig, setObserveConnection} from '../metrics';
+import { setMetricConfig, setObserveConnection } from '../metrics';
 
 export const getStoryDoc = () => document.querySelector('iframe').contentDocument;
 
@@ -32,6 +32,6 @@ export function setGuidelinesStyles(styles) {
 export const extractMixinContent = (css) => css.trim().split('\n').slice(1, -1).join('\n');
 
 export const setMetricsConnection = () => {
-    setMetricConfig()
-    setObserveConnection()
-}
+    setMetricConfig();
+    setObserveConnection();
+};

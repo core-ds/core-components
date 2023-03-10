@@ -1,9 +1,9 @@
 import {
     observeExplorerMenu,
     observeLink,
-    observePanelComponent,
+    observePreviewFrameComponent,
+    observePreviewModeTabs,
     observeSwitcher,
-    observeTab,
 } from './observers';
 
 export const setMetricConfig = () => {
@@ -24,7 +24,7 @@ export const setMetricConfig = () => {
     })(window, document, 'script', 'https://metrics.alfabank.ru/metrica/sp.js', 'sp');
 
     function getMetricUrl() {
-        const {hostname} = window.location;
+        const { hostname } = window.location;
         switch (hostname) {
             case 'core-ds.github.io': {
                 return 'metrics.alfabank.ru/metrica/intra';
@@ -55,7 +55,7 @@ export const setObserveConnection = () => {
         observeLink();
         observeSwitcher();
         observeExplorerMenu();
-        observeTab();
-        observePanelComponent();
+        observePreviewModeTabs();
+        observePreviewFrameComponent();
     });
 };

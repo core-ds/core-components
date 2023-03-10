@@ -6,7 +6,10 @@ const switcherState = {};
 
 const { FOLDER, SEARCH_VALUE } = ACTIONS;
 
-const observePanel = () => {
+/**
+ * Следит за переключение режимов вьюера для компонента (деск мобайл) и открытием кода компонента
+ */
+const createPreviewFrameComponentObserver = () => {
     let observer = null;
 
     return () => {
@@ -57,35 +60,40 @@ const observePanel = () => {
     };
 };
 
-export const observePanelComponent = observePanel();
+export const observePreviewFrameComponent = createPreviewFrameComponentObserver();
 
-export const observeTab = () => {
-    const tabsNode = getPageNode('.sto-1amsdi0');
+/**
+ * Следит за открытием таба докс/канвас
+ */
+export const observePreviewModeTabs = () => {
+    const nodeMain = getPageNode('[role="main"]');
 
-    const observer = new MutationObserver(() => {
-        const params = getCurrentUrlParams();
+    nodeMain.addEventListener('click', (event) => {
+        const value = event?.target.innerHTML;
         const { textContent } = getPageNode('[data-selected="true"]');
 
-        if (params.includes('/story/')) {
+        if (value === 'Canvas') {
             trackEvent({
                 category: CATEGORY.TAB,
-                action: 'Canvas view',
+                action: `${value} view`,
                 label: textContent,
             });
             return;
         }
-        trackEvent({
-            category: CATEGORY.TAB,
-            action: 'Docs view',
-            label: textContent,
-        });
+
+        if (value === 'Docs') {
+            trackEvent({
+                category: CATEGORY.TAB,
+                action: `${value} view`,
+                label: textContent,
+            });
+        }
     });
-
-    const observerConfig = { childList: true };
-
-    observer.observe(tabsNode, observerConfig);
 };
 
+/**
+ * Следит за переключение режимов компонента
+ */
 export const observeSwitcher = () => {
     const tools = document.querySelectorAll('.select');
 
@@ -119,12 +127,18 @@ export const observeSwitcher = () => {
     themeSelect.addEventListener('change', handleSelect('theme'));
 };
 
+/**
+ * Следит за переходами по прямым ссылкам
+ */
 export const observeLink = () => {
     const link = handleLinks(getCurrentUrlParams());
 
     trackEvent({ category: CATEGORY.USERS, action: 'Page view', label: link });
 };
 
+/**
+ * Следит за вызовом поиска, что вбивают в поиск, сворачивание папок, открытие конкретной страницы
+ */
 export const observeExplorerMenu = () => {
     let isSearchValueFocusing;
 
@@ -171,7 +185,7 @@ export const observeExplorerMenu = () => {
                         dimension_2: mode,
                     });
 
-                    observePanelComponent();
+                    observePreviewFrameComponent();
                     return;
                 }
 
