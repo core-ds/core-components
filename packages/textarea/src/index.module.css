@@ -15,10 +15,10 @@
     --textarea-xl-padding-top: 24px;
 
     /* filled margin-top */
-    --textarea-s-filled-margin-top: 23px;
-    --textarea-m-filled-margin-top: 28px;
+    --textarea-s-filled-margin-top: 24px;
+    --textarea-m-filled-margin-top: 24px;
     --textarea-l-filled-margin-top: 32px;
-    --textarea-xl-filled-margin-top: 38px;
+    --textarea-xl-filled-margin-top: 34px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
@@ -63,25 +63,6 @@
     box-sizing: border-box;
     resize: none;
     -webkit-appearance: none;
-    &.s {
-        padding-top: var(--textarea-s-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.m {
-        padding-top: var(--textarea-m-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.l {
-        padding-top: var(--textarea-l-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.xl {
-        padding-top: var(--textarea-xl-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
 
     &.textareaHidden {
         position: absolute;
@@ -95,10 +76,6 @@
 
 .hasInnerLabel::placeholder {
     opacity: 0;
-}
-
-.resizeVertical {
-    resize: vertical;
 }
 
 .pseudoTextarea {
@@ -133,25 +110,6 @@
 
 /* SIZES */
 
-.textarea,
-.scrollable {
-    &.s {
-        min-height: var(--textarea-s-min-height);
-    }
-
-    &.m {
-        min-height: var(--textarea-m-min-height);
-    }
-
-    &.l {
-        min-height: var(--textarea-l-min-height);
-    }
-
-    &.xl {
-        min-height: var(--textarea-xl-min-height);
-    }
-}
-
 /* Паддинги взяты из стилей form-control */
 .scrollable {
     &.s,
@@ -160,6 +118,8 @@
         & .textarea {
             padding-left: var(--gap-s);
             padding-right: var(--gap-s);
+            padding-top: 0;
+            padding-bottom: 0;
         }
     }
 
@@ -219,27 +179,19 @@
     padding-top: 0;
 
     &.s {
-        margin-top: var(--textarea-s-filled-margin-top);
         min-height: var(--textarea-s-filled-min-height);
-        height: var(--textarea-s-filled-min-height);
     }
 
     &.m {
-        margin-top: var(--textarea-m-filled-margin-top);
         min-height: var(--textarea-m-filled-min-height);
-        height: var(--textarea-m-filled-min-height);
     }
 
     &.l {
-        margin-top: var(--textarea-l-filled-margin-top);
         min-height: var(--textarea-l-filled-min-height);
-        height: var(--textarea-l-filled-min-height);
     }
 
     &.xl {
-        margin-top: var(--textarea-xl-filled-margin-top);
         min-height: var(--textarea-xl-filled-min-height);
-        height: var(--textarea-xl-filled-min-height);
     }
 }
 
@@ -302,5 +254,32 @@
 
     &.xl {
         height: calc(100% - var(--textarea-xl-filled-margin-top));
+    }
+}
+
+.wrapper {
+    &.resizeVertical {
+        resize: vertical;
+        min-height: 20px;
+    }
+
+    &.s {
+        padding: var(--textarea-s-padding-top) 0;
+    }
+
+    &.m {
+        padding: var(--textarea-m-padding-top) 0;
+    }
+
+    &.l {
+        padding: var(--textarea-l-padding-top) 0;
+    }
+
+    &.xl {
+        padding: var(--textarea-xl-padding-top) 0;
+    }
+
+    &.hasInnerLabel {
+        padding: 0;
     }
 }

@@ -162,7 +162,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 [styles.hasInnerLabel]: nativeScrollbar && hasInnerLabel,
                 [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                 [styles.filled]: nativeScrollbar && filled,
-                [styles.resizeVertical]: resize === 'vertical',
             },
             textareaClassName,
         );
@@ -201,7 +200,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 <Scrollbar
                     style={{ maxHeight, height: scrollableHeight, padding: 0 }}
                     className={cn(styles.scrollable, styles[size], {
-                        [styles.scrollableWithLabel]: label,
+                        [styles.scrollableWithLabel]: hasInnerLabel,
                         [styles.filled]: filled,
                     })}
                     horizontalAutoStretch={!block}
@@ -274,6 +273,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 className={cn(className)}
                 fieldClassName={cn(fieldClassName, {
                     [styles.focusVisible]: focusVisible,
+                })}
+                inputClassName={cn(styles.wrapper, styles[size], {
+                    [styles.hasInnerLabel]: hasInnerLabel,
+                    [styles.resizeVertical]: resize === 'vertical',
                 })}
                 size={size}
                 colors={colors}

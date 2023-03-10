@@ -38,7 +38,7 @@ describe('Textarea | sprite', () => {
                             labelView: 'outer',
                             placeholder: 'Плейсхолдер',
                         },
-                        size: { width: 240, height: 100 },
+                        size: { width: 240, height: 200 },
                     }),
                 ],
                 [
