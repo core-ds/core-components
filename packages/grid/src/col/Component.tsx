@@ -22,7 +22,7 @@ export type ColProps = {
      * Управление шириной колонки.
      * Возможные значения: `[1..12, available, auto]`
      * или `{ mobile: [1..12], tablet: [1..12], desktop: [1..12] }`
-     * или `{ mobile: { s: [1..12], m: [1..12], l: [1..12] },
+     * или `{ mobile: { xs: [1..12], s: [1..12], m: [1..12], l: [1..12] },
      * tablet: { s: [1..12], m: [1..12] },
      * desktop: { s: [1..12], m: [1..12], l: [1..12], xl: [1..12] } }`.
      */
@@ -32,7 +32,7 @@ export type ColProps = {
      * Управлние смещением колонки.
      * Возможные значения: `[1..11]`
      * или `{ mobile: [1..11], tablet: [1..11], desktop: [1..11] }`
-     * или `{ mobile: { s: [1..11], m: [1..11], l: [1..11] },
+     * или `{ mobile:{ xs: [1..11], { s: [1..11], m: [1..11], l: [1..11] },
      * tablet: { s: [1..11], m: [1..11] },
      * desktop: { s: [1..11], m: [1..11], l: [1..11], xl: [1..11] } }`.
      */
@@ -42,7 +42,7 @@ export type ColProps = {
      * Управление порядком колонок.
      * Возможные значения: `[1..12, first, last]`
      * или `{ mobile: [1..last], tablet: [1..last], desktop: [1..last] }`
-     * или `{ mobile: { s: [1..last], m: [1..last], l: [1..last] },
+     * или `{ mobile: { xs: [1..last], s: [1..last], m: [1..last], l: [1..last] },
      * tablet: { s: [1..last], m: [1..last] },
      * desktop: { s: [1..last], m: [1..last], l: [1..last], xl: [1..last] } }`.
      */
