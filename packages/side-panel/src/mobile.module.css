@@ -8,6 +8,7 @@
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    max-width: 600px;
 }
 
 .mobileContent {
