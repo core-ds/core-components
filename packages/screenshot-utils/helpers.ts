@@ -48,6 +48,16 @@ export const customSnapshotIdentifier = ({
 };
 
 const getPageHtml = async (page: Page, css?: string) => {
+    // Меняем относительный url img на абсолютный, иначе изображения не загружаются.
+    await page.$$eval('img[src]', (images: HTMLImageElement[]) => {
+        images.forEach((img) => {
+            const src = img.getAttribute('src') || '';
+            if (src.startsWith('./')) {
+                img.setAttribute('src', `${location.origin}${src.slice(1)}`);
+            }
+        });
+    });
+
     const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
 
     return `<html><head><style>${css}</style>${head}</head><body style="font-family: var(--font-family)">${body}</body></html>`;

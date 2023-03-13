@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    padding: var(--gap-xl) 0;
+}
+
+.multiple > * {
+    flex: 1;
+}
