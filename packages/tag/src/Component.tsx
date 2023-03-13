@@ -63,10 +63,10 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     ) => void;
 
     /**
-     * Обработчик переполнения children
+     * Callback передачи нод tag и children
      */
 
-    onOverflow?: (tag: HTMLButtonElement, children: HTMLSpanElement) => void;
+    nodesTransfer?: (tag: HTMLButtonElement, children: HTMLSpanElement) => void;
 
     /**
      * Набор цветов для компонента
@@ -107,7 +107,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             variant = 'default',
             shape,
             view = 'outlined',
-            onOverflow,
+            nodesTransfer,
             childrenClassName,
             ...restProps
         },
@@ -151,11 +151,11 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         };
 
         useLayoutEffect(() => {
-            const handlerAndNodesExist = onOverflow && tagRef.current && tagRef.current;
+            const handlerAndNodesExist = nodesTransfer && tagRef.current && childrenRef.current;
             if (handlerAndNodesExist) {
-                onOverflow(tagRef.current, tagRef.current);
+                nodesTransfer(tagRef.current, childrenRef.current);
             }
-        }, [onOverflow]);
+        }, [nodesTransfer]);
 
         return (
             <button
