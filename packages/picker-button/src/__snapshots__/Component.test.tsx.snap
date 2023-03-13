@@ -230,7 +230,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
       >
         <div
           aria-labelledby="downshift-3-label"
-          class="optionsListContainer optionsList"
+          class="optionsList"
           id="downshift-3-menu"
           role="listbox"
           style="min-width: 0px;"
@@ -676,7 +676,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
       >
         <div
           aria-labelledby="downshift-9-label"
-          class="optionsListContainer optionsList"
+          class="optionsList"
           id="downshift-9-menu"
           role="listbox"
           style="min-width: 0px;"
@@ -1122,7 +1122,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
       >
         <div
           aria-labelledby="downshift-17-label"
-          class="optionsListContainer optionsList"
+          class="optionsList"
           id="downshift-17-menu"
           role="listbox"
           style="min-width: 0px;"
