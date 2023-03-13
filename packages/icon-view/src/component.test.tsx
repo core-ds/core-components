@@ -108,7 +108,7 @@ describe('IconView', () => {
 
             const path = baseElement.querySelector('path') as SVGPathElement;
 
-            expect(path).toHaveStyle({ fill: defaultColor });
+            expect(path).toHaveClass('bg');
         });
 
         it('should render border path', () => {

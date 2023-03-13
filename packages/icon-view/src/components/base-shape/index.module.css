@@ -2,6 +2,7 @@
 
 :root {
     --icon-view-color: var(--color-light-graphic-secondary);
+    --icon-view-bg-color: var(--color-light-bg-secondary);
 }
 
 .componentWrapper {
@@ -16,7 +17,7 @@
 }
 
 .bg {
-    fill: #f3f4f5;
+    fill: var(--icon-view-bg-color);
 }
 
 .border {
