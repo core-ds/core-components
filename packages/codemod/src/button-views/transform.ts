@@ -1,5 +1,13 @@
-/* eslint-disable */
 import { ASTPath, JSXElement, Transform } from 'jscodeshift';
+
+import { getKeys } from '../utils';
+
+const REPLACE_MAP = {
+    filled: 'secondary',
+    outlined: 'tertiary',
+    transparent: 'secondary',
+    primary: 'accent',
+} as const;
 
 const buttonViewsTransform: Transform = (fileInfo, api) => {
     const j = api.jscodeshift;
@@ -9,37 +17,23 @@ const buttonViewsTransform: Transform = (fileInfo, api) => {
      * Находим использование компонента Button и меняем ему пропсы
      */
     source.findJSXElements('Button').forEach((path) => {
-        j(path).replaceWith((path: ASTPath<JSXElement>) => {
-            const { node } = path;
+        j(path).replaceWith((astPath: ASTPath<JSXElement>) => {
+            const { node } = astPath;
 
             const { openingElement } = node;
 
-            j(openingElement)
-                .find(j.JSXAttribute, {
-                    name: { name: 'view' },
-                    value: { value: 'filled' },
-                })
-                .replaceWith(() =>
-                    j.jsxAttribute(j.jsxIdentifier('view'), j.stringLiteral('secondary')),
-                );
+            getKeys(REPLACE_MAP).forEach((from) => {
+                const replaceWith = REPLACE_MAP[from];
 
-            j(openingElement)
-                .find(j.JSXAttribute, {
-                    name: { name: 'view' },
-                    value: { value: 'outlined' },
-                })
-                .replaceWith(() =>
-                    j.jsxAttribute(j.jsxIdentifier('view'), j.stringLiteral('tertiary')),
-                );
-
-            j(openingElement)
-                .find(j.JSXAttribute, {
-                    name: { name: 'view' },
-                    value: { value: 'transparent' },
-                })
-                .replaceWith(() =>
-                    j.jsxAttribute(j.jsxIdentifier('view'), j.stringLiteral('secondary')),
-                );
+                j(openingElement)
+                    .find(j.JSXAttribute, {
+                        name: { name: 'view' },
+                        value: { value: from },
+                    })
+                    .replaceWith(() =>
+                        j.jsxAttribute(j.jsxIdentifier('view'), j.stringLiteral(replaceWith)),
+                    );
+            });
 
             return node;
         });
