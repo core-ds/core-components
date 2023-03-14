@@ -22,7 +22,7 @@
 
     /* filled padding-bottom */
     --textarea-s-filled-padding-bottom: 4px;
-    --textarea-m-filled-padding-bottom: 84px;
+    --textarea-m-filled-padding-bottom: 8px;
     --textarea-l-filled-padding-bottom: 12px;
     --textarea-xl-filled-padding-bottom: 14px;
 
@@ -230,19 +230,19 @@
 
 .pseudoTextarea.filled.hasInnerLabel {
     &.s {
-        height: calc(100% - var(--textarea-s-filled-padding-top));
+        min-height: calc(100% - var(--textarea-s-filled-padding-top));
     }
 
     &.m {
-        height: calc(100% - var(--textarea-m-filled-padding-top));
+        min-height: calc(100% - var(--textarea-m-filled-padding-top));
     }
 
     &.l {
-        height: calc(100% - var(--textarea-l-filled-padding-top));
+        min-height: calc(100% - var(--textarea-l-filled-padding-top));
     }
 
     &.xl {
-        height: calc(100% - var(--textarea-xl-filled-padding-top));
+        min-height: calc(100% - var(--textarea-xl-filled-padding-top));
     }
 }
 
