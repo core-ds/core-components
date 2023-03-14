@@ -15,23 +15,23 @@
     --textarea-xl-padding-top: 24px;
 
     /* filled margin-top */
-    --textarea-s-filled-margin-top: 24px;
-    --textarea-m-filled-margin-top: 24px;
-    --textarea-l-filled-margin-top: 32px;
-    --textarea-xl-filled-margin-top: 34px;
+    --textarea-s-filled-padding-top: 24px;
+    --textarea-m-filled-padding-top: 24px;
+    --textarea-l-filled-padding-top: 32px;
+    --textarea-xl-filled-padding-top: 34px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
-        var(--textarea-s-min-height) - var(--textarea-s-filled-margin-top)
+        var(--textarea-s-min-height) - var(--textarea-s-filled-padding-top)
     );
     --textarea-m-filled-min-height: calc(
-        var(--textarea-m-min-height) - var(--textarea-m-filled-margin-top)
+        var(--textarea-m-min-height) - var(--textarea-m-filled-padding-top)
     );
     --textarea-l-filled-min-height: calc(
-        var(--textarea-l-min-height) - var(--textarea-l-filled-margin-top)
+        var(--textarea-l-min-height) - var(--textarea-l-filled-padding-top)
     );
     --textarea-xl-filled-min-height: calc(
-        var(--textarea-xl-min-height) - var(--textarea-xl-filled-margin-top)
+        var(--textarea-xl-min-height) - var(--textarea-xl-filled-padding-top)
     );
 }
 
@@ -63,6 +63,7 @@
     box-sizing: border-box;
     resize: none;
     -webkit-appearance: none;
+    height: inherit;
 
     &.textareaHidden {
         position: absolute;
@@ -131,23 +132,9 @@
     }
 }
 
-/* Паддинги взяты из стилей form-control */
-.scrollableWithLabel {
-    &.s .textarea {
-        padding: var(--form-control-labeled-s-paddings);
-    }
-
-    &.m .textarea {
-        padding: var(--form-control-labeled-m-paddings);
-    }
-
-    &.l .textarea {
-        padding: var(--form-control-labeled-l-paddings);
-    }
-
-    &.xl .textarea {
-        padding: var(--form-control-labeled-xl-paddings);
-    }
+.textarea.hasInnerLabel.hasInnerLabel {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* DISABLED STATE */
@@ -197,11 +184,10 @@
 
 .scrollableWithLabel.filled {
     & .textarea {
-        padding-top: 0;
+        /* padding-top: 0; */
     }
 
     &.s {
-        margin-top: var(--textarea-s-filled-margin-top);
         min-height: var(--textarea-s-filled-min-height);
 
         & .textarea {
@@ -210,7 +196,6 @@
     }
 
     &.m {
-        margin-top: var(--textarea-m-filled-margin-top);
         min-height: var(--textarea-m-filled-min-height);
 
         & .textarea {
@@ -219,7 +204,6 @@
     }
 
     &.l {
-        margin-top: var(--textarea-l-filled-margin-top);
         min-height: var(--textarea-l-filled-min-height);
 
         & .textarea {
@@ -228,7 +212,6 @@
     }
 
     &.xl {
-        margin-top: var(--textarea-xl-filled-margin-top);
         min-height: var(--textarea-xl-filled-min-height);
 
         & .textarea {
@@ -241,19 +224,19 @@
 
 .pseudoTextarea.filled.hasInnerLabel {
     &.s {
-        height: calc(100% - var(--textarea-s-filled-margin-top));
+        height: calc(100% - var(--textarea-s-filled-padding-top));
     }
 
     &.m {
-        height: calc(100% - var(--textarea-m-filled-margin-top));
+        height: calc(100% - var(--textarea-m-filled-padding-top));
     }
 
     &.l {
-        height: calc(100% - var(--textarea-l-filled-margin-top));
+        height: calc(100% - var(--textarea-l-filled-padding-top));
     }
 
     &.xl {
-        height: calc(100% - var(--textarea-xl-filled-margin-top));
+        height: calc(100% - var(--textarea-xl-filled-padding-top));
     }
 }
 
@@ -280,6 +263,24 @@
     }
 
     &.hasInnerLabel {
-        padding: 0;
+        &.s {
+            padding-top: var(--textarea-s-filled-padding-top);
+            padding-bottom: var(--gap-2xs);
+        }
+
+        &.m {
+            padding-top: var(--textarea-m-filled-padding-top);
+            padding-bottom: var(--gap-xs);
+        }
+
+        &.l {
+            padding-top: var(--textarea-l-filled-padding-top);
+            padding-bottom: var(--gap-s);
+        }
+
+        &.xl {
+            padding-top: var(--textarea-xl-filled-padding-top);
+            padding-bottom: 14px;
+        }
     }
 }
