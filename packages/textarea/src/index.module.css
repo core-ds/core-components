@@ -14,24 +14,34 @@
     --textarea-l-padding-top: 22px;
     --textarea-xl-padding-top: 24px;
 
-    /* filled margin-top */
+    /* filled padding-top */
     --textarea-s-filled-padding-top: 24px;
     --textarea-m-filled-padding-top: 24px;
     --textarea-l-filled-padding-top: 32px;
     --textarea-xl-filled-padding-top: 34px;
 
+    /* filled padding-bottom */
+    --textarea-s-filled-padding-bottom: 4px;
+    --textarea-m-filled-padding-bottom: 84px;
+    --textarea-l-filled-padding-bottom: 12px;
+    --textarea-xl-filled-padding-bottom: 14px;
+
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
-        var(--textarea-s-min-height) - var(--textarea-s-filled-padding-top)
+        var(--textarea-s-min-height) - var(--textarea-s-filled-padding-top) -
+            var(--textarea-s-filled-padding-bottom)
     );
     --textarea-m-filled-min-height: calc(
-        var(--textarea-m-min-height) - var(--textarea-m-filled-padding-top)
+        var(--textarea-m-min-height) - var(--textarea-m-filled-padding-top) -
+            var(--textarea-m-filled-padding-bottom)
     );
     --textarea-l-filled-min-height: calc(
-        var(--textarea-l-min-height) - var(--textarea-l-filled-padding-top)
+        var(--textarea-l-min-height) - var(--textarea-l-filled-padding-top) -
+            var(--textarea-l-filled-padding-bottom)
     );
     --textarea-xl-filled-min-height: calc(
-        var(--textarea-xl-min-height) - var(--textarea-xl-filled-padding-top)
+        var(--textarea-xl-min-height) - var(--textarea-xl-filled-padding-top) -
+            var(--textarea-xl-filled-padding-bottom)
     );
 }
 
@@ -183,10 +193,6 @@
 }
 
 .scrollableWithLabel.filled {
-    & .textarea {
-        /* padding-top: 0; */
-    }
-
     &.s {
         min-height: var(--textarea-s-filled-min-height);
 
@@ -265,22 +271,22 @@
     &.hasInnerLabel {
         &.s {
             padding-top: var(--textarea-s-filled-padding-top);
-            padding-bottom: var(--gap-2xs);
+            padding-bottom: var(--textarea-s-filled-padding-bottom);
         }
 
         &.m {
             padding-top: var(--textarea-m-filled-padding-top);
-            padding-bottom: var(--gap-xs);
+            padding-bottom: var(--textarea-m-filled-padding-bottom);
         }
 
         &.l {
             padding-top: var(--textarea-l-filled-padding-top);
-            padding-bottom: var(--gap-s);
+            padding-bottom: var(--textarea-l-filled-padding-bottom);
         }
 
         &.xl {
             padding-top: var(--textarea-xl-filled-padding-top);
-            padding-bottom: 14px;
+            padding-bottom: var(--textarea-xl-filled-padding-bottom);
         }
     }
 }
