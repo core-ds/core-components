@@ -41,5 +41,8 @@ lerna exec \
 cp package.json dist/package.json
 cp bin/send-stats.js dist/send-stats.js
 
+# копирую README.md в сборку корневого пакета
+cp README.md dist/README.md
+
 # делаю корневой пакет публичным
 yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"

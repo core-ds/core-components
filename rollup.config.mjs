@@ -74,6 +74,7 @@ const es5 = {
     ...baseConfig,
     output: [
         {
+            esModule: true,
             dir: 'dist',
             format: 'cjs',
             interop: 'compat',
@@ -138,6 +139,7 @@ const cssm = {
     ...baseConfig,
     output: [
         {
+            esModule: true,
             dir: 'dist/cssm',
             format: 'cjs',
             interop: 'compat',
