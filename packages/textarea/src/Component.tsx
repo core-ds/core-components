@@ -56,6 +56,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             showCounter = false,
             getCounterText = getDefaultCounterText,
             maxLength,
+            cutMaxLength,
             nativeScrollbar: nativeScrollbarProp,
             ...restProps
         },
@@ -126,8 +127,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
             const {
-                target: { value: newValue },
+                target: { value },
             } = event;
+
+            const newValue = cutMaxLength ? value.slice(0, maxLength) : value;
 
             if (onChange) {
                 onChange(event, { value: newValue });
