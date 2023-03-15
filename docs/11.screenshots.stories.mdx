@@ -45,7 +45,7 @@ $ yarn test:screenshots
 
 Для каждой ссылки делается скриншот:
 
-```tsx
+```jsx
 // component.screenshot.test.ts
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -76,7 +76,7 @@ describe('Input | screenshots sizes, blocks and disabled', screenshotTesting({ c
 
 Взаимодействие со страницей тоже происходит через [playwright](https://playwright.dev/):
 
-```tsx
+```jsx
 // component.screenshot.test.ts
 describe('Input | interactions tests', () => {
     test('Fill input value', async () => {

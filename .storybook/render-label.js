@@ -1,23 +1,40 @@
 import React from 'react';
 
+import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
+
 import { Gap } from './components/Gap.jsx';
 import { DocumentIcon } from './components/icons/DocumentIcon.jsx';
 import { ComponentIcon } from './components/icons/ComponentIcon.jsx';
 import { FolderIcon } from './components/icons/FolderIcon.jsx';
-import { DiamondsBlankIcon } from './components/icons/DiamondsBlankIcon.jsx';
 import { FlashIcon } from './components/icons/FlashIcon.jsx';
-// import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
-import SandboxIcon from './public/images/sandbox-icon.svg';
+import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
+
+const iconWrapperStyles = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 24,
+    height: 24,
+};
 
 const renderIcon = (type, parent, depth, name) => {
     switch (type) {
         case 'component': {
             if (name === 'Sandbox') {
-                // Сложная иконка песочницы не отображается svg компонентом
-                return <img src={SandboxIcon} className='sidebar-icon' />;
+                return <SandboxIcon />;
             }
             if (name === 'Intro') {
                 return <FlashIcon />;
+            }
+            if (name === 'Components overview') {
+                return (
+                    <span style={iconWrapperStyles}>
+                        <DiamondsSIcon
+                            className='sidebar-icon'
+                            style={{ transform: 'rotate(45deg)' }}
+                        />
+                    </span>
+                );
             }
             if (parent && parent.includes('components')) {
                 return (
