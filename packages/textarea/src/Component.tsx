@@ -56,7 +56,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             showCounter = false,
             getCounterText = getDefaultCounterText,
             maxLength,
-            cutMaxLength,
+            allowOverflow = true,
             nativeScrollbar: nativeScrollbarProp,
             ...restProps
         },
@@ -127,10 +127,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
             const {
-                target: { value },
+                target: { value: newValue },
             } = event;
-
-            const newValue = cutMaxLength ? value.slice(0, maxLength) : value;
 
             if (onChange) {
                 onChange(event, { value: newValue });
@@ -175,6 +173,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             className: textareaClassNameCalc,
             autoComplete,
             disabled,
+            maxLength: !allowOverflow ? maxLength : undefined,
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
             onChange: handleTextareaChange,

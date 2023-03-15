@@ -145,7 +145,7 @@ export type TextareaIncomeProps = {
     nativeScrollbar?: boolean;
 
     /**
-     * Обрезвть value по maxLength
+     * Разрешить переполнение, если количество символов превышает maxLength
      */
-    cutMaxLength?: boolean;
+    allowOverflow?: boolean;
 };
