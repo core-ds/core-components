@@ -63,7 +63,7 @@ jobs:
     # storybook_url заполняется в demo-build.js
     - name: Create comment
       if: success() && steps.find_pr.outputs.number
-      uses: peter-evans/create-or-update-comment@v1
+      uses: peter-evans/create-or-update-comment@v2
       with:
         token: ${{ secrets.BOT_AUTH_TOKEN }}
         issue-number: ${{ steps.find_pr.outputs.pr }}
