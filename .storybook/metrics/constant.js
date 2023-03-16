@@ -1,3 +1,4 @@
+export const DEFAULT_ELEMENT = 0;
 export const CATEGORY = {
     USERS: 'users',
     PAGE: 'page',
