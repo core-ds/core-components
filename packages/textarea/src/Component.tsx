@@ -79,8 +79,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
+
         const hasOverflow = Boolean(
-            (maxLength && value?.slice(maxLength)) || (maxLength && stateValue.slice(maxLength)),
+            maxLength && allowOverflow && (value?.slice(maxLength) || stateValue.slice(maxLength)),
         );
 
         useEffect(() => {
@@ -173,7 +174,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             className: textareaClassNameCalc,
             autoComplete,
             disabled,
-            maxLength: !allowOverflow ? maxLength : undefined,
+            maxLength: allowOverflow ? undefined : maxLength,
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
             onChange: handleTextareaChange,
