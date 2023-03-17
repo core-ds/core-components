@@ -39,11 +39,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-    html {
-        margin-left: calc(100vw - 100%);
-        margin-right: 0;
-    }
-
     .cardContainer {
         grid-template-columns: repeat(4, 1fr);
     }
