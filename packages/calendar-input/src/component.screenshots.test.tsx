@@ -3,7 +3,22 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
+
+describe('CalendarInput', () =>
+    createPreview(
+        {
+            componentName: 'CalendarInput',
+            knobs: {
+                size: 'm',
+                value: '01.01.2024',
+                label: 'CalendarInput',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.3)',
+    ));
 
 describe('CalendarInput | interactions tests', () => {
     test('Open calendar', async () => {

@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Radio } from '@alfalab/core-components-radio';
 import { RadioGroup } from '@alfalab/core-components-radio-group';
@@ -10,6 +11,11 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/RadioGroup' component={RadioGroup} id='RadioGroup' />
 
@@ -22,9 +28,9 @@ import Changelog from '../../CHANGELOG.md';
             setValue(payload.value);
         };
         const order = {
-            0: ['Первый', 'one'],
-            1: ['Второй', 'two'],
-            2: ['Третий', 'three'],
+            0: ['1', 'one'],
+            1: ['2', 'two'],
+            2: ['3', 'three'],
         };
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const error = text('error', '');
@@ -33,32 +39,36 @@ import Changelog from '../../CHANGELOG.md';
         const hint = text('hint', '');
         const size = select('Radio.size', ['s', 'm'], 's');
         const type = select('type', ['radio', 'tag'], 'radio');
+        const wrapperStyles = getQueryParam('wrapperStyles');
         return (
-            <RadioGroup
-                label={label}
-                hint={hint}
-                onChange={onChange}
-                direction={direction}
-                error={error}
-                disabled={disabled}
-                type={type}
-                value={value}
-            >
-                {Array.from({ length: 3 }).map((_, index) =>
-                    type === 'radio' ? (
-                        <Radio
-                            key={`${index}-check`}
-                            size={size}
-                            label={`${order[index][0]} вариант`}
-                            value={order[index][1]}
-                        />
-                    ) : (
-                        <Tag key={`${index}-tag`} size={size} value={order[index][1]}>
-                            {`${order[index][0]} вариант`}
-                        </Tag>
-                    ),
-                )}
-            </RadioGroup>
+            <div style={stylesStringToObj(wrapperStyles)}>
+                <ModeChecker />
+                <RadioGroup
+                    label={label}
+                    hint={hint}
+                    onChange={onChange}
+                    direction={direction}
+                    error={error}
+                    disabled={disabled}
+                    type={type}
+                    value={value}
+                >
+                    {Array.from({ length: 3 }).map((_, index) =>
+                        type === 'radio' ? (
+                            <Radio
+                                key={`${index}-check`}
+                                size={size}
+                                label={`Label ${order[index][0]}`}
+                                value={order[index][1]}
+                            />
+                        ) : (
+                            <Tag key={`${index}-tag`} size={size} value={order[index][1]}>
+                                {`${order[index][0]} вариант`}
+                            </Tag>
+                        ),
+                    )}
+                </RadioGroup>
+            </div>
         );
     })}
 </Story>

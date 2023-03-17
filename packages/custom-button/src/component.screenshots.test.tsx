@@ -4,6 +4,7 @@ import {
     customSnapshotIdentifier,
     generateTestCases,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,6 +15,20 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 200, height: 100 };
+
+describe('CustomButton', () =>
+    createPreview(
+        {
+            componentName: 'CustomButton',
+            knobs: {
+                children: 'CustomButton',
+                size: 'xl',
+                backgroundColor:
+                    'linear-gradient(264.15deg, rgb(255, 66, 202) 0%25, rgb(255, 138, 0) 100%25)',
+            },
+        },
+        'transform:scale(2.7)',
+    ));
 
 describe(
     'CustomButton | contentColors & sizes',

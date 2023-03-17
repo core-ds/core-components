@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,23 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('SliderInput ', () =>
+    createPreview(
+        {
+            componentName: 'SliderInput',
+            knobs: {
+                label: 'Label',
+                value: 5,
+                steps: '[1,10,20]',
+                size: 'm',
+                min: 1,
+                max: 20,
+                block: true,
+            },
+        },
+        'padding: 27px 270px 0; transform:scale(2.3)',
+    ));
 
 describe('SliderInput | sprite', () => {
     const testCase = (theme: string) =>

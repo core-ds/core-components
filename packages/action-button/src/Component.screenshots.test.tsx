@@ -4,6 +4,7 @@ import {
     customSnapshotIdentifier,
     generateTestCases,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,6 +15,19 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 200, height: 100 };
+
+describe('ActionButton ', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'ActionButton',
+            knobs: {
+                children: 'Action Button',
+                icon: 'DiamondsMIcon',
+            },
+        },
+        'transform:scale(3.2);position:static',
+    ));
 
 describe(
     'Action Button | views & colors',

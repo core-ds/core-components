@@ -7,6 +7,7 @@ import {
     createSpriteStorybookUrl,
     setupScreenshotTesting,
     createStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const options = [
@@ -16,6 +17,19 @@ const options = [
 ];
 
 describe('PickerButton', () => {
+    createPreview(
+        {
+            componentName: 'PickerButton',
+            knobs: {
+                options: JSON.stringify(options),
+                label: 'PickerButton',
+                size: 'xl',
+                view: 'primary',
+            },
+        },
+        'transform:scale(2.7)',
+    );
+
     it('desktop opened', async () => {
         jest.setTimeout(120000);
 

@@ -3,6 +3,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     generateTestCases,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -15,6 +16,17 @@ const screenshotTesting = setupScreenshotTesting({
 const clip = { x: 0, y: 0, width: 240, height: 60 };
 
 describe('Switch', () => {
+    createPreview(
+        {
+            componentName: 'Switch',
+            knobs: {
+                label: 'Switch',
+                checked: true,
+            },
+        },
+        'transform:scale(2.3)',
+    );
+
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [

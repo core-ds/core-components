@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     generateTestCases,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -12,6 +13,19 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 350, height: 40 };
+
+describe('Link ', () =>
+    createPreview(
+        {
+            componentName: 'Link',
+            knobs: {
+                children: 'Link',
+                view: 'default',
+                underline: true,
+            },
+        },
+        'transform:scale(5.3)',
+    ));
 
 describe(
     'Link | pseudo',

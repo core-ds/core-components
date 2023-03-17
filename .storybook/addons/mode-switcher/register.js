@@ -2,8 +2,12 @@ import React, { useCallback, useState } from 'react';
 import addons, { types } from '@storybook/addons';
 import { Form } from '@storybook/components';
 import { setModeVars, MODES, setModeVarsInMobileFrame } from './utils';
+import { getStoryDoc } from '../utils';
 
 export const ADDON_ID = 'mode-switcher';
+
+const createModeChangeEvent = (newMode) =>
+    new CustomEvent('mode-change', { bubbles: true, detail: { mode: newMode } });
 
 const Addon = () => {
     const [mode, setMode] = useState('light');
@@ -15,6 +19,11 @@ const Addon = () => {
 
         setModeVars(newMode);
         setModeVarsInMobileFrame(newMode);
+
+        const modeChangeEvent = createModeChangeEvent(newMode);
+
+        document.body.dispatchEvent(modeChangeEvent);
+        getStoryDoc().body.dispatchEvent(modeChangeEvent);
     }, []);
 
     return (
