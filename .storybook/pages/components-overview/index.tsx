@@ -57,7 +57,7 @@ export const ComponentsOverview = () => {
     const Title = isMobile ? Typography.TitleMobile : Typography.Title;
 
     return (
-        <div>
+        <div id='components-overview'>
             <Title tag='h1' view='xlarge' font='styrene'>
                 Витрина компонентов
             </Title>
