@@ -1,4 +1,22 @@
 @define-mixin button-corp {
+    /* primary */
+    --button-primary-base-bg-color: var(--color-light-bg-accent);
+    --button-primary-hover-bg-color: var(--color-light-bg-accent-shade-7);
+    --button-primary-active-bg-color: var(--color-light-bg-accent-shade-15);
+    --button-primary-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-primary-color: var(--color-static-text-primary-light);
+    --button-primary-disabled-color: var(--color-light-text-tertiary);
+
+    /* primary-inverted */
+    --button-inverted-primary-base-bg-color: var(--color-light-bg-accent);
+    --button-inverted-primary-hover-bg-color: var(--color-light-bg-accent-tint-15);
+    --button-inverted-primary-active-bg-color: var(--color-light-bg-accent-tint-20);
+    --button-inverted-primary-disabled-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-primary-disabled-color: var(--color-light-text-tertiary-inverted);
+    --button-inverted-primary-color: var(--color-static-text-primary-light);
+
     /* inverted-secondary */
 
     /* TODO colod-mod */
@@ -25,4 +43,8 @@
     --button-inverted-tertiary-disabled-border-color: transparent;
     --button-inverted-tertiary-color: var(--color-light-text-primary-inverted);
     --button-inverted-tertiary-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
+
+    /* spinner */
+    --button-spinner-primary-color: var(--color-static-graphic-light);
+    --button-spinner-inverted-primary-color: var(--color-static-graphic-light);
 }
