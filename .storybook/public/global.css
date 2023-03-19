@@ -494,6 +494,12 @@ pre.sbdocs-pre.sbdocs {
     margin: var(--gap-xl) 0;
 }
 
+@media (max-width: 599px) {
+    pre.sbdocs-pre.sbdocs {
+        margin: var(--gap-xl) var(--gap-m-neg);
+    }
+}
+
 pre.sbdocs-pre.sbdocs + h2,
 pre.sbdocs-pre.sbdocs + h3 {
     margin-top: var(--gap-4xl);
