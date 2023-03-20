@@ -80,6 +80,16 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     hasCloser?: boolean;
 
     /**
+     * Доп. класс враппера кнопки "закрыть".
+     */
+    closerWrapperClassName?: string;
+
+    /**
+     * Доп. класс кнопки "закрыть".
+     */
+    closerClassName?: string;
+
+    /**
      * Растягивает компонент на ширину контейнера
      */
     block?: boolean;
@@ -124,6 +134,8 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             onClose,
             getBadgeIcons,
             colors = 'default',
+            closerWrapperClassName,
+            closerClassName,
             ...restProps
         },
         ref,
@@ -199,12 +211,13 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                             className={cn(
                                 styles.closeButtonWrapper,
                                 colorStyles[colors].closeButtonWrapper,
+                                closerWrapperClassName,
                             )}
                         >
                             <IconButton
                                 icon={CrossMIcon}
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                className={cn(styles.closeButton)}
+                                className={cn(styles.closeButton, closerClassName)}
                                 onClick={handleClose}
                                 aria-label='закрыть'
                             />
