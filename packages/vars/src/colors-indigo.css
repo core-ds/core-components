@@ -488,6 +488,7 @@
     --color-light-text-secondary-inverted-tint-20: rgba(255, 255, 255, 0.76);
     --color-light-text-secondary-inverted-tint-30: rgba(255, 255, 255, 0.79);
     --color-static-bg-primary-dark-alpha-10: rgba(11, 31, 53, 0.1);
+    --color-static-bg-primary-dark-alpha-15: rgba(11, 31, 53, 0.15);
     --color-static-bg-primary-dark-alpha-20: rgba(11, 31, 53, 0.2);
     --color-static-text-primary-light-alpha-30: rgba(255, 255, 255, 0.3);
 }
