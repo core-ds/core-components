@@ -83,7 +83,8 @@ export const format = (value: string): string =>
         .replace(/^(\d\.\d\.\d\d\d\d)([0-9]*)/, '$1') // 1.2.20055125125 => 1.2.2005
         .replace(/^(\d\d)\.()\.(\d\d\d\d)([0-9]*)/, '$1.$2.$3') // 01..2005123123 => 01..2005
         .replace(/^(\d)\.()\.(\d\d\d\d)([0-9]*)/, '$1.$2.$3') // 1..2005123123 => 1..2005
-        .replace(/^()\.()\.(\d\d\d\d)([0-9]*)/, '$1.$2.$3'); // ..2005123123 => ..2005
+        .replace(/^()\.()\.(\d\d\d\d)([0-9]*)/, '$1.$2.$3') // ..2005123123 => ..2005
+        .replace(/^()\.(\d)\.(\d\d\d\d)([0-9]*)/, '$1.$2.$3'); // .2.2005123123 => .2.2005
 
 export const parseTimestampToDate = (timestamp: number): string => {
     const date = new Date(timestamp);
