@@ -1,3 +1,26 @@
+## 39.4.0
+
+<sup><time>20.03.2023</time></sup>
+
+### [#579](https://github.com/core-ds/core-components/pull/579)
+
+#### Что изменилось
+- Добавлены новые правила форматирования для DateInput, DateRangeInput, DateTimeInput
+
+#### Влияние на компоненты
+- Минорное<br />`date-input` `date-range-input` `date-time-input`
+
+
+### [#595](https://github.com/core-ds/core-components/pull/595)
+
+#### Что изменилось
+- Добавлены пропы closerClassName и closerWrapperClassname
+
+#### Влияние на компоненты
+- Патчи<br />`toast-plate`
+
+
+
 ## 39.3.0
 
 <sup><time>20.03.2023</time></sup>
