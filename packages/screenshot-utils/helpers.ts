@@ -37,6 +37,40 @@ type CloseBrowserParams = {
 
 export const defaultViewport = { width: 1024, height: 768 };
 
+const fontSettings = `
+    :root{
+      --font-family: "Inter", sans-serif;
+      --font-family-system: "Inter", sans-serif;
+    }
+
+    @font-face {
+        font-family: 'Styrene UI';
+        src: url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_regular.woff2')
+                format('woff2'),
+            url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_regular.woff')
+                format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Styrene UI'
+        src: url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_medium.woff2')
+                format('woff2'),
+            url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_medium.woff')
+                format('woff');
+        font-weight: 500;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Styrene UI';
+        src: url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_bold.woff2')
+                format('woff2'),
+            url('https://alfabank.servicecdn.ru/media/fonts/styrene-ui/styrene-ui_bold.woff')
+                format('woff');
+        font-weight: 700;
+        font-style: normal;
+    }`;
+
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
  */
@@ -60,7 +94,7 @@ const getPageHtml = async (page: Page, css?: string) => {
 
     const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
 
-    return `<html><head><style>${css}</style>${head}</head><body style="font-family: var(--font-family)">${body}</body></html>`;
+    return `<!DOCTYPE html><html><head><style>${css}</style>${head}</head><body style="font-family: var(--font-family)">${body}</body></html>`;
 };
 
 export type MatchHtmlParams = {
@@ -109,6 +143,8 @@ export const matchHtml = async ({
     evaluate,
     viewport = defaultViewport,
 }: MatchHtmlParams) => {
+    css = `${css}\n${fontSettings}`;
+
     let pageHtml = await getPageHtml(page, css);
 
     let newPage = await context.newPage();
