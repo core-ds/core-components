@@ -19,6 +19,7 @@ describe(
                         colors: ['default', 'inverted'],
                         passwordVisible: [true, false],
                         value: 'my password',
+                        block: true,
                     },
                     size: { width: 300, height: 70 },
                 }),
