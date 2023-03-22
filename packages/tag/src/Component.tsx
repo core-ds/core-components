@@ -63,10 +63,10 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     ) => void;
 
     /**
-     * Callback передачи нод tag и children
+     * ref на children
      */
 
-    nodesTransfer?: (tag: HTMLButtonElement, children: HTMLSpanElement) => void;
+    childrenRef?: React.RefObject<HTMLSpanElement>;
 
     /**
      * Набор цветов для компонента
@@ -107,8 +107,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             variant = 'default',
             shape,
             view = 'outlined',
-            nodesTransfer,
             childrenClassName,
+            childrenRef,
             ...restProps
         },
         ref,
@@ -116,8 +116,6 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         const colorStyles = colorStylesMap[colors];
 
         const tagRef = useRef<HTMLButtonElement>(null);
-
-        const childrenRef = useRef<HTMLSpanElement>(null);
 
         const [focused] = useFocus(tagRef, 'keyboard');
 
@@ -149,13 +147,6 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                 onClick(event, { name, checked: !checked });
             }
         };
-
-        useLayoutEffect(() => {
-            const handlerAndNodesExist = nodesTransfer && tagRef.current && childrenRef.current;
-            if (handlerAndNodesExist) {
-                nodesTransfer(tagRef.current, childrenRef.current);
-            }
-        }, [nodesTransfer]);
 
         return (
             <button
