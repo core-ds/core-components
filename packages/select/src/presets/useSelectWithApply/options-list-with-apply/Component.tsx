@@ -1,4 +1,4 @@
-import React, { forwardRef, RefAttributes, useCallback, useEffect, useRef } from 'react';
+import React, { forwardRef, RefAttributes, useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { Button } from '@alfalab/core-components-button';
 
@@ -13,6 +13,7 @@ type OptionsListWithApplyProps = OptionsListProps & {
     onClose?: () => void;
     selectedDraft?: OptionShape[];
     OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
+    view?: string;
 };
 
 export const OptionsListWithApply = forwardRef(
@@ -28,11 +29,14 @@ export const OptionsListWithApply = forwardRef(
             onClear = () => null,
             onClose = () => null,
             visibleOptions = 5,
+            view,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
     ) => {
         const footerRef = useRef<HTMLDivElement>(null);
+
+        const buttonView = useMemo(() => (view === 'mobile' ? 's' : 'xxs'), [view]);
 
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => {
@@ -95,15 +99,25 @@ export const OptionsListWithApply = forwardRef(
                     <div
                         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                         tabIndex={0}
-                        className={styles.footer}
+                        className={view === 'mobile' ? styles.footerMobile : styles.footer}
                         ref={footerRef}
                     >
-                        <Button size='xxs' view='primary' onClick={handleApply}>
+                        <Button
+                            size={buttonView}
+                            view='primary'
+                            onClick={handleApply}
+                            className={view === 'mobile' ? styles.footerButton : undefined}
+                        >
                             Применить
                         </Button>
 
                         {showClear && (
-                            <Button size='xxs' view='secondary' onClick={handleClear}>
+                            <Button
+                                size={buttonView}
+                                view='secondary'
+                                onClick={handleClear}
+                                className={view === 'mobile' ? styles.footerButton : undefined}
+                            >
                                 Сбросить
                             </Button>
                         )}

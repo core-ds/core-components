@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
+import { useMedia } from '@alfalab/hooks';
+
 import { BaseSelectProps, OptionShape, processOptions } from '../..';
 
 import { OptionsListWithApply } from './options-list-with-apply';
@@ -35,6 +37,12 @@ type useSelectWithApplyProps = {
      * Показывать пункт "Выбрать все"
      */
     showSelectAll?: boolean;
+
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 };
 
 export const SELECT_ALL_KEY = 'select_all';
@@ -48,6 +56,7 @@ export function useSelectWithApply({
     OptionsList,
     showClear = true,
     showSelectAll = false,
+    breakpoint = 1024,
 }: useSelectWithApplyProps) {
     const { flatOptions, selectedOptions } = useMemo(
         () => processOptions(options, selected),
@@ -117,6 +126,14 @@ export function useSelectWithApply({
         [options, showSelectAll],
     );
 
+    const [view] = useMedia(
+        [
+            ['mobile', `(max-width: ${breakpoint - 1}px)`],
+            ['desktop', `(min-width: ${breakpoint}px)`],
+        ],
+        'desktop',
+    );
+
     return {
         OptionsList: OptionsListWithApply,
         optionsListProps: {
@@ -126,6 +143,7 @@ export function useSelectWithApply({
             onApply: handleApply,
             onClose: handleClose,
             selectedDraft,
+            view,
         },
         allowUnselect: true,
         multiple: true,

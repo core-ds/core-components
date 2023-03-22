@@ -51,7 +51,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
     <div
       aria-expanded="true"
       aria-haspopup="listbox"
-      aria-owns="downshift-5-menu"
+      aria-owns="downshift-3-menu"
       class="component"
       role="combobox"
       tabindex="-1"
@@ -63,10 +63,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
           class="component component s block"
         >
           <div
-            aria-controls="downshift-5-menu"
-            aria-labelledby="downshift-5-label"
+            aria-controls="downshift-3-menu"
+            aria-labelledby="downshift-3-label"
             class="field inner inner"
-            id="downshift-4-input"
+            id="downshift-2-input"
             tabindex="0"
           >
             <div
@@ -205,8 +205,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     class="content sheetContent"
                   >
                     <div
-                      aria-labelledby="downshift-5-label"
-                      id="downshift-5-menu"
+                      aria-labelledby="downshift-3-label"
+                      class="optionsList"
+                      id="downshift-3-menu"
                       role="listbox"
                     >
                       <div
@@ -215,7 +216,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                         <div
                           aria-selected="false"
                           class="option m option"
-                          id="downshift-5-item-0"
+                          id="downshift-3-item-0"
                           role="option"
                         >
                           <div
@@ -265,7 +266,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                         <div
                           aria-selected="false"
                           class="option m option"
-                          id="downshift-5-item-1"
+                          id="downshift-3-item-1"
                           role="option"
                         >
                           <div

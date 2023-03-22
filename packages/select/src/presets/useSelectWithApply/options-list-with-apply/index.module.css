@@ -10,3 +10,20 @@
         margin-left: var(--gap-xs);
     }
 }
+
+.footerMobile {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    padding: var(--gap-m) var(--gap-m);
+    background-color: var(--color-light-bg-primary);
+    bottom: 0;
+
+    & .footerButton:first-of-type {
+        margin-right: var(--gap-m);
+    }
+}
+
+.footerButton {
+    width: 47.5%;
+}

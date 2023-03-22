@@ -168,6 +168,12 @@ const OPTIONS = [
 ];
 
 render(() => {
+    const [selected, setSelected] = React.useState([]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map((option) => option.key));
+    };
+
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
@@ -183,8 +189,12 @@ render(() => {
                 options={OPTIONS}
                 placeholder='С подтверждением'
                 Option={BaseOption}
-                multiple={true}
                 block={true}
+                {...useSelectWithApply({
+                    options: OPTIONS,
+                    selected,
+                    onChange: handleChange,
+                })}
             />
         </div>
     );
