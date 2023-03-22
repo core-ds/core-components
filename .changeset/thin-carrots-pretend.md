@@ -2,4 +2,4 @@
 '@alfalab/core-components-tag': minor
 ---
 
-Добавлена возможность обработки ситуации превышения ширины children
+Добавлены пропсы childrenRef и childrenClassName, добавлен стиль white-space: nowrap;
