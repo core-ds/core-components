@@ -13,7 +13,7 @@ type OptionsListWithApplyProps = OptionsListProps & {
     onClose?: () => void;
     selectedDraft?: OptionShape[];
     OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
-    view?: string;
+    view?: 'mobile' | 'desktop';
 };
 
 export const OptionsListWithApply = forwardRef(
