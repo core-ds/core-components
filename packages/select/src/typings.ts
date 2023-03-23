@@ -406,7 +406,7 @@ export type FieldProps = {
         onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
         onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
         onClick?: (event: MouseEvent<HTMLDivElement | HTMLInputElement>) => void;
-        tabIndex: number;
+        tabIndex?: number;
         id: string;
     } & RefAttributes<HTMLDivElement | HTMLInputElement> &
         AriaAttributes;
