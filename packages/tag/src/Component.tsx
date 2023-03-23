@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef, RefObject } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -66,7 +66,7 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
      * ref на children
      */
 
-    childrenRef?: React.RefObject<HTMLSpanElement>;
+    childrenRef?: RefObject<HTMLSpanElement>;
 
     /**
      * Набор цветов для компонента
