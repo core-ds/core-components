@@ -77,7 +77,6 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             leftAddons,
             rightAddons,
             popperClassName,
-            optionsListClassName,
             optionClassName,
             showArrow,
             ...restProps
@@ -111,7 +110,6 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
                 popperClassName={cn('cc-picker-button', styles.optionsPopover, popperClassName, {
                     [styles.sideGap]: isSideGap,
                 })}
-                optionsListClassName={cn(styles.optionsListContainer, optionsListClassName)}
                 optionClassName={cn(styles.option, optionClassName)}
                 selected={[]}
                 closeOnSelect={true}
