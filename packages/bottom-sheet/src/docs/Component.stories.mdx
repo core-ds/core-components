@@ -17,6 +17,8 @@ export const longText = Array(10).fill(shortText).join('\n\n');
 
 <Meta title='Components/BottomSheet' component={BottomSheet} id='BottomSheet' />
 
+export const BACKGROUND = ['primary', 'secondary', undefined];
+
 <!-- Canvas -->
 
 <Story name='BottomSheet'>
@@ -74,6 +76,7 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                     hideOverlay={boolean('hideOverlay', false)}
                     hideHeader={boolean('hideHeader', false)}
                     disableOverlayClick={boolean('disableOverlayClick', false)}
+                    backgroundColor={select('backgroundColor', BACKGROUND, undefined)}
                 >
                     <div style={{ whiteSpace: 'pre-wrap' }}>{textContent}</div>
                 </BottomSheet>

@@ -18,6 +18,7 @@ import cn from 'classnames';
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 import type { NavigationBarProps } from '@alfalab/core-components-navigation-bar';
 
+import { BackgroundColorType } from '../../types';
 import { getDataTestId } from '../../utils';
 
 import { Footer } from './components/footer/Component';
@@ -85,6 +86,11 @@ export type BottomSheetProps = {
      * Дополнительный класс
      */
     containerClassName?: string;
+
+    /**
+     * Цвет фона
+     */
+    backgroundColor?: Extract<BackgroundColorType, 'primary' | 'secondary'>;
 
     /**
      * Дополнительный класс шапки
@@ -255,6 +261,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             open,
             title,
             container,
+            backgroundColor,
             titleSize = 'default',
             subtitle,
             actionButton,
@@ -480,6 +487,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             maxHeight: targetHeight,
         });
 
+        const bgClassName = backgroundColor && styles[`background-${backgroundColor}`];
+
         return (
             <BaseModal
                 open={open}
@@ -512,7 +521,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             >
                 <div style={{ ...getHeightStyles() }}>
                     <div
-                        className={cn(styles.component, className, {
+                        className={cn(styles.component, bgClassName, className, {
                             [styles.withTransition]: !sheetOffset,
                         })}
                         style={{
@@ -547,7 +556,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             </div>
 
                             {actionButton && (
-                                <Footer sticky={stickyFooter} className={footerClassName}>
+                                <Footer
+                                    sticky={stickyFooter}
+                                    className={cn(bgClassName, footerClassName)}
+                                >
                                     {actionButton}
                                 </Footer>
                             )}
