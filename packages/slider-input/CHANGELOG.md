@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.1.11
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   slider@4.1.5
+    -   input@11.1.9
+
 ## 7.1.10
 
 ### Patch Changes

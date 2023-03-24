@@ -1,5 +1,16 @@
 # @alfalab/core-components-steps
 
+## 1.1.7
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   badge@5.0.2
+
 ## 1.1.6
 
 ### Patch Changes

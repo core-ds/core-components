@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.2.17
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   calendar@6.2.15
+    -   date-input@4.2.1
+    -   popover@6.0.8
+
 ## 8.2.16
 
 ### Patch Changes

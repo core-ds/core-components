@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.12
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   typography@3.2.1
+
 ## 3.0.11
 
 ### Patch Changes

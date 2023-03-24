@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.2.9
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   base-modal@5.1.2
+    -   scrollbar@2.1.5
+
 ## 4.2.8
 
 ### Patch Changes

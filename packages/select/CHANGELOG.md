@@ -1,5 +1,30 @@
 # Change Log
 
+## 13.2.19
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+### [#598](https://github.com/core-ds/core-components/pull/598)
+
+-   Исправлена ошибка, из-за которой у Select-а в задизейбленном состоянии менялся фон при фокусировке
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   base-modal@5.1.2
+    -   modal@7.0.5
+    -   badge@5.0.2
+    -   bottom-sheet@6.0.5
+    -   checkbox@3.1.2
+    -   form-control@9.0.4
+    -   input@11.1.9
+    -   popover@6.0.8
+    -   scrollbar@2.1.5
+    -   skeleton@4.0.5
+
 ## 13.2.18
 
 ### Patch Changes

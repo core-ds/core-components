@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.16
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   masked-input@6.1.9
+
 ## 5.2.15
 
 ### Patch Changes

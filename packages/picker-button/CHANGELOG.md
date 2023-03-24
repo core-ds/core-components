@@ -1,5 +1,25 @@
 # Change Log
 
+## 10.3.14
+
+### Patch Changes
+
+### [#602](https://github.com/core-ds/core-components/pull/602)
+
+-   Небольшое исправление компонента
+
+### [#584](https://github.com/core-ds/core-components/pull/584)
+
+-   Удалены хардкод стили выпадающего списка. Теперь стили такие же как и у селекта
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   select@13.2.19
+
 ## 10.3.13
 
 ### Patch Changes

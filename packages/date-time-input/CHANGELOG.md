@@ -1,5 +1,19 @@
 # @alfalab/core-components-date-time-input
 
+## 3.1.1
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   calendar@6.2.15
+    -   icon-button@6.0.9
+    -   input@11.1.9
+    -   popover@6.0.8
+
 ## 3.1.0
 
 ### Minor Changes

@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.0.5
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   base-modal@5.1.2
+    -   backdrop@3.0.5
+    -   icon-button@6.0.9
+    -   navigation-bar@0.1.3
+    -   typography@3.2.1
+
 ## 6.0.4
 
 ### Patch Changes

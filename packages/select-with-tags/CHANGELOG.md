@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.0.26
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   form-control@9.0.4
+    -   select@13.2.19
+    -   tag@5.3.0
+
 ## 7.0.25
 
 ### Patch Changes

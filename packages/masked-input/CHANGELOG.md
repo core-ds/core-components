@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.1.9
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   input@11.1.9
+
 ## 6.1.8
 
 ### Patch Changes

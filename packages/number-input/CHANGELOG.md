@@ -1,5 +1,16 @@
 # @alfalab/core-components-number-input
 
+## 1.0.7
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   input@11.1.9
+
 ## 1.0.6
 
 ### Patch Changes

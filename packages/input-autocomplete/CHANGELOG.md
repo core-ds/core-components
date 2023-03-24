@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.3.16
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   form-control@9.0.4
+    -   input@11.1.9
+    -   select@13.2.19
+
 ## 9.3.15
 
 ### Patch Changes

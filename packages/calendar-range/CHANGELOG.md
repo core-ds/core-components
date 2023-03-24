@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.0.24
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   calendar@6.2.15
+    -   calendar-input@8.2.17
+    -   date-input@4.2.1
+
 ## 7.0.23
 
 ### Patch Changes

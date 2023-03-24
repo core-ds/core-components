@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   base-modal@5.1.2
+    -   drawer@4.2.9
+    -   icon-button@6.0.9
+    -   mq@4.1.4
+    -   navigation-bar@0.1.3
+
 ## 3.0.4
 
 ### Patch Changes
