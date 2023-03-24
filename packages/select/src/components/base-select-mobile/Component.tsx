@@ -21,6 +21,7 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
 import { getDataTestId } from '../../../../utils';
+import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 import { AnyObject, BaseSelectProps, OptionProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
@@ -28,14 +29,9 @@ import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
 
-import { OptionsList as DefaultOptionsList } from './options-list';
-import { VirtualOptionsList as DefaultVirtualOptionsList } from './virtual-options-list';
-
 import styles from './index.module.css';
 
-const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
-
-export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark'> & {
+export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> & {
     /**
      * Футер
      * @deprecated Используйте bottomSheetProps.actionButton
@@ -96,19 +92,16 @@ export const BaseSelectMobile = forwardRef(
             onChange,
             onOpen,
             onFocus,
-            onScroll,
             Arrow = DefaultArrow,
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
-                ? DefaultVirtualOptionsList
-                : DefaultOptionsList,
+            OptionsList = OptionsListWithApply,
             swipeable,
             footer,
             isBottomSheet,
             bottomSheetProps,
-            visibleOptions,
+            visibleOptions = 0,
             showEmptyOptionsList = false,
         }: SelectMobileProps,
         ref,
@@ -418,7 +411,6 @@ export const BaseSelectMobile = forwardRef(
                                     toggleMenu={toggleMenu}
                                     getOptionProps={getOptionProps}
                                     visibleOptions={visibleOptions}
-                                    onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
                                     optionGroupClassName={cn(
                                         styles.optionGroup,
@@ -441,10 +433,11 @@ export const BaseSelectMobile = forwardRef(
                         </ModalMobile.Header>
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsList
-                                showFooter={multiple}
                                 {...(optionsListProps as AnyObject)}
+                                optionsListWidth={optionsListWidth}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
+                                open={open}
                                 size={size}
                                 options={options}
                                 Optgroup={Optgroup}
@@ -453,6 +446,7 @@ export const BaseSelectMobile = forwardRef(
                                 setSelectedItems={setSelectedItems}
                                 toggleMenu={toggleMenu}
                                 getOptionProps={getOptionProps}
+                                visibleOptions={visibleOptions}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
                             />

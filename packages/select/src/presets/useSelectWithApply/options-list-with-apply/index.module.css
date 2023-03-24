@@ -13,8 +13,9 @@
 
 .footerMobile {
     display: flex;
-    justify-content: space-between;
-    position: sticky;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
     padding: var(--gap-m) var(--gap-m);
     background-color: var(--color-light-bg-primary);
     bottom: 0;
@@ -25,5 +26,5 @@
 }
 
 .footerButton {
-    width: 47.5%;
+    width: 50%;
 }

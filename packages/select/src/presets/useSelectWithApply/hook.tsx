@@ -7,7 +7,7 @@ import { BaseSelectProps, OptionShape, processOptions } from '../..';
 import { OptionsListWithApply } from './options-list-with-apply';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-type useSelectWithApplyProps = {
+export type useSelectWithApplyProps = {
     /**
      * Список выбранных пунктов
      */
@@ -54,7 +54,7 @@ export function useSelectWithApply({
     selected,
     onChange = () => null,
     OptionsList,
-    showClear = true,
+    showClear = false,
     showSelectAll = false,
     breakpoint = 1024,
 }: useSelectWithApplyProps) {
@@ -138,7 +138,7 @@ export function useSelectWithApply({
         OptionsList: OptionsListWithApply,
         optionsListProps: {
             OptionsList,
-            showClear: showClear && (selectedDraft.length > 0 || selectedOptions.length > 0),
+            showClear: showClear || selectedDraft.length > 0 || selectedOptions.length > 0,
             onClear: handleClear,
             onApply: handleApply,
             onClose: handleClose,

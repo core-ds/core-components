@@ -38,6 +38,7 @@ export const OptionsList = forwardRef(
             optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
+            showFooter = true,
         }: OptionsListProps,
         ref,
     ) => {
@@ -108,7 +109,11 @@ export const OptionsList = forwardRef(
         };
 
         const renderWithNativeScrollbar = () => (
-            <div className={styles.scrollable} ref={mergeRefs([listRef, ref])} onScroll={onScroll}>
+            <div
+                className={cn(styles.scrollable, showFooter && styles.mobileList)}
+                ref={mergeRefs([listRef, ref])}
+                onScroll={onScroll}
+            >
                 {renderListItems()}
             </div>
         );
@@ -122,7 +127,7 @@ export const OptionsList = forwardRef(
 
                 {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
-                {footer && (
+                {showFooter && footer && (
                     <div
                         className={cn(styles.optionsListFooter, {
                             [styles.withBorder]:

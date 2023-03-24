@@ -2,7 +2,7 @@ import React, { forwardRef, RefAttributes, useCallback, useEffect, useMemo, useR
 
 import { Button } from '@alfalab/core-components-button';
 
-import { OptionsList as DefaultOptionsList } from '../../../components';
+import { OptionsList as DefaultOptionsList, VirtualOptionsList } from '../../../components';
 import { OptionShape, OptionsListProps } from '../../../typings';
 import { SELECT_ALL_KEY } from '../hook';
 
@@ -15,6 +15,8 @@ type OptionsListWithApplyProps = OptionsListProps & {
     OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
     view?: 'mobile' | 'desktop';
 };
+
+const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
 export const OptionsListWithApply = forwardRef(
     (
@@ -85,10 +87,48 @@ export const OptionsListWithApply = forwardRef(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
-        return (
+        return flatOptions.length < VIRTUAL_OPTIONS_LIST_THRESHOLD ? (
             <OptionsList
                 {...restProps}
                 ref={ref}
+                visibleOptions={visibleOptions}
+                toggleMenu={toggleMenu}
+                flatOptions={flatOptions}
+                getOptionProps={getOptionProps}
+                onApply={handleApply}
+                onClear={handleClear}
+                footer={
+                    <div
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                        tabIndex={0}
+                        className={view === 'mobile' ? styles.footerMobile : styles.footer}
+                        ref={footerRef}
+                    >
+                        <Button
+                            size={buttonView}
+                            view='primary'
+                            onClick={handleApply}
+                            className={view === 'mobile' ? styles.footerButton : undefined}
+                        >
+                            Применить
+                        </Button>
+
+                        {showClear && (
+                            <Button
+                                size={buttonView}
+                                view='secondary'
+                                onClick={handleClear}
+                                className={view === 'mobile' ? styles.footerButton : undefined}
+                            >
+                                Сбросить
+                            </Button>
+                        )}
+                    </div>
+                }
+            />
+        ) : (
+            <VirtualOptionsList
+                {...restProps}
                 visibleOptions={visibleOptions}
                 toggleMenu={toggleMenu}
                 flatOptions={flatOptions}

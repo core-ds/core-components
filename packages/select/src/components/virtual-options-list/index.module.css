@@ -27,6 +27,10 @@
     width: 100%;
 }
 
+.mobileList {
+    margin-bottom: 80px;
+}
+
 .inner {
     position: relative;
     width: 100%;

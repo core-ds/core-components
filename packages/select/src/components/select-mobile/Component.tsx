@@ -2,6 +2,7 @@ import React, { forwardRef, ReactNode } from 'react';
 
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 
+import { useSelectWithApply, useSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
 import { BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
@@ -26,6 +27,11 @@ export type AdditionalMobileProps = {
      * Дополнительные пропсы шторки
      */
     bottomSheetProps?: Partial<BottomSheetProps>;
+
+    /**
+     * Дополнительные пропсы для хука useSelectWithApply
+     */
+    hookProps?: useSelectWithApplyProps;
 };
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> &
@@ -50,30 +56,50 @@ export const SelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            selected,
+            options,
+            onChange,
+            hookProps = {
+                selected,
+                options,
+                onChange,
+                showClear: true,
+            },
+            bottomSheetProps,
             ...restProps
         }: SelectMobileProps,
         ref,
-    ) => (
-        <BaseSelectMobile
-            ref={ref}
-            autocomplete={autocomplete}
-            multiple={multiple}
-            allowUnselect={allowUnselect}
-            disabled={disabled}
-            closeOnSelect={closeOnSelect}
-            circularNavigation={circularNavigation}
-            defaultOpen={defaultOpen}
-            open={openProp}
-            size={size}
-            optionsSize={optionsSize}
-            fieldProps={fieldProps}
-            optionProps={optionProps}
-            Arrow={Arrow}
-            Field={Field}
-            Optgroup={Optgroup}
-            Option={Option}
-            isBottomSheet={true}
-            {...restProps}
-        />
-    ),
+    ) => {
+        const applyProps = useSelectWithApply(hookProps);
+
+        return (
+            <BaseSelectMobile
+                ref={ref}
+                allowUnselect={allowUnselect}
+                disabled={disabled}
+                closeOnSelect={closeOnSelect}
+                autocomplete={autocomplete}
+                multiple={multiple}
+                circularNavigation={circularNavigation}
+                defaultOpen={defaultOpen}
+                optionsListProps={{ showFooter: multiple }}
+                open={openProp}
+                size={size}
+                optionsSize={optionsSize}
+                fieldProps={fieldProps}
+                optionProps={optionProps}
+                Arrow={Arrow}
+                Field={Field}
+                Optgroup={Optgroup}
+                Option={Option}
+                isBottomSheet={true}
+                options={options}
+                selected={selected}
+                onChange={onChange}
+                {...restProps}
+                {...(multiple && !bottomSheetProps?.actionButton && applyProps)}
+                bottomSheetProps={bottomSheetProps}
+            />
+        );
+    },
 );

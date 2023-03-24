@@ -78,6 +78,11 @@ const OPTIONS = [
 ];
 
 render(() => {
+    const [selected, setSelected] = React.useState([]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map((option) => option.key));
+    };
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
@@ -88,13 +93,16 @@ render(() => {
                 block={true}
             />
             <div style={{ height: 'var(--gap-m)' }} />
-            <SelectMobile
+             <SelectMobile
+                multiple
                 allowUnselect={true}
                 options={OPTIONS}
                 placeholder='Множественный выбор'
                 Option={BaseOption}
-                multiple={true}
                 block={true}
+                options={OPTIONS}
+                selected={selected}
+                onChange={handleChange}
             />
         </div>
     );
@@ -185,16 +193,15 @@ render(() => {
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
+                multiple
                 allowUnselect={true}
                 options={OPTIONS}
                 placeholder='С подтверждением'
                 Option={BaseOption}
                 block={true}
-                {...useSelectWithApply({
-                    options: OPTIONS,
-                    selected,
-                    onChange: handleChange,
-                })}
+                options={OPTIONS}
+                selected={selected}
+                onChange={handleChange}
             />
         </div>
     );

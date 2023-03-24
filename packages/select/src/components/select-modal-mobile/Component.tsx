@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 
+import { useSelectWithApply } from '../../presets/useSelectWithApply/hook';
 import { BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
@@ -28,30 +29,46 @@ export const SelectModalMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            selected,
+            options,
+            onChange,
             ...restProps
         }: SelectModalMobileProps,
         ref,
-    ) => (
-        <BaseSelectMobile
-            ref={ref}
-            autocomplete={autocomplete}
-            multiple={multiple}
-            allowUnselect={allowUnselect}
-            disabled={disabled}
-            closeOnSelect={closeOnSelect}
-            circularNavigation={circularNavigation}
-            defaultOpen={defaultOpen}
-            open={openProp}
-            size={size}
-            optionsSize={optionsSize}
-            fieldProps={fieldProps}
-            optionProps={optionProps}
-            Arrow={Arrow}
-            Field={Field}
-            Optgroup={Optgroup}
-            Option={Option}
-            isBottomSheet={false}
-            {...restProps}
-        />
-    ),
+    ) => {
+        const applyProps = useSelectWithApply({
+            selected,
+            options,
+            onChange,
+            showClear: true,
+        });
+
+        return (
+            <BaseSelectMobile
+                ref={ref}
+                autocomplete={autocomplete}
+                multiple={multiple}
+                allowUnselect={allowUnselect}
+                disabled={disabled}
+                closeOnSelect={closeOnSelect}
+                circularNavigation={circularNavigation}
+                defaultOpen={defaultOpen}
+                open={openProp}
+                size={size}
+                optionsSize={optionsSize}
+                fieldProps={fieldProps}
+                optionProps={optionProps}
+                Arrow={Arrow}
+                Field={Field}
+                Optgroup={Optgroup}
+                Option={Option}
+                isBottomSheet={false}
+                options={options}
+                selected={selected}
+                onChange={onChange}
+                {...restProps}
+                {...(multiple && applyProps)}
+            />
+        );
+    },
 );
