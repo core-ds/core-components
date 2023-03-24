@@ -1,3 +1,116 @@
+## 40.0.0
+
+<sup><time>24.03.2023</time></sup>
+
+### [#597](https://github.com/core-ds/core-components/pull/597)
+
+#### Что изменилось
+- Изменен цвет фона инпута
+
+#### Влияние на компоненты
+- Патчи<br />`code-input`
+
+
+### [#602](https://github.com/core-ds/core-components/pull/602)
+
+#### Что изменилось
+- Небольшое исправление компонента
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button`
+
+
+### [#586](https://github.com/core-ds/core-components/pull/586)
+
+#### Что изменилось
+- Исправлен порядок обновления pips и value. Раньше при одновременном изменении pips и value слайдер устанавливался на неверную позицию
+
+#### Влияние на компоненты
+- Патчи<br />`slider`
+
+
+### [#584](https://github.com/core-ds/core-components/pull/584)
+
+#### Что изменилось
+- Удалены хардкод стили выпадающего списка. Теперь стили такие же как и у селекта
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button`
+
+
+### [#582](https://github.com/core-ds/core-components/pull/582)
+
+#### Что изменилось
+Дефолтная тема сменит палитру Indigo на палитру Bluetint.
+
+Основные изменения:
+- Изменятся оттенки серого, тёмный режим начнёт выглядеть хорошо, а веб интерфейсы в дефолтной теме будут еще больше похожи на нативные мобильные.
+- Вместе с изменением палитры будет перекрашена Primary-кнопка. Она станет чёрной, как в мобилке. Недавно добавленная Accent-кнопка останется красной.
+
+Если в своём продукте вы хотите чтобы кнопки, которые используются у вас в интерфейсе, остались красными, то используйте [кодмод](https://www.npmjs.com/package/@alfalab/core-components-codemod/v/2.3.1), который заменит во всех кнопках view=primary на view=accent. Тогда они останутся красными.
+
+Также если вы используете индексный файл с переменными (vars/index.css) , то рекомендуем вам [перейти на один из бандлов](https://github.com/core-ds/core-components/tree/master/packages/vars/src/bundle), подготовленных под продукты (например, vars/bundle/click.css).
+В этих бандлах всегда будет правильный набор переменных для вашего продукта. Если в продукте встречаются очень старые deprecated цвета из файла vars/colors.css, дополнительно подключите его (Он всё ещё есть в индексном файле, но в бандлы его уже не добавляли).
+
+#### Влияние на компоненты
+- Мажорное<br />`button` `themes` `vars`
+
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+#### Что изменилось
+- Добавлен \_\_esModule в cjs экспорт
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal` `collapse` `drawer` `intl-phone-input` `modal`<br /> `space` `toast` `action-button` `alert` `amount`<br /> `amount-input` `attach` `backdrop` `badge` `bank-card`<br /> `bottom-sheet` `button` `calendar` `calendar-input` `calendar-range`<br /> `calendar-with-skeleton` `card-image` `cdn-icon` `chart` `checkbox`<br /> `checkbox-group` `circular-progress-bar` `code-input` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `date-input` `date-range-input` `date-time-input`<br /> `divider` `dropzone` `file-upload-item` `filter-tag` `form-control`<br /> `gallery` `gap` `generic-wrapper` `global-store` `grid`<br /> `hatching-progress-bar` `icon-button` `icon-view` `input` `input-autocomplete`<br /> `keyboard-focusable` `link` `list` `list-header` `loader`<br /> `masked-input` `mq` `navigation-bar` `notification` `notification-manager`<br /> `number-input` `pagination` `pass-code` `password-input` `pattern-lock`<br /> `phone-input` `picker-button` `plate` `popover` `portal`<br /> `progress-bar` `pure-cell` `pure-input` `radio` `radio-group`<br /> `scrollbar` `segmented-control` `select` `select-with-tags` `side-panel`<br /> `skeleton` `slider` `slider-input` `sortable-list` `spinner`<br /> `stack` `status` `stepped-progress-bar` `steps` `switch`<br /> `system-message` `table` `tabs` `tag` `textarea`<br /> `themes` `time-input` `toast-plate` `tooltip` `typography`<br /> `underlay` `vars` `with-suffix`
+
+
+### [#601](https://github.com/core-ds/core-components/pull/601)
+
+#### Что изменилось
+- Добавлена очистка таймера при анмаунте компонента
+
+#### Влияние на компоненты
+- Патчи<br />`toast`
+
+
+### [#587](https://github.com/core-ds/core-components/pull/587)
+
+#### Что изменилось
+- Добавлена переменная в css для фона в компоненте IconView
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#558](https://github.com/core-ds/core-components/pull/558)
+
+#### Что изменилось
+- Добавлены пропсы childrenRef и childrenClassName, добавлен стиль white-space: nowrap;
+
+#### Влияние на компоненты
+- Минорное<br />`tag`
+
+
+### [#580](https://github.com/core-ds/core-components/pull/580)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой неверно удалялись символы из выбранного диапозона
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+### [#598](https://github.com/core-ds/core-components/pull/598)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой у Select-а в задизейбленном состоянии менялся фон при фокусировке
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
 ## 39.4.0
 
 <sup><time>20.03.2023</time></sup>
