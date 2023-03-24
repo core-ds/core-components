@@ -8,36 +8,18 @@ import { Meta } from '@storybook/addon-docs';
 
 ## Скриншотное тестирование
 
-Для запуска тестов необходимо запустить `storybook`:
+Для запуска тестов необходимо иметь установленный `docker`
 
-```bash
-$ yarn start
-```
-
-и запустить тесты:
+Запустить тесты:
 
 ```bash
 $ yarn test:screenshots
 ```
 
-**Для работы тестов необходимо включить VPN.**
-
 **В версии `Node.JS=14.0.0` есть баг, и будет проблема с установкой зависимостей `playwright`.**
 **Обновите версию `Node.JS` на более новую.**
 
-### Как работают скриншот-тесты
-
-Механизм тестирования следующий: локально с помощью [playwright](https://playwright.dev/) открывается
-определенная страница в сторибуке, оттуда берется html-код страницы и отправляется
-на [специальный сервер](http://git.moscow.alfaintra.net/projects/DESIGN/repos/playwright-server/browse),
-где делается скриншот этой страницы.
-
-Сервер нужен, чтобы:
-
--   не принуждать разработчиков запускать у себя локально браузер в докере
--   делать скриншоты в единой ОС
-
-### Есть два вида тестов:
+## Есть два вида тестов:
 
 1. Статические тесты.
 
@@ -45,7 +27,7 @@ $ yarn test:screenshots
 
 Для каждой ссылки делается скриншот:
 
-```tsx
+```jsx
 // component.screenshot.test.ts
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -76,7 +58,7 @@ describe('Input | screenshots sizes, blocks and disabled', screenshotTesting({ c
 
 Взаимодействие со страницей тоже происходит через [playwright](https://playwright.dev/):
 
-```tsx
+```jsx
 // component.screenshot.test.ts
 describe('Input | interactions tests', () => {
     test('Fill input value', async () => {
@@ -97,7 +79,7 @@ describe('Input | interactions tests', () => {
 });
 ```
 
-### Файлы скриншотов
+## Файлы скриншотов
 
 Файлы скриншотов хранятся в [git-lfs](https://git-lfs.github.com/).
 
@@ -111,6 +93,12 @@ $ brew install git-lfs
 
 ```bash
 git lfs install --force
+```
+
+**И скачать фалы со скриншотами в мастер ветку:**
+
+```bash
+git lfs fetch origin master && git lfs checkout
 ```
 
 Далее работать с файлами скриншотов в гите можно как с обычными файлами.

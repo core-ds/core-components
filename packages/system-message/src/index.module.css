@@ -1,0 +1,26 @@
+.component {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.fullHeight {
+    height: 100%;
+
+    & .first {
+        margin-top: auto;
+    }
+
+    & .last {
+        margin-bottom: auto;
+    }
+
+    & .controls {
+        margin-top: auto;
+    }
+
+    & .both {
+        margin: auto 0;
+    }
+}

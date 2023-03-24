@@ -1,3 +1,85 @@
+## 39.4.0
+
+<sup><time>20.03.2023</time></sup>
+
+### [#579](https://github.com/core-ds/core-components/pull/579)
+
+#### Что изменилось
+- Добавлены новые правила форматирования для DateInput, DateRangeInput, DateTimeInput
+
+#### Влияние на компоненты
+- Минорное<br />`date-input` `date-range-input` `date-time-input`
+
+
+### [#595](https://github.com/core-ds/core-components/pull/595)
+
+#### Что изменилось
+- Добавлены пропы closerClassName и closerWrapperClassname
+
+#### Влияние на компоненты
+- Патчи<br />`toast-plate`
+
+
+
+## 39.3.0
+
+<sup><time>20.03.2023</time></sup>
+
+### [#565](https://github.com/core-ds/core-components/pull/565)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не вызывался onChange, если было передано недопустимое значение
+
+#### Влияние на компоненты
+- Патчи<br />`number-input`
+
+
+### [#585](https://github.com/core-ds/core-components/pull/585)
+
+#### Что изменилось
+- Исправлены стили бордера выпадающего списка
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#576](https://github.com/core-ds/core-components/pull/576)
+
+#### Что изменилось
+- Добавлен новый компонент SystemMessage
+
+#### Влияние на компоненты
+- Минорное<br />`system-message`
+
+
+### [#571](https://github.com/core-ds/core-components/pull/571)
+
+#### Что изменилось
+- Добавлен новый breakpoint - mobile-xs
+
+#### Влияние на компоненты
+- Минорное<br />`grid`
+
+
+### [#567](https://github.com/core-ds/core-components/pull/567)
+
+#### Что изменилось
+- Ограничена максимальная ширина компонента ModalMobile до 600px
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#568](https://github.com/core-ds/core-components/pull/568)
+
+#### Что изменилось
+- Ограничена максимальная ширина компонента SidePanelMobile до 600px
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+
 ## 39.2.1
 
 <sup><time>03.03.2023</time></sup>

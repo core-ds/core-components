@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SystemMessage Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component"
+    data-test-id="system-message"
+  >
+    <div
+      class="component"
+      data-test-id="system-message-graphic"
+    >
+      i
+    </div>
+    <h3
+      class="component component"
+      data-test-id="system-message-title"
+    >
+      Title
+    </h3>
+    <span
+      class="component"
+      data-test-id="system-message-subtitle"
+    >
+      Subtitle
+    </span>
+    <span
+      class="component"
+      data-test-id="system-message-caption"
+    >
+      Caption
+    </span>
+    <div
+      class="component row component"
+      data-test-id="system-message-controls"
+    >
+      Buttons
+    </div>
+  </div>
+</div>
+`;

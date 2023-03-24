@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+### [#571](https://github.com/core-ds/core-components/pull/571)
+
+-   Добавлен новый breakpoint - mobile-xs
+
 ## 3.0.3
 
 ### Patch Changes

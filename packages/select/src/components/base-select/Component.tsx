@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, {
     FocusEvent,
     forwardRef,
@@ -417,7 +418,7 @@ export const BaseSelect = forwardRef(
                         onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,
                         onClick: disabled ? undefined : handleFieldClick,
-                        tabIndex: nativeSelect || disabled ? -1 : 0,
+                        tabIndex: disabled ? undefined : nativeSelect ? -1 : 0,
                         ref: mergeRefs([inputProps.ref]),
                         id: inputProps.id,
                         'aria-labelledby': inputProps['aria-labelledby'],

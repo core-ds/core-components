@@ -1,5 +1,16 @@
 # Change Log
 
+## 13.2.18
+
+### Patch Changes
+
+### [#585](https://github.com/core-ds/core-components/pull/585)
+
+-   Исправлены стили бордера выпадающего списка
+
+-   Обновлены зависимости
+    -   modal@7.0.4
+
 ## 13.2.17
 
 ### Patch Changes

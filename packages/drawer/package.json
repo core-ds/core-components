@@ -2,7 +2,6 @@
     "name": "@alfalab/core-components-drawer",
     "version": "4.2.8",
     "description": "Drawer component",
-    "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",

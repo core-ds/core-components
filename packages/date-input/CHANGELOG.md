@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+### [#579](https://github.com/core-ds/core-components/pull/579)
+
+-   Добавлены новые правила форматирования для DateInput, DateRangeInput, DateTimeInput
+
 ## 4.1.8
 
 ### Patch Changes

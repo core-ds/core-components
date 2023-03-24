@@ -126,13 +126,6 @@ export const Slider: FC<SliderProps> = ({
     useEffect(() => {
         const slider = getSlider();
 
-        // Пропускаем обновление, если происходит взаимодействие со слайдером
-        if (slider && busyRef.current === false) slider.set(value, false);
-    }, [value]);
-
-    useEffect(() => {
-        const slider = getSlider();
-
         if (!slider) return;
 
         slider.updateOptions(
@@ -144,6 +137,13 @@ export const Slider: FC<SliderProps> = ({
             true,
         );
     }, [pips, range, step]);
+
+    useEffect(() => {
+        const slider = getSlider();
+
+        // Пропускаем обновление, если происходит взаимодействие со слайдером
+        if (slider && busyRef.current === false) slider.set(value, false);
+    }, [value]);
 
     useEffect(() => {
         const slider = getSlider();

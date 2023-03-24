@@ -1,0 +1,8 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    margin: 0;
+    text-align: center;
+    color: var(--color-light-text-primary);
+    font-family: var(--font-family-system);
+}

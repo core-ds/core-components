@@ -6,6 +6,7 @@ export const Component = () => (
     <React.Fragment>
         <Button>Button</Button>
         <Button view='primary'>Button</Button>
+        <Button view='primary'>Button</Button>
         <Button view='secondary'>Button</Button>
         <Button view='tertiary'>Button</Button>
         <Button view='link'>Button</Button>
@@ -13,5 +14,6 @@ export const Component = () => (
         <Button view='filled'>Button</Button>
         <Button view='outlined'>Button</Button>
         <Button view='transparent'>Button</Button>
+        <Button view='primary'>Button</Button>
     </React.Fragment>
 );

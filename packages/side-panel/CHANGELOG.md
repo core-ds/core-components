@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.4
+
+### Patch Changes
+
+### [#568](https://github.com/core-ds/core-components/pull/568)
+
+-   Ограничена максимальная ширина компонента SidePanelMobile до 600px
+
 ## 3.0.3
 
 ### Patch Changes

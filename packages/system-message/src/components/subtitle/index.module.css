@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    @mixin paragraph_primary_medium;
+
+    text-align: center;
+    color: var(--color-light-text-primary);
+    padding-bottom: var(--gap-s);
+}

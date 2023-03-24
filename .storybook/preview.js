@@ -61,6 +61,7 @@ addParameters({
             method: 'alphabetical',
             order: [
                 'Intro',
+                'Components overview',
                 'Changelog',
                 'Sandbox',
                 'Components',

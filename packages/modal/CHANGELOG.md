@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.4
+
+### Patch Changes
+
+### [#567](https://github.com/core-ds/core-components/pull/567)
+
+-   Ограничена максимальная ширина компонента ModalMobile до 600px
+
 ## 7.0.3
 
 ### Patch Changes

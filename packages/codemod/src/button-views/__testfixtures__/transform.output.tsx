@@ -5,7 +5,8 @@ import { Button } from '@alfalab/core-components-button';
 export const Component = () => (
     <React.Fragment>
         <Button>Button</Button>
-        <Button view='primary'>Button</Button>
+        <Button view='accent'>Button</Button>
+        <Button view='accent'>Button</Button>
         <Button view='secondary'>Button</Button>
         <Button view='tertiary'>Button</Button>
         <Button view='link'>Button</Button>
@@ -13,5 +14,6 @@ export const Component = () => (
         <Button view='secondary'>Button</Button>
         <Button view='tertiary'>Button</Button>
         <Button view='secondary'>Button</Button>
+        <Button view='accent'>Button</Button>
     </React.Fragment>
 );

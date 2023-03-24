@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    padding-top: var(--gap-m);
+
+    & > * {
+        flex: 1;
+    }
+}

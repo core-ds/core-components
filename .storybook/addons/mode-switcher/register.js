@@ -19,7 +19,13 @@ const Addon = () => {
 
     return (
         <div className='tool'>
-            <Form.Select size={1} onChange={handleChange} className='select' value={mode}>
+            <Form.Select
+                id='storybook-mode-switcher'
+                size={1}
+                onChange={handleChange}
+                className='select'
+                value={mode}
+            >
                 {MODES.map((mode) => (
                     <option value={mode} key={mode}>
                         {mode}
