@@ -21,13 +21,13 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
 import { getDataTestId } from '../../../../utils';
-import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 import { AnyObject, BaseSelectProps, OptionProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
 import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
+import { OptionsList as DefaultOptionsList } from '../options-list';
 
 import styles from './index.module.css';
 
@@ -96,7 +96,7 @@ export const BaseSelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            OptionsList = OptionsListWithApply,
+            OptionsList = DefaultOptionsList,
             swipeable,
             footer,
             isBottomSheet,

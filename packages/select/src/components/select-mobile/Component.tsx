@@ -79,7 +79,6 @@ export const SelectMobile = forwardRef(
                 disabled={disabled}
                 closeOnSelect={closeOnSelect}
                 autocomplete={autocomplete}
-                multiple={multiple}
                 circularNavigation={circularNavigation}
                 defaultOpen={defaultOpen}
                 optionsListProps={{ showFooter: multiple }}
@@ -98,6 +97,7 @@ export const SelectMobile = forwardRef(
                 onChange={onChange}
                 {...restProps}
                 {...(multiple && !bottomSheetProps?.actionButton && applyProps)}
+                multiple={multiple}
                 bottomSheetProps={bottomSheetProps}
             />
         );
