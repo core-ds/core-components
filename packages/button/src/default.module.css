@@ -2,11 +2,11 @@
 
 :root {
     /* primary */
-    --button-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-primary-hover-bg-color: var(--color-light-bg-accent-shade-7);
-    --button-primary-active-bg-color: var(--color-light-bg-accent-shade-15);
+    --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-hover-bg-color: var(--color-light-bg-secondary-inverted-tint-15);
+    --button-primary-active-bg-color: var(--color-light-bg-secondary-inverted-tint-20);
     --button-primary-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
-    --button-primary-color: var(--color-static-text-primary-light);
+    --button-primary-color: var(--color-light-text-primary-inverted);
     --button-primary-disabled-color: var(--color-light-text-tertiary);
 
     /* accent */
@@ -62,7 +62,7 @@
 
     /* loader */
     --button-spinner-static-color: var(--color-static-graphic-light);
-    --button-spinner-static-primary-color: var(--color-static-graphic-light);
+    --button-spinner-primary-color: var(--color-light-graphic-primary-inverted);
     --button-spinner-default-color: var(--color-light-graphic-primary);
 }
 
@@ -106,7 +106,7 @@
     }
 
     & > .loader {
-        color: var(--button-spinner-static-primary-color);
+        color: var(--button-spinner-primary-color);
     }
 }
 
@@ -253,6 +253,15 @@
 /* Disabled */
 
 .component[disabled] {
+    &.accent {
+        color: var(--button-accent-disabled-color);
+        background-color: var(--button-accent-disabled-bg-color);
+
+        &.loading {
+            background-color: var(--button-accent-base-bg-color);
+        }
+    }
+
     &.primary {
         color: var(--button-primary-disabled-color);
         background-color: var(--button-primary-disabled-bg-color);
