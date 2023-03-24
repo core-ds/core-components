@@ -214,6 +214,14 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             return targetCountry;
         };
 
+        const changePhone = (phone: string, iso2?: string) => {
+            const newValue = formatPhone(phone, iso2);
+
+            if (newValue !== value) {
+                onChange(newValue);
+            }
+        };
+
         const addCountryCode = (inputValue: string) => {
             if (clearableCountryCode || !countryIso2) {
                 return inputValue.length === 1 && inputValue !== '+'
@@ -228,7 +236,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const setCountryByDialCode = (inputValue: string) => {
             const country = getCountryByNumber(inputValue);
 
-            onChange(formatPhone(addCountryCode(inputValue)));
+            changePhone(addCountryCode(inputValue));
             if (country) {
                 setCountryIso2(country.iso2);
                 handleCountryChange(country.iso2);
@@ -250,7 +258,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
             setCountryByDialCodeWithLengthCheck(event.target.value);
-            onChange(formatPhone(addCountryCode(event.target.value)));
+            changePhone(addCountryCode(event.target.value));
         };
 
         const handleSelectChange: Required<SelectProps>['onChange'] = ({ selected }) => {
@@ -276,7 +284,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             if (!selected) return;
             setCountryByDialCodeWithLengthCheck(selected.key);
-            onChange(formatPhone(selected.key));
+            changePhone(selected.key);
         };
 
         const country = countryIso2 && countriesHash[countryIso2];
@@ -343,35 +351,34 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             onChange(newValue);
         };
 
-        const handleDeleteChar = (
-            event: React.KeyboardEvent<HTMLInputElement>,
-            caretPosition: number,
-        ) => {
+        const handleDeleteChar = (event: React.KeyboardEvent<HTMLInputElement>) => {
             const input = event.target as HTMLInputElement;
+            const selectionStart = input.selectionStart || 0;
+            const selectionEnd = input.selectionEnd || 0;
 
-            if (!clearableCountryCode && caretPosition <= countryCodeLength) return;
+            if (!clearableCountryCode && selectionEnd <= countryCodeLength) return;
 
             const currentValue = input.value;
 
             const isMaskSymbol = (count: number) => {
-                const isMask = MASK_SYMBOLS.includes(currentValue.charAt(caretPosition - count));
+                const isMask = MASK_SYMBOLS.includes(currentValue.charAt(selectionEnd - 1 - count));
                 const isPossibleToRemove = clearableCountryCode
-                    ? caretPosition - count > 0
-                    : caretPosition - count > countryCodeLength;
+                    ? selectionEnd - count > 0
+                    : selectionEnd - count > countryCodeLength;
 
                 return isMask && isPossibleToRemove;
             };
 
-            let deletedCharsCount = 1;
+            let deletedCharsCount = Math.max(1, selectionEnd - selectionStart);
 
             // Высчитываем кол-во символов, которые нужно удалить.
             while (isMaskSymbol(deletedCharsCount)) {
                 deletedCharsCount += 1;
             }
 
-            const phonePart = currentValue.slice(0, caretPosition - deletedCharsCount);
+            const phonePart = currentValue.slice(0, selectionEnd - deletedCharsCount);
             const newValue = formatPhone(
-                addCountryCode(phonePart + currentValue.slice(caretPosition)),
+                addCountryCode(phonePart + currentValue.slice(selectionEnd)),
             );
 
             const phonePartWithoutMask = phonePart.replace(/[^0-9+]+/g, '');
@@ -384,14 +391,25 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
             const input = event.target as HTMLInputElement;
             const caretPosition = input.selectionStart || 0;
+            const disallowedSymbols = /[/|?!@#$%^&*()_=A-Za-zА-Яа-яЁё,. ]/;
+            const withoutCombo = !event.altKey && !event.metaKey && !event.ctrlKey;
+
+            // Запрещаем вводить неразрешенные символы за исключением комбинций клавиш
+            if (withoutCombo && event.key.length === 1 && disallowedSymbols.test(event.key)) {
+                event.preventDefault();
+
+                return;
+            }
 
             // Нажат только Backspace, не сочетание клавиш с ним.
-            if (!event.shiftKey && !event.ctrlKey && !event.metaKey && event.key === 'Backspace') {
+            if (!event.shiftKey && withoutCombo && event.key === 'Backspace') {
                 if (!caretPosition) return;
 
                 event.preventDefault();
 
-                handleDeleteChar(event, caretPosition);
+                handleDeleteChar(event);
+
+                return;
             }
 
             if (event.key.length === 1 && /[0-9+]/.test(event.key)) {
@@ -436,7 +454,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             if (resultNumber) {
                 setCountryIso2(targetCountry ? targetCountry.iso2 : undefined);
-                onChange(formatPhone(addCountryCode(resultNumber)));
+                changePhone(addCountryCode(resultNumber));
             }
         };
 
@@ -457,7 +475,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     phoneLibUtils.current = utils.AsYouType;
 
                     if (canBeEmptyCountry) {
-                        onChange(formatPhone(value));
+                        changePhone(value);
                     } else {
                         setCountryByDialCode(value);
                     }
@@ -482,7 +500,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     setCountryIso2(undefined);
                     handleCountryChange(undefined);
                 }
-                onChange(formatPhone(value, newCountry?.iso2));
+
+                changePhone(value, newCountry?.iso2);
             }
             /* eslint-disable-next-line react-hooks/exhaustive-deps */
         }, [value, canBeEmptyCountry, countryIso2, defaultCountryIso2]);
