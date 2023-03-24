@@ -1122,7 +1122,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
       >
         <div
           aria-labelledby="downshift-15-label"
-          class="optionsListContainer optionsList"
+          class="optionsList"
           id="downshift-15-menu"
           role="listbox"
           style="min-width: 0px;"
