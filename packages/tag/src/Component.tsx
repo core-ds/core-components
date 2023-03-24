@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef, RefObject } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -32,6 +32,11 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     children?: ReactNode;
 
     /**
+     * Дополнительный класс для обёртки children
+     */
+    childrenClassName?: string;
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -56,6 +61,12 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
             name?: string;
         },
     ) => void;
+
+    /**
+     * ref на children
+     */
+
+    childrenRef?: RefObject<HTMLSpanElement>;
 
     /**
      * Набор цветов для компонента
@@ -96,6 +107,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             variant = 'default',
             shape,
             view = 'outlined',
+            childrenClassName,
+            childrenRef,
             ...restProps
         },
         ref,
@@ -145,7 +158,11 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             >
                 {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
 
-                {children && <span>{children}</span>}
+                {children && (
+                    <span ref={childrenRef} className={childrenClassName}>
+                        {children}
+                    </span>
+                )}
 
                 {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
             </button>
