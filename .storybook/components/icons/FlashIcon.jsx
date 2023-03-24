@@ -2,14 +2,13 @@ import React from 'react';
 
 export const FlashIcon = () => (
     <svg
-        className='sidebar-icon'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        role='img'
-        focusable='false'
+        width='16'
+        height='16'
+        viewBox='0 0 16 16'
         fill='currentColor'
+        xmlns='http://www.w3.org/2000/svg'
+        className='sidebar-icon'
     >
-        <path d='M7.5 12L14.5 5L12.9444 10.4444L16.5 12L9.5 19L11.3889 13.5556L7.5 12Z' />
+        <path d='M4 8L10.2222 1L8.83951 6.44444L12 8L5.77778 15L7.45679 9.55556L4 8Z' />
     </svg>
 );
