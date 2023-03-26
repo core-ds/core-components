@@ -9,6 +9,7 @@ import React, {
     Ref,
     useCallback,
     useEffect,
+    useLayoutEffect,
     useMemo,
     useRef,
     useState,
@@ -258,6 +259,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const restoreContainerStylesRef = useRef<null | (() => void)>(null);
         const mouseDownTarget = useRef<HTMLElement>();
         const resizeObserverRef = useRef<ResizeObserver>();
+
+        useLayoutEffect(() => {
+            scrollableNodeRef.current?.scrollTo(0, 0);
+        }, []);
 
         const checkToHasScrollBar = () => {
             if (scrollableNodeRef.current) {
