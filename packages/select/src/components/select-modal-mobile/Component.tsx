@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useSelectWithApply } from '../../presets/useSelectWithApply/hook';
+import { useSelectWithApply, useSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
 import { BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
@@ -8,7 +8,12 @@ import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
 
-export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'>;
+export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> & {
+    /**
+     * Дополнительные пропсы для хука useSelectWithApply
+     */
+    hookProps?: useSelectWithApplyProps;
+};
 
 export const SelectModalMobile = forwardRef(
     (
@@ -32,16 +37,17 @@ export const SelectModalMobile = forwardRef(
             selected,
             options,
             onChange,
+            hookProps = {
+                selected,
+                options,
+                onChange,
+                showClear: true,
+            },
             ...restProps
         }: SelectModalMobileProps,
         ref,
     ) => {
-        const applyProps = useSelectWithApply({
-            selected,
-            options,
-            onChange,
-            showClear: true,
-        });
+        const applyProps = useSelectWithApply(hookProps);
 
         return (
             <BaseSelectMobile
