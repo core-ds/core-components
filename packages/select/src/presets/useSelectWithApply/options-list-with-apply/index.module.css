@@ -1,6 +1,11 @@
 @import '../../../../../themes/src/default.css';
 @import '../../../vars.css';
 
+:root {
+    --select-mobile-footer-border-top: 1px solid var(--color-light-border-primary);
+    --select-mobile-footer-background-color: var(--color-light-bg-primary);
+}
+
 .footer {
     background: var(--color-light-bg-primary);
     padding: var(--gap-s);
@@ -27,4 +32,9 @@
 
 .footerButton {
     width: 50%;
+}
+
+.highlighted {
+    border-top: var(--select-mobile-footer-border-top);
+    background-color: var(--select-mobile-footer-background-color);
 }

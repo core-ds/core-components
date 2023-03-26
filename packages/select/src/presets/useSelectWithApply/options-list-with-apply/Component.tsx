@@ -1,5 +1,15 @@
-import React, { forwardRef, RefAttributes, useCallback, useEffect, useMemo, useRef } from 'react';
+import React, {
+    forwardRef,
+    RefAttributes,
+    useCallback,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+} from 'react';
+import cn from 'classnames';
 
+import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { Button } from '@alfalab/core-components-button';
 
 import { OptionsList as DefaultOptionsList, VirtualOptionsList } from '../../../components';
@@ -37,6 +47,8 @@ export const OptionsListWithApply = forwardRef(
         ref,
     ) => {
         const footerRef = useRef<HTMLDivElement>(null);
+
+        const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
 
         const buttonView = useMemo(() => (view === 'mobile' ? 's' : 'xxs'), [view]);
 
@@ -87,6 +99,10 @@ export const OptionsListWithApply = forwardRef(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
+        useEffect(() => {
+            setHasFooter(true);
+        }, [setHasFooter]);
+
         return flatOptions.length < VIRTUAL_OPTIONS_LIST_THRESHOLD ? (
             <OptionsList
                 {...restProps}
@@ -101,7 +117,13 @@ export const OptionsListWithApply = forwardRef(
                     <div
                         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                         tabIndex={0}
-                        className={view === 'mobile' ? styles.footerMobile : styles.footer}
+                        className={
+                            view === 'mobile'
+                                ? cn(styles.footerMobile, {
+                                      [styles.highlighted]: footerHighlighted,
+                                  })
+                                : styles.footer
+                        }
                         ref={footerRef}
                     >
                         <Button

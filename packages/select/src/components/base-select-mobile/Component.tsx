@@ -21,7 +21,13 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
 import { getDataTestId } from '../../../../utils';
-import { AnyObject, BaseSelectProps, OptionProps, OptionShape } from '../../typings';
+import {
+    AnyObject,
+    BaseSelectProps,
+    OptionProps,
+    OptionShape,
+    OptionsListProps,
+} from '../../typings';
 import { processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
 import { Field as DefaultField } from '../field';
@@ -397,7 +403,7 @@ export const BaseSelectMobile = forwardRef(
                                 className={cn(optionsListClassName, styles.optionsList)}
                             >
                                 <OptionsList
-                                    {...(optionsListProps as AnyObject)}
+                                    {...(optionsListProps as OptionsListProps)}
                                     optionsListWidth={optionsListWidth}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}
@@ -433,7 +439,7 @@ export const BaseSelectMobile = forwardRef(
                         </ModalMobile.Header>
                         <div {...menuProps} className={optionsListClassName}>
                             <OptionsList
-                                {...(optionsListProps as AnyObject)}
+                                {...(optionsListProps as OptionsListProps)}
                                 optionsListWidth={optionsListWidth}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
