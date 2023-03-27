@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,21 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Textarea ', () =>
+    createPreview(
+        {
+            componentName: 'Textarea',
+            knobs: {
+                label: 'Label',
+                value: 'Value',
+                size: 'm',
+                block: true,
+                minRows: 2,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.3)',
+    ));
 
 describe('Textarea | sprite', () => {
     const testCase = (theme: string) =>

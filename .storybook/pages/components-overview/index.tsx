@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useTransition } from 'react';
+import React, { useEffect, useMemo, useState, useTransition } from 'react';
 
 import { Gap } from '@alfalab/core-components-gap';
 import { Input, InputProps } from '@alfalab/core-components-input';
@@ -8,16 +8,32 @@ import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
 
 import { Card } from './components/card';
 import { CONFIG } from './config';
+import { MODE_COLORS_TAG_ID } from '../../addons/mode-switcher/utils';
 
 import styles from './index.module.css';
 
 const EMPTY_GROUP = 'EMPTY';
 
 export const ComponentsOverview = () => {
+    const [mode, setMode] = useState<string>(() =>
+        !!document.getElementById(MODE_COLORS_TAG_ID)?.textContent ? 'dark' : 'light',
+    );
     const [query, setQuery] = useState('');
     const [inputValue, setInputValue] = useState('');
     const [_, startTransition] = useTransition();
     const [isMobile] = useMatchMedia('--mobile');
+
+    useEffect(() => {
+        const handleChangeMode = (e: Event) => {
+            const { mode } = (e as CustomEvent<{ mode: string }>).detail;
+
+            setMode(mode);
+        };
+
+        document.addEventListener('mode-change', handleChangeMode);
+
+        return () => document.removeEventListener('mode-change', handleChangeMode);
+    }, []);
 
     const data = useMemo(() => {
         if (!query) return CONFIG;
@@ -88,7 +104,11 @@ export const ComponentsOverview = () => {
 
                             <div className={styles.cardContainer}>
                                 {componentsList.map((componentName) => (
-                                    <Card componentName={componentName} />
+                                    <Card
+                                        componentName={componentName}
+                                        key={componentName}
+                                        mode={mode}
+                                    />
                                 ))}
                             </div>
                         </div>

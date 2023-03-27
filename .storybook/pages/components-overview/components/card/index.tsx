@@ -8,6 +8,7 @@ import styles from './index.module.css';
 
 type CardProps = {
     componentName: string;
+    mode: string;
 };
 
 enum ImageState {
@@ -16,7 +17,7 @@ enum ImageState {
     ERROR,
 }
 
-export const Card: React.FC<CardProps> = ({ componentName }) => {
+export const Card: React.FC<CardProps> = ({ componentName, mode }) => {
     const [imageState, setImageState] = React.useState(ImageState.INITIAL);
     const imageRef = React.useRef<HTMLImageElement>(null);
 
@@ -31,7 +32,7 @@ export const Card: React.FC<CardProps> = ({ componentName }) => {
     const handleLoad = () => setImageState(ImageState.LOADED);
 
     return (
-        <a key={componentName} href={createUrl(componentName)} className={styles.card}>
+        <a href={createPageUrl(componentName)} className={styles.card}>
             <figure>
                 <div className={styles.imageWrapper}>
                     {imageState === ImageState.ERROR && (
@@ -47,11 +48,13 @@ export const Card: React.FC<CardProps> = ({ componentName }) => {
                     {imageState !== ImageState.ERROR && (
                         <img
                             ref={imageRef}
-                            src={createImageUrl(componentName)}
+                            src={createImageUrl(componentName, mode)}
                             alt={componentName}
                             className={cn(styles.image, {
                                 [styles.imageHidden]: imageState === ImageState.INITIAL,
                             })}
+                            loading='lazy'
+                            decoding='async'
                             onError={handleError}
                             onLoad={handleLoad}
                         />
@@ -66,11 +69,11 @@ export const Card: React.FC<CardProps> = ({ componentName }) => {
     );
 };
 
-function createImageUrl(componentName: string) {
-    return `/images/${kebab(componentName)}_preview_snap.png`;
+function createImageUrl(componentName: string, mode: string) {
+    return `./images/${kebab(componentName)}-${mode === 'dark' ? 'dark-' : ''}preview-snap.png`;
 }
 
-function createUrl(componentName: string) {
+function createPageUrl(componentName: string) {
     const baseUrl = `${window.location.href.split('iframe')[0]}`;
 
     return `${baseUrl}?path=/docs/${componentName.toLowerCase()}--${kebab(componentName)}`;

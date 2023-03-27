@@ -4,11 +4,23 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
 
-/**
- * TODO: иконки стран недоступны на playwright-сервере
- */
+describe('IntlPhoneInput ', () =>
+    createPreview(
+        {
+            componentName: 'IntlPhoneInput',
+            knobs: {
+                label: 'Label',
+                value: '%2b7 999 555-35-35',
+                size: 'm',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.3)',
+    ));
+
 describe('IntlPhoneInput | interactions tests', () => {
     test('Fill value', async () => {
         const pageUrl = createStorybookUrl({

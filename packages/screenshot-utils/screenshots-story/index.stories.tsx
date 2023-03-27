@@ -1,6 +1,7 @@
 import React from 'react';
 import { getComponent } from './components';
-import { parseKnobs, getQueryParam } from './utils';
+import { parseKnobs, getQueryParam, stylesStringToObj } from './utils';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 export const Screenshots = () => {
     const Component = getComponent(
@@ -9,9 +10,9 @@ export const Screenshots = () => {
         getQueryParam('subComponent'),
     );
 
-    const props = parseKnobs();
+    const props = parseKnobs() as any;
 
-    const invertedBg = getQueryParam('inverted', true) || (props as any).colors === 'inverted';
+    const invertedBg = getQueryParam('inverted', true) || props.colors === 'inverted';
 
     return (
         <div
@@ -19,8 +20,10 @@ export const Screenshots = () => {
                 backgroundColor: invertedBg
                     ? 'var(--color-light-bg-primary-inverted)'
                     : 'transparent',
+                ...stylesStringToObj(getQueryParam('wrapperStyles')),
             }}
         >
+            <ModeChecker />
             {Component ? <Component {...props} /> : null}
         </div>
     );

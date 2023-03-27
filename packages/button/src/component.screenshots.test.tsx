@@ -4,6 +4,7 @@ import {
     customSnapshotIdentifier,
     generateTestCases,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,6 +15,19 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 200, height: 100 };
+
+describe('Button', () =>
+    createPreview(
+        {
+            componentName: 'Button',
+            knobs: {
+                children: 'Button',
+                view: 'primary',
+                size: 'xl',
+            },
+        },
+        'transform:scale(2.7)',
+    ));
 
 describe(
     'Button | view & sizes',

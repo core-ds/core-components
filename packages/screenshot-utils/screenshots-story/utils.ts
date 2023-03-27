@@ -1,5 +1,7 @@
 import qs from 'querystring';
 
+import { CSSProperties } from 'react';
+
 export const queryParams = qs.parse(document.location.search);
 
 export const getQueryParam = (param: string, parse = false) => {
@@ -33,4 +35,17 @@ export function parseValue(value: string) {
     } catch (e) {
         return value;
     }
+}
+
+export function stylesStringToObj(str = ''): CSSProperties {
+    const properties = str.split(';').map((v) => v.trim());
+    const obj: Record<string, unknown> = {};
+
+    properties.forEach((property) => {
+        const [name, val] = property.split(':').map((v) => v.trim());
+
+        obj[name] = val;
+    });
+
+    return obj as CSSProperties;
 }

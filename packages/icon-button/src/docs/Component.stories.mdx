@@ -1,6 +1,8 @@
 import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
+import { ModeChecker } from 'storybook/components/mode-checker';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { IconButton } from '@alfalab/core-components-icon-button';
 
@@ -11,13 +13,24 @@ import Changelog from '../../CHANGELOG.md';
 import defaultStyles from '!!raw-loader!../default.module.css';
 import styles from '!!raw-loader!../index.module.css';
 
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
+
 <Meta title='Components/IconButton' component={IconButton} id='IconButton' />
 
 <!-- Canvas -->
 
 <Story name='IconButton'>
     {React.createElement(() => {
+        const iconsMap = {
+            StarMIcon: StarMIcon,
+            DiamondsMIcon: DiamondsMIcon,
+        };
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const icon = select('icon', ['StarMIcon', 'DiamondsMIcon'], 'StarMIcon');
+        const Icon = iconsMap[icon];
         return (
             <div
                 style={{
@@ -31,8 +44,10 @@ import styles from '!!raw-loader!../index.module.css';
                     left: 0,
                     right: 0,
                     bottom: 0,
+                    ...stylesStringToObj(getQueryParam('wrapperStyles')),
                 }}
             >
+                <ModeChecker />
                 <IconButton
                     size={select('size', ['xxs', 'xs', 's'], 's')}
                     view={select(
@@ -40,7 +55,7 @@ import styles from '!!raw-loader!../index.module.css';
                         ['primary', 'secondary', 'tertiary', 'negative', 'transparent'],
                         'primary',
                     )}
-                    icon={StarMIcon}
+                    icon={Icon}
                     colors={colors}
                     disabled={boolean('disabled', false)}
                     loading={boolean('loading', false)}
