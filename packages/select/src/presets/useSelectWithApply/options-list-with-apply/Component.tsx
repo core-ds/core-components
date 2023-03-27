@@ -12,7 +12,10 @@ import cn from 'classnames';
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { Button } from '@alfalab/core-components-button';
 
-import { OptionsList as DefaultOptionsList, VirtualOptionsList } from '../../../components';
+import {
+    OptionsList as DefaultOptionsList,
+    VirtualOptionsList as DefaultVirtualOptionsList,
+} from '../../../components';
 import { OptionShape, OptionsListProps } from '../../../typings';
 import { SELECT_ALL_KEY } from '../hook';
 
@@ -32,11 +35,13 @@ export const OptionsListWithApply = forwardRef(
     (
         {
             toggleMenu,
-            OptionsList = DefaultOptionsList,
             getOptionProps: defaultGetOptionProps,
             showClear = true,
             selectedDraft = [],
             flatOptions = [],
+            OptionsList = flatOptions.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
+                ? DefaultOptionsList
+                : DefaultVirtualOptionsList,
             onApply = () => null,
             onClear = () => null,
             onClose = () => null,
@@ -103,7 +108,7 @@ export const OptionsListWithApply = forwardRef(
             setHasFooter(true);
         }, [setHasFooter]);
 
-        return flatOptions.length < VIRTUAL_OPTIONS_LIST_THRESHOLD ? (
+        return (
             <OptionsList
                 {...restProps}
                 ref={ref}
@@ -124,44 +129,6 @@ export const OptionsListWithApply = forwardRef(
                                   })
                                 : styles.footer
                         }
-                        ref={footerRef}
-                    >
-                        <Button
-                            size={buttonView}
-                            view='primary'
-                            onClick={handleApply}
-                            className={view === 'mobile' ? styles.footerButton : undefined}
-                        >
-                            Применить
-                        </Button>
-
-                        {showClear && (
-                            <Button
-                                size={buttonView}
-                                view='secondary'
-                                onClick={handleClear}
-                                className={view === 'mobile' ? styles.footerButton : undefined}
-                            >
-                                Сбросить
-                            </Button>
-                        )}
-                    </div>
-                }
-            />
-        ) : (
-            <VirtualOptionsList
-                {...restProps}
-                visibleOptions={visibleOptions}
-                toggleMenu={toggleMenu}
-                flatOptions={flatOptions}
-                getOptionProps={getOptionProps}
-                onApply={handleApply}
-                onClear={handleClear}
-                footer={
-                    <div
-                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                        tabIndex={0}
-                        className={view === 'mobile' ? styles.footerMobile : styles.footer}
                         ref={footerRef}
                     >
                         <Button

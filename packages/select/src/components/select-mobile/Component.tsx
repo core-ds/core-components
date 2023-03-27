@@ -56,10 +56,13 @@ export const SelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            OptionsList,
+            visibleOptions = 0,
             selected,
             options,
             onChange,
             hookProps = {
+                OptionsList,
                 selected,
                 options,
                 onChange,
@@ -91,8 +94,10 @@ export const SelectMobile = forwardRef(
                 Field={Field}
                 Optgroup={Optgroup}
                 Option={Option}
+                OptionsList={OptionsList}
                 isBottomSheet={true}
                 options={options}
+                visibleOptions={visibleOptions}
                 selected={selected}
                 onChange={onChange}
                 {...restProps}
