@@ -4,7 +4,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { useFocus, useMedia } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
@@ -56,6 +55,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             showCounter = false,
             getCounterText = getDefaultCounterText,
             maxLength,
+            allowOverflow = true,
             nativeScrollbar: nativeScrollbarProp,
             ...restProps
         },
@@ -64,22 +64,22 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const uncontrolled = value === undefined;
         let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
 
-        nativeScrollbar = resize !== 'none' || Boolean(nativeScrollbarProp ?? nativeScrollbar);
+        nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
         const textareaRef = useRef<HTMLTextAreaElement>(null);
         const pseudoTextareaRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
-        const [scrollableHeight, setScrollableHeight] = useState<number>();
         const [scrollPosition, setScrollPosition] = useState(0);
 
         const [focusVisible] = useFocus(textareaRef, 'keyboard');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
+
         const hasOverflow = Boolean(
-            (maxLength && value?.slice(maxLength)) || (maxLength && stateValue.slice(maxLength)),
+            maxLength && allowOverflow && (value?.slice(maxLength) || stateValue.slice(maxLength)),
         );
 
         useEffect(() => {
@@ -92,21 +92,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize) {
-                if (
-                    nativeScrollbar &&
-                    maxHeight &&
-                    textareaRef.current &&
-                    textareaRef.current.style
-                ) {
-                    textareaRef.current.style.maxHeight = `${maxHeight}px`;
-                }
-            } else if (!nativeScrollbar && textareaRef.current) {
-                const textareaHeight = textareaRef.current.scrollHeight;
-
-                setScrollableHeight(textareaHeight);
+            if (autosize && maxHeight && textareaRef.current && textareaRef.current.style) {
+                textareaRef.current.style.maxHeight = `${maxHeight}px`;
             }
-        }, [autosize, maxHeight, nativeScrollbar]);
+        }, [autosize, maxHeight]);
 
         const handleTextareaFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
             setFocused(true);
@@ -159,7 +148,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             colorStyles[colors].textarea,
             styles[size],
             {
-                [styles.hasInnerLabel]: nativeScrollbar && hasInnerLabel,
+                [styles.customScrollbar]: !nativeScrollbar,
+                [styles.hasInnerLabel]: hasInnerLabel,
                 [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
                 [styles.filled]: nativeScrollbar && filled,
             },
@@ -171,6 +161,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             className: textareaClassNameCalc,
             autoComplete,
             disabled,
+            maxLength: allowOverflow ? undefined : maxLength,
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
             onChange: handleTextareaChange,
@@ -179,73 +170,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             ref: mergeRefs([ref, textareaRef]),
             'data-test-id': dataTestId,
             onScroll: handleTeaxtareaScroll,
-        };
-
-        const renderWithNativeScrollbar = () =>
-            autosize ? (
-                <TextareaAutosize
-                    {...textareaProps}
-                    maxRows={maxRows}
-                    minRows={minRows}
-                    onHeightChange={onHeightChange}
-                />
-            ) : (
-                <textarea {...textareaProps} style={{ maxHeight }} />
-            );
-
-        const renderWithCustomScrollbar = () => {
-            const minRowsValue = autosize ? minRows : rows;
-
-            return (
-                <Scrollbar
-                    style={{ maxHeight, height: scrollableHeight, padding: 0 }}
-                    className={cn(styles.scrollable, styles[size], {
-                        [styles.scrollableWithLabel]: hasInnerLabel,
-                        [styles.filled]: filled,
-                    })}
-                    horizontalAutoStretch={!block}
-                    widthPropName='width'
-                    contentNodeProps={{ className: styles.scrollableWrapper }}
-                >
-                    {hasOverflow && (
-                        <PseudoTextArea
-                            value={value ?? stateValue}
-                            size={size}
-                            maxLength={maxLength as number}
-                            pseudoTextareaClassName={cn(
-                                textareaClassNameCalc,
-                                styles.customScrollbar,
-                            )}
-                            ref={pseudoTextareaRef}
-                        />
-                    )}
-
-                    <TextareaAutosize
-                        {...textareaProps}
-                        minRows={minRowsValue}
-                        style={{ overflow: 'hidden' }}
-                    />
-
-                    {/* Используется только для вычисления размера контейнера */}
-                    <TextareaAutosize
-                        className={cn(textareaProps.className, styles.textareaHidden)}
-                        rows={textareaProps.rows}
-                        maxRows={maxRows}
-                        minRows={minRowsValue}
-                        value={textareaProps.value}
-                        role='none'
-                        onHeightChange={(height) => {
-                            if (autosize) {
-                                setScrollableHeight(height);
-
-                                if (onHeightChange) {
-                                    onHeightChange(height);
-                                }
-                            }
-                        }}
-                    />
-                </Scrollbar>
-            );
         };
 
         const getBottomAddons = () => {
@@ -292,25 +216,29 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 rightAddons={rightAddons}
                 bottomAddons={getBottomAddons()}
             >
-                {nativeScrollbar ? (
-                    <React.Fragment>
-                        {hasOverflow && (
-                            <PseudoTextArea
-                                value={value ?? stateValue}
-                                size={size}
-                                maxLength={maxLength as number}
-                                pseudoTextareaClassName={cn(
-                                    textareaClassNameCalc,
-                                    styles.nativeScrollbar,
-                                )}
-                                ref={pseudoTextareaRef}
-                            />
-                        )}
-                        {renderWithNativeScrollbar()}
-                    </React.Fragment>
-                ) : (
-                    renderWithCustomScrollbar()
-                )}
+                <React.Fragment>
+                    {hasOverflow && (
+                        <PseudoTextArea
+                            value={value ?? stateValue}
+                            size={size}
+                            maxLength={maxLength as number}
+                            pseudoTextareaClassName={cn(textareaClassNameCalc, {
+                                [styles.nativeScrollbar]: nativeScrollbar,
+                            })}
+                            ref={pseudoTextareaRef}
+                        />
+                    )}
+                    {autosize ? (
+                        <TextareaAutosize
+                            {...textareaProps}
+                            maxRows={maxRows}
+                            minRows={minRows}
+                            onHeightChange={onHeightChange}
+                        />
+                    ) : (
+                        <textarea {...textareaProps} style={{ maxHeight }} />
+                    )}
+                </React.Fragment>
             </FormControl>
         );
     },

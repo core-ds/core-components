@@ -45,21 +45,6 @@
     );
 }
 
-.scrollable {
-    position: relative;
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.scrollableWrapper {
-    box-sizing: border-box;
-
-    & > * {
-        font-family: var(--font-family);
-    }
-}
-
 .textarea {
     @mixin paragraph_component;
     position: relative;
@@ -74,11 +59,10 @@
     resize: none;
     -webkit-appearance: none;
     height: inherit;
+}
 
-    &.textareaHidden {
-        position: absolute;
-        transform: translateX(-10000px);
-    }
+.customScrollbar {
+    @mixin custom-scrollbar;
 }
 
 .textarea::placeholder {
@@ -109,17 +93,12 @@
     &.nativeScrollbar {
         overflow: auto;
     }
-    &.customScrollbar {
-        max-height: none;
-    }
 }
 
 .sub {
     @mixin paragraph_component_secondary;
     @mixin form-control-sub;
 }
-
-/* SIZES */
 
 /* Паддинги взяты из стилей form-control */
 .scrollable {
@@ -227,7 +206,6 @@
 }
 
 /* Correct pseudoTextarea size */
-
 .pseudoTextarea.filled.hasInnerLabel {
     &.s {
         min-height: calc(100% - var(--textarea-s-filled-padding-top));
