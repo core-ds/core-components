@@ -58,6 +58,11 @@ export type SliderProps = {
     value?: number;
 
     /**
+     * Значение инпута
+     */
+    valueTo?: number;
+
+    /**
      * Заблокированное состояние
      */
     disabled?: boolean;
@@ -68,6 +73,11 @@ export type SliderProps = {
     className?: string;
 
     /**
+     * Поведение ползунка
+     */
+    behaviour?: 'unconstrained-tap' | 'tap';
+
+    /**
      * Размер
      */
     size?: 's' | 'm';
@@ -75,7 +85,7 @@ export type SliderProps = {
     /**
      * Обработчик поля ввода
      */
-    onChange?: (payload: { value: number }) => void;
+    onChange?: (payload: { value: number; valueTo?: number }) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -88,8 +98,10 @@ export const Slider: FC<SliderProps> = ({
     max = 100,
     step = 1,
     value = 0,
+    valueTo,
     disabled,
     pips,
+    behaviour = 'tap',
     range = { min, max },
     size = 's',
     className,
@@ -105,8 +117,9 @@ export const Slider: FC<SliderProps> = ({
         if (!sliderRef.current) return;
 
         const slider = noUiSlider.create(sliderRef.current, {
-            start: [value],
-            connect: [true, false],
+            start: valueTo ? [value, valueTo] : value,
+            connect: valueTo ? true : [true, false],
+            behaviour,
             step,
             pips: pips as Options['pips'],
             range,
@@ -126,13 +139,6 @@ export const Slider: FC<SliderProps> = ({
     useEffect(() => {
         const slider = getSlider();
 
-        // Пропускаем обновление, если происходит взаимодействие со слайдером
-        if (slider && busyRef.current === false) slider.set(value, false);
-    }, [value]);
-
-    useEffect(() => {
-        const slider = getSlider();
-
         if (!slider) return;
 
         slider.updateOptions(
@@ -148,17 +154,40 @@ export const Slider: FC<SliderProps> = ({
     useEffect(() => {
         const slider = getSlider();
 
+        // Пропускаем обновление, если происходит взаимодействие со слайдером
+        if (slider && busyRef.current === false) {
+            if (valueTo) {
+                slider.set([value, valueTo], false);
+            } else {
+                slider.set(value, false);
+            }
+        }
+    }, [value, valueTo]);
+
+    useEffect(() => {
+        const slider = getSlider();
+
         if (!slider) return;
 
         const handler = () => {
             if (onChange) {
-                onChange({ value: Number(slider.get()) });
+                if (valueTo) {
+                    const [newValueFrom, newValueTo] = slider.get() as string[];
+
+                    if (Number(newValueFrom) <= Number(newValueTo) || behaviour === 'tap') {
+                        onChange({ value: Number(newValueFrom), valueTo: Number(newValueTo) });
+                    } else {
+                        onChange({ value: Number(newValueTo), valueTo: Number(newValueFrom) });
+                    }
+                } else {
+                    onChange({ value: Number(slider.get()) });
+                }
             }
         };
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange]);
+    }, [onChange, valueTo, behaviour]);
 
     return (
         <div

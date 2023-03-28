@@ -47,6 +47,69 @@ render(() => {
 });
 ```
 
+## Диапазон
+
+С помощью слайдера можно указывать диапазон значений. Свойство `behaviour` определяет поведение ползунка.
+
+```jsx live
+render(() => {
+    const [sliderTap, setSliderTap] = React.useState({
+        value: 4,
+        valueTo: 6
+    });
+
+    const [slider, setSlider] = React.useState({
+        value: 2,
+        valueTo: 4
+    });
+
+    const handleChangeSliderTap = (payload) => {
+        setSliderTap(payload)
+    };
+
+    const handleChangeSlider = (payload) => {
+        setSlider(payload)
+    };
+
+    return (
+        <>
+            <div>min: {sliderTap.value}</div>
+            <Gap size='xs'/>
+            <div>max: {sliderTap.valueTo}</div>
+            <br />
+            <Slider
+                size='m'
+                value={sliderTap.value}
+                valueTo={sliderTap.valueTo}
+                onChange={handleChangeSliderTap}
+                min={1}
+                max={8}
+                pips={{
+                    mode: 'steps',
+                }}
+            />
+            <Gap size='l'/>
+            <div>min: {slider.value}</div>
+            <Gap size='xs'/>
+            <div>max: {slider.valueTo}</div>
+            <br />
+            <Slider
+                size='m'
+                value={slider.value}
+                valueTo={slider.valueTo}
+                behaviour='unconstrained-tap'
+                onChange={handleChangeSlider}
+                min={1}
+                max={8}
+                pips={{
+                    mode: 'steps',
+                }}
+            />
+        </>
+    );
+});
+```
+
 ## Подписи
 
 Слайдер может использоваться с подписями и без.
