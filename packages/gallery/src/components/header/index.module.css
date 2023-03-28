@@ -16,4 +16,12 @@
     & path {
         color: var(--color-static-graphic-light);
     }
+
+    &:hover path {
+        color: var(--color-static-graphic-light-shade-7);
+    }
+
+    &:active path {
+        color: var(--color-static-graphic-light-shade-15);
+    }
 }
