@@ -491,5 +491,7 @@
     --color-static-bg-primary-dark-alpha-20: rgba(18, 18, 18, 0.2);
     --color-static-bg-primary-dark-tint-15: rgb(54, 54, 54);
     --color-static-bg-primary-dark-tint-20: rgb(65, 65, 65);
+    --color-static-graphic-light-shade-7: rgb(237, 237, 237);
+    --color-static-graphic-light-shade-15: rgb(217, 217, 217);
     --color-static-text-primary-light-alpha-30: rgba(255, 255, 255, 0.3);
 }

@@ -383,5 +383,11 @@
     "alpha": [
       30
     ]
+  },
+  "static-graphic-light": {
+    "shade": [
+      7,
+      15
+    ]
   }
 }
