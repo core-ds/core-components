@@ -1,5 +1,0 @@
-@define-mixin button-click {
-    /* primary */
-    --button-primary-disabled-bg-color: var(--color-light-bg-secondary-inverted);
-    --button-primary-disabled-color: var(--color-light-text-tertiary-inverted);
-}
