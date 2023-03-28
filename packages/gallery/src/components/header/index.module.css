@@ -16,7 +16,10 @@
     & path {
         color: var(--color-static-graphic-light);
     }
+}
 
+/* TODO: применять static цвет через prop IconButton'а */
+.iconButton {
     &:hover path {
         color: var(--color-static-graphic-light-shade-7);
     }

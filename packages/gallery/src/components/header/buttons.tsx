@@ -6,6 +6,7 @@ import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
 import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
+import styles from './index.module.css';
 
 type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;
@@ -25,6 +26,7 @@ export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             icon={ArrowsOutwardMIcon}
             colors='inverted'
             aria-label='Открыть в полноэкранном режиме'
+            className={styles.iconButton}
         />
     </Tooltip>
 );
@@ -42,6 +44,7 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             icon={ArrowsInwardMIcon}
             colors='inverted'
             aria-label='Выйти из полноэкранного режима'
+            className={styles.iconButton}
         />
     </Tooltip>
 );
@@ -53,10 +56,22 @@ export const Download: FC<Props> = (props) => (
         content='Скачать'
         fallbackPlacements={['bottom-end']}
     >
-        <IconButton {...props} icon={PointerDownMIcon} colors='inverted' aria-label='Скачать' />
+        <IconButton
+            {...props}
+            icon={PointerDownMIcon}
+            colors='inverted'
+            aria-label='Скачать'
+            className={styles.iconButton}
+        />
     </Tooltip>
 );
 
 export const Exit: FC<Props> = (props) => (
-    <IconButton {...props} icon={CrossMIcon} colors='inverted' aria-label='Закрыть' />
+    <IconButton
+        {...props}
+        icon={CrossMIcon}
+        colors='inverted'
+        aria-label='Закрыть'
+        className={styles.iconButton}
+    />
 );
