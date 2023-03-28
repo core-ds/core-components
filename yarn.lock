@@ -23762,10 +23762,10 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.12.0.tgz"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@^1.0.15:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-1.0.15.tgz#a961662ed1fe1bbfb2af4c55ab17b7866c74cf8e"
-  integrity sha512-cjQAppVhy6uX6xcV46yI/Am6LX/TnahxtGVZCQD6zYcb+w3Yj3q4/g0NzXi08Mb60Jhse4suS+GV0T0eAZv8AQ==
+storybook-addon-live-examples@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-1.0.16.tgz#adc90e1649fdd2c044b7b3eb69b155da2986a96b"
+  integrity sha512-Hp9hhn/tCPBKxQHq3npNxtsf7BnPzRlfBmFVxHuWWbO7AVzLvpfS3aMj0fDneZhg/DbbB8vdfaNcjOeT12J2Ig==
   dependencies:
     "@alfalab/core-components" "^35.1.0"
     "@alfalab/icons-glyph" "^2.66.0"
