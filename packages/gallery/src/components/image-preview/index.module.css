@@ -40,8 +40,11 @@
 }
 
 .loading {
-    /* TODO: цвета нет в палитре */
-    background-color: #e9eaeb;
+    background-color: var(--color-static-bg-secondary-dark);
+
+    & .active {
+        background-color: var(--color-static-bg-quaternary-dark);
+    }
 }
 
 .brokenImageWrapper {
