@@ -1,5 +1,18 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.1.3
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   icon-button@6.0.9
+    -   typography@3.2.1
+
 ## 0.1.2
 
 ### Patch Changes

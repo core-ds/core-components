@@ -1,5 +1,17 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.1.2
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   gap@1.1.2
+
 ## 1.1.1
 
 ### Patch Changes

@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     generateTestCases,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -9,6 +10,23 @@ const screenshotTesting = setupScreenshotTesting({
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('Slider', () => {
+    createPreview(
+        {
+            componentName: 'Slider',
+            knobs: {
+                value: 5,
+                size: 'm',
+                min: 0,
+                max: 20,
+                block: true,
+                pips: JSON.stringify({ mode: 'values', values: [0, 10, 20] }),
+            },
+        },
+        'padding: 0 270px;transform:scale(2.3)',
+    );
 });
 
 describe('Slider | main props', () => {

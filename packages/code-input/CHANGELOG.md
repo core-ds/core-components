@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.3.3
+
+### Patch Changes
+
+### [#597](https://github.com/core-ds/core-components/pull/597)
+
+-   Изменен цвет фона инпута
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
 ## 2.3.2
 
 ### Patch Changes

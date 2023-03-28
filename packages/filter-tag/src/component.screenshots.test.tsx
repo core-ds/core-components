@@ -4,6 +4,7 @@ import {
     createSpriteStorybookUrl,
     generateTestCases,
     customSnapshotIdentifier,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -16,6 +17,21 @@ const screenshotTesting = setupScreenshotTesting({
 const availableThemes = ['default', 'click', 'mobile'];
 
 const clip = { x: 0, y: 0, width: 200, height: 100 };
+
+describe('FilterTag', () => {
+    createPreview(
+        {
+            componentName: 'FilterTag',
+            knobs: {
+                label: 'Label',
+                children: 'Label: Value',
+                size: 's',
+                checked: true,
+            },
+        },
+        'transform:scale(2.7)',
+    );
+});
 
 describe('FilterTag | main props', () => {
     const testCase = (theme: string) =>

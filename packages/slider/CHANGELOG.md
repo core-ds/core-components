@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.1.5
+
+### Patch Changes
+
+### [#586](https://github.com/core-ds/core-components/pull/586)
+
+-   Исправлен порядок обновления pips и value. Раньше при одновременном изменении pips и value слайдер устанавливался на неверную позицию
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
 ## 4.1.4
 
 ### Patch Changes

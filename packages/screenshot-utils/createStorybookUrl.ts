@@ -22,6 +22,8 @@ export type CreateStorybookUrlParams = {
     subComponentName?: string;
     testStory?: boolean;
     inverted?: boolean;
+    darkMode?: boolean;
+    wrapperStyles?: string;
     knobs?: Knobs;
     mockDate?: number;
 };
@@ -44,6 +46,8 @@ export function createStorybookUrl({
     packageName = kebab(componentName),
     testStory = true,
     inverted = false,
+    darkMode = false,
+    wrapperStyles = '',
     knobs = {},
     mockDate,
 }: CreateStorybookUrlParams): string {
@@ -54,14 +58,16 @@ export function createStorybookUrl({
 
     if (testStory) {
         // TODO: укоротить (переписать на qs.stringify)
-        return `${url}?id=components--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&inverted=${inverted}&${knobsQuery}&mockDate=${
+        return `${url}?id=components--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&darkMode=${darkMode}&wrapperStyles=${wrapperStyles}&inverted=${inverted}&${knobsQuery}&mockDate=${
             mockDate || ''
         }`;
     }
 
     const cPath = findComponentPath(componentName, packageName).url;
     const cTitle = subComponentName ? kebab(subComponentName) : kebab(componentName);
-    const storybookUrl = `${url}?id=${cPath}--${cTitle}${knobsQuery}&mockDate=${mockDate || ''}`;
+    const storybookUrl = `${url}?id=${cPath}--${cTitle}${knobsQuery}&darkMode=${darkMode}&wrapperStyles=${wrapperStyles}&mockDate=${
+        mockDate || ''
+    }`;
 
     return storybookUrl;
 }

@@ -10,10 +10,14 @@ const getLinesFromSummary = (summary, prLink, showPrLink = true, isRootChangelog
 
     const [firstLine, ...futureLines] = summary.split('\n').map((l) => l.trimRight());
 
-    returnVal += `${firstLine.trim().startsWith('-') ? firstLine : `- ${firstLine}`}`;
+    const hasFutureLines = futureLines.length > 0;
 
-    if (futureLines.length > 0) {
-        returnVal += `\n${futureLines.map((l) => `${l}<br />`).join('\n')}`;
+    returnVal += `${
+        hasFutureLines || firstLine.trim().startsWith('-') ? firstLine : `- ${firstLine}`
+    }`;
+
+    if (hasFutureLines) {
+        returnVal += `\n${futureLines.join('\n')}`;
     }
 
     returnVal += '\n\n';

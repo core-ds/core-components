@@ -105,7 +105,6 @@ module.exports = {
         '@storybook/preset-create-react-app',
         './addons/theme-switcher/register.js',
         './addons/mode-switcher/register.js',
-        '@a110/storybook-expand-all',
     ],
     webpackFinal: async (config) => {
         addPackagesDir(config);

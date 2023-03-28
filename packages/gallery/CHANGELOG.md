@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.20
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   base-modal@5.1.2
+    -   icon-button@6.0.9
+    -   tooltip@6.2.14
+    -   typography@3.2.1
+
 ## 5.1.19
 
 ### Patch Changes

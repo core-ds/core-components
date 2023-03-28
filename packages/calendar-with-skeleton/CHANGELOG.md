@@ -1,5 +1,24 @@
 # Change Log
 
+## 5.0.36
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   calendar@6.2.15
+    -   skeleton@4.0.5
+
+## 5.0.35
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.14
+
 ## 5.0.34
 
 ### Patch Changes

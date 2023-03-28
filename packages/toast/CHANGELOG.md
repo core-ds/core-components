@@ -1,5 +1,30 @@
 # Change Log
 
+## 4.2.19
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+### [#601](https://github.com/core-ds/core-components/pull/601)
+
+-   Добавлена очистка таймера при анмаунте компонента
+
+-   Обновлены зависимости
+    -   popover@6.0.8
+    -   portal@3.1.4
+    -   stack@4.0.4
+    -   toast-plate@5.1.16
+
+## 4.2.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.15
+
 ## 4.2.17
 
 ### Patch Changes

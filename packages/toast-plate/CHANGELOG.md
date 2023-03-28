@@ -1,5 +1,25 @@
 # Change Log
 
+## 5.1.16
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   badge@5.0.2
+    -   icon-button@6.0.9
+
+## 5.1.15
+
+### Patch Changes
+
+### [#595](https://github.com/core-ds/core-components/pull/595)
+
+-   Добавлены пропы closerClassName и closerWrapperClassname
+
 ## 5.1.14
 
 ### Patch Changes

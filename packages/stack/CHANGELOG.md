@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.4
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
 ## 4.0.3
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.1.7
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   form-control@9.0.4
+    -   scrollbar@2.1.5
+
 ## 8.1.6
 
 ### Patch Changes

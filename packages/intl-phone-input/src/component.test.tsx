@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
-import { IntlPhoneInput } from './index';
+import { IntlPhoneInput } from './';
 
 describe('IntlPhoneInput', () => {
     const testId = 'intl-phone-input';
@@ -98,7 +97,7 @@ describe('IntlPhoneInput', () => {
         const option = await waitFor(() => getAllByRole('option')[0]);
         fireEvent.click(option);
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(onChange).toHaveBeenCalled();
         });
     });
@@ -114,7 +113,7 @@ describe('IntlPhoneInput', () => {
         const option = await waitFor(() => getAllByRole('option')[0]);
         fireEvent.click(option);
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(document.activeElement).toBe(input);
         });
     });
@@ -162,11 +161,10 @@ describe('IntlPhoneInput', () => {
         render(<IntlPhoneInput value='+7' onChange={onChange} />);
 
         const input = await screen.findByDisplayValue('+7');
-        fireEvent.change(input, { target: { value: '+' } });
+        await userEvent.type(input, '{backspace}');
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(onChange).toHaveBeenCalledWith('+');
-            expect(input).toHaveValue('+');
         });
     });
 
@@ -177,7 +175,7 @@ describe('IntlPhoneInput', () => {
         const input = await screen.findByDisplayValue('+7');
         fireEvent.change(input, { target: { value: '+' } });
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(onChange).not.toHaveBeenCalled();
             expect(input).toHaveValue('+7');
         });
@@ -239,7 +237,7 @@ describe('IntlPhoneInput', () => {
 
         const input = screen.getByDisplayValue('');
 
-        userEvent.type(input, '8');
+        await userEvent.type(input, '8');
 
         await waitFor(() => {
             expect(onChange).toBeCalledWith('+7');
@@ -260,7 +258,7 @@ describe('IntlPhoneInput', () => {
 
         const input = screen.getByDisplayValue('');
 
-        userEvent.type(input, '9');
+        await userEvent.type(input, '9');
 
         await waitFor(() => {
             expect(onChange).toBeCalledWith('+7 9');
@@ -281,7 +279,7 @@ describe('IntlPhoneInput', () => {
 
         const input = screen.getByDisplayValue('');
 
-        userEvent.type(input, '7');
+        await userEvent.type(input, '7');
 
         await waitFor(() => {
             expect(onChange).toBeCalledWith('+7');
@@ -371,6 +369,52 @@ describe('IntlPhoneInput', () => {
 
         await waitFor(() => {
             expect(onChange).toHaveBeenCalledWith('+7');
+        });
+    });
+
+    it('should be remove chars in selection', async () => {
+        const testId = 'input';
+        const onChange = jest.fn();
+        const { getByTestId } = render(
+            <IntlPhoneInput
+                inputProps={{ dataTestId: testId }}
+                value='+7 983 123-45-67'
+                onChange={onChange}
+            />,
+        );
+
+        const input = getByTestId(testId) as HTMLInputElement;
+
+        await userEvent.type(input, '{backspace}', {
+            initialSelectionEnd: 13,
+            initialSelectionStart: 10,
+        });
+
+        await waitFor(() => {
+            expect(onChange).toBeCalledWith('+7 983 123-67');
+        });
+    });
+
+    it('should not be call onChange', async () => {
+        const testId = 'input';
+        const onChange = jest.fn();
+        const { getByTestId } = render(
+            <IntlPhoneInput
+                inputProps={{ dataTestId: testId }}
+                value='+7 983 123-45-67'
+                onChange={onChange}
+            />,
+        );
+
+        const input = getByTestId(testId) as HTMLInputElement;
+
+        await userEvent.type(input, 'f', {
+            initialSelectionEnd: 10,
+            initialSelectionStart: 10,
+        });
+
+        await waitFor(() => {
+            expect(onChange).not.toBeCalled();
         });
     });
 });

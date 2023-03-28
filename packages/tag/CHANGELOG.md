@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+### [#558](https://github.com/core-ds/core-components/pull/558)
+
+-   Добавлены пропсы childrenRef и childrenClassName, добавлен стиль white-space: nowrap;
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
 ## 5.2.0
 
 ### Minor Changes

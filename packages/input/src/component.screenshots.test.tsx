@@ -4,6 +4,7 @@ import {
     setupScreenshotTesting,
     generateTestCases,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,6 +15,20 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 350, height: 150 };
+
+describe('Input ', () =>
+    createPreview(
+        {
+            componentName: 'Input',
+            knobs: {
+                label: 'Label',
+                value: 'Value',
+                size: 'm',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.3)',
+    ));
 
 describe('Input | screenshots label view and value prop', () => {
     const testCase = (theme: string, colors: string) =>
@@ -193,6 +208,7 @@ describe(
                         bottomAddons: ['bottom', false],
                         success: false,
                         value: '',
+                        block: true,
                     },
                     size: { width: 350, height: 150 },
                 }),
@@ -207,6 +223,7 @@ describe(
                         bottomAddons: ['bottom', false],
                         success: true,
                         value: '',
+                        block: true,
                     },
                     size: { width: 350, height: 150 },
                 }),
@@ -221,6 +238,7 @@ describe(
                         bottomAddons: ['bottom', false],
                         success: false,
                         value: 'Value',
+                        block: true,
                     },
                     size: { width: 350, height: 150 },
                 }),
@@ -235,6 +253,7 @@ describe(
                         bottomAddons: ['bottom', false],
                         success: true,
                         value: 'Value',
+                        block: true,
                     },
                     size: { width: 350, height: 150 },
                 }),

@@ -4,7 +4,24 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
+
+describe('InputAutocomplete', () => {
+    createPreview(
+        {
+            componentName: 'Select',
+            knobs: {
+                label: 'Label',
+                size: 'm',
+                block: true,
+                selected: '["1"]',
+                options: '[{"key": "1", "content": "Value"}]',
+            },
+        },
+        'padding: 0 270px; transform:scale(2.3)',
+    );
+});
 
 describe('InputAutocomplete | interactions tests', () => {
     test('Fill value', async () => {

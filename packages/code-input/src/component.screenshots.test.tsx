@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,17 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('CodeInput ', () =>
+    createPreview(
+        {
+            componentName: 'CodeInput',
+            knobs: {
+                initialValues: '"0451"',
+            },
+        },
+        'transform:scale(2.5)',
+    ));
 
 describe(
     'CodeInput',

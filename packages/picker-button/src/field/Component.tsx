@@ -33,6 +33,7 @@ export const Field = ({
     toggleMenu,
     valueRenderer,
     showArrow = true,
+    labelView,
     ...restProps
 }: FieldProps) => {
     const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(buttonVariant, buttonSize);

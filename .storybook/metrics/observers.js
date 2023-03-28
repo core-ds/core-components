@@ -1,5 +1,5 @@
 import { getCurrentUrlParams, getPageNode, handleLinks } from './utils';
-import { ACTIONS, CATEGORY } from './constant';
+import { ACTIONS, CATEGORY, DEFAULT_ELEMENT } from './constant';
 import { trackEvent } from './trackEvent';
 
 const switcherState = {};
@@ -24,6 +24,11 @@ const createPreviewFrameComponentObserver = () => {
         }
 
         const iframe = getPageNode('#storybook-preview-iframe');
+
+        if (!iframe) {
+            return;
+        }
+
         const nodeList = iframe.contentDocument.querySelector('#docs-root');
 
         const setupObserver = () => {
@@ -68,6 +73,10 @@ export const observePreviewFrameComponent = createPreviewFrameComponentObserver(
 export const observePreviewModeTabs = () => {
     const nodeMain = getPageNode('[role="main"]');
 
+    if (!nodeMain) {
+        return;
+    }
+
     nodeMain.addEventListener('click', (event) => {
         const value = event?.target.innerHTML;
         const { textContent } = getPageNode('[data-selected="true"]');
@@ -92,16 +101,11 @@ export const observePreviewModeTabs = () => {
 };
 
 /**
- * Следит за переключение режимов компонента
+ * Следит за переключением режимов компонента
  */
 export const observeSwitcher = () => {
-    const tools = document.querySelectorAll('.select');
-
-    const themeSelect = tools[0];
-    const modeSelect = tools[1];
-
-    switcherState.mode = modeSelect[0].value;
-    switcherState.theme = themeSelect[0].value;
+    const themeSelect = getPageNode('#storybook-theme-switcher');
+    const modeSelect = getPageNode('#storybook-mode-switcher');
 
     const handleSelect = (key) => {
         return (event) => {
@@ -123,8 +127,17 @@ export const observeSwitcher = () => {
         };
     };
 
-    modeSelect.addEventListener('change', handleSelect('mode'));
-    themeSelect.addEventListener('change', handleSelect('theme'));
+    if (themeSelect) {
+        switcherState.theme = themeSelect[DEFAULT_ELEMENT].value;
+
+        themeSelect.addEventListener('change', handleSelect('theme'));
+    }
+
+    if (modeSelect) {
+        switcherState.mode = modeSelect[DEFAULT_ELEMENT].value;
+
+        modeSelect.addEventListener('change', handleSelect('mode'));
+    }
 };
 
 /**
@@ -155,11 +168,17 @@ export const observeExplorerMenu = () => {
         dimension_2: mode,
     });
 
-    input.addEventListener('focusin', () => {
-        trackEvent({ category: CATEGORY.PATH, label: `${SEARCH_VALUE}` });
+    if (input) {
+        input.addEventListener('focusin', () => {
+            trackEvent({ category: CATEGORY.PATH, label: `${SEARCH_VALUE}` });
 
-        isSearchValueFocusing = true;
-    });
+            isSearchValueFocusing = true;
+        });
+    }
+
+    if (!titlePageNode) {
+        return;
+    }
 
     const setupObserver = () => {
         const observer = new MutationObserver((mutations) => {

@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.2
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   backdrop@3.0.5
+    -   global-store@2.0.4
+    -   portal@3.1.4
+    -   stack@4.0.4
+
 ## 5.1.1
 
 ### Patch Changes
