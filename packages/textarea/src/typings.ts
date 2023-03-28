@@ -143,4 +143,9 @@ export type TextareaIncomeProps = {
      * Нужно ли использовать нативный скроллбар.
      */
     nativeScrollbar?: boolean;
+
+    /**
+     * Разрешить переполнение, если количество символов превышает maxLength
+     */
+    allowOverflow?: boolean;
 };
