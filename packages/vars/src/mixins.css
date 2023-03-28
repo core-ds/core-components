@@ -2,3 +2,50 @@
     outline: 2px solid var(--focus-color);
     outline-offset: 2px;
 }
+
+@define-mixin custom-scrollbar {
+    overflow: auto;
+    overflow: overlay;
+    cursor: auto;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--color-light-graphic-primary-alpha-30);
+        border-radius: var(--border-radius-circle) / 6px;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 4px;
+        background-clip: padding-box;
+        min-height: 40px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        border-radius: var(--border-radius-circle) / 7px;
+        border-width: 4px 3px;
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+        background-color: var(--color-light-graphic-primary-alpha-60);
+    }
+
+    &::-webkit-resizer {
+        background: url('data:image/svg+xml;utf8,<svg width="12" height="12" viewBox="0 0 12 12" fill="%2386868a" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.64645 0.646447C8.84171 0.841709 8.84171 1.15829 8.64645 1.35355L1.35355 8.64645C1.15829 8.84171 0.841709 8.84171 0.646447 8.64645C0.451184 8.45118 0.451184 8.1346 0.646447 7.93934L7.93934 0.646447C8.1346 0.451184 8.45118 0.451184 8.64645 0.646447ZM8.64645 3.64645C8.84171 3.84171 8.84171 4.15829 8.64645 4.35355L4.35355 8.64645C4.15829 8.84171 3.84171 8.84171 3.64645 8.64645C3.45118 8.45118 3.45118 8.1346 3.64645 7.93934L7.93934 3.64645C8.1346 3.45118 8.45118 3.45118 8.64645 3.64645Z" /></svg>')
+            no-repeat right bottom;
+    }
+
+    &::-webkit-scrollbar-button,
+    &::-webkit-scrollbar-corner {
+        display: none;
+    }
+}

@@ -75,84 +75,13 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
         <div
           class="input"
         >
-          <div
-            class="component component scrollable s filled"
-            data-simplebar="init"
-            style="padding: 0px; width: 0px;"
+          <textarea
+            autocomplete="on"
+            class="textarea textarea s customScrollbar filled"
+            rows="1"
           >
-            <div
-              class="wrapper"
-              style="margin: -0px -0px -0px -0px;"
-            >
-              <div
-                class="heightAutoObserverWrapper"
-              >
-                <div
-                  class="heightAutoObserver"
-                />
-              </div>
-              <div
-                class="mask"
-                style=""
-              >
-                <div
-                  class="offset"
-                  style="right: 0px; bottom: 0px;"
-                >
-                  <div
-                    aria-label="scrollable content"
-                    class="contentWrapper"
-                    role="region"
-                    style="height: auto; overflow-x: hidden; overflow-y: hidden;"
-                    tabindex="0"
-                  >
-                    <div
-                      class="content scrollableWrapper"
-                      style="padding: 0px 0px 0px 0px;"
-                    >
-                      <textarea
-                        autocomplete="on"
-                        class="textarea textarea s"
-                        rows="1"
-                        style="overflow: hidden;"
-                      >
-                        value
-                      </textarea>
-                      <textarea
-                        class="textarea textarea s textareaHidden"
-                        role="none"
-                        rows="1"
-                      >
-                        value
-                      </textarea>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="placeholder"
-                style="width: 0px; height: 0px;"
-              />
-            </div>
-            <div
-              class="track horizontal"
-              style="visibility: hidden;"
-            >
-              <div
-                class="scrollbar"
-                style="width: 0px; display: none;"
-              />
-            </div>
-            <div
-              class="track vertical"
-              style="visibility: hidden;"
-            >
-              <div
-                class="scrollbar"
-                style="height: 0px; display: none;"
-              />
-            </div>
-          </div>
+            value
+          </textarea>
         </div>
       </div>
     </div>
