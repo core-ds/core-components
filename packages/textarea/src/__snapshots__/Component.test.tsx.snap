@@ -77,7 +77,7 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s customScrollbar filled"
+            class="textarea textarea s customScrollbar"
             rows="1"
           >
             value
