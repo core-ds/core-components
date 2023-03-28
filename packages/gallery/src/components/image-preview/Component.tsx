@@ -68,9 +68,9 @@ export const ImagePreview: FC<Props> = ({ image, active = false, index, onSelect
                                 fillRule='evenodd'
                                 clipRule='evenodd'
                                 d={NoImagePaths.baseImage}
-                                fill='#DBDEE1'
+                                fill='#89898A'
                             />
-                            <path d={NoImagePaths.triangleImage} fill='#DBDEE1' />
+                            <path d={NoImagePaths.triangleImage} fill='#89898A' />
                         </svg>
                     </div>
                 </div>

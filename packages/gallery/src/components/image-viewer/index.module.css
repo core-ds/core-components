@@ -83,11 +83,11 @@
     outline: none;
 
     &:hover {
-        background-color: var(--color-static-bg-primary-dark-alpha-20);
+        background-color: var(--color-static-bg-primary-dark-tint-15);
     }
 
     &:active {
-        background-color: var(--color-static-bg-primary-dark-alpha-15);
+        background-color: var(--color-static-bg-primary-dark-tint-20);
     }
 }
 
@@ -102,7 +102,7 @@
     width: 400px;
     height: 300px;
     border-radius: var(--border-radius-m);
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-static-bg-quaternary-dark);
 }
 
 .brokenImgWrapper {
