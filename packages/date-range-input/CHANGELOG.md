@@ -1,5 +1,34 @@
 # @alfalab/core-components-date-range-input
 
+## 2.3.1
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   calendar@6.2.15
+    -   icon-button@6.0.9
+    -   input@11.1.9
+    -   popover@6.0.8
+
+## 2.3.0
+
+### Minor Changes
+
+### [#579](https://github.com/core-ds/core-components/pull/579)
+
+-   Добавлены новые правила форматирования для DateInput, DateRangeInput, DateTimeInput
+
+## 2.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.14
+
 ## 2.2.14
 
 ### Patch Changes

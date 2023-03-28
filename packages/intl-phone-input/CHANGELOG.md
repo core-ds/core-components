@@ -1,5 +1,30 @@
 # Change Log
 
+## 9.2.18
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+### [#580](https://github.com/core-ds/core-components/pull/580)
+
+-   Исправлена ошибка, из-за которой неверно удалялись символы из выбранного диапозона
+
+-   Обновлены зависимости
+    -   input@11.1.9
+    -   input-autocomplete@9.3.16
+    -   select@13.2.19
+
+## 9.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.18
+    -   input-autocomplete@9.3.15
+
 ## 9.2.16
 
 ### Patch Changes

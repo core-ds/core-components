@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.1.10
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   icon-button@6.0.9
+    -   input@11.1.9
+
 ## 4.1.9
 
 ### Patch Changes

@@ -155,6 +155,8 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
 
         useClickOutside(plateRef, handleClickOutside);
 
+        useEffect(() => () => clearTimeout(timerId.current), []);
+
         useEffect(() => {
             if (open !== prevOpen && open) {
                 startTimer();

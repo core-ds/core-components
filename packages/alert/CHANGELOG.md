@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.0.21
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   plate@6.3.13
+
 ## 4.0.20
 
 ### Patch Changes

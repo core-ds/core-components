@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.2.16
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   link@5.0.4
+    -   loader@3.0.6
+
 ## 1.2.15
 
 ### Patch Changes

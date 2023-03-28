@@ -23,12 +23,20 @@ describe(
                 }),
             ],
         ],
+        evaluate: async (page) => {
+            // Не работают идентификаторы,содержащие ":", почему непонятно.
+            await page.$$eval('*[id*=":"]', (el) =>
+                el.forEach((e) => e.setAttribute('id', e.getAttribute('id')!.replace(/:/g, ''))),
+            );
+
+            await page.$$eval('*[stroke*=":"]', (el) =>
+                el.forEach((e) =>
+                    e.setAttribute('stroke', e.getAttribute('stroke')!.replace(/:/g, '')),
+                ),
+            );
+        },
         screenshotOpts: {
             fullPage: true,
-        },
-        matchImageSnapshotOptions: {
-            failureThresholdType: 'percent',
-            failureThreshold: 0.7,
         },
         viewport: {
             width: 250,

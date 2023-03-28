@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.2.14
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   bottom-sheet@6.0.5
+    -   popover@6.0.8
+
 ## 6.2.13
 
 ### Patch Changes

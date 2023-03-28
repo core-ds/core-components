@@ -1,4 +1,5 @@
 export type BreakpointObjectType = {
+    xs?: string | number;
     s?: string | number;
     m?: string | number;
     l?: string | number;

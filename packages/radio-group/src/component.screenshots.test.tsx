@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -9,6 +9,20 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clipRadio = { x: 0, y: 0, width: 600, height: 200 };
 const clipTag = { x: 0, y: 0, width: 600, height: 300 };
+
+describe('RadioGroup', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'RadioGroup',
+            knobs: {
+                label: 'RadioGroup',
+                size: 'm',
+            },
+        },
+        'transform:scale(2.3)',
+    );
+});
 
 describe(
     'RadioGroup | main props',

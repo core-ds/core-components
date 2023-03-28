@@ -1,5 +1,25 @@
 # Change Log
 
+## 2.2.25
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   pagination@2.0.15
+    -   select@13.2.19
+
+## 2.2.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@13.2.18
+
 ## 2.2.23
 
 ### Patch Changes

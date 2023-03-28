@@ -1,5 +1,5 @@
 import { Page } from 'playwright';
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -9,6 +9,19 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 100, height: 100 };
+
+describe('IconButton', () =>
+    createPreview(
+        {
+            componentName: 'IconButton',
+            knobs: {
+                view: 'primary',
+                icon: 'DiamondsMIcon',
+            },
+            testStory: false,
+        },
+        'transform:scale(4);position:static',
+    ));
 
 describe(
     'IconButton | screenshots views and sizes',

@@ -1,5 +1,17 @@
 # @alfalab/core-components-pass-code
 
+## 1.0.10
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   gap@1.1.2
+
 ## 1.0.9
 
 ### Patch Changes

@@ -1,0 +1,7 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    @mixin headline-system-mobile_small;
+
+    padding-bottom: var(--gap-s);
+}

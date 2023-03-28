@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.1.18
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   portal@3.1.4
+    -   stack@4.0.4
+    -   toast-plate@5.1.16
+
+## 6.1.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.15
+
 ## 6.1.16
 
 ### Patch Changes

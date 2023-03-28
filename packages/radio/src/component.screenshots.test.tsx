@@ -3,6 +3,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     generateTestCases,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -17,6 +18,18 @@ const clip = { x: 0, y: 0, width: 240, height: 60 };
 const availableThemes = ['default', 'click', 'mobile'];
 
 describe('Radio', () => {
+    createPreview(
+        {
+            componentName: 'Radio',
+            knobs: {
+                label: 'Radio',
+                size: 'm',
+                checked: true,
+            },
+        },
+        'transform:scale(2.3)',
+    );
+
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [

@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.2.10
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   input@11.1.9
+    -   with-suffix@4.0.24
+
 ## 7.2.9
 
 ### Patch Changes

@@ -22,7 +22,13 @@ const Addon = () => {
     return (
         <div className='tool'>
             <span className='label'>Выбор темы: </span>
-            <Form.Select size={1} onChange={handleChange} className='select' value={theme}>
+            <Form.Select
+                id='storybook-theme-switcher'
+                size={1}
+                onChange={handleChange}
+                className='select'
+                value={theme}
+            >
                 {THEMES.map((themeName) => (
                     <option value={themeName} key={themeName}>
                         {themeName}

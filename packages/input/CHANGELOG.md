@@ -1,5 +1,18 @@
 # Change Log
 
+## 11.1.9
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   badge@5.0.2
+    -   form-control@9.0.4
+
 ## 11.1.8
 
 ### Patch Changes

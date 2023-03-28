@@ -114,3 +114,5 @@ export const log = (message: string, level: LogLevel = 'error') => {
     // eslint-disable-next-line no-console
     console.log(`${messageColor[level]}%s\x1b[0m`, message);
 };
+
+export const getKeys = Object.keys as <T extends object>(obj: T) => Array<keyof T>;

@@ -1,8 +1,8 @@
 import { getMobileFrames, getOrCreateStyleTag } from '../utils';
 import { MODE_COLORS_TAG_ID } from '../mode-switcher/utils';
 
-import bluetintColors from '!!postcss-loader!../../../packages/vars/src/colors-bluetint.css';
-import bluetintShadows from '!!postcss-loader!../../../packages/vars/src/shadows-bluetint.css';
+import indigoColors from '!!postcss-loader!../../../packages/vars/src/colors-indigo.css';
+import indigoShadows from '!!postcss-loader!../../../packages/vars/src/shadows-indigo.css';
 
 import click from '!!postcss-loader!./themes/click.css';
 import mobile from '!!postcss-loader!./themes/mobile.css';
@@ -36,12 +36,12 @@ export function setThemeStylesInMobileFrame(theme) {
 }
 
 export function getThemeStyles(selectedTheme) {
-    const bluetintThemes = ['mobile', 'intranet', 'click'];
-    const bluetintVars = [bluetintColors, bluetintShadows].join('\n');
+    const indigoThemes = ['corp', 'site'];
+    const indigoVars = [indigoColors, indigoShadows].join('\n');
 
     return [
         themes[selectedTheme],
-        bluetintThemes.some((theme) => theme === selectedTheme) ? bluetintVars : '',
+        indigoThemes.some((theme) => theme === selectedTheme) ? indigoVars : '',
     ].join('\n');
 }
 

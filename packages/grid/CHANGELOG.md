@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.1.1
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+## 3.1.0
+
+### Minor Changes
+
+### [#571](https://github.com/core-ds/core-components/pull/571)
+
+-   Добавлен новый breakpoint - mobile-xs
+
 ## 3.0.3
 
 ### Patch Changes

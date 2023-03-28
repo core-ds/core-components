@@ -4,47 +4,39 @@ import { Gap } from './components/Gap.jsx';
 import { DocumentIcon } from './components/icons/DocumentIcon.jsx';
 import { ComponentIcon } from './components/icons/ComponentIcon.jsx';
 import { FolderIcon } from './components/icons/FolderIcon.jsx';
-import { DiamondsBlankIcon } from './components/icons/DiamondsBlankIcon.jsx';
 import { FlashIcon } from './components/icons/FlashIcon.jsx';
-// import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
-import SandboxIcon from './public/images/sandbox-icon.svg';
+import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
+import { OverviewIcon } from './components/icons/OverviewIcon.jsx';
+import { ComponentsOverviewIcon } from './components/icons/ComponentsOverviewIcon.jsx';
+import { DiamondsBlankIcon } from './components/icons/DiamondsBlankIcon.jsx';
 
 const renderIcon = (type, parent, depth, name) => {
     switch (type) {
         case 'component': {
             if (name === 'Sandbox') {
-                // Сложная иконка песочницы не отображается svg компонентом
-                return <img src={SandboxIcon} className='sidebar-icon' />;
+                return <SandboxIcon />;
             }
-            if (name === 'Intro') {
+            if (name === 'Quick start') {
                 return <FlashIcon />;
             }
+            if (name === 'Icons overview') {
+                return <OverviewIcon />;
+            }
+            if (name === 'Components overview') {
+                return <ComponentsOverviewIcon />;
+            }
+
             if (parent && parent.includes('components')) {
-                return (
-                    <>
-                        {name === 'KeyboardFocusable' && <Gap size={8} />}
-                        <ComponentIcon />
-                    </>
-                );
+                return <ComponentIcon />;
             }
-            if (
-                (parent && parent.includes('instructions')) ||
-                (parent && parent.includes('guidelines'))
-            ) {
-                return (
-                    <>
-                        <Gap size={depth > 1 ? 10 : 6} />
-                        <DocumentIcon />
-                    </>
-                );
-            }
+
             return <DocumentIcon />;
         }
         case 'story': {
             return (
                 <>
-                    <Gap size={6} />
-                    <ComponentIcon />
+                    <Gap size={depth > 1 ? 20 : 4} />
+                    {depth > 1 ? <DiamondsBlankIcon /> : <ComponentIcon />}
                 </>
             );
         }

@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -10,6 +11,20 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('AmountInput ', () =>
+    createPreview(
+        {
+            componentName: 'AmountInput',
+            knobs: {
+                label: 'Label',
+                value: 123400,
+                size: 'm',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.3)',
+    ));
 
 describe(
     'AmountInput | screenshots',

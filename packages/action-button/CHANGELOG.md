@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.1.5
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   loader@3.0.6
+
 ## 1.1.4
 
 ### Patch Changes

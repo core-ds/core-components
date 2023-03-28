@@ -1,5 +1,28 @@
 # Change Log
 
+## 7.0.5
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   button@8.0.0
+    -   base-modal@5.1.2
+    -   icon-button@6.0.9
+    -   mq@4.1.4
+    -   navigation-bar@0.1.3
+
+## 7.0.4
+
+### Patch Changes
+
+### [#567](https://github.com/core-ds/core-components/pull/567)
+
+-   Ограничена максимальная ширина компонента ModalMobile до 600px
+
 ## 7.0.3
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.0.8
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   portal@3.1.4
+    -   stack@4.0.4
+
 ## 6.0.7
 
 ### Patch Changes

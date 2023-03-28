@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -9,6 +9,21 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clipCheckbox = { x: 0, y: 0, width: 600, height: 200 };
 const clipTag = { x: 0, y: 0, width: 600, height: 300 };
+
+describe('CheckboxGroup', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'CheckboxGroup',
+            knobs: {
+                label: 'CheckboxGroup',
+                size: 'm',
+                checked: true,
+            },
+        },
+        'transform:scale(2.3)',
+    );
+});
 
 describe(
     'CheckboxGroup | main props',

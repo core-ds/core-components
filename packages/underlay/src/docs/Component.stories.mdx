@@ -78,37 +78,37 @@ export const SHADOW = [
     'shadow-xl-hard-up',
 ];
 
-<Meta title='Components/Cells/Underlay' component={Underlay} id='Underlay' />
+<Meta title='Components/Underlay' component={Underlay} id='Underlay' />
 
 <!-- Canvas -->
 
 <Story name='Underlay'>
- {React.createElement(() => {
-    const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
-    const borderRadius = select('borderRadius', ['m', 'xl', 'xxl'], 'm');
-    const borderSize = select('borderSize', ['1', '2', '4'], '2');
-    const paddingTop = select('padding.top', paddingSizes, 'm');
-    const paddingRight = select('padding.right', paddingSizes, 'm');
-    const paddingBottom = select('padding.bottom', paddingSizes, 'm');
-    const paddingLeft = select('padding.left', paddingSizes, 'm');
-    return (
-        <Underlay
-            borderRadius={borderRadius}
-            borderSize={borderSize}
-            shadow={select('shadow', SHADOW, 'shadow-l')}
-            backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
-            borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
-            padding={{
+    {React.createElement(() => {
+        const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
+        const borderRadius = select('borderRadius', ['m', 'xl', 'xxl'], 'm');
+        const borderSize = select('borderSize', ['1', '2', '4'], '2');
+        const paddingTop = select('padding.top', paddingSizes, 'm');
+        const paddingRight = select('padding.right', paddingSizes, 'm');
+        const paddingBottom = select('padding.bottom', paddingSizes, 'm');
+        const paddingLeft = select('padding.left', paddingSizes, 'm');
+        return (
+            <Underlay
+                borderRadius={borderRadius}
+                borderSize={borderSize}
+                shadow={select('shadow', SHADOW, 'shadow-l')}
+                backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
+                borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
+                padding={{
                     top: paddingTop,
                     right: paddingRight,
                     bottom: paddingBottom,
                     left: paddingLeft,
                 }}
-        >
-            {text('children', 'Вам одобрено. Согласитесь на предложение')}
-        </Underlay>
-    );
-})}
+            >
+                {text('children', 'Вам одобрено. Согласитесь на предложение')}
+            </Underlay>
+        );
+    })}
 </Story>
 
 <!-- Docs -->
@@ -121,8 +121,4 @@ export const SHADOW = [
     children='Подложка под любой вид контента.'
 />
 
-<Tabs 
-    description={<Description />} 
-    development={<Development />}
-    changelog={<Changelog />} 
-/>
+<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />

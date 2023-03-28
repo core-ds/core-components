@@ -61,6 +61,12 @@ console.log('Publish storybook demo for github');
 console.log('=> Build packages');
 shell.exec('BUILD_ESM_ONLY=true yarn build', { fatal: true });
 
+console.log('=> Copy components preview to public dir');
+shell.exec(
+    'find packages/ -type f | grep -i preview-snap.png$ | xargs -i cp {} .storybook/public/images',
+    { fatal: true },
+);
+
 console.log('=> Build storybook', { fatal: true });
 shell.exec(`BUILD_STORYBOOK_FROM_DIST=true yarn build-storybook -o ${tempOutputDir}`, {
     fatal: true,

@@ -1,5 +1,26 @@
 # Change Log
 
+## 7.3.14
+
+### Patch Changes
+
+### [#588](https://github.com/core-ds/core-components/pull/588)
+
+-   Добавлен \_\_esModule в cjs экспорт
+
+-   Обновлены зависимости
+    -   picker-button@10.3.14
+    -   badge@5.0.2
+    -   keyboard-focusable@4.0.5
+    -   tag@5.3.0
+
+## 7.3.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.13
+
 ## 7.3.12
 
 ### Patch Changes

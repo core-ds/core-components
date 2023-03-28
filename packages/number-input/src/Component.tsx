@@ -3,7 +3,7 @@ import mergeRefs from 'react-merge-refs';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
 
-import { createSeparatorsRegExp, SIGNS, SEPARATORS } from './utils';
+import { createSeparatorsRegExp, getAllowedValue, SEPARATORS, SIGNS } from './utils';
 
 export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
@@ -73,82 +73,90 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             return parseFloat(valueString);
         };
 
-        const getNumberRegExp = (): RegExp => {
-            let reStr = '[0-9]+';
-
-            if (fractionLength !== 0) {
-                reStr = `${reStr}[${SEPARATORS.map((s) => `\\${s}`).join('')}]?[0-9]{0,${
-                    fractionLength || Number.MAX_SAFE_INTEGER
-                }}`;
-            }
-
-            return new RegExp(`^${reStr}$`);
-        };
-
         const restoreCaret = (target: HTMLInputElement) => {
-            const input = target;
-            const positionCursor = input.selectionStart || 0;
-            const isEndPosition = input.value.length === positionCursor;
+            setTimeout(() => {
+                const input = target;
+                const positionCursor = input.selectionStart || 0;
+                const isEndPosition = input.value.length === positionCursor;
 
-            const enteredSign = SIGNS.some((s) => s === input.value[positionCursor - 1]);
-            const enteredSeparator = SEPARATORS.filter((s) => s !== separator).some(
-                (s) => s === input.value[positionCursor - 1],
-            );
+                const enteredSign = SIGNS.some((s) => s === input.value[positionCursor - 1]);
+                const enteredSeparator = SEPARATORS.filter((s) => s !== separator).some(
+                    (s) => s === input.value[positionCursor - 1],
+                );
 
-            const shouldRestore = enteredSeparator || enteredSign;
+                const shouldRestore = enteredSeparator || enteredSign;
 
-            if (!isEndPosition && shouldRestore) {
-                setTimeout(() => {
+                if (!isEndPosition && shouldRestore) {
                     input.selectionStart = positionCursor;
                     input.selectionEnd = positionCursor;
-                });
-            }
+                }
+            });
         };
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             const input = event.target;
+            const newValue = input.value.replace(createSeparatorsRegExp(), separator);
 
-            const numberRe = getNumberRegExp();
-            const testedValue =
-                allowSigns && SIGNS.some((s) => s === input.value[0])
-                    ? input.value.slice(1)
-                    : input.value;
+            const allowedValue = getAllowedValue({
+                value: newValue,
+                fractionLength,
+                allowSigns,
+                separator,
+            });
 
-            if (testedValue === '' || numberRe.test(testedValue)) {
-                const newValue = input.value.replace(createSeparatorsRegExp(), separator);
-
-                if (onChange) {
-                    onChange(event, {
-                        value: getNumberValueFromStr(newValue),
-                        valueString: newValue,
-                    });
-                }
-
-                if (uncontrolled) {
-                    setValue(newValue);
-                }
-
-                restoreCaret(input);
+            if (onChange) {
+                onChange(event, {
+                    value: getNumberValueFromStr(allowedValue),
+                    valueString: allowedValue,
+                });
             }
+
+            if (uncontrolled) {
+                setValue(allowedValue);
+            }
+
+            restoreCaret(input);
         };
 
         const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
             const disallowedSymbols = /[/|?!@#$%^&*()_=A-Za-zА-Яа-яЁё ]/;
-            const oneKeyPress =
-                !event.altKey && !event.metaKey && !event.ctrlKey && !event.shiftKey;
+            const oneKeyPress = !event.altKey && !event.metaKey && !event.ctrlKey;
 
-            // Запрещаем вводить неразрешенные символы за исключением комбинций клавиш
+            // Запрещаем вводить неразрешенные символы за исключением комбинаций клавиш
             if (oneKeyPress && event.key.length === 1 && disallowedSymbols.test(event.key)) {
-                event.preventDefault();
+                return event.preventDefault();
             }
+
+            const val = event.target.value;
+            const hasSeparator = (val.match(createSeparatorsRegExp()) || []).length > 0;
 
             // Запрещаем вводить второй сепаратор
-            if (
-                SEPARATORS.some((s) => s === event.key) &&
-                (event.target.value.match(createSeparatorsRegExp()) || []).length
-            ) {
-                event.preventDefault();
+            if (hasSeparator && SEPARATORS.some((s) => s === event.key)) {
+                return event.preventDefault();
             }
+
+            // Запрещаем вводить лишний знак
+            if (
+                (!allowSigns || SIGNS.some((s) => s === val[0])) &&
+                SIGNS.some((s) => s === event.key)
+            ) {
+                return event.preventDefault();
+            }
+
+            const selectionStart = event.target.selectionStart || 0;
+
+            // Запрещаем вводить цифры в дробную часть, если кол-во цифр больше fractionLength
+            if (
+                hasSeparator &&
+                fractionLength &&
+                event.key.length === 1 &&
+                selectionStart > val.indexOf(separator) &&
+                val.split(separator)[1].length >= fractionLength
+            ) {
+                return event.preventDefault();
+            }
+
+            return undefined;
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {

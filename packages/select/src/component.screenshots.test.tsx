@@ -5,6 +5,7 @@ import {
     matchHtml,
     openBrowserPage,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -43,6 +44,20 @@ const groups = [
 ];
 
 describe('Select', () => {
+    createPreview(
+        {
+            componentName: 'Select',
+            knobs: {
+                label: 'Label',
+                size: 'm',
+                block: true,
+                selected: '["1"]',
+                options: '[{"key": "1", "content": "Value"}]',
+            },
+        },
+        'padding: 0 270px; transform:scale(2.3)',
+    );
+
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
