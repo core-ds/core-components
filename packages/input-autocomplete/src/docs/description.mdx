@@ -466,7 +466,6 @@ render(() => {
             label='Счёт'
             placeholder='Маскированный ввод счёта'
             onChange={handleChange}
-            onFilter={handleFilter}
             onClearFilter={() => setFilter('')}
             bottomSheetProps={{
                 transitionProps: {
@@ -475,7 +474,7 @@ render(() => {
             }}
             Option={CardOption}
             Input={MaskedInput}
-            bottomSheetHeaderAddonsProps={{ mask }}
+            bottomSheetHeaderAddonsProps={{ mask, onChange: handleFilter }}
         />
     );
 });
