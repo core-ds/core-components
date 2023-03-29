@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+### [#606](https://github.com/core-ds/core-components/pull/606)
+
+-   Кнопки в состоянии disabled в теме click теперь соответствуют default
+
 ## 11.0.0
 
 ### Major Changes

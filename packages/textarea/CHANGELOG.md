@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+### [#605](https://github.com/core-ds/core-components/pull/605)
+
+-   Переработан кастомный скроллбар. Теперь используется CSS реализация.
+
+### [#589](https://github.com/core-ds/core-components/pull/589)
+
+-   Добавлен новый пропс allowOverflow отвечающий за добавление логики переполнения, если количество символов превышает maxLength
+
 ## 8.1.7
 
 ### Patch Changes
