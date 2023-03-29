@@ -171,23 +171,25 @@ export const Slider: FC<SliderProps> = ({
 
         const handler = () => {
             if (onChange) {
-                if (valueTo) {
-                    const [newValueFrom, newValueTo] = slider.get() as string[];
-
-                    if (Number(newValueFrom) <= Number(newValueTo) || behaviour === 'tap') {
-                        onChange({ value: Number(newValueFrom), valueTo: Number(newValueTo) });
-                    } else {
-                        onChange({ value: Number(newValueTo), valueTo: Number(newValueFrom) });
-                    }
-                } else {
+                if (valueTo === undefined) {
                     onChange({ value: Number(slider.get()) });
+                } else {
+                    const sliderValues = slider.get() as string[];
+                    const from = Number(sliderValues[0]);
+                    const to = Number(sliderValues[1]);
+
+                    if (from <= to) {
+                        onChange({ value: from, valueTo: to });
+                    } else {
+                        onChange({ value: to, valueTo: from });
+                    }
                 }
             }
         };
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange, valueTo, behaviour]);
+    }, [onChange, valueTo]);
 
     return (
         <div

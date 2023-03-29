@@ -49,7 +49,7 @@ render(() => {
 
 ## Диапазон
 
-С помощью слайдера можно указывать диапазон значений. Свойство `behaviour` определяет поведение ползунка.
+С помощью слайдера можно указывать диапазон значений. Чтобы позволить ползункам пересекать друг друга установите `behaviour=unconstrained-tap`.
 
 ```jsx live
 render(() => {
@@ -59,8 +59,8 @@ render(() => {
     });
 
     const [slider, setSlider] = React.useState({
-        value: 2,
-        valueTo: 4
+        value: 4,
+        valueTo: 6
     });
 
     const handleChangeSliderTap = (payload) => {
@@ -73,10 +73,11 @@ render(() => {
 
     return (
         <>
-            <div>min: {sliderTap.value}</div>
-            <Gap size='xs'/>
-            <div>max: {sliderTap.valueTo}</div>
-            <br />
+            <div style={{display: 'flex', justifyContent: 'space-between' }}>
+                <span>min: {sliderTap.value}</span>
+                <span>max: {sliderTap.valueTo}</span>
+            </div>
+            <Gap size='s'/>
             <Slider
                 size='m'
                 value={sliderTap.value}
@@ -88,11 +89,12 @@ render(() => {
                     mode: 'steps',
                 }}
             />
-            <Gap size='l'/>
-            <div>min: {slider.value}</div>
-            <Gap size='xs'/>
-            <div>max: {slider.valueTo}</div>
-            <br />
+            <Gap size='3xl'/>
+            <div style={{display: 'flex', justifyContent: 'space-between' }}>
+                <span>min: {slider.value}</span>
+                <span>max: {slider.valueTo}</span>
+            </div>
+            <Gap size='s'/>
             <Slider
                 size='m'
                 value={slider.value}
