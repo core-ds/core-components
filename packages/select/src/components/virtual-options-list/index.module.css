@@ -14,6 +14,8 @@
 }
 
 .virtualOptionsListFooter {
+    position: sticky;
+    bottom: 0;
     box-sizing: border-box;
     border-top: 1px solid transparent;
 
@@ -25,10 +27,6 @@
 .scrollable {
     overflow: auto;
     width: 100%;
-}
-
-.mobileList {
-    margin-bottom: 80px;
 }
 
 .inner {

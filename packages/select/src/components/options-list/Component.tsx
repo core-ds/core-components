@@ -109,7 +109,7 @@ export const OptionsList = forwardRef(
 
         const renderWithNativeScrollbar = () => (
             <div
-                className={cn(styles.scrollable, footer && styles.mobileList)}
+                className={cn(styles.scrollable)}
                 ref={mergeRefs([listRef, ref])}
                 onScroll={onScroll}
             >

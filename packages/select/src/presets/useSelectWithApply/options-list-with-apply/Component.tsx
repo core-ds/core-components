@@ -4,7 +4,6 @@ import React, {
     useCallback,
     useContext,
     useEffect,
-    useMemo,
     useRef,
 } from 'react';
 import cn from 'classnames';
@@ -40,8 +39,8 @@ export const OptionsListWithApply = forwardRef(
             selectedDraft = [],
             flatOptions = [],
             OptionsList = flatOptions.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
-                ? DefaultOptionsList
-                : DefaultVirtualOptionsList,
+                ? DefaultVirtualOptionsList
+                : DefaultOptionsList,
             onApply = () => null,
             onClear = () => null,
             onClose = () => null,
@@ -55,7 +54,7 @@ export const OptionsListWithApply = forwardRef(
 
         const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
 
-        const buttonView = useMemo(() => (view === 'mobile' ? 's' : 'xxs'), [view]);
+        const buttonSize = view === 'mobile' ? 's' : 'xxs';
 
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => {
@@ -132,20 +131,22 @@ export const OptionsListWithApply = forwardRef(
                         ref={footerRef}
                     >
                         <Button
-                            size={buttonView}
+                            size={buttonSize}
                             view='primary'
                             onClick={handleApply}
-                            className={view === 'mobile' ? styles.footerButton : undefined}
+                            className={view === 'mobile' ? styles.footerButtonMobile : undefined}
                         >
                             Применить
                         </Button>
 
                         {showClear && (
                             <Button
-                                size={buttonView}
+                                size={buttonSize}
                                 view='secondary'
                                 onClick={handleClear}
-                                className={view === 'mobile' ? styles.footerButton : undefined}
+                                className={
+                                    view === 'mobile' ? styles.footerButtonMobile : undefined
+                                }
                             >
                                 Сбросить
                             </Button>

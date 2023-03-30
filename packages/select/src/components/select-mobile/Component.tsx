@@ -31,7 +31,7 @@ export type AdditionalMobileProps = {
     /**
      * Дополнительные пропсы для хука useSelectWithApply
      */
-    hookProps?: useSelectWithApplyProps;
+    propsForApplyHook?: useSelectWithApplyProps;
 };
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> &
@@ -61,19 +61,20 @@ export const SelectMobile = forwardRef(
             selected,
             options,
             onChange,
-            hookProps = {
-                OptionsList,
-                selected,
-                options,
-                onChange,
-                showClear: true,
-            },
+            propsForApplyHook,
             bottomSheetProps,
             ...restProps
         }: SelectMobileProps,
         ref,
     ) => {
-        const applyProps = useSelectWithApply(hookProps);
+        const applyProps = useSelectWithApply({
+            OptionsList,
+            selected,
+            options,
+            onChange,
+            showClear: true,
+            ...propsForApplyHook,
+        });
 
         return (
             <BaseSelectMobile
@@ -82,9 +83,9 @@ export const SelectMobile = forwardRef(
                 disabled={disabled}
                 closeOnSelect={closeOnSelect}
                 autocomplete={autocomplete}
+                multiple={multiple}
                 circularNavigation={circularNavigation}
                 defaultOpen={defaultOpen}
-                optionsListProps={{ showFooter: multiple }}
                 open={openProp}
                 size={size}
                 optionsSize={optionsSize}
@@ -102,7 +103,6 @@ export const SelectMobile = forwardRef(
                 onChange={onChange}
                 {...restProps}
                 {...(multiple && !bottomSheetProps?.actionButton && applyProps)}
-                multiple={multiple}
                 bottomSheetProps={bottomSheetProps}
             />
         );

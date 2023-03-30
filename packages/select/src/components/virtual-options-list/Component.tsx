@@ -165,11 +165,7 @@ export const VirtualOptionsList = ({
     );
 
     const renderWithNativeScrollbar = () => (
-        <div
-            className={cn(styles.scrollable, footer && styles.mobileList)}
-            ref={parentRef}
-            onScroll={onScroll}
-        >
+        <div className={cn(styles.scrollable)} ref={parentRef} onScroll={onScroll}>
             <div {...contentNodeProps}>{renderList()}</div>
         </div>
     );

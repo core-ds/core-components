@@ -12,7 +12,7 @@ export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScro
     /**
      * Дополнительные пропсы для хука useSelectWithApply
      */
-    hookProps?: useSelectWithApplyProps;
+    propsForApplyHook?: useSelectWithApplyProps;
 };
 
 export const SelectModalMobile = forwardRef(
@@ -34,20 +34,23 @@ export const SelectModalMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            OptionsList,
             selected,
             options,
             onChange,
-            hookProps = {
-                selected,
-                options,
-                onChange,
-                showClear: true,
-            },
+            propsForApplyHook,
             ...restProps
         }: SelectModalMobileProps,
         ref,
     ) => {
-        const applyProps = useSelectWithApply(hookProps);
+        const applyProps = useSelectWithApply({
+            OptionsList,
+            selected,
+            options,
+            onChange,
+            showClear: true,
+            ...propsForApplyHook,
+        });
 
         return (
             <BaseSelectMobile

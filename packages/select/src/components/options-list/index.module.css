@@ -16,6 +16,8 @@
 .optionsListFooter {
     box-sizing: border-box;
     border-top: 1px solid transparent;
+    position: sticky;
+    bottom: 0;
 
     &.withBorder {
         border-top: 1px solid var(--color-light-border-secondary);
@@ -25,10 +27,6 @@
 .scrollable {
     overflow: auto;
     width: 100%;
-}
-
-.mobileList {
-    margin-bottom: 80px;
 }
 
 .emptyPlaceholder {

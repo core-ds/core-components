@@ -20,17 +20,15 @@
     display: flex;
     box-sizing: border-box;
     width: 100%;
-    position: fixed;
     padding: var(--gap-m) var(--gap-m);
     background-color: var(--color-light-bg-primary);
-    bottom: 0;
 
-    & .footerButton:first-of-type {
+    & .footerButtonMobile:first-of-type {
         margin-right: var(--gap-m);
     }
 }
 
-.footerButton {
+.footerButtonMobile {
     width: 50%;
 }
 
