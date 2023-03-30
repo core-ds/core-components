@@ -14,24 +14,34 @@
     --textarea-l-padding-top: 22px;
     --textarea-xl-padding-top: 24px;
 
-    /* filled margin-top */
-    --textarea-s-filled-margin-top: 23px;
-    --textarea-m-filled-margin-top: 28px;
-    --textarea-l-filled-margin-top: 32px;
-    --textarea-xl-filled-margin-top: 38px;
+    /* filled padding-top */
+    --textarea-s-filled-padding-top: 24px;
+    --textarea-m-filled-padding-top: 24px;
+    --textarea-l-filled-padding-top: 32px;
+    --textarea-xl-filled-padding-top: 34px;
+
+    /* filled padding-bottom */
+    --textarea-s-filled-padding-bottom: 4px;
+    --textarea-m-filled-padding-bottom: 8px;
+    --textarea-l-filled-padding-bottom: 12px;
+    --textarea-xl-filled-padding-bottom: 14px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
-        var(--textarea-s-min-height) - var(--textarea-s-filled-margin-top)
+        var(--textarea-s-min-height) - var(--textarea-s-filled-padding-top) -
+            var(--textarea-s-filled-padding-bottom)
     );
     --textarea-m-filled-min-height: calc(
-        var(--textarea-m-min-height) - var(--textarea-m-filled-margin-top)
+        var(--textarea-m-min-height) - var(--textarea-m-filled-padding-top) -
+            var(--textarea-m-filled-padding-bottom)
     );
     --textarea-l-filled-min-height: calc(
-        var(--textarea-l-min-height) - var(--textarea-l-filled-margin-top)
+        var(--textarea-l-min-height) - var(--textarea-l-filled-padding-top) -
+            var(--textarea-l-filled-padding-bottom)
     );
     --textarea-xl-filled-min-height: calc(
-        var(--textarea-xl-min-height) - var(--textarea-xl-filled-margin-top)
+        var(--textarea-xl-min-height) - var(--textarea-xl-filled-padding-top) -
+            var(--textarea-xl-filled-padding-bottom)
     );
 }
 
@@ -48,25 +58,7 @@
     box-sizing: border-box;
     resize: none;
     -webkit-appearance: none;
-    &.s {
-        padding-top: var(--textarea-s-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.m {
-        padding-top: var(--textarea-m-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.l {
-        padding-top: var(--textarea-l-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.xl {
-        padding-top: var(--textarea-xl-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
+    height: inherit;
 }
 
 .customScrollbar {
@@ -79,10 +71,6 @@
 
 .hasInnerLabel::placeholder {
     opacity: 0;
-}
-
-.resizeVertical {
-    resize: vertical;
 }
 
 .pseudoTextarea {
@@ -112,24 +100,30 @@
     @mixin form-control-sub;
 }
 
-/* SIZES */
-
-.textarea {
-    &.s {
-        min-height: var(--textarea-s-min-height);
-    }
-
-    &.m {
-        min-height: var(--textarea-m-min-height);
-    }
-
+/* Паддинги взяты из стилей form-control */
+.scrollable {
+    &.s,
+    &.m,
     &.l {
-        min-height: var(--textarea-l-min-height);
+        & .textarea {
+            padding-left: var(--gap-s);
+            padding-right: var(--gap-s);
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     }
 
     &.xl {
-        min-height: var(--textarea-xl-min-height);
+        & .textarea {
+            padding-left: var(--gap-m);
+            padding-right: var(--gap-m);
+        }
     }
+}
+
+.textarea.hasInnerLabel.hasInnerLabel {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* DISABLED STATE */
@@ -161,45 +155,116 @@
     padding-top: 0;
 
     &.s {
-        margin-top: var(--textarea-s-filled-margin-top);
         min-height: var(--textarea-s-filled-min-height);
-        height: var(--textarea-s-filled-min-height);
     }
 
     &.m {
-        margin-top: var(--textarea-m-filled-margin-top);
         min-height: var(--textarea-m-filled-min-height);
-        height: var(--textarea-m-filled-min-height);
     }
 
     &.l {
-        margin-top: var(--textarea-l-filled-margin-top);
         min-height: var(--textarea-l-filled-min-height);
-        height: var(--textarea-l-filled-min-height);
     }
 
     &.xl {
-        margin-top: var(--textarea-xl-filled-margin-top);
         min-height: var(--textarea-xl-filled-min-height);
-        height: var(--textarea-xl-filled-min-height);
+    }
+}
+
+.scrollableWithLabel.filled {
+    &.s {
+        min-height: var(--textarea-s-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-s-filled-min-height);
+        }
+    }
+
+    &.m {
+        min-height: var(--textarea-m-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-m-filled-min-height);
+        }
+    }
+
+    &.l {
+        min-height: var(--textarea-l-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-l-filled-min-height);
+        }
+    }
+
+    &.xl {
+        min-height: var(--textarea-xl-filled-min-height);
+
+        & .textarea {
+            min-height: var(--textarea-xl-filled-min-height);
+        }
     }
 }
 
 /* Correct pseudoTextarea size */
 .pseudoTextarea.filled.hasInnerLabel {
     &.s {
-        height: calc(100% - var(--textarea-s-filled-margin-top));
+        min-height: calc(100% - var(--textarea-s-filled-padding-top));
     }
 
     &.m {
-        height: calc(100% - var(--textarea-m-filled-margin-top));
+        min-height: calc(100% - var(--textarea-m-filled-padding-top));
     }
 
     &.l {
-        height: calc(100% - var(--textarea-l-filled-margin-top));
+        min-height: calc(100% - var(--textarea-l-filled-padding-top));
     }
 
     &.xl {
-        height: calc(100% - var(--textarea-xl-filled-margin-top));
+        min-height: calc(100% - var(--textarea-xl-filled-padding-top));
+    }
+}
+
+.wrapper {
+    &.resizeVertical {
+        resize: vertical;
+        min-height: 20px;
+    }
+
+    &.s {
+        padding: var(--textarea-s-padding-top) 0;
+    }
+
+    &.m {
+        padding: var(--textarea-m-padding-top) 0;
+    }
+
+    &.l {
+        padding: var(--textarea-l-padding-top) 0;
+    }
+
+    &.xl {
+        padding: var(--textarea-xl-padding-top) 0;
+    }
+
+    &.hasInnerLabel {
+        &.s {
+            padding-top: var(--textarea-s-filled-padding-top);
+            padding-bottom: var(--textarea-s-filled-padding-bottom);
+        }
+
+        &.m {
+            padding-top: var(--textarea-m-filled-padding-top);
+            padding-bottom: var(--textarea-m-filled-padding-bottom);
+        }
+
+        &.l {
+            padding-top: var(--textarea-l-filled-padding-top);
+            padding-bottom: var(--textarea-l-filled-padding-bottom);
+        }
+
+        &.xl {
+            padding-top: var(--textarea-xl-filled-padding-top);
+            padding-bottom: var(--textarea-xl-filled-padding-bottom);
+        }
     }
 }

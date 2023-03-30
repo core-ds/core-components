@@ -10,19 +10,120 @@
 4. Предоставить пользователю возможность управлять высотой самостоятельно.
 
 ```jsx live
-<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-    <Textarea placeholder='Автоматическое изменение высоты' block={true} />
-    <Gap size='m' />
-    <Textarea placeholder='Высота в три строки' minRows={3} autosize={false} block={true} />
-    <Gap size='m' />
-    <Textarea
-        placeholder='Ручное управление высотой'
-        autosize={false}
-        resize='vertical'
-        minRows={3}
-        block={true}
-    />
-</div>
+const OPTIONS = [
+    { key: '1', content: 'Нет' },
+    { key: '2', content: 'Внутри' },
+    { key: '3', content: 'Снаружи' },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState(OPTIONS[1]);
+
+    const handleChange = ({ selected }) => {
+        if (selected) {
+            setSelected(selected);
+        }
+    };
+
+    const visibleLabel = selected.key !== '1'
+
+    const positionLabel = visibleLabel && selected.key !== '2' ? 'outer' : 'inner';
+
+    return (
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                <Select
+                    label='Лейбл'
+                    allowUnselect={true}
+                    block={true}
+                    size='m'
+                    options={OPTIONS}
+                    Option={BaseOption}
+                    onChange={handleChange}
+                    selected={selected}
+                />
+                <Gap size='xl' />
+                <Textarea 
+                    label={visibleLabel && 'Автоматическое изменение высоты'} 
+                    block={true}
+                    labelView={positionLabel}
+                />
+                <Gap size='m' />
+                <Textarea 
+                    label={visibleLabel && 'Высота в три строки'} 
+                    minRows={3} 
+                    autosize={false} 
+                    block={true} 
+                    labelView={positionLabel}
+                />
+                <Gap size='m' />
+                <Textarea
+                    label={visibleLabel && 'Ручное управление высотой'}
+                    labelView={positionLabel}
+                    autosize={false}
+                    resize='vertical'
+                    minRows={3}
+                    block={true}
+                />
+            </div>
+    );
+});
+//MOBILE
+const OPTIONS = [
+    { key: '1', content: 'Нет' },
+    { key: '2', content: 'Внутри' },
+    { key: '3', content: 'Снаружи' },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState(OPTIONS[1]);
+
+    const handleChange = ({ selected }) => {
+        if (selected) {
+            setSelected(selected);
+        }
+    };
+
+    const visibleLabel = selected.key !== '1'
+
+    const positionLabel = visibleLabel && selected.key !== '2' ? 'outer' : 'inner';
+
+    return (
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                <SelectMobile
+                    label='Лейбл'
+                    allowUnselect={true}
+                    block={true}
+                    size='m'
+                    options={OPTIONS}
+                    onChange={handleChange}
+                    selected={selected}
+                />
+                <Gap size='xl' />
+                <Textarea 
+                    label={visibleLabel && 'Автоматическое изменение высоты'} 
+                    block={true}
+                    labelView={positionLabel}
+                />
+                <Gap size='m' />
+                <Textarea 
+                    label={visibleLabel && 'Высота в три строки'} 
+                    minRows={3} 
+                    autosize={false} 
+                    block={true} 
+                    labelView={positionLabel}
+                />
+                <Gap size='m' />
+                <Textarea
+                    label={visibleLabel && 'Ручное управление высотой'}
+                    labelView={positionLabel}
+                    autosize={false}
+                    resize='vertical'
+                    minRows={3}
+                    block={true}
+                />
+            </div>
+    );
+});
 ```
 
 ## Максимальное количество символов
