@@ -34,7 +34,7 @@ export const VirtualOptionsList = ({
     Optgroup = DefaultOptgroup,
     dataTestId,
     emptyPlaceholder,
-    visibleOptions = 5,
+    visibleOptions: visibleOptionsFromProps = 5,
     onScroll,
     header,
     footer,
@@ -45,6 +45,8 @@ export const VirtualOptionsList = ({
     const scrollbarRef = useRef<HTMLDivElement>(null);
     const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState(0);
     const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
+
+    const numberOfVisibleOptions = visibleOptionsFromProps === 0 ? 12 : visibleOptionsFromProps;
 
     const rowVirtualizer = useVirtual({
         size: flatOptions.length,
@@ -102,7 +104,7 @@ export const VirtualOptionsList = ({
     }, [rowVirtualizer.virtualItems.length, flatOptions.length]);
 
     useVisibleOptions({
-        visibleOptions,
+        visibleOptions: numberOfVisibleOptions,
         invalidate: visibleOptionsInvalidateKey,
         listRef,
         styleTargetRef: nativeScrollbar ? parentRef : scrollbarRef,
@@ -186,7 +188,8 @@ export const VirtualOptionsList = ({
             {footer && (
                 <div
                     className={cn(styles.virtualOptionsListFooter, {
-                        [styles.withBorder]: visibleOptions && flatOptions.length > visibleOptions,
+                        [styles.withBorder]:
+                            visibleOptionsFromProps && flatOptions.length > visibleOptionsFromProps,
                     })}
                 >
                     {footer}
