@@ -107,7 +107,6 @@ export const BaseSelectMobile = forwardRef(
             footer,
             isBottomSheet,
             bottomSheetProps,
-            visibleOptions = 0,
             showEmptyOptionsList = false,
         }: SelectMobileProps,
         ref,
@@ -416,7 +415,7 @@ export const BaseSelectMobile = forwardRef(
                                     setSelectedItems={setSelectedItems}
                                     toggleMenu={toggleMenu}
                                     getOptionProps={getOptionProps}
-                                    visibleOptions={visibleOptions}
+                                    visibleOptions={0}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
                                     optionGroupClassName={cn(
                                         styles.optionGroup,
@@ -452,7 +451,7 @@ export const BaseSelectMobile = forwardRef(
                                 setSelectedItems={setSelectedItems}
                                 toggleMenu={toggleMenu}
                                 getOptionProps={getOptionProps}
-                                visibleOptions={visibleOptions}
+                                visibleOptions={0}
                                 dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
                             />
