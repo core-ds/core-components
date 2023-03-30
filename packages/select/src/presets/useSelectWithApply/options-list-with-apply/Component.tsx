@@ -45,6 +45,7 @@ export const OptionsListWithApply = forwardRef(
             onClear = () => null,
             onClose = () => null,
             visibleOptions = 5,
+            showFooter = true,
             view,
             ...restProps
         }: OptionsListWithApplyProps,
@@ -118,40 +119,44 @@ export const OptionsListWithApply = forwardRef(
                 onApply={handleApply}
                 onClear={handleClear}
                 footer={
-                    <div
-                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                        tabIndex={0}
-                        className={
-                            view === 'mobile'
-                                ? cn(styles.footerMobile, {
-                                      [styles.highlighted]: footerHighlighted,
-                                  })
-                                : styles.footer
-                        }
-                        ref={footerRef}
-                    >
-                        <Button
-                            size={buttonSize}
-                            view='primary'
-                            onClick={handleApply}
-                            className={view === 'mobile' ? styles.footerButtonMobile : undefined}
+                    showFooter && (
+                        <div
+                            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                            tabIndex={0}
+                            className={
+                                view === 'mobile'
+                                    ? cn(styles.footerMobile, {
+                                          [styles.highlighted]: footerHighlighted,
+                                      })
+                                    : styles.footer
+                            }
+                            ref={footerRef}
                         >
-                            Применить
-                        </Button>
-
-                        {showClear && (
                             <Button
                                 size={buttonSize}
-                                view='secondary'
-                                onClick={handleClear}
+                                view='primary'
+                                onClick={handleApply}
                                 className={
                                     view === 'mobile' ? styles.footerButtonMobile : undefined
                                 }
                             >
-                                Сбросить
+                                Применить
                             </Button>
-                        )}
-                    </div>
+
+                            {showClear && (
+                                <Button
+                                    size={buttonSize}
+                                    view='secondary'
+                                    onClick={handleClear}
+                                    className={
+                                        view === 'mobile' ? styles.footerButtonMobile : undefined
+                                    }
+                                >
+                                    Сбросить
+                                </Button>
+                            )}
+                        </div>
+                    )
                 }
             />
         );

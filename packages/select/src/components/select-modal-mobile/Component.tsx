@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useSelectWithApply, useSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
-import { BaseSelectProps } from '../../typings';
+import { AnyObject, BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
 import { Field as DefaultField } from '../field';
@@ -30,6 +30,7 @@ export const SelectModalMobile = forwardRef(
             optionsSize = 'm',
             fieldProps = {},
             optionProps = {},
+            optionsListProps = {},
             Arrow = DefaultArrow,
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
@@ -77,6 +78,10 @@ export const SelectModalMobile = forwardRef(
                 onChange={onChange}
                 {...restProps}
                 {...(multiple && applyProps)}
+                optionsListProps={{
+                    ...(optionsListProps as AnyObject),
+                    ...(multiple && applyProps.optionsListProps),
+                }}
             />
         );
     },
