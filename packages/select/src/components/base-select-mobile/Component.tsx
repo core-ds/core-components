@@ -433,7 +433,6 @@ export const BaseSelectMobile = forwardRef(
                         contentClassName={styles.sheetContent}
                         hasCloser={true}
                         ref={scrollableContainerRef}
-                        keepMounted={true}
                     >
                         <ModalMobile.Header hasCloser={true} sticky={true}>
                             {label || placeholder}
