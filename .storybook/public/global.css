@@ -236,7 +236,7 @@ div.sidebar-subheading > button > span:first-of-type {
 /* Заголовки папок */
 .sidebar-container .sidebar-item {
     position: relative;
-    padding: 6px 0 6px 22px;
+    padding: 6px 0 6px 26px;
     color: var(--color-light-text-primary);
     font-weight: 400;
     font-size: 14px;

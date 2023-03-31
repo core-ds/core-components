@@ -35,7 +35,7 @@ const renderIcon = (type, parent, depth, name) => {
         case 'story': {
             return (
                 <>
-                    <Gap size={depth > 1 ? 20 : 4} />
+                    {depth > 1 && <Gap size={20} />}
                     {depth > 1 ? <DiamondsBlankIcon /> : <ComponentIcon />}
                 </>
             );

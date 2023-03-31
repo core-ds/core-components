@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState, useTransition } from 'react';
+import React, { useEffect, useState } from 'react';
+import _throttle from 'lodash.throttle';
 
 import { Gap } from '@alfalab/core-components-gap';
 import { Input, InputProps } from '@alfalab/core-components-input';
@@ -9,6 +10,7 @@ import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
 import { Card } from './components/card';
 import { CONFIG } from './config';
 import { MODE_COLORS_TAG_ID } from '../../addons/mode-switcher/utils';
+import { BackToTopButton } from '../../components/back-to-top-button';
 
 import styles from './index.module.css';
 
@@ -19,8 +21,8 @@ export const ComponentsOverview = () => {
         !!document.getElementById(MODE_COLORS_TAG_ID)?.textContent ? 'dark' : 'light',
     );
     const [query, setQuery] = useState('');
-    const [inputValue, setInputValue] = useState('');
-    const [_, startTransition] = useTransition();
+    const [showToTop, setShowToTop] = useState(false);
+
     const [isMobile] = useMatchMedia('--mobile');
 
     useEffect(() => {
@@ -30,42 +32,41 @@ export const ComponentsOverview = () => {
             setMode(mode);
         };
 
-        document.addEventListener('mode-change', handleChangeMode);
+        const handleScroll = _throttle((e) => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+            setShowToTop(scrollTop > 800);
+        }, 200);
 
-        return () => document.removeEventListener('mode-change', handleChangeMode);
+        document.addEventListener('mode-change', handleChangeMode);
+        document.addEventListener('scroll', handleScroll);
+
+        return () => {
+            document.removeEventListener('mode-change', handleChangeMode);
+            document.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
-    const data = useMemo(() => {
-        if (!query) return CONFIG;
+    const data = query
+        ? Object.keys(CONFIG).reduce((res, groupName) => {
+              const group = CONFIG[groupName].filter((componentName) =>
+                  componentName.toLowerCase().includes(query.toLowerCase()),
+              );
 
-        return Object.keys(CONFIG).reduce((res, groupName) => {
-            const group = CONFIG[groupName].filter((componentName) =>
-                componentName.toLowerCase().includes(query.toLowerCase()),
-            );
+              if (group.length > 0) {
+                  if (!res[EMPTY_GROUP]) {
+                      res[EMPTY_GROUP] = [];
+                  }
 
-            if (group.length > 0) {
-                if (!res[EMPTY_GROUP]) {
-                    res[EMPTY_GROUP] = [];
-                }
+                  res[EMPTY_GROUP].push(...group);
+              }
 
-                res[EMPTY_GROUP].push(...group);
-            }
+              return res;
+          }, {} as typeof CONFIG)
+        : CONFIG;
 
-            return res;
-        }, {} as typeof CONFIG);
-    }, [query]);
+    const handleSearch: InputProps['onChange'] = (_, { value }) => setQuery(value);
 
-    const handleSearch: InputProps['onChange'] = (_, { value }) => {
-        setInputValue(value);
-
-        startTransition(() => {
-            setQuery(value);
-        });
-    };
-
-    const handleClear: InputProps['onClear'] = (e) => {
-        handleSearch(e as any, { value: '' });
-    };
+    const handleClear: InputProps['onClear'] = (e) => setQuery('');
 
     const groups = Object.keys(data);
     const hasData = groups.length > 0;
@@ -85,7 +86,7 @@ export const ComponentsOverview = () => {
                 clear
                 className={styles.input}
                 onClear={handleClear}
-                value={inputValue}
+                value={query}
                 placeholder='Поиск по компонентам'
                 leftAddons={<MagnifierMIcon color='var(--color-light-graphic-secondary)' />}
                 onChange={handleSearch}
@@ -123,6 +124,11 @@ export const ComponentsOverview = () => {
                     Ничего не нашлось, попробуйте изменить запрос
                 </Typography.Text>
             )}
+
+            <BackToTopButton
+                visible={showToTop}
+                onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })}
+            />
         </div>
     );
 };

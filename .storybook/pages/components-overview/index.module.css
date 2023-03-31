@@ -39,10 +39,8 @@
 }
 
 @media screen and (min-width: 1024px) {
-    /* Хак, чтобы не прыгал контент при появлении скролла */
-    html:has(div[id='components-overview']) {
-        margin-left: calc(100vw - 100%);
-        margin-right: 0;
+    body {
+        @mixin custom-scrollbar;
     }
 
     .cardContainer {

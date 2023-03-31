@@ -1,0 +1,13 @@
+.component {
+    position: fixed;
+    right: var(--gap-l);
+    bottom: var(--gap-3xl);
+    background-color: var(--color-light-bg-primary-inverted);
+    border-radius: var(--border-radius-circle);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.appear {
+    opacity: 1;
+}
