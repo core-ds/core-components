@@ -20,3 +20,5 @@
     border-top: var(--bottom-sheet-footer-border-top);
     background-color: var(--bottom-sheet-footer-background-color);
 }
+
+@mixin bg-class-list;

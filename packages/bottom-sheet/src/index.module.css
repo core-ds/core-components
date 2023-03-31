@@ -20,7 +20,7 @@
     flex-direction: column;
     border-top-right-radius: var(--border-radius-xl);
     border-top-left-radius: var(--border-radius-xl);
-    background: var(--color-light-bg-primary);
+    background-color: var(--color-light-bg-primary);
     transform: translateY(100%);
 }
 
@@ -34,6 +34,7 @@
     flex-direction: column;
     position: relative;
     height: 100%;
+    background-color: inherit;
 }
 
 .marker {
@@ -56,7 +57,7 @@
     flex: 1;
     padding: 0 var(--gap-m);
     color: var(--color-light-text-primary);
-    background-color: var(--color-light-bg-primary);
+    background-color: inherit;
 }
 
 .noHeader {
@@ -105,3 +106,5 @@
         transform: translateY(100%);
     }
 }
+
+@mixin bg-class-list;
