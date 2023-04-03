@@ -110,6 +110,7 @@ export const Slider: FC<SliderProps> = ({
 }) => {
     const sliderRef = useRef<HTMLDivElement & { noUiSlider: API }>(null);
     const busyRef = useRef<boolean>(false);
+    const hasValueTo = valueTo === undefined;
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
@@ -171,7 +172,7 @@ export const Slider: FC<SliderProps> = ({
 
         const handler = () => {
             if (onChange) {
-                if (valueTo === undefined) {
+                if (hasValueTo) {
                     onChange({ value: Number(slider.get()) });
                 } else {
                     const sliderValues = slider.get() as string[];
@@ -189,7 +190,7 @@ export const Slider: FC<SliderProps> = ({
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange, valueTo]);
+    }, [onChange, hasValueTo]);
 
     return (
         <div
