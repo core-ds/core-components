@@ -31,7 +31,7 @@ export const SwipeableBackdrop: FC<SwipeableBackdropProps> = ({
         {...handlers}
         style={{
             opacity,
-            transition: opacity === 1 ? `opacity ${opacityTimeout}ms ease-in-out` : '',
+            transition: `opacity ${opacityTimeout}ms ease-in-out`,
             position: 'relative',
             ...style,
         }}

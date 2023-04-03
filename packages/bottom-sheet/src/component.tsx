@@ -413,6 +413,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const getBackdropOpacity = (offset: number): number => {
+            if (hideOverlay) return (open && offset === 0) ? 1 : 0;
+
             const containerHeight = modalRef?.current?.getBoundingClientRect()?.height ?? 0;
 
             if (containerHeight === 0) return MIN_BACKDROP_OPACITY;
@@ -731,7 +733,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         useEffect(() => {
             setWithTransition(true);
             setSheetOffset(0);
-            setBackdropOpacity(1);
+            setBackdropOpacity(hideOverlay ? (open ? 1 : 0) : 1);
             if (open) {
                 // Ждем, пока появится шторка, иначе не отработает анимация
                 setTimeout(handleChangeVisibleHeight);
@@ -764,7 +766,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     opacity: backdropOpacity,
                     handlers: swipeable ? backdropSwipeablehandlers : false,
                     opacityTimeout: TIMEOUT,
-                    invisible: hideOverlay,
                     style: {
                         pointerEvents: hideOverlay ? 'none' : 'auto',
                     },
