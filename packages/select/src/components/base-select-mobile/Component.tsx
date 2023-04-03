@@ -21,6 +21,7 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
 import { getDataTestId } from '../../../../utils';
+import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 import {
     AnyObject,
     BaseSelectProps,
@@ -401,8 +402,9 @@ export const BaseSelectMobile = forwardRef(
                                 {...menuProps}
                                 className={cn(optionsListClassName, styles.optionsList)}
                             >
-                                <OptionsList
+                                <OptionsListWithApply
                                     {...(optionsListProps as OptionsListProps)}
+                                    ref={scrollableContainerRef}
                                     optionsListWidth={optionsListWidth}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}
@@ -432,14 +434,17 @@ export const BaseSelectMobile = forwardRef(
                         contentClassName={styles.sheetContent}
                         hasCloser={true}
                         ref={scrollableContainerRef}
+                        keepMounted={true}
                     >
                         <ModalMobile.Header hasCloser={true} sticky={true}>
                             {label || placeholder}
                         </ModalMobile.Header>
                         <div {...menuProps} className={optionsListClassName}>
-                            <OptionsList
+                            <OptionsListWithApply
                                 {...(optionsListProps as OptionsListProps)}
+                                ref={scrollableContainerRef}
                                 optionsListWidth={optionsListWidth}
+                                OptionsList={OptionsList}
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 open={open}

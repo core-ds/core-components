@@ -57,7 +57,7 @@ export const SelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            visibleOptions = 0,
+            OptionsList,
             selected,
             options,
             onChange,
@@ -68,6 +68,7 @@ export const SelectMobile = forwardRef(
         ref,
     ) => {
         const applyProps = useSelectWithApply({
+            OptionsList,
             selected,
             options,
             onChange,
@@ -78,11 +79,11 @@ export const SelectMobile = forwardRef(
         return (
             <BaseSelectMobile
                 ref={ref}
+                autocomplete={autocomplete}
+                multiple={multiple}
                 allowUnselect={allowUnselect}
                 disabled={disabled}
                 closeOnSelect={closeOnSelect}
-                autocomplete={autocomplete}
-                multiple={multiple}
                 circularNavigation={circularNavigation}
                 defaultOpen={defaultOpen}
                 open={openProp}
@@ -96,14 +97,15 @@ export const SelectMobile = forwardRef(
                 Option={Option}
                 isBottomSheet={true}
                 options={options}
-                visibleOptions={visibleOptions}
                 selected={selected}
                 onChange={onChange}
                 {...restProps}
                 {...(multiple && !bottomSheetProps?.actionButton && applyProps)}
+                OptionsList={OptionsList}
                 optionsListProps={{
                     ...(optionsListProps as AnyObject),
                     ...(multiple && !bottomSheetProps?.actionButton && applyProps.optionsListProps),
+                    showFooter: multiple,
                 }}
                 bottomSheetProps={bottomSheetProps}
             />

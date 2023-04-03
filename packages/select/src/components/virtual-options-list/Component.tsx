@@ -34,7 +34,7 @@ export const VirtualOptionsList = ({
     Optgroup = DefaultOptgroup,
     dataTestId,
     emptyPlaceholder,
-    visibleOptions: visibleOptionsFromProps = 5,
+    visibleOptions = 5,
     onScroll,
     header,
     footer,
@@ -46,15 +46,13 @@ export const VirtualOptionsList = ({
     const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState(0);
     const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
-    const numberOfVisibleOptions = visibleOptionsFromProps === 0 ? 12 : visibleOptionsFromProps;
+    let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
 
     const rowVirtualizer = useVirtual({
         size: flatOptions.length,
         parentRef,
         overscan,
     });
-
-    let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
 
     nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
@@ -104,7 +102,7 @@ export const VirtualOptionsList = ({
     }, [rowVirtualizer.virtualItems.length, flatOptions.length]);
 
     useVisibleOptions({
-        visibleOptions: numberOfVisibleOptions,
+        visibleOptions,
         invalidate: visibleOptionsInvalidateKey,
         listRef,
         styleTargetRef: nativeScrollbar ? parentRef : scrollbarRef,
@@ -188,8 +186,7 @@ export const VirtualOptionsList = ({
             {footer && (
                 <div
                     className={cn(styles.virtualOptionsListFooter, {
-                        [styles.withBorder]:
-                            visibleOptionsFromProps && flatOptions.length > visibleOptionsFromProps,
+                        [styles.withBorder]: visibleOptions && flatOptions.length > visibleOptions,
                     })}
                 >
                     {footer}

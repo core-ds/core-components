@@ -78,9 +78,11 @@ export const SelectModalMobile = forwardRef(
                 onChange={onChange}
                 {...restProps}
                 {...(multiple && applyProps)}
+                OptionsList={OptionsList}
                 optionsListProps={{
                     ...(optionsListProps as AnyObject),
                     ...(multiple && applyProps.optionsListProps),
+                    showFooter: multiple,
                 }}
             />
         );

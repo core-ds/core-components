@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components/mq';
 
 import { BaseSelectProps, OptionShape, processOptions } from '../..';
 
@@ -126,13 +126,7 @@ export function useSelectWithApply({
         [options, showSelectAll],
     );
 
-    const [view] = useMedia(
-        [
-            ['mobile', `(max-width: ${breakpoint - 1}px)`],
-            ['desktop', `(min-width: ${breakpoint}px)`],
-        ],
-        'desktop',
-    );
+    const [isMobileView] = useMatchMedia(`(max-width: ${breakpoint}px)`);
 
     return {
         OptionsList: OptionsListWithApply,
@@ -143,7 +137,7 @@ export function useSelectWithApply({
             onApply: handleApply,
             onClose: handleClose,
             selectedDraft,
-            view,
+            isMobileView,
         },
         allowUnselect: true,
         multiple: true,

@@ -2,10 +2,10 @@
 @import '../../vars.css';
 
 .optionsList {
-    overflow: auto;
     width: 100%;
     outline: none;
     box-sizing: border-box;
+    position: relative;
 }
 
 .optionsListHeader {
@@ -14,10 +14,10 @@
 }
 
 .optionsListFooter {
-    box-sizing: border-box;
-    border-top: 1px solid transparent;
     position: sticky;
     bottom: 0;
+    box-sizing: border-box;
+    border-top: 1px solid transparent;
 
     &.withBorder {
         border-top: 1px solid var(--color-light-border-secondary);

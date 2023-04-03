@@ -5,7 +5,7 @@
     width: 100%;
     outline: none;
     box-sizing: border-box;
-    position: relative;
+    position: sticky;
 }
 
 .virtualOptionsListHeader {
@@ -25,6 +25,7 @@
 }
 
 .scrollable {
+    position: relative;
     overflow: auto;
     width: 100%;
 }

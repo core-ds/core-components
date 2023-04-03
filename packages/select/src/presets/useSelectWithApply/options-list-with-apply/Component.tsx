@@ -25,7 +25,7 @@ type OptionsListWithApplyProps = OptionsListProps & {
     onClose?: () => void;
     selectedDraft?: OptionShape[];
     OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
-    view?: 'mobile' | 'desktop';
+    isMobileView?: boolean;
 };
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
@@ -46,7 +46,7 @@ export const OptionsListWithApply = forwardRef(
             onClose = () => null,
             visibleOptions = 5,
             showFooter = true,
-            view,
+            isMobileView,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
@@ -55,7 +55,7 @@ export const OptionsListWithApply = forwardRef(
 
         const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
 
-        const buttonSize = view === 'mobile' ? 's' : 'xxs';
+        const buttonSize = isMobileView ? 's' : 'xxs';
 
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => {
@@ -89,12 +89,6 @@ export const OptionsListWithApply = forwardRef(
         useEffect(() => {
             const activeElement = document.activeElement as HTMLElement;
 
-            setTimeout(() => {
-                if (footerRef.current) {
-                    footerRef.current.focus();
-                }
-            }, 0);
-
             return () => {
                 onClose();
                 if (activeElement) {
@@ -124,7 +118,7 @@ export const OptionsListWithApply = forwardRef(
                             // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                             tabIndex={0}
                             className={
-                                view === 'mobile'
+                                isMobileView
                                     ? cn(styles.footerMobile, {
                                           [styles.highlighted]: footerHighlighted,
                                       })
@@ -136,9 +130,7 @@ export const OptionsListWithApply = forwardRef(
                                 size={buttonSize}
                                 view='primary'
                                 onClick={handleApply}
-                                className={
-                                    view === 'mobile' ? styles.footerButtonMobile : undefined
-                                }
+                                className={isMobileView ? styles.footerButtonMobile : undefined}
                             >
                                 Применить
                             </Button>
@@ -148,9 +140,7 @@ export const OptionsListWithApply = forwardRef(
                                     size={buttonSize}
                                     view='secondary'
                                     onClick={handleClear}
-                                    className={
-                                        view === 'mobile' ? styles.footerButtonMobile : undefined
-                                    }
+                                    className={isMobileView ? styles.footerButtonMobile : undefined}
                                 >
                                     Сбросить
                                 </Button>
