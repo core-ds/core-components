@@ -35,12 +35,11 @@ render(() => {
                 responsive={true}
                 value={value}
                 responsive={true}
-                onChange={ setValue}
+                onChange={setValue}
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
             />
-            <p style={{ marginTop: 32, marginBottom: 32 }} >
-                Выбранная дата:{' '}
-                {value && selectedDate }
+            <p style={{ marginTop: 32, marginBottom: 32 }}>
+                Выбранная дата: {value && selectedDate}
             </p>
             <div>
                 <RadioGroup
@@ -92,7 +91,7 @@ render(() => {
             </Button>
             <CalendarMobile
                 value={value}
-                onChange={ setValue}
+                onChange={setValue}
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
                 yearsAmount={firstRadioValue === 'single' ? 0 : 20}
                 onClose={() => setOpen(false)}
@@ -169,7 +168,7 @@ render(() => {
     const selectedTo = React.useMemo(() => {
         return isClarification ? selectedToClarification : selectedToReset;
     }, [isClarification, selectedToClarification, selectedToReset]);
-    
+
     const selectedRange = React.useMemo(() => {
         if (selectedFrom && selectedTo) {
             const selectedFromDate = new Date(selectedFrom);
@@ -197,20 +196,17 @@ render(() => {
     const onFirstRadioChange = React.useCallback((_, payload) => {
         setFirstRadioValue(payload.value);
     }, []);
-    
+
     return (
         <div style={{ width: 344 }}>
             <Calendar
                 responsive={true}
                 selectedFrom={selectedFrom}
                 selectedTo={selectedTo}
-                onChange={ updatePeriod}
+                onChange={updatePeriod}
                 selectorView='month-only'
             />
-            <p style={{ marginTop: 32, marginBottom: 32 }}>
-                Values:{' '}
-                {selectedRange}
-            </p>
+            <p style={{ marginTop: 32, marginBottom: 32 }}>Values: {selectedRange}</p>
             <div style={{ marginBottom: 32 }}>
                 <RadioGroup
                     label='Режим'
@@ -234,7 +230,7 @@ render(() => {
                     <Radio label='Уточнение' value='clarification' />
                     <Radio label='Сброс' value='reset' />
                 </RadioGroup>
-            </div>      
+            </div>
         </div>
     );
 });
@@ -290,7 +286,7 @@ render(() => {
     const selectedTo = React.useMemo(() => {
         return isClarification ? selectedToClarification : selectedToReset;
     }, [isClarification, selectedToClarification, selectedToReset]);
-    
+
     const selectedRange = React.useMemo(() => {
         if (selectedFrom && selectedTo) {
             const selectedFromDate = new Date(selectedFrom);
@@ -318,7 +314,7 @@ render(() => {
     const onFirstRadioChange = React.useCallback((_, payload) => {
         setFirstRadioValue(payload.value);
     }, []);
-    
+
     return (
         <Container>
             <Button onClick={() => setOpen(true)} block={true}>
@@ -332,7 +328,7 @@ render(() => {
                 onChange={updatePeriod}
                 selectorView='month-only'
             />
-             <div style={{ marginTop: '32px' }}>
+            <div style={{ marginTop: '32px' }}>
                 <RadioGroup
                     label='Режим'
                     direction='vertical'
@@ -363,13 +359,18 @@ render(() => {
 
 ## События и недоступные даты
 
-Задать недоступные даты можно, передав массив дат в свойство `offDays`.  
+Задать недоступные даты можно, передав массив дат в свойство `offDays`.
 Задать события можно, передав массив дат в свойство `events`.
 
 ```jsx live mobileHeight=640
 render(() => {
-
-    const events = [new Date().setDate(7), new Date().setDate(15), new Date().setDate(23), new Date().setDate(31)];
+    const [value, setValue] = React.useState();
+    const events = [
+        new Date().setDate(7),
+        new Date().setDate(15),
+        new Date().setDate(23),
+        new Date().setDate(31),
+    ];
 
     const offDays = [
         new Date().setDate(3),
@@ -386,6 +387,8 @@ render(() => {
     return (
         <div style={{ width: '344px' }}>
             <Calendar
+                value={value}
+                onChange={setValue}
                 responsive={true}
                 selectorView='month-only'
                 events={events}
@@ -396,8 +399,14 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [value, setValue] = React.useState();
     const [open, setOpen] = React.useState(false);
-    const events = [new Date().setDate(7), new Date().setDate(15), new Date().setDate(23), new Date().setDate(31)];
+    const events = [
+        new Date().setDate(7),
+        new Date().setDate(15),
+        new Date().setDate(23),
+        new Date().setDate(31),
+    ];
 
     const offDays = [
         new Date().setDate(3),
@@ -417,6 +426,8 @@ render(() => {
                 Открыть календарь
             </Button>
             <CalendarMobile
+                value={value}
+                onChange={setValue}
                 onClose={() => setOpen(false)}
                 open={open}
                 selectorView='month-only'
@@ -430,12 +441,12 @@ render(() => {
 
 ## Границы
 
-Можно ограничить выбор дат, задав допустимый диапазон с помощью свойств `minDate` и `maxDate`. 
+Можно ограничить выбор дат, задав допустимый диапазон с помощью свойств `minDate` и `maxDate`.
 Допустимый диапазон в примере: 16.01.22 — 17.02.22.
 
 ```jsx live mobileHeight=640
 render(() => {
-    // import startOfDay from 'date-fns/startOfDay';
+    const [value, setValue] = React.useState(() => new Date().setMonth(0));
     const minDate = startOfDay(new Date());
     minDate.setDate(16);
     minDate.setMonth(0);
@@ -446,19 +457,20 @@ render(() => {
 
     return (
         <div style={{ width: '344px' }}>
-                <Calendar
-                    responsive={true}
-                    value={new Date().setMonth(0)}
-                    selectorView='month-only'
-                    minDate={minDate.getTime()}
-                    maxDate={maxDate.getTime()}
-                />
+            <Calendar
+                responsive={true}
+                value={value}
+                onChange={setValue}
+                selectorView='month-only'
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()}
+            />
         </div>
     );
 });
 //MOBILE
 render(() => {
-    // import startOfDay from 'date-fns/startOfDay';
+    const [value, setValue] = React.useState(() => new Date().setMonth(0));
     const [open, setOpen] = React.useState(false);
     const minDate = startOfDay(new Date());
     minDate.setDate(16);
@@ -474,14 +486,15 @@ render(() => {
                 Открыть календарь
             </Button>
             <CalendarMobile
+                value={value}
+                onChange={setValue}
                 onClose={() => setOpen(false)}
                 open={open}
                 responsive={true}
-                value={new Date().setMonth(0)}
                 selectorView='full'
                 minDate={minDate.getTime()}
                 maxDate={maxDate.getTime()}
-                />
+            />
         </Container>
     );
 });
@@ -493,13 +506,20 @@ render(() => {
 
 ```jsx live desktopOnly
 render(() => {
+    const [value, setValue] = React.useState(() => new Date().setMonth(0));
     const [visible, setVisible] = React.useState(true);
 
     return (
         <>
-            <CalendarWithSkeleton calendarVisible={visible} selectorView='month-only' responsive={true}/>
+            <CalendarWithSkeleton
+                value={value}
+                onChange={setValue}
+                calendarVisible={visible}
+                selectorView='month-only'
+                responsive={true}
+            />
 
-            <div style={{marginTop: '32px'}}></div>
+            <div style={{ marginTop: '32px' }}></div>
             <Button size='xs' onClick={() => setVisible(!visible)}>
                 Показать скелетон
             </Button>
@@ -520,7 +540,7 @@ render(() => {
 
 ## PeriodSlider
 
-Представляет из себя шапку календаря, которую можно использовать отдельно.  
+Представляет из себя шапку календаря, которую можно использовать отдельно.
 С помощью компонента можно смещать выбранный период назад и вперед.
 
 ```jsx live desktopOnly
@@ -536,7 +556,9 @@ render(() => {
     return (
         <div style={{ width: 500 }}>
             <p style={{ margin: 0 }}>Дата начала: {format(values.valueFrom, DATE_FORMAT)}</p>
-            <p style={{ marginTop: 10, marginBottom: 20 }}>Дата конца: {format(values.valueTo, DATE_FORMAT)}</p>
+            <p style={{ marginTop: 10, marginBottom: 20 }}>
+                Дата конца: {format(values.valueTo, DATE_FORMAT)}
+            </p>
 
             <PeriodSlider
                 value={values.value}
