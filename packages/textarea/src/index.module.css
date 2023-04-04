@@ -8,40 +8,41 @@
     --textarea-l-min-height: var(--form-control-l-min-height);
     --textarea-xl-min-height: var(--form-control-xl-min-height);
 
-    /* padding-top */
-    --textarea-s-padding-top: 14px;
-    --textarea-m-padding-top: 18px;
-    --textarea-l-padding-top: 22px;
-    --textarea-xl-padding-top: 24px;
+    /* border */
+    --textarea-border-style: solid transparent;
+    --textarea-s-border: 14px;
+    --textarea-m-border: 18px;
+    --textarea-l-border: 22px;
+    --textarea-xl-border: 24px;
 
-    /* filled padding-top */
-    --textarea-s-filled-padding-top: 24px;
-    --textarea-m-filled-padding-top: 24px;
-    --textarea-l-filled-padding-top: 32px;
-    --textarea-xl-filled-padding-top: 34px;
+    /* filled border-top */
+    --textarea-s-filled-border-top: 24px;
+    --textarea-m-filled-border-top: 24px;
+    --textarea-l-filled-border-top: 32px;
+    --textarea-xl-filled-border-top: 34px;
 
     /* filled padding-bottom */
-    --textarea-s-filled-padding-bottom: 4px;
-    --textarea-m-filled-padding-bottom: 8px;
-    --textarea-l-filled-padding-bottom: 12px;
-    --textarea-xl-filled-padding-bottom: 14px;
+    --textarea-s-filled-border-bottom: 4px;
+    --textarea-m-filled-border-bottom: 8px;
+    --textarea-l-filled-border-bottom: 12px;
+    --textarea-xl-filled-border-bottom: 14px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
-        var(--textarea-s-min-height) - var(--textarea-s-filled-padding-top) -
-            var(--textarea-s-filled-padding-bottom)
+        var(--textarea-s-min-height) - var(--textarea-s-filled-border-top) -
+            var(--textarea-s-filled-border-bottom)
     );
     --textarea-m-filled-min-height: calc(
-        var(--textarea-m-min-height) - var(--textarea-m-filled-padding-top) -
-            var(--textarea-m-filled-padding-bottom)
+        var(--textarea-m-min-height) - var(--textarea-m-filled-border-top) -
+            var(--textarea-m-filled-border-bottom)
     );
     --textarea-l-filled-min-height: calc(
-        var(--textarea-l-min-height) - var(--textarea-l-filled-padding-top) -
-            var(--textarea-l-filled-padding-bottom)
+        var(--textarea-l-min-height) - var(--textarea-l-filled-border-top) -
+            var(--textarea-l-filled-border-bottom)
     );
     --textarea-xl-filled-min-height: calc(
-        var(--textarea-xl-min-height) - var(--textarea-xl-filled-padding-top) -
-            var(--textarea-xl-filled-padding-bottom)
+        var(--textarea-xl-min-height) - var(--textarea-xl-filled-border-top) -
+            var(--textarea-xl-filled-border-bottom)
     );
 }
 
@@ -208,63 +209,69 @@
 /* Correct pseudoTextarea size */
 .pseudoTextarea.filled.hasInnerLabel {
     &.s {
-        min-height: calc(100% - var(--textarea-s-filled-padding-top));
+        min-height: calc(100% - var(--textarea-s-filled-border-top));
     }
 
     &.m {
-        min-height: calc(100% - var(--textarea-m-filled-padding-top));
+        min-height: calc(100% - var(--textarea-m-filled-border-top));
     }
 
     &.l {
-        min-height: calc(100% - var(--textarea-l-filled-padding-top));
+        min-height: calc(100% - var(--textarea-l-filled-border-top));
     }
 
     &.xl {
-        min-height: calc(100% - var(--textarea-xl-filled-padding-top));
+        min-height: calc(100% - var(--textarea-xl-filled-border-top));
     }
 }
 
 .wrapper {
     &.resizeVertical {
         resize: vertical;
-        min-height: 20px;
+        min-height: 48px;
     }
+}
 
+.textarea {
     &.s {
-        padding: var(--textarea-s-padding-top) 0;
+        border-top: var(--textarea-s-border) var(--textarea-border-style);
+        border-bottom: var(--textarea-s-border) var(--textarea-border-style);
     }
 
     &.m {
-        padding: var(--textarea-m-padding-top) 0;
+        border-top: var(--textarea-m-border) var(--textarea-border-style);
+        border-bottom: var(--textarea-m-border) var(--textarea-border-style);
     }
 
     &.l {
-        padding: var(--textarea-l-padding-top) 0;
+        border-top: var(--textarea-l-border) var(--textarea-border-style);
+        border-bottom: var(--textarea-l-border) var(--textarea-border-style);
     }
 
     &.xl {
-        padding: var(--textarea-xl-padding-top) 0;
+        border-top: var(--textarea-xl-border) var(--textarea-border-style);
+        border-bottom: var(--textarea-xl-border) var(--textarea-border-style);
     }
 
     &.hasInnerLabel {
         &.s {
-            padding-top: var(--textarea-s-filled-padding-top);
-            padding-bottom: var(--textarea-s-filled-padding-bottom);
+            border-top: 24px var(--textarea-border-style);
+            border-bottom: 4px var(--textarea-border-style);
         }
 
         &.m {
-            padding-top: var(--textarea-m-filled-padding-top);
-            padding-bottom: var(--textarea-m-filled-padding-bottom);
+            border-top: 24px var(--textarea-border-style);
+            border-bottom: 8px var(--textarea-border-style);
         }
 
         &.l {
-            padding-top: var(--textarea-l-filled-padding-top);
-            padding-bottom: var(--textarea-l-filled-padding-bottom);
+            border-top: 32px var(--textarea-border-style);
+            border-bottom: 12px var(--textarea-border-style);
         }
 
         &.xl {
-            padding-top: var(--textarea-xl-filled-padding-top);
-            padding-bottom: var(--textarea-xl-filled-padding-bottom);
+            border-top: 34px var(--textarea-border-style);
+            border-bottom: 14px var(--textarea-border-style);
         }
     }
 }
