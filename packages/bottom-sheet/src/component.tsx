@@ -5,7 +5,7 @@ import React, {
     ReactNode,
     RefObject,
     useCallback,
-    useEffect,
+    useEffect, useMemo,
     useRef,
     useState,
 } from 'react';
@@ -201,10 +201,22 @@ export type BottomSheetProps = {
 
     /**
      * Видимая высота шторки относительно высоты страницы.
-     * Можно использовать значение в пикселях - 10 или 10px, либо в процентах - 10%.
+     * Можно использовать значение в пикселях - 10 (число), либо в процентах - 10% (строка).
      * Не может быть больше чем максимальная высота шторки
      */
     visibleHeight?: string | number;
+
+    /**
+     * Максимальна видимая высота шторки относительно высоты страницы.
+     * Можно использовать значение в пикселях - 10 (число), либо в процентах - 10% (строка).
+     * Не может быть больше чем максимальная высота шторки
+     */
+    maximumVisibleHeight?: string | number;
+
+    /**
+     * Разрешен ли скролл при неполном открытии шторы
+     */
+    allowScrollOnNonFullVisible?: boolean;
 
     /**
      * Будет ли виден оверлэй
@@ -265,7 +277,7 @@ export type BottomSheetProps = {
 
     /**
      * Магнитные области видимой высоты шторки.
-     * Можно использовать значения в пикселях - `10` или `10px`, либо в процентах - `10%`.
+     * Можно использовать значения в пикселях - 10(число), либо в процентах - 10%(строка).
      */
     magneticAreas?: Array<string | number>;
 
@@ -338,6 +350,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             stickyFooter = true,
             initialHeight = 'default',
             visibleHeight: targetVisibleHeight,
+            maximumVisibleHeight,
+            allowScrollOnNonFullVisible = false,
             hideOverlay,
             hideHeader,
             disableOverlayClick,
@@ -429,12 +443,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 let visibleHeightNumber = vh;
 
                 if (typeof visibleHeightNumber === 'string') {
-                    visibleHeightNumber = visibleHeightNumber.includes('%')
-                        ? fullHeight * (Number(visibleHeightNumber.replace('%', '')) / 100)
-                        : Number(visibleHeightNumber.replace('px', ''));
+                    visibleHeightNumber = fullHeight * (Number(visibleHeightNumber.replace('%', '')) / 100);
                 }
+                return Math.floor(visibleHeightNumber);
+            },
+            [fullHeight],
+        );
 
-                return visibleHeightNumber;
+        const getVisibleHeightFromOffset = useCallback(
+            (offset: number): number => {
+                return Math.floor(Math.max(0, (modalRef.current?.getBoundingClientRect()?.height ?? 0) - offset))
             },
             [fullHeight],
         );
@@ -515,10 +533,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
         };
 
+        const magneticAreas = useMemo(() =>
+                [...rawMagneticAreas, ...(maximumVisibleHeight ? [maximumVisibleHeight] : [])]
+                    .map((area) => getNumberFromVisibleHeight(area)),
+            [rawMagneticAreas, maximumVisibleHeight, getNumberFromVisibleHeight]
+        )
+
         /**
          * Обрабатываем примагничивание
          */
-        const getMagnetizeOffset = (direction: SwipeDirections): number | null => {
+        const getMagnetizeOffset = useCallback((direction: SwipeDirections): number | null => {
             if (rawMagneticAreas.length === 0) {
                 if (direction === 'Up') {
                     return 0;
@@ -526,7 +550,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
                 return null;
             }
-            const magneticAreas = rawMagneticAreas.map((area) => getNumberFromVisibleHeight(area));
             const sheetContainerWindowTopOffset = sheetContainer.current?.getBoundingClientRect()?.y;
 
             // Игнорируем свайпы Вправо и Влево в верхнем положении
@@ -559,11 +582,18 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                  */
                 const magnetizeArea = magneticAreas[targetIndex];
 
-                const unmagnetize = direction === 'Up'
-                    ? Math.abs(visibleHeight - magnetizeArea) > getNumberFromVisibleHeight(magneticThresholdUp)
-                    : Math.abs(visibleHeight - magnetizeArea) < getNumberFromVisibleHeight(magneticThresholdDown);
+                const unmagnetizeUp =
+                    Math.abs(visibleHeight - magnetizeArea) >
+                    getNumberFromVisibleHeight(magneticThresholdUp);
+                const unmagnetizeDown =
+                    Math.abs(visibleHeight - magnetizeArea) <
+                    getNumberFromVisibleHeight(magneticThresholdDown);
 
-                if ((direction === 'Up' && unmagnetize) || (direction === 'Down' && !unmagnetize)) {
+                if (
+                    (direction === 'Up' && unmagnetizeUp) ||
+                    (direction === 'Down' && !unmagnetizeDown) ||
+                    (['Left', 'Right'].includes(direction) && (!unmagnetizeDown || unmagnetizeUp))
+                ) {
                     onMagnetic?.(-1);
 
                     return 0;
@@ -613,9 +643,18 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
 
             return null;
-        };
+        }, [
+            rawMagneticAreas.length,  sheetOffset, magneticAreas,
+            getNumberFromVisibleHeight, magneticThresholdUp, magneticThresholdDown,
+            onMagnetic, getOffsetFromVisibleHeight
+        ]);
 
         const handleSheetSwipeStart: SwipeCallback = ({ event }) => {
+            /**
+             * Если шторка начинает свайпаться, то блокируем скролл внутри нее
+             */
+            setScrollLock(true);
+
             sheetWindowOffset.current = sheetContainer.current?.getBoundingClientRect()?.y ?? 0;
             initialScrollY.current = null;
 
@@ -668,17 +707,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
             // считаем собственную дельту Y
             const offset = getSheetOffset(Y - initialScrollY.current);
-            const opacity = getBackdropOpacity(offset);
 
+            // если задана максимальная видимая высота, то не поднимаем штору выше её
+            if (!!maximumVisibleHeight && getVisibleHeightFromOffset(offset) > getNumberFromVisibleHeight(maximumVisibleHeight)) return;
+
+            const opacity = getBackdropOpacity(offset);
             setSheetOffset(offset);
             setBackdropOpacity(opacity);
-
-            /**
-             * Если шторка начинает свайпаться, то блокируем скролл внутри нее
-             */
-            if (offset > 0) {
-                setScrollLock(true);
-            }
         };
 
         const handleSheetSwiped: SwipeCallback = ({ dir, initial }) => {
@@ -691,12 +726,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const offset = getMagnetizeOffset(dir);
 
             if (offset !== null) {
+                // если задана максимальная видимая высота, то не поднимаем штору выше её
+                if (!!maximumVisibleHeight && getVisibleHeightFromOffset(offset) > getNumberFromVisibleHeight(maximumVisibleHeight)) return;
+
                 const opacity = getBackdropOpacity(offset);
 
                 setSheetOffset(offset);
                 setBackdropOpacity(opacity);
             }
-            setScrollLock(offset !== 0);
+            setScrollLock(offset !== 0 && !allowScrollOnNonFullVisible);
         };
 
         const backdropSwipeablehandlers = useSwipeable({
@@ -716,18 +754,19 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const handleChangeVisibleHeight = useCallback(
             () => {
-                if (!targetVisibleHeight) return;
+                const target = targetVisibleHeight ? targetVisibleHeight : maximumVisibleHeight;
+                if (!target) return;
                 const offset = getOffsetFromVisibleHeight(
                     // Выставляем нужную видимую высоту
-                    getNumberFromVisibleHeight(targetVisibleHeight),
+                    getNumberFromVisibleHeight(target),
                 );
                 const opacity = getBackdropOpacity(offset);
 
-                setScrollLock(offset !== 0);
+                setScrollLock(offset !== 0 && !allowScrollOnNonFullVisible);
                 setSheetOffset(offset);
                 setBackdropOpacity(opacity);
             },
-            [targetVisibleHeight, getOffsetFromVisibleHeight, getNumberFromVisibleHeight],
+            [targetVisibleHeight, maximumVisibleHeight, getOffsetFromVisibleHeight, getNumberFromVisibleHeight],
         );
 
         useEffect(() => {

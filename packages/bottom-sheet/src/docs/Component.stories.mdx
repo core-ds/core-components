@@ -90,10 +90,12 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
                     stickyFooter={boolean('stickyFooter', true)}
                     initialHeight={select('initialHeight', ['default', 'full'], 'default')}
                     visibleHeight={text('visibleHeight')}
+                    maximumVisibleHeight={text('maximumVisibleHeight')}
                     hideOverlay={hideOverlay}
+                    allowScrollOnNonFullVisible={boolean('allowScrollOnNonFullVisible', false)}
                     hideHeader={boolean('hideHeader', false)}
                     disableOverlayClick={boolean('disableOverlayClick', false)}
-                    magneticAreas={text('magneticAreas', '20, 100px, 25%, 50%').split(',').map((item) => item.trim())}
+                    magneticAreas={text('magneticAreas', '20, 100, 25%, 50%').split(',').map((item) => item.trim())}
                     magneticThresholdUp={text('magneticThresholdUp', '20px')}
                     magneticThresholdDown={text('magneticThresholdDown', '50%')}
                     onMagnetic={(index) => console.log(index === -1 ? 'Отмагнитились' : `Примагнитились к magneticAreas[${index}]`)}

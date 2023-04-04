@@ -183,6 +183,8 @@ const MECHANICS_SETTINGS = [
     { label: 'Скрыть скроллбар внутри bottom-sheet', name: 'hideScrollbar' },
     { label: 'Магнитные области - 20px, 50%', name: 'magAreas' },
     { label: 'Изначально заданная высота 50%', name: 'initialVisibleHeight' },
+    { label: 'Максимальная видимая высота 60%', name: 'maximumVisibleHeight' },
+    { label: 'Разрешить скролл при не полном открытии шторы', name: 'allowScrollOnNonFullVisible' },
 ];
 
 render(() => {
@@ -366,10 +368,12 @@ render(() => {
                 hideOverlay={mechanics['hideOverlay']}
                 hideScrollbar={mechanics['hideScrollbar']}
                 visibleHeight={mechanics['initialVisibleHeight'] ? '50%' : undefined}
-                magneticAreas={mechanics['magAreas'] ? ['40px', '50%'] : []}
+                magneticAreas={mechanics['magAreas'] ? [40, '50%'] : []}
                 stickyFooter={footerSettings.sticky}
                 swipeable={mechanics.swipeable || mechanics['magAreas']}
                 initialHeight={mechanics.adaptive ? 'default' : 'full'}
+                allowScrollOnNonFullVisible={mechanics.allowScrollOnNonFullVisible}
+                maximumVisibleHeight={mechanics.maximumVisibleHeight ? '60%' : undefined}
                 actionButton={
                     showFooter ? (
                         <div
