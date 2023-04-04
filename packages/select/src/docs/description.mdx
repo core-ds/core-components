@@ -78,11 +78,17 @@ const OPTIONS = [
 ];
 
 render(() => {
-    const [selected, setSelected] = React.useState([]);
+    const [selected, setSelected] = React.useState();
+    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
 
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map((option) => option.key));
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
     };
+
+    const handleChangeMultiple = ({ selectedMultiple }) => {
+        setSelectedMultiple(selectedMultiple.map((option) => option.key));
+    };
+
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
@@ -91,9 +97,11 @@ render(() => {
                 placeholder='Одиночный выбор'
                 Option={BaseOption}
                 block={true}
+                selected={selected}
+                onChange={handleChange}
             />
             <div style={{ height: 'var(--gap-m)' }} />
-             <SelectMobile
+            <SelectMobile
                 multiple
                 allowUnselect={true}
                 options={OPTIONS}
@@ -101,8 +109,8 @@ render(() => {
                 Option={BaseOption}
                 block={true}
                 options={OPTIONS}
-                selected={selected}
-                onChange={handleChange}
+                selected={selectedMultiple}
+                onChange={handleChangeMultiple}
             />
         </div>
     );
@@ -176,10 +184,15 @@ const OPTIONS = [
 ];
 
 render(() => {
-    const [selected, setSelected] = React.useState([]);
+    const [selected, setSelected] = React.useState();
+    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
 
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map((option) => option.key));
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    const handleChangeMultiple = ({ selectedMultiple }) => {
+        setSelectedMultiple(selectedMultiple.map((option) => option.key));
     };
 
     return (
@@ -190,6 +203,8 @@ render(() => {
                 placeholder='Без подтверждения'
                 Option={BaseOption}
                 block={true}
+                selected={selected}
+                onChange={handleChange}
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
@@ -200,8 +215,8 @@ render(() => {
                 Option={BaseOption}
                 block={true}
                 options={OPTIONS}
-                selected={selected}
-                onChange={handleChange}
+                selected={selectedMultiple}
+                onChange={handleChangeMultiple}
             />
         </div>
     );
@@ -239,6 +254,12 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [selected, setSelected] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
     const groups = new Array(5).fill().reduce((acc, _, groupIndex) => {
         return acc.concat({
             label: `Группа №${groupIndex + 1}`,
@@ -256,6 +277,8 @@ render(() => {
                 options={groups}
                 placeholder='Сгруппированный список'
                 Option={BaseOption}
+                selected={selected}
+                onChange={handleChange}
                 block={true}
             />
         </div>
@@ -355,6 +378,17 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [selected, setSelected] = React.useState();
+    const [selectedSkeleton, setSelectedSkeleton] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    const handleChangeSkeleton = ({ selected }) => {
+        setSelectedSkeleton(selected);
+    };
+
     const optionsForVirtualList = React.useMemo(
         () =>
             new Array(1000).fill().map((_, index) => {
@@ -393,6 +427,8 @@ render(() => {
             circularNavigation={true}
             allowUnselect={true}
             Option={BaseOption}
+            selected={selected}
+            onChange={handleChange}
         />
     );
 
@@ -430,6 +466,8 @@ render(() => {
             options={optionsForListWithSkeleton}
             onOpen={handleOpen}
             Option={BaseOption}
+            selected={selectedSkeleton}
+            onChange={handleChangeSkeleton}
             {...loadingProps}
         />
     );
@@ -599,6 +637,12 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [selected, setSelected] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
     const renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {
         return (
             <GenericWrapper alignItems='center' padding={padding}>
@@ -673,6 +717,8 @@ render(() => {
                 size='m'
                 valueRenderer={renderSelected}
                 block={true}
+                selected={selected}
+                onChange={handleChange}
             />
         </div>
     );
@@ -714,26 +760,43 @@ const options = [
     { key: '8', content: 'Fermium' },
 ];
 
-render(
-    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-        <Select
-            allowUnselect={true}
-            size='m'
-            options={groups}
-            placeholder='Нативный список'
-            nativeSelect={true}
-            block={true}
-        />
-        <div style={{ height: 'var(--gap-m)' }} />
-        <SelectModalMobile
-            allowUnselect={true}
-            options={options}
-            placeholder='Список в модалке'
-            block={true}
-            Option={BaseOption}
-        />
-    </div>,
-);
+render(() => {
+    const [selectedNative, setSelectedNative] = React.useState();
+    const [selectedModal, setSelectedModal] = React.useState();
+
+    const handleChangeNative = ({ selected }) => {
+        setSelectedNative(selected);
+    };
+
+    const handleChangeModal = ({ selected }) => {
+        setSelectedModal(selected);
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Select
+                allowUnselect={true}
+                size='m'
+                options={groups}
+                placeholder='Нативный список'
+                nativeSelect={true}
+                block={true}
+                selected={selectedNative}
+                onChange={handleChangeNative}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <SelectModalMobile
+                allowUnselect={true}
+                options={options}
+                placeholder='Список в модалке'
+                block={true}
+                Option={BaseOption}
+                selected={selectedModal}
+                onChange={handleChangeModal}
+            />
+        </div>
+    );
+});
 ```
 
 ### Использование в форме
@@ -901,6 +964,17 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [selectedFirst, setSelectedFirst] = React.useState();
+    const [selectedSecond, setSelectedSecond] = React.useState();
+
+    const handleChangeFirst = ({ selected }) => {
+        setSelectedFirst(selected);
+    };
+
+    const handleChangeSecond = ({ selected }) => {
+        setSelectedSecond(selected);
+    };
+
     const options = [
         { key: '1', content: 'Neptunium' },
         { key: '2', content: 'Plutonium' },
@@ -921,6 +995,8 @@ render(() => {
                 placeholder='Закроется после выбора'
                 Option={BaseOption}
                 block={true}
+                selected={selectedFirst}
+                onChange={handleChangeFirst}
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
@@ -931,6 +1007,8 @@ render(() => {
                 Option={BaseOption}
                 block={true}
                 closeOnSelect={false}
+                selected={selectedSecond}
+                onChange={handleChangeSecond}
             />
         </div>
     );
