@@ -92,6 +92,11 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     fieldClassName?: string;
 
     /**
+     * Дополнительный класс для поля
+     */
+    inputWrapperClassName?: string;
+
+    /**
      * Дополнительный класс для лейбла
      */
     labelClassName?: string;
@@ -120,6 +125,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             colors = 'default',
             className,
             fieldClassName,
+            inputWrapperClassName,
             labelClassName,
             addonsClassName,
             disabled,
@@ -180,7 +186,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                         </div>
                     )}
 
-                    <div className={styles.inputWrapper}>
+                    <div className={cn(styles.inputWrapper, inputWrapperClassName)}>
                         {label && labelView === 'inner' && (
                             <React.Fragment>
                                 <span className={styles.hiddenLabel} aria-hidden={true}>
