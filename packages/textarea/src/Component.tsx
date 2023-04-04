@@ -151,7 +151,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 [styles.customScrollbar]: !nativeScrollbar,
                 [styles.hasInnerLabel]: hasInnerLabel,
                 [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
-                [styles.filled]: nativeScrollbar && filled,
+                [styles.filled]: filled,
+                [styles.resizeVertical]: resize === 'vertical',
             },
             textareaClassName,
         );
@@ -197,10 +198,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 className={cn(className)}
                 fieldClassName={cn(fieldClassName, {
                     [styles.focusVisible]: focusVisible,
-                })}
-                inputWrapperClassName={cn(styles.wrapper, styles[size], {
-                    [styles.hasInnerLabel]: hasInnerLabel,
-                    [styles.resizeVertical]: resize === 'vertical',
                 })}
                 size={size}
                 colors={colors}
