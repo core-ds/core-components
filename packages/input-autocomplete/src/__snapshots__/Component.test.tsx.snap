@@ -97,7 +97,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
       data-focus-lock-disabled="false"
     >
       <div
-        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100; pointer-events: auto;"
       >
         <div
           aria-hidden="true"
@@ -107,27 +107,28 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
       <div
         class="wrapper"
         role="dialog"
-        style="z-index: 100;"
+        style="z-index: 100; pointer-events: auto;"
         tabindex="0"
       >
         <div
-          class="component modal appear appearActive"
+          class="component modal disabledPointerEvents appear appearActive"
         >
           <div
             class="content"
           >
             <div
+              class="disabledPointerEvents"
               style="height: 744px; max-height: 744px;"
             >
               <div
-                class="component sheet withTransition"
+                class="component enabledPointerEvents sheet withTransition"
                 style="height: 744px; max-height: 744px;"
               >
                 <div
-                  class="scrollableContainer sheetContainer"
+                  class="scrollableContainer enabledPointerEvents sheetContainer"
                 >
                   <div
-                    class="marker"
+                    class="marker disabledPointerEvents"
                   />
                   <div
                     class="header headerWrapper sticky"
