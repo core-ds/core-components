@@ -2,7 +2,7 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
-import {Portal, PortalProps} from '@alfalab/core-components-portal';
+import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import { Notification, NotificationElement } from './components';

@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { Notification } from '@alfalab/core-components-notification';
 
-import {NotificationManager, NotificationManagerProps} from '.';
+import { NotificationManager, NotificationManagerProps } from '.';
 
 jest.mock('react-transition-group', () => {
     return {
