@@ -2,7 +2,7 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
-import { Portal } from '@alfalab/core-components-portal';
+import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import { Notification, NotificationElement } from './components';
@@ -35,6 +35,13 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
      * Удаление нотификации
      */
     onRemoveNotification: (id: string) => void;
+
+    /**
+     * Нода, компонент или функция возвращающая их
+     *
+     * Контейнер к которому будут добавляться порталы
+     */
+    container?: PortalProps['getPortalContainer'];
 };
 
 const CSS_TRANSITION_CLASS_NAMES = {
@@ -53,13 +60,14 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
             zIndex = stackingOrder.TOAST,
             style = {},
             onRemoveNotification,
+            container,
             ...restProps
         },
         ref,
     ) => (
         <Stack value={zIndex}>
             {(computedZIndex) => (
-                <Portal>
+                <Portal getPortalContainer={container}>
                     <div
                         className={cn(styles.component, className)}
                         ref={ref}
