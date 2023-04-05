@@ -22,12 +22,12 @@ export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, descriptio
                     className={styles.filenameHead}
                     view='xsmall'
                     font='system'
-                    color='primary-inverted'
+                    color='static-primary-light'
                 >
                     {head}
                 </Typography.Title>
 
-                <Typography.Title tag='h1' view='xsmall' font='system' color='primary-inverted'>
+                <Typography.Title tag='h1' view='xsmall' font='system' color='static-primary-light'>
                     {tail}
                 </Typography.Title>
             </div>
@@ -37,7 +37,7 @@ export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, descriptio
                     className={styles.description}
                     tag='div'
                     view='primary-medium'
-                    color='secondary-inverted'
+                    color='static-secondary-light'
                 >
                     {description}
                 </Typography.Text>

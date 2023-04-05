@@ -34,13 +34,13 @@ const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceh
                         fillRule='evenodd'
                         clipRule='evenodd'
                         d={NoImagePaths.baseImage}
-                        fill='#DBDEE1'
+                        fill='#89898A'
                     />
-                    <path d={NoImagePaths.triangleImage} fill='#DBDEE1' />
+                    <path d={NoImagePaths.triangleImage} fill='#89898A' />
                 </svg>
             </div>
 
-            <Typography.Text view='primary-small' color='secondary'>
+            <Typography.Text view='primary-small' color='static-secondary-light'>
                 Не удалось загрузить изображение
             </Typography.Text>
         </div>

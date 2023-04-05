@@ -122,7 +122,8 @@
         "tint": [15, 20]
     },
     "static-bg-primary-dark": {
-        "alpha": [10, 20]
+        "alpha": [10, 20],
+        "tint": [15, 20]
     },
     "static-status-blue": {
         "alpha": [10]
@@ -147,5 +148,8 @@
     },
     "static-text-primary-light": {
         "alpha": [30]
+    },
+    "static-graphic-light": {
+        "shade": [7, 15]
     }
 }

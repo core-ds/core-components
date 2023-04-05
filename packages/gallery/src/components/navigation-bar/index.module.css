@@ -10,7 +10,6 @@
     box-sizing: border-box;
     padding: 10px var(--gap-xl);
     -ms-overflow-style: none;
-    background-color: var(--color-light-bg-tertiary-inverted);
     scrollbar-width: none;
 
     &::-webkit-scrollbar {

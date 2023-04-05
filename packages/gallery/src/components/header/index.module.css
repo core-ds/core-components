@@ -6,11 +6,25 @@
     flex-shrink: 0;
     width: 100%;
     padding: var(--gap-m) var(--gap-xl);
-    background-color: var(--color-light-bg-tertiary-inverted);
     box-sizing: border-box;
 }
 
 .buttons {
     display: flex;
     padding-left: var(--gap-2xl);
+
+    & path {
+        color: var(--color-static-graphic-light);
+    }
+}
+
+/* TODO: применять static цвет через prop IconButton'а */
+.iconButton {
+    &:hover path {
+        color: var(--color-static-graphic-light-shade-7);
+    }
+
+    &:active path {
+        color: var(--color-static-graphic-light-shade-15);
+    }
 }

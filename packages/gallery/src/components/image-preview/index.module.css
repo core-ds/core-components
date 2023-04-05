@@ -11,7 +11,7 @@
 }
 
 .active {
-    border-color: var(--color-light-border-key-inverted);
+    border-color: var(--color-static-overlay-white-xhigh);
 
     & > .image {
         opacity: 0.7;
@@ -40,15 +40,18 @@
 }
 
 .loading {
-    /* TODO: цвета нет в палитре */
-    background-color: #e9eaeb;
+    background-color: var(--color-static-bg-secondary-dark);
+
+    & .active {
+        background-color: var(--color-static-bg-quaternary-dark);
+    }
 }
 
 .brokenImageWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-static-bg-quaternary-dark);
 
     &:hover {
         opacity: 0.7;

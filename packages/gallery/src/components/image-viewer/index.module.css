@@ -5,7 +5,7 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-light-bg-primary-inverted-alpha-50);
+    background-color: var(--color-static-bg-primary-dark);
 }
 
 .swiper {
@@ -38,8 +38,7 @@
 }
 
 .slideLoading {
-    /* TODO: цвета нет в палитре */
-    background-color: #e9eaeb;
+    background-color: var(--color-static-bg-secondary-dark);
     border-radius: var(--border-radius-m);
 }
 
@@ -78,16 +77,16 @@
     width: 96px;
     height: 100%;
     cursor: pointer;
-    color: var(--color-light-graphic-primary-inverted);
+    color: var(--color-static-graphic-light);
     transition: background-color 0.15s ease-in-out;
     outline: none;
 
     &:hover {
-        background-color: var(--color-light-bg-primary-inverted-alpha-10);
+        background-color: var(--color-static-bg-primary-dark-tint-15);
     }
 
     &:active {
-        background-color: var(--color-light-bg-primary-inverted-alpha-20);
+        background-color: var(--color-static-bg-primary-dark-tint-20);
     }
 }
 
@@ -102,7 +101,7 @@
     width: 400px;
     height: 300px;
     border-radius: var(--border-radius-m);
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-static-bg-quaternary-dark);
 }
 
 .brokenImgWrapper {
