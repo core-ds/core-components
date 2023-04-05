@@ -2,13 +2,16 @@ import React, { forwardRef, ReactNode } from 'react';
 
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 
-import { useSelectWithApply, useSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
+import { useSelectWithApply, UseSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
 import { AnyObject, BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
+import { Footer } from '../base-select-mobile/footer';
 import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
+import { OptionsList as DefaultOptionsList } from '../options-list';
+import { VirtualOptionsList as DefaultVirtualOptionsList } from '../virtual-options-list';
 
 export type AdditionalMobileProps = {
     /**
@@ -29,13 +32,20 @@ export type AdditionalMobileProps = {
     bottomSheetProps?: Partial<BottomSheetProps>;
 
     /**
-     * Дополнительные пропсы для хука useSelectWithApply
+     * Показывать кнопку очистки
      */
-    propsForApplyHook?: useSelectWithApplyProps;
+    showClear?: UseSelectWithApplyProps['showClear'];
+
+    /**
+     * Показывать пункт "Выбрать все"
+     */
+    showSelectAll?: UseSelectWithApplyProps['showSelectAll'];
 };
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> &
     AdditionalMobileProps;
+
+const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
 export const SelectMobile = forwardRef(
     (
@@ -57,23 +67,30 @@ export const SelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            OptionsList,
             selected,
             options,
+            OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
+                ? DefaultVirtualOptionsList
+                : DefaultOptionsList,
             onChange,
-            propsForApplyHook,
             bottomSheetProps,
+            showClear = true,
+            showSelectAll,
             ...restProps
         }: SelectMobileProps,
         ref,
     ) => {
         const applyProps = useSelectWithApply({
+            optionsListProps: {
+                ...(optionsListProps as AnyObject),
+                Footer,
+            },
             OptionsList,
             selected,
             options,
             onChange,
-            showClear: true,
-            ...propsForApplyHook,
+            showClear,
+            showSelectAll,
         });
 
         return (
@@ -99,15 +116,11 @@ export const SelectMobile = forwardRef(
                 options={options}
                 selected={selected}
                 onChange={onChange}
+                OptionsList={OptionsList}
+                bottomSheetProps={bottomSheetProps}
+                {...(optionsListProps as AnyObject)}
                 {...restProps}
                 {...(multiple && !bottomSheetProps?.actionButton && applyProps)}
-                OptionsList={OptionsList}
-                optionsListProps={{
-                    ...(optionsListProps as AnyObject),
-                    ...(multiple && !bottomSheetProps?.actionButton && applyProps.optionsListProps),
-                    showFooter: multiple,
-                }}
-                bottomSheetProps={bottomSheetProps}
             />
         );
     },

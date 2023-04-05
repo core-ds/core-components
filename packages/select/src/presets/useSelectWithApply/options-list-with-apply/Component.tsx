@@ -1,36 +1,20 @@
-import React, {
-    forwardRef,
-    RefAttributes,
-    useCallback,
-    useContext,
-    useEffect,
-    useRef,
-} from 'react';
-import cn from 'classnames';
+import React, { FC, forwardRef, RefAttributes, useCallback, useEffect } from 'react';
 
-import { BaseModalContext } from '@alfalab/core-components-base-modal';
-import { Button } from '@alfalab/core-components-button';
-
-import {
-    OptionsList as DefaultOptionsList,
-    VirtualOptionsList as DefaultVirtualOptionsList,
-} from '../../../components';
+import { OptionsList as DefaultOptionsList } from '../../../components/options-list';
 import { OptionShape, OptionsListProps } from '../../../typings';
 import { SELECT_ALL_KEY } from '../hook';
 
-import styles from './index.module.css';
+import { Footer as DefaultFooter, FooterProps } from './footer/Component';
 
 type OptionsListWithApplyProps = OptionsListProps & {
     showClear?: boolean;
     onClose?: () => void;
     selectedDraft?: OptionShape[];
-    OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
-    isMobileView?: boolean;
+    OptionsList?: React.FC<OptionsListProps & RefAttributes<HTMLDivElement>>;
+    Footer?: FC<FooterProps>;
 };
 
-const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
-
-export const OptionsListWithApply = forwardRef(
+export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithApplyProps>(
     (
         {
             toggleMenu,
@@ -38,25 +22,16 @@ export const OptionsListWithApply = forwardRef(
             showClear = true,
             selectedDraft = [],
             flatOptions = [],
-            OptionsList = flatOptions.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
-                ? DefaultVirtualOptionsList
-                : DefaultOptionsList,
+            OptionsList = DefaultOptionsList,
             onApply = () => null,
             onClear = () => null,
             onClose = () => null,
             visibleOptions = 5,
-            showFooter = true,
-            isMobileView,
+            Footer = DefaultFooter,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
     ) => {
-        const footerRef = useRef<HTMLDivElement>(null);
-
-        const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
-
-        const buttonSize = isMobileView ? 's' : 'xxs';
-
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => {
                 const optionProps = defaultGetOptionProps(option, index);
@@ -98,10 +73,6 @@ export const OptionsListWithApply = forwardRef(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
-        useEffect(() => {
-            setHasFooter(true);
-        }, [setHasFooter]);
-
         return (
             <OptionsList
                 {...restProps}
@@ -113,40 +84,12 @@ export const OptionsListWithApply = forwardRef(
                 onApply={handleApply}
                 onClear={handleClear}
                 footer={
-                    showFooter && (
-                        <div
-                            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                            tabIndex={0}
-                            className={
-                                isMobileView
-                                    ? cn(styles.footerMobile, {
-                                          [styles.highlighted]: footerHighlighted,
-                                      })
-                                    : styles.footer
-                            }
-                            ref={footerRef}
-                        >
-                            <Button
-                                size={buttonSize}
-                                view='primary'
-                                onClick={handleApply}
-                                className={isMobileView ? styles.footerButtonMobile : undefined}
-                            >
-                                Применить
-                            </Button>
-
-                            {showClear && (
-                                <Button
-                                    size={buttonSize}
-                                    view='secondary'
-                                    onClick={handleClear}
-                                    className={isMobileView ? styles.footerButtonMobile : undefined}
-                                >
-                                    Сбросить
-                                </Button>
-                            )}
-                        </div>
-                    )
+                    <Footer
+                        handleApply={handleApply}
+                        handleClear={handleClear}
+                        showClear={showClear}
+                        selectedDraft={selectedDraft}
+                    />
                 }
             />
         );

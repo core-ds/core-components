@@ -21,7 +21,6 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
 import { getDataTestId } from '../../../../utils';
-import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 import {
     AnyObject,
     BaseSelectProps,
@@ -325,16 +324,42 @@ export const BaseSelectMobile = forwardRef(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
+        const handleClose = () => {
+            toggleMenu();
+        };
+
         const renderValue = () =>
             selectedItems.map((option) => (
                 <input type='hidden' name={name} value={option.key} key={option.key} />
             ));
 
-        const handleClose = () => {
-            toggleMenu();
-        };
+        const renderOptionsList = () => {
+            if (flatOptions.length === 0 && !showEmptyOptionsList) return null;
 
-        const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList;
+            return (
+                <div {...menuProps} className={optionsListClassName}>
+                    <OptionsList
+                        {...(optionsListProps as OptionsListProps)}
+                        ref={scrollableContainerRef}
+                        optionsListWidth={optionsListWidth}
+                        flatOptions={flatOptions}
+                        highlightedIndex={highlightedIndex}
+                        open={open}
+                        size={size}
+                        options={options}
+                        Optgroup={Optgroup}
+                        Option={Option}
+                        selectedItems={selectedItems}
+                        setSelectedItems={setSelectedItems}
+                        toggleMenu={toggleMenu}
+                        getOptionProps={getOptionProps}
+                        visibleOptions={0}
+                        dataTestId={getDataTestId(dataTestId, 'options-list')}
+                        optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
+                    />
+                </div>
+            );
+        };
 
         return (
             <div
@@ -397,35 +422,7 @@ export const BaseSelectMobile = forwardRef(
                         scrollableContainerRef={scrollableContainerRef}
                         {...bottomSheetProps}
                     >
-                        {needRenderOptionsList && (
-                            <div
-                                {...menuProps}
-                                className={cn(optionsListClassName, styles.optionsList)}
-                            >
-                                <OptionsListWithApply
-                                    {...(optionsListProps as OptionsListProps)}
-                                    ref={scrollableContainerRef}
-                                    optionsListWidth={optionsListWidth}
-                                    flatOptions={flatOptions}
-                                    highlightedIndex={highlightedIndex}
-                                    open={open}
-                                    size={size}
-                                    options={options}
-                                    Optgroup={Optgroup}
-                                    Option={Option}
-                                    selectedItems={selectedItems}
-                                    setSelectedItems={setSelectedItems}
-                                    toggleMenu={toggleMenu}
-                                    getOptionProps={getOptionProps}
-                                    visibleOptions={0}
-                                    dataTestId={getDataTestId(dataTestId, 'options-list')}
-                                    optionGroupClassName={cn(
-                                        styles.optionGroup,
-                                        optionGroupClassName,
-                                    )}
-                                />
-                            </div>
-                        )}
+                        {renderOptionsList()}
                     </BottomSheet>
                 ) : (
                     <ModalMobile
@@ -434,33 +431,12 @@ export const BaseSelectMobile = forwardRef(
                         contentClassName={styles.sheetContent}
                         hasCloser={true}
                         ref={scrollableContainerRef}
-                        keepMounted={true}
                     >
                         <ModalMobile.Header hasCloser={true} sticky={true}>
                             {label || placeholder}
                         </ModalMobile.Header>
-                        <div {...menuProps} className={optionsListClassName}>
-                            <OptionsListWithApply
-                                {...(optionsListProps as OptionsListProps)}
-                                ref={scrollableContainerRef}
-                                optionsListWidth={optionsListWidth}
-                                OptionsList={OptionsList}
-                                flatOptions={flatOptions}
-                                highlightedIndex={highlightedIndex}
-                                open={open}
-                                size={size}
-                                options={options}
-                                Optgroup={Optgroup}
-                                Option={Option}
-                                selectedItems={selectedItems}
-                                setSelectedItems={setSelectedItems}
-                                toggleMenu={toggleMenu}
-                                getOptionProps={getOptionProps}
-                                visibleOptions={0}
-                                dataTestId={getDataTestId(dataTestId, 'options-list')}
-                                optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                            />
-                        </div>
+
+                        {renderOptionsList()}
                     </ModalMobile>
                 )}
             </div>

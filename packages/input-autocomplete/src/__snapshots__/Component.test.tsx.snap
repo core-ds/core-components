@@ -206,7 +206,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                   >
                     <div
                       aria-labelledby="downshift-3-label"
-                      class="optionsList"
                       id="downshift-3-menu"
                       role="listbox"
                     >

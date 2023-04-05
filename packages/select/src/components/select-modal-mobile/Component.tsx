@@ -1,19 +1,29 @@
 import React, { forwardRef } from 'react';
 
-import { useSelectWithApply, useSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
+import { useSelectWithApply, UseSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
 import { AnyObject, BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
+import { Footer } from '../base-select-mobile/footer';
 import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
+import { OptionsList as DefaultOptionsList } from '../options-list';
+import { VirtualOptionsList as DefaultVirtualOptionsList } from '../virtual-options-list';
 
 export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> & {
     /**
-     * Дополнительные пропсы для хука useSelectWithApply
+     * Показывать кнопку очистки
      */
-    propsForApplyHook?: useSelectWithApplyProps;
+    showClear?: UseSelectWithApplyProps['showClear'];
+
+    /**
+     * Показывать пункт "Выбрать все"
+     */
+    showSelectAll?: UseSelectWithApplyProps['showSelectAll'];
 };
+
+const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
 export const SelectModalMobile = forwardRef(
     (
@@ -35,22 +45,29 @@ export const SelectModalMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            OptionsList,
             selected,
             options,
+            OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
+                ? DefaultVirtualOptionsList
+                : DefaultOptionsList,
             onChange,
-            propsForApplyHook,
+            showClear = true,
+            showSelectAll,
             ...restProps
         }: SelectModalMobileProps,
         ref,
     ) => {
         const applyProps = useSelectWithApply({
+            optionsListProps: {
+                ...(optionsListProps as AnyObject),
+                Footer,
+            },
             OptionsList,
             selected,
             options,
             onChange,
-            showClear: true,
-            ...propsForApplyHook,
+            showClear,
+            showSelectAll,
         });
 
         return (
@@ -76,14 +93,10 @@ export const SelectModalMobile = forwardRef(
                 options={options}
                 selected={selected}
                 onChange={onChange}
+                OptionsList={OptionsList}
+                {...(optionsListProps as AnyObject)}
                 {...restProps}
                 {...(multiple && applyProps)}
-                OptionsList={OptionsList}
-                optionsListProps={{
-                    ...(optionsListProps as AnyObject),
-                    ...(multiple && applyProps.optionsListProps),
-                    showFooter: multiple,
-                }}
             />
         );
     },

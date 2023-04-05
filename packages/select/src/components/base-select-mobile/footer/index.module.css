@@ -2,28 +2,18 @@
 @import '../../../vars.css';
 
 .footer {
-    background-color: var(--color-light-bg-primary);
-    padding: var(--gap-s);
-    outline: none;
-
-    & > * + * {
-        margin-left: var(--gap-xs);
-    }
-}
-
-.footerMobile {
     display: flex;
     box-sizing: border-box;
     width: 100%;
     padding: var(--gap-m) var(--gap-m);
     background-color: var(--color-light-bg-primary);
 
-    & .footerButtonMobile:first-of-type {
+    & .button:first-of-type {
         margin-right: var(--gap-m);
     }
 }
 
-.footerButtonMobile {
+.button {
     width: 50%;
 }
 

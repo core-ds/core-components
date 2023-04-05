@@ -1,13 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { useMatchMedia } from '@alfalab/core-components/mq';
-
-import { BaseSelectProps, OptionShape, processOptions } from '../..';
+import { AnyObject, BaseSelectProps, OptionShape, processOptions } from '../..';
 
 import { OptionsListWithApply } from './options-list-with-apply';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export type useSelectWithApplyProps = {
+export type UseSelectWithApplyProps = {
     /**
      * Список выбранных пунктов
      */
@@ -29,6 +26,11 @@ export type useSelectWithApplyProps = {
     OptionsList?: BaseSelectProps['OptionsList'];
 
     /**
+     * Пропсы, которые будут прокинуты в компонент списка
+     */
+    optionsListProps?: BaseSelectProps['optionsListProps'];
+
+    /**
      * Показывать кнопку очистки
      */
     showClear?: boolean;
@@ -37,12 +39,6 @@ export type useSelectWithApplyProps = {
      * Показывать пункт "Выбрать все"
      */
     showSelectAll?: boolean;
-
-    /**
-     * Контрольная точка, с нее начинается desktop версия
-     * @default 1024
-     */
-    breakpoint?: number;
 };
 
 export const SELECT_ALL_KEY = 'select_all';
@@ -54,10 +50,10 @@ export function useSelectWithApply({
     selected,
     onChange = () => null,
     OptionsList,
-    showClear = false,
+    optionsListProps = {},
+    showClear = true,
     showSelectAll = false,
-    breakpoint = 1024,
-}: useSelectWithApplyProps) {
+}: UseSelectWithApplyProps) {
     const { flatOptions, selectedOptions } = useMemo(
         () => processOptions(options, selected),
         [options, selected],
@@ -126,18 +122,16 @@ export function useSelectWithApply({
         [options, showSelectAll],
     );
 
-    const [isMobileView] = useMatchMedia(`(max-width: ${breakpoint}px)`);
-
     return {
         OptionsList: OptionsListWithApply,
         optionsListProps: {
+            ...(optionsListProps as AnyObject),
             OptionsList,
-            showClear: showClear || selectedDraft.length > 0 || selectedOptions.length > 0,
+            showClear,
             onClear: handleClear,
             onApply: handleApply,
             onClose: handleClose,
             selectedDraft,
-            isMobileView,
         },
         allowUnselect: true,
         multiple: true,
