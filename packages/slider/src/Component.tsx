@@ -53,12 +53,13 @@ export type SliderProps = {
     range?: RangeOptions;
 
     /**
-     * Значение инпута
+     * Значение слайдера
      */
     value?: number;
 
     /**
-     * Значение инпута
+     * Второе значение слайдера (значение второго ползунка)
+     * если передать ValueTo, то слайдер будет работать как range
      */
     valueTo?: number;
 
@@ -110,7 +111,7 @@ export const Slider: FC<SliderProps> = ({
 }) => {
     const sliderRef = useRef<HTMLDivElement & { noUiSlider: API }>(null);
     const busyRef = useRef<boolean>(false);
-    const hasNotValueTo = valueTo === undefined;
+    const hasValueTo = valueTo !== undefined;
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
@@ -172,9 +173,7 @@ export const Slider: FC<SliderProps> = ({
 
         const handler = () => {
             if (onChange) {
-                if (hasNotValueTo) {
-                    onChange({ value: Number(slider.get()) });
-                } else {
+                if (hasValueTo) {
                     const sliderValues = slider.get() as string[];
                     const from = Number(sliderValues[0]);
                     const to = Number(sliderValues[1]);
@@ -184,13 +183,15 @@ export const Slider: FC<SliderProps> = ({
                     } else {
                         onChange({ value: to, valueTo: from });
                     }
+                } else {
+                    onChange({ value: Number(slider.get()) });
                 }
             }
         };
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange, hasNotValueTo]);
+    }, [onChange, hasValueTo]);
 
     return (
         <div
