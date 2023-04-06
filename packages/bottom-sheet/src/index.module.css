@@ -1,8 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --bottom-sheet-in-transition: 0.5s cubic-bezier(0.09, 0.91, 0.18, 0.99);
-    --bottom-sheet-out-transition: 0.3s ease;
+    --bottom-sheet-in-transition: transform 0.5s cubic-bezier(0.09, 0.91, 0.18, 0.99);
+    --bottom-sheet-out-transition: transform 0.3s ease;
 }
 
 .modal {
@@ -11,6 +11,15 @@
     bottom: 0;
     width: 100%;
     max-width: 600px;
+    pointer-events: none;
+}
+
+.wrapper {
+    transform: translateY(100%);
+    overflow: hidden;
+    pointer-events: none;
+    border-top-right-radius: var(--border-radius-xl);
+    border-top-left-radius: var(--border-radius-xl);
 }
 
 .component {
@@ -18,10 +27,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border-top-right-radius: var(--border-radius-xl);
-    border-top-left-radius: var(--border-radius-xl);
+    border-radius: inherit;
     background-color: var(--color-light-bg-primary);
-    transform: translateY(100%);
+    pointer-events: all;
 }
 
 .withTransition {
@@ -72,16 +80,29 @@
     overflow: hidden;
 }
 
+.hiddenScrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+.disabledPointerEvents {
+    pointer-events: none;
+}
+
 .appear,
 .enter {
-    & .component {
+    & .wrapper {
         transition: none;
     }
 }
 
 .appearActive,
 .enterActive {
-    & .component {
+    & .wrapper {
         transition: var(--bottom-sheet-in-transition);
         transform: translateY(0);
     }
@@ -89,19 +110,19 @@
 
 .enterDone,
 .appearDone {
-    & .component {
+    & .wrapper {
         transform: translateY(0);
     }
 }
 
 .exit {
-    & .component {
+    & .wrapper {
         transform: translateY(0);
     }
 }
 
 .exitActive {
-    & .component {
+    & .wrapper {
         transition: var(--bottom-sheet-out-transition);
         transform: translateY(100%);
     }

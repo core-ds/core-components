@@ -33,7 +33,3 @@
     background-color: var(--backdrop-hidden-background);
     transition: background-color 200ms ease-out;
 }
-
-.invisible {
-    opacity: 0;
-}

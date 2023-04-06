@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { SwipeableHandlers } from 'react-swipeable/types';
+import { SwipeableHandlers } from 'react-swipeable';
 
 import { Backdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 

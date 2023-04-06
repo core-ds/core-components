@@ -131,7 +131,7 @@ export type NavigationBarProps = {
 
 export type ContentParams = {
     extraClassName?: string;
-    ref?: React.RefObject<HTMLDivElement>;
+    wrapperRef?: React.RefObject<HTMLDivElement>;
     style?: React.CSSProperties;
     hidden?: boolean;
 };

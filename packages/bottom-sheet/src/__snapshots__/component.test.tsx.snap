@@ -17,11 +17,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
       data-focus-lock-disabled="false"
     >
       <div
-        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+        style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
       >
         <div
           aria-hidden="true"
-          class="backdrop appear appearActive"
+          class="backdrop disabledPointerEvents appear appearActive"
         />
       </div>
       <div
@@ -37,6 +37,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
             class="content"
           >
             <div
+              class="wrapper"
               style="max-height: 744px;"
             >
               <div
@@ -106,11 +107,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
       data-focus-lock-disabled="false"
     >
       <div
-        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+        style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
       >
         <div
           aria-hidden="true"
-          class="backdrop appear appearActive"
+          class="backdrop disabledPointerEvents appear appearActive"
         />
       </div>
       <div
@@ -126,6 +127,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
             class="content"
           >
             <div
+              class="wrapper"
               style="max-height: 744px;"
             >
               <div
