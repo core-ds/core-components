@@ -2,7 +2,7 @@
 
 В зависимости от контекста рекомендуется использовать одну из двух конфигураций шапки календаря.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight=640 mobileWidth=390
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -36,6 +36,7 @@ render(() => {
                 value={value}
                 responsive={true}
                 onChange={ setValue}
+                bottomAddons={[{date: 1682888400000, addon: '6666', color: true}, {date: 1683666000000, addon: '7777'}, {date: new Date().setDate(7), addon: '1235', color: true}, {date: new Date().setDate(30), addon: '1235'}]}                
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
             />
             <p style={{ marginTop: 32, marginBottom: 32 }} >
@@ -91,6 +92,7 @@ render(() => {
                 Показать календарь
             </Button>
             <CalendarMobile
+                bottomAddons={[{date: 1682888400000, addon: '6666', color: true}, {date: 1683666000000, addon: '7777'}, {date: new Date().setDate(7), addon: '1235', color: true}, {date: new Date().setDate(30), addon: '1235'}]}                
                 value={value}
                 onChange={ setValue}
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}

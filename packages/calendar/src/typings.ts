@@ -10,6 +10,8 @@ export type Day = {
     selected?: boolean;
 
     holiday?: boolean;
+
+    bottomAddon?: DayAddon;
 };
 
 export type Month = {
@@ -31,3 +33,13 @@ export type DateShift =
 export type View = 'years' | 'months' | 'days';
 
 export type SelectorView = 'month-only' | 'full';
+
+export type BottonAddon = {
+    date: Date;
+    addon: number | string;
+    color?: boolean;
+};
+
+export type DayAddon = Omit<BottonAddon, 'date'>;
+
+export type SpecialDaysAddon = Record<number, DayAddon>;

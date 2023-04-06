@@ -12,7 +12,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 import { Button } from '@alfalab/core-components-button';
 import { usePrevious } from '@alfalab/hooks';
 
-import { Day } from '../../typings';
+import { BottonAddon, Day } from '../../typings';
 import { getSelectionRange, russianWeekDay, WEEKDAYS } from '../../utils';
 
 import styles from './index.module.css';
@@ -65,6 +65,11 @@ export type DaysTableProps = {
      * Должен ли календарь подстраиваться под ширину родителя.
      */
     responsive?: boolean;
+
+    /**
+     * Слот снизу от дня
+     */
+    bottomAddons?: BottonAddon[];
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -77,6 +82,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     getDayProps,
     hasHeader = true,
     responsive,
+    bottomAddons,
 }) => {
     const activeMonthRef = useRef(activeMonth);
     const directionRef = useRef<'right' | 'left' | undefined>();
@@ -103,7 +109,6 @@ export const DaysTable: FC<DaysTableProps> = ({
 
     const renderDay = (day: Day, dayIdx: number) => {
         if (!day) return <td key={dayIdx} />;
-
         const daySelected =
             day.selected ||
             (selectedFrom && isSameDay(day.date, selectedFrom)) ||
@@ -180,6 +185,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                     size='xs'
                     disabled={day.disabled}
                     className={cn(styles.day, {
+                        [styles.dayAddons]: bottomAddons,
                         [styles.selected]: daySelected,
                         [styles.today]: isToday(day.date),
                         [styles.disabled]: day.disabled,
@@ -189,6 +195,15 @@ export const DaysTable: FC<DaysTableProps> = ({
                 >
                     {day.event && <span className={styles.dot} />}
                     {day.date.getDate()}
+                    {day.bottomAddon && (
+                        <span
+                            className={cn(styles.bottomAddon, {
+                                [styles.colorAddon]: day.bottomAddon.color,
+                            })}
+                        >
+                            {day.bottomAddon.addon}
+                        </span>
+                    )}
                 </Button>
             </td>
         );

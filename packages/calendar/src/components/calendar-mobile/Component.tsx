@@ -12,7 +12,12 @@ import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
 import { CalendarDesktop, CalendarDesktopProps } from '../../Component.desktop';
 import { Month } from '../../typings';
-import { dateArrayToHashTable, generateMonths, generateWeeks } from '../../utils';
+import {
+    addonArrayToHashTable,
+    dateArrayToHashTable,
+    generateMonths,
+    generateWeeks,
+} from '../../utils';
 import { DaysTable } from '../days-table';
 
 import styles from './index.module.css';
@@ -70,6 +75,7 @@ const CalendarMonthOnlyView = ({
     rangeComplete,
     onMonthChange,
     yearsAmount = 3,
+    bottomAddons,
 }: CalendarMobileProps) => {
     const initialMonthIndex = useMemo(() => {
         const currentMonthIndex = new Date().getMonth();
@@ -118,12 +124,15 @@ const CalendarMonthOnlyView = ({
         events,
         onChange,
         onMonthChange,
+        bottomAddons,
     });
 
     const activeMonths = useMemo(() => {
         const eventsMap = dateArrayToHashTable(events || []);
         const offDaysMap = dateArrayToHashTable(offDays || []);
         const holidaysMap = dateArrayToHashTable(holidays || []);
+        const bottomAddonsMap = addonArrayToHashTable(bottomAddons || []);
+
         const prevMonths: Month[] = [];
         const nextMonths: Month[] = [];
 
@@ -152,10 +161,11 @@ const CalendarMonthOnlyView = ({
                 eventsMap,
                 offDaysMap,
                 holidaysMap,
+                bottomAddonsMap,
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [events, offDays, holidays, months, yearsAmount, minDate, maxDate, selected]);
+    }, [events, offDays, holidays, bottomAddons, months, yearsAmount, minDate, maxDate, selected]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -170,6 +180,7 @@ const CalendarMonthOnlyView = ({
                 rangeComplete={rangeComplete}
                 hasHeader={false}
                 responsive={true}
+                bottomAddons={bottomAddons}
             />
         </div>
     );
@@ -202,6 +213,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             onClose,
             title = 'Календарь',
             yearsAmount = 3,
+            bottomAddons,
             ...restProps
         },
         ref,
@@ -247,6 +259,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     <CalendarMonthOnlyView
                         open={open}
                         yearsAmount={yearsAmount}
+                        bottomAddons={bottomAddons}
                         {...commonProps}
                         {...restProps}
                     />

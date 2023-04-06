@@ -333,6 +333,27 @@
     transition: opacity 200ms, transform 300ms;
 }
 
+.dayAddons {
+    width: 49px;
+    height: 40px;
+    border-radius: var(--border-radius-m);
+
+    & > span {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+    }
+}
+
+.bottomAddon {
+    font-size: 10px;
+    line-height: 10px;
+
+    &.colorAddon {
+        color: var(--color-light-text-positive);
+    }
+}
+
 @media (max-width: 374px) {
     .dayWrapper:before {
         height: 36px;
@@ -341,6 +362,11 @@
     .day {
         width: 36px;
         height: 36px;
+    }
+
+    .dayAddons {
+        width: 49px;
+        height: 40px;
     }
 
     .rangeStart {
