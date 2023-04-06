@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { Notification } from '@alfalab/core-components-notification';
 
-import { NotificationManager } from '.';
+import { NotificationManager, NotificationManagerProps } from '.';
 
 jest.mock('react-transition-group', () => {
     return {
@@ -136,4 +136,26 @@ describe('NotificationManager', () => {
 
         expect(unmount).not.toThrowError();
     });
+
+    it('should render to container', () => {
+        const notificationManager = (props?: Partial<NotificationManagerProps>) => (
+            <React.Fragment>
+                <div id='container' />
+                <NotificationManager
+                    dataTestId='NotificationManager'
+                    notifications={[]}
+                    onRemoveNotification={jest.fn()}
+                    {...props}
+                />
+            </React.Fragment>
+        )
+
+        const { getByTestId, rerender } = render(notificationManager())
+
+        const container = document.getElementById('container');
+
+        rerender(notificationManager({container: () => container as HTMLElement}));
+
+        expect(container).toContainElement(getByTestId('NotificationManager'))
+    })
 });
