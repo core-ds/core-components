@@ -101,26 +101,6 @@
     @mixin form-control-sub;
 }
 
-/* Паддинги взяты из стилей form-control */
-.scrollable {
-    &.s,
-    &.m,
-    &.l {
-        & .textarea {
-            padding-left: var(--gap-s);
-            padding-right: var(--gap-s);
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-    }
-    &.xl {
-        & .textarea {
-            padding-left: var(--gap-m);
-            padding-right: var(--gap-m);
-        }
-    }
-}
-
 .textarea.hasInnerLabel.hasInnerLabel {
     padding-top: 0;
     padding-bottom: 0;
@@ -160,33 +140,6 @@
     }
     &.xl {
         min-height: var(--textarea-xl-filled-min-height);
-    }
-}
-
-.scrollableWithLabel.filled {
-    &.s {
-        min-height: var(--textarea-s-filled-min-height);
-        & .textarea {
-            min-height: var(--textarea-s-filled-min-height);
-        }
-    }
-    &.m {
-        min-height: var(--textarea-m-filled-min-height);
-        & .textarea {
-            min-height: var(--textarea-m-filled-min-height);
-        }
-    }
-    &.l {
-        min-height: var(--textarea-l-filled-min-height);
-        & .textarea {
-            min-height: var(--textarea-l-filled-min-height);
-        }
-    }
-    &.xl {
-        min-height: var(--textarea-xl-filled-min-height);
-        & .textarea {
-            min-height: var(--textarea-xl-filled-min-height);
-        }
     }
 }
 

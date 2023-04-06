@@ -151,7 +151,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 [styles.customScrollbar]: !nativeScrollbar,
                 [styles.hasInnerLabel]: hasInnerLabel,
                 [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
-                [styles.filled]: nativeScrollbar && filled,
+                [styles.filled]: filled,
             },
             textareaClassName,
         );
