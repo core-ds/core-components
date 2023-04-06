@@ -192,23 +192,23 @@
 
     &.hasInnerLabel {
         &.s {
-            border-top: 24px var(--textarea-border-style);
-            border-bottom: 4px var(--textarea-border-style);
+            border-top: var(--textarea-s-filled-border-top) var(--textarea-border-style);
+            border-bottom: var(--textarea-s-filled-border-bottom) var(--textarea-border-style);
         }
 
         &.m {
-            border-top: 24px var(--textarea-border-style);
-            border-bottom: 8px var(--textarea-border-style);
+            border-top: var(--textarea-m-filled-border-top) var(--textarea-border-style);
+            border-bottom: var(--textarea-m-filled-border-bottom) var(--textarea-border-style);
         }
 
         &.l {
-            border-top: 32px var(--textarea-border-style);
-            border-bottom: 12px var(--textarea-border-style);
+            border-top: var(--textarea-l-filled-border-top) var(--textarea-border-style);
+            border-bottom: var(--textarea-l-filled-border-bottom) var(--textarea-border-style);
         }
 
         &.xl {
-            border-top: 34px var(--textarea-border-style);
-            border-bottom: 14px var(--textarea-border-style);
+            border-top: var(--textarea-xl-filled-border-top) var(--textarea-border-style);
+            border-bottom: var(--textarea-xl-filled-border-bottom) var(--textarea-border-style);
         }
     }
 }
