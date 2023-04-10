@@ -317,7 +317,7 @@ render(() => {
             circularNavigation={true}
             allowUnselect={true}
             visibleOptions={3}
-            optionsListWidth="field"
+            optionsListWidth='field'
             Option={BaseOption}
         />
     );
@@ -976,16 +976,19 @@ render(() => {
         setSelectedSecond(selected);
     };
 
-    const options = [
-        { key: '1', content: 'Neptunium' },
-        { key: '2', content: 'Plutonium' },
-        { key: '3', content: 'Americium' },
-        { key: '4', content: 'Curium' },
-        { key: '5', content: 'Berkelium' },
-        { key: '6', content: 'Californium' },
-        { key: '7', content: 'Einsteinium' },
-        { key: '8', content: 'Fermium' },
-    ];
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
 
     return (
         <div style={{ width: 320 }}>
