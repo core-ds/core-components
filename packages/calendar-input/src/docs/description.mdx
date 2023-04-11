@@ -6,16 +6,7 @@
 ```jsx live mobileHeight=640
 render(() => {
     const [keyPress, setKeyPress] = React.useState(false);
-    // import startOfDay from 'date-fns/startOfDay';
     const defaultMonth = new Date('December 1, 2022 00:00:00');
-
-    const minDate = startOfDay(new Date());
-    minDate.setDate(1);
-    minDate.setMonth(11);
-
-    const maxDate = startOfDay(new Date());
-    maxDate.setDate(31);
-    maxDate.setMonth(11);
 
     const events = [new Date().setDate(13), new Date().setDate(19)];
 
@@ -44,8 +35,6 @@ render(() => {
                 defaultMonth={defaultMonth}
                 events={events}
                 offDays={offDays}
-                minDate={minDate.getTime()}
-                maxDate={maxDate.getTime()}
                 onKeyPress={keyPress ? handleChange : null}
                 calendarProps={{
                     selectorView: 'month-only',
@@ -64,16 +53,7 @@ render(() => {
 //MOBILE
 render(() => {
     const [keyPress, setKeyPress] = React.useState(false);
-    // import startOfDay from 'date-fns/startOfDay';
     const defaultMonth = new Date('December 1, 2022 00:00:00');
-
-    const minDate = startOfDay(new Date());
-    minDate.setDate(1);
-    minDate.setMonth(11);
-
-    const maxDate = startOfDay(new Date());
-    maxDate.setDate(31);
-    maxDate.setMonth(11);
 
     const events = [new Date().setDate(13), new Date().setDate(19)];
 
@@ -96,30 +76,36 @@ render(() => {
     };
 
     return (
-        <Space size={24}>
+        <>
             <CalendarInputMobile
                 label='Укажите дату'
                 defaultMonth={defaultMonth}
                 events={events}
                 offDays={offDays}
-                minDate={minDate.getTime()}
-                maxDate={maxDate.getTime()}
                 onKeyPress={keyPress ? handleChange : null}
                 calendarProps={{
                     selectorView: 'month-only',
                     holidays: holidays,
                 }}
+                block={true}
             />
+
+            <Gap size='xl' />
+
             <Switch
                 block={true}
                 checked={keyPress}
                 label='Запретить ввод с клавиатуры'
                 onChange={() => setKeyPress(!keyPress)}
             />
-        </Space>
+        </>
     );
 });
 ```
+
+## Календарь
+
+Настройки календаря можно посмотреть на страничке компонента [Calendar](/docs/calendar--calendar).
 
 ## Морфология
 
