@@ -35,7 +35,7 @@ render(() => {
                 responsive={true}
                 value={value}
                 responsive={true}
-                onChange={setValue}              
+                onChange={setValue}
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
             />
             <p style={{ marginTop: 32, marginBottom: 32 }}>
@@ -89,7 +89,7 @@ render(() => {
             <Button block={true} onClick={() => setOpen(true)}>
                 Показать календарь
             </Button>
-            <CalendarMobile                
+            <CalendarMobile
                 value={value}
                 onChange={setValue}
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
@@ -364,10 +364,13 @@ render(() => {
 
 ```jsx live mobileHeight=640
 render(() => {
-
     const [value, setValue] = React.useState();
-
-    const events = [new Date().setDate(7), new Date().setDate(15), new Date().setDate(23), new Date().setDate(31)];
+    const events = [
+        new Date().setDate(7),
+        new Date().setDate(15),
+        new Date().setDate(23),
+        new Date().setDate(31),
+    ];
 
     const offDays = [
         new Date().setDate(3),
@@ -390,8 +393,6 @@ render(() => {
                 selectorView='month-only'
                 events={events}
                 offDays={offDays}
-                value={value}
-                onChange={setValue}
             />
         </div>
     );
@@ -400,7 +401,12 @@ render(() => {
 render(() => {
     const [value, setValue] = React.useState();
     const [open, setOpen] = React.useState(false);
-    const events = [new Date().setDate(7), new Date().setDate(15), new Date().setDate(23), new Date().setDate(31)];
+    const events = [
+        new Date().setDate(7),
+        new Date().setDate(15),
+        new Date().setDate(23),
+        new Date().setDate(31),
+    ];
 
     const offDays = [
         new Date().setDate(3),
@@ -427,8 +433,6 @@ render(() => {
                 selectorView='month-only'
                 events={events}
                 offDays={offDays}
-                value={value}
-                onChange={setValue}
             />
         </Container>
     );
@@ -626,8 +630,7 @@ render(() => {
 
 ```jsx live mobileHeight=640
 render(() => {
-    // import startOfDay from 'date-fns/startOfDay';
-    const [value, setValue] = React.useState(new Date().setMonth(0, 16));
+    const [value, setValue] = React.useState(() => new Date().setMonth(0));
     const minDate = startOfDay(new Date());
     minDate.setDate(16);
     minDate.setMonth(0);
@@ -638,21 +641,20 @@ render(() => {
 
     return (
         <div style={{ width: '344px' }}>
-                <Calendar
-                    responsive={true}
-                    selectorView='month-only'
-                    minDate={minDate.getTime()}
-                    maxDate={maxDate.getTime()}
-                    value={value}
-                    onChange={setValue}
-                />
+            <Calendar
+                responsive={true}
+                value={value}
+                onChange={setValue}
+                selectorView='month-only'
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()}
+            />
         </div>
     );
 });
 //MOBILE
 render(() => {
-    // import startOfDay from 'date-fns/startOfDay';
-    const [value, setValue] = React.useState(new Date().setMonth(0, 16));
+    const [value, setValue] = React.useState(() => new Date().setMonth(0));
     const [open, setOpen] = React.useState(false);
     const minDate = startOfDay(new Date());
     minDate.setDate(16);
@@ -690,7 +692,6 @@ render(() => {
 render(() => {
     const [value, setValue] = React.useState(() => new Date().setMonth(0));
     const [visible, setVisible] = React.useState(true);
-    const [value, setValue] = React.useState();
 
     return (
         <>
