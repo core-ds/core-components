@@ -212,7 +212,7 @@ export const DaysTable: FC<DaysTableProps> = ({
             </td>
         );
     };
-    console.log(weeks);
+
     const renderWeek = (week: Day[], weekIdx: number) => (
         <tr key={weekIdx}>{week.map(renderDay)}</tr>
     );
