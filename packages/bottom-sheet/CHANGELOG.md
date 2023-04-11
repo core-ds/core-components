@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+### [#604](https://github.com/core-ds/core-components/pull/604)
+
+-   Добавлен новый prop backgroundColor
+
 ## 6.0.5
 
 ### Patch Changes

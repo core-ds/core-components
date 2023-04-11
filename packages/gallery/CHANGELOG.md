@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [#556](https://github.com/core-ds/core-components/pull/556)
+
+-   Заданы статичные цвета для компонента Gallery. Добавлены новые css-переменные.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@6.2.15
+
 ## 5.1.20
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.2.18
+
+### Patch Changes
+
+### [#612](https://github.com/core-ds/core-components/pull/612)
+
+-   Исправлены отступы
+
+-   Обновлены зависимости
+    -   calendar@6.2.16
+
 ## 8.2.17
 
 ### Patch Changes

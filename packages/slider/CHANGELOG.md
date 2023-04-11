@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.6
+
+### Patch Changes
+
+### [#603](https://github.com/core-ds/core-components/pull/603)
+
+-   Исправлена ошибка, из-за которой трек слайдера исчезал при зуме
+
 ## 4.1.5
 
 ### Patch Changes

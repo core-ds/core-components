@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [#614](https://github.com/core-ds/core-components/pull/614)
+
+-   Добавлен новый необязательный prop container для прокидывания в компонент Portal
+
 ## 5.1.19
 
 ### Patch Changes
