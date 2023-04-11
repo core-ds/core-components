@@ -1,3 +1,53 @@
+## 40.2.0
+
+<sup><time>11.04.2023</time></sup>
+
+### [#604](https://github.com/core-ds/core-components/pull/604)
+
+#### Что изменилось
+- Добавлен новый prop backgroundColor
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet` `vars`
+
+
+### [#612](https://github.com/core-ds/core-components/pull/612)
+
+#### Что изменилось
+- Исправлены отступы
+
+#### Влияние на компоненты
+- Патчи<br />`calendar` `calendar-input`
+
+
+### [#603](https://github.com/core-ds/core-components/pull/603)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой трек слайдера исчезал при зуме
+
+#### Влияние на компоненты
+- Патчи<br />`slider`
+
+
+### [#556](https://github.com/core-ds/core-components/pull/556)
+
+#### Что изменилось
+- Заданы статичные цвета для компонента Gallery. Добавлены новые css-переменные.
+
+#### Влияние на компоненты
+- Минорное<br />`gallery` `vars`
+
+
+### [#614](https://github.com/core-ds/core-components/pull/614)
+
+#### Что изменилось
+- Добавлен новый необязательный prop container для прокидывания в компонент Portal
+
+#### Влияние на компоненты
+- Минорное<br />`notification-manager`
+
+
+
 ## 40.1.0
 
 <sup><time>29.03.2023</time></sup>
