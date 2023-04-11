@@ -508,7 +508,8 @@ describe('Calendar', () => {
 
         offDays.forEach((day) => {
             const dayOfMonth = day.getDate().toString();
-            expect(queryByText(dayOfMonth)?.parentNode).toBeDisabled();
+            const dayContent = queryByText(dayOfMonth)?.parentNode;
+            expect(dayContent?.parentNode).toBeDisabled();
         });
     });
 
@@ -523,7 +524,24 @@ describe('Calendar', () => {
 
         events.forEach((day) => {
             const dayOfMonth = day.getDate().toString();
-            expect(queryByText(dayOfMonth)?.firstElementChild).toHaveClass('dot');
+            const dayContent = queryByText(dayOfMonth)?.parentNode;
+            expect(dayContent?.lastElementChild).toHaveClass('dot');
+        });
+    });
+
+    it('should set dayAddons', () => {
+        const dayAddons = [
+            { date: setDate(defaultDate, 10), addon: <div>10</div> },
+            { date: setDate(defaultDate, 10), addon: <div>12</div> },
+            { date: setDate(defaultDate, 10), addon: <div>14</div> },
+        ];
+
+        const { queryByText } = render(<Calendar value={defaultValue} dayAddons={dayAddons} />);
+
+        dayAddons.forEach((day) => {
+            const dayOfMonth = day.date.getDate().toString();
+            const dayContent = queryByText(dayOfMonth)?.parentNode;
+            expect(dayContent?.lastElementChild).toHaveClass('bottomAddon');
         });
     });
 

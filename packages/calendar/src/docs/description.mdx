@@ -2,7 +2,7 @@
 
 В зависимости от контекста рекомендуется использовать одну из двух конфигураций шапки календаря.
 
-```jsx live mobileHeight=640 mobileWidth=390
+```jsx live mobileHeight=640
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -35,8 +35,7 @@ render(() => {
                 responsive={true}
                 value={value}
                 responsive={true}
-                onChange={ setValue}
-                bottomAddons={[{date: 1682888400000, addon: '6666', color: true}, {date: 1683666000000, addon: '7777'}, {date: new Date().setDate(7), addon: '1235', color: true}, {date: new Date().setDate(30), addon: '1235'}]}                
+                onChange={setValue}              
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
             />
             <p style={{ marginTop: 32, marginBottom: 32 }} >
@@ -91,10 +90,9 @@ render(() => {
             <Button block={true} onClick={() => setOpen(true)}>
                 Показать календарь
             </Button>
-            <CalendarMobile
-                bottomAddons={[{date: 1682888400000, addon: '6666', color: true}, {date: 1683666000000, addon: '7777'}, {date: new Date().setDate(7), addon: '1235', color: true}, {date: new Date().setDate(30), addon: '1235'}]}                
+            <CalendarMobile                
                 value={value}
-                onChange={ setValue}
+                onChange={setValue}
                 selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
                 yearsAmount={firstRadioValue === 'single' ? 0 : 20}
                 onClose={() => setOpen(false)}
@@ -206,7 +204,7 @@ render(() => {
                 responsive={true}
                 selectedFrom={selectedFrom}
                 selectedTo={selectedTo}
-                onChange={ updatePeriod}
+                onChange={updatePeriod}
                 selectorView='month-only'
             />
             <p style={{ marginTop: 32, marginBottom: 32 }}>
@@ -371,6 +369,8 @@ render(() => {
 ```jsx live mobileHeight=640
 render(() => {
 
+    const [value, setValue] = React.useState();
+
     const events = [new Date().setDate(7), new Date().setDate(15), new Date().setDate(23), new Date().setDate(31)];
 
     const offDays = [
@@ -392,6 +392,8 @@ render(() => {
                 selectorView='month-only'
                 events={events}
                 offDays={offDays}
+                value={value}
+                onChange={setValue}
             />
         </div>
     );
@@ -399,6 +401,7 @@ render(() => {
 //MOBILE
 render(() => {
     const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState();
     const events = [new Date().setDate(7), new Date().setDate(15), new Date().setDate(23), new Date().setDate(31)];
 
     const offDays = [
@@ -424,7 +427,193 @@ render(() => {
                 selectorView='month-only'
                 events={events}
                 offDays={offDays}
+                value={value}
+                onChange={setValue}
             />
+        </Container>
+    );
+});
+```
+
+## Слоты
+
+В каждую дату можно передать дополнительный контент, расположив его под числом.  
+
+```jsx live mobileHeight=640
+render(() => {
+    const [value, setValue] = React.useState();
+
+    const firstAddonStyles = {
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+        borderRadius: '2px',
+        height: '8px',
+        width: '40px',
+    };
+
+    const secondAddonStyles = {
+        ...firstAddonStyles,
+        height: '16px',
+    };
+
+    const thirdAddonStyles = {
+        ...firstAddonStyles,
+        height: '10px',
+    };
+
+    const dayAddons = [
+       {date: new Date().setDate(5), addon: <div style={firstAddonStyles} />},
+       {date: new Date().setDate(6), addon: <div style={secondAddonStyles} />},
+       {date: new Date().setDate(7), addon: <div style={thirdAddonStyles} />},
+    ];
+
+    return (
+        <div style={{ width: '344px' }}>
+            <Calendar
+                responsive={true}
+                value={value}
+                selectorView='month-only'
+                dayAddons={dayAddons}
+                onChange={setValue}
+                shape='rectangular'
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState();
+    const [open, setOpen] = React.useState(false);
+
+    const firstAddonStyles = {
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+        borderRadius: '2px',
+        height: '8px',
+        width: '40px',
+    };
+
+    const secondAddonStyles = {
+        ...firstAddonStyles,
+        height: '16px',
+    };
+
+    const thirdAddonStyles = {
+        ...firstAddonStyles,
+        height: '10px',
+    };
+
+    const dayAddons = [
+        {date: new Date().setDate(5), addon: <div style={firstAddonStyles} />},
+        {date: new Date().setDate(6), addon: <div style={secondAddonStyles} />},
+        {date: new Date().setDate(7), addon: <div style={thirdAddonStyles} />},
+    ];
+
+    return (
+        <Container>
+            <Button onClick={() => setOpen(true)} block={true}>
+                Открыть календарь
+            </Button>
+            <CalendarMobile
+                onClose={() => setOpen(false)}
+                value={value}
+                onChange={setValue}
+                open={open}
+                selectorView='month-only'
+                dayAddons={dayAddons}
+                shape='rectangular'
+            />
+        </Container>
+    );
+});
+```
+
+## Форма
+
+Для ячейки дня доступны две формы: круглая и прямоугольная.
+
+```jsx live mobileHeight=640
+render(() => {
+    const [value, setValue] = React.useState();
+
+    const [firstRadioValue, setFirstRadioValue] = React.useState('rounded');
+
+    React.useEffect(() => {
+        setValue();
+    }, [firstRadioValue]);
+
+    const onFirstRadioChange = React.useCallback((_, payload) => {
+        setFirstRadioValue(payload.value);
+    }, []);
+
+    return (
+        <>
+            <div style={{ width: '344px' }}>
+                <Calendar
+                    responsive={true}
+                    selectorView='month-only'
+                    value={value}
+                    onChange={setValue}
+                    shape={firstRadioValue}
+                />
+            </div>
+            <div>
+                <RadioGroup
+                    label='Форма'
+                    direction='vertical'
+                    name='radioGroup'
+                    onChange={onFirstRadioChange}
+                    value={firstRadioValue}
+                >
+                    <Radio label='Круглая' value='rounded' />
+                    <Radio label='Прямоугольная' value='rectangular' />
+                </RadioGroup>
+            </div>
+        </>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState();
+    const [open, setOpen] = React.useState(false);
+
+    const [firstRadioValue, setFirstRadioValue] = React.useState('rounded');
+
+    React.useEffect(() => {
+        setValue();
+    }, [firstRadioValue]);
+
+    const onFirstRadioChange = React.useCallback((_, payload) => {
+        setFirstRadioValue(payload.value);
+    }, []);
+
+    return (
+        <Container>
+            <Button onClick={() => setOpen(true)} block={true}>
+                Открыть календарь
+            </Button>
+            <CalendarMobile
+                onClose={() => setOpen(false)}
+                open={open}
+                selectorView='month-only'
+                value={value}
+                onChange={setValue}
+                shape={firstRadioValue}
+            />
+            <div>
+                <RadioGroup
+                    label='Форма'
+                    direction='vertical'
+                    name='radioGroup'
+                    onChange={onFirstRadioChange}
+                    value={firstRadioValue}
+                >
+                    <Radio label='Круглая' value='rounded' />
+                    <Radio label='Прямоугольная' value='rectangular' />
+                </RadioGroup>
+            </div>
         </Container>
     );
 });
@@ -438,6 +627,7 @@ render(() => {
 ```jsx live mobileHeight=640
 render(() => {
     // import startOfDay from 'date-fns/startOfDay';
+    const [value, setValue] = React.useState(new Date().setMonth(0, 16));
     const minDate = startOfDay(new Date());
     minDate.setDate(16);
     minDate.setMonth(0);
@@ -450,10 +640,11 @@ render(() => {
         <div style={{ width: '344px' }}>
                 <Calendar
                     responsive={true}
-                    value={new Date().setMonth(0)}
                     selectorView='month-only'
                     minDate={minDate.getTime()}
                     maxDate={maxDate.getTime()}
+                    value={value}
+                    onChange={setValue}
                 />
         </div>
     );
@@ -461,6 +652,7 @@ render(() => {
 //MOBILE
 render(() => {
     // import startOfDay from 'date-fns/startOfDay';
+    const [value, setValue] = React.useState(new Date().setMonth(0, 16));
     const [open, setOpen] = React.useState(false);
     const minDate = startOfDay(new Date());
     minDate.setDate(16);
@@ -479,10 +671,11 @@ render(() => {
                 onClose={() => setOpen(false)}
                 open={open}
                 responsive={true}
-                value={new Date().setMonth(0)}
                 selectorView='full'
                 minDate={minDate.getTime()}
                 maxDate={maxDate.getTime()}
+                value={value}
+                onChange={setValue}
                 />
         </Container>
     );
@@ -496,10 +689,17 @@ render(() => {
 ```jsx live desktopOnly
 render(() => {
     const [visible, setVisible] = React.useState(true);
+    const [value, setValue] = React.useState();
 
     return (
         <>
-            <CalendarWithSkeleton calendarVisible={visible} selectorView='month-only' responsive={true}/>
+            <CalendarWithSkeleton 
+                calendarVisible={visible} 
+                selectorView='month-only' 
+                responsive={true}
+                value={value}
+                onChange={setValue}
+            />
 
             <div style={{marginTop: '32px'}}></div>
             <Button size='xs' onClick={() => setVisible(!visible)}>

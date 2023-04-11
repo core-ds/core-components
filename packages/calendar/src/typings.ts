@@ -1,4 +1,13 @@
+import { ReactNode } from 'react';
+
 export type SpecialDays = Record<number, boolean>;
+
+export type DayAddons = {
+    date: Date | number;
+    addon: ReactNode;
+};
+
+export type SpecialDaysAddon = Record<number, ReactNode>;
 
 export type Day = {
     date: Date;
@@ -11,7 +20,7 @@ export type Day = {
 
     holiday?: boolean;
 
-    bottomAddon?: DayAddon;
+    dayAddon?: ReactNode;
 };
 
 export type Month = {
@@ -33,13 +42,3 @@ export type DateShift =
 export type View = 'years' | 'months' | 'days';
 
 export type SelectorView = 'month-only' | 'full';
-
-export type BottonAddon = {
-    date: Date;
-    addon: number | string;
-    color?: boolean;
-};
-
-export type DayAddon = Omit<BottonAddon, 'date'>;
-
-export type SpecialDaysAddon = Record<number, DayAddon>;

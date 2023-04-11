@@ -31,8 +31,6 @@
 }
 
 .day {
-    @mixin paragraph_primary_medium;
-
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     position: relative;
@@ -43,9 +41,17 @@
     justify-content: center;
     text-align: center;
     box-sizing: border-box;
-    border-radius: var(--calendar-day-border-radius);
     color: var(--color-light-text-primary);
     z-index: 1;
+
+    &.rounded {
+        border-radius: var(--calendar-day-border-radius);
+    }
+
+    &.rectangular {
+        border-radius: var(--border-radius-m);
+        width: 44px;
+    }
 
     &.highlighted,
     &.range.highlighted:not(.disabled) {
@@ -293,12 +299,30 @@
     }
 }
 
+.dayAddons {
+    & > span {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: inherit;
+        padding: 0 var(--gap-3xs);
+    }
+}
+
+.dayContent {
+    @mixin paragraph_primary_medium;
+}
+
+.addons {
+    min-height: 8px;
+}
+
 .dot {
     display: block;
     position: absolute;
     bottom: 4px;
     width: 4px;
-    height: 4px;
+    min-height: 4px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: var(--border-radius-circle);
@@ -333,57 +357,11 @@
     transition: opacity 200ms, transform 300ms;
 }
 
-.dayAddons {
-    width: 49px;
-    height: 40px;
-    border-radius: var(--border-radius-m);
-
-    & > span {
-        display: flex;
-        flex-direction: column;
-        align-self: flex-start;
-    }
-}
-
 .bottomAddon {
-    font-size: 10px;
-    line-height: 10px;
+    margin: 0 auto;
 
-    &.colorAddon {
-        color: var(--color-light-text-positive);
-    }
-}
-
-@media (max-width: 374px) {
-    .dayWrapper:before {
-        height: 36px;
-    }
-
-    .day {
-        width: 36px;
-        height: 36px;
-    }
-
-    .dayAddons {
-        width: 49px;
-        height: 40px;
-    }
-
-    .rangeStart {
-        &:before {
-            width: calc(50% + 18px);
-        }
-    }
-    .rangeEnd {
-        &:before {
-            width: calc(50% + 18px);
-        }
-    }
-
-    .transitLeft,
-    .transitRight {
-        &:after {
-            height: 36px;
-        }
+    &.selected,
+    &.selected > * {
+        color: var(--calendar-selected-color);
     }
 }

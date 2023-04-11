@@ -9,7 +9,7 @@ import setYear from 'date-fns/setYear';
 import startOfMonth from 'date-fns/startOfMonth';
 import subYears from 'date-fns/subYears';
 
-import { BottonAddon, DateShift, Day, Month, View } from './typings';
+import { DateShift, Day, DayAddons, Month, View } from './typings';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
@@ -79,9 +79,9 @@ export type UseCalendarProps = {
     onChange?: (date: number) => void;
 
     /**
-     * Слот снизу от дня
+     * Дополнительный контент под числом
      */
-    bottomAddons?: BottonAddon[];
+    dayAddons?: DayAddons[];
 };
 
 export function useCalendar({
@@ -94,7 +94,7 @@ export function useCalendar({
     events,
     offDays,
     holidays,
-    bottomAddons,
+    dayAddons,
     onMonthChange,
     onChange,
 }: UseCalendarProps) {
@@ -120,10 +120,7 @@ export function useCalendar({
 
     const holidaysMap = useMemo(() => dateArrayToHashTable(holidays || []), [holidays]);
 
-    const bottomAddonsMap = useMemo(
-        () => addonArrayToHashTable(bottomAddons || []),
-        [bottomAddons],
-    );
+    const dayAddonsMap = useMemo(() => addonArrayToHashTable(dayAddons || []), [dayAddons]);
 
     const weeks = useMemo(
         () =>
@@ -134,18 +131,9 @@ export function useCalendar({
                 eventsMap,
                 offDaysMap,
                 holidaysMap,
-                bottomAddonsMap,
+                dayAddonsMap,
             }),
-        [
-            maxDate,
-            minDate,
-            selected,
-            bottomAddonsMap,
-            activeMonth,
-            eventsMap,
-            offDaysMap,
-            holidaysMap,
-        ],
+        [maxDate, minDate, selected, dayAddonsMap, activeMonth, eventsMap, offDaysMap, holidaysMap],
     );
 
     const months = useMemo(

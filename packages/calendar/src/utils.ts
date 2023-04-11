@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import addDays from 'date-fns/addDays';
 import addMonths from 'date-fns/addMonths';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
@@ -20,15 +21,7 @@ import startOfYear from 'date-fns/startOfYear';
 import subDays from 'date-fns/subDays';
 import subMonths from 'date-fns/subMonths';
 
-import {
-    BottonAddon,
-    DateShift,
-    Day,
-    DayAddon,
-    Month,
-    SpecialDays,
-    SpecialDaysAddon,
-} from './typings';
+import { DateShift, Day, DayAddons, Month, SpecialDays, SpecialDaysAddon } from './typings';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;
@@ -74,7 +67,7 @@ export function generateWeeks(
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
         holidaysMap?: SpecialDays;
-        bottomAddonsMap?: SpecialDaysAddon;
+        dayAddonsMap?: SpecialDaysAddon;
     },
 ) {
     const newWeek = () => Array(DAYS_IN_WEEK).fill(null);
@@ -129,7 +122,7 @@ export function buildDay(
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
         holidaysMap?: SpecialDays;
-        bottomAddonsMap?: SpecialDaysAddon;
+        dayAddonsMap?: SpecialDaysAddon;
     },
 ): Day {
     const {
@@ -139,7 +132,7 @@ export function buildDay(
         eventsMap = {},
         offDaysMap = {},
         holidaysMap = {},
-        bottomAddonsMap = {},
+        dayAddonsMap = {},
     } = options;
     const off = offDaysMap[day.getTime()];
     const disabled = (minDate && isBefore(day, minDate)) || (maxDate && isAfter(day, maxDate));
@@ -150,7 +143,7 @@ export function buildDay(
         event: eventsMap[day.getTime()],
         holiday: holidaysMap[day.getTime()],
         selected: selected && isSameDay(day, selected),
-        bottomAddon: bottomAddonsMap[day.getTime()],
+        dayAddon: dayAddonsMap[day.getTime()],
     };
 }
 
@@ -207,9 +200,9 @@ export function dateArrayToHashTable(arr: Array<Date | number>) {
     }, {});
 }
 
-export function addonArrayToHashTable(arr: BottonAddon[]) {
-    return arr.reduce((acc: Record<number, DayAddon>, v) => {
-        acc[startOfDay(v.date).getTime()] = { addon: v.addon, color: v.color };
+export function addonArrayToHashTable(arr: DayAddons[]) {
+    return arr.reduce((acc: Record<number, ReactNode>, v) => {
+        acc[startOfDay(v.date).getTime()] = v.addon;
 
         return acc;
     }, {});

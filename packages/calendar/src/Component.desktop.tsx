@@ -12,7 +12,7 @@ import { MonthYearHeader } from './components/month-year-header';
 import { MonthsTable } from './components/months-table';
 import { PeriodSlider } from './components/period-slider';
 import { YearsTable } from './components/years-table';
-import { BottonAddon, SelectorView, View } from './typings';
+import { DayAddons, SelectorView, View } from './typings';
 import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
 
@@ -125,9 +125,14 @@ export type CalendarDesktopProps = {
     responsive?: boolean;
 
     /**
-     * Слот снизу от дня
+     * Дополнительный контент под числом
      */
-    bottomAddons?: BottonAddon[];
+    dayAddons?: DayAddons[];
+
+    /**
+     * Форма ячейки дня
+     */
+    shape?: 'rounded' | 'rectangular';
 };
 
 export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
@@ -154,7 +159,8 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             dataTestId,
             hasHeader = true,
             responsive,
-            bottomAddons,
+            dayAddons,
+            shape = 'rounded',
         },
         ref,
     ) => {
@@ -213,7 +219,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             offDays,
             events,
             holidays,
-            bottomAddons,
+            dayAddons,
             onChange,
             onMonthChange,
         });
@@ -320,7 +326,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                             highlighted={highlighted}
                             rangeComplete={rangeComplete}
                             responsive={responsive}
-                            bottomAddons={bottomAddons}
+                            shape={shape}
                         />
                     )}
 

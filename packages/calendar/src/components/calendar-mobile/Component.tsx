@@ -75,7 +75,8 @@ const CalendarMonthOnlyView = ({
     rangeComplete,
     onMonthChange,
     yearsAmount = 3,
-    bottomAddons,
+    dayAddons,
+    shape = 'rounded',
 }: CalendarMobileProps) => {
     const initialMonthIndex = useMemo(() => {
         const currentMonthIndex = new Date().getMonth();
@@ -124,14 +125,14 @@ const CalendarMonthOnlyView = ({
         events,
         onChange,
         onMonthChange,
-        bottomAddons,
+        dayAddons,
     });
 
     const activeMonths = useMemo(() => {
         const eventsMap = dateArrayToHashTable(events || []);
         const offDaysMap = dateArrayToHashTable(offDays || []);
         const holidaysMap = dateArrayToHashTable(holidays || []);
-        const bottomAddonsMap = addonArrayToHashTable(bottomAddons || []);
+        const dayAddonsMap = addonArrayToHashTable(dayAddons || []);
 
         const prevMonths: Month[] = [];
         const nextMonths: Month[] = [];
@@ -161,11 +162,11 @@ const CalendarMonthOnlyView = ({
                 eventsMap,
                 offDaysMap,
                 holidaysMap,
-                bottomAddonsMap,
+                dayAddonsMap,
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [events, offDays, holidays, bottomAddons, months, yearsAmount, minDate, maxDate, selected]);
+    }, [events, offDays, holidays, dayAddons, months, yearsAmount, minDate, maxDate, selected]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -180,7 +181,7 @@ const CalendarMonthOnlyView = ({
                 rangeComplete={rangeComplete}
                 hasHeader={false}
                 responsive={true}
-                bottomAddons={bottomAddons}
+                shape={shape}
             />
         </div>
     );
@@ -213,7 +214,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             onClose,
             title = 'Календарь',
             yearsAmount = 3,
-            bottomAddons,
             ...restProps
         },
         ref,
@@ -259,7 +259,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     <CalendarMonthOnlyView
                         open={open}
                         yearsAmount={yearsAmount}
-                        bottomAddons={bottomAddons}
                         {...commonProps}
                         {...restProps}
                     />
