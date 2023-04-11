@@ -6,6 +6,13 @@ import { Typography } from '@alfalab/core-components-typography';
 import { StepBar } from './components/step-bar';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type SteppedProgressBarView =
     | 'positive'
@@ -44,6 +51,11 @@ export type SteppedProgressBarProps = {
     dataTestId?: string;
 
     /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -55,6 +67,7 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
     step = 0,
     view,
     dataTestId,
+    colors = 'default',
     className,
 }) => {
     const validMaxSteps = maxStep <= 0 ? 1 : maxStep;
@@ -68,11 +81,16 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
                         key={index}
                         isDone={index < step}
                         view={(isViewString ? view : view?.[index]) as SteppedProgressBarView}
+                        classNameStep={colorStyles[colors].bar}
                     />
                 ))}
             </div>
             {description && (
-                <Typography.Text tag='div' className={styles.description} view='primary-small'>
+                <Typography.Text
+                    tag='div'
+                    className={cn(styles.description, colorStyles[colors].description)}
+                    view='primary-small'
+                >
                     Шаг {step} из {maxStep}: {description}
                 </Typography.Text>
             )}

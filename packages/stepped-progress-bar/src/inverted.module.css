@@ -1,0 +1,9 @@
+@import '../../themes/src/default.css';
+
+.bar {
+    background: var(--color-light-specialbg-tertiary-transparent-inverted);
+}
+
+.description {
+    color: var(--color-light-text-secondary-inverted);
+}

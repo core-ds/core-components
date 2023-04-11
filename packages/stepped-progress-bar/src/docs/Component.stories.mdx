@@ -17,21 +17,39 @@ import Changelog from '../../CHANGELOG.md';
 <!-- Canvas -->
 
 <Story name='SteppedProgressBar'>
-    <SteppedProgressBar
-        step={number('step', 1)}
-        maxStep={number('maxStep', 3)}
-        description={text('description', 'Выбор карты')}
-        view={select('view', [
-            'positive',
-            'negative',
-            'attention',
-            'link',
-            'tertiary',
-            'secondary',
-            'primary',
-            'accent',
-        ])}
-    />
+{React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div
+                style={{
+                    backgroundColor:
+                        colors === 'inverted'
+                            ? 'var(--color-light-bg-primary-inverted)'
+                            : 'transparent',
+                    padding: '20px',
+                    position: 'absolute',
+                    inset: '0px',
+                }}
+            >
+                <SteppedProgressBar
+                    colors={colors}
+                    step={number('step', 1)}
+                    maxStep={number('maxStep', 3)}
+                    description={text('description', 'Выбор карты')}
+                    view={select('view', [
+                        'positive',
+                        'negative',
+                        'attention',
+                        'link',
+                        'tertiary',
+                        'secondary',
+                        'primary',
+                        'accent',
+                    ])}
+                />
+            </div>
+        );
+})}
 </Story>
 
 <!-- Docs -->
