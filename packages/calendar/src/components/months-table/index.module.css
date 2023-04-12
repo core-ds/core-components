@@ -10,6 +10,7 @@
 
         @media (max-width: 374px) {
             width: var(--calendar-mobile-inner-width);
+            padding-top: var(--gap-xs);
         }
 
         &.responsive {

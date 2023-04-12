@@ -36,13 +36,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: var(--gap-m);
+    padding: 0 var(--gap-m) var(--gap-m);
     box-sizing: border-box;
     flex-grow: 1;
     overflow: hidden;
 
     @media (max-width: 374px) {
         width: 288px;
+        padding: 0 0 var(--gap-m);
     }
 }
 
