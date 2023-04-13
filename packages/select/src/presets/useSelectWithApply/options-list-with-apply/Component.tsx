@@ -1,39 +1,37 @@
-import React, { forwardRef, RefAttributes, useCallback, useEffect, useRef } from 'react';
+import React, { FC, forwardRef, RefAttributes, useCallback, useEffect } from 'react';
 
-import { Button } from '@alfalab/core-components-button';
-
-import { OptionsList as DefaultOptionsList } from '../../../components';
+import { OptionsList as DefaultOptionsList } from '../../../components/options-list';
 import { OptionShape, OptionsListProps } from '../../../typings';
 import { SELECT_ALL_KEY } from '../hook';
 
-import styles from './index.module.css';
+import { Footer as DefaultFooter, FooterProps } from './footer/Component';
 
 type OptionsListWithApplyProps = OptionsListProps & {
     showClear?: boolean;
     onClose?: () => void;
     selectedDraft?: OptionShape[];
-    OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
+    OptionsList?: React.FC<OptionsListProps & RefAttributes<HTMLDivElement>>;
+    Footer?: FC<FooterProps>;
 };
 
-export const OptionsListWithApply = forwardRef(
+export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithApplyProps>(
     (
         {
             toggleMenu,
-            OptionsList = DefaultOptionsList,
             getOptionProps: defaultGetOptionProps,
             showClear = true,
             selectedDraft = [],
             flatOptions = [],
+            OptionsList = DefaultOptionsList,
             onApply = () => null,
             onClear = () => null,
             onClose = () => null,
             visibleOptions = 5,
+            Footer = DefaultFooter,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
     ) => {
-        const footerRef = useRef<HTMLDivElement>(null);
-
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => {
                 const optionProps = defaultGetOptionProps(option, index);
@@ -66,12 +64,6 @@ export const OptionsListWithApply = forwardRef(
         useEffect(() => {
             const activeElement = document.activeElement as HTMLElement;
 
-            setTimeout(() => {
-                if (footerRef.current) {
-                    footerRef.current.focus();
-                }
-            }, 0);
-
             return () => {
                 onClose();
                 if (activeElement) {
@@ -92,22 +84,12 @@ export const OptionsListWithApply = forwardRef(
                 onApply={handleApply}
                 onClear={handleClear}
                 footer={
-                    <div
-                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                        tabIndex={0}
-                        className={styles.footer}
-                        ref={footerRef}
-                    >
-                        <Button size='xxs' view='primary' onClick={handleApply}>
-                            Применить
-                        </Button>
-
-                        {showClear && (
-                            <Button size='xxs' view='secondary' onClick={handleClear}>
-                                Сбросить
-                            </Button>
-                        )}
-                    </div>
+                    <Footer
+                        handleApply={handleApply}
+                        handleClear={handleClear}
+                        showClear={showClear}
+                        selectedDraft={selectedDraft}
+                    />
                 }
             />
         );

@@ -5,7 +5,7 @@
     width: 100%;
     outline: none;
     box-sizing: border-box;
-    position: relative;
+    position: sticky;
 }
 
 .virtualOptionsListHeader {
@@ -14,6 +14,8 @@
 }
 
 .virtualOptionsListFooter {
+    position: sticky;
+    bottom: 0;
     box-sizing: border-box;
     border-top: 1px solid transparent;
 
@@ -23,6 +25,7 @@
 }
 
 .scrollable {
+    position: relative;
     overflow: auto;
     width: 100%;
 }

@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { BaseSelectProps, OptionShape, processOptions } from '../..';
+import { AnyObject, BaseSelectProps, OptionShape, processOptions } from '../..';
 
 import { OptionsListWithApply } from './options-list-with-apply';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-type useSelectWithApplyProps = {
+export type UseSelectWithApplyProps = {
     /**
      * Список выбранных пунктов
      */
@@ -27,6 +26,11 @@ type useSelectWithApplyProps = {
     OptionsList?: BaseSelectProps['OptionsList'];
 
     /**
+     * Пропсы, которые будут прокинуты в компонент списка
+     */
+    optionsListProps?: BaseSelectProps['optionsListProps'];
+
+    /**
      * Показывать кнопку очистки
      */
     showClear?: boolean;
@@ -46,9 +50,10 @@ export function useSelectWithApply({
     selected,
     onChange = () => null,
     OptionsList,
+    optionsListProps = {},
     showClear = true,
     showSelectAll = false,
-}: useSelectWithApplyProps) {
+}: UseSelectWithApplyProps) {
     const { flatOptions, selectedOptions } = useMemo(
         () => processOptions(options, selected),
         [options, selected],
@@ -120,8 +125,9 @@ export function useSelectWithApply({
     return {
         OptionsList: OptionsListWithApply,
         optionsListProps: {
+            ...(optionsListProps as AnyObject),
             OptionsList,
-            showClear: showClear && (selectedDraft.length > 0 || selectedOptions.length > 0),
+            showClear,
             onClear: handleClear,
             onApply: handleApply,
             onClose: handleClose,
