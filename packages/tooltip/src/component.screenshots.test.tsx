@@ -48,10 +48,6 @@ describe('Tooltip', () => {
                     page,
                     expect,
                     css,
-                    matchImageSnapshotOptions: {
-                        failureThresholdType: 'percent',
-                        failureThreshold: 1.5,
-                    },
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
@@ -93,10 +89,6 @@ describe('Tooltip', () => {
                     page,
                     expect,
                     css,
-                    matchImageSnapshotOptions: {
-                        failureThresholdType: 'percent',
-                        failureThreshold: 1.5,
-                    },
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
@@ -138,10 +130,6 @@ describe('Tooltip', () => {
                     page,
                     expect,
                     css,
-                    matchImageSnapshotOptions: {
-                        failureThresholdType: 'percent',
-                        failureThreshold: 1.5,
-                    },
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
