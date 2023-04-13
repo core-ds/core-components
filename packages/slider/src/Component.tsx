@@ -53,9 +53,15 @@ export type SliderProps = {
     range?: RangeOptions;
 
     /**
-     * Значение инпута
+     * Значение слайдера
      */
     value?: number;
+
+    /**
+     * Второе значение слайдера (значение второго ползунка)
+     * если передать ValueTo, то слайдер будет работать как range
+     */
+    valueTo?: number;
 
     /**
      * Заблокированное состояние
@@ -68,6 +74,11 @@ export type SliderProps = {
     className?: string;
 
     /**
+     * Поведение ползунка
+     */
+    behaviour?: 'unconstrained-tap' | 'tap';
+
+    /**
      * Размер
      */
     size?: 's' | 'm';
@@ -75,7 +86,7 @@ export type SliderProps = {
     /**
      * Обработчик поля ввода
      */
-    onChange?: (payload: { value: number }) => void;
+    onChange?: (payload: { value: number; valueTo?: number }) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -88,8 +99,10 @@ export const Slider: FC<SliderProps> = ({
     max = 100,
     step = 1,
     value = 0,
+    valueTo,
     disabled,
     pips,
+    behaviour = 'tap',
     range = { min, max },
     size = 's',
     className,
@@ -98,6 +111,7 @@ export const Slider: FC<SliderProps> = ({
 }) => {
     const sliderRef = useRef<HTMLDivElement & { noUiSlider: API }>(null);
     const busyRef = useRef<boolean>(false);
+    const hasValueTo = valueTo !== undefined;
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
@@ -105,8 +119,9 @@ export const Slider: FC<SliderProps> = ({
         if (!sliderRef.current) return;
 
         const slider = noUiSlider.create(sliderRef.current, {
-            start: [value],
-            connect: [true, false],
+            start: valueTo ? [value, valueTo] : value,
+            connect: valueTo ? true : [true, false],
+            behaviour,
             step,
             pips: pips as Options['pips'],
             range,
@@ -142,8 +157,14 @@ export const Slider: FC<SliderProps> = ({
         const slider = getSlider();
 
         // Пропускаем обновление, если происходит взаимодействие со слайдером
-        if (slider && busyRef.current === false) slider.set(value, false);
-    }, [value]);
+        if (slider && busyRef.current === false) {
+            if (valueTo) {
+                slider.set([value, valueTo], false);
+            } else {
+                slider.set(value, false);
+            }
+        }
+    }, [value, valueTo]);
 
     useEffect(() => {
         const slider = getSlider();
@@ -152,13 +173,25 @@ export const Slider: FC<SliderProps> = ({
 
         const handler = () => {
             if (onChange) {
-                onChange({ value: Number(slider.get()) });
+                if (hasValueTo) {
+                    const sliderValues = slider.get() as string[];
+                    const from = Number(sliderValues[0]);
+                    const to = Number(sliderValues[1]);
+
+                    if (from <= to) {
+                        onChange({ value: from, valueTo: to });
+                    } else {
+                        onChange({ value: to, valueTo: from });
+                    }
+                } else {
+                    onChange({ value: Number(slider.get()) });
+                }
             }
         };
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange]);
+    }, [onChange, hasValueTo]);
 
     return (
         <div

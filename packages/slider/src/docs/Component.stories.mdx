@@ -19,11 +19,13 @@ import Changelog from '../../CHANGELOG.md';
         return (
             <Slider
                 value={value}
+                valueTo={number('valueTo', 0)}
                 onChange={handleChange}
                 min={number('min', 0)}
                 max={number('max', 100)}
                 step={number('step', 1)}
                 size={select('size', ['s', 'm'], 's')}
+                behaviour={select('behaviour', ['unconstrained-tap', 'tap'], 'tap')}
             />
         );
     })}

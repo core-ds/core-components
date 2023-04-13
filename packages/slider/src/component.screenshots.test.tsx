@@ -1,6 +1,7 @@
 import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
+    generateTestCases,
     createPreview,
 } from '../../screenshot-utils';
 
@@ -55,3 +56,26 @@ describe('Slider | main props', () => {
 
     ['default', 'mobile'].map(testCase);
 });
+
+describe(
+    'Slider | valueTo props',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Slider',
+            knobs: {
+                value: 50,
+                valueTo: 75,
+                min: 0,
+                max: 100,
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 300,
+            height: 100,
+        },
+    }),
+);
