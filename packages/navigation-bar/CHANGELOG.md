@@ -1,5 +1,13 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.2.0
+
+### Minor Changes
+
+### [#615](https://github.com/core-ds/core-components/pull/615)
+
+-   Компонент был обернут в forwardRef
+
 ## 0.1.3
 
 ### Patch Changes

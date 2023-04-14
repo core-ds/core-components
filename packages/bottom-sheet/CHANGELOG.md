@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+### [#615](https://github.com/core-ds/core-components/pull/615)
+
+-   Добавлены магнитные области. Полное описание изменений в [#615](https://github.com/core-ds/core-components/pull/615)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.0.6
+    -   navigation-bar@0.2.0
+    -   base-modal@5.1.3
+
 ## 6.1.0
 
 ### Minor Changes

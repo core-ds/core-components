@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.19
+
+### Patch Changes
+
+### [#615](https://github.com/core-ds/core-components/pull/615)
+
+-   Обновлена зависимость react-swipeable до 7.0.0
+
 ## 6.1.18
 
 ### Patch Changes
