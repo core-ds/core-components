@@ -41,7 +41,12 @@ export type BadgeProps = {
     height?: number;
 
     /**
-     * Цветовое оформление иконки
+     * Цветовое оформление бейджа при view='count'
+     */
+    color?: 'red' | 'grey' | 'white';
+
+    /**
+     * Цветовое оформление бейджа при view='icon'
      */
     iconColor?:
         | 'positive'
@@ -51,6 +56,11 @@ export type BadgeProps = {
         | 'tertiary'
         | 'secondary'
         | 'primary';
+
+    /**
+     * Цвет подложки под иконкой
+     */
+    iconUnderlayColor?: 'staticGraphicLight' | 'lightGraphicPrimary';
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -68,6 +78,8 @@ export const Badge = ({
     content,
     height = 16,
     iconColor,
+    color = 'red',
+    iconUnderlayColor = 'staticGraphicLight',
     dataTestId,
 }: BadgeProps) => {
     const isCountView = view === 'count';
@@ -87,7 +99,7 @@ export const Badge = ({
                 iconColor && styles[iconColor],
                 {
                     [styles[size]]: !isCountView,
-                    [styles.outline]: visibleIconOutline,
+                    [styles.outline]: !isCountView && visibleIconOutline,
                     [styles.outlineColor]: !isCountView && visibleColorOutline,
                     [styles.count]: isCountView,
                 },
@@ -100,6 +112,8 @@ export const Badge = ({
                     styles.component,
                     styles[size],
                     styles[view],
+                    styles[color],
+                    styles[iconUnderlayColor],
                     iconColor && styles[iconColor],
                     isHeightS && styles.heightS,
                     isHeightM && styles.heightM,

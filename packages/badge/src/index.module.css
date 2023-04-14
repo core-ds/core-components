@@ -37,9 +37,22 @@
     z-index: 2;
     box-sizing: border-box;
     border-radius: var(--border-radius-pill);
-    background-color: var(--color-light-bg-accent);
-    color: var(--color-light-text-primary-inverted);
     overflow: hidden;
+
+    &.red {
+        background-color: var(--color-light-bg-accent);
+        color: var(--color-static-text-primary-light);
+    }
+
+    &.grey {
+        background-color: var(--color-light-specialbg-secondary-transparent);
+        color: var(--color-light-text-primary);
+    }
+
+    &.white {
+        background-color: var(--color-light-bg-primary);
+        color: var(--color-light-text-primary);
+    }
 }
 
 .count {
@@ -154,9 +167,16 @@
     right: 18%;
     top: 18%;
     bottom: 18%;
-    background-color: var(--badge-icon-bg-color);
     border-radius: var(--border-radius-pill);
     content: '';
+}
+
+.staticGraphicLight.icon:before {
+    background-color: var(--color-static-graphic-light);
+}
+
+.lightGraphicPrimary.icon:before {
+    background-color: var(--color-light-graphic-primary);
 }
 
 .outline {
