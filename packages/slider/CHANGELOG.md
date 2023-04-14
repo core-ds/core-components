@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+### [#607](https://github.com/core-ds/core-components/pull/607)
+
+-   Добавлены новые пропс valueTo - второе значение диапазона и behaviour - определяет поведение ползунка
+
 ## 4.1.6
 
 ### Patch Changes

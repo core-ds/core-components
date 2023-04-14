@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.6
+
+### Patch Changes
+
+### [#615](https://github.com/core-ds/core-components/pull/615)
+
+-   Проп invisible теперь привязан к пропу open CssTransitionGroup
+
 ## 3.0.5
 
 ### Patch Changes

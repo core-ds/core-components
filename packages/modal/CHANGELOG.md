@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.2.0
+    -   base-modal@5.1.3
+
 ## 7.0.5
 
 ### Patch Changes

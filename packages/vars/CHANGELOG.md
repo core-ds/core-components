@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+### [#620](https://github.com/core-ds/core-components/pull/620)
+
+-   Обновлённая типографика: миксины promo-mobile и promo-system-mobile
+
 ## 9.1.0
 
 ### Minor Changes
