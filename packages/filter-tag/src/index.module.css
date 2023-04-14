@@ -79,6 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--color-light-graphic-primary);
 }
 
 .valueButton {
@@ -100,6 +101,10 @@
 
     &:disabled {
         cursor: var(--disabled-cursor);
+
+        & > .chevron {
+            color: var(--color-light-graphic-primary-alpha-30);
+        }
     }
 
     &.rounded {
@@ -243,6 +248,10 @@
         border-width: 0;
         color: var(--tag-text-color-checked);
 
+        & > .chevron {
+            color: var(--color-light-graphic-primary-inverted);
+        }
+
         &.rounded {
             &.xxs {
                 border-radius: var(--tag-rounded-xxs-border-radius) 0 0
@@ -373,7 +382,7 @@
         top: 50%;
         transform: translateY(-50%);
         display: block;
-        background-color: var(--color-dark-border-underline);
+        background-color: var(--color-light-border-underline-inverted);
         width: 1px;
         transition: background-color 0.2s ease;
     }
