@@ -42,7 +42,7 @@
 }
 
 .tag.horizontal .checkboxList {
-    margin-right: var(--gap-xs-neg);
+    margin-right: 0;
 }
 
 .horizontal .checkbox {
@@ -83,4 +83,5 @@
 
 .tagLabel {
     position: relative;
+    max-width: 100%;
 }
