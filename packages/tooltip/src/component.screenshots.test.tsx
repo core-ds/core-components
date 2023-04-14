@@ -8,7 +8,7 @@ import {
 } from '../../screenshot-utils';
 
 describe('Tooltip', () => {
-    test('test positioning', async () => {
+    test('positioning', async () => {
         jest.setTimeout(120000);
 
         const cases = generateTestCases({
@@ -60,7 +60,7 @@ describe('Tooltip', () => {
         await closeBrowser({ browser, context, page });
     });
 
-    test('test hint view and colors', async () => {
+    test('hint view and colors', async () => {
         jest.setTimeout(120000);
 
         const cases = generateTestCases({
@@ -101,7 +101,7 @@ describe('Tooltip', () => {
         await closeBrowser({ browser, context, page });
     });
 
-    test('test tooltip view and colors', async () => {
+    test('tooltip view and colors', async () => {
         jest.setTimeout(120000);
 
         const cases = generateTestCases({
