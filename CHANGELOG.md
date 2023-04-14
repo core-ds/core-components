@@ -1,3 +1,120 @@
+## 41.0.0
+
+<sup><time>14.04.2023</time></sup>
+
+### [#615](https://github.com/core-ds/core-components/pull/615)
+
+#### Что изменилось
+- Обновлена зависимость react-swipeable до 7.0.0
+
+#### Влияние на компоненты
+- Патчи<br />`notification`
+
+<br />
+
+#### Что изменилось
+- Проп invisible теперь привязан к пропу open CssTransitionGroup
+
+#### Влияние на компоненты
+- Патчи<br />`backdrop`
+
+<br />
+
+#### Что изменилось
+- Добавлены магнитные области. Полное описание изменений в [#615](https://github.com/core-ds/core-components/pull/615)
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+<br />
+
+#### Что изменилось
+- Компонент был обернут в forwardRef
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar`
+
+
+### [#620](https://github.com/core-ds/core-components/pull/620)
+
+#### Что изменилось
+- Обновлённая типографика: миксины promo-mobile и promo-system-mobile
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#599](https://github.com/core-ds/core-components/pull/599)
+
+#### Что изменилось
+### Переработана работа компонента SelectMobile с подтверждением.
+
+Теперь для использования выбора опций с подтверждением необходимо использовать внешнее состояние, также как и в десктопной версии компонента.
+
+#### Влияние на компоненты
+- Мажорное<br />`select`
+
+
+### [#607](https://github.com/core-ds/core-components/pull/607)
+
+#### Что изменилось
+- Добавлены новые пропс valueTo - второе значение диапазона и behaviour - определяет поведение ползунка
+
+#### Влияние на компоненты
+- Минорное<br />`slider`
+
+
+
+## 40.2.0
+
+<sup><time>11.04.2023</time></sup>
+
+### [#604](https://github.com/core-ds/core-components/pull/604)
+
+#### Что изменилось
+- Добавлен новый prop backgroundColor
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet` `vars`
+
+
+### [#612](https://github.com/core-ds/core-components/pull/612)
+
+#### Что изменилось
+- Исправлены отступы
+
+#### Влияние на компоненты
+- Патчи<br />`calendar` `calendar-input`
+
+
+### [#603](https://github.com/core-ds/core-components/pull/603)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой трек слайдера исчезал при зуме
+
+#### Влияние на компоненты
+- Патчи<br />`slider`
+
+
+### [#556](https://github.com/core-ds/core-components/pull/556)
+
+#### Что изменилось
+- Заданы статичные цвета для компонента Gallery. Добавлены новые css-переменные.
+
+#### Влияние на компоненты
+- Минорное<br />`gallery` `vars`
+
+
+### [#614](https://github.com/core-ds/core-components/pull/614)
+
+#### Что изменилось
+- Добавлен новый необязательный prop container для прокидывания в компонент Portal
+
+#### Влияние на компоненты
+- Минорное<br />`notification-manager`
+
+
+
 ## 40.1.0
 
 <sup><time>29.03.2023</time></sup>

@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.2.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@7.0.6
+
+## 6.2.16
+
+### Patch Changes
+
+### [#612](https://github.com/core-ds/core-components/pull/612)
+
+-   Исправлены отступы
+
 ## 6.2.15
 
 ### Patch Changes

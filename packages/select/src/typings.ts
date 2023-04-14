@@ -264,7 +264,7 @@ export type BaseSelectProps = {
     /**
      * Компонент выпадающего меню
      */
-    OptionsList?: FC<OptionsListProps>;
+    OptionsList?: FC<OptionsListProps & RefAttributes<HTMLDivElement>>;
 
     /**
      * Компонент группы

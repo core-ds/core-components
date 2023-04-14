@@ -7,7 +7,6 @@ import React, {
     useEffect,
     useMemo,
     useRef,
-    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -20,25 +19,23 @@ import {
 
 import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
-import { BaseOption } from '@alfalab/core-components-select';
 
 import { getDataTestId } from '../../../../utils';
-import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
-import { AnyObject, BaseSelectProps, OptionProps, OptionShape } from '../../typings';
+import {
+    AnyObject,
+    BaseSelectProps,
+    OptionProps,
+    OptionShape,
+    OptionsListProps,
+} from '../../typings';
 import { processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
-import { BaseCheckmark } from '../base-checkmark';
 import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
-
-import { Checkmark } from './checkmark';
-import { OptionsList as DefaultOptionsList } from './options-list';
-import { VirtualOptionsList as DefaultVirtualOptionsList } from './virtual-options-list';
+import { OptionsList as DefaultOptionsList } from '../options-list';
 
 import styles from './index.module.css';
-
-const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> & {
     /**
@@ -74,7 +71,7 @@ export const BaseSelectMobile = forwardRef(
             optionClassName,
             optionGroupClassName,
             optionsListProps,
-            options,
+            options = [],
             autocomplete = false,
             multiple = false,
             allowUnselect = false,
@@ -83,9 +80,10 @@ export const BaseSelectMobile = forwardRef(
             circularNavigation = false,
             defaultOpen = false,
             open: openProp,
+            optionsListWidth = 'content',
             name,
             id,
-            selected,
+            selected = [],
             size = 'm',
             optionsSize = 'm',
             error,
@@ -104,13 +102,12 @@ export const BaseSelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
-                ? DefaultVirtualOptionsList
-                : DefaultOptionsList,
+            OptionsList = DefaultOptionsList,
             swipeable,
             footer,
             isBottomSheet,
             bottomSheetProps,
+            showEmptyOptionsList = false,
         }: SelectMobileProps,
         ref,
     ) => {
@@ -126,10 +123,7 @@ export const BaseSelectMobile = forwardRef(
             [options, selected],
         );
 
-        const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
-
-        const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
@@ -190,7 +184,7 @@ export const BaseSelectMobile = forwardRef(
             items: flatOptions,
             itemToString,
             defaultHighlightedIndex: -1,
-            onIsOpenChange: (changes) => {
+            onIsOpenChange: ({ isOpen }) => {
                 if (onOpen) {
                     /**
                      *  Вызываем обработчик асинхронно.
@@ -200,7 +194,7 @@ export const BaseSelectMobile = forwardRef(
                      */
                     setTimeout(() => {
                         onOpen({
-                            open: changes.isOpen,
+                            open: isOpen,
                             name,
                         });
                     }, 0);
@@ -227,7 +221,6 @@ export const BaseSelectMobile = forwardRef(
                                     removeSelectedItem(selectedItem);
                                 } else {
                                     setSelectedItems([]);
-                                    setSelectedDraft([]);
                                 }
                             }
 
@@ -236,7 +229,6 @@ export const BaseSelectMobile = forwardRef(
                                     addSelectedItem(selectedItem);
                                 } else {
                                     setSelectedItems([selectedItem]);
-                                    setSelectedDraft([selectedItem]);
                                 }
                             }
                         }
@@ -261,12 +253,6 @@ export const BaseSelectMobile = forwardRef(
             { suppressRefError: true },
         );
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
-
-        useEffect(() => {
-            setSelectedDraft(selectedOptions);
-            setSelectedItems(selectedOptions);
-            selectedOptionsRef.current = selectedOptions;
-        }, [setSelectedItems, selectedOptions]);
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (onFocus) onFocus(event);
@@ -324,13 +310,6 @@ export const BaseSelectMobile = forwardRef(
                 highlighted: index === highlightedIndex,
                 selected: selectedItem,
                 dataTestId: getDataTestId(dataTestId, 'option'),
-                // eslint-disable-next-line react/no-unstable-nested-components
-                Checkmark: () =>
-                    Option === BaseOption ? (
-                        <BaseCheckmark selected={selectedItem} multiple={multiple} />
-                    ) : (
-                        <Checkmark selected={selectedItem} />
-                    ),
             };
         };
 
@@ -345,26 +324,41 @@ export const BaseSelectMobile = forwardRef(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
+        const handleClose = () => {
+            toggleMenu();
+        };
+
         const renderValue = () =>
             selectedItems.map((option) => (
                 <input type='hidden' name={name} value={option.key} key={option.key} />
             ));
 
-        const handleApply = () => {
-            setSelectedDraft(selectedItems);
-        };
+        const renderOptionsList = () => {
+            if (flatOptions.length === 0 && !showEmptyOptionsList) return null;
 
-        const handleClear = () => {
-            setSelectedDraft([]);
-            setSelectedItems([]);
-        };
-
-        const handleClose = () => {
-            if (multiple) {
-                setSelectedItems(selectedDraft);
-            }
-
-            toggleMenu();
+            return (
+                <div {...menuProps} className={optionsListClassName}>
+                    <OptionsList
+                        {...(optionsListProps as OptionsListProps)}
+                        ref={scrollableContainerRef}
+                        optionsListWidth={optionsListWidth}
+                        flatOptions={flatOptions}
+                        highlightedIndex={highlightedIndex}
+                        open={open}
+                        size={size}
+                        options={options}
+                        Optgroup={Optgroup}
+                        Option={Option}
+                        selectedItems={selectedItems}
+                        setSelectedItems={setSelectedItems}
+                        toggleMenu={toggleMenu}
+                        getOptionProps={getOptionProps}
+                        visibleOptions={0}
+                        dataTestId={getDataTestId(dataTestId, 'options-list')}
+                        optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
+                    />
+                </div>
+            );
         };
 
         return (
@@ -379,7 +373,7 @@ export const BaseSelectMobile = forwardRef(
                 data-test-id={getDataTestId(dataTestId)}
             >
                 <Field
-                    selectedMultiple={selectedDraft}
+                    selectedMultiple={selectedItems}
                     selected={selectedItems[0]}
                     setSelectedItems={setSelectedItems}
                     toggleMenu={toggleMenu}
@@ -428,28 +422,7 @@ export const BaseSelectMobile = forwardRef(
                         scrollableContainerRef={scrollableContainerRef}
                         {...bottomSheetProps}
                     >
-                        <div {...menuProps} className={optionsListClassName}>
-                            <OptionsListWithApply
-                                showFooter={multiple}
-                                {...(optionsListProps as AnyObject)}
-                                flatOptions={flatOptions}
-                                highlightedIndex={highlightedIndex}
-                                size={size}
-                                options={options}
-                                OptionsList={OptionsList}
-                                Optgroup={Optgroup}
-                                Option={Option}
-                                selectedItems={selectedItems}
-                                setSelectedItems={setSelectedItems}
-                                toggleMenu={toggleMenu}
-                                getOptionProps={getOptionProps}
-                                dataTestId={getDataTestId(dataTestId, 'options-list')}
-                                optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                onApply={handleApply}
-                                onClear={handleClear}
-                                ref={scrollableContainerRef}
-                            />
-                        </div>
+                        {renderOptionsList()}
                     </BottomSheet>
                 ) : (
                     <ModalMobile
@@ -462,28 +435,8 @@ export const BaseSelectMobile = forwardRef(
                         <ModalMobile.Header hasCloser={true} sticky={true}>
                             {label || placeholder}
                         </ModalMobile.Header>
-                        <div {...menuProps} className={optionsListClassName}>
-                            <OptionsListWithApply
-                                showFooter={multiple}
-                                {...(optionsListProps as AnyObject)}
-                                flatOptions={flatOptions}
-                                highlightedIndex={highlightedIndex}
-                                size={size}
-                                options={options}
-                                OptionsList={OptionsList}
-                                Optgroup={Optgroup}
-                                Option={Option}
-                                selectedItems={selectedItems}
-                                setSelectedItems={setSelectedItems}
-                                toggleMenu={toggleMenu}
-                                getOptionProps={getOptionProps}
-                                dataTestId={getDataTestId(dataTestId, 'options-list')}
-                                optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
-                                onApply={handleApply}
-                                onClear={handleClear}
-                                ref={scrollableContainerRef}
-                            />
-                        </div>
+
+                        {renderOptionsList()}
                     </ModalMobile>
                 )}
             </div>

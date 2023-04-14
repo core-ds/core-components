@@ -1,5 +1,25 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+### [#620](https://github.com/core-ds/core-components/pull/620)
+
+-   Обновлённая типографика: миксины promo-mobile и promo-system-mobile
+
+## 9.1.0
+
+### Minor Changes
+
+### [#604](https://github.com/core-ds/core-components/pull/604)
+
+-   Добавлен новый prop backgroundColor
+
+### [#556](https://github.com/core-ds/core-components/pull/556)
+
+-   Заданы статичные цвета для компонента Gallery. Добавлены новые css-переменные.
+
 ## 9.0.0
 
 ### Major Changes

@@ -1,0 +1,23 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.footer {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--gap-m) var(--gap-m);
+    background-color: var(--color-light-bg-primary);
+
+    & .button:first-of-type {
+        margin-right: var(--gap-m);
+    }
+}
+
+.button {
+    width: 50%;
+}
+
+.highlighted {
+    border-top: 1px solid var(--color-light-border-primary);
+    background-color: var(--color-light-bg-primary);
+}

@@ -353,6 +353,76 @@
     font-weight: 400;
 }
 
+@define-mixin promo-mobile_large {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo-mobile_medium {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo-mobile_small {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo-mobile_xlarge {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo-mobile_xsmall {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin promo-system-mobile_large {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system-mobile_medium {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system-mobile_small {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system-mobile_xlarge {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system-mobile_xsmall {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
 @define-mixin promo-system_large {
     font-size: 40px;
     line-height: 48px;

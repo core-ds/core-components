@@ -6,7 +6,7 @@ import { Select } from '@alfalab/core-components-select';
 import { SelectResponsive } from '@alfalab/core-components-select/responsive';
 import { SelectMobile } from '@alfalab/core-components-select/components/select-mobile';
 import { SelectModalMobile } from '@alfalab/core-components-select/components/select-modal-mobile';
-import { Arrow } from '@alfalab/core-components-select/components/arrow';
+import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
 
 import { version } from '../../package.json';
 import Description from './description.mdx';
@@ -53,92 +53,198 @@ export const POSITION_OPTIONS = [
 <!-- Canvas -->
 
 <Story name='Select'>
-    <Select
-        block={boolean('block', false)}
-        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
-        disabled={boolean('disabled', false)}
-        error={text('error', '')}
-        hint={text('hint', '')}
-        options={options}
-        multiple={boolean('multiple', false)}
-        allowUnselect={boolean('allowUnselect', true)}
-        closeOnSelect={boolean('closeOnSelect', true)}
-        Arrow={boolean('Arrow', true) ? Arrow : () => null}
-        circularNavigation={boolean('circularNavigation', false)}
-        nativeSelect={boolean('nativeSelect', false)}
-        placeholder={text('placeholder', 'Выберите элемент')}
-        label={text('label', 'Элемент')}
-        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
-        visibleOptions={number('visibleOptions', 5)}
-        defaultOpen={boolean('defaultOpen', false)}
-        popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
-        optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
-    />
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map((option) => option.key));
+        };
+        const block = boolean('block', false);
+        const size = selectKnob('size', ['s', 'm', 'l', 'xl'], 's');
+        const disabled = boolean('disabled', false);
+        const error = text('error', '');
+        const hint = text('hint', '');
+        const multiple = boolean('multiple', false);
+        const allowUnselect = boolean('allowUnselect', true);
+        const closeOnSelect = boolean('closeOnSelect', true);
+        const Arrow = boolean('Arrow', true) ? ArrowComponent : () => null;
+        const circularNavigation = boolean('circularNavigation', false);
+        const nativeSelect = boolean('nativeSelect', false);
+        const placeholder = text('placeholder', 'Выберите элемент');
+        const label = text('label', 'Элемент');
+        const labelView = selectKnob('labelView', ['inner', 'outer'], 'inner');
+        const visibleOptions = number('visibleOptions', 5);
+        const defaultOpen = boolean('defaultOpen', false);
+        const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
+        const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
+        return (
+            <Select
+                block={block}
+                size={size}
+                disabled={disabled}
+                error={error}
+                hint={hint}
+                options={options}
+                multiple={multiple}
+                onChange={handleChange}
+                selected={selected}
+                allowUnselect={allowUnselect}
+                closeOnSelect={closeOnSelect}
+                Arrow={Arrow}
+                circularNavigation={circularNavigation}
+                nativeSelect={nativeSelect}
+                placeholder={placeholder}
+                label={label}
+                labelView={labelView}
+                visibleOptions={visibleOptions}
+                defaultOpen={defaultOpen}
+                popoverPosition={popoverPosition}
+                optionsListWidth={optionsListWidth}
+            />
+        );
+    })}
 </Story>
 
 <Story name='SelectMobile'>
-    <SelectMobile
-        block={boolean('block', false)}
-        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
-        disabled={boolean('disabled', false)}
-        error={text('error', '')}
-        hint={text('hint', '')}
-        options={options}
-        multiple={boolean('multiple', false)}
-        allowUnselect={boolean('allowUnselect', true)}
-        closeOnSelect={boolean('closeOnSelect', true)}
-        Arrow={boolean('Arrow', true) ? Arrow : () => null}
-        circularNavigation={boolean('circularNavigation', false)}
-        placeholder={text('placeholder', 'Выберите элемент')}
-        label={text('label', 'Элемент')}
-        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
-        defaultOpen={boolean('defaultOpen', false)}
-        swipeable={boolean('swipeable', true)}
-    />
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map((option) => option.key));
+        };
+        const block = boolean('block', false);
+        const size = selectKnob('size', ['s', 'm', 'l', 'xl'], 's');
+        const disabled = boolean('disabled', false);
+        const error = text('error', '');
+        const hint = text('hint', '');
+        const multiple = boolean('multiple', false);
+        const allowUnselect = boolean('allowUnselect', true);
+        const closeOnSelect = boolean('closeOnSelect', true);
+        const Arrow = boolean('Arrow', true) ? ArrowComponent : () => null;
+        const circularNavigation = boolean('circularNavigation', false);
+        const placeholder = text('placeholder', 'Выберите элемент');
+        const label = text('label', 'Элемент');
+        const labelView = selectKnob('labelView', ['inner', 'outer'], 'inner');
+        const defaultOpen = boolean('defaultOpen', false);
+        const swipeable = boolean('swipeable', true);
+        return (
+            <SelectMobile
+                block={block}
+                size={size}
+                disabled={disabled}
+                error={error}
+                hint={hint}
+                options={options}
+                multiple={multiple}
+                onChange={handleChange}
+                selected={selected}
+                allowUnselect={allowUnselect}
+                closeOnSelect={closeOnSelect}
+                Arrow={Arrow}
+                circularNavigation={circularNavigation}
+                placeholder={placeholder}
+                label={label}
+                labelView={labelView}
+                defaultOpen={defaultOpen}
+                swipeable={swipeable}
+            />
+        );
+    })}
 </Story>
 
 <Story name='SelectResponsive'>
-    <SelectResponsive
-        block={boolean('block', false)}
-        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
-        disabled={boolean('disabled', false)}
-        error={text('error', '')}
-        hint={text('hint', '')}
-        options={options}
-        multiple={boolean('multiple', false)}
-        allowUnselect={boolean('allowUnselect', true)}
-        closeOnSelect={boolean('closeOnSelect', true)}
-        Arrow={boolean('Arrow', true) ? Arrow : () => null}
-        circularNavigation={boolean('circularNavigation', false)}
-        nativeSelect={boolean('nativeSelect', false)}
-        placeholder={text('placeholder', 'Выберите элемент')}
-        label={text('label', 'Элемент')}
-        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
-        visibleOptions={number('visibleOptions', 5)}
-        defaultOpen={boolean('defaultOpen', false)}
-        popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
-        optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
-    />
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map((option) => option.key));
+        };
+        const block = boolean('block', false);
+        const size = selectKnob('size', ['s', 'm', 'l', 'xl'], 's');
+        const disabled = boolean('disabled', false);
+        const error = text('error', '');
+        const hint = text('hint', '');
+        const multiple = boolean('multiple', false);
+        const allowUnselect = boolean('allowUnselect', true);
+        const closeOnSelect = boolean('closeOnSelect', true);
+        const Arrow = boolean('Arrow', true) ? ArrowComponent : () => null;
+        const circularNavigation = boolean('circularNavigation', false);
+        const nativeSelect = boolean('nativeSelect', false);
+        const placeholder = text('placeholder', 'Выберите элемент');
+        const label = text('label', 'Элемент');
+        const labelView = selectKnob('labelView', ['inner', 'outer'], 'inner');
+        const visibleOptions = number('visibleOptions', 5);
+        const defaultOpen = boolean('defaultOpen', false);
+        const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
+        const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
+        return (
+            <SelectResponsive
+                block={block}
+                size={size}
+                disabled={disabled}
+                error={error}
+                hint={hint}
+                options={options}
+                multiple={multiple}
+                onChange={handleChange}
+                selected={selected}
+                allowUnselect={allowUnselect}
+                closeOnSelect={closeOnSelect}
+                Arrow={Arrow}
+                circularNavigation={circularNavigation}
+                nativeSelect={nativeSelect}
+                placeholder={placeholder}
+                label={label}
+                labelView={labelView}
+                visibleOptions={visibleOptions}
+                defaultOpen={defaultOpen}
+                popoverPosition={popoverPosition}
+                optionsListWidth={optionsListWidth}
+            />
+        );
+    })}
 </Story>
 
 <Story name='SelectModalMobile'>
-    <SelectModalMobile
-        block={boolean('block', false)}
-        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
-        disabled={boolean('disabled', false)}
-        error={text('error', '')}
-        hint={text('hint', '')}
-        options={options}
-        multiple={boolean('multiple', true)}
-        allowUnselect={boolean('allowUnselect', true)}
-        closeOnSelect={boolean('closeOnSelect', true)}
-        Arrow={boolean('Arrow', true) ? Arrow : () => null}
-        circularNavigation={boolean('circularNavigation', false)}
-        placeholder={text('placeholder', 'Выберите элемент')}
-        label={text('label', 'Элемент')}
-        labelView={selectKnob('labelView', ['inner', 'outer'], 'inner')}
-        defaultOpen={boolean('defaultOpen', false)}
-    />
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map((option) => option.key));
+        };
+        const block = boolean('block', false);
+        const size = selectKnob('size', ['s', 'm', 'l', 'xl'], 's');
+        const disabled = boolean('disabled', false);
+        const error = text('error', '');
+        const hint = text('hint', '');
+        const multiple = boolean('multiple', false);
+        const allowUnselect = boolean('allowUnselect', true);
+        const closeOnSelect = boolean('closeOnSelect', true);
+        const Arrow = boolean('Arrow', true) ? ArrowComponent : () => null;
+        const circularNavigation = boolean('circularNavigation', false);
+        const placeholder = text('placeholder', 'Выберите элемент');
+        const label = text('label', 'Элемент');
+        const labelView = selectKnob('labelView', ['inner', 'outer'], 'inner');
+        const defaultOpen = boolean('defaultOpen', false);
+        const swipeable = boolean('swipeable', true);
+        return (
+            <SelectModalMobile
+                block={block}
+                size={size}
+                disabled={disabled}
+                error={error}
+                hint={hint}
+                options={options}
+                multiple={multiple}
+                onChange={handleChange}
+                selected={selected}
+                allowUnselect={allowUnselect}
+                closeOnSelect={closeOnSelect}
+                Arrow={Arrow}
+                circularNavigation={circularNavigation}
+                placeholder={placeholder}
+                label={label}
+                labelView={labelView}
+                defaultOpen={defaultOpen}
+            />
+        );
+    })}
 </Story>
 
 <!-- Docs -->
