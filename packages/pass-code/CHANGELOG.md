@@ -1,5 +1,13 @@
 # @alfalab/core-components-pass-code
 
+## 1.0.11
+
+### Patch Changes
+
+### [#624](https://github.com/core-ds/core-components/pull/624)
+
+-   Исправлена ошибка, из-за которой не исчезали точки при стирании кода на старых iPhone
+
 ## 1.0.10
 
 ### Patch Changes
