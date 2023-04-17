@@ -16,6 +16,7 @@
     border-radius: var(--border-radius-circle);
     flex-shrink: 0;
     transition: background 75ms ease-in;
+    will-change: transform, opacity;
 
     &.error {
         background: var(--color-light-graphic-negative);
