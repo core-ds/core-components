@@ -82,7 +82,7 @@ render(() => {
 
     return (
         <Container>
-            <Button type='button' size='xs' onClick={handleOpen}>
+            <Button type='button' size='s' onClick={handleOpen} block={true}>
                 Показать анатомию
             </Button>
             <BottomSheet
@@ -228,7 +228,7 @@ render(() => {
 
     return (
         <Container>
-            <Button size='xs' onClick={handleOpen}>
+            <Button size='s' onClick={handleOpen} block={true}>
                 Показать шторку
             </Button>
 
@@ -464,7 +464,7 @@ render(() => {
 
     return (
         <Container>
-            <Button size={'xs'} onClick={handleOpen}>
+            <Button size='s' onClick={handleOpen} block={true}>
                 Показать шторку
             </Button>
 
@@ -495,6 +495,151 @@ render(() => {
                 </div>
             </BottomSheet>
         </Container>
+    );
+});
+```
+
+## Управление высотой
+
+В шторку можно передать список магнитных точек.
+Первый элемент списка обозначает минимальную высоту шторки, последний, соответственно, максимальную.
+Если шторка не достигла своей максимальной высоты, рекомендуется блокировать скролл внутри неё, чтобы получить предсказуемое поведение.
+
+```jsx live mobileHeight=640 mobileOnly
+const VARIANTS = {
+    MIN_MAX: 'min_max',
+    EXTRA_AREA: 'extra_area',
+    EXT_TRIGGER: 'ext_trigger',
+};
+
+const SETTINGS = [
+    {
+        label: 'Минимальная и максимальная высота',
+        desc: 'Шторка откроется на 200рх, её можно будет растянуть на кастомную максимальную высоту, ограниченную 100рх до верха экрана. Свайп вниз от минимальной высоты закроет шторку.',
+        value: VARIANTS.MIN_MAX,
+    },
+    {
+        label: 'Промежуточная магнитная область',
+        desc: 'У шторки будет минимальная и максимальная высота, а между ними промежуточная магнитная область.',
+        value: VARIANTS.EXTRA_AREA,
+    },
+    {
+        label: 'Внешний триггер',
+        desc: 'Изначально шторка будет открыта на свою минимальную высоту, но по тапу на кнопку шторку можно будет открыть полностью.',
+        value: VARIANTS.EXT_TRIGGER,
+    },
+];
+
+const VARIANT_PROPS_MAP = {
+    [VARIANTS.MIN_MAX]: { magneticAreas: [0, 200, -100], initialActiveAreaIndex: 1 },
+    [VARIANTS.EXTRA_AREA]: { magneticAreas: [0, 100, '50%', -100] },
+    [VARIANTS.EXT_TRIGGER]: {
+        magneticAreas: [0, 200, -100],
+        hideOverlay: true,
+        initialActiveAreaIndex: 1,
+    },
+};
+
+const ITEM_STYLES = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'background 0.2s ease-in, border 0.2s ease-in',
+    borderRadius: '8px',
+    background: 'rgba(55, 120, 251, 0.1)',
+    border: `1px dashed #3778FB`,
+    color: '#3778FB',
+    width: '100%',
+    boxSizing: 'border-box',
+    height: 170,
+};
+
+const WRAPPER_STYLES = {
+    padding: 20,
+    margin: -20,
+    height: 600,
+    transition: 'background-color 0.3s ease',
+};
+
+render(() => {
+    const [checked, setChecked] = React.useState(VARIANTS.MIN_MAX);
+    const [open, setOpen] = React.useState(false);
+    const [activeAreaIdx, setActiveAreaIdx] = React.useState(0);
+    const bottomSheetRef = React.useRef(null);
+
+    const variantProps = VARIANT_PROPS_MAP[checked];
+    const isExternalTrigger = checked === VARIANTS.EXT_TRIGGER && open;
+    const scrollLocked = activeAreaIdx !== variantProps.magneticAreas.length - 1;
+    const openWithExternalTrigger = isExternalTrigger && open;
+    const isNotLastAreaWithExtTrigger = openWithExternalTrigger && scrollLocked;
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => setOpen(false);
+
+    const handleAreaChange = (idx) => setActiveAreaIdx(idx);
+
+    const magnetizeToLastArea = () =>
+        bottomSheetRef.current.scrollToArea(variantProps.magneticAreas.length - 1);
+
+    return (
+        <div
+            style={{
+                ...WRAPPER_STYLES,
+                backgroundColor: openWithExternalTrigger ? '#f3f4f5' : '#fff',
+            }}
+        >
+            <Button
+                view={isNotLastAreaWithExtTrigger ? 'accent' : 'secondary'}
+                size='s'
+                onClick={openWithExternalTrigger ? magnetizeToLastArea : handleOpen}
+                block={true}
+            >
+                {isExternalTrigger ? 'Открыть полностью' : 'Показать шторку'}
+            </Button>
+
+            <Gap size='2xl' />
+
+            <RadioGroup
+                label='Конфигурация шторки'
+                value={checked}
+                onChange={(_, payload) => setChecked(payload.value)}
+            >
+                {SETTINGS.map((item) => (
+                    <Radio
+                        disabled={open}
+                        label={item.label}
+                        value={item.value}
+                        key={item.value}
+                        hint={item.desc}
+                        size='m'
+                    />
+                ))}
+            </RadioGroup>
+
+            <BottomSheet
+                bottomSheetInstanceRef={bottomSheetRef}
+                open={open}
+                onClose={handleClose}
+                initialHeight='full'
+                key={checked}
+                scrollLocked={scrollLocked}
+                hideScrollbar={true}
+                onMagnetize={handleAreaChange}
+                {...variantProps}
+                {...(!isNotLastAreaWithExtTrigger ? { hideOverlay: false } : null)}
+            >
+                <div style={{ display: 'flex', flexFlow: 'column', gap: 16 }}>
+                    {[1, 2, 3, 4, 5].map((item) => (
+                        <div key={item} style={ITEM_STYLES}>
+                            <span style={{ fontWeight: 700, fontSize: '72px' }}>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </BottomSheet>
+        </div>
     );
 });
 ```

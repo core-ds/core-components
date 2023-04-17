@@ -34,6 +34,20 @@ const clickPickerButton = () => {
 };
 
 describe.each(pickerButtonVariants)('Snapshots tests', (Component) => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: false,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     it('should display correctly', () => {
         const { container } = render(<Component label={label} options={options} />);
 

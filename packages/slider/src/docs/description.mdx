@@ -47,6 +47,71 @@ render(() => {
 });
 ```
 
+## Диапазон
+
+С помощью слайдера можно указывать диапазон значений. Чтобы позволить ползункам пересекать друг друга установите `behaviour=unconstrained-tap`.
+
+```jsx live
+render(() => {
+    const [sliderTap, setSliderTap] = React.useState({
+        value: 4,
+        valueTo: 6
+    });
+
+    const [slider, setSlider] = React.useState({
+        value: 4,
+        valueTo: 6
+    });
+
+    const handleChangeSliderTap = (payload) => {
+        setSliderTap(payload)
+    };
+
+    const handleChangeSlider = (payload) => {
+        setSlider(payload)
+    };
+
+    return (
+        <>
+            <div style={{display: 'flex', justifyContent: 'space-between' }}>
+                <span>min: {sliderTap.value}</span>
+                <span>max: {sliderTap.valueTo}</span>
+            </div>
+            <Gap size='s'/>
+            <Slider
+                size='m'
+                value={sliderTap.value}
+                valueTo={sliderTap.valueTo}
+                onChange={handleChangeSliderTap}
+                min={1}
+                max={8}
+                pips={{
+                    mode: 'steps',
+                }}
+            />
+            <Gap size='3xl'/>
+            <div style={{display: 'flex', justifyContent: 'space-between' }}>
+                <span>min: {slider.value}</span>
+                <span>max: {slider.valueTo}</span>
+            </div>
+            <Gap size='s'/>
+            <Slider
+                size='m'
+                value={slider.value}
+                valueTo={slider.valueTo}
+                behaviour='unconstrained-tap'
+                onChange={handleChangeSlider}
+                min={1}
+                max={8}
+                pips={{
+                    mode: 'steps',
+                }}
+            />
+        </>
+    );
+});
+```
+
 ## Подписи
 
 Слайдер может использоваться с подписями и без.

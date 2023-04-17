@@ -67,7 +67,7 @@ describe('Select useLazyLoading hook', () => {
 
         let listRef: HTMLElement | null;
 
-        const CustomOptionsList = React.forwardRef<HTMLElement, OptionsListProps>(
+        const CustomOptionsList = React.forwardRef<HTMLDivElement, OptionsListProps>(
             ({ inputProps, ...props }, ref) => {
                 const inputRef = React.useRef<HTMLInputElement>(null);
 

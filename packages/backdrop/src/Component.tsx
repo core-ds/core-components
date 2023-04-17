@@ -60,7 +60,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
         timeout={timeout}
         unmountOnExit={true}
         classNames={transitionClassNames}
-        in={open}
+        in={!invisible && open}
         appear={true}
         {...restProps}
     >
@@ -68,9 +68,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
             aria-hidden={true}
             onClick={onClose}
             data-test-id={dataTestId}
-            className={cn(styles.backdrop, className, {
-                [styles.invisible]: invisible,
-            })}
+            className={cn(styles.backdrop, className)}
         >
             {children}
         </div>

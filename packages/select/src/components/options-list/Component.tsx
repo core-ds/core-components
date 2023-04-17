@@ -18,7 +18,7 @@ const createCounter = () => {
     return () => count++;
 };
 
-export const OptionsList = forwardRef(
+export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     (
         {
             size = 's',
@@ -38,7 +38,7 @@ export const OptionsList = forwardRef(
             optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
-        }: OptionsListProps,
+        },
         ref,
     ) => {
         let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);

@@ -2,7 +2,8 @@ import React, { useState, forwardRef } from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
 import { act } from 'react-dom/test-utils';
-import { BottomSheet, BottomSheetProps, CLOSE_OFFSET } from '.';
+import { BottomSheet, BottomSheetProps, CLOSE_OFFSET, HEADER_OFFSET } from '.';
+import { convertPercentToNumber } from './utils';
 
 jest.useFakeTimers();
 
@@ -76,6 +77,17 @@ describe('Bottom sheet', () => {
             const { baseElement } = render(<BottomSheetWrapper actionButton={<div />} />);
 
             expect(baseElement).toMatchSnapshot();
+        });
+    });
+
+    describe('Utils tests', () => {
+        test('convertPercentToNumber', () => {
+            expect(convertPercentToNumber(0, 600)).toBe(0);
+            expect(convertPercentToNumber(200, 600)).toBe(200);
+            expect(convertPercentToNumber(-100, 600)).toBe(500);
+            expect(convertPercentToNumber('10%', 600)).toBe(600 * 0.1);
+            expect(convertPercentToNumber('100%', 600)).toBe(600 - HEADER_OFFSET);
+            expect(convertPercentToNumber('-20%', 600)).toBe(600 - 600 * 0.2);
         });
     });
 
@@ -173,6 +185,36 @@ describe('Bottom sheet', () => {
             const component = getByTestId(dataTestId);
 
             expect(+getComputedStyle(component).zIndex).toBe(zIndex);
+        });
+
+        it('should be blocked scroll', () => {
+            const containerTestId = 'container-id';
+
+            const { getByTestId } = render(
+                <BottomSheetWrapper
+                    scrollLocked={true}
+                    containerProps={{ 'data-test-id': containerTestId } as any}
+                />,
+            );
+
+            const container = getByTestId(containerTestId);
+
+            expect(container).toHaveClass('scrollLocked');
+        });
+
+        it('should be hidden scrollbar', () => {
+            const containerTestId = 'container-id';
+
+            const { getByTestId } = render(
+                <BottomSheetWrapper
+                    hideScrollbar={true}
+                    containerProps={{ 'data-test-id': containerTestId } as any}
+                />,
+            );
+
+            const container = getByTestId(containerTestId);
+
+            expect(container).toHaveClass('hiddenScrollbar');
         });
     });
 
@@ -342,6 +384,59 @@ describe('Bottom sheet', () => {
             const component = await queryByTestId(dataTestId);
 
             expect(component).not.toBeInTheDocument();
+        });
+
+        it('should call onMagnetize prop after opening', async () => {
+            const onMagnetize = jest.fn();
+
+            render(
+                <BottomSheetWrapper
+                    onMagnetize={onMagnetize}
+                    transitionProps={{
+                        timeout: 0,
+                    }}
+                />,
+            );
+
+            await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
+        });
+
+        it('should call onMagnetize prop with initialAreaIdx after opening', async () => {
+            const onMagnetize = jest.fn();
+
+            render(
+                <BottomSheetWrapper
+                    magneticAreas={[0, 200, 500]}
+                    initialActiveAreaIndex={1}
+                    onMagnetize={onMagnetize}
+                    transitionProps={{
+                        timeout: 0,
+                    }}
+                />,
+            );
+
+            await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
+        });
+
+        it('should call onMagnetize prop after closing', async () => {
+            const onMagnetize = jest.fn();
+            const onEntered = jest.fn();
+
+            const { getByTestId } = render(
+                <BottomSheetWrapper
+                    dataTestId={dataTestId}
+                    onMagnetize={onMagnetize}
+                    transitionProps={{
+                        timeout: 0,
+                        onEntered,
+                    }}
+                />,
+            );
+
+            fireEvent.mouseDown(getByTestId(dataTestId));
+            fireEvent.mouseUp(getByTestId(dataTestId));
+
+            await waitFor(() => expect(onMagnetize).toBeCalledWith(0));
         });
     });
 });

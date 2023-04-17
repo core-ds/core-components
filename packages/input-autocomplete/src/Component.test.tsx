@@ -38,6 +38,20 @@ const InputAutocompleteMobileWrapper = (props: Partial<InputAutocompleteMobilePr
 
 describe('InputAutocompleteMobile', () => {
     describe('Snapshots tests', () => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation((query) => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(),
+                removeListener: jest.fn(),
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        });
+
         it('should match snapshot in closed state', () => {
             const { baseElement } = render(<InputAutocompleteMobileWrapper open={false} />);
 

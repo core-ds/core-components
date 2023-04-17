@@ -51,7 +51,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
     <div
       aria-expanded="true"
       aria-haspopup="listbox"
-      aria-owns="downshift-5-menu"
+      aria-owns="downshift-3-menu"
       class="component"
       role="combobox"
       tabindex="-1"
@@ -63,10 +63,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
           class="component component s block"
         >
           <div
-            aria-controls="downshift-5-menu"
-            aria-labelledby="downshift-5-label"
+            aria-controls="downshift-3-menu"
+            aria-labelledby="downshift-3-label"
             class="field inner inner"
-            id="downshift-4-input"
+            id="downshift-2-input"
             tabindex="0"
           >
             <div
@@ -97,11 +97,11 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
       data-focus-lock-disabled="false"
     >
       <div
-        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+        style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
       >
         <div
           aria-hidden="true"
-          class="backdrop appear appearActive"
+          class="backdrop disabledPointerEvents appear appearActive"
         />
       </div>
       <div
@@ -117,6 +117,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
             class="content"
           >
             <div
+              class="wrapper"
               style="height: 744px; max-height: 744px;"
             >
               <div
@@ -205,111 +206,173 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     class="content sheetContent"
                   >
                     <div
-                      aria-labelledby="downshift-5-label"
-                      id="downshift-5-menu"
+                      aria-labelledby="downshift-3-label"
+                      id="downshift-3-menu"
                       role="listbox"
                     >
                       <div
                         class="optionsList s"
                       >
                         <div
-                          aria-selected="false"
-                          class="option m option"
-                          id="downshift-5-item-0"
-                          role="option"
+                          class="component component scrollable"
+                          data-simplebar="init"
+                          style="min-width: 0px;"
                         >
                           <div
-                            class="checkmark"
+                            class="wrapper"
                           >
-                            <svg
-                              class="displayIcon"
-                              fill="currentColor"
-                              focusable="false"
-                              height="24"
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width="24"
+                            <div
+                              class="heightAutoObserverWrapper"
                             >
-                              <path
-                                clip-rule="evenodd"
-                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                fill-rule="evenodd"
+                              <div
+                                class="heightAutoObserver"
                               />
-                            </svg>
-                          </div>
-                          <div
-                            class="content textContent"
-                          >
-                            Neptunium
-                          </div>
-                          <div
-                            class="checkmark"
-                          >
-                            <svg
-                              class="displayIcon"
-                              fill="currentColor"
-                              focusable="false"
-                              height="24"
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width="24"
+                            </div>
+                            <div
+                              class="mask"
+                              style=""
                             >
-                              <path
-                                clip-rule="evenodd"
-                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
+                              <div
+                                class="offset"
+                                style="right: 0px; bottom: 0px;"
+                              >
+                                <div
+                                  aria-label="scrollable content"
+                                  class="contentWrapper"
+                                  role="region"
+                                  style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="content"
+                                    style=""
+                                  >
+                                    <div
+                                      aria-selected="false"
+                                      class="option m option"
+                                      id="downshift-3-item-0"
+                                      role="option"
+                                    >
+                                      <div
+                                        class="checkmark"
+                                      >
+                                        <svg
+                                          class="displayIcon"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="24"
+                                          role="img"
+                                          viewBox="0 0 24 24"
+                                          width="24"
+                                        >
+                                          <path
+                                            clip-rule="evenodd"
+                                            d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                            fill-rule="evenodd"
+                                          />
+                                        </svg>
+                                      </div>
+                                      <div
+                                        class="content textContent"
+                                      >
+                                        Neptunium
+                                      </div>
+                                      <div
+                                        class="checkmark"
+                                      >
+                                        <svg
+                                          class="displayIcon"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="24"
+                                          role="img"
+                                          viewBox="0 0 24 24"
+                                          width="24"
+                                        >
+                                          <path
+                                            clip-rule="evenodd"
+                                            d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                            fill-rule="evenodd"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                    <div
+                                      aria-selected="false"
+                                      class="option m option"
+                                      id="downshift-3-item-1"
+                                      role="option"
+                                    >
+                                      <div
+                                        class="checkmark"
+                                      >
+                                        <svg
+                                          class="displayIcon"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="24"
+                                          role="img"
+                                          viewBox="0 0 24 24"
+                                          width="24"
+                                        >
+                                          <path
+                                            clip-rule="evenodd"
+                                            d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                            fill-rule="evenodd"
+                                          />
+                                        </svg>
+                                      </div>
+                                      <div
+                                        class="content textContent"
+                                      >
+                                        Plutonium
+                                      </div>
+                                      <div
+                                        class="checkmark"
+                                      >
+                                        <svg
+                                          class="displayIcon"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="24"
+                                          role="img"
+                                          viewBox="0 0 24 24"
+                                          width="24"
+                                        >
+                                          <path
+                                            clip-rule="evenodd"
+                                            d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                            fill-rule="evenodd"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="placeholder"
+                              style="width: 0px; height: 0px;"
+                            />
                           </div>
-                        </div>
-                        <div
-                          aria-selected="false"
-                          class="option m option"
-                          id="downshift-5-item-1"
-                          role="option"
-                        >
                           <div
-                            class="checkmark"
+                            class="track horizontal"
+                            style="visibility: hidden;"
                           >
-                            <svg
-                              class="displayIcon"
-                              fill="currentColor"
-                              focusable="false"
-                              height="24"
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width="24"
-                            >
-                              <path
-                                clip-rule="evenodd"
-                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
+                            <div
+                              class="scrollbar"
+                              style="width: 0px; display: none;"
+                            />
                           </div>
                           <div
-                            class="content textContent"
+                            class="track vertical"
+                            style="visibility: hidden;"
                           >
-                            Plutonium
-                          </div>
-                          <div
-                            class="checkmark"
-                          >
-                            <svg
-                              class="displayIcon"
-                              fill="currentColor"
-                              focusable="false"
-                              height="24"
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width="24"
-                            >
-                              <path
-                                clip-rule="evenodd"
-                                d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
+                            <div
+                              class="scrollbar"
+                              style="height: 0px; display: none;"
+                            />
                           </div>
                         </div>
                       </div>

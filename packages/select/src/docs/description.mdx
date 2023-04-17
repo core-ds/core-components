@@ -78,6 +78,17 @@ const OPTIONS = [
 ];
 
 render(() => {
+    const [selected, setSelected] = React.useState();
+    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    const handleChangeMultiple = ({ selectedMultiple }) => {
+        setSelectedMultiple(selectedMultiple.map((option) => option.key));
+    };
+
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
@@ -86,15 +97,20 @@ render(() => {
                 placeholder='Одиночный выбор'
                 Option={BaseOption}
                 block={true}
+                selected={selected}
+                onChange={handleChange}
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
+                multiple
                 allowUnselect={true}
                 options={OPTIONS}
                 placeholder='Множественный выбор'
                 Option={BaseOption}
-                multiple={true}
                 block={true}
+                options={OPTIONS}
+                selected={selectedMultiple}
+                onChange={handleChangeMultiple}
             />
         </div>
     );
@@ -168,6 +184,17 @@ const OPTIONS = [
 ];
 
 render(() => {
+    const [selected, setSelected] = React.useState();
+    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    const handleChangeMultiple = ({ selectedMultiple }) => {
+        setSelectedMultiple(selectedMultiple.map((option) => option.key));
+    };
+
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
@@ -176,15 +203,20 @@ render(() => {
                 placeholder='Без подтверждения'
                 Option={BaseOption}
                 block={true}
+                selected={selected}
+                onChange={handleChange}
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
+                multiple
                 allowUnselect={true}
                 options={OPTIONS}
                 placeholder='С подтверждением'
                 Option={BaseOption}
-                multiple={true}
                 block={true}
+                options={OPTIONS}
+                selected={selectedMultiple}
+                onChange={handleChangeMultiple}
             />
         </div>
     );
@@ -201,7 +233,7 @@ render(() => {
         return acc.concat({
             label: `Группа №${groupIndex + 1}`,
             options: new Array(5).fill().map((_, index) => ({
-                key: index,
+                key: index.toString(),
                 content: `Пункт ${groupIndex + 1}.${index + 1}`,
             })),
         });
@@ -222,11 +254,17 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [selected, setSelected] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
     const groups = new Array(5).fill().reduce((acc, _, groupIndex) => {
         return acc.concat({
             label: `Группа №${groupIndex + 1}`,
             options: new Array(5).fill().map((_, index) => ({
-                key: index,
+                key: index.toString(),
                 content: `Пункт ${groupIndex + 1}.${index + 1}`,
             })),
         });
@@ -239,6 +277,8 @@ render(() => {
                 options={groups}
                 placeholder='Сгруппированный список'
                 Option={BaseOption}
+                selected={selected}
+                onChange={handleChange}
                 block={true}
             />
         </div>
@@ -260,7 +300,7 @@ render(() => {
                 );
 
                 return {
-                    key: index,
+                    key: index.toString(),
                     content: `${index}. ${variableSizeText}`,
                 };
             }),
@@ -277,6 +317,7 @@ render(() => {
             circularNavigation={true}
             allowUnselect={true}
             visibleOptions={3}
+            optionsListWidth='field'
             Option={BaseOption}
         />
     );
@@ -338,6 +379,17 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [selected, setSelected] = React.useState();
+    const [selectedSkeleton, setSelectedSkeleton] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    const handleChangeSkeleton = ({ selected }) => {
+        setSelectedSkeleton(selected);
+    };
+
     const optionsForVirtualList = React.useMemo(
         () =>
             new Array(1000).fill().map((_, index) => {
@@ -346,7 +398,7 @@ render(() => {
                 );
 
                 return {
-                    key: index,
+                    key: index.toString(),
                     content: `${index}. ${variableSizeText}`,
                 };
             }),
@@ -375,8 +427,9 @@ render(() => {
             OptionsList={VirtualOptionsList}
             circularNavigation={true}
             allowUnselect={true}
-            visibleOptions={3}
             Option={BaseOption}
+            selected={selected}
+            onChange={handleChange}
         />
     );
 
@@ -414,6 +467,8 @@ render(() => {
             options={optionsForListWithSkeleton}
             onOpen={handleOpen}
             Option={BaseOption}
+            selected={selectedSkeleton}
+            onChange={handleChangeSkeleton}
             {...loadingProps}
         />
     );
@@ -583,6 +638,12 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [selected, setSelected] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
     const renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {
         return (
             <GenericWrapper alignItems='center' padding={padding}>
@@ -657,6 +718,8 @@ render(() => {
                 size='m'
                 valueRenderer={renderSelected}
                 block={true}
+                selected={selected}
+                onChange={handleChange}
             />
         </div>
     );
@@ -698,26 +761,43 @@ const options = [
     { key: '8', content: 'Fermium' },
 ];
 
-render(
-    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-        <Select
-            allowUnselect={true}
-            size='m'
-            options={groups}
-            placeholder='Нативный список'
-            nativeSelect={true}
-            block={true}
-        />
-        <div style={{ height: 'var(--gap-m)' }} />
-        <SelectModalMobile
-            allowUnselect={true}
-            options={options}
-            placeholder='Список в модалке'
-            block={true}
-            Option={BaseOption}
-        />
-    </div>,
-);
+render(() => {
+    const [selectedNative, setSelectedNative] = React.useState();
+    const [selectedModal, setSelectedModal] = React.useState();
+
+    const handleChangeNative = ({ selected }) => {
+        setSelectedNative(selected);
+    };
+
+    const handleChangeModal = ({ selected }) => {
+        setSelectedModal(selected);
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Select
+                allowUnselect={true}
+                size='m'
+                options={groups}
+                placeholder='Нативный список'
+                nativeSelect={true}
+                block={true}
+                selected={selectedNative}
+                onChange={handleChangeNative}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <SelectModalMobile
+                allowUnselect={true}
+                options={options}
+                placeholder='Список в модалке'
+                block={true}
+                Option={BaseOption}
+                selected={selectedModal}
+                onChange={handleChangeModal}
+            />
+        </div>
+    );
+});
 ```
 
 ### Использование в форме
@@ -885,16 +965,30 @@ render(() => {
 });
 //MOBILE
 render(() => {
-    const options = [
-        { key: '1', content: 'Neptunium' },
-        { key: '2', content: 'Plutonium' },
-        { key: '3', content: 'Americium' },
-        { key: '4', content: 'Curium' },
-        { key: '5', content: 'Berkelium' },
-        { key: '6', content: 'Californium' },
-        { key: '7', content: 'Einsteinium' },
-        { key: '8', content: 'Fermium' },
-    ];
+    const [selectedFirst, setSelectedFirst] = React.useState();
+    const [selectedSecond, setSelectedSecond] = React.useState();
+
+    const handleChangeFirst = ({ selected }) => {
+        setSelectedFirst(selected);
+    };
+
+    const handleChangeSecond = ({ selected }) => {
+        setSelectedSecond(selected);
+    };
+
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
 
     return (
         <div style={{ width: 320 }}>
@@ -905,6 +999,8 @@ render(() => {
                 placeholder='Закроется после выбора'
                 Option={BaseOption}
                 block={true}
+                selected={selectedFirst}
+                onChange={handleChangeFirst}
             />
             <div style={{ height: 'var(--gap-m)' }} />
             <SelectMobile
@@ -915,6 +1011,8 @@ render(() => {
                 Option={BaseOption}
                 block={true}
                 closeOnSelect={false}
+                selected={selectedSecond}
+                onChange={handleChangeSecond}
             />
         </div>
     );
