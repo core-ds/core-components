@@ -1,3 +1,4 @@
+@import './navigation-bar/click.css';
 @import './amount/click.css';
 @import './checkbox/click.css';
 @import './checkbox-group/click.css';
@@ -24,6 +25,7 @@
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(-180deg);
 
+    @mixin navigation-bar-click;
     @mixin select-click;
     @mixin progress-bar-click;
     @mixin amount-click;

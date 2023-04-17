@@ -1,4 +1,5 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .closer {
     flex-shrink: 0;
@@ -17,8 +18,8 @@
     color: var(--color-light-graphic-primary);
 
     &.mobile {
-        background: var(--color-light-specialbg-secondary-transparent);
-        color: var(--color-light-graphic-secondary);
+        background: var(--navigation-bar-closer-icon-button-mobile-background-color);
+        color: var(--navigation-bar-closer-icon-button-mobile-color);
     }
 }
 
