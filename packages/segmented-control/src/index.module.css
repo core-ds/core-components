@@ -39,10 +39,10 @@
     }
 
     &:has(.rectangular) {
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-l);
 
         & .selectedBox {
-            border-radius: calc(var(--border-radius-l) / 2);
+            border-radius: 10px;
         }
     }
 }
@@ -56,10 +56,10 @@
 }
 
 .rectangular {
-    border-radius: calc(var(--border-radius-l) / 2);
+    border-radius: 10px;
 
     & .selectedBox {
-        border-radius: var(--border-radius-s);
+        border-radius: var(--border-radius-m);
     }
 }
 
