@@ -224,11 +224,11 @@ exports[`Snapshots tests should display opened correctly 2`] = `
     data-focus-lock-disabled="false"
   >
     <div
-      style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+      style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
     >
       <div
         aria-hidden="true"
-        class="backdrop appear appearActive"
+        class="backdrop disabledPointerEvents appear appearActive"
       />
     </div>
     <div
@@ -244,6 +244,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
           class="content"
         >
           <div
+            class="wrapper"
             style="max-height: 744px;"
           >
             <div
@@ -1323,11 +1324,11 @@ exports[`Snapshots tests should display opened correctly 4`] = `
     data-focus-lock-disabled="false"
   >
     <div
-      style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+      style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
     >
       <div
         aria-hidden="true"
-        class="backdrop appear appearActive"
+        class="backdrop disabledPointerEvents appear appearActive"
       />
     </div>
     <div
@@ -1343,6 +1344,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
           class="content"
         >
           <div
+            class="wrapper"
             style="max-height: 744px;"
           >
             <div
@@ -2422,11 +2424,11 @@ exports[`Snapshots tests should display opened correctly 6`] = `
     data-focus-lock-disabled="false"
   >
     <div
-      style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+      style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
     >
       <div
         aria-hidden="true"
-        class="backdrop appear appearActive"
+        class="backdrop disabledPointerEvents appear appearActive"
       />
     </div>
     <div
@@ -2442,6 +2444,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
           class="content"
         >
           <div
+            class="wrapper"
             style="max-height: 744px;"
           >
             <div
