@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.2.18
+    -   date-input@4.2.2
+
 ## 8.2.19
 
 ### Patch Changes

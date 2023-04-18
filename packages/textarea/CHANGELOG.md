@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.2.1
+
+### Patch Changes
+
+### [#613](https://github.com/core-ds/core-components/pull/613)
+
+-   Обновлен дизайн в компоненте Textarea
+
+-   Обновлены зависимости
+    -   form-control@9.0.5
+
 ## 8.2.0
 
 ### Minor Changes

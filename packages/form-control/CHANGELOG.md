@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.0.5
+
+### Patch Changes
+
+### [#613](https://github.com/core-ds/core-components/pull/613)
+
+-   Обновлен дизайн в компоненте Textarea
+
 ## 9.0.4
 
 ### Patch Changes

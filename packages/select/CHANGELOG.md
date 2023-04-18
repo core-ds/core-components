@@ -1,5 +1,15 @@
 # Change Log
 
+## 14.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@9.0.5
+    -   bottom-sheet@6.2.1
+    -   modal@7.0.7
+    -   input@11.1.10
+
 ## 14.0.0
 
 ### Major Changes

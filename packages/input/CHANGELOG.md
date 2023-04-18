@@ -1,5 +1,12 @@
 # Change Log
 
+## 11.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@9.0.5
+
 ## 11.1.9
 
 ### Patch Changes

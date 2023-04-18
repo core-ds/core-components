@@ -1,5 +1,14 @@
 # Change Log
 
+## 9.3.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@9.0.5
+    -   input@11.1.10
+    -   select@14.0.1
+
 ## 9.3.18
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.3.0
+
+### Minor Changes
+
+### [#628](https://github.com/core-ds/core-components/pull/628)
+
+-   Добавлена переменная --navigation-bar-closer-mobile-color для управления цветом мобильной версии Closer.
+-   Добавлена темизация click мобильной версии Closer
+
 ## 0.2.0
 
 ### Minor Changes

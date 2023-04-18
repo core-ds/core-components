@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.2.17
+
+### Patch Changes
+
+### [#618](https://github.com/core-ds/core-components/pull/618)
+
+-   Исправлено скругление рамки при использовании `view="hint"`
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.2.1
+
 ## 6.2.16
 
 ### Patch Changes

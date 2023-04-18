@@ -1,5 +1,14 @@
 # Change Log
 
+## 11.2.0
+
+### Minor Changes
+
+### [#628](https://github.com/core-ds/core-components/pull/628)
+
+-   Добавлена переменная --navigation-bar-closer-mobile-color для управления цветом мобильной версии Closer.
+-   Добавлена темизация click мобильной версии Closer
+
 ## 11.1.0
 
 ### Minor Changes
