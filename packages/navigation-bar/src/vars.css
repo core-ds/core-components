@@ -2,9 +2,5 @@
 
 :root {
     /* closer-mobile */
-
     --navigation-bar-closer-icon-button-mobile-color: var(--color-light-graphic-secondary);
-    --navigation-bar-closer-icon-button-mobile-background-color: var(
-        --color-light-specialbg-secondary-transparent
-    );
 }

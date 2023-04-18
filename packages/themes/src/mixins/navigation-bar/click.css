@@ -1,8 +1,4 @@
 @define-mixin navigation-bar-click {
     /* closer-mobile */
-
     --navigation-bar-closer-icon-button-mobile-color: var(--color-light-graphic-primary);
-    --navigation-bar-closer-icon-button-mobile-background-color: var(
-        --color-light-specialbg-tertiary-transparent
-    );
 }
