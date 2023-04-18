@@ -20,7 +20,6 @@
 }
 
 .hint {
-    border-radius: var(--border-radius-s);
     background-color: var(--tooltip-hint-inverted-bg-color);
     box-shadow: var(--tooltip-hint-inverted-box-shadow);
     color: var(--tooltip-hint-inverted-text-color);

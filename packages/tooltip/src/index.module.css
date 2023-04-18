@@ -20,6 +20,10 @@
     padding: var(--gap-xs);
 }
 
+.hint {
+    border-radius: var(--border-radius-s);
+}
+
 .target {
     cursor: pointer;
     width: max-content;
