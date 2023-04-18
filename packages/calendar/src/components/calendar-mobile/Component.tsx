@@ -12,7 +12,12 @@ import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 import { limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
 import { CalendarDesktop, CalendarDesktopProps } from '../../Component.desktop';
 import { Month } from '../../typings';
-import { dateArrayToHashTable, generateMonths, generateWeeks } from '../../utils';
+import {
+    addonArrayToHashTable,
+    dateArrayToHashTable,
+    generateMonths,
+    generateWeeks,
+} from '../../utils';
 import { DaysTable } from '../days-table';
 
 import styles from './index.module.css';
@@ -70,6 +75,8 @@ const CalendarMonthOnlyView = ({
     rangeComplete,
     onMonthChange,
     yearsAmount = 3,
+    dayAddons,
+    shape = 'rounded',
 }: CalendarMobileProps) => {
     const initialMonthIndex = useMemo(() => {
         const currentMonthIndex = new Date().getMonth();
@@ -118,12 +125,15 @@ const CalendarMonthOnlyView = ({
         events,
         onChange,
         onMonthChange,
+        dayAddons,
     });
 
     const activeMonths = useMemo(() => {
         const eventsMap = dateArrayToHashTable(events || []);
         const offDaysMap = dateArrayToHashTable(offDays || []);
         const holidaysMap = dateArrayToHashTable(holidays || []);
+        const dayAddonsMap = addonArrayToHashTable(dayAddons || []);
+
         const prevMonths: Month[] = [];
         const nextMonths: Month[] = [];
 
@@ -152,10 +162,11 @@ const CalendarMonthOnlyView = ({
                 eventsMap,
                 offDaysMap,
                 holidaysMap,
+                dayAddonsMap,
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [events, offDays, holidays, months, yearsAmount, minDate, maxDate, selected]);
+    }, [events, offDays, holidays, dayAddons, months, yearsAmount, minDate, maxDate, selected]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -170,6 +181,7 @@ const CalendarMonthOnlyView = ({
                 rangeComplete={rangeComplete}
                 hasHeader={false}
                 responsive={true}
+                shape={shape}
             />
         </div>
     );

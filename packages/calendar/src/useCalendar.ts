@@ -9,8 +9,9 @@ import setYear from 'date-fns/setYear';
 import startOfMonth from 'date-fns/startOfMonth';
 import subYears from 'date-fns/subYears';
 
-import { DateShift, Day, Month, View } from './typings';
+import { DateShift, Day, DayAddons, Month, View } from './typings';
 import {
+    addonArrayToHashTable,
     dateArrayToHashTable,
     generateMonths,
     generateWeeks,
@@ -76,6 +77,11 @@ export type UseCalendarProps = {
      * Обработчик выбора даты
      */
     onChange?: (date: number) => void;
+
+    /**
+     * Дополнительный контент под числом
+     */
+    dayAddons?: DayAddons[];
 };
 
 export function useCalendar({
@@ -88,6 +94,7 @@ export function useCalendar({
     events,
     offDays,
     holidays,
+    dayAddons,
     onMonthChange,
     onChange,
 }: UseCalendarProps) {
@@ -113,6 +120,8 @@ export function useCalendar({
 
     const holidaysMap = useMemo(() => dateArrayToHashTable(holidays || []), [holidays]);
 
+    const dayAddonsMap = useMemo(() => addonArrayToHashTable(dayAddons || []), [dayAddons]);
+
     const weeks = useMemo(
         () =>
             generateWeeks(activeMonth, {
@@ -122,8 +131,9 @@ export function useCalendar({
                 eventsMap,
                 offDaysMap,
                 holidaysMap,
+                dayAddonsMap,
             }),
-        [maxDate, minDate, selected, activeMonth, eventsMap, offDaysMap, holidaysMap],
+        [maxDate, minDate, selected, dayAddonsMap, activeMonth, eventsMap, offDaysMap, holidaysMap],
     );
 
     const months = useMemo(

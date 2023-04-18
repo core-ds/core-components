@@ -148,14 +148,14 @@ describe('NotificationManager', () => {
                     {...props}
                 />
             </React.Fragment>
-        )
+        );
 
-        const { getByTestId, rerender } = render(notificationManager())
+        const { getByTestId, rerender } = render(notificationManager());
 
         const container = document.getElementById('container');
 
-        rerender(notificationManager({container: () => container as HTMLElement}));
+        rerender(notificationManager({ container: () => container as HTMLElement }));
 
-        expect(container).toContainElement(getByTestId('NotificationManager'))
-    })
+        expect(container).toContainElement(getByTestId('NotificationManager'));
+    });
 });

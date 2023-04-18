@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import addDays from 'date-fns/addDays';
 import addMonths from 'date-fns/addMonths';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
@@ -20,7 +21,7 @@ import startOfYear from 'date-fns/startOfYear';
 import subDays from 'date-fns/subDays';
 import subMonths from 'date-fns/subMonths';
 
-import { DateShift, Day, Month, SpecialDays } from './typings';
+import { DateShift, Day, DayAddons, Month, SpecialDays, SpecialDaysAddon } from './typings';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;
@@ -66,6 +67,7 @@ export function generateWeeks(
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
         holidaysMap?: SpecialDays;
+        dayAddonsMap?: SpecialDaysAddon;
     },
 ) {
     const newWeek = () => Array(DAYS_IN_WEEK).fill(null);
@@ -120,6 +122,7 @@ export function buildDay(
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
         holidaysMap?: SpecialDays;
+        dayAddonsMap?: SpecialDaysAddon;
     },
 ): Day {
     const {
@@ -129,6 +132,7 @@ export function buildDay(
         eventsMap = {},
         offDaysMap = {},
         holidaysMap = {},
+        dayAddonsMap = {},
     } = options;
     const off = offDaysMap[day.getTime()];
     const disabled = (minDate && isBefore(day, minDate)) || (maxDate && isAfter(day, maxDate));
@@ -139,6 +143,7 @@ export function buildDay(
         event: eventsMap[day.getTime()],
         holiday: holidaysMap[day.getTime()],
         selected: selected && isSameDay(day, selected),
+        dayAddon: dayAddonsMap[day.getTime()],
     };
 }
 
@@ -190,6 +195,14 @@ export function monthName(month: Date) {
 export function dateArrayToHashTable(arr: Array<Date | number>) {
     return arr.reduce((acc: Record<number, boolean>, v) => {
         acc[startOfDay(v).getTime()] = true;
+
+        return acc;
+    }, {});
+}
+
+export function addonArrayToHashTable(arr: DayAddons[]) {
+    return arr.reduce((acc: Record<number, ReactNode>, v) => {
+        acc[startOfDay(v.date).getTime()] = v.addon;
 
         return acc;
     }, {});

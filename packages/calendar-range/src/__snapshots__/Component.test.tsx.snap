@@ -163,13 +163,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      1
+                      <span
+                        class="dayContent"
+                      >
+                        1
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -180,13 +187,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      2
+                      <span
+                        class="dayContent"
+                      >
+                        2
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -197,13 +211,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      3
+                      <span
+                        class="dayContent"
+                      >
+                        3
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -214,13 +235,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      4
+                      <span
+                        class="dayContent"
+                      >
+                        4
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -233,13 +261,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      5
+                      <span
+                        class="dayContent"
+                      >
+                        5
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -250,13 +285,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      6
+                      <span
+                        class="dayContent"
+                      >
+                        6
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -267,13 +309,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      7
+                      <span
+                        class="dayContent"
+                      >
+                        7
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -284,13 +333,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      8
+                      <span
+                        class="dayContent"
+                      >
+                        8
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -301,13 +357,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      9
+                      <span
+                        class="dayContent"
+                      >
+                        9
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -318,13 +381,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      10
+                      <span
+                        class="dayContent"
+                      >
+                        10
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -335,13 +405,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      11
+                      <span
+                        class="dayContent"
+                      >
+                        11
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -354,13 +431,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      12
+                      <span
+                        class="dayContent"
+                      >
+                        12
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -371,13 +455,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      13
+                      <span
+                        class="dayContent"
+                      >
+                        13
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -388,13 +479,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      14
+                      <span
+                        class="dayContent"
+                      >
+                        14
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -405,13 +503,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      15
+                      <span
+                        class="dayContent"
+                      >
+                        15
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -422,13 +527,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      16
+                      <span
+                        class="dayContent"
+                      >
+                        16
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -439,13 +551,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      17
+                      <span
+                        class="dayContent"
+                      >
+                        17
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -456,13 +575,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      18
+                      <span
+                        class="dayContent"
+                      >
+                        18
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -475,13 +601,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      19
+                      <span
+                        class="dayContent"
+                      >
+                        19
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -492,13 +625,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      20
+                      <span
+                        class="dayContent"
+                      >
+                        20
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -509,13 +649,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      21
+                      <span
+                        class="dayContent"
+                      >
+                        21
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -526,13 +673,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      22
+                      <span
+                        class="dayContent"
+                      >
+                        22
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -543,13 +697,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      23
+                      <span
+                        class="dayContent"
+                      >
+                        23
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -560,13 +721,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      24
+                      <span
+                        class="dayContent"
+                      >
+                        24
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -577,13 +745,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      25
+                      <span
+                        class="dayContent"
+                      >
+                        25
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -596,13 +771,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      26
+                      <span
+                        class="dayContent"
+                      >
+                        26
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -613,13 +795,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      27
+                      <span
+                        class="dayContent"
+                      >
+                        27
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -630,13 +819,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      28
+                      <span
+                        class="dayContent"
+                      >
+                        28
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -647,13 +843,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      29
+                      <span
+                        class="dayContent"
+                      >
+                        29
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -664,13 +867,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      30
+                      <span
+                        class="dayContent"
+                      >
+                        30
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -681,13 +891,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      31
+                      <span
+                        class="dayContent"
+                      >
+                        31
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -862,13 +1079,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      1
+                      <span
+                        class="dayContent"
+                      >
+                        1
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -881,13 +1105,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      2
+                      <span
+                        class="dayContent"
+                      >
+                        2
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -898,13 +1129,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      3
+                      <span
+                        class="dayContent"
+                      >
+                        3
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -915,13 +1153,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      4
+                      <span
+                        class="dayContent"
+                      >
+                        4
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -932,13 +1177,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      5
+                      <span
+                        class="dayContent"
+                      >
+                        5
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -949,13 +1201,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      6
+                      <span
+                        class="dayContent"
+                      >
+                        6
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -966,13 +1225,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      7
+                      <span
+                        class="dayContent"
+                      >
+                        7
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -983,13 +1249,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      8
+                      <span
+                        class="dayContent"
+                      >
+                        8
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1002,13 +1275,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      9
+                      <span
+                        class="dayContent"
+                      >
+                        9
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1019,13 +1299,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      10
+                      <span
+                        class="dayContent"
+                      >
+                        10
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1036,13 +1323,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      11
+                      <span
+                        class="dayContent"
+                      >
+                        11
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1053,13 +1347,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      12
+                      <span
+                        class="dayContent"
+                      >
+                        12
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1070,13 +1371,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      13
+                      <span
+                        class="dayContent"
+                      >
+                        13
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1087,13 +1395,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      14
+                      <span
+                        class="dayContent"
+                      >
+                        14
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1104,13 +1419,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      15
+                      <span
+                        class="dayContent"
+                      >
+                        15
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1123,13 +1445,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      16
+                      <span
+                        class="dayContent"
+                      >
+                        16
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1140,13 +1469,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      17
+                      <span
+                        class="dayContent"
+                      >
+                        17
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1157,13 +1493,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      18
+                      <span
+                        class="dayContent"
+                      >
+                        18
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1174,13 +1517,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      19
+                      <span
+                        class="dayContent"
+                      >
+                        19
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1191,13 +1541,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      20
+                      <span
+                        class="dayContent"
+                      >
+                        20
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1208,13 +1565,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      21
+                      <span
+                        class="dayContent"
+                      >
+                        21
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1225,13 +1589,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      22
+                      <span
+                        class="dayContent"
+                      >
+                        22
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1244,13 +1615,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      23
+                      <span
+                        class="dayContent"
+                      >
+                        23
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1261,13 +1639,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      24
+                      <span
+                        class="dayContent"
+                      >
+                        24
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1278,13 +1663,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      25
+                      <span
+                        class="dayContent"
+                      >
+                        25
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1295,13 +1687,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      26
+                      <span
+                        class="dayContent"
+                      >
+                        26
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1312,13 +1711,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      27
+                      <span
+                        class="dayContent"
+                      >
+                        27
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1329,13 +1735,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      28
+                      <span
+                        class="dayContent"
+                      >
+                        28
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1346,13 +1759,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      29
+                      <span
+                        class="dayContent"
+                      >
+                        29
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
@@ -1365,13 +1785,20 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="component ghost xs component ghost day"
+                    class="component ghost xs component ghost day rounded"
                     type="button"
                   >
                     <span
                       class="text stretchText"
                     >
-                      30
+                      <span
+                        class="dayContent"
+                      >
+                        30
+                      </span>
+                      <span
+                        class="addons"
+                      />
                     </span>
                   </button>
                 </td>
