@@ -37,12 +37,7 @@
 
 .horizontal .checkboxList {
     flex-wrap: wrap;
-    margin-right: var(--gap-xl-neg);
     margin-bottom: var(--gap-xs-neg);
-}
-
-.tag.horizontal .checkboxList {
-    margin-right: 0;
 }
 
 .horizontal .checkbox {
@@ -52,6 +47,11 @@
 
 .horizontal .tagLabel {
     margin-right: var(--gap-xs);
+}
+
+.horizontal .checkbox:last-child,
+.horizontal .tagLabel:last-child {
+    margin-right: 0;
 }
 
 .label {
