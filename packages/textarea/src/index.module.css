@@ -8,41 +8,41 @@
     --textarea-l-min-height: var(--form-control-l-min-height);
     --textarea-xl-min-height: var(--form-control-xl-min-height);
 
-    /* border */
-    --textarea-border-style: solid transparent;
-    --textarea-s-border: 14px;
-    --textarea-m-border: 18px;
-    --textarea-l-border: 22px;
-    --textarea-xl-border: 24px;
+    /* spacer */
+    --textarea-spacer-style: solid transparent;
+    --textarea-s-spacer: 14px;
+    --textarea-m-spacer: 18px;
+    --textarea-l-spacer: 22px;
+    --textarea-xl-spacer: 24px;
 
-    /* filled border-top */
-    --textarea-s-filled-border-top: 24px;
-    --textarea-m-filled-border-top: 24px;
-    --textarea-l-filled-border-top: 32px;
-    --textarea-xl-filled-border-top: 34px;
+    /* filled spacer-top */
+    --textarea-s-filled-spacer-top: 24px;
+    --textarea-m-filled-spacer-top: 24px;
+    --textarea-l-filled-spacer-top: 32px;
+    --textarea-xl-filled-spacer-top: 34px;
 
-    /* filled padding-bottom */
-    --textarea-s-filled-border-bottom: 4px;
-    --textarea-m-filled-border-bottom: 8px;
-    --textarea-l-filled-border-bottom: 12px;
-    --textarea-xl-filled-border-bottom: 14px;
+    /* filled spacer-bottom */
+    --textarea-s-filled-spacer-bottom: 4px;
+    --textarea-m-filled-spacer-bottom: 8px;
+    --textarea-l-filled-spacer-bottom: 12px;
+    --textarea-xl-filled-spacer-bottom: 14px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
-        var(--textarea-s-min-height) - var(--textarea-s-filled-border-top) -
-            var(--textarea-s-filled-border-bottom)
+        var(--textarea-s-min-height) - var(--textarea-s-filled-spacer-top) -
+            var(--textarea-s-filled-spacer-bottom)
     );
     --textarea-m-filled-min-height: calc(
-        var(--textarea-m-min-height) - var(--textarea-m-filled-border-top) -
-            var(--textarea-m-filled-border-bottom)
+        var(--textarea-m-min-height) - var(--textarea-m-filled-spacer-top) -
+            var(--textarea-m-filled-spacer-bottom)
     );
     --textarea-l-filled-min-height: calc(
-        var(--textarea-l-min-height) - var(--textarea-l-filled-border-top) -
-            var(--textarea-l-filled-border-bottom)
+        var(--textarea-l-min-height) - var(--textarea-l-filled-spacer-top) -
+            var(--textarea-l-filled-spacer-bottom)
     );
     --textarea-xl-filled-min-height: calc(
-        var(--textarea-xl-min-height) - var(--textarea-xl-filled-border-top) -
-            var(--textarea-xl-filled-border-bottom)
+        var(--textarea-xl-min-height) - var(--textarea-xl-filled-spacer-top) -
+            var(--textarea-xl-filled-spacer-bottom)
     );
 }
 
@@ -146,19 +146,19 @@
 /* Correct pseudoTextarea size */
 .pseudoTextarea.filled.hasInnerLabel {
     &.s {
-        min-height: calc(100% - var(--textarea-s-filled-border-top));
+        min-height: calc(100% - var(--textarea-s-filled-spacer-top));
     }
 
     &.m {
-        min-height: calc(100% - var(--textarea-m-filled-border-top));
+        min-height: calc(100% - var(--textarea-m-filled-spacer-top));
     }
 
     &.l {
-        min-height: calc(100% - var(--textarea-l-filled-border-top));
+        min-height: calc(100% - var(--textarea-l-filled-spacer-top));
     }
 
     &.xl {
-        min-height: calc(100% - var(--textarea-xl-filled-border-top));
+        min-height: calc(100% - var(--textarea-xl-filled-spacer-top));
     }
 }
 
@@ -169,46 +169,47 @@
     }
 }
 
+/* Border нужен для того чтобы растянуть textarea на всю высоту FormControl , если заменить на padding, то лейбл не будет кликабельный */
 .textarea {
     &.s {
-        border-top: var(--textarea-s-border) var(--textarea-border-style);
-        border-bottom: var(--textarea-s-border) var(--textarea-border-style);
+        border-top: var(--textarea-s-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-s-spacer) var(--textarea-spacer-style);
     }
 
     &.m {
-        border-top: var(--textarea-m-border) var(--textarea-border-style);
-        border-bottom: var(--textarea-m-border) var(--textarea-border-style);
+        border-top: var(--textarea-m-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-m-spacer) var(--textarea-spacer-style);
     }
 
     &.l {
-        border-top: var(--textarea-l-border) var(--textarea-border-style);
-        border-bottom: var(--textarea-l-border) var(--textarea-border-style);
+        border-top: var(--textarea-l-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-l-spacer) var(--textarea-spacer-style);
     }
 
     &.xl {
-        border-top: var(--textarea-xl-border) var(--textarea-border-style);
-        border-bottom: var(--textarea-xl-border) var(--textarea-border-style);
+        border-top: var(--textarea-xl-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-xl-spacer) var(--textarea-spacer-style);
     }
 
     &.hasInnerLabel {
         &.s {
-            border-top: var(--textarea-s-filled-border-top) var(--textarea-border-style);
-            border-bottom: var(--textarea-s-filled-border-bottom) var(--textarea-border-style);
+            border-top: var(--textarea-s-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-s-filled-spacer-bottom) var(--textarea-spacer-style);
         }
 
         &.m {
-            border-top: var(--textarea-m-filled-border-top) var(--textarea-border-style);
-            border-bottom: var(--textarea-m-filled-border-bottom) var(--textarea-border-style);
+            border-top: var(--textarea-m-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-m-filled-spacer-bottom) var(--textarea-spacer-style);
         }
 
         &.l {
-            border-top: var(--textarea-l-filled-border-top) var(--textarea-border-style);
-            border-bottom: var(--textarea-l-filled-border-bottom) var(--textarea-border-style);
+            border-top: var(--textarea-l-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-l-filled-spacer-bottom) var(--textarea-spacer-style);
         }
 
         &.xl {
-            border-top: var(--textarea-xl-filled-border-top) var(--textarea-border-style);
-            border-bottom: var(--textarea-xl-filled-border-bottom) var(--textarea-border-style);
+            border-top: var(--textarea-xl-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-xl-filled-spacer-bottom) var(--textarea-spacer-style);
         }
     }
 }
