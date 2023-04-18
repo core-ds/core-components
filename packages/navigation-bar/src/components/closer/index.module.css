@@ -19,7 +19,7 @@
 
     &.mobile {
         background: var(--color-light-specialbg-secondary-transparent);
-        color: var(--navigation-bar-closer-icon-button-mobile-color);
+        color: var(--navigation-bar-closer-mobile-color);
     }
 }
 
