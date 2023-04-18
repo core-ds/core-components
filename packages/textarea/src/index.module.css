@@ -8,30 +8,41 @@
     --textarea-l-min-height: var(--form-control-l-min-height);
     --textarea-xl-min-height: var(--form-control-xl-min-height);
 
-    /* padding-top */
-    --textarea-s-padding-top: 14px;
-    --textarea-m-padding-top: 18px;
-    --textarea-l-padding-top: 22px;
-    --textarea-xl-padding-top: 24px;
+    /* spacer */
+    --textarea-spacer-style: solid transparent;
+    --textarea-s-spacer: 14px;
+    --textarea-m-spacer: 18px;
+    --textarea-l-spacer: 22px;
+    --textarea-xl-spacer: 24px;
 
-    /* filled margin-top */
-    --textarea-s-filled-margin-top: 23px;
-    --textarea-m-filled-margin-top: 28px;
-    --textarea-l-filled-margin-top: 32px;
-    --textarea-xl-filled-margin-top: 38px;
+    /* filled spacer-top */
+    --textarea-s-filled-spacer-top: 24px;
+    --textarea-m-filled-spacer-top: 24px;
+    --textarea-l-filled-spacer-top: 32px;
+    --textarea-xl-filled-spacer-top: 34px;
+
+    /* filled spacer-bottom */
+    --textarea-s-filled-spacer-bottom: 4px;
+    --textarea-m-filled-spacer-bottom: 8px;
+    --textarea-l-filled-spacer-bottom: 12px;
+    --textarea-xl-filled-spacer-bottom: 14px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
-        var(--textarea-s-min-height) - var(--textarea-s-filled-margin-top)
+        var(--textarea-s-min-height) - var(--textarea-s-filled-spacer-top) -
+            var(--textarea-s-filled-spacer-bottom)
     );
     --textarea-m-filled-min-height: calc(
-        var(--textarea-m-min-height) - var(--textarea-m-filled-margin-top)
+        var(--textarea-m-min-height) - var(--textarea-m-filled-spacer-top) -
+            var(--textarea-m-filled-spacer-bottom)
     );
     --textarea-l-filled-min-height: calc(
-        var(--textarea-l-min-height) - var(--textarea-l-filled-margin-top)
+        var(--textarea-l-min-height) - var(--textarea-l-filled-spacer-top) -
+            var(--textarea-l-filled-spacer-bottom)
     );
     --textarea-xl-filled-min-height: calc(
-        var(--textarea-xl-min-height) - var(--textarea-xl-filled-margin-top)
+        var(--textarea-xl-min-height) - var(--textarea-xl-filled-spacer-top) -
+            var(--textarea-xl-filled-spacer-bottom)
     );
 }
 
@@ -48,25 +59,7 @@
     box-sizing: border-box;
     resize: none;
     -webkit-appearance: none;
-    &.s {
-        padding-top: var(--textarea-s-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.m {
-        padding-top: var(--textarea-m-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.l {
-        padding-top: var(--textarea-l-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
-
-    &.xl {
-        padding-top: var(--textarea-xl-padding-top);
-        padding-bottom: var(--gap-xs);
-    }
+    height: inherit;
 }
 
 .customScrollbar {
@@ -79,10 +72,6 @@
 
 .hasInnerLabel::placeholder {
     opacity: 0;
-}
-
-.resizeVertical {
-    resize: vertical;
 }
 
 .pseudoTextarea {
@@ -112,41 +101,23 @@
     @mixin form-control-sub;
 }
 
-/* SIZES */
-
-.textarea {
-    &.s {
-        min-height: var(--textarea-s-min-height);
-    }
-
-    &.m {
-        min-height: var(--textarea-m-min-height);
-    }
-
-    &.l {
-        min-height: var(--textarea-l-min-height);
-    }
-
-    &.xl {
-        min-height: var(--textarea-xl-min-height);
-    }
+.textarea.hasInnerLabel.hasInnerLabel {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* DISABLED STATE */
-
 .textarea:disabled {
     cursor: var(--disabled-cursor);
     opacity: 1;
 }
 
 /* READ-ONLY STATE */
-
 .textarea:read-only {
     cursor: var(--disabled-cursor);
 }
 
 /* FOCUS STATE */
-
 .textarea:focus.hasInnerLabel::placeholder {
     opacity: 1;
 }
@@ -156,50 +127,89 @@
 }
 
 /* FILLED STATE */
-
 .textarea.filled.hasInnerLabel {
     padding-top: 0;
-
     &.s {
-        margin-top: var(--textarea-s-filled-margin-top);
         min-height: var(--textarea-s-filled-min-height);
-        height: var(--textarea-s-filled-min-height);
     }
-
     &.m {
-        margin-top: var(--textarea-m-filled-margin-top);
         min-height: var(--textarea-m-filled-min-height);
-        height: var(--textarea-m-filled-min-height);
     }
-
     &.l {
-        margin-top: var(--textarea-l-filled-margin-top);
         min-height: var(--textarea-l-filled-min-height);
-        height: var(--textarea-l-filled-min-height);
     }
-
     &.xl {
-        margin-top: var(--textarea-xl-filled-margin-top);
         min-height: var(--textarea-xl-filled-min-height);
-        height: var(--textarea-xl-filled-min-height);
     }
 }
 
 /* Correct pseudoTextarea size */
 .pseudoTextarea.filled.hasInnerLabel {
     &.s {
-        height: calc(100% - var(--textarea-s-filled-margin-top));
+        min-height: calc(100% - var(--textarea-s-filled-spacer-top));
     }
 
     &.m {
-        height: calc(100% - var(--textarea-m-filled-margin-top));
+        min-height: calc(100% - var(--textarea-m-filled-spacer-top));
     }
 
     &.l {
-        height: calc(100% - var(--textarea-l-filled-margin-top));
+        min-height: calc(100% - var(--textarea-l-filled-spacer-top));
     }
 
     &.xl {
-        height: calc(100% - var(--textarea-xl-filled-margin-top));
+        min-height: calc(100% - var(--textarea-xl-filled-spacer-top));
+    }
+}
+
+.wrapper {
+    &.resizeVertical {
+        resize: vertical;
+        min-height: 48px;
+    }
+}
+
+/* Border нужен для того чтобы растянуть textarea на всю высоту FormControl , если заменить на padding, то лейбл не будет кликабельный */
+.textarea {
+    &.s {
+        border-top: var(--textarea-s-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-s-spacer) var(--textarea-spacer-style);
+    }
+
+    &.m {
+        border-top: var(--textarea-m-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-m-spacer) var(--textarea-spacer-style);
+    }
+
+    &.l {
+        border-top: var(--textarea-l-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-l-spacer) var(--textarea-spacer-style);
+    }
+
+    &.xl {
+        border-top: var(--textarea-xl-spacer) var(--textarea-spacer-style);
+        border-bottom: var(--textarea-xl-spacer) var(--textarea-spacer-style);
+    }
+
+    &.hasInnerLabel {
+        &.s {
+            border-top: var(--textarea-s-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-s-filled-spacer-bottom) var(--textarea-spacer-style);
+        }
+
+        &.m {
+            border-top: var(--textarea-m-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-m-filled-spacer-bottom) var(--textarea-spacer-style);
+        }
+
+        &.l {
+            border-top: var(--textarea-l-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-l-filled-spacer-bottom) var(--textarea-spacer-style);
+        }
+
+        &.xl {
+            border-top: var(--textarea-xl-filled-spacer-top) var(--textarea-spacer-style);
+            border-bottom: var(--textarea-xl-filled-spacer-bottom) var(--textarea-spacer-style);
+        }
     }
 }

@@ -9,7 +9,7 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
       class="inner inner filled"
     >
       <div
-        class="inputWrapper"
+        class="inputWrapper wrapper s"
       >
         <div
           class="input"
@@ -37,7 +37,7 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
       class="inner inner filled"
     >
       <div
-        class="inputWrapper"
+        class="inputWrapper wrapper s"
       >
         <div
           class="input"
@@ -70,7 +70,7 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
       class="inner inner filled"
     >
       <div
-        class="inputWrapper"
+        class="inputWrapper wrapper s"
       >
         <div
           class="input"
@@ -98,7 +98,7 @@ exports[`Textarea Snapshots tests should match snapshot with default counter 1`]
       class="inner inner filled"
     >
       <div
-        class="inputWrapper"
+        class="inputWrapper wrapper s"
       >
         <div
           class="input"

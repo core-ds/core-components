@@ -134,9 +134,12 @@ describe('Textarea', () => {
         });
 
         it('should set `resizeVertical` class', () => {
-            render(<Textarea resize='vertical' />);
+            const { container } = render(<Textarea resize='vertical' />);
 
-            expect(screen.getByRole('textbox')).toHaveClass('resizeVertical');
+            const inner = container.firstElementChild as HTMLElement;
+            const inputWrapper = inner.firstElementChild as HTMLElement;
+
+            expect(inputWrapper.firstElementChild).toHaveClass('resizeVertical');
         });
 
         it('should set `disabled` attribute', () => {
