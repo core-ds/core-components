@@ -1,3 +1,36 @@
+## 41.1.0
+
+<sup><time>18.04.2023</time></sup>
+
+### [#618](https://github.com/core-ds/core-components/pull/618)
+
+#### Что изменилось
+- Исправлено скругление рамки при использовании `view="hint"`
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+### [#628](https://github.com/core-ds/core-components/pull/628)
+
+#### Что изменилось
+- Добавлена переменная --navigation-bar-closer-mobile-color для управления цветом мобильной версии Closer.
+- Добавлена темизация click мобильной версии Closer
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar` `themes`
+
+
+### [#613](https://github.com/core-ds/core-components/pull/613)
+
+#### Что изменилось
+- Обновлен дизайн в компоненте Textarea
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `textarea`
+
+
+
 ## 41.0.1
 
 <sup><time>17.04.2023</time></sup>
