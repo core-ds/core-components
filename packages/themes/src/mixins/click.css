@@ -19,6 +19,7 @@
 @import './select/click.css';
 @import './progress-bar/click.css';
 @import './icon-view/click.css';
+@import './system-message/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -45,4 +46,5 @@
     @mixin icon-button-click;
     @mixin circular-progress-bar-click;
     @mixin icon-view-click;
+    @mixin system-message-click;
 }
