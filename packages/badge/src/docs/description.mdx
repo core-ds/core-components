@@ -11,7 +11,7 @@ const styles = {
     justifyContent: 'space-between', 
     width: 233, 
     padding: 20, 
-    backgroundColor: 'rgba(243, 244, 245, 1)', 
+    backgroundColor: 'var(--color-light-bg-secondary)', 
     borderRadius: '12px', 
     boxSizing: 'border-box' 
 }
@@ -58,14 +58,14 @@ render(
 Компонент доступен в трёх размерах, при этом сама иконка имеет охранные области и занимает чуть меньший объем, чем сам контейнер. 
 Чтобы заполнить отведённый объем полностью, используются пропсы с обводками `visibleIconOutline` и `visibleColorOutline`. 
 Рекомендуется использовать только представленные ниже пресеты. 
-Это полный список используемых в интерфейсах статусов сконфигурированный для корректного отображения в light и dark режимах.
+Это полный список используемых в интерфейсах статусов, сконфигурированный для корректного отображения в light и dark режимах.
 
 ```jsx live
 const styles = {
     display: 'flex', 
     justifyContent: 'space-between', 
     padding: 20, 
-    backgroundColor: 'rgba(243, 244, 245, 1)', 
+    backgroundColor: 'var(--color-light-bg-secondary)', 
     borderRadius: '12px', 
     boxSizing: 'border-box' 
 }
