@@ -104,3 +104,41 @@ describe(
         },
     }),
 );
+
+describe(
+    'Calendar | shape and dayAddons props',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Calendar',
+                    size: { width: 350, height: 400 },
+                    knobs: {
+                        month: [1613310391747],
+                        value: 1613310391747,
+                        selectorView: 'month-only',
+                        shape: 'rectangular',
+                    },
+                    mockDate: 1613310391747,
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Calendar',
+                    size: { width: 350, height: 400 },
+                    knobs: {
+                        month: [1613310391747],
+                        value: 1613310391747,
+                        selectorView: 'month-only',
+                        shape: 'rectangular',
+                        dayAddons: [[{ date: 1613310391747, addon: 100 }]],
+                    },
+                    mockDate: 1613310391747,
+                }),
+            ],
+        ],
+        screenshotOpts: { clip: { x: 0, y: 0, width: 600, height: 600 } },
+    }),
+);
