@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef, RefObject } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, ReactNode, RefObject, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
