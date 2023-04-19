@@ -229,7 +229,7 @@ export type BottomSheetProps = {
      * По-умолчанию -[0, window.innerHeight - '24px']
      * массив должен состоять минимум из 2 элементов
      */
-    magneticAreas?: number[];
+    magneticAreas?: Array<number | string>;
 
     /**
      * Индекс точки из magneticAreas, к которому нужно примагнититься при первом открытии шторки.
