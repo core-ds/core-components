@@ -90,6 +90,28 @@ describe('Badge', () => {
             const { getByTestId } = render(<Badge view='count' dataTestId={dataTestId} />);
             expect(getByTestId(dataTestId).firstElementChild).toHaveClass('dot');
         });
+
+        it('should set `grey` class', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Badge
+                    view='count'
+                    color='specialbg-secondary-transparent'
+                    dataTestId={dataTestId}
+                />,
+            );
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass(
+                'background-specialbg-secondary-transparent',
+            );
+        });
+
+        it('should set `lightGraphicPrimary` class', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Badge view='count' iconUnderlayColor='primary' dataTestId={dataTestId} />,
+            );
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('graphic-primary');
+        });
     });
 
     it('should contain `99+` if content is bigger than 99', () => {

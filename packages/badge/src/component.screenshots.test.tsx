@@ -48,6 +48,42 @@ describe(
 );
 
 describe(
+    'Badge | screenshots view=`count` and props `color`',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Badge',
+                    knobs: {
+                        view: 'count',
+                        height: [24],
+                        content: [undefined, 1, 99, 100],
+                        color: 'specialbg-secondary-transparent',
+                    },
+                }),
+            ],
+            [
+                'sprite-inverted',
+                createSpriteStorybookUrl({
+                    componentName: 'Badge',
+                    inverted: true,
+                    knobs: {
+                        view: 'count',
+                        height: [24],
+                        content: [undefined, 1, 99, 100],
+                        color: 'primary',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 1000, height: 150 },
+        },
+    }),
+);
+
+describe(
     'Badge | screenshots view=`icon`',
     screenshotTesting({
         cases: generateTestCases({

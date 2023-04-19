@@ -25,7 +25,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
                 data-test-id="badge"
               >
                 <div
-                  class="component m icon positive"
+                  class="component m icon background-accent graphic-static-light positive"
                 >
                   <svg
                     class="badgeIcon"

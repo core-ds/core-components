@@ -1,248 +1,117 @@
-## Виды бейджей
+## Счётчик
 
-### Бейдж
-
-`view="count"`
-
-Счётчик действий, уведомлений или сообщений. Если `content` не передан, то отображается точка.
-Если `content` больше 99, то отображается 99+.
+Подстраивает свой размер в зависимости от переданного параметра `height` и переданного `content`. 
+В качестве контента принимает целые положительные числа. 
+Если контент не передан отображается точка, если передано значение больше 99, то отображается 99+. 
+Доступно три цвета фона и возможность добавить белую внутреннюю обводку.
 
 ```jsx live
-<Container>
-    <Row style={{ padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '16px 16px 0 0 ' }}>
-        <Col>
+const styles = {
+    display: 'flex', 
+    justifyContent: 'space-between', 
+    width: 233, 
+    padding: 20, 
+    backgroundColor: 'var(--color-light-bg-secondary)', 
+    borderRadius: '12px', 
+    boxSizing: 'border-box' 
+}
+
+render(
+    <Container>
+        <div style={styles}>
             <Badge view='count' />
-        </Col>
-        <Col>
             <Badge view='count' content={1} />
-        </Col>
-        <Col>
-            <Badge view='count' content={100} />
-        </Col>
-    </Row>
-    <Row style={{ marginTop: 0, padding: 11, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '0 0 16px 16px'}}>
-        <Col>
-            <Badge view='count' visibleIconOutline='true' />
-        </Col>
-        <Col>
-            <Badge view='count' content={1} visibleIconOutline='true'/>
-        </Col>
-        <Col>
-            <Badge view='count' content={100} visibleIconOutline='true'/>
-        </Col>
-    </Row>
-</Container>
+            <Badge height={24} view='count' content={1} />
+            <Badge height={24} view='count' content={99} />
+            <Badge height={24} view='count' content={100} />
+        </div>
+        <Gap size='xs'/>
+        <div style={styles}>
+            <Badge view='count' visibleIconOutline={true} />
+            <Badge view='count' content={1} visibleIconOutline={true} />
+            <Badge height={24} view='count' content={1} visibleIconOutline={true} />
+            <Badge height={24} view='count' content={99} visibleIconOutline={true} />
+            <Badge height={24} view='count' content={100} visibleIconOutline={true} />
+        </div>
+        <Gap size='xs'/>
+        <div style={styles}>
+            <Badge view='count' color='specialbg-secondary-transparent' />
+            <Badge view='count' content={1} color='specialbg-secondary-transparent' />
+            <Badge height={24} view='count' content={1} color='specialbg-secondary-transparent' />
+            <Badge height={24} view='count' content={99} color='specialbg-secondary-transparent' />
+            <Badge height={24} view='count' content={100} color='specialbg-secondary-transparent' />
+        </div>
+        <Gap size='xs'/>
+        <div style={styles}>
+            <Badge view='count' color='primary' />
+            <Badge view='count' content={1} color='primary' />
+            <Badge height={24} view='count' content={1} color='primary' />
+            <Badge height={24} view='count' content={99} color='primary' />
+            <Badge height={24} view='count' content={100} color='primary' />
+        </div>
+    </Container>
+);
 ```
 
-### Стикер
+## Иконка статуса
 
-`view="icon"`
-
-Размеры иконки 's', 'm', 'xl' с белой и цветной обводкой.
-
-```jsx live
-<Container>
-    <Row style={{ padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '16px 16px 0 0 '  }}>
-        <Col>
-            <Badge view='icon' size='s' iconColor='positive' content={<CheckmarkCircleSIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' size='m' iconColor='positive' content={<CheckmarkCircleMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' size='xl' iconColor='positive' content={<CheckmarkCircleMIcon />} />
-        </Col>
-    </Row>
-    <Row style={{ marginTop: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' }}>
-        <Col>
-            <Badge view='icon' size='s' iconColor='positive' content={<CheckmarkCircleSIcon />} visibleIconOutline='true' />
-        </Col>
-        <Col>
-            <Badge view='icon' size='m' iconColor='positive' content={<CheckmarkCircleMIcon />} visibleIconOutline='true'/>
-        </Col>
-        <Col>
-            <Badge view='icon' size='xl' iconColor='positive' content={<CheckmarkCircleMIcon />} visibleIconOutline='true'/>
-        </Col>
-    </Row>
-     <Row style={{ marginTop: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '0 0 16px 16px '  }}>
-        <Col>
-            <Badge view='icon' size='s' iconColor='positive' content={<CheckmarkCircleSIcon />} visibleColorOutline='true' />
-        </Col>
-        <Col>
-            <Badge view='icon' size='m' iconColor='positive' content={<CheckmarkCircleMIcon />} visibleColorOutline='true'/>
-        </Col>
-        <Col>
-            <Badge view='icon' size='xl' iconColor='positive' content={<CheckmarkCircleMIcon />} visibleColorOutline='true'/>
-        </Col>
-    </Row>
-</Container>
-```
-
-Отражает иконку статуса. Внутри стикера используется любая круглая одноцветная иконка.
-Для управления цветом иконки используется проп `iconColor`, для управления цветом подложки используется css-переменная
-`--badge-icon-bg-color` (по дефолту белый).
+Компонент доступен в трёх размерах, при этом сама иконка имеет охранные области и занимает чуть меньший объем, чем сам контейнер. 
+Чтобы заполнить отведённый объем полностью, используются пропсы с обводками `visibleIconOutline` и `visibleColorOutline`. 
+Рекомендуется использовать только представленные ниже пресеты. 
+Это полный список используемых в интерфейсах статусов, сконфигурированный для корректного отображения в light и dark режимах.
 
 ```jsx live
-// import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+const styles = {
+    display: 'flex', 
+    justifyContent: 'space-between', 
+    padding: 20, 
+    backgroundColor: 'var(--color-light-bg-secondary)', 
+    borderRadius: '12px', 
+    boxSizing: 'border-box' 
+}
 
-<Container>
-    <Row style={{ margin: 0, padding: 12, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '16px 16px 0 0 ' }}>
-        <Col>
+render(
+    <Container>
+        <div style={{width: 372, ...styles}}>
+            <Badge view='icon' iconColor='positive' visibleColorOutline='true' content={<CheckmarkCircleMIcon />} />
+            <Badge view='icon' iconColor='negative' visibleColorOutline='true' content={<AlertCircleMIcon />} />
+            <Badge view='icon' iconColor='negative' visibleColorOutline='true' content={<CrossCircleMIcon />} />
+            <Badge view='icon' iconColor='negative' visibleColorOutline='true' content={<StopCircleMIcon />} />
+            <Badge view='icon' iconColor='attention' visibleColorOutline='true' content={<AlertCircleMIcon />} />
+            <Badge view='icon' iconColor='secondary' visibleColorOutline='true' content={<CrossCircleMIcon />} />
+            <Badge view='icon' iconColor='secondary' visibleColorOutline='true' content={<InformationCircleMIcon />} />
+            <Badge view='icon' iconColor='secondary' visibleColorOutline='true' content={<ClockMIcon />} />
+        </div>
+        <Gap size='xs'/>
+        <div style={{width: 152, ...styles}}> 
+            <Badge view='icon' iconColor='positive' visibleColorOutline='true' content={<CheckmarkCircleMIcon />} />
+            <Badge view='icon' iconColor='positive' visibleIconOutline='true' content={<CheckmarkCircleMIcon />} />
             <Badge view='icon' iconColor='positive' content={<CheckmarkCircleMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' iconColor='negative' content={<CrossCircleMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' iconColor='negative' content={<StopCircleMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' iconColor='secondary' content={<ClockMIcon />} />
-        </Col>
-        <Col>
-            <Badge view='icon' iconColor='secondary' content={<CrossCircleMIcon />} />
-        </Col>
-    </Row>
-    <Row style={{ margin: 0, padding: 12, paddingTop: 0, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)' }}>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='positive'
-                content={<CheckmarkCircleMIcon />}
+        </div>
+        <Gap size='xs'/>
+        <div style={{width: 164, ...styles}}> 
+            <Badge 
+                view='icon' 
+                size='xl' 
+                iconColor='positive' 
+                visibleColorOutline='true' 
+                content={<CheckmarkCircleMIcon />} 
             />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='attention'
-                content={<AlertCircleMIcon />}
+            <Badge 
+                view='icon' 
+                size='m' 
+                iconColor='positive' 
+                visibleColorOutline='true' 
+                content={<CheckmarkCircleMIcon />} 
             />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='negative'
-                content={<AlertCircleMIcon />}
+            <Badge 
+                view='icon' 
+                size='s' 
+                iconColor='positive' 
+                visibleColorOutline='true' 
+                content={<CheckmarkCircleSIcon />} 
             />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='negative'
-                content={<CrossCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='negative'
-                content={<StopCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='secondary'
-                content={<InformationCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='secondary'
-                content={<ClockMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleIconOutline={true}
-                iconColor='secondary'
-                content={<CrossCircleMIcon />}
-            />
-        </Col>
-    </Row>
-    <Row style={{ margin: 0, padding: 12, paddingTop: 0, backgroundColor: 'rgb(22%, 47%, 98%, 0.1)', borderRadius: '0 0 16px 16px ' }}>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='positive'
-                content={<CheckmarkCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='attention'
-                content={<AlertCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='negative'
-                content={<AlertCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='negative'
-                content={<CrossCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='negative'
-                content={<StopCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='secondary'
-                content={<InformationCircleMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='secondary'
-                content={<ClockMIcon />}
-            />
-        </Col>
-        <Col>
-            <Badge
-                view='icon'
-                visibleColorOutline={true}
-                iconColor='secondary'
-                content={<CrossCircleMIcon />}
-            />
-        </Col>
-    </Row>
-</Container>
+        </div>
+    </Container>
+);
 ```

@@ -44,6 +44,24 @@ export type BorderColorType =
     | 'specialbg-tertiary-transparent'
     | 'specialbg-tertiary-transparent-inverted';
 
+export type GraphicColorType =
+    | 'accent'
+    | 'link'
+    | 'attention'
+    | 'positive'
+    | 'negative'
+    | 'primary'
+    | 'primary-inverted'
+    | 'secondary'
+    | 'secondary-inverted'
+    | 'tertiary'
+    | 'tertiary-inverted'
+    | 'quaternary'
+    | 'quaternary-inverted'
+    | 'static-light'
+    | 'static-accent'
+    | 'static-dark';
+
 export type ShadowType =
     | 'shadow-xs'
     | 'shadow-s'

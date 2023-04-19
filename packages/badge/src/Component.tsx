@@ -1,7 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { BackgroundColorType, GraphicColorType } from '../../types';
+
 import styles from './index.module.css';
+
+export type IconColorType = Extract<
+    GraphicColorType,
+    'positive' | 'attention' | 'link' | 'negative' | 'tertiary' | 'secondary' | 'primary'
+>;
 
 export type BadgeProps = {
     /**
@@ -41,16 +48,19 @@ export type BadgeProps = {
     height?: number;
 
     /**
-     * Цветовое оформление иконки
+     * Цветовое оформление бейджа при view='count'
      */
-    iconColor?:
-        | 'positive'
-        | 'attention'
-        | 'link'
-        | 'negative'
-        | 'tertiary'
-        | 'secondary'
-        | 'primary';
+    color?: Extract<BackgroundColorType, 'accent' | 'primary' | 'specialbg-secondary-transparent'>;
+
+    /**
+     * Цветовое оформление бейджа при view='icon'
+     */
+    iconColor?: IconColorType;
+
+    /**
+     * Цвет подложки под иконкой
+     */
+    iconUnderlayColor?: Extract<GraphicColorType, 'primary' | 'static-light'>;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -68,6 +78,8 @@ export const Badge = ({
     content,
     height = 16,
     iconColor,
+    color = 'accent',
+    iconUnderlayColor = 'static-light',
     dataTestId,
 }: BadgeProps) => {
     const isCountView = view === 'count';
@@ -87,7 +99,7 @@ export const Badge = ({
                 iconColor && styles[iconColor],
                 {
                     [styles[size]]: !isCountView,
-                    [styles.outline]: visibleIconOutline,
+                    [styles.outline]: !isCountView && visibleIconOutline,
                     [styles.outlineColor]: !isCountView && visibleColorOutline,
                     [styles.count]: isCountView,
                 },
@@ -100,6 +112,8 @@ export const Badge = ({
                     styles.component,
                     styles[size],
                     styles[view],
+                    styles[`background-${color}`],
+                    styles[`graphic-${iconUnderlayColor}`],
                     iconColor && styles[iconColor],
                     isHeightS && styles.heightS,
                     isHeightM && styles.heightM,
