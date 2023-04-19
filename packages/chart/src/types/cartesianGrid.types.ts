@@ -12,7 +12,7 @@ export interface CartesianGridProps {
     /**
      * Штрихи для осей
      */
-    strokeDashArray?: string;
+    strokeDasharray?: string;
 
     /**
      * Цвет разметки сетки
