@@ -77,29 +77,31 @@ export const POSITION_OPTIONS = [
         const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
         const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
         return (
-            <Select
-                block={block}
-                size={size}
-                disabled={disabled}
-                error={error}
-                hint={hint}
-                options={options}
-                multiple={multiple}
-                onChange={handleChange}
-                selected={selected}
-                allowUnselect={allowUnselect}
-                closeOnSelect={closeOnSelect}
-                Arrow={Arrow}
-                circularNavigation={circularNavigation}
-                nativeSelect={nativeSelect}
-                placeholder={placeholder}
-                label={label}
-                labelView={labelView}
-                visibleOptions={visibleOptions}
-                defaultOpen={defaultOpen}
-                popoverPosition={popoverPosition}
-                optionsListWidth={optionsListWidth}
-            />
+            <div style={{backgroundColor: 'transparent'}}>
+                <Select
+                    block={block}
+                    size={size}
+                    disabled={disabled}
+                    error={error}
+                    hint={hint}
+                    options={options}
+                    multiple={multiple}
+                    onChange={handleChange}
+                    selected={selected}
+                    allowUnselect={allowUnselect}
+                    closeOnSelect={closeOnSelect}
+                    Arrow={Arrow}
+                    circularNavigation={circularNavigation}
+                    nativeSelect={nativeSelect}
+                    placeholder={placeholder}
+                    label={label}
+                    labelView={labelView}
+                    visibleOptions={visibleOptions}
+                    defaultOpen={defaultOpen}
+                    popoverPosition={popoverPosition}
+                    optionsListWidth={optionsListWidth}
+                />
+            </div>
         );
     })}
 </Story>
@@ -126,26 +128,28 @@ export const POSITION_OPTIONS = [
         const defaultOpen = boolean('defaultOpen', false);
         const swipeable = boolean('swipeable', true);
         return (
-            <SelectMobile
-                block={block}
-                size={size}
-                disabled={disabled}
-                error={error}
-                hint={hint}
-                options={options}
-                multiple={multiple}
-                onChange={handleChange}
-                selected={selected}
-                allowUnselect={allowUnselect}
-                closeOnSelect={closeOnSelect}
-                Arrow={Arrow}
-                circularNavigation={circularNavigation}
-                placeholder={placeholder}
-                label={label}
-                labelView={labelView}
-                defaultOpen={defaultOpen}
-                swipeable={swipeable}
-            />
+            <div style={{backgroundColor: 'transparent'}}>
+                <SelectMobile
+                    block={block}
+                    size={size}
+                    disabled={disabled}
+                    error={error}
+                    hint={hint}
+                    options={options}
+                    multiple={multiple}
+                    onChange={handleChange}
+                    selected={selected}
+                    allowUnselect={allowUnselect}
+                    closeOnSelect={closeOnSelect}
+                    Arrow={Arrow}
+                    circularNavigation={circularNavigation}
+                    placeholder={placeholder}
+                    label={label}
+                    labelView={labelView}
+                    defaultOpen={defaultOpen}
+                    swipeable={swipeable}
+                />
+            </div>
         );
     })}
 </Story>
@@ -175,29 +179,31 @@ export const POSITION_OPTIONS = [
         const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
         const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
         return (
-            <SelectResponsive
-                block={block}
-                size={size}
-                disabled={disabled}
-                error={error}
-                hint={hint}
-                options={options}
-                multiple={multiple}
-                onChange={handleChange}
-                selected={selected}
-                allowUnselect={allowUnselect}
-                closeOnSelect={closeOnSelect}
-                Arrow={Arrow}
-                circularNavigation={circularNavigation}
-                nativeSelect={nativeSelect}
-                placeholder={placeholder}
-                label={label}
-                labelView={labelView}
-                visibleOptions={visibleOptions}
-                defaultOpen={defaultOpen}
-                popoverPosition={popoverPosition}
-                optionsListWidth={optionsListWidth}
-            />
+            <div style={{backgroundColor: 'transparent'}}>
+                <SelectResponsive
+                    block={block}
+                    size={size}
+                    disabled={disabled}
+                    error={error}
+                    hint={hint}
+                    options={options}
+                    multiple={multiple}
+                    onChange={handleChange}
+                    selected={selected}
+                    allowUnselect={allowUnselect}
+                    closeOnSelect={closeOnSelect}
+                    Arrow={Arrow}
+                    circularNavigation={circularNavigation}
+                    nativeSelect={nativeSelect}
+                    placeholder={placeholder}
+                    label={label}
+                    labelView={labelView}
+                    visibleOptions={visibleOptions}
+                    defaultOpen={defaultOpen}
+                    popoverPosition={popoverPosition}
+                    optionsListWidth={optionsListWidth}
+                />
+            </div>    
         );
     })}
 </Story>
@@ -224,25 +230,27 @@ export const POSITION_OPTIONS = [
         const defaultOpen = boolean('defaultOpen', false);
         const swipeable = boolean('swipeable', true);
         return (
-            <SelectModalMobile
-                block={block}
-                size={size}
-                disabled={disabled}
-                error={error}
-                hint={hint}
-                options={options}
-                multiple={multiple}
-                onChange={handleChange}
-                selected={selected}
-                allowUnselect={allowUnselect}
-                closeOnSelect={closeOnSelect}
-                Arrow={Arrow}
-                circularNavigation={circularNavigation}
-                placeholder={placeholder}
-                label={label}
-                labelView={labelView}
-                defaultOpen={defaultOpen}
-            />
+            <div style={{backgroundColor: 'transparent'}}>
+                <SelectModalMobile
+                    block={block}
+                    size={size}
+                    disabled={disabled}
+                    error={error}
+                    hint={hint}
+                    options={options}
+                    multiple={multiple}
+                    onChange={handleChange}
+                    selected={selected}
+                    allowUnselect={allowUnselect}
+                    closeOnSelect={closeOnSelect}
+                    Arrow={Arrow}
+                    circularNavigation={circularNavigation}
+                    placeholder={placeholder}
+                    label={label}
+                    labelView={labelView}
+                    defaultOpen={defaultOpen}
+                />
+            </div>    
         );
     })}
 </Story>
