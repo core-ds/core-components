@@ -236,7 +236,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const setCountryByDialCode = (inputValue: string) => {
             const country = getCountryByNumber(inputValue);
 
-            changePhone(addCountryCode(inputValue));
+            changePhone(addCountryCode(inputValue), country?.iso2);
             if (country) {
                 setCountryIso2(country.iso2);
                 handleCountryChange(country.iso2);
