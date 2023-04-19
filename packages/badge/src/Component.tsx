@@ -1,7 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { BackgroundColorType, GraphicColorType } from '../../types';
+
 import styles from './index.module.css';
+
+export type IconColorType = Extract<
+    GraphicColorType,
+    'positive' | 'attention' | 'link' | 'negative' | 'tertiary' | 'secondary' | 'primary'
+>;
 
 export type BadgeProps = {
     /**
@@ -43,24 +50,17 @@ export type BadgeProps = {
     /**
      * Цветовое оформление бейджа при view='count'
      */
-    color?: 'red' | 'grey' | 'white';
+    color?: Extract<BackgroundColorType, 'accent' | 'primary' | 'specialbg-secondary-transparent'>;
 
     /**
      * Цветовое оформление бейджа при view='icon'
      */
-    iconColor?:
-        | 'positive'
-        | 'attention'
-        | 'link'
-        | 'negative'
-        | 'tertiary'
-        | 'secondary'
-        | 'primary';
+    iconColor?: IconColorType;
 
     /**
      * Цвет подложки под иконкой
      */
-    iconUnderlayColor?: 'staticGraphicLight' | 'lightGraphicPrimary';
+    iconUnderlayColor?: Extract<GraphicColorType, 'primary' | 'static-light'>;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -78,8 +78,8 @@ export const Badge = ({
     content,
     height = 16,
     iconColor,
-    color = 'red',
-    iconUnderlayColor = 'staticGraphicLight',
+    color = 'accent',
+    iconUnderlayColor = 'static-light',
     dataTestId,
 }: BadgeProps) => {
     const isCountView = view === 'count';
@@ -112,8 +112,8 @@ export const Badge = ({
                     styles.component,
                     styles[size],
                     styles[view],
-                    styles[color],
-                    styles[iconUnderlayColor],
+                    styles[`background-${color}`],
+                    styles[`graphic-${iconUnderlayColor}`],
                     iconColor && styles[iconColor],
                     isHeightS && styles.heightS,
                     isHeightM && styles.heightM,

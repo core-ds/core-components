@@ -27,7 +27,7 @@ import Changelog from '../../CHANGELOG.md';
                       size: select('size', ['s', 'm', 'l'], 'm'),
                       height: number('height', 16),
                       visibleIconOutline: boolean('visibleIconOutline', false),
-                      color: select('color', ['red', 'gray', 'white'], 'red'),
+                      color: select('color', ['accent' , 'primary' , 'specialbg-secondary-transparent'], 'accent'),
                   }
                 : {
                       view,
@@ -50,8 +50,8 @@ import Changelog from '../../CHANGELOG.md';
                       ),
                       iconUnderlayColor: select(
                           'iconUnderlayColor',
-                          ['staticGraphicLight', 'lightGraphicPrimary'],
-                          'staticGraphicLight',
+                          ['static-light', 'primary'],
+                          'static-light',
                       ),
                   };
         return (

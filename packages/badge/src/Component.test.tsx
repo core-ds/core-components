@@ -94,21 +94,23 @@ describe('Badge', () => {
         it('should set `grey` class', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <Badge view='count' color='grey' dataTestId={dataTestId} />,
+                <Badge
+                    view='count'
+                    color='specialbg-secondary-transparent'
+                    dataTestId={dataTestId}
+                />,
             );
-            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('grey');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass(
+                'background-specialbg-secondary-transparent',
+            );
         });
 
         it('should set `lightGraphicPrimary` class', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <Badge
-                    view='count'
-                    iconUnderlayColor='lightGraphicPrimary'
-                    dataTestId={dataTestId}
-                />,
+                <Badge view='count' iconUnderlayColor='primary' dataTestId={dataTestId} />,
             );
-            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('lightGraphicPrimary');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('graphic-primary');
         });
     });
 

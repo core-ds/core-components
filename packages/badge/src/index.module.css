@@ -39,17 +39,17 @@
     border-radius: var(--border-radius-pill);
     overflow: hidden;
 
-    &.red {
+    &.background-accent {
         background-color: var(--color-light-bg-accent);
         color: var(--color-static-text-primary-light);
     }
 
-    &.grey {
+    &.background-specialbg-secondary-transparent {
         background-color: var(--color-light-specialbg-secondary-transparent);
         color: var(--color-light-text-primary);
     }
 
-    &.white {
+    &.background-primary {
         background-color: var(--color-light-bg-primary);
         color: var(--color-light-text-primary);
     }
@@ -171,11 +171,11 @@
     content: '';
 }
 
-.staticGraphicLight.icon:before {
+.graphic-static-light.icon:before {
     background-color: var(--color-static-graphic-light);
 }
 
-.lightGraphicPrimary.icon:before {
+.graphic-primary.icon:before {
     background-color: var(--color-light-graphic-primary);
 }
 
