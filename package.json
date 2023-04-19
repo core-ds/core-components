@@ -27,7 +27,7 @@
         "update-usages": "node ./tools/update-usages.js",
         "lint": "yarn lint:css && yarn lint:js",
         "lint:css": "stylelint ./packages/**/*.css",
-        "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
+        "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx --max-warnings 0",
         "test": "jest --watchAll=false --env=jsdom-sixteen",
         "test:screenshots": "./bin/run-screenshots.sh",
         "test:codemod": "jest --config=jest.codemod.config.js packages/codemod/",
