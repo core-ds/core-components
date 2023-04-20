@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.4.0
+
+### Minor Changes
+
+### [#631](https://github.com/core-ds/core-components/pull/631)
+
+Перевод Corp темы с indigo на bluetint
+Приведение компонентов Button, Input в Corp теме к default Core view
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.19
+
 ## 7.3.18
 
 ### Patch Changes
