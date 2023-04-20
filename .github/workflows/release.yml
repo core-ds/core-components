@@ -18,7 +18,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            core.setFailed('you don't have permission to run this workflow!');
+            core.setFailed("you don't have permission to run this workflow!");
 
       - uses: actions/checkout@v3
         with:
