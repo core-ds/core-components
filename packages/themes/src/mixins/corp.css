@@ -1,11 +1,9 @@
 @import './tabs/corp.css';
-@import './calendar-input/corp.css';
 @import './bottom-sheet/corp.css';
 @import './modal/corp.css';
 
 @define-mixin theme-corp {
     @mixin tabs-corp;
-    @mixin calendar-input-corp;
     @mixin bottom-sheet-corp;
     @mixin modal-corp;
 }
