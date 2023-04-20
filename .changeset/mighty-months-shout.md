@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-bottom-sheet': minor
+'@alfalab/core-components-bottom-sheet': patch
 ---
 
-Fixed magneticAreas type
+Исправлен тип magneticAreas
