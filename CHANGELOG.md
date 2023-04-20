@@ -1,3 +1,71 @@
+## 41.2.0
+
+<sup><time>20.04.2023</time></sup>
+
+### [#623](https://github.com/core-ds/core-components/pull/623)
+
+#### Что изменилось
+- Tокены 'dark' заменены на аналогичные 'light'
+
+#### Влияние на компоненты
+- Патчи<br />`filter-tag` `tag` `themes` `vars`
+
+
+### [#632](https://github.com/core-ds/core-components/pull/632)
+
+#### Что изменилось
+- Исправлено название свойства strokeDasharray (strokeDashArray -> strokeDasharray)
+
+#### Влияние на компоненты
+- Патчи<br />`chart`
+
+
+### [#630](https://github.com/core-ds/core-components/pull/630)
+
+#### Что изменилось
+- Исправлен тип magneticAreas
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#616](https://github.com/core-ds/core-components/pull/616)
+
+#### Что изменилось
+- Добавлены пропсы dayAddons - отвечает за дополнительный контент под числом, shape - форма ячейки дня (круглая или прямоугольная)
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#619](https://github.com/core-ds/core-components/pull/619)
+
+#### Что изменилось
+- Добавлена пропса colors отвечающая за смену default и inverted режимов
+
+#### Влияние на компоненты
+- Минорное<br />`stepped-progress-bar`
+
+
+### [#625](https://github.com/core-ds/core-components/pull/625)
+
+#### Что изменилось
+- Исправлен радиус скругления для прямоугольной формы компонента
+
+#### Влияние на компоненты
+- Патчи<br />`segmented-control`
+
+
+### [#621](https://github.com/core-ds/core-components/pull/621)
+
+#### Что изменилось
+- Добавлены пропсы color - цветовое оформление бейджа при view='count' и iconUnderlayColor - цвет подложки под иконкой
+
+#### Влияние на компоненты
+- Минорное<br />`badge`
+
+
+
 ## 41.1.0
 
 <sup><time>18.04.2023</time></sup>
