@@ -1,3 +1,18 @@
+## 41.3.0
+
+<sup><time>20.04.2023</time></sup>
+
+### [#631](https://github.com/core-ds/core-components/pull/631)
+
+#### Что изменилось
+Перевод Corp темы с indigo на bluetint
+Приведение компонентов Button, Input в Corp теме к default Core view
+
+#### Влияние на компоненты
+- Минорное<br />`button` `tabs` `themes` `vars`
+
+
+
 ## 41.2.0
 
 <sup><time>20.04.2023</time></sup>
