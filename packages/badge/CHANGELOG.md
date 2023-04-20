@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+### [#621](https://github.com/core-ds/core-components/pull/621)
+
+-   Добавлены пропсы color - цветовое оформление бейджа при view='count' и iconUnderlayColor - цвет подложки под иконкой
+
 ## 5.0.2
 
 ### Patch Changes

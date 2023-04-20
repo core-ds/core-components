@@ -1,5 +1,22 @@
 # Change Log
 
+## 11.3.0
+
+### Minor Changes
+
+### [#631](https://github.com/core-ds/core-components/pull/631)
+
+Перевод Corp темы с indigo на bluetint
+Приведение компонентов Button, Input в Corp теме к default Core view
+
+## 11.2.1
+
+### Patch Changes
+
+### [#623](https://github.com/core-ds/core-components/pull/623)
+
+-   Tокены 'dark' заменены на аналогичные 'light'
+
 ## 11.2.0
 
 ### Minor Changes

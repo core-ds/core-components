@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.3.1
+
+### Patch Changes
+
+### [#623](https://github.com/core-ds/core-components/pull/623)
+
+-   Tокены 'dark' заменены на аналогичные 'light'
+
 ## 5.3.0
 
 ### Minor Changes

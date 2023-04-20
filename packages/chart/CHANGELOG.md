@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.1.11
+
+### Patch Changes
+
+### [#632](https://github.com/core-ds/core-components/pull/632)
+
+-   Исправлено название свойства strokeDasharray (strokeDashArray -> strokeDasharray)
+
 ## 3.1.10
 
 ### Patch Changes

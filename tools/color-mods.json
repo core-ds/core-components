@@ -13,7 +13,7 @@
         "tint": [15, 20]
     },
     "light-bg-primary": {
-        "alpha": [4, 8, 12, 15, 16, 20, 32, 37, 40],
+        "alpha": [4, 8, 12, 15, 16, 20, 30, 32, 37, 40],
         "shade": [7, 15]
     },
     "light-bg-primary-inverted": {

@@ -1,5 +1,14 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+### [#631](https://github.com/core-ds/core-components/pull/631)
+
+Перевод Corp темы с indigo на bluetint
+Приведение компонентов Button, Input в Corp теме к default Core view
+
 ## 8.0.0
 
 ### Major Changes

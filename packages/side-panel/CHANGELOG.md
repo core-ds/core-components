@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.0.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.1.0
+    -   icon-button@6.0.10
+    -   navigation-bar@0.3.1
+
 ## 3.0.7
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+### [#619](https://github.com/core-ds/core-components/pull/619)
+
+-   Добавлена пропса colors отвечающая за смену default и inverted режимов
+
 ## 2.0.12
 
 ### Patch Changes

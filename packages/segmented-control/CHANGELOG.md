@@ -1,5 +1,13 @@
 # @alfalab/core-components-segmented-control
 
+## 1.0.2
+
+### Patch Changes
+
+### [#625](https://github.com/core-ds/core-components/pull/625)
+
+-   Исправлен радиус скругления для прямоугольной формы компонента
+
 ## 1.0.1
 
 ### Patch Changes

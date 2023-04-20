@@ -6,6 +6,7 @@ import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
 import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
+
 import styles from './index.module.css';
 
 type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
