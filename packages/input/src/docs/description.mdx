@@ -212,6 +212,106 @@ render(() => {
 });
 ```
 
+## Кликабельные аддоны
+
+Для кликабельных адоннов рекомендуем использовать увеличенную область нажатия.
+
+```jsx live
+render(() => {
+    const [isVisible, setIsVisible] = React.useState(false);
+    const [title, setTitle] = React.useState('');
+    const [valueOne, setValueOne] = React.useState('Value');
+    const [valueTwo, setValueTwo] = React.useState('Value');
+
+    const toggleVisiblity = () => setIsVisible(prev => !prev) ;
+    
+    const singleIcon = () => {
+        setTitle('Вы восхитительны!')
+        toggleVisiblity()
+    }
+    
+    const leftIcon = () => {
+        setTitle('Левая')
+        toggleVisiblity()
+    }
+    
+    const rightIcon = () => {
+        setTitle('Правая')
+        toggleVisiblity()
+    }
+    
+    const hideNotification = React.useCallback(() => setIsVisible(false), []);
+    
+    const styleWrapperIcon = {
+        minWidth: '48px',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 'var(--gap-s-neg)'
+    }
+    
+    const styleWrapperManyIcons = {
+        height: '100%',
+        display: 'flex',
+        marginRight: 'var(--gap-s-neg)'
+    }
+    
+    const styleManyIcons = {
+        minWidth: '36px',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'end',
+    }
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Input
+                value={valueOne}
+                block={true}
+                onChange={(e) => setValueOne(e.target.value)}
+                label='Label'
+                size='m'
+                rightAddons={
+                  <div 
+                    style={styleWrapperIcon} 
+                    onClick={singleIcon}>
+                      <DiamondsMIcon color='rgba(116, 116, 116, 1)'/>
+                  </div>
+                }
+            />
+            <Gap size='l'/>
+            <Input
+                value={valueTwo}
+                block={true}
+                onChange={(e) => setValueTwo(e.target.value)}
+                label='Label'
+                size='m'
+                rightAddons={
+                <div style={styleWrapperManyIcons} >
+                    <div  style={styleManyIcons} onClick={leftIcon}> 
+                        <DiamondsMIcon color='rgba(116, 116, 116, 1)'/>
+                    </div>
+                    <div style={{...styleManyIcons, justifyContent: 'start'}} onClick={rightIcon}> 
+                        <FlowerMIcon color='rgba(116, 116, 116, 1)'/> 
+                    </div>
+                </div>
+              }
+            />
+            <Notification
+                title={title}
+                visible={isVisible}
+                offset={180}
+                onCloseTimeout={hideNotification}
+                hasCloser={false}
+                autoCloseDelay={2000}
+            />
+        </div>
+    );
+})
+```
+
 ## Морфология
 
 Компонент является оберткой над [FormControl](?path=/docs/formcontrol--form-control), поэтому наследует все доступные для него настройки.

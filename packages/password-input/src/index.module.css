@@ -2,6 +2,7 @@
 
 .eye:last-child {
     margin-right: var(--gap-s-neg);
+    height: 100%;
 }
 
 .xl {
