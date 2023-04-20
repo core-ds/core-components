@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.1.4
+
+### Patch Changes
+
+### [#623](https://github.com/core-ds/core-components/pull/623)
+
+-   Tокены 'dark' заменены на аналогичные 'light'
+
+-   Обновлены зависимости
+    -   tag@5.3.1
+
 ## 2.1.3
 
 ### Patch Changes

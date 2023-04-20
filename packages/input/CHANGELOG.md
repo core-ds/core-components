@@ -1,5 +1,12 @@
 # Change Log
 
+## 11.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.1.0
+
 ## 11.1.10
 
 ### Patch Changes

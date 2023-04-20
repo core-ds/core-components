@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.3.0
+
+### Minor Changes
+
+### [#616](https://github.com/core-ds/core-components/pull/616)
+
+-   Добавлены пропсы dayAddons - отвечает за дополнительный контент под числом, shape - форма ячейки дня (круглая или прямоугольная)
+
 ## 6.2.18
 
 ### Patch Changes

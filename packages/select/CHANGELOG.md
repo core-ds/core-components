@@ -1,5 +1,14 @@
 # Change Log
 
+## 14.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.2.2
+    -   badge@5.1.0
+    -   input@11.1.11
+
 ## 14.0.1
 
 ### Patch Changes

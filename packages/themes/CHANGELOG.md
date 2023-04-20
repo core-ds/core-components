@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.2.1
+
+### Patch Changes
+
+### [#623](https://github.com/core-ds/core-components/pull/623)
+
+-   Tокены 'dark' заменены на аналогичные 'light'
+
 ## 11.2.0
 
 ### Minor Changes

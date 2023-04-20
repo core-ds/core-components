@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.2.2
+
+### Patch Changes
+
+### [#630](https://github.com/core-ds/core-components/pull/630)
+
+-   Исправлен тип magneticAreas
+
 ## 6.2.1
 
 ### Patch Changes

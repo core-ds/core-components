@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.3.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@5.3.1
+    -   badge@5.1.0
+    -   picker-button@10.3.18
+
 ## 7.3.17
 
 ### Patch Changes
