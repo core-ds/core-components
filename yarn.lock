@@ -93,6 +93,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-2.2.0.tgz#f30ac26125a08282e1117a75df045a5472aac6d0"
   integrity sha512-egEds3VBNhTaJC/whIAPTUT19nMDuDXWNCQ0e5VjD8m7qbSvppowFoTIaKWv33FzmodaqgrEEoMJJtUbs7DP5g==
 
+"@alfalab/icons-glyph@^2.108.0":
+  version "2.108.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.108.0.tgz#f7abd2aa3a7d516c281ea7eb7f53ed12d163dfc2"
+  integrity sha512-UWpHxaqZEy50W/TOE1Wq3POusFKov5ZLcGrtOeEMupl3lHjB2MWJcTlzX6hek1T1AEQcGxTQVWUefTTB/qc7fQ==
+
 "@alfalab/icons-glyph@^2.66.0":
   version "2.76.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.76.0.tgz#f95774cc0f6f66d348099bbac2f69f4e80fbf8bd"
@@ -102,11 +107,6 @@
   version "2.71.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.71.0.tgz#ab69ca28482a560db9eff3c6da251a5f04100e63"
   integrity sha512-lUCy+13BgY/j1vccw51eZbwKb3LQiFmJPO39cCGOIkjX4kx+zgKN1V4aW2UTxgXstuW5teXlUlXeTr00AX5B6A==
-
-"@alfalab/icons-glyph@^2.93.0":
-  version "2.108.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.108.0.tgz#f7abd2aa3a7d516c281ea7eb7f53ed12d163dfc2"
-  integrity sha512-UWpHxaqZEy50W/TOE1Wq3POusFKov5ZLcGrtOeEMupl3lHjB2MWJcTlzX6hek1T1AEQcGxTQVWUefTTB/qc7fQ==
 
 "@alfalab/icons-logotype@^2.19.0":
   version "2.19.0"

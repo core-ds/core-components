@@ -21,7 +21,7 @@
         "@alfalab/core-components-form-control": "^9.0.5",
         "@alfalab/core-components-badge": "^5.1.0",
         "@alfalab/hooks": "^1.4.1",
-        "@alfalab/icons-glyph": "^2.93.0",
+        "@alfalab/icons-glyph": "^2.108.0",
         "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
