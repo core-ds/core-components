@@ -3,4 +3,4 @@
 "@alfalab/core-components-themes": minor
 ---
 
-Удалена темизация site для компонента Button
+В компоненте Button удалена темизация site для всех view, кроме 'primary'
