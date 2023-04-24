@@ -1,5 +1,6 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 import { boolean, select } from '@storybook/addon-knobs';
 
 import { MobilePhoneBubbleLineMIcon } from '@alfalab/icons-glyph/MobilePhoneBubbleLineMIcon';
@@ -11,6 +12,10 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/SystemMessage' component={SystemMessage} id='SystemMessage' />
 
@@ -27,6 +32,8 @@ import Changelog from '../../CHANGELOG.md';
         const showPrimaryButton = boolean('showPrimaryButton', true);
         const showSecondaryButton = boolean('showSecondaryButton', true);
         const fullHeight = boolean('fullHeight', false);
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         const renderGraphic = () => {
             if (graphic === 'IconView') {
                 return (
@@ -56,39 +63,57 @@ import Changelog from '../../CHANGELOG.md';
         return (
             <div
                 style={{
-                    boxSizing: 'border-box',
-                    maxWidth: 440,
-                    height: 640,
+                    display: 'inline-block',
+                    ...previewStyles,
                 }}
             >
-                <SystemMessage dataTestId='system-message' fullHeight={fullHeight}>
-                    {renderGraphic()}
-                    {title && (
-                        <SystemMessage.Title>
-                            Подтвердите подключение кодом из смс
-                        </SystemMessage.Title>
-                    )}
-                    {subtitle && (
-                        <SystemMessage.Subtitle>
-                            Проверили вашу заявку — всё в порядке. Осталось подтвердить подключение
-                        </SystemMessage.Subtitle>
-                    )}
-                    {caption && (
-                        <SystemMessage.Caption>
-                            Для этого нажмите на кнопочку ниже
-                        </SystemMessage.Caption>
-                    )}
-                    {controls && (
-                        <SystemMessage.Controls direction={controlDirection}>
-                            {showPrimaryButton && (
-                                <Button size='s' view='primary'>
-                                    Получить код
-                                </Button>
-                            )}
-                            {showSecondaryButton && <Button size='s'>Отмена</Button>}
-                        </SystemMessage.Controls>
-                    )}
-                </SystemMessage>
+                <div
+                    style={{
+                        boxSizing: 'border-box',
+                        maxWidth: 440,
+                        height: 640,
+                        ...(isPreview
+                            ? {
+                                  borderRadius: 12,
+                                  background: 'var(--color-light-bg-primary)',
+                                  maxWidth: 500,
+                                  height: 440,
+                                  paddingTop: 48,
+                              }
+                            : null),
+                    }}
+                >
+                    <ModeChecker />
+                    <SystemMessage dataTestId='system-message' fullHeight={fullHeight}>
+                        {renderGraphic()}
+                        {title && (
+                            <SystemMessage.Title>
+                                Подтвердите подключение кодом из смс
+                            </SystemMessage.Title>
+                        )}
+                        {subtitle && (
+                            <SystemMessage.Subtitle>
+                                Проверили вашу заявку — всё в порядке. Осталось подтвердить
+                                подключение
+                            </SystemMessage.Subtitle>
+                        )}
+                        {caption && (
+                            <SystemMessage.Caption>
+                                Для этого нажмите на кнопочку ниже
+                            </SystemMessage.Caption>
+                        )}
+                        {controls && (
+                            <SystemMessage.Controls direction={controlDirection}>
+                                {showPrimaryButton && (
+                                    <Button size='s' view='primary'>
+                                        Получить код
+                                    </Button>
+                                )}
+                                {showSecondaryButton && <Button size='s'>Отмена</Button>}
+                            </SystemMessage.Controls>
+                        )}
+                    </SystemMessage>
+                </div>
             </div>
         );
     })}

@@ -1,5 +1,9 @@
 import { Page } from 'playwright';
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -9,6 +13,17 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 // DESKTOP
+
+describe('Confirmation ', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Confirmation',
+            knobs: {},
+        },
+        'transform:scale(0.9)',
+    );
+});
 
 describe(
     'Confirmation | code, charAmount, align',

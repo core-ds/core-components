@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     createStorybookUrl,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -9,6 +10,17 @@ const screenshotTesting = setupScreenshotTesting({
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('GenericWrapper ', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'GenericWrapper',
+            knobs: {},
+        },
+        'transform:scale(1.2);paddingLeft:15px',
+    );
 });
 
 describe(

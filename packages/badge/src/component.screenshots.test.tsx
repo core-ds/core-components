@@ -15,14 +15,11 @@ const screenshotTesting = setupScreenshotTesting({
 describe('Badge', () =>
     createPreview(
         {
+            testStory: false,
             componentName: 'Badge',
-            knobs: {
-                view: 'count',
-                size: 'm',
-                content: '1',
-            },
+            knobs: {},
         },
-        'transform:scale(14)',
+        'transform:scale(4)',
     ));
 
 describe(

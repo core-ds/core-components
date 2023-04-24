@@ -16,13 +16,13 @@ describe('PasswordInput ', () =>
         {
             componentName: 'PasswordInput',
             knobs: {
-                label: 'Label',
+                label: 'Пароль',
                 value: '123456',
                 size: 'm',
                 block: true,
             },
         },
-        'padding: 0 270px; transform:scale(2.3)',
+        'padding: 0 270px; transform:scale(2.1)',
     ));
 
 describe(

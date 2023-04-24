@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +6,18 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('CalendarRange', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'CalendarRange',
+            knobs: {
+                selectorView: 'full',
+            },
+        },
+        'transform: scale(0.8)',
+    ));
 
 describe(
     'CalendarRange',

@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { text, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Tooltip } from '@alfalab/core-components-tooltip';
 import { TooltipResponsive } from '@alfalab/core-components-tooltip/responsive';
@@ -9,6 +10,10 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/Tooltip' component={Tooltip} id='Tooltip' />
 
@@ -34,23 +39,43 @@ import Changelog from '../../CHANGELOG.md';
         const open =
             openSelectValue === 'false' ? false : openSelectValue === 'true' ? true : undefined;
         const trigger = select('trigger', ['hover', 'click'], 'hover');
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         return (
             <div
-                style={{
-                    width: '100%',
-                    height: '300px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
+                style={
+                    isPreview
+                        ? previewStyles
+                        : {
+                              width: '100%',
+                              height: '300px',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                          }
+                }
             >
+                <ModeChecker />
+                <style>{`.popover > div{transform:scale(2)}`}</style>
                 <Tooltip
                     content={
-                        <div style={{ width: '215px' }}>
-                            Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф
-                            это позволяет
+                        <div
+                            style={
+                                isPreview
+                                    ? {
+                                          display: 'flex',
+                                          justifyContent: 'center',
+                                          alignItems: 'center',
+                                      }
+                                    : { width: '215px' }
+                            }
+                        >
+                            {isPreview
+                                ? 'Подсказка'
+                                : 'Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф это позволяет'}
                         </div>
                     }
+                    popoverClassName={isPreview ? 'popover' : undefined}
                     open={open}
                     trigger={trigger}
                     offset={[number('offset[0]', 0), number('offset[1]', 16)]}
@@ -61,9 +86,13 @@ import Changelog from '../../CHANGELOG.md';
                     colors={select('colors', ['default', 'inverted'], 'default')}
                     dataTestId='test-id'
                 >
-                    <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
-                        {trigger === 'hover' ? 'Hover me' : 'Click me'}
-                    </div>
+                    {isPreview ? (
+                        <div />
+                    ) : (
+                        <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+                            {trigger === 'hover' ? 'Hover me' : 'Click me'}
+                        </div>
+                    )}
                 </Tooltip>
             </div>
         );

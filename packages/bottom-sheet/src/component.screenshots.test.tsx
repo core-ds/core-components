@@ -5,6 +5,7 @@ import {
     matchHtml,
     closeBrowser,
     Knobs,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -13,6 +14,36 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('BottomSheet', () =>
+    createPreview(
+        {
+            componentName: 'BottomSheet',
+            testStory: false,
+            knobs: {
+                open: true,
+                title: 'Заголовок',
+                titleAlign: 'left',
+                hideOverlay: true,
+                hasCloser: true,
+            },
+        },
+        'transform:scale(1.3);top:250px;maxWidth:500px;',
+        {
+            viewport: {
+                width: 860,
+                height: 600,
+            },
+            screenshotOpts: {
+                clip: {
+                    x: 8,
+                    y: 8,
+                    width: 860,
+                    height: 600,
+                },
+            },
+        },
+    ));
 
 describe(
     'BottomSheet',

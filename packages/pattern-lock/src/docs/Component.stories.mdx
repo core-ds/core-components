@@ -1,12 +1,17 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { radios, text, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 import { PatternLock } from '@alfalab/core-components-pattern-lock';
 
 import { version } from '../../package.json';
 import Development from './development.mdx';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/PatternLock' component={PatternLock} id='PatternLock' />
 
@@ -14,22 +19,35 @@ import Changelog from '../../CHANGELOG.md';
 
 <Story name='PatternLock'>
     {React.createElement(() => {
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = true || Object.keys(previewStyles).length > 0;
         return (
-            <PatternLock
-                observeTokens={true}
-                themeState={radios(
-                    'themeState',
-                    { initial: 'initial', success: 'success', failure: 'failure' },
-                    'initial',
+            <div style={previewStyles}>
+                {isPreview && (
+                    <style>
+                        {`
+                    :root {
+                        --color-light-bg-primary: var(--color-light-bg-secondary);
+                    }`}
+                    </style>
                 )}
-                justifyNodes={radios(
-                    'justifyNodes',
-                    { 'space-around': 'space-around', 'space-between': 'space-between' },
-                    'space-between',
-                )}
-                error={text('error', '')}
-                showForgotCodeBtn={boolean('showForgotCodeBtn', false)}
-            />
+                <ModeChecker />
+                <PatternLock
+                    observeTokens={true}
+                    themeState={radios(
+                        'themeState',
+                        { initial: 'initial', success: 'success', failure: 'failure' },
+                        'initial',
+                    )}
+                    justifyNodes={radios(
+                        'justifyNodes',
+                        { 'space-around': 'space-around', 'space-between': 'space-between' },
+                        'space-between',
+                    )}
+                    error={text('error', '')}
+                    showForgotCodeBtn={boolean('showForgotCodeBtn', false)}
+                />
+            </div>
         );
     })}
 </Story>

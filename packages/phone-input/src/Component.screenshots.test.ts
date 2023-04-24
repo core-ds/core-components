@@ -5,11 +5,11 @@ describe('PhoneInput ', () =>
         {
             componentName: 'PhoneInput',
             knobs: {
-                label: 'Label',
-                value: '+79995553535',
+                label: 'Телефон',
+                value: '+71234567890',
                 size: 'm',
                 block: true,
             },
         },
-        'padding: 0 270px; transform:scale(2.3)',
+        'padding: 0 270px; transform:scale(2.1)',
     ));

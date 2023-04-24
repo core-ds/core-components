@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Button } from '@alfalab/core-components-button';
 import { Popover } from '@alfalab/core-components-popover';
@@ -9,6 +10,10 @@ import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/Popover' component={Popover} id='Popover' />
 
@@ -35,35 +40,56 @@ import Changelog from '../../CHANGELOG.md';
         const toggle = () => {
             setOpen(!open);
         };
-        const handleButtonRef = (node) => {
+        const handleRef = (node) => {
             setButtonElement(node);
         };
         const transitionTimeout = number('transition.timeout (ms)', 150);
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         return (
             <div
-                style={{
-                    width: '100%',
-                    height: '300px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
+                style={
+                    isPreview
+                        ? previewStyles
+                        : {
+                              width: '100%',
+                              height: '300px',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                          }
+                }
             >
+                <ModeChecker />
+                <style>{`.popover {border-radius: 8px}`}</style>
                 <Popover
                     anchorElement={buttonElement}
+                    popperClassName='popover'
                     useAnchorWidth={boolean('useAnchorWidth', false)}
                     position={select('position', POSITION_OPTIONS, 'bottom')}
-                    open={open}
+                    open={open || boolean('open', false)}
                     transition={{ timeout: transitionTimeout }}
                     offset={[number('offset[0]', 0), number('offset[1]', 0)]}
                     withArrow={boolean('withArrow', false)}
                     withTransition={boolean('withTransition', true)}
                 >
-                    <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
+                    <div
+                        style={
+                            isPreview
+                                ? { width: 420, height: 380 }
+                                : { padding: '15px', width: '156px' }
+                        }
+                    >
+                        {isPreview ? '' : 'I am popover'}
+                    </div>
                 </Popover>
-                <Button ref={handleButtonRef} onClick={toggle}>
-                    {open ? 'Скрыть' : 'Показать'} Popover
-                </Button>
+                {isPreview ? (
+                    <div ref={handleRef} />
+                ) : (
+                    <Button ref={handleRef} onClick={toggle}>
+                        {open ? 'Скрыть' : 'Показать'} Popover
+                    </Button>
+                )}
             </div>
         );
     })}

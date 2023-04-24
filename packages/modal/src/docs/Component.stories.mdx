@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Button } from '@alfalab/core-components-button';
 import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
@@ -11,6 +12,10 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/Modal' id='Modal' />
 
@@ -23,20 +28,22 @@ export const Text = () => (
     </p>
 );
 
-export const Footer = () => (
+export const Footer = ({ isPreview }) => (
     <>
         <Button size='s' view='primary'>
-            Сохранить
+            {isPreview ? 'Кнопка' : 'Сохранить'}
         </Button>
         <Button size='s' view='secondary'>
-            Отмена
+            {isPreview ? 'Кнопка' : 'Отмена'}
         </Button>
     </>
 );
 
-export const Content = () => {
+export const Content = ({ isPreview }) => {
     const [showMore, setShowMore] = React.useState(false);
-    return (
+    return isPreview ? (
+        <>Пример текстового контента.</>
+    ) : (
         <>
             <Text />
             {(showMore || boolean('showMore')) && (
@@ -90,8 +97,11 @@ export const Content = () => {
                       size: select('size', ['s', 'm', 'l', 'xl', 'fullscreen'], 's'),
                   }
                 : {};
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         return (
-            <React.Fragment>
+            <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
+                <ModeChecker />
                 <Button type='button' size='xs' onClick={handleModalOpen}>
                     Открыть модалку
                 </Button>
@@ -99,6 +109,9 @@ export const Content = () => {
                     open={open || boolean('open')}
                     onClose={handleModalOpen}
                     keepMounted={boolean('keepMounted', false)}
+                    backdropProps={{
+                        invisible: boolean('invisibleBackdrop', false),
+                    }}
                     {...props}
                 >
                     {header && (
@@ -111,7 +124,7 @@ export const Content = () => {
                         />
                     )}
                     <ModalComponent.Content flex={flexContent}>
-                        <Content />
+                        <Content isPreview={isPreview} />
                     </ModalComponent.Content>
                     {footer && (
                         <ModalComponent.Footer
@@ -119,11 +132,11 @@ export const Content = () => {
                             layout={footerLayout}
                             gap={footerGap}
                         >
-                            <Footer />
+                            <Footer isPreview={isPreview} />
                         </ModalComponent.Footer>
                     )}
                 </ModalComponent>
-            </React.Fragment>
+            </div>
         );
     })}
 </Story>

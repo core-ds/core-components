@@ -1,35 +1,77 @@
 import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
 
 import { FileUploadItem as FileUploadItemTS } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/FileUploadItem' component={FileUploadItem} id='FileUploadItem' />
+
+export const WRAPPER_STYLES = {
+    background: 'var(--color-light-bg-primary)',
+};
 
 <!-- Canvas -->
 
 <Story name='FileUploadItem'>
-    <div style={{ width: 500 }}>
-        <FileUploadItem
-            name={text('name', 'Довольно длинное название файла.pdf')}
-            uploadDate={text('uploadDate', '22.01.2018')}
-            downloadLink={text('downloadLink', '')}
-            error={text('error', '')}
-            size={number('size', 500000000)}
-            uploadStatus={select(
-                'uploadStatus',
-                ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
-                undefined,
-            )}
-            uploadPercent={number('uploadPercent', undefined)}
-            showDelete={boolean('showDelete', false)}
-            showRestore={boolean('showRestore', false)}
-        />
-    </div>
+    {React.createElement(() => {
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        return isPreview ? (
+            <div style={{ width: 432, ...previewStyles }}>
+                <div style={isPreview ? WRAPPER_STYLES : undefined}>
+                    <ModeChecker />
+                    <FileUploadItem
+                        name='Название файла.pdf'
+                        uploadDate='22.01.2023'
+                        size={4096}
+                        downloadLink='link'
+                        showDelete={true}
+                    />
+                    <FileUploadItem
+                        name='Название файла.docx'
+                        uploadDate='22.01.2023'
+                        size={8192}
+                        downloadLink='link'
+                        showDelete={true}
+                    />
+                    <FileUploadItem
+                        name='Название файла.docx'
+                        uploadDate='22.01.2023'
+                        size={9216}
+                        downloadLink='link'
+                        showDelete={true}
+                    />
+                </div>
+            </div>
+        ) : (
+            <div style={{ width: 500 }}>
+                <FileUploadItem
+                    name={text('name', 'Довольно длинное название файла.pdf')}
+                    uploadDate={text('uploadDate', '22.01.2018')}
+                    downloadLink={text('downloadLink', '')}
+                    error={text('error', '')}
+                    size={number('size', 500000000)}
+                    uploadStatus={select(
+                        'uploadStatus',
+                        ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
+                        undefined,
+                    )}
+                    uploadPercent={number('uploadPercent', undefined)}
+                    showDelete={boolean('showDelete', false)}
+                    showRestore={boolean('showRestore', false)}
+                />
+            </div>
+        );
+    })}
 </Story>
 
 <!-- Docs -->

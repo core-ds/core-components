@@ -19,7 +19,7 @@ describe('Link ', () =>
         {
             componentName: 'Link',
             knobs: {
-                children: 'Link',
+                children: 'Ссылка',
                 view: 'default',
                 underline: true,
             },

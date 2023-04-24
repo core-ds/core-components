@@ -5,6 +5,7 @@ import {
     createStorybookUrl,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -13,6 +14,20 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('DateRangeInput', () =>
+    createPreview(
+        {
+            componentName: 'DateRangeInput',
+            knobs: {
+                size: 'm',
+                value: '21.12.2022 – 20.06.2023',
+                label: 'Диапазон дат',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.1)',
+    ));
 
 describe(
     'DateRangeInput | sizes',

@@ -22,7 +22,7 @@ describe('Radio', () => {
         {
             componentName: 'Radio',
             knobs: {
-                label: 'Radio',
+                label: 'Радио-кнопка',
                 size: 'm',
                 checked: true,
             },

@@ -1,10 +1,26 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('IconView', () => {
+    createPreview(
+        {
+            componentName: 'IconView',
+            subComponentName: 'SuperEllipse',
+            testStory: false,
+            knobs: {
+                size: '80',
+                backgroundColor: 'var(--color-light-bg-primary)',
+                border: true,
+            },
+        },
+        'transform:scale(4)',
+    );
 });
 
 describe(

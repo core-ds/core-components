@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     customSnapshotIdentifier,
     generateTestCases,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -10,6 +11,34 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('SidePanel', () =>
+    createPreview(
+        {
+            componentName: 'SidePanel',
+            testStory: false,
+            knobs: {
+                open: true,
+                'footer.sticky': true,
+                'header.title': 'Заголовок',
+            },
+        },
+        undefined,
+        {
+            viewport: {
+                width: 860,
+                height: 600,
+            },
+            screenshotOpts: {
+                clip: {
+                    x: 0,
+                    y: 0,
+                    width: 860,
+                    height: 600,
+                },
+            },
+        },
+    ));
 
 // MOBILE
 describe('SidePanelMobile', () => {

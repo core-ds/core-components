@@ -23,13 +23,12 @@ describe('FilterTag', () => {
         {
             componentName: 'FilterTag',
             knobs: {
-                label: 'Label',
-                children: 'Label: Value',
+                children: 'Фильтр: Значение',
                 size: 's',
                 checked: true,
             },
         },
-        'transform:scale(2.7)',
+        'transform:scale(2.2)',
     );
 });
 

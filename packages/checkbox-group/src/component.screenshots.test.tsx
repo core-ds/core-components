@@ -16,7 +16,7 @@ describe('CheckboxGroup', () => {
             testStory: false,
             componentName: 'CheckboxGroup',
             knobs: {
-                label: 'CheckboxGroup',
+                label: 'Группа чекбоксов',
                 size: 'm',
                 checked: true,
             },

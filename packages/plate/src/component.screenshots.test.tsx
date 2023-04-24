@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     generateTestCases,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -9,6 +10,24 @@ const screenshotTesting = setupScreenshotTesting({
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('Plate', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Plate',
+            knobs: {
+                title: 'Заголовок',
+                children:
+                    'Плейт встраивается в контекст экрана и может использоваться  для вывода информационных сообщений.',
+                hasCloser: true,
+                view: 'positive',
+                buttons: true,
+            },
+        },
+        'transform:scale(1.3);padding:0 200px;',
+    );
 });
 
 describe(

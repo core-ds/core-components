@@ -5,9 +5,22 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
 
 describe('Tooltip', () => {
+    createPreview(
+        {
+            componentName: 'Tooltip',
+            testStory: false,
+            knobs: {
+                open: true,
+                position: 'top',
+            },
+        },
+        'alignItems:flex-start;paddingTop:500px',
+    );
+
     test('positioning', async () => {
         jest.setTimeout(120000);
 

@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,19 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('ProgressBar', () =>
+    createPreview(
+        {
+            componentName: 'ProgressBar',
+            knobs: {
+                view: 'accent',
+                value: 50,
+                size: 's',
+            },
+        },
+        'transform:scale(2.5);display:block;padding:300px 300px 0;',
+    ));
 
 describe(
     'ProgressBar | main props',
