@@ -118,7 +118,7 @@ export const SelectMobile = forwardRef(
                 onChange={onChange}
                 OptionsList={OptionsList}
                 bottomSheetProps={bottomSheetProps}
-                {...(optionsListProps as AnyObject)}
+                optionsListProps={optionsListProps}
                 {...restProps}
                 {...(multiple && !bottomSheetProps?.actionButton && applyProps)}
             />
