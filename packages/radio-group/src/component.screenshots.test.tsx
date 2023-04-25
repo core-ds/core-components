@@ -16,7 +16,7 @@ describe('RadioGroup', () => {
             testStory: false,
             componentName: 'RadioGroup',
             knobs: {
-                label: 'RadioGroup',
+                label: 'Радио-группа',
                 size: 'm',
             },
         },

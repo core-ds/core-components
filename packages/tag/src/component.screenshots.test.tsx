@@ -23,7 +23,7 @@ describe('Tag', () => {
         {
             componentName: 'Tag',
             knobs: {
-                children: 'Tag',
+                children: 'Тэг',
                 size: 's',
                 checked: true,
             },

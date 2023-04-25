@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +6,18 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Comment', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Comment',
+            knobs: {
+                children: 'Comment',
+            },
+        },
+        'transform:scale(4)',
+    ));
 
 describe(
     'Comment | main prop',

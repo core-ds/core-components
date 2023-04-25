@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,20 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Typography', () =>
+    createPreview(
+        {
+            componentName: 'Typography',
+            subComponentName: 'Title',
+            knobs: {
+                children: 'Аа',
+                view: 'xlarge',
+                font: 'styrene',
+            },
+        },
+        'transform:scale(4)',
+    ));
 
 describe(
     'Typography.Title | all variants',

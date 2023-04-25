@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Button } from '@alfalab/core-components-button';
 import { SidePanelMobile } from '@alfalab/core-components-side-panel/Component.mobile';
@@ -11,6 +12,10 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    getQueryParam,
+    stylesStringToObj,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/SidePanel' id='SidePanel' />
 
@@ -23,20 +28,22 @@ export const Text = () => (
     </p>
 );
 
-export const Footer = () => (
+export const Footer = ({ isPreview }) => (
     <>
         <Button size='s' view='primary'>
-            Сохранить
+            {isPreview ? 'Кнопка' : 'Сохранить'}
         </Button>
         <Button size='s' view='secondary'>
-            Отмена
+            {isPreview ? 'Кнопка' : 'Отмена'}
         </Button>
     </>
 );
 
-export const Content = () => {
+export const Content = ({ isPreview }) => {
     const [showMore, setShowMore] = React.useState(false);
-    return (
+    return isPreview ? (
+        <>Пример текстового контента.</>
+    ) : (
         <>
             <Text />
             {(showMore || boolean('showMore')) && (
@@ -89,11 +96,16 @@ export const Content = () => {
                       size: select('size', ['s'], 's'),
                   }
                 : {};
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         return (
-            <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>
-                    Открыть сайд-панель
-                </Button>
+            <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
+                <ModeChecker />
+                {!isPreview && (
+                    <Button type='button' size='xs' onClick={handleModalOpen}>
+                        Открыть сайд-панель
+                    </Button>
+                )}
                 <SidePanelComponent
                     open={open || boolean('open')}
                     onClose={handleModalOpen}
@@ -109,15 +121,15 @@ export const Content = () => {
                         />
                     )}
                     <SidePanelComponent.Content>
-                        <Content />
+                        <Content isPreview={isPreview} />
                     </SidePanelComponent.Content>
                     {stickyFooter && (
                         <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout}>
-                            <Footer />
+                            <Footer isPreview={isPreview} />
                         </SidePanelComponent.Footer>
                     )}
                 </SidePanelComponent>
-            </React.Fragment>
+            </div>
         );
     })}
 </Story>

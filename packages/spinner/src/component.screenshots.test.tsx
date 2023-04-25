@@ -1,4 +1,9 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import { Page } from 'playwright';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +11,30 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+const evalFunc = async (page: Page) => {
+    // Не работают идентификаторы,содержащие ":", почему непонятно.
+    await page.$$eval('*[id*=":"]', (el) =>
+        el.forEach((e) => e.setAttribute('id', e.getAttribute('id')!.replace(/:/g, ''))),
+    );
+
+    await page.$$eval('*[stroke*=":"]', (el) =>
+        el.forEach((e) => e.setAttribute('stroke', e.getAttribute('stroke')!.replace(/:/g, ''))),
+    );
+};
+
+describe('Spinner', () =>
+    createPreview(
+        {
+            componentName: 'Spinner',
+            knobs: {
+                size: 'm',
+                visible: true,
+            },
+        },
+        'transform:scale(3.2)',
+        { evaluate: evalFunc },
+    ));
 
 describe(
     'Spinner | main props',
@@ -23,18 +52,7 @@ describe(
                 }),
             ],
         ],
-        evaluate: async (page) => {
-            // Не работают идентификаторы,содержащие ":", почему непонятно.
-            await page.$$eval('*[id*=":"]', (el) =>
-                el.forEach((e) => e.setAttribute('id', e.getAttribute('id')!.replace(/:/g, ''))),
-            );
-
-            await page.$$eval('*[stroke*=":"]', (el) =>
-                el.forEach((e) =>
-                    e.setAttribute('stroke', e.getAttribute('stroke')!.replace(/:/g, '')),
-                ),
-            );
-        },
+        evaluate: evalFunc,
         screenshotOpts: {
             fullPage: true,
         },

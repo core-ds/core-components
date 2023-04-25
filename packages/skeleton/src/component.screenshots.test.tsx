@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -8,6 +12,19 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 describe('Skeleton', () => {
+    createPreview(
+        {
+            componentName: 'Skeleton',
+            knobs: {
+                children:
+                    'Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton Skeleton',
+                animate: true,
+                visible: true,
+            },
+        },
+        'transform:scale(2.5);padding:0 300px',
+    );
+
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [

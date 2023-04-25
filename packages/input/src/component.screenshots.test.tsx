@@ -21,13 +21,13 @@ describe('Input ', () =>
         {
             componentName: 'Input',
             knobs: {
-                label: 'Label',
-                value: 'Value',
+                label: 'Текстовое поле',
+                value: 'Текст',
                 size: 'm',
                 block: true,
             },
         },
-        'padding: 0 270px; transform:scale(2.3)',
+        'padding: 0 270px; transform:scale(2.1)',
     ));
 
 describe('Input | screenshots label view and value prop', () => {

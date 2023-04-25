@@ -12,13 +12,13 @@ describe('IntlPhoneInput ', () =>
         {
             componentName: 'IntlPhoneInput',
             knobs: {
-                label: 'Label',
-                value: '%2b7 999 555-35-35',
+                label: 'Телефон',
+                value: '%2b7 123 456-78-90',
                 size: 'm',
                 block: true,
             },
         },
-        'padding: 0 270px; transform:scale(2.3)',
+        'padding: 0 270px; transform:scale(2.1)',
     ));
 
 describe('IntlPhoneInput | interactions tests', () => {

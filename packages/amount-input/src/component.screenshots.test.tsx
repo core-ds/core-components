@@ -17,13 +17,13 @@ describe('AmountInput ', () =>
         {
             componentName: 'AmountInput',
             knobs: {
-                label: 'Label',
+                label: 'Сумма',
                 value: 123400,
                 size: 'm',
                 block: true,
             },
         },
-        'padding: 0 270px; transform:scale(2.3)',
+        'padding: 0 270px; transform:scale(2.1)',
     ));
 
 describe(

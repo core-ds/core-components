@@ -16,14 +16,14 @@ describe('Textarea ', () =>
         {
             componentName: 'Textarea',
             knobs: {
-                label: 'Label',
-                value: 'Value',
+                label: 'Текстовая область',
+                value: 'Текст',
                 size: 'm',
                 block: true,
                 minRows: 2,
             },
         },
-        'padding: 0 270px; transform:scale(2.3)',
+        'padding: 0 270px; transform:scale(2.1)',
     ));
 
 describe('Textarea | sprite', () => {

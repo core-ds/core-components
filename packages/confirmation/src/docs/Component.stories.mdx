@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Select } from '@alfalab/core-components-select';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
@@ -11,6 +12,10 @@ import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 import Development from './development.mdx';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/Confirmation' id='Confirmation' />
 
@@ -90,27 +95,32 @@ import Development from './development.mdx';
                 ConfirmationMobile: ConfirmationMobile,
             }[component];
         }, [component]);
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         return (
-            <div>
-                <Select
-                    options={variants}
-                    onChange={({ selected }) => {
-                        setConfirmationState('INITIAL');
-                        setConfirmationScreen('INITIAL');
-                        setConfirmationBlockSmsRetry(false);
-                        setVariant(selected);
-                    }}
-                    selected={variant.key}
-                />
+            <div style={previewStyles}>
+                <ModeChecker />
+                {!isPreview && (
+                    <Select
+                        options={variants}
+                        onChange={({ selected }) => {
+                            setConfirmationState('INITIAL');
+                            setConfirmationScreen('INITIAL');
+                            setConfirmationBlockSmsRetry(false);
+                            setVariant(selected);
+                        }}
+                        selected={variant.key}
+                    />
+                )}
                 <div
                     key={variant.key}
                     style={{
-                        display: 'flex',
-                        width: '500px',
-                        margin: '16px 0 0',
-                        padding: '16px',
-                        boxShadow: '0 0 0 1px #eeeff1',
                         boxSizing: 'border-box',
+                        borderRadius: 12,
+                        width: 500,
+                        height: 380,
+                        paddingTop: 48,
+                        ...(isPreview ? { background: 'var(--color-light-bg-primary)' } : null),
                     }}
                 >
                     <ConfirmationComponent

@@ -22,7 +22,7 @@ describe('ActionButton ', () =>
             testStory: false,
             componentName: 'ActionButton',
             knobs: {
-                children: 'Action Button',
+                children: 'Кнопка',
                 icon: 'DiamondsMIcon',
             },
         },

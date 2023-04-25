@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,19 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('CircularProgressBar', () =>
+    createPreview(
+        {
+            componentName: 'CircularProgressBar',
+            knobs: {
+                view: 'negative',
+                value: 15,
+                size: 'xl',
+            },
+        },
+        'transform:scale(2.5)',
+    ));
 
 describe(
     'CircularProgressBar',

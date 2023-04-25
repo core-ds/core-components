@@ -20,7 +20,7 @@ describe('Switch', () => {
         {
             componentName: 'Switch',
             knobs: {
-                label: 'Switch',
+                label: 'Переключатель',
                 checked: true,
             },
         },

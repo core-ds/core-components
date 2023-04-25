@@ -38,6 +38,8 @@ export function parseValue(value: string) {
 }
 
 export function stylesStringToObj(str = ''): CSSProperties {
+    if (!str) return {};
+
     const properties = str.split(';').map((v) => v.trim());
     const obj: Record<string, unknown> = {};
 

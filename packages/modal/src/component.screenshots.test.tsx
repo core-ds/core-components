@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     customSnapshotIdentifier,
     generateTestCases,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -10,6 +11,18 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Modal', () =>
+    createPreview({
+        componentName: 'Modal',
+        testStory: false,
+        knobs: {
+            open: true,
+            invisibleBackdrop: true,
+            footer: true,
+            'header.title': 'Заголовок',
+        },
+    }));
 
 // MOBILE
 describe('ModalMobile', () => {

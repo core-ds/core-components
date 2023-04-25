@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +6,16 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('List', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'List',
+            knobs: {},
+        },
+        'transform:scale(1.9)',
+    ));
 
 describe(
     'List | ul',

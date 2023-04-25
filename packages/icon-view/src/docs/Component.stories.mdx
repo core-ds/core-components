@@ -1,5 +1,6 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 import { select, boolean, text } from '@storybook/addon-knobs';
 import { Badge } from '@alfalab/core-components-badge';
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
@@ -12,6 +13,10 @@ import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/IconView' id='IconView' />
 
@@ -24,16 +29,27 @@ import Changelog from '../../CHANGELOG.md';
         const indicator = boolean('indicator', false);
         const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
         const sizeAddons = size === '128' ? '40' : size === '80' || size === '64' ? '24' : '20';
+        const backgroundColor = text('backgroundColor', '#f3f4f5');
+        const border = boolean('border', false);
         const addonsIcon = (
             <Circle size={sizeAddons}>
                 {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}{' '}
             </Circle>
         );
-        return (
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        return isPreview ? (
+            <div style={previewStyles}>
+                <ModeChecker />
+                <SuperEllipse size={size} backgroundColor={backgroundColor} border={border}>
+                    <DiamondsXxlIcon />
+                </SuperEllipse>
+            </div>
+        ) : (
             <SuperEllipse
                 size={size}
-                backgroundColor={text('backgroundColor', '#f3f4f5')}
-                border={boolean('border', false)}
+                backgroundColor={backgroundColor}
+                border={border}
                 imageUrl={text('imageUrl', '')}
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
@@ -60,7 +76,7 @@ import Changelog from '../../CHANGELOG.md';
         const sizeAddons = size === '128' ? '40' : size === '80' || size === '64' ? '24' : '20';
         const addonsIcon = (
             <Circle size={sizeAddons}>
-                {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}{' '}
+                {size === '20' ? <DiamondsSIcon /> : <DiamondsMIcon />}
             </Circle>
         );
         return (

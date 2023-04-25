@@ -5,6 +5,7 @@ import {
     matchHtml,
     closeBrowser,
     createSpriteStorybookUrl,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -13,6 +14,19 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Attach', () =>
+    createPreview(
+        {
+            componentName: 'Attach',
+            knobs: {
+                size: 'xl',
+                buttonContent: 'Выберите файл',
+                noFileText: ' ',
+            },
+        },
+        'paddingLeft:3px;transform: scale(2.1)',
+    ));
 
 describe(
     'Attach | screenshots',

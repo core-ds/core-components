@@ -21,12 +21,12 @@ describe('Button', () =>
         {
             componentName: 'Button',
             knobs: {
-                children: 'Button',
-                view: 'primary',
+                children: 'Кнопка',
+                view: 'accent',
                 size: 'xl',
             },
         },
-        'transform:scale(2.7)',
+        'transform:scale(2.3)',
     ));
 
 describe(

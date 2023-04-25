@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 1920, height: 150 };
 
@@ -8,6 +8,23 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('FileUploadItem', () =>
+    createPreview(
+        {
+            componentName: 'FileUploadItem',
+            testStory: false,
+            knobs: {
+                name: 'Название файла.xlsx',
+                uploadDate: '22.01.2023',
+                size: 4096,
+                downloadLink: 'link',
+                showDelete: true,
+                uploadStatus: 'SUCCESS',
+            },
+        },
+        'transform: scale(1.3);width:auto',
+    ));
 
 describe(
     'FileUploadItem | name with statuses',

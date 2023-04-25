@@ -1,10 +1,20 @@
-import { setupScreenshotTesting, createStorybookUrl } from '../../screenshot-utils';
+import { setupScreenshotTesting, createStorybookUrl, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('PassCode ', () => {
+    createPreview(
+        {
+            componentName: 'PassCode',
+            knobs: {},
+        },
+        'transform:scale(0.9);padding-bottom:100px',
+    );
 });
 
 describe(

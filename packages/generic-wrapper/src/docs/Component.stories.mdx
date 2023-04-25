@@ -2,12 +2,17 @@ import { Meta, Story } from '@storybook/addon-docs';
 import { Gap } from '@alfalab/core-components-gap';
 import { select, radios, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 import { GenericWrapper } from '@alfalab/core-components-generic-wrapper';
 
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/GenericWrapper' component={GenericWrapper} id='GenericWrapper' />
 
@@ -38,17 +43,29 @@ import Changelog from '../../CHANGELOG.md';
         const growElement3 = boolean(`grow (3d element)`, false);
         const gapSize1 = select('1st Gap size', gapSizes, 'l');
         const gapSize2 = select('2nd Gap size', gapSizes, 'l');
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        const itemStyle = isPreview ? { width: 110, height: 80, borderRadius: 16 } : null;
         return (
             <div
                 style={{
                     width: 1000,
+                    ...previewStyles,
                 }}
             >
+                <ModeChecker />
                 <div
-                    style={{
-                        border: '1px dashed #EFC2D5',
-                        borderRadius: '8px',
-                    }}
+                    style={
+                        isPreview
+                            ? {
+                                  background: '#3778FB1A',
+                                  display: 'inline-block',
+                              }
+                            : {
+                                  border: '1px dashed #EFC2D5',
+                                  borderRadius: '8px',
+                              }
+                    }
                 >
                     <GenericWrapper
                         alignItems={alignItems}
@@ -70,6 +87,7 @@ import Changelog from '../../CHANGELOG.md';
                                     height: 128,
                                     width: 128,
                                     boxSizing: 'border-box',
+                                    ...itemStyle,
                                 }}
                             />
                         </GenericWrapper>
@@ -83,6 +101,7 @@ import Changelog from '../../CHANGELOG.md';
                                     height: 64,
                                     width: 64,
                                     boxSizing: 'border-box',
+                                    ...itemStyle,
                                 }}
                             />
                         </GenericWrapper>
@@ -96,6 +115,7 @@ import Changelog from '../../CHANGELOG.md';
                                     height: 164,
                                     width: 164,
                                     boxSizing: 'border-box',
+                                    ...itemStyle,
                                 }}
                             />
                         </GenericWrapper>

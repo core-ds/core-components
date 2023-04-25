@@ -5,7 +5,7 @@ describe('Checkbox', () => {
         {
             componentName: 'Checkbox',
             knobs: {
-                label: 'Checkbox',
+                label: 'Чекбокс',
                 size: 'm',
                 checked: true,
             },

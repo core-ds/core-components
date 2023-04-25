@@ -16,7 +16,7 @@ describe('SliderInput ', () =>
         {
             componentName: 'SliderInput',
             knobs: {
-                label: 'Label',
+                label: 'Поле со слайдером',
                 value: 5,
                 steps: '[1,10,20]',
                 size: 'm',
@@ -25,7 +25,7 @@ describe('SliderInput ', () =>
                 block: true,
             },
         },
-        'padding: 27px 270px 0; transform:scale(2.3)',
+        'padding: 28px 270px 0; transform:scale(2.1)',
     ));
 
 describe('SliderInput | sprite', () => {

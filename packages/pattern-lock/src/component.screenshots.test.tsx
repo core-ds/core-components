@@ -7,11 +7,17 @@ import {
 } from '../../screenshot-utils';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 
-const clip = { x: 0, y: 0, width: 400, height: 500 };
+const DEFAULT_CLIP = {
+    x: 0,
+    y: 0,
+    width: 400,
+    height: 500,
+};
 
 async function testComponent(
     urlParams: Partial<CreateStorybookUrlParams>,
     viewport = { width: 400, height: 500 },
+    clip = DEFAULT_CLIP,
 ) {
     const pageUrl = createStorybookUrl({
         componentName: 'PatternLock',
@@ -57,6 +63,41 @@ async function testComponent(
         await closeBrowser({ browser, context, page });
     }
 }
+
+describe('PatternLock ', () => {
+    test('preview', async () => {
+        await testComponent(
+            {
+                wrapperStyles:
+                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 800px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
+            },
+            { width: 800, height: 600 },
+            {
+                x: 88,
+                y: 60,
+                width: 640,
+                height: 480,
+            },
+        );
+    });
+
+    test('dark-preview', async () => {
+        await testComponent(
+            {
+                darkMode: true,
+                wrapperStyles:
+                    'boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: 800px; height: 600px; backgroundColor: var(--color-light-bg-secondary)',
+            },
+            { width: 800, height: 600 },
+            {
+                x: 88,
+                y: 60,
+                width: 640,
+                height: 480,
+            },
+        );
+    });
+});
 
 describe('PatternLock | screenshots', () => {
     test('default', async () => {

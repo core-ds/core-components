@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,20 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Amount', () =>
+    createPreview(
+        {
+            componentName: 'Amount',
+            knobs: {
+                value: '123456700',
+                minority: 100,
+                currency: 'RUR',
+                view: 'withZeroMinorPart',
+            },
+        },
+        'transform:scale(4)',
+    ));
 
 describe(
     'Amount | screenshots',

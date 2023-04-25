@@ -1,10 +1,22 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('PureCell ', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'PureCell',
+            subComponentName: 'PureCell.Main',
+            knobs: {},
+        },
+        'transform:scale(1.5)',
+    );
 });
 
 describe(

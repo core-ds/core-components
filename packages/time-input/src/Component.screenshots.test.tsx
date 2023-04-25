@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,20 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('TimeInput', () =>
+    createPreview(
+        {
+            componentName: 'TimeInput',
+            knobs: {
+                size: 'm',
+                value: '12:48',
+                label: 'Время',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.1)',
+    ));
 
 describe(
     'TimeInput | sizes',

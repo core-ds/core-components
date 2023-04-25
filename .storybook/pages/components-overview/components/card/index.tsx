@@ -17,6 +17,8 @@ enum ImageState {
     ERROR,
 }
 
+const COMPONENTS_WITH_SAFE_ZONE = ['SidePanel'];
+
 export const Card: React.FC<CardProps> = ({ componentName, mode }) => {
     const [imageState, setImageState] = React.useState(ImageState.INITIAL);
     const imageRef = React.useRef<HTMLImageElement>(null);
@@ -52,6 +54,8 @@ export const Card: React.FC<CardProps> = ({ componentName, mode }) => {
                             alt={componentName}
                             className={cn(styles.image, {
                                 [styles.imageHidden]: imageState === ImageState.INITIAL,
+                                [styles.withSafeZone]:
+                                    COMPONENTS_WITH_SAFE_ZONE.includes(componentName),
                             })}
                             loading='lazy'
                             decoding='async'
