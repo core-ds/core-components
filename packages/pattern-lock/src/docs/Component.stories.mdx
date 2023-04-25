@@ -20,7 +20,7 @@ import {
 <Story name='PatternLock'>
     {React.createElement(() => {
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
-        const isPreview = true || Object.keys(previewStyles).length > 0;
+        const isPreview = Object.keys(previewStyles).length > 0;
         return (
             <div style={previewStyles}>
                 {isPreview && (
