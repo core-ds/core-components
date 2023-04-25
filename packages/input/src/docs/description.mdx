@@ -229,31 +229,32 @@ render(() => {
     const [valueOne, setValueOne] = React.useState('Value');
     const [valueTwo, setValueTwo] = React.useState('Value');
 
-    const toggleVisiblity = () => setIsVisible(prev => !prev) ;
-    
+    const toggleVisiblity = () => setIsVisible((prev) => !prev);
+
     const singleIcon = () => {
-        setTitle('Вы восхитительны!')
-        toggleVisiblity()
-    }
-    
+        setTitle('Вы восхитительны!');
+        toggleVisiblity();
+    };
+
     const leftIcon = () => {
-        setTitle('Левая')
-        toggleVisiblity()
-    }
-    
+        setTitle('Левая');
+        toggleVisiblity();
+    };
+
     const rightIcon = () => {
-        setTitle('Правая')
-        toggleVisiblity()
-    }
-    
+        setTitle('Правая');
+        toggleVisiblity();
+    };
+
     const hideNotification = React.useCallback(() => setIsVisible(false), []);
-    
+
     const styleWrapperIcons = {
         height: '100%',
         display: 'flex',
-        marginRight: 'var(--gap-xs-neg)'
-    }
-    
+        gap: 4,
+        marginRight: 'var(--gap-xs-neg)',
+    };
+
     const css = `
        button[data-test-id='icon-left'] > span > span {
             justify-content: end;
@@ -262,7 +263,7 @@ render(() => {
         button[data-test-id='icon-right'] > span > span {
             justify-content: start;
         }
-        
+
         button[data-test-id='icon'] > span > span {
             margin-right: var(--gap-s-neg);
         }
@@ -270,7 +271,7 @@ render(() => {
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-        <style>{css}</style>
+            <style>{css}</style>
             <Input
                 value={valueOne}
                 block={true}
@@ -287,7 +288,7 @@ render(() => {
                     />
                 }
             />
-            <Gap size='l'/>
+            <Gap size='l' />
             <Input
                 value={valueTwo}
                 block={true}
@@ -295,7 +296,7 @@ render(() => {
                 label='Label'
                 size='m'
                 rightAddons={
-                    <div style={styleWrapperIcons} >
+                    <div style={styleWrapperIcons}>
                         <IconButton
                             view='secondary'
                             onClick={leftIcon}
@@ -311,19 +312,19 @@ render(() => {
                             dataTestId='icon-right'
                         />
                     </div>
-              }
+                }
             />
-            <Notification
+            <Toast
                 title={title}
-                visible={isVisible}
-                offset={180}
-                onCloseTimeout={hideNotification}
+                open={isVisible}
+                onClose={hideNotification}
                 hasCloser={false}
                 autoCloseDelay={2000}
+                style={{ left: '48%' }}
             />
         </div>
     );
-})
+});
 ```
 
 ## Морфология
