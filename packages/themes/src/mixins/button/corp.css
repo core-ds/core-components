@@ -24,4 +24,14 @@
     --button-accent-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
     --button-accent-color: var(--color-light-text-primary-inverted);
     --button-accent-disabled-color: var(--color-light-text-tertiary);
+
+    /* accent-inverted */
+    --button-inverted-accent-base-bg-color: var(--color-light-bg-secondary);
+    --button-inverted-accent-hover-bg-color: var(--color-light-bg-secondary-shade-7);
+    --button-inverted-accent-active-bg-color: var(--color-light-bg-secondary-shade-15);
+    --button-inverted-accent-disabled-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-accent-disabled-color: var(--color-light-text-tertiary-inverted);
+    --button-inverted-accent-color: var(--color-light-text-primary);
 }
