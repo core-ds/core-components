@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.8
+
+### Patch Changes
+
+### [#622](https://github.com/core-ds/core-components/pull/622)
+
+-   Убраны отрицательные отступы справа для списка тэгов, теперь тэги не будут выходить за пределы контейнера
+
 ## 3.0.7
 
 ### Patch Changes

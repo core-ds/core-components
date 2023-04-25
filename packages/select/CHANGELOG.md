@@ -1,5 +1,13 @@
 # Change Log
 
+## 14.0.4
+
+### Patch Changes
+
+### [#642](https://github.com/core-ds/core-components/pull/642)
+
+-   Исправлена ошибка с прокидкой пропсов в OptionsList в мобильной версии компонента
+
 ## 14.0.3
 
 ### Patch Changes
