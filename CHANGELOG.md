@@ -1,3 +1,44 @@
+## 41.4.0
+
+<sup><time>26.04.2023</time></sup>
+
+### [#633](https://github.com/core-ds/core-components/pull/633)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой при пустом значении defaultCountryIso2 неверно форматировались российские номера
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+### [#645](https://github.com/core-ds/core-components/pull/645)
+
+#### Что изменилось
+- Изменение вида primary и accent кнопок в corp theme
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#629](https://github.com/core-ds/core-components/pull/629)
+
+#### Что изменилось
+- Исправлены заголовки в теме click
+
+#### Влияние на компоненты
+- Патчи<br />`system-message` `themes`
+
+
+### [#646](https://github.com/core-ds/core-components/pull/646)
+
+#### Что изменилось
+- Исправлена ошибка с типами в responsive компоненте
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+
 ## 41.3.1
 
 <sup><time>25.04.2023</time></sup>
