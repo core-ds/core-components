@@ -1,8 +1,13 @@
 @import '../../../../themes/src/default.css';
 
+:root {
+    --sys-message-title-font-family: var(--font-family-system);
+}
+
 .component {
     margin: 0;
     text-align: center;
     color: var(--color-light-text-primary);
-    font-family: var(--font-family-system);
+    font-family: var(--sys-message-title-font-family);
+    font-feature-settings: 'ss01';
 }

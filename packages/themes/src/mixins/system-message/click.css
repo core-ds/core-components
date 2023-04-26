@@ -1,0 +1,13 @@
+@define-mixin system-message-click {
+    --sys-message-title-font-family: var(--font-family-styrene);
+
+    /* desktop */
+    --sys-message-desktop-title-font-size: 24px;
+    --sys-message-desktop-title-line-height: 32px;
+    --sys-message-desktop-title-font-weight: 500;
+
+    /* mobile */
+    --sys-message-mobile-title-font-size: 20px;
+    --sys-message-mobile-title-line-height: 24px;
+    --sys-message-mobile-title-font-weight: 500;
+}
