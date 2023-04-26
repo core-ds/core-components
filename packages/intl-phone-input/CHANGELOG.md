@@ -1,5 +1,16 @@
 # Change Log
 
+## 9.2.25
+
+### Patch Changes
+
+### [#633](https://github.com/core-ds/core-components/pull/633)
+
+-   Исправлена ошибка, из-за которой при пустом значении defaultCountryIso2 неверно форматировались российские номера
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.3.23
+
 ## 9.2.24
 
 ### Patch Changes

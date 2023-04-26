@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.3.23
+
+### Patch Changes
+
+### [#646](https://github.com/core-ds/core-components/pull/646)
+
+-   Исправлена ошибка с типами в responsive компоненте
+
 ## 9.3.22
 
 ### Patch Changes

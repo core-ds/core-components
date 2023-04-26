@@ -1,5 +1,19 @@
 # Change Log
 
+## 11.4.0
+
+### Minor Changes
+
+### [#645](https://github.com/core-ds/core-components/pull/645)
+
+-   Изменение вида primary и accent кнопок в corp theme
+
+### Patch Changes
+
+### [#629](https://github.com/core-ds/core-components/pull/629)
+
+-   Исправлены заголовки в теме click
+
 ## 11.3.0
 
 ### Minor Changes
