@@ -99,6 +99,16 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     );
 
     const hasValidateError = bothInvalid || inputFromInvalid || inputToInvalid;
+    const {
+        calendarProps: calendarFromProps,
+        onInputChange: onInputChangeFrom,
+        ...dateInputFromProps
+    } = inputFromProps;
+    const {
+        calendarProps: calendarToProps,
+        onInputChange: onInputChangeTo,
+        ...dateInputToProps
+    } = inputToProps;
 
     const { monthFrom, monthTo, handleMonthFromChange, handleMonthToChange } = useStaticViewMonthes(
         {
@@ -117,16 +127,15 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         setInputToInvalid(inputToValue !== '' && !validateInputToValue(inputToValue));
     }, [inputToValue, validateInputToValue]);
 
-    const handleInputFromChange: Required<DateInputProps>['onChange'] = useCallback(
-        (_, payload) => {
-            setInputFromValue(payload.value);
-        },
-        [],
-    );
+    const handleInputFromChange: Required<DateInputProps>['onChange'] = (event, payload) => {
+        setInputFromValue(payload.value);
+        onInputChangeFrom?.(event, payload);
+    };
 
-    const handleInputToChange: Required<DateInputProps>['onChange'] = useCallback((_, payload) => {
+    const handleInputToChange: Required<DateInputProps>['onChange'] = (event, payload) => {
         setInputToValue(payload.value);
-    }, []);
+        onInputChangeTo?.(event, payload);
+    };
 
     const handleMouseOver = useCallback((event: MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
@@ -231,9 +240,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     }, [hasValidateError]);
 
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
-
-    const { calendarProps: calendarFromProps, ...dateInputFromProps } = inputFromProps;
-    const { calendarProps: calendarToProps, ...dateInputToProps } = inputToProps;
 
     const CalendarFromComponent = dateInputFromProps.Calendar || Calendar;
     const CalendarToComponent = dateInputToProps.Calendar || Calendar;

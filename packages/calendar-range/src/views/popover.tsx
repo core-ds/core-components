@@ -9,6 +9,7 @@ import {
     parseDateString,
 } from '@alfalab/core-components-calendar-input';
 import { isCompleteDateInput } from '@alfalab/core-components-date-input';
+import { useDidUpdateEffect } from '@alfalab/hooks';
 
 import { CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
@@ -88,19 +89,18 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
         );
     }, [dateFrom, inputToValue, maxDate, minDate, offDays]);
 
-    const handleInputFromChange: Required<CalendarInputProps>['onInputChange'] = useCallback(
-        (_, payload) => {
-            setInputFromValue(payload.value);
-        },
-        [],
-    );
+    const handleInputFromChange: Required<CalendarInputProps>['onInputChange'] = (
+        event,
+        payload,
+    ) => {
+        setInputFromValue(payload.value);
+        inputFromProps.onInputChange?.(event, payload);
+    };
 
-    const handleInputToChange: Required<CalendarInputProps>['onInputChange'] = useCallback(
-        (_, payload) => {
-            setInputToValue(payload.value);
-        },
-        [],
-    );
+    const handleInputToChange: Required<CalendarInputProps>['onInputChange'] = (event, payload) => {
+        setInputToValue(payload.value);
+        inputToProps.onInputChange?.(event, payload);
+    };
 
     const handleInputFromBlur = useCallback(() => {
         handleValidInputFrom();
@@ -128,7 +128,7 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
         setInputToValue(valueTo);
     }, [valueTo]);
 
-    useEffect(() => {
+    useDidUpdateEffect(() => {
         onDateFromChange({ value: inputFromValue, date: dateFrom });
 
         onChange({
@@ -144,7 +144,7 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputFromValue]);
 
-    useEffect(() => {
+    useDidUpdateEffect(() => {
         onDateToChange({ value: inputToValue, date: dateTo });
 
         onChange({
