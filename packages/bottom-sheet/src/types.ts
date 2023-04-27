@@ -47,6 +47,11 @@ export type BottomSheetProps = {
     container?: BaseModalProps['container'];
 
     /**
+     * Рендерить ли в контейнер через портал.
+     */
+    usePortal?: BaseModalProps['usePortal'];
+
+    /**
      * Дополнительный класс
      */
     className?: string;

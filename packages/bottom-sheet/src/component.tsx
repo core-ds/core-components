@@ -14,7 +14,7 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { getDataTestId, isClient } from '../../utils';
+import { getDataTestId } from '../../utils';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -38,6 +38,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             open,
             title,
             container,
+            usePortal,
             backgroundColor,
             titleSize = 'default',
             subtitle,
@@ -87,7 +88,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         ref,
     ) => {
         const hasInitialIdx = initialActiveAreaIndex !== undefined;
-        const fullHeight = use100vh() || isClient() ? window.innerHeight : 0;
+        const fullHeight = use100vh() || 0;
+        // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
+        const isFirstRender = fullHeight === 0;
 
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
@@ -99,17 +102,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
-        const [sheetOffset, setSheetOffset] = useState(
-            hasInitialIdx
-                ? lastMagneticArea - magneticAreas[initialActiveAreaIndex]
-                : magneticAreas[0],
-        );
+        const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
-        const [activeArea, setActiveArea] = useState(
-            hasInitialIdx ? magneticAreas[initialActiveAreaIndex] : lastMagneticArea,
-        );
+        const [activeArea, setActiveArea] = useState(0);
 
-        const swipingInProgress = useRef(false);
+        const swipingInProgress = useRef<boolean | null>(null);
         const headerRef = useRef<HTMLDivElement>(null);
         const sheetHeight = useRef(0);
         const sheetRef = useRef<HTMLDivElement>(null);
@@ -178,6 +175,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const scrollToArea = (idx: number) => {
+            swipingInProgress.current = false;
             const nextArea = magneticAreas[idx];
 
             if (nextArea === 0) {
@@ -356,11 +354,28 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const handleEntered = (node: HTMLElement, isAppearing: boolean) => {
             setBackdropOpacity(1);
             setSheetHeight();
+            // Ready for swiping
+            swipingInProgress.current = false;
 
             if (transitionProps.onEntered) {
                 transitionProps.onEntered(node, isAppearing);
             }
         };
+
+        useEffect(() => {
+            // Инициализируем стейт только после того, как была рассчитана высота вьюпорта.
+            if (!isFirstRender) {
+                setSheetOffset(
+                    hasInitialIdx ? lastMagneticArea - magneticAreas[initialActiveAreaIndex] : 0,
+                );
+
+                setActiveArea(
+                    hasInitialIdx ? magneticAreas[initialActiveAreaIndex] : lastMagneticArea,
+                );
+            }
+
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [isFirstRender]);
 
         useEffect(() => {
             onMagnetize?.(open ? getActiveAreaIndex(activeArea) : 0);
@@ -371,13 +386,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             scrollToArea,
         }));
 
-        const getSwipeStyles = (): CSSProperties => ({
-            transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
-        });
+        const getSwipeStyles = (): CSSProperties =>
+            sheetOffset ? { transform: `translateY(${sheetOffset}px)` } : {};
 
         const getHeightStyles = (): CSSProperties => ({
-            height: initialHeight === 'full' ? `${lastMagneticArea}px` : 'unset',
-            maxHeight: `${lastMagneticArea}px`,
+            height: !isFirstRender && initialHeight === 'full' ? `${lastMagneticArea}px` : 'unset',
+            maxHeight: isFirstRender ? 0 : `${lastMagneticArea}px`,
         });
 
         const bgClassName = backgroundColor && styles[`background-${backgroundColor}`];
@@ -390,6 +404,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 dataTestId={dataTestId}
                 zIndex={zIndex}
                 onClose={onClose}
+                usePortal={usePortal}
                 scrollHandler={scrollableContainer}
                 Backdrop={SwipeableBackdrop}
                 backdropProps={{
@@ -421,7 +436,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 >
                     <div
                         className={cn(styles.component, bgClassName, className, {
-                            [styles.withTransition]: !swipingInProgress.current,
+                            [styles.withTransition]: swipingInProgress.current === false,
                         })}
                         style={{
                             ...getSwipeStyles(),
