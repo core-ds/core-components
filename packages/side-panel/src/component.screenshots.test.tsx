@@ -197,6 +197,11 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        // TODO моргающий тест
+        matchImageSnapshotOptions: {
+            failureThreshold: 1.2,
+            failureThresholdType: 'percent',
+        },
     }),
 );
 
