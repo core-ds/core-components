@@ -92,7 +92,7 @@ render(() => {
 render(() => {
     const [open, setOpen] = React.useState(false);
     const css = `
-        button[data-test-id='icon'] > span > span {
+        button[data-test-id='icon'] {
             margin-right: var(--gap-s-neg);
         }
     `;
@@ -264,7 +264,7 @@ render(() => {
             justify-content: start;
         }
 
-        button[data-test-id='icon'] > span > span {
+        button[data-test-id='icon'] {
             margin-right: var(--gap-s-neg);
         }
     `;
