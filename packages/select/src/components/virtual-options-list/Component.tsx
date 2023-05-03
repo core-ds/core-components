@@ -6,6 +6,7 @@ import cn from 'classnames';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { useMedia } from '@alfalab/hooks';
 
+import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
@@ -26,7 +27,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             Optgroup = DefaultOptgroup,
             dataTestId,
             emptyPlaceholder,
-            visibleOptions = 5,
+            visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             header,
             footer,
             optionsListWidth,
