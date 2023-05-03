@@ -36,24 +36,6 @@ import { Button } from '@alfalab/core-components/button';
 
 [Гайд по настройке темизации](https://core-ds.github.io/core-components/master/?path=/docs/instructions-пользователям-темизация--page)
 
-## Поддерживаемые браузеры
-
-Мы поддерживаем две последние стабильные версии всех популярных браузеров. Исключение — IE11+ и Android 5+ (Mobile Chrome).
-
-#### Desktop
-
--   Chrome
--   Yandex
--   Firefox
--   Edge
--   IE 11+
--   Safari
-
-#### Mobile
-
--   Android 5+
--   iOS
-
 ## Разработка
 
 ```bash
