@@ -133,6 +133,12 @@ export type CalendarDesktopProps = {
      * Форма ячейки дня
      */
     shape?: 'rounded' | 'rectangular';
+
+    /**
+     * Отображать ли текущий год, если selectorView 'month-only'
+     * @default false
+     */
+    showCurrentYearSelector?: boolean;
 };
 
 export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
@@ -161,6 +167,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             responsive,
             dayAddons,
             shape = 'rounded',
+            showCurrentYearSelector = false,
         },
         ref,
     ) => {
@@ -301,6 +308,8 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                                 prevArrowDisabled={!canSetPrevMonth}
                                 nextArrowDisabled={!canSetNextMonth}
                                 hideDisabledArrows={true}
+                                showCurrentYearSelector={showCurrentYearSelector}
+                                isMonthAndYearSelectable={showCurrentYearSelector}
                                 onPrevArrowClick={handlePrevArrowClick}
                                 onNextArrowClick={handleNextArrowClick}
                             />
