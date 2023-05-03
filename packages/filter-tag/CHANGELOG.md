@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.6
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
 ## 2.1.5
 
 ### Patch Changes

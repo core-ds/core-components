@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.3.21
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   button@8.2.0
+    -   select@14.1.0
+
 ## 10.3.20
 
 ### Patch Changes

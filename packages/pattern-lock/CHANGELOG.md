@@ -1,5 +1,22 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.2.0
+
+### Minor Changes
+
+### [#643](https://github.com/core-ds/core-components/pull/643)
+
+-   Добавлен новый проп extraBounds, за счет которого можно увеличить площадь прослушивания события touchMove
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   button@8.2.0
+
 ## 1.1.3
 
 ### Patch Changes

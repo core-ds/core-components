@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.0.9
+
+### Patch Changes
+
+### [#647](https://github.com/core-ds/core-components/pull/647)
+
+-   Исправлена ошибка, из-за которой неверно вычислялось свойство контекста hasScroll в мобильной версии компонента
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.2
+
 ## 3.0.8
 
 ### Patch Changes

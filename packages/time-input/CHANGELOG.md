@@ -1,5 +1,16 @@
 # @alfalab/core-components-time-input
 
+## 2.1.14
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   input@11.1.13
+
 ## 2.1.13
 
 ### Patch Changes

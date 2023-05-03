@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.2.26
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   select@14.1.0
+    -   input-autocomplete@9.3.24
+
 ## 9.2.25
 
 ### Patch Changes

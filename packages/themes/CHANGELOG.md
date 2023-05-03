@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.5.0
+
+### Minor Changes
+
+### [#636](https://github.com/core-ds/core-components/pull/636)
+
+-   В компоненте Button удалена темизация site для всех view, кроме 'primary'
+
 ## 11.4.0
 
 ### Minor Changes

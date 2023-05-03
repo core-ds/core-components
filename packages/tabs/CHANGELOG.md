@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.4.2
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   picker-button@10.3.21
+
 ## 7.4.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.2.4
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.2
+
 ## 6.2.3
 
 ### Patch Changes

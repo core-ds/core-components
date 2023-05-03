@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.1.13
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   masked-input@6.1.13
+
 ## 7.1.12
 
 ### Patch Changes

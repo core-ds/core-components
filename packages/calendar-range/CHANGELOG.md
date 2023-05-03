@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.0.30
+
+### Patch Changes
+
+### [#652](https://github.com/core-ds/core-components/pull/652)
+
+-   Исправлены ошибки, из-за которых onChange вызывался на первый рендер компонента и не работал проп onInputChange
+
+-   Обновлены зависимости
+    -   calendar@6.3.2
+    -   calendar-input@8.2.23
+    -   date-input@4.2.5
+
 ## 7.0.29
 
 ### Patch Changes
