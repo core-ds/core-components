@@ -1,3 +1,80 @@
+## 41.5.0
+
+<sup><time>03.05.2023</time></sup>
+
+### [#643](https://github.com/core-ds/core-components/pull/643)
+
+#### Что изменилось
+- Добавлен новый проп extraBounds, за счет которого можно увеличить площадь прослушивания события touchMove
+
+#### Влияние на компоненты
+- Минорное<br />`pattern-lock`
+
+
+### [#652](https://github.com/core-ds/core-components/pull/652)
+
+#### Что изменилось
+- Исправлены ошибки, из-за которых onChange вызывался на первый рендер компонента и не работал проп onInputChange
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-range`
+
+
+### [#636](https://github.com/core-ds/core-components/pull/636)
+
+#### Что изменилось
+- В компоненте Button удалена темизация site для всех view, кроме 'primary'
+
+#### Влияние на компоненты
+- Минорное<br />`button` `themes`
+
+
+### [#647](https://github.com/core-ds/core-components/pull/647)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой неверно вычислялось свойство контекста hasScroll в мобильной версии компонента
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+#### Что изменилось
+- Удалены лишние dependencies, добавлены отсутствующие
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet` `confirmation` `filter-tag` `intl-phone-input` `modal`<br /> `pagination` `pattern-lock` `phone-input` `picker-button` `side-panel`<br /> `slider` `slider-input` `tabs` `time-input` `underlay`<br />
+
+
+### [#655](https://github.com/core-ds/core-components/pull/655)
+
+#### Что изменилось
+- Исправлена генерация идентификаторов для изображений
+
+#### Влияние на компоненты
+- Патчи<br />`icon-view`
+
+
+### [#649](https://github.com/core-ds/core-components/pull/649)
+
+#### Что изменилось
+- Исправлен паттерн с positiveOnly={false}
+
+#### Влияние на компоненты
+- Патчи<br />`amount-input`
+
+
+### [#648](https://github.com/core-ds/core-components/pull/648)
+
+#### Что изменилось
+- Немного изменен функционал определения высоты выпадающего списка. Сейчас, если задан параметр visibleOptions и кол-во опций превышает этот параметр только на единицу, то будут отображаться все опции
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+
 ## 41.4.0
 
 <sup><time>26.04.2023</time></sup>
