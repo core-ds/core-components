@@ -36,7 +36,7 @@ export function setThemeStylesInMobileFrame(theme) {
 }
 
 export function getThemeStyles(selectedTheme) {
-    const indigoThemes = ['site'];
+    const indigoThemes = ['corp', 'site'];
     const indigoVars = [indigoColors, indigoShadows].join('\n');
 
     return [
