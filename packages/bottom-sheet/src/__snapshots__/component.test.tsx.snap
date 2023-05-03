@@ -41,7 +41,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
               style="max-height: 744px;"
             >
               <div
-                class="component withTransition"
+                class="component"
                 style="max-height: 744px;"
               >
                 <div
@@ -131,7 +131,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
               style="max-height: 744px;"
             >
               <div
-                class="component withTransition"
+                class="component"
                 style="max-height: 744px;"
               >
                 <div
