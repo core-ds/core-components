@@ -252,7 +252,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onChange={handleChange}
                     onClear={handleClear}
                     inputMode='decimal'
-                    pattern='[0-9\s\.,]*'
+                    pattern={`[${positiveOnly ? '' : '-'}0-9\\s\\.,]*`}
                     dataTestId={dataTestId}
                     ref={ref}
                 />
