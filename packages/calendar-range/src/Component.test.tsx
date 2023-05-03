@@ -439,6 +439,75 @@ describe('CalendarRange', () => {
 
             expect(cb).toBeCalledWith(true);
         });
+
+        it('should not call onChange on mount (popover)', () => {
+            const onChange = jest.fn();
+            render(<CalendarRange onChange={onChange} calendarPosition='popover' />);
+
+            expect(onChange).not.toHaveBeenCalled();
+        });
+
+        it('should not call onChange on mount (static)', () => {
+            const onChange = jest.fn();
+            render(<CalendarRange onChange={onChange} calendarPosition='static' />);
+
+            expect(onChange).not.toHaveBeenCalled();
+        });
+
+        it('should call onInputChange (static)', () => {
+            const dtiFrom = 'input_from';
+            const dtiTo = 'input_to';
+            const onInputFromChange = jest.fn();
+            const onInputToChange = jest.fn();
+            const { getByTestId } = render(
+                <CalendarRange
+                    inputFromProps={{ onInputChange: onInputFromChange, dataTestId: dtiFrom }}
+                    inputToProps={{ onInputChange: onInputToChange, dataTestId: dtiTo }}
+                    calendarPosition='static'
+                />,
+            );
+
+            fireEvent.change(getByTestId(dtiFrom), { target: { value: '10.10.2021' } });
+            fireEvent.change(getByTestId(dtiTo), { target: { value: '10.10.2022' } });
+
+            expect(onInputFromChange).toBeCalledWith(expect.any(Object), {
+                date: new Date('2021-10-10'),
+                value: '10.10.2021',
+            });
+            expect(onInputToChange).toBeCalledWith(expect.any(Object), {
+                date: new Date('2022-10-10'),
+                value: '10.10.2022',
+            });
+        });
+
+        it('should call onInputChange (popover)', () => {
+            const dtiFrom = 'input_from';
+            const dtiTo = 'input_to';
+            const onInputFromChange = jest.fn();
+            const onInputToChange = jest.fn();
+            const { getByTestId } = render(
+                <CalendarRange
+                    inputFromProps={{ onInputChange: onInputFromChange, dataTestId: dtiFrom }}
+                    inputToProps={{ onInputChange: onInputToChange, dataTestId: dtiTo }}
+                    calendarPosition='popover'
+                />,
+            );
+
+            const inputFrom = getByTestId(dtiFrom).querySelector('input') as HTMLInputElement;
+            const inputTo = getByTestId(dtiTo).querySelector('input') as HTMLInputElement;
+
+            fireEvent.change(inputFrom, { target: { value: '10.10.2021' } });
+            fireEvent.change(inputTo, { target: { value: '10.10.2022' } });
+
+            expect(onInputFromChange).toBeCalledWith(expect.any(Object), {
+                date: new Date('2021-10-10'),
+                value: '10.10.2021',
+            });
+            expect(onInputToChange).toBeCalledWith(expect.any(Object), {
+                date: new Date('2022-10-10'),
+                value: '10.10.2022',
+            });
+        });
     });
 
     describe('Render tests', () => {

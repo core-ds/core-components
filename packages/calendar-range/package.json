@@ -21,6 +21,7 @@
         "@alfalab/core-components-calendar": "^6.3.1",
         "@alfalab/core-components-calendar-input": "^8.2.22",
         "@alfalab/core-components-date-input": "^4.2.4",
+        "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "date-fns": "^2.16.1",
         "tslib": "^2.4.0"
