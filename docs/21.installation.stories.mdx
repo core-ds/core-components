@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta
+    title='For users/Подключение'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
+    id='Instructions/installation'
+/>
+
+# Подключение
+
+Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком.
+
+```bash
+// установить всю библиотеку
+yarn add @alfalab/core-components
+
+// установить отдельный компонент
+yarn add @alfalab/core-components-button
+```
+
+## Использование
+
+```jsx
+// импорт после установки отдельного пакета
+import { Button } from '@alfalab/core-components-button';
+
+// импорт после установки всей библиотеки
+import { Button } from '@alfalab/core-components/button';
+```

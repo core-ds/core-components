@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const GithubIcon = ({ fill = '#24292E' }) => (
-    <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>
+export const GithubIcon = ({ fill = '#24292E', width = 32, height = 32 }) => (
+    <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 32 32'>
         <path
             fillRule='evenodd'
             clipRule='evenodd'

@@ -1,3 +1,4 @@
+import React from 'react';
 import { create } from '@storybook/theming/create';
 
 import { version } from '../package.json';
@@ -17,5 +18,5 @@ export default create({
     inputBorder: '#DBDEE1',
     inputTextColor: '#0B1F35',
     brandTitle: `core-components@${version}`,
-    brandImage: 'https://alfabank.ru/api/files/mail_designer/mailz/core-components.svg',
+    brandImage: './images/brand-image.svg',
 });

@@ -1,56 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
-import GitHubButton from 'react-github-btn';
-import Readme from '../README.md';
-import { version } from '../package.json';
+import { Intro } from 'storybook/pages/intro';
 
 <Meta title='Quick start' parameters={{ previewTabs: { canvas: { hidden: true } } }} id='intro' />
 
-<div className="lib">
-  <div className="lib-header">
-    <h1 className="lib-title">
-      <span className="lib-title__line">Core</span>
-      <span className="lib-title__line blinking-cursor">Components</span>
-    </h1>
-    <div className="lib-welcome" />
-  </div>
-
-<div className='lib-desc'>
-    <span className='lib-desc__about'>
-        Библиотека React-компонентов для создания веб-интерфейсов
-    </span>
-    <span className='lib-desc__version'>{version}</span>
-</div>
-
-<div className='benefits'>
-    <div className='benefits-item'>
-        <img src='./images/lib_1_tested.svg' alt='' />
-        <span className='benefits-item__desc'>Актуальные протестированные компоненты</span>
-    </div>
-    <div className='benefits-item'>
-        <img src='./images/lib_2_approved.svg' alt='' />
-        <span className='benefits-item__desc'>Соответствуют дизайн-системе</span>
-    </div>
-    <div className='benefits-item'>
-        <img src='./images/lib_3_typed.svg' alt='' />
-        <span className='benefits-item__desc'>Написаны на TypeScript и типизированы</span>
-    </div>
-    <div className='benefits-item'>
-        <img src='./images/lib_4_themeable.svg' alt='' />
-        <span className='benefits-item__desc'>Легко темизируются через CSS переменные</span>
-    </div>
-    <div className='benefits-item'>
-        <img src='./images/lib_5_accessible.svg' alt='' />
-        <span className='benefits-item__desc'>Отвечают требованиям по доступности</span>
-    </div>
-    <div className='benefits-item'>
-        <img src='./images/lib_6_maintained.svg' alt='' />
-        <span className='benefits-item__desc'>Выделенная команда и оперативная поддержка</span>
-    </div>
-</div>
-
-  <div className="github">
-    <GitHubButton href="https://github.com/core-ds/core-components" data-size="large" data-show-count="true" aria-label="Star core-ds/core-components on GitHub">GitHub</GitHubButton>
-  </div>
-</div>
-
-<Readme />
+<Intro />
