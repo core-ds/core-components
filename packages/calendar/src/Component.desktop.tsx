@@ -309,7 +309,6 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                                 nextArrowDisabled={!canSetNextMonth}
                                 hideDisabledArrows={true}
                                 showCurrentYearSelector={showCurrentYearSelector}
-                                isMonthAndYearSelectable={showCurrentYearSelector}
                                 onPrevArrowClick={handlePrevArrowClick}
                                 onNextArrowClick={handleNextArrowClick}
                             />

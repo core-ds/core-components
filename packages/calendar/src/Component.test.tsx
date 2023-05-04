@@ -48,8 +48,13 @@ describe('Calendar', () => {
 
         it.each(['month-only', 'full'])('should match selectorView="%s" snapshot', (view) => {
             expect(
-                render(<Calendar value={defaultValue} selectorView={view as SelectorView} />)
-                    .container,
+                render(
+                    <Calendar
+                        value={defaultValue}
+                        selectorView={view as SelectorView}
+                        showCurrentYearSelector={true}
+                    />,
+                ).container,
             ).toMatchSnapshot();
         });
     });

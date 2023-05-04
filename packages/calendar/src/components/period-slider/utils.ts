@@ -20,7 +20,12 @@ import { formatDate, monthName } from '../../utils';
 
 import { PeriodType } from '.';
 
-export const formatPeriod = (valueFrom: Date, valueTo: Date, periodType: PeriodType) => {
+export const formatPeriod = (
+    valueFrom: Date,
+    valueTo: Date,
+    periodType: PeriodType,
+    showCurrentYear?: boolean,
+) => {
     if (periodType === 'day') {
         if (isToday(valueFrom)) return 'Сегодня';
         if (isYesterday(valueFrom)) return 'Вчера';
@@ -29,11 +34,9 @@ export const formatPeriod = (valueFrom: Date, valueTo: Date, periodType: PeriodT
     }
 
     if (periodType === 'month') {
-        const year = getYear(valueFrom);
-
-        return year === getYear(new Date())
-            ? monthName(valueFrom)
-            : `${monthName(valueFrom)} ${getYear(valueFrom)}`;
+        return showCurrentYear
+            ? `${monthName(valueFrom)} ${getYear(valueFrom)}`
+            : monthName(valueFrom);
     }
 
     if (periodType === 'quarter') {

@@ -71,6 +71,7 @@ describe(
                         value: [1613310391747, 1613137591747],
                         selectorView: 'month-only',
                         calendarVisible: [false, true],
+                        showCurrentYearSelector: true,
                     },
                     mockDate: 1613310391747,
                 }),
