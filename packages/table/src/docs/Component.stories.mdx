@@ -1,6 +1,7 @@
 import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import { text, number, select, boolean } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Amount } from '@alfalab/core-components-amount';
 import { Typography } from '@alfalab/core-components-typography';
@@ -10,63 +11,94 @@ import { Table as TableTS } from '../component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/Table' component={Table} id='Table' />
+
+export const DATA = [
+    {
+        id: 28,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 21000000,
+    },
+    {
+        id: 12,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
+    },
+    {
+        id: 5,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 3000069,
+    },
+];
 
 <!-- Canvas -->
 
 <Story name='Table'>
-    <Table compactHorizontal={boolean('compact horizontal')}>
-        <Table.THead>
-            <Table.THeadCell width='122px' id='date' title='Дата'>
-                Дата
-            </Table.THeadCell>
-            <Table.THeadCell id='title' title='Контрагент'>
-                Контрагент
-            </Table.THeadCell>
-            <Table.THeadCell width='84px' id='number' title='Номер'>
-                Номер
-            </Table.THeadCell>
-            <Table.THeadCell width='186px' id='sum' title='Сумма' textAlign='right'>
-                Сумма
-            </Table.THeadCell>
-        </Table.THead>
-        <Table.TBody>
-            <Table.TRow>
-                <Table.TCell>
-                    <Typography.Text view='primary-small' tag='div'>
-                        06.12.2021
-                    </Typography.Text>
-                </Table.TCell>
-                <Table.TCell>
-                    <Typography.Text view='primary-small' tag='div'>
-                        ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"
-                    </Typography.Text>
-                    <Typography.Text
-                        view='primary-small'
-                        color='secondary'
-                        tag='div'
-                        style={{ marginTop: 'var(--gap-2xs)' }}
-                    >
-                        Аренда гаражей, за сентябрь 2021 г., Молодёжная, НДС необлагается
-                    </Typography.Text>
-                </Table.TCell>
-                <Table.TCell>
-                    <Typography.Text view='primary-small'>1</Typography.Text>
-                </Table.TCell>
-                <Table.TCell>
-                    <Amount
-                        value={20179800}
-                        currency='RUR'
-                        bold='full'
-                        transparentMinor={true}
-                        minority={100}
-                        view='withZeroMinorPart'
-                    />
-                </Table.TCell>
-            </Table.TRow>
-        </Table.TBody>
-    </Table>
+    {React.createElement(() => {
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        return (
+            <div style={{ backgroundColor: previewStyles.backgroundColor }}>
+                <div style={previewStyles}>
+                    <ModeChecker />
+                    <Table compactHorizontal={boolean('compact horizontal')}>
+                        <Table.THead>
+                            <Table.THeadCell width='122px' id='date' title='Дата'>
+                                Дата
+                            </Table.THeadCell>
+                            <Table.THeadCell id='title' title='Контрагент'>
+                                Контрагент
+                            </Table.THeadCell>
+                            <Table.THeadCell width='186px' id='sum' title='Сумма' textAlign='right'>
+                                Сумма
+                            </Table.THeadCell>
+                        </Table.THead>
+                        <Table.TBody>
+                            {DATA.map((row) => (
+                                <Table.TRow key={row.id}>
+                                    <Table.TCell>
+                                        <Typography.Text view='primary-small' tag='div'>
+                                            {row.date}
+                                        </Typography.Text>
+                                    </Table.TCell>
+                                    <Table.TCell>
+                                        <Space size={2}>
+                                            <Typography.Text view='primary-small' tag='div'>
+                                                {row.title}
+                                            </Typography.Text>
+                                            <Typography.Text view='primary-small' color='secondary'>
+                                                {row.subtitle}
+                                            </Typography.Text>
+                                        </Space>
+                                    </Table.TCell>
+                                    <Table.TCell>
+                                        <Amount
+                                            value={row.sum}
+                                            currency='RUR'
+                                            minority={100}
+                                            view='withZeroMinorPart'
+                                            bold='full'
+                                            transparentMinor={true}
+                                        />
+                                    </Table.TCell>
+                                </Table.TRow>
+                            ))}
+                        </Table.TBody>
+                    </Table>
+                </div>
+            </div>
+        );
+    })}
 </Story>
 
 <!-- Docs -->

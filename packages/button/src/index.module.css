@@ -3,8 +3,6 @@
 :root {
     /* misc */
     --button-font-family: var(--font-family);
-    --button-active-transform-scale-factor: 1;
-    --button-active-transform: scale(var(--button-active-transform-scale-factor));
     --button-font-weight: 500;
 
     /* border-radius */
@@ -41,10 +39,6 @@
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease, transform 0.12s ease;
     box-sizing: border-box;
     will-change: transform;
-
-    &:active {
-        transform: var(--button-active-transform);
-    }
 }
 
 .focused {

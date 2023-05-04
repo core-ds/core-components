@@ -1,5 +1,39 @@
 # Change Log
 
+## 7.5.0
+
+### Minor Changes
+
+### [#658](https://github.com/core-ds/core-components/pull/658)
+
+Изменения для Corp theme:
+
+1. Перевод цветовой палитры с bluetint на indigo
+2. Приведение компонентов Select, Input, Button к прошлому виду
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.22
+
+## 7.4.2
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   picker-button@10.3.21
+
+## 7.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.20
+
 ## 7.4.0
 
 ### Minor Changes

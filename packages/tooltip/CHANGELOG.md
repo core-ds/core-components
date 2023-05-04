@@ -1,5 +1,21 @@
 # Change Log
 
+## 6.2.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.3.0
+    -   bottom-sheet@6.2.5
+
+## 6.2.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.2.0
+    -   bottom-sheet@6.2.4
+
 ## 6.2.19
 
 ### Patch Changes

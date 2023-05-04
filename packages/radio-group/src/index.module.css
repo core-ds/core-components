@@ -35,12 +35,7 @@
 
 .horizontal .radioList {
     flex-wrap: wrap;
-    margin-right: var(--gap-xl-neg);
     margin-bottom: var(--gap-xs-neg);
-}
-
-.tag.horizontal .radioList {
-    margin-right: var(--gap-xs-neg);
 }
 
 .horizontal .radio {
@@ -50,6 +45,11 @@
 
 .horizontal .tagLabel {
     margin-right: var(--gap-xs);
+}
+
+.horizontal .radio:last-child,
+.horizontal .tagLabel:last-child {
+    margin-right: 0;
 }
 
 .label {
@@ -85,4 +85,5 @@
 
 .tagLabel {
     position: relative;
+    max-width: 100%;
 }

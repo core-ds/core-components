@@ -1,4 +1,4 @@
-import { generateTestCases, setupScreenshotTesting } from '../../screenshot-utils';
+import { createPreview, generateTestCases, setupScreenshotTesting } from '../../screenshot-utils';
 
 import { colors } from './Component';
 
@@ -10,6 +10,19 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 70, height: 35 };
+
+describe('Status', () =>
+    createPreview(
+        {
+            componentName: 'Status',
+            knobs: {
+                children: 'Статус',
+                view: 'contrast',
+                color: 'red',
+            },
+        },
+        'transform:scale(4)',
+    ));
 
 describe(
     'Status | screenshots views and colors',

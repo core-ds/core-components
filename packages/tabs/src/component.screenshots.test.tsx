@@ -2,6 +2,7 @@ import {
     setupScreenshotTesting,
     customSnapshotIdentifier,
     generateTestCases,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -9,6 +10,20 @@ const screenshotTesting = setupScreenshotTesting({
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('Tabs ', () => {
+    createPreview(
+        {
+            packageName: 'tabs',
+            componentName: 'SecondaryTabListResponsive',
+            knobs: {
+                titles: '[{"title":"Таб 1","id":"1"},{"title":"Таб 2","id":"2"},{"title":"Таб 3","id":"3"}]',
+                size: 'xs',
+            },
+        },
+        'transform:scale(2.2)',
+    );
 });
 
 // TODO: кривые скриншоты

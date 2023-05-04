@@ -1,5 +1,26 @@
 # Change Log
 
+## 7.0.34
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.1.1
+
+## 7.0.33
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.1.0
+
+## 7.0.32
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.0.4
+
 ## 7.0.31
 
 ### Patch Changes

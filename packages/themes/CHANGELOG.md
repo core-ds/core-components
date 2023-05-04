@@ -1,5 +1,38 @@
 # Change Log
 
+## 11.6.0
+
+### Minor Changes
+
+### [#658](https://github.com/core-ds/core-components/pull/658)
+
+Изменения для Corp theme:
+
+1. Перевод цветовой палитры с bluetint на indigo
+2. Приведение компонентов Select, Input, Button к прошлому виду
+
+## 11.5.0
+
+### Minor Changes
+
+### [#636](https://github.com/core-ds/core-components/pull/636)
+
+-   В компоненте Button удалена темизация site для всех view, кроме 'primary'
+
+## 11.4.0
+
+### Minor Changes
+
+### [#645](https://github.com/core-ds/core-components/pull/645)
+
+-   Изменение вида primary и accent кнопок в corp theme
+
+### Patch Changes
+
+### [#629](https://github.com/core-ds/core-components/pull/629)
+
+-   Исправлены заголовки в теме click
+
 ## 11.3.0
 
 ### Minor Changes

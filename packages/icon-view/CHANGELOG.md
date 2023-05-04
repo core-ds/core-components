@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.7
+
+### Patch Changes
+
+### [#655](https://github.com/core-ds/core-components/pull/655)
+
+-   Исправлена генерация идентификаторов для изображений
+
 ## 3.0.6
 
 ### Patch Changes

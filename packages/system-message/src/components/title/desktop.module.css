@@ -1,7 +1,15 @@
 @import '../../../../themes/src/default.css';
 
+:root {
+    --sys-message-desktop-title-font-size: 22px;
+    --sys-message-desktop-title-line-height: 26px;
+    --sys-message-desktop-title-font-weight: 700;
+}
+
 .component {
-    @mixin headline-system_small;
+    font-size: var(--sys-message-desktop-title-font-size);
+    line-height: var(--sys-message-desktop-title-line-height);
+    font-weight: var(--sys-message-desktop-title-font-weight);
 
     padding-bottom: var(--gap-m);
 }

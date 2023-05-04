@@ -34,6 +34,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
                     ...transitionProps,
                 }}
                 className={cn(className, styles.component)}
+                scrollHandler='content'
             >
                 <div className={styles.mobileContent}>{children}</div>
             </BaseModal>

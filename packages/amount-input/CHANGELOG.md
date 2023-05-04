@@ -1,5 +1,25 @@
 # Change Log
 
+## 7.2.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.14
+    -   with-suffix@4.0.29
+
+## 7.2.14
+
+### Patch Changes
+
+### [#649](https://github.com/core-ds/core-components/pull/649)
+
+-   Исправлен паттерн с positiveOnly={false}
+
+-   Обновлены зависимости
+    -   input@11.1.13
+    -   with-suffix@4.0.28
+
 ## 7.2.13
 
 ### Patch Changes

@@ -134,6 +134,12 @@ export type BaseModalProps = {
     transitionProps?: Partial<TransitionProps>;
 
     /**
+     * Рендерить ли в контейнер через портал.
+     * @default true
+     */
+    usePortal?: boolean;
+
+    /**
      * Обработчик события нажатия на бэкдроп
      */
     onBackdropClick?: (event: MouseEvent) => void;
@@ -240,6 +246,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             dataTestId,
             zIndex = stackingOrder.MODAL,
             componentRef = null,
+            usePortal = true,
         },
         ref,
     ) => {
@@ -497,68 +504,74 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             ],
         );
 
-        if (!shouldRender) return null;
-
-        return (
+        const renderContent = () => (
             <Stack value={zIndex}>
                 {(computedZIndex) => (
-                    <Portal getPortalContainer={container} immediateMount={true}>
-                        <BaseModalContext.Provider value={contextValue}>
-                            <FocusLock
-                                autoFocus={!disableAutoFocus}
-                                disabled={disableFocusLock || !open}
-                                returnFocus={!disableRestoreFocus}
-                            >
-                                {Backdrop && (
-                                    <Backdrop
-                                        {...backdropProps}
-                                        className={cn(backdropProps.className, styles.backdrop)}
-                                        open={open}
-                                        style={{
-                                            zIndex: computedZIndex,
-                                        }}
-                                    />
-                                )}
-                                <div
-                                    role='dialog'
-                                    className={cn(styles.wrapper, wrapperClassName, {
-                                        [styles.hidden]: !open && isExited,
-                                    })}
-                                    ref={mergeRefs([ref, wrapperRef])}
-                                    onKeyDown={handleKeyDown}
-                                    onMouseDown={handleBackdropMouseDown}
-                                    onMouseUp={handleBackdropMouseUp}
-                                    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                                    tabIndex={0}
-                                    data-test-id={dataTestId}
+                    <BaseModalContext.Provider value={contextValue}>
+                        <FocusLock
+                            autoFocus={!disableAutoFocus}
+                            disabled={disableFocusLock || !open}
+                            returnFocus={!disableRestoreFocus}
+                        >
+                            {Backdrop && (
+                                <Backdrop
+                                    {...backdropProps}
+                                    className={cn(backdropProps.className, styles.backdrop)}
+                                    open={open}
                                     style={{
                                         zIndex: computedZIndex,
                                     }}
+                                />
+                            )}
+                            <div
+                                role='dialog'
+                                className={cn(styles.wrapper, wrapperClassName, {
+                                    [styles.hidden]: !open && isExited,
+                                })}
+                                ref={mergeRefs([ref, wrapperRef])}
+                                onKeyDown={handleKeyDown}
+                                onMouseDown={handleBackdropMouseDown}
+                                onMouseUp={handleBackdropMouseUp}
+                                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                                tabIndex={0}
+                                data-test-id={dataTestId}
+                                style={{
+                                    zIndex: computedZIndex,
+                                }}
+                            >
+                                <CSSTransition
+                                    appear={true}
+                                    timeout={200}
+                                    classNames={styles}
+                                    {...transitionProps}
+                                    in={open}
+                                    onEntered={handleEntered}
+                                    onExited={handleExited}
                                 >
-                                    <CSSTransition
-                                        appear={true}
-                                        timeout={200}
-                                        classNames={styles}
-                                        {...transitionProps}
-                                        in={open}
-                                        onEntered={handleEntered}
-                                        onExited={handleExited}
+                                    <div
+                                        className={cn(styles.component, className)}
+                                        ref={mergeRefs([componentRef, componentNodeRef])}
                                     >
-                                        <div
-                                            className={cn(styles.component, className)}
-                                            ref={mergeRefs([componentRef, componentNodeRef])}
-                                        >
-                                            <div className={cn(styles.content, contentClassName)}>
-                                                {children}
-                                            </div>
+                                        <div className={cn(styles.content, contentClassName)}>
+                                            {children}
                                         </div>
-                                    </CSSTransition>
-                                </div>
-                            </FocusLock>
-                        </BaseModalContext.Provider>
-                    </Portal>
+                                    </div>
+                                </CSSTransition>
+                            </div>
+                        </FocusLock>
+                    </BaseModalContext.Provider>
                 )}
             </Stack>
+        );
+
+        if (!shouldRender) return null;
+
+        return usePortal ? (
+            <Portal getPortalContainer={container} immediateMount={true}>
+                {renderContent()}
+            </Portal>
+        ) : (
+            renderContent()
         );
     },
 );

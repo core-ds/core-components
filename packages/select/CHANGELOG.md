@@ -1,5 +1,39 @@
 # Change Log
 
+## 14.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.3.0
+    -   input@11.1.14
+    -   bottom-sheet@6.2.5
+    -   modal@7.0.10
+
+## 14.1.0
+
+### Minor Changes
+
+### [#648](https://github.com/core-ds/core-components/pull/648)
+
+-   Немного изменен функционал определения высоты выпадающего списка. Сейчас, если задан параметр visibleOptions и кол-во опций превышает этот параметр только на единицу, то будут отображаться все опции
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.2.0
+    -   bottom-sheet@6.2.4
+    -   modal@7.0.9
+    -   input@11.1.13
+
+## 14.0.4
+
+### Patch Changes
+
+### [#642](https://github.com/core-ds/core-components/pull/642)
+
+-   Исправлена ошибка с прокидкой пропсов в OptionsList в мобильной версии компонента
+
 ## 14.0.3
 
 ### Patch Changes

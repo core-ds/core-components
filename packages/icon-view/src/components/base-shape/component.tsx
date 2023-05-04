@@ -1,6 +1,8 @@
 import React, { ElementType, forwardRef, Fragment, ReactNode } from 'react';
 import cn from 'classnames';
 
+import { useId } from '@alfalab/hooks';
+
 import { getPath, PathsMap } from './utils';
 
 import styles from './index.module.css';
@@ -87,7 +89,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         },
         ref,
     ) => {
-        const imagePatternId = imageUrl && `${imageUrl.replace(/[^a-z0-9]+/g, '')}_${size}`;
+        const imagePatternId = useId();
 
         const svgPatternId = Icon && `svg_${size}`;
 
@@ -125,7 +127,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             })}
                         />
 
-                        {imagePatternId && (
+                        {imageUrl && (
                             <Fragment>
                                 <defs>
                                     <pattern id={imagePatternId} width='100%' height='100%'>

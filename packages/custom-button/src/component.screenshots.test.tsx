@@ -21,13 +21,13 @@ describe('CustomButton', () =>
         {
             componentName: 'CustomButton',
             knobs: {
-                children: 'CustomButton',
+                children: 'Кнопка',
                 size: 'xl',
                 backgroundColor:
                     'linear-gradient(264.15deg, rgb(255, 66, 202) 0%25, rgb(255, 138, 0) 100%25)',
             },
         },
-        'transform:scale(2.7)',
+        'transform:scale(2.3)',
     ));
 
 describe(

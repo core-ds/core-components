@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,20 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('DateInput', () =>
+    createPreview(
+        {
+            componentName: 'DateInput',
+            knobs: {
+                size: 'm',
+                value: '01.01.2023',
+                label: 'Дата',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.1)',
+    ));
 
 describe(
     'DateInput | sizes',

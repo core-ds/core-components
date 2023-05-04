@@ -22,12 +22,12 @@ describe('PickerButton', () => {
             componentName: 'PickerButton',
             knobs: {
                 options: JSON.stringify(options),
-                label: 'PickerButton',
+                label: 'Кнопка',
                 size: 'xl',
                 view: 'primary',
             },
         },
-        'transform:scale(2.7)',
+        'transform:scale(2.3)',
     );
 
     it('desktop opened', async () => {

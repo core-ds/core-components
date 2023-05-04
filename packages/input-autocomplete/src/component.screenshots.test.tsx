@@ -12,14 +12,14 @@ describe('InputAutocomplete', () => {
         {
             componentName: 'Select',
             knobs: {
-                label: 'Label',
+                label: 'Автокомплит',
                 size: 'm',
                 block: true,
                 selected: '["1"]',
-                options: '[{"key": "1", "content": "Value"}]',
+                options: '[{"key": "1", "content": "Вариант из списка"}]',
             },
         },
-        'padding: 0 270px; transform:scale(2.3)',
+        'padding: 0 270px; transform:scale(2.1)',
     );
 });
 

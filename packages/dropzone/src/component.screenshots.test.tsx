@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, generateTestCases, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -8,6 +8,15 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 450, height: 250 };
+
+describe('Dropzone', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Dropzone',
+        },
+        'transform: scale(1.3)',
+    ));
 
 describe(
     'Dropzone | main props',

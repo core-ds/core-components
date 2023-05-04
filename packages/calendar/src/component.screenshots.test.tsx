@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 jest.mock('date-fns', () => ({ isThisMonth: () => false }));
 
@@ -8,6 +12,15 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+describe('Calendar', () =>
+    createPreview({
+        testStory: false,
+        componentName: 'Calendar',
+        knobs: {
+            selectorView: 'full',
+            defaultMonth: new Date('2023-03-01').getTime(),
+        },
+    }));
 
 describe(
     'Calendar | defaultView',

@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, RefAttributes, useCallback, useEffect } from 'react';
 
 import { OptionsList as DefaultOptionsList } from '../../../components/options-list';
+import { DEFAULT_VISIBLE_OPTIONS } from '../../../consts';
 import { OptionShape, OptionsListProps } from '../../../typings';
 import { SELECT_ALL_KEY } from '../hook';
 
@@ -26,7 +27,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             onApply = () => null,
             onClear = () => null,
             onClose = () => null,
-            visibleOptions = 5,
+            visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             Footer = DefaultFooter,
             ...restProps
         }: OptionsListWithApplyProps,

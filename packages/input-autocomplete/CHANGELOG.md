@@ -1,5 +1,38 @@
 # Change Log
 
+## 9.3.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.3.0
+    -   input@11.1.14
+    -   select@14.1.1
+
+## 9.3.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.2.0
+    -   select@14.1.0
+    -   input@11.1.13
+
+## 9.3.23
+
+### Patch Changes
+
+### [#646](https://github.com/core-ds/core-components/pull/646)
+
+-   Исправлена ошибка с типами в responsive компоненте
+
+## 9.3.22
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.0.4
+
 ## 9.3.21
 
 ### Patch Changes

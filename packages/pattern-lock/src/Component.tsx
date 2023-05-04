@@ -8,7 +8,7 @@ import { Gap } from '@alfalab/core-components-gap';
 
 import { getDataTestId } from '../../utils';
 
-import { OBSERVABLE_TOKENS, OBSERVE_OPTIONS, THEME_STATE } from './consts';
+import { DEFAULT_EXTRA_BOUNDS, OBSERVABLE_TOKENS, OBSERVE_OPTIONS, THEME_STATE } from './consts';
 import type { PatternLockProps } from './typings';
 import { getColorByToken, getDefaultObserveTarget, getSizes, getTheme } from './utils';
 
@@ -26,6 +26,7 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
             forgotCodeBtnText = 'Забыли код?',
             showForgotCodeBtn = false,
             onForgotBtnClick,
+            extraBounds = DEFAULT_EXTRA_BOUNDS,
             ...restProps
         },
         ref,
@@ -93,6 +94,7 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
                     rows={3}
                     cols={3}
                     justifyNodes={justifyNodes}
+                    extraBounds={extraBounds}
                 />
 
                 {showForgotCodeBtn ? (

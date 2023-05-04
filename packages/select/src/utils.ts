@@ -106,6 +106,7 @@ export function useVisibleOptions({
         const styleTarget = styleTargetRef.current;
 
         if (open && list && styleTarget && visibleOptions > 0) {
+            const childCount = list.children.length;
             const optionsNodes = ([] as HTMLElement[]).slice.call(
                 list.children,
                 0,
@@ -116,9 +117,15 @@ export function useVisibleOptions({
                 .slice(0, visibleOptions)
                 .reduce((acc, child) => acc + child.clientHeight, 0);
 
-            if (visibleOptions < list.children.length) {
-                // Добавляем половинку
-                height += Math.round(optionsNodes[optionsNodes.length - 1].clientHeight / 2);
+            if (visibleOptions < childCount) {
+                const lastVisibleOptionHeight = optionsNodes[optionsNodes.length - 1].clientHeight;
+
+                // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
+                height += Math.round(
+                    childCount - visibleOptions === 1
+                        ? lastVisibleOptionHeight
+                        : lastVisibleOptionHeight / 2,
+                );
             }
 
             styleTarget.style.height = `${height}px`;

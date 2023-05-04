@@ -5,6 +5,7 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -13,6 +14,20 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('DateTimeInput', () =>
+    createPreview(
+        {
+            componentName: 'DateTimeInput',
+            knobs: {
+                size: 'm',
+                value: '01.01.2023, 12:48',
+                label: 'Дата и время',
+                block: true,
+            },
+        },
+        'padding: 0 270px; transform:scale(2.1)',
+    ));
 
 describe(
     'DateTimeInput | sizes',

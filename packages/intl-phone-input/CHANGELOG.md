@@ -1,5 +1,44 @@
 # Change Log
 
+## 9.2.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.3.25
+    -   select@14.1.1
+
+## 9.2.26
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   select@14.1.0
+    -   input-autocomplete@9.3.24
+
+## 9.2.25
+
+### Patch Changes
+
+### [#633](https://github.com/core-ds/core-components/pull/633)
+
+-   Исправлена ошибка, из-за которой при пустом значении defaultCountryIso2 неверно форматировались российские номера
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.3.23
+
+## 9.2.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.0.4
+    -   input-autocomplete@9.3.22
+
 ## 9.2.23
 
 ### Patch Changes

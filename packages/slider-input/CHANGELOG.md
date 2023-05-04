@@ -1,5 +1,24 @@
 # Change Log
 
+## 7.1.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.14
+
+## 7.1.17
+
+### Patch Changes
+
+### [#654](https://github.com/core-ds/core-components/pull/654)
+
+-   Удалены лишние dependencies, добавлены отсутствующие
+
+-   Обновлены зависимости
+    -   slider@4.2.1
+    -   input@11.1.13
+
 ## 7.1.16
 
 ### Patch Changes

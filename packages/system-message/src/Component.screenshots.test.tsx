@@ -5,6 +5,7 @@ import {
     closeBrowser,
     Knobs,
     EvaluateFn,
+    createPreview,
 } from '../../screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 450, height: 680 };
@@ -75,6 +76,15 @@ const MOBILE_TESTS: Record<string, { knobs: Knobs; evaluate?: EvaluateFn }> = {
 };
 
 describe('SystemMessage ', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'SystemMessage',
+            knobs: {},
+        },
+        'transform:scale(0.9)',
+    );
+
     describe('desktop', () => {
         Object.keys(DESKTOP_TESTS).forEach((testName) => {
             test(testName, () => testComponent(DESKTOP_TESTS[testName].knobs));

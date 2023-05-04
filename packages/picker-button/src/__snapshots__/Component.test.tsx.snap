@@ -248,7 +248,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             style="max-height: 744px;"
           >
             <div
-              class="component sheet withTransition"
+              class="component sheet"
               style="max-height: 744px;"
             >
               <div
@@ -1348,7 +1348,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
             style="max-height: 744px;"
           >
             <div
-              class="component sheet withTransition"
+              class="component sheet"
               style="max-height: 744px;"
             >
               <div
@@ -2448,7 +2448,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
             style="max-height: 744px;"
           >
             <div
-              class="component sheet withTransition"
+              class="component sheet"
               style="max-height: 744px;"
             >
               <div
