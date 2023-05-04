@@ -20,13 +20,24 @@ export const Tabs = ({
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(
-        ({ props: { title, id, rightAddons, disabled, hidden, toggleClassName } }) => ({
+        ({
+            props: {
+                title,
+                id,
+                rightAddons,
+                disabled,
+                hidden,
+                toggleClassName,
+                dataTestId: toggleTestId,
+            },
+        }) => ({
             title,
             id,
             disabled,
             rightAddons,
             hidden,
             toggleClassName,
+            dataTestId: toggleTestId,
         }),
     );
 
