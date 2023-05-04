@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.3.0
+
+### Minor Changes
+
+### [#658](https://github.com/core-ds/core-components/pull/658)
+
+Изменения для Corp theme:
+
+1. Перевод цветовой палитры с bluetint на indigo
+2. Приведение компонентов Select, Input, Button к прошлому виду
+
 ## 8.2.0
 
 ### Minor Changes

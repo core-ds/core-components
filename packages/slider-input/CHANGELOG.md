@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.1.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.14
+
 ## 7.1.17
 
 ### Patch Changes

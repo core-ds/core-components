@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.0.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@6.3.16
+
 ## 4.0.23
 
 ### Patch Changes
