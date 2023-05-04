@@ -1,3 +1,19 @@
+## 41.6.0
+
+<sup><time>04.05.2023</time></sup>
+
+### [#658](https://github.com/core-ds/core-components/pull/658)
+
+#### Что изменилось
+Изменения для Corp theme:
+  1. Перевод цветовой палитры с bluetint на indigo
+  2. Приведение компонентов Select, Input, Button к прошлому виду
+
+#### Влияние на компоненты
+- Минорное<br />`button` `tabs` `themes` `vars`
+
+
+
 ## 41.5.0
 
 <sup><time>03.05.2023</time></sup>
