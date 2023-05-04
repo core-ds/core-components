@@ -34,6 +34,12 @@ export type IconButtonProps = {
     className?: string;
 
     /**
+     * Выравнивание иконки
+     * @default 'center'
+     */
+    alignIcon?: 'left' | 'center' | 'right';
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -48,7 +54,15 @@ export type IconButtonProps = {
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (
-        { className, icon: Icon, view = 'primary', size = 's', colors = 'default', ...restProps },
+        {
+            className,
+            icon: Icon,
+            view = 'primary',
+            size = 's',
+            colors = 'default',
+            alignIcon = 'center',
+            ...restProps
+        },
         ref,
     ) => (
         <Button
@@ -66,7 +80,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             )}
             size='s'
         >
-            <span className={cn(styles.iconWrapper, styles[size])}>
+            <span className={cn(styles.iconWrapper, styles[size], styles[alignIcon])}>
                 <Icon className={styles.icon} />
             </span>
         </Button>

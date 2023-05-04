@@ -281,7 +281,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                               class="text stretchText"
                             >
                               <span
-                                class="iconWrapper xs"
+                                class="iconWrapper xs center"
                               >
                                 <svg
                                   class="icon"
@@ -1381,7 +1381,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                               class="text stretchText"
                             >
                               <span
-                                class="iconWrapper xs"
+                                class="iconWrapper xs center"
                               >
                                 <svg
                                   class="icon"
@@ -2481,7 +2481,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                               class="text stretchText"
                             >
                               <span
-                                class="iconWrapper xs"
+                                class="iconWrapper xs center"
                               >
                                 <svg
                                   class="icon"

@@ -91,6 +91,8 @@ render(() => {
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
+
+    /* Указать для IconButton через className */
     const css = `
         button[data-test-id='icon'] {
             margin-right: var(--gap-s-neg);
@@ -255,15 +257,8 @@ render(() => {
         marginRight: 'var(--gap-xs-neg)',
     };
 
+    /* Указать для IconButton через className */
     const css = `
-       button[data-test-id='icon-left'] > span > span {
-            justify-content: end;
-        }
-
-        button[data-test-id='icon-right'] > span > span {
-            justify-content: start;
-        }
-
         button[data-test-id='icon'] {
             margin-right: var(--gap-s-neg);
         }
@@ -302,14 +297,14 @@ render(() => {
                             onClick={leftIcon}
                             icon={DiamondsMIcon}
                             size='xs'
-                            dataTestId='icon-left'
+                            alignIcon='right'
                         />
                         <IconButton
                             view='secondary'
                             onClick={rightIcon}
                             icon={FlowerMIcon}
                             size='xs'
-                            dataTestId='icon-right'
+                            alignIcon='left'
                         />
                     </div>
                 }
