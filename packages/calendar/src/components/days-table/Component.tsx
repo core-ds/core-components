@@ -198,7 +198,9 @@ export const DaysTable: FC<DaysTableProps> = ({
                         [styles.highlighted]: dayHighlighted,
                     })}
                 >
-                    <span className={cn(styles.dayContent)}>{day.date.getDate()}</span>
+                    <span className={cn(styles.dayContent, { [styles.today]: isToday(day.date) })}>
+                        {day.date.getDate()}
+                    </span>
                     <span
                         className={cn(styles.addons, {
                             [styles.dot]: day.event,
