@@ -34,9 +34,14 @@ export const formatPeriod = (
     }
 
     if (periodType === 'month') {
-        return showCurrentYear
-            ? `${monthName(valueFrom)} ${getYear(valueFrom)}`
-            : monthName(valueFrom);
+        const monthAndYear = `${monthName(valueFrom)} ${getYear(valueFrom)}`;
+
+        if (showCurrentYear) {
+            return monthAndYear;
+        }
+        const year = getYear(valueFrom);
+
+        return year === getYear(new Date()) ? monthName(valueFrom) : monthAndYear;
     }
 
     if (periodType === 'quarter') {

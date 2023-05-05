@@ -30,13 +30,7 @@ describe('CalendarRange', () => {
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(
-                render(
-                    <CalendarRange
-                        defaultMonth={defaultDate.getTime()}
-                        inputFromProps={{ calendarProps: { showCurrentYearSelector: true } }}
-                        inputToProps={{ calendarProps: { showCurrentYearSelector: true } }}
-                    />,
-                ).container,
+                render(<CalendarRange defaultMonth={defaultDate.getTime()} />).container,
             ).toMatchSnapshot();
         });
     });
