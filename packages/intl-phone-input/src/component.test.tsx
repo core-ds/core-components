@@ -417,4 +417,41 @@ describe('IntlPhoneInput', () => {
             expect(onChange).not.toBeCalled();
         });
     });
+
+    it('should change country for 5 chars country code', async () => {
+        const onCountryChange = jest.fn();
+        const countries = [
+            {
+                name: 'Абхазия',
+                iso2: 'ge-ab',
+                priority: 0,
+                dialCode: '7 940',
+                areaCodes: null,
+            },
+            {
+                areaCodes: null,
+                dialCode: '7',
+                iso2: 'ru',
+                name: 'Россия',
+                priority: 0,
+            },
+        ];
+
+        render(
+            <IntlPhoneInput
+                value='+7 94'
+                countries={countries}
+                maxDialCodeLength={5}
+                onCountryChange={onCountryChange}
+                onChange={() => {}}
+            />,
+        );
+
+        const input = await screen.getByDisplayValue('+7 94');
+        await userEvent.type(input, '0');
+
+        await waitFor(() => {
+            expect(onCountryChange).toBeCalledWith('GE-AB');
+        });
+    });
 });
