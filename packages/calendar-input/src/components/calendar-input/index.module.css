@@ -30,7 +30,6 @@
 
 .calendarResponsive {
     width: var(--calendar-width);
-    padding: 0 var(--gap-m);
 }
 
 .calendarIcon {

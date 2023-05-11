@@ -11,6 +11,12 @@
     height: auto;
 }
 
+.contentCalendar {
+    & > div:last-child {
+        padding: 0 0 var(--gap-m);
+    }
+}
+
 .skeleton {
     display: flex;
     flex-direction: column;

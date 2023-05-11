@@ -84,6 +84,8 @@ const CalendarMonthOnlyView = ({
         return yearsAmount * 12 + currentMonthIndex;
     }, [yearsAmount]);
 
+    const wrapperContentRef = useRef<HTMLDivElement>(null);
+
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
         [monthTimestamp],
@@ -187,13 +189,18 @@ const CalendarMonthOnlyView = ({
     );
 
     return (
-        <Virtuoso
-            totalCount={activeMonths.length}
-            itemContent={renderMonth}
-            initialTopMostItemIndex={initialMonthIndex}
-            increaseViewportBy={800}
-            itemSize={(el) => el.getBoundingClientRect().height + 32}
-        />
+        <div ref={wrapperContentRef}>
+            <Virtuoso
+                totalCount={activeMonths.length}
+                itemContent={renderMonth}
+                initialTopMostItemIndex={initialMonthIndex}
+                increaseViewportBy={800}
+                itemSize={(el) => el.getBoundingClientRect().height + 32}
+                useWindowScroll={true}
+                customScrollParent={wrapperContentRef.current as HTMLElement}
+                followOutput='smooth'
+            />
+        </div>
     );
 };
 

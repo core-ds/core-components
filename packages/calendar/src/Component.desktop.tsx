@@ -315,7 +315,13 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                     </Header>
                 )}
 
-                <div className={cn(styles.container, styles[view])}>
+                <div
+                    className={cn(
+                        styles.container,
+                        { [styles.customScrollbar]: view === 'years' },
+                        styles[view],
+                    )}
+                >
                     {view === 'days' && (
                         <DaysTable
                             weeks={weeks}
