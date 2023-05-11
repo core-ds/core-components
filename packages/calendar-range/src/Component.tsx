@@ -96,6 +96,11 @@ export type CalendarRangeProps = {
      * Отображать начальный месяц слева или справа (влияет только на начальный рендер)
      */
     defaultMonthPosition?: 'left' | 'right';
+
+    /**
+     * Возвращать невалидную дату для кастомной валидации
+     */
+    returnInvalidDates?: boolean;
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
