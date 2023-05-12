@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.3.0
+
+### Minor Changes
+
+### [#661](https://github.com/core-ds/core-components/pull/661)
+
+-   Добавлен параметр maxDialCodeLength в компонент intl-phone-input, который задаёт максимальную длину телефонного кода страны
+
 ## 9.2.27
 
 ### Patch Changes
