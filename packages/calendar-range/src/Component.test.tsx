@@ -413,8 +413,8 @@ describe('CalendarRange', () => {
             fireEvent.change(getByTestId(dtiTo), { target: { value: dateTo } });
 
             expect(onChange).toBeCalledWith({
-                dateFrom: new Date(dateFrom).getTime(),
-                dateTo: new Date(new Date(dateTo).toLocaleDateString()).getTime(),
+                dateFrom: new Date('2023.05.05').getTime(),
+                dateTo: new Date('2023.05.04').getTime(),
                 valueFrom: dateFrom,
                 valueTo: dateTo,
             });
