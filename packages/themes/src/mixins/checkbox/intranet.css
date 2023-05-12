@@ -16,4 +16,5 @@
 
     /* icon */
     --checkbox-icon-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-icon-indeterminate-color: var(--color-light-graphic-primary-inverted);
 }
