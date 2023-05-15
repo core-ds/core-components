@@ -35,7 +35,8 @@
     --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
-    --checkbox-icon-color: var(--color-light-bg-primary);
+    --checkbox-icon-color: var(--color-static-graphic-light);
+    --checkbox-icon-indeterminate-color: var(--color-static-graphic-light);
 }
 
 .component {
@@ -215,7 +216,7 @@
     position: absolute;
     width: 10px;
     height: 2px;
-    background-color: var(--color-light-graphic-primary-inverted);
+    background-color: var(--checkbox-icon-indeterminate-color);
 }
 
 .component input {
