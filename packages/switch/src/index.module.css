@@ -74,7 +74,7 @@
     width: 16px;
     height: 16px;
     border-radius: var(--border-radius-circle);
-    background-color: var(--color-light-graphic-primary-inverted);
+    background-color: var(--color-static-graphic-light);
     box-sizing: border-box;
     transition: transform 0.2s ease;
 }
