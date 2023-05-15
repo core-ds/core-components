@@ -48,6 +48,7 @@ render(() => {
                     responsive={true}
                     onChange={setValue}
                     selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
+                    showCurrentYearSelector={true}
                 />
             </div>
             <p style={{ marginTop: 32, marginBottom: 32 }}>
@@ -228,6 +229,7 @@ render(() => {
                     selectedTo={selectedTo}
                     onChange={updatePeriod}
                     selectorView='month-only'
+                    showCurrentYearSelector={true}
                 />
             </div>
             <p style={{ marginTop: 32, marginBottom: 32 }}>Values: {selectedRange}</p>
@@ -351,7 +353,9 @@ render(() => {
                 selectedTo={selectedTo}
                 onChange={updatePeriod}
                 selectorView='month-only'
+                allowSelectionFromEmptyRange={allowSelectionFromEmptyRange}
             />
+            <p style={{ marginTop: 32, marginBottom: 0 }}>Values: {selectedRange}</p>
             <div style={{ marginTop: '32px' }}>
                 <RadioGroup
                     label='Режим'
@@ -437,6 +441,7 @@ render(() => {
                 events={events}
                 offDays={offDays}
                 holidays={holidays}
+                showCurrentYearSelector={true}
             />
         </div>
     );
@@ -529,6 +534,7 @@ render(() => {
                     value={value}
                     onChange={setValue}
                     shape={firstRadioValue}
+                    showCurrentYearSelector={true}
                 />
             </div>
             <Gap size='2xl'/>
@@ -642,6 +648,7 @@ render(() => {
                 dayAddons={dayAddons}
                 onChange={setValue}
                 shape='rectangular'
+                showCurrentYearSelector={true}
             />
         </div>
     );
@@ -731,6 +738,7 @@ render(() => {
                 selectorView='month-only'
                 minDate={minDate.getTime()}
                 maxDate={maxDate.getTime()}
+                showCurrentYearSelector={true}
             />
         </div>
     );
@@ -808,6 +816,7 @@ render(() => {
                     calendarVisible={visible}
                     selectorView='month-only'
                     responsive={true}
+                    showCurrentYearSelector={true}
                 />
             </div>
             <div style={{ marginTop: '32px' }}></div>
@@ -874,6 +883,16 @@ render(() => {
                 periodType='month'
                 onPrevArrowClick={handler}
                 onNextArrowClick={handler}
+            />
+
+            <br />
+            
+            <PeriodSlider
+                value={values.value}
+                periodType='month'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+                showCurrentYearSelector={true}
             />
 
             <br />

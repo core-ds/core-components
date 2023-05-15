@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/addon-docs';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { ModeChecker } from 'storybook/components/mode-checker';
 import { Button } from '@alfalab/core-components-button';
@@ -81,6 +81,7 @@ export const MONTHS = {
                                 events={events}
                                 defaultView={defaultView}
                                 selectorView={selectorView}
+                                showCurrentYearSelector={boolean('showCurrentYearSelector', false)}
                             />
                         </div>
                     </div>

@@ -72,7 +72,6 @@
     }
 
     &.today {
-        font-weight: bold;
         color: var(--calendar-today-color);
     }
 
@@ -311,6 +310,10 @@
 
 .dayContent {
     @mixin paragraph_primary_medium;
+
+    &.today {
+        font-weight: bold;
+    }
 }
 
 .addons {
