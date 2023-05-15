@@ -886,6 +886,16 @@ render(() => {
             />
 
             <br />
+            
+            <PeriodSlider
+                value={values.value}
+                periodType='month'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+                showCurrentYearSelector={true}
+            />
+
+            <br />
 
             <PeriodSlider
                 value={values.value}
