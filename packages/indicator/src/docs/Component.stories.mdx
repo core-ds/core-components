@@ -1,0 +1,57 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { select, text, number, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Indicator } from '@alfalab/core-components-indicator';
+
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta title='Components/Indicator' component={Indicator} id='Indicator' />
+
+<!-- Canvas -->
+
+<Story name='Indicator'>
+    {React.createElement(() => {
+        return (
+            <div
+                style={{
+                    backgroundColor: 'transparent',
+                    padding: '8px',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                }}
+            >
+                <Indicator
+                    value={number('value', 1)}
+                    height={number('height', 20)}
+                    color={text('color', 'text-primary-inverted')}
+                    backgroundColor={text('backgroundColor', 'bg-accent')}
+                    border={boolean('border', true) && {
+                        color: text('border.color', 'border-primary-inverted'),
+                        width: number('border.width', 1),
+                    }}
+                    view={select('view', [undefined, 'red', 'grey', 'white'], undefined)}
+                />
+            </div>
+        )
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Indicator'
+    version={version}
+    package='@alfalab/core-components/indicator'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/branch/UbjMvmChTdD8nhHMCJ2End/Web-%3A%3A-Core-Default-Components?type=design&node-id=87344%3A115239&t=MNlF5zYf4GuQnRbs-1'
+    children='Используется как индикатор состояния или для визаулизации количества уведомлений, сообщений и т. д.'
+/>
+
+<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />

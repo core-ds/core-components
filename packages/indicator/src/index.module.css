@@ -1,0 +1,63 @@
+@import '../../themes/src/default.css';
+
+.component {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    border-radius: var(--border-radius-pill);
+}
+
+.xs {
+    height: 8px;
+    min-width: 8px;
+}
+
+.s {
+    height: 20px;
+    min-width: 20px;
+
+    & .content {
+        @mixin accent_secondary_small;
+        padding: 0 var(--gap-2xs);
+    }
+}
+
+.m {
+    & .content {
+        @mixin accent_primary_small;
+        padding: 0 var(--gap-2xs);
+    }
+}
+
+.l {
+    & .content {
+        @mixin accent_primary_small;
+        padding: 0 var(--gap-xs);
+    }
+}
+
+.xl {
+    & .content {
+        @mixin accent_primary_medium;
+        padding: 0 var(--gap-s);
+    }
+}
+
+.xxl {
+    & .content {
+        @mixin accent_primary_medium;
+        padding: 0 var(--gap-m);
+    }
+}
+
+.border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--border-radius-pill);
+}

@@ -1,0 +1,67 @@
+/**
+ * Нужно вынести это в vars и генерить классы для всех токенов
+ */
+
+@import '../../themes/src/default.css';
+
+@each $color in text-accent, text-attention, text-disabled, text-disabled-inverted, text-link,
+    text-negative, text-positive, text-primary, text-primary-inverted, text-secondary,
+    text-secondary-inverted, text-tertiary, text-tertiary-inverted
+{
+    .$(color) {
+        color: var(--color-light-$(color));
+    }
+}
+
+@each $color in static-text-accent, static-text-primary-dark, static-text-primary-light,
+    static-text-secondary-dark, static-text-secondary-light, static-text-tertiary-dark,
+    static-text-tertiary-light
+{
+    .$(color) {
+        color: var(--color-$(color));
+    }
+}
+
+@each $color in bg-accent, bg-attention-muted, bg-info, bg-negative-muted, bg-opaque, bg-overlay,
+    bg-positive-muted, bg-primary, bg-primary-inverted, bg-quaternary, bg-quaternary-inverted,
+    bg-secondary, bg-secondary-inverted, bg-tertiary, bg-tertiary-inverted
+{
+    .$(color) {
+        background-color: var(--color-light-$(color));
+    }
+}
+
+@each $color in specialbg-component, specialbg-component-inverted, specialbg-nulled,
+    specialbg-overlay-fallback, specialbg-primary-grouped, specialbg-secondary-grouped,
+    specialbg-secondary-transparent, specialbg-secondary-transparent-inverted,
+    specialbg-tertiary-grouped, specialbg-tertiary-transparent,
+    specialbg-tertiary-transparent-inverted
+{
+    .$(color) {
+        background-color: var(--color-light-$(color));
+    }
+}
+
+@each $color in static-bg-accent, static-bg-primary-dark, static-bg-primary-light,
+    static-bg-quaternary-dark, static-bg-quaternary-light, static-bg-secondary-dark,
+    static-bg-secondary-light, static-bg-tertiary-dark, static-bg-tertiary-light
+{
+    .$(color) {
+        background-color: var(--color-$(color));
+    }
+}
+
+@each $color in border-accent, border-key, border-key-inverted, border-link, border-primary,
+    border-primary-inverted, border-secondary, border-secondary-inverted, border-tertiary,
+    border-tertiary-inverted, border-underline, border-underline-inverted
+{
+    .$(color) {
+        border-color: var(--color-light-$(color));
+    }
+}
+
+@each $color in static-border-accent {
+    .$(color) {
+        border-color: var(--color-$(color));
+    }
+}
