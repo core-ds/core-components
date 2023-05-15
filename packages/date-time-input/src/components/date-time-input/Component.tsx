@@ -368,9 +368,10 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                             {rightAddons}
                             {picker && (
                                 <IconButton
+                                    className={styles.calendarIcon}
                                     onClick={inputDisabled ? undefined : handleIconButtonClick}
                                     icon={CalendarMIcon}
-                                    size='xxs'
+                                    size='s'
                                 />
                             )}
                         </React.Fragment>

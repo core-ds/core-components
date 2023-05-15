@@ -31,3 +31,8 @@
 .block {
     width: 100%;
 }
+
+.calendarIcon {
+    margin-right: var(--gap-s-neg);
+    height: 100%;
+}

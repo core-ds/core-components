@@ -465,10 +465,11 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                             {rightAddons}
                             {picker && (
                                 <IconButton
+                                    className={styles.calendarIcon}
                                     ref={iconRef}
                                     onClick={inputDisabled ? undefined : handleIconButtonClick}
                                     icon={CalendarMIcon}
-                                    size='xxs'
+                                    size='s'
                                 />
                             )}
                         </React.Fragment>

@@ -56,7 +56,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                   class="text stretchText"
                 >
                   <span
-                    class="iconWrapper s"
+                    class="iconWrapper s center"
                   >
                     <svg
                       class="icon"
@@ -111,7 +111,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                   class="text stretchText"
                 >
                   <span
-                    class="iconWrapper s"
+                    class="iconWrapper s center"
                   >
                     <svg
                       class="icon"
@@ -166,7 +166,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                   class="text stretchText"
                 >
                   <span
-                    class="iconWrapper s"
+                    class="iconWrapper s center"
                   >
                     <svg
                       class="icon"
