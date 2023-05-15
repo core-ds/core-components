@@ -3,7 +3,7 @@
 По умолчанию селект вызывает [Popover](/docs/popover--popover) с вариантами выбора.
 На мобильных устройствах варианты выбора отображаются в [BottomSheet](/docs/bottomsheet--bottom-sheet).
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 const OPTIONS = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -125,7 +125,7 @@ render(() => {
 2. После выбора элемента необходимо закрыть дропдаун кликнув «снаружи».
 3. После нажатия на кнопку подтверждения в дропдауне.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 const OPTIONS = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
@@ -290,7 +290,7 @@ render(() => {
 
 Для рендера большого количества данных используйте `OptionsList={VirtualOptionsList}`. На время подгрузки можно использовать скелетон.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const optionsForVirtualList = React.useMemo(
         () =>
@@ -490,7 +490,7 @@ render(() => {
 а вместо текста у вариантов выбора (поле `content`) использовать произвольный html контент.
 Также стандартный компонент `Field` позволяет управлять рендером выбранных пунктов с помощью свойства `valueRenderer`.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const options = React.useMemo(
         () => [
@@ -732,7 +732,7 @@ render(() => {
 открывать его в [Modal](?path=/docs/modal--modal)
 вместо [BottomSheet](?path=/docs/bottomsheet--bottom-sheet).
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 const groups = [
     {
         label: 'Группа №1',
@@ -804,7 +804,7 @@ render(() => {
 
 Чтобы использовать селект внутри формы — следует указать атрибут `name`.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const options = React.useMemo(
         () => [
@@ -927,7 +927,7 @@ render(() => {
 По умолчанию список для селекта с единичным выбором закрывается сразу после выбора.
 В мультиселекте список остается открытым. Изменить это поведение можно с помощью параметра `closeOnSelect`.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const options = [
         { key: '1', content: 'Neptunium' },
@@ -1024,7 +1024,7 @@ render(() => {
 Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
 В этом случае просто передавайте их через свойство `selected`.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const options = React.useMemo(
         () => [

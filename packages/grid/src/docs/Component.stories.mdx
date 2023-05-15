@@ -1,15 +1,15 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Grid } from '@alfalab/core-components-grid';
 
 import { Grid as GridTS } from '../Component';
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 
 <Meta title='Components/Grid' component={Grid} id='Grid' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Grid'>
     {React.createElement(() => {
@@ -33,9 +33,13 @@ import Description from './description.mdx';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='Grid' version={version} package='@alfalab/core-components/grid' />
+<ComponentHeader
+    name='Grid'
+    version={packageJson.version}
+    package='@alfalab/core-components/grid'
+/>
 
 ```jsx
 import { Grid } from '@alfalab/core-components/grid';
@@ -43,6 +47,6 @@ import { Grid } from '@alfalab/core-components/grid';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable components={GridTS} />}
 />

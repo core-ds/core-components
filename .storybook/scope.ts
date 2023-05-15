@@ -10,7 +10,7 @@ if (process.env.BUILD_STORYBOOK_FROM_DIST === 'true') {
         componentsContext = require.context(
             '../dist',
             true,
-            /^\.\/(.*)\/esm\/(index|desktop|mobile|responsive|circle|super-ellipse).js$/,
+            /^\.\/(.*)\/modern\/(index|desktop|mobile|responsive|circle|super-ellipse).js$/,
         );
     } catch (e) {
         console.error('Отсутствует директория dist (.storybook/scope.ts)');

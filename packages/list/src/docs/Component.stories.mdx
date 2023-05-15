@@ -1,14 +1,13 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select } from '@storybook/addon-knobs';
 import { Typography } from '@alfalab/core-components-typography';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { List } from '@alfalab/core-components-list';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -46,7 +45,6 @@ export const COLOR = [
         if (isPreview) {
             return (
                 <div style={previewStyles}>
-                    <ModeChecker />
                     <List tag='ol'>
                         <List.Item>
                             <Typography.Text tag='span' view='primary-medium' color='primary'>
@@ -113,10 +111,14 @@ export const COLOR = [
 
 <ComponentHeader
     name='List'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/list'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=367%3A26194'
     children='Компонент для создания списков.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

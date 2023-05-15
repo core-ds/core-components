@@ -1,16 +1,13 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { pluralize } from '@alfalab/utils';
-import { Tag } from '@alfalab/core-components-tag';
-import { Input } from '@alfalab/core-components-input';
-import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { Arrow, Option } from '@alfalab/core-components-select';
+import { Arrow } from '@alfalab/core-components-select';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
 
 import { SelectWithTags as SelectWithTagsTS } from '../component';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 export const options = [
     { key: '1', content: 'H', value: 'H' },
@@ -32,7 +29,7 @@ export const options = [
 
 <Meta title='Components/SelectWithTags' component={SelectWithTags} id='SelectWithTags' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='SelectWithTags'>
     {React.createElement(() => {
@@ -76,7 +73,7 @@ export const options = [
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='SelectWithTags'
@@ -89,6 +86,6 @@ import { SelectWithTags } from '@alfalab/core-components/select-with-tags';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={SelectWithTagsTS} />}
 />

@@ -1,17 +1,17 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { FormControl } from '@alfalab/core-components-form-control';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Development from './development.mdx';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/FormControl' component={FormControl} id='FormControl' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='FormControl'>
     {React.createElement(() => {
@@ -51,13 +51,17 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='FormControl'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/form-control'
     children='Базовый компонент для построения полей ввода — input, textarea, select и др.'
 />
 
-<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

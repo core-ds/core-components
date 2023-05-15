@@ -1,17 +1,16 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 
 import { MobilePhoneBubbleLineMIcon } from '@alfalab/icons-glyph/MobilePhoneBubbleLineMIcon';
 import { SystemMessage } from '@alfalab/core-components-system-message';
 import { Button } from '@alfalab/core-components-button';
 import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -19,7 +18,7 @@ import {
 
 <Meta title='Components/SystemMessage' component={SystemMessage} id='SystemMessage' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='SystemMessage'>
     {React.createElement(() => {
@@ -83,8 +82,11 @@ import {
                             : null),
                     }}
                 >
-                    <ModeChecker />
-                    <SystemMessage dataTestId='system-message' fullHeight={fullHeight}>
+                    <SystemMessage
+                        dataTestId='system-message'
+                        fullHeight={fullHeight}
+                        breakpoint={number('breakpoint', 1024)}
+                    >
                         {renderGraphic()}
                         {title && (
                             <SystemMessage.Title>
@@ -119,14 +121,18 @@ import {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='SystemMessage'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/system-message'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/branch/DsVsF0dh7exJgSuxso8eu1/Web-%3A%3A-Core-Default-Components?node-id=79240%3A149328&t=WRMYe9kF3VSI0FDa-0'
     children='Используется для отображения системных сообщений.'
 />
 
-<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

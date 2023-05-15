@@ -16,7 +16,7 @@ render(
 При наличии пикера допустимо блокировать ввод с клавиатуры.
 Если дата указывается с пикера, или пользователь покинул поле после ввода даты и не заполнил время, считаем время равным 00:00
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(
     <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
         <DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' picker block size='m' />

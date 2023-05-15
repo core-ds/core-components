@@ -1,13 +1,12 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 
 import { BottomSheet as BottomSheetTS } from '../component';
-import { name, version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 import vars from '!!raw-loader!../index.module.css';
 import {
@@ -24,7 +23,7 @@ export const longText = Array(10).fill(shortText).join('\n\n');
 
 export const BACKGROUND = ['primary', 'secondary', undefined];
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='BottomSheet'>
     {React.createElement(() => {
@@ -38,8 +37,9 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
         const isPreview = Object.keys(previewStyles).length > 0;
         return (
             <div style={{ ...previewStyles, maxWidth: 'none' }}>
-                <ModeChecker />
-                <style>{`.preview{transform:${previewStyles.transform};top: ${previewStyles.top};max-width:${previewStyles.maxWidth}`}</style>
+                <style>
+                    {`.preview{transform:${previewStyles.transform};top: ${previewStyles.top};max-width:${previewStyles.maxWidth}  `}
+                </style>
                 {!isPreview && (
                     <>
                         <Button
@@ -104,12 +104,12 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='BottomSheet'
-    version={version}
-    package={name}
+    version={packageJson.version}
+    package={packageJson.name}
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=317%3A39840'
 />
 
@@ -119,7 +119,7 @@ import { BottomSheet } from '@alfalab/core-components/bottom-sheet';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={BottomSheetTS} />}
     cssVars={<CssVars css={vars} />}
 />

@@ -3,21 +3,15 @@ https://design.alfabank.ru/patterns/amount
 
 По умолчанию внешний вид компонента зависит от темизации продукта. Также можно использовать пропсы, чтобы задать внешний вид вручную.
 
-
-
 ```jsx live
-// import { Typography } from '@alfalab/core-components/typography';
-
 <Typography.Title font='system'>
-    <Amount value={100000000} minority={100} currency="RUB" view='withZeroMinorPart' />
+    <Amount value={100000000} minority={100} currency='RUB' view='withZeroMinorPart' />
 </Typography.Title>
 ```
 
 ## Контекст использования
 
-<!-- TODO: хотели таблицу которая показывает разницу -->
-
-- `view="withZeroMinorPart"`: показывает минорную часть, даже если её значение равно 0
+-   `view="withZeroMinorPart"`: показывает минорную часть, даже если её значение равно 0
 
 ```jsx live
 <Container>
@@ -49,7 +43,7 @@ https://design.alfabank.ru/patterns/amount
 </Container>
 ```
 
-- Без валюты и с кастомной иконкой валюты
+-   Без валюты и с кастомной иконкой валюты
 
 ```jsx live
 <Typography.Title font='system'>
@@ -57,7 +51,7 @@ https://design.alfabank.ru/patterns/amount
 </Typography.Title>
 ```
 
-- Показывать + для положительных значений
+-   Показывать + для положительных значений
 
 ```jsx live
 <Typography.Text font='system' color='positive'>
@@ -65,7 +59,7 @@ https://design.alfabank.ru/patterns/amount
 </Typography.Text>
 ```
 
-- Внутри заголовка
+-   Внутри заголовка
 
 ```jsx live
 <h3>
@@ -73,7 +67,7 @@ https://design.alfabank.ru/patterns/amount
 </h3>
 ```
 
-- Внутри красного текста
+-   Внутри красного текста
 
 ```jsx live
 <span style={{ color: 'red' }}>
@@ -81,15 +75,10 @@ https://design.alfabank.ru/patterns/amount
 </span>
 ```
 
-- С буквенным кодом валюты
+-   С буквенным кодом валюты
 
 ```jsx live
 <span>
-    <Amount
-        value={1234500}
-        currency='RUB'
-        minority={100}
-        codeFormat='letter'
-    />
+    <Amount value={1234500} currency='RUB' minority={100} codeFormat='letter' />
 </span>
 ```

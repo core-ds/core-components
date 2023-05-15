@@ -59,7 +59,7 @@ const gitPagesUrl = `https://${parsedGitUrl.owner}.github.io/${parsedGitUrl.name
 console.log('Publish storybook demo for github');
 
 console.log('=> Build packages');
-shell.exec('BUILD_ESM_ONLY=true yarn build', { fatal: true });
+shell.exec('BUILD_MODERN_ONLY=true yarn build', { fatal: true });
 
 console.log('=> Copy components preview to public dir');
 shell.exec(

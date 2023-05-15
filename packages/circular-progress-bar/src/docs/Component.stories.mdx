@@ -1,12 +1,12 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
 
 import { CircularProgressBar as CircularProgressBarTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta
@@ -15,7 +15,7 @@ import styles from '!!raw-loader!../index.module.css';
     id='CircularProgressBar'
 />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='CircularProgressBar'>
     {React.createElement(() => {
@@ -36,7 +36,7 @@ import styles from '!!raw-loader!../index.module.css';
         );
         const subtitleComplete = text('subtitleComplete');
         return (
-            <React.Fragment>
+            <>
                 <CircularProgressBar
                     value={value}
                     view={view}
@@ -67,16 +67,16 @@ import styles from '!!raw-loader!../index.module.css';
                 >
                     <p>Hello</p>
                 </CircularProgressBar>
-            </React.Fragment>
+            </>
         );
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='CircularProgressBar'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/circular-progress-bar'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=58951%3A84594'
 />
@@ -87,7 +87,7 @@ import { CircularProgressBar } from '@alfalab/core-components/circular-progress-
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={CircularProgressBarTS} />}
     cssVars={<CssVars css={styles} />}
 />

@@ -1,25 +1,25 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Loader } from '@alfalab/core-components-loader';
 
 import { Loader as LoaderTS } from '../Component';
-import { name, version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 
 <Meta title='Deprecated components/Loader' component={Loader} id='Loader' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Loader'>
     <Loader />
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Loader'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/loader'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=140%3A22288'
 />
@@ -28,4 +28,8 @@ import Description from './description.mdx';
 import { Loader } from '@alfalab/core-components/loader';
 ```
 
-<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={LoaderTS} />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    props={<ArgsTable of={LoaderTS} />}
+/>

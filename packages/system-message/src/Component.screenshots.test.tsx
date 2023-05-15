@@ -22,7 +22,7 @@ async function testComponent(
         knobs,
     });
 
-    const { browser, context, page, css } = await openBrowserPage(pageUrl, undefined, {
+    const { browser, context, page } = await openBrowserPage(pageUrl, undefined, {
         viewport,
     });
 
@@ -31,7 +31,6 @@ async function testComponent(
             context,
             page,
             expect,
-            css,
             viewport,
             screenshotOpts: { clip },
             evaluate,
@@ -80,7 +79,9 @@ describe('SystemMessage ', () => {
         {
             testStory: false,
             componentName: 'SystemMessage',
-            knobs: {},
+            knobs: {
+                breakpoint: 600,
+            },
         },
         'transform:scale(0.9)',
     );

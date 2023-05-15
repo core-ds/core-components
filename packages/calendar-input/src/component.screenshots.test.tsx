@@ -31,10 +31,10 @@ describe('CalendarInput | interactions tests', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
-            await matchHtml({ context, page, expect, css });
+            await matchHtml({ context, page, expect });
 
             await page.click('input');
 
@@ -42,7 +42,6 @@ describe('CalendarInput | interactions tests', () => {
                 context,
                 page,
                 expect,
-                css,
             });
         } catch (error) {
             // eslint-disable-next-line no-console

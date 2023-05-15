@@ -42,14 +42,14 @@ describe('PickerButton', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.goto(pageUrl);
 
             await page.click('button[class*=component]');
 
-            await matchHtml({ context, page, expect, css });
+            await matchHtml({ context, page, expect });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -70,7 +70,7 @@ describe('PickerButton', () => {
             knobs: { label: 'Открыть' },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.goto(pageUrl);
@@ -81,7 +81,6 @@ describe('PickerButton', () => {
                 context,
                 page,
                 expect,
-                css,
                 screenshotOpts: {
                     fullPage: true,
                 },

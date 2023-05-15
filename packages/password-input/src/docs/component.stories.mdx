@@ -1,17 +1,17 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { PasswordInput } from '@alfalab/core-components-password-input';
 
 import { PasswordInput as PasswordInputTS } from '../component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/PasswordInput' component={PasswordInput} id='PasswordInput' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='PasswordInput'>
     <PasswordInput
@@ -30,11 +30,11 @@ import Changelog from '../../CHANGELOG.md';
     />
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='PasswordInput'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/password-input'
 />
 
@@ -44,6 +44,6 @@ import { PasswordInput } from '@alfalab/core-components/password-input';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={PasswordInputTS} />}
 />

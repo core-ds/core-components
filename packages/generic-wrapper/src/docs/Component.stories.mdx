@@ -1,14 +1,13 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { Gap } from '@alfalab/core-components-gap';
 import { select, radios, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { GenericWrapper } from '@alfalab/core-components-generic-wrapper';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -53,7 +52,6 @@ import {
                     ...previewStyles,
                 }}
             >
-                <ModeChecker />
                 <div
                     style={
                         isPreview
@@ -127,14 +125,18 @@ import {
     }}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='GenericWrapper'
-    version={version}
+    version={packageJson.version}
     design='https://www.figma.com/file/MqpSYcvpzj0NG58uLTGJKK/NewStorybook?node-id=1047%3A144827&t=SW9AOiirB8ah7S3l-0'
     package='@alfalab/core-components/generic-wrapper'
     children='Многофункциональная ячейка.'
 />
 
-<Tabs development={<Development />} description={<Description />} changelog={<Changelog />} />
+<Tabs
+    development={<Development />}
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

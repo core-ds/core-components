@@ -1,7 +1,7 @@
 import React from 'react';
 import { create } from '@storybook/theming/create';
 
-import { version } from '../package.json';
+import packageJson from '../package.json';
 
 export default create({
     base: 'light',
@@ -17,6 +17,6 @@ export default create({
     inputBg: '#fff',
     inputBorder: '#DBDEE1',
     inputTextColor: '#0B1F35',
-    brandTitle: `core-components@${version}`,
+    brandTitle: `core-components@${packageJson.version}`,
     brandImage: './images/brand-image.svg',
 });

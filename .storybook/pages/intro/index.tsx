@@ -1,10 +1,11 @@
+import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 import { Button } from '@alfalab/core-components-button';
 import { Plate } from './components/plate';
 import { Logo } from '../../components/logo';
 import { GithubIcon } from '../../components/icons/GithubIcon';
-import { MODE_COLORS_TAG_ID } from '../../addons/mode-switcher/utils';
-import { version } from '../../../package.json';
+import { MODE_COLORS_TAG_ID } from '../../addons/utils';
+import packageJson from '../../../package.json';
 
 import styles from './index.module.css';
 
@@ -21,22 +22,22 @@ const PLATE_DATA = [
     {
         title: 'Компоненты',
         description: 'Всё самое актуальное',
-        link: BASE_URL + '?path=/docs/components-overview--page',
+        link: BASE_URL + '?path=/docs/components-overview--docs',
     },
     {
         title: 'Ассеты',
         description: 'Иконки, логотипы и флаги',
-        link: BASE_URL + '?path=/docs/icons-overview--page',
+        link: BASE_URL + '?path=/docs/icons-overview--docs',
     },
     {
         title: 'Подключение',
         description: 'Импорты и конфигурация',
-        link: BASE_URL + '?path=/docs/instructions-installation--page',
+        link: BASE_URL + '?path=/docs/for-users-подключение--docs',
     },
     {
         title: 'Контрибьютинг',
         description: 'Приносите свои реквесты',
-        link: BASE_URL + '?path=/docs/instructions-contributing--page',
+        link: BASE_URL + '?path=/docs/for-contributors-создание-компонентов--docs',
     },
 ];
 
@@ -60,9 +61,9 @@ export const Intro = () => {
     }, []);
 
     return (
-        <div data-mode={mode} className={styles.page}>
+        <div data-mode={mode} className={cn('sb-unstyled', styles.page)}>
             <div className={styles.intro}>
-                <div className={styles.version}>{version}</div>
+                <div className={styles.version}>{packageJson.version}</div>
 
                 <Logo className={styles.logo} />
 

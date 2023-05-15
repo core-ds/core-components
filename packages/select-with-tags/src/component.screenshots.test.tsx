@@ -16,9 +16,7 @@ describe('SelectWithTags | interactions tests', () => {
                 knobs: {},
             });
 
-            const { browser, context, page, css } = await openBrowserPage(
-                `${pageUrl}&theme=${theme}`,
-            );
+            const { browser, context, page } = await openBrowserPage(`${pageUrl}&theme=${theme}`);
 
             const viewport = { width: 420, height: 768 };
 
@@ -29,7 +27,6 @@ describe('SelectWithTags | interactions tests', () => {
                     context,
                     page,
                     expect,
-                    css,
                     viewport,
                     matchImageSnapshotOptions: {
                         failureThresholdType: 'percent',
@@ -83,7 +80,7 @@ describe('SelectWithTags | interactions tests', () => {
             knobs: {},
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const viewport = { width: 420, height: 768 };
 
@@ -103,7 +100,6 @@ describe('SelectWithTags | interactions tests', () => {
                 context,
                 page,
                 expect,
-                css,
                 viewport,
                 evaluate: (remotePage) =>
                     remotePage
@@ -130,7 +126,7 @@ describe('SelectWithTags | interactions tests', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const viewport = { width: 420, height: 768 };
 
@@ -141,7 +137,6 @@ describe('SelectWithTags | interactions tests', () => {
                 context,
                 page,
                 expect,
-                css,
                 viewport,
                 matchImageSnapshotOptions: {
                     failureThresholdType: 'percent',
