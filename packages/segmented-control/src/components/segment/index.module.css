@@ -13,7 +13,7 @@
     position: relative;
     font-family: var(--font-family-system);
     color: var(--color-light-text-primary);
-    transition: font-weight 0.2s ease;
+    transition: font-weight 0.2s ease, color 0.2s ease;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
