@@ -98,6 +98,11 @@ export type PeriodSliderProps = {
     onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
+     * Обработчик нажатия на период
+     */
+    onPeriodClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -117,6 +122,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     onNextArrowClick = () => null,
     onMonthClick,
     onYearClick,
+    onPeriodClick,
     dataTestId,
 }) => {
     const [valueFrom, valueTo] = useMemo(() => {
@@ -183,6 +189,20 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     const renderHeader = () => {
         if (!(valueFrom && valueTo)) {
             return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
+        }
+
+        if (periodType === 'month' && onPeriodClick) {
+            return (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+                <a
+                    role='button'
+                    tabIndex={0}
+                    onClick={onPeriodClick}
+                    className={styles.clicablePeriod}
+                >
+                    {monthName(valueFrom)}
+                </a>
+            );
         }
 
         return periodType === 'month' && isMonthAndYearSelectable ? (

@@ -3449,11 +3449,13 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </span>
           </span>
         </button>
-        <span
-          class="period"
+        <a
+          class="clicablePeriod"
+          role="button"
+          tabindex="0"
         >
-          Ноябрь 2020
-        </span>
+          Ноябрь
+        </a>
         <button
           aria-label="Следующий период"
           class="component ghost s component ghost cc-icon-button arrow primary component"

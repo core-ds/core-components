@@ -72,11 +72,13 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 </span>
               </span>
             </button>
-            <span
-              class="period"
+            <a
+              class="clicablePeriod"
+              role="button"
+              tabindex="0"
             >
-              Октябрь 2020
-            </span>
+              Октябрь
+            </a>
             <button
               aria-label="Следующий период"
               class="component ghost s component ghost cc-icon-button arrow primary component"
@@ -985,11 +987,13 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 </span>
               </span>
             </button>
-            <span
-              class="period"
+            <a
+              class="clicablePeriod"
+              role="button"
+              tabindex="0"
             >
-              Ноябрь 2020
-            </span>
+              Ноябрь
+            </a>
             <button
               aria-label="Следующий период"
               class="component ghost s component ghost cc-icon-button arrow primary component"
