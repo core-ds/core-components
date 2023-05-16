@@ -214,7 +214,12 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         if (onPeriodClick) {
             return (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-                <a role='button' tabIndex={0} onClick={onPeriodClick} className={styles.period}>
+                <a
+                    role='button'
+                    tabIndex={0}
+                    onClick={onPeriodClick}
+                    className={cn(styles.period, styles.clicablePeriod)}
+                >
                     {periodFormatter(valueFrom, valueTo, periodType, showCurrentYearSelector)}
                 </a>
             );
