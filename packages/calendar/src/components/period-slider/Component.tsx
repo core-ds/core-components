@@ -191,15 +191,10 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
         }
 
-        if (periodType === 'month' && onPeriodClick) {
+        if (onPeriodClick) {
             return (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-                <a
-                    role='button'
-                    tabIndex={0}
-                    onClick={onPeriodClick}
-                    className={styles.clicablePeriod}
-                >
+                <a role='button' tabIndex={0} onClick={onPeriodClick} className={styles.period}>
                     {periodFormatter(valueFrom, valueTo, periodType, showCurrentYearSelector)}
                 </a>
             );
