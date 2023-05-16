@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "41.6.0",
+    "version": "41.7.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -60,7 +60,7 @@
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-classic": "^2.3.0",
         "@alfalab/icons-flag": "^2.2.0",
-        "@alfalab/icons-glyph": "^2.89.0",
+        "@alfalab/icons-glyph": "^2.108.0",
         "@alfalab/icons-logotype": "^2.19.0",
         "@alfalab/utils": "^1.13.3",
         "@dnd-kit/core": "^6.0.7",

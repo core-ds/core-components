@@ -3431,7 +3431,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             class="text stretchText"
           >
             <span
-              class="iconWrapper xs"
+              class="iconWrapper xs center"
             >
               <svg
                 class="icon"
@@ -3463,7 +3463,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             class="text stretchText"
           >
             <span
-              class="iconWrapper xs"
+              class="iconWrapper xs center"
             >
               <svg
                 class="icon"

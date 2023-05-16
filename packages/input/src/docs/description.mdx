@@ -92,9 +92,16 @@ render(() => {
 render(() => {
     const [open, setOpen] = React.useState(false);
 
+    /* Указать для IconButton через className */
+    const css = `
+        button[data-test-id='icon'] {
+            margin-right: var(--gap-s-neg);
+        }
+    `;
+
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <style>{`.target {display: flex;}`}</style>
+            <style>{css}</style>
             <Input
                 block={true}
                 placeholder='Инпут с плейсхолдером'
@@ -113,10 +120,11 @@ render(() => {
                         onClose={() => setOpen(false)}
                         position='right'
                     >
-                        <Badge
-                            view='icon'
-                            iconColor='secondary'
-                            content={<InformationCircleMIcon />}
+                        <IconButton
+                            view='secondary'
+                            size='s'
+                            icon={InformationCircleMIcon}
+                            dataTestId='icon'
                         />
                     </TooltipResponsive>
                 }
@@ -206,6 +214,108 @@ render(() => {
                 size='m'
                 clear={true}
                 onClear={() => setValue('')}
+            />
+        </div>
+    );
+});
+```
+
+## Кликабельные аддоны
+
+Для кликабельных адоннов рекомендуем использовать увеличенную область нажатия.
+
+```jsx live
+render(() => {
+    const [isVisible, setIsVisible] = React.useState(false);
+    const [title, setTitle] = React.useState('');
+    const [valueOne, setValueOne] = React.useState('Value');
+    const [valueTwo, setValueTwo] = React.useState('Value');
+
+    const toggleVisiblity = () => setIsVisible((prev) => !prev);
+
+    const singleIcon = () => {
+        setTitle('Вы восхитительны!');
+        toggleVisiblity();
+    };
+
+    const leftIcon = () => {
+        setTitle('Левая');
+        toggleVisiblity();
+    };
+
+    const rightIcon = () => {
+        setTitle('Правая');
+        toggleVisiblity();
+    };
+
+    const hideNotification = React.useCallback(() => setIsVisible(false), []);
+
+    const styleWrapperIcons = {
+        height: '100%',
+        display: 'flex',
+        gap: 4,
+        marginRight: 'var(--gap-xs-neg)',
+    };
+
+    /* Указать для IconButton через className */
+    const css = `
+        button[data-test-id='icon'] {
+            margin-right: var(--gap-s-neg);
+        }
+    `;
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <style>{css}</style>
+            <Input
+                value={valueOne}
+                block={true}
+                onChange={(e) => setValueOne(e.target.value)}
+                label='Label'
+                size='m'
+                rightAddons={
+                    <IconButton
+                        view='secondary'
+                        onClick={singleIcon}
+                        icon={DiamondsMIcon}
+                        size='s'
+                        dataTestId='icon'
+                    />
+                }
+            />
+            <Gap size='l' />
+            <Input
+                value={valueTwo}
+                block={true}
+                onChange={(e) => setValueTwo(e.target.value)}
+                label='Label'
+                size='m'
+                rightAddons={
+                    <div style={styleWrapperIcons}>
+                        <IconButton
+                            view='secondary'
+                            onClick={leftIcon}
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            onClick={rightIcon}
+                            icon={FlowerMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
+                    </div>
+                }
+            />
+            <Toast
+                title={title}
+                open={isVisible}
+                onClose={hideNotification}
+                hasCloser={false}
+                autoCloseDelay={2000}
+                style={{ left: '48%' }}
             />
         </div>
     );

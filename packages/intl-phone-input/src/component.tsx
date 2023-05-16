@@ -63,6 +63,11 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
         countries?: Country[];
 
         /**
+         * Максимальная длина кода страны
+         */
+        maxDialCodeLength?: number;
+
+        /**
          * Возможность стереть код страны
          */
         clearableCountryCode?: boolean;
@@ -108,6 +113,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             options = [],
             countries = getCountries(),
             clearableCountryCode = true,
+            maxDialCodeLength = MAX_DIAL_CODE_LENGTH,
             className,
             value,
             onChange,
@@ -250,7 +256,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             if (inputRef.current) {
                 const { selectionStart } = inputRef.current;
 
-                if ((selectionStart || 0) <= MAX_DIAL_CODE_LENGTH) {
+                if ((selectionStart || 0) <= maxDialCodeLength) {
                     setCountryByDialCode(inputValue);
                 }
             }

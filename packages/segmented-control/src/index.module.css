@@ -19,6 +19,10 @@
 
 .segment {
     @mixin paragraph_primary_small;
+
+    &.selected {
+        color: var(--color-static-text-primary-dark);
+    }
 }
 
 .selected {
@@ -71,6 +75,6 @@
     bottom: var(--gap-3xs);
     left: var(--gap-3xs);
     box-shadow: var(--shadow-s);
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-static-bg-primary-light);
     transition: width 0.2s ease, transform 0.2s ease;
 }

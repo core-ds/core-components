@@ -202,7 +202,9 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                 )}
             </div>
         ) : (
-            <span className={styles.period}>{periodFormatter(valueFrom, valueTo, periodType)}</span>
+            <span className={styles.period}>
+                {periodFormatter(valueFrom, valueTo, periodType, showCurrentYearSelector)}
+            </span>
         );
     };
 

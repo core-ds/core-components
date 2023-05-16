@@ -24,7 +24,18 @@
 .iconWrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+
+    &.center {
+        justify-content: center;
+    }
+
+    &.left {
+        justify-content: left;
+    }
+
+    &.right {
+        justify-content: right;
+    }
 }
 
 .icon {

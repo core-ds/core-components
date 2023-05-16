@@ -1,0 +1,54 @@
+@import '../../../../../packages/themes/src/default.css';
+
+.plate {
+    padding: var(--gap-m) var(--gap-l);
+    background-color: var(--color-light-bg-secondary);
+    border-radius: 20px;
+    color: var(--color-light-text-primary);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--color-light-specialbg-tertiary-transparent-shade-7);
+        }
+    }
+
+    &:active {
+        background-color: var(--color-light-specialbg-tertiary-transparent-shade-15);
+    }
+}
+
+.titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > svg {
+        transform: rotate(-45deg);
+    }
+}
+
+.title {
+    @mixin headline-mobile_medium;
+}
+
+.description {
+    @mixin promo-mobile_small;
+
+    margin-top: var(--gap-xs);
+}
+
+@media screen and (min-width: 600px) {
+    .plate {
+        padding: var(--gap-xl) 30px;
+    }
+
+    .title {
+        @mixin headline_medium;
+    }
+
+    .description {
+        @mixin promo_small;
+    }
+}
