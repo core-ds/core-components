@@ -604,7 +604,7 @@ describe('Calendar', () => {
                 />,
             );
 
-            fireEvent.click(getByText('Ноябрь'));
+            fireEvent.click(getByText('Ноябрь 2020'));
 
             expect(cb).toBeCalledTimes(1);
         });

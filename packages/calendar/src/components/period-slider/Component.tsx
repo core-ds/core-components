@@ -192,6 +192,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         }
 
         if (periodType === 'month' && onPeriodClick) {
+            console.log(onPeriodClick);
             return (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <a
@@ -200,7 +201,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                     onClick={onPeriodClick}
                     className={styles.clicablePeriod}
                 >
-                    {monthName(valueFrom)}
+                    {periodFormatter(valueFrom, valueTo, periodType, showCurrentYearSelector)}
                 </a>
             );
         }

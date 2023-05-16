@@ -268,15 +268,6 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             [onMonthClick, toggleView],
         );
 
-        const handlePeriodClick = useCallback(
-            (event: React.MouseEvent<HTMLAnchorElement>) => {
-                if (onPeriodClick) {
-                    onPeriodClick(event);
-                }
-            },
-            [onPeriodClick],
-        );
-
         const handleYearClick = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
                 toggleView('years');
@@ -326,7 +317,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                                 showCurrentYearSelector={showCurrentYearSelector}
                                 onPrevArrowClick={handlePrevArrowClick}
                                 onNextArrowClick={handleNextArrowClick}
-                                onPeriodClick={handlePeriodClick}
+                                onPeriodClick={onPeriodClick}
                             />
                         ) : (
                             <MonthYearHeader
