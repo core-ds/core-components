@@ -191,6 +191,26 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
         }
 
+        if (periodType === 'month' && isMonthAndYearSelectable) {
+            return (
+                <div>
+                    <Button className={styles.period} view='ghost' size='l' onClick={onMonthClick}>
+                        {monthName(valueFrom)}
+                    </Button>
+                    {yearSelectorValue && (
+                        <Button
+                            className={cn(styles.yearSelectorButton, styles.period)}
+                            view='ghost'
+                            size='l'
+                            onClick={onYearClick}
+                        >
+                            {yearSelectorValue}
+                        </Button>
+                    )}
+                </div>
+            );
+        }
+
         if (onPeriodClick) {
             return (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
@@ -200,23 +220,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             );
         }
 
-        return periodType === 'month' && isMonthAndYearSelectable ? (
-            <div>
-                <Button className={styles.period} view='ghost' size='l' onClick={onMonthClick}>
-                    {monthName(valueFrom)}
-                </Button>
-                {yearSelectorValue && (
-                    <Button
-                        className={cn(styles.yearSelectorButton, styles.period)}
-                        view='ghost'
-                        size='l'
-                        onClick={onYearClick}
-                    >
-                        {yearSelectorValue}
-                    </Button>
-                )}
-            </div>
-        ) : (
+        return (
             <span className={styles.period}>
                 {periodFormatter(valueFrom, valueTo, periodType, showCurrentYearSelector)}
             </span>
