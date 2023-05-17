@@ -22,22 +22,23 @@ const tabVariants: Array<
 const renderTabs = (
     Component: typeof TabsMobile | typeof TabsDesktop | typeof TabsResponsive,
     props = {},
+    tabProps = {},
 ) =>
     render(
         <Component selectedId='tab-2' {...props}>
-            <Tab title='Таб 1' id='tab-1' rightAddons='addon'>
+            <Tab title='Таб 1' id='tab-1' rightAddons='addon' {...tabProps}>
                 Таб 1
             </Tab>
-            <Tab title='Таб 2' id='tab-2'>
+            <Tab title='Таб 2' id='tab-2' {...tabProps}>
                 Таб 2
             </Tab>
-            <Tab title='Таб 3' id='tab-3'>
+            <Tab title='Таб 3' id='tab-3' {...tabProps}>
                 Таб 3
             </Tab>
-            <Tab title='Таб 4' id='tab-4'>
+            <Tab title='Таб 4' id='tab-4' {...tabProps}>
                 Таб 4
             </Tab>
-            <Tab title='Таб 5' id='tab-5'>
+            <Tab title='Таб 5' id='tab-5' {...tabProps}>
                 Таб 5
             </Tab>
         </Component>,
@@ -68,11 +69,20 @@ describe('Tabs', () => {
     });
 
     describe('Attributes tests', () => {
-        it.each(tabVariants)('should set `data-test-id` atribute', (Component, view) => {
+        it.each(tabVariants)('should set `data-test-id` attribute', (Component, view) => {
             const dataTestId = 'test-id';
-            const { getByTestId } = renderTabs(Component, { view, dataTestId });
+            const toggleTestId = 'tab';
+            const { getByTestId, getAllByTestId } = renderTabs(
+                Component,
+                { view, dataTestId },
+                { dataTestId: 'tab' },
+            );
+
+            const tabs = getAllByTestId(toggleTestId + '-toggle');
 
             expect(getByTestId(dataTestId).getAttribute('role')).toBe('tablist');
+            expect(tabs[1].textContent).toBe('Таб 2');
+            expect(tabs[2].textContent).toBe('Таб 3');
         });
     });
 
