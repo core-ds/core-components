@@ -24,9 +24,10 @@ class ComponentResolverPlugin {
                         .replace(componentsPrefix, '')
                         .split('/');
 
-                    const request = (process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
-                        ? [distDir, componentName, 'esm', entrypoint]
-                        : [packagesDir, componentName, 'src', entrypoint]
+                    const request = (
+                        process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
+                            ? [distDir, componentName, 'modern', entrypoint]
+                            : [packagesDir, componentName, 'src', entrypoint]
                     )
                         .filter(Boolean)
                         .join('/');

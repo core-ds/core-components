@@ -229,8 +229,8 @@ const root = {
 };
 
 const configs = (
-    process.env.BUILD_ESM_ONLY === 'true'
-        ? [esm, root]
+    process.env.BUILD_MODERN_ONLY === 'true'
+        ? [modern, root]
         : [es5, modern, esm, currentComponentName !== 'themes' && cssm, root]
 ).filter(Boolean);
 

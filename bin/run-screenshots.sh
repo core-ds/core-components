@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CONTAINER_NAME='playwright-1.31.2'
+PLAYWRIGHT_VERSION=1.33.0
+CONTAINER_NAME='playwright-'$PLAYWRIGHT_VERSION''
 
 check_error () {
   if [ ! "$?" -eq "0" ]
@@ -20,7 +21,7 @@ fi
 if [ ! "$(docker ps -a -q -f name=^/${CONTAINER_NAME}$)" ]
   then
     # Если контейнера нет, то создаем новый
-    docker run --name $CONTAINER_NAME -d -it --ipc=host -v "$(pwd)":/core-components -w /core-components  mcr.microsoft.com/playwright:v1.31.2-jammy
+    docker run --name $CONTAINER_NAME -d -it --ipc=host -v "$(pwd)":/core-components -w /core-components  mcr.microsoft.com/playwright:v$PLAYWRIGHT_VERSION-jammy
     check_error
     docker exec $CONTAINER_NAME bash -c "apt-get update; apt-get install fonts-inter -y; fc-cache -f"
 

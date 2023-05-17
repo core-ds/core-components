@@ -1,14 +1,12 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { Button } from '@alfalab/core-components-button';
 import { Calendar, usePeriod } from '@alfalab/core-components-calendar';
 import { CalendarMobile } from '@alfalab/core-components-calendar/mobile';
-import { limitDate } from '../utils';
 
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import {
@@ -45,7 +43,7 @@ export const MONTHS = {
     none: 'none',
 };
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Calendar'>
     {React.createElement(() => {
@@ -69,8 +67,7 @@ export const MONTHS = {
                         }}
                     >
                         <div style={WRAPPER_STYLES}>
-                            <style>{`:root{--calendar-width: 312px;}`}</style>
-                            <ModeChecker />
+                            <style>{`:root{--calendar-width: 312px;}  `}</style>
                             <Calendar
                                 defaultMonth={
                                     defaultMonth === 'none' ? undefined : Number(defaultMonth)
@@ -121,14 +118,18 @@ export const MONTHS = {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Calendar'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/calendar'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=1069%3A40039'
     children='Компонент для выбора даты и диапазона дат.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

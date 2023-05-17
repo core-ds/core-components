@@ -4,7 +4,7 @@ Modal построен как Compound Components. Состоит из Header, C
 Чтобы во время скролла заголовок и кнопки оставались неподвижны, их нужно расположить в `header` и `footer`.
 Текст и изображения всегда располагаются в `content` части.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 const Header = () => {
     const { setHasHeader } = React.useContext(ModalContext);
 
@@ -195,7 +195,7 @@ render(() => {
 
 Ниже представлены самые популярные кейсы настройки модальных окон.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 const Text = () => (
     <>
         <Typography.Text tag='p'>
@@ -703,7 +703,7 @@ render(() => {
 Компонент можно настроить для реализации многошаговых сценариев.
 В этом случае верхний край должен быть зафиксирован, чтобы избежать неприятных скачков.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 const DATA = {
     1: {
         title: 'Первый уровень',

@@ -91,6 +91,7 @@ export const Tabs: FC<Props> = ({
 
     return (
         <TabsResponsive
+            className='sb-unstyled'
             selectedId={selected}
             onChange={handleChange}
             containerClassName={styles.tabs}

@@ -28,7 +28,7 @@ function runTest(
             ...restUrlParams,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await matchHtml({
@@ -36,7 +36,6 @@ function runTest(
                 context,
                 page,
                 expect,
-                css,
                 viewport,
                 screenshotOpts,
             });

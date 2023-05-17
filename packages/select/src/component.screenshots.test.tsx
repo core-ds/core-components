@@ -178,15 +178,13 @@ describe('Select | interactions tests', () => {
                     options: JSON.stringify(options),
                 },
             });
-            const { browser, context, page, css } = await openBrowserPage(
-                `${pageUrl}&theme=${theme}`,
-            );
+            const { browser, context, page } = await openBrowserPage(`${pageUrl}&theme=${theme}`);
 
             const viewport = { width: 260, height: 768 };
 
             await page.setViewportSize(viewport);
 
-            const match = async () => matchHtml({ context, page, expect, css, viewport });
+            const match = async () => matchHtml({ context, page, expect, viewport });
 
             try {
                 await match();
@@ -225,7 +223,7 @@ describe('Select | interactions tests', () => {
                 options: JSON.stringify(options),
             },
         });
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const viewport = { width: 260, height: 768 };
 
@@ -234,7 +232,7 @@ describe('Select | interactions tests', () => {
         try {
             await page.click('[role="combobox"]');
 
-            await matchHtml({ context, page, expect, css, viewport });
+            await matchHtml({ context, page, expect, viewport });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -261,7 +259,7 @@ describe('Select | interactions tests', () => {
                 ]),
             },
         });
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const viewport = { width: 200, height: 768 };
 
@@ -270,13 +268,13 @@ describe('Select | interactions tests', () => {
         try {
             await page.click('[role="combobox"]');
 
-            await matchHtml({ context, page, expect, css, viewport });
+            await matchHtml({ context, page, expect, viewport });
 
             await page.click('[role="option"]');
 
             await page.click('[role="combobox"]');
 
-            await matchHtml({ context, page, expect, css, viewport });
+            await matchHtml({ context, page, expect, viewport });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

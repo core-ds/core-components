@@ -1,16 +1,16 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { DateRangeInput } from '@alfalab/core-components-date-range-input';
 
-import Changelog from '../../CHANGELOG.md';
-import { version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 
 <Meta title='Components/DateRangeInput' component={DateRangeInput} id='DateRangeInput' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='DateRangeInput'>
     {React.createElement(() => {
@@ -29,13 +29,17 @@ import Development from './development.mdx';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='DateRangeInput'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/date-range-input'
     children='Поле для указания диапазона дат.'
 />
 
-<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

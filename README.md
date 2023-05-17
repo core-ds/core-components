@@ -1,4 +1,4 @@
-<div class="github-doc">
+<div className="github-doc">
 
 ## Библиотека React компонентов для создания веб-интерфейсов
 

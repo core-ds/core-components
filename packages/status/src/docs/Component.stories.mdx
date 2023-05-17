@@ -1,16 +1,16 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Status, colors } from '@alfalab/core-components-status';
 
 import { Status as StatusTS } from '../Component';
-import { name, version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/Status' component={Status} id='Status' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Status'>
     <Status
@@ -21,11 +21,11 @@ import Changelog from '../../CHANGELOG.md';
     </Status>
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Status'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/status'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=260%3A36153'
 />
@@ -34,4 +34,8 @@ import Changelog from '../../CHANGELOG.md';
 import { Status } from '@alfalab/core-components/status';
 ```
 
-<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={StatusTS} />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    props={<ArgsTable of={StatusTS} />}
+/>

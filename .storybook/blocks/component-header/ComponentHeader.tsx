@@ -31,7 +31,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
     const Title = isDesktop ? Typography.Title : Typography.TitleMobile;
 
     return (
-        <div className={styles.component}>
+        <div className={cn('sb-unstyled', styles.component)}>
             <Title tag='h1' view='xlarge'>
                 {name}
             </Title>

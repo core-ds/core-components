@@ -3,7 +3,7 @@
 Пикер используется, когда выбор дат ограничен. Например, если нельзя указывать выходные дни.
 При наличии пикера допустимо блокировать ввод с клавиатуры чтобы исключить ввод недоступных значений.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const [keyPress, setKeyPress] = React.useState(false);
     const defaultMonth = new Date('December 1, 2022 00:00:00');

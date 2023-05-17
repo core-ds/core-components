@@ -1,17 +1,17 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 
 import { ProgressBar as ProgressBarTS } from '../Component';
-import { name, version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta title='Components/ProgressBar' component={ProgressBar} id='ProgressBar' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='ProgressBar'>
     <ProgressBar
@@ -30,11 +30,11 @@ import styles from '!!raw-loader!../index.module.css';
     />
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='ProgressBar'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/progress-bar'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=781%3A30260'
 />
@@ -47,5 +47,5 @@ import { ProgressBar } from '@alfalab/core-components/progress-bar';
     description={<Description />}
     props={<ArgsTable of={ProgressBarTS} />}
     cssVars={<CssVars css={styles} />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
 />

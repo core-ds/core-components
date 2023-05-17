@@ -1,18 +1,18 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { ConfirmationV1 } from '@alfalab/core-components-confirmation-v1';
 import { Select } from '@alfalab/core-components-select';
 
 import { ConfirmationV1 as ConfirmationV1TS } from '../component';
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 import vars from '!!raw-loader!../vars.css';
 
 <Meta title='Deprecated components/ConfirmationV1' component={ConfirmationV1} id='ConfirmationV1' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='ConfirmationV1'>
     {React.createElement(() => {
@@ -175,11 +175,11 @@ import vars from '!!raw-loader!../vars.css';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='ConfirmationV1'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/confirmation-v1'
 />
 
@@ -189,7 +189,7 @@ import { ConfirmationV1 } from '@alfalab/core-components/confirmation-v1';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={ConfirmationV1TS} />}
     cssVars={<CssVars css={vars} />}
 />

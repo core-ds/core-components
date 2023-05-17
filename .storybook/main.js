@@ -1,96 +1,71 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { patchWebpackConfig } = require('storybook-addon-live-examples/dist/cjs/utils');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ComponentResolverPlugin = require('./utils/componentsResolver');
-const webpack = require('webpack');
-
+const DefinePlugin = require('webpack').DefinePlugin;
 const cssModuleRegex = /\.module\.css$/;
 const cssRegex = /\.css$/;
-const storiesRegex = /(stories|story)\.mdx$/;
 
-const isIeMode = process.env.STORYBOOK_IE_MODE === 'true';
-
-const babelPresetEnvOptions = {
-    shippedProposals: true,
-    modules: false,
-    targets: 'defaults',
-};
-
-const babelPresetEnvPreset = require.resolve('@babel/preset-env');
-
-const addPackagesDir = (config) => {
+const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
         if (rule.oneOf) {
             rule.oneOf.forEach((nestedRule) => {
                 if (nestedRule.loader && nestedRule.loader.includes('babel-loader')) {
-                    nestedRule.include.push(path.resolve(__dirname, '../packages'));
-                    nestedRule.include.push(path.resolve(__dirname, '../node_modules/simplebar'));
-
-                    if (isIeMode && nestedRule.options && nestedRule.options.presets) {
-                        nestedRule.options.sourceType = 'unambiguous';
-                        nestedRule.options.presets.unshift([
-                            babelPresetEnvPreset,
-                            { ...babelPresetEnvOptions, loose: true },
-                        ]);
-                    }
+                    const paths = [path.resolve(__dirname, '../packages')];
+                    nestedRule.include.push(...paths);
                 }
             });
         }
     });
 };
 
-const addPresetEnvToMdxLoader = (config) => {
-    config.module.rules.forEach((rule) => {
-        if (String(rule.test) === String(storiesRegex)) {
-            if (rule.use) {
-                rule.use.forEach((nestedRule) => {
-                    if (nestedRule.loader && nestedRule.loader.includes('babel-loader')) {
-                        nestedRule.options.presets.unshift([
-                            babelPresetEnvPreset,
-                            babelPresetEnvOptions,
-                        ]);
-                    }
-                });
-            }
-        }
-    });
-};
+function modifyCssRules(config) {
+    const group = config.module.rules.find((rule) => rule.oneOf !== undefined);
+    const cssRuleIndex = group.oneOf.findIndex(
+        (rule) => rule.test.toString() === cssRegex.toString(),
+    );
+    const cssModuleRuleIndex = group.oneOf.findIndex(
+        (rule) => rule.test.toString() === cssModuleRegex.toString(),
+    );
 
-const es6Transpiler = () => {
-    const nodeModulesThatNeedToBeParsedBecauseTheyExposeES6 = [
-        'acorn-jsx',
-        'regexpu-core',
-        'd3',
-        'internmap',
-        'slash',
-        'prettier',
-        'unicode-match-property-ecmascript',
-        'unicode-match-property-value-ecmascript',
-        'strip-ansi',
-        'react-github-btn',
-    ].map((n) => new RegExp(`[\\\\/]node_modules[\\\\/]${n}`));
-
-    const include = (input) => {
-        return !!nodeModulesThatNeedToBeParsedBecauseTheyExposeES6.find((p) => input.match(p));
-    };
-
-    return {
-        test: /\.js$/,
+    group.oneOf[cssRuleIndex] = {
+        test: /\.css$/,
+        exclude: cssModuleRegex,
         use: [
             {
-                loader: require.resolve('babel-loader'),
+                loader: MiniCssExtractPlugin.loader,
+            },
+            {
+                loader: 'css-loader',
                 options: {
-                    sourceType: 'unambiguous',
-                    presets: [
-                        [babelPresetEnvPreset, babelPresetEnvOptions],
-                        require.resolve('@babel/preset-react'),
-                    ],
+                    importLoaders: 1,
+                    sourceMap: true,
                 },
             },
+            'postcss-loader',
         ],
-        include,
     };
-};
+    group.oneOf[cssModuleRuleIndex] = {
+        test: cssModuleRegex,
+        use: [
+            {
+                loader: MiniCssExtractPlugin.loader,
+            },
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: {
+                        localIdentName: '[local]_[hash:base64:5]',
+                    },
+                    importLoaders: 1,
+                    sourceMap: true,
+                },
+            },
+            'postcss-loader',
+        ],
+    };
+}
 
 module.exports = {
     stories: ['../packages/**/*.stories.@(ts|md)x', '../docs/**/*.stories.@(ts|md)x'],
@@ -99,109 +74,75 @@ module.exports = {
         '@storybook/addon-a11y',
         {
             name: '@storybook/addon-docs',
-            options: { transcludeMarkdown: true },
+            options: {
+                transcludeMarkdown: true,
+            },
         },
         'storybook-addon-live-examples',
         '@storybook/preset-create-react-app',
-        './addons/theme-switcher/register.js',
-        './addons/mode-switcher/register.js',
+        './addons/theme-switcher',
+        './addons/mode-switcher',
     ],
-    webpackFinal: async (config) => {
-        addPackagesDir(config);
+    framework: {
+        name: '@storybook/react-webpack5',
+        options: {},
+    },
+    docs: {
+        autodocs: false,
+    },
+    staticDirs: ['./public'],
+    webpackFinal: async (config, { configType: mode }) => {
+        addDirsForTranspile(config);
+        patchWebpackConfig(config);
+        modifyCssRules(config);
+
+        config.devtool = mode === 'PRODUCTION' ? 'source-map' : 'eval-cheap-module-source-map';
 
         config.resolve = {
-            plugins: [new ComponentResolverPlugin()],
+            fallback: {
+                ...config.resolve.fallback,
+                querystring: require.resolve('querystring-es3'),
+            },
+            plugins: [...config.resolve.plugins, new ComponentResolverPlugin()],
             alias: {
+                ...config.resolve.alias,
                 storybook: path.resolve(__dirname),
             },
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
         };
 
-        config.performance.hints = false;
-
-        const group = config.module.rules.find((rule) => rule.oneOf !== undefined);
-
-        const cssRuleIndex = group.oneOf.findIndex(
-            (rule) => rule.test.toString() === cssRegex.toString(),
-        );
-
-        const cssModuleRuleIndex = group.oneOf.findIndex(
-            (rule) => rule.test.toString() === cssModuleRegex.toString(),
-        );
-
-        group.oneOf[cssRuleIndex] = {
-            test: /\.css$/,
-            exclude: cssModuleRegex,
-            use: [
-                {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        hmr: true,
+        config.optimization = {
+            ...config.optimization,
+            usedExports: true,
+            splitChunks: {
+                cacheGroups: {
+                    //Собираем единственный main.css
+                    main: {
+                        name: 'main',
+                        type: 'css/mini-extract',
+                        chunks: 'all',
+                        enforce: true,
                     },
                 },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        importLoaders: 1,
-                        sourceMap: true,
-                    },
-                },
-                'postcss-loader',
-            ],
-        };
-        group.oneOf[cssModuleRuleIndex] = {
-            test: cssModuleRegex,
-            use: [
-                {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        hmr: true,
-                    },
-                },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: {
-                            localIdentName: '[local]_[hash:base64:5]',
-                        },
-                        importLoaders: 1,
-                        sourceMap: true,
-                    },
-                },
-                'postcss-loader',
-            ],
+            },
         };
 
-        // Выпиливаем дефолтный MiniCssExtractPlugin плагин, чтобы не дублировались стили.
+        // Выпиливаем ненужные плагины.
         config.plugins = config.plugins.filter((plugin) => {
-            return plugin.constructor.name !== 'MiniCssExtractPlugin';
+            return !['ESLintWebpackPlugin', 'MiniCssExtractPlugin'].includes(
+                plugin.constructor.name,
+            );
         });
 
-        if (isIeMode) {
-            config.module.rules.push(es6Transpiler());
-            addPresetEnvToMdxLoader(config);
-        }
-
         config.plugins.push(
-            new MiniCssExtractPlugin(),
-            new OptimizeCSSAssetsPlugin({
-                cssProcessorOptions: {
-                    map: {
-                        inline: false,
-                        annotation: true,
-                    },
-                },
-                cssProcessorPluginOptions: {
+            new MiniCssExtractPlugin({
+                ignoreOrder: true,
+            }),
+            new CssMinimizerPlugin({
+                minimizerOptions: {
                     preset: () => ({
                         plugins: [
                             require('postcss-discard-duplicates'),
-                            ...(isIeMode
-                                ? [
-                                      require('postcss-custom-properties').bind(null, {
-                                          preserve: false,
-                                      }),
-                                  ]
-                                : []),
                             // Минифицируем css для prod сторибука.
                             ...(process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
                                 ? require('cssnano-preset-default')().plugins
@@ -210,13 +151,12 @@ module.exports = {
                     }),
                 },
             }),
-            new webpack.DefinePlugin({
+            new DefinePlugin({
                 'process.env.BUILD_STORYBOOK_FROM_DIST': JSON.stringify(
                     process.env.BUILD_STORYBOOK_FROM_DIST,
                 ),
             }),
         );
-
         return config;
     },
 };

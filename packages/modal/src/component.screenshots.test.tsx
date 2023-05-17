@@ -21,6 +21,7 @@ describe('Modal', () =>
             invisibleBackdrop: true,
             footer: true,
             'header.title': 'Заголовок',
+            ModalComponent: 'ModalDesktop',
         },
     }));
 
@@ -210,6 +211,7 @@ describe('ModalDesktop', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (page) => page.waitForTimeout(500),
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,

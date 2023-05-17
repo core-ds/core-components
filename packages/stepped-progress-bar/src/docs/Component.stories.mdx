@@ -1,12 +1,12 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, number, select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { SteppedProgressBar } from '@alfalab/core-components-stepped-progress-bar';
 
 import { SteppedProgressBar as SteppedProgressBarTS } from '../Component';
-import { name, version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta
     title='Components/SteppedProgressBar'
@@ -14,10 +14,10 @@ import Changelog from '../../CHANGELOG.md';
     id='SteppedProgressBar'
 />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='SteppedProgressBar'>
-{React.createElement(() => {
+    {React.createElement(() => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div
@@ -49,14 +49,14 @@ import Changelog from '../../CHANGELOG.md';
                 />
             </div>
         );
-})}
+    })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='SteppedProgressBar'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/stepped-progress-bar'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=516%3A25140'
 />
@@ -68,5 +68,5 @@ import { SteppedProgressBar } from '@alfalab/core-components/stepped-progress-ba
 <Tabs
     props={<ArgsTable of={SteppedProgressBarTS} />}
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
 />

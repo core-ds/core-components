@@ -1,13 +1,12 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
 
 import { FileUploadItem as FileUploadItemTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
@@ -19,7 +18,7 @@ export const WRAPPER_STYLES = {
     background: 'var(--color-light-bg-primary)',
 };
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='FileUploadItem'>
     {React.createElement(() => {
@@ -28,23 +27,22 @@ export const WRAPPER_STYLES = {
         return isPreview ? (
             <div style={{ width: 432, ...previewStyles }}>
                 <div style={isPreview ? WRAPPER_STYLES : undefined}>
-                    <ModeChecker />
                     <FileUploadItem
-                        name='Название файла.pdf'
+                        name={'Название файла.pdf'}
                         uploadDate='22.01.2023'
                         size={4096}
                         downloadLink='link'
                         showDelete={true}
                     />
                     <FileUploadItem
-                        name='Название файла.docx'
+                        name={'Название файла.docx'}
                         uploadDate='22.01.2023'
                         size={8192}
                         downloadLink='link'
                         showDelete={true}
                     />
                     <FileUploadItem
-                        name='Название файла.docx'
+                        name={'Название файла.docx'}
                         uploadDate='22.01.2023'
                         size={9216}
                         downloadLink='link'
@@ -74,11 +72,11 @@ export const WRAPPER_STYLES = {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='FileUploadItem'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/file-upload-item'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=8957%3A60224'
 />
@@ -89,6 +87,6 @@ import { FileUploadItem } from '@alfalab/core-components/file-upload-item';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={FileUploadItemTS} />}
 />
