@@ -39,7 +39,7 @@ describe('Scrollbar | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.hover('div[class*=vertical]');
@@ -48,7 +48,6 @@ describe('Scrollbar | interactions tests', () => {
                 context,
                 page,
                 expect,
-                css,
                 screenshotOpts: { clip },
                 matchImageSnapshotOptions: {
                     failureThresholdType: 'percent',
@@ -73,7 +72,7 @@ describe('Scrollbar | interactions tests', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.hover('div[class*=horizontal]');
@@ -82,7 +81,6 @@ describe('Scrollbar | interactions tests', () => {
                 context,
                 page,
                 expect,
-                css,
                 screenshotOpts: { clip },
                 matchImageSnapshotOptions: {
                     failureThresholdType: 'percent',

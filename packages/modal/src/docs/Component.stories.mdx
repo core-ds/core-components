@@ -1,17 +1,16 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Button } from '@alfalab/core-components-button';
 import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
 import { ModalDesktop } from '@alfalab/core-components-modal/Component.desktop';
 import { ModalResponsive } from '@alfalab/core-components-modal/Component.responsive';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
@@ -67,6 +66,8 @@ export const Content = ({ isPreview }) => {
     );
 };
 
+export const ModalComponent = ModalDesktop;
+
 <Story name='Modal'>
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
@@ -91,13 +92,12 @@ export const Content = ({ isPreview }) => {
         );
         const footerGap = select('footer.gap', [false, 16, 24, 32], false);
         const flexContent = boolean('content.flex', false);
-        const ModalComponent = React.useMemo(() => {
-            return {
-                ModalResponsive: ModalResponsive,
-                ModalDesktop: ModalDesktop,
-                ModalMobile: ModalMobile,
-            }[component];
-        }, [component]);
+        const ModalComponent =
+            component === 'ModalResponsive'
+                ? ModalResponsive
+                : component === 'ModalDesktop'
+                ? ModalDesktop
+                : ModalMobile;
         const props =
             ModalComponent !== ModalMobile
                 ? {
@@ -108,7 +108,6 @@ export const Content = ({ isPreview }) => {
         const isPreview = Object.keys(previewStyles).length > 0;
         return (
             <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
-                <ModeChecker />
                 <Button type='button' size='xs' onClick={handleModalOpen}>
                     Открыть модалку
                 </Button>
@@ -148,14 +147,18 @@ export const Content = ({ isPreview }) => {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Modal'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/modal'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
     children='Модальное окно. Используется для отображения контента в модальном слое.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

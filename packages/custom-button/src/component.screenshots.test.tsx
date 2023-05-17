@@ -24,7 +24,7 @@ describe('CustomButton', () =>
                 children: 'Кнопка',
                 size: 'xl',
                 backgroundColor:
-                    'linear-gradient(264.15deg, rgb(255, 66, 202) 0%25, rgb(255, 138, 0) 100%25)',
+                    'linear-gradient(264.15deg,rgb(255,66,202) 0px,rgb(255,138,0) 128px)',
             },
         },
         'transform:scale(2.3)',

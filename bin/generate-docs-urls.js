@@ -62,17 +62,17 @@ async function main() {
         breakPoints: {
             group: 'Instructions',
             name: 'Брейкпоинты',
-            docsUrl: '/iframe.html?viewMode=docs&id=instructions-breakpoints--page',
+            docsUrl: '/iframe.html?viewMode=docs&id=instructions-breakpoints--docs',
         },
         gaps: {
             group: 'Guidelines',
             name: 'Отступы',
-            docsUrl: '/iframe.html?viewMode=docs&id=guidelines-gaps--page',
+            docsUrl: '/iframe.html?viewMode=docs&id=guidelines-gaps--docs',
         },
         cssVars: {
             group: 'Guidelines',
             name: 'CSS-переменные',
-            docsUrl: '/iframe.html?viewMode=docs&id=guidelines-css-vars--page',
+            docsUrl: '/iframe.html?viewMode=docs&id=guidelines-css-vars--docs',
         },
     };
 

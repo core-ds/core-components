@@ -474,11 +474,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         useEffect(() => {
             if (phoneLibUtils.current) return;
 
-            import(
-                /* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/bundle/libphonenumber-js.min'
-            )
+            import(/* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/min')
                 .then((utils) => {
-                    phoneLibUtils.current = utils.AsYouType;
+                    phoneLibUtils.current = utils.AsYouType as typeof AsYouType;
 
                     if (canBeEmptyCountry) {
                         changePhone(value);

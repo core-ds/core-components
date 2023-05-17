@@ -2,16 +2,16 @@ import format from 'date-fns/format';
 import { Chart } from '@alfalab/core-components-chart';
 
 import { Chart as ChartTS } from '../Component';
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { number, boolean, select, text, object } from '@storybook/addon-knobs';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/Chart' id='Chart' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Chart.Bar'>
     {React.createElement(() => {
@@ -427,7 +427,7 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Chart.Line'>
     {React.createElement(() => {
@@ -1185,7 +1185,7 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Chart.Histogram'>
     {React.createElement(() => {
@@ -1411,12 +1411,20 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='Chart' version={version} package='@alfalab/core-components/chart' />
+<ComponentHeader
+    name='Chart'
+    version={packageJson.version}
+    package='@alfalab/core-components/chart'
+/>
 
 ```jsx
 import { Chart } from '@alfalab/core-components/chart';
 ```
 
-<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={ChartTS} />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    props={<ArgsTable of={ChartTS} />}
+/>

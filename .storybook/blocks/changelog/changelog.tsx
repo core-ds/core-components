@@ -9,5 +9,7 @@ type Props = {
 };
 
 export const Changelog: FC<Props> = ({ content, root = false }) => {
-    return <div className={cn(styles.changelog, root && styles.root)}>{content}</div>;
+    return (
+        <div className={cn(styles.changelog, root && styles.root, 'sb-unstyled')}>{content}</div>
+    );
 };

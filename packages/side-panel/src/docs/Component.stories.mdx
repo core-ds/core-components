@@ -1,17 +1,16 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Button } from '@alfalab/core-components-button';
 import { SidePanelMobile } from '@alfalab/core-components-side-panel/Component.mobile';
 import { SidePanelDesktop } from '@alfalab/core-components-side-panel/Component.desktop';
 import { SidePanelResponsive } from '@alfalab/core-components-side-panel/Component.responsive';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
@@ -69,6 +68,8 @@ export const Content = ({ isPreview }) => {
     );
 };
 
+export let SidePanelComponent = SidePanelDesktop;
+
 <Story name='SidePanel'>
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
@@ -107,7 +108,6 @@ export const Content = ({ isPreview }) => {
         const isPreview = Object.keys(previewStyles).length > 0;
         return (
             <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
-                <ModeChecker />
                 {!isPreview && (
                     <Button type='button' size='xs' onClick={handleModalOpen}>
                         Открыть сайд-панель
@@ -141,13 +141,17 @@ export const Content = ({ isPreview }) => {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='SidePanel'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/side-panel'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10773%3A58769'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

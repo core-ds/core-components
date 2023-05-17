@@ -1,13 +1,13 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Underlay } from '@alfalab/core-components-underlay';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 export const BACKGROUND = [
     'accent',
@@ -80,7 +80,7 @@ export const SHADOW = [
 
 <Meta title='Components/Underlay' component={Underlay} id='Underlay' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Underlay'>
     {React.createElement(() => {
@@ -111,14 +111,18 @@ export const SHADOW = [
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Underlay'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/underlay'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=317%3A37759'
     children='Подложка под любой вид контента.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

@@ -5,9 +5,11 @@ import { STORY_RENDERED } from '@storybook/core-events';
 import { renderLabel } from './render-label';
 
 import '../packages/themes/src/default.css';
-import { setMetricsConnection } from './addons/utils';
+import { setManagerMetricsConnection } from './addons/utils';
 
-setMetricsConnection();
+if (process.env.NODE_ENV !== 'development') {
+    setManagerMetricsConnection();
+}
 
 addons.register('TitleAddon', (api) => {
     const libName = 'Core Components';

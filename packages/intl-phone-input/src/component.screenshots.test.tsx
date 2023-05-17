@@ -31,7 +31,7 @@ describe('IntlPhoneInput | interactions tests', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const matchImageSnapshotOptions: MatchImageSnapshotOptions = {
             failureThresholdType: 'percent',
@@ -47,15 +47,15 @@ describe('IntlPhoneInput | interactions tests', () => {
              */
             await page.waitForTimeout(500);
 
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
             await page.click('[role="combobox"] >> span');
 
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
             await page.click('[role="option"]');
 
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

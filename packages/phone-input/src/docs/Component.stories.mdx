@@ -1,17 +1,17 @@
-import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { PhoneInput } from '@alfalab/core-components-phone-input';
 
 import { PhoneInput as PhoneInputTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/PhoneInput' component={PhoneInput} id='PhoneInput' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='PhoneInput'>
     <PhoneInput
@@ -28,11 +28,11 @@ import Changelog from '../../CHANGELOG.md';
     />
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='PhoneInput'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/phone-input'
 />
 
@@ -43,5 +43,5 @@ import { PhoneInput } from '@alfalab/core-components/phone-input';
 <Tabs
     description={<Description />}
     props={<ArgsTable of={PhoneInputTS} />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
 />

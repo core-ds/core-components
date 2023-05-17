@@ -1,13 +1,12 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { radios, text, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { PatternLock } from '@alfalab/core-components-pattern-lock';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Development from './development.mdx';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -15,7 +14,7 @@ import {
 
 <Meta title='Components/PatternLock' component={PatternLock} id='PatternLock' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='PatternLock'>
     {React.createElement(() => {
@@ -31,7 +30,6 @@ import {
                     }`}
                     </style>
                 )}
-                <ModeChecker />
                 <PatternLock
                     observeTokens={true}
                     themeState={radios(
@@ -52,13 +50,17 @@ import {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='PatternLock'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/pattern-lock'
     children='Компонент для авторизации пользователя с помощью графического ключа.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

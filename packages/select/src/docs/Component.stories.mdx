@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 
 import { ComponentHeader, Tabs } from 'storybook/blocks';
@@ -8,10 +8,10 @@ import { SelectMobile } from '@alfalab/core-components-select/components/select-
 import { SelectModalMobile } from '@alfalab/core-components-select/components/select-modal-mobile';
 import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 export const options = [
     { key: '1', content: 'Neptunium' },
@@ -50,7 +50,7 @@ export const POSITION_OPTIONS = [
 
 <Meta title='Components/Select' component={Select} id='Select' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Select'>
     {React.createElement(() => {
@@ -77,7 +77,7 @@ export const POSITION_OPTIONS = [
         const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
         const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
         return (
-            <div style={{backgroundColor: 'transparent'}}>
+            <div style={{ backgroundColor: 'transparent' }}>
                 <Select
                     block={block}
                     size={size}
@@ -128,7 +128,7 @@ export const POSITION_OPTIONS = [
         const defaultOpen = boolean('defaultOpen', false);
         const swipeable = boolean('swipeable', true);
         return (
-            <div style={{backgroundColor: 'transparent'}}>
+            <div style={{ backgroundColor: 'transparent' }}>
                 <SelectMobile
                     block={block}
                     size={size}
@@ -179,7 +179,7 @@ export const POSITION_OPTIONS = [
         const popoverPosition = selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start');
         const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
         return (
-            <div style={{backgroundColor: 'transparent'}}>
+            <div style={{ backgroundColor: 'transparent' }}>
                 <SelectResponsive
                     block={block}
                     size={size}
@@ -203,7 +203,7 @@ export const POSITION_OPTIONS = [
                     popoverPosition={popoverPosition}
                     optionsListWidth={optionsListWidth}
                 />
-            </div>    
+            </div>
         );
     })}
 </Story>
@@ -230,7 +230,7 @@ export const POSITION_OPTIONS = [
         const defaultOpen = boolean('defaultOpen', false);
         const swipeable = boolean('swipeable', true);
         return (
-            <div style={{backgroundColor: 'transparent'}}>
+            <div style={{ backgroundColor: 'transparent' }}>
                 <SelectModalMobile
                     block={block}
                     size={size}
@@ -250,19 +250,23 @@ export const POSITION_OPTIONS = [
                     labelView={labelView}
                     defaultOpen={defaultOpen}
                 />
-            </div>    
+            </div>
         );
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Select'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/select'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=184%3A19405'
     children='Поле ввода с выпадающим списком.'
 />
 
-<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

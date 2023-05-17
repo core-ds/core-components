@@ -33,7 +33,7 @@ describe('InputAutocomplete | interactions tests', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const matchImageSnapshotOptions: MatchImageSnapshotOptions = {
             failureThresholdType: 'percent',
@@ -42,15 +42,15 @@ describe('InputAutocomplete | interactions tests', () => {
         };
 
         try {
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
             await page.focus('input');
 
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
             await page.fill('input', 'D');
 
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -73,7 +73,7 @@ describe('InputAutocompleteMobile | interactions tests', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const matchImageSnapshotOptions: MatchImageSnapshotOptions = {
             failureThresholdType: 'percent',
@@ -81,17 +81,17 @@ describe('InputAutocompleteMobile | interactions tests', () => {
         };
 
         try {
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
             await page.click('[role="combobox"]');
 
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
 
             await page.fill('input', 'D');
 
             await page.click('button[data-test-id="continue"]');
 
-            await matchHtml({ context, page, expect, css, matchImageSnapshotOptions });
+            await matchHtml({ context, page, expect, matchImageSnapshotOptions });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

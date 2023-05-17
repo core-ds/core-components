@@ -50,12 +50,15 @@ export const setMetricConfig = () => {
     sp('trackPageView');
 };
 
-export const setObserveConnection = () => {
+export const setManagerObserveConnection = () => {
     window.addEventListener('load', () => {
         observeLink();
         observeSwitcher();
         observeExplorerMenu();
         observePreviewModeTabs();
-        observePreviewFrameComponent();
     });
+};
+
+export const setPreviewObserveConnection = () => {
+    observePreviewFrameComponent();
 };

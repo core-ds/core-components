@@ -1,16 +1,16 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Attach } from '@alfalab/core-components-attach';
 
 import { Attach as AttachTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/Attach' component={Attach} id='Attach' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Attach'>
     <Attach
@@ -24,11 +24,11 @@ import Changelog from '../../CHANGELOG.md';
     />
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Attach'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/attach'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=8960%3A60748'
 />
@@ -37,7 +37,11 @@ import Changelog from '../../CHANGELOG.md';
 import { Attach } from '@alfalab/core-components/attach';
 ```
 
-<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={AttachTS} />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    props={<ArgsTable of={AttachTS} />}
+/>
 
 ## Controlled Attach
 

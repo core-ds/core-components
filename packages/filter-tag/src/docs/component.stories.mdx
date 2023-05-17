@@ -1,18 +1,18 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { FilterTag } from '@alfalab/core-components-filter-tag';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 export const SIZES = ['xxs', 'xs', 's'];
 
 <Meta title='Components/FilterTag' component={FilterTag} id='FilterTag' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='FilterTag'>
     <div
@@ -40,14 +40,18 @@ export const SIZES = ['xxs', 'xs', 's'];
     </div>
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='FilterTag'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/filter-tag'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=7300%3A40133'
     children='Используется чтобы вывести параметры фильтрации и отобразить примененное значение.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

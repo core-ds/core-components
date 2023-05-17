@@ -2,7 +2,7 @@
 
 В зависимости от контекста рекомендуется использовать одну из двух конфигураций шапки календаря.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -33,10 +33,10 @@ render(() => {
         border: '1px solid rgba(233, 233, 235, 1)',
         borderRadius: '8px',
         padding: '0 16px',
-        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08), 
-                    0px 12px 16px rgba(0, 0, 0, 0.04), 
-                    0px 4px 8px rgba(0, 0, 0, 0.04), 
-                    0px 0px 1px rgba(0, 0, 0, 0.04)`
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
     };
 
     return (
@@ -131,7 +131,7 @@ render(() => {
 
 Для указания диапазона есть несколько режимов работы пикера.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const [firstRadioValue, setFirstRadioValue] = React.useState('clarification');
     const [secondRadioValue, setSecondRadioValue] = React.useState('range');
@@ -214,10 +214,10 @@ render(() => {
         border: '1px solid rgba(233, 233, 235, 1)',
         borderRadius: '8px',
         padding: '0 16px',
-        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08), 
-                    0px 12px 16px rgba(0, 0, 0, 0.04), 
-                    0px 4px 8px rgba(0, 0, 0, 0.04), 
-                    0px 0px 1px rgba(0, 0, 0, 0.04)`
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
     };
 
     return (
@@ -242,7 +242,11 @@ render(() => {
                     value={secondRadioValue}
                 >
                     <Radio size='m' label='Принимает диапазон значений' value='range' />
-                    <Radio size='m' label='Может принимать и диапазон и дату' value='singleAndRange' />
+                    <Radio
+                        size='m'
+                        label='Может принимать и диапазон и дату'
+                        value='singleAndRange'
+                    />
                 </RadioGroup>
             </div>
             <div>
@@ -365,7 +369,11 @@ render(() => {
                     value={secondRadioValue}
                 >
                     <Radio size='m' label='Принимает диапазон значений' value='range' />
-                    <Radio size='m' label='Может принимать и диапазон и дату' value='singleAndRange' />
+                    <Radio
+                        size='m'
+                        label='Может принимать и диапазон и дату'
+                        value='singleAndRange'
+                    />
                 </RadioGroup>
             </div>
             <div style={{ marginTop: '32px' }}>
@@ -387,18 +395,14 @@ render(() => {
 
 ## События и недоступные даты
 
-В данном примере субботы и воскресенья помечены как выходные. 
+В данном примере субботы и воскресенья помечены как выходные.
 Все понедельники отмечены как недоступные для выбора даты. 4, 10 и 14 числа отмечены как события.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const [value, setValue] = React.useState();
     const defaultDate = new Date('May 01, 2023 00:00:00');
-    const events = [
-        defaultDate.setDate(4),
-        defaultDate.setDate(10),
-        defaultDate.setDate(14),
-    ];
+    const events = [defaultDate.setDate(4), defaultDate.setDate(10), defaultDate.setDate(14)];
 
     const offDays = [
         defaultDate.setDate(1),
@@ -407,7 +411,7 @@ render(() => {
         defaultDate.setDate(22),
         defaultDate.setDate(29),
     ];
-    
+
     const holidays = [
         defaultDate.setDate(6),
         defaultDate.setDate(7),
@@ -417,17 +421,17 @@ render(() => {
         defaultDate.setDate(21),
         defaultDate.setDate(27),
         defaultDate.setDate(28),
-    ]
+    ];
 
     const calendarStyles = {
         border: '1px solid rgba(233, 233, 235, 1)',
         borderRadius: '8px',
         padding: '0 16px',
         boxSizing: 'border-box',
-        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08), 
-                    0px 12px 16px rgba(0, 0, 0, 0.04), 
-                    0px 4px 8px rgba(0, 0, 0, 0.04), 
-                    0px 0px 1px rgba(0, 0, 0, 0.04)`
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
     };
 
     return (
@@ -450,12 +454,8 @@ render(() => {
 render(() => {
     const [value, setValue] = React.useState();
     const [open, setOpen] = React.useState(false);
-        const defaultDate = new Date('May 01, 2023 00:00:00');
-    const events = [
-        defaultDate.setDate(4),
-        defaultDate.setDate(10),
-        defaultDate.setDate(14),
-    ];
+    const defaultDate = new Date('May 01, 2023 00:00:00');
+    const events = [defaultDate.setDate(4), defaultDate.setDate(10), defaultDate.setDate(14)];
 
     const offDays = [
         defaultDate.setDate(1),
@@ -464,7 +464,7 @@ render(() => {
         defaultDate.setDate(22),
         defaultDate.setDate(29),
     ];
-    
+
     const holidays = [
         defaultDate.setDate(6),
         defaultDate.setDate(7),
@@ -474,7 +474,7 @@ render(() => {
         defaultDate.setDate(21),
         defaultDate.setDate(27),
         defaultDate.setDate(28),
-    ]
+    ];
 
     return (
         <Container>
@@ -500,7 +500,7 @@ render(() => {
 
 Для ячейки дня доступны две формы: круглая и прямоугольная.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -519,10 +519,10 @@ render(() => {
         borderRadius: '8px',
         padding: '0 16px',
         boxSizing: 'border-box',
-        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08), 
-                    0px 12px 16px rgba(0, 0, 0, 0.04), 
-                    0px 4px 8px rgba(0, 0, 0, 0.04), 
-                    0px 0px 1px rgba(0, 0, 0, 0.04)`
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
     };
 
     return (
@@ -537,7 +537,7 @@ render(() => {
                     showCurrentYearSelector={true}
                 />
             </div>
-            <Gap size='2xl'/>
+            <Gap size='2xl' />
             <RadioGroup
                 label='Форма'
                 direction='vertical'
@@ -579,7 +579,7 @@ render(() => {
                 onChange={setValue}
                 shape={firstRadioValue}
             />
-            <Gap size='2xl'/>
+            <Gap size='2xl' />
             <RadioGroup
                 label='Форма'
                 direction='vertical'
@@ -597,9 +597,9 @@ render(() => {
 
 ## Слоты
 
-В каждую дату можно передать дополнительный контент, расположив его под числом.  
+В каждую дату можно передать дополнительный контент, расположив его под числом.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const [value, setValue] = React.useState();
 
@@ -623,9 +623,9 @@ render(() => {
     };
 
     const dayAddons = [
-       {date: new Date().setDate(5), addon: <div style={firstAddonStyles} />},
-       {date: new Date().setDate(6), addon: <div style={secondAddonStyles} />},
-       {date: new Date().setDate(7), addon: <div style={thirdAddonStyles} />},
+        { date: new Date().setDate(5), addon: <div style={firstAddonStyles} /> },
+        { date: new Date().setDate(6), addon: <div style={secondAddonStyles} /> },
+        { date: new Date().setDate(7), addon: <div style={thirdAddonStyles} /> },
     ];
 
     const calendarStyles = {
@@ -633,10 +633,10 @@ render(() => {
         borderRadius: '8px',
         padding: '0 16px',
         boxSizing: 'border-box',
-        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08), 
-                    0px 12px 16px rgba(0, 0, 0, 0.04), 
-                    0px 4px 8px rgba(0, 0, 0, 0.04), 
-                    0px 0px 1px rgba(0, 0, 0, 0.04)`
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
     };
 
     return (
@@ -678,9 +678,9 @@ render(() => {
     };
 
     const dayAddons = [
-        {date: new Date().setDate(5), addon: <div style={firstAddonStyles} />},
-        {date: new Date().setDate(6), addon: <div style={secondAddonStyles} />},
-        {date: new Date().setDate(7), addon: <div style={thirdAddonStyles} />},
+        { date: new Date().setDate(5), addon: <div style={firstAddonStyles} /> },
+        { date: new Date().setDate(6), addon: <div style={secondAddonStyles} /> },
+        { date: new Date().setDate(7), addon: <div style={thirdAddonStyles} /> },
     ];
 
     return (
@@ -707,7 +707,7 @@ render(() => {
 Можно ограничить выбор дат, задав допустимый диапазон с помощью свойств `minDate` и `maxDate`.
 Допустимый диапазон в примере: 06.02.23 — 06.07.23.
 
-```jsx live mobileHeight=640
+```jsx live mobileHeight={640}
 render(() => {
     const [value, setValue] = React.useState(() => new Date().setMonth(1));
     const minDate = startOfDay(new Date());
@@ -723,11 +723,11 @@ render(() => {
         borderRadius: '8px',
         padding: '0 16px',
         boxSizing: 'border-box',
-        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08), 
-                    0px 12px 16px rgba(0, 0, 0, 0.04), 
-                    0px 4px 8px rgba(0, 0, 0, 0.04), 
-                    0px 0px 1px rgba(0, 0, 0, 0.04)`
-    }
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
+    };
 
     return (
         <div style={{ width: '344px', ...calendarStyles }}>
@@ -789,11 +789,11 @@ render(() => {
         borderRadius: '8px',
         padding: '0 16px',
         boxSizing: 'border-box',
-        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08), 
-                    0px 12px 16px rgba(0, 0, 0, 0.04), 
-                    0px 4px 8px rgba(0, 0, 0, 0.04), 
-                    0px 0px 1px rgba(0, 0, 0, 0.04)`
-    }
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
+    };
 
     const css = `
        div[data-test-id='test1'][data-test-id='test1']> div {
@@ -808,8 +808,8 @@ render(() => {
 
     return (
         <>
-            <div data-test-id='test1' style={{width: '344px', ...calendarStyles}}>
-            <style>{css}</style>
+            <div data-test-id='test1' style={{ width: '344px', ...calendarStyles }}>
+                <style>{css}</style>
                 <CalendarWithSkeleton
                     value={value}
                     onChange={setValue}

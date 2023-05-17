@@ -1,5 +1,5 @@
-import MigrationsReadme from '../packages/codemod/README.md';
-import { Meta } from '@storybook/addon-docs';
+import MigrationsReadme from '../packages/codemod/README.md?raw';
+import { Meta, Markdown } from '@storybook/addon-docs';
 
 <Meta
     title='For users/Миграция со старых компонентов'
@@ -7,10 +7,12 @@ import { Meta } from '@storybook/addon-docs';
     id='Instructions/migration'
 />
 
-## Миграция со старых компонентов
+## Миграция со старых компонентов
 
 Таблица соответствий:
 
+<Markdown>
+    {`
 | Старый                   | Замена                                                                                       |
 | ------------------------ | -------------------------------------------------------------------------------------------- |
 | Dropdown                 | Tooltip                                                                                      |
@@ -30,7 +32,7 @@ import { Meta } from '@storybook/addon-docs';
 | Spin                     | Spinner                                                                                      |
 | TagButton                | Tag                                                                                          |
 | Toggle                   | Switch                                                                                       |
+`}
+</Markdown>
 
-<!-- | Sidebar | SidePanel | -->
-
-<MigrationsReadme />
+<Markdown>{MigrationsReadme}</Markdown>

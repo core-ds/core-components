@@ -1,16 +1,16 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { number, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Pagination } from '@alfalab/core-components-pagination';
 
 import { Pagination as PaginationTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/Pagination' component={Pagination} id='Pagination' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Pagination'>
     {React.createElement(() => {
@@ -30,11 +30,11 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Pagination'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/pagination'
 />
 
@@ -44,6 +44,6 @@ import { Pagination } from '@alfalab/core-components/pagination';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={PaginationTS} />}
 />

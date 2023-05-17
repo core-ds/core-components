@@ -1,18 +1,18 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { select, text, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 import { Notification } from '@alfalab/core-components-notification';
 
 import { Notification as NotificationTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta title='Components/Notification' component={Notification} id='Notification' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Notification'>
     {React.createElement(() => {
@@ -59,11 +59,11 @@ import styles from '!!raw-loader!../index.module.css';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Notification'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/notification'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10057%3A52052'
 />
@@ -74,7 +74,7 @@ import { Notification } from '@alfalab/core-components/notification';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={NotificationTS} />}
     cssVars={<CssVars css={styles} />}
 />

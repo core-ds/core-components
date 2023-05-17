@@ -3,20 +3,21 @@ import React from 'react';
 import { Gap } from './components/Gap.jsx';
 import { DocumentIcon } from './components/icons/DocumentIcon.jsx';
 import { ComponentIcon } from './components/icons/ComponentIcon.jsx';
-import { FolderIcon } from './components/icons/FolderIcon.jsx';
 import { FlashIcon } from './components/icons/FlashIcon.jsx';
 import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
 import { OverviewIcon } from './components/icons/OverviewIcon.jsx';
 import { ComponentsOverviewIcon } from './components/icons/ComponentsOverviewIcon.jsx';
 import { DiamondsBlankIcon } from './components/icons/DiamondsBlankIcon.jsx';
 
-const renderIcon = (type, parent, depth, name) => {
+const renderIcon = (item) => {
+    const { type, name, parent, depth } = item;
+
     switch (type) {
-        case 'component': {
-            if (name === 'Sandbox') {
+        case 'docs': {
+            if (item.name === 'Sandbox') {
                 return <SandboxIcon />;
             }
-            if (name === 'Quick start') {
+            if (item.name === 'Quick start') {
                 return <FlashIcon />;
             }
             if (name === 'Icons overview') {
@@ -26,12 +27,22 @@ const renderIcon = (type, parent, depth, name) => {
                 return <ComponentsOverviewIcon />;
             }
 
+            return (
+                <>
+                    {depth > 1 && <Gap size={20} />}
+                    <DocumentIcon />
+                </>
+            );
+        }
+
+        case 'component': {
             if (parent && parent.includes('components')) {
                 return <ComponentIcon />;
             }
 
             return <DocumentIcon />;
         }
+
         case 'story': {
             return (
                 <>
@@ -40,9 +51,7 @@ const renderIcon = (type, parent, depth, name) => {
                 </>
             );
         }
-        case 'group': {
-            return <FolderIcon />;
-        }
+
         default:
             return null;
     }
@@ -50,7 +59,7 @@ const renderIcon = (type, parent, depth, name) => {
 
 export const renderLabel = (item) => (
     <span className='item-label'>
-        {renderIcon(item.type, item.parent, item.depth, item.name)}
+        {renderIcon(item)}
         <span>{item.name}</span>
     </span>
 );

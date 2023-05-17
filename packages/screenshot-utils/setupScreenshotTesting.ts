@@ -1,11 +1,8 @@
-import axios from 'axios';
 import { Browser, BrowserContext, chromium, Page } from 'playwright';
 
 import { defaultViewport, matchHtml, MatchHtmlParams } from './helpers';
 
 export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009/iframe.html';
-export const STYLES_URL = 'http://localhost:9009/main.css';
-export const VENDOR_STYLES_URL = 'http://localhost:9009/vendors~main.css';
 
 export type ScreenshotOpts = {
     /**
@@ -55,18 +52,11 @@ export const setupScreenshotTesting =
         let browser: Browser;
         let context: BrowserContext;
         let page: Page;
-        let css: string;
 
         beforeAll(async () => {
             browser = await chromium.launch();
             context = await browser.newContext({ viewport: defaultViewport });
             page = await context.newPage();
-
-            const result = await axios.get(STYLES_URL, {
-                responseType: 'text',
-            });
-
-            css = result.data;
         });
 
         afterAll(async () => {
@@ -79,6 +69,6 @@ export const setupScreenshotTesting =
                 timeout: 200000,
             });
 
-            await matchHtml({ context, page, expect, css, ...matchHtmlArgs });
+            await matchHtml({ context, page, expect, ...matchHtmlArgs });
         });
     };

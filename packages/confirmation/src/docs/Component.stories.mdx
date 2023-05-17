@@ -1,15 +1,14 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Select } from '@alfalab/core-components-select';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationMobile } from '@alfalab/core-components-confirmation/component.mobile';
 import { Confirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationResponsive } from '@alfalab/core-components-confirmation/component.responsive';
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import {
@@ -19,7 +18,7 @@ import {
 
 <Meta title='Components/Confirmation' id='Confirmation' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Confirmation'>
     {React.createElement(() => {
@@ -99,7 +98,6 @@ import {
         const isPreview = Object.keys(previewStyles).length > 0;
         return (
             <div style={previewStyles}>
-                <ModeChecker />
                 {!isPreview && (
                     <Select
                         options={variants}
@@ -136,7 +134,7 @@ import {
                         onInputFinished={handleInputFinished}
                         onSmsRetryClick={handleSmsRetryClick}
                         onTempBlockFinished={handleTempBlockFinished}
-                        phone='+7 ··· ··· 07-24'
+                        phone={'+7 ··· ··· 07-24'}
                     />
                 </div>
             </div>
@@ -144,14 +142,18 @@ import {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Confirmation'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/confirmation'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=8514%3A52278'
     children='Используется для ввода кода подтверждения.'
 />
 
-<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

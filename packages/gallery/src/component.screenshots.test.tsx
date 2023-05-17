@@ -7,6 +7,8 @@ import {
 
 import { TestIds } from './utils';
 
+const clip = { x: 0, y: 0, width: 1024, height: 768 };
+
 describe('Gallery | interactions tests', () => {
     test('With single image', async () => {
         const pageUrl = createStorybookUrl({
@@ -15,12 +17,12 @@ describe('Gallery | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.click('#open-single-gallery-button');
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+            await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true, clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -38,18 +40,18 @@ describe('Gallery | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         const nextSlide = async () => {
             await page.click(`[data-test-id=${TestIds.NEXT_SLIDE_BUTTON}]`);
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+            await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true, clip } });
         };
 
         try {
             await page.click('#open-gallery-button');
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+            await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true, clip } });
 
             await nextSlide();
             await nextSlide();
@@ -71,14 +73,21 @@ describe('Gallery | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.click('#open-gallery-button');
 
             await page.click(`[data-test-id=${TestIds.FULLSCREEN_BUTTON}]`);
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+            await page.mouse.move(0, 0);
+
+            await matchHtml({
+                context,
+                page,
+                expect,
+                screenshotOpts: { fullPage: true, clip },
+            });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

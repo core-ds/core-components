@@ -182,7 +182,7 @@ describe('ConfirmationV1 | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.locator('button', { hasText: 'Не приходит сообщение?' }).click();
@@ -191,7 +191,6 @@ describe('ConfirmationV1 | interactions tests', () => {
                 context,
                 page,
                 expect,
-                css,
                 screenshotOpts: { clip: { x: 0, y: 60, width: 500, height: 450 } },
             });
         } catch (error) {

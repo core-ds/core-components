@@ -1,12 +1,12 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
 import { CalendarWithSkeleton } from '@alfalab/core-components-calendar-with-skeleton';
 
 import { CalendarWithSkeleton as CalendarWithSkeletonTS } from '../Component';
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 
 <Meta
@@ -15,7 +15,7 @@ import Description from './description.mdx';
     id='CalendarWithSkeleton'
 />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='CalendarWithSkeleton'>
     {React.createElement(() => {
@@ -31,11 +31,11 @@ import Description from './description.mdx';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='CalendarWithSkeleton'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/calendar-with-skeleton'
 />
 
@@ -45,6 +45,6 @@ import { CalendarWithSkeleton } from '@alfalab/core-components/calendar-with-ske
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={CalendarWithSkeletonTS} />}
 />

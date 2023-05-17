@@ -1,17 +1,17 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { formatDate } from '@alfalab/core-components-date-input';
 import { CalendarInput } from '@alfalab/core-components-calendar-input';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/CalendarInput' component={CalendarInput} id='CalendarInput' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='CalendarInput'>
     {React.createElement(() => {
@@ -35,13 +35,17 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='CalendarInput'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/calendar-input'
     children='Поле для указания даты.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

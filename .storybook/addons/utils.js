@@ -1,9 +1,15 @@
-import { setMetricConfig, setObserveConnection } from '../metrics';
+import {
+    setMetricConfig,
+    setPreviewObserveConnection,
+    setManagerObserveConnection,
+} from '../metrics';
+
+export const MODE_COLORS_TAG_ID = 'mode-colors';
 
 export const getStoryDoc = () => document.querySelector('iframe').contentDocument;
 
 export const getMobileFrames = () =>
-    Array.from(getStoryDoc().querySelectorAll('iframe[src*=mobileframe]'));
+    Array.from(document.querySelectorAll('iframe[src*=mobileframe]'));
 
 export function getOrCreateStyleTag(id, beforeId, doc = getStoryDoc()) {
     const existingTag = doc.getElementById(id);
@@ -31,7 +37,16 @@ export function setGuidelinesStyles(styles) {
 
 export const extractMixinContent = (css) => css.trim().split('\n').slice(1, -1).join('\n');
 
-export const setMetricsConnection = () => {
+export const setManagerMetricsConnection = () => {
     setMetricConfig();
-    setObserveConnection();
+    setManagerObserveConnection();
 };
+
+export const setPreviewMetricsConnection = () => {
+    setMetricConfig();
+    setPreviewObserveConnection();
+};
+
+export function rmCommentsFromCss(css) {
+    return css.replace(/\/\*[\s\S]*?\*\//g, '');
+}
