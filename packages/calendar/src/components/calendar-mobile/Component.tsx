@@ -201,8 +201,7 @@ const CalendarMonthOnlyView = ({
         <Virtuoso
             totalCount={activeMonths.length}
             itemContent={renderMonth}
-            initialTopMostItemIndex={initialMonthIndex}
-            // что за magic number?
+            initialTopMostItemIndex={{ index: initialMonthIndex, align: 'center' }}
             increaseViewportBy={1000}
             itemSize={(el) => el.getBoundingClientRect().height + 32}
             customScrollParent={scrollableContainer}
@@ -345,10 +344,10 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                             hasCloser={true}
                             title={title}
                             sticky={true}
+                            bottomAddons={renderDayNames()}
                             className={cn({ [styles.withZIndex]: selectorView === 'full' })}
                         />
                     )}
-                    {monthOnlyView && renderDayNames()}
                     <ModalMobile.Content flex={true}>{renderContent()}</ModalMobile.Content>
                     <ModalMobile.Footer
                         sticky={true}
