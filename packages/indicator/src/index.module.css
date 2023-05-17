@@ -9,6 +9,21 @@
     border-radius: var(--border-radius-pill);
 }
 
+.red {
+    background-color: var(--color-light-bg-accent);
+    color: var(--color-static-text-primary-light);
+}
+
+.white {
+    background-color: var(--color-light-bg-primary);
+    color: var(--color-light-text-primary);
+}
+
+.grey {
+    background-color: var(--color-light-specialbg-secondary-transparent);
+    color: var(--color-light-text-primary);
+}
+
 .xs {
     height: 8px;
     min-width: 8px;

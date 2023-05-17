@@ -9,92 +9,63 @@ const styles = {
     backgroundColor: 'var(--color-light-bg-secondary)',
     borderRadius: '12px',
     boxSizing: 'border-box',
-    alignItems: 'center'
-};
-
-render(() => {
-    return (
-        <Container>
-            <div style={styles}>
-                <Indicator value={1} view='red' />
-                <Indicator value={1} view='grey' />
-                <Indicator value={1} view='white' />
-            </div>
-        </Container>
-    );
-});
-```
-
-```jsx live
-const styles = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: 233,
-    padding: 20,
-    backgroundColor: 'var(--color-light-bg-secondary)',
-    borderRadius: '12px',
-    boxSizing: 'border-box',
-    alignItems: 'center'
+    alignItems: 'center',
 };
 
 render(
     <Container>
         <div style={styles}>
-            <Indicator backgroundColor='bg-accent' color='text-primary-inverted' />
-            <Indicator value={1} backgroundColor='bg-accent' color='text-primary-inverted' />
+            <Indicator view='red' />
+            <Indicator value={1} view='red' />
+            <Indicator height={24} value={1} view='red' />
+            <Indicator height={24} value={99} view='red' />
+            <Indicator height={24} value={100} view='red' />
+        </div>
+        <Gap size='xs' />
+        <div style={styles}>
+            <Indicator view='grey' />
+            <Indicator value={1} view='grey' />
+            <Indicator height={24} value={1} view='grey' />
+            <Indicator height={24} value={99} view='grey' />
+            <Indicator height={24} value={100} view='grey' />
+        </div>
+        <Gap size='xs' />
+        <div style={styles}>
+            <Indicator view='white' />
+            <Indicator value={1} view='white' />
+            <Indicator height={24} value={1} view='white' />
+            <Indicator height={24} value={99} view='white' />
+            <Indicator height={24} value={100} view='white' />
+        </div>
+        <Gap size='xs' />
+        <div style={styles}>
+            <Indicator
+                backgroundColor='var(--color-light-graphic-positive)'
+                color='var(--color-light-text-primary-inverted)'
+            />
+            <Indicator
+                value={1}
+                backgroundColor='var(--color-light-graphic-positive)'
+                color='var(--color-light-text-primary-inverted)'
+            />
             <Indicator
                 height={24}
                 value={1}
-                backgroundColor='bg-accent'
-                color='text-primary-inverted'
+                backgroundColor='var(--color-light-graphic-positive)'
+                color='var(--color-light-text-primary-inverted)'
             />
             <Indicator
                 height={24}
                 value={99}
-                backgroundColor='bg-accent'
-                color='text-primary-inverted'
+                backgroundColor='var(--color-light-graphic-positive)'
+                color='var(--color-light-text-primary-inverted)'
             />
             <Indicator
                 height={24}
                 value={100}
-                backgroundColor='bg-accent'
-                color='text-primary-inverted'
+                backgroundColor='var(--color-light-graphic-positive)'
+                color='var(--color-light-text-primary-inverted)'
             />
-        </div>
-        <Gap size='xs' />
-        <div style={styles}>
-            <Indicator backgroundColor='specialbg-secondary-transparent' color='text-primary' />
-            <Indicator
-                value={1}
-                backgroundColor='specialbg-secondary-transparent'
-                color='text-primary'
-            />
-            <Indicator
-                height={24}
-                value={1}
-                backgroundColor='specialbg-secondary-transparent'
-                color='text-primary'
-            />
-            <Indicator
-                height={24}
-                value={99}
-                backgroundColor='specialbg-secondary-transparent'
-                color='text-primary'
-            />
-            <Indicator
-                height={24}
-                value={100}
-                backgroundColor='specialbg-secondary-transparent'
-                color='text-primary'
-            />
-        </div>
-        <Gap size='xs' />
-        <div style={styles}>
-            <Indicator backgroundColor='bg-primary' color='text-primary' />
-            <Indicator value={1} backgroundColor='bg-primary' color='text-primary' />
-            <Indicator height={24} value={1} backgroundColor='bg-primary' color='text-primary' />
-            <Indicator height={24} value={99} backgroundColor='bg-primary' color='text-primary' />
-            <Indicator height={24} value={100} backgroundColor='bg-primary' color='text-primary' />
         </div>
     </Container>,
 );
