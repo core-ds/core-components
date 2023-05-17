@@ -703,15 +703,14 @@ render(() => {
                         sticky={footerSettings.sticky}
                         layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
                     >
-                        {footerSettings.hasPrimaryButton && (
-                            <Button view='primary' size='s' onClick={handleClose} block={true}>
-                                Primary
-                            </Button>
-                        )}
-
                         {footerSettings.hasSecondaryButton && (
                             <Button view='secondary' size='s' onClick={handleClose} block={true}>
                                 Secondary
+                            </Button>
+                        )}
+                        {footerSettings.hasPrimaryButton && (
+                            <Button view='primary' size='s' onClick={handleClose} block={true}>
+                                Primary
                             </Button>
                         )}
                     </SidePanelMobile.Footer>

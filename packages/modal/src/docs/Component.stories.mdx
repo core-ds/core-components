@@ -28,14 +28,21 @@ export const Text = () => (
     </p>
 );
 
-export const Footer = ({ isPreview }) => (
+export const Footer = ({ isPreview, isMobile }) => (
     <>
-        <Button size='s' view='primary'>
+    {!isMobile ? 
+        (<><Button size='s' view='primary'>
             {isPreview ? 'Кнопка' : 'Сохранить'}
         </Button>
         <Button size='s' view='secondary'>
             {isPreview ? 'Кнопка' : 'Отмена'}
+        </Button></>) :
+        (<><Button size='s' view='secondary'>
+            {isPreview ? 'Кнопка' : 'Отмена'}
         </Button>
+         <Button size='s' view='primary'>
+            {isPreview ? 'Кнопка' : 'Сохранить'}
+        </Button></>)}
     </>
 );
 
@@ -132,7 +139,7 @@ export const Content = ({ isPreview }) => {
                             layout={footerLayout}
                             gap={footerGap}
                         >
-                            <Footer isPreview={isPreview} />
+                            <Footer isPreview={isPreview} isMobile={ModalComponent === ModalMobile} />
                         </ModalComponent.Footer>
                     )}
                 </ModalComponent>

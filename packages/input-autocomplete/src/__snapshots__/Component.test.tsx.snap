@@ -385,16 +385,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                       class="footer"
                     >
                       <button
-                        class="component primary s component primary block"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          Продолжить
-                        </span>
-                      </button>
-                      <button
                         class="component secondary s component secondary block"
                         type="button"
                       >
@@ -402,6 +392,16 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           class="text stretchText"
                         >
                           Отмена
+                        </span>
+                      </button>
+                      <button
+                        class="component primary s component primary block"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          Продолжить
                         </span>
                       </button>
                     </div>

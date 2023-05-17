@@ -285,6 +285,9 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
                 return (
                     <React.Fragment>
+                        <Button view='secondary' size='s' block={true} onClick={handleClear}>
+                            Сбросить
+                        </Button>
                         <Button
                             view='primary'
                             size='s'
@@ -293,9 +296,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                             disabled={selectButtonDisabled}
                         >
                             Выбрать
-                        </Button>
-                        <Button view='secondary' size='s' block={true} onClick={handleClear}>
-                            Сбросить
                         </Button>
                     </React.Fragment>
                 );

@@ -370,17 +370,6 @@ render(() => {
                                 flexDirection: footerViewSelected === 'vertical' ? 'column' : 'row',
                             }}
                         >
-                            {footerSettings.hasPrimaryButton && (
-                                <Button view='primary' size='s' onClick={handleClose} block={true}>
-                                    Primary
-                                </Button>
-                            )}
-
-                            {footerSettings.hasPrimaryButton &&
-                            footerSettings.hasSecondaryButton ? (
-                                <Gap size='m' direction={footerViewSelected} />
-                            ) : null}
-
                             {footerSettings.hasSecondaryButton && (
                                 <Button
                                     view='secondary'
@@ -389,6 +378,17 @@ render(() => {
                                     block={true}
                                 >
                                     Secondary
+                                </Button>
+                            )}
+
+                            {footerSettings.hasPrimaryButton &&
+                            footerSettings.hasSecondaryButton ? (
+                                <Gap size='m' direction={footerViewSelected} />
+                            ) : null}
+
+                            {footerSettings.hasPrimaryButton && (
+                                <Button view='primary' size='s' onClick={handleClose} block={true}>
+                                    Primary
                                 </Button>
                             )}
                         </div>

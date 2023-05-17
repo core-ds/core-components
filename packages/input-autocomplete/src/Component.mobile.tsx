@@ -179,21 +179,21 @@ export const InputAutocompleteMobile = React.forwardRef(
                     <div className={styles.footer}>
                         <Button
                             block={true}
-                            view='primary'
-                            size='s'
-                            onClick={handleApply}
-                            {...continueButtonProps}
-                        >
-                            Продолжить
-                        </Button>
-                        <Button
-                            block={true}
                             view='secondary'
                             size='s'
                             onClick={handleCancel}
                             {...cancelButtonProps}
                         >
                             Отмена
+                        </Button>
+                        <Button
+                            block={true}
+                            view='primary'
+                            size='s'
+                            onClick={handleApply}
+                            {...continueButtonProps}
+                        >
+                            Продолжить
                         </Button>
                     </div>
                 ),
