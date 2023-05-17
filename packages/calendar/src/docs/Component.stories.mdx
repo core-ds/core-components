@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/addon-docs';
-import { select, boolean, text } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { ModeChecker } from 'storybook/components/mode-checker';
 import { Button } from '@alfalab/core-components-button';
@@ -58,8 +58,6 @@ export const MONTHS = {
         const selectorView = select('selectorView', ['full', 'month-only'], 'full');
         const defaultView = select('defaultView', ['days', 'months', 'years'], 'days');
         const defaultMonth = select('defaultMonth', MONTHS, 'none');
-        // TODO: удалить после дизайн чека
-        const onPeriodClick = text('cb on period click', '');
         const renderContent = () => {
             if (device === 'desktop') {
                 return (
@@ -84,7 +82,6 @@ export const MONTHS = {
                                 defaultView={defaultView}
                                 selectorView={selectorView}
                                 showCurrentYearSelector={boolean('showCurrentYearSelector', false)}
-                                onPeriodClick={onPeriodClick}
                             />
                         </div>
                     </div>
