@@ -1,6 +1,7 @@
 @import '../../../../themes/src/default.css';
 
 .component {
+    display: inline-flex;
     flex-basis: auto;
 }
 
