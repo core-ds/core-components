@@ -6,7 +6,7 @@ import {
     openBrowserPage,
 } from '../../screenshot-utils';
 
-const clip = { x: 0, y: 0, width: 260, height: 80 };
+const clip = { x: 0, y: 0, width: 300, height: 80 };
 
 describe('WithSuffix', () => {
     test('suffix styles', async () => {
@@ -15,14 +15,13 @@ describe('WithSuffix', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await matchHtml({
                 context,
                 page,
                 expect,
-                css,
                 screenshotOpts: { clip },
                 evaluate: (remotePage: Page) =>
                     remotePage.focus('input').then(() => remotePage.waitForTimeout(500)),

@@ -1,17 +1,17 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import { Skeleton as SkeletonTS } from '../Component';
-import { name, version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta title='Components/Skeleton' component={Skeleton} id='Skeleton' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Skeleton'>
     <div
@@ -36,9 +36,13 @@ import styles from '!!raw-loader!../index.module.css';
     </div>
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='Skeleton' version={version} package='@alfalab/core-components/skeleton' />
+<ComponentHeader
+    name='Skeleton'
+    version={packageJson.version}
+    package='@alfalab/core-components/skeleton'
+/>
 
 ```jsx
 import { Skeleton } from '@alfalab/core-components/skeleton';
@@ -46,7 +50,7 @@ import { Skeleton } from '@alfalab/core-components/skeleton';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={SkeletonTS} />}
     cssVars={<CssVars css={styles} />}
 />

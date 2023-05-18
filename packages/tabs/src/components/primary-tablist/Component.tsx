@@ -87,12 +87,12 @@ export const PrimaryTabList = ({
                 [styles.fullWidthScroll]: fullWidthScroll,
             })}
         >
-            {tablistTitles.map((title, index) => (
-                <KeyboardFocusable key={title.id}>
+            {tablistTitles.map(({ dataTestId: _, ...restTitleProps }, index) => (
+                <KeyboardFocusable key={restTitleProps.id}>
                     {(ref, focused) => (
                         <Title
                             {...getTabListItemProps(index, ref)}
-                            {...title}
+                            {...restTitleProps}
                             focused={focused}
                             styles={styles}
                         />

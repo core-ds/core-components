@@ -1,12 +1,12 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { select, boolean, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Input } from '@alfalab/core-components-input';
 import { Space } from '@alfalab/core-components-space';
 
 import { Space as SpaceTS } from '../Component';
-import { name, version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 
 export const DIRECTIONS = ['horizontal', 'vertical'];
@@ -15,7 +15,7 @@ export const SIZES = ['s', 'm', 'l', 8, 72];
 
 <Meta title='Components/Space' component={Space} id='Space' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Space'>
     <Space
@@ -35,12 +35,20 @@ export const SIZES = ['s', 'm', 'l', 8, 72];
     </Space>
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='Space' version={version} package='@alfalab/core-components/space' />
+<ComponentHeader
+    name='Space'
+    version={packageJson.version}
+    package='@alfalab/core-components/space'
+/>
 
 ```jsx
 import { Space } from '@alfalab/core-components/space';
 ```
 
-<Tabs description={<Description />} changelog={<Changelog />} props={<ArgsTable of={SpaceTS} />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    props={<ArgsTable of={SpaceTS} />}
+/>

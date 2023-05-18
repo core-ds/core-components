@@ -149,6 +149,7 @@ export type TabListTitle = {
     toggleClassName?: string;
     selected?: boolean;
     collapsed?: boolean;
+    dataTestId?: string;
 };
 
 export type TabListProps = Pick<

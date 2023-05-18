@@ -9,7 +9,7 @@ import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
 
 import { Card } from './components/card';
 import { CONFIG } from './config';
-import { MODE_COLORS_TAG_ID } from '../../addons/mode-switcher/utils';
+import { MODE_COLORS_TAG_ID } from '../../addons/utils';
 import { BackToTopButton } from '../../components/back-to-top-button';
 
 import styles from './index.module.css';
@@ -74,7 +74,7 @@ export const ComponentsOverview = () => {
     const Title = isMobile ? Typography.TitleMobile : Typography.Title;
 
     return (
-        <div id='components-overview'>
+        <div id='components-overview' className='sb-unstyled'>
             <Title tag='h1' view='xlarge' font='styrene'>
                 Витрина компонентов
             </Title>

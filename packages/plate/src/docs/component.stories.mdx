@@ -1,7 +1,6 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { select, text, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph/CheckmarkOnCircleMIcon';
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
@@ -11,10 +10,10 @@ import { Badge } from '@alfalab/core-components-badge';
 
 import { Plate as PlateTS } from '../Component';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -22,7 +21,7 @@ import {
 
 <Meta title='Components/Plate' component={Plate} id='Plate' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Plate'>
     {React.createElement(() => {
@@ -64,7 +63,6 @@ import {
                         box-shadow: var(--plate-border) rgba(207, 112, 255, 1);
                     `}
                 </style>
-                <ModeChecker />
                 <Plate
                     className={view === 'custom' ? 'custom' : undefined}
                     view={view}
@@ -104,11 +102,11 @@ import {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Plate'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/plate'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=315%3A38165'
 />
@@ -119,7 +117,7 @@ import { Plate } from '@alfalab/core-components/plate';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={PlateTS} />}
     cssVars={<CssVars css={styles} />}
 />

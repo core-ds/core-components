@@ -151,12 +151,12 @@ describe('DateTimeInput | picker', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.click('input');
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+            await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

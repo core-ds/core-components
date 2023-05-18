@@ -4,7 +4,7 @@ BottomSheet построен с использованием слотов. Ко�
 
 Компонент состоит из Header, Content, Footer, содержащих в себе кастомизируемые слоты.
 
-```jsx live mobileHeight=640 mobileOnly
+```jsx live mobileHeight={640} mobileOnly
 const Header = () => {
     const { setHasHeader, onClose } = React.useContext(ModalContext);
 
@@ -103,7 +103,7 @@ render(() => {
 
 Ниже представлены самые популярные кейсы настройки шторки.
 
-```jsx live mobileHeight=640 mobileOnly
+```jsx live mobileHeight={640} mobileOnly
 const Text = ({ onClose }) => (
     <>
         <Typography.Text tag='p'>
@@ -415,7 +415,7 @@ render(() => {
 
 Компонент можно настроить для реализации многошаговых сценариев. Высота всех шторок в рамках сценария должны быть одинаковой.
 
-```jsx live mobileHeight=640 mobileOnly
+```jsx live mobileHeight={640} mobileOnly
 const DATA = {
     1: {
         title: 'Первый уровень',
@@ -505,7 +505,7 @@ render(() => {
 Первый элемент списка обозначает минимальную высоту шторки, последний, соответственно, максимальную.
 Если шторка не достигла своей максимальной высоты, рекомендуется блокировать скролл внутри неё, чтобы получить предсказуемое поведение.
 
-```jsx live mobileHeight=640 mobileOnly
+```jsx live mobileHeight={640} mobileOnly
 const VARIANTS = {
     MIN_MAX: 'min_max',
     EXTRA_AREA: 'extra_area',
@@ -588,7 +588,9 @@ render(() => {
         <div
             style={{
                 ...WRAPPER_STYLES,
-                backgroundColor: openWithExternalTrigger ? '#f3f4f5' : '#fff',
+                backgroundColor: openWithExternalTrigger
+                    ? 'var(--color-light-bg-secondary)'
+                    : 'var(--color-light-bg-primary)',
             }}
         >
             <Button

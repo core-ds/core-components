@@ -63,12 +63,12 @@ describe('Input | screenshots sizes, blocks and disabled', screenshotTesting({ c
 describe('Input | interactions tests', () => {
     test('Fill input value', async () => {
         const pageUrl = createStorybookUrl({ componentName: 'Input' });
-        const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
+        const { browser, context, page } = await openBrowser(chromium, pageUrl);
 
         try {
             await page.fill('input', 'value');
 
-            await matchHtml({ context, page, expect, css });
+            await matchHtml({ context, page, expect });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);

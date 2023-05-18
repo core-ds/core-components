@@ -1,16 +1,16 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Amount } from '@alfalab/core-components-amount';
+import { Space } from '@alfalab/core-components-space';
 import { Typography } from '@alfalab/core-components-typography';
 import { Table } from '@alfalab/core-components-table';
 
 import { Table as TableTS } from '../component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -42,7 +42,7 @@ export const DATA = [
     },
 ];
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Table'>
     {React.createElement(() => {
@@ -50,7 +50,6 @@ export const DATA = [
         return (
             <div style={{ backgroundColor: previewStyles.backgroundColor }}>
                 <div style={previewStyles}>
-                    <ModeChecker />
                     <Table compactHorizontal={boolean('compact horizontal')}>
                         <Table.THead>
                             <Table.THeadCell width='122px' id='date' title='Дата'>
@@ -101,9 +100,13 @@ export const DATA = [
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='Table' version={version} package='@alfalab/core-components/table' />
+<ComponentHeader
+    name='Table'
+    version={packageJson.version}
+    package='@alfalab/core-components/table'
+/>
 
 ```jsx
 import { Table } from '@alfalab/core-components/table';
@@ -111,7 +114,7 @@ import { Table } from '@alfalab/core-components/table';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={
         <ArgsTable
             components={{

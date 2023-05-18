@@ -1,71 +1,33 @@
 import { getCurrentUrlParams, getPageNode, handleLinks } from './utils';
 import { ACTIONS, CATEGORY, DEFAULT_ELEMENT } from './constant';
 import { trackEvent } from './trackEvent';
+import { ADDON_EVENTS } from 'storybook-addon-live-examples';
 
-const switcherState = {};
+const switcherState = { mode: 'light', theme: 'default' };
 
 const { FOLDER, SEARCH_VALUE } = ACTIONS;
 
 /**
  * Следит за переключение режимов вьюера для компонента (деск мобайл) и открытием кода компонента
  */
-const createPreviewFrameComponentObserver = () => {
-    let observer = null;
+export const observePreviewFrameComponent = () => {
+    const eventHandler = (ev) => {
+        const { view, shown } = ev.detail;
+        const sidePanel = window.parent.document.querySelector('#storybook-explorer-tree');
+        const currentComponent = sidePanel?.querySelector('.sidebar-item[data-selected="true"]');
 
-    return () => {
-        const disconnectObserver = () => {
-            if (observer) {
-                observer.disconnect();
-            }
-        };
-
-        if (observer) {
-            disconnectObserver();
-        }
-
-        const iframe = getPageNode('#storybook-preview-iframe');
-
-        if (!iframe) {
-            return;
-        }
-
-        const nodeList = iframe.contentDocument.querySelector('#docs-root');
-
-        const setupObserver = () => {
-            observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    const { type, target } = mutation;
-
-                    if (type === 'attributes' && target?.tagName === 'BUTTON') {
-                        const isActive = target?.classList.contains('active');
-
-                        if (isActive) {
-                            const { textContent } = getPageNode('[data-selected="true"]');
-
-                            trackEvent({
-                                category: CATEGORY.EDITOR,
-                                label: `${target?.title}`,
-                                value: textContent,
-                            });
-                        }
-                    }
-                });
+        if (currentComponent) {
+            trackEvent({
+                category: CATEGORY.EDITOR,
+                label: view ? `view=${view}` : `shown-source-code=${shown}`,
+                value: currentComponent.textContent,
             });
-
-            const observerConfig = {
-                childList: true,
-                subtree: true,
-                attributes: true,
-            };
-
-            observer.observe(nodeList, observerConfig);
-        };
-
-        setupObserver();
+        }
     };
-};
 
-export const observePreviewFrameComponent = createPreviewFrameComponentObserver();
+    document.addEventListener(ADDON_EVENTS.VIEW_CHANGE, eventHandler);
+    document.addEventListener(ADDON_EVENTS.SHOW_SOURCE_CODE, eventHandler);
+};
 
 /**
  * Следит за открытием таба докс/канвас
@@ -104,22 +66,19 @@ export const observePreviewModeTabs = () => {
  * Следит за переключением режимов компонента
  */
 export const observeSwitcher = () => {
-    const themeSelect = getPageNode('#storybook-theme-switcher');
-    const modeSelect = getPageNode('#storybook-mode-switcher');
-
     const handleSelect = (key) => {
         return (event) => {
-            const { textContent } = getPageNode('[data-selected="true"]');
-            const target = event.target;
+            const { textContent: currentComponent } = getPageNode('[data-selected="true"]');
+            const target = event.detail[key];
 
             if (target) {
-                switcherState[key] = target.value;
+                switcherState[key] = target;
 
                 const { mode, theme } = switcherState;
 
                 trackEvent({
                     category: CATEGORY.SWITCHER,
-                    label: textContent,
+                    label: currentComponent,
                     dimension_1: theme,
                     dimension_2: mode,
                 });
@@ -127,17 +86,8 @@ export const observeSwitcher = () => {
         };
     };
 
-    if (themeSelect) {
-        switcherState.theme = themeSelect[DEFAULT_ELEMENT].value;
-
-        themeSelect.addEventListener('change', handleSelect('theme'));
-    }
-
-    if (modeSelect) {
-        switcherState.mode = modeSelect[DEFAULT_ELEMENT].value;
-
-        modeSelect.addEventListener('change', handleSelect('mode'));
-    }
+    document.addEventListener('theme-change', handleSelect('theme'));
+    document.addEventListener('mode-change', handleSelect('mode'));
 };
 
 /**
@@ -150,33 +100,35 @@ export const observeLink = () => {
 };
 
 /**
- * Следит за вызовом поиска, что вбивают в поиск, сворачивание папок, открытие конкретной страницы
+ * Следит за вызовом поиска, что вбивают в поиск, сворачивание папок, открытие конкретной страницы, переключение Docs/Canvas
  */
 export const observeExplorerMenu = () => {
     let isSearchValueFocusing;
 
-    const titlePageNode = getPageNode('#storybook-explorer-tree');
-    const input = getPageNode('#storybook-explorer-searchfield');
-    const { textContent } = getPageNode('[data-selected="true"]');
+    const sidePanel = document.querySelector('#storybook-explorer-tree');
+    const input = document.querySelector('#storybook-explorer-searchfield');
+    const selected = sidePanel.querySelector('.sidebar-item[data-selected="true"]');
 
     const { mode, theme } = switcherState;
 
-    trackEvent({
-        category: CATEGORY.PAGE,
-        label: textContent,
-        dimension_1: theme,
-        dimension_2: mode,
-    });
+    if (selected) {
+        trackEvent({
+            category: CATEGORY.PAGE,
+            label: selected.textContent,
+            dimension_1: theme,
+            dimension_2: mode,
+        });
+    }
 
     if (input) {
         input.addEventListener('focusin', () => {
-            trackEvent({ category: CATEGORY.PATH, label: `${SEARCH_VALUE}` });
+            trackEvent({ category: CATEGORY.PATH, label: SEARCH_VALUE });
 
             isSearchValueFocusing = true;
         });
     }
 
-    if (!titlePageNode) {
+    if (!sidePanel) {
         return;
     }
 
@@ -204,7 +156,6 @@ export const observeExplorerMenu = () => {
                         dimension_2: mode,
                     });
 
-                    observePreviewFrameComponent();
                     return;
                 }
 
@@ -224,7 +175,7 @@ export const observeExplorerMenu = () => {
             attributes: true,
         };
 
-        observer.observe(titlePageNode, observerConfig);
+        observer.observe(sidePanel, observerConfig);
     };
 
     setupObserver();

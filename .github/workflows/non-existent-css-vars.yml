@@ -22,7 +22,7 @@ jobs:
         run: yarn --pure-lockfile
 
       - name: Run build
-        run: BUILD_WITHOUT_CSS_VARS=true BUILD_ESM_ONLY=true yarn build
+        run: BUILD_WITHOUT_CSS_VARS=true BUILD_MODERN_ONLY=true yarn build
 
       - name: run search non-existent css vars
         id: search_vars

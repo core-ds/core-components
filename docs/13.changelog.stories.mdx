@@ -1,9 +1,9 @@
 import { Changelog as ChangelogComponent } from 'storybook/blocks';
-import { Meta } from '@storybook/addon-docs';
-import Changelog from '../CHANGELOG.md';
+import { Meta, Markdown } from '@storybook/addon-docs';
+import Changelog from '../CHANGELOG.md?raw';
 
 <Meta title='Changelog' parameters={{ previewTabs: { canvas: { hidden: true } } }} id='Changelog' />
 
 ## Changelog
 
-<ChangelogComponent content={<Changelog />} root={true} />
+<ChangelogComponent content={<Markdown>{Changelog}</Markdown>} root={true} />

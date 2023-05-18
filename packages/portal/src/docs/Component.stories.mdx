@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Story, Markdown } from '@storybook/addon-docs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
@@ -7,13 +7,13 @@ import { Space } from '@alfalab/core-components-space';
 import { Portal } from '@alfalab/core-components-portal';
 
 import { Portal as PortalTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/Portal' component={Portal} id='Portal' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Portal'>
     {React.createElement(() => {
@@ -50,12 +50,20 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='Portal' version={version} package='@alfalab/core-components/portal' />
+<ComponentHeader
+    name='Portal'
+    version={packageJson.version}
+    package='@alfalab/core-components/portal'
+/>
 
 ```jsx
 import { Portal } from '@alfalab/core-components/portal';
 ```
 
-<Tabs description={<Description />} props={<ArgsTable of={PortalTS} />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    props={<ArgsTable of={PortalTS} />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

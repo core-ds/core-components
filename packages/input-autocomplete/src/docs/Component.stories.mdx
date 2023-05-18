@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
@@ -6,10 +6,10 @@ import { Arrow, isOptionShape } from '@alfalab/core-components-select';
 import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
 import { InputAutocompleteMobile } from '@alfalab/core-components-input-autocomplete/mobile';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 export const options = [
     { key: 'Neptunium' },
@@ -34,7 +34,7 @@ export const matchOption = (option, inputValue) =>
 
 <Meta title='Components/InputAutocomplete' component={InputAutocomplete} id='InputAutocomplete' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='InputAutocomplete'>
     {React.createElement(() => {
@@ -142,14 +142,18 @@ export const matchOption = (option, inputValue) =>
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='InputAutocomplete'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/input-autocomplete'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=58839%3A63017'
     children='Дает возможность выбрать значение из списка доступных, либо ввести своё с помощью клавиатуры.'
 />
 
-<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

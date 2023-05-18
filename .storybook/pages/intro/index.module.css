@@ -111,11 +111,11 @@ div[data-mode='dark'] .intro {
 
     .intro {
         height: 606px;
-        background-image: url('./assets/intro_bg.png');
+        background-image: url('./assets/intro_bg.webp');
     }
 
     div[data-mode='dark'] .intro {
-        background-image: url('./assets/intro_dark_bg.png');
+        background-image: url('./assets/intro_dark_bg.webp');
     }
 
     .logo {
