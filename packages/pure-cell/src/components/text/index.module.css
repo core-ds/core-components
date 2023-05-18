@@ -20,13 +20,16 @@
     justify-content: space-between;
     margin: var(--gap-3xs) 0;
     word-break: break-word;
-    line-height: 0;
 }
 
 .component {
     & .vertical {
         justify-content: center;
     }
+}
+
+.typography {
+    display: block;
 }
 
 .title + .value {

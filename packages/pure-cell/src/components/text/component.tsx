@@ -74,7 +74,7 @@ export const Text: React.FC<Props> = ({
                     view={view}
                     weight={titleWeight}
                     color={titleColor}
-                    className={className}
+                    className={cn(styles.typography, className)}
                     data-test-id={getDataTestId(dataTestId, 'text_content')}
                 >
                     {children}
@@ -86,7 +86,7 @@ export const Text: React.FC<Props> = ({
                     <Typography.Text
                         view={view}
                         color={valueColor}
-                        className={className}
+                        className={cn(styles.typography, className)}
                         data-test-id={getDataTestId(dataTestId, 'text_value')}
                     >
                         {value}
