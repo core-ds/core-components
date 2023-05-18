@@ -28,10 +28,6 @@
     }
 }
 
-.typography {
-    display: block;
-}
-
 .title + .value {
     margin-left: var(--gap-m);
     flex-shrink: 0;
