@@ -69,29 +69,31 @@ export const Text: React.FC<Props> = ({
                 [styles.vertical]: direction !== 'horizontal',
             })}
         >
-            <span className={styles.title}>
+            <div className={styles.title}>
                 <Typography.Text
                     view={view}
                     weight={titleWeight}
+                    tag='div'
                     color={titleColor}
                     className={className}
                     data-test-id={getDataTestId(dataTestId, 'text_content')}
                 >
                     {children}
                 </Typography.Text>
-            </span>
+            </div>
 
             {value && (
-                <span className={styles.value}>
+                <div className={styles.value}>
                     <Typography.Text
                         view={view}
+                        tag='div'
                         color={valueColor}
                         className={className}
                         data-test-id={getDataTestId(dataTestId, 'text_value')}
                     >
                         {value}
                     </Typography.Text>
-                </span>
+                </div>
             )}
         </div>
     );
