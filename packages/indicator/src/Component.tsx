@@ -20,9 +20,14 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
     backgroundColor?: string;
 
     /**
-     * Высота компонента, min = 16; max = 48 (только для view=count)
+     * Высота компонента, min = 16; max = 48
      */
     height?: number;
+
+    /**
+     * Размер компонента
+     */
+    size?: 'xs' | 's' | 'm' | 'l';
 
     /**
      * Настройки обводки
@@ -81,12 +86,11 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
             className,
             dataTestId,
             style,
+            size = getSize(height, value),
             ...restProps
         },
         ref,
     ) => {
-        const size = getSize(height, value);
-
         const showContent = typeof value !== 'undefined' && size !== 'xs';
 
         return (

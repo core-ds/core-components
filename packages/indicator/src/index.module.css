@@ -40,6 +40,9 @@
 }
 
 .m {
+    height: 24px;
+    min-width: 24px;
+
     & .content {
         @mixin accent_primary_small;
         padding: 0 var(--gap-2xs);
@@ -47,6 +50,9 @@
 }
 
 .l {
+    height: 40px;
+    min-width: 40px;
+
     & .content {
         @mixin accent_primary_small;
         padding: 0 var(--gap-xs);

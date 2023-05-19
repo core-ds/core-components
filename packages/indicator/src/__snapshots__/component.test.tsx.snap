@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Indicator Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component s"
+  >
+    <span
+      class="content"
+    >
+      99+
+    </span>
+  </div>
+</div>
+`;

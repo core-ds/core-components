@@ -9,10 +9,9 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md';
 
-
 <Meta title='Components/Indicator' component={Indicator} id='Indicator' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Indicator'>
     {React.createElement(() => {
@@ -30,21 +29,26 @@ import Changelog from '../../CHANGELOG.md';
             >
                 <Indicator
                     value={number('value', 1)}
-                    height={number('height', 20)}
+                    size={select('size', ['xs', 's', 'm', 'l'], 's')}
                     color={text('color', 'var(--color-light-text-primary-inverted)')}
                     backgroundColor={text('backgroundColor', 'var(--color-light-bg-accent)')}
-                    border={boolean('border', true) && {
-                        color: text('border.color', 'var(--color-light-border-primary-inverted)'),
-                        width: number('border.width', 1),
-                    }}
+                    border={
+                        boolean('border', true) && {
+                            color: text(
+                                'border.color',
+                                'var(--color-light-border-primary-inverted)',
+                            ),
+                            width: number('border.width', 1),
+                        }
+                    }
                     view={select('view', [undefined, 'red', 'grey', 'white'], undefined)}
                 />
             </div>
-        )
+        );
     })}
 </Story>
 
-<!-- Docs -->
+{/* Canvas */}
 
 <ComponentHeader
     name='Indicator'
