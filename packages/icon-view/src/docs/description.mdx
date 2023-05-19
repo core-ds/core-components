@@ -1,6 +1,6 @@
 ## Размеры и форма
 
-Компонент имеет две формы шейпа: SuperEllipse и Circle.  
+Компонент имеет несколько форм шейпа: SuperEllipse, Circle, Rectangle и NoShape.
 Для каждой формы доступно несколько размеров: 128px, 80px, 64px, 48px, 40px, 32px, 24px, 20px.
 
 ```jsx live
@@ -100,7 +100,7 @@ render(() => {
         <Col>
             <SuperEllipse size='80' border={true}/>
         </Col>
-    
+
         <Col>
             <SuperEllipse
                 size='80'
@@ -257,7 +257,7 @@ render(
 
             <Col>
                 <SuperEllipse size='80' topAddons={iconViewImage} />
-            </Col> 
+            </Col>
             <Col>
                 <SuperEllipse size='80' bottomAddons={iconViewSvg} />
             </Col>
@@ -311,7 +311,7 @@ render(
 
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={1}/>} />
-            </Col> 
+            </Col>
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={25} />} />
             </Col>

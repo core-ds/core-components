@@ -43,7 +43,7 @@ export const coreComponentsResolver = ({ importFrom }) => ({
             let code = bundles[bundleName].code;
 
             const requireRegExp = new RegExp(
-                /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-[^\/\n]+)(\/(?:mobile|desktop|responsive|circle|super-ellipse))?(['"])/,
+                /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-[^\/\n]+)(\/(?:mobile|desktop|responsive|circle|super-ellipse|rectangle|no-shape))?(['"])/,
             );
 
             while (requireRegExp.exec(code)) {
