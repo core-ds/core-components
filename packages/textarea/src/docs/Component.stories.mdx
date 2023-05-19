@@ -1,17 +1,17 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { Textarea } from '@alfalab/core-components-textarea';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/Textarea' component={Textarea} id='Textarea' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Textarea'>
     {React.createElement(() => {
@@ -43,13 +43,17 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Textarea'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/textarea'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=113%3A67583'
 />
 
-<Tabs description={<Description />} changelog={<Changelog />} development={<Development />} />
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

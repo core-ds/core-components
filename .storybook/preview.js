@@ -1,11 +1,19 @@
-import { addons } from '@storybook/addons';
-import { addParameters } from '@storybook/react';
-import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
-import { setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
-import { setGuidelinesStyles } from './addons/utils';
+import React from 'react';
+import cn from 'classnames';
+import { addons } from '@storybook/manager-api';
+import { setThemeStylesInIframeHtmlPage, themeChangeListen } from './addons/theme-switcher/utils';
+import { setModeVarsInIframeHtmlPage, modeChangeListen } from './addons/mode-switcher/utils';
+import { ModeChecker } from './components/mode-checker';
+import { rmCommentsFromCss, setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
 
-import guidelinesStyles from '!!postcss-loader!./public/guidelines.css';
+import { setPreviewMetricsConnection } from './addons/utils';
+
+if (process.env.NODE_ENV !== 'development') {
+    setPreviewMetricsConnection();
+}
+
+import guidelinesStyles from '!css-loader!!postcss-loader!./public/guidelines.css';
 import './blocks/code-editor/github-light-theme.css';
 
 import alfaTheme from './theme';
@@ -13,9 +21,11 @@ import scope from './scope';
 
 setThemeStylesInIframeHtmlPage();
 setModeVarsInIframeHtmlPage();
+modeChangeListen();
+themeChangeListen();
 
 if (window.location.href.includes('guidelines')) {
-    setGuidelinesStyles(guidelinesStyles);
+    setGuidelinesStyles(rmCommentsFromCss(guidelinesStyles.toString()));
 }
 
 const editorTheme = { styles: [] };
@@ -24,7 +34,7 @@ addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
         editorTheme,
         sandboxPath: '/docs/sandbox--page',
-        mobileFrameName: 'mobileframe--page',
+        mobileFrameName: 'mobileframe--docs',
         desktopText: 'Переключить на декстопную версию',
         mobileText: 'Переключить на мобильную версию',
         expandText: 'Показать код',
@@ -55,10 +65,42 @@ addons.setConfig({
     },
 });
 
-addParameters({
+export const parameters = {
     viewMode: 'docs',
     docs: {
         theme: alfaTheme,
+        components: {
+            h1: ({ children, ...restProps }) => (
+                <h1 {...restProps} className={cn(restProps.className, 'sbdocs-h1')}>
+                    {children}
+                </h1>
+            ),
+            h2: ({ children, ...restProps }) => (
+                <h2 {...restProps} className={cn(restProps.className, 'sbdocs-h2')}>
+                    {children}
+                </h2>
+            ),
+            h3: ({ children, ...restProps }) => (
+                <h2 {...restProps} className={cn(restProps.className, 'sbdocs-h3')}>
+                    {children}
+                </h2>
+            ),
+            h4: ({ children, ...restProps }) => (
+                <h4 {...restProps} className={cn(restProps.className, 'sbdocs-h4')}>
+                    {children}
+                </h4>
+            ),
+            p: ({ children, ...restProps }) => (
+                <p {...restProps} className={cn(restProps.className, 'sbdocs-p')}>
+                    {children}
+                </p>
+            ),
+            li: ({ children, ...restProps }) => (
+                <li {...restProps} className={cn(restProps.className, 'sbdocs-li')}>
+                    {children}
+                </li>
+            ),
+        },
     },
     options: {
         storySort: {
@@ -83,4 +125,15 @@ addParameters({
             ],
         },
     },
-});
+};
+
+export const decorators = [
+    (Story) => {
+        return (
+            <div className='sb-unstyled'>
+                <ModeChecker />
+                <Story />
+            </div>
+        );
+    },
+];

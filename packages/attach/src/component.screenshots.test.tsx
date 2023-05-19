@@ -59,7 +59,7 @@ describe('Attach | interactions tests', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             const [fileChooser] = await Promise.all([
@@ -73,7 +73,7 @@ describe('Attach | interactions tests', () => {
                 mimeType: 'application/pdf',
             });
 
-            await matchHtml({ context, page, expect, css });
+            await matchHtml({ context, page, expect });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

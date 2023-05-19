@@ -1,18 +1,18 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { PureCell } from '@alfalab/core-components-pure-cell';
 import { Typography } from '@alfalab/core-components-typography';
 import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { ChevronForwardMIcon } from '@alfalab/icons-glyph/ChevronForwardMIcon';
 
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
@@ -22,7 +22,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
 
 <Meta title='Components/PureCell' component={PureCell} id='PureCell' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='PureCell'>
     {React.createElement(() => {
@@ -185,7 +185,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                                     Яндекс Лавка
                                 </PureCell.Text>
                                 <PureCell.Category
-                                    categoryName='Кафе, рестораны, столовые, бары'
+                                    categoryName={'Кафе, рестораны, столовые, бары'}
                                     categoryPercent={10}
                                 />
                             </PureCell.Main>
@@ -232,7 +232,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                                     Яндекс Лавка
                                 </PureCell.Text>
                                 <PureCell.Category
-                                    categoryName='Кафе, рестораны, столовые, бары'
+                                    categoryName={'Кафе, рестораны, столовые, бары'}
                                     categoryPercent={10}
                                 />
                             </PureCell.Main>
@@ -498,7 +498,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryName={'Кафе, рестораны, столовые, бары'}
                             categoryPercent={10}
                         />
                     </PureCell.Main>
@@ -545,7 +545,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                                 Яндекс Лавка
                             </PureCell.Text>
                             <PureCell.Category
-                                categoryName='Кафе, рестораны, столовые, бары'
+                                categoryName={'Кафе, рестораны, столовые, бары'}
                                 categoryPercent={10}
                             />
                         </PureCell.Main>
@@ -589,7 +589,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryName={'Кафе, рестораны, столовые, бары'}
                             categoryPercent={10}
                         />
                     </PureCell.Main>
@@ -631,7 +631,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryName={'Кафе, рестораны, столовые, бары'}
                             categoryPercent={10}
                         />
                     </PureCell.Main>
@@ -701,7 +701,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryName={'Кафе, рестораны, столовые, бары'}
                             categoryPercent={10}
                         />
                     </PureCell.Main>
@@ -798,7 +798,6 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                         padding: '12px 16px',
                     }}
                 >
-                    <ModeChecker />
                     <PureCell padding='default' direction='horizontal'>
                         <PureCell.Graphics verticalAlign='center'>
                             <div style={styleGraphics} />
@@ -834,7 +833,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryName={'Кафе, рестораны, столовые, бары'}
                             categoryPercent={10}
                         />
                     </PureCell.Main>
@@ -902,7 +901,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                             Яндекс Лавка
                         </PureCell.Text>
                         <PureCell.Category
-                            categoryName='Кафе, рестораны, столовые, бары'
+                            categoryName={'Кафе, рестораны, столовые, бары'}
                             categoryPercent={10}
                         />
                     </PureCell.Main>
@@ -915,14 +914,18 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='PureCell'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/pure-cell'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=57194%3A101560'
     children='Многофункциональная ячейка.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

@@ -18,7 +18,7 @@ describe('Tooltip', () => {
                 position: 'top',
             },
         },
-        'alignItems:flex-start;paddingTop:500px',
+        'alignItems:flex-start;paddingTop:332px',
     );
 
     test('positioning', async () => {
@@ -47,7 +47,7 @@ describe('Tooltip', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(cases[0][1]);
+        const { browser, context, page } = await openBrowserPage(cases[0][1]);
 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const [_, pageUrl] of cases) {
@@ -60,7 +60,6 @@ describe('Tooltip', () => {
                     context,
                     page,
                     expect,
-                    css,
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
@@ -88,7 +87,7 @@ describe('Tooltip', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(cases[0][1]);
+        const { browser, context, page } = await openBrowserPage(cases[0][1]);
 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const [_, pageUrl] of cases) {
@@ -101,7 +100,6 @@ describe('Tooltip', () => {
                     context,
                     page,
                     expect,
-                    css,
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
@@ -129,7 +127,7 @@ describe('Tooltip', () => {
             },
         });
 
-        const { browser, context, page, css } = await openBrowserPage(cases[0][1]);
+        const { browser, context, page } = await openBrowserPage(cases[0][1]);
 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const [_, pageUrl] of cases) {
@@ -142,7 +140,6 @@ describe('Tooltip', () => {
                     context,
                     page,
                     expect,
-                    css,
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console

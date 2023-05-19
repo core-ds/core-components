@@ -26,7 +26,7 @@ async function testComponent(
         ...urlParams,
     });
 
-    const { browser, context, page, css } = await openBrowserPage(pageUrl, undefined, { viewport });
+    const { browser, context, page } = await openBrowserPage(pageUrl, undefined, { viewport });
 
     const matchImageSnapshotOptions: MatchImageSnapshotOptions = {
         failureThresholdType: 'percent',
@@ -49,7 +49,6 @@ async function testComponent(
             context,
             page,
             expect,
-            css,
             matchImageSnapshotOptions,
             viewport,
             screenshotOpts: { clip },

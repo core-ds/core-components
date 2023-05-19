@@ -227,7 +227,7 @@ render(() => {
             onSubmit={handleSubmit}
         >
             {dataKeys.map((key, idx) => (
-                <React.Fragment key={key}>
+                <span key={key}>
                     <Input
                         value={form.values[key]}
                         error={form.errors[key]}
@@ -238,7 +238,7 @@ render(() => {
                         placeholder={data[key].desc}
                     />
                     {idx !== dataKeys.length - 1 && <Gap size='m' />}
-                </React.Fragment>
+                </span>
             ))}
 
             <Gap size='m' />

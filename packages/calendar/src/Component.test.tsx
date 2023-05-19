@@ -594,6 +594,21 @@ describe('Calendar', () => {
             expect(cb).toBeCalledTimes(2);
         });
 
+        it('should call onPeriodClick callback in month-only view', () => {
+            const cb = jest.fn();
+            const { getByText } = render(
+                <Calendar
+                    defaultMonth={defaultDate.getTime()}
+                    onPeriodClick={cb}
+                    selectorView='month-only'
+                />,
+            );
+
+            fireEvent.click(getByText('Ноябрь 2020'));
+
+            expect(cb).toBeCalledTimes(1);
+        });
+
         it('should call onMonthClick callback in full view', () => {
             const cb = jest.fn();
             const { getByText } = render(

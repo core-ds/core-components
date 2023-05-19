@@ -98,6 +98,11 @@ export type PeriodSliderProps = {
     onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
+     * Обработчик нажатия на период
+     */
+    onPeriodClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -117,6 +122,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     onNextArrowClick = () => null,
     onMonthClick,
     onYearClick,
+    onPeriodClick,
     dataTestId,
 }) => {
     const [valueFrom, valueTo] = useMemo(() => {
@@ -185,23 +191,41 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
         }
 
-        return periodType === 'month' && isMonthAndYearSelectable ? (
-            <div>
-                <Button className={styles.period} view='ghost' size='l' onClick={onMonthClick}>
-                    {monthName(valueFrom)}
-                </Button>
-                {yearSelectorValue && (
-                    <Button
-                        className={cn(styles.yearSelectorButton, styles.period)}
-                        view='ghost'
-                        size='l'
-                        onClick={onYearClick}
-                    >
-                        {yearSelectorValue}
+        if (periodType === 'month' && isMonthAndYearSelectable) {
+            return (
+                <div>
+                    <Button className={styles.period} view='ghost' size='l' onClick={onMonthClick}>
+                        {monthName(valueFrom)}
                     </Button>
-                )}
-            </div>
-        ) : (
+                    {yearSelectorValue && (
+                        <Button
+                            className={cn(styles.yearSelectorButton, styles.period)}
+                            view='ghost'
+                            size='l'
+                            onClick={onYearClick}
+                        >
+                            {yearSelectorValue}
+                        </Button>
+                    )}
+                </div>
+            );
+        }
+
+        if (onPeriodClick) {
+            return (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+                <a
+                    role='button'
+                    tabIndex={0}
+                    onClick={onPeriodClick}
+                    className={cn(styles.period, styles.clicablePeriod)}
+                >
+                    {periodFormatter(valueFrom, valueTo, periodType, showCurrentYearSelector)}
+                </a>
+            );
+        }
+
+        return (
             <span className={styles.period}>
                 {periodFormatter(valueFrom, valueTo, periodType, showCurrentYearSelector)}
             </span>

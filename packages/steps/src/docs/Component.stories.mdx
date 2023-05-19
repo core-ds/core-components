@@ -1,4 +1,4 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { number, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Steps } from '@alfalab/core-components-steps';
@@ -9,14 +9,14 @@ import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMI
 import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
 
 import { Steps as StepsTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../components/step/index.module.css';
 
 <Meta title='Components/Steps' component={Steps} id='Steps' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Steps'>
     <Steps
@@ -33,9 +33,13 @@ import styles from '!!raw-loader!../components/step/index.module.css';
     </Steps>
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='Steps' version={version} package='@alfalab/core-components/steps' />
+<ComponentHeader
+    name='Steps'
+    version={packageJson.version}
+    package='@alfalab/core-components/steps'
+/>
 
 ```jsx
 import { Steps } from '@alfalab/core-components/steps';
@@ -45,5 +49,5 @@ import { Steps } from '@alfalab/core-components/steps';
     props={<ArgsTable of={StepsTS} />}
     description={<Description />}
     cssVars={<CssVars css={styles} />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
 />

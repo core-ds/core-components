@@ -140,18 +140,18 @@ describe('BottomSheet | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
             await page.click('#button-1');
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+            await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true } });
 
             await page.reload();
 
             await page.click('#button-2');
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+            await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -170,16 +170,16 @@ const magneticAreaTest = async (knobs: Knobs) => {
         knobs: {
             open: true,
             initialHeight: 'full',
-            magneticAreas: '["10%25","50%25","100%25"]',
+            magneticAreas: '[0,200,-24]',
             children: 'Magnetic areas test',
             ...knobs,
         },
     });
 
-    const { browser, context, page, css } = await openBrowserPage(pageUrl);
+    const { browser, context, page } = await openBrowserPage(pageUrl);
 
     try {
-        await matchHtml({ context, page, expect, css, screenshotOpts: { fullPage: true } });
+        await matchHtml({ context, page, expect, screenshotOpts: { fullPage: true } });
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error((error as Error).message);
@@ -190,9 +190,8 @@ const magneticAreaTest = async (knobs: Knobs) => {
     }
 };
 
-describe('BottomSheet | magnetic areas test', () => {
-    test('10%', () => magneticAreaTest({ initialActiveAreaIndex: 0 }));
-    test('50%', () => magneticAreaTest({ initialActiveAreaIndex: 1 }));
+describe('BottomSheet | magnetic areas', () => {
+    test('200', () => magneticAreaTest({ initialActiveAreaIndex: 1 }));
     test('100%', () => magneticAreaTest({ initialActiveAreaIndex: 2 }));
-    test('negative 20%', () => magneticAreaTest({ magneticAreas: '[0,"-20%25"]' }));
+    test('negative 200px', () => magneticAreaTest({ magneticAreas: '[0,-200]' }));
 });

@@ -1,16 +1,16 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
 
 import { IntlPhoneInput as IntlPhoneInputTS } from '../component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/IntlPhoneInput' component={IntlPhoneInput} id='IntlPhoneInput' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='IntlPhoneInput'>
     {React.createElement(() => {
@@ -35,7 +35,7 @@ import Changelog from '../../CHANGELOG.md';
             setSelectedCountry(countryCode);
         });
         return (
-            <React.Fragment>
+            <>
                 <IntlPhoneInput
                     value={value}
                     onChange={handleChange}
@@ -54,16 +54,16 @@ import Changelog from '../../CHANGELOG.md';
                 />
                 <br />
                 Код выбранной страны: <strong>{selectedCountry}</strong>
-            </React.Fragment>
+            </>
         );
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='IntlPhoneInput'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/intl-phone-input'
 />
 
@@ -73,6 +73,6 @@ import { IntlPhoneInput } from '@alfalab/core-components/intl-phone-input';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={IntlPhoneInputTS} />}
 />

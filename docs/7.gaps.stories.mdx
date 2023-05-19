@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta, Markdown } from '@storybook/addon-docs';
 
 <Meta
     title='Tokens & assets/Отступы'
@@ -13,6 +13,8 @@ import { Meta } from '@storybook/addon-docs';
 
 Переменные хранятся в [core-components/vars/gaps.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/gaps.css).
 
+<Markdown>
+    {`
 | Название  | Значение |
 | --------- | -------- |
 | --gap-3xs | 2px      |
@@ -29,6 +31,8 @@ import { Meta } from '@storybook/addon-docs';
 | --gap-6xl | 72px     |
 | --gap-7xl | 96px     |
 | --gap-8xl | 128px    |
+`}
+</Markdown>
 
 Также эти переменные доступны для отрицательных значений отступов: для этого к ним нужно добавить постфикс `*-neg`.
 Например, если переменная `--gap-m` равна `16px`, то переменная `--gap-m-neg` будет равна `-16px`.

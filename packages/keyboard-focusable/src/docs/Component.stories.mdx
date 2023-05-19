@@ -1,10 +1,10 @@
-import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Story, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 
 import { KeyboardFocusable as KeyboardFocusableTS } from '../Component';
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 
 <Meta title='Components/KeyboardFocusable' component={KeyboardFocusable} id='KeyboardFocusable' />
@@ -13,11 +13,11 @@ import Description from './description.mdx';
     <></>
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='KeyboardFocusable'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/keyboard-focusable'
 />
 
@@ -27,6 +27,6 @@ import { KeyboardFocusable } from '@alfalab/core-components/keyboard-focusable';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={KeyboardFocusableTS} />}
 />

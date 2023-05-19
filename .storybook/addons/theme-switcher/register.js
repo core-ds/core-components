@@ -1,23 +1,26 @@
-import React, { useCallback, useState } from 'react';
-import addons, { types } from '@storybook/addons';
+import React, { useState } from 'react';
+import { addons, types } from '@storybook/manager-api';
 import { Form } from '@storybook/components';
-import { setThemeStyles, setThemeStylesInMobileFrame } from './utils';
+import { getStoryDoc } from '../utils';
 
 export const ADDON_ID = 'theme-switcher';
 
 const THEMES = ['default', 'click', 'corp', 'mobile', 'site', 'intranet'];
 
+const createThemeChangeEvent = (newTheme) =>
+    new CustomEvent('theme-change', { bubbles: true, detail: { theme: newTheme } });
+
 const Addon = () => {
     const [theme, setTheme] = useState('default');
 
-    const handleChange = useCallback((event) => {
+    const handleChange = (event) => {
         const newTheme = event.target.value;
+        const themeChangeEvent = createThemeChangeEvent(newTheme);
 
         setTheme(newTheme);
-
-        setThemeStyles(newTheme);
-        setThemeStylesInMobileFrame(newTheme);
-    }, []);
+        document.body.dispatchEvent(themeChangeEvent);
+        getStoryDoc().body.dispatchEvent(themeChangeEvent);
+    };
 
     return (
         <div className='tool'>

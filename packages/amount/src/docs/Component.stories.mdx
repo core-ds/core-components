@@ -1,4 +1,4 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { select, boolean, number } from '@storybook/addon-knobs';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { Container, Row, Col } from 'storybook/blocks/grid';
@@ -6,14 +6,14 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Amount } from '@alfalab/core-components-amount';
 
 import { Amount as AmountTS } from '../component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta title='Components/Amount' component={Amount} id='Amount' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Amount'>
     {React.createElement(() => {
@@ -60,11 +60,11 @@ import styles from '!!raw-loader!../index.module.css';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Amount'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/amount'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=6362%3A34527'
 />
@@ -75,7 +75,7 @@ import { Amount } from '@alfalab/core-components/amount';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={AmountTS} />}
     cssVars={<CssVars css={styles} />}
 />

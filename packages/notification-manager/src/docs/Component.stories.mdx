@@ -1,13 +1,13 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 import { Notification } from '@alfalab/core-components-notification';
 import { NotificationManager } from '@alfalab/core-components-notification-manager';
 
 import { NotificationManager as NotificationManagerTS } from '../component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta
     title='Components/NotificationManager'
@@ -15,7 +15,7 @@ import Changelog from '../../CHANGELOG.md';
     id='NotificationManager'
 />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='NotificationManager'>
     {React.createElement(() => {
@@ -56,11 +56,11 @@ import Changelog from '../../CHANGELOG.md';
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='NotificationManager'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/notification-manager'
 />
 
@@ -70,6 +70,6 @@ import { NotificationManager } from '@alfalab/core-components/notification-manag
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={NotificationManagerTS} />}
 />

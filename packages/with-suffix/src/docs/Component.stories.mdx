@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
@@ -6,8 +6,8 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Input } from '@alfalab/core-components-input';
 import { withSuffix as WithSuffix } from '@alfalab/core-components-with-suffix';
 
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 
 export const SuffixInput = WithSuffix(Input);
@@ -19,7 +19,7 @@ export const SuffixInput = WithSuffix(Input);
     id='withSuffix'
 />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='withSuffix'>
     <SuffixInput
@@ -37,11 +37,11 @@ export const SuffixInput = WithSuffix(Input);
     />
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='withSuffix'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/with-suffix'
 />
 
@@ -49,4 +49,4 @@ export const SuffixInput = WithSuffix(Input);
 import { withSuffix } from '@alfalab/core-components/with-suffix';
 ```
 
-<Tabs description={<Description />} changelog={<Changelog />} />
+<Tabs description={<Description />} changelog={<Markdown>{Changelog}</Markdown>} />

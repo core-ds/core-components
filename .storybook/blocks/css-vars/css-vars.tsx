@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Link } from '@alfalab/core-components-link';
 import { Example } from 'storybook-addon-live-examples';
 
-import styles from './css-vars.module.css'
+import styles from './css-vars.module.css';
 
 type Props = {
     css: string;
@@ -18,7 +18,7 @@ const mixinRegexp = /(?:@define-mixin)(.*{[^}]*})/g;
 export const CssVars: FC<Props> = ({ css, title, expandable, type = 'vars' }) => {
     const [vars, setVars] = useState('');
     const [open, setOpen] = useState(!expandable);
-    const isVars = type === 'vars'
+    const isVars = type === 'vars';
     const regexp = isVars ? rootBlockRegexp : mixinRegexp;
 
     useEffect(() => {
@@ -31,12 +31,15 @@ export const CssVars: FC<Props> = ({ css, title, expandable, type = 'vars' }) =>
             rootBlockMatch = regexp.exec(css);
         }
 
-        let result = rootBlocks.reduce((acc, item, index) => {
-            const isLast = index === rootBlocks.length - 1;
-            const divider = isLast ? '' : '\n';
+        let result = rootBlocks.reduce(
+            (acc, item, index) => {
+                const isLast = index === rootBlocks.length - 1;
+                const divider = isLast ? '' : '\n';
 
-            return `${acc}${item}${divider}`;
-        }, isVars ? ':root {' : '');
+                return `${acc}${item}${divider}`;
+            },
+            isVars ? ':root {' : '',
+        );
 
         if (isVars) {
             result += '}';
@@ -46,7 +49,7 @@ export const CssVars: FC<Props> = ({ css, title, expandable, type = 'vars' }) =>
     }, []);
 
     return (
-        <div className={styles.cssVars}>
+        <div className={cn('sb-unstyled', styles.cssVars)}>
             {title && <h2 className={cn('sbdocs', 'sbdocs-h2')}>{title}</h2>}
             {vars && (
                 <>

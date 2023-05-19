@@ -1,18 +1,18 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Toast } from '@alfalab/core-components-toast';
 
 import { Toast as ToastTS } from '../component';
-import { name, version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta title='Components/Toast' component={Toast} id='Toast' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 export function ToastExample() {
     const POSITION_OPTIONS = [
@@ -129,11 +129,11 @@ export function ToastExample() {
     <ToastExample />
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Toast'
-    version={version}
+    version={packageJson.version}
     package={name}
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=10153%3A65922'
 />
@@ -144,7 +144,7 @@ import { Toast } from '@alfalab/core-components/toast';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={ToastTS} />}
     cssVars={<CssVars css={styles} />}
 />

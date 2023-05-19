@@ -1,12 +1,11 @@
-import { Meta, Story, Preview, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 import { Dropzone } from '@alfalab/core-components-dropzone';
 
 import { Dropzone as DropzoneTS } from '../Component';
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 import {
     getQueryParam,
@@ -20,7 +19,7 @@ export const WRAPPER_STYLES = {
     background: 'var(--color-light-bg-primary)',
 };
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Dropzone'>
     {React.createElement(() => {
@@ -47,7 +46,6 @@ export const WRAPPER_STYLES = {
                         disabled={boolean('disabled', false)}
                         onDrop={handleDrop}
                     >
-                        <ModeChecker />
                         <div
                             style={{
                                 minWidth: 400,
@@ -75,11 +73,11 @@ export const WRAPPER_STYLES = {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Dropzone'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/dropzone'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=8897%3A54579'
 />
@@ -91,5 +89,5 @@ import { Dropzone } from '@alfalab/core-components/dropzone';
 <Tabs
     description={<Description />}
     props={<ArgsTable of={DropzoneTS} />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
 />

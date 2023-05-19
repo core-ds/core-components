@@ -3,6 +3,7 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    waitForPreviewShowed,
 } from '../../screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 300, height: 100 };
@@ -18,12 +19,13 @@ describe('KeyboardFocusable | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
-            await page.press('#root', 'Tab');
+            await waitForPreviewShowed(page);
+            await page.press('#storybook-root', 'Tab');
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ context, page, expect, screenshotOpts: { clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);
@@ -43,12 +45,13 @@ describe('KeyboardFocusable | interactions tests', () => {
             testStory: false,
         });
 
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        const { browser, context, page } = await openBrowserPage(pageUrl);
 
         try {
-            await page.press('#root', 'Tab');
+            await waitForPreviewShowed(page);
+            await page.press('#storybook-root', 'Tab');
 
-            await matchHtml({ context, page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ context, page, expect, screenshotOpts: { clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

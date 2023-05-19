@@ -1,4 +1,4 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { StarSIcon } from '@alfalab/icons-glyph/StarSIcon';
@@ -8,9 +8,9 @@ import { Typography } from '@alfalab/core-components-typography';
 import { Link } from '@alfalab/core-components-link';
 
 import { Link as LinkTS } from '../Component';
-import { version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import styles from '!!raw-loader!../index.module.css';
 import defaultStyles from '!!raw-loader!../default.module.css';
 import invertedStyles from '!!raw-loader!../inverted.module.css';
@@ -19,7 +19,7 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 
 <Meta title='Components/Link' component={Link} id='Link' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Link'>
     {React.createElement(() => {
@@ -57,11 +57,11 @@ export const VIEWS = ['primary', 'secondary', 'default'];
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Link'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/link'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=204%3A38227'
     children='Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу или вызова нового информационного слоя.'
@@ -73,7 +73,7 @@ import { Link } from '@alfalab/core-components/link';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={LinkTS} />}
     cssVars={
         <CssVars

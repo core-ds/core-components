@@ -1,15 +1,14 @@
-import { Meta, Story } from '@storybook/addon-docs';
-import { text, boolean, select, number } from '@storybook/addon-knobs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import { boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { ModeChecker } from 'storybook/components/mode-checker';
 
 import { Button } from '@alfalab/core-components-button';
 import { Popover } from '@alfalab/core-components-popover';
 
-import { name, version } from '../../package.json';
+import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
@@ -17,7 +16,7 @@ import {
 
 <Meta title='Components/Popover' component={Popover} id='Popover' />
 
-<!-- Canvas -->
+{/* Canvas */}
 
 <Story name='Popover'>
     {React.createElement(() => {
@@ -60,8 +59,7 @@ import {
                           }
                 }
             >
-                <ModeChecker />
-                <style>{`.popover {border-radius: 8px}`}</style>
+                <style>{`.popover {border-radius: 8px}  `}</style>
                 <Popover
                     anchorElement={buttonElement}
                     popperClassName='popover'
@@ -95,13 +93,17 @@ import {
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
 <ComponentHeader
     name='Popover'
-    version={version}
+    version={packageJson.version}
     package='@alfalab/core-components/popover'
     children='Используется для отображения выпадающих списков и тултипов.'
 />
 
-<Tabs description={<Description />} development={<Development />} changelog={<Changelog />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>

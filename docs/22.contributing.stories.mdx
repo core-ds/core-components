@@ -1,5 +1,5 @@
-import { Meta } from '@storybook/addon-docs';
-import Readme from '../README.md';
+import { Meta, Markdown } from '@storybook/addon-docs';
+import Readme from '../README.md?raw';
 
 <Meta
     title='For contributors/Создание компонентов'
@@ -9,4 +9,4 @@ import Readme from '../README.md';
 
 # Создание компонентов
 
-<Readme />
+<Markdown>{Readme}</Markdown>

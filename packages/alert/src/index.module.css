@@ -1,6 +1,6 @@
 @import '../../themes/src/default.css';
 
-.component {
+.component.component {
     min-height: 48px;
 }
 

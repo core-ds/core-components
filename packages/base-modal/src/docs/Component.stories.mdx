@@ -1,12 +1,12 @@
-import { Meta, ArgsTable, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Story, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { BaseModal as BaseModalTS } from '../Component';
-import { version } from '../../package.json';
-import Changelog from '../../CHANGELOG.md';
+import packageJson from '../../package.json';
+import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
 
 <Meta title='Components/BaseModal' component={BaseModal} id='BaseModal' />
@@ -16,21 +16,25 @@ import Description from './description.mdx';
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
         return (
-            <React.Fragment>
+            <>
                 <Button type='button' size='xs' onClick={handleModalOpen}>
                     Открыть
                 </Button>
                 <BaseModal open={open} onClose={handleModalOpen}>
                     <div style={{ padding: '100px' }}>BaseModal</div>
                 </BaseModal>
-            </React.Fragment>
+            </>
         );
     })}
 </Story>
 
-<!-- Docs -->
+{/* Docs */}
 
-<ComponentHeader name='BaseModal' version={version} package='@alfalab/core-components/base-modal' />
+<ComponentHeader
+    name='BaseModal'
+    version={packageJson.version}
+    package='@alfalab/core-components/base-modal'
+/>
 
 ```jsx
 import { BaseModal } from '@alfalab/core-components/base-modal';
@@ -38,6 +42,6 @@ import { BaseModal } from '@alfalab/core-components/base-modal';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
+    changelog={<Markdown>{Changelog}</Markdown>}
     props={<ArgsTable of={BaseModalTS} />}
 />
