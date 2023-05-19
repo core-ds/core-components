@@ -1,5 +1,27 @@
 # Change Log
 
+## 6.4.0
+
+### Minor Changes
+
+### [#657](https://github.com/core-ds/core-components/pull/657)
+
+-   В компонент Calendar добавлено свойство showCurrentYearSelector , отвечающее за отображение текущего года
+
+### [#672](https://github.com/core-ds/core-components/pull/672)
+
+-   Добавлена возможность прокидывать обработчик нажатия на период в шапке со слайдером
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   icon-button@6.1.0
+    -   modal@7.0.11
+
 ## 6.3.3
 
 ### Patch Changes

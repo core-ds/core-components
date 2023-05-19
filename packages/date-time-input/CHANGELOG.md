@@ -1,5 +1,18 @@
 # @alfalab/core-components-date-time-input
 
+## 3.1.9
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Расширена область нажатия для кнопок в компонентах DateRangeInput, DateTimeInput, PasswordInput
+
+-   Обновлены зависимости
+    -   calendar@6.4.0
+    -   icon-button@6.1.0
+    -   input@11.1.15
+
 ## 3.1.8
 
 ### Patch Changes

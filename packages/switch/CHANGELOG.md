@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+### [#668](https://github.com/core-ds/core-components/pull/668)
+
+-   Токен белого цвета изменен на static
+
 ## 3.0.4
 
 ### Patch Changes

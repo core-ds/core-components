@@ -1,5 +1,16 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.3.4
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   icon-button@6.1.0
+
 ## 0.3.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @alfalab/core-components-segmented-control
 
+## 1.0.3
+
+### Patch Changes
+
+### [#666](https://github.com/core-ds/core-components/pull/666)
+
+-   Для активного таба токены фона и текста изменены на static
+
 ## 1.0.2
 
 ### Patch Changes

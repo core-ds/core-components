@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.6.0
+
+### Minor Changes
+
+### [#659](https://github.com/core-ds/core-components/pull/659)
+
+-   dataTestId теперь устанавливается и на кнопку таба, а не только на контент
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.23
+
 ## 7.5.0
 
 ### Minor Changes

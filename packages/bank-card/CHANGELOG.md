@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.22
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   masked-input@6.1.15
+
 ## 5.2.21
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.9
+
+### Patch Changes
+
+### [#674](https://github.com/core-ds/core-components/pull/674)
+
+-   Изменена дефолтная высота компонента
+
 ## 4.2.8
 
 ### Patch Changes
