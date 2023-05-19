@@ -22,6 +22,10 @@
     }
 }
 
+.clicablePeriod {
+    cursor: pointer;
+}
+
 .empty {
     color: var(--color-light-text-secondary);
 }
