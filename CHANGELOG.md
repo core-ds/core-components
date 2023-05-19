@@ -1,3 +1,96 @@
+## 41.8.0
+
+<sup><time>19.05.2023</time></sup>
+
+### [#668](https://github.com/core-ds/core-components/pull/668)
+
+#### Что изменилось
+- Токен белого цвета изменен на static
+
+#### Влияние на компоненты
+- Патчи<br />`switch`
+
+
+### [#674](https://github.com/core-ds/core-components/pull/674)
+
+#### Что изменилось
+- Изменена дефолтная высота компонента
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#657](https://github.com/core-ds/core-components/pull/657)
+
+#### Что изменилось
+- В компонент Calendar добавлено свойство showCurrentYearSelector , отвечающее за отображение текущего года
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#667](https://github.com/core-ds/core-components/pull/667)
+
+#### Что изменилось
+- Изменены токены цвета иконок на static
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox` `radio` `themes`
+
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+#### Что изменилось
+- Расширена область нажатия для кнопок в компонентах DateRangeInput, DateTimeInput, PasswordInput
+
+#### Влияние на компоненты
+- Патчи<br />`date-range-input` `date-time-input` `password-input`
+
+<br />
+
+#### Что изменилось
+- В компонент IconButton добавлен пропс alignIcon, отвечающий за выравнивание иконки
+
+#### Влияние на компоненты
+- Минорное<br />`icon-button`
+
+<br />
+
+#### Что изменилось
+- Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+#### Влияние на компоненты
+- Патчи<br />`attach` `bank-card` `calendar` `checkbox` `confirmation-v1`<br /> `confirmation` `dropzone` `file-upload-item` `gallery` `input`<br /> `modal` `navigation-bar` `pass-code` `password-input` `picker-button`<br /> `select-with-tags` `select` `sortable-list` `steps` `toast-plate`<br />
+
+
+### [#659](https://github.com/core-ds/core-components/pull/659)
+
+#### Что изменилось
+- dataTestId теперь устанавливается и на кнопку таба, а не только на контент
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#672](https://github.com/core-ds/core-components/pull/672)
+
+#### Что изменилось
+-   Добавлена возможность прокидывать обработчик нажатия на период в шапке со слайдером
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#666](https://github.com/core-ds/core-components/pull/666)
+
+#### Что изменилось
+- Для активного таба токены фона и текста изменены на static
+
+#### Влияние на компоненты
+- Патчи<br />`segmented-control`
+
+
+
 ## 41.7.0
 
 <sup><time>12.05.2023</time></sup>
