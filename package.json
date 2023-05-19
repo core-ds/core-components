@@ -38,6 +38,7 @@
         "pub:ci": "node ./bin/release.js",
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
         "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
+        "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')}\""
     },
     "browserslist": {
@@ -142,6 +143,7 @@
         "css-minimizer-webpack-plugin": "^3.4.1",
         "cz-conventional-changelog": "^3.2.0",
         "depcheck": "^1.4.3",
+        "esbuild": "^0.17.19",
         "eslint": "^8.26.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^17.0.0",

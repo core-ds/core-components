@@ -21,7 +21,7 @@
         "@alfalab/core-components-calendar": "^6.4.0",
         "@alfalab/core-components-date-input": "^4.2.7",
         "@alfalab/core-components-popover": "^6.0.8",
-        "@alfalab/hooks": "^1.7.0",
+        "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0",
