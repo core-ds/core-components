@@ -134,3 +134,39 @@ describe(
         },
     }),
 );
+
+describe(
+    'IconView | Rectangle size, border',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconView',
+            subComponentName: 'Rectangle',
+            knobs: {
+                size: [24, 48, 64, 80, 128],
+                border: [true, false],
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 150, height: 150 },
+        },
+    }),
+);
+
+describe(
+    'IconView | NoShape size, border',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconView',
+            subComponentName: 'NoShape',
+            knobs: {
+                size: [24, 48, 64, 80, 128],
+                border: [true, false],
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 150, height: 150 },
+        },
+    }),
+);

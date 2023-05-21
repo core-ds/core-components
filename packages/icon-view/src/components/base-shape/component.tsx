@@ -73,7 +73,7 @@ export type BaseShapeProps = {
     /**
      * Текст
      */
-    text?: string;
+    text?: ReactNode;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
