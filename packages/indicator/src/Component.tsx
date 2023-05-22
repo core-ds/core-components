@@ -114,12 +114,11 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
                     <span
                         className={styles.border}
                         style={{
-                            ...(!view &&
-                                border && {
-                                    borderColor: border.color,
-                                    borderWidth: border.width,
-                                    borderStyle: border.style || 'solid',
-                                }),
+                            ...(border && {
+                                borderColor: border.color,
+                                borderWidth: border.width,
+                                borderStyle: border.style || 'solid',
+                            }),
                         }}
                     />
                 )}
