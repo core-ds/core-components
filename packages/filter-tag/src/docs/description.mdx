@@ -143,8 +143,8 @@ render(() => {
     const calendarRef = React.useRef(null);
 
     handleBlur(calendarRef, (event) => {
-      if (filterTag && !filterTag.contains(event.target)) {
-          handleOpen()
+        if (filterTag && !filterTag.contains(event.target)) {
+            handleOpen();
         }
     });
 
@@ -455,7 +455,7 @@ const CustomField = ({
 }) => (
     <div ref={ref}>
         <FilterTag checked={selected} showClear={false} {...restInnerProps} {...restProps}>
-           <b>{selected.content}</b> 
+            <b>{selected.content}</b>
         </FilterTag>
     </div>
 );
@@ -574,6 +574,7 @@ render(() => {
 
 ## Стиль
 
-Компонент наследует опции компонента [Tag](/docs/tag--tag), отвечающие за внешний вид: 
-* shape (форма) — овальные или прямоугольные.
-* view (стиль) — залитые или бордерные. 
+Компонент наследует опции компонента [Tag](?path=/docs/components-tag--docs), отвечающие за внешний вид:
+
+-   shape (форма) — овальные или прямоугольные.
+-   view (стиль) — залитые или бордерные.

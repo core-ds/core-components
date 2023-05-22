@@ -55,29 +55,29 @@ render(() => {
 render(() => {
     const [sliderTap, setSliderTap] = React.useState({
         value: 4,
-        valueTo: 6
+        valueTo: 6,
     });
 
     const [slider, setSlider] = React.useState({
         value: 4,
-        valueTo: 6
+        valueTo: 6,
     });
 
     const handleChangeSliderTap = (payload) => {
-        setSliderTap(payload)
+        setSliderTap(payload);
     };
 
     const handleChangeSlider = (payload) => {
-        setSlider(payload)
+        setSlider(payload);
     };
 
     return (
         <>
-            <div style={{display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>min: {sliderTap.value}</span>
                 <span>max: {sliderTap.valueTo}</span>
             </div>
-            <Gap size='s'/>
+            <Gap size='s' />
             <Slider
                 size='m'
                 value={sliderTap.value}
@@ -89,12 +89,12 @@ render(() => {
                     mode: 'steps',
                 }}
             />
-            <Gap size='3xl'/>
-            <div style={{display: 'flex', justifyContent: 'space-between' }}>
+            <Gap size='3xl' />
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>min: {slider.value}</span>
                 <span>max: {slider.valueTo}</span>
             </div>
-            <Gap size='s'/>
+            <Gap size='s' />
             <Slider
                 size='m'
                 value={slider.value}
@@ -194,4 +194,4 @@ render(() => {
 
 ## Связанные компоненты
 
-Слайдер используется в [SliderInput](/docs/sliderinput--slider-input).
+Слайдер используется в [SliderInput](?path=/docs/components-sliderinput--docs).

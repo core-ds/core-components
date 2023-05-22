@@ -49,7 +49,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         className={cn(styles.text, { [styles.typographyTheme]: !mobile })}
                     >
                         {mobile
-                            ? 'Для\u00A0 звонков по\u00A0России'
+                            ? 'Для\u00A0звонков по\u00A0России'
                             : ' \u2014\u00A0для звонков по\u00A0России'}
                     </Typography.Text>
                 </div>

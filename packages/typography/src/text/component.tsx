@@ -11,7 +11,7 @@ type NativeProps = HTMLAttributes<HTMLSpanElement>;
 
 type TextBaseProps = {
     /**
-     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/guidelines-typography--page)
+     * [Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/tokens-assets-типографика--docs)
      */
     view?:
         | 'primary-large'

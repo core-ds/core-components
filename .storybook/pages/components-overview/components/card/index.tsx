@@ -4,6 +4,8 @@ import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
+import { createComponentUrl } from 'storybook/utils/createComponentUrl';
+
 import styles from './index.module.css';
 
 type CardProps = {
@@ -34,7 +36,7 @@ export const Card: React.FC<CardProps> = ({ componentName, mode }) => {
     const handleLoad = () => setImageState(ImageState.LOADED);
 
     return (
-        <a href={createPageUrl(componentName)} className={styles.card}>
+        <a href={createComponentUrl(componentName)} className={styles.card}>
             <figure>
                 <div className={styles.imageWrapper}>
                     {imageState === ImageState.ERROR && (
@@ -75,10 +77,4 @@ export const Card: React.FC<CardProps> = ({ componentName, mode }) => {
 
 function createImageUrl(componentName: string, mode: string) {
     return `./images/${kebab(componentName)}-${mode === 'dark' ? 'dark-' : ''}preview-snap.png`;
-}
-
-function createPageUrl(componentName: string) {
-    const baseUrl = `${window.location.href.split('iframe')[0]}`;
-
-    return `${baseUrl}?path=/docs/${componentName.toLowerCase()}--${kebab(componentName)}`;
 }
