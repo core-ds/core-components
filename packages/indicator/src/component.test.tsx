@@ -74,10 +74,10 @@ describe('Indicator', () => {
 
             const { container } = render(<Indicator border={border} />);
 
-            expect(container.firstElementChild?.querySelector('.border')).toHaveStyle({
-                borderColor: border.color,
-                borderWidth: border.width,
-                borderStyle: border.style,
+            expect(container.firstElementChild).toHaveStyle({
+                outlineColor: border.color,
+                outlineWidth: `${border.width}px`,
+                outlineStyle: border.style,
             });
         });
     });

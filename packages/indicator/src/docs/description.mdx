@@ -6,7 +6,7 @@ const styles = {
     justifyContent: 'space-between',
     width: 233,
     padding: 20,
-    backgroundColor: 'var(--color-light-bg-secondary)',
+    backgroundColor: 'var(--color-light-bg-tertiary)',
     borderRadius: '12px',
     boxSizing: 'border-box',
     alignItems: 'center',
@@ -17,25 +17,28 @@ render(
         <div style={styles}>
             <Indicator view='red' />
             <Indicator value={1} view='red' />
-            <Indicator size="m" value={1} view='red' />
-            <Indicator size="m" value={99} view='red' />
-            <Indicator size="m" value={100} view='red' />
+            <Indicator size='m' value={1} view='red' />
+            <Indicator size='m' value={99} view='red' />
+            <Indicator size='m' value={100} view='red' />
+            <Indicator size='m' value={100} view='red' border={true} />
         </div>
         <Gap size='xs' />
         <div style={styles}>
             <Indicator view='grey' />
             <Indicator value={1} view='grey' />
-            <Indicator size="m" value={1} view='grey' />
-            <Indicator size="m" value={99} view='grey' />
-            <Indicator size="m" value={100} view='grey' />
+            <Indicator size='m' value={1} view='grey' />
+            <Indicator size='m' value={99} view='grey' />
+            <Indicator size='m' value={100} view='grey' />
+            <Indicator size='m' value={100} view='grey' border={true} />
         </div>
         <Gap size='xs' />
         <div style={styles}>
             <Indicator view='white' />
             <Indicator value={1} view='white' />
-            <Indicator size="m" value={1} view='white' />
-            <Indicator size="m" value={99} view='white' />
-            <Indicator size="m" value={100} view='white' />
+            <Indicator size='m' value={1} view='white' />
+            <Indicator size='m' value={99} view='white' />
+            <Indicator size='m' value={100} view='white' />
+            <Indicator size='m' value={100} view='white' border={true} />
         </div>
         <Gap size='xs' />
         <div style={styles}>
@@ -49,22 +52,34 @@ render(
                 color='var(--color-light-text-primary-inverted)'
             />
             <Indicator
-                size="m"
+                size='m'
                 value={1}
                 backgroundColor='var(--color-light-graphic-positive)'
                 color='var(--color-light-text-primary-inverted)'
             />
             <Indicator
-                size="m"
+                size='m'
                 value={99}
                 backgroundColor='var(--color-light-graphic-positive)'
                 color='var(--color-light-text-primary-inverted)'
             />
             <Indicator
-                size="m"
+                size='m'
                 value={100}
                 backgroundColor='var(--color-light-graphic-positive)'
                 color='var(--color-light-text-primary-inverted)'
+            />
+
+            <Indicator
+                size='m'
+                value={100}
+                backgroundColor='var(--color-light-graphic-positive)'
+                color='var(--color-light-text-primary-inverted)'
+                border={{
+                    width: 2,
+                    color: 'var(--color-light-bg-primary)',
+                    style: 'dashed',
+                }}
             />
         </div>
     </Container>,

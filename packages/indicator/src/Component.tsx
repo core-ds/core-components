@@ -1,7 +1,14 @@
-import React, { forwardRef, ReactElement } from 'react';
+import React, { CSSProperties, forwardRef, ReactElement } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
+
+// TODO: вынести в общие типы
+type Border = {
+    width?: number;
+    color?: string;
+    style?: 'solid' | 'dashed' | 'dotted';
+};
 
 export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
@@ -32,11 +39,7 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Настройки обводки
      */
-    border?: {
-        width?: number;
-        color?: string;
-        style?: 'solid' | 'dashed' | 'dotted';
-    };
+    border?: boolean | Border;
 
     /**
      * Пресет компонента
@@ -74,15 +77,38 @@ function formatValue(rawValue: IndicatorProps['value']) {
     return rawValue;
 }
 
+function borderStyles(
+    border: IndicatorProps['border'],
+    view?: IndicatorProps['view'],
+): CSSProperties {
+    if (!border) return {};
+
+    if (typeof border === 'object') {
+        return {
+            outlineColor: border.color,
+            outlineWidth: border.width,
+            outlineStyle: border.style || 'solid',
+        };
+    }
+
+    if (view) return {};
+
+    return {
+        outlineWidth: 2,
+        outlineColor: 'var(--color-light-graphic-primary)',
+        outlineStyle: 'solid',
+    };
+}
+
 export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
     (
         {
             value,
+            view,
             color,
             backgroundColor,
-            border,
             height,
-            view,
+            border,
             className,
             dataTestId,
             style,
@@ -96,7 +122,13 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
         return (
             <div
                 ref={ref}
-                className={cn(styles.component, view && styles[view], styles[size], className)}
+                className={cn(
+                    styles.component,
+                    styles[size],
+                    view && styles[view],
+                    border === true && styles.border,
+                    className,
+                )}
                 style={{
                     ...style,
                     ...(!view && {
@@ -105,23 +137,12 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
                     }),
                     height,
                     minWidth: height,
+                    ...borderStyles(border, view),
                 }}
                 data-test-id={dataTestId}
                 {...restProps}
             >
                 {showContent && <span className={styles.content}>{formatValue(value)}</span>}
-                {border && (
-                    <span
-                        className={styles.border}
-                        style={{
-                            ...(border && {
-                                borderColor: border.color,
-                                borderWidth: border.width,
-                                borderStyle: border.style || 'solid',
-                            }),
-                        }}
-                    />
-                )}
             </div>
         );
     },
