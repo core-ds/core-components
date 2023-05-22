@@ -7,6 +7,13 @@ import { getPath, PathsMap } from './utils';
 
 import styles from './index.module.css';
 
+// TODO: вынести в общие типы
+type Border = {
+    width?: number;
+    color?: string;
+    style?: 'solid' | 'dashed' | 'dotted';
+};
+
 export type BaseShapeProps = {
     /**
      * Размер компонента
@@ -23,7 +30,7 @@ export type BaseShapeProps = {
      * Видимость обводки
      * @default false
      */
-    border?: boolean;
+    border?: boolean | Border;
 
     /**
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
@@ -193,6 +200,14 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         {border && (
                             <path
                                 className={styles.border}
+                                style={
+                                    typeof border === 'object'
+                                        ? {
+                                              stroke: border.color,
+                                              strokeWidth: border.width,
+                                          }
+                                        : undefined
+                                }
                                 d={getPath({
                                     size: Math.max(width, height),
                                     hasTopAddons,

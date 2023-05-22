@@ -32,15 +32,15 @@ render(() => {
             </Row>
             <Row>
                 <RadioGroup
-                name='radioGroup'
-                onChange={onChange}
-                hint='Выберите один из вариантов'
-                value={component}
-            >
-                {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
-                    <Radio label={c} value={c} size='m' key={c} />
-                ))}
-            </RadioGroup>
+                    name='radioGroup'
+                    onChange={onChange}
+                    hint='Выберите один из вариантов'
+                    value={component}
+                >
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
+                        <Radio label={c} value={c} size='m' key={c} />
+                    ))}
+                </RadioGroup>
             </Row>
         </Container>
     );
@@ -87,15 +87,15 @@ render(() => {
 
             <Row>
                 <RadioGroup
-                name='radioGroup'
-                onChange={onChange}
-                hint='Выберите один из вариантов'
-                value={component}
-            >
-                {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
-                    <Radio label={c} value={c} size='m' key={c} />
-                ))}
-            </RadioGroup>
+                    name='radioGroup'
+                    onChange={onChange}
+                    hint='Выберите один из вариантов'
+                    value={component}
+                >
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
+                        <Radio label={c} value={c} size='m' key={c} />
+                    ))}
+                </RadioGroup>
             </Row>
         </Container>
     );
@@ -127,6 +127,7 @@ render(() => {
                 size='80'
                 backgroundIcon={DiamondsMIcon}
                 backgroundColor='transparent'
+                border={{ width: 2, color: 'var(--color-light-border-accent)' }}
             />
         </Col>
 
@@ -345,8 +346,8 @@ render(
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={25} />} />
             </Col>
-</Row>
-<Row>
+        </Row>
+        <Row>
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={100} />}
                 />
@@ -355,3 +356,4 @@ render(
     </Container>
 );
 ```
+
