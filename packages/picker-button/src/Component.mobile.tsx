@@ -31,36 +31,45 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             size,
             bottomSheetProps,
             showArrow,
+            Field = DefaultField,
+            fieldProps = {},
             ...restProps
         },
         ref,
-    ) => (
-        <SelectMobile
-            {...restProps}
-            label={label}
-            Option={Option}
-            bottomSheetProps={{
-                title: label,
-                stickyHeader: true,
-                ...bottomSheetProps,
-            }}
-            Field={DefaultField}
-            Optgroup={Optgroup}
-            size={size === 'm' ? 'm' : 's'}
-            closeOnSelect={true}
-            fieldProps={{
-                view,
-                loading,
-                /** size у select, button несовместимы */
-                buttonSize: size,
-                buttonVariant: variant,
-                leftAddons,
-                rightAddons,
-                showArrow,
-            }}
-            ref={ref}
-            options={options}
-            selected={[]}
-        />
-    ),
+    ) => {
+        const fieldDedaultProps = {
+            view,
+            loading,
+            /** size у select, button несовместимы */
+            buttonSize: size,
+            buttonVariant: variant,
+            leftAddons,
+            rightAddons,
+            showArrow,
+        };
+
+        return (
+            <SelectMobile
+                {...restProps}
+                label={label}
+                Option={Option}
+                bottomSheetProps={{
+                    title: label,
+                    stickyHeader: true,
+                    ...bottomSheetProps,
+                }}
+                Field={Field}
+                Optgroup={Optgroup}
+                size={size === 'm' ? 'm' : 's'}
+                closeOnSelect={true}
+                fieldProps={{
+                    ...fieldDedaultProps,
+                    ...(fieldProps as object),
+                }}
+                ref={ref}
+                options={options}
+                selected={[]}
+            />
+        );
+    },
 );

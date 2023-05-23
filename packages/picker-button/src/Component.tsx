@@ -22,7 +22,6 @@ export type PickerButtonVariant = 'default' | 'compact';
 
 export type PickerButtonDesktopProps = Omit<
     BaseSelectProps,
-    | 'Field'
     | 'placeholder'
     | 'Arrow'
     | 'autocomplete'
@@ -31,7 +30,6 @@ export type PickerButtonDesktopProps = Omit<
     | 'selected'
     | 'closeOnSelect'
     | 'multiple'
-    | 'fieldProps'
     | 'hint'
     | 'allowUnselect'
     | 'options'
@@ -79,6 +77,8 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             popperClassName,
             optionClassName,
             showArrow,
+            Field = DefaultField,
+            fieldProps = {},
             ...restProps
         },
         ref,
@@ -86,23 +86,28 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
         const isSideGap =
             !!restProps.popoverPosition && SIDE_POSITIONS.includes(restProps.popoverPosition);
 
+        const fieldDedaultProps = {
+            view,
+            loading,
+            /** size у select, button несовместимы */
+            buttonSize: size,
+            buttonVariant: variant,
+            leftAddons,
+            rightAddons,
+            showArrow,
+        };
+
         return (
             <BaseSelect
                 {...restProps}
                 optionProps={{ Checkmark: null }}
                 ref={ref}
                 Option={Option}
-                Field={DefaultField}
+                Field={Field}
                 size={size === 'm' ? 'm' : 's'}
                 fieldProps={{
-                    view,
-                    loading,
-                    /** size у select, button несовместимы */
-                    buttonSize: size,
-                    buttonVariant: variant,
-                    leftAddons,
-                    rightAddons,
-                    showArrow,
+                    ...fieldDedaultProps,
+                    ...(fieldProps as object),
                 }}
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}

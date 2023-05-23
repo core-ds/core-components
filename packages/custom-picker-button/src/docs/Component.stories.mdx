@@ -1,0 +1,92 @@
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import { text, boolean, select, color } from '@storybook/addon-knobs';
+import { CarMIcon } from '@alfalab/icons-glyph/CarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { CardTransferMIcon } from '@alfalab/icons-glyph/CardTransferMIcon';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { CustomPickerButton } from '@alfalab/core-components-custom-picker-button';
+import { CustomPickerButtonMobile } from '@alfalab/core-components-custom-picker-button/mobile';
+import { CustomPickerButtonDesktop } from '@alfalab/core-components-custom-picker-button/desktop';
+
+import packageJson from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+
+export const options = [
+    { key: 'Заказать карту' },
+    { key: 'Выписка по счёту' },
+    { key: 'Выпустить карту' },
+    { key: 'Скопировать реквизиты' },
+];
+
+export const CONTENT_COLORS = ['white', 'black'];
+export const STATE_TYPES = ['darkening', 'lightening'];
+
+<Meta title='Components/CustomPickerButton' component={CustomPickerButton} id='CustomPickerButton' />
+
+{/* Canvas */}
+
+<Story name='CustomPickerButton'>
+    <CustomPickerButton
+        backgroundColor={color('backgroundColor', '#FF45C3')}
+        contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+        stateType={select('stateType', STATE_TYPES, 'darkening')}
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
+        variant={select('variant', ['default', 'compact'])}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}
+        showArrow={boolean('Показывать стрелку', true)}
+    />
+</Story>
+
+<Story name='CustomPickerButtonMobile'>
+    <CustomPickerButtonMobile
+        backgroundColor={color('backgroundColor', '#FF45C3')}
+        contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+        stateType={select('stateType', STATE_TYPES, 'darkening')}
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
+        variant={select('variant', ['default', 'compact'])}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}
+        showArrow={boolean('Показывать стрелку', true)}
+    />
+</Story>
+
+<Story name='CustomPickerButtonDesktop'>
+    <CustomPickerButtonDesktop
+        backgroundColor={color('backgroundColor', '#FF45C3')}
+        contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+        stateType={select('stateType', STATE_TYPES, 'darkening')}
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
+        variant={select('variant', ['default', 'compact'])}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}
+        showArrow={boolean('Показывать стрелку', true)}
+    />
+</Story>
+
+{/* Docs */}
+
+<ComponentHeader
+    name='CustomPickerButton'
+    version={packageJson.version}
+    package='@alfalab/core-components/picker-button'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=3422%3A32180'
+    children='Кнопка используется для скрытия редких или одинаковых по контексту действий.'
+/>
+
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>
