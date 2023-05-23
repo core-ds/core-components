@@ -12,7 +12,10 @@
 
 .component {
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    overflow: hidden;
     color: var(--icon-view-color);
 }
 
@@ -64,6 +67,9 @@
 }
 
 .size_128 {
+    width: 128px;
+    height: 128px;
+
     & .children {
         width: 64px;
         height: 64px;
@@ -86,6 +92,9 @@
 }
 
 .size_80 {
+    width: 80px;
+    height: 80px;
+
     & .children {
         width: 48px;
         height: 48px;
@@ -113,6 +122,9 @@
 }
 
 .size_64 {
+    width: 64px;
+    height: 64px;
+
     & .children {
         width: 32px;
         height: 32px;
@@ -140,6 +152,9 @@
 }
 
 .size_48 {
+    width: 48px;
+    height: 48px;
+
     & .children {
         width: 24px;
         height: 24px;
@@ -167,6 +182,9 @@
 }
 
 .size_40 {
+    width: 40px;
+    height: 40px;
+
     & .children {
         width: 24px;
         height: 24px;
@@ -194,6 +212,9 @@
 }
 
 .size_32 {
+    width: 32px;
+    height: 32px;
+
     & .children {
         width: 24px;
         height: 24px;
@@ -206,6 +227,9 @@
 }
 
 .size_24 {
+    width: 24px;
+    height: 24px;
+
     & .children {
         width: 24px;
         height: 24px;
@@ -218,6 +242,9 @@
 }
 
 .size_20 {
+    width: 20px;
+    height: 20px;
+
     & .children {
         width: 16px;
         height: 16px;

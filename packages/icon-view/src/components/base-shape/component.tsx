@@ -118,7 +118,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             <div
                 className={cn(
                     styles.componentWrapper,
-                    width === height ? styles[`size_${size}`] : styles[`size_${width}-${height}`],
+                    styles[`size_${Math.max(width, height)}`],
                     className,
                 )}
                 ref={ref}
