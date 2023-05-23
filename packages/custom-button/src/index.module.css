@@ -70,11 +70,11 @@
 
     &.static-lightening {
         &:hover:before {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.07);
         }
 
         &:active:before {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.15);
         }
     }
 }
