@@ -21,6 +21,10 @@
         padding-left: var(--gap-m);
     }
 
+    &.auto {
+        align-self: auto;
+    }
+
     &.top {
         align-self: flex-start;
     }
