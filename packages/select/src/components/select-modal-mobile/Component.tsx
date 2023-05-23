@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
 
+import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
+
 import { useSelectWithApply, UseSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
 import { AnyObject, BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
@@ -21,6 +23,21 @@ export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScro
      * Показывать пункт "Выбрать все"
      */
     showSelectAll?: UseSelectWithApplyProps['showSelectAll'];
+
+    /**
+     *  Дополнительные пропсы шапки модалки
+     */
+    modalHeaderProps?: Partial<React.ComponentProps<typeof ModalMobile.Header>>;
+
+    /**
+     *  Дополнительные пропсы модалки
+     */
+    modalProps?: Partial<React.ComponentProps<typeof ModalMobile>>;
+
+    /**
+     *  Дополнительные пропсы футера модалки
+     */
+    modalFooterProps?: Partial<React.ComponentProps<typeof ModalMobile.Footer>>;
 };
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
@@ -96,7 +113,7 @@ export const SelectModalMobile = forwardRef(
                 OptionsList={OptionsList}
                 optionsListProps={optionsListProps}
                 {...restProps}
-                {...(multiple && applyProps)}
+                {...(multiple && !restProps.modalFooterProps?.children && applyProps)}
             />
         );
     },
