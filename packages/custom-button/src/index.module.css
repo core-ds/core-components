@@ -3,6 +3,7 @@
 .customButton {
     overflow: hidden;
     position: relative;
+    border: 0;
 
     &.white * {
         color: var(--color-light-graphic-primary-inverted);
