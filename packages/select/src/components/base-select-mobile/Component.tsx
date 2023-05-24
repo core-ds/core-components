@@ -207,11 +207,18 @@ export const BaseSelectMobile = forwardRef(
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputBlur:
                         return state;
+
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
-                    case useCombobox.stateChangeTypes.ItemClick:
+                    case useCombobox.stateChangeTypes.ItemClick: {
+                        const indexOfSelectedItem = options.indexOf(selectedItem);
+
                         initiatorRef.current = selectedItem;
 
-                        if (selectedItem && !selectedItem.disabled) {
+                        if (
+                            selectedItem &&
+                            !selectedItem.disabled &&
+                            indexOfSelectedItem === state.highlightedIndex
+                        ) {
                             const alreadySelected = selectedItems.includes(selectedItem);
                             const allowRemove =
                                 allowUnselect || (multiple && selectedItems.length > 1);
@@ -242,6 +249,8 @@ export const BaseSelectMobile = forwardRef(
                                     ? state.highlightedIndex
                                     : changes.highlightedIndex,
                         };
+                    }
+
                     default:
                         return changes;
                 }
