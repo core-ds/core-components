@@ -149,8 +149,8 @@ describe('InputAutocompleteMobile', () => {
             const { findByText } = render(<InputAutocompleteMobileWrapper onChange={cb} />);
 
             const option = await findByText(options[0].content);
-            await fireEvent.click(option);
-            expect(cb).toBeCalledTimes(1);
+            fireEvent.click(option);
+            await waitFor(() => expect(cb).toBeCalledTimes(1));
         });
 
         it('should call onFilter', async () => {

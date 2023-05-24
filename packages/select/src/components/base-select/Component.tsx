@@ -179,23 +179,25 @@ export const BaseSelect = forwardRef(
                     case useCombobox.stateChangeTypes.ItemClick:
                         initiatorRef.current = selectedItem;
 
-                        if (selectedItem && !selectedItem.disabled) {
-                            const alreadySelected = selectedItems.includes(selectedItem);
-                            const allowRemove =
-                                allowUnselect || (multiple && selectedItems.length > 1);
+                        setTimeout(() => {
+                            if (selectedItem && !selectedItem.disabled) {
+                                const alreadySelected = selectedItems.includes(selectedItem);
+                                const allowRemove =
+                                    allowUnselect || (multiple && selectedItems.length > 1);
 
-                            if (alreadySelected && allowRemove) {
-                                removeSelectedItem(selectedItem);
-                            }
+                                if (alreadySelected && allowRemove) {
+                                    removeSelectedItem(selectedItem);
+                                }
 
-                            if (!alreadySelected) {
-                                if (multiple) {
-                                    addSelectedItem(selectedItem);
-                                } else {
-                                    setSelectedItems([selectedItem]);
+                                if (!alreadySelected) {
+                                    if (multiple) {
+                                        addSelectedItem(selectedItem);
+                                    } else {
+                                        setSelectedItems([selectedItem]);
+                                    }
                                 }
                             }
-                        }
+                        });
 
                         return {
                             ...changes,
