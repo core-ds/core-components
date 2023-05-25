@@ -4,6 +4,9 @@ import userEvent from '@testing-library/user-event';
 
 import { ActionButton } from '.';
 
+const dti = 'action-button';
+const loaderDti = `${dti}-loader`;
+
 describe('ActionButton', () => {
     it('should use "icon" prop', () => {
         const icon = '⭐️';
@@ -63,35 +66,33 @@ describe('ActionButton', () => {
     });
 
     it('should use "loading" prop (button)', () => {
-        const { rerender } = render(<ActionButton />);
+        const { rerender } = render(<ActionButton dataTestId={dti} />);
 
         expect(screen.getByRole('button')).not.toBeDisabled();
-        expect(screen.queryByTestId('loader')).toBeNull();
+        expect(screen.queryByTestId(loaderDti)).toBeNull();
 
-        rerender(<ActionButton loading={true} />);
+        rerender(<ActionButton loading={true} dataTestId={dti} />);
 
         expect(screen.getByRole('button')).toBeDisabled();
-        expect(screen.getByTestId('loader')).toBeInTheDocument();
+        expect(screen.getByTestId(loaderDti)).toBeInTheDocument();
     });
 
     it('should use "loading" prop (link)', () => {
-        const { rerender } = render(<ActionButton href='http://localhost' />);
+        const { rerender } = render(<ActionButton href='http://localhost' dataTestId={dti} />);
 
         expect(screen.getByRole('button')).not.toHaveAttribute('aria-disabled', 'true');
-        expect(screen.queryByTestId('loader')).toBeNull();
+        expect(screen.queryByTestId(loaderDti)).toBeNull();
 
-        rerender(<ActionButton href='http://localhost' loading={true} />);
+        rerender(<ActionButton href='http://localhost' loading={true} dataTestId={dti} />);
 
         expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
-        expect(screen.getByTestId('loader')).toBeInTheDocument();
+        expect(screen.getByTestId(loaderDti)).toBeInTheDocument();
     });
 
     it('should use "dataTestId" prop', () => {
-        const testId = 'test-identifier';
+        render(<ActionButton dataTestId={dti} />);
 
-        render(<ActionButton dataTestId={testId} />);
-
-        expect(screen.getByRole('button')).toHaveAttribute('data-test-id', testId);
+        expect(screen.getByRole('button')).toHaveAttribute('data-test-id', dti);
     });
 
     it('should use "children" prop', () => {
