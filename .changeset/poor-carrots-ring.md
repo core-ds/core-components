@@ -2,4 +2,4 @@
 "@alfalab/core-components-indicator": major
 ---
 
-feat(indicator): Добавлен компонент Indicator
+feat(indicator): Добавлен новый компонент Indicator
