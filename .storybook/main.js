@@ -67,6 +67,16 @@ function modifyCssRules(config) {
     };
 }
 
+function disableReactRefreshOverlay(config) {
+    const reactRefreshPlugin = config.plugins.find(
+        (p) => p.constructor.name === 'ReactRefreshPlugin',
+    );
+
+    if (reactRefreshPlugin?.options?.overlay) {
+        reactRefreshPlugin.options.overlay = false;
+    }
+}
+
 module.exports = {
     stories: ['../packages/**/*.stories.@(ts|md)x', '../docs/**/*.stories.@(ts|md)x'],
     addons: [
@@ -95,6 +105,7 @@ module.exports = {
         addDirsForTranspile(config);
         patchWebpackConfig(config);
         modifyCssRules(config);
+        disableReactRefreshOverlay(config);
 
         config.devtool = mode === 'PRODUCTION' ? 'source-map' : 'eval-cheap-module-source-map';
 
