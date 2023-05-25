@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.12
+
+### Patch Changes
+
+### [#681](https://github.com/core-ds/core-components/pull/681)
+
+-   Поправлен размер шрифта у заголовка
+
 ## 3.0.11
 
 ### Patch Changes

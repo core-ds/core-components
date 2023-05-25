@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+### [#665](https://github.com/core-ds/core-components/pull/665)
+
+-   В компонент CalendarRange добавлено свойство returnInvalidDates, которое возвращает в коллбеке onChange невалидные даты
+
 ## 7.0.32
 
 ### Patch Changes

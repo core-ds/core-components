@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.4.17
+
+### Patch Changes
+
+### [865f8b492](https://github.com/core-ds/core-components/commit/865f8b4922e46a8011187447783fc26216846591)
+
+-   Убран лишний пробел на мобильном hint-экране
+
 ## 12.4.16
 
 ### Patch Changes
