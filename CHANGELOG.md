@@ -1,3 +1,53 @@
+## 41.9.0
+
+<sup><time>25.05.2023</time></sup>
+
+### [#681](https://github.com/core-ds/core-components/pull/681)
+
+#### Что изменилось
+- Поправлен размер шрифта у заголовка
+
+#### Влияние на компоненты
+- Патчи<br />`side-panel`
+
+
+### [865f8b492](https://github.com/core-ds/core-components/commit/865f8b4922e46a8011187447783fc26216846591)
+
+#### Что изменилось
+- Убран лишний пробел на мобильном hint-экране
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+### [#670](https://github.com/core-ds/core-components/pull/670)
+
+#### Что изменилось
+- feat(indicator): Добавлен новый компонент Indicator
+
+#### Влияние на компоненты
+- Минорное<br />`indicator`
+
+
+### [#679](https://github.com/core-ds/core-components/pull/679)
+
+#### Что изменилось
+- Добавлено значение auto для растягивания контента по всей высоте компонента Addon
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+### [#665](https://github.com/core-ds/core-components/pull/665)
+
+#### Что изменилось
+- В компонент CalendarRange добавлено свойство returnInvalidDates, которое возвращает в коллбеке onChange невалидные даты
+
+#### Влияние на компоненты
+- Минорное<br />`calendar-range`
+
+
+
 ## 41.8.0
 
 <sup><time>19.05.2023</time></sup>
