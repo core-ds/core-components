@@ -15,7 +15,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
-    scrollbar-gutter: stable;
     align-items: flex-start;
 
     & .wrapper {
