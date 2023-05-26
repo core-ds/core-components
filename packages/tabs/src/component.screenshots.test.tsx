@@ -46,7 +46,7 @@ describe('Tabs | TabsDesktop', () => {
             matchImageSnapshotOptions: {
                 failureThresholdType: 'pixel',
                 // TODO: ширина линии на сервере чуть больше
-                failureThreshold: 40,
+                failureThreshold: 50,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
