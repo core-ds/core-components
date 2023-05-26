@@ -16,7 +16,7 @@
     }
 
     & > *:last-child {
-        margin-bottom: var(--modal-footer-default-gap);
+        margin-bottom: var(--side-panel-footer-default-gap);
     }
 
     & > *:only-child {
