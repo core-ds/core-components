@@ -23,6 +23,20 @@
         </Col>
     </Row>
 </Container>
+//MOBILE
+<Container>
+    <ButtonMobile block={true} view='accent'>Accent</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='primary'>Primary</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='secondary'>Secondary</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='tertiary'>Tertiary</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='link'>Link</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='ghost'>Ghost</ButtonMobile>
+</Container>
 ```
 
 ## Размеры
@@ -38,12 +52,27 @@ render(
             {SIZES.map((size) => (
                 <Col key={size}>
                     <Button size={size} view='primary'>
-                        Label
+                        {`${size.toUpperCase()}-size`}
                     </Button>
                 </Col>
             ))}
         </Row>
     </Container>,
+);
+//MOBILE
+const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+
+render(
+    <Container>
+        {SIZES.map((size) => (
+        <>
+            <ButtonMobile block={true} size={size} view='primary'>
+                {`${size.toUpperCase()}-size`}
+            </ButtonMobile>
+            <Gap size='m' />
+        </>
+        ))}
+    </Container>
 );
 ```
 
@@ -56,18 +85,18 @@ render(
 <Container>
     <Row>
         <Col>
-            <Button>0</Button>
+            <ButtonResponsive>0</ButtonResponsive>
         </Col>
     </Row>
     <Row>
         <Col>
-            <Button>Очень длинный лейбл</Button>
+            <ButtonResponsive>Очень длинный лейбл</ButtonResponsive>
         </Col>
     </Row>
     <br />
-    <Button block={true} size='m' nowrap={true}>
+    <ButtonResponsive block={true} size='m' nowrap={true}>
         Занимает всю ширину контейнера
-    </Button>
+    </ButtonResponsive>
 </Container>
 ```
 
@@ -122,6 +151,50 @@ render(() => {
         </Container>
     );
 });
+//MOBILE
+render(() => {
+    const [label, setLabel] = React.useState(true);
+    const [leftAddons, setLeftAddonsl] = React.useState(false);
+    const [rightAddons, setRightAddons] = React.useState(false);
+
+    const handleLabelChange = () => setLabel(!label);
+    const handleLeftAddonsChange = () => setLeftAddonsl(!leftAddons);
+    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
+
+    return (
+        <Container>
+
+            <ButtonMobile
+                leftAddons={leftAddons && <StarMIcon />}
+                rightAddons={rightAddons && <StarMIcon />}
+                view='primary'
+                block={true}
+            >
+                {label && 'Label'}
+            </ButtonMobile>
+
+            <Row align='middle'>
+                <Switch label={<span>Label</span>} checked={label} onChange={handleLabelChange} />
+            </Row>
+
+            <Row align='middle'>
+                <Switch
+                    label={<span>LeftAddons</span>}
+                    checked={leftAddons}
+                    onChange={handleLeftAddonsChange}
+                />
+            </Row>
+
+            <Row align='middle'>
+                <Switch
+                    label={<span>RightAddons</span>}
+                    checked={rightAddons}
+                    onChange={handleRightAddonsChange}
+                />
+            </Row>
+        </Container>
+    );
+});
 ```
 
 ## Перенос текста внутри кнопки
@@ -137,9 +210,9 @@ render(() => {
     return (
         <Container>
             <div style={{ display: 'flex', width: '180px' }}>
-                <Button view='primary' nowrap={checked}>
+                <ButtonResponsive view='primary' nowrap={checked}>
                     Пример длинного текста
-                </Button>
+                </ButtonResponsive>
             </div>
             <Row align='middle'>
                 <Switch
@@ -197,6 +270,42 @@ render(() => {
         </Container>
     );
 });
+//MOBILE
+render(() => {
+    const [loading, setLoading] = React.useState({
+        primary: false,
+        secondary: false,
+    });
+
+    const handleClick = (buttonName, timeout) => {
+        setLoading({ ...loading, [buttonName]: true });
+        setTimeout(() => {
+            setLoading({ ...loading, [buttonName]: false });
+        }, timeout);
+    };
+
+    return (
+        <Container>
+            <ButtonMobile
+                view='primary'
+                loading={loading.primary}
+                block={true}
+                onClick={() => handleClick('primary', 30)}
+            >
+                Быстрый запрос (30ms)
+            </ButtonMobile>
+            <Gap size='m' />
+            <ButtonMobile
+                view='secondary'
+                loading={loading.secondary}
+                block={true}
+                onClick={() => handleClick('secondary', 1500)}
+            >
+                Долгий запрос (1500ms)
+            </ButtonMobile>
+        </Container>
+    );
+});
 ```
 
 ## Кнопка-ссылка
@@ -212,6 +321,12 @@ render(() => {
             </Button>
         </Col>
     </Row>
+</Container>
+//MOBILE
+<Container>
+    <ButtonMobile block={true} view='primary' href='https://alfabank.ru' target='_blank'>
+        Кнопка-ссылка
+    </ButtonMobile>
 </Container>
 ```
 

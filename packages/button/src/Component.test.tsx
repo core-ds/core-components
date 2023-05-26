@@ -7,7 +7,8 @@ import {
     waitForElementToBeRemoved,
 } from '@testing-library/react';
 
-import { Button, ButtonProps, LOADER_MIN_DISPLAY_INTERVAL } from './index';
+import { LOADER_MIN_DISPLAY_INTERVAL } from './components/base-button';
+import { Button, ButtonProps } from './index';
 
 const dataTestId = 'test-id';
 

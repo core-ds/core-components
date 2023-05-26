@@ -1,10 +1,6 @@
-// TODO Вид кнопок зависит от порядка импорта стилей. Исправить!!!.
-/* eslint-disable simple-import-sort/imports */
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
-    ElementType,
-    ReactNode,
     useEffect,
     useRef,
     useState,
@@ -15,95 +11,7 @@ import cn from 'classnames';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import styles from './index.module.css';
-import defaultColors from './default.module.css';
-import invertedColors from './inverted.module.css';
-
-const colorStyles = {
-    default: defaultColors,
-    inverted: invertedColors,
-};
-
-export type ComponentProps = {
-    /**
-     * Тип кнопки
-     */
-    view?:
-        | 'accent'
-        | 'primary'
-        | 'secondary'
-        | 'tertiary'
-        | 'outlined' // deprecated
-        | 'filled' // deprecated
-        | 'transparent' // deprecated
-        | 'link'
-        | 'ghost';
-
-    /**
-     * Слот слева
-     */
-    leftAddons?: ReactNode;
-
-    /**
-     * Слот справа
-     */
-    rightAddons?: ReactNode;
-
-    /**
-     * Размер компонента
-     */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Выводит ссылку в виде кнопки
-     */
-    href?: string;
-
-    /**
-     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
-     */
-    Component?: ElementType;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Показать лоадер
-     */
-    loading?: boolean;
-
-    /**
-     * Не переносить текст кнопки на новую строку
-     */
-    nowrap?: boolean;
-
-    /**
-     * Набор цветов для компонента
-     */
-    colors?: 'default' | 'inverted';
-
-    /**
-     * Дочерние элементы.
-     */
-    children?: ReactNode;
-};
-
-export type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-export type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-
-export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
+import { BaseButtonProps, ComponentProps } from '../../typings';
 
 /**
  * Минимальное время отображения лоадера - 500мс,
@@ -131,7 +39,7 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     );
 };
 
-export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
+export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, BaseButtonProps>(
     (
         {
             children,
@@ -148,6 +56,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             colors = 'default',
             Component = href ? 'a' : 'button',
             onClick,
+            styles = {},
+            colorStyles = {
+                default: {},
+                inverted: {},
+            },
             ...restProps
         },
         ref,
@@ -285,14 +198,3 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-Button.defaultProps = {
-    view: 'secondary',
-    size: 'm',
-    block: false,
-    loading: false,
-    nowrap: false,
-};
