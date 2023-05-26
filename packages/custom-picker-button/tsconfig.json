@@ -6,10 +6,14 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"], 
+            "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
-            "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"] 
+            "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"]
         }
     },
-    "references": [{ "path": "../custom-button" }, { "path": "../picker-button" }]
+    "references": [
+        { "path": "../custom-button" },
+        { "path": "../picker-button" },
+        { "path": "../mq" }
+    ]
 }

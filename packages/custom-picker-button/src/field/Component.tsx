@@ -34,51 +34,46 @@ export const Field = ({
 }: FieldProps) => {
     const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(buttonVariant, buttonSize);
 
-    const { ref, ...restInnerProps } = innerProps;
-
     const buttonProps = {
         ...restProps,
-        ...restInnerProps,
+        ...innerProps,
     } as ButtonHTMLAttributes<HTMLButtonElement>;
 
     return (
-        <div ref={ref}>
-            <CustomButton
-                {...buttonProps}
-                rightAddons={
-                    <Fragment>
-                        {rightAddons && (
-                            <span
-                                className={cn(styles.addonsContainer, {
-                                    [styles.showControlIcon]:
-                                        showArrow || buttonVariant === 'compact',
-                                })}
-                            >
-                                {rightAddons}
-                            </span>
-                        )}
+        <CustomButton
+            {...buttonProps}
+            rightAddons={
+                <Fragment>
+                    {rightAddons && (
+                        <span
+                            className={cn(styles.addonsContainer, {
+                                [styles.showControlIcon]: showArrow || buttonVariant === 'compact',
+                            })}
+                        >
+                            {rightAddons}
+                        </span>
+                    )}
 
-                        {(showArrow || buttonVariant === 'compact') && (
-                            <span
-                                className={cn(
-                                    styles.iconContainer,
-                                    buttonVariant !== 'compact' && open && styles.open,
-                                )}
-                            >
-                                <Icon data-test-id='custom-picker-button-icon' />
-                            </span>
-                        )}
-                    </Fragment>
-                }
-                block={true}
-                size={buttonSize}
-                backgroundColor={backgroundColor}
-                contentColor={contentColor}
-                stateType={stateType}
-                className={className}
-            >
-                {buttonVariant !== 'compact' && label}
-            </CustomButton>
-        </div>
+                    {(showArrow || buttonVariant === 'compact') && (
+                        <span
+                            className={cn(
+                                styles.iconContainer,
+                                buttonVariant !== 'compact' && open && styles.open,
+                            )}
+                        >
+                            <Icon data-test-id='custom-picker-button-icon' />
+                        </span>
+                    )}
+                </Fragment>
+            }
+            block={true}
+            size={buttonSize}
+            backgroundColor={backgroundColor}
+            contentColor={contentColor}
+            stateType={stateType}
+            className={className}
+        >
+            {buttonVariant !== 'compact' && label}
+        </CustomButton>
     );
 };

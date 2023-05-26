@@ -2,10 +2,10 @@ import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CustomButtonProps } from '@alfalab/core-components-custom-button';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { PickerButtonProps } from '@alfalab/core-components-picker-button';
+import { PickerButtonDesktopProps } from '@alfalab/core-components-picker-button';
 import { AdditionalMobileProps } from '@alfalab/core-components-select';
-import { useMedia } from '@alfalab/hooks';
 
 import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './Component.desktop';
 import { CustomPickerButtonMobile } from './Component.mobile';
@@ -37,15 +37,10 @@ export const CustomPickerButtonResponsive = forwardRef<
         },
         ref,
     ) => {
-        const [view] = useMedia(
-            [
-                ['mobile', `(max-width: ${breakpoint - 1}px)`],
-                ['desktop', `(min-width: ${breakpoint}px)`],
-            ],
-            'desktop',
-        );
+        const query = `(min-width: ${breakpoint}px)`;
+        const [isDesktop] = useMatchMedia(query);
 
-        return view === 'desktop' ? (
+        return isDesktop ? (
             <CustomPickerButtonDesktop
                 ref={ref}
                 OptionsList={OptionsList}
