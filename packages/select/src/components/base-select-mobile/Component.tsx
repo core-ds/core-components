@@ -211,29 +211,27 @@ export const BaseSelectMobile = forwardRef(
                     case useCombobox.stateChangeTypes.ItemClick:
                         initiatorRef.current = selectedItem;
 
-                        setTimeout(() => {
-                            if (selectedItem && !selectedItem.disabled) {
-                                const alreadySelected = selectedItems.includes(selectedItem);
-                                const allowRemove =
-                                    allowUnselect || (multiple && selectedItems.length > 1);
+                        if (selectedItem && !selectedItem.disabled) {
+                            const alreadySelected = selectedItems.includes(selectedItem);
+                            const allowRemove =
+                                allowUnselect || (multiple && selectedItems.length > 1);
 
-                                if (alreadySelected && allowRemove) {
-                                    if (multiple) {
-                                        removeSelectedItem(selectedItem);
-                                    } else {
-                                        setSelectedItems([]);
-                                    }
-                                }
-
-                                if (!alreadySelected) {
-                                    if (multiple) {
-                                        addSelectedItem(selectedItem);
-                                    } else {
-                                        setSelectedItems([selectedItem]);
-                                    }
+                            if (alreadySelected && allowRemove) {
+                                if (multiple) {
+                                    removeSelectedItem(selectedItem);
+                                } else {
+                                    setSelectedItems([]);
                                 }
                             }
-                        });
+
+                            if (!alreadySelected) {
+                                if (multiple) {
+                                    addSelectedItem(selectedItem);
+                                } else {
+                                    setSelectedItems([selectedItem]);
+                                }
+                            }
+                        }
 
                         return {
                             ...changes,
