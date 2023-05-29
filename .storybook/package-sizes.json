@@ -253,6 +253,12 @@
   "date-input": {
     "index.js": 58
   },
+  "custom-picker-button": {
+    "desktop.js": 200,
+    "index.js": 210,
+    "mobile.js": 200,
+    "responsive.js": 210
+  },
   "custom-button": {
     "index.js": 6.9
   },
