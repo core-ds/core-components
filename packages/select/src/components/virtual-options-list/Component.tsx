@@ -30,6 +30,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             header,
             footer,
+            showFooter = true,
             optionsListWidth,
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
@@ -200,7 +201,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
                 )}
 
-                {footer && (
+                {showFooter && footer && (
                     <div
                         className={cn(styles.virtualOptionsListFooter, {
                             [styles.withBorder]:

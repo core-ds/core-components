@@ -11,6 +11,7 @@ import cn from 'classnames';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
+import { getDataTestId } from '../../../../utils';
 import { BaseButtonProps, ComponentProps } from '../../typings';
 
 /**
@@ -49,6 +50,7 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
             size = 'm',
             block = false,
             className,
+            spinnerClassName,
             dataTestId,
             href,
             loading = false,
@@ -124,8 +126,9 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
 
                 {showLoader && (
                     <Spinner
-                        visible={showLoader}
-                        className={cn(styles.loader, colorStyles[colors].loader)}
+                        dataTestId={getDataTestId(dataTestId, 'loader')}
+                        visible={true}
+                        className={cn(styles.loader, colorStyles[colors].loader, spinnerClassName)}
                     />
                 )}
 

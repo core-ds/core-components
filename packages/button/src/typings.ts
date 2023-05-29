@@ -68,6 +68,11 @@ export type ComponentProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для спиннера
+     */
+    spinnerClassName?: string;
+
+    /**
      * Выводит ссылку в виде кнопки
      */
     href?: string;

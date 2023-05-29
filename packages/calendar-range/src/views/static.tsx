@@ -50,6 +50,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     inputToProps = {},
     offDays,
     events,
+    returnInvalidDates = false,
     dataTestId,
 }) => {
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
@@ -63,7 +64,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         ? parseDateString(inputToValue).getTime()
         : null;
 
-    if (isCompleteDateInput(inputToValue) && !dateTo) {
+    if (isCompleteDateInput(inputToValue) && !dateTo && !returnInvalidDates) {
         dateFrom = null;
     }
 
@@ -217,16 +218,23 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         }
 
         if (inputToValue !== valueTo) {
+            // eslint-disable-next-line no-nested-ternary
+            const inputDateTo = returnInvalidDates
+                ? isCompleteDateInput(inputToValue)
+                    ? parseDateString(inputToValue).getTime()
+                    : null
+                : dateTo;
+
             onDateToChange({
                 value: inputToValue,
-                date: dateTo,
+                date: inputDateTo,
             });
 
             onChange({
                 valueFrom: inputFromValue,
                 valueTo: inputToValue,
                 dateFrom,
-                dateTo,
+                dateTo: inputDateTo,
             });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

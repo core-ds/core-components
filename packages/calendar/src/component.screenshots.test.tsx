@@ -34,6 +34,7 @@ describe(
                     knobs: {
                         month: [1613310391747, 1610718391747],
                         defaultView: 'years',
+                        responsive: true,
                     },
                     mockDate: 1613310391747,
                 }),

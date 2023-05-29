@@ -108,6 +108,18 @@ describe('Button', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
+        it('should set `spinnerClassName` class', () => {
+            const className = 'spinner-class';
+            const spinnerDti = `${dataTestId}-loader`;
+            const { getByTestId } = render(
+                <Button spinnerClassName={className} dataTestId={dataTestId} loading={true} />,
+            );
+
+            const spinner = getByTestId(spinnerDti);
+
+            expect(spinner).toHaveClass(className);
+        });
+
         it('should set `size` class', () => {
             const size = 'm';
             const { container } = render(<Button size={size} />);

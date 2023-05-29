@@ -34,6 +34,7 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
     inputToProps = {},
     offDays,
     events,
+    returnInvalidDates = false,
     dataTestId,
 }) => {
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
@@ -147,11 +148,18 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
     useDidUpdateEffect(() => {
         onDateToChange({ value: inputToValue, date: dateTo });
 
+        // eslint-disable-next-line no-nested-ternary
+        const inputDateTo = returnInvalidDates
+            ? isCompleteDateInput(inputToValue)
+                ? parseDateString(inputToValue).getTime()
+                : null
+            : dateTo;
+
         onChange({
             valueFrom: inputFromValue,
             valueTo: inputToValue,
             dateFrom,
-            dateTo,
+            dateTo: inputDateTo,
         });
 
         if (!inputToValue || isCompleteDateInput(inputToValue)) {

@@ -10,6 +10,10 @@
     --action-button-static-secondary-base-color: var(--color-static-text-primary-dark);
     --action-button-static-secondary-base-icon-color: var(--color-static-graphic-dark);
     --action-button-static-secondary-base-bg-color: var(--color-static-bg-secondary-light);
+
+    /* spinner */
+    --action-button-spinner-static-primary-color: var(--color-static-graphic-light);
+    --action-button-spinner-static-secondary-color: var(--color-static-graphic-dark);
 }
 
 .primary {
@@ -19,6 +23,10 @@
         color: var(--action-button-static-primary-base-icon-color);
         background-color: var(--action-button-static-primary-base-bg-color);
     }
+
+    & .loader {
+        color: var(--action-button-spinner-static-primary-color);
+    }
 }
 
 .secondary {
@@ -27,5 +35,9 @@
     & .iconWrapper {
         color: var(--action-button-static-secondary-base-icon-color);
         background-color: var(--action-button-static-secondary-base-bg-color);
+    }
+
+    & .loader {
+        color: var(--action-button-spinner-static-secondary-color);
     }
 }

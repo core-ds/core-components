@@ -1,0 +1,89 @@
+@import '../../themes/src/default.css';
+
+.component {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    flex-shrink: 0;
+    border-radius: var(--border-radius-pill);
+    color: var(--color-static-text-primary-light);
+    background-color: var(--color-light-bg-accent);
+}
+
+.red {
+    background-color: var(--color-light-bg-accent);
+    color: var(--color-static-text-primary-light);
+
+    &.border {
+        outline: 2px solid var(--color-light-border-key-inverted);
+    }
+}
+
+.white {
+    background-color: var(--color-light-bg-primary);
+    color: var(--color-light-text-primary);
+
+    &.border {
+        outline: 2px solid var(--color-light-border-key-inverted);
+    }
+}
+
+.grey {
+    background-color: var(--color-light-specialbg-secondary-transparent);
+    color: var(--color-light-text-primary);
+
+    &.border {
+        outline: 2px solid var(--color-light-border-key-inverted);
+    }
+}
+
+.xs {
+    height: 8px;
+    min-width: 8px;
+}
+
+.s {
+    height: 20px;
+    min-width: 20px;
+
+    & .content {
+        @mixin accent_secondary_small;
+        padding: 0 var(--gap-2xs);
+    }
+}
+
+.m {
+    height: 24px;
+    min-width: 24px;
+
+    & .content {
+        @mixin accent_primary_small;
+        padding: 0 var(--gap-2xs);
+    }
+}
+
+.l {
+    height: 40px;
+    min-width: 40px;
+
+    & .content {
+        @mixin accent_primary_small;
+        padding: 0 var(--gap-xs);
+    }
+}
+
+.xl {
+    & .content {
+        @mixin accent_primary_medium;
+        padding: 0 var(--gap-s);
+    }
+}
+
+.xxl {
+    & .content {
+        @mixin accent_primary_medium;
+        padding: 0 var(--gap-m);
+    }
+}
