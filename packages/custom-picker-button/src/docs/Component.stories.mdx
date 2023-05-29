@@ -1,12 +1,12 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { text, boolean, select } from '@storybook/addon-knobs';
+import { text, boolean, select, color } from '@storybook/addon-knobs';
 import { CarMIcon } from '@alfalab/icons-glyph/CarMIcon';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { CardTransferMIcon } from '@alfalab/icons-glyph/CardTransferMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { PickerButton } from '@alfalab/core-components-picker-button';
-import { PickerButtonMobile } from '@alfalab/core-components-picker-button/mobile';
-import { PickerButtonDesktop } from '@alfalab/core-components-picker-button/desktop';
+import { CustomPickerButton } from '@alfalab/core-components-custom-picker-button';
+import { CustomPickerButtonMobile } from '@alfalab/core-components-custom-picker-button/mobile';
+import { CustomPickerButtonDesktop } from '@alfalab/core-components-custom-picker-button/desktop';
 
 import packageJson from '../../package.json';
 import Description from './description.mdx';
@@ -20,20 +20,21 @@ export const options = [
     { key: 'Скопировать реквизиты' },
 ];
 
-<Meta title='Components/PickerButton' component={PickerButton} id='PickerButton' />
+export const CONTENT_COLORS = ['white', 'black'];
+export const STATE_TYPES = ['darkening', 'lightening'];
+
+<Meta title='Components/CustomPickerButton' component={CustomPickerButton} id='CustomPickerButton' />
 
 {/* Canvas */}
 
-<Story name='PickerButton'>
-    <PickerButton
+<Story name='CustomPickerButton'>
+    <CustomPickerButton
+        backgroundColor={color('backgroundColor', '#FF45C3')}
+        contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+        stateType={select('stateType', STATE_TYPES, 'darkening')}
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
-        view={select(
-            'view',
-            ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost', 'accent'],
-            'secondary',
-        )}
         variant={select('variant', ['default', 'compact'])}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
@@ -42,16 +43,14 @@ export const options = [
     />
 </Story>
 
-<Story name='PickerButtonMobile'>
-    <PickerButtonMobile
+<Story name='CustomPickerButtonMobile'>
+    <CustomPickerButtonMobile
+        backgroundColor={color('backgroundColor', '#FF45C3')}
+        contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+        stateType={select('stateType', STATE_TYPES, 'darkening')}
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
-        view={select(
-            'view',
-            ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost', 'accent'],
-            'secondary',
-        )}
         variant={select('variant', ['default', 'compact'])}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
@@ -60,16 +59,14 @@ export const options = [
     />
 </Story>
 
-<Story name='PickerButtonDesktop'>
-    <PickerButtonDesktop
+<Story name='CustomPickerButtonDesktop'>
+    <CustomPickerButtonDesktop
+        backgroundColor={color('backgroundColor', '#FF45C3')}
+        contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+        stateType={select('stateType', STATE_TYPES, 'darkening')}
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
-        view={select(
-            'view',
-            ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost', 'accent'],
-            'secondary',
-        )}
         variant={select('variant', ['default', 'compact'])}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
@@ -81,10 +78,10 @@ export const options = [
 {/* Docs */}
 
 <ComponentHeader
-    name='PickerButton'
+    name='CustomPickerButton'
     version={packageJson.version}
     package='@alfalab/core-components/picker-button'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=86221%3A109403&t=CXazzkYWpueZquEy-1'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=86259%3A120043&t=CXazzkYWpueZquEy-1'
     children='Кнопка используется для скрытия редких или одинаковых по контексту действий.'
 />
 

@@ -1,0 +1,18 @@
+@import '../../../themes/src/default.css';
+
+.iconContainer {
+    display: flex;
+    transition: transform 0.15s ease-in-out;
+}
+
+.addonsContainer {
+    display: flex;
+
+    &.showControlIcon {
+        margin-right: var(--gap-2xs);
+    }
+}
+
+.open {
+    transform: var(--arrow-transform);
+}
