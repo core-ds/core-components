@@ -1,7 +1,7 @@
 ---
-"@alfalab/core-components-calendar": patch
-"@alfalab/core-components-input-autocomplete": patch
-"@alfalab/core-components-select": patch
+"@alfalab/core-components-calendar": minor
+"@alfalab/core-components-input-autocomplete": minor
+"@alfalab/core-components-select": minor
 ---
 
 В мобильных модальных компонентах кнопка подтверждения теперь находится справа
