@@ -222,14 +222,14 @@ describe('Select', () => {
             await clickOption(1);
             await clickOption(2);
 
-            expect(getByText(expectedResult)).toBeInTheDocument();
+            await waitFor(() => expect(getByText(expectedResult)).toBeInTheDocument());
 
             await waitFor(() => {
                 fireEvent.click(getByTestId('select-field'));
                 fireEvent.click(getByText(optionsToSelect[2]));
             });
 
-            expect(getByText(expectedResultTruncated)).toBeInTheDocument();
+            await waitFor(() => expect(getByText(expectedResultTruncated)).toBeInTheDocument());
         });
 
         it('should not allow unselect by default', async () => {
@@ -242,13 +242,13 @@ describe('Select', () => {
             fireEvent.click(field);
             fireEvent.click(getByText(optionContent));
 
-            expect(getByText(optionContent)).toBeInTheDocument();
+            await waitFor(() => expect(getByText(optionContent)).toBeInTheDocument());
 
             fireEvent.click(field);
             const option = await findByText(optionContent, { selector: '[role="option"] *' });
             fireEvent.click(option);
 
-            expect(getByText(optionContent)).toBeInTheDocument();
+            await waitFor(() => expect(getByText(optionContent)).toBeInTheDocument());
         });
 
         it('should allow unselect', async () => {
@@ -267,13 +267,13 @@ describe('Select', () => {
             fireEvent.click(field);
             fireEvent.click(getByText(optionContent));
 
-            expect(getByText(optionContent)).toBeInTheDocument();
+            await waitFor(() => expect(getByText(optionContent)).toBeInTheDocument());
 
             fireEvent.click(field);
             const option = await findByText(optionContent, { selector: '[role="option"] *' });
             fireEvent.click(option);
 
-            expect(queryByText(optionContent)).not.toBeInTheDocument();
+            await waitFor(() => expect(queryByText(optionContent)).not.toBeInTheDocument());
         });
 
         it('should not close on select', async () => {
@@ -663,11 +663,11 @@ describe('Select', () => {
 
             const input = container.querySelector('.input') as HTMLInputElement;
 
-            await fireEvent.click(input);
+            fireEvent.click(input);
 
             const option = await findByText(options[0].content);
-            await fireEvent.click(option);
-            expect(cb).toBeCalledTimes(1);
+            fireEvent.click(option);
+            await waitFor(() => expect(cb).toBeCalledTimes(1));
         });
 
         it.skip('should call onScroll', async () => {
@@ -727,7 +727,9 @@ describe('Select', () => {
             fireEvent.click(getByTestId('select-field'));
             fireEvent.click(getByText(optionToSelect.content));
 
-            expect(valueRenderer).toHaveBeenLastCalledWith(expectedCallArgument);
+            await waitFor(() =>
+                expect(valueRenderer).toHaveBeenLastCalledWith(expectedCallArgument),
+            );
         });
     });
 
