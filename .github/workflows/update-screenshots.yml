@@ -16,10 +16,6 @@ jobs:
       - name: Checkout LFS objects
         run: git lfs checkout
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
       - name: Install dependencies
         run: yarn --pure-lockfile
 

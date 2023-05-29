@@ -53,23 +53,10 @@
     tslib "^2.4.0"
     ui-primitives "^11.17.0"
 
-"@alfalab/data@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.2.3.tgz#b4cc25542ecef657c6f0b64608eb6f9e37f35524"
-  integrity sha512-BWzAJkjxg/+ksajaTv2z35ElFh/jNZE3d+hlOWKfO9uxWITeKKEDs10yPWIlZRcY33q0QtgBlPfp5mQ6BdtnWg==
-
 "@alfalab/data@^1.4.2":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.4.2.tgz#bceab1875b34d92a183fafd481d66e2dd2fd720e"
   integrity sha512-+MqVDEFM/bcl4hgL3uoXGcN0w8Nb9SJ8zeJVF8SzZVEtJHhrYMR/DRHul5OkeatZB2LLt6YfLwX4aoWRChdomg==
-
-"@alfalab/hooks@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.11.0.tgz#816be738cc5787e752cf8a8d66aa22ed5b867c6a"
-  integrity sha512-uDiC5EkxIP3Ov96Fc8Ig9rdFhJ4LCQMs+GXuloBTMuTa6B99hJT1JPMFI8O5j3LSHxyOmJN+Jwqk8dqGAoPH+Q==
-  dependencies:
-    "@alfalab/utils" "^1.12.1"
-    uuid "^8.3.2"
 
 "@alfalab/hooks@^1.13.0":
   version "1.13.0"
@@ -78,16 +65,6 @@
   dependencies:
     "@alfalab/utils" "^1.13.2"
     uuid "^8.3.2"
-
-"@alfalab/hooks@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/@alfalab/hooks/-/hooks-1.4.1.tgz"
-  integrity sha512-TFHBw9FcZrr8G/LKUwIzHVg+DPmyKiak0FAe0THjdrSYrRttm0DDf5ljTe0+3FBJNgUu3hbGbEJUEFg2sGflig==
-
-"@alfalab/hooks@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.7.0.tgz#b1e15d660b544925fdaf1491f1259e6480739483"
-  integrity sha512-NQL8V90vwjCo8VPM8KncvB/3x5RskbRkQ+iAUSq3AaLdCKPS0K6Bu3Up30lFsqBiuVdr/Hne/HxBW7EBhUf5EQ==
 
 "@alfalab/icons-classic@^2.3.0":
   version "2.3.0"
@@ -139,14 +116,6 @@
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.5.0.tgz#2eb559978a9835a80afb1bf7d8ba36c7b12b6a49"
   integrity sha512-3gYD2jZa0Vv/FvoiLVRec/U5JMBpg2AUrIipyUne7ymlnOH9ETM3ecZVPTWAh3K3kPoPFSvVV8vSrKkG/qEliw==
-
-"@alfalab/utils@^1.12.1":
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.12.1.tgz#d6dab30b4a8de8bbc0e82e21caba0b1f9432757c"
-  integrity sha512-msCIbA3SUVpgL1XVudRwh/6ahJlFFaOsoso3Za8JjaNIW2TYu8yTVVklRuOXSIjzKZX7xZT0m901Q+i7XHeC/w==
-  dependencies:
-    "@alfalab/data" "^1.2.3"
-    fast-redact "^3.1.1"
 
 "@alfalab/utils@^1.13.2":
   version "1.13.2"
@@ -11239,7 +11208,7 @@ esbuild-register@^3.4.0:
   dependencies:
     debug "^4.3.4"
 
-esbuild@^0.17.0:
+esbuild@^0.17.0, esbuild@^0.17.19:
   version "0.17.19"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.17.19.tgz#087a727e98299f0462a3d0bcdd9cd7ff100bd955"
   integrity sha512-XQ0jAPFkK/u3LcVRcvVHQcTIqD6E2H1fvZMA5dQPSOWb3suUbWbfbRf94pjc0bNzRYLfIrDRQXr7X+LHIm5oHw==
@@ -12161,11 +12130,6 @@ fast-levenshtein@^2.0.6, fast-levenshtein@~2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
-
-fast-redact@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-3.1.1.tgz#790fcff8f808c2e12fabbfb2be5cb2deda448fa0"
-  integrity sha512-odVmjC8x8jNeMZ3C+rPMESzXVSEU8tSWSHv9HFxP2mm89G/1WwqhrerJDQm9Zus8X6aoRgQDThKqptdNA6bt+A==
 
 fastest-levenshtein@^1.0.16:
   version "1.0.16"
