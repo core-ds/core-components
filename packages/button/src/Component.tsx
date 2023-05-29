@@ -15,6 +15,8 @@ import cn from 'classnames';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
+import { getDataTestId } from '../../utils';
+
 import styles from './index.module.css';
 import defaultColors from './default.module.css';
 import invertedColors from './inverted.module.css';
@@ -63,6 +65,11 @@ export type ComponentProps = {
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Дополнительный класс для спиннера
+     */
+    spinnerClassName?: string;
 
     /**
      * Выводит ссылку в виде кнопки
@@ -141,6 +148,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             size = 'm',
             block = false,
             className,
+            spinnerClassName,
             dataTestId,
             href,
             loading = false,
@@ -211,8 +219,9 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
 
                 {showLoader && (
                     <Spinner
-                        visible={showLoader}
-                        className={cn(styles.loader, colorStyles[colors].loader)}
+                        dataTestId={getDataTestId(dataTestId, 'loader')}
+                        visible={true}
+                        className={cn(styles.loader, colorStyles[colors].loader, spinnerClassName)}
                     />
                 )}
 

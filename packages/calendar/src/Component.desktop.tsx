@@ -110,6 +110,11 @@ export type CalendarDesktopProps = {
     onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
+     * Обработчик нажатия на период
+     */
+    onPeriodClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -162,6 +167,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             onMonthChange,
             onMonthClick,
             onYearClick,
+            onPeriodClick,
             dataTestId,
             hasHeader = true,
             responsive,
@@ -311,6 +317,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                                 showCurrentYearSelector={showCurrentYearSelector}
                                 onPrevArrowClick={handlePrevArrowClick}
                                 onNextArrowClick={handleNextArrowClick}
+                                onPeriodClick={onPeriodClick}
                             />
                         ) : (
                             <MonthYearHeader
@@ -323,7 +330,13 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                     </Header>
                 )}
 
-                <div className={cn(styles.container, styles[view])}>
+                <div
+                    className={cn(
+                        styles.container,
+                        { [styles.customScrollbar]: view === 'years' },
+                        styles[view],
+                    )}
+                >
                     {view === 'days' && (
                         <DaysTable
                             weeks={weeks}

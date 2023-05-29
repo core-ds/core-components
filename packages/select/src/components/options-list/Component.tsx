@@ -36,6 +36,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             open,
             header,
             footer,
+            showFooter = true,
             optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
@@ -123,7 +124,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
                 {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
-                {footer && (
+                {showFooter && footer && (
                     <div
                         className={cn(styles.optionsListFooter, {
                             [styles.withBorder]:

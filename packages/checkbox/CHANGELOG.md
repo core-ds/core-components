@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.1.3
+
+### Patch Changes
+
+### [#667](https://github.com/core-ds/core-components/pull/667)
+
+-   Изменены токены цвета иконок на static
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
 ## 3.1.2
 
 ### Patch Changes

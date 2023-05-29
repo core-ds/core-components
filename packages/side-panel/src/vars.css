@@ -22,9 +22,9 @@
     --side-panel-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-border-secondary);
 
     /* desktop */
-    --side-panel-s-header-desktop-content-paddings: var(--gap-s);
-    --side-panel-s-header-desktop-font-size: 20px;
-    --side-panel-s-header-desktop-line-height: 26px;
+    --side-panel-s-header-desktop-content-paddings: 6px var(--gap-s) var(--gap-m);
+    --side-panel-s-header-desktop-font-size: 30px;
+    --side-panel-s-header-desktop-line-height: 36px;
     --side-panel-header-desktop-font-weight: bold;
     --side-panel-header-desktop-font-family: var(--font-family-system);
 

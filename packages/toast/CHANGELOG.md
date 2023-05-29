@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.2.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.21
+
 ## 4.2.23
 
 ### Patch Changes

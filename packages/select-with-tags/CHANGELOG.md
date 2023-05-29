@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.0.35
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   select@14.1.2
+
 ## 7.0.34
 
 ### Patch Changes

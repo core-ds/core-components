@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.6.1
+
+### Patch Changes
+
+### [#667](https://github.com/core-ds/core-components/pull/667)
+
+-   Изменены токены цвета иконок на static
+
 ## 11.6.0
 
 ### Minor Changes

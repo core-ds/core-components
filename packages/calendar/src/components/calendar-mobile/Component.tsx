@@ -1,8 +1,9 @@
-import React, { forwardRef, useMemo, useRef } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
+import getMonth from 'date-fns/getMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
@@ -77,12 +78,20 @@ const CalendarMonthOnlyView = ({
     yearsAmount = 3,
     dayAddons,
     shape = 'rounded',
-}: CalendarMobileProps) => {
+    scrollableContainer,
+}: CalendarMobileProps & {
+    scrollableContainer?: HTMLElement;
+}) => {
     const initialMonthIndex = useMemo(() => {
         const currentMonthIndex = new Date().getMonth();
 
-        return yearsAmount * 12 + currentMonthIndex;
-    }, [yearsAmount]);
+        let monthIndex = currentMonthIndex;
+
+        if (value) monthIndex = getMonth(value);
+        if (selectedFrom) monthIndex = getMonth(selectedFrom);
+
+        return yearsAmount * 12 + monthIndex;
+    }, [selectedFrom, value, yearsAmount]);
 
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
@@ -186,13 +195,17 @@ const CalendarMonthOnlyView = ({
         </div>
     );
 
+    if (!scrollableContainer) return null;
+
     return (
         <Virtuoso
             totalCount={activeMonths.length}
             itemContent={renderMonth}
-            initialTopMostItemIndex={initialMonthIndex}
-            increaseViewportBy={800}
+            initialTopMostItemIndex={{ index: initialMonthIndex, align: 'center' }}
+            increaseViewportBy={1000}
             itemSize={(el) => el.getBoundingClientRect().height + 32}
+            customScrollParent={scrollableContainer}
+            useWindowScroll={true}
         />
     );
 };
@@ -218,7 +231,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         },
         ref,
     ) => {
-        const modalRef = useRef<HTMLDivElement>(null);
+        const [modalRef, setModalRef] = useState<HTMLElement>();
 
         const monthOnlyView = selectorView === 'month-only';
 
@@ -259,6 +272,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                     <CalendarMonthOnlyView
                         open={open}
                         yearsAmount={yearsAmount}
+                        scrollableContainer={modalRef}
                         {...commonProps}
                         {...restProps}
                     />
@@ -321,7 +335,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 <ModalMobile
                     open={open}
                     onClose={handleClose}
-                    ref={modalRef}
+                    ref={(node: HTMLDivElement) => setModalRef(node)}
                     className={styles.modal}
                     wrapperClassName={styles.wrapper}
                 >
@@ -330,10 +344,10 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                             hasCloser={true}
                             title={title}
                             sticky={true}
+                            bottomAddons={renderDayNames()}
                             className={cn({ [styles.withZIndex]: selectorView === 'full' })}
                         />
                     )}
-                    {monthOnlyView && renderDayNames()}
                     <ModalMobile.Content flex={true}>{renderContent()}</ModalMobile.Content>
                     <ModalMobile.Footer
                         sticky={true}

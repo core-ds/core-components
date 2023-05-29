@@ -7,7 +7,6 @@
 /* eslint-disable no-console */
 const shell = require('shelljs');
 const parseGitUrl = require('git-url-parse');
-const findComponentPath = require('../tools/storybook/findComponentPath');
 
 /** Config for github */
 const defaultConfig = {
@@ -128,14 +127,9 @@ function buildStorybookUrl() {
                 .join('');
         };
 
-        const componentPath = findComponentPath(
-            packageToComponentName(affectedPackage),
+        url += `/?path=/docs/components-${packageToComponentName(
             affectedPackage,
-        );
-
-        if (componentPath.url) {
-            url += `/?path=/docs/${componentPath.url}--${affectedPackage}`;
-        }
+        ).toLowerCase()}--docs`;
     }
 
     return encodeURI(url);

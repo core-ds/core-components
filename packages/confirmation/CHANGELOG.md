@@ -1,5 +1,21 @@
 # Change Log
 
+## 12.4.17
+
+### Patch Changes
+
+### [865f8b492](https://github.com/core-ds/core-components/commit/865f8b4922e46a8011187447783fc26216846591)
+
+-   Убран лишний пробел на мобильном hint-экране
+
+## 12.4.16
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
 ## 12.4.15
 
 ### Patch Changes

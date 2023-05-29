@@ -20,5 +20,9 @@
 .static {
     & .calendar {
         width: var(--calendar-inner-width);
+
+        & > div:first-child {
+            padding: var(--gap-m) 0 var(--gap-s);
+        }
     }
 }

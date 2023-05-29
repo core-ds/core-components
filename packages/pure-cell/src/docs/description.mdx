@@ -111,11 +111,7 @@ render(() =>  (
                         titleColor='primary'
                         valueColor='secondary'
                         view='component'
-                        value={ 
-                            <Typography.Text font='system'>
-                                <Amount value={100099} minority={100} transparentMinor={true} bold='full' currency="RUB"/>
-                            </Typography.Text>
-                        }
+                        value={ <Amount value={100099} minority={100} transparentMinor={true} bold='full' currency="RUB"/> }
                     >
                         Title
                     </PureCell.Text>
@@ -178,7 +174,7 @@ render(() =>  (
                         titleColor='primary'
                         view='component'
                         value={ 
-                            <Typography.Text font='system' color='positive'>
+                            <Typography.Text view='component' font='system' color='positive'>
                                 <Amount value={18777} showPlus={true} currency="RUB" minority={1} bold='none'/>
                             </Typography.Text>
                         }

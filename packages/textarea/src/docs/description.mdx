@@ -22,44 +22,44 @@ render(() => {
             setSelected(selected);
         }
     };
-    const visibleLabel = selected.key !== '1'
+    const visibleLabel = selected.key !== '1';
     const positionLabel = visibleLabel && selected.key !== '2' ? 'outer' : 'inner';
     return (
-            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                <Select
-                    label='Лейбл'
-                    allowUnselect={true}
-                    block={true}
-                    size='m'
-                    options={OPTIONS}
-                    Option={BaseOption}
-                    onChange={handleChange}
-                    selected={selected}
-                />
-                <Gap size='xl' />
-                <Textarea 
-                    label={visibleLabel && 'Автоматическое изменение высоты'} 
-                    block={true}
-                    labelView={positionLabel}
-                />
-                <Gap size='m' />
-                <Textarea 
-                    label={visibleLabel && 'Высота в три строки'} 
-                    minRows={3} 
-                    autosize={false} 
-                    block={true} 
-                    labelView={positionLabel}
-                />
-                <Gap size='m' />
-                <Textarea
-                    label={visibleLabel && 'Ручное управление высотой'}
-                    labelView={positionLabel}
-                    autosize={false}
-                    resize='vertical'
-                    minRows={3}
-                    block={true}
-                />
-            </div>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Select
+                label='Лейбл'
+                allowUnselect={true}
+                block={true}
+                size='m'
+                options={OPTIONS}
+                Option={BaseOption}
+                onChange={handleChange}
+                selected={selected}
+            />
+            <Gap size='xl' />
+            <Textarea
+                label={visibleLabel && 'Автоматическое изменение высоты'}
+                block={true}
+                labelView={positionLabel}
+            />
+            <Gap size='m' />
+            <Textarea
+                label={visibleLabel && 'Высота в три строки'}
+                minRows={3}
+                autosize={false}
+                block={true}
+                labelView={positionLabel}
+            />
+            <Gap size='m' />
+            <Textarea
+                label={visibleLabel && 'Ручное управление высотой'}
+                labelView={positionLabel}
+                autosize={false}
+                resize='vertical'
+                minRows={3}
+                block={true}
+            />
+        </div>
     );
 });
 //MOBILE
@@ -75,43 +75,43 @@ render(() => {
             setSelected(selected);
         }
     };
-    const visibleLabel = selected.key !== '1'
+    const visibleLabel = selected.key !== '1';
     const positionLabel = visibleLabel && selected.key !== '2' ? 'outer' : 'inner';
     return (
-            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                <SelectMobile
-                    label='Лейбл'
-                    allowUnselect={true}
-                    block={true}
-                    size='m'
-                    options={OPTIONS}
-                    onChange={handleChange}
-                    selected={selected}
-                />
-                <Gap size='xl' />
-                <Textarea 
-                    label={visibleLabel && 'Автоматическое изменение высоты'} 
-                    block={true}
-                    labelView={positionLabel}
-                />
-                <Gap size='m' />
-                <Textarea 
-                    label={visibleLabel && 'Высота в три строки'} 
-                    minRows={3} 
-                    autosize={false} 
-                    block={true} 
-                    labelView={positionLabel}
-                />
-                <Gap size='m' />
-                <Textarea
-                    label={visibleLabel && 'Ручное управление высотой'}
-                    labelView={positionLabel}
-                    autosize={false}
-                    resize='vertical'
-                    minRows={3}
-                    block={true}
-                />
-            </div>
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <SelectMobile
+                label='Лейбл'
+                allowUnselect={true}
+                block={true}
+                size='m'
+                options={OPTIONS}
+                onChange={handleChange}
+                selected={selected}
+            />
+            <Gap size='xl' />
+            <Textarea
+                label={visibleLabel && 'Автоматическое изменение высоты'}
+                block={true}
+                labelView={positionLabel}
+            />
+            <Gap size='m' />
+            <Textarea
+                label={visibleLabel && 'Высота в три строки'}
+                minRows={3}
+                autosize={false}
+                block={true}
+                labelView={positionLabel}
+            />
+            <Gap size='m' />
+            <Textarea
+                label={visibleLabel && 'Ручное управление высотой'}
+                labelView={positionLabel}
+                autosize={false}
+                resize='vertical'
+                minRows={3}
+                block={true}
+            />
+        </div>
     );
 });
 ```
@@ -128,5 +128,5 @@ render(() => {
 
 ## Морфология
 
-Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--form-control),
+Поле ввода является оберткой над [FormControl](?path=/docs/components-formcontrol--docs),
 поэтому наследует все доступные для него настройки.

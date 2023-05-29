@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-plate",
-    "version": "6.3.16",
+    "version": "6.3.17",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -18,8 +18,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^8.3.0",
-        "@alfalab/core-components-icon-button": "^6.0.12",
-        "@alfalab/hooks": "^1.4.1",
+        "@alfalab/core-components-icon-button": "^6.1.0",
+        "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"

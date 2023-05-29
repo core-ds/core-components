@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.1.21
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
+-   Обновлены зависимости
+    -   icon-button@6.1.0
+
 ## 5.1.20
 
 ### Patch Changes

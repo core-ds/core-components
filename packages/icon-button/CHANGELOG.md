@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   В компонент IconButton добавлен пропс alignIcon, отвечающий за выравнивание иконки
+
 ## 6.0.12
 
 ### Patch Changes

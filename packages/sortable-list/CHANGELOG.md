@@ -1,5 +1,13 @@
 # @alfalab/core-components-sortable-list
 
+## 1.0.2
+
+### Patch Changes
+
+### [#635](https://github.com/core-ds/core-components/pull/635)
+
+-   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+
 ## 1.0.1
 
 ### Patch Changes

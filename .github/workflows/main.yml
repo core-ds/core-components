@@ -34,15 +34,8 @@ jobs:
     - name: Install dependencies
       run: yarn
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-
     - name: Run lint
       run: yarn lint
-
-    # - name: Run test
-    #   run: yarn test
 
     - name: Run build
       id: demo_build
@@ -64,7 +57,7 @@ jobs:
     # storybook_url заполняется в demo-build.js
     - name: Create comment
       if: success() && steps.find_pr.outputs.number
-      uses: peter-evans/create-or-update-comment@v2
+      uses: peter-evans/create-or-update-comment@v3
       with:
         token: ${{ secrets.BOT_AUTH_TOKEN }}
         issue-number: ${{ steps.find_pr.outputs.pr }}

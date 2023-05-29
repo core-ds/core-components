@@ -8,8 +8,10 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Loader } from '@alfalab/core-components-loader';
+import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
+
+import { getDataTestId } from '../../utils';
 
 import { useLoader } from './hooks';
 
@@ -139,7 +141,15 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                         iconWrapperClassName,
                     )}
                 >
-                    {showLoader ? <Loader dataTestId='loader' /> : icon}
+                    {showLoader ? (
+                        <Spinner
+                            dataTestId={getDataTestId(dataTestId, 'loader')}
+                            visible={true}
+                            className={cn(styles.loader, colorStyles[colors].loader)}
+                        />
+                    ) : (
+                        icon
+                    )}
                 </span>
                 <span className={styles.label}>{children}</span>
             </Fragment>

@@ -133,11 +133,12 @@ render(() => {
 
 ## Состояния и стили
 
-У тега есть две опции, отвечающие за внешний вид: 
-* shape (форма) — овальные или прямоугольные.
-* view (стиль) — залитые или бордерные. 
+У тега есть две опции, отвечающие за внешний вид:
 
-Тег может находиться в активном и неактивном состоянии. 
+-   shape (форма) — овальные или прямоугольные.
+-   view (стиль) — залитые или бордерные.
+
+Тег может находиться в активном и неактивном состоянии.
 Взаимодействие с тегом может быть ограничено с помощью свойства `disabled`.
 
 ```jsx live
@@ -145,11 +146,11 @@ render(() => {
     const [disabled, setDisabled] = React.useState(false);
 
     const VIEWS = [
-        {key: 'outlinedRounded', view:'outlined', shape: 'rounded' }, 
-        {key: 'filledRounded', view:'filled', shape: 'rounded' }, 
-        {key: 'outlinedRectangular',view:'outlined', shape: 'rectangular' }, 
-        {key: 'filledRectangular', view:'filled', shape: 'rectangular' }
-    ]
+        { key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },
+        { key: 'filledRounded', view: 'filled', shape: 'rounded' },
+        { key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },
+        { key: 'filledRectangular', view: 'filled', shape: 'rectangular' },
+    ];
 
     const [checked, setChecked] = React.useState(
         Object.fromEntries(VIEWS.map((item) => [item.key, false])),
@@ -157,7 +158,6 @@ render(() => {
 
     return (
         <Container>
-        
             <Row align='middle'>
                 {VIEWS.map((item) => (
                     <div key={item.key} style={{ marginRight: 12 }}>
@@ -167,7 +167,9 @@ render(() => {
                             shape={item.shape}
                             disabled={disabled}
                             checked={checked[item.key]}
-                            onClick={() => setChecked({ ...checked, [item.key]: !checked[item.key] })}
+                            onClick={() =>
+                                setChecked({ ...checked, [item.key]: !checked[item.key] })
+                            }
                         >
                             Label
                         </Tag>
@@ -183,21 +185,21 @@ render(() => {
                 label='Disabled'
             />
         </Container>
-    )
+    );
 });
 //MOBILE
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
 
-    const ROUNDEDS= [
-        {key: 'outlinedRounded', view:'outlined', shape: 'rounded' }, 
-        {key: 'filledRounded', view:'filled', shape: 'rounded' }, 
-    ]
+    const ROUNDEDS = [
+        { key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },
+        { key: 'filledRounded', view: 'filled', shape: 'rounded' },
+    ];
 
-    const RECTANGLES= [
-        {key: 'outlinedRectangular',view:'outlined', shape: 'rectangular' }, 
-        {key: 'filledRectangular', view:'filled', shape: 'rectangular' }
-    ]
+    const RECTANGLES = [
+        { key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },
+        { key: 'filledRectangular', view: 'filled', shape: 'rectangular' },
+    ];
     const [checkedRounded, setCheckedRounded] = React.useState(
         Object.fromEntries(ROUNDEDS.map((item) => [item.key, false])),
     );
@@ -207,7 +209,6 @@ render(() => {
 
     return (
         <Container>
-        
             <Row align='middle'>
                 {ROUNDEDS.map((item) => (
                     <div key={item.key} style={{ marginRight: 12 }}>
@@ -217,7 +218,12 @@ render(() => {
                             shape={item.shape}
                             disabled={disabled}
                             checked={checkedRounded[item.key]}
-                            onClick={() => setCheckedRounded({ ...checkedRounded, [item.key]: !checkedRounded[item.key] })}
+                            onClick={() =>
+                                setCheckedRounded({
+                                    ...checkedRounded,
+                                    [item.key]: !checkedRounded[item.key],
+                                })
+                            }
                         >
                             Label
                         </Tag>
@@ -233,7 +239,12 @@ render(() => {
                             shape={item.shape}
                             disabled={disabled}
                             checked={checkedRectangular[item.key]}
-                            onClick={() => setCheckedRectangular({ ...checkedRectangular, [item.key]: !checkedRectangular[item.key] })}
+                            onClick={() =>
+                                setCheckedRectangular({
+                                    ...checkedRectangular,
+                                    [item.key]: !checkedRectangular[item.key],
+                                })
+                            }
                         >
                             Label
                         </Tag>
@@ -249,13 +260,13 @@ render(() => {
                 label='Disabled'
             />
         </Container>
-    )
+    );
 });
 ```
 
 ## Связанные компоненты
 
-Служат триггерами для переключения контекста, см. компонент [Tabs](/docs/tabs--tabs).
-Используются для фильтрации контента, см. компонент [FilterTag](/docs/filtertag--filter-tag).
-Выполняют роль радио-кнопок см. компонент [RadioGroup](/docs/radiogroup--radio-group).
-Выполняют роль чекбоксов см. компонент [CheckboxGroup](/docs/checkboxgroup--checkbox-group).
+Служат триггерами для переключения контекста, см. компонент [Tabs](?path=/docs/components-tabs--docs).
+Используются для фильтрации контента, см. компонент [FilterTag](?path=/docs/components-filtertag--docs).
+Выполняют роль радио-кнопок см. компонент [RadioGroup](?path=/docs/components-radiogroup--docs).
+Выполняют роль чекбоксов см. компонент [CheckboxGroup](?path=/docs/components-checkboxgroup--docs).

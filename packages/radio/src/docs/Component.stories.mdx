@@ -1,6 +1,7 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { createComponentUrl } from 'storybook/utils/createComponentUrl';
 import { Radio } from '@alfalab/core-components-radio';
 import { Link } from '@alfalab/core-components-link';
 
@@ -51,13 +52,9 @@ import Changelog from '../../CHANGELOG.md?raw';
     package='@alfalab/core-components/radio'
     design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=171%3A29171'
 >
-    Используется только в составе &nbsp;
-    <Link
-        view='default'
-        underline={false}
-        href={`${window.location.href.split('iframe')[0]}?path=/docs/radiogroup--radio-group`}
-    >
-        RadioGroup.
+    {'Используется только в составе\u00A0'}
+    <Link view='default' underline={false} href={createComponentUrl('RadioGroup')}>
+        {'RadioGroup.'}
     </Link>
 </ComponentHeader>
 

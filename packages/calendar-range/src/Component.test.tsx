@@ -395,6 +395,31 @@ describe('CalendarRange', () => {
     });
 
     describe('Callback tests', () => {
+        it('should return invalid dateTo value when onChange calls ', async () => {
+            const dateFrom = '05.05.2023';
+            const dateTo = '04.05.2023';
+            const onChange = jest.fn();
+            const onInputToChange = jest.fn();
+            const dtiTo = 'input_to';
+            const { getByTestId } = render(
+                <CalendarRange
+                    onChange={onChange}
+                    inputToProps={{ onInputChange: onInputToChange, dataTestId: dtiTo }}
+                    valueFrom={dateFrom}
+                    returnInvalidDates={true}
+                />,
+            );
+
+            fireEvent.change(getByTestId(dtiTo), { target: { value: dateTo } });
+
+            expect(onChange).toBeCalledWith({
+                dateFrom: new Date('2023.05.05').getTime(),
+                dateTo: new Date('2023.05.04').getTime(),
+                valueFrom: dateFrom,
+                valueTo: dateTo,
+            });
+        });
+
         it('should call onDateFromChange callback', async () => {
             const cb = jest.fn();
             const { container } = render(<CalendarRange onDateFromChange={cb} />);

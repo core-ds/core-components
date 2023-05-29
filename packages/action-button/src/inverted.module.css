@@ -18,6 +18,10 @@
     --action-button-inverted-secondary-active-color: var(
         --color-light-bg-secondary-inverted-tint-20
     );
+
+    /* spinner */
+    --action-button-spinner-inverted-default-color: var(--color-light-graphic-primary-inverted);
+    --action-button-spinner-inverted-primary-color: var(--color-light-graphic-primary);
 }
 
 .primary {
@@ -35,6 +39,10 @@
     &:active .iconWrapper {
         background-color: var(--action-button-inverted-primary-active-color);
     }
+
+    & .loader {
+        color: var(--action-button-spinner-inverted-primary-color);
+    }
 }
 
 .secondary {
@@ -51,5 +59,9 @@
 
     &:active .iconWrapper {
         background-color: var(--action-button-inverted-secondary-active-color);
+    }
+
+    & .loader {
+        color: var(--action-button-spinner-inverted-default-color);
     }
 }

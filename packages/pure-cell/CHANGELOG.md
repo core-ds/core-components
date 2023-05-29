@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.2.10
+
+### Patch Changes
+
+### [#679](https://github.com/core-ds/core-components/pull/679)
+
+-   Добавлено значение auto для растягивания контента по всей высоте компонента Addon
+
+## 4.2.9
+
+### Patch Changes
+
+### [#674](https://github.com/core-ds/core-components/pull/674)
+
+-   Изменена дефолтная высота компонента
+
 ## 4.2.8
 
 ### Patch Changes
