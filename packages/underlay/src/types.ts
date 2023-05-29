@@ -39,11 +39,10 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
      */
     borderColor?: BorderColorType;
 
-    /*
-    * Настройка выступа за границы underlay
-    * true - разрешен
-    * false - запрещен
-    * */
+    /**
+    * Настройка выступа за границы (true - разрешен)
+    * default: true
+    */
     overflow?: boolean;
 
     /**

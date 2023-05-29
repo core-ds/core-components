@@ -1,6 +1,6 @@
 ## Примеры
 
-Настраиваются: цвет фона, тень, радиус скругления, величина отступов, цвет и толщина обводки. 
+Настраиваются: цвет фона, тень, радиус скругления, величина отступов, цвет и толщина обводки.
 При необходимости, можно сделать компонент кликабельным.
 
 ```jsx live
@@ -13,10 +13,10 @@ render(() => {
         border: '1px dashed rgb(55, 120, 251)',
         boxSizing: 'border-box',
     }
-    
+
     const handleClick = () => {
       alert('Клик!')
-    } 
+    }
 
     const css = `
         div[data-test-id='test1'] {
@@ -24,16 +24,16 @@ render(() => {
             width: 320px;
             height: 200px;
         }
-        
+
         div[data-test-id='test2'] {
             background-image: url(./images/underlay.png);
-            background-repeat: no-repeat;            
+            background-repeat: no-repeat;
         }
     `;
 
     return (
     <Container>
-        <Underlay 
+        <Underlay
             onClick={handleClick}
             borderSize={1}
             borderRadius='xl'
@@ -43,6 +43,7 @@ render(() => {
                 bottom: 'm',
                 right: 'm'
             }}
+            overflow={false}
             backgroundColor='positive-muted'
             borderColor='graphic-positive'
             dataTestId='test1'
@@ -51,7 +52,7 @@ render(() => {
         </Underlay>
         <style>{css}</style>
         <Gap size='l'/>
-        <Underlay 
+        <Underlay
             padding='m'
             dataTestId='test2'
             >

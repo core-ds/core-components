@@ -85,12 +85,13 @@ export const SHADOW = [
 <Story name='Underlay'>
     {React.createElement(() => {
         const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
-        const borderRadius = select('borderRadius', ['m', 'xl', 'xxl'], 'm');
+        const borderRadius = select('borderRadius', ['m', 'l', 'xl', 'xxl'], 'm');
         const borderSize = select('borderSize', ['1', '2', '4'], '2');
         const paddingTop = select('padding.top', paddingSizes, 'm');
         const paddingRight = select('padding.right', paddingSizes, 'm');
         const paddingBottom = select('padding.bottom', paddingSizes, 'm');
         const paddingLeft = select('padding.left', paddingSizes, 'm');
+        const overflow = select('overflow', ['true', 'false'], 'false');
         return (
             <Underlay
                 borderRadius={borderRadius}
@@ -98,6 +99,7 @@ export const SHADOW = [
                 shadow={select('shadow', SHADOW, 'shadow-l')}
                 backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
                 borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
+                overflow={overflow === 'true'}
                 padding={{
                     top: paddingTop,
                     right: paddingRight,
