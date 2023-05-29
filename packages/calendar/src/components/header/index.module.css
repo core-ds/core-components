@@ -4,7 +4,7 @@
 .header {
     width: 100%;
     box-sizing: border-box;
-    padding: var(--gap-m) 0 var(--gap-s);
+    padding: var(--gap-m) var(--gap-m) var(--gap-s);
     transition: box-shadow 0.2s ease;
     display: flex;
     justify-content: center;

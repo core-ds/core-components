@@ -6,7 +6,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
     class="component calendarVisible"
   >
     <div
-      class="cc-calendar component sixWeeks"
+      class="cc-calendar component contentCalendar sixWeeks"
       tabindex="-1"
     >
       <div

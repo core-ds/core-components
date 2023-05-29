@@ -15,10 +15,8 @@
 }
 
 .dayNames {
-    padding: 0 var(--gap-m);
     width: 100%;
     position: sticky;
-    border-bottom: 1px solid var(--color-light-border-primary);
     background: var(--modal-header-background);
     top: 0;
     height: 32px;
