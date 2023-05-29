@@ -30,7 +30,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             header,
             footer,
-            showFooter,
+            showFooter = true,
             optionsListWidth,
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
