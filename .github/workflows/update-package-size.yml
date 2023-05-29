@@ -28,7 +28,7 @@ jobs:
 
       - name: Check git status
         id: gs
-        run: echo "file_diff=$(git diff ./.storybook/package-sizes.json)" >> $GITHUB_OUTPUT
+        run: echo "file_diff=$(git diff ./.storybook/package-sizes.json | xargs)" >> $GITHUB_OUTPUT
 
       - name: Create commit
         if: ${{ steps.gs.outputs.file_diff }}
