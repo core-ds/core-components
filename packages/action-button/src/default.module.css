@@ -14,6 +14,10 @@
     --action-button-secondary-base-bg-color: var(--color-light-bg-secondary);
     --action-button-secondary-hover-color: var(--color-light-bg-secondary-shade-7);
     --action-button-secondary-active-color: var(--color-light-bg-secondary-shade-15);
+
+    /* spinner */
+    --action-button-spinner-primary-color: var(--color-light-graphic-primary-inverted);
+    --action-button-spinner-default-color: var(--color-light-graphic-primary);
 }
 
 .primary {
@@ -31,6 +35,10 @@
     &:active .iconWrapper {
         background-color: var(--action-button-primary-active-color);
     }
+
+    & .loader {
+        color: var(--action-button-spinner-primary-color);
+    }
 }
 
 .secondary {
@@ -47,5 +55,9 @@
 
     &:active .iconWrapper {
         background-color: var(--action-button-secondary-active-color);
+    }
+
+    & .loader {
+        color: var(--action-button-spinner-default-color);
     }
 }
