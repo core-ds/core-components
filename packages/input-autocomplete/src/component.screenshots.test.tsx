@@ -102,3 +102,39 @@ describe('InputAutocompleteMobile | interactions tests', () => {
         }
     });
 });
+
+describe('InputAutocompleteModalMobile | interactions', () => {
+    test('Fill value', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'InputAutocomplete',
+            subComponentName: 'InputAutocompleteModalMobile',
+            testStory: false,
+            knobs: {
+                block: true,
+            },
+        });
+
+        const { browser, context, page } = await openBrowserPage(pageUrl);
+
+        try {
+            await page.click('[role="combobox"]');
+
+            await matchHtml({ context, page, expect });
+
+            await page.fill('input', 'Nep');
+
+            await matchHtml({ context, page, expect });
+
+            await page.click('button[data-test-id="continue"]');
+
+            await matchHtml({ context, page, expect });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error((error as Error).message);
+
+            throw error;
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});

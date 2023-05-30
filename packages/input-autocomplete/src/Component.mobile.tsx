@@ -146,7 +146,7 @@ export const InputAutocompleteMobile = React.forwardRef(
 
             if (multiple) {
                 // После выбора опции возвращаем фокус в поле ввода.
-                requestAnimationFrame(() => bottomSheetInputRef.current?.focus());
+                bottomSheetInputRef.current?.focus();
             }
         };
 
@@ -209,7 +209,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         onFocus={handleInputFocus}
                         {...bottomSheetHeaderAddonsProps}
                         className={cn(
-                            styles.bottomSheetInput,
+                            styles.bottomAddonInput,
                             bottomSheetHeaderAddonsProps.className as string,
                         )}
                         ref={mergeRefs([

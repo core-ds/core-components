@@ -1,6 +1,6 @@
 @import '../../themes/src/default.css';
 
-.bottomSheetInput {
+.bottomAddonInput {
     padding: 0 var(--gap-xs) var(--gap-xs);
     box-sizing: border-box;
 }

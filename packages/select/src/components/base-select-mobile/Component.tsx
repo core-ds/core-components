@@ -59,6 +59,21 @@ export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> 
      * Дополнительные пропсы шторки
      */
     bottomSheetProps?: Partial<BottomSheetProps>;
+
+    /**
+     *  Дополнительные пропсы модалки
+     */
+    modalProps?: Partial<React.ComponentProps<typeof ModalMobile>>;
+
+    /**
+     *  Дополнительные пропсы шапки модалки
+     */
+    modalHeaderProps?: Partial<React.ComponentProps<typeof ModalMobile.Header>>;
+
+    /**
+     *  Дополнительные пропсы футера модалки
+     */
+    modalFooterProps?: Partial<React.ComponentProps<typeof ModalMobile.Footer>>;
 };
 
 export const BaseSelectMobile = forwardRef(
@@ -107,6 +122,9 @@ export const BaseSelectMobile = forwardRef(
             footer,
             isBottomSheet,
             bottomSheetProps,
+            modalProps,
+            modalHeaderProps,
+            modalFooterProps,
             showEmptyOptionsList = false,
         }: SelectMobileProps,
         ref,
@@ -427,16 +445,25 @@ export const BaseSelectMobile = forwardRef(
                 ) : (
                     <ModalMobile
                         open={open}
-                        onClose={handleClose}
-                        contentClassName={styles.sheetContent}
                         hasCloser={true}
-                        ref={scrollableContainerRef}
+                        {...modalProps}
+                        onClose={(...args) => {
+                            handleClose();
+                            modalProps?.onClose?.(...args);
+                        }}
+                        contentClassName={cn(styles.sheetContent, modalProps?.contentClassName)}
+                        ref={mergeRefs([
+                            scrollableContainerRef,
+                            modalProps?.ref as React.Ref<HTMLDivElement>,
+                        ])}
                     >
-                        <ModalMobile.Header hasCloser={true} sticky={true}>
+                        <ModalMobile.Header hasCloser={true} sticky={true} {...modalHeaderProps}>
                             {label || placeholder}
                         </ModalMobile.Header>
 
                         {renderOptionsList()}
+
+                        {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
                     </ModalMobile>
                 )}
             </div>
