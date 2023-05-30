@@ -2,8 +2,6 @@ import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { isClient } from '../../utils';
-
 import { ButtonDesktop } from './Component.desktop';
 import { ButtonMobile } from './Component.mobile';
 import { ButtonResponsiveProps } from './typings';
@@ -11,12 +9,10 @@ import { ButtonResponsiveProps } from './typings';
 export const ButtonResponsive = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
     ButtonResponsiveProps
->(({ children, breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+>(({ children, breakpoint = 1024, ...restProps }, ref) => {
     const query = `(min-width: ${breakpoint}px)`;
 
-    const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
-
-    const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue ?? getDefaultValue);
+    const [isDesktop] = useMatchMedia(query);
 
     const Component = isDesktop ? ButtonDesktop : ButtonMobile;
 

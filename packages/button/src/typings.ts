@@ -118,15 +118,19 @@ export type ComponentProps = {
      * Стили компонента для default и inverted режима.
      */
     colorStyles: StyleColors;
+    /**
+     * Вид компонента
+     */
+    desktop: boolean;
 };
 
 export type AnchorBaseButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 export type NativeBaseButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 export type BaseButtonProps = Partial<AnchorBaseButtonProps | NativeBaseButtonProps>;
 
-export type AnchorButtonProps = Omit<BaseButtonProps, 'colorStyles' | 'styles'> &
+export type AnchorButtonProps = Omit<BaseButtonProps, 'colorStyles' | 'styles' | 'desktop'> &
     AnchorHTMLAttributes<HTMLAnchorElement>;
-export type NativeButtonProps = Omit<BaseButtonProps, 'colorStyles' | 'styles'> &
+export type NativeButtonProps = Omit<BaseButtonProps, 'colorStyles' | 'styles' | 'desktop'> &
     ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonDesktopProps = Partial<AnchorButtonProps | NativeButtonProps>;
@@ -146,9 +150,4 @@ export type ButtonResponsiveProps = Partial<AnchorButtonProps | NativeButtonProp
      * @default 1024
      */
     breakpoint?: number;
-
-    /**
-     * Значение по-умолчанию для хука useMatchMedia
-     */
-    defaultMatchMediaValue?: boolean | (() => boolean);
 };

@@ -58,6 +58,7 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
             colors = 'default',
             Component = href ? 'a' : 'button',
             onClick,
+            desktop = false,
             styles = {},
             colorStyles = {
                 default: {},
@@ -85,13 +86,17 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
 
         const componentProps = {
             className: cn(
+                'cc-button',
                 styles.component,
                 styles[view],
                 styles[size],
                 colorStyles[colors].component,
                 colorStyles[colors][view],
+                colorStyles[colors].active,
                 {
                     [styles.focused]: focused,
+                    [colorStyles[colors].hover]: desktop,
+                    [styles.borderRadius]: desktop,
                     [styles.block]: block,
                     [styles.iconOnly]: iconOnly,
                     [styles.loading]: showLoader,

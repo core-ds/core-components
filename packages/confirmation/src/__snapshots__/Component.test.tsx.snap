@@ -377,7 +377,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
         Вы ввели код неверно более 5 раз. В целях безопасности мы ограничили дальнейший ввод.
       </span>
       <button
-        class="component secondary s component secondary button"
+        class="cc-button component secondary s component secondary active hover borderRadius button"
         type="button"
       >
         <span
@@ -501,7 +501,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 2`] 
         Если номер не менялся, возможно, перегружен сервис отправки сообщений. Попробуйте повторить действие через несколько минут.
       </span>
       <button
-        class="component secondary s component secondary hintButton"
+        class="cc-button component secondary s component secondary active hover borderRadius hintButton"
         type="button"
       >
         <span

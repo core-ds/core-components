@@ -60,11 +60,11 @@
     &.primary {
         color: var(--icon-button-inverted-primary-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-inverted-primary-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-inverted-primary-active-color);
         }
     }
@@ -72,11 +72,11 @@
     &.secondary {
         color: var(--icon-button-inverted-secondary-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-inverted-secondary-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-inverted-secondary-active-color);
         }
     }
@@ -84,11 +84,11 @@
     &.transparent {
         color: var(--icon-button-inverted-transparent-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-inverted-transparent-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-inverted-transparent-active-color);
         }
     }
@@ -96,11 +96,11 @@
     &.negative {
         color: var(--icon-button-inverted-negative-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-inverted-negative-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-inverted-negative-active-color);
         }
     }
@@ -108,11 +108,11 @@
     &.tertiary {
         color: var(--icon-button-inverted-tertiary-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-inverted-tertiary-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-inverted-tertiary-active-color);
         }
     }

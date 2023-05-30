@@ -36,11 +36,11 @@
     &.primary {
         color: var(--icon-button-primary-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-primary-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-primary-active-color);
         }
     }
@@ -48,11 +48,11 @@
     &.secondary {
         color: var(--icon-button-secondary-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-secondary-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-secondary-active-color);
         }
     }
@@ -60,11 +60,11 @@
     &.transparent {
         color: var(--icon-button-transparent-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-transparent-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-transparent-active-color);
         }
     }
@@ -72,11 +72,11 @@
     &.negative {
         color: var(--icon-button-negative-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-negative-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-negative-active-color);
         }
     }
@@ -84,11 +84,11 @@
     &.tertiary {
         color: var(--icon-button-tertiary-base-color);
 
-        &:hover {
+        &.hover:hover {
             color: var(--icon-button-tertiary-hover-color);
         }
 
-        &:active {
+        &.active:active {
             color: var(--icon-button-tertiary-active-color);
         }
     }

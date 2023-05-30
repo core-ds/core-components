@@ -74,6 +74,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                 className,
                 colorStyles[colors][view],
                 colorStyles[colors].component,
+                colorStyles[colors].hover,
+                colorStyles[colors].active,
                 {
                     [colorStyles[colors].loader]: restProps.loading,
                 },
