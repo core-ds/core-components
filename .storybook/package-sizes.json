@@ -255,9 +255,9 @@
     "index.js": 58
   },
   "custom-picker-button": {
-    "desktop.js": 200,
+    "desktop.js": 210,
     "index.js": 210,
-    "mobile.js": 200,
+    "mobile.js": 210,
     "responsive.js": 210
   },
   "custom-button": {
