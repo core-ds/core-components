@@ -11,7 +11,7 @@ import styles from './index.module.css';
 type Border = {
     width?: number;
     color?: string;
-    style?: 'solid' | 'dashed' | 'dotted';
+    style?: 'solid' | 'dashed';
 };
 
 export type BaseShapeProps = {
@@ -124,7 +124,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                 ref={ref}
                 data-test-id={dataTestId}
             >
-                <div className={styles.component}>
+                <div className={styles.component} style={{ width, height }}>
                     <svg
                         width={width}
                         height={height}
