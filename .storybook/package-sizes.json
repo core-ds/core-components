@@ -1,5 +1,5 @@
 {
-  "updatedAt": "29.05.2023",
+  "updatedAt": "30.05.2023",
   "with-suffix": {
     "index.js": 2.7
   },
@@ -85,6 +85,7 @@
   },
   "select": {
     "index.js": 200,
+    "mobile.js": 200,
     "responsive.js": 200
   },
   "select-with-tags": {
@@ -189,7 +190,7 @@
   "input-autocomplete": {
     "desktop.js": 200,
     "index.js": 210,
-    "mobile.js": 200,
+    "mobile.js": 210,
     "responsive.js": 210
   },
   "indicator": {
