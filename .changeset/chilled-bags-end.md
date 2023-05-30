@@ -1,6 +1,6 @@
 ---
-"@alfalab/core-components-custom-button": patch
-"@alfalab/core-components-themes": patch
+"@alfalab/core-components-custom-button": minor
+"@alfalab/core-components-themes": minor
 ---
 
 feat(custom-button): Добавлены новые цвета и режимы
