@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { select, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Underlay } from '@alfalab/core-components-underlay';
@@ -91,7 +91,7 @@ export const SHADOW = [
         const paddingRight = select('padding.right', paddingSizes, 'm');
         const paddingBottom = select('padding.bottom', paddingSizes, 'm');
         const paddingLeft = select('padding.left', paddingSizes, 'm');
-        const overflow = select('overflow', ['true', 'false'], 'false');
+        const overflow = boolean('overflow', true);
         return (
             <Underlay
                 borderRadius={borderRadius}
@@ -99,7 +99,7 @@ export const SHADOW = [
                 shadow={select('shadow', SHADOW, 'shadow-l')}
                 backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
                 borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
-                overflow={overflow === 'true'}
+                overflow={overflow}
                 padding={{
                     top: paddingTop,
                     right: paddingRight,

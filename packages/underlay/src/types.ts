@@ -40,7 +40,7 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
     borderColor?: BorderColorType;
 
     /**
-     * Настройка выступа за границы (true - разрешен)
+     * Настройка переполнения (true - разрешена)
      * default: true
      */
     overflow?: boolean;
