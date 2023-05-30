@@ -27,15 +27,15 @@ export const Footer = ({ handleApply, handleClear, showClear }: FooterProps) => 
                 [styles.highlighted]: footerHighlighted,
             })}
         >
-            <Button size='s' view='primary' className={styles.button} onClick={handleApply}>
-                Применить
-            </Button>
-
             {showClear && (
                 <Button size='s' view='secondary' className={styles.button} onClick={handleClear}>
                     Сбросить
                 </Button>
             )}
+
+            <Button size='s' view='primary' className={styles.button} onClick={handleApply}>
+                Применить
+            </Button>
         </div>
     );
 };
