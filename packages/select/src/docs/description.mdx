@@ -3,6 +3,10 @@
 По умолчанию селект вызывает [Popover](?path=/docs/components-popover--docs) с вариантами выбора.
 На мобильных устройствах варианты выбора отображаются в [BottomSheet](?path=/docs/components-bottomsheet--docs).
 
+## Одиночный выбор
+
+Список селекта с единичным выбором закрывается сразу после выбора одного из значений.
+
 ```jsx live mobileHeight={640}
 const OPTIONS = [
     { key: '1', content: 'Neptunium' },
@@ -16,50 +20,113 @@ const OPTIONS = [
 ];
 
 render(() => {
-    const [selected, setSelected] = React.useState([]);
-    const isAllSelected = OPTIONS.length === selected.length;
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map((option) => option.key));
-    };
-
-    const handleSelectAll = () => {
-        setSelected(isAllSelected ? [] : OPTIONS.map((v) => v.key));
-    };
-
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
                 options={OPTIONS}
-                placeholder='Одиночный выбор'
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
                 Option={BaseOption}
                 block={true}
             />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <Select
+        </div>
+    );
+});
+//MOBILE
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <SelectMobile
+                allowUnselect={true}
+                options={OPTIONS}
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
+                Option={BaseOption}
+                block={true}
                 selected={selected}
+                onChange={handleChange}
+            />
+        </div>
+    );
+});
+```
+
+## Множественный выбор
+
+В мультиселекте допустимы два паттерна:
+
+1. С подтверждением — изменения будут приняты только после нажатия на кнопку подтверждения.
+2. Без подтверждения — изменения принимаются в момент выбора.
+
+<br />
+На мобильных устройствах рекомендуется использовать только паттерн с подтверждением выбора.
+
+```jsx live mobileHeight={640}
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
+    const [selectedSecond, setSelectedSecond] = React.useState([]);
+
+    return (
+        <div style={{ width: 320 }}>
+            <Select
                 allowUnselect={true}
                 size='m'
-                options={OPTIONS}
-                placeholder='Множественный выбор'
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
                 Option={BaseOption}
                 multiple={true}
                 block={true}
-                onChange={handleChange}
-                optionsListProps={{
-                    header: (
-                        <div style={{ padding: 'var(--gap-s)' }}>
-                            <Checkbox
-                                block={true}
-                                size='m'
-                                onChange={handleSelectAll}
-                                checked={isAllSelected}
-                                label='Выбрать все'
-                            />
-                        </div>
-                    ),
+                {...useSelectWithApply({
+                    options: OPTIONS,
+                    selected: selectedFirst,
+                    onChange: ({ selectedMultiple }) => {
+                        setSelectedFirst(selectedMultiple.map((option) => option.key));
+                    },
+                })}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <Select
+                selected={selectedSecond}
+                allowUnselect={true}
+                size='m'
+                options={OPTIONS}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                Option={BaseOption}
+                multiple={true}
+                block={true}
+                onChange={({ selectedMultiple }) => {
+                    setSelectedSecond(selectedMultiple.map((option) => option.key));
                 }}
             />
         </div>
@@ -78,145 +145,22 @@ const OPTIONS = [
 ];
 
 render(() => {
-    const [selected, setSelected] = React.useState();
-    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
-
-    const handleChange = ({ selected }) => {
-        setSelected(selected);
-    };
-
-    const handleChangeMultiple = ({ selectedMultiple }) => {
-        setSelectedMultiple(selectedMultiple.map((option) => option.key));
-    };
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: '100%' }}>
             <SelectMobile
+                multiple={true}
                 allowUnselect={true}
                 options={OPTIONS}
-                placeholder='Одиночный выбор'
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
                 Option={BaseOption}
                 block={true}
-                selected={selected}
-                onChange={handleChange}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <SelectMobile
-                multiple
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Множественный выбор'
-                Option={BaseOption}
-                block={true}
-                options={OPTIONS}
-                selected={selectedMultiple}
-                onChange={handleChangeMultiple}
-            />
-        </div>
-    );
-});
-```
-
-## Условие выбора
-
-Селекты поддерживают несколько способов принятия изменений:
-
-1. После выбора первого элемента поповер автоматически закрывается.
-2. После выбора элемента необходимо закрыть дропдаун кликнув «снаружи».
-3. После нажатия на кнопку подтверждения в дропдауне.
-
-```jsx live mobileHeight={640}
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selected, setSelected] = React.useState([]);
-
-    const handleChange = ({ selectedMultiple }) => {
-        setSelected(selectedMultiple.map((option) => option.key));
-    };
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Select
-                allowUnselect={true}
-                size='m'
-                options={OPTIONS}
-                placeholder='Без подтверждения'
-                Option={BaseOption}
-                block={true}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <Select
-                allowUnselect={true}
-                placeholder='Выбор с подтверждением'
-                block={true}
-                optionsListWidth='field'
-                Option={BaseOption}
-                size='m'
-                {...useSelectWithApply({
-                    options: OPTIONS,
-                    selected,
-                    onChange: handleChange,
-                })}
-            />
-        </div>
-    );
-});
-//MOBILE
-const OPTIONS = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
-];
-
-render(() => {
-    const [selected, setSelected] = React.useState();
-    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
-
-    const handleChange = ({ selected }) => {
-        setSelected(selected);
-    };
-
-    const handleChangeMultiple = ({ selectedMultiple }) => {
-        setSelectedMultiple(selectedMultiple.map((option) => option.key));
-    };
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <SelectMobile
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='Без подтверждения'
-                Option={BaseOption}
-                block={true}
-                selected={selected}
-                onChange={handleChange}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <SelectMobile
-                multiple
-                allowUnselect={true}
-                options={OPTIONS}
-                placeholder='С подтверждением'
-                Option={BaseOption}
-                block={true}
-                options={OPTIONS}
-                selected={selectedMultiple}
-                onChange={handleChangeMultiple}
+                selected={selectedFirst}
+                onChange={({ selectedMultiple }) => {
+                    setSelectedFirst(selectedMultiple.map((option) => option.key));
+                }}
             />
         </div>
     );
@@ -227,25 +171,32 @@ render(() => {
 
 Пункты списка можно группировать.
 
-```jsx live
+```jsx live mobileHeight={640}
+const OPTIONS = [
+    {
+        label: 'nonmetals',
+        options: [
+            { key: '1', content: 'Hydrogen' },
+            { key: '2', content: 'Helium' },
+        ],
+    },
+    {
+        label: 'metals',
+        options: [
+            { key: '3', content: 'Aurum' },
+            { key: '4', content: 'Platinum' },
+        ],
+    },
+];
 render(() => {
-    const groups = new Array(5).fill().reduce((acc, _, groupIndex) => {
-        return acc.concat({
-            label: `Группа №${groupIndex + 1}`,
-            options: new Array(5).fill().map((_, index) => ({
-                key: index.toString(),
-                content: `Пункт ${groupIndex + 1}.${index + 1}`,
-            })),
-        });
-    }, []);
-
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
-                options={groups}
-                placeholder='Сгруппированный список'
+                options={OPTIONS}
+                placeholder='Выберите элемент'
+                label='Сгруппированный список'
                 Option={BaseOption}
                 block={true}
             />
@@ -253,6 +204,22 @@ render(() => {
     );
 });
 //MOBILE
+const OPTIONS = [
+    {
+        label: 'nonmetals',
+        options: [
+            { key: '1', content: 'Hydrogen' },
+            { key: '2', content: 'Helium' },
+        ],
+    },
+    {
+        label: 'metals',
+        options: [
+            { key: '3', content: 'Aurum' },
+            { key: '4', content: 'Platinum' },
+        ],
+    },
+];
 render(() => {
     const [selected, setSelected] = React.useState();
 
@@ -260,22 +227,13 @@ render(() => {
         setSelected(selected);
     };
 
-    const groups = new Array(5).fill().reduce((acc, _, groupIndex) => {
-        return acc.concat({
-            label: `Группа №${groupIndex + 1}`,
-            options: new Array(5).fill().map((_, index) => ({
-                key: index.toString(),
-                content: `Пункт ${groupIndex + 1}.${index + 1}`,
-            })),
-        });
-    }, []);
-
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
                 allowUnselect={true}
-                options={groups}
-                placeholder='Сгруппированный список'
+                options={OPTIONS}
+                placeholder='Выберите элемент'
+                label='Сгруппированный список'
                 Option={BaseOption}
                 selected={selected}
                 onChange={handleChange}
@@ -286,209 +244,263 @@ render(() => {
 });
 ```
 
-## Длинные списки и ленивая загрузка
+## Подписи у пунктов
 
-Для рендера большого количества данных используйте `OptionsList={VirtualOptionsList}`. На время подгрузки можно использовать скелетон.
+Элементы списка могут содержать лейбл или подпись. В данных примерах подпись, расположенная над значением,
+замещает лейбл селекта, а подпись, расположенная под значением, не влияет на отображение селекта.
+Подобное поведение является рекомендуемым и может потребовать кастомизации элементов выпадающего списка и самого поля селекта.
 
 ```jsx live mobileHeight={640}
+const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {
+    return (
+        <GenericWrapper alignItems='center' padding={padding}>
+            <GenericWrapper column>
+                <Typography.Text view='component'>
+                    <Amount
+                        value={amount}
+                        minority={100}
+                        currency='RUR'
+                        view='withZeroMinorPart'
+                        transparentMinor={false}
+                    />
+                </Typography.Text>
+                <Typography.Text color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+};
+
+const renderOption = ({ amount, padding, text }) => (
+    <GenericWrapper alignItems='center' padding={padding}>
+        <GenericWrapper column>
+            <Typography.Text color='secondary' view='primary-small'>
+                {text}
+            </Typography.Text>
+            <Typography.Text view='component'>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    view='withZeroMinorPart'
+                    transparentMinor={false}
+                />
+            </Typography.Text>
+        </GenericWrapper>
+    </GenericWrapper>
+);
+
+const DATA = [
+    {
+        amount: 3405116,
+        text: 'Зарплатный счёт',
+    },
+    {
+        amount: 600024,
+        text: 'Накопительный счёт',
+    },
+];
+
+const OPTIONS = DATA.map(({ amount, text }, idx) => ({
+    key: idx,
+    content: renderOption({ text, amount, padding: { top: 'xs', bottom: 'xs', left: 's' } }),
+}));
+
+const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
+    key: idx,
+    content: renderOptionWithAmountOnTop({
+        text,
+        amount,
+        padding: { top: 'xs', bottom: 'xs', left: 's' },
+    }),
+}));
+
 render(() => {
-    const optionsForVirtualList = React.useMemo(
-        () =>
-            new Array(1000).fill().map((_, index) => {
-                const variableSizeText = `Вы восхитительны! `.repeat(
-                    Math.round(Math.random() * 10),
-                );
-
-                return {
-                    key: index.toString(),
-                    content: `${index}. ${variableSizeText}`,
-                };
-            }),
-        [],
-    );
-
-    const selectWithVirtualList = (
-        <Select
-            size='m'
-            block={true}
-            placeholder='Список из тысячи пунктов'
-            options={optionsForVirtualList}
-            OptionsList={VirtualOptionsList}
-            circularNavigation={true}
-            allowUnselect={true}
-            visibleOptions={3}
-            optionsListWidth='field'
-            Option={BaseOption}
-        />
-    );
-
-    const [loading, setLoading] = React.useState(true);
-
-    const loadingProps = useSelectWithLoading({
-        visibleOptions: 6,
-        loading,
-        Option: (props) => (
-            <BaseOption
-                {...props}
-                option={{
-                    ...props.option,
-                    content: <div style={{ padding: 'var(--gap-s)' }}>{props.option.content}</div>,
-                }}
-            />
-        ),
-    });
-
-    const handleOpen = () => {
-        setLoading(true);
-        setTimeout(() => setLoading(false), 2000);
-    };
-
-    const optionsForListWithSkeleton = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-        ],
-        [],
-    );
-
-    const selectWithSkeleton = (
-        <Select
-            allowUnselect={true}
-            placeholder='Список со скелетной загрузкой'
-            block={true}
-            size='m'
-            options={optionsForListWithSkeleton}
-            onOpen={handleOpen}
-            Option={BaseOption}
-            {...loadingProps}
-        />
-    );
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
+    const [selectedSecond, setSelectedSecond] = React.useState([]);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            {selectWithVirtualList}
+        <div style={{ width: 320 }}>
+            <Select
+                allowUnselect={true}
+                size='m'
+                placeholder='Выберите счёт'
+                label='Счёт'
+                Option={BaseOption}
+                block={true}
+                selected={selectedFirst}
+                options={OPTIONS_WITH_AMOUNT_ON_TOP}
+                valueRenderer={({ selected }) => {
+                    if (!selected) return '';
+
+                    const { amount } = DATA[selected.key];
+
+                    return (
+                        <Amount
+                            value={amount}
+                            minority={100}
+                            currency='RUR'
+                            view='withZeroMinorPart'
+                            transparentMinor={false}
+                        />
+                    );
+                }}
+                onChange={({ selected }) => setSelectedFirst(selected)}
+            />
             <div style={{ height: 'var(--gap-m)' }} />
-            {selectWithSkeleton}
+            <Select
+                selected={selectedSecond}
+                allowUnselect={true}
+                size='m'
+                options={OPTIONS}
+                placeholder='Выберите счёт'
+                Option={BaseOption}
+                block={true}
+                valueRenderer={({ selected }) => {
+                    if (!selected) return '';
+
+                    const { text, amount } = DATA[selected.key];
+
+                    return renderOption({
+                        text,
+                        amount,
+                        padding: { top: 'xs', bottom: 'xs' },
+                    });
+                }}
+                onChange={({ selected }) => {
+                    setSelectedSecond(selected);
+                }}
+            />
         </div>
     );
 });
 //MOBILE
+const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {
+    return (
+        <GenericWrapper alignItems='center' padding={padding}>
+            <GenericWrapper column>
+                <Typography.Text view='component'>
+                    <Amount
+                        value={amount}
+                        minority={100}
+                        currency='RUR'
+                        view='withZeroMinorPart'
+                        transparentMinor={false}
+                    />
+                </Typography.Text>
+                <Typography.Text color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+};
+
+const renderOption = ({ amount, padding, text }) => (
+    <GenericWrapper alignItems='center' padding={padding}>
+        <GenericWrapper column>
+            <Typography.Text color='secondary' view='primary-small'>
+                {text}
+            </Typography.Text>
+            <Typography.Text view='component'>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    view='withZeroMinorPart'
+                    transparentMinor={false}
+                />
+            </Typography.Text>
+        </GenericWrapper>
+    </GenericWrapper>
+);
+
+const DATA = [
+    {
+        amount: 3405116,
+        text: 'Зарплатный счёт',
+    },
+    {
+        amount: 600024,
+        text: 'Накопительный счёт',
+    },
+];
+
+const OPTIONS = DATA.map(({ amount, text }, idx) => ({
+    key: idx,
+    content: renderOption({ text, amount, padding: { top: 's', bottom: 's', left: 'm' } }),
+}));
+
+const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
+    key: idx,
+    content: renderOptionWithAmountOnTop({
+        text,
+        amount,
+        padding: { top: 's', bottom: 's', left: 'm' },
+    }),
+}));
+
 render(() => {
-    const [selected, setSelected] = React.useState();
-    const [selectedSkeleton, setSelectedSkeleton] = React.useState();
-
-    const handleChange = ({ selected }) => {
-        setSelected(selected);
-    };
-
-    const handleChangeSkeleton = ({ selected }) => {
-        setSelectedSkeleton(selected);
-    };
-
-    const optionsForVirtualList = React.useMemo(
-        () =>
-            new Array(1000).fill().map((_, index) => {
-                const variableSizeText = `Вы восхитительны! `.repeat(
-                    Math.round(Math.random() * 10),
-                );
-
-                return {
-                    key: index.toString(),
-                    content: `${index}. ${variableSizeText}`,
-                };
-            }),
-        [],
-    );
-
-    const optionsForListWithSkeleton = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-        ],
-        [],
-    );
-
-    const selectWithVirtualList = (
-        <SelectMobile
-            size='m'
-            block={true}
-            placeholder='Список из тысячи пунктов'
-            options={optionsForVirtualList}
-            OptionsList={VirtualOptionsList}
-            circularNavigation={true}
-            allowUnselect={true}
-            Option={BaseOption}
-            selected={selected}
-            onChange={handleChange}
-        />
-    );
-
-    const [loading, setLoading] = React.useState(true);
-
-    const loadingProps = useSelectWithLoading({
-        visibleOptions: 6,
-        loading,
-        Option: (props) => (
-            <BaseOption
-                {...props}
-                option={{
-                    ...props.option,
-                    content: (
-                        <div style={{ padding: 'var(--gap-m) var(--gap-s)' }}>
-                            {props.option.content}
-                        </div>
-                    ),
-                }}
-            />
-        ),
-    });
-
-    const handleOpen = () => {
-        setLoading(true);
-        setTimeout(() => setLoading(false), 2000);
-    };
-
-    const selectWithSkeleton = (
-        <SelectMobile
-            allowUnselect={true}
-            placeholder='Список со скелетной загрузкой'
-            block={true}
-            size='m'
-            options={optionsForListWithSkeleton}
-            onOpen={handleOpen}
-            Option={BaseOption}
-            selected={selectedSkeleton}
-            onChange={handleChangeSkeleton}
-            {...loadingProps}
-        />
-    );
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
+    const [selectedSecond, setSelectedSecond] = React.useState([]);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            {selectWithVirtualList}
+        <div style={{ width: '100%' }}>
+            <SelectMobile
+                allowUnselect={true}
+                options={OPTIONS_WITH_AMOUNT_ON_TOP}
+                placeholder='Выберите счёт'
+                label='Счёт'
+                Option={BaseOption}
+                block={true}
+                selected={selectedFirst}
+                onChange={({ selected }) => setSelectedFirst(selected)}
+                valueRenderer={({ selected }) => {
+                    if (!selected) return '';
+
+                    const { amount } = DATA[selected.key];
+
+                    return (
+                        <Amount
+                            value={amount}
+                            minority={100}
+                            currency='RUR'
+                            view='withZeroMinorPart'
+                            transparentMinor={false}
+                        />
+                    );
+                }}
+            />
             <div style={{ height: 'var(--gap-m)' }} />
-            {selectWithSkeleton}
+            <SelectMobile
+                allowUnselect={true}
+                options={OPTIONS}
+                placeholder='Выберите счёт'
+                Option={BaseOption}
+                block={true}
+                selected={selectedSecond}
+                onChange={({ selected }) => setSelectedSecond(selected)}
+                valueRenderer={({ selected }) => {
+                    if (!selected) return '';
+
+                    const { text, amount } = DATA[selected.key];
+
+                    return renderOption({
+                        text,
+                        amount,
+                        padding: { top: 'xs', bottom: 'xs' },
+                    });
+                }}
+            />
         </div>
     );
 });
 ```
 
-## Кастомизация
+## Другие примеры кастомизации
 
-Допускается кастомизировать поле селекта и выпадающий список.
-Есть возможность заменить или кастомизировать компоненты `Field`, `Option`, `OptionsList`, `Optgroup`, `Arrow`,
-а вместо текста у вариантов выбора (поле `content`) использовать произвольный html контент.
-Также стандартный компонент `Field` позволяет управлять рендером выбранных пунктов с помощью свойства `valueRenderer`.
+Примеры ниже содержат кастомную вёрстку пунктов выпадающего списка и кастомную шапку выпадающего списка.
 
 ```jsx live mobileHeight={640}
 render(() => {
@@ -512,43 +524,21 @@ render(() => {
         setSelected(selectedMultiple.map((option) => option.key));
     };
 
-    const handleAllToggle = () => {
-        if (selected.length === options.length) {
-            setSelected([]);
-        } else {
-            setSelected(options.map((e) => e.key));
-        }
-    };
-
-    const renderHeader = () => {
-        return (
-            <div style={{ padding: 'var(--gap-s)' }}>
-                <Checkbox
-                    checked={selected.length === options.length}
-                    size='m'
-                    label='Выбрать все'
-                    onChange={handleAllToggle}
-                />
-            </div>
-        );
-    };
-
-    const presetProps = useSelectWithApply({
-        options,
-        selected,
-        onChange: handleChange,
-    });
-
     const selectWithHeader = (
         <Select
             allowUnselect={true}
             placeholder='Выберите элементы'
+            label='Множественный выбор'
             block={true}
             optionsListWidth='field'
             Option={BaseOption}
             size='m'
-            {...presetProps}
-            optionsListProps={{ ...presetProps.optionsListProps, header: renderHeader() }}
+            {...useSelectWithApply({
+                options,
+                selected,
+                showHeaderWithSelectAll: true,
+                onChange: handleChange,
+            })}
         />
     );
 
@@ -637,7 +627,19 @@ render(() => {
     );
 });
 //MOBILE
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
 render(() => {
+    const [selectedFirst, setSelectedFirst] = React.useState();
     const [selected, setSelected] = React.useState();
 
     const handleChange = ({ selected }) => {
@@ -711,6 +713,23 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <SelectMobile
+                selected={selectedFirst}
+                allowUnselect={true}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                block={true}
+                optionsListWidth='field'
+                Option={BaseOption}
+                size='m'
+                options={OPTIONS}
+                multiple={true}
+                showHeaderWithSelectAll={true}
+                onChange={({ selectedMultiple }) =>
+                    setSelectedFirst(selectedMultiple.map((option) => option.key))
+                }
+            />
+            <Gap size='m' />
+            <SelectMobile
                 allowUnselect={true}
                 placeholder='Выберите счёт'
                 options={pureCellOptions}
@@ -726,7 +745,7 @@ render(() => {
 });
 ```
 
-## Формат отображения списков на мобильных устройствах
+## Формат отображения списков
 
 В редких кейсах может потребоваться использовать селект с нативным выпадающим списком или
 открывать его в [Modal](?path=/docs/components-modal--docs)
@@ -773,27 +792,162 @@ render(() => {
         setSelectedModal(selected);
     };
 
+    const isMobile = document.body.clientWidth < 450;
+
+    const MobileSelect = isMobile ? SelectModalMobile : Select;
+
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: isMobile ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
                 size='m'
                 options={groups}
-                placeholder='Нативный список'
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
                 nativeSelect={true}
                 block={true}
                 selected={selectedNative}
                 onChange={handleChangeNative}
             />
             <div style={{ height: 'var(--gap-m)' }} />
-            <SelectModalMobile
+            <MobileSelect
+                size='m'
                 allowUnselect={true}
                 options={options}
-                placeholder='Список в модалке'
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
                 block={true}
                 Option={BaseOption}
                 selected={selectedModal}
                 onChange={handleChangeModal}
+            />
+        </div>
+    );
+});
+```
+
+## Длинные списки и ленивая загрузка
+
+Для рендера большого количества данных используйте `OptionsList={VirtualOptionsList}`. На время подгрузки можно использовать скелетон.
+
+```jsx live mobileHeight={640}
+render(() => {
+    const optionsForVirtualList = React.useMemo(
+        () =>
+            new Array(1000).fill().map((_, index) => {
+                const variableSizeText = `Вы восхитительны!`;
+
+                return {
+                    key: index.toString(),
+                    content: `${index}. ${variableSizeText}`,
+                };
+            }),
+        [],
+    );
+
+    const [loading, setLoading] = React.useState(true);
+
+    const loadingProps = useSelectWithLoading({
+        loading,
+        Option: (props) => (
+            <BaseOption
+                {...props}
+                option={{
+                    ...props.option,
+                    content: <div style={{ padding: 'var(--gap-s)' }}>{props.option.content}</div>,
+                }}
+            />
+        ),
+    });
+
+    const handleOpen = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <Select
+                onOpen={handleOpen}
+                size='m'
+                block={true}
+                placeholder='Выберите один из тысячи'
+                label='Одиночный выбор'
+                options={optionsForVirtualList}
+                OptionsList={VirtualOptionsList}
+                circularNavigation={true}
+                allowUnselect={true}
+                optionsListWidth='field'
+                Option={BaseOption}
+                {...loadingProps}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [selected, setSelected] = React.useState();
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected);
+    };
+
+    const optionsForVirtualList = React.useMemo(
+        () =>
+            new Array(1000).fill().map((_, index) => {
+                const variableSizeText = `Вы восхитительны!`;
+
+                return {
+                    key: index.toString(),
+                    content: `${index}. ${variableSizeText}`,
+                };
+            }),
+        [],
+    );
+
+    const [loading, setLoading] = React.useState(true);
+
+    const loadingProps = useSelectWithLoading({
+        visibleOptions: 15,
+        loading,
+        Option: (props) => (
+            <BaseOption
+                {...props}
+                option={{
+                    ...props.option,
+                    content: (
+                        <div style={{ padding: 'var(--gap-m) var(--gap-s)' }}>
+                            {props.option.content}
+                        </div>
+                    ),
+                }}
+            />
+        ),
+    });
+
+    const handleOpen = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <style>{`.hideScrollbar {overflow: hidden}`}</style>
+            <SelectMobile
+                bottomSheetProps={loading ? { containerClassName: 'hideScrollbar' } : undefined}
+                size='m'
+                onOpen={handleOpen}
+                block={true}
+                placeholder='Выберите один из тысячи'
+                label='Одиночный выбор'
+                options={optionsForVirtualList}
+                OptionsList={VirtualOptionsList}
+                circularNavigation={true}
+                allowUnselect={true}
+                Option={BaseOption}
+                selected={selected}
+                onChange={handleChange}
+                {...loadingProps}
             />
         </div>
     );
@@ -842,14 +996,19 @@ render(() => {
                 <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
                     <Select
                         allowUnselect={true}
-                        size='m'
+                        placeholder='Выберите элементы'
+                        label='Множественный выбор'
                         block={true}
-                        options={options}
-                        placeholder='Выберите элемент'
                         name='select'
-                        multiple={true}
-                        onChange={handleChange}
+                        optionsListWidth='field'
+                        Option={BaseOption}
+                        size='m'
                         selected={selected}
+                        {...useSelectWithApply({
+                            options,
+                            selected,
+                            onChange: handleChange,
+                        })}
                     />
                 </div>
 
@@ -896,125 +1055,32 @@ render(() => {
 
     return (
         <form onSubmit={onSubmit}>
-            <Space>
-                <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                    <SelectMobile
-                        allowUnselect={true}
-                        size='m'
-                        block={true}
-                        options={options}
-                        placeholder='Выберите элемент'
-                        name='select'
-                        multiple={true}
-                        onChange={handleChange}
-                        selected={selected}
-                    />
-                </div>
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                <SelectMobile
+                    allowUnselect={true}
+                    size='m'
+                    block={true}
+                    options={options}
+                    placeholder='Выберите элемент'
+                    label='Множественный выбор'
+                    name='select'
+                    multiple={true}
+                    onChange={handleChange}
+                    selected={selected}
+                    Option={BaseOption}
+                />
+            </div>
 
-                <Button size='xs' type='submit'>
-                    Отправить
-                </Button>
+            <Gap size='m' />
 
-                <div>serialized: {serialized}</div>
-            </Space>
+            <Button size='xs' type='submit'>
+                Отправить
+            </Button>
+
+            <Gap size='m' />
+
+            <div>serialized: {serialized}</div>
         </form>
-    );
-});
-```
-
-## Управление открытием и закрытием
-
-По умолчанию список для селекта с единичным выбором закрывается сразу после выбора.
-В мультиселекте список остается открытым. Изменить это поведение можно с помощью параметра `closeOnSelect`.
-
-```jsx live mobileHeight={640}
-render(() => {
-    const options = [
-        { key: '1', content: 'Neptunium' },
-        { key: '2', content: 'Plutonium' },
-        { key: '3', content: 'Americium' },
-        { key: '4', content: 'Curium' },
-        { key: '5', content: 'Berkelium' },
-        { key: '6', content: 'Californium' },
-        { key: '7', content: 'Einsteinium' },
-        { key: '8', content: 'Fermium' },
-    ];
-
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Select
-                allowUnselect={true}
-                size='m'
-                options={options}
-                placeholder='Закроется после выбора'
-                Option={BaseOption}
-                block={true}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <Select
-                allowUnselect={true}
-                size='m'
-                options={options}
-                placeholder='Не закроется после выбора'
-                Option={BaseOption}
-                block={true}
-                closeOnSelect={false}
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [selectedFirst, setSelectedFirst] = React.useState();
-    const [selectedSecond, setSelectedSecond] = React.useState();
-
-    const handleChangeFirst = ({ selected }) => {
-        setSelectedFirst(selected);
-    };
-
-    const handleChangeSecond = ({ selected }) => {
-        setSelectedSecond(selected);
-    };
-
-    const options = React.useMemo(
-        () => [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-            { key: '4', content: 'Curium' },
-            { key: '5', content: 'Berkelium' },
-            { key: '6', content: 'Californium' },
-            { key: '7', content: 'Einsteinium' },
-            { key: '8', content: 'Fermium' },
-        ],
-        [],
-    );
-
-    return (
-        <div style={{ width: 320 }}>
-            <SelectMobile
-                allowUnselect={true}
-                size='m'
-                options={options}
-                placeholder='Закроется после выбора'
-                Option={BaseOption}
-                block={true}
-                selected={selectedFirst}
-                onChange={handleChangeFirst}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <SelectMobile
-                allowUnselect={true}
-                size='m'
-                options={options}
-                placeholder='Не закроется после выбора'
-                Option={BaseOption}
-                block={true}
-                closeOnSelect={false}
-                selected={selectedSecond}
-                onChange={handleChangeSecond}
-            />
-        </div>
     );
 });
 ```
@@ -1040,7 +1106,7 @@ render(() => {
         [],
     );
 
-    const [selected, setSelected] = React.useState([options[2], options[3]]);
+    const [selected, setSelected] = React.useState([]);
 
     const handleChange = ({ selectedMultiple }) => {
         setSelected(selectedMultiple);
@@ -1050,13 +1116,59 @@ render(() => {
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Select
                 allowUnselect={true}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
                 block={true}
+                name='select'
+                optionsListWidth='field'
+                Option={BaseOption}
                 size='m'
+                selected={selected}
+                {...useSelectWithApply({
+                    options,
+                    selected,
+                    onChange: handleChange,
+                })}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const options = React.useMemo(
+        () => [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+        ],
+        [],
+    );
+
+    const [selected, setSelected] = React.useState([]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <SelectMobile
+                allowUnselect={true}
+                size='m'
+                block={true}
                 options={options}
                 placeholder='Выберите элемент'
+                label='Множественный выбор'
+                name='select'
                 multiple={true}
                 onChange={handleChange}
                 selected={selected}
+                Option={BaseOption}
             />
         </div>
     );
@@ -1108,9 +1220,11 @@ render(() => {
                     option,
                     innerProps: {
                         style: {
-                            background: '#EBF2FF',
+                            background: 'var(--color-light-bg-positive-muted)',
                             borderBottom:
-                                index + 1 !== options.length ? '1px solid #D2DCEE' : 'none',
+                                index + 1 !== options.length
+                                    ? '1px solid var(--color-light-bg-info)'
+                                    : 'none',
                         },
                     },
                 })}
@@ -1119,7 +1233,7 @@ render(() => {
                     <div
                         style={{
                             height: 12,
-                            background: 'linear-gradient(0deg, #FFE6E6, #FFE6E6), #FFFFFF',
+                            background: 'var(--color-light-bg-negative-muted)',
                         }}
                     ></div>
                 }
@@ -1127,7 +1241,7 @@ render(() => {
                     <div
                         style={{
                             height: 12,
-                            background: 'linear-gradient(0deg, #FFE6E6, #FFE6E6), #FFFFFF',
+                            background: 'var(--color-light-bg-negative-muted)',
                         }}
                     ></div>
                 }
@@ -1146,6 +1260,7 @@ render(() => {
 ## Высота списка
 
 Максимальную высоту списка можно настраивать с помощью свойства `visibleOptions`. По умолчанию она равна 5,5 ячейкам (`visibleOptions=5`).
+Если ячеек на единицу больше переданного параметра, то они отобразятся без скролла.
 
 ## Позиционирование списка
 
@@ -1155,4 +1270,4 @@ render(() => {
 ## Строение ячейки
 
 Для кастомных списков можно использовать ячейку [PureCell](?path=/docs/components-purecell--docs) с расширением в виде контрола.
-Благодаря гибкой настройке [PureCell](?path=/docs/components-purecell--docs) можно получить необходимую конфигурацию элементов списка.
+Благодаря гибкой настройке такой ячейки можно получить необходимую конфигурацию элементов списка.

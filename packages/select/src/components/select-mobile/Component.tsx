@@ -3,6 +3,7 @@ import React, { forwardRef, ReactNode } from 'react';
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 
 import { useSelectWithApply, UseSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
+import { Header } from '../../presets/useSelectWithApply/options-list-with-apply/header/Component';
 import { AnyObject, BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
@@ -40,6 +41,16 @@ export type AdditionalMobileProps = {
      * Показывать пункт "Выбрать все"
      */
     showSelectAll?: UseSelectWithApplyProps['showSelectAll'];
+
+    /**
+     * Показывать пункт "Выбрать все" в заголовке списка
+     */
+    showHeaderWithSelectAll?: UseSelectWithApplyProps['showHeaderWithSelectAll'];
+
+    /**
+     * Использовать ли хук useSelectWithApply
+     */
+    useWithApplyHook?: boolean;
 };
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> &
@@ -76,6 +87,8 @@ export const SelectMobile = forwardRef(
             bottomSheetProps,
             showClear = true,
             showSelectAll,
+            showHeaderWithSelectAll,
+            useWithApplyHook = multiple,
             ...restProps
         }: SelectMobileProps,
         ref,
@@ -117,10 +130,15 @@ export const SelectMobile = forwardRef(
                 selected={selected}
                 onChange={onChange}
                 OptionsList={OptionsList}
-                bottomSheetProps={bottomSheetProps}
+                bottomSheetProps={{
+                    bottomAddons: useWithApplyHook && showHeaderWithSelectAll && (
+                        <Header {...applyProps.optionsListProps.headerProps} mobile={true} />
+                    ),
+                    ...bottomSheetProps,
+                }}
                 optionsListProps={optionsListProps}
                 {...restProps}
-                {...(multiple && !bottomSheetProps?.actionButton && applyProps)}
+                {...(useWithApplyHook && applyProps)}
             />
         );
     },
