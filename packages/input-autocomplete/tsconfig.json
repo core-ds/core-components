@@ -7,14 +7,15 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
     "references": [
-      { "path": "../select" },
-      { "path": "../input" },
-      { "path": "../button" },
-      { "path": "../form-control" },
-      { "path": "../bottom-sheet" }
+        { "path": "../select" },
+        { "path": "../input" },
+        { "path": "../button" },
+        { "path": "../form-control" },
+        { "path": "../bottom-sheet" }
     ]
 }

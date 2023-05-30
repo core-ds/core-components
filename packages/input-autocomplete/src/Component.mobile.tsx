@@ -146,7 +146,7 @@ export const InputAutocompleteMobile = React.forwardRef(
 
             if (multiple) {
                 // После выбора опции возвращаем фокус в поле ввода.
-                requestAnimationFrame(() => bottomSheetInputRef.current?.focus());
+                bottomSheetInputRef.current?.focus();
             }
         };
 
@@ -179,21 +179,21 @@ export const InputAutocompleteMobile = React.forwardRef(
                     <div className={styles.footer}>
                         <Button
                             block={true}
-                            view='primary'
-                            size='s'
-                            onClick={handleApply}
-                            {...continueButtonProps}
-                        >
-                            Продолжить
-                        </Button>
-                        <Button
-                            block={true}
                             view='secondary'
                             size='s'
                             onClick={handleCancel}
                             {...cancelButtonProps}
                         >
                             Отмена
+                        </Button>
+                        <Button
+                            block={true}
+                            view='primary'
+                            size='s'
+                            onClick={handleApply}
+                            {...continueButtonProps}
+                        >
+                            Продолжить
                         </Button>
                     </div>
                 ),
@@ -209,7 +209,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         onFocus={handleInputFocus}
                         {...bottomSheetHeaderAddonsProps}
                         className={cn(
-                            styles.bottomSheetInput,
+                            styles.bottomAddonInput,
                             bottomSheetHeaderAddonsProps.className as string,
                         )}
                         ref={mergeRefs([

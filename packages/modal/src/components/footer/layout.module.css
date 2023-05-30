@@ -26,6 +26,22 @@
     }
 }
 
+.column-mobile {
+    flex-direction: column-reverse;
+
+    & > * {
+        margin-bottom: 0;
+    }
+
+    & > *:last-child {
+        margin-bottom: var(--modal-footer-default-gap);
+    }
+
+    & > *:only-child {
+        margin-bottom: 0;
+    }
+}
+
 .start {
     justify-content: flex-start;
 }

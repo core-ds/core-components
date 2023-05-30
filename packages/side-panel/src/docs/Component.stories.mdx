@@ -27,14 +27,21 @@ export const Text = () => (
     </p>
 );
 
-export const Footer = ({ isPreview }) => (
+export const Footer = ({ isPreview, isMobile }) => (
     <>
-        <Button size='s' view='primary'>
+    {!isMobile ? 
+        (<><Button size='s' view='primary'>
             {isPreview ? 'Кнопка' : 'Сохранить'}
         </Button>
         <Button size='s' view='secondary'>
             {isPreview ? 'Кнопка' : 'Отмена'}
+        </Button></>) :
+        (<><Button size='s' view='secondary'>
+            {isPreview ? 'Кнопка' : 'Отмена'}
         </Button>
+         <Button size='s' view='primary'>
+            {isPreview ? 'Кнопка' : 'Сохранить'}
+        </Button></>)}
     </>
 );
 
@@ -125,7 +132,7 @@ export let SidePanelComponent = SidePanelDesktop;
                     </SidePanelComponent.Content>
                     {stickyFooter && (
                         <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout}>
-                            <Footer isPreview={isPreview} />
+                            <Footer isPreview={isPreview} isMobile={SidePanelComponent===SidePanelMobile}/>
                         </SidePanelComponent.Footer>
                     )}
                 </SidePanelComponent>
