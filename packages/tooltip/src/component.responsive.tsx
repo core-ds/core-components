@@ -2,7 +2,7 @@ import React, { FC, Fragment } from 'react';
 import cn from 'classnames';
 
 import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { useMedia } from '@alfalab/hooks';
 
 import { TooltipDesktop, TooltipDesktopProps } from './desktop';

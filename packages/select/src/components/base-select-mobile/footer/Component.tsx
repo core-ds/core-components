@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 
 import styles from './index.module.css';
 

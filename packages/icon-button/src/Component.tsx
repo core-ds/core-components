@@ -1,7 +1,7 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import { ButtonDesktop, ButtonDesktopProps } from '@alfalab/core-components-button/desktop';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -49,7 +49,7 @@ export type IconButtonProps = {
      */
     colors?: 'default' | 'inverted';
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> &
-    Pick<ButtonProps, 'href' | 'loading'> &
+    Pick<ButtonDesktopProps, 'href' | 'loading'> &
     Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
@@ -65,7 +65,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         },
         ref,
     ) => (
-        <Button
+        <ButtonDesktop
             {...restProps}
             ref={ref}
             view='ghost'
@@ -85,6 +85,6 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             <span className={cn(styles.iconWrapper, styles[size], styles[alignIcon])}>
                 <Icon className={styles.icon} />
             </span>
-        </Button>
+        </ButtonDesktop>
     ),
 );

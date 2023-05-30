@@ -3,7 +3,10 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import {
+    ButtonDesktop as Button,
+    ButtonDesktopProps as ButtonProps,
+} from '@alfalab/core-components-button/desktop';
 import { Input as CoreInput } from '@alfalab/core-components-input';
 import type { BaseSelectChangePayload, SelectMobileProps } from '@alfalab/core-components-select';
 import { SelectModalMobile, SelectModalMobileProps } from '@alfalab/core-components-select/mobile';

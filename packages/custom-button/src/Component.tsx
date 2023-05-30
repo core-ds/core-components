@@ -1,7 +1,10 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import {
+    ButtonDesktop as Button,
+    ButtonDesktopProps as ButtonProps,
+} from '@alfalab/core-components-button/desktop';
 
 import styles from './index.module.css';
 

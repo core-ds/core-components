@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 
 import { OptionShape } from '../../../../typings';
 

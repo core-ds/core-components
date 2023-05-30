@@ -3,7 +3,7 @@ import type { Theme, TPatternLockInstance } from 'react-canvas-pattern-lock';
 import { ReactCanvasPatternLock } from 'react-canvas-pattern-lock';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { Gap } from '@alfalab/core-components-gap';
 
 import { getDataTestId } from '../../utils';

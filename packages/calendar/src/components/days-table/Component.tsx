@@ -9,7 +9,7 @@ import isToday from 'date-fns/isToday';
 import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { usePrevious } from '@alfalab/hooks';
 
 import { Day, DayAddons } from '../../typings';

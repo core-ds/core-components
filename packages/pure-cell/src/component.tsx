@@ -11,7 +11,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonProps } from '@alfalab/core-components-button';
+import { ButtonDesktopProps as ButtonProps } from '@alfalab/core-components-button/desktop';
 import { Comment } from '@alfalab/core-components-comment';
 import { useFocus } from '@alfalab/hooks';
 

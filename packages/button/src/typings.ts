@@ -9,21 +9,6 @@ export type StyleColors = {
     };
 };
 
-/**
- * Для отображения в сторибуке
- */
-//  BaseButton.defaultProps = {
-
-//     view: 'secondary',
-
-/*
- *     size: 'm',
- *     block: false,
- *     loading: false,
- *     nowrap: false,
- * };
- */
-
 export type ComponentProps = {
     /**
      * Тип кнопки

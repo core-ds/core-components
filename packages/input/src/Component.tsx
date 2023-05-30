@@ -13,7 +13,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { FormControl } from '@alfalab/core-components-form-control';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
@@ -317,7 +317,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 addonsVisible && (
                     <Fragment>
                         {clearButtonVisible && (
-                            <Button
+                            <ButtonDesktop
                                 type='button'
                                 view='ghost'
                                 disabled={disabled}
@@ -329,7 +329,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 <CrossCircleMIcon
                                     className={cn(styles.clearIcon, colorStyles[colors].clearIcon)}
                                 />
-                            </Button>
+                            </ButtonDesktop>
                         )}
                         {rightAddons}
                         {error && (

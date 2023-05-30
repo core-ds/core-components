@@ -4,7 +4,10 @@ import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import {
+    ButtonDesktop as Button,
+    ButtonDesktopProps as ButtonProps,
+} from '@alfalab/core-components-button/desktop';
 import { Input as CoreInput } from '@alfalab/core-components-input';
 import {
     BaseSelectChangePayload,

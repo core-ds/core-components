@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, SVGProps } from 'react';
 import cn from 'classnames';
 
-import { ButtonProps } from '@alfalab/core-components-button';
+import { ButtonDesktopProps as ButtonProps } from '@alfalab/core-components-button/desktop';
 import {
     BaseSelect,
     BaseSelectProps,

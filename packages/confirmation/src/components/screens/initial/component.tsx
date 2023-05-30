@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { CodeInput, CodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input';
 import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';

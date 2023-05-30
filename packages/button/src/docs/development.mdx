@@ -1,6 +1,8 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { Button, ButtonResponsive } from '../index';
+import { ButtonResponsive } from '../responsive';
+import { ButtonDesktop } from '../desktop';
+import { ButtonMobile } from '../mobile';
 import styles from '!!raw-loader!../vars.css';
 
 ## Подключение
@@ -11,6 +13,7 @@ import { ButtonResponsive } from '@alfalab/core-components/button/responsive';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 ```
+Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
@@ -19,7 +22,7 @@ import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 
 ```
 
-<ArgsTable components={{Button, ButtonResponsive}} />
+<ArgsTable components={{ButtonDesktop, ButtonMobile, ButtonResponsive}} />
 
 ## Переменные
 

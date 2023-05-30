@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 
 import { LOADER_MIN_DISPLAY_INTERVAL } from './components/base-button';
-import { Button, ButtonProps } from './index';
+import { ButtonDesktop as Button, ButtonDesktopProps as ButtonProps } from './desktop';
 
 const dataTestId = 'test-id';
 

@@ -7,7 +7,7 @@ import getMonth from 'date-fns/getMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
 import { limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
