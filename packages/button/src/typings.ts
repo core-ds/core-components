@@ -121,14 +121,6 @@ export type NativeButtonProps = Omit<BaseButtonProps, 'colorStyles' | 'styles' |
 export type ButtonDesktopProps = Partial<AnchorButtonProps | NativeButtonProps>;
 export type ButtonMobileProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
-export type ComponentResponsiveProps = BaseButtonProps & {
-    /**
-     * Контрольная точка, с нее начинается desktop версия
-     * @default 1024
-     */
-    breakpoint?: number;
-};
-
 export type ButtonResponsiveProps = Partial<AnchorButtonProps | NativeButtonProps> & {
     /**
      * Контрольная точка, с нее начинается desktop версия

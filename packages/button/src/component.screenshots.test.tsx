@@ -26,7 +26,10 @@ describe('Button', () =>
                 size: 'xl',
             },
         },
-        'transform:scale(2.3)',
+        'paddingRight:98px;transform:scale(2.3)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     ));
 
 describe(

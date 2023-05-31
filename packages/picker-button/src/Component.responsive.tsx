@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonDesktopProps as ButtonProps } from '@alfalab/core-components-button/desktop';
+import { ButtonProps } from '@alfalab/core-components-button';
 import { AdditionalMobileProps } from '@alfalab/core-components-select';
 import { useMedia } from '@alfalab/hooks';
 

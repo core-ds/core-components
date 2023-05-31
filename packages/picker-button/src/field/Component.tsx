@@ -1,10 +1,7 @@
 import React, { ButtonHTMLAttributes, FC, Fragment, SVGProps } from 'react';
 import cn from 'classnames';
 
-import {
-    ButtonDesktop as Button,
-    ButtonDesktopProps as ButtonProps,
-} from '@alfalab/core-components-button/desktop';
+import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
 
 import { PickerButtonSize, PickerButtonVariant } from '../Component';
@@ -77,6 +74,7 @@ export const Field = ({
                         )}
                     </Fragment>
                 }
+                breakpoint={1}
                 block={true}
                 view={view}
                 size={buttonSize}

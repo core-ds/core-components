@@ -4,22 +4,22 @@
 <Container>
     <Row align='middle'>
         <Col>
-            <Button view='accent'>Accent</Button>
+            <ButtonDesktop view='accent'>Accent</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='primary'>Primary</Button>
+            <ButtonDesktop view='primary'>Primary</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='secondary'>Secondary</Button>
+            <ButtonDesktop view='secondary'>Secondary</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='tertiary'>Tertiary</Button>
+            <ButtonDesktop view='tertiary'>Tertiary</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='link'>Link</Button>
+            <ButtonDesktop view='link'>Link</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='ghost'>Ghost</Button>
+            <ButtonDesktop view='ghost'>Ghost</ButtonDesktop>
         </Col>
     </Row>
 </Container>
@@ -51,9 +51,9 @@ render(
         <Row>
             {SIZES.map((size) => (
                 <Col key={size}>
-                    <Button size={size} view='primary'>
+                    <ButtonDesktop size={size} view='primary'>
                         {`${size.toUpperCase()}-size`}
-                    </Button>
+                    </ButtonDesktop>
                 </Col>
             ))}
         </Row>
@@ -119,13 +119,13 @@ render(() => {
         <Container>
             <Row>
                 <Col>
-                    <Button
+                    <ButtonDesktop
                         leftAddons={leftAddons && <StarMIcon />}
                         rightAddons={rightAddons && <StarMIcon />}
                         view='primary'
                     >
                         {label && 'Label'}
-                    </Button>
+                    </ButtonDesktop>
                 </Col>
             </Row>
 
@@ -249,22 +249,22 @@ render(() => {
         <Container>
             <Row align='middle'>
                 <Col>
-                    <Button
+                    <ButtonDesktop
                         view='primary'
                         loading={loading.primary}
                         onClick={() => handleClick('primary', 30)}
                     >
                         Быстрый запрос (30ms)
-                    </Button>
+                    </ButtonDesktop>
                 </Col>
                 <Col>
-                    <Button
+                    <ButtonDesktop
                         view='secondary'
                         loading={loading.secondary}
                         onClick={() => handleClick('secondary', 1500)}
                     >
                         Долгий запрос (1500ms)
-                    </Button>
+                    </ButtonDesktop>
                 </Col>
             </Row>
         </Container>
@@ -316,9 +316,9 @@ render(() => {
 <Container>
     <Row align='middle'>
         <Col>
-            <Button view='primary' href='https://alfabank.ru' target='_blank'>
+            <ButtonDesktop view='primary' href='https://alfabank.ru' target='_blank'>
                 Кнопка-ссылка
-            </Button>
+            </ButtonDesktop>
         </Col>
     </Row>
 </Container>
