@@ -8,12 +8,11 @@
 .componentWrapper {
     position: relative;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .component {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     overflow: hidden;
     color: var(--icon-view-color);
