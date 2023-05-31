@@ -1,12 +1,12 @@
 @import '../../themes/src/default.css';
 
-.eye:last-child {
+.eye {
     margin-right: var(--gap-s-neg);
     height: 100%;
 }
 
 .xl {
-    & .eye:last-child {
+    & .eye {
         margin-right: var(--gap-m-neg);
     }
 
