@@ -3,4 +3,4 @@
 "@alfalab/core-components-themes": minor
 ---
 
-feat(custom-button): Добавлены новые цвета и режимы
+Добавлены новые цвета и режимы
