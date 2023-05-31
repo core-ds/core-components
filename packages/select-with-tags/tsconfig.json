@@ -7,8 +7,9 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../select" }, { "path": "../input" },  { "path": "../tag" }]
+    "references": [{ "path": "../select" }, { "path": "../input" }, { "path": "../tag" }]
 }
