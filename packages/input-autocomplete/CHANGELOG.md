@@ -1,5 +1,28 @@
 # Change Log
 
+## 9.4.0
+
+### Minor Changes
+
+### [#678](https://github.com/core-ds/core-components/pull/678)
+
+-   Добавлен компонент InputAutocompleteModalMobile
+
+### [#673](https://github.com/core-ds/core-components/pull/673)
+
+-   В мобильных модальных компонентах кнопка подтверждения теперь находится справа
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   button@8.4.0
+    -   select@14.2.0
+    -   input@11.1.16
+
 ## 9.3.26
 
 ### Patch Changes

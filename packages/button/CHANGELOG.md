@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.4.0
+
+### Minor Changes
+
+### [#685](https://github.com/core-ds/core-components/pull/685)
+
+-   Добавлен проп spinnerClassName
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   spinner@3.0.6
+
 ## 8.3.0
 
 ### Minor Changes

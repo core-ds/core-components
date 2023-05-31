@@ -1,5 +1,34 @@
 # Change Log
 
+## 14.2.0
+
+### Minor Changes
+
+### [#673](https://github.com/core-ds/core-components/pull/673)
+
+-   В мобильных модальных компонентах кнопка подтверждения теперь находится справа
+
+### [#678](https://github.com/core-ds/core-components/pull/678)
+
+-   Добавлен мобильный entryPoint.
+
+### Patch Changes
+
+### [#689](https://github.com/core-ds/core-components/pull/689)
+
+-   showFooter по-умолчанию выставлен в true
+
+### [#690](https://github.com/core-ds/core-components/pull/690)
+
+-   Исправлена ошибка, из-за которой не выбиралась опция в React 18 на мобильных устройствах
+
+-   Обновлены зависимости
+    -   button@8.4.0
+    -   checkbox@3.1.4
+    -   input@11.1.16
+    -   bottom-sheet@6.2.7
+    -   modal@7.0.12
+
 ## 14.1.2
 
 ### Patch Changes

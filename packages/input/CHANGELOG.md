@@ -1,5 +1,16 @@
 # Change Log
 
+## 11.1.16
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   button@8.4.0
+
 ## 11.1.15
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.0.36
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   select@14.2.0
+    -   tag@5.3.2
+
 ## 7.0.35
 
 ### Patch Changes
