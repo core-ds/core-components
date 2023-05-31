@@ -1,3 +1,104 @@
+## 41.10.0
+
+<sup><time>31.05.2023</time></sup>
+
+### [#685](https://github.com/core-ds/core-components/pull/685)
+
+#### Что изменилось
+- Добавлен проп spinnerClassName
+
+#### Влияние на компоненты
+- Минорное<br />`button`
+
+
+### [#678](https://github.com/core-ds/core-components/pull/678)
+
+#### Что изменилось
+- Добавлен компонент InputAutocompleteModalMobile
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete`
+
+<br />
+
+#### Что изменилось
+- Добавлен мобильный entryPoint.
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#673](https://github.com/core-ds/core-components/pull/673)
+
+#### Что изменилось
+- В мобильных модальных компонентах кнопка подтверждения теперь находится справа
+
+#### Влияние на компоненты
+- Минорное<br />`calendar` `input-autocomplete` `select`
+
+
+### [#689](https://github.com/core-ds/core-components/pull/689)
+
+#### Что изменилось
+- showFooter по-умолчанию выставлен в true
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#680](https://github.com/core-ds/core-components/pull/680)
+
+#### Что изменилось
+- Добавлен новый компонент CustomPickerButton
+
+#### Влияние на компоненты
+- Минорное<br />`custom-picker-button`
+
+
+- Патчи<br />`picker-button`
+
+
+### [#684](https://github.com/core-ds/core-components/pull/684)
+
+#### Что изменилось
+- Компонент Loader заменен на Spinner
+
+#### Влияние на компоненты
+- Минорное<br />`action-button`
+
+
+### [#664](https://github.com/core-ds/core-components/pull/664)
+
+#### Что изменилось
+- Для скролла в десктопном календаре используется CSS реализация
+- В мобильном календаре скролл вынесен на обертку ModalMobile
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+- Патчи<br />`calendar-input` `calendar-range` `calendar-with-skeleton` `date-range-input` `date-time-input`<br />
+
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+#### Что изменилось
+- Обновлена зависимость @alfalab/hooks
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `button` `calendar` `calendar-input` `checkbox`<br /> `confirmation` `confirmation-v1` `filter-tag` `gallery` `input`<br /> `input-autocomplete` `intl-phone-input` `keyboard-focusable` `link` `plate`<br /> `pure-cell` `pure-input` `radio` `segmented-control` `select-with-tags`<br /> `spinner` `switch` `tag` `textarea` `toast`<br /> `tooltip`
+
+
+### [#690](https://github.com/core-ds/core-components/pull/690)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не выбиралась опция в React 18 на мобильных устройствах
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
 ## 41.9.0
 
 <sup><time>25.05.2023</time></sup>

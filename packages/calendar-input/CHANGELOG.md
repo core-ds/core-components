@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.2.26
+
+### Patch Changes
+
+### [#664](https://github.com/core-ds/core-components/pull/664)
+
+-   Для скролла в десктопном календаре используется CSS реализация
+-   В мобильном календаре скролл вынесен на обертку ModalMobile
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   calendar@6.5.0
+    -   date-input@4.2.8
+
 ## 8.2.25
 
 ### Patch Changes

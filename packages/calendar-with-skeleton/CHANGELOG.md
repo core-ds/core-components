@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.0.45
+
+### Patch Changes
+
+### [#664](https://github.com/core-ds/core-components/pull/664)
+
+-   Для скролла в десктопном календаре используется CSS реализация
+-   В мобильном календаре скролл вынесен на обертку ModalMobile
+
+-   Обновлены зависимости
+    -   calendar@6.5.0
+
 ## 5.0.44
 
 ### Patch Changes

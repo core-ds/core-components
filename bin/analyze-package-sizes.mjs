@@ -54,7 +54,7 @@ async function calculateBundleSize(packageName) {
 }
 
 async function run() {
-    const bundleSizeMap = { updatedAt: new Date().toLocaleDateString('ru') };
+    const bundleSizeMap = {};
     while (packageList.length > 0) {
         const pkgName = packageList.pop();
 

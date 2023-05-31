@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.6.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.24
+    -   keyboard-focusable@4.0.6
+    -   tag@5.3.2
+
 ## 7.6.0
 
 ### Minor Changes

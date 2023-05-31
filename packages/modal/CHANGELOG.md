@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.0.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.5
+
 ## 7.0.11
 
 ### Patch Changes

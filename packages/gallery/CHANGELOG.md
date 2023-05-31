@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.2.8
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   tooltip@6.2.23
+    -   icon-button@6.1.1
+
 ## 5.2.7
 
 ### Patch Changes

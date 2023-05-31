@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.3.18
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   button@8.4.0
+    -   icon-button@6.1.1
+
 ## 6.3.17
 
 ### Patch Changes

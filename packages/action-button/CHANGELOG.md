@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.2.0
+
+### Minor Changes
+
+### [#684](https://github.com/core-ds/core-components/pull/684)
+
+-   Компонент Loader заменен на Spinner
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   spinner@3.0.6
+
 ## 1.1.5
 
 ### Patch Changes

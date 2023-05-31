@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.1.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.4.0
+
 ## 3.1.8
 
 ### Patch Changes

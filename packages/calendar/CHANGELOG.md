@@ -1,5 +1,29 @@
 # Change Log
 
+## 6.5.0
+
+### Minor Changes
+
+### [#673](https://github.com/core-ds/core-components/pull/673)
+
+-   В мобильных модальных компонентах кнопка подтверждения теперь находится справа
+
+### [#664](https://github.com/core-ds/core-components/pull/664)
+
+-   Для скролла в десктопном календаре используется CSS реализация
+-   В мобильном календаре скролл вынесен на обертку ModalMobile
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   button@8.4.0
+    -   icon-button@6.1.1
+    -   modal@7.0.12
+
 ## 6.4.0
 
 ### Minor Changes

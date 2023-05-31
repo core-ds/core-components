@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.2.25
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.22
+
 ## 4.2.24
 
 ### Patch Changes
