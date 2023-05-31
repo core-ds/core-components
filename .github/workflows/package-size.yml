@@ -41,7 +41,6 @@ jobs:
             let shouldComment = false;
 
             const table = Object.keys(masterFile)
-              .filter((k) => k !== 'updatedAt')
               .reduce((acc, packageName) => {
                 Object.keys(masterFile[packageName]).forEach((entryPoint) => {
                   const now = currentFile[packageName][entryPoint] || 0;
