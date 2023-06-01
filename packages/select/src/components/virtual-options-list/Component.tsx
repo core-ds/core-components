@@ -3,12 +3,17 @@ import mergeRefs from 'react-merge-refs';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { useMedia } from '@alfalab/hooks';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
-import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
+import {
+    getScrollbarSize,
+    isGroup,
+    lastIndexOf,
+    usePrevious,
+    useVisibleOptions,
+} from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
@@ -31,7 +36,6 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             header,
             footer,
             showFooter = true,
-            optionsListWidth,
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
         },
@@ -39,11 +43,10 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
     ) => {
         const listRef = useRef<HTMLDivElement>(null);
         const parentRef = useRef<HTMLDivElement>(null);
-        const scrollbarRef = useRef<HTMLDivElement>(null);
         const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState(0);
-        const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
+        const [scrollbarSize, setScrollbarSize] = useState<number>(0);
 
-        let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+        const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
         const rowVirtualizer = useVirtual({
             size: flatOptions.length,
@@ -51,8 +54,13 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             overscan: 15,
         });
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
+        const nativeScrollbar = Boolean(nativeScrollbarProp ?? !scrollbarSize);
+
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (nativeScrollbarProp === undefined) {
+                setScrollbarSize(getScrollbarSize());
+            }
+        }, [nativeScrollbarProp]);
 
         // Сколл к выбранному пункту при открытии меню
         useEffect(() => {
@@ -106,7 +114,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             visibleOptions,
             invalidate: visibleOptionsInvalidateKey,
             listRef,
-            styleTargetRef: nativeScrollbar ? parentRef : scrollbarRef,
+            styleTargetRef: parentRef,
             open,
         });
 
@@ -156,23 +164,14 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             ref: listRef,
         };
 
-        const renderWithCustomScrollbar = () => (
-            <Scrollbar
-                className={styles.scrollable}
-                ref={scrollbarRef}
-                horizontalAutoStretch={optionsListWidth === 'content'}
-                scrollableNodeProps={{ onScroll, ref: parentRef }}
-                contentNodeProps={contentNodeProps}
-            >
-                {renderList()}
-            </Scrollbar>
-        );
-
-        const renderWithNativeScrollbar = () => {
+        const renderOptions = () => {
             if (visibleOptions) {
                 return (
                     <div
-                        className={styles.scrollable}
+                        className={cn(styles.scrollable, {
+                            [styles.customScrollbar]:
+                                !nativeScrollbar && flatOptions.length > visibleOptions + 1,
+                        })}
                         ref={mergeRefs([parentRef, ref])}
                         onScroll={onScroll}
                     >
@@ -195,7 +194,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             >
                 {header && <div className={styles.virtualOptionsListHeader}>{header}</div>}
 
-                {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
+                {renderOptions()}
 
                 {emptyPlaceholder && options.length === 0 && (
                     <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
@@ -204,8 +203,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 {showFooter && footer && (
                     <div
                         className={cn(styles.virtualOptionsListFooter, {
-                            [styles.withBorder]:
-                                visibleOptions && flatOptions.length > visibleOptions,
+                            [styles.withBorder]: flatOptions.length > visibleOptions,
                         })}
                     >
                         {footer}

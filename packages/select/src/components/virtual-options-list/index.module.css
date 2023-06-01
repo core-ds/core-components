@@ -30,6 +30,15 @@
     width: 100%;
 }
 
+.customScrollbar {
+    @mixin custom-scrollbar;
+    overflow-x: hidden;
+
+    & div[role='option'] {
+        padding-right: 0;
+    }
+}
+
 .inner {
     position: relative;
     width: 100%;

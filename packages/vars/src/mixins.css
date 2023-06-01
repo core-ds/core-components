@@ -5,7 +5,6 @@
 
 @define-mixin custom-scrollbar {
     overflow: auto;
-    overflow: overlay;
     cursor: auto;
 
     &::-webkit-scrollbar {

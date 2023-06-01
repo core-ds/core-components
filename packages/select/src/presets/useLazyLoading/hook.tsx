@@ -6,8 +6,6 @@ import { Skeleton } from '@alfalab/core-components-skeleton';
 import { Option as DefaultOption } from '../../components/option';
 import { OptionProps, OptionShape } from '../../typings';
 
-import styles from './index.module.css';
-
 import 'intersection-observer';
 
 const DEBOUNCE_TIMEOUT = 300;
@@ -72,11 +70,19 @@ const actions = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Actions = typeof actions extends { [key: string]: (...args: any) => infer U } ? U : never;
 
+const skeletonStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    height: '16px',
+    width: '50%',
+};
+
 export function useLazyLoading({
     limit = 10,
     initialOffset = 0,
     optionsFetcher,
-    skeleton = <Skeleton className={styles.skeleton} visible={true} />,
+    skeleton = <Skeleton style={skeletonStyle} visible={true} />,
     Option = DefaultOption,
 }: useLazyLoadingProps) {
     const initialOptions: OptionShape[] = [];

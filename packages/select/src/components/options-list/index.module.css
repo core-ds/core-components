@@ -29,6 +29,15 @@
     width: 100%;
 }
 
+.customScrollbar {
+    @mixin custom-scrollbar;
+    overflow-x: hidden;
+
+    & > div[role='option'] {
+        padding-right: 0;
+    }
+}
+
 .emptyPlaceholder {
     padding: var(--gap-m) var(--gap-s);
     color: var(--select-options-list-empty-placeholder-color);

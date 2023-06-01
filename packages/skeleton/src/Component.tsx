@@ -8,14 +8,22 @@ export type SkeletonProps = {
      * Флаг, явно задающий состояние, при котором контент закрывается прелоадером
      */
     visible?: boolean;
+
     /**
      * Флаг явного включения анимации скелета
      */
     animate?: boolean;
+
     /**
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Дополнительные инлайн стили
+     */
+    style?: React.CSSProperties;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
@@ -33,12 +41,14 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     className,
     dataTestId,
     children,
+    style,
 }) => {
     if (visible) {
         return (
             <div
                 className={cn(styles.component, { [styles.animate]: animate }, className)}
                 data-test-id={dataTestId}
+                style={style}
             >
                 {children}
             </div>
@@ -46,7 +56,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     }
 
     return (
-        <div data-test-id={dataTestId} className={className}>
+        <div data-test-id={dataTestId} className={className} style={style}>
             {children}
         </div>
     );

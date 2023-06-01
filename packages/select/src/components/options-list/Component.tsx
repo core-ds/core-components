@@ -1,13 +1,12 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { useMedia } from '@alfalab/hooks';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
-import { isGroup, useVisibleOptions } from '../../utils';
+import { getScrollbarSize, isGroup, useVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
@@ -37,22 +36,19 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             header,
             footer,
             showFooter = true,
-            optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
         },
         ref,
     ) => {
-        let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
-
-        nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
+        const [scrollbarSize, setScrollbarSize] = useState<number>(0);
+        const nativeScrollbar = Boolean(nativeScrollbarProp ?? !scrollbarSize);
 
         const renderOption = (option: OptionShape, index: number) => (
             <Option key={option.key} {...getOptionProps(option, index)} />
         );
 
         const listRef = useRef<HTMLDivElement>(null);
-        const scrollbarRef = useRef<HTMLDivElement>(null);
         const counter = createCounter();
         const renderGroup = (group: GroupShape) => (
             <Optgroup
@@ -65,8 +61,13 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             </Optgroup>
         );
 
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (nativeScrollbarProp === undefined) {
+                setScrollbarSize(getScrollbarSize());
+            }
+        }, [nativeScrollbarProp]);
+
         useVisibleOptions({
-            ...(!nativeScrollbar && { styleTargetRef: scrollbarRef }),
             visibleOptions,
             listRef,
             open,
@@ -89,46 +90,28 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             </React.Fragment>
         );
 
-        const renderWithCustomScrollbar = () => {
-            const scrollableNodeProps = {
-                onScroll,
-                'data-test-id': dataTestId,
-                ref: ref as React.RefObject<HTMLDivElement>,
-            };
-
-            return (
-                <Scrollbar
-                    className={styles.scrollable}
-                    ref={scrollbarRef}
-                    horizontalAutoStretch={optionsListWidth === 'content'}
-                    scrollableNodeProps={scrollableNodeProps}
-                    contentNodeProps={{ ref: listRef }}
-                >
-                    {renderListItems()}
-                </Scrollbar>
-            );
-        };
-
-        const renderWithNativeScrollbar = () => (
-            <div className={styles.scrollable} ref={mergeRefs([listRef, ref])} onScroll={onScroll}>
-                {renderListItems()}
-            </div>
-        );
-
         return (
             <div
-                {...(nativeScrollbar && { 'data-test-id': dataTestId })}
+                data-test-id={dataTestId}
                 className={cn(styles.optionsList, styles[size], className)}
             >
                 {header && <div className={styles.optionsListHeader}>{header}</div>}
 
-                {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
+                <div
+                    className={cn(styles.scrollable, {
+                        [styles.customScrollbar]:
+                            !nativeScrollbar && flatOptions.length > visibleOptions + 1,
+                    })}
+                    ref={mergeRefs([listRef, ref])}
+                    onScroll={onScroll}
+                >
+                    {renderListItems()}
+                </div>
 
                 {showFooter && footer && (
                     <div
                         className={cn(styles.optionsListFooter, {
-                            [styles.withBorder]:
-                                visibleOptions && flatOptions.length > visibleOptions,
+                            [styles.withBorder]: flatOptions.length > visibleOptions,
                         })}
                     >
                         {footer}
