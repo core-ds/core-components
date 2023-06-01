@@ -78,7 +78,11 @@ function disableReactRefreshOverlay(config) {
 }
 
 module.exports = {
-    stories: ['../packages/**/*.stories.@(ts|md)x', '../docs/**/*.stories.@(ts|md)x'],
+    stories: [
+        '../packages/**/*.docs.@(ts|md)x',
+        '../packages/**/*.stories.@(ts|md)x',
+        '../docs/**/*.stories.@(ts|md)x',
+    ],
     addons: [
         '@storybook/addon-knobs',
         '@storybook/addon-a11y',

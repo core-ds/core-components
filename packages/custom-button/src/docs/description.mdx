@@ -1,95 +1,82 @@
-import { Container, Row, Col } from 'storybook/blocks';
-import { CustomButton } from '@alfalab/core-components-custom-button';
-
-Компонент используется при необходимости отобразить кнопку с кастомным цветом фона.
-
-```jsx live
-<Container>
-    <Row align='middle'>
-        <Col>
-            <CustomButton backgroundColor='#FF45C3'>Кнопка</CustomButton>
-        </Col>
-        <Col>
-            <CustomButton backgroundColor='#4AF2FD' contentColor='black'>
-                Кнопка
-            </CustomButton>
-        </Col>
-    </Row>
-</Container>
-```
-
 ## Виды кнопок
 
 Размеры и отступы идентичны компоненту [Button](?path=/docs/components-button--docs).
 
-На данный момент поддерживается только `view Primary`.
+## Состояния и цвет контента
+
+Кнопка поддерживает четыре вида генерации состояний `stateType` и четыре цвета контента `contentColor`.
+Для корректного поведения рекомендуется сочетать эти параметры только следующим образом:
 
 ```jsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map((size) => (
-                <Col key={size}>
-                    <CustomButton size={size}>Кнопка</CustomButton>
-                </Col>
+const VARIANTS = {
+    StaticLight: {
+        stateType: 'static-lightening',
+        contentColor: 'static-white',
+        backgroundColor: '#EB58BF',
+    },
+    Light: {
+        stateType: 'lightening',
+        contentColor: 'white',
+        backgroundColor: '#EB58BF',
+    },
+    StaticDark: {
+        stateType: 'static-darkening',
+        contentColor: 'static-black',
+        backgroundColor: '#7FEFFA',
+    },
+    Dark: {
+        stateType: 'darkening',
+        contentColor: 'black',
+        backgroundColor: '#7FEFFA',
+    },
+};
+render(() => {
+    const isMobile = document.body.clientWidth < 450;
+    return (
+        <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
+            {Object.keys(VARIANTS).map((title) => (
+                <CustomButton {...VARIANTS[title]} block={isMobile} key={title}>
+                    {title}
+                </CustomButton>
             ))}
-        </Row>
-    </Container>,
-);
+        </div>
+    );
+});
 ```
 
-## Цвет фона и контента
+## Цвет фона
 
--   Кнопка может принимать пропс `backgroundColor` отвечающий за цвет фона.
--   Кнопка может принимать пропс `contentColor = white | black` отвечающий за цвет контента.
--   Кнопка может принимать пропс `stateType = darkening | lightening` отвечающий за затемнение / осветление цвета фона.
+Кнопка может принимать в качестве цвета фона как токены, так и кастомные значения.
+При использовании токенов, необходимо учитывать их поведение в dark mode.
 
 ```jsx live
-const WHITE_CONTENT_COLORS = [
-    '#FF8510',
-    'linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)',
-    '#FF45C3',
-];
-const BLACK_CONTENT_COLORS = [
-    '#4AF2FD',
-    'linear-gradient(80.38deg, #4AF2FD 0%, #4AFD9C 100%)',
-    '#4AFDA2',
-];
-const STATE_TYPES = ['darkening', 'lightening'];
-
-render(
-    <Container>
-        <Row>
-            {WHITE_CONTENT_COLORS.map((color) => (
-                <Col key={color}>
-                    <CustomButton backgroundColor={color}>Кнопка</CustomButton>
-                </Col>
+const VARIANTS = {
+    Token: {
+        stateType: 'lightening',
+        contentColor: 'white',
+        backgroundColor: 'var(--color-light-bg-secondary-inverted)',
+    },
+    Color: {
+        stateType: 'lightening',
+        contentColor: 'white',
+        backgroundColor: '#EB58BF',
+    },
+    Gradient: {
+        stateType: 'lightening',
+        contentColor: 'white',
+        backgroundColor: 'linear-gradient(264deg, #FF42CA 0%, #FF8A00 100%)',
+    },
+};
+render(() => {
+    const isMobile = document.body.clientWidth < 450;
+    return (
+        <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
+            {Object.keys(VARIANTS).map((title) => (
+                <CustomButton {...VARIANTS[title]} block={isMobile} key={title}>
+                    {title}
+                </CustomButton>
             ))}
-        </Row>
-        <Row>
-            {BLACK_CONTENT_COLORS.map((color) => (
-                <Col key={color}>
-                    <CustomButton backgroundColor={color} contentColor='black'>
-                        Кнопка
-                    </CustomButton>
-                </Col>
-            ))}
-        </Row>
-        <Row>
-            {STATE_TYPES.map((stateType) => (
-                <Col key={stateType}>
-                    <CustomButton
-                        backgroundColor='#FF45C3'
-                        stateType={stateType}
-                        contentColor='white'
-                    >
-                        Кнопка
-                    </CustomButton>
-                </Col>
-            ))}
-        </Row>
-    </Container>,
-);
+        </div>
+    );
+});
 ```
