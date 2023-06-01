@@ -6,6 +6,7 @@
  * @param selectionEnd Конец выделенного в инпуте текста
  * @param ruNumberPriority Приоритетность российского номера в инпуте
  */
+/* eslint complexity: [1, 25] */
 export function preparePasteData(
     phoneValue: string,
     phoneFromBuffer: string,
