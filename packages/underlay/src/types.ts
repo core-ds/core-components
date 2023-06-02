@@ -11,7 +11,7 @@ type PaddingType = {
     left?: PaddingSize;
 };
 
-type BorderRadiusType = 'm' | 'l' | 'xxl';
+type BorderRadiusType = 'm' | 'l' | 'xl' | 'xxl';
 
 export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
@@ -38,6 +38,12 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
      * Цвет бордера
      */
     borderColor?: BorderColorType;
+
+    /**
+     * Настройка переполнения (true - разрешена)
+     * default: true
+     */
+    overflow?: boolean;
 
     /**
      * Тень
