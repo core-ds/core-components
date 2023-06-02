@@ -20,12 +20,12 @@ export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
     /**
      * Цвет контента
      */
-    contentColor?: 'black' | 'white';
+    contentColor?: 'black' | 'white' | 'static-black' | 'static-white';
 
     /**
      * Затемнение или осветление кнопки при hover и active
      */
-    stateType?: 'darkening' | 'lightening';
+    stateType?: 'darkening' | 'lightening' | 'static-darkening' | 'static-lightening';
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;

@@ -1,0 +1,5 @@
+@define-mixin side-panel-click {
+    --side-panel-footer-highlight-background: var(--color-light-bg-secondary);
+    --side-panel-header-highlight-box-shadow: none;
+    --side-panel-footer-highlight-box-shadow: none;
+}

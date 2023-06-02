@@ -146,6 +146,10 @@
     --color-light-bg-secondary-inverted-shade-7: var(--color-dark-bg-secondary-inverted-tint-7);
     --color-light-bg-secondary-inverted-shade-15: var(--color-dark-bg-secondary-inverted-tint-15);
     --color-light-bg-tertiary-shade-7: var(--color-dark-bg-tertiary-tint-7);
+    --color-light-border-key-alpha-7: var(--color-dark-border-key-alpha-7);
+    --color-light-border-key-alpha-15: var(--color-dark-border-key-alpha-15);
+    --color-light-border-key-inverted-alpha-7: var(--color-dark-border-key-inverted-alpha-7);
+    --color-light-border-key-inverted-alpha-15: var(--color-dark-border-key-inverted-alpha-15);
     --color-light-border-underline-alpha-30: var(--color-dark-border-underline-alpha-30);
     --color-light-border-underline-inverted-alpha-30: var(
         --color-dark-border-underline-inverted-alpha-30

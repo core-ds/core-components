@@ -7,11 +7,18 @@ import { getPath, PathsMap } from './utils';
 
 import styles from './index.module.css';
 
+// TODO: вынести в общие типы
+type Border = {
+    width?: number;
+    color?: string;
+    style?: 'solid' | 'dashed';
+};
+
 export type BaseShapeProps = {
     /**
      * Размер компонента
      */
-    size?: number;
+    size?: number | { width: number; height: number };
 
     /**
      * Цвет заливки
@@ -23,7 +30,7 @@ export type BaseShapeProps = {
      * Видимость обводки
      * @default false
      */
-    border?: boolean;
+    border?: boolean | Border;
 
     /**
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
@@ -69,6 +76,11 @@ export type BaseShapeProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Текст
+     */
+    text?: ReactNode;
 };
 
 export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
@@ -80,6 +92,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             imageUrl,
             backgroundIcon: Icon,
             className,
+            text,
             children,
             topAddons,
             bottomAddons,
@@ -89,27 +102,33 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         },
         ref,
     ) => {
+        const [width, height] = typeof size === 'object' ? [size.width, size.height] : [size, size];
+
         const imagePatternId = useId();
 
-        const svgPatternId = Icon && `svg_${size}`;
+        const svgPatternId = useId();
 
-        const hasTopAddons = Boolean(topAddons) && size > 32;
+        const hasTopAddons = Boolean(topAddons) && width > 32;
 
-        const hasBottomAddons = Boolean(bottomAddons) && size > 32;
+        const hasBottomAddons = Boolean(bottomAddons) && width > 32;
 
-        const hasIndicator = Boolean(indicator) && size < 128;
+        const hasIndicator = Boolean(indicator) && width < 128;
 
         return (
             <div
-                className={cn(styles.componentWrapper, styles[`size_${size}`], className)}
+                className={cn(
+                    styles.componentWrapper,
+                    styles[`size_${Math.max(width, height)}`],
+                    className,
+                )}
                 ref={ref}
                 data-test-id={dataTestId}
             >
-                <div className={styles.component}>
+                <div className={styles.component} style={{ width, height }}>
                     <svg
-                        width={size}
-                        height={size}
-                        viewBox={`0 0 ${size} ${size}`}
+                        width={width}
+                        height={height}
+                        viewBox={`0 0 ${width} ${height}`}
                         xmlns='http://www.w3.org/2000/svg'
                         focusable={false}
                     >
@@ -119,7 +138,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                 fill: backgroundColor,
                             }}
                             d={getPath({
-                                size,
+                                size: Math.max(width, height),
                                 hasTopAddons,
                                 hasBottomAddons,
                                 hasIndicator,
@@ -145,7 +164,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                         fill: `url(#${imagePatternId})`,
                                     }}
                                     d={getPath({
-                                        size,
+                                        size: Math.max(width, height),
                                         hasTopAddons,
                                         hasBottomAddons,
                                         hasIndicator,
@@ -155,11 +174,11 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             </Fragment>
                         )}
 
-                        {Icon && !imageUrl && (
+                        {Icon && (
                             <Fragment>
                                 <defs>
                                     <pattern id={svgPatternId} width='100%' height='100%'>
-                                        <Icon width={size} height={size} />
+                                        <Icon width={width} height={height} />
                                     </pattern>
                                 </defs>
 
@@ -168,7 +187,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                                         fill: `url(#${svgPatternId})`,
                                     }}
                                     d={getPath({
-                                        size,
+                                        size: Math.max(width, height),
                                         hasTopAddons,
                                         hasBottomAddons,
                                         hasIndicator,
@@ -181,8 +200,16 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         {border && (
                             <path
                                 className={styles.border}
+                                style={
+                                    typeof border === 'object'
+                                        ? {
+                                              stroke: border.color,
+                                              strokeWidth: border.width,
+                                          }
+                                        : undefined
+                                }
                                 d={getPath({
-                                    size,
+                                    size: Math.max(width, height),
                                     hasTopAddons,
                                     hasBottomAddons,
                                     hasIndicator,
@@ -192,7 +219,9 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         )}
                     </svg>
 
-                    {!imageUrl && !Icon && <div className={styles.children}>{children}</div>}
+                    {text && <div className={styles.text}>{text}</div>}
+
+                    {children && <div className={styles.children}>{children}</div>}
                 </div>
 
                 {hasTopAddons && (

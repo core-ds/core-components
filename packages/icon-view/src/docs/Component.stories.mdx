@@ -7,6 +7,8 @@ import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
 import { Circle } from '@alfalab/core-components-icon-view/circle';
 import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
+import { Rectangle } from '@alfalab/core-components-icon-view/rectangle';
+import { NoShape } from '@alfalab/core-components-icon-view/no-shape';
 
 import packageJson from '../../package.json';
 import Description from './description.mdx';
@@ -52,6 +54,7 @@ import {
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
                 indicator={indicator && <Badge view='count' />}
+                text={text('text', '')}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
@@ -86,6 +89,7 @@ import {
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
                 indicator={indicator && <Badge view='count' />}
+                text={text('text', '')}
             >
                 {size === '128' || size === '80' ? (
                     <DiamondsXxlIcon />
@@ -95,6 +99,54 @@ import {
                     <DiamondsMIcon />
                 )}
             </Circle>
+        );
+    })}
+</Story>
+
+<Story name='Rectangle'>
+    {React.createElement(() => {
+        const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
+        const backgroundColor = text('backgroundColor', '#f3f4f5');
+        const border = boolean('border', false);
+        return (
+            <Rectangle
+                size={size}
+                backgroundColor={backgroundColor}
+                border={border}
+                imageUrl={text('imageUrl', '')}
+                text={text('text', '')}
+            >
+                {size === '128' || size === '80' ? (
+                    <DiamondsXxlIcon />
+                ) : size === '20' ? (
+                    <DiamondsSIcon />
+                ) : (
+                    <DiamondsMIcon />
+                )}
+            </Rectangle>
+        );
+    })}
+</Story>
+
+<Story name='NoShape'>
+    {React.createElement(() => {
+        const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
+        const backgroundColor = text('backgroundColor', '#f3f4f5');
+        return (
+            <NoShape
+                size={size}
+                backgroundColor={backgroundColor}
+                imageUrl={text('imageUrl', '')}
+                text={text('text', '')}
+            >
+                {size === '128' || size === '80' ? (
+                    <DiamondsXxlIcon />
+                ) : size === '20' ? (
+                    <DiamondsSIcon />
+                ) : (
+                    <DiamondsMIcon />
+                )}
+            </NoShape>
         );
     })}
 </Story>

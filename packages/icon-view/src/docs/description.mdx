@@ -1,14 +1,19 @@
 ## Размеры и форма
 
-Компонент имеет две формы шейпа: SuperEllipse и Circle.  
+Компонент имеет несколько форм шейпа: SuperEllipse, Circle, Rectangle и NoShape.
 Для каждой формы доступно несколько размеров: 128px, 80px, 64px, 48px, 40px, 32px, 24px, 20px.
 
 ```jsx live
 render(() => {
     const SIZES = ['128', '80', '64', '48', '40', '32', '24', '20'];
-    const [component, setComponent] = React.useState('ellipse');
+    const [component, setComponent] = React.useState('SuperEllipse');
 
-    const Component = component === 'circle' ? Circle : SuperEllipse
+    const Component = {
+        Circle,
+        SuperEllipse,
+        Rectangle,
+        NoShape,
+    }[component];
 
     const onChange = (_, payload) => {
         setComponent(payload.value);
@@ -27,14 +32,15 @@ render(() => {
             </Row>
             <Row>
                 <RadioGroup
-                name='radioGroup'
-                onChange={onChange}
-                hint='Выберите один из вариантов'
-                value={component}
-            >
-                <Radio label='SuperEllipse' value='ellipse' size='m' />
-                <Radio label='Circle' value='circle' size='m' />
-            </RadioGroup>
+                    name='radioGroup'
+                    onChange={onChange}
+                    hint='Выберите один из вариантов'
+                    value={component}
+                >
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
+                        <Radio label={c} value={c} size='m' key={c} />
+                    ))}
+                </RadioGroup>
             </Row>
         </Container>
     );
@@ -44,9 +50,14 @@ render(() => {
     const BIG_SIZES = ['128', '80', '64'];
     const SMALL_SIZES = ['48', '40', '32', '24', '20'];
 
-    const [component, setComponent] = React.useState('ellipse');
+    const [component, setComponent] = React.useState('SuperEllipse');
 
-    const Component = component === 'circle' ? Circle : SuperEllipse
+    const Component = {
+        Circle,
+        SuperEllipse,
+        Rectangle,
+        NoShape,
+    }[component];
 
     const onChange = (_, payload) => {
         setComponent(payload.value);
@@ -76,14 +87,15 @@ render(() => {
 
             <Row>
                 <RadioGroup
-                name='radioGroup'
-                onChange={onChange}
-                hint='Выберите один из вариантов'
-                value={component}
-            >
-                <Radio label='SuperEllipse' value='ellipse' size='m' />
-                <Radio label='Circle' value='circle' size='m' />
-            </RadioGroup>
+                    name='radioGroup'
+                    onChange={onChange}
+                    hint='Выберите один из вариантов'
+                    value={component}
+                >
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
+                        <Radio label={c} value={c} size='m' key={c} />
+                    ))}
+                </RadioGroup>
             </Row>
         </Container>
     );
@@ -100,7 +112,7 @@ render(() => {
         <Col>
             <SuperEllipse size='80' border={true}/>
         </Col>
-    
+
         <Col>
             <SuperEllipse
                 size='80'
@@ -115,6 +127,19 @@ render(() => {
                 size='80'
                 backgroundIcon={DiamondsMIcon}
                 backgroundColor='transparent'
+                border={{ width: 2, color: 'var(--color-light-border-accent)' }}
+            />
+        </Col>
+
+        <Col>
+            <SuperEllipse
+                size='80'
+                text={
+                    <Typography.Title view='small' weight='bold' font='system' color='primary-inverted'>
+                        БК
+                    </Typography.Title>
+                }
+                backgroundColor='#ef3124'
             />
         </Col>
     </Row>
@@ -161,7 +186,10 @@ render(
 
 ## Аддоны
 
+Аддоны доступны только для SuperEllipse и Circle.
+
 В верхний и нижний аддон можно положить еще по одной IconView. IconView должна подходить по размеру и быть круглой. Вместо неё можно использовать подходящий по размеру badge или кастомную верстку. Аддон есть не у всех размеров компонента.
+
 
 ```jsx live
 const positive = <Badge
@@ -257,7 +285,7 @@ render(
 
             <Col>
                 <SuperEllipse size='80' topAddons={iconViewImage} />
-            </Col> 
+            </Col>
             <Col>
                 <SuperEllipse size='80' bottomAddons={iconViewSvg} />
             </Col>
@@ -277,7 +305,10 @@ render(
 
 ## Indicator и Counter
 
+Indicator и Counter доступны только для SuperEllipse и Circle.
+
 Counter всегда отображается в верхнем аддоне. Если в Counter не передан контент его следует отображать в специальном слоте Indicator и использовать соответствующую форму выреза.
+
 ```jsx live
 render(
     <Container>
@@ -311,12 +342,12 @@ render(
 
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={1}/>} />
-            </Col> 
+            </Col>
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={25} />} />
             </Col>
-</Row>
-<Row>
+        </Row>
+        <Row>
             <Col>
                 <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={100} />}
                 />
@@ -325,3 +356,4 @@ render(
     </Container>
 );
 ```
+
