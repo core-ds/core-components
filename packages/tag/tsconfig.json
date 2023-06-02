@@ -4,5 +4,6 @@
     "compilerOptions": {
         "outDir": "dist",
         "rootDirs": ["src"]
-    }
+    },
+    "references": [{ "path": "../mq" }]
 }

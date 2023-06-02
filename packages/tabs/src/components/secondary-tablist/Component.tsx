@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Tag } from '@alfalab/core-components-tag';
+import { TagDesktop } from '@alfalab/core-components-tag/desktop';
 
 import { useTabs } from '../../hooks/use-tabs';
 import { SecondaryTabListProps, Styles } from '../../typings';
@@ -38,7 +38,7 @@ export const SecondaryTabList = ({
                 if (item.hidden) return null;
 
                 return (
-                    <Tag
+                    <TagDesktop
                         {...getTabListItemProps(index)}
                         key={item.id}
                         className={cn(styles.title, item.toggleClassName)}
@@ -47,7 +47,7 @@ export const SecondaryTabList = ({
                         rightAddons={item.rightAddons}
                     >
                         {item.title}
-                    </Tag>
+                    </TagDesktop>
                 );
             })}
         </div>

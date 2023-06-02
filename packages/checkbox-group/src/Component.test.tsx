@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { CheckboxGroup, CheckboxGroupProps } from './index';
 import { Checkbox } from '../../checkbox/src';
-import { Tag } from '../../tag/src';
+import { TagDesktop as Tag } from '../../tag/src/desktop';
 
 const Group = ({ ...restProps }: Partial<CheckboxGroupProps>) => (
     <CheckboxGroup label='Заголовок группы' {...restProps}>

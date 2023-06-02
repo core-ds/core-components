@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { Tag } from './index';
+import { TagDesktop as Tag } from './desktop';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {

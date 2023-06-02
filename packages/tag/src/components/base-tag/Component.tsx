@@ -4,18 +4,18 @@ import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
 
-import defaultColors from './default.module.css';
-import styles from './index.module.css';
-import invertedColors from './inverted.module.css';
-
-const colorStylesMap = {
-    default: defaultColors,
-    inverted: invertedColors,
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
 };
 
-type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type TagProps = Omit<NativeProps, 'onClick'> & {
+export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
     /**
      * Отображение кнопки в отмеченном (зажатом) состоянии
      */
@@ -89,9 +89,23 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
      * Стиль тега
      */
     view?: 'outlined' | 'filled';
+
+    /**
+     * Основные стили компонента.
+     */
+    styles?: { [key: string]: string };
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStylesMap?: StyleColors;
+    /**
+     * Вид компонента
+     */
+    desktop?: boolean;
 };
 
-export const Tag = forwardRef<HTMLButtonElement, TagProps>(
+export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
     (
         {
             rightAddons,
@@ -109,6 +123,12 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             view = 'outlined',
             childrenClassName,
             childrenRef,
+            colorStylesMap = {
+                default: {},
+                inverted: {},
+            },
+            styles = {},
+            desktop = false,
             ...restProps
         },
         ref,
@@ -132,6 +152,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                 styles[shapeClassName],
                 {
                     [styles.checked]: checked,
+                    [colorStyles.hover]: desktop,
+                    [styles.borderRadius]: desktop,
                     [colorStyles.checked]: checked,
                     [styles.focused]: focused,
                     [styles.withRightAddons]: Boolean(rightAddons),

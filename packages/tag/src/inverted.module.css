@@ -12,7 +12,7 @@
             background-color: var(--tag-inverted-outlined-background-color-disabled);
         }
 
-        &:hover:not(:disabled) {
+        &.hover:hover:not(:disabled) {
             border-color: var(--tag-inverted-border-color-hover);
             background-color: var(--tag-inverted-outlined-background-color-hover);
         }
@@ -33,7 +33,7 @@
             background-color: var(--tag-inverted-filled-background-color-disabled);
         }
 
-        &:hover:not(:disabled) {
+        &.hover:hover:not(:disabled) {
             background-color: var(--tag-inverted-filled-background-color-hover);
         }
 
@@ -53,7 +53,7 @@
             color: var(--tag-inverted-text-color-checked-disabled);
         }
 
-        &:hover:not(:disabled) {
+        &.hover:hover:not(:disabled) {
             background-color: var(--tag-inverted-background-color-checked-hover);
         }
 

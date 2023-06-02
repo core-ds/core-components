@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { RadioGroup, RadioGroupProps } from './index';
 import { Radio } from '../../radio/src';
-import { Tag } from '../../tag/src';
+import { TagDesktop as Tag } from '../../tag/src/desktop';
 
 const Group = ({ ...restProps }: Partial<RadioGroupProps>) => (
     <RadioGroup label='Заголовок группы' {...restProps}>

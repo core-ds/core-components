@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Tag as CoreTag, TagProps } from '@alfalab/core-components-tag';
+import {
+    TagDesktop as CoreTag,
+    TagDesktopProps as TagProps,
+} from '@alfalab/core-components-tag/desktop';
 
 import styles from './index.module.css';
 
