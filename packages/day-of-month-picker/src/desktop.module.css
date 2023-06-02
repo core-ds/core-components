@@ -1,0 +1,72 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    width: var(--calendar-width);
+    height: var(--calendar-height);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    outline: none;
+
+    @media (max-width: 374px) {
+        align-items: center;
+        width: 100%;
+        height: 321px;
+    }
+
+    &.responsive {
+        width: 100%;
+
+        & .container {
+            width: 100%;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--gap-m);
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow: hidden;
+
+    @media (max-width: 374px) {
+        width: 288px;
+    }
+}
+
+.calendarContainer {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: var(--calendar-input-popover-border-radius);
+    border: 1px solid var(--color-light-border-secondary);
+
+    @media (max-width: 374px) {
+        width: 100%;
+        min-width: 288px;
+    }
+}
+
+.calendarResponsive {
+    width: var(--calendar-width);
+}
+
+.lastDay {
+    border-radius: var(--border-radius-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    gap: 10px;
+    width: 280px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.lastDaySelected {
+    background: #121212;
+}
