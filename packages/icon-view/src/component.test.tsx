@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 
 import { SuperEllipse } from './super-ellipse';
 import { Circle } from './circle';
+import { Rectangle } from './rectangle';
+import { NoShape } from './no-shape';
 
 describe('IconView', () => {
     describe('Snapshots tests', () => {
@@ -37,6 +39,12 @@ describe('IconView', () => {
                 render(<SuperEllipse topAddons='Top addon' bottomAddons='Bottom addon' />)
                     .baseElement,
             ).toMatchSnapshot();
+        });
+
+        it('should match snapshot with text', () => {
+            const { baseElement } = render(<SuperEllipse text={<span>text</span>} />);
+
+            expect(baseElement).toMatchSnapshot();
         });
     });
 
@@ -82,6 +90,8 @@ describe('IconView', () => {
                 <React.Fragment>
                     <SuperEllipse />
                     <Circle />
+                    <Rectangle />
+                    <NoShape />
                 </React.Fragment>,
             );
 

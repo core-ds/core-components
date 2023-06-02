@@ -241,6 +241,10 @@
     --color-dark-bg-secondary-inverted-tint-7: rgb(244, 245, 246);
     --color-dark-bg-secondary-inverted-tint-15: rgb(245, 246, 246);
     --color-dark-bg-tertiary-tint-7: rgb(74, 89, 104);
+    --color-dark-border-key-alpha-7: rgba(255, 255, 255, 0.07);
+    --color-dark-border-key-alpha-15: rgba(255, 255, 255, 0.15);
+    --color-dark-border-key-inverted-alpha-7: rgba(11, 31, 53, 0.07);
+    --color-dark-border-key-inverted-alpha-15: rgba(11, 31, 53, 0.15);
     --color-dark-border-underline-alpha-30: rgba(109, 121, 134, 0.3);
     --color-dark-border-underline-inverted-alpha-30: rgba(182, 188, 195, 0.3);
     --color-dark-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
@@ -393,6 +397,10 @@
     --color-light-bg-secondary-inverted-shade-7: rgb(33, 49, 68);
     --color-light-bg-secondary-inverted-shade-15: rgb(30, 45, 62);
     --color-light-bg-tertiary-shade-7: rgb(215, 217, 219);
+    --color-light-border-key-alpha-7: rgba(11, 31, 53, 0.07);
+    --color-light-border-key-alpha-15: rgba(11, 31, 53, 0.15);
+    --color-light-border-key-inverted-alpha-7: rgba(255, 255, 255, 0.07);
+    --color-light-border-key-inverted-alpha-15: rgba(255, 255, 255, 0.15);
     --color-light-border-underline-alpha-30: rgba(182, 188, 195, 0.3);
     --color-light-border-underline-inverted-alpha-30: rgba(109, 121, 134, 0.3);
     --color-light-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
