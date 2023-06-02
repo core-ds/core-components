@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#677](https://github.com/core-ds/core-components/pull/677)
+
+-   Добавлены новые цвета и режимы
+
 ## 3.1.9
 
 ### Patch Changes

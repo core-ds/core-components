@@ -1,5 +1,13 @@
 # @alfalab/core-components-underlay
 
+## 1.1.0
+
+### Minor Changes
+
+### [#693](https://github.com/core-ds/core-components/pull/693)
+
+-   Фикс параметра borderRadius, добавлен параметр overflow
+
 ## 1.0.2
 
 ### Patch Changes
