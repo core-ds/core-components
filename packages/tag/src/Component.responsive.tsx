@@ -6,7 +6,7 @@ import { BaseTagProps } from './components/base-tag';
 import { TagDesktop } from './Component.desktop';
 import { TagMobile } from './Component.mobile';
 
-export type TagResponsiveProps = Omit<BaseTagProps, 'desktop' | 'colorStyles' | 'styles'> & {
+export type TagResponsiveProps = Omit<BaseTagProps, 'desktop' | 'colorStylesMap' | 'styles'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

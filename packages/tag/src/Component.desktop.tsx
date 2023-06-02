@@ -11,8 +11,8 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type TagDesktopProps = Omit<BaseTagProps, 'desktop' | 'colorStyles' | 'styles'>;
+export type TagDesktopProps = Omit<BaseTagProps, 'desktop' | 'colorStylesMap' | 'styles'>;
 
-export const TagDesktop = forwardRef<HTMLButtonElement, BaseTagProps>((restProps, ref) => (
+export const TagDesktop = forwardRef<HTMLButtonElement, TagDesktopProps>((restProps, ref) => (
     <BaseTag {...restProps} desktop={true} ref={ref} colorStylesMap={colorStyles} styles={styles} />
 ));
