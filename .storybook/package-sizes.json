@@ -197,6 +197,8 @@
     },
     "icon-view": {
         "circle.js": 27.48,
+        "no-shape.js": 5.07,
+        "rectangle.js": 16.13,
         "super-ellipse.js": 53.25
     },
     "icon-button": {
