@@ -23,6 +23,7 @@ export const CONFIG: TConfig = {
         'RadioGroup',
         'Tag',
         'FilterTag',
+        'DayOfMonthPicker',
     ],
     'Ввод даты и времени': [
         'DateInput',

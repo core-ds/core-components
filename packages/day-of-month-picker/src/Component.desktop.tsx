@@ -13,7 +13,7 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 import { Input } from '@alfalab/core-components-input';
 import { Popover } from '@alfalab/core-components-popover';
 import { Typography } from '@alfalab/core-components-typography';
-import CalendarMIcon from '@alfalab/icons-glyph/CalendarMIcon';
+import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import { DaysTable } from './components/days-table';
 import { useCalendar } from './useCalendar';
