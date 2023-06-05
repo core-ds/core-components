@@ -1,17 +1,19 @@
 import { CssVars } from 'storybook/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import { DateRangeInputResponsive as DateRangeInputTS } from '../responsive';
+import { DateRangeInputResponsive } from '../Component.responsive';
 import styles from '!!raw-loader!../components/date-range-input/index.module.css';
 
 ## Подключение
 
 ```jsx
 import { DateRangeInput } from '@alfalab/core-components/date-range-input';
+import { DateRangeInputDesktop } from '@alfalab/core-components/date-range-input/desktop';
+import { DateRangeInputMobile } from '@alfalab/core-components/date-range-input/mobile';
 ```
 
 ## Свойства
 
-<ArgsTable of={DateRangeInputTS} />
+<ArgsTable of={DateRangeInputResponsive} />
 
 ## Переменные
 

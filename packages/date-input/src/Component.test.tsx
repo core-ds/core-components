@@ -59,11 +59,9 @@ describe('DateInput', () => {
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
-            userEvent.type(input, value);
+            await userEvent.type(input, value);
 
-            await waitFor(() => {
-                expect(input).toHaveValue(value);
-            });
+            expect(input).toHaveValue(value);
         });
     });
 

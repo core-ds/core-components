@@ -14,7 +14,7 @@ export type ResponsiveCalendarProps = CalendarDesktopProps &
         breakpoint?: number;
     };
 
-export type CalendarMedia = 'desktop' | 'mobile';
+type CalendarMedia = 'desktop' | 'mobile';
 
 export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarProps>(
     ({ breakpoint = 1024, ...restProps }, ref) => {

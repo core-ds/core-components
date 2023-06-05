@@ -2,7 +2,8 @@ import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
-import { Calendar, usePeriod } from '@alfalab/core-components-calendar';
+import { CalendarDesktop as Calendar } from '@alfalab/core-components-calendar/desktop';
+import { usePeriod } from '@alfalab/core-components-calendar/shared';
 import { CalendarMobile } from '@alfalab/core-components-calendar/mobile';
 
 import packageJson from '../../package.json';
