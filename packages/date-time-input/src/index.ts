@@ -1,2 +1,2 @@
-export { DateTimeInputResponsive as DateTimeInput } from './responsive';
-export type { DateTimeInputResponsiveProps as DateTimeInputProps } from './responsive';
+export { DateTimeInputResponsive as DateTimeInput } from './Component.responsive';
+export type { DateTimeInputResponsiveProps as DateTimeInputProps } from './Component.responsive';

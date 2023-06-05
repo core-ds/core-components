@@ -13,7 +13,7 @@ import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
 
-import { Calendar } from './index';
+import { CalendarDesktop as Calendar } from './desktop';
 
 jest.useFakeTimers();
 

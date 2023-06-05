@@ -14,12 +14,9 @@ import cn from 'classnames';
 import { startOfMonth } from 'date-fns';
 import dateFnsIsValid from 'date-fns/isValid';
 
-import {
-    Calendar as DefaultCalendar,
-    CalendarMobileProps,
-    CalendarProps,
-    usePeriod,
-} from '@alfalab/core-components-calendar';
+import type { CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
+import type { CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
+import { usePeriod } from '@alfalab/core-components-calendar/shared';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { InputProps } from '@alfalab/core-components-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
@@ -94,7 +91,7 @@ export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
          * Доп. пропсы для календаря
          */
         calendarProps?:
-            | (CalendarProps & Record<string, unknown>)
+            | (CalendarDesktopProps & Record<string, unknown>)
             | (CalendarMobileProps & Record<string, unknown>);
 
         /**
@@ -186,8 +183,8 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             popoverPosition = 'bottom-start',
             zIndexPopover,
             preventFlip,
-            Calendar = DefaultCalendar,
             InputComponent,
+            Calendar,
             calendarProps = {},
             defaultMonth,
             minDate = calendarProps.minDate,
@@ -426,7 +423,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                 (selectedTo && startOfMonth(selectedTo)) ||
                 (selectedFrom && startOfMonth(selectedFrom));
 
-            return (
+            return Calendar ? (
                 // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 <div onMouseDown={handleCalendarWrapperMouseDown}>
                     <Calendar
@@ -445,7 +442,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                         events={events}
                     />
                 </div>
-            );
+            ) : null;
         };
 
         return (

@@ -13,12 +13,9 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import {
-    Calendar as DefaultCalendar,
-    CalendarMobileProps,
-    CalendarProps,
-    dateInLimits,
-} from '@alfalab/core-components-calendar';
+import type { CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
+import type { CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
+import { dateInLimits } from '@alfalab/core-components-calendar/shared';
 import {
     DateInput,
     DateInputProps,
@@ -53,7 +50,7 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Доп. пропсы для календаря
      */
     calendarProps?:
-        | (CalendarProps & Record<string, unknown>)
+        | (CalendarDesktopProps & Record<string, unknown>)
         | (CalendarMobileProps & Record<string, unknown>);
 
     /**
@@ -136,7 +133,7 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     /**
      * Обработчик изменения календаря
      */
-    onCalendarChange?: CalendarProps['onChange'];
+    onCalendarChange?: CalendarDesktopProps['onChange'];
 
     /**
      * Позиционирование поповера с календарем
@@ -186,7 +183,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onCalendarChange,
             onKeyDown,
             readOnly,
-            Calendar = DefaultCalendar,
+            Calendar,
             popoverPosition = 'bottom-start',
             zIndexPopover,
             useAnchorWidth,
@@ -324,7 +321,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             [changeHandler, checkInputValueIsValid],
         );
 
-        const handleCalendarChange = useCallback<Required<CalendarProps>['onChange']>(
+        const handleCalendarChange = useCallback<Required<CalendarDesktopProps>['onChange']>(
             (date?: number) => {
                 if (date) {
                     changeHandler(null, formatDate(date), new Date(date), 'calendar');
@@ -356,25 +353,26 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             }
         }, [value]);
 
-        const renderCalendar = () => (
-            // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-            <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <Calendar
-                    {...calendarProps}
-                    responsive={calendarResponsive}
-                    open={open}
-                    onClose={handleCalendarClose}
-                    ref={calendarRef}
-                    defaultMonth={defaultMonth}
-                    value={checkInputValueIsValid(inputValue) ? calendarValue : undefined}
-                    onChange={handleCalendarChange}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    offDays={offDays}
-                    events={events}
-                />
-            </div>
-        );
+        const renderCalendar = () =>
+            Calendar ? (
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+                <div onMouseDown={handleCalendarWrapperMouseDown}>
+                    <Calendar
+                        {...calendarProps}
+                        responsive={calendarResponsive}
+                        open={open}
+                        onClose={handleCalendarClose}
+                        ref={calendarRef}
+                        defaultMonth={defaultMonth}
+                        value={checkInputValueIsValid(inputValue) ? calendarValue : undefined}
+                        onChange={handleCalendarChange}
+                        minDate={minDate}
+                        maxDate={maxDate}
+                        offDays={offDays}
+                        events={events}
+                    />
+                </div>
+            ) : null;
 
         return (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions

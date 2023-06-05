@@ -2,6 +2,7 @@
     "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
+        "jsx": "react",
         "outDir": "dist",
         "rootDirs": ["src"],
         "baseUrl": ".",
@@ -10,6 +11,7 @@
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
