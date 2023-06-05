@@ -10,14 +10,17 @@ import startOfMonth from 'date-fns/startOfMonth';
 import { Button } from '@alfalab/core-components-button';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
-import { limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
 import { CalendarDesktop, CalendarDesktopProps } from '../../Component.desktop';
 import { Month } from '../../typings';
+import { useCalendar } from '../../useCalendar';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
     generateMonths,
     generateWeeks,
+    limitDate,
+    monthName,
+    WEEKDAYS,
 } from '../../utils';
 import { DaysTable } from '../days-table';
 

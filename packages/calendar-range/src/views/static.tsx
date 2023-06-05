@@ -8,12 +8,13 @@ import max from 'date-fns/max';
 import startOfMonth from 'date-fns/startOfMonth';
 import subMonths from 'date-fns/subMonths';
 
-import { Calendar, usePeriodWithReset } from '@alfalab/core-components-calendar';
+import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
+import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
 import {
     formatDate,
     isValidInputValue,
     parseDateString,
-} from '@alfalab/core-components-calendar-input';
+} from '@alfalab/core-components-calendar-input/shared';
 import {
     DateInput,
     DateInputProps,
@@ -249,8 +250,8 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
 
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
 
-    const CalendarFromComponent = dateInputFromProps.Calendar || Calendar;
-    const CalendarToComponent = dateInputToProps.Calendar || Calendar;
+    const CalendarFromComponent = dateInputFromProps.Calendar || CalendarDesktop;
+    const CalendarToComponent = dateInputToProps.Calendar || CalendarDesktop;
 
     const minMaxInSameMonth = minDate && maxDate && isSameMonth(minDate, maxDate);
 
