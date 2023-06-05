@@ -47,7 +47,7 @@ async function calculateBundleSize(packageName) {
     // }
 
     return Object.keys(result.metafile.outputs).reduce((acc, path) => {
-        acc[path.split('/').pop()] = +(result.metafile.outputs[path].bytes / 1024).toPrecision(2);
+        acc[path.split('/').pop()] = +(result.metafile.outputs[path].bytes / 1024).toFixed(2);
 
         return acc;
     }, {});
@@ -63,7 +63,7 @@ async function run() {
 
     await fs.promises.writeFile(
         './.storybook/package-sizes.json',
-        JSON.stringify(bundleSizeMap, null, 2),
+        JSON.stringify(bundleSizeMap, null, 4),
     );
 }
 
