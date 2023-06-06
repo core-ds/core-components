@@ -49,7 +49,7 @@ jobs:
                   if (Math.abs(now - before) > 2) {
                     shouldComment = true;
                     acc += `| ${packageName}/${entryPoint} | ${now} ${
-                    now - before > 0 ? `(+${now - before} KB🔺)` : `(-${before - now} KB)`
+                    now - before > 0 ? `(+${(now - before).toFixed(2)} KB🔺)` : `(-${(before - now).toFixed(2)} KB)`
                     } |\n`;
                   }
                 });

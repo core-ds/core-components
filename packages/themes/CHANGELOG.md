@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.7.0
+
+### Minor Changes
+
+### [#677](https://github.com/core-ds/core-components/pull/677)
+
+-   Добавлены новые цвета и режимы
+
+### [#686](https://github.com/core-ds/core-components/pull/686)
+
+-   Добавлена темизация для АО компоненту SideBar
+
 ## 11.6.1
 
 ### Patch Changes

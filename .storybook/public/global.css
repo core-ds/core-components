@@ -454,6 +454,11 @@ a.sbdocs-a {
     line-height: 1.5;
 }
 
+ol {
+    margin: var(--gap-2xs) 0;
+    padding-inline-start: 18px;
+}
+
 .sbdocs p code,
 .sbdocs li code,
 .sbdocs td code {

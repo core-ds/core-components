@@ -1,3 +1,53 @@
+## 41.11.0
+
+<sup><time>02.06.2023</time></sup>
+
+### [#677](https://github.com/core-ds/core-components/pull/677)
+
+#### Что изменилось
+- Добавлены новые цвета и режимы
+
+#### Влияние на компоненты
+- Минорное<br />`custom-button` `themes`
+
+
+### [#686](https://github.com/core-ds/core-components/pull/686)
+
+#### Что изменилось
+- Добавлена темизация для АО компоненту SideBar
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+
+### [#675](https://github.com/core-ds/core-components/pull/675)
+
+#### Что изменилось
+- feat(icon-view): Добавлены шейпы Rectangle и NoShape
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#692](https://github.com/core-ds/core-components/pull/692)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой отображался некорректный номер при вставке телефона, начинающегося на +7 или 8, из буфера в инпут
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+### [#693](https://github.com/core-ds/core-components/pull/693)
+
+#### Что изменилось
+- Фикс параметра borderRadius, добавлен параметр overflow
+
+#### Влияние на компоненты
+- Минорное<br />`underlay`
+
+
+
 ## 41.10.0
 
 <sup><time>31.05.2023</time></sup>

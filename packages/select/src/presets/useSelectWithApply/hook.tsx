@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { AnyObject, BaseSelectProps, OptionShape, processOptions } from '../..';
 
@@ -39,6 +39,11 @@ export type UseSelectWithApplyProps = {
      * Показывать пункт "Выбрать все"
      */
     showSelectAll?: boolean;
+
+    /**
+     * Показывать пункт "Выбрать все" в заголовке списка
+     */
+    showHeaderWithSelectAll?: boolean;
 };
 
 export const SELECT_ALL_KEY = 'select_all';
@@ -53,6 +58,7 @@ export function useSelectWithApply({
     optionsListProps = {},
     showClear = true,
     showSelectAll = false,
+    showHeaderWithSelectAll = false,
 }: UseSelectWithApplyProps) {
     const { flatOptions, selectedOptions } = useMemo(
         () => processOptions(options, selected),
@@ -63,54 +69,53 @@ export function useSelectWithApply({
 
     const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
 
-    const handleApply = useCallback(() => {
+    const handleApply = () => {
         onChange({
             selected: selectedDraft[0],
             selectedMultiple: selectedDraft,
             initiator: null,
         });
-    }, [onChange, selectedDraft]);
+    };
 
-    const handleClear = useCallback(() => {
+    const handleClear = () => {
         setSelectedDraft([]);
         onChange({
             selected: null,
             selectedMultiple: [],
             initiator: null,
         });
-    }, [onChange]);
+    };
 
-    const handleChange: Required<BaseSelectProps>['onChange'] = useCallback(
-        ({ initiator, ...restArgs }) => {
-            if (!initiator) {
-                onChange({
-                    initiator: null,
-                    ...restArgs,
-                });
+    const handleToggleAll = () => {
+        setSelectedDraft(flatOptions.length === selectedDraft.length ? [] : flatOptions);
+    };
 
-                return;
-            }
+    const handleChange: Required<BaseSelectProps>['onChange'] = ({ initiator, ...restArgs }) => {
+        if (!initiator) {
+            onChange({
+                initiator: null,
+                ...restArgs,
+            });
 
-            const initiatorSelected =
-                selectedDraft.includes(initiator) ||
-                (initiator.key === SELECT_ALL_KEY && selectedDraft.length === flatOptions.length);
+            return;
+        }
 
-            if (initiator.key === SELECT_ALL_KEY) {
-                setSelectedDraft(initiatorSelected ? [] : (flatOptions as OptionShape[]));
-            } else {
-                setSelectedDraft(
-                    initiatorSelected
-                        ? selectedDraft.filter((o) => o !== initiator)
-                        : selectedDraft.concat(initiator),
-                );
-            }
-        },
-        [flatOptions, onChange, selectedDraft],
-    );
+        const initiatorSelected =
+            selectedDraft.includes(initiator) ||
+            (initiator.key === SELECT_ALL_KEY && selectedDraft.length === flatOptions.length);
 
-    const handleClose = useCallback(() => {
-        setSelectedDraft(selectedOptionsRef.current);
-    }, []);
+        if (initiator.key === SELECT_ALL_KEY) {
+            setSelectedDraft(initiatorSelected ? [] : flatOptions);
+        } else {
+            setSelectedDraft(
+                initiatorSelected
+                    ? selectedDraft.filter((o) => o !== initiator)
+                    : selectedDraft.concat(initiator),
+            );
+        }
+    };
+
+    const handleClose = () => setSelectedDraft(selectedOptionsRef.current);
 
     useEffect(() => {
         setSelectedDraft(selectedOptions);
@@ -132,6 +137,12 @@ export function useSelectWithApply({
             onApply: handleApply,
             onClose: handleClose,
             selectedDraft,
+            showHeaderWithSelectAll,
+            headerProps: {
+                indeterminate: !!selectedDraft.length && selectedDraft.length < flatOptions.length,
+                checked: selectedDraft.length === flatOptions.length,
+                onChange: handleToggleAll,
+            },
         },
         allowUnselect: true,
         multiple: true,
