@@ -14,6 +14,7 @@ type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | '
         buttonSize?: PickerButtonSize;
         buttonVariant?: PickerButtonVariant;
         showArrow?: boolean;
+        idMobile?: boolean;
     };
 
 export const Field = ({
@@ -34,6 +35,8 @@ export const Field = ({
     valueRenderer,
     showArrow = true,
     labelView,
+    breakpoint: breakpointProps,
+    idMobile = false,
     ...restProps
 }: FieldProps) => {
     const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(buttonVariant, buttonSize);
@@ -45,9 +48,12 @@ export const Field = ({
         ...restInnerProps,
     } as ButtonHTMLAttributes<HTMLButtonElement>;
 
+    const breakpoint = idMobile ? breakpointProps : 1;
+
     return (
         <div ref={ref}>
             <Button
+                breakpoint={breakpoint}
                 {...buttonProps}
                 rightAddons={
                     <Fragment>
@@ -74,7 +80,6 @@ export const Field = ({
                         )}
                     </Fragment>
                 }
-                breakpoint={1}
                 block={true}
                 view={view}
                 size={buttonSize}

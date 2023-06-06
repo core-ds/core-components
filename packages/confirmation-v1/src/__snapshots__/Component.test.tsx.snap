@@ -136,7 +136,7 @@ exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] 
         Выполните операцию с самого начала
       </span>
       <button
-        class="cc-button component secondary xs component secondary active hover borderRadius"
+        class="cc-button component secondary xs xs component secondary"
         type="button"
       >
         <span

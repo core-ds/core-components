@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
+import { Button } from '@alfalab/core-components-button';
 import { Loader } from '@alfalab/core-components-loader';
 import { Typography } from '@alfalab/core-components-typography';
 
@@ -25,7 +25,15 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     mobile,
     handleSmsRetryClick,
 }) => {
-    const { state, texts, timeLeft, blockSmsRetry } = useContext(ConfirmationContext);
+    const {
+        state,
+        texts,
+        timeLeft,
+        blockSmsRetry,
+        breakpoint: breakpointProps,
+    } = useContext(ConfirmationContext);
+
+    const breakpoint = mobile ? breakpointProps : 1;
 
     const renderText = (text?: string) => (
         <Typography.Text
@@ -68,6 +76,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
                 view='secondary'
                 onClick={handleSmsRetryClick}
                 className={cn(styles.getCodeButton, { [styles.getCodeButtonMobile]: mobile })}
+                breakpoint={breakpoint}
             >
                 {texts.buttonRetry}
             </Button>

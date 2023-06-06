@@ -111,6 +111,12 @@ export type ConfirmationProps = {
      * @default false
      */
     hideCountdownSection?: boolean;
+
+    /**
+     * Контрольная точка для кнопки, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 };
 
 export type TConfirmationContext = Required<
@@ -136,6 +142,12 @@ export type TConfirmationContext = Required<
         'phone' | 'blockSmsRetry' | 'onTempBlockFinished' | 'clearCodeOnError'
     > & {
         timeLeft: number;
+    } & {
+        /**
+         * Контрольная точка для кнопки, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
     };
 
 export type ConfirmationTexts = {

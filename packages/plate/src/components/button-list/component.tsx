@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, ReactNode } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktopProps as ButtonProps } from '@alfalab/core-components-button/desktop';
+import { ButtonProps } from '@alfalab/core-components-button';
 
 export type ButtonListProps = {
     /**

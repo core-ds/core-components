@@ -6,7 +6,7 @@ exports[`Attach Snapshots tests should match snapshot 1`] = `
     class="component s"
   >
     <button
-      class="cc-button component secondary s component secondary active hover borderRadius withLeftAddons"
+      class="cc-button component secondary s s component secondary withLeftAddons"
       type="button"
     >
       <span

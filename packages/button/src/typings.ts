@@ -1,14 +1,5 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, ReactNode } from 'react';
 
-export type StyleColors = {
-    default: {
-        [key: string]: string;
-    };
-    inverted: {
-        [key: string]: string;
-    };
-};
-
 export type ComponentProps = {
     /**
      * Тип кнопки
@@ -98,30 +89,18 @@ export type ComponentProps = {
      * Основные стили компонента.
      */
     styles: { [key: string]: string };
-
-    /**
-     * Стили компонента для default и inverted режима.
-     */
-    colorStyles: StyleColors;
-    /**
-     * Вид компонента
-     */
-    desktop: boolean;
 };
 
 export type AnchorBaseButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 export type NativeBaseButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 export type BaseButtonProps = Partial<AnchorBaseButtonProps | NativeBaseButtonProps>;
 
-export type AnchorButtonProps = Omit<BaseButtonProps, 'colorStyles' | 'styles' | 'desktop'> &
+export type AnchorButtonProps = Omit<BaseButtonProps, 'styles'> &
     AnchorHTMLAttributes<HTMLAnchorElement>;
-export type NativeButtonProps = Omit<BaseButtonProps, 'colorStyles' | 'styles' | 'desktop'> &
+export type NativeButtonProps = Omit<BaseButtonProps, 'styles'> &
     ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type ButtonDesktopProps = Partial<AnchorButtonProps | NativeButtonProps>;
-export type ButtonMobileProps = Partial<AnchorButtonProps | NativeButtonProps>;
-
-export type ButtonResponsiveProps = Partial<AnchorButtonProps | NativeButtonProps> & {
+export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

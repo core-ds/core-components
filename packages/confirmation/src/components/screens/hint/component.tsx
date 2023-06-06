@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
+import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 
@@ -18,7 +18,15 @@ export type HintProps = {
 };
 
 export const Hint: FC<HintProps> = ({ mobile }) => {
-    const { alignContent, texts, onChangeScreen, onChangeState } = useContext(ConfirmationContext);
+    const {
+        alignContent,
+        texts,
+        onChangeScreen,
+        onChangeState,
+        breakpoint: breakpointProps,
+    } = useContext(ConfirmationContext);
+
+    const breakpoint = mobile ? breakpointProps : 1;
 
     const handleReturnButtonClick = () => {
         onChangeScreen('INITIAL');
@@ -84,6 +92,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 view='secondary'
                 onClick={handleReturnButtonClick}
                 className={styles.hintButton}
+                breakpoint={breakpoint}
             >
                 {texts.hintButton}
             </Button>

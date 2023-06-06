@@ -4,10 +4,7 @@ import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import {
-    ButtonDesktop as Button,
-    ButtonDesktopProps as ButtonProps,
-} from '@alfalab/core-components-button/desktop';
+import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 import { Input as CoreInput } from '@alfalab/core-components-input';
 import {
     BaseSelectChangePayload,
@@ -67,12 +64,12 @@ export type InputAutocompleteMobileProps = Omit<
     /**
      * Дополнительные пропсы на кнопку "продолжить"
      */
-    continueButtonProps?: ButtonProps;
+    continueButtonProps?: ButtonMobileProps;
 
     /**
      * Дополнительные пропсы на кнопку "отмена"
      */
-    cancelButtonProps?: ButtonProps;
+    cancelButtonProps?: ButtonMobileProps;
 
     /**
      * Кастомный инпут
@@ -180,7 +177,7 @@ export const InputAutocompleteMobile = React.forwardRef(
             return {
                 actionButton: (
                     <div className={styles.footer}>
-                        <Button
+                        <ButtonMobile
                             block={true}
                             view='secondary'
                             size='s'
@@ -188,8 +185,8 @@ export const InputAutocompleteMobile = React.forwardRef(
                             {...cancelButtonProps}
                         >
                             Отмена
-                        </Button>
-                        <Button
+                        </ButtonMobile>
+                        <ButtonMobile
                             block={true}
                             view='primary'
                             size='s'
@@ -197,7 +194,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                             {...continueButtonProps}
                         >
                             Продолжить
-                        </Button>
+                        </ButtonMobile>
                     </div>
                 ),
                 title: label || placeholder,

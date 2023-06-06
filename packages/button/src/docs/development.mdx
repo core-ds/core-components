@@ -1,6 +1,6 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { ButtonResponsive } from '../responsive';
+import { Button } from '../index';
 import { ButtonDesktop } from '../desktop';
 import { ButtonMobile } from '../mobile';
 import styles from '!!raw-loader!../vars.css';
@@ -9,7 +9,6 @@ import styles from '!!raw-loader!../vars.css';
 
 ```jsx
 import { Button } from '@alfalab/core-components/button';
-import { ButtonResponsive } from '@alfalab/core-components/button/responsive';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 ```
@@ -19,10 +18,9 @@ import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 
 ```jsx live
     <Button view='primary'>Primary</Button>
-
 ```
 
-<ArgsTable components={{ButtonDesktop, ButtonMobile, ButtonResponsive}} />
+<ArgsTable components={{ButtonDesktop, ButtonMobile, Button}} />
 
 ## Переменные
 

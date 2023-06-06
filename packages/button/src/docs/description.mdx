@@ -85,18 +85,18 @@ render(
 <Container>
     <Row>
         <Col>
-            <ButtonResponsive>0</ButtonResponsive>
+            <Button>0</Button>
         </Col>
     </Row>
     <Row>
         <Col>
-            <ButtonResponsive>Очень длинный лейбл</ButtonResponsive>
+            <Button>Очень длинный лейбл</Button>
         </Col>
     </Row>
     <br />
-    <ButtonResponsive block={true} size='m' nowrap={true}>
+    <Button block={true} size='m' nowrap={true}>
         Занимает всю ширину контейнера
-    </ButtonResponsive>
+    </Button>
 </Container>
 ```
 
@@ -210,9 +210,9 @@ render(() => {
     return (
         <Container>
             <div style={{ display: 'flex', width: '180px' }}>
-                <ButtonResponsive view='primary' nowrap={checked}>
+                <Button view='primary' nowrap={checked}>
                     Пример длинного текста
-                </ButtonResponsive>
+                </Button>
             </div>
             <Row align='middle'>
                 <Switch

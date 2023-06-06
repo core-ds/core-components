@@ -10,10 +10,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import {
-    ButtonDesktop as Button,
-    ButtonDesktopProps as ButtonProps,
-} from '@alfalab/core-components-button/desktop';
+import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';

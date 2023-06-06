@@ -14,6 +14,15 @@ import { useFocus } from '@alfalab/hooks';
 import { getDataTestId } from '../../../../utils';
 import { BaseButtonProps, ComponentProps } from '../../typings';
 
+import defaultColors from './default.module.css';
+import commonStyles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
+
 /**
  * Минимальное время отображения лоадера - 500мс,
  * чтобы при быстрых ответах от сервера кнопка не «моргала».
@@ -58,12 +67,7 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
             colors = 'default',
             Component = href ? 'a' : 'button',
             onClick,
-            desktop = false,
             styles = {},
-            colorStyles = {
-                default: {},
-                inverted: {},
-            },
             ...restProps
         },
         ref,
@@ -87,21 +91,19 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
         const componentProps = {
             className: cn(
                 'cc-button',
-                styles.component,
-                styles[view],
+                commonStyles.component,
+                commonStyles[view],
+                commonStyles[size],
                 styles[size],
                 colorStyles[colors].component,
                 colorStyles[colors][view],
-                colorStyles[colors].active,
                 {
-                    [styles.focused]: focused,
-                    [colorStyles[colors].hover]: desktop,
-                    [styles.borderRadius]: desktop,
-                    [styles.block]: block,
-                    [styles.iconOnly]: iconOnly,
-                    [styles.loading]: showLoader,
-                    [styles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
-                    [styles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
+                    [commonStyles.focused]: focused,
+                    [commonStyles.block]: block,
+                    [commonStyles.iconOnly]: iconOnly,
+                    [commonStyles.loading]: showLoader,
+                    [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
+                    [commonStyles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
                     [colorStyles[colors].loading]: showLoader,
                 },
                 className,
@@ -117,12 +119,12 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
 
         const buttonChildren = (
             <React.Fragment>
-                {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
+                {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
                     <span
-                        className={cn(styles.text, {
-                            [styles.nowrap]: nowrap,
-                            [styles.stretchText]: !(leftAddons || rightAddons),
+                        className={cn(commonStyles.text, {
+                            [commonStyles.nowrap]: nowrap,
+                            [commonStyles.stretchText]: !(leftAddons || rightAddons),
                         })}
                     >
                         {children}
@@ -133,11 +135,15 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
                     <Spinner
                         dataTestId={getDataTestId(dataTestId, 'loader')}
                         visible={true}
-                        className={cn(styles.loader, colorStyles[colors].loader, spinnerClassName)}
+                        className={cn(
+                            commonStyles.loader,
+                            colorStyles[colors].loader,
+                            spinnerClassName,
+                        )}
                     />
                 )}
 
-                {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
+                {rightAddons && <span className={commonStyles.addons}>{rightAddons}</span>}
             </React.Fragment>
         );
 

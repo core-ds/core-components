@@ -1,0 +1,25 @@
+@import '../../themes/src/default.css';
+
+.xxs {
+    border-radius: var(--border-radius-m);
+}
+
+.xs {
+    border-radius: var(--border-radius-l);
+}
+
+.s {
+    border-radius: var(--border-radius-l);
+}
+
+.m {
+    border-radius: var(--border-radius-xl);
+}
+
+.l {
+    border-radius: var(--border-radius-xl);
+}
+
+.xl {
+    border-radius: var(--border-radius-xl);
+}

@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
+import { Button } from '@alfalab/core-components-button';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
@@ -17,7 +17,14 @@ export type FatalErrorProps = {
 };
 
 export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
-    const { alignContent, texts, onFatalErrorOkButtonClick } = useContext(ConfirmationContext);
+    const {
+        alignContent,
+        texts,
+        onFatalErrorOkButtonClick,
+        breakpoint: breakpointProps,
+    } = useContext(ConfirmationContext);
+
+    const breakpoint = mobile ? breakpointProps : 1;
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
@@ -36,6 +43,7 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
                 view='secondary'
                 onClick={onFatalErrorOkButtonClick}
                 className={styles.button}
+                breakpoint={breakpoint}
             >
                 {texts.fatalErrorButton}
             </Button>

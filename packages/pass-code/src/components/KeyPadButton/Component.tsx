@@ -1,10 +1,7 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import {
-    ButtonDesktop as Button,
-    ButtonDesktopProps as ButtonProps,
-} from '@alfalab/core-components-button/desktop';
+import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 
 import styles from './index.module.css';
 
@@ -12,7 +9,7 @@ export type KeyPadButtonProps<T> = {
     /**
      * Вид кнопки.
      */
-    view: ButtonProps['view'];
+    view: ButtonMobileProps['view'];
 
     /**
      * Значение.
@@ -44,13 +41,13 @@ export function KeyPadButton<T extends ReactNode>({
 }: KeyPadButtonProps<T>) {
     return (
         <div className={cn(styles.component, className)}>
-            <Button
+            <ButtonMobile
                 className={cn(styles.button, styles[view], buttonClassName)}
                 view={view}
                 onClick={() => onClick?.(children)}
             >
                 {children}
-            </Button>
+            </ButtonMobile>
         </div>
     );
 }

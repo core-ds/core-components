@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-    ButtonDesktop as Button,
-    ButtonDesktopProps as ButtonProps,
-} from '@alfalab/core-components-button/desktop';
+import { Button, ButtonProps } from '@alfalab/core-components-button';
 
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
