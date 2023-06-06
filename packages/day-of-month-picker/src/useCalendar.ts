@@ -10,7 +10,7 @@ export type UseCalendarProps = {
     /**
      * Обработчик выбора дня
      */
-    onChange?: (date: number) => void;
+    onChange: (day: number) => void;
 };
 
 export function useCalendar({ selected, onChange }: UseCalendarProps) {
@@ -20,9 +20,7 @@ export function useCalendar({ selected, onChange }: UseCalendarProps) {
     const rootRef = useRef<HTMLDivElement>(null);
 
     const handleDayClick = (event: number) => {
-        if (event && onChange) {
-            onChange(event);
-        }
+        onChange(event);
     };
 
     const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLTableCellElement>) => {

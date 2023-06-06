@@ -32,7 +32,7 @@ export type DayOfMontPickerDesktopProps = {
     /**
      * Обработчик выбора дня
      */
-    onChange?: (date?: number) => void;
+    onChange: (day: number) => void;
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
@@ -122,7 +122,7 @@ export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPicke
                             >
                                 <Typography.Text
                                     color={`${value === 31 ? 'primary-inverted' : 'primary'}`}
-                                    onClick={() => onChange?.(31)}
+                                    onClick={() => onChange(31)}
                                 >
                                     В последний день месяца
                                 </Typography.Text>
