@@ -7,7 +7,7 @@ import React, {
     isValidElement,
     ReactElement,
 } from 'react';
-import { TabsResponsive, Tab, TabsResponsiveProps } from '@alfalab/core-components-tabs';
+import { Tabs as TabsResponsive, Tab, TabsProps } from '@alfalab/core-components-tabs';
 import { Changelog } from '../changelog';
 import styles from './index.module.css';
 
@@ -46,14 +46,11 @@ export const Tabs: FC<Props> = ({
 }) => {
     const [selected, setSelected] = useState(defaultSelected);
 
-    const handleChange = useCallback<Required<TabsResponsiveProps>['onChange']>(
-        (_, { selectedId }) => {
-            setSelected(selectedId as TabName);
-        },
-        [],
-    );
+    const handleChange = useCallback<Required<TabsProps>['onChange']>((_, { selectedId }) => {
+        setSelected(selectedId as TabName);
+    }, []);
 
-    const renderTabs = (): TabsResponsiveProps['children'] => {
+    const renderTabs = (): TabsProps['children'] => {
         return [
             <Tab title={TabTitle[TabName.DESCRIPTION]} id={TabName.DESCRIPTION} key='description'>
                 {description}

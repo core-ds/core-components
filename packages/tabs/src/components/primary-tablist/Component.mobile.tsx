@@ -13,7 +13,7 @@ const styles = {
     ...mobileStyles,
 };
 
-export type PrimaryTabListMobileProps = Omit<TabListProps, 'size'>;
+export type PrimaryTabListMobileProps = Omit<TabListProps, 'size' | 'collapsedTabsIds'>;
 
 export const PrimaryTabListMobile = ({ className, ...restProps }: PrimaryTabListMobileProps) => (
     <PrimaryTabList {...restProps} styles={styles} className={cn(className, styles.mobile)} />

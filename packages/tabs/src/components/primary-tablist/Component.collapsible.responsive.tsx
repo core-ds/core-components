@@ -4,30 +4,30 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { TabListProps } from '../../typings';
 
-import { PrimaryTabListDesktop } from './Component.desktop';
-import { PrimaryTabListMobile } from './Component.mobile';
+import { CollapsiblePrimaryTabListDesktop } from './Component.collapsible.desktop';
+import { CollapsiblePrimaryTabListMobile } from './Component.collapsible.mobile';
 
-export const PrimaryTabListResponsive = ({
+export const CollapsiblePrimaryTabListResponsive = ({
     size,
-    breakpoint = 768,
     fullWidthScroll,
+    breakpoint = 768,
     defaultMatchMediaValue,
     ...restProps
 }: TabListProps) => {
     const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
     return isDesktop ? (
-        <PrimaryTabListDesktop
-            breakpoint={breakpoint}
+        <CollapsiblePrimaryTabListDesktop
             size={size}
             defaultMatchMediaValue={defaultMatchMediaValue}
+            breakpoint={breakpoint}
             {...restProps}
         />
     ) : (
-        <PrimaryTabListMobile
-            breakpoint={breakpoint}
-            defaultMatchMediaValue={defaultMatchMediaValue}
+        <CollapsiblePrimaryTabListMobile
             fullWidthScroll={fullWidthScroll}
+            defaultMatchMediaValue={defaultMatchMediaValue}
+            breakpoint={breakpoint}
             {...restProps}
         />
     );

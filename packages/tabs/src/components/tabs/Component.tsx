@@ -7,11 +7,10 @@ export const Tabs = ({
     className,
     containerClassName,
     size,
-    defaultMatch,
+    defaultMatchMediaValue,
     children,
     selectedId,
     scrollable,
-    collapsible,
     collapsedTabsIds,
     fullWidthScroll = false,
     keepMounted = false,
@@ -53,11 +52,10 @@ export const Tabs = ({
                 titles={titles}
                 selectedId={selectedId}
                 scrollable={scrollable}
-                collapsible={collapsible}
                 collapsedTabsIds={collapsedTabsIds}
                 onChange={onChange}
                 dataTestId={dataTestId}
-                defaultMatch={defaultMatch}
+                defaultMatchMediaValue={defaultMatchMediaValue}
                 fullWidthScroll={fullWidthScroll}
             />
 

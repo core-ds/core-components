@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { TabListProps, TabsMatchMedia } from '../typings';
+import { TabListProps } from '../typings';
 
 import { useCollapsibleElements } from './use-collapsible-elements';
 import { useTabs } from './use-tabs';
@@ -10,27 +10,27 @@ import { useTabs } from './use-tabs';
 export const useTablistTitles = ({
     titles = [],
     selectedId,
-    collapsible,
     collapsedTabsIds,
     breakpoint,
     onChange,
-}: Pick<TabListProps, 'titles' | 'selectedId' | 'collapsible' | 'collapsedTabsIds' | 'onChange'> &
+    defaultMatchMediaValue,
+}: Pick<
+    TabListProps,
+    'titles' | 'selectedId' | 'collapsedTabsIds' | 'onChange' | 'defaultMatchMediaValue'
+> &
     Required<Pick<TabListProps, 'breakpoint'>>) => {
     const { containerRef, addonRef, idsCollapsedElements } = useCollapsibleElements<
         HTMLDivElement,
         HTMLInputElement
     >('[role=tab]', [titles, collapsedTabsIds]);
 
-    const [view] = useMedia<TabsMatchMedia>(
-        [['desktop', `(min-width: ${breakpoint}px)`]],
-        'desktop',
-    );
+    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
     const tablistTitles = useMemo(() => {
         const idsCollapsedTitles: string[] = [];
         const idsCollapsed = idsCollapsedElements.concat(collapsedTabsIds || []);
 
-        if (view === 'desktop' && collapsible) {
+        if (isDesktop) {
             const visibleTitles = titles.filter(({ id }) => !idsCollapsed.includes(String(id)));
             const lastVisibleTitle = collapsedTabsIds
                 ? null
@@ -72,7 +72,7 @@ export const useTablistTitles = ({
 
             return a.collapsed ? 1 : -1;
         });
-    }, [collapsedTabsIds, idsCollapsedElements, view, collapsible, titles, selectedId]);
+    }, [collapsedTabsIds, idsCollapsedElements, isDesktop, titles, selectedId]);
 
     const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
         titles: tablistTitles,

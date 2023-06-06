@@ -11,7 +11,7 @@ const views = {
     secondary: SecondaryTabListResponsive,
 };
 
-export type TabsResponsiveProps = Omit<TabsProps, 'TabList'>;
+export type TabsResponsiveProps = Omit<TabsProps, 'TabList' | 'collapsedTabsIds'>;
 
 export const TabsResponsive = ({
     view = 'primary',
