@@ -238,9 +238,9 @@ render(() => {
 
     return (
         <>
-            <ModalResponsive open={open} onClose={() => setOpen(false)}>
-                <ModalResponsive.Header hasCloser={true} />
-                <ModalResponsive.Content flex={true}>
+            <Modal open={open} onClose={() => setOpen(false)}>
+                <Modal.Header hasCloser={true} />
+                <Modal.Content flex={true}>
                     <SystemMessage fullHeight={true}>
                         {renderGraphic()}
 
@@ -279,8 +279,8 @@ render(() => {
                             </SystemMessage.Controls>
                         )}
                     </SystemMessage>
-                </ModalResponsive.Content>
-            </ModalResponsive>
+                </Modal.Content>
+            </Modal>
 
             <Button onClick={() => setOpen(true)}>Открыть модалку</Button>
 
