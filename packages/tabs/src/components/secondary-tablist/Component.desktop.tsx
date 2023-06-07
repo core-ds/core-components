@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { TagDesktop } from '@alfalab/core-components-tag/desktop';
+
 import { SecondaryTabListProps } from '../../typings';
 
 import { SecondaryTabList } from './Component';
@@ -15,5 +17,11 @@ export const SecondaryTabListDesktop = ({
     size = 's',
     ...restProps
 }: SecondaryTabListDesktopProps) => (
-    <SecondaryTabList {...restProps} size={size} styles={commonStyles} tagSize={size} />
+    <SecondaryTabList
+        {...restProps}
+        TagComponent={TagDesktop}
+        size={size}
+        styles={commonStyles}
+        tagSize={size}
+    />
 );

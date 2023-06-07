@@ -76,38 +76,23 @@ describe('Tag | main props', () => {
 describe('Tag | right addons', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
-            cases: [
-                [
-                    theme,
-                    createSpriteStorybookUrl({
-                        componentName: 'Tag',
-                        knobs: {
-                            children: 'Оплатить',
-                            rightAddons: 'icon',
-                            checked: false,
-                            disabled: [false, true],
-                        },
-                        size: { width: 160, height: 90 },
-                    }),
-                ],
-                [
-                    theme,
-                    createSpriteStorybookUrl({
-                        componentName: 'Tag',
-                        knobs: {
-                            children: 'Оплатить',
-                            rightAddons: 'icon',
-                            checked: true,
-                            disabled: [false, true],
-                        },
-                        size: { width: 160, height: 90 },
-                    }),
-                ],
-            ],
+            cases: generateTestCases({
+                componentName: 'Tag',
+                testStory: false,
+                knobs: {
+                    rightAddons: true,
+                    checked: [false, true],
+                    disabled: [false, true],
+                },
+            }),
             screenshotOpts: {
                 fullPage: true,
             },
-            viewport: { width: 740, height: 100 },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            viewport: { width: 180, height: 80 },
             theme,
         })();
 

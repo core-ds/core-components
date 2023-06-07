@@ -185,7 +185,7 @@ export type TabListProps = Pick<
 
 export type SecondaryTabListProps = TabListProps & {
     tagSize?: TagProps['size'];
-    isMobile?: boolean;
+    TagComponent?: FC<Omit<TagProps, 'breakpoint'>>;
 };
 
 export type UseTabsProps = TabListProps;

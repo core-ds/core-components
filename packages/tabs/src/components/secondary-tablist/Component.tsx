@@ -1,8 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Tag } from '@alfalab/core-components-tag';
-
 import { useTabs } from '../../hooks/use-tabs';
 import { SecondaryTabListProps, Styles } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
@@ -19,8 +17,7 @@ export const SecondaryTabList = ({
     tagSize = 'xs',
     onChange,
     dataTestId,
-    breakpoint: breakpointProps,
-    isMobile = false,
+    TagComponent,
 }: SecondaryTabListProps & Styles) => {
     const { focusedTab, selectedTab, getTabListItemProps } = useTabs({
         titles,
@@ -28,35 +25,36 @@ export const SecondaryTabList = ({
         onChange,
     });
 
-    const breakpoint = isMobile ? breakpointProps : 1;
+    const renderContent = () => {
+        if (!TagComponent) return null;
 
-    const renderContent = () => (
-        <div
-            role='tablist'
-            data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size], {
-                [styles.fullWidthScroll]: fullWidthScroll,
-            })}
-        >
-            {titles.map((item, index) => {
-                if (item.hidden) return null;
+        return (
+            <div
+                role='tablist'
+                data-test-id={dataTestId}
+                className={cn(styles.component, className, size && styles[size], {
+                    [styles.fullWidthScroll]: fullWidthScroll,
+                })}
+            >
+                {titles.map((item, index) => {
+                    if (item.hidden) return null;
 
-                return (
-                    <Tag
-                        {...getTabListItemProps(index)}
-                        key={item.id}
-                        className={cn(styles.title, item.toggleClassName)}
-                        checked={item.id === selectedId}
-                        size={tagSize}
-                        rightAddons={item.rightAddons}
-                        breakpoint={breakpoint}
-                    >
-                        {item.title}
-                    </Tag>
-                );
-            })}
-        </div>
-    );
+                    return (
+                        <TagComponent
+                            {...getTabListItemProps(index)}
+                            key={item.id}
+                            className={cn(styles.title, item.toggleClassName)}
+                            checked={item.id === selectedId}
+                            size={tagSize}
+                            rightAddons={item.rightAddons}
+                        >
+                            {item.title}
+                        </TagComponent>
+                    );
+                })}
+            </div>
+        );
+    };
 
     return scrollable ? (
         <ScrollableContainer
