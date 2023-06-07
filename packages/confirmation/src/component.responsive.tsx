@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { ConfirmationDesktop } from './component.desktop';
 import { ConfirmationMobile } from './component.mobile';
@@ -14,21 +14,13 @@ export type ResponsiveConfirmationProps = Omit<ConfirmationProps, 'confirmationS
     breakpoint?: number;
 };
 
-export type ConfirmationMedia = 'desktop' | 'mobile';
-
 export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = ({
     breakpoint = 1024,
     ...restProps
 }) => {
-    const [view] = useMedia<ConfirmationMedia>(
-        [
-            ['mobile', `(max-width: ${breakpoint - 1}px)`],
-            ['desktop', `(min-width: ${breakpoint}px)`],
-        ],
-        'desktop',
-    );
+    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, true);
 
-    return view === 'desktop' ? (
+    return isDesktop ? (
         <ConfirmationDesktop {...restProps} />
     ) : (
         <ConfirmationMobile {...restProps} />
