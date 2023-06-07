@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react';
 
+import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
+
 import { useSelectWithApply, UseSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
+import { Header } from '../../presets/useSelectWithApply/options-list-with-apply/header/Component';
 import { AnyObject, BaseSelectProps } from '../../typings';
 import { Arrow as DefaultArrow } from '../arrow';
 import { BaseSelectMobile } from '../base-select-mobile';
@@ -21,6 +24,31 @@ export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScro
      * Показывать пункт "Выбрать все"
      */
     showSelectAll?: UseSelectWithApplyProps['showSelectAll'];
+
+    /**
+     *  Дополнительные пропсы шапки модалки
+     */
+    modalHeaderProps?: Partial<React.ComponentProps<typeof ModalMobile.Header>>;
+
+    /**
+     *  Дополнительные пропсы модалки
+     */
+    modalProps?: Partial<React.ComponentProps<typeof ModalMobile>>;
+
+    /**
+     *  Дополнительные пропсы футера модалки
+     */
+    modalFooterProps?: Partial<React.ComponentProps<typeof ModalMobile.Footer>>;
+
+    /*
+     * Показывать пункт "Выбрать все" в заголовке списка
+     */
+    showHeaderWithSelectAll?: UseSelectWithApplyProps['showHeaderWithSelectAll'];
+
+    /**
+     * Использовать ли хук useSelectWithApply
+     */
+    useWithApplyHook?: boolean;
 };
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
@@ -53,6 +81,9 @@ export const SelectModalMobile = forwardRef(
             onChange,
             showClear = true,
             showSelectAll,
+            useWithApplyHook = multiple,
+            modalHeaderProps,
+            showHeaderWithSelectAll,
             ...restProps
         }: SelectModalMobileProps,
         ref,
@@ -95,8 +126,14 @@ export const SelectModalMobile = forwardRef(
                 onChange={onChange}
                 OptionsList={OptionsList}
                 optionsListProps={optionsListProps}
+                modalHeaderProps={{
+                    bottomAddons: useWithApplyHook && showHeaderWithSelectAll && (
+                        <Header {...applyProps.optionsListProps.headerProps} mobile={true} />
+                    ),
+                    ...modalHeaderProps,
+                }}
                 {...restProps}
-                {...(multiple && applyProps)}
+                {...(useWithApplyHook && applyProps)}
             />
         );
     },

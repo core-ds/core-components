@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings", "src/*.json"],
+    "include": ["src", "../../typings", "src/*.json", "../utils"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../loader" }]
+    "references": [{ "path": "../spinner" }]
 }

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.2
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
 ## 8.2.1
 
 ### Patch Changes

@@ -33,7 +33,7 @@ const editorTheme = { styles: [] };
 addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
         editorTheme,
-        sandboxPath: '/docs/sandbox--page',
+        sandboxPath: '/docs/sandbox--docs',
         mobileFrameName: 'mobileframe--docs',
         desktopText: 'Переключить на декстопную версию',
         mobileText: 'Переключить на мобильную версию',

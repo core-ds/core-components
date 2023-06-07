@@ -17,6 +17,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
             className,
             padding,
             dataTestId,
+            overflow = true,
             ...restProps
         },
         ref,
@@ -44,6 +45,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
                     borderColor && styles[`border-color-${borderColor}`],
                     borderSize && styles[`border-width-${borderSize}`],
                     shadow && styles[shadow],
+                    { [styles.overflowHide]: !overflow },
                     className,
                 )}
                 data-test-id={dataTestId}

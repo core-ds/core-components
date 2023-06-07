@@ -1,5 +1,19 @@
 # @alfalab/core-components-date-time-input
 
+## 3.1.10
+
+### Patch Changes
+
+### [#664](https://github.com/core-ds/core-components/pull/664)
+
+-   Для скролла в десктопном календаре используется CSS реализация
+-   В мобильном календаре скролл вынесен на обертку ModalMobile
+
+-   Обновлены зависимости
+    -   calendar@6.5.0
+    -   input@11.1.16
+    -   icon-button@6.1.1
+
 ## 3.1.9
 
 ### Patch Changes

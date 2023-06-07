@@ -206,6 +206,25 @@ render(() => {
                 onClearFilter={() => setFilter('')}
                 onCancel={() => setFilter(value)}
             />
+            <Gap size='m' />
+            <InputAutocompleteModalMobile
+                size='m'
+                block={true}
+                value={value}
+                Arrow={shownChevron ? Arrow : undefined}
+                filter={filter}
+                options={filteredOptions}
+                label='Инпут с автокомплитом'
+                placeholder='Начните вводить название'
+                multiple={multiple}
+                selected={selected}
+                closeOnSelect={!multiple}
+                allowUnselect={true}
+                onChange={handleChange}
+                onFilter={handleFilter}
+                onClearFilter={() => setFilter('')}
+                onCancel={() => setFilter(value)}
+            />
             <Gap size='xl' />
 
             <Switch
@@ -253,7 +272,7 @@ render(() => {
         </div>
     );
 });
-@MOBILE@
+//MOBILE
 render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
@@ -261,8 +280,10 @@ render(() => {
                 size='m'
                 block={true}
                 options={[]}
+                onChange={() => {}}
                 label='Инпут с автокомплитом'
                 placeholder='Начните вводить название'
+                showEmptyOptionsList={true}
                 optionsListProps={{
                     emptyPlaceholder: (
                         <div style={{ display: 'flex', justifyContent: 'center' }}>

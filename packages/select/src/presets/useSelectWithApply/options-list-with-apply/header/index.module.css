@@ -1,0 +1,9 @@
+@import '../../../../../../themes/src/default.css';
+
+.desktop {
+    padding: var(--gap-s);
+}
+
+.mobile {
+    padding: var(--gap-s) var(--gap-xs);
+}

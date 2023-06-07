@@ -6,6 +6,7 @@ import { OptionShape, OptionsListProps } from '../../../typings';
 import { SELECT_ALL_KEY } from '../hook';
 
 import { Footer as DefaultFooter, FooterProps } from './footer/Component';
+import { Header as DefaultHeader, HeaderProps } from './header/Component';
 
 type OptionsListWithApplyProps = OptionsListProps & {
     showClear?: boolean;
@@ -13,6 +14,9 @@ type OptionsListWithApplyProps = OptionsListProps & {
     selectedDraft?: OptionShape[];
     OptionsList?: React.FC<OptionsListProps & RefAttributes<HTMLDivElement>>;
     Footer?: FC<FooterProps>;
+    Header?: FC<HeaderProps>;
+    headerProps?: HeaderProps;
+    showHeaderWithSelectAll?: boolean;
 };
 
 export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithApplyProps>(
@@ -21,6 +25,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             toggleMenu,
             getOptionProps: defaultGetOptionProps,
             showClear = true,
+            showHeaderWithSelectAll,
             selectedDraft = [],
             flatOptions = [],
             OptionsList = DefaultOptionsList,
@@ -29,6 +34,8 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             onClose = () => null,
             visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             Footer = DefaultFooter,
+            Header = DefaultHeader,
+            headerProps,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
@@ -84,6 +91,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
                 getOptionProps={getOptionProps}
                 onApply={handleApply}
                 onClear={handleClear}
+                header={showHeaderWithSelectAll ? <Header {...headerProps} /> : undefined}
                 footer={
                     <Footer
                         handleApply={handleApply}

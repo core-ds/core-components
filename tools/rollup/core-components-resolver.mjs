@@ -9,7 +9,7 @@ import { requireRegExp } from './common.mjs';
 export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
     name: 'core-components-root-package-resolver',
     generateBundle: (_, bundles) => {
-        Object.keys(bundles).forEach(bundleName => {
+        Object.keys(bundles).forEach((bundleName) => {
             let code = bundles[bundleName].code;
 
             let matches;
@@ -39,18 +39,17 @@ export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
 export const coreComponentsResolver = ({ importFrom }) => ({
     name: 'core-components-resolver',
     generateBundle: (_, bundles) => {
-        Object.keys(bundles).forEach(bundleName => {
+        Object.keys(bundles).forEach((bundleName) => {
             let code = bundles[bundleName].code;
 
-            const requireRegExp = new RegExp(
-                /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-[^\/\n]+)(\/(?:mobile|desktop|responsive|circle|super-ellipse))?(['"])/,
-            );
+            if (code) {
+                const requireRegExp = new RegExp(
+                    /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-[^\/\n]+)(\/.*)?(['"])/,
+                    'g',
+                );
 
-            while (requireRegExp.exec(code)) {
-                code = code.replace(requireRegExp, `$1$2/${importFrom}$3$4`);
+                bundles[bundleName].code = code.replaceAll(requireRegExp, `$1$2/${importFrom}$3$4`);
             }
-
-            bundles[bundleName].code = code;
         });
 
         return bundles;

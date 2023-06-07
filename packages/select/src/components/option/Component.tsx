@@ -28,7 +28,7 @@ export const Option: FC<OptionProps> = ({
         <div
             {...innerProps}
             className={cn(styles.option, styles[size], className, {
-                [styles.highlighted]: highlighted,
+                [styles.highlighted]: !mobile && highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
             })}

@@ -25,9 +25,15 @@ render(() => {
 ```jsx live
 render(() => {
     return (
-        <ActionButton icon={<StarLineMIcon />} loading={true}>
-            Loading
-        </ActionButton>
+        <>
+            <ActionButton icon={<StarLineMIcon />} loading={true}>
+                Loading
+            </ActionButton>
+
+            <ActionButton icon={<StarLineMIcon />} loading={true} view='secondary'>
+                Loading
+            </ActionButton>
+        </>
     );
 });
 ```

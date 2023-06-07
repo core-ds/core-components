@@ -1,7 +1,15 @@
 type TConfig = Record<string, string[]>;
 
 export const CONFIG: TConfig = {
-    Кнопки: ['Button', 'CustomButton', 'PickerButton', 'IconButton', 'ActionButton', 'Link'],
+    Кнопки: [
+        'Button',
+        'CustomButton',
+        'PickerButton',
+        'CustomPickerButton',
+        'IconButton',
+        'ActionButton',
+        'Link',
+    ],
     'Ввод данных': [
         'Input',
         'AmountInput',

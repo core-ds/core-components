@@ -1,5 +1,13 @@
 # @alfalab/core-components-segmented-control
 
+## 1.0.4
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
 ## 1.0.3
 
 ### Patch Changes

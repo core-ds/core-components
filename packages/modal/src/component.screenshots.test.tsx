@@ -183,6 +183,7 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        evaluate: (page) => page.waitForTimeout(500),
     }),
 );
 

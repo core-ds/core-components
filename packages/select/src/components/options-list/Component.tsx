@@ -36,7 +36,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             open,
             header,
             footer,
-            showFooter,
+            showFooter = true,
             optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],

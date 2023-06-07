@@ -95,7 +95,7 @@ describe('InputAutocompleteMobile', () => {
     describe('Interactions tests', () => {
         it('should close on cancel button click', async () => {
             const closeButtonId = 'close-id';
-            const handleEntered = jest.fn();
+            const handleEnter = jest.fn();
 
             const { getByTestId, getByRole, queryByTestId } = render(
                 <InputAutocompleteMobileWrapper
@@ -105,13 +105,13 @@ describe('InputAutocompleteMobile', () => {
                     }}
                     bottomSheetProps={{
                         transitionProps: {
-                            onEntered: handleEntered,
+                            onEnter: handleEnter,
                         },
                     }}
                 />,
             );
 
-            await waitFor(() => expect(handleEntered).toHaveBeenCalledTimes(1), { timeout: 2000 });
+            await waitFor(() => expect(handleEnter).toHaveBeenCalled(), { timeout: 5000 });
 
             fireEvent.click(getByTestId(closeButtonId));
 

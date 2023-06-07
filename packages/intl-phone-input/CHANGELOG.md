@@ -1,5 +1,25 @@
 # Change Log
 
+## 9.3.3
+
+### Patch Changes
+
+### [#692](https://github.com/core-ds/core-components/pull/692)
+
+-   Исправлена ошибка, из-за которой отображался некорректный номер при вставке телефона, начинающегося на +7 или 8, из буфера в инпут
+
+## 9.3.2
+
+### Patch Changes
+
+### [#676](https://github.com/core-ds/core-components/pull/676)
+
+-   Обновлена зависимость @alfalab/hooks
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.4.0
+    -   select@14.2.0
+
 ## 9.3.1
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.3.24
+
+### Patch Changes
+
+### [#680](https://github.com/core-ds/core-components/pull/680)
+
+-   Добавлен новый компонент CustomPickerButton
+
+-   Обновлены зависимости
+    -   button@8.4.0
+    -   select@14.2.0
+
 ## 10.3.23
 
 ### Patch Changes

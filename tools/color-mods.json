@@ -44,6 +44,12 @@
     "light-border-underline": {
         "alpha": [30]
     },
+    "light-border-key": {
+        "alpha": [7, 15]
+    },
+    "light-border-key-inverted": {
+        "alpha": [7, 15]
+    },
     "light-border-underline-inverted": {
         "alpha": [30]
     },
