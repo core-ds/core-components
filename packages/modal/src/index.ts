@@ -1,3 +1,2 @@
-export * from './responsive';
-export * from './Context';
-export * from './typings';
+export { ModalResponsive as Modal } from './Component.responsive';
+export { ModalResponsiveProps as ModalProps } from './typings';
