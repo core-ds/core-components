@@ -2,8 +2,8 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, number } from '@storybook/addon-knobs';
 
+import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
 import { Tooltip } from '@alfalab/core-components-tooltip';
-import { TooltipResponsive } from '@alfalab/core-components-tooltip/responsive';
 
 import {
     getQueryParam,
@@ -57,7 +57,7 @@ export const tooltip: Story = {
                 }
             >
                 <style>{`.popover > div{transform:scale(2)}  `}</style>
-                <Tooltip
+                <TooltipDesktop
                     content={
                         <div
                             style={
@@ -93,7 +93,7 @@ export const tooltip: Story = {
                             {trigger === 'hover' ? 'Hover me' : 'Click me'}
                         </div>
                     )}
-                </Tooltip>
+                </TooltipDesktop>
             </div>
         );
     },
@@ -119,7 +119,7 @@ export const tooltip_responsive: Story = {
                     alignItems: 'center',
                 }}
             >
-                <TooltipResponsive
+                <Tooltip
                     open={open}
                     content={<div>Tooltip Responsive</div>}
                     trigger={select('trigger', ['hover', 'click'], 'hover')}
@@ -135,7 +135,7 @@ export const tooltip_responsive: Story = {
                     <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
                         Подробнее
                     </div>
-                </TooltipResponsive>
+                </Tooltip>
             </div>
         );
     },
