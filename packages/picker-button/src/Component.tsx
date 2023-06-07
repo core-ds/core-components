@@ -95,6 +95,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
             leftAddons,
             rightAddons,
             showArrow,
+            breakpoint: 1,
         };
 
         return (

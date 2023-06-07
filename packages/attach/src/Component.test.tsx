@@ -8,7 +8,7 @@ describe('Attach', () => {
     Object.defineProperty(window, 'matchMedia', {
         writable: true,
         value: jest.fn().mockImplementation((query) => ({
-            matches: false,
+            matches: true,
             media: query,
             onchange: null,
             addListener: jest.fn(), // Deprecated
