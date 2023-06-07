@@ -1,17 +1,17 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { SidePanelMobile as SidePanelMobileTS } from '../Component.mobile';
-import { SidePanelDesktop as SidePanelDesktopTS } from '../Component.desktop';
-import { SidePanelResponsive as SidePanelResponsiveTS } from '../Component.responsive';
-import { Header as HeaderTS } from '../components/header/Component';
-import { ContentDesktop as ContentTS } from '../components/content/Component.desktop';
-import { FooterDesktop as FooterTS } from '../components/footer/Component.desktop';
+import { SidePanelMobile } from '../mobile';
+import { SidePanelDesktop } from '../desktop';
+import { SidePanel } from '..';
+import { Header } from '../components/header/Component';
+import { ContentDesktop } from '../components/content/Component.desktop';
+import { FooterDesktop } from '../components/footer/Component.desktop';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
-import { SidePanelResponsive } from '@alfalab/core-components/side-panel/responsive';
+import { SidePanel } from '@alfalab/core-components/side-panel';
 import { SidePanelDesktop } from '@alfalab/core-components/side-panel/desktop';
 import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
 ```
@@ -22,12 +22,12 @@ import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
 
 <ArgsTable
     components={{
-        SidePanelDesktop: SidePanelDesktopTS,
-        SidePanelMobile: SidePanelMobileTS,
-        SidePanelResponsive: SidePanelResponsiveTS,
-        'SidePanel.Header': HeaderTS,
-        'SidePanel.Content': ContentTS,
-        'SidePanel.Footer': FooterTS,
+        SidePanelDesktop,
+        SidePanelMobile,
+        SidePanelResponsive: SidePanel,
+        'SidePanel.Header': Header,
+        'SidePanel.Content': ContentDesktop,
+        'SidePanel.Footer': FooterDesktop,
     }}
 />
 

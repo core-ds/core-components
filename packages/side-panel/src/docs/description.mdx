@@ -778,15 +778,15 @@ render(() => {
                 Открыть сайд панель
             </Button>
 
-            <SidePanelResponsive open={open} onClose={handleClose}>
-                <SidePanelResponsive.Header
+            <SidePanel open={open} onClose={handleClose}>
+                <SidePanel.Header
                     sticky={true}
                     hasCloser={true}
                     hasBackButton={step !== 1}
                     title={item.title}
                     onBack={() => setStep(step - 1)}
                 />
-                <SidePanelResponsive.Content flex={true}>
+                <SidePanel.Content flex={true}>
                     <div
                         style={{
                             ...commonStyles,
@@ -795,8 +795,8 @@ render(() => {
                     >
                         <span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>
                     </div>
-                </SidePanelResponsive.Content>
-                <SidePanelResponsive.Footer sticky={true}>
+                </SidePanel.Content>
+                <SidePanel.Footer sticky={true}>
                     <Button
                         size={document.body.clientWidth < 450 ? 'xs' : 's'}
                         view='primary'
@@ -806,8 +806,8 @@ render(() => {
                     >
                         {item.btnText}
                     </Button>
-                </SidePanelResponsive.Footer>
-            </SidePanelResponsive>
+                </SidePanel.Footer>
+            </SidePanel>
         </Container>
     );
 });
