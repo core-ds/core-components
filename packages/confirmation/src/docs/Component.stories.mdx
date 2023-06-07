@@ -4,9 +4,9 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Select } from '@alfalab/core-components-select';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
-import { ConfirmationMobile } from '@alfalab/core-components-confirmation/component.mobile';
+import { ConfirmationMobile } from '@alfalab/core-components-confirmation/mobile';
+import { ConfirmationDesktop } from '@alfalab/core-components-confirmation/desktop';
 import { Confirmation } from '@alfalab/core-components-confirmation';
-import { ConfirmationResponsive } from '@alfalab/core-components-confirmation/component.responsive';
 import packageJson from '../../package.json';
 import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
@@ -24,7 +24,7 @@ import {
     {React.createElement(() => {
         const component = select(
             'ConfirmationComponent',
-            ['ConfirmationResponsive', 'Confirmation', 'ConfirmationMobile'],
+            ['ConfirmationResponsive', 'ConfirmationDesktop', 'ConfirmationMobile'],
             'ConfirmationResponsive',
         );
         const variants = [
@@ -89,9 +89,9 @@ import {
         };
         const ConfirmationComponent = React.useMemo(() => {
             return {
-                ConfirmationResponsive: ConfirmationResponsive,
-                Confirmation: Confirmation,
-                ConfirmationMobile: ConfirmationMobile,
+                ConfirmationResponsive: Confirmation,
+                ConfirmationDesktop,
+                ConfirmationMobile,
             }[component];
         }, [component]);
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
