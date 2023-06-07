@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { TagDesktop } from '@alfalab/core-components-tag/desktop';
+import { Tag } from '@alfalab/core-components-tag';
 
 import { useTabs } from '../../hooks/use-tabs';
 import { SecondaryTabListProps, Styles } from '../../typings';
@@ -19,12 +19,16 @@ export const SecondaryTabList = ({
     tagSize = 'xs',
     onChange,
     dataTestId,
+    breakpoint: breakpointProps,
+    isMobile = false,
 }: SecondaryTabListProps & Styles) => {
     const { focusedTab, selectedTab, getTabListItemProps } = useTabs({
         titles,
         selectedId,
         onChange,
     });
+
+    const breakpoint = isMobile ? breakpointProps : 1;
 
     const renderContent = () => (
         <div
@@ -38,16 +42,17 @@ export const SecondaryTabList = ({
                 if (item.hidden) return null;
 
                 return (
-                    <TagDesktop
+                    <Tag
                         {...getTabListItemProps(index)}
                         key={item.id}
                         className={cn(styles.title, item.toggleClassName)}
                         checked={item.id === selectedId}
                         size={tagSize}
                         rightAddons={item.rightAddons}
+                        breakpoint={breakpoint}
                     >
                         {item.title}
-                    </TagDesktop>
+                    </Tag>
                 );
             })}
         </div>

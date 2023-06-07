@@ -1,0 +1,21 @@
+@import './vars.css';
+
+.rectangular {
+    &.xxs {
+        border-radius: var(--border-radius-m);
+    }
+
+    &.xs {
+        border-radius: var(--border-radius-l);
+    }
+
+    &.s {
+        border-radius: var(--border-radius-l);
+    }
+
+    &.m,
+    &.l,
+    &.xl {
+        border-radius: var(--border-radius-xl);
+    }
+}

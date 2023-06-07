@@ -6,7 +6,7 @@ import { BaseTagProps } from './components/base-tag';
 import { TagDesktop } from './Component.desktop';
 import { TagMobile } from './Component.mobile';
 
-export type TagResponsiveProps = Omit<BaseTagProps, 'desktop' | 'colorStylesMap' | 'styles'> & {
+export type TagProps = Omit<BaseTagProps, 'styles'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -14,7 +14,7 @@ export type TagResponsiveProps = Omit<BaseTagProps, 'desktop' | 'colorStylesMap'
     breakpoint?: number;
 };
 
-export const TagResponsive = forwardRef<HTMLButtonElement, TagResponsiveProps>(
+export const Tag = forwardRef<HTMLButtonElement, TagProps>(
     ({ children, breakpoint = 1024, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 

@@ -1,4 +1,4 @@
-@import './vars.css';
+@import '../../vars.css';
 
 .component {
     &.outlined {
@@ -12,9 +12,11 @@
             background-color: var(--tag-outlined-background-color-disabled);
         }
 
-        &.hover:hover:not(:disabled) {
-            border-color: var(--tag-border-color-hover);
-            background-color: var(--tag-outlined-background-color-hover);
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                border-color: var(--tag-border-color-hover);
+                background-color: var(--tag-outlined-background-color-hover);
+            }
         }
 
         &:active:not(:disabled) {
@@ -33,8 +35,10 @@
             background-color: var(--tag-filled-background-color-disabled);
         }
 
-        &.hover:hover:not(:disabled) {
-            background-color: var(--tag-filled-background-color-hover);
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-filled-background-color-hover);
+            }
         }
 
         &:active:not(:disabled) {
@@ -53,8 +57,10 @@
             color: var(--tag-text-color-checked-disabled);
         }
 
-        &.hover:hover:not(:disabled) {
-            background-color: var(--tag-background-color-checked-hover);
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-background-color-checked-hover);
+            }
         }
 
         &:active:not(:disabled) {

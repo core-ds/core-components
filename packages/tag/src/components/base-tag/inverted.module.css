@@ -1,4 +1,4 @@
-@import './vars.css';
+@import '../../vars.css';
 
 .component {
     &.outlined {
@@ -12,9 +12,11 @@
             background-color: var(--tag-inverted-outlined-background-color-disabled);
         }
 
-        &.hover:hover:not(:disabled) {
-            border-color: var(--tag-inverted-border-color-hover);
-            background-color: var(--tag-inverted-outlined-background-color-hover);
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                border-color: var(--tag-inverted-border-color-hover);
+                background-color: var(--tag-inverted-outlined-background-color-hover);
+            }
         }
 
         &:active:not(:disabled) {
@@ -33,8 +35,10 @@
             background-color: var(--tag-inverted-filled-background-color-disabled);
         }
 
-        &.hover:hover:not(:disabled) {
-            background-color: var(--tag-inverted-filled-background-color-hover);
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-inverted-filled-background-color-hover);
+            }
         }
 
         &:active:not(:disabled) {
@@ -53,8 +57,10 @@
             color: var(--tag-inverted-text-color-checked-disabled);
         }
 
-        &.hover:hover:not(:disabled) {
-            background-color: var(--tag-inverted-background-color-checked-hover);
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-inverted-background-color-checked-hover);
+            }
         }
 
         &:active:not(:disabled) {

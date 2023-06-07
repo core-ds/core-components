@@ -17,6 +17,7 @@ export const Tabs = ({
     keepMounted = false,
     dataTestId,
     onChange,
+    breakpoint = 1024,
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(
@@ -59,6 +60,7 @@ export const Tabs = ({
                 dataTestId={dataTestId}
                 defaultMatch={defaultMatch}
                 fullWidthScroll={fullWidthScroll}
+                breakpoint={breakpoint}
             />
 
             {tabs.map((tab) => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}

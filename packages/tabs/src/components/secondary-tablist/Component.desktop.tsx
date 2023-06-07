@@ -6,7 +6,10 @@ import { SecondaryTabList } from './Component';
 
 import commonStyles from './index.module.css';
 
-export type SecondaryTabListDesktopProps = Omit<SecondaryTabListProps, 'tagSize'>;
+export type SecondaryTabListDesktopProps = Omit<
+    SecondaryTabListProps,
+    'tagSize' | 'isMobile' | 'breakpoint'
+>;
 
 export const SecondaryTabListDesktop = ({
     size = 's',

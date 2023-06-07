@@ -4,13 +4,13 @@ import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
 
-export type StyleColors = {
-    default: {
-        [key: string]: string;
-    };
-    inverted: {
-        [key: string]: string;
-    };
+import defaultColors from './default.module.css';
+import commonStyles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStylesMap = {
+    default: defaultColors,
+    inverted: invertedColors,
 };
 
 export type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -94,15 +94,6 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
-
-    /**
-     * Стили компонента для default и inverted режима.
-     */
-    colorStylesMap?: StyleColors;
-    /**
-     * Вид компонента
-     */
-    desktop?: boolean;
 };
 
 export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
@@ -123,12 +114,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
             view = 'outlined',
             childrenClassName,
             childrenRef,
-            colorStylesMap = {
-                default: {},
-                inverted: {},
-            },
             styles = {},
-            desktop = false,
             ...restProps
         },
         ref,
@@ -145,19 +131,19 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
 
         const tagProps = {
             className: cn(
-                styles.component,
+                commonStyles.component,
                 colorStyles.component,
+                commonStyles[size],
                 styles[size],
-                colorStyles[view],
                 styles[shapeClassName],
+                colorStyles[view],
+                commonStyles[shapeClassName],
                 {
-                    [styles.checked]: checked,
-                    [colorStyles.hover]: desktop,
-                    [styles.borderRadius]: desktop,
+                    [commonStyles.checked]: checked,
                     [colorStyles.checked]: checked,
-                    [styles.focused]: focused,
-                    [styles.withRightAddons]: Boolean(rightAddons),
-                    [styles.withLeftAddons]: Boolean(leftAddons),
+                    [commonStyles.focused]: focused,
+                    [commonStyles.withRightAddons]: Boolean(rightAddons),
+                    [commonStyles.withLeftAddons]: Boolean(leftAddons),
                 },
                 className,
             ),
@@ -178,7 +164,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                 {...tagProps}
                 {...restProps}
             >
-                {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
+                {leftAddons ? <span className={commonStyles.addons}>{leftAddons}</span> : null}
 
                 {children && (
                     <span ref={childrenRef} className={childrenClassName}>
@@ -186,7 +172,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                     </span>
                 )}
 
-                {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
+                {rightAddons ? <span className={commonStyles.addons}>{rightAddons}</span> : null}
             </button>
         );
     },

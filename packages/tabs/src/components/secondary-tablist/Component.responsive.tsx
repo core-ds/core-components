@@ -11,8 +11,9 @@ export const SecondaryTabListResponsive = ({
     size,
     defaultMatch = 'desktop',
     fullWidthScroll,
+    breakpoint = 1024,
     ...restProps
-}: SecondaryTabListProps) => {
+}: Omit<SecondaryTabListProps, 'isMobile'>) => {
     const [view] = useMedia<TabsMatchMedia>(
         [
             ['mobile', '(max-width: 767px)'],
@@ -24,6 +25,10 @@ export const SecondaryTabListResponsive = ({
     return view === 'desktop' ? (
         <SecondaryTabListDesktop size={size} {...restProps} />
     ) : (
-        <SecondaryTabListMobile fullWidthScroll={fullWidthScroll} {...restProps} />
+        <SecondaryTabListMobile
+            breakpoint={breakpoint}
+            fullWidthScroll={fullWidthScroll}
+            {...restProps}
+        />
     );
 };

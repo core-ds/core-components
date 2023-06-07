@@ -13,10 +13,14 @@ const styles = {
     ...mobileStyles,
 };
 
-export type SecondaryTabListMobileProps = Omit<SecondaryTabListProps, 'size' | 'tagSize'>;
+export type SecondaryTabListMobileProps = Omit<
+    SecondaryTabListProps,
+    'size' | 'tagSize' | 'isMobile'
+>;
 
 export const SecondaryTabListMobile = ({
     className,
+    breakpoint = 1024,
     ...restProps
 }: SecondaryTabListMobileProps) => (
     <SecondaryTabList
@@ -24,5 +28,7 @@ export const SecondaryTabListMobile = ({
         styles={styles}
         className={cn(className, styles.mobile)}
         tagSize='xs'
+        isMobile={true}
+        breakpoint={breakpoint}
     />
 );
