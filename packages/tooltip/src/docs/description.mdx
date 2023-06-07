@@ -21,8 +21,8 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
             </span>
             <span className='item'>
                 В пакете также доступна адаптивная версия тултипа: на мобильных устройствах
-                отрендерится <a href={createComponentUrl('BottomSheet')}>BottomSheet</a>, а на десктопе
-                обычный тултип
+                отрендерится <a href={createComponentUrl('BottomSheet')}>BottomSheet</a>, а на
+                десктопе обычный тултип
             </span>
         </List>
     </Plate>
@@ -44,7 +44,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
         alignItems: 'center',
     }}
 >
-    <Tooltip
+    <TooltipDesktop
         position='left'
         trigger='click'
         content={
@@ -59,7 +59,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
         <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
             Нажми на меня
         </div>
-    </Tooltip>
+    </TooltipDesktop>
 </div>
 ```
 
@@ -76,7 +76,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
         alignItems: 'center',
     }}
 >
-    <Tooltip
+    <TooltipDesktop
         position='left'
         trigger='click'
         preventOverflow={false}
@@ -90,7 +90,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
         <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
             Нажми на меня
         </div>
-    </Tooltip>
+    </TooltipDesktop>
 </div>
 ```
 
@@ -106,11 +106,11 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
         alignItems: 'center',
     }}
 >
-    <Tooltip content={<div>Редактировать</div>} position='left' view='hint' trigger='click'>
+    <TooltipDesktop content={<div>Редактировать</div>} position='left' view='hint' trigger='click'>
         <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
             Нажми на меня
         </div>
-    </Tooltip>
+    </TooltipDesktop>
 </div>
 ```
 
@@ -146,7 +146,7 @@ const Example = () => {
                 alignItems: 'center',
             }}
         >
-            <TooltipResponsive
+            <Tooltip
                 open={open}
                 content={<div>Tooltip Responsive</div>}
                 position='right'
@@ -157,7 +157,7 @@ const Example = () => {
                 <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
                     Подробнее
                 </div>
-            </TooltipResponsive>
+            </Tooltip>
         </div>
     );
 };
@@ -189,7 +189,7 @@ const Example = () => {
                 alignItems: 'center',
             }}
         >
-            <TooltipResponsive
+            <Tooltip
                 open={open}
                 content={<div>Tooltip Responsive</div>}
                 position='right'
@@ -202,7 +202,7 @@ const Example = () => {
                 <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
                     Подробнее
                 </div>
-            </TooltipResponsive>
+            </Tooltip>
         </div>
     );
 };

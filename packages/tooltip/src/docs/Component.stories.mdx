@@ -3,7 +3,8 @@ import { text, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Tooltip } from '@alfalab/core-components-tooltip';
-import { TooltipResponsive } from '@alfalab/core-components-tooltip/responsive';
+import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
+import { TooltipMobile } from '@alfalab/core-components-tooltip/mobile';
 
 import packageJson from '../../package.json';
 import Description from './description.mdx';
@@ -18,7 +19,62 @@ import {
 
 {/* Canvas */}
 
-<Story name='Tooltip'>
+<Story name='TooltipResponsive'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleOpen = () => {
+            setOpen(true);
+        };
+        const handleClose = () => {
+            setOpen(false);
+        };
+        const POSITION_OPTIONS = [
+            'top',
+            'top-start',
+            'top-end',
+            'bottom',
+            'bottom-start',
+            'bottom-end',
+            'right',
+            'right-start',
+            'right-end',
+            'left',
+            'left-start',
+            'left-end',
+        ];
+        return (
+            <div
+                style={{
+                    width: '100%',
+                    height: '300px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <Tooltip
+                    open={open}
+                    content={<div>Tooltip Responsive</div>}
+                    trigger={select('trigger', ['hover', 'click'], 'hover')}
+                    offset={[number('offset[0]', 0), number('offset[1]', 16)]}
+                    position={select('position', POSITION_OPTIONS, 'left')}
+                    onOpen={handleOpen}
+                    onClose={handleClose}
+                    fallbackPlacements={['bottom', 'top']}
+                    actionButtonTitle={text('title', 'Хорошо')}
+                    view={select('view', ['tooltip', 'hint'], 'tooltip')}
+                    hasCloser={select('hasCloser', [true, false], false)}
+                >
+                    <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+                        Подробнее
+                    </div>
+                </Tooltip>
+            </div>
+        );
+    })}
+</Story>
+
+<Story name='TooltipDesktop'>
     {React.createElement(() => {
         const POSITION_OPTIONS = [
             'top',
@@ -55,7 +111,7 @@ import {
                 }
             >
                 <style>{`.popover > div{transform:scale(2)}  `}</style>
-                <Tooltip
+                <TooltipDesktop
                     content={
                         <div
                             style={
@@ -91,13 +147,13 @@ import {
                             {trigger === 'hover' ? 'Hover me' : 'Click me'}
                         </div>
                     )}
-                </Tooltip>
+                </TooltipDesktop>
             </div>
         );
     })}
 </Story>
 
-<Story name='TooltipResponsive'>
+<Story name='TooltipMobile'>
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => {
@@ -106,20 +162,6 @@ import {
         const handleClose = () => {
             setOpen(false);
         };
-        const POSITION_OPTIONS = [
-            'top',
-            'top-start',
-            'top-end',
-            'bottom',
-            'bottom-start',
-            'bottom-end',
-            'right',
-            'right-start',
-            'right-end',
-            'left',
-            'left-start',
-            'left-end',
-        ];
         return (
             <div
                 style={{
@@ -130,23 +172,21 @@ import {
                     alignItems: 'center',
                 }}
             >
-                <TooltipResponsive
+                <TooltipMobile
+                    content={
+                        <div>
+                            Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф
+                            это позволяет
+                        </div>
+                    }
                     open={open}
-                    content={<div>Tooltip Responsive</div>}
-                    trigger={select('trigger', ['hover', 'click'], 'hover')}
-                    offset={[number('offset[0]', 0), number('offset[1]', 16)]}
-                    position={select('position', POSITION_OPTIONS, 'left')}
                     onOpen={handleOpen}
                     onClose={handleClose}
-                    fallbackPlacements={['bottom', 'top']}
-                    actionButtonTitle={text('title', 'Хорошо')}
-                    view={select('view', ['tooltip', 'hint'], 'tooltip')}
-                    hasCloser={select('hasCloser', [true, false], false)}
                 >
                     <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
-                        Подробнее
+                        Click me
                     </div>
-                </TooltipResponsive>
+                </TooltipMobile>
             </div>
         );
     })}

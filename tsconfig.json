@@ -24,7 +24,8 @@
             "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
             "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"],
             "@alfalab/core-components-calendar-input/*": ["packages/calendar-input/src/*"],
-            "@alfalab/core-components-calendar/*": ["packages/calendar/src/*"]
+            "@alfalab/core-components-calendar/*": ["packages/calendar/src/*"],
+            "@alfalab/core-components-tooltip/*": ["packages/tooltip/src/*"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

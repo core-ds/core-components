@@ -1,7 +1,7 @@
 import React, { FC, MutableRefObject } from 'react';
 
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
-import { Tooltip } from '@alfalab/core-components-tooltip';
+import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
 import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
@@ -15,7 +15,7 @@ type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
 };
 
 export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
-    <Tooltip
+    <TooltipDesktop
         trigger='hover'
         position='bottom'
         content='Открыть в полноэкранном режиме'
@@ -29,11 +29,11 @@ export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             aria-label='Открыть в полноэкранном режиме'
             className={styles.iconButton}
         />
-    </Tooltip>
+    </TooltipDesktop>
 );
 
 export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
-    <Tooltip
+    <TooltipDesktop
         trigger='hover'
         position='bottom'
         content='Выйти из полноэкранного режима'
@@ -47,11 +47,11 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
             aria-label='Выйти из полноэкранного режима'
             className={styles.iconButton}
         />
-    </Tooltip>
+    </TooltipDesktop>
 );
 
 export const Download: FC<Props> = (props) => (
-    <Tooltip
+    <TooltipDesktop
         trigger='hover'
         position='bottom'
         content='Скачать'
@@ -64,7 +64,7 @@ export const Download: FC<Props> = (props) => (
             aria-label='Скачать'
             className={styles.iconButton}
         />
-    </Tooltip>
+    </TooltipDesktop>
 );
 
 export const Exit: FC<Props> = (props) => (

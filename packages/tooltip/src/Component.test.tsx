@@ -9,7 +9,7 @@ import {
 } from '@testing-library/react';
 
 import * as popoverModule from '@alfalab/core-components-popover';
-import { Tooltip, TooltipProps } from './index';
+import { TooltipDesktop as Tooltip, TooltipDesktopProps as TooltipProps } from './desktop';
 
 jest.mock('react-transition-group', () => {
     return { CSSTransition: jest.fn((props) => (props.in ? props.children : null)) };
