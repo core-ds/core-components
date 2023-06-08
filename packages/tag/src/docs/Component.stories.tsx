@@ -16,7 +16,7 @@ const meta: Meta<typeof Tag> = {
 
 type Story = StoryObj<typeof Tag>;
 
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'] as const;
 
 export const tag: Story = {
     name: 'Tag',
