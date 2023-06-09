@@ -3,17 +3,17 @@ import React, { forwardRef, ReactNode } from 'react';
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 
-import { useSelectWithApply, UseSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
-import { Header } from '../../presets/useSelectWithApply/options-list-with-apply/header/Component';
-import { AnyObject, BaseSelectProps } from '../../typings';
-import { Arrow as DefaultArrow } from '../arrow';
-import { BaseSelectMobile } from '../base-select-mobile';
-import { Footer } from '../base-select-mobile/footer';
-import { Field as DefaultField } from '../field';
-import { Optgroup as DefaultOptgroup } from '../optgroup';
-import { Option as DefaultOption } from '../option';
-import { OptionsList as DefaultOptionsList } from '../options-list';
-import { VirtualOptionsList as DefaultVirtualOptionsList } from '../virtual-options-list';
+import { Arrow as DefaultArrow } from './components/arrow';
+import { BaseSelectMobile } from './components/base-select-mobile';
+import { Footer } from './components/base-select-mobile/footer';
+import { Field as DefaultField } from './components/field';
+import { Optgroup as DefaultOptgroup } from './components/optgroup';
+import { Option as DefaultOption } from './components/option';
+import { OptionsList as DefaultOptionsList } from './components/options-list';
+import { VirtualOptionsList as DefaultVirtualOptionsList } from './components/virtual-options-list';
+import { useSelectWithApply, UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
+import { Header } from './presets/useSelectWithApply/options-list-with-apply/header/Component';
+import { AnyObject, BaseSelectProps } from './typings';
 
 export type AdditionalMobileProps = {
     /**

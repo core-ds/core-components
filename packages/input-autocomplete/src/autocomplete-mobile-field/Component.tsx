@@ -6,7 +6,7 @@ import {
     FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
 import { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select';
+import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';

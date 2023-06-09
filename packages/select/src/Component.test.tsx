@@ -7,7 +7,8 @@ import * as popoverModule from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { asyncRender } from '../../utils/test-utils';
 
-import { FieldProps as BaseFieldProps, Select, OptionsListProps, OptionProps } from './index';
+import { FieldProps as BaseFieldProps, OptionsListProps, OptionProps } from './shared';
+import { SelectDesktop as Select } from './desktop';
 
 jest.mock('./components/field', () =>
     Object.assign({}, jest.requireActual('./components/field') as Record<any, any>),

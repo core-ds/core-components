@@ -71,7 +71,7 @@ render(() => {
     return (
         <div style={{ width: '100%' }}>
             <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                <InputAutocomplete
+                <InputAutocompleteDesktop
                     size='m'
                     selected={multiple ? selected : undefined}
                     block={true}
@@ -254,7 +254,7 @@ render(() => {
 render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <InputAutocomplete
+            <InputAutocompleteDesktop
                 size='m'
                 block={true}
                 options={[]}
@@ -370,17 +370,19 @@ render(() => {
     };
 
     const handleChange = ({ selected }) => {
-        const value = selected ? selected.content : null
+        const value = selected ? selected.content : null;
         setValue(value);
         if (value && inputRef.current) {
-            requestAnimationFrame(() => inputRef.current.setSelectionRange(value.length, value.length));
+            requestAnimationFrame(() =>
+                inputRef.current.setSelectionRange(value.length, value.length),
+            );
         }
     };
 
     const filteredOptions = cards.filter((option) => matchOption(option, value));
 
     return (
-        <InputAutocomplete
+        <InputAutocompleteDesktop
             size='m'
             options={filteredOptions}
             selected={[]}
@@ -397,7 +399,7 @@ render(() => {
         />
     );
 });
-@MOBILE@
+//MOBILE
 render(() => {
     const [value, setValue] = React.useState('');
     const [filter, setFilter] = React.useState('');

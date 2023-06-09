@@ -1,24 +1,21 @@
 import React, { FC, forwardRef, SVGProps } from 'react';
 import cn from 'classnames';
 
-import { ButtonProps } from '@alfalab/core-components-button';
+import type { ButtonProps } from '@alfalab/core-components-button';
 import {
     BaseSelect,
     BaseSelectProps,
     Optgroup as DefaultOptgroup,
     OptionsList as DefaultOptionsList,
-} from '@alfalab/core-components-select';
+} from '@alfalab/core-components-select/shared';
 
 import { Field as DefaultField } from './field';
 import { Option as DefaultOption } from './option';
+import type { PickerButtonSize, PickerButtonVariant } from './types';
 
 import styles from './index.module.css';
 
 const SIDE_POSITIONS = ['right', 'right-start', 'right-end', 'left', 'left-start', 'left-end'];
-
-export type PickerButtonSize = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
-
-export type PickerButtonVariant = 'default' | 'compact';
 
 export type PickerButtonDesktopProps = Omit<
     BaseSelectProps,

@@ -15,14 +15,14 @@ import { BaseSelectProps } from './typings';
 
 export type SelectFieldProps = Omit<FormControlDesktopProps, 'size'> & Record<string, unknown>;
 
-export type SelectProps = Omit<BaseSelectProps, 'fieldProps'> & {
+export type SelectDesktopProps = Omit<BaseSelectProps, 'fieldProps'> & {
     /**
      * Пропсы, которые будут прокинуты в компонент поля
      */
     fieldProps?: SelectFieldProps;
 };
 
-export const Select = forwardRef<HTMLDivElement, SelectProps>(
+export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
     (
         {
             Arrow = DefaultArrow,

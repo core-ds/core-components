@@ -9,6 +9,7 @@
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
