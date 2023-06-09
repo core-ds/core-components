@@ -22,7 +22,7 @@ const OPTIONS = [
 render(() => {
     return (
         <div style={{ width: 320 }}>
-            <Select
+            <SelectDesktop
                 allowUnselect={true}
                 size='m'
                 options={OPTIONS}
@@ -98,7 +98,7 @@ render(() => {
 
     return (
         <div style={{ width: 320 }}>
-            <Select
+            <SelectDesktop
                 allowUnselect={true}
                 size='m'
                 placeholder='Выберите элементы'
@@ -115,7 +115,7 @@ render(() => {
                 })}
             />
             <div style={{ height: 'var(--gap-m)' }} />
-            <Select
+            <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
                 size='m'
@@ -191,7 +191,7 @@ const OPTIONS = [
 render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Select
+            <SelectDesktop
                 allowUnselect={true}
                 size='m'
                 options={OPTIONS}
@@ -322,7 +322,7 @@ render(() => {
 
     return (
         <div style={{ width: 320 }}>
-            <Select
+            <SelectDesktop
                 allowUnselect={true}
                 size='m'
                 placeholder='Выберите счёт'
@@ -349,7 +349,7 @@ render(() => {
                 onChange={({ selected }) => setSelectedFirst(selected)}
             />
             <div style={{ height: 'var(--gap-m)' }} />
-            <Select
+            <SelectDesktop
                 selected={selectedSecond}
                 allowUnselect={true}
                 size='m'
@@ -525,7 +525,7 @@ render(() => {
     };
 
     const selectWithHeader = (
-        <Select
+        <SelectDesktop
             allowUnselect={true}
             placeholder='Выберите элементы'
             label='Множественный выбор'
@@ -607,7 +607,7 @@ render(() => {
     }));
 
     const selectWithPureCell = (
-        <Select
+        <SelectDesktop
             allowUnselect={true}
             placeholder='Выберите счёт'
             options={pureCellOptions}
@@ -798,7 +798,7 @@ render(() => {
 
     return (
         <div style={{ width: isMobile ? '100%' : 320 }}>
-            <Select
+            <SelectDesktop
                 allowUnselect={true}
                 size='m'
                 options={groups}
@@ -867,7 +867,7 @@ render(() => {
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Select
+            <SelectDesktop
                 onOpen={handleOpen}
                 size='m'
                 block={true}
@@ -994,7 +994,7 @@ render(() => {
         <form onSubmit={onSubmit}>
             <Space>
                 <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                    <Select
+                    <SelectDesktop
                         allowUnselect={true}
                         placeholder='Выберите элементы'
                         label='Множественный выбор'
@@ -1114,7 +1114,7 @@ render(() => {
 
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Select
+            <SelectDesktop
                 allowUnselect={true}
                 placeholder='Выберите элементы'
                 label='Множественный выбор'

@@ -2,15 +2,15 @@ import React, { useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select';
+import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
 export type AutocompleteMobileFieldProps = FormControlProps &
-    Omit<BaseFieldProps, 'selected' | 'multiple' | 'success'> &
-    Pick<InputAutocompleteProps, 'value'>;
+    Omit<BaseFieldProps, 'selected' | 'multiple' | 'success'> & {
+        value?: string;
+    };
 
 export const AutocompleteMobileField = ({
     size = 'm',

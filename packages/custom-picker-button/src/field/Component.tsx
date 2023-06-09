@@ -6,8 +6,8 @@ import {
     getIcon,
     PickerButtonSize,
     PickerButtonVariant,
-} from '@alfalab/core-components-picker-button';
-import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
+} from '@alfalab/core-components-picker-button/shared';
+import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 
 import styles from './index.module.css';
 
