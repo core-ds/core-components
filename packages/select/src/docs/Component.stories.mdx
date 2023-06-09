@@ -2,8 +2,8 @@ import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { Select } from '@alfalab/core-components-select';
-import { SelectResponsive } from '@alfalab/core-components-select/responsive';
+import { SelectDesktop } from '@alfalab/core-components-select/desktop';
+import { Select as SelectResponsive } from '@alfalab/core-components-select';
 import { SelectMobile, SelectModalMobile } from '@alfalab/core-components-select/mobile';
 import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
 
@@ -47,7 +47,7 @@ export const POSITION_OPTIONS = [
     'left-end',
 ];
 
-<Meta title='Components/Select' component={Select} id='Select' />
+<Meta title='Components/Select' component={SelectDesktop} id='Select' />
 
 {/* Canvas */}
 
@@ -77,7 +77,7 @@ export const POSITION_OPTIONS = [
         const optionsListWidth = selectKnob('optionsListWidth', ['field', 'content'], 'field');
         return (
             <div style={{ backgroundColor: 'transparent' }}>
-                <Select
+                <SelectDesktop
                     block={block}
                     size={size}
                     disabled={disabled}
@@ -227,7 +227,6 @@ export const POSITION_OPTIONS = [
         const label = text('label', 'Элемент');
         const labelView = selectKnob('labelView', ['inner', 'outer'], 'inner');
         const defaultOpen = boolean('defaultOpen', false);
-        const swipeable = boolean('swipeable', true);
         return (
             <div style={{ backgroundColor: 'transparent' }}>
                 <SelectModalMobile

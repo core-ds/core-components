@@ -1,9 +1,12 @@
-const req = require.context('../../', true, /^\.\/(.*)\/src\/index.ts$/);
+const req = require.context('../../', true, /^\.\/(.*)\/src\/(index|desktop|mobile).ts$/);
 
 const packages = req.keys().reduce((acc, key) => {
     const packageName = key.split('/')[1];
 
-    acc[packageName] = req(key);
+    acc[packageName] = {
+        ...acc[packageName],
+        ...req(key),
+    };
 
     return acc;
     // eslint-disable-next-line

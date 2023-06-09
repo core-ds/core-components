@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { combosToProps, generateCombos } from '../utils';
 import { getComponent } from './components';
-import { getQueryParam } from './utils';
+import { getQueryParam, isJsonObj } from './utils';
 
 import styles from './sprite.stories.module.css';
 
@@ -41,18 +41,18 @@ export const ScreenshotsSprite = () => {
     return (
         <div className={styles.container}>
             {propsList.map((props, index) => {
-                // TODO:
-                if (
-                    getQueryParam('component') === 'Select' &&
-                    props.options &&
-                    typeof props.options === 'string'
-                ) {
-                    // eslint-disable-next-line no-param-reassign
-                    props.options = JSON.parse(props.options as string);
-                }
+                const parsedProps = Object.keys(props).reduce((acc, key) => {
+                    if (isJsonObj(props[key])) {
+                        acc[key] = JSON.parse(props[key] as string);
+                    } else {
+                        acc[key] = props[key];
+                    }
+
+                    return acc;
+                }, {} as Record<string, unknown>);
 
                 const invertedBg =
-                    getQueryParam('inverted', true) || (props as any).colors === 'inverted';
+                    getQueryParam('inverted', true) || (parsedProps as any).colors === 'inverted';
 
                 return (
                     <div
@@ -60,7 +60,7 @@ export const ScreenshotsSprite = () => {
                         key={index}
                         className={styles.item}
                     >
-                        <span className={styles.title}>{propsToTitle(props)}</span>
+                        <span className={styles.title}>{propsToTitle(parsedProps)}</span>
                         <div
                             id={ids[index]}
                             style={{
@@ -70,7 +70,7 @@ export const ScreenshotsSprite = () => {
                                     : 'transparent',
                             }}
                         >
-                            <Component {...props} />
+                            <Component {...parsedProps} />
                         </div>
                     </div>
                 );

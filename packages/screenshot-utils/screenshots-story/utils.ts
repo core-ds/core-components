@@ -51,3 +51,13 @@ export function stylesStringToObj(str = ''): CSSProperties {
 
     return obj as CSSProperties;
 }
+
+export function isJsonObj(str: unknown) {
+    try {
+        const ret = JSON.parse(str as string);
+
+        return typeof ret === 'object';
+    } catch (e) {
+        return false;
+    }
+}

@@ -64,7 +64,8 @@ describe('Select', () => {
                 [
                     `${theme} theme — main props`,
                     createSpriteStorybookUrl({
-                        componentName: 'Select',
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
                         knobs: {
                             options: [[]],
                             block: true,
@@ -78,7 +79,8 @@ describe('Select', () => {
                 [
                     `${theme} theme - additional props`,
                     createSpriteStorybookUrl({
-                        componentName: 'Select',
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
                         knobs: {
                             options: [[]],
                             block: true,
@@ -95,7 +97,8 @@ describe('Select', () => {
                 [
                     `${theme} theme - additional props`,
                     createSpriteStorybookUrl({
-                        componentName: 'Select',
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
                         knobs: {
                             options: [[]],
                             block: true,
@@ -130,7 +133,8 @@ describe(
             [
                 'placeholder + label',
                 createSpriteStorybookUrl({
-                    componentName: 'Select',
+                    packageName: 'select',
+                    componentName: 'SelectDesktop',
                     knobs: {
                         options: JSON.stringify(options.slice(0, 1)),
                         selected: [undefined, options[0].key],
@@ -144,7 +148,8 @@ describe(
             [
                 'placeholder + label',
                 createSpriteStorybookUrl({
-                    componentName: 'Select',
+                    packageName: 'select',
+                    componentName: 'SelectDesktop',
                     knobs: {
                         options: JSON.stringify(options.slice(0, 1)),
                         selected: [undefined, options[0].key],
@@ -170,7 +175,8 @@ describe('Select | interactions tests', () => {
     const testCase = async (theme: string) =>
         test(`${theme} - open select, select one item`, async () => {
             const pageUrl = createStorybookUrl({
-                componentName: 'Select',
+                packageName: 'select',
+                componentName: 'SelectDesktop',
                 knobs: {
                     block: true,
                     label: 'Элемент',
@@ -214,7 +220,8 @@ describe('Select | interactions tests', () => {
 
     test('Visible options', async () => {
         const pageUrl = createStorybookUrl({
-            componentName: 'Select',
+            packageName: 'select',
+            componentName: 'SelectDesktop',
             knobs: {
                 block: true,
                 label: 'Элемент',
@@ -245,7 +252,8 @@ describe('Select | interactions tests', () => {
 
     test('Long options', async () => {
         const pageUrl = createStorybookUrl({
-            componentName: 'Select',
+            packageName: 'select',
+            componentName: 'SelectDesktop',
             knobs: {
                 block: true,
                 label: 'Элемент',
@@ -293,7 +301,8 @@ describe('Select | optgroup', () => {
                 [
                     `${theme}`,
                     createStorybookUrl({
-                        componentName: 'Select',
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
                         knobs: {
                             options: JSON.stringify(groups),
                             selected: JSON.stringify(groups[0].options[1].key),
@@ -321,7 +330,8 @@ describe('Select | multiple', () => {
                 [
                     `${theme}`,
                     createStorybookUrl({
-                        componentName: 'Select',
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
                         knobs: {
                             options: JSON.stringify(options),
                             selected: JSON.stringify([options[0].key, options[1].key]),

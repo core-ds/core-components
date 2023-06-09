@@ -3,7 +3,8 @@ import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-
 
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { Input } from '@alfalab/core-components-input';
-import { OptionsList, OptionsListProps, Select, useLazyLoading } from '../../index';
+import { OptionsList, OptionsListProps, useLazyLoading } from '../../shared';
+import { SelectDesktop as Select } from '../../desktop';
 
 const LIMIT = 10;
 const TIME_TO_FETCH = 250;

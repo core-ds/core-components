@@ -2,7 +2,7 @@ import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import { Select } from '@alfalab/core-components-select';
+import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationMobile } from '@alfalab/core-components-confirmation/mobile';
 import { ConfirmationDesktop } from '@alfalab/core-components-confirmation/desktop';
@@ -99,7 +99,7 @@ import {
         return (
             <div style={previewStyles}>
                 {!isPreview && (
-                    <Select
+                    <SelectDesktop
                         options={variants}
                         onChange={({ selected }) => {
                             setConfirmationState('INITIAL');

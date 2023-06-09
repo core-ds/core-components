@@ -2,24 +2,36 @@ import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
 import vars from '!!raw-loader!../vars.css';
 
-import { Select as SelectTS } from '../Component';
+import { Select } from '../index';
+import { SelectDesktop } from '../desktop';
+import { SelectMobile } from '../mobile';
 
 ## Подключение
 
 ```jsx
+// Responsive
 import { Select } from '@alfalab/core-components/select';
-import { SelectResponsive } from '@alfalab/core-components/select/responsive';
+
+// Desktop
+import { SelectDesktop } from '@alfalab/core-components/select/desktop';
 
 // BottomSheet version
 import { SelectMobile } from '@alfalab/core-components/select/mobile';
 
 // Modal version
 import { SelectModalMobile } from '@alfalab/core-components/select/mobile';
+
+// Other...
+import {
+    BaseOption,
+    useSelectWithApply,
+    useLazyLoading,
+} from '@alfalab/core-components/select/shared';
 ```
 
 ## Свойства
 
-<ArgsTable of={SelectTS} />
+<ArgsTable components={{ Select, SelectDesktop, SelectMobile }} />
 
 ## Переменные
 

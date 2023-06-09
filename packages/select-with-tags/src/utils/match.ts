@@ -1,4 +1,4 @@
-import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select';
+import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select/shared';
 
 import { OptionMatcher, SelectWithTagsProps } from '../types';
 

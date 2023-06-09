@@ -5,7 +5,8 @@ import {
     Pagination as CorePagination,
     PaginationProps as CorePaginationProps,
 } from '@alfalab/core-components-pagination';
-import { BaseSelectChangePayload, Select, SelectProps } from '@alfalab/core-components-select';
+import { SelectDesktop, SelectDesktopProps } from '@alfalab/core-components-select/desktop';
+import { BaseSelectChangePayload } from '@alfalab/core-components-select/shared';
 
 import { TableContext } from '../table-context';
 
@@ -58,7 +59,7 @@ export const Pagination: FC<PaginationProps> = ({
         [perPage, possiblePerPage],
     );
 
-    const handlePerPageChange: SelectProps['onChange'] = useCallback(
+    const handlePerPageChange: SelectDesktopProps['onChange'] = useCallback(
         ({ selected }: BaseSelectChangePayload) => {
             onPerPageChange(Number(selected?.key));
         },
@@ -80,7 +81,7 @@ export const Pagination: FC<PaginationProps> = ({
 
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-            <Select
+            <SelectDesktop
                 options={options}
                 selected={perPage.toString()}
                 onChange={handlePerPageChange}

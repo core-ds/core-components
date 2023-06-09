@@ -1,1 +1,1 @@
-export * from './Component.desktop';
+export { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './Component.desktop';
