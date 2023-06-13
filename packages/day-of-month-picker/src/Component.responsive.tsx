@@ -13,13 +13,13 @@ export type ResponsiveDayOfMonthPickerProps = DayOfMontPickerDesktopProps & {
     breakpoint?: number;
 };
 
-export type CalendarMedia = 'desktop' | 'mobile';
+export type DayOfMontPickerMedia = 'desktop' | 'mobile';
 
 export const DayOfMonthPickerResponsive = forwardRef<
     HTMLDivElement,
     ResponsiveDayOfMonthPickerProps
 >(({ breakpoint = 1024, ...restProps }, ref) => {
-    const [view] = useMedia<CalendarMedia>(
+    const [view] = useMedia<DayOfMontPickerMedia>(
         [
             ['mobile', `(max-width: ${breakpoint - 1}px)`],
             ['desktop', `(min-width: ${breakpoint}px)`],

@@ -24,30 +24,29 @@ import { createElement, useState } from 'react';
                 <div
                     style={{
                         width: '500px',
-                        background: 'var(--color-light-bg-primary)'
+                        background: 'var(--color-light-bg-primary)',
                     }}
                 >
-                    {device === 'desktop' ?
+                    {device === 'desktop' ? (
                         <DayOfMonthPickerDesktop
                             value={value}
                             onChange={setValue}
                             responsive={true}
                             error={boolean('error', false)}
                         />
-                        :
+                    ) : (
                         <DayOfMonthPickerMobile
                             value={value}
                             onChange={setValue}
                             responsive={true}
                             error={boolean('error', false)}
                         />
-                    }
+                    )}
                 </div>
             );
         };
         return renderContent();
     })}
-
 </Story>
 
 {/* Docs */}
