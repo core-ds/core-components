@@ -23,10 +23,8 @@
         "@alfalab/core-components-input": "11.1.15",
         "@alfalab/core-components-typography": "^3.2.1",
         "@alfalab/core-components-popover": "^6.0.8",
-        "@alfalab/core-components-form-control": "^9.0.5",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/icons-glyph": "^2.108.0",
-        "@alfalab/core-components-badge": "^5.1.0",
         "@alfalab/core-components-bottom-sheet": "^6.2.7",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"

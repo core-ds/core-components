@@ -14,8 +14,6 @@
         { "path": "../button" },
         { "path": "../icon-button" },
         { "path": "../popover" },
-        { "path": "../badge" },
-        { "path": "../form-control" },
         { "path": "../input" },
         { "path": "../typography" },
         {"path": "../bottom-sheet"}
