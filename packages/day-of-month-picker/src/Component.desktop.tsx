@@ -2,6 +2,7 @@ import React, {
     FocusEvent,
     forwardRef,
     KeyboardEvent,
+    ReactNode,
     useCallback,
     useEffect,
     useRef,
@@ -20,22 +21,30 @@ export type DayOfMontPickerDesktopProps = {
      * Дополнительный класс
      */
     className?: string;
+
     /**
      * Выбранный день
      */
-    value: number;
+    value?: number;
+
     /**
      * Обработчик выбора дня
      */
     onChange: (day: number) => void;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Отображение ошибки
+     */
+    error?: ReactNode | boolean;
 };
 
 export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPickerDesktopProps>(
-    ({ className, value, onChange, dataTestId }, ref) => {
+    ({ className, value, onChange, dataTestId, error }, ref) => {
         const [show, setShow] = useState(false);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
         const popoverRef = useRef<HTMLDivElement>(null);
@@ -92,8 +101,9 @@ export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPicke
             >
                 <DayInputField
                     inputWrapperRef={inputWrapperRef}
-                    value={value}
+                    value={value ?? ''}
                     handleToggle={handleToggle}
+                    error={error}
                 />
 
                 <Popover

@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { DayOfMonthPicker } from '@alfalab/core-components-day-of-month-picker';
 import { DayOfMonthPickerMobile } from '../components/day-of-month-picker-mobile';
@@ -17,32 +17,32 @@ import { createElement, useState } from 'react';
 
 <Story name='DayOfMonthPicker'>
     {createElement(() => {
-        const [value, setValue] = useState(1);
+        const [value, setValue] = useState();
         const device = select('device', ['desktop', 'mobile'], 'desktop');
         const renderContent = () => {
-            if (device === 'desktop') {
-                return (
-                    <div
-                        style={{
-                            width: '500px',
-                            background: 'var(--color-light-bg-primary)'
-                        }}
-                    >
-                        <DayOfMonthPickerDesktop
-                                value={value}
-                                onChange={setValue}
-                                responsive={true}
-                        />
-                    </div>
-                );
-            }
-
             return (
-                <DayOfMonthPickerMobile
-                    value={value}
-                    onChange={setValue}
-                    responsive={true}
-                />
+                <div
+                    style={{
+                        width: '500px',
+                        background: 'var(--color-light-bg-primary)'
+                    }}
+                >
+                    {device === 'desktop' ?
+                        <DayOfMonthPickerDesktop
+                            value={value}
+                            onChange={setValue}
+                            responsive={true}
+                            error={boolean('error', false)}
+                        />
+                        :
+                        <DayOfMonthPickerMobile
+                            value={value}
+                            onChange={setValue}
+                            responsive={true}
+                            error={boolean('error', false)}
+                        />
+                    }
+                </div>
             );
         };
         return renderContent();

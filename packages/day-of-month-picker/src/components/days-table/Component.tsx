@@ -18,7 +18,7 @@ const LAST_DAY = 31;
 
 export type DaysTableProps = {
     onClick: (day: number) => void;
-    selectedDay: number;
+    selectedDay?: number;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({ onClick, selectedDay }) => {

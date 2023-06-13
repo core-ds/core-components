@@ -1,4 +1,4 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, ReactNode, Ref } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { Input } from '@alfalab/core-components-input';
@@ -6,10 +6,16 @@ import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 type DayInputFieldProps = {
     inputWrapperRef: Ref<HTMLDivElement> | undefined;
-    value: number;
+    value: number | string;
     handleToggle: () => void;
+    error?: ReactNode | boolean;
 };
-export const DayInputField: FC<DayInputFieldProps> = ({ inputWrapperRef, value, handleToggle }) => (
+export const DayInputField: FC<DayInputFieldProps> = ({
+    inputWrapperRef,
+    value,
+    handleToggle,
+    error,
+}) => (
     <Input
         wrapperRef={inputWrapperRef}
         value={`${value === 31 ? 'В последний день месяца' : value}`}
@@ -18,6 +24,7 @@ export const DayInputField: FC<DayInputFieldProps> = ({ inputWrapperRef, value, 
         onClick={handleToggle}
         label='Какого числа'
         size='m'
+        error={error}
         rightAddons={<IconButton view='primary' icon={CalendarMIcon} size='s' dataTestId='icon' />}
     />
 );
