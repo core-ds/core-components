@@ -1,7 +1,6 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { Button } from '@alfalab/core-components-button';
 import { DayOfMonthPicker } from '@alfalab/core-components-day-of-month-picker';
 import { DayOfMonthPickerMobile } from '../components/day-of-month-picker-mobile';
 
@@ -18,7 +17,6 @@ import { createElement, useState } from 'react';
 
 <Story name='DayOfMonthPicker'>
     {createElement(() => {
-        const [open, setOpen] = useState(false);
         const [value, setValue] = useState('');
         const device = select('device', ['desktop', 'mobile'], 'desktop');
         const renderContent = () => {
@@ -26,29 +24,26 @@ import { createElement, useState } from 'react';
                 return (
                     <div
                         style={{
-                            width: '320px',
+                            width: '500px',
                             background: 'var(--color-light-bg-primary)'
                         }}
                     >
                             <DayOfMonthPickerDesktop
                                 value={value}
                                 onChange={setValue}
+                                responsive={true}
                             />
                     </div>
                 );
-            } else {
-                return (
-                    <>
-                        <Button onClick={() => setOpen(true)}>Открыть календарь</Button>
-                        <DayOfMonthPickerMobile
-                            onClose={() => setOpen(false)}
-                            open={open}
-                            value={value}
-                            onChange={setValue}
-                        />
-                    </>
-                );
-            }
+            };
+
+            return (
+                <DayOfMonthPickerMobile
+                    value={value}
+                    onChange={setValue}
+                    responsive={true}
+                />
+            );
         };
         return renderContent();
     })}
@@ -62,7 +57,7 @@ import { createElement, useState } from 'react';
     version={packageJson.version}
     package='@alfalab/core-components/day-of-month-picker'
     design='https://www.figma.com/file/3pt8Rutwb6nkAYErTVO86x/04-—-Me2Me-Pull?type=design&node-id=3821-319784&t=g4KiPjK7K3za7h8P-0'
-    children='Компонент для выбора числа месяца'
+    children='Компонент для выбора дня месяца'
 />
 
 <Tabs

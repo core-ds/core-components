@@ -1,25 +1,16 @@
 :root {
     --calendar-height: 290px;
     --calendar-width: 312px;
-    --calendar-inner-width: 280px;
-    --calendar-mobile-inner-width: 256px;
-    --calendar-inner-third-part-width: calc(var(--calendar-inner-width) / 3);
-    --calendar-mobile-inner-half-width: calc(var(--calendar-mobile-inner-width) / 2);
 
-    /* День */
+    /* day */
     --calendar-day-size: 40px;
     --calendar-day-border-radius: var(--border-radius-pill);
 
     /* highlighted */
-    --calendar-highlighted-color: var(--color-light-text-primary);
     --calendar-highlighted-background: var(--color-light-graphic-quaternary);
 
     /* selected */
     --calendar-selected-color: var(--color-light-text-primary-inverted);
     --calendar-selected-background: var(--color-light-graphic-primary);
     --calendar-selected-hover-background: var(--color-light-graphic-primary-tint-15);
-
-    /* marker */
-    --calendar-marker-background: var(--color-light-graphic-primary);
-    --calendar-marker-selected-background: var(--color-light-graphic-primary-inverted);
 }

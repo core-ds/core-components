@@ -1,8 +1,8 @@
-import React, { FC, RefCallback } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import React, { FC, MouseEvent, useCallback } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
+import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -14,82 +14,77 @@ const DAYS_OF_MONTH = [
     [29, 30],
 ];
 
+const LAST_DAY = 31;
+
 export type DaysTableProps = {
-    /**
-     * Доп. пропсы для переданного дня
-     */
-    getDayProps: (day: number) => Record<string, unknown> & {
-        ref: RefCallback<HTMLTableCellElement>;
-        onClick: (e: number) => void;
-        selected: boolean;
-    };
-
-    /**
-     * Должен ли календарь подстраиваться под ширину родителя.
-     */
-    responsive?: boolean;
-
-    /**
-     * Подсвеченный день (ховер)
-     */
-    highlighted?: number;
+    onClick: (day: number) => void;
+    selectedDay: number;
 };
 
-export const DaysTable: FC<DaysTableProps> = ({ getDayProps, responsive, highlighted }) => {
-    const renderDay = (day: number, dayIdx: number) => {
-        if (!day) return <td key={dayIdx} />;
+export const DaysTable: FC<DaysTableProps> = ({ onClick, selectedDay }) => {
+    const handleMouseDown = useCallback((event: MouseEvent<HTMLElement>) => {
+        // Не дает терять фокус при выборе дня
+        event.preventDefault();
+    }, []);
+    const renderDay = (day: number) => (
+        // eslint-disable-next-line jsx-a11y/role-supports-aria-props
+        <td
+            key={day}
+            align='center'
+            onClick={() => onClick(day)}
+            role='presentation'
+            aria-selected={selectedDay === day}
+            data-day={day}
+            onMouseDown={handleMouseDown}
+        >
+            <Button
+                type='button'
+                view='ghost'
+                size='xs'
+                className={cn(styles.day, {
+                    [styles.highlighted]: selectedDay === day,
+                })}
+            >
+                <span className={cn(styles.dayContent)}>{day}</span>
+            </Button>
+        </td>
+    );
 
-        const { onClick, selected, ...props } = getDayProps(day);
-        const dayHighlighted = day === highlighted;
-
-        const handleDayClick = (e: number) => {
-            onClick(e);
+    const renderLastDay = () => {
+        const isLastDay = selectedDay === LAST_DAY;
+        const handleClick = () => {
+            onClick(LAST_DAY);
         };
 
         return (
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
-            <td
-                {...props}
-                key={day}
-                className={cn(styles.dayWrapper)}
-                align='center'
-                onClick={() => handleDayClick(day)}
+            <Button
+                dataTestId='last-day-button'
+                type='button'
+                view='ghost'
+                size='xs'
+                className={cn(styles.lastDay, {
+                    [styles.highlighted]: isLastDay,
+                })}
+                onClick={handleClick}
+                onMouseDown={handleMouseDown}
             >
-                <Button
-                    type='button'
-                    view='ghost'
-                    size='xs'
-                    className={cn(styles.day, {
-                        [styles.selected]: selected,
-                        [styles.highlighted]: dayHighlighted,
-                    })}
-                >
-                    <span className={cn(styles.dayContent)}>{day}</span>
-                </Button>
-            </td>
+                <Typography.Text color={`${isLastDay ? 'primary-inverted' : 'primary'}`}>
+                    В последний день месяца
+                </Typography.Text>
+            </Button>
         );
     };
 
-    const renderWeek = (week: number[]) => <tr key={week[0]}>{week.map(renderDay)}</tr>;
-
     return (
-        <table
-            className={cn(styles.daysTable, {
-                [styles.responsive]: responsive,
-            })}
-        >
-            <TransitionGroup component={null}>
-                <CSSTransition
-                    timeout={300}
-                    classNames={{
-                        enter: styles.daysEnter,
-                        enterActive: styles.daysEnterActive,
-                        exit: styles.daysExit,
-                    }}
-                >
-                    <tbody>{DAYS_OF_MONTH.map(renderWeek)}</tbody>
-                </CSSTransition>
-            </TransitionGroup>
-        </table>
+        <React.Fragment>
+            <table className={styles.daysTable}>
+                <tbody>
+                    {DAYS_OF_MONTH.map((week) => (
+                        <tr key={week[0]}>{week.map(renderDay)}</tr>
+                    ))}
+                </tbody>
+            </table>
+            {renderLastDay()}
+        </React.Fragment>
     );
 };

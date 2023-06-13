@@ -1,22 +1,17 @@
 import React, {
     FocusEvent,
     forwardRef,
+    KeyboardEvent,
     useCallback,
     useEffect,
-    useMemo,
     useRef,
     useState,
 } from 'react';
-import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
-import { Input } from '@alfalab/core-components-input';
 import { Popover } from '@alfalab/core-components-popover';
-import { Typography } from '@alfalab/core-components-typography';
-import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
+import { DayInputField } from './components/day-input-field/DayInputField';
 import { DaysTable } from './components/days-table';
-import { useCalendar } from './useCalendar';
 
 import styles from './desktop.module.css';
 
@@ -28,7 +23,7 @@ export type DayOfMontPickerDesktopProps = {
     /**
      * Выбранный день
      */
-    value?: number;
+    value: number;
     /**
      * Обработчик выбора дня
      */
@@ -37,25 +32,16 @@ export type DayOfMontPickerDesktopProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-    /**
-     * Должен ли календарь подстраиваться под ширину родителя.
-     */
-    responsive?: boolean;
 };
 
 export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPickerDesktopProps>(
-    ({ className, value, onChange, dataTestId, responsive }, ref) => {
-        const selected = useMemo(() => value ?? undefined, [value]);
-        const { getDayProps, getRootProps, highlighted } = useCalendar({
-            selected,
-            onChange,
-        });
+    ({ className, value, onChange, dataTestId }, ref) => {
         const [show, setShow] = useState(false);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
         const popoverRef = useRef<HTMLDivElement>(null);
 
         const handleToggle = () => {
-            setShow((prev) => !prev);
+            setShow(true);
         };
 
         useEffect(() => {
@@ -63,70 +49,67 @@ export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPicke
         }, [value]);
 
         const handleBlur = useCallback((event: FocusEvent<HTMLDivElement>) => {
-            const target = (event.relatedTarget || document.activeElement) as HTMLElement;
+            const target = event.relatedTarget || document.activeElement;
 
-            if (popoverRef.current?.contains(target) === false) {
+            if (!popoverRef.current?.contains(target)) {
                 setShow(false);
             }
         }, []);
 
+        const handleFocus = useCallback(
+            (event: FocusEvent<HTMLDivElement>) => {
+                setShow(true);
+
+                if (!show && event.target.tagName !== 'INPUT' && popoverRef.current) {
+                    popoverRef.current.focus();
+                }
+            },
+            [show],
+        );
+
+        const handleKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLDivElement>) => {
+                if ((event.target as HTMLElement).tagName === 'INPUT' && event.key === 'Enter') {
+                    setShow(!show);
+                }
+
+                if (event.key === 'Escape') {
+                    setShow(false);
+                }
+            },
+            [show],
+        );
+
         return (
-            <div onBlur={handleBlur}>
-                <Input
-                    wrapperRef={inputWrapperRef}
-                    value={`${value === 31 ? 'В последний день месяца' : value}`}
-                    block={true}
-                    readOnly={true}
-                    onClick={handleToggle}
-                    label='Какого числа'
-                    size='m'
-                    rightAddons={
-                        <IconButton
-                            view='primary'
-                            icon={CalendarMIcon}
-                            size='s'
-                            dataTestId='icon'
-                        />
-                    }
+            <div
+                ref={ref}
+                className={className}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                onKeyDown={handleKeyDown}
+                role='button'
+                tabIndex={0}
+            >
+                <DayInputField
+                    inputWrapperRef={inputWrapperRef}
+                    value={value}
+                    handleToggle={handleToggle}
                 />
 
                 <Popover
+                    dataTestId='day-of-month-popover'
                     ref={popoverRef}
                     open={show}
                     anchorElement={inputWrapperRef.current as HTMLElement}
-                    popperClassName={cn(styles.calendarContainer, {
-                        [styles.calendarResponsive]: responsive,
-                    })}
+                    popperClassName={styles.calendarContainer}
                     offset={[0, 4]}
                     withTransition={false}
                     zIndex={1}
                     position='bottom-end'
                 >
-                    <div
-                        {...getRootProps({ ref })}
-                        className={cn('cc-calendar', styles.component, className, {
-                            [styles.responsive]: responsive,
-                        })}
-                        data-test-id={dataTestId}
-                    >
-                        <div className={cn(styles.container)}>
-                            <DaysTable
-                                highlighted={highlighted}
-                                getDayProps={getDayProps}
-                                responsive={responsive}
-                            />
-                            <div
-                                className={cn(styles.lastDay, {
-                                    [styles.lastDaySelected]: value === 31,
-                                })}
-                            >
-                                <Typography.Text
-                                    color={`${value === 31 ? 'primary-inverted' : 'primary'}`}
-                                    onClick={() => onChange(31)}
-                                >
-                                    В последний день месяца
-                                </Typography.Text>
-                            </div>
+                    <div className={styles.component} data-test-id={dataTestId}>
+                        <div className={styles.container}>
+                            <DaysTable onClick={onChange} selectedDay={value} />
                         </div>
                     </div>
                 </Popover>

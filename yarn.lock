@@ -7,6 +7,20 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
+"@alfalab/core-components-input@11.1.15":
+  version "11.1.15"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-input/-/core-components-input-11.1.15.tgz#d7277e3a8e62c10bb6ec612429daaa48550e1ef7"
+  integrity sha512-Cz/JVFX7Cz5TgqKE8mRq09cM94zvI94o7Ahe1JosJlFTHZDLm2YZSn76fXkkE7VUejNzZvqBe0SxY/Kz1bJ0jA==
+  dependencies:
+    "@alfalab/core-components-badge" "^5.1.0"
+    "@alfalab/core-components-button" "^8.3.0"
+    "@alfalab/core-components-form-control" "^9.0.5"
+    "@alfalab/hooks" "^1.4.1"
+    "@alfalab/icons-glyph" "^2.108.0"
+    classnames "^2.3.1"
+    react-merge-refs "^1.1.0"
+    tslib "^2.4.0"
+
 "@alfalab/core-components@>=35.1.0":
   version "41.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components/-/core-components-41.7.0.tgz#86b11140666b454b0393899855e68729e3a862c4"
@@ -64,6 +78,14 @@
   integrity sha512-kAArulLn2plNLZwJIA20KByJq6b/410v7AZp7+X7MMY63oUKKByKhUijIAaFDidKkjV6PBY/aCFzL2fpNLenlQ==
   dependencies:
     "@alfalab/utils" "^1.13.2"
+    uuid "^8.3.2"
+
+"@alfalab/hooks@^1.4.1":
+  version "1.12.6"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.12.6.tgz#cbfb4426e50b7454bf3d575402e30cf5b7f00e52"
+  integrity sha512-GLkEns2IYvy0PlDw8SIAKeX4dzKttT8ghJGBFWv8GTXsKtY8DhpaGOK4utZobRKZ0K8uDR4ISUPOdSFa862j8A==
+  dependencies:
+    "@alfalab/utils" "^1.14.2"
     uuid "^8.3.2"
 
 "@alfalab/icons-classic@^2.3.0":
@@ -129,6 +151,14 @@
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.13.3.tgz#a52b5897139302fff3fb0a55ecb7e1f6f62e34f2"
   integrity sha512-pg5e3kVM8EUZc2VLQX6zblk5JEsBbdvqwL4wamZpgbDxL2BNpviqXsVOMKqxIe4G9ptFyFnVZVNX2UV22DYPUA==
+  dependencies:
+    "@alfalab/data" "^1.4.2"
+    lodash "4.17.21"
+
+"@alfalab/utils@^1.14.2":
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.14.2.tgz#a3c0696704fa9b9200c061d57cf2bf3f07eba101"
+  integrity sha512-vkgftABfB47/tshAsx/P1x72POFtsOKs1/T32tkVWdEqmZm0fU0naqF8Y+Qe+ah3F0uAtBa1jVChPS3UVFUx7Q==
   dependencies:
     "@alfalab/data" "^1.4.2"
     lodash "4.17.21"

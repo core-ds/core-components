@@ -14,10 +14,10 @@
         { "path": "../button" },
         { "path": "../icon-button" },
         { "path": "../popover" },
-        { "path": "../modal" },
-      { "path": "../badge" },
-      { "path": "../form-control" },
-      { "path": "../input" },
-      { "path": "../typography" }
+        { "path": "../badge" },
+        { "path": "../form-control" },
+        { "path": "../input" },
+        { "path": "../typography" },
+        {"path": "../bottom-sheet"}
     ]
 }

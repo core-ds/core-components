@@ -1,4 +1,4 @@
-## Выбор числа месяца
+## Выбор дня месяца
 
 ```jsx live mobileHeight={640}
 render(() => {
@@ -10,34 +10,30 @@ render(() => {
                 <DayOfMonthPicker value={value} responsive={true} onChange={setValue} />
             </div>
             <p style={{ marginTop: 32, marginBottom: 32 }}>
-                Выбранный день: {value === 31 ? 'В последний день месяца' : value}
+                Выбран день: {value === 31 ? 'В последний день месяца' : value}
             </p>
         </>
     );
 });
 //MOBILE
 render(() => {
-    const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState('');
 
     return (
         <Container>
-            <Button block={true} onClick={() => setOpen(true)}>
-                Показать календарь
-            </Button>
-            <DayOfMonthPickerMobile
-                value={value}
-                onChange={setValue}
-                onClose={() => setOpen(false)}
-                open={open}
-            />
+            <DayOfMonthPickerMobile value={value} onChange={setValue} />
+            <p style={{ marginTop: 32, marginBottom: 32 }}>
+                Выбран день: {value === 31 ? 'В последний день месяца' : value}
+            </p>
         </Container>
     );
 });
 ```
 
+Если выбран `В последний день месяца`, то в качестве значения будет 31
+
 ## Размеры
 
 Компонент растягивается занимая отведенный контейнер.
-Стандартная ширина пикера — 320px, с учетом минимальных отступов по 16px.
-Минимальная допустимая ширина контейнера под календарь — 320px.
+Стандартная ширина пикера — 312px, с учетом минимальных отступов по 16px.
+Минимальная допустимая ширина контейнера под календарь — 312px.

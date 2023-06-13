@@ -14,14 +14,6 @@
         width: 100%;
         height: 321px;
     }
-
-    &.responsive {
-        width: 100%;
-
-        & .container {
-            width: 100%;
-        }
-    }
 }
 
 .container {
@@ -50,23 +42,6 @@
     }
 }
 
-.calendarResponsive {
-    width: var(--calendar-width);
-}
-
-.lastDay {
-    border-radius: var(--border-radius-l);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    gap: 10px;
-    width: 280px;
-    height: 40px;
-    cursor: pointer;
-}
-
-.lastDaySelected {
-    background: #121212;
+.calendarIcon {
+    color: var(--calendar-input-icon-color);
 }
