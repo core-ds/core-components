@@ -154,4 +154,62 @@
     --button-spinner-static-color: var(--color-static-graphic-light);
     --button-spinner-inverted-color: var(--color-light-graphic-primary-inverted);
     --button-spinner-inverted-primary-color: var(--color-light-graphic-primary);
+
+    /* primary mobile */
+    --button-primary-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
+    --button-primary-mobile-disabled-bg-color: var(--color-light-bg-secondary-inverted);
+
+    /* primary inverted mobile */
+    --button-inverted-primary-mobile-disabled-bg-color: var(--color-light-bg-secondary);
+    --button-inverted-primary-mobile-disabled-color: var(--color-light-text-tertiary);
+
+    /* secondary mobile */
+    --button-secondary-mobile-base-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-secondary-mobile-active-bg-color: var(
+        --color-light-specialbg-secondary-transparent-shade-15
+    );
+    --button-secondary-mobile-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-5);
+    --button-secondary-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* secondary inverted mobile */
+    --button-inverted-secondary-mobile-base-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-secondary-mobile-active-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted-tint-20
+    );
+    --button-inverted-secondary-mobile-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
+    --button-inverted-secondary-mobile-disabled-color: var(
+        --color-light-text-primary-inverted-alpha-30
+    );
+
+    /* tertiary mobile */
+    --button-tertiary-mobile-disabled-border-color: var(
+        --color-light-border-underline-inverted-alpha-30
+    );
+    --button-tertiary-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* tertiary inverted mobile */
+    --button-inverted-tertiary-mobile-disabled-border-color: var(
+        --color-light-border-underline-alpha-30
+    );
+    --button-inverted-tertiary-mobile-disabled-color: var(
+        --color-light-text-primary-inverted-alpha-30
+    );
+
+    /* link mobile */
+    --button-link-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* link inverted mobile */
+    --button-inverted-link-mobile-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
+
+    /* ghost mobile */
+    --button-ghost-mobile-active-color: var(--color-light-text-primary-tint-50);
+    --button-ghost-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* ghost mobile inverted */
+    --button-inverted-ghost-mobile-active-color: var(--color-light-text-primary-inverted-shade-50);
+    --button-inverted-ghost-mobile-disabled-color: var(
+        --color-light-text-primary-inverted-alpha-30
+    );
 }

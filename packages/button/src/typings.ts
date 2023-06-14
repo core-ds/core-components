@@ -1,5 +1,14 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, ReactNode } from 'react';
 
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
+};
+
 export type ComponentProps = {
     /**
      * Тип кнопки
@@ -89,15 +98,20 @@ export type ComponentProps = {
      * Основные стили компонента.
      */
     styles: { [key: string]: string };
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStylesMap: StyleColors;
 };
 
 export type AnchorBaseButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 export type NativeBaseButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 export type BaseButtonProps = Partial<AnchorBaseButtonProps | NativeBaseButtonProps>;
 
-export type AnchorButtonProps = Omit<BaseButtonProps, 'styles'> &
+export type AnchorButtonProps = Omit<BaseButtonProps, 'styles' | 'colorStylesMap'> &
     AnchorHTMLAttributes<HTMLAnchorElement>;
-export type NativeButtonProps = Omit<BaseButtonProps, 'styles'> &
+export type NativeButtonProps = Omit<BaseButtonProps, 'styles' | 'colorStylesMap'> &
     ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps> & {

@@ -68,6 +68,7 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
             Component = href ? 'a' : 'button',
             onClick,
             styles = {},
+            colorStylesMap = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -97,7 +98,9 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
                 styles[size],
                 colorStyles[colors].component,
                 colorStyles[colors][view],
+                colorStylesMap[colors].component,
                 {
+                    [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
                     [commonStyles.focused]: focused,
                     [commonStyles.block]: block,
                     [commonStyles.iconOnly]: iconOnly,
