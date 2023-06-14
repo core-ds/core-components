@@ -49,7 +49,7 @@ export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPicke
         const inputWrapperRef = useRef<HTMLDivElement>(null);
         const popoverRef = useRef<HTMLDivElement>(null);
 
-        const handleToggle = () => {
+        const handleOpenCalendar = () => {
             setShow(true);
         };
 
@@ -102,7 +102,7 @@ export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPicke
                 <DayInputField
                     inputWrapperRef={inputWrapperRef}
                     value={value ?? ''}
-                    handleToggle={handleToggle}
+                    handleToggle={handleOpenCalendar}
                     error={error}
                 />
 
