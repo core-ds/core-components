@@ -77,7 +77,6 @@
     --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
     --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
     --form-control-sub-paddings: 0;
-
     --form-control-mobile-sub-paddings: 0 var(--gap-2xs);
 
     /* disabled */
@@ -91,7 +90,6 @@
     --form-control-m-border-radius: var(--border-radius-m);
     --form-control-l-border-radius: var(--border-radius-m);
     --form-control-xl-border-radius: var(--border-radius-l);
-
     --form-control-mobile-s-border-radius: 10px;
     --form-control-mobile-m-border-radius: 10px;
     --form-control-mobile-l-border-radius: 10px;
