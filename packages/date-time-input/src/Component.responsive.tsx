@@ -8,7 +8,7 @@ import { DateTimeInputProps } from './components/date-time-input/Component';
 import { DateTimeInputDesktop } from './Component.desktop';
 import { DateTimeInputMobile } from './Component.mobile';
 
-export type DateTimeInputResponsiveProps = Omit<DateTimeInputProps, 'view'> & {
+export type DateTimeInputResponsiveProps = Omit<DateTimeInputProps, 'view'| 'InputComponent'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

@@ -1,0 +1,35 @@
+import React, { forwardRef } from 'react';
+
+import { useMatchMedia } from '@alfalab/core-components-mq';
+
+import { isClient } from '../../utils';
+
+import { BaseInputProps } from './components/base-input';
+import { InputDesktop } from './Component.desktop';
+import { InputMobile } from './Component.mobile';
+
+export type InputProps = Omit<BaseInputProps, 'FromControlComponent'> & {
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
+};
+
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+    ({ breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
+        const query = `(min-width: ${breakpoint}px)`;
+        const getDefaultValue = () => (isClient() ? window.matchMedia(query).matches : false);
+
+        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue ?? getDefaultValue);
+
+        const Component = isDesktop ? InputDesktop : InputMobile;
+
+        return <Component ref={ref} {...restProps} />;
+    },
+);

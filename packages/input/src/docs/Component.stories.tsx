@@ -1,20 +1,21 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
+
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { FormControl } from '@alfalab/core-components-form-control';
+import { Input } from '@alfalab/core-components-input';
 
-import packageJson from '../../package.json';
-import Development from './development.mdx';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof Input> = {
+    title: 'Components/Input',
+    component: Input,
+    id: 'Input',
+};
 
-<Meta title='Components/FormControl' component={FormControl} id='FormControl' />
+type Story = StoryObj<typeof Input>;
 
-{/* Canvas */}
-
-<Story name='FormControl'>
-    {React.createElement(() => {
+export const input: Story = {
+    name: 'Input',
+    render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div
@@ -31,37 +32,32 @@ import Changelog from '../../CHANGELOG.md?raw';
                     bottom: 0,
                 }}
             >
-                <FormControl
-                    block={boolean('block', true)}
+                <Input
+                    type={select(
+                        'type',
+                        ['number', 'card', 'email', 'money', 'password', 'tel', 'text'],
+                        'text',
+                    )}
+                    value={text('value', '')}
+                    block={boolean('block', false)}
+                    clear={boolean('clear', false)}
                     size={select('size', ['s', 'm', 'l', 'xl'], 's')}
                     colors={colors}
                     disabled={boolean('disabled', false)}
-                    filled={boolean('filled', false)}
-                    focused={boolean('focused', false)}
+                    placeholder={text('placeholder', '')}
                     label={text('label', '')}
                     labelView={select('labelView', ['inner', 'outer'], 'inner')}
                     hint={text('hint', '')}
                     error={text('error', '')}
+                    success={boolean('success', false)}
                     rightAddons={boolean('rightAddons', false) && <StarMIcon />}
                     leftAddons={boolean('leftAddons', false) && <StarMIcon />}
                     bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+                    readOnly={boolean('readOnly', false)}
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='FormControl'
-    version={packageJson.version}
-    package='@alfalab/core-components/form-control'
-    children='Базовый компонент для построения полей ввода — input, textarea, select и др.'
-/>
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    development={<Development />}
-/>
+export default meta;

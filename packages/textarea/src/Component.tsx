@@ -57,6 +57,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             maxLength,
             allowOverflow = true,
             nativeScrollbar: nativeScrollbarProp,
+            breakpoint,
             ...restProps
         },
         ref,
@@ -215,6 +216,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 leftAddons={leftAddons}
                 rightAddons={rightAddons}
                 bottomAddons={getBottomAddons()}
+                breakpoint={breakpoint}
             >
                 <React.Fragment>
                     {hasOverflow && (

@@ -1,17 +1,22 @@
 import { CssVars } from 'storybook/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import { Input as InputTS } from '../Component';
+import { Input } from '../Component.responsive';
+import { InputDesktop} from '../Component.desktop';
+import { InputMobile } from '../Component.mobile';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
 import { Input } from '@alfalab/core-components/input';
+import { InputDesktop } from '@alfalab/core-components/input/desktop';
+import { InputMobile } from '@alfalab/core-components/input/mobile';
 ```
+Из индекса импортируется responsive версия компонента. 
 
 ## Свойства
 
-<ArgsTable of={InputTS} />
+<ArgsTable components={{InputDesktop, InputMobile, Input}} />
 
 ## Переменные
 

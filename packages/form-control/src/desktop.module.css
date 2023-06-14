@@ -1,0 +1,31 @@
+@import './vars.css';
+
+.above {
+    padding: var(--form-control-sub-paddings);
+}
+
+.sub {
+    padding: var(--form-control-sub-paddings);
+}
+
+.error {
+    padding: var(--form-control-sub-paddings);
+}
+
+/* SIZES */
+
+.s .inner {
+    border-radius: var(--form-control-s-border-radius);
+}
+
+.m .inner {
+    border-radius: var(--form-control-m-border-radius);
+}
+
+.l .inner {
+    border-radius: var(--form-control-l-border-radius);
+}
+
+.xl .inner {
+    border-radius: var(--form-control-xl-border-radius);
+}

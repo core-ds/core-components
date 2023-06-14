@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s"
+        class="component component s s"
       >
         <div
-          class="inner inner filled"
+          class="inner inner inner filled"
         >
           <div
             class="inputWrapper"
@@ -30,10 +30,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s"
+      class="component component s s"
     >
       <div
-        class="inner inner filled"
+        class="inner inner inner filled"
       >
         <div
           class="inputWrapper"

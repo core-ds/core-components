@@ -78,6 +78,8 @@
     --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
     --form-control-sub-paddings: 0;
 
+    --form-control-mobile-sub-paddings: 0 var(--gap-2xs);
+
     /* disabled */
     --form-control-disabled-opacity: 1;
 
@@ -89,6 +91,11 @@
     --form-control-m-border-radius: var(--border-radius-m);
     --form-control-l-border-radius: var(--border-radius-m);
     --form-control-xl-border-radius: var(--border-radius-l);
+
+    --form-control-mobile-s-border-radius: 10px;
+    --form-control-mobile-m-border-radius: 10px;
+    --form-control-mobile-l-border-radius: 10px;
+    --form-control-mobile-xl-border-radius: 10px;
 }
 
 @define-mixin form-control-sub {
@@ -96,5 +103,4 @@
 
     /* adjusting overall height 👌 */
     margin-top: 6px;
-    padding: var(--form-control-sub-paddings);
 }

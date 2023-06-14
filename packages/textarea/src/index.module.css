@@ -99,6 +99,7 @@
 .sub {
     @mixin paragraph_component_secondary;
     @mixin form-control-sub;
+    padding: var(--form-control-sub-paddings);
 }
 
 .textarea.hasInnerLabel.hasInnerLabel {

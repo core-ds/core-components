@@ -9,10 +9,10 @@ Object {
         class="container bold"
       >
         <div
-          class="component component component hasSuffix s"
+          class="component component component hasSuffix s s"
         >
           <div
-            class="inner inner"
+            class="inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -57,10 +57,10 @@ Object {
       class="container bold"
     >
       <div
-        class="component component component hasSuffix s"
+        class="component component component hasSuffix s s"
       >
         <div
-          class="inner inner"
+          class="inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -162,10 +162,10 @@ Object {
         class="container bold"
       >
         <div
-          class="component component component hasSuffix s"
+          class="component component component hasSuffix s s"
         >
           <div
-            class="inner inner"
+            class="inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -209,10 +209,10 @@ Object {
         class="container bold filled"
       >
         <div
-          class="component component component suffixVisible hasSuffix s"
+          class="component component component suffixVisible hasSuffix s s"
         >
           <div
-            class="inner inner filled"
+            class="inner inner inner filled"
           >
             <div
               class="inputWrapper"
@@ -261,10 +261,10 @@ Object {
       class="container bold filled"
     >
       <div
-        class="component component component suffixVisible hasSuffix s"
+        class="component component component suffixVisible hasSuffix s s"
       >
         <div
-          class="inner inner filled"
+          class="inner inner inner filled"
         >
           <div
             class="inputWrapper"

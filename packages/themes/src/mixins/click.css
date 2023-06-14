@@ -22,6 +22,8 @@
 @import './icon-view/click.css';
 @import './system-message/click.css';
 @import './side-panel/click.css';
+@import './form-control/click.css';
+
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -51,4 +53,5 @@
     @mixin icon-view-click;
     @mixin system-message-click;
     @mixin side-panel-click;
+    @mixin form-control-click;
 }

@@ -1,17 +1,22 @@
 import { CssVars } from 'storybook/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import { FormControl as FormControlTS } from '../Component';
+import { FormControlDesktop } from '../Component.desktop';
+import { FormControlMobile } from '../Component.mobile';
+import { FormControl } from '../Component.responsive';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
 import { FormControl } from '@alfalab/core-components/form-control';
+import { FormControlMobile } from '@alfalab/core-components/form-control/mobile';
+import { FormControlDesktop } from '@alfalab/core-components/form-control/desktop';
 ```
+Из индекса импортируется responsive версия компонента. 
 
 ## Свойства
 
-<ArgsTable of={FormControlTS} />
+<ArgsTable components={{FormControlDesktop, FormControlMobile, FormControl}} />
 
 ## Переменные
 

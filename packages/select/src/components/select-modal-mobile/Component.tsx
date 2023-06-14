@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 
+import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
 
 import { useSelectWithApply, UseSelectWithApplyProps } from '../../presets/useSelectWithApply/hook';
@@ -114,7 +115,10 @@ export const SelectModalMobile = forwardRef(
                 open={openProp}
                 size={size}
                 optionsSize={optionsSize}
-                fieldProps={fieldProps}
+                fieldProps={{
+                    FormControlComponent: FormControlMobile,
+                    ...(fieldProps as object),
+                }}
                 optionProps={optionProps}
                 Arrow={Arrow}
                 Field={Field}

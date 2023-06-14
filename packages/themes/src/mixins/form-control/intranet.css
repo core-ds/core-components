@@ -5,6 +5,8 @@
     --form-control-m-border-radius: 10px;
     --form-control-l-border-radius: 10px;
     --form-control-xl-border-radius: var(--border-radius-l);
+    --form-control-mobile-xl-border-radius: var(--border-radius-l);
+    --form-control-mobile-gap: 0;
     --form-control-border-bottom: 0;
     --form-control-inverted-border-bottom: 0;
     --form-control-bg-color: var(--color-light-bg-secondary);

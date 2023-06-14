@@ -10,7 +10,7 @@ import { DateRangeInputMobile } from './Component.mobile';
 
 export type DateRangeInputResponsiveProps = Omit<
     DateRangeInputProps,
-    'view' | 'picker' | 'onClose'
+    'view' | 'picker' | 'onClose' | 'InputComponent'
 > &
     ConditionalProps & {
         /**

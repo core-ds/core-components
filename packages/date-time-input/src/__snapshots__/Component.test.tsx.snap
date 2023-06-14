@@ -6,10 +6,10 @@ exports[`DateTimeInput Display tests should match snapshot 1`] = `
     class="component"
   >
     <div
-      class="component component s hasRightAddons"
+      class="component component s s hasRightAddons"
     >
       <div
-        class="inner inner filled"
+        class="inner inner inner filled"
       >
         <div
           class="inputWrapper"

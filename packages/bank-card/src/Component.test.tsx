@@ -5,6 +5,20 @@ import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
 import { BankCard } from './index';
 
 describe('BankCard', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+    
     const VISA_VALID_NUMBER = '4111111111111111';
     const MC_VALID_NUMBER = '5500000000000004';
     const MIR_VALID_NUMBER = '2201382000000013';

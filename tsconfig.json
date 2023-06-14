@@ -22,7 +22,9 @@
             "@alfalab/core-components-select/*": ["packages/select/src/*"],
             "@alfalab/core-components-*": ["packages/*/src"],
             "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
-            "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"]
+            "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"],
+            "@alfalab/core-components-form-control/*": ["packages/form-control/src/*"],
+            "@alfalab/core-components-input/*": ["packages/input/src/*"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

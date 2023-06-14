@@ -1,6 +1,7 @@
 import React, {
     AnimationEvent,
     ChangeEvent,
+    ElementType,
     Fragment,
     InputHTMLAttributes,
     MouseEvent,
@@ -14,7 +15,6 @@ import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
 import { Button } from '@alfalab/core-components-button';
-import { FormControl } from '@alfalab/core-components-form-control';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -29,7 +29,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type InputProps = Omit<
+export type BaseInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
     | 'size'
     | 'type'
@@ -103,7 +103,7 @@ export type InputProps = Omit<
     /**
      * Ref для обертки input
      */
-    wrapperRef?: React.Ref<HTMLDivElement>;
+    wrapperRef?: React.Ref<HTMLDivElement> | null;
 
     /**
      * Слот слева
@@ -179,6 +179,10 @@ export type InputProps = Omit<
      * Обработчик MouseUp по полю
      */
     onMouseUp?: (event: MouseEvent<HTMLDivElement>) => void;
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    FormControlComponent?: ElementType;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -186,7 +190,7 @@ export type InputProps = Omit<
     dataTestId?: string;
 };
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
     (
         {
             size = 's',
@@ -223,6 +227,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             defaultValue,
             wrapperRef,
             readOnly,
+            FormControlComponent,
             ...restProps
         },
         ref,
@@ -361,8 +366,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             );
         };
 
-        return (
-            <FormControl
+        return FormControlComponent ? (
+            <FormControlComponent
                 ref={wrapperRef}
                 className={cn(className, focused && focusedClassName, filled && filledClassName)}
                 fieldClassName={cn(fieldClassName, {
@@ -414,16 +419,20 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     data-test-id={dataTestId}
                     aria-label={typeof label === 'string' ? label : undefined}
                 />
-            </FormControl>
-        );
+            </FormControlComponent>
+        ) : null;
     },
 );
 
 /**
  * Для отображения в сторибуке
  */
-Input.defaultProps = {
-    size: 's',
-    type: 'text',
-    block: false,
-};
+// BaseInput.defaultProps = {
+
+//     size: 's',
+
+//     type: 'text',
+
+//     block: false,
+
+// };

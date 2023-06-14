@@ -7,10 +7,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
   >
     <div>
       <div
-        class="component component s block hasRightAddons"
+        class="component component s s block hasRightAddons"
       >
         <div
-          class="inner inner"
+          class="inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -920,10 +920,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
     />
     <div>
       <div
-        class="component component s block hasRightAddons"
+        class="component component s s block hasRightAddons"
       >
         <div
-          class="inner inner"
+          class="inner inner inner"
         >
           <div
             class="inputWrapper"

@@ -1,8 +1,13 @@
 {
-    "include": ["src", "../../typings"],
+    "include": ["src", "../../typings", "../utils"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDirs": ["src"]
-    }
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"],
+        }
+    },
+    "references": [{ "path": "../mq" }]
 }

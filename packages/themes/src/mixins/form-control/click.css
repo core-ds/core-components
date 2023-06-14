@@ -1,0 +1,8 @@
+@define-mixin form-control-click {
+    /* theme */
+    --form-control-mobile-s-border-radius: var(--border-radius-m);
+    --form-control-mobile-m-border-radius: var(--border-radius-m);
+    --form-control-mobile-l-border-radius: var(--border-radius-m);
+    --form-control-mobile-xl-border-radius: var(--border-radius-l);
+    --form-control-mobile-sub-paddings: 0;
+}

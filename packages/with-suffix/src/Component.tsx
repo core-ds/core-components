@@ -44,6 +44,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                 disabled,
                 readOnly,
                 suffixContainerClassName,
+                breakpoint=1024,
                 ...restProps
             },
             ref,
@@ -102,6 +103,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                             [styles.suffixVisible]: Boolean(visibleValue),
                             [styles.hasSuffix]: suffix,
                         })}
+                        breakpoint={breakpoint}
                         {...restProps}
                     />
                     <Portal getPortalContainer={getPortalContainer}>

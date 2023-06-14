@@ -20,6 +20,7 @@
         "@alfalab/core-components-button": "^8.4.0",
         "@alfalab/core-components-form-control": "^9.0.5",
         "@alfalab/core-components-badge": "^5.1.0",
+        "@alfalab/core-components-mq": "^4.1.4",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.108.0",
         "classnames": "^2.3.1",

@@ -21,6 +21,7 @@ describe('AmountInput ', () =>
                 value: 123400,
                 size: 'm',
                 block: true,
+                breakpoint: 1
             },
         },
         'padding: 0 270px; transform:scale(2.1)',

@@ -1,5 +1,5 @@
 @import '../../themes/src/default.css';
-@import '../../input/src/default.module.css';
+@import '../../input/src/components/base-input/default.module.css';
 @import '../../form-control/src/vars.css';
 
 .component {
