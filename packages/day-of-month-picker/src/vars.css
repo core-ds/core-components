@@ -1,16 +1,8 @@
 :root {
-    --calendar-height: 290px;
-    --calendar-width: 312px;
+    --day-of-month-picker-height: 290px;
+    --day-of-month-picker-width: 312px;
 
     /* day */
-    --calendar-day-size: 40px;
-    --calendar-day-border-radius: var(--border-radius-pill);
-
-    /* highlighted */
-    --calendar-highlighted-background: var(--color-light-graphic-quaternary);
-
-    /* selected */
-    --calendar-selected-color: var(--color-light-text-primary-inverted);
-    --calendar-selected-background: var(--color-light-graphic-primary);
-    --calendar-selected-hover-background: var(--color-light-graphic-primary-tint-15);
+    --day-of-month-picker-day-size: 40px;
+    --day-of-month-picker-day-border-radius: var(--border-radius-pill);
 }

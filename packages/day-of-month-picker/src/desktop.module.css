@@ -2,8 +2,8 @@
 @import './vars.css';
 
 .component {
-    width: var(--calendar-width);
-    height: var(--calendar-height);
+    width: var(--day-of-month-picker-width);
+    height: var(--day-of-month-picker-height);
     display: flex;
     flex-direction: column;
     overflow: hidden;

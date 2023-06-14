@@ -21,8 +21,8 @@
 
 .day {
     position: relative;
-    width: var(--calendar-day-size);
-    height: var(--calendar-day-size);
+    width: var(--day-of-month-picker-day-size);
+    height: var(--day-of-month-picker-day-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,19 +30,19 @@
     box-sizing: border-box;
     color: var(--color-light-text-primary);
     z-index: 1;
-    border-radius: var(--calendar-day-border-radius);
+    border-radius: var(--border-radius-pill);
 
     &.highlighted {
-        color: var(--calendar-selected-color);
-        background: var(--calendar-selected-background);
+        color: var(--color-light-text-primary-inverted);
+        background: var(--color-light-graphic-primary);
     }
     &:hover {
-        background: var(--calendar-highlighted-background);
+        background: var(--color-light-graphic-quaternary);
     }
     &.highlighted {
         @media (hover) {
             &:hover {
-                background: var(--calendar-selected-hover-background);
+                background: var(--color-light-graphic-primary-tint-15);
             }
         }
     }
@@ -54,22 +54,22 @@
 
 .lastDay {
     border-radius: var(--border-radius-l);
-    height: 40px;
+    height: var(--day-of-month-picker-day-size);
     cursor: pointer;
     width: 100%;
     margin: var(--gap-2xs) 0 0;
 
     &.highlighted {
-        color: var(--calendar-selected-color);
-        background: var(--calendar-selected-background);
+        color: var(--color-light-text-primary-inverted);
+        background: var(--color-light-graphic-primary);
     }
     &:hover {
-        background: var(--calendar-highlighted-background);
+        background: var(--color-light-graphic-quaternary);
     }
     &.highlighted {
         @media (hover) {
             &:hover {
-                background: var(--calendar-selected-hover-background);
+                background: var(--color-light-graphic-primary-tint-15);
             }
         }
     }
