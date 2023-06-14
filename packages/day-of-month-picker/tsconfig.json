@@ -16,6 +16,6 @@
         { "path": "../popover" },
         { "path": "../input" },
         { "path": "../typography" },
-        {"path": "../bottom-sheet"}
+        { "path": "../bottom-sheet" }
     ]
 }

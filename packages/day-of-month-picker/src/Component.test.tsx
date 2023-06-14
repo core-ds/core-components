@@ -146,13 +146,29 @@ describe('DayOfMonthPicker', () => {
             });
             expect(getByTestId('last-day-button')).toHaveTextContent('В последний день');
         });
+
+        it('Input should display the hint text', () => {
+            const { getByText } = render(
+                <DayOfMonthPicker value={1} onChange={() => {}} hint='Выберите любой день' />,
+            );
+
+            expect(getByText('Выберите любой день')).toBeInTheDocument();
+        });
+
+        it('Input should have red border if has error', () => {
+            const { container, getByTestId } = render(
+                <DayOfMonthPicker value={1} onChange={() => {}} error={true} />,
+            );
+
+            expect(getByTestId('day-input-field')).toHaveClass('error');
+        });
     });
 
     describe('Callback tests', () => {
         it('should call onChange callback', async () => {
             const cb = jest.fn();
             const defaultDay = 1;
-            const { getByText, container, getByTestId } = render(
+            const { getByText, container } = render(
                 <DayOfMonthPicker value={defaultDay} onChange={cb} />,
             );
             const component = container.firstElementChild as HTMLDivElement;

@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { select, boolean } from '@storybook/addon-knobs';
+import { select, boolean, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { DayOfMonthPicker } from '@alfalab/core-components-day-of-month-picker';
 import { DayOfMonthPickerMobile } from '../components/day-of-month-picker-mobile';
@@ -33,6 +33,7 @@ import { createElement, useState } from 'react';
                             onChange={setValue}
                             responsive={true}
                             error={boolean('error', false)}
+                            hint={text('hint', '')}
                         />
                     ) : (
                         <DayOfMonthPickerMobile
@@ -40,6 +41,7 @@ import { createElement, useState } from 'react';
                             onChange={setValue}
                             responsive={true}
                             error={boolean('error', false)}
+                            hint={text('hint', '')}
                         />
                     )}
                 </div>

@@ -8,15 +8,18 @@ type DayInputFieldProps = {
     inputWrapperRef: Ref<HTMLDivElement> | undefined;
     value: number | string;
     handleToggle: () => void;
-    error?: ReactNode | boolean;
+    error?: ReactNode;
+    hint?: ReactNode;
 };
 export const DayInputField: FC<DayInputFieldProps> = ({
     inputWrapperRef,
     value,
     handleToggle,
     error,
+    hint,
 }) => (
     <Input
+        dataTestId='day-input-field'
         wrapperRef={inputWrapperRef}
         value={`${value === 31 ? 'В последний день месяца' : value}`}
         block={true}
@@ -26,5 +29,6 @@ export const DayInputField: FC<DayInputFieldProps> = ({
         size='m'
         error={error}
         rightAddons={<IconButton view='primary' icon={CalendarMIcon} size='s' dataTestId='icon' />}
+        hint={hint}
     />
 );

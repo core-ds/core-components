@@ -7,7 +7,7 @@ import { DayInputField } from '../day-input-field/DayInputField';
 import { DaysTable } from '../days-table';
 
 export const DayOfMonthPickerMobile = forwardRef<HTMLDivElement, DayOfMontPickerDesktopProps>(
-    ({ className, value, onChange, dataTestId, error }, ref) => {
+    ({ className, value, onChange, dataTestId, error, hint }, ref) => {
         const [show, setShow] = useState(false);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
         const handleToggle = () => {
@@ -26,6 +26,7 @@ export const DayOfMonthPickerMobile = forwardRef<HTMLDivElement, DayOfMontPicker
                     value={value ?? ''}
                     handleToggle={handleToggle}
                     error={error}
+                    hint={hint}
                 />
                 <BottomSheet
                     open={show}

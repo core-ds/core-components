@@ -41,10 +41,15 @@ export type DayOfMontPickerDesktopProps = {
      * Отображение ошибки
      */
     error?: ReactNode | boolean;
+
+    /**
+     * Текст подсказки снизу
+     */
+    hint?: ReactNode;
 };
 
 export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPickerDesktopProps>(
-    ({ className, value, onChange, dataTestId, error }, ref) => {
+    ({ className, value, onChange, dataTestId, error, hint }, ref) => {
         const [show, setShow] = useState(false);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
         const popoverRef = useRef<HTMLDivElement>(null);
@@ -104,6 +109,7 @@ export const DayOfMonthPickerDesktop = forwardRef<HTMLDivElement, DayOfMontPicke
                     value={value ?? ''}
                     handleToggle={handleOpenCalendar}
                     error={error}
+                    hint={hint}
                 />
 
                 <Popover

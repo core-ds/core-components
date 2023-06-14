@@ -36,6 +36,7 @@ exports[`DayOfMonthPicker Display tests should match snapshot 1`] = `
             <input
               aria-label="Какого числа"
               class="input input m hasInnerLabel"
+              data-test-id="day-input-field"
               readonly=""
               type="text"
               value="1"
