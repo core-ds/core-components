@@ -77,6 +77,7 @@ render(() => {
                     block={true}
                     options={getFilteredOptions()}
                     label='Инпут с автокомплитом'
+                    placeholder='Начните вводить название'
                     onChange={handleChange}
                     onInput={handleInput}
                     value={value}
@@ -84,20 +85,16 @@ render(() => {
                     multiple={multiple}
                     allowUnselect={true}
                     Option={BaseOption}
-                    {...(shownChevron
-                        ? {
-                              showEmptyOptionsList: true,
-                              optionsListProps: {
-                                  emptyPlaceholder: (
-                                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                          <Typography.Text view='component'>
-                                              Ничего не нашлось
-                                          </Typography.Text>
-                                      </div>
-                                  ),
-                              },
-                          }
-                        : null)}
+                    showEmptyOptionsList={true}
+                    optionsListProps={{
+                        emptyPlaceholder: (
+                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                <Typography.Text view='component'>
+                                    Ничего не нашлось
+                                </Typography.Text>
+                            </div>
+                        ),
+                    }}
                 />
             </div>
             <Gap size='xl' />
@@ -122,6 +119,7 @@ render(() => {
 //MOBILE
 render(() => {
     const [shownChevron, setShownChevron] = React.useState(false);
+    const [showInModal, setShowInModal] = React.useState(false);
     const [multiple, setMultiple] = React.useState(false);
     const [value, setValue] = React.useState('');
     const [filter, setFilter] = React.useState('');
@@ -186,9 +184,17 @@ render(() => {
                   );
               });
 
+    const emptyPlaceholder = (
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Typography.Text view='component'>Ничего не нашлось</Typography.Text>
+        </div>
+    );
+
+    const Component = showInModal ? InputAutocompleteModalMobile : InputAutocompleteMobile;
+
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <InputAutocompleteMobile
+            <Component
                 size='m'
                 block={true}
                 value={value}
@@ -197,6 +203,7 @@ render(() => {
                 options={filteredOptions}
                 label='Инпут с автокомплитом'
                 placeholder='Начните вводить название'
+                Option={BaseOption}
                 multiple={multiple}
                 selected={selected}
                 closeOnSelect={!multiple}
@@ -205,25 +212,8 @@ render(() => {
                 onFilter={handleFilter}
                 onClearFilter={() => setFilter('')}
                 onCancel={() => setFilter(value)}
-            />
-            <Gap size='m' />
-            <InputAutocompleteModalMobile
-                size='m'
-                block={true}
-                value={value}
-                Arrow={shownChevron ? Arrow : undefined}
-                filter={filter}
-                options={filteredOptions}
-                label='Инпут с автокомплитом'
-                placeholder='Начните вводить название'
-                multiple={multiple}
-                selected={selected}
-                closeOnSelect={!multiple}
-                allowUnselect={true}
-                onChange={handleChange}
-                onFilter={handleFilter}
-                onClearFilter={() => setFilter('')}
-                onCancel={() => setFilter(value)}
+                showEmptyOptionsList={true}
+                optionsListProps={{ emptyPlaceholder }}
             />
             <Gap size='xl' />
 
@@ -241,57 +231,11 @@ render(() => {
                     setValue('');
                 }}
             />
-        </div>
-    );
-});
-```
-
-## Пустой список
-
-Когда по запросу пользователя не находится соответствия в списке, рекомендуется использовать такой шаблон.
-
-```jsx live
-render(() => {
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <InputAutocompleteDesktop
-                size='m'
-                block={true}
-                options={[]}
-                label='Пустой список'
-                showEmptyOptionsList={true}
-                optionsListProps={{
-                    emptyPlaceholder: (
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <Typography.Text view='component'>Ничего не нашлось</Typography.Text>
-                        </div>
-                    ),
-                }}
-                Option={BaseOption}
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <InputAutocompleteMobile
-                size='m'
-                block={true}
-                options={[]}
-                onChange={() => {}}
-                label='Инпут с автокомплитом'
-                placeholder='Начните вводить название'
-                showEmptyOptionsList={true}
-                optionsListProps={{
-                    emptyPlaceholder: (
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <Typography.Text view='component'>Ничего не нашлось</Typography.Text>
-                        </div>
-                    ),
-                }}
-                Option={BaseOption}
+            <Gap size='m' />
+            <Switch
+                checked={showInModal}
+                label='Открывать в модалке'
+                onChange={() => setShowInModal((prevState) => !prevState)}
             />
         </div>
     );
@@ -355,9 +299,11 @@ render(() => {
     const CardOption = (props) => (
         <BaseOption {...props}>
             <div style={{ padding: 'var(--gap-s)' }}>
-                {props.option.key}
-                <br />
-                <sub>{props.option.content}</sub>
+                <Typography.Text view='component'>{props.option.content}</Typography.Text>
+                <Gap size='2xs' />
+                <Typography.Text view='primary-small' color='secondary'>
+                    {props.option.key}
+                </Typography.Text>
             </div>
         </BaseOption>
     );
@@ -382,21 +328,25 @@ render(() => {
     const filteredOptions = cards.filter((option) => matchOption(option, value));
 
     return (
-        <InputAutocompleteDesktop
-            size='m'
-            options={filteredOptions}
-            selected={[]}
-            label='Маскированный ввод счёта'
-            onInput={handleInput}
-            onChange={handleChange}
-            value={value}
-            Option={CardOption}
-            Input={MaskedInput}
-            inputProps={{
-                ref: inputRef,
-                mask,
-            }}
-        />
+        <div style={{ width: 320 }}>
+            <InputAutocompleteDesktop
+                size='m'
+                options={filteredOptions}
+                selected={[]}
+                label='Счёт'
+                placeholder='Маскированный ввод счёта'
+                onInput={handleInput}
+                onChange={handleChange}
+                value={value}
+                Option={CardOption}
+                Input={MaskedInput}
+                block={true}
+                inputProps={{
+                    ref: inputRef,
+                    mask,
+                }}
+            />
+        </div>
     );
 });
 //MOBILE
@@ -455,9 +405,11 @@ render(() => {
     const CardOption = (props) => (
         <BaseOption {...props}>
             <div style={{ padding: 'var(--gap-s) var(--gap-m)' }}>
-                {props.option.key}
-                <br />
-                <sub>{props.option.content}</sub>
+                <Typography.Text view='component'>{props.option.content}</Typography.Text>
+                <Gap size='2xs' />
+                <Typography.Text view='primary-small' color='secondary'>
+                    {props.option.key}
+                </Typography.Text>
             </div>
         </BaseOption>
     );
