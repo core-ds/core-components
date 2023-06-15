@@ -23,12 +23,14 @@ export const PureAmount: React.FC<AmountProps> = ({
     showPlus = false,
     className,
     dataTestId,
+    codeFormat = 'symbolic',
 }) => {
     const { formatted, currencySymbol } = formatAmount({
         value,
         currency,
         minority,
         view,
+        codeFormat,
     });
 
     return (
