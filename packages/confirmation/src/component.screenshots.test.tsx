@@ -51,7 +51,8 @@ describe(
         },
         matchImageSnapshotOptions: {
             failureThresholdType: 'percent',
-            failureThreshold: 0.0005,
+            //Из-за обратного отсчета времени в CountdownLoader
+            failureThreshold: 0.5,
         },
     }),
 );
