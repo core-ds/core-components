@@ -58,6 +58,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.4.2.tgz#bceab1875b34d92a183fafd481d66e2dd2fd720e"
   integrity sha512-+MqVDEFM/bcl4hgL3uoXGcN0w8Nb9SJ8zeJVF8SzZVEtJHhrYMR/DRHul5OkeatZB2LLt6YfLwX4aoWRChdomg==
 
+"@alfalab/data@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.6.0.tgz#2f331f92f27ecf7ca7dbfc00f94c6954e06ad83e"
+  integrity sha512-zFj1Ch2JjrPaafPEYd90mnoF+wN+GukTRkJJtW6IyksqdqAILOlcH1WvTyhVYweg2awGtgDZ9DzYLzjpHl7RJQ==
+
 "@alfalab/hooks@^1.13.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.13.0.tgz#13c8cf5a326fb85469e6472f469e91d7454a530f"
@@ -131,6 +136,14 @@
   integrity sha512-pg5e3kVM8EUZc2VLQX6zblk5JEsBbdvqwL4wamZpgbDxL2BNpviqXsVOMKqxIe4G9ptFyFnVZVNX2UV22DYPUA==
   dependencies:
     "@alfalab/data" "^1.4.2"
+    lodash "4.17.21"
+
+"@alfalab/utils@^1.14.4":
+  version "1.14.4"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.14.4.tgz#afdba1e9486265a1302af981be3a35a3c3bb02f2"
+  integrity sha512-4+//NknkPUPlGveXSKLdf3Q1vR3VT30QZiG+eYbQYMPNv4GR9B3rM5ymljZF+I9EptQqE0I78Xv7ZGakBjEy6Q==
+  dependencies:
+    "@alfalab/data" "^1.6.0"
     lodash "4.17.21"
 
 "@alloc/quick-lru@^5.2.0":
