@@ -69,6 +69,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideHeader,
             disableOverlayClick,
             disableBlockingScroll,
+            disableFocusLock,
             children,
             zIndex,
             transitionProps = {},
@@ -420,6 +421,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     [styles.disabledPointerEvents]: hideOverlay,
                 })}
                 disableBlockingScroll={disableBlockingScroll}
+                disableFocusLock={disableFocusLock}
                 transitionProps={{
                     appear: true,
                     timeout: TIMEOUT,
