@@ -1,11 +1,13 @@
 import { Plate } from '@alfalab/core-components-plate';
 import { Badge } from '@alfalab/core-components-badge';
 import { List } from '@alfalab/core-components-list';
+import { createComponentUrl } from 'storybook/utils/createComponentUrl';
 import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
 
 ### Компонент `Tooltip`.
 
 <div style={{ marginBottom: '16px' }}>
+    <style>{`.item > .sbdocs-p { margin:0 }`}</style>
     <Plate
         view='common'
         leftAddons={
@@ -13,14 +15,14 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
         }
     >
         <List>
-            <span>
-                В мобильной версии следует использовать компонент &nbsp;
-                <a href='/docs/bottomsheet--bottom-sheet'>BottomSheet</a>
+            <span className='item'>
+                В мобильной версии следует использовать компонент&nbsp;
+                <a href={createComponentUrl('BottomSheet')}>BottomSheet</a>
             </span>
-            <span>
-                В пакете таже доступна <a href='#tooltip-responsive'>адаптивная версия тултипа</a>:
-                на мобильных устройствах отрендерится{' '}
-                <a href='/docs/bottomsheet--bottom-sheet'>BottomSheet</a>, а на десктопе обычный тултип
+            <span className='item'>
+                В пакете также доступна адаптивная версия тултипа: на мобильных устройствах
+                отрендерится <a href={createComponentUrl('BottomSheet')}>BottomSheet</a>, а на десктопе
+                обычный тултип
             </span>
         </List>
     </Plate>
