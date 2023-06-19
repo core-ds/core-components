@@ -423,16 +423,3 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         ) : null;
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-// BaseInput.defaultProps = {
-
-//     size: 's',
-
-//     type: 'text',
-
-//     block: false,
-
-// };
