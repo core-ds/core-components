@@ -242,6 +242,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 size={size}
                 name={name}
                 multiple={multiple}
+                useWithApplyHook={false}
                 bottomSheetProps={getBottomSheetProps()}
                 optionsListProps={{ showFooter: false }}
                 {...restProps}

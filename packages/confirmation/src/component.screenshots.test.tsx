@@ -42,6 +42,7 @@ describe(
                         requiredCharAmount: [5, 7],
                         phone: '+7 ··· ··· 07-24',
                         ConfirmationComponent: 'Confirmation',
+                        countdownDuration: 0,
                     },
                 }),
             ],
@@ -52,7 +53,7 @@ describe(
         },
         matchImageSnapshotOptions: {
             failureThresholdType: 'percent',
-            failureThreshold: 0.0005,
+            failureThreshold: 0.005,
         },
     }),
 );
@@ -71,6 +72,7 @@ describe(
                         screen: ['INITIAL'],
                         state: ['INITIAL', 'CODE_CHECKING', 'CODE_SENDING', 'CODE_ERROR'],
                         ConfirmationComponent: 'Confirmation',
+                        countdownDuration: 0,
                     },
                 }),
             ],

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "41.10.0",
+    "version": "41.11.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -55,13 +55,13 @@
         ]
     },
     "dependencies": {
-        "@alfalab/data": "^1.4.2",
+        "@alfalab/data": "^1.6.0",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-classic": "^2.3.0",
         "@alfalab/icons-flag": "^2.2.0",
         "@alfalab/icons-glyph": "^2.108.0",
         "@alfalab/icons-logotype": "^2.19.0",
-        "@alfalab/utils": "^1.13.3",
+        "@alfalab/utils": "^1.14.4",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
         "@juggle/resize-observer": "^3.3.1",
@@ -202,7 +202,7 @@
         "shelljs": "^0.8.5",
         "standard-version": "^8.0.0",
         "storybook": "^7.0.17",
-        "storybook-addon-live-examples": "2.0.1",
+        "storybook-addon-live-examples": "2.0.2",
         "stylelint": "^14.9.1",
         "stylelint-config-prettier": "^9.0.3",
         "stylelint-config-standard": "^20.0.0",

@@ -40,16 +40,21 @@ jobs:
 
             let shouldComment = false;
 
-            const table = Object.keys(masterFile)
+            const masterComponents = Object.keys(masterFile);
+            const currentComponents = Object.keys(currentFile);
+
+            const table = [...new Set([...masterComponents, ...currentComponents])]
               .reduce((acc, packageName) => {
-                Object.keys(masterFile[packageName]).forEach((entryPoint) => {
+                const entryPoints = [...new Set([...Object.keys(masterFile[packageName]), ...Object.keys(currentFile[packageName])])];
+
+                entryPoints.forEach((entryPoint) => {
                   const now = currentFile[packageName][entryPoint] || 0;
                   const before = masterFile[packageName][entryPoint] || 0;
 
                   if (Math.abs(now - before) > 2) {
                     shouldComment = true;
                     acc += `| ${packageName}/${entryPoint} | ${now} ${
-                    now - before > 0 ? `(+${now - before} KB🔺)` : `(-${before - now} KB)`
+                    now - before > 0 ? `(+${(now - before).toFixed(2)} KB🔺)` : `(-${(before - now).toFixed(2)} KB)`
                     } |\n`;
                   }
                 });

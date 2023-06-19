@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+### [#675](https://github.com/core-ds/core-components/pull/675)
+
+-   feat(icon-view): Добавлены шейпы Rectangle и NoShape
+
 ## 3.0.7
 
 ### Patch Changes

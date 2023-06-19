@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+.overflowHide {
+    overflow: hidden;
+}
+
 @mixin bg-class-list;
 
 @each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
@@ -58,7 +62,7 @@
     }
 }
 
-@each $radius in m, xl, xxl {
+@each $radius in m, l, xl, xxl {
     .border-radius-$(radius) {
         border-radius: var(--border-radius-$(radius));
     }

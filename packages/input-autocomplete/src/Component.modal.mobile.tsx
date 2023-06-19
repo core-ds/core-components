@@ -200,6 +200,7 @@ export const InputAutocompleteModalMobile = React.forwardRef<
                 size={size}
                 fieldProps={{ value }}
                 placeholder={placeholder}
+                useWithApplyHook={false}
                 modalProps={{
                     ...restProps.modalProps,
                     componentRef: modalScrollableRef,
