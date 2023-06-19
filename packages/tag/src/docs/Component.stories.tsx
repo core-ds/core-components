@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { text, select, boolean, withKnobs } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 
 import { CopyMIcon } from '@alfalab/icons-glyph/CopyMIcon';
 import { Tag } from '@alfalab/core-components-tag';
@@ -11,7 +11,6 @@ const meta: Meta<typeof Tag> = {
     title: 'Components/Tag',
     component: Tag,
     id: 'Tag',
-    decorators: [withKnobs],
 };
 
 type Story = StoryObj<typeof Tag>;

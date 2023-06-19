@@ -12,6 +12,7 @@
     "references": [
         { "path": "../icon-button" },
         { "path": "../keyboard-focusable" },
+        { "path": "../mq" },
         { "path": "../tag" },
     ]
 }

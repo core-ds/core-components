@@ -8,9 +8,18 @@ import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStylesMap = {
+const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
+};
+
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
 };
 
 export type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -94,6 +103,11 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStylesMap?: StyleColors;
 };
 
 export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
@@ -115,6 +129,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
             childrenClassName,
             childrenRef,
             styles = {},
+            colorStylesMap = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -132,15 +147,18 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
         const tagProps = {
             className: cn(
                 commonStyles.component,
+                colorCommonStyles[colors].component,
                 colorStyles.component,
                 commonStyles[size],
                 styles[size],
-                colorStyles[view],
+                colorCommonStyles[colors][view],
                 {
                     [commonStyles.checked]: checked,
                     [commonStyles[shapeClassName]]: Boolean(commonStyles[shapeClassName]),
                     [styles[shapeClassName]]: Boolean(styles[shapeClassName]),
-                    [colorStyles.checked]: checked,
+                    [colorCommonStyles[colors].checked]: checked,
+                    [colorStyles.checked]: checked && Boolean(colorStyles.checked),
+                    [colorStyles[view]]: Boolean(colorStyles[view]),
                     [commonStyles.focused]: focused,
                     [commonStyles.withRightAddons]: Boolean(rightAddons),
                     [commonStyles.withLeftAddons]: Boolean(leftAddons),

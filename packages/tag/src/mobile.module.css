@@ -2,20 +2,20 @@
 
 .rectangular {
     &.xxs {
-        border-radius: var(--border-radius-m);
+        border-radius: var(--tag-rectangular-mobile-xxs-border-radius);
     }
 
     &.xs {
-        border-radius: var(--border-radius-l);
+        border-radius: var(--tag-rectangular-mobile-xs-border-radius);
     }
 
     &.s {
-        border-radius: var(--border-radius-l);
+        border-radius: var(--tag-rectangular-mobile-s-border-radius);
     }
 
     &.m,
     &.l,
     &.xl {
-        border-radius: var(--border-radius-xl);
+        border-radius: var(--tag-alt-mobile-border-radius);
     }
 }

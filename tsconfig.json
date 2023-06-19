@@ -23,8 +23,8 @@
             "@alfalab/core-components-*": ["packages/*/src"],
             "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
             "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"],
-            "@alfalab/core-components-tag/*": ["packages/tag/src/*"]
-
+            "@alfalab/core-components-tag/*": ["packages/tag/src/*"],
+            "@alfalab/core-components-filter-tag/*": ["packages/filter-tag/src/*"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
