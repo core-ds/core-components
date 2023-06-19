@@ -65,9 +65,9 @@ describe('Tabs', () => {
             const { getByTestId } = renderTabs(Component, {
                 view,
                 containerClassName,
-                dataTestId: 'KKK',
+                dataTestId: 'tabs-test',
             });
-            const container = getByTestId('KKK').parentElement as HTMLElement;
+            const container = getByTestId('tabs-test').parentElement as HTMLElement;
             expect(container).toHaveClass(containerClassName);
         });
     });
