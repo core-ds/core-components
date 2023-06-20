@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import './vars.css';
 
 .xxs {
     border-radius: var(--button-xxs-size-mobile-border-radius);
