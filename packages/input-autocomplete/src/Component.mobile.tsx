@@ -180,7 +180,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         <ButtonMobile
                             block={true}
                             view='secondary'
-                            size='s'
+                            size='m'
                             onClick={handleCancel}
                             {...cancelButtonProps}
                         >
@@ -189,7 +189,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         <ButtonMobile
                             block={true}
                             view='primary'
-                            size='s'
+                            size='m'
                             onClick={handleApply}
                             {...continueButtonProps}
                         >

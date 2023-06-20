@@ -85,18 +85,35 @@ render(
 <Container>
     <Row>
         <Col>
-            <Button>0</Button>
+            <ButtonDesktop>0</ButtonDesktop>
         </Col>
     </Row>
     <Row>
         <Col>
-            <Button>Очень длинный лейбл</Button>
+            <ButtonDesktop>Очень длинный лейбл</ButtonDesktop>
         </Col>
     </Row>
     <br />
-    <Button block={true} size='m' nowrap={true}>
+    <ButtonDesktop block={true} size='m' nowrap={true}>
         Занимает всю ширину контейнера
-    </Button>
+    </ButtonDesktop>
+</Container>
+//MOBILE
+<Container>
+    <Row>
+        <Col>
+            <ButtonMobile>0</ButtonMobile>
+        </Col>
+    </Row>
+    <Row>
+        <Col>
+            <ButtonMobile>Очень длинный лейбл</ButtonMobile>
+        </Col>
+    </Row>
+    <br />
+    <ButtonMobile block={true} size='m' nowrap={true}>
+        Занимает всю ширину контейнера
+    </ButtonMobile>
 </Container>
 ```
 
@@ -210,9 +227,32 @@ render(() => {
     return (
         <Container>
             <div style={{ display: 'flex', width: '180px' }}>
-                <Button view='primary' nowrap={checked}>
+                <ButtonDesktop view='primary' nowrap={checked}>
                     Пример длинного текста
-                </Button>
+                </ButtonDesktop>
+            </div>
+            <Row align='middle'>
+                <Switch
+                    label={<span>Запретить перенос строки</span>}
+                    checked={checked}
+                    onChange={handleChange}
+                />
+            </Row>
+        </Container>
+    );
+});
+//MOBILE
+render(() => {
+    const [checked, setChecked] = React.useState(true);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Container>
+            <div style={{ display: 'flex', width: '180px' }}>
+                <ButtonMobile view='primary' nowrap={checked}>
+                    Пример длинного текста
+                </ButtonMobile>
             </div>
             <Row align='middle'>
                 <Switch

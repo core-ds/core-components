@@ -29,7 +29,7 @@ export const Footer = ({ handleApply, handleClear, showClear }: FooterProps) => 
         >
             {showClear && (
                 <ButtonMobile
-                    size='s'
+                    size='m'
                     view='secondary'
                     className={styles.button}
                     onClick={handleClear}
@@ -38,7 +38,7 @@ export const Footer = ({ handleApply, handleClear, showClear }: FooterProps) => 
                 </ButtonMobile>
             )}
 
-            <ButtonMobile size='s' view='primary' className={styles.button} onClick={handleApply}>
+            <ButtonMobile size='m' view='primary' className={styles.button} onClick={handleApply}>
                 Применить
             </ButtonMobile>
         </div>

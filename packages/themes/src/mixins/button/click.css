@@ -1,4 +1,12 @@
 @define-mixin button-click {
+    /* border-radius mobile */
+    --button-xxs-size-mobile-border-radius: 6px;
+    --button-xs-size-mobile-border-radius: var(--border-radius-m);
+    --button-s-size-mobile-border-radius: var(--border-radius-m);
+    --button-m-size-mobile-border-radius: var(--border-radius-l);
+    --button-l-size-mobile-border-radius: var(--border-radius-l);
+    --button-xl-size-mobile-border-radius: var(--border-radius-l);
+
     /* primary mobile */
     --button-primary-mobile-disabled-color: var(--color-light-text-tertiary);
     --button-primary-mobile-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);

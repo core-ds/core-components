@@ -167,21 +167,21 @@ export const InputAutocompleteModalMobile = React.forwardRef<
             <React.Fragment>
                 <ButtonMobile
                     block={true}
-                    view='primary'
-                    size='s'
-                    onClick={handleApply}
-                    {...continueButtonProps}
-                >
-                    Продолжить
-                </ButtonMobile>
-                <ButtonMobile
-                    block={true}
                     view='secondary'
-                    size='s'
+                    size='m'
                     onClick={handleCancel}
                     {...cancelButtonProps}
                 >
                     Отмена
+                </ButtonMobile>
+                <ButtonMobile
+                    block={true}
+                    view='primary'
+                    size='m'
+                    onClick={handleApply}
+                    {...continueButtonProps}
+                >
+                    Продолжить
                 </ButtonMobile>
             </React.Fragment>
         );

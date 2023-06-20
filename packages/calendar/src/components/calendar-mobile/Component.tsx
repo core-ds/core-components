@@ -297,12 +297,12 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
                 return (
                     <React.Fragment>
-                        <ButtonMobile view='secondary' size='s' block={true} onClick={handleClear}>
+                        <ButtonMobile view='secondary' size='m' block={true} onClick={handleClear}>
                             Сбросить
                         </ButtonMobile>
                         <ButtonMobile
                             view='primary'
-                            size='s'
+                            size='m'
                             block={true}
                             onClick={handleClose}
                             disabled={selectButtonDisabled}
@@ -315,14 +315,14 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
             if (value) {
                 return (
-                    <ButtonMobile view='primary' size='s' block={true} onClick={handleClose}>
+                    <ButtonMobile view='primary' size='m' block={true} onClick={handleClose}>
                         Выбрать
                     </ButtonMobile>
                 );
             }
 
             return (
-                <ButtonMobile view='secondary' size='s' block={true} onClick={handleClose}>
+                <ButtonMobile view='secondary' size='m' block={true} onClick={handleClose}>
                     Отмена
                 </ButtonMobile>
             );
