@@ -60,7 +60,6 @@ describe('Tooltip', () => {
                     context,
                     page,
                     expect,
-                    evaluate: (page) => page.waitForTimeout(500),
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
@@ -101,7 +100,6 @@ describe('Tooltip', () => {
                     context,
                     page,
                     expect,
-                    evaluate: (page) => page.waitForTimeout(500),
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
@@ -142,7 +140,6 @@ describe('Tooltip', () => {
                     context,
                     page,
                     expect,
-                    evaluate: (page) => page.waitForTimeout(500),
                 });
             } catch (error) {
                 // eslint-disable-next-line no-console
