@@ -19,8 +19,8 @@ import {
 
 import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { getDataTestId } from '../../../../utils';
 import {
     AnyObject,
     BaseSelectProps,

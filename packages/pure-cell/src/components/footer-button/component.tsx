@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Button, ButtonProps } from '@alfalab/core-components-button';
-
-import { getDataTestId } from '../../../../utils/getDataTestId';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 

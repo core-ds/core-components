@@ -5,8 +5,7 @@ import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 import { Gap } from '@alfalab/core-components-gap';
-
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { DEFAULT_EXTRA_BOUNDS, OBSERVABLE_TOKENS, OBSERVE_OPTIONS, THEME_STATE } from './consts';
 import type { PatternLockProps } from './typings';

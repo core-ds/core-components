@@ -3,8 +3,7 @@ import React, { FC, forwardRef, useContext, useMemo } from 'react';
 import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { DrawerProps } from '@alfalab/core-components-drawer';
 import { useMatchMedia } from '@alfalab/core-components-mq';
-
-import { isClient } from '../../utils';
+import { isClient } from '@alfalab/core-components-shared';
 
 import { Header } from './components/header/Component';
 import { SidePanelDesktop } from './Component.desktop';

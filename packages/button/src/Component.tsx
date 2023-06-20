@@ -15,7 +15,7 @@ import cn from 'classnames';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 import defaultColors from './default.module.css';
