@@ -46,3 +46,5 @@ cp README.md dist/README.md
 
 # делаю корневой пакет публичным
 yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"
+
+yarn fill-exports-field

@@ -40,6 +40,7 @@
     "dependencies": {
         "@alfalab/core-components-mq": "^4.1.4",
         "@alfalab/core-components-spinner": "^3.0.6",
+        "@alfalab/core-components-shared": "^0.0.0",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",

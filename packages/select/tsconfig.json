@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings", "../utils"],
+    "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -24,6 +24,7 @@
         { "path": "../base-modal" },
         { "path": "../modal" },
         { "path": "../scrollbar" },
-        { "path": "../badge" }
+        { "path": "../badge" },
+        { "path": "../shared" }
     ]
 }

@@ -52,6 +52,7 @@
         "@alfalab/core-components-modal": "^7.0.13",
         "@alfalab/core-components-popover": "^6.0.8",
         "@alfalab/core-components-scrollbar": "^2.1.5",
+        "@alfalab/core-components-shared": "^0.0.0",
         "@alfalab/core-components-skeleton": "^4.0.5",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.108.0",
