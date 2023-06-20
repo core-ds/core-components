@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": []
+    "references": [{ "path": "../shared" }]
 }

@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '../../../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { SystemMessageContext } from '../../Context';
 
 import styles from './index.module.css';

@@ -16,7 +16,7 @@ import {
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import cn from 'classnames';
 
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SortableItem } from './components/item/Components';
 import type { Items, SortableItemProps, SortableListProps } from './types';

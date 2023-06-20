@@ -45,11 +45,11 @@ jobs:
 
             const table = [...new Set([...masterComponents, ...currentComponents])]
               .reduce((acc, packageName) => {
-                const entryPoints = [...new Set([...Object.keys(masterFile[packageName]), ...Object.keys(currentFile[packageName])])];
+                const entryPoints = [...new Set([...Object.keys(masterFile[packageName] || {}), ...Object.keys(currentFile[packageName] || {})])];
 
                 entryPoints.forEach((entryPoint) => {
-                  const now = currentFile[packageName][entryPoint] || 0;
-                  const before = masterFile[packageName][entryPoint] || 0;
+                  const now = currentFile[packageName]?.[entryPoint] || 0;
+                  const before = masterFile[packageName]?.[entryPoint] || 0;
 
                   if (Math.abs(now - before) > 2) {
                     shouldComment = true;

@@ -13,8 +13,7 @@ import { SwipeCallback, SwipeDirections, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';

@@ -7,33 +7,41 @@ import { readFile, writeFile, checkOrCreateDir } from './common.mjs';
 
 const require = createRequire(import.meta.url);
 
-const cleanerPlugin = postcss.plugin('styles-cleaner-plugin', () => (root) => {
-    // Удаляем все правила, где нет цветов
-    root.walkDecls((decl) => {
-        const hasColor = ['rgb', '#', 'transparent'].some((token) => decl.value.includes(token));
+const cleanerPlugin = (opts = {}) => {
+    return {
+        postcssPlugin: 'styles-cleaner-plugin',
+        Once(root) {
+            // Удаляем все правила, где нет цветов
+            root.walkDecls((decl) => {
+                const hasColor = ['rgb', '#', 'transparent'].some((token) =>
+                    decl.value.includes(token),
+                );
 
-        if (!hasColor) {
-            decl.remove();
-        }
-    });
+                if (!hasColor) {
+                    decl.remove();
+                }
+            });
 
-    // Удаляем комменты
-    root.walkComments((comment) => comment.remove());
+            // Удаляем комменты
+            root.walkComments((comment) => comment.remove());
 
-    // Удаляем пустые atrule
-    root.walkAtRules((atRule) => {
-        if (atRule.nodes.length === 1 && atRule.nodes[0].nodes.length === 0) {
-            atRule.remove();
-        }
-    });
+            // Удаляем пустые atrule
+            root.walkAtRules((atRule) => {
+                if (atRule.nodes.length === 1 && atRule.nodes[0].nodes.length === 0) {
+                    atRule.remove();
+                }
+            });
 
-    // Удаляем пустые правила
-    root.walkRules((rule) => {
-        if (rule.nodes.length === 0) {
-            rule.remove();
-        }
-    });
-});
+            // Удаляем пустые правила
+            root.walkRules((rule) => {
+                if (rule.nodes.length === 0) {
+                    rule.remove();
+                }
+            });
+        },
+    };
+};
+cleanerPlugin.postcss = true;
 
 const setupPostcss = (theme, mode, palette) => {
     const colorsPath = path.resolve(process.cwd(), '../vars/dist');
@@ -74,7 +82,7 @@ export function compiledDarkmodeGenerator(dist) {
             const generationConfig = ['mobile-dark-bluetint'];
 
             const componentStyles = await globby([`${dist}/**/*.css`], {
-                ignore: ['**/cssm/**', '**/esm/**', '**/modern/**'],
+                ignore: ['**/cssm/**', '**/esm/**', '**/modern/**', '**/src/**'],
             });
 
             const saveTheme = async (css, fileName) => {

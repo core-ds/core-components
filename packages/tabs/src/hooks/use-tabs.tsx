@@ -1,6 +1,7 @@
 import { KeyboardEvent, MouseEvent, MutableRefObject, useCallback, useRef, useState } from 'react';
 
-import { getDataTestId } from '../../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { TabListTitle, UseTabsProps } from '../typings';
 
 export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {

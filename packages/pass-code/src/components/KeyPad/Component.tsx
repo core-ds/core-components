@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { BackspaceXxlIcon } from '@alfalab/icons-glyph/BackspaceXxlIcon';
 
-import { getDataTestId } from '../../../../utils';
 import { KeyPadButton } from '../KeyPadButton';
 
 import styles from './index.module.css';

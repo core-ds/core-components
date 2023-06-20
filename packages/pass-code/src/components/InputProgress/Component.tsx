@@ -3,7 +3,7 @@ import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
-import { getDataTestId } from '../../../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 import transitions from './transitions.module.css';

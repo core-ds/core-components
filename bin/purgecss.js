@@ -21,7 +21,9 @@ const shouldSkipPath = (path) =>
 if (shouldSkipPath(cwd)) process.exit(0);
 
 // Ищем css внутри пакета в packages и в root бандле
-const matches = glob.sync(`{dist/**/*.css,../../dist/${pkgName}/**/*.css}`);
+const matches = glob.sync(`{dist/**/*.css,../../dist/${pkgName}/**/*.css}`, {
+    ignore: '**/src/**/*.css',
+});
 
 matches.forEach((match) => {
     const purge = new PurgeCSS();

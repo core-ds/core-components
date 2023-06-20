@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../gap" }]
+    "references": [{ "path": "../button" }, { "path": "../gap" }, { "path": "../shared" }]
 }

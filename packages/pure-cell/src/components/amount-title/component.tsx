@@ -2,9 +2,9 @@ import React from 'react';
 import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { Color, Typography } from '@alfalab/core-components-typography';
 
-import { getDataTestId } from '../../../../utils/getDataTestId';
 import { AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';

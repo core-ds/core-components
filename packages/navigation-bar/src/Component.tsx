@@ -3,9 +3,8 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-
-import { getDataTestId } from '../../utils';
 
 import { BackArrowAddon } from './components/back-arrow-addon';
 import { Closer } from './components/closer';

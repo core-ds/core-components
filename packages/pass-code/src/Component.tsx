@@ -2,8 +2,7 @@ import React, { forwardRef, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { Gap } from '@alfalab/core-components-gap';
-
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { InputProgress } from './components/InputProgress';
 import { KeyPad } from './components/KeyPad';

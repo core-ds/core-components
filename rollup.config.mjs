@@ -45,11 +45,37 @@ const baseConfig = {
 
 const multiInputPlugin = multiInput.default();
 
-const copyPlugin = (dest) =>
+const assetsCopyPlugin = (dest) =>
     copy({
         flatten: false,
         targets: [{ src: ['src/**/*.{png,svg,jpg,jpeg}', '!**/__image_snapshots__/**'], dest }],
     });
+
+const sourceCopyPlugin = copy({
+    flatten: false,
+    targets: [
+        {
+            src: [
+                'src/**/*.{ts,tsx,css,json,js,jsx}',
+                '!**/{__image_snapshots__,__snapshots__,docs}/**',
+                '!src/**/*.test.{ts,tsx}',
+            ],
+            dest: 'dist/src',
+            transform: (contents, name) => {
+                if (name.endsWith('.css')) {
+                    return contents
+                        .toString()
+                        .replaceAll(
+                            /@import.*\/(.*)\/src\/(.*)\.css['"];/g,
+                            "@import '@alfalab/core-components-$1/src/$2.css';",
+                        );
+                }
+
+                return contents;
+            },
+        },
+    ],
+});
 
 const postcssPlugin = postcss.default({
     modules: {
@@ -92,8 +118,9 @@ const es5 = {
         }),
         json(),
         postcssPlugin,
-        copyPlugin('dist'),
+        assetsCopyPlugin('dist'),
         copy({ targets: [{ src: ['../../bin/send-stats.js', 'package.json'], dest: 'dist' }] }),
+        sourceCopyPlugin,
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };
@@ -127,7 +154,7 @@ const modern = {
         }),
         json(),
         postcssPlugin,
-        copyPlugin('dist/modern'),
+        assetsCopyPlugin('dist/modern'),
     ],
 };
 
@@ -159,7 +186,7 @@ const cssm = {
         }),
         json(),
         processCss(),
-        copyPlugin('dist/cssm'),
+        assetsCopyPlugin('dist/cssm'),
     ],
 };
 
@@ -190,7 +217,7 @@ const esm = {
         }),
         json(),
         postcssPlugin,
-        copyPlugin('dist/esm'),
+        assetsCopyPlugin('dist/esm'),
     ],
 };
 
@@ -210,7 +237,7 @@ const root = {
         copy({
             flatten: false,
             targets: [
-                { src: ['dist/**/*', '!**/*.js'], dest: rootDir },
+                { src: ['dist/**/*', '!**/*.js', '!dist/src/**'], dest: rootDir },
                 {
                     src: 'package.json',
                     dest: `../../dist/${currentComponentName}`,

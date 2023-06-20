@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { Typography } from '@alfalab/core-components-typography';
-
-import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
 

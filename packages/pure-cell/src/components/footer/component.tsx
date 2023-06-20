@@ -1,7 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '../../../../utils/getDataTestId';
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { FooterElement } from '../types';
 
 import styles from './index.module.css';
