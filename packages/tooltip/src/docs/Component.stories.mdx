@@ -1,26 +1,25 @@
-import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { text, select, number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Tooltip } from '@alfalab/core-components-tooltip';
 import { TooltipResponsive } from '@alfalab/core-components-tooltip/responsive';
 
+import packageJson from '../../package.json';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-const meta: Meta<typeof Tooltip> = {
-    title: 'Components/Tooltip',
-    component: Tooltip,
-    id: 'Tooltip',
-};
+<Meta title='Components/Tooltip' component={Tooltip} id='Tooltip' />
 
-type Story = StoryObj<typeof Tooltip>;
+{/* Canvas */}
 
-export const tooltip: Story = {
-    name: 'Tooltip',
-    render: () => {
+<Story name='Tooltip'>
+    {React.createElement(() => {
         const POSITION_OPTIONS = [
             'top',
             'top-start',
@@ -95,12 +94,11 @@ export const tooltip: Story = {
                 </Tooltip>
             </div>
         );
-    },
-};
+    })}
+</Story>
 
-export const tooltip_responsive: Story = {
-    name: 'TooltipResponsive',
-    render: () => {
+<Story name='TooltipResponsive'>
+    {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => {
             setOpen(true);
@@ -151,7 +149,20 @@ export const tooltip_responsive: Story = {
                 </TooltipResponsive>
             </div>
         );
-    },
-};
+    })}
+</Story>
 
-export default meta;
+{/* Docs */}
+
+<ComponentHeader
+    name='Tooltip'
+    version={packageJson.version}
+    package='@alfalab/core-components/tooltip'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=298%3A37393'
+/>
+
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>
