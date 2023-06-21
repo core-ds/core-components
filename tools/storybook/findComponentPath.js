@@ -27,9 +27,18 @@ const findComponentPath = (() => {
             idProp = /<Meta[^>]*?id=['"](.*?)['"]/.exec(doc)?.[1].trim() || '';
             titleProp = /<Meta[^>]*?title=['"](.*?)['"]/.exec(doc)?.[1].trim() || '';
         } else if (tsxStory) {
-            const story = require(tsxStory);
-            idProp = story.default.id;
-            titleProp = story.default.title;
+            const doc = fs.readFileSync(tsxStory).toString();
+            const metaString =
+                /const\s+meta.*\{((?:.|\s)*?)\}/.exec(doc)?.[1]?.replace(/\s/g, '') || '';
+            const parsedMeta = metaString.split(',').reduce((acc, str) => {
+                const [key, value] = str.split(':').map((v) => v.replace(/['"]/g, ''));
+
+                acc[key] = value;
+                return acc;
+            }, {});
+
+            idProp = parsedMeta.id;
+            titleProp = parsedMeta.title;
         }
 
         const urlSegments = idProp ? idProp.split('/') : titleProp.split('/');
