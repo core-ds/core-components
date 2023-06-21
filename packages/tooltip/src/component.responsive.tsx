@@ -102,7 +102,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
                 onClose={handleClose}
                 hasCloser={hasCloser}
                 actionButton={
-                    <ButtonMobile view='secondary' block={true} size='s' onClick={handleClose}>
+                    <ButtonMobile view='secondary' block={true} size='m' onClick={handleClose}>
                         {actionButtonTitle}
                     </ButtonMobile>
                 }
