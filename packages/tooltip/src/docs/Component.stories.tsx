@@ -18,23 +18,24 @@ const meta: Meta<typeof Tooltip> = {
 
 type Story = StoryObj<typeof Tooltip>;
 
+const POSITION_OPTIONS = [
+    'top',
+    'top-start',
+    'top-end',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'right',
+    'right-start',
+    'right-end',
+    'left',
+    'left-start',
+    'left-end',
+] as const;
+
 export const tooltip: Story = {
     name: 'Tooltip',
     render: () => {
-        const POSITION_OPTIONS = [
-            'top',
-            'top-start',
-            'top-end',
-            'bottom',
-            'bottom-start',
-            'bottom-end',
-            'right',
-            'right-start',
-            'right-end',
-            'left',
-            'left-start',
-            'left-end',
-        ];
         const openSelectValue = select('open', ['true', 'false', 'undefined'], 'undefined');
         const open =
             openSelectValue === 'false' ? false : openSelectValue === 'true' ? true : undefined;
@@ -108,20 +109,6 @@ export const tooltip_responsive: Story = {
         const handleClose = () => {
             setOpen(false);
         };
-        const POSITION_OPTIONS = [
-            'top',
-            'top-start',
-            'top-end',
-            'bottom',
-            'bottom-start',
-            'bottom-end',
-            'right',
-            'right-start',
-            'right-end',
-            'left',
-            'left-start',
-            'left-end',
-        ];
         return (
             <div
                 style={{
