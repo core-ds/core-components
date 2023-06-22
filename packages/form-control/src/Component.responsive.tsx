@@ -8,7 +8,7 @@ import { BaseFormControlProps } from './components/base-form-control';
 import { FormControlDesktop } from './Component.desktop';
 import { FormControlMobile } from './Component.mobile';
 
-export type FormControlProps = Omit<BaseFormControlProps, 'styles'> & {
+export type FormControlProps = Omit<BaseFormControlProps, 'styles' | 'colorStyles'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

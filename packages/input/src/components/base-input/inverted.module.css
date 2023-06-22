@@ -44,9 +44,3 @@
 .input:focus::placeholder {
     color: var(--input-inverted-focus-placeholder-color);
 }
-
-/* ERROR STATE */
-.error {
-    color: var(--input-inverted-error-color);
-    caret-color: var(--input-inverted-error-color);
-}

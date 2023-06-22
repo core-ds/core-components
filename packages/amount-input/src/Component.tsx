@@ -108,7 +108,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             clear = false,
             onChange,
             onClear,
-            breakpoint=1024,
+            breakpoint = 1024,
             ...restProps
         },
         ref,

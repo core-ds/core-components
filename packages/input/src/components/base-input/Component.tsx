@@ -24,9 +24,18 @@ import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStyles = {
+const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
+};
+
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
 };
 
 export type BaseInputProps = Omit<
@@ -188,6 +197,11 @@ export type BaseInputProps = Omit<
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStyles?: StyleColors;
 };
 
 export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
@@ -228,6 +242,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             wrapperRef,
             readOnly,
             FormControlComponent,
+            colorStyles = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -332,7 +347,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 tabIndex={-1}
                             >
                                 <CrossCircleMIcon
-                                    className={cn(styles.clearIcon, colorStyles[colors].clearIcon)}
+                                    className={cn(styles.clearIcon, colorCommonStyles[colors].clearIcon)}
                                 />
                             </Button>
                         )}
@@ -397,13 +412,14 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     {...restProps}
                     className={cn(
                         styles.input,
+                        colorCommonStyles[colors].input,
                         colorStyles[colors].input,
                         {
                             [styles.error]: error,
                             [colorStyles[colors].error]: error,
                             [styles[size]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
-                            [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },
                         inputClassName,
                     )}

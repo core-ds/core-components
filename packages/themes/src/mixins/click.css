@@ -23,6 +23,8 @@
 @import './system-message/click.css';
 @import './side-panel/click.css';
 @import './form-control/click.css';
+@import './input/click.css';
+
 
 
 @define-mixin theme-click {
@@ -54,4 +56,5 @@
     @mixin system-message-click;
     @mixin side-panel-click;
     @mixin form-control-click;
+    @mixin input-click;
 }

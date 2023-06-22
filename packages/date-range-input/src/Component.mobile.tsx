@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
 import { CalendarMobile } from '@alfalab/core-components-calendar';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { InputMobile } from '@alfalab/core-components-input/mobile';
 
 import {

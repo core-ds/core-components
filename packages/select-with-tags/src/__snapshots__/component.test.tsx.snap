@@ -16,7 +16,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
         class="component component xl xl block hasRightAddons"
       >
         <div
-          class="field inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -80,7 +80,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
         class="component component xl xl block hasRightAddons"
       >
         <div
-          class="field inner inner inner filled"
+          class="field inner inner inner inner filled"
         >
           <div
             class="inputWrapper"

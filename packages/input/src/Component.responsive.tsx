@@ -8,7 +8,7 @@ import { BaseInputProps } from './components/base-input';
 import { InputDesktop } from './Component.desktop';
 import { InputMobile } from './Component.mobile';
 
-export type InputProps = Omit<BaseInputProps, 'FormControlComponent'> & {
+export type InputProps = Omit<BaseInputProps, 'FormControlComponent' | 'colorStyles'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

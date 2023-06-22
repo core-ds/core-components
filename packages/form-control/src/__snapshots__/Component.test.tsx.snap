@@ -9,7 +9,7 @@ Object {
         class="component component s s"
       >
         <div
-          class="inner inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -27,7 +27,7 @@ Object {
       class="component component s s"
     >
       <div
-        class="inner inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -102,7 +102,7 @@ Object {
         class="component component s s hasRightAddons"
       >
         <div
-          class="inner inner inner hasError"
+          class="inner inner inner inner hasError"
         >
           <div
             class="inputWrapper"
@@ -126,7 +126,7 @@ Object {
       class="component component s s hasRightAddons"
     >
       <div
-        class="inner inner inner hasError"
+        class="inner inner inner inner hasError"
       >
         <div
           class="inputWrapper"
@@ -207,7 +207,7 @@ Object {
         class="component component s s"
       >
         <div
-          class="inner inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -228,7 +228,7 @@ Object {
       class="component component s s"
     >
       <div
-        class="inner inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -306,7 +306,7 @@ Object {
         class="component component s s hasRightAddons"
       >
         <div
-          class="inner inner inner hasError"
+          class="inner inner inner inner hasError"
         >
           <div
             class="inputWrapper"
@@ -330,7 +330,7 @@ Object {
       class="component component s s hasRightAddons"
     >
       <div
-        class="inner inner inner hasError"
+        class="inner inner inner inner hasError"
       >
         <div
           class="inputWrapper"
@@ -411,7 +411,7 @@ Object {
         class="component component s s"
       >
         <div
-          class="inner inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -434,7 +434,7 @@ Object {
       class="component component s s"
     >
       <div
-        class="inner inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -514,7 +514,7 @@ Object {
         class="component component s s"
       >
         <div
-          class="inner inner inner hasInnerLabel"
+          class="inner inner inner inner hasInnerLabel"
         >
           <div
             class="inputWrapper"
@@ -551,7 +551,7 @@ Object {
       class="component component s s"
     >
       <div
-        class="inner inner inner hasInnerLabel"
+        class="inner inner inner inner hasInnerLabel"
       >
         <div
           class="inputWrapper"
@@ -645,7 +645,7 @@ Object {
         class="component component s s hasLeftAddons"
       >
         <div
-          class="inner inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="addons leftAddons"
@@ -670,7 +670,7 @@ Object {
       class="component component s s hasLeftAddons"
     >
       <div
-        class="inner inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="addons leftAddons"
@@ -759,7 +759,7 @@ Object {
           </span>
         </span>
         <div
-          class="inner inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -784,7 +784,7 @@ Object {
         </span>
       </span>
       <div
-        class="inner inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -859,7 +859,7 @@ Object {
         class="component component s s hasRightAddons"
       >
         <div
-          class="inner inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -884,7 +884,7 @@ Object {
       class="component component s s hasRightAddons"
     >
       <div
-        class="inner inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"

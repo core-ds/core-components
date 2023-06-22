@@ -5,9 +5,18 @@ import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStyles = {
+const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
+};
+
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
 };
 
 export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
@@ -120,6 +129,11 @@ export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
      * Основные стили компонента.
      */
     styles: { [key: string]: string };
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStyles?: StyleColors;
 };
 
 export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlProps>(
@@ -147,6 +161,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
             children,
             dataTestId,
             styles,
+            colorStyles = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -158,7 +173,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                 data-test-id={dataTestId}
                 className={cn(
                     commonStyles.component,
-                    colorStyles[colors].component,
+                    colorCommonStyles[colors].component,
                     className,
                     commonStyles[size],
                     styles[size],
@@ -171,7 +186,10 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
             >
                 {label && labelView === 'outer' && (
                     <span
-                        className={cn(commonStyles.above, styles.above, colorStyles[colors].label,
+                        className={cn(
+                            commonStyles.above,
+                            styles.above,
+                            colorCommonStyles[colors].label,
                         )}
                     >
                         {label}
@@ -183,16 +201,20 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         fieldClassName,
                         commonStyles.inner,
                         styles.inner,
+                        colorCommonStyles[colors].inner,
                         colorStyles[colors].inner,
                         {
                             [commonStyles.disabled]: disabled || readOnly,
+                            [colorCommonStyles[colors].disabled]: disabled || readOnly,
                             [colorStyles[colors].disabled]: disabled || readOnly,
                             [commonStyles.filled]: filled,
-                            [colorStyles[colors].filled]: filled,
+                            [colorCommonStyles[colors].filled]: filled,
                             [commonStyles.hasInnerLabel]: label && labelView === 'inner',
                             [commonStyles.focused]: focused,
+                            [colorCommonStyles[colors].focused]: focused,
                             [colorStyles[colors].focused]: focused,
                             [commonStyles.hasError]: error,
+                            [colorCommonStyles[colors].hasError]: error,
                             [colorStyles[colors].hasError]: error,
                         },
                     )}
@@ -219,7 +241,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                                 <div
                                     className={cn(
                                         commonStyles.label,
-                                        colorStyles[colors].label,
+                                        colorCommonStyles[colors].label,
                                         labelClassName,
                                     )}
                                 >
@@ -250,7 +272,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         className={cn(
                             commonStyles.sub,
                             styles.error,
-                            colorStyles[colors].error,
+                            colorCommonStyles[colors].error,
                         )}
                         role='alert'
                     >
@@ -259,8 +281,11 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                 )}
 
                 {hint && !errorMessage && (
-                    <span className={cn(commonStyles.sub, styles.sub, colorStyles[colors].hint, 
-                    )}>{hint}</span>
+                    <span
+                        className={cn(commonStyles.sub, styles.sub, colorCommonStyles[colors].hint)}
+                    >
+                        {hint}
+                    </span>
                 )}
             </div>
         );

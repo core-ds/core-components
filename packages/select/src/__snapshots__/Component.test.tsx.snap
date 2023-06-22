@@ -21,7 +21,7 @@ Object {
             <div
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
-              class="field inner inner inner"
+              class="field inner inner inner inner"
               id="downshift-0-input"
               tabindex="0"
             >
@@ -79,7 +79,7 @@ Object {
           <div
             aria-controls="downshift-1-menu"
             aria-labelledby="downshift-1-label"
-            class="field inner inner inner"
+            class="field inner inner inner inner"
             id="downshift-0-input"
             tabindex="0"
           >
@@ -188,7 +188,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
         <div
           aria-controls="downshift-3-menu"
           aria-labelledby="downshift-3-label"
-          class="field inner inner inner hasError"
+          class="field inner inner inner inner hasError"
           id="downshift-2-input"
           tabindex="0"
         >
@@ -252,7 +252,7 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
         <div
           aria-controls="downshift-5-menu"
           aria-labelledby="downshift-5-label"
-          class="field inner inner inner focused"
+          class="field inner inner inner inner focused"
           id="downshift-4-input"
           tabindex="0"
         >

@@ -16,7 +16,39 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 350, height: 150 };
 
-describe('Input ', () =>
+// describe('Input', () =>
+// createPreview(
+//     {
+//         componentName: 'Input',
+//         knobs: {
+//             label: 'Текстовое поле',
+//             value: 'Текст',
+//             size: 'm',
+//         },
+//     },
+//     'width:800px;transform:scale(2.1)',
+//     {
+//         viewport: { width: 1024, height: 600 },
+//     },
+// ));
+
+    // describe('Input2', () =>
+    // createPreview(
+    //     {
+    //         componentName: 'Input',
+    //         knobs: {
+    //             label: 'Текстовое поле',
+    //             value: 'Текст',
+    //             size: 'm',
+    //         },
+    //     },
+    //     'padding: 0 270px;width:800px;transform:scale(2.1)',
+    //     {
+    //         viewport: { width: 1024, height: 600 },
+    //     },
+    // ));
+
+    describe('Input', () =>
     createPreview(
         {
             componentName: 'Input',
@@ -27,7 +59,10 @@ describe('Input ', () =>
                 block: true,
             },
         },
-        'padding: 0 270px; transform:scale(2.1)',
+        'padding: 0 270px;width:800px;transform:scale(2.1)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     ));
 
 describe('Input | screenshots label view and value prop', () => {

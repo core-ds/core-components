@@ -13,7 +13,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
       class="component component m m m block hasLeftAddons"
     >
       <div
-        class="inner inner inner filled"
+        class="inner inner inner inner filled"
       >
         <div
           class="addons leftAddons addons"
@@ -99,7 +99,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
               autocomplete="off"
-              class="input input"
+              class="input input input"
               id="downshift-0-input"
               tabindex="0"
               type="tel"
