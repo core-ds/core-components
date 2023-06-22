@@ -1,3 +1,41 @@
+## 41.13.0
+
+<sup><time>22.06.2023</time></sup>
+
+### [#723](https://github.com/core-ds/core-components/pull/723)
+
+#### Что изменилось
+- Добавлен проп disableFocusLock, отключающий ловушку фокуса
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
+## 41.12.0
+
+<sup><time>22.06.2023</time></sup>
+
+### [#694](https://github.com/core-ds/core-components/pull/694)
+
+#### Что изменилось
+- Добавлен prop showHeaderWithSelectAll, с помощью которого добавляется чекбокс "Выбрать все" в заголовок выпадающего списка
+- Убраны hover-эффекты у опций в мобильной версии
+
+#### Влияние на компоненты
+- Минорное<br />`select`
+
+
+### [#712](https://github.com/core-ds/core-components/pull/712)
+
+#### Что изменилось
+- обновлены минорные версии @alfalab/utils и @alfalab/data
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input` `amount` `attach` `confirmation-v1` `confirmation`<br /> `intl-phone-input`
+
+
+
 ## 41.11.0
 
 <sup><time>02.06.2023</time></sup>
