@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.2.0
+
 ## 4.2.11
 
 ### Patch Changes
