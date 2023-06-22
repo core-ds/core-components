@@ -1,3 +1,17 @@
+## 41.13.0
+
+<sup><time>22.06.2023</time></sup>
+
+### [#723](https://github.com/core-ds/core-components/pull/723)
+
+#### Что изменилось
+- Добавлен проп disableFocusLock, отключающий ловушку фокуса
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
 ## 41.12.0
 
 <sup><time>22.06.2023</time></sup>
