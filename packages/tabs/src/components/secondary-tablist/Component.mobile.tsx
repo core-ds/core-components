@@ -15,10 +15,7 @@ const styles = {
     ...mobileStyles,
 };
 
-export type SecondaryTabListMobileProps = Omit<
-    SecondaryTabListProps,
-    'size' | 'tagSize' | 'isMobile'
->;
+export type SecondaryTabListMobileProps = Omit<SecondaryTabListProps, 'size' | 'tagSize'>;
 
 export const SecondaryTabListMobile = ({
     className,

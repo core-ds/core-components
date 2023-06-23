@@ -12,7 +12,7 @@ export const SecondaryTabListResponsive = ({
     defaultMatch = 'desktop',
     fullWidthScroll,
     ...restProps
-}: Omit<SecondaryTabListProps, 'isMobile'>) => {
+}: SecondaryTabListProps) => {
     const [view] = useMedia<TabsMatchMedia>(
         [
             ['mobile', '(max-width: 767px)'],
