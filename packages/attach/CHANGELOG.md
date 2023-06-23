@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+### [#712](https://github.com/core-ds/core-components/pull/712)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
 ## 6.0.14
 
 ### Patch Changes

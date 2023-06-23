@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.3.0
+
+### Minor Changes
+
+### [#723](https://github.com/core-ds/core-components/pull/723)
+
+-   Добавлен проп disableFocusLock, отключающий ловушку фокуса
+
 ## 6.2.7
 
 ### Patch Changes

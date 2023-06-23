@@ -5,6 +5,10 @@ body {
     color: var(--color-dark-text-primary);
 }
 
+body::-webkit-scrollbar-track-piece {
+    background: var(--color-dark-bg-primary);
+}
+
 #storybook-docs .sbdocs-wrapper {
     background: var(--color-dark-bg-primary);
     color: var(--color-dark-text-primary);

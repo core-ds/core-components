@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.2.24
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.3.0
+
 ## 6.2.23
 
 ### Patch Changes
