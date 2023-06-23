@@ -1,5 +1,27 @@
 # Change Log
 
+## 9.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.3.1
+    -   input-autocomplete@9.4.2
+
+## 9.4.0
+
+### Minor Changes
+
+### [#712](https://github.com/core-ds/core-components/pull/712)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.3.0
+    -   input-autocomplete@9.4.1
+
 ## 9.3.3
 
 ### Patch Changes

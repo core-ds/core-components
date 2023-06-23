@@ -1,5 +1,21 @@
 # Change Log
 
+## 14.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.3.0
+
+## 14.3.0
+
+### Minor Changes
+
+### [#694](https://github.com/core-ds/core-components/pull/694)
+
+-   Добавлен prop showHeaderWithSelectAll, с помощью которого добавляется чекбокс "Выбрать все" в заголовок выпадающего списка
+-   Убраны hover-эффекты у опций в мобильной версии
+
 ## 14.2.0
 
 ### Minor Changes

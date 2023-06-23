@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.5.0
+
+### Minor Changes
+
+### [#712](https://github.com/core-ds/core-components/pull/712)
+
+-   обновлены минорные версии @alfalab/utils и @alfalab/data
+
 ## 12.4.18
 
 ### Patch Changes
