@@ -93,7 +93,6 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
 
         const componentProps = {
             className: cn(
-                // 'cc-button',
                 commonStyles.component,
                 commonStyles[view],
                 commonStyles[size],
