@@ -16,6 +16,6 @@ export type ButtonMobileProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
 export const ButtonMobile = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonMobileProps>(
     (restProps, ref) => (
-        <BaseButton {...restProps} ref={ref} styles={styles} colorStylesMap={colorStyles} />
+        <BaseButton {...restProps} ref={ref} colorStylesMap={colorStyles} styles={styles} />
     ),
 );

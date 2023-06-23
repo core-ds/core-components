@@ -17,14 +17,8 @@ export type FatalErrorProps = {
 };
 
 export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
-    const {
-        alignContent,
-        texts,
-        onFatalErrorOkButtonClick,
-        breakpoint: breakpointProps,
-    } = useContext(ConfirmationContext);
-
-    const breakpoint = mobile ? breakpointProps : 1;
+    const { alignContent, texts, onFatalErrorOkButtonClick, breakpoint } =
+        useContext(ConfirmationContext);
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>

@@ -1,3 +1,5 @@
+// TODO Вид кнопок зависит от порядка импорта стилей.
+/* eslint-disable simple-import-sort/imports */
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
@@ -14,8 +16,8 @@ import { useFocus } from '@alfalab/hooks';
 import { getDataTestId } from '../../../../utils';
 import { BaseButtonProps, ComponentProps } from '../../typings';
 
-import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
+import defaultColors from './default.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {
@@ -91,7 +93,7 @@ export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement
 
         const componentProps = {
             className: cn(
-                'cc-button',
+                // 'cc-button',
                 commonStyles.component,
                 commonStyles[view],
                 commonStyles[size],

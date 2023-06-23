@@ -54,7 +54,6 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             rightAddons,
             showArrow,
             breakpoint,
-            idMobile: true,
         };
 
         return (

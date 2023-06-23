@@ -243,7 +243,7 @@ describe('CalendarRange', () => {
                 fireEvent.click(inputFrom);
 
                 expect(
-                    document.querySelector('.from-calendar .cc-button.month .buttonContent'),
+                    document.querySelector('.from-calendar button.month .buttonContent'),
                 ).toHaveTextContent(currentMonthName);
             });
 

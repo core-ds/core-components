@@ -50,7 +50,7 @@ Object {
         </div>
         <a
           aria-label="скачать"
-          class="cc-button component ghost s s component ghost component ghost cc-icon-button download primary component hover active"
+          class="component ghost s s component ghost component ghost cc-icon-button download primary component hover active"
           download="новое_название_файла"
           href="/link"
         >
@@ -78,7 +78,7 @@ Object {
         </a>
         <button
           aria-label="удалить"
-          class="cc-button component ghost s s component ghost component ghost cc-icon-button delete primary component hover active"
+          class="component ghost s s component ghost component ghost cc-icon-button delete primary component hover active"
           type="button"
         >
           <span
@@ -152,7 +152,7 @@ Object {
       </div>
       <a
         aria-label="скачать"
-        class="cc-button component ghost s s component ghost component ghost cc-icon-button download primary component hover active"
+        class="component ghost s s component ghost component ghost cc-icon-button download primary component hover active"
         download="новое_название_файла"
         href="/link"
       >
@@ -180,7 +180,7 @@ Object {
       </a>
       <button
         aria-label="удалить"
-        class="cc-button component ghost s s component ghost component ghost cc-icon-button delete primary component hover active"
+        class="component ghost s s component ghost component ghost cc-icon-button delete primary component hover active"
         type="button"
       >
         <span

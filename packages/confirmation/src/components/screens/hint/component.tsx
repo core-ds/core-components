@@ -18,15 +18,8 @@ export type HintProps = {
 };
 
 export const Hint: FC<HintProps> = ({ mobile }) => {
-    const {
-        alignContent,
-        texts,
-        onChangeScreen,
-        onChangeState,
-        breakpoint: breakpointProps,
-    } = useContext(ConfirmationContext);
-
-    const breakpoint = mobile ? breakpointProps : 1;
+    const { alignContent, texts, onChangeScreen, onChangeState, breakpoint } =
+        useContext(ConfirmationContext);
 
     const handleReturnButtonClick = () => {
         onChangeScreen('INITIAL');

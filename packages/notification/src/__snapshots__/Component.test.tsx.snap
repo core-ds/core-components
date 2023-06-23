@@ -63,7 +63,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
           >
             <button
               aria-label="закрыть"
-              class="cc-button component ghost s s component ghost component ghost cc-icon-button closeButton primary component hover active"
+              class="component ghost s s component ghost component ghost cc-icon-button closeButton primary component hover active"
               type="button"
             >
               <span
