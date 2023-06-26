@@ -57,9 +57,6 @@ export function createStorybookUrl({
     );
 
     if (testStory) {
-        console.log(`${url}?id=components--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&darkMode=${darkMode}&wrapperStyles=${wrapperStyles}&inverted=${inverted}&${knobsQuery}&mockDate=${
-            mockDate || ''
-        }`, '222')
         // TODO: укоротить (переписать на qs.stringify)
         return `${url}?id=components--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}&darkMode=${darkMode}&wrapperStyles=${wrapperStyles}&inverted=${inverted}&${knobsQuery}&mockDate=${
             mockDate || ''
@@ -72,7 +69,6 @@ export function createStorybookUrl({
         mockDate || ''
     }`;
 
-    console.log(storybookUrl, 'storybookUrl')
     return storybookUrl;
 }
 
@@ -89,9 +85,6 @@ export function createSpriteStorybookUrl({
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
 
     // TODO: укоротить (переписать на qs.stringify)
-    console.log(`${url}?id=components--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
-        knobs,
-    )}&mockDate=${mockDate || ''}`, '11111')
     return `${url}?id=components--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&inverted=${inverted}&knobs=${JSON.stringify(
         knobs,
     )}&mockDate=${mockDate || ''}`;
