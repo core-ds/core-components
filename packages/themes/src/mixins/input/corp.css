@@ -1,7 +1,3 @@
 @define-mixin input-corp {
     --input-error-icon-display: block;
-
-    /* mobile */
-    --input-error-mobile-color: var(--color-light-text-primary);
-    --input-inverted-error-mobile-color: var(--color-light-text-primary-inverted);
 }

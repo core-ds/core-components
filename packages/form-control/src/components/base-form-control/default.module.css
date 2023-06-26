@@ -4,11 +4,6 @@
     color: var(--form-control-color);
 }
 
-/* Нижняя граница */
-.inner:before {
-    border-bottom: var(--form-control-border-bottom);
-}
-
 .label {
     color: var(--form-control-label-color);
 }
@@ -21,10 +16,6 @@
 
 .disabled {
     color: var(--form-control-disabled-color);
-}
-
-.disabled:before {
-    border-bottom: var(--form-control-disabled-border-bottom);
 }
 
 .disabled.filled .label {
@@ -45,8 +36,4 @@
 
 .hasError .label {
     color: var(--form-control-error-label-color);
-}
-
-.hasError:before {
-    border-bottom: var(--form-control-error-border-bottom);
 }

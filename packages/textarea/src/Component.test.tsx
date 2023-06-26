@@ -8,7 +8,7 @@ describe('Textarea', () => {
     Object.defineProperty(window, 'matchMedia', {
         writable: true,
         value: jest.fn().mockImplementation((query) => ({
-            matches: true,
+            matches: false,
             media: query,
             onchange: null,
             addListener: jest.fn(), // Deprecated

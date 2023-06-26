@@ -8,6 +8,7 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-masked-input/*": ["../masked-input/src/*"],
         }
     },
     "references": [{ "path": "../form-control" }, { "path": "../input" }, { "path": "../masked-input" }]

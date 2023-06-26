@@ -131,6 +131,14 @@
     --form-control-inverted-error-mobile-disabled-shadow: var(
         --form-control-mobile-inverted-disabled-shadow
     );
+
+    /* border-bottom mobile */
+    --form-control-mobile-border-bottom: 0;
+    --form-control-inverted-mobile-border-bottom: 0;
+    --form-control-mobile-disabled-border-bottom: 0;
+    --form-control-inverted-mobile-disabled-border-bottom: 0;
+    --form-control-error-mobile-border-bottom: 0;
+    --form-control-inverted-error-mobile-border-bottom: 0;
 }
 
 @define-mixin form-control-sub {

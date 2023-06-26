@@ -2,11 +2,11 @@ import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { BaseInputProps } from './components/base-input';
-import { InputDesktop } from './Component.desktop';
-import { InputMobile } from './Component.mobile';
+import { BaseMaskedInputProps } from './components/base-masked-input';
+import { MaskedInputDesktop } from './Component.desktop';
+import { MaskedInputMobile } from './Component.mobile';
 
-export type InputProps = Omit<BaseInputProps, 'FormControlComponent' | 'colorStyles'> & {
+export type MaskedInputProps = Omit<BaseMaskedInputProps, 'Input'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -19,13 +19,13 @@ export type InputProps = Omit<BaseInputProps, 'FormControlComponent' | 'colorSty
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const MaskedInput = forwardRef<HTMLInputElement, MaskedInputProps>(
     ({ breakpoint = 1024, defaultMatchMediaValue, ...restProps }, ref) => {
         const query = `(min-width: ${breakpoint}px)`;
 
-        const [isDesktop] = useMatchMedia(query, defaultMatchMediaValue);
+        const [isDesktop] = useMatchMedia(query);
 
-        const Component = isDesktop ? InputDesktop : InputMobile;
+        const Component = isDesktop ? MaskedInputDesktop : MaskedInputMobile;
 
         return <Component ref={ref} {...restProps} />;
     },

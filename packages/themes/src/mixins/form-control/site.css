@@ -85,4 +85,14 @@
     --form-control-inverted-error-mobile-disabled-shadow: var(
         --form-control-inverted-focus-error-mobile-shadow
     );
+
+    /* border-bottom mobile */
+    --form-control-mobile-border-bottom: 1px solid var(--color-light-border-underline);
+    --form-control-inverted-mobile-border-bottom: 1px solid
+        var(--color-light-border-underline-inverted);
+    --form-control-mobile-disabled-border-bottom: 1px dashed var(--color-light-border-underline);
+    --form-control-inverted-mobile-disabled-border-bottom: 1px dashed
+        var(--color-light-border-underline-inverted);
+    --form-control-error-mobile-border-bottom: 1px solid var(--color-static-border-accent);
+    --form-control-inverted-error-mobile-border-bottom: 1px solid var(--color-static-border-accent);
 }

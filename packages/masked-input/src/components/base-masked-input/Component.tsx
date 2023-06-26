@@ -1,9 +1,17 @@
-import React, { ChangeEvent, MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    ChangeEvent,
+    ElementType,
+    MouseEvent,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { createTextMaskInputElement, TextMaskInputElement } from 'text-mask-core';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { InputProps } from '@alfalab/core-components-input';
 
 import styles from './index.module.css';
 
@@ -24,7 +32,7 @@ type TextMaskConfig = {
     ) => false | string | { value: string; indexesOfPipedChars: number[] };
 };
 
-export type MaskedInputProps = InputProps & {
+export type BaseMaskedInputProps = InputProps & {
     /**
      * Маска для поля ввода
      * https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array
@@ -40,12 +48,14 @@ export type MaskedInputProps = InputProps & {
      * Дает возможность изменить значение поля перед рендером
      */
     onBeforeDisplay?: TextMaskConfig['pipe'];
+
+    Input?: ElementType;
 };
 
 // Символ плейсхолдера не может входить в маску, поэтому вместо пробела используется \u2000
 export const PLACEHOLDER_CHAR = '\u2000';
 
-export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
+export const BaseMaskedInput = React.forwardRef<HTMLInputElement, BaseMaskedInputProps>(
     (
         {
             mask,
@@ -56,6 +66,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
             onBeforeDisplay,
             onChange,
             onClear,
+            Input,
             ...restProps
         },
         ref,
@@ -125,7 +136,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
             setTextHidden(false);
         }, []);
 
-        return (
+        return Input ? (
             <Input
                 {...restProps}
                 className={cn(className, { [styles.textHidden]: textHidden })}
@@ -134,6 +145,6 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                 onClear={handleClear}
                 ref={mergeRefs([ref, inputRef])}
             />
-        );
+        ) : null;
     },
 );

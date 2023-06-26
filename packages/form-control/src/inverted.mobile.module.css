@@ -4,11 +4,20 @@
     background-color: var(--form-control-inverted-mobile-bg-color);
 }
 
+/* Нижняя граница */
+.inner:before {
+    border-bottom: var(--form-control-inverted-mobile-border-bottom);
+}
+
 /* DISABLED STATE */
 
 .disabled {
     background-color: var(--form-control-mobile-inverted-disabled-bg-color);
     box-shadow: var(--form-control-mobile-inverted-disabled-shadow);
+}
+
+.disabled:before {
+    border-bottom: var(--form-control-inverted-mobile-disabled-border-bottom);
 }
 
 .disabled.hasError {
@@ -37,4 +46,8 @@
 .hasError {
     box-shadow: var(--form-control-inverted-error-mobile-shadow);
     background-color: var(--form-control-inverted-error-mobile-bg-color);
+}
+
+.hasError:before {
+    border-bottom: var(--form-control-inverted-error-mobile-border-bottom);
 }

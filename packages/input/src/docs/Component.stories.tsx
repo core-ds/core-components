@@ -5,7 +5,6 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { Input } from '@alfalab/core-components-input';
 import { InputMobile } from '@alfalab/core-components-input/mobile';
-
 import { InputDesktop } from '@alfalab/core-components-input/desktop';
 
 const meta: Meta<typeof Input> = {
