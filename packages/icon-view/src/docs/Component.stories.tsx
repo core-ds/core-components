@@ -1,5 +1,5 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs';
 import { Badge } from '@alfalab/core-components-badge';
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
@@ -10,21 +10,22 @@ import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 import { Rectangle } from '@alfalab/core-components-icon-view/rectangle';
 import { NoShape } from '@alfalab/core-components-icon-view/no-shape';
 
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/IconView' id='IconView' />
+const meta: Meta<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof NoShape> = {
+    title: 'Components/IconView',
+    component: SuperEllipse || Circle || Rectangle || NoShape,
+    id: 'IconView',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof NoShape>;
 
-<Story name='SuperEllipse'>
-    {React.createElement(() => {
+export const super_ellipse: Story = {
+    name: 'SuperEllipse',
+    render: () => {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
@@ -65,11 +66,12 @@ import {
                 )}
             </SuperEllipse>
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='Circle'>
-    {React.createElement(() => {
+export const circle: Story = {
+    name: 'Circle',
+    render: () => {
         const topAddons = boolean('topAddons', false);
         const bottomAddons = boolean('bottomAddons', false);
         const indicator = boolean('indicator', false);
@@ -100,11 +102,12 @@ import {
                 )}
             </Circle>
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='Rectangle'>
-    {React.createElement(() => {
+export const rectangle: Story = {
+    name: 'Rectangle',
+    render: () => {
         const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
@@ -125,11 +128,12 @@ import {
                 )}
             </Rectangle>
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='NoShape'>
-    {React.createElement(() => {
+export const no_shape: Story = {
+    name: 'NoShape',
+    render: () => {
         const size = select('size', ['20', '24', '32', '40', '48', '64', '80', '128'], '64');
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         return (
@@ -148,20 +152,7 @@ import {
                 )}
             </NoShape>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='IconView'
-    version={packageJson.version}
-    package='@alfalab/core-components/icon-view'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=4397%3A31293'
-/>
-
-<Tabs
-    description={<Description />}
-    development={<Development />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-/>
+export default meta;
