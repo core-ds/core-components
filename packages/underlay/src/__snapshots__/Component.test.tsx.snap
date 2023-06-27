@@ -5,7 +5,11 @@ exports[`Underlay Snapshots tests should match snapshot 1`] = `
   <div
     class="component background-info border-color-graphic-link border-width-2 shadow-l"
   >
-    Content
+    <div
+      class="content"
+    >
+      Content
+    </div>
   </div>
 </div>
 `;

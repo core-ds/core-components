@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+.content {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
 .overflowHide {
     overflow: hidden;
 }
@@ -62,7 +69,7 @@
     }
 }
 
-@each $radius in m, l, xl, xxl {
+@each $radius in xs, s, m, l, xl, xxl, 3xl {
     .border-radius-$(radius) {
         border-radius: var(--border-radius-$(radius));
     }
@@ -74,4 +81,33 @@
         border-width: $(width)px;
         border-style: solid;
     }
+}
+
+.direction-vertical {
+    flex-direction: column;
+}
+
+.direction-horizontal {
+    flex-direction: row;
+}
+
+.align-top {
+    align-items: flex-start;
+}
+.align-middle {
+    align-items: center;
+}
+.align-bottom {
+    align-items: flex-end;
+}
+
+@each $justify in center, left, right {
+    .justify-$(justify) {
+        justify-content: $(justify);
+    }
+}
+
+.backgroundImage {
+    background-size: cover;
+    background-repeat: no-repeat;
 }

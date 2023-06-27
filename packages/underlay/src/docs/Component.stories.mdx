@@ -1,5 +1,5 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Underlay } from '@alfalab/core-components-underlay';
@@ -78,6 +78,22 @@ export const SHADOW = [
     'shadow-xl-hard-up',
 ];
 
+export const ChildElement = ({ children }) => {
+    return (
+        <div
+            style={{
+                width: 'fit-content',
+                height: 70,
+                border: '2px solid var(--color-light-graphic-positive)',
+                margin: 4,
+                padding: 4,
+            }}
+        >
+            {children}
+        </div>
+    );
+};
+
 <Meta title='Components/Underlay' component={Underlay} id='Underlay' />
 
 {/* Canvas */}
@@ -85,29 +101,71 @@ export const SHADOW = [
 <Story name='Underlay'>
     {React.createElement(() => {
         const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
-        const borderRadius = select('borderRadius', ['m', 'l', 'xl', 'xxl'], 'm');
-        const borderSize = select('borderSize', ['1', '2', '4'], '2');
-        const paddingTop = select('padding.top', paddingSizes, 'm');
-        const paddingRight = select('padding.right', paddingSizes, 'm');
-        const paddingBottom = select('padding.bottom', paddingSizes, 'm');
-        const paddingLeft = select('padding.left', paddingSizes, 'm');
-        const overflow = boolean('overflow', true);
+        const borderRadius = select('borderRadius', ['m', 'l', 'xl', 'xxl'], 'm', 'underlayProps');
+        const borderSize = select('borderSize', ['1', '2', '4'], '2', 'underlayProps');
+        const paddingTop = select('padding.top', paddingSizes, 'm', 'underlayProps');
+        const paddingRight = select('padding.right', paddingSizes, 'm', 'underlayProps');
+        const paddingBottom = select('padding.bottom', paddingSizes, 'm', 'underlayProps');
+        const paddingLeft = select('padding.left', paddingSizes, 'm', 'underlayProps');
+        const overflow = boolean('overflow', true, 'underlayProps');
+        const height = number('height', 250, undefined, 'underlayProps');
+        const width = number('width', 700, undefined, 'underlayProps');
+        const contentProps = {
+            borderSize: select('borderSize', ['1', '2', '4'], '2', 'contentProps'),
+            borderColor: select('borderColor', BORDER_COLOR, 'link', 'contentProps'),
+            borderRadius: select(
+                'borderRadius',
+                ['xs', 's', 'm', 'l', 'xl', 'xxl', '3xl'],
+                's',
+                'contentProps',
+            ),
+            backgroundColor: select('backgroundColor', BACKGROUND, 'info', 'contentProps'),
+            backgroundImageURL: text('backgroundImageURL', '', 'contentProps'),
+            shadow: select('shadow', SHADOW, 'shadow-xs', 'contentProps'),
+            direction: select(
+                'direction',
+                ['vertical', 'horizontal'],
+                'horizontal',
+                'contentProps',
+            ),
+            alignItems: select('alignItems', ['top', 'middle', 'bottom'], 'middle', 'contentProps'),
+            justifyContent: select(
+                'justifyContent',
+                ['center', 'left', 'right'],
+                'center',
+                'contentProps',
+            ),
+        };
         return (
             <Underlay
                 borderRadius={borderRadius}
                 borderSize={borderSize}
-                shadow={select('shadow', SHADOW, 'shadow-l')}
-                backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
-                borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
+                shadow={select('shadow', SHADOW, 'shadow-l', 'underlayProps')}
+                backgroundColor={select(
+                    'backgroundColor',
+                    BACKGROUND,
+                    'positive-muted',
+                    'underlayProps',
+                )}
+                borderColor={select(
+                    'borderColor',
+                    BORDER_COLOR,
+                    'graphic-positive',
+                    'underlayProps',
+                )}
                 overflow={overflow}
+                dimensions={{ height, width }}
                 padding={{
                     top: paddingTop,
                     right: paddingRight,
                     bottom: paddingBottom,
                     left: paddingLeft,
                 }}
+                contentProps={contentProps}
             >
-                {text('children', 'Вам одобрено. Согласитесь на предложение')}
+                <ChildElement>Вам одобрено</ChildElement>
+                <ChildElement>Согласитесь на предложение</ChildElement>
+                <ChildElement>Успешно</ChildElement>
             </Underlay>
         );
     })}
