@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +10,19 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Indicator', () =>
+    createPreview(
+        {
+            componentName: 'Indicator',
+            knobs: {
+                value: 100,
+                view: 'red',
+                border: false,
+            },
+        },
+        'transform:scale(4)',
+    ));
 
 describe(
     'Indicator | screenshots',
@@ -18,7 +35,7 @@ describe(
                     knobs: {
                         view: ['red', 'grey', 'white'],
                         size: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
-                        content: [1, 10, 100],
+                        value: [1, 10, 100],
                     },
                 }),
             ],
