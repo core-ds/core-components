@@ -13,9 +13,16 @@ type PaddingType = {
 
 type BorderRadiusType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | '3xl';
 
+type CornersRadiusType = {
+    bottomRight?: BorderRadiusType;
+    bottomLeft?: BorderRadiusType;
+    topRight?: BorderRadiusType;
+    topLeft?: BorderRadiusType;
+};
+
 type DimensionsType = {
-    width?: number;
-    height?: number;
+    width?: number | string;
+    height?: number | string;
 };
 
 type BorderSizeType = 1 | 2 | 4;
@@ -32,7 +39,7 @@ export type ContentPropsType = {
     /**
      * Радиус бордера у контента
      */
-    borderRadius?: BorderRadiusType;
+    borderRadius?: BorderRadiusType | CornersRadiusType;
     /**
      * Цвет фона у контента
      */
@@ -46,17 +53,17 @@ export type ContentPropsType = {
      */
     shadow?: ShadowType;
     /**
-     * Направление контента
+     * Выравнивание контента внутри основного слота.
      */
-    direction?: 'vertical' | 'horizontal';
+    axis?: 'vertical' | 'horizontal';
     /**
-     * Выравнивание контента по вертикали
+     * Выравнивание объектов относительно друг-друга
      */
-    alignItems?: 'top' | 'middle' | 'bottom';
+    alignment?: 'start' | 'end' | 'fill' | 'center';
     /**
-     * Выравнивание контента по горизонтали
+     * Выравнивание контента
      */
-    justifyContent?: 'center' | 'left' | 'right';
+    justifyContent?: 'start' | 'end' | 'center';
 };
 
 export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {

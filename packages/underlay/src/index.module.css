@@ -22,23 +22,26 @@
     .padding-top-$(size) {
         padding-top: var(--gap-$(size));
     }
-}
-
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
     .padding-right-$(size) {
         padding-right: var(--gap-$(size));
     }
-}
-
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
     .padding-bottom-$(size) {
         padding-bottom: var(--gap-$(size));
     }
-}
-
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
     .padding-left-$(size) {
         padding-left: var(--gap-$(size));
+    }
+    .border-bottom-left-$(size) {
+        border-bottom-left-radius: var(--gap-$(size));
+    }
+    .border-bottom-right-$(size) {
+        border-bottom-right-radius: var(--gap-$(size));
+    }
+    .border-top-left-$(size) {
+        border-top-left-radius: var(--gap-$(size));
+    }
+    .border-top-right-$(size) {
+        border-top-right-radius: var(--gap-$(size));
     }
 }
 
@@ -91,20 +94,27 @@
     flex-direction: row;
 }
 
-.align-top {
+.align-start {
     align-items: flex-start;
 }
-.align-middle {
+.align-center {
     align-items: center;
 }
-.align-bottom {
+.align-end {
     align-items: flex-end;
 }
+.align-fill {
+    align-items: stretch;
+}
 
-@each $justify in center, left, right {
-    .justify-$(justify) {
-        justify-content: $(justify);
-    }
+.justify-start {
+    justify-content: flex-start;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-end {
+    justify-content: flex-end;
 }
 
 .backgroundImage {
