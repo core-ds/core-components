@@ -1,7 +1,7 @@
 import { getBorderCorners } from './getBorderCorners';
 import styles from '../index.module.css';
 
-describe('test function "calculateCaretPos"', () => {
+describe('test function "getBorderCorners"', () => {
     it('should get same corners', () => {
         expect(getBorderCorners('m')).toStrictEqual({
             [styles[`border-bottom-right-m`]]: 'm',
