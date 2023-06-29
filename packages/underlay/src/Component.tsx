@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
+import { getBorderCorners } from './utils/getBorderCorners';
 import { UnderlayProps } from './types';
 
 import styles from './index.module.css';
-import { getBorderCorners } from './utils/getBorderCorners';
 
 export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
     (
