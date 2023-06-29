@@ -1,3 +1,17 @@
+## 41.14.0
+
+<sup><time>29.06.2023</time></sup>
+
+### [#730](https://github.com/core-ds/core-components/pull/730)
+
+#### Что изменилось
+- Параметры `event` и `payload` в пропе `onClick` передаются всегда
+
+#### Влияние на компоненты
+- Минорное<br />`tag`
+
+
+
 ## 41.13.0
 
 <sup><time>22.06.2023</time></sup>
