@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-tag': patch
+'@alfalab/core-components-tag': minor
 ---
 
-Параметры `event` и `payload` в пропе `onClick` стали обязательными
+Параметры `event` и `payload` в пропе `onClick` передаются всегда
