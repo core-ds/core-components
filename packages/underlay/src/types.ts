@@ -11,9 +11,9 @@ type PaddingType = {
     left?: PaddingSize;
 };
 
-type BorderRadiusType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | '3xl';
+export type BorderRadiusType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | '3xl';
 
-type CornersRadiusType = {
+export type CornersRadiusType = {
     bottomRight?: BorderRadiusType;
     bottomLeft?: BorderRadiusType;
     topRight?: BorderRadiusType;
@@ -79,7 +79,7 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Радиус бордера
      */
-    borderRadius?: BorderRadiusType;
+    borderRadius?: BorderRadiusType | CornersRadiusType;
 
     /**
      * Цвет фона

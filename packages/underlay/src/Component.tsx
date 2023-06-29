@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { UnderlayProps } from './types';
 
 import styles from './index.module.css';
+import { getBorderCorners } from './utils/getBorderCorners';
 
 export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
     (
@@ -29,16 +30,6 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
                 ? { top: padding, left: padding, right: padding, bottom: padding }
                 : padding;
 
-        const contentBordersSize =
-            typeof contentProps?.borderRadius === 'string'
-                ? {
-                      bottomRight: contentProps?.borderRadius,
-                      bottomLeft: contentProps?.borderRadius,
-                      topRight: contentProps?.borderRadius,
-                      topLeft: contentProps?.borderRadius,
-                  }
-                : contentProps?.borderRadius;
-
         const paddingStyles = paddingSize && {
             [styles[`padding-top-${paddingSize.top}`]]: paddingSize.top,
             [styles[`padding-right-${paddingSize.right}`]]: paddingSize.right,
@@ -46,15 +37,8 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
             [styles[`padding-left-${paddingSize.left}`]]: paddingSize.left,
         };
 
-        const contentBordersStyles = contentBordersSize && {
-            [styles[`border-bottom-right-${contentBordersSize.bottomRight}`]]:
-                contentBordersSize.bottomRight,
-            [styles[`border-bottom-left-${contentBordersSize.bottomLeft}`]]:
-                contentBordersSize.bottomLeft,
-            [styles[`border-top-right-${contentBordersSize.topRight}`]]:
-                contentBordersSize.topRight,
-            [styles[`border-top-left-${contentBordersSize.topLeft}`]]: contentBordersSize.topLeft,
-        };
+        const bordersStyles = getBorderCorners(borderRadius);
+        const contentBordersStyles = getBorderCorners(contentProps?.borderRadius);
 
         return (
             <div
@@ -64,7 +48,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
                     styles.component,
                     paddingStyles,
                     backgroundColor && styles[`background-${backgroundColor}`],
-                    borderRadius && styles[`border-radius-${borderRadius}`],
+                    bordersStyles,
                     borderColor && styles[`border-color-${borderColor}`],
                     borderSize && styles[`border-width-${borderSize}`],
                     shadow && styles[shadow],

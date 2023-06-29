@@ -107,12 +107,20 @@ export const ChildElement = ({ children }) => {
 <Story name='Underlay'>
     {React.createElement(() => {
         const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
-        const borderRadius = select('borderRadius', ['m', 'l', 'xl', 'xxl'], 'l', 'underlayProps');
-        const borderSize = select('borderSize', ['1', '2', '4'], '1', 'underlayProps');
+        const borderRadius = {
+            bottomRight: select('borderRadius.bottomRight', paddingSizes, 'm', 'underlayProps'),
+            bottomLeft: select('borderRadius.bottomLeft', paddingSizes, 'm', 'underlayProps'),
+            topRight: select('borderRadius.topRight', paddingSizes, 'm', 'underlayProps'),
+            topLeft: select('borderRadius.topLeft', paddingSizes, 'm', 'underlayProps'),
+        }
+        const borderSize = select('borderSize', ['1', '2', '4'], '2', 'underlayProps');
         const paddingTop = select('padding.top', paddingSizes, 'm', 'underlayProps');
         const paddingRight = select('padding.right', paddingSizes, 'm', 'underlayProps');
         const paddingBottom = select('padding.bottom', paddingSizes, 'm', 'underlayProps');
         const paddingLeft = select('padding.left', paddingSizes, 'm', 'underlayProps');
+        const overflow = boolean('overflow', true, 'underlayProps');
+        const height = number('height', 250, undefined, 'underlayProps');
+        const width = number('width', 700, undefined, 'underlayProps');
         const bottomRightCorner = select(
             'borderRadius.bottomRight',
             paddingSizes,
@@ -127,10 +135,6 @@ export const ChildElement = ({ children }) => {
         );
         const topRightCorner = select('borderRadius.topRight', paddingSizes, 'm', 'contentProps');
         const topLeftCorner = select('borderRadius.topLeft', paddingSizes, 'm', 'contentProps');
-        const overflow = boolean('overflow', true, 'underlayProps');
-        const height = number('height', 160, undefined, 'underlayProps');
-        const width = number('width', 360, undefined, 'underlayProps');
-
         const contentProps = {
             borderSize: select('borderSize', ['1', '2', '4'], '1', 'contentProps'),
             borderColor: select('borderColor', BORDER_COLOR, 'secondary', 'contentProps'),
@@ -143,139 +147,45 @@ export const ChildElement = ({ children }) => {
             backgroundColor: select('backgroundColor', BACKGROUND, 'primary', 'contentProps'),
             backgroundImageURL: text('backgroundImageURL', '', 'contentProps'),
             shadow: select('shadow', SHADOW, 'shadow-s', 'contentProps'),
-            axis: select('axis', ['vertical', 'horizontal'], 'horizontal', 'contentProps'),
+            axis: select('axis', ['vertical', 'horizontal'], 'vertical', 'contentProps'),
             alignment: select(
                 'alignment',
                 ['start', 'end', 'fill', 'center'],
                 'center',
                 'contentProps',
-            ),
-            justifyContent: select(
-                'justifyContent',
-                ['start', 'end', 'center'],
-                'center',
-                'contentProps',
-            ),
+            )
         };
         return (
-            <>
-                <Underlay
-                    borderRadius={borderRadius}
-                    borderSize={borderSize}
-                    shadow={select('shadow', SHADOW, 'shadow-s', 'underlayProps')}
-                    backgroundColor={select(
-                        'backgroundColor',
-                        BACKGROUND,
-                        'secondary',
-                        'underlayProps',
-                    )}
-                    borderColor={select(
-                        'borderColor',
-                        BORDER_COLOR,
-                        'primary',
-                        'underlayProps',
-                    )}
-                    overflow={overflow}
-                    dimensions={{height, width}}
-                    padding={{
-                        top: paddingTop,
-                        right: paddingRight,
-                        bottom: paddingBottom,
-                        left: paddingLeft,
-                    }}
-                    contentProps={{...contentProps, axis: "vertical"}}
-                >
-                    <PureCell
-                        direction="horizontal"
-                        verticalPadding='default'
-                        horizontalPadding='both'
-                    >
-                        <PureCell.Content>
-                            <PureCell.Main>
-                                <PureCell.Text
-                                    titleColor='primary'
-                                    view='component'
-                                    value='Value'
-                                    valueColor='primary'
-                                    rowLimit={1}
-                                >
-                                    Title
-                                </PureCell.Text>
-                                <PureCell.Text
-                                    titleColor='secondary'
-                                    view='primary-small'
-                                    rowLimit={1}
-                                >
-                                    Subtitle
-                                </PureCell.Text>
-                            </PureCell.Main>
-                        </PureCell.Content>
-                    </PureCell>
-                    <PureCell
-                        direction="horizontal"
-                        verticalPadding='compact'
-                        horizontalPadding='both'
-                    >
-                        <PureCell.Content>
-                            <PureCell.Main>
-                                <PureCell.Text
-                                    titleColor='primary'
-                                    view='component'
-                                    value='Value'
-                                    valueColor='primary'
-                                    rowLimit={1}
-                                >
-                                    Title
-                                </PureCell.Text>
-                                <PureCell.Text
-                                    titleColor='secondary'
-                                    view='primary-small'
-                                    rowLimit={1}
-                                >
-                                    Subtitle
-                                </PureCell.Text>
-                            </PureCell.Main>
-                        </PureCell.Content>
-                    </PureCell>
-                </Underlay>
-                <div style={{height: 24}}></div>
-                <Underlay
-                    borderRadius={borderRadius}
-                    borderSize={borderSize}
-                    shadow={select('shadow', SHADOW, 'shadow-l', 'underlayProps')}
-                    backgroundColor={select(
-                        'backgroundColor',
-                        BACKGROUND,
-                        'secondary',
-                        'underlayProps',
-                    )}
-                    borderColor={select(
-                        'borderColor',
-                        BORDER_COLOR,
-                        'primary',
-                        'underlayProps',
-                    )}
-                    overflow={overflow}
-                    dimensions={{height: 280, width}}
-                    padding={{
-                        top: paddingTop,
-                        right: paddingRight,
-                        bottom: paddingBottom,
-                        left: paddingLeft,
-                    }}
-                    contentProps={{...contentProps, backgroundColor: "secondary", shadow: undefined, borderSize: undefined}}
-                >
-                        <SuperEllipse size='80' backgroundColor='#2FC26E' border={true}>
-                            <CheckmarkHeavyMIcon color="#fff" />
-                        </SuperEllipse>
-                        <SuperEllipse size='80' backgroundColor='#F15045' border={true}>
-                            <CrossHeavyMIcon color="#fff" />
-                        </SuperEllipse>
-                        <SuperEllipse size='80' backgroundColor='#F6BF65' border={true}>
-                            <ExclamationMIcon color="#fff"/>
-                        </SuperEllipse>
-                </Underlay>
-            </>
+            <Underlay
+                borderRadius={borderRadius}
+                borderSize={borderSize}
+                shadow={select('shadow', SHADOW, 'shadow-l', 'underlayProps')}
+                backgroundColor={select(
+                    'backgroundColor',
+                    BACKGROUND,
+                    'positive-muted',
+                    'underlayProps',
+                )}
+                borderColor={select(
+                    'borderColor',
+                    BORDER_COLOR,
+                    'graphic-positive',
+                    'underlayProps',
+                )}
+                overflow={overflow}
+                dimensions={{ height, width }}
+                padding={{
+                    top: paddingTop,
+                    right: paddingRight,
+                    bottom: paddingBottom,
+                    left: paddingLeft,
+                }}
+                contentProps={contentProps}
+            >
+                <ChildElement>Вам одобрено</ChildElement>
+                <ChildElement>Согласитесь на предложение</ChildElement>
+                <ChildElement>Успешно</ChildElement>
+            </Underlay>
         );
     })}
 
