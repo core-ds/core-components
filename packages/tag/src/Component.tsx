@@ -55,8 +55,8 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
      * Обработчик нажатия
      */
     onClick?: (
-        event?: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        payload?: {
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        payload: {
             checked: boolean;
             name?: string;
         },
