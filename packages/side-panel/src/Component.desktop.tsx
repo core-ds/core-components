@@ -1,4 +1,11 @@
-import React, { cloneElement, forwardRef, isValidElement, useContext, useRef } from 'react';
+import React, {
+    cloneElement,
+    forwardRef,
+    isValidElement,
+    MutableRefObject,
+    useContext,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -30,6 +37,11 @@ export type SidePanelDesktopProps = BaseModalProps &
          * @default false
          */
         hasCloser?: boolean;
+
+        /**
+         * Реф для контейнера со скроллом.
+         */
+        scrollableNodeRef?: MutableRefObject<HTMLDivElement>;
     };
 
 const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopProps>(
@@ -42,6 +54,7 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
             contentTransitionProps = {},
             backdropProps,
             placement = 'right',
+            scrollableNodeRef,
             ...restProps
         },
         ref,
@@ -84,6 +97,7 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
                     },
                     ...contentTransitionProps,
                 }}
+                scrollableNodeRef={scrollableNodeRef}
             >
                 {React.Children.map(children, (child) =>
                     isValidElement(child) ? cloneElement(child, { size }) : child,

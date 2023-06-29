@@ -1,4 +1,5 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, MutableRefObject, useMemo } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
@@ -27,6 +28,11 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
      * Пропсы кастомного скроллбара.
      */
     scrollbarProps?: Partial<Omit<ScrollbarProps, 'children'>>;
+
+    /**
+     * Реф для контейнера со скроллом.
+     */
+    scrollableNodeRef?: MutableRefObject<HTMLDivElement>;
 
     /**
      * Пропсы для анимации контента (CSSTransition)
@@ -73,6 +79,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
             nativeScrollbar = true,
             placement = 'right',
             scrollbarProps,
+            scrollableNodeRef,
             ...restProps
         },
         ref,
@@ -109,7 +116,16 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
 
         const renderWithCustomScrollbar = () => (
             <Scrollbar
-                {...scrollbarProps}
+                {...{
+                    ...scrollbarProps,
+                    scrollableNodeProps: {
+                        ...scrollbarProps?.scrollableNodeProps,
+                        ref: mergeRefs([
+                            scrollableNodeRef ?? null,
+                            scrollbarProps?.scrollableNodeProps?.ref ?? null,
+                        ]),
+                    },
+                }}
                 className={cn(styles.simplebar, scrollbarProps?.className)}
             >
                 {children}
@@ -128,6 +144,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                 })}
                 transitionProps={transitionProps}
                 backdropProps={{ ...backdropProps, ...restProps.backdropProps }}
+                componentRef={nativeScrollbar ? scrollableNodeRef : undefined}
             >
                 <CSSTransition
                     {...{ ...contentProps, ...contentTransitionProps }}

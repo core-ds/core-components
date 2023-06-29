@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext } from 'react';
+import React, { forwardRef, MutableRefObject, useContext } from 'react';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
@@ -17,12 +17,17 @@ export type SidePanelMobileProps = BaseModalProps & {
      * @default false
      */
     hasCloser?: boolean;
+
+    /**
+     * Реф для контейнера со скроллом.
+     */
+    scrollableNodeRef?: MutableRefObject<HTMLDivElement>;
 };
 
 const contextValue = { size: 's', view: 'mobile' } as const;
 
 const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps>(
-    ({ children, className, transitionProps, ...restProps }, ref) => {
+    ({ children, className, transitionProps, scrollableNodeRef, ...restProps }, ref) => {
         const responsiveContext = useContext(ResponsiveContext);
 
         const renderContent = () => (
@@ -35,6 +40,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
                 }}
                 className={cn(className, styles.component)}
                 scrollHandler='content'
+                componentRef={scrollableNodeRef}
             >
                 <div className={styles.mobileContent}>{children}</div>
             </BaseModal>
