@@ -23,6 +23,7 @@ export const WRAPPER_STYLES = {
     boxShadow: 'var(--shadow-m)',
     background: 'var(--color-light-bg-primary)',
     margin: 'var(--gap-xs)',
+    width: 312,
 };
 
 export const CURR_YEAR = new Date().getFullYear();
@@ -63,11 +64,11 @@ export const MONTHS = {
                         style={{
                             display: 'inline-block',
                             background: 'var(--color-light-bg-primary)',
+                            width: 312,
                             ...stylesStringToObj(getQueryParam('wrapperStyles')),
                         }}
                     >
                         <div style={WRAPPER_STYLES}>
-                            <style>{`:root{--calendar-width: 312px;}  `}</style>
                             <Calendar
                                 defaultMonth={
                                     defaultMonth === 'none' ? undefined : Number(defaultMonth)
@@ -78,6 +79,7 @@ export const MONTHS = {
                                 events={events}
                                 defaultView={defaultView}
                                 selectorView={selectorView}
+                                responsive={true}
                                 showCurrentYearSelector={boolean('showCurrentYearSelector', false)}
                             />
                         </div>

@@ -12,8 +12,8 @@
 }
 
 .contentCalendar {
-    & > div:last-child {
-        padding: 0 0 var(--gap-m);
+    & > div:last-child div div {
+        left: var(--gap-m);
     }
 }
 
