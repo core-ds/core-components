@@ -188,7 +188,6 @@ export const InputAutocompleteModalMobile = React.forwardRef<
 
         return (
             <SelectModalMobile
-                {...restProps}
                 ref={mergeRefs([ref, targetRef])}
                 name={name}
                 Field={AutocompleteMobileField}
@@ -214,6 +213,7 @@ export const InputAutocompleteModalMobile = React.forwardRef<
                     ...restProps.modalFooterProps,
                     children: renderFooter(),
                 }}
+                {...restProps}
             />
         );
     },
