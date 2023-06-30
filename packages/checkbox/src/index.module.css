@@ -8,17 +8,17 @@
     /* unchecked */
     --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-border-color: var(--color-light-graphic-secondary);
-    --checkbox-hover-bg-color: var(--color-light-graphic-tertiary);
+    --checkbox-hover-bg-color: var(--color-light-graphic-primary-inverted-shade-7);
     --checkbox-hover-border-color: var(--color-light-graphic-secondary);
-    --checkbox-active-bg-color: var(--color-light-graphic-tertiary);
-    --checkbox-active-border-color: var(--color-light-border-key);
+    --checkbox-active-bg-color: var(--color-light-graphic-primary-inverted-shade-15);
+    --checkbox-active-border-color: var(--color-light-graphic-secondary);
 
     /* checked */
-    --checkbox-checked-bg-color: var(--color-light-graphic-accent);
+    --checkbox-checked-bg-color: var(--color-light-graphic-primary);
     --checkbox-checked-border-color: transparent;
-    --checkbox-checked-hover-bg-color: var(--color-light-graphic-accent-shade-10);
+    --checkbox-checked-hover-bg-color: var(--color-light-graphic-primary-tint-15);
     --checkbox-checked-hover-border-color: transparent;
-    --checkbox-checked-active-bg-color: var(--color-light-graphic-accent-shade-30);
+    --checkbox-checked-active-bg-color: var(--color-light-graphic-primary-tint-20);
     --checkbox-checked-active-border-color: transparent;
 
     /* disabled */
@@ -35,8 +35,8 @@
     --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
-    --checkbox-icon-color: var(--color-static-graphic-light);
-    --checkbox-icon-indeterminate-color: var(--color-static-graphic-light);
+    --checkbox-icon-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-icon-indeterminate-color: var(--color-light-graphic-primary-inverted);
 }
 
 .component {
