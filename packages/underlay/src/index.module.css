@@ -31,7 +31,9 @@
     .padding-left-$(size) {
         padding-left: var(--gap-$(size));
     }
+}
 
+@each $size in xs, s, m, l, xl, xxl, 3xl {
     .border-bottom-left-$(size) {
         border-bottom-left-radius: var(--border-radius-$(size));
     }
