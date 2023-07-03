@@ -31,17 +31,18 @@
     .padding-left-$(size) {
         padding-left: var(--gap-$(size));
     }
+
     .border-bottom-left-$(size) {
-        border-bottom-left-radius: var(--gap-$(size));
+        border-bottom-left-radius: var(--border-radius-$(size));
     }
     .border-bottom-right-$(size) {
-        border-bottom-right-radius: var(--gap-$(size));
+        border-bottom-right-radius: var(--border-radius-$(size));
     }
     .border-top-left-$(size) {
-        border-top-left-radius: var(--gap-$(size));
+        border-top-left-radius: var(--border-radius-$(size));
     }
     .border-top-right-$(size) {
-        border-top-right-radius: var(--gap-$(size));
+        border-top-right-radius: var(--border-radius-$(size));
     }
 }
 
