@@ -147,7 +147,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           >
                             <button
                               aria-label="закрыть"
-                              class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component hover active"
+                              class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
                               type="button"
                             >
                               <span

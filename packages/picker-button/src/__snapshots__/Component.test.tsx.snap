@@ -274,7 +274,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component hover active"
+                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
@@ -1374,7 +1374,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component hover active"
+                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
@@ -2474,7 +2474,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component hover active"
+                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
