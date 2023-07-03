@@ -196,6 +196,7 @@ render(
 const styles = {
     display: 'flex',
     justifyContent: 'center',
+    gap: '20px',
     width: 320,
     padding: 20,
     backgroundColor: 'var(--color-light-bg-secondary)',
@@ -215,6 +216,16 @@ render(
                 border={{
                     width: 4,
                     color: 'var(--color-light-graphic-negative)',
+                }}
+            />
+            <Indicator
+                value={1}
+                height={24}
+                backgroundColor='var(--color-light-graphic-primary-inverted)'
+                color='var(--color-light-graphic-link)'
+                border={{
+                    width: 2,
+                    color: 'var(--color-light-graphic-link)',
                 }}
             />
         </div>
