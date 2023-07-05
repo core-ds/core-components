@@ -90,6 +90,9 @@ export const InputAutocompleteModalMobile = React.forwardRef<
             value,
             cancelButtonProps,
             continueButtonProps,
+            modalProps,
+            modalHeaderProps,
+            modalFooterProps,
             ...restProps
         }: InputAutocompleteModalMobileProps,
         ref,
@@ -201,16 +204,16 @@ export const InputAutocompleteModalMobile = React.forwardRef<
                 placeholder={placeholder}
                 useWithApplyHook={false}
                 modalProps={{
-                    ...restProps.modalProps,
+                    ...modalProps,
                     componentRef: modalScrollableRef,
                 }}
                 modalHeaderProps={{
-                    ...restProps.modalHeaderProps,
+                    ...modalHeaderProps,
                     bottomAddons: renderBottomAddon(),
                 }}
                 modalFooterProps={{
                     sticky: true,
-                    ...restProps.modalFooterProps,
+                    ...modalFooterProps,
                     children: renderFooter(),
                 }}
                 {...restProps}
