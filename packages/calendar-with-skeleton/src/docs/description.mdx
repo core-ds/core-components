@@ -6,7 +6,7 @@ render(() => {
     return (
         <>
             <CalendarWithSkeleton calendarVisible={visible} />
-
+            <Gap size='l'/>
             <Button size='xs' onClick={() => setVisible(!visible)}>
                 toggle
             </Button>
@@ -20,10 +20,7 @@ render(() => {
 ```jsx live
 const CalendarCustom = React.forwardRef((props, ref) => {
     return (
-        <>
-            <style>{`.custom{width: calc(var(--calendar-width) - 2 * var(--gap-m))}`}</style>
-            <CalendarWithSkeleton {...props} ref={ref} className='custom' />
-        </>
+        <CalendarWithSkeleton {...props} ref={ref} />
     );
 });
 
