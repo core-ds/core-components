@@ -69,7 +69,7 @@ export type StepProps = {
     /**
      * Свойства кастомного индикатора текущего шага
      */
-    customStepIndicator?: StepIndicatorProps;
+    customStepIndicator?: StepIndicatorProps | null;
 
     /**
      * Управление ориентацией компонента
