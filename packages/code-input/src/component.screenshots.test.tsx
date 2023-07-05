@@ -19,7 +19,10 @@ describe('CodeInput ', () =>
                 initialValues: '"0451"',
             },
         },
-        'transform:scale(2.5)',
+        'width:800px;transform:scale(2.5)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     ));
 
 describe(

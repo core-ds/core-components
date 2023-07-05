@@ -3,7 +3,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import { CodeInput } from '.';
+import { CodeInputDesktop as CodeInput } from './desktop';
 
 const getInputs = (container: HTMLElement) => container.querySelectorAll('input');
 
