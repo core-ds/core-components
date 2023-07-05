@@ -11,12 +11,6 @@
     height: auto;
 }
 
-.contentCalendar {
-    & > div:last-child div div {
-        left: var(--gap-m);
-    }
-}
-
 .skeleton {
     display: flex;
     flex-direction: column;
