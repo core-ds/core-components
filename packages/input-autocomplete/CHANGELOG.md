@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.4.3
+
+### Patch Changes
+
+### [#736](https://github.com/core-ds/core-components/pull/736)
+
+-   Добавлена возможность переопределять props в компоненте InputAutocompleteModalMobile
+
 ## 9.4.2
 
 ### Patch Changes
