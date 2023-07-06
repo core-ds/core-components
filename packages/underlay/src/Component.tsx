@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import { getBorderCorners } from './utils/getBorderCorners';
+import { getClasses } from './utils/getClasses';
 import { UnderlayProps } from './types';
 
 import styles from './index.module.css';
@@ -47,11 +48,8 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
                 className={cn(
                     styles.component,
                     paddingStyles,
-                    backgroundColor && styles[`background-${backgroundColor}`],
                     bordersStyles,
-                    borderColor && styles[`border-color-${borderColor}`],
-                    borderSize && styles[`border-width-${borderSize}`],
-                    shadow && styles[shadow],
+                    getClasses(backgroundColor, borderColor, borderSize, shadow),
                     { [styles.overflowHide]: !overflow },
                     className,
                 )}
@@ -68,13 +66,12 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
                         styles.content,
                         { [styles.backgroundImage]: contentProps?.backgroundImageURL },
                         contentBordersStyles,
-                        contentProps?.borderSize &&
-                            styles[`border-width-${contentProps.borderSize}`],
-                        contentProps?.borderColor &&
-                            styles[`border-color-${contentProps.borderColor}`],
-                        contentProps?.backgroundColor &&
-                            styles[`background-${contentProps.backgroundColor}`],
-                        contentProps?.shadow && styles[contentProps.shadow],
+                        getClasses(
+                            contentProps?.backgroundColor,
+                            contentProps?.borderColor,
+                            contentProps?.borderSize,
+                            contentProps?.shadow,
+                        ),
                         contentProps?.axis && styles[`direction-${contentProps.axis}`],
                         contentProps?.alignment && styles[`align-${contentProps.alignment}`],
                         contentProps?.justifyContent &&

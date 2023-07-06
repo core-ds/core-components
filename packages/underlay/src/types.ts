@@ -25,7 +25,7 @@ type DimensionsType = {
     height?: number | string;
 };
 
-type BorderSizeType = 1 | 2 | 4;
+export type BorderSizeType = 1 | 2 | 4;
 
 export type ContentPropsType = {
     /**

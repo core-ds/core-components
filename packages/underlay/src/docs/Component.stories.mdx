@@ -107,12 +107,12 @@ export const ChildElement = ({ children }) => {
 <Story name='Underlay'>
     {React.createElement(() => {
         const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
-        const bordersSizes = ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl'];
+        const borderSizes = ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl'];
         const borderRadius = {
-            bottomRight: select('borderRadius.bottomRight', bordersSizes, 'm', 'underlayProps'),
-            bottomLeft: select('borderRadius.bottomLeft', bordersSizes, 'm', 'underlayProps'),
-            topRight: select('borderRadius.topRight', bordersSizes, 'm', 'underlayProps'),
-            topLeft: select('borderRadius.topLeft', bordersSizes, 'm', 'underlayProps'),
+            bottomRight: select('borderRadius.bottomRight', borderSizes, 'm', 'underlayProps'),
+            bottomLeft: select('borderRadius.bottomLeft', borderSizes, 'm', 'underlayProps'),
+            topRight: select('borderRadius.topRight', borderSizes, 'm', 'underlayProps'),
+            topLeft: select('borderRadius.topLeft', borderSizes, 'm', 'underlayProps'),
         }
         const borderSize = select('borderSize', ['1', '2', '4'], '2', 'underlayProps');
         const paddingTop = select('padding.top', paddingSizes, 'm', 'underlayProps');
@@ -124,18 +124,18 @@ export const ChildElement = ({ children }) => {
         const width = number('width', 700, undefined, 'underlayProps');
         const bottomRightCorner = select(
             'borderRadius.bottomRight',
-            bordersSizes,
+            borderSizes,
             'm',
             'contentProps',
         );
         const bottomLeftCorner = select(
             'borderRadius.bottomLeft',
-            bordersSizes,
+            borderSizes,
             'm',
             'contentProps',
         );
-        const topRightCorner = select('borderRadius.topRight', bordersSizes, 'm', 'contentProps');
-        const topLeftCorner = select('borderRadius.topLeft', bordersSizes, 'm', 'contentProps');
+        const topRightCorner = select('borderRadius.topRight', borderSizes, 'm', 'contentProps');
+        const topLeftCorner = select('borderRadius.topLeft', borderSizes, 'm', 'contentProps');
         const contentProps = {
             borderSize: select('borderSize', ['1', '2', '4'], '1', 'contentProps'),
             borderColor: select('borderColor', BORDER_COLOR, 'secondary', 'contentProps'),
