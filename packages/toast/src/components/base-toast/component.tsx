@@ -28,7 +28,7 @@ const CSS_TRANSITION_CLASS_NAMES = {
     exitActive: styles.exitActive,
 };
 
-export type ToastProps = ToastPlateProps &
+export type BaseToastProps = ToastPlateProps &
     Pick<
         PopoverProps,
         | 'position'
@@ -72,11 +72,7 @@ export type ToastProps = ToastPlateProps &
         ToastPlate?: typeof ToastPlateComponent;
     };
 
-const DefaultToastPlate: ToastProps['ToastPlate'] = forwardRef((props, ref) => (
-    <ToastPlateComponent ref={ref} {...props} />
-));
-
-export const Toast = forwardRef<HTMLDivElement, ToastProps>(
+export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
     (
         {
             anchorElement,
@@ -90,7 +86,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             style = {},
             block,
             zIndex = stackingOrder.TOAST,
-            ToastPlate = DefaultToastPlate,
+            ToastPlate,
             onMouseEnter,
             onMouseLeave,
             onTouchStart,
@@ -186,7 +182,9 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     zIndex={zIndex}
                     useAnchorWidth={useAnchorWidth}
                 >
-                    <ToastPlate {...restProps} style={style} className={className} {...props} />
+                    {ToastPlate ? (
+                        <ToastPlate {...restProps} style={style} className={className} {...props} />
+                    ) : null}
                 </Popover>
             );
         }
@@ -202,16 +200,18 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                             nodeRef={plateRef}
                             classNames={CSS_TRANSITION_CLASS_NAMES}
                         >
-                            <ToastPlate
-                                {...restProps}
-                                className={cn(styles.fixed, styles.toastPlate, className)}
-                                style={{
-                                    ...style,
-                                    bottom: bottomOffset && `${bottomOffset}px`,
-                                    zIndex: computedZIndex,
-                                }}
-                                {...props}
-                            />
+                            {ToastPlate ? (
+                                <ToastPlate
+                                    {...restProps}
+                                    className={cn(styles.fixed, styles.toastPlate, className)}
+                                    style={{
+                                        ...style,
+                                        bottom: bottomOffset && `${bottomOffset}px`,
+                                        zIndex: computedZIndex,
+                                    }}
+                                    {...props}
+                                />
+                            ) : null}
                         </CSSTransition>
                     </Portal>
                 )}

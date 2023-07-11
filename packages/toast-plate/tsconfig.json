@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../icon-button" }, { "path": "../badge" }]
+    "references": [{ "path": "../icon-button" }, { "path": "../badge" },  { "path": "../mq" }]
 }

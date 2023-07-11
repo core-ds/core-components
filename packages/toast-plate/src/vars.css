@@ -4,14 +4,15 @@
     /* default */
     --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
     --toast-plate-color: var(--color-light-text-primary-inverted);
-    --toast-plate-border-radius: var(--border-radius-m);
+    --toast-plate-border-radius: var(--border-radius-l);
     --toast-plate-title-font-weight: 700;
-    --toast-plate-action-align: center;
+    --toast-plate-action-align: flex-start;
     --toast-plate-action-margin: var(--gap-3xs);
     --toast-plate-action-padding: 0 var(--gap-2xl);
+    --toast-plate-action-bottom-padding: var(--gap-2xs) 0 0;
     --toast-plate-action-divider-display: block;
     --toast-plate-content-with-closer-right-padding: var(--gap-m);
-    --toast-plate-close-button-align: center;
+    --toast-plate-close-button-align: flex-start;
 
     /* inverted */
     --toast-plate-inverted-color: var(--color-light-text-primary);

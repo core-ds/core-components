@@ -47,4 +47,9 @@
     min-height: 48px;
     padding: 0 var(--gap-xs);
     margin: var(--gap-s-neg) 0;
+    align-items: center;
+}
+
+.closeButton {
+    align-items: center;
 }

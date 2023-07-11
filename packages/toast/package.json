@@ -6,6 +6,26 @@
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
+    "exports": {
+        ".": {
+            "import": "./esm/index.js",
+            "require": "./index.js"
+        },
+        "./mobile": {
+            "import": "./esm/mobile.js",
+            "require": "./mobile.js"
+        },
+        "./desktop": {
+            "import": "./esm/desktop.js",
+            "require": "./desktop.js"
+        },
+        "./esm": "./esm/index.js",
+        "./cssm": "./cssm/index.js",
+        "./modern": "./modern/index.js",
+        "./esm/*": "./esm/*",
+        "./cssm/*": "./cssm/*",
+        "./modern/*": "./modern/*"
+    },
     "scripts": {
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
@@ -22,6 +42,7 @@
         "@alfalab/core-components-portal": "^3.1.4",
         "@alfalab/core-components-stack": "^4.0.4",
         "@alfalab/core-components-toast-plate": "^5.1.22",
+        "@alfalab/core-components-mq": "^4.1.4",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",

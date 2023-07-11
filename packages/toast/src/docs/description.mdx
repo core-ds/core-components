@@ -18,6 +18,8 @@ render(() => {
         setButtonElement(node);
     };
 
+    const isMobile = document.body.clientWidth < 450;
+
     return (
         <div
             style={{
@@ -26,14 +28,14 @@ render(() => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'flex-start',
-                padding: '200px',
+                paddingTop: '200px',
                 boxSizing: 'border-box',
             }}
         >
             <Toast
                 open={anchorToastOpen}
                 anchorElement={buttonElement}
-                position='left'
+                position='top'
                 offset={[0, 8]}
                 badge='positive'
                 title='Скопировано'
@@ -50,6 +52,7 @@ render(() => {
                 title='Ваша карта удалена'
                 hasCloser={true}
                 block={true}
+                bottomButtonPosition={isMobile}
                 onClose={() => {
                     setFixedToastOpen(false);
                 }}
@@ -66,7 +69,7 @@ render(() => {
                         Восстановить
                     </Button>
                 }
-                style={{ maxWidth: 'calc(100vw - 150px)' }}
+                style={{ ...(!isMobile && {maxWidth: 'calc(100vw - 150px)'} )}}
             />
             <Button
                 ref={handleButtonRef}

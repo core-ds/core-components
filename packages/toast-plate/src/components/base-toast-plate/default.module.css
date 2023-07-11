@@ -1,5 +1,5 @@
-@import '../../themes/src/default.css';
-@import './vars.css';
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     color: var(--toast-plate-color);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import { ToastPlate } from './index';
+import { ToastPlateDesktop as ToastPlate } from './desktop';
 
 jest.useFakeTimers();
 
