@@ -55,4 +55,12 @@
     --button-inverted-ghost-hover-color: var(--color-light-text-primary-inverted-shade-30);
     --button-inverted-ghost-active-color: var(--color-light-text-primary-inverted-shade-50);
     --button-inverted-ghost-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
+
+    /* primary mobile */
+    --button-primary-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
+    --button-primary-mobile-disabled-bg-color: var(--color-light-bg-secondary-inverted);
+
+    /* primary inverted mobile */
+    --button-inverted-primary-mobile-disabled-bg-color: var(--color-light-bg-secondary);
+    --button-inverted-primary-mobile-disabled-color: var(--color-light-text-tertiary);
 }

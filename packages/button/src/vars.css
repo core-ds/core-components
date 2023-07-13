@@ -164,12 +164,14 @@
     --button-xl-size-mobile-border-radius: var(--border-radius-xl);
 
     /* primary mobile */
-    --button-primary-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
-    --button-primary-mobile-disabled-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-mobile-disabled-color: var(--color-light-text-tertiary);
+    --button-primary-mobile-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
 
     /* primary inverted mobile */
-    --button-inverted-primary-mobile-disabled-bg-color: var(--color-light-bg-secondary);
-    --button-inverted-primary-mobile-disabled-color: var(--color-light-text-tertiary);
+    --button-inverted-primary-mobile-disabled-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-primary-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* secondary mobile */
     --button-secondary-mobile-base-bg-color: var(--color-light-specialbg-secondary-transparent);
