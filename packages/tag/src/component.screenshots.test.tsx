@@ -28,7 +28,7 @@ describe('Tag', () => {
                 checked: true,
             },
         },
-        'paddingRight:82px;transform:scale(2.7)',
+        'width:800px;transform:scale(2.7)',
         {
             viewport: { width: 1024, height: 600 },
         },
@@ -88,7 +88,7 @@ describe('Tag | right addons', () => {
                     disabled: [false, true],
                 },
             }),
-            screenshotOpts: { clip: { x: 0, y: 0, width: 180, height: 80 }, },
+            screenshotOpts: { clip: { x: 0, y: 0, width: 180, height: 80 } },
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,

@@ -28,7 +28,7 @@ describe('FilterTag', () => {
                 checked: true,
             },
         },
-        'paddingRight:102px;transform:scale(2.2)',
+        'width:800px;transform:scale(2.2)',
         {
             viewport: { width: 1024, height: 600 },
         },

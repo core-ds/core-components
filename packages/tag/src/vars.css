@@ -93,10 +93,14 @@
     --tag-rectangular-mobile-xxs-border-radius: var(--border-radius-m);
     --tag-rectangular-mobile-xs-border-radius: var(--border-radius-l);
     --tag-rectangular-mobile-s-border-radius: var(--border-radius-l);
-    --tag-filled-mobile-background-color: var(--color-light-bg-secondary);
-    --tag-filled-mobile-background-color-hover: var(--color-light-bg-secondary);
-    --tag-filled-mobile-background-color-active: var(--color-light-bg-secondary-shade-15);
-    --tag-filled-mobile-background-color-disabled: var(--color-light-bg-secondary-alpha-30);
+    --tag-filled-mobile-background-color: var(--color-light-specialbg-secondary-transparent);
+    --tag-filled-mobile-background-color-hover: var(--color-light-specialbg-secondary-transparent);
+    --tag-filled-mobile-background-color-active: var(
+        --color-light-specialbg-secondary-transparent-shade-15
+    );
+    --tag-filled-mobile-background-color-disabled: var(
+        --color-light-specialbg-secondary-transparent
+    );
     --tag-mobile-background-color-checked: var(--color-light-bg-secondary-inverted);
     --tag-mobile-background-color-checked-hover: var(--color-light-bg-secondary-inverted);
     --tag-mobile-background-color-checked-active: var(--color-light-bg-secondary-inverted-tint-20);
@@ -106,13 +110,17 @@
     --tag-mobile-border-color-checked: transparent;
 
     /* mobile inverted */
-    --tag-inverted-filled-mobile-background-color: var(--color-light-bg-secondary-inverted);
-    --tag-inverted-filled-mobile-background-color-hover: var(--color-light-bg-secondary-inverted);
+    --tag-inverted-filled-mobile-background-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --tag-inverted-filled-mobile-background-color-hover: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
     --tag-inverted-filled-mobile-background-color-active: var(
-        --color-light-bg-secondary-inverted-tint-20
+        --color-light-specialbg-secondary-transparent-inverted-tint-20
     );
     --tag-inverted-filled-mobile-background-color-disabled: var(
-        --color-light-bg-secondary-inverted-alpha-30
+        --color-light-specialbg-secondary-transparent-inverted
     );
     --tag-inverted-mobile-border-color-checked: transparent;
     --tag-inverted-mobile-background-color-checked: var(--color-light-bg-secondary);

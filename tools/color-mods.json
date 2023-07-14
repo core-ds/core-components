@@ -127,6 +127,12 @@
     "light-specialbg-tertiary-transparent-inverted": {
         "tint": [15, 20]
     },
+    "light-specialbg-secondary-transparent": {
+        "shade": [15]
+    },
+    "light-specialbg-secondary-transparent-inverted": {
+        "tint": [20]
+    },
     "static-bg-primary-dark": {
         "alpha": [10, 20],
         "tint": [15, 20]
