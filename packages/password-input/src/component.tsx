@@ -35,7 +35,6 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
         ref,
     ) => {
         const uncontrolled = passwordVisible === undefined;
-
         const [statePasswordVisible, setStatePasswordVisible] = useState(
             uncontrolled ? false : passwordVisible,
         );

@@ -1,12 +1,11 @@
 @import '../../themes/src/default.css';
 
-.eye {
-    margin-right: var(--gap-s-neg);
+.eye:last-child {
     height: 100%;
 }
 
 .xl {
-    & .eye {
+    & .eye:last-child {
         margin-right: var(--gap-m-neg);
     }
 
@@ -17,4 +16,8 @@
 
 .input::-ms-reveal {
     display: none;
+}
+
+.addons {
+    padding-right: 0;
 }
