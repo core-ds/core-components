@@ -100,8 +100,8 @@
     --form-control-mobile-xl-border-radius: 10px;
 
     /* color mobile */
-    --form-control-mobile-bg-color: var(--color-light-bg-secondary);
-    --form-control-inverted-mobile-bg-color: var(--color-light-bg-secondary-inverted);
+    --form-control-mobile-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --form-control-inverted-mobile-bg-color: var(--color-light-specialbg-secondary-transparent-inverted);
 
     /* disabled mobile */
     --form-control-mobile-disabled-bg-color: var(--color-light-bg-primary);
@@ -111,22 +111,22 @@
         var(--color-light-border-secondary-inverted);
 
     /* hover mobile */
-    --form-control-mobile-hover-bg-color: var(--color-light-bg-secondary);
-    --form-control-inverted-mobile-hover-bg-color: var(--color-light-bg-secondary-inverted);
+    --form-control-mobile-hover-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --form-control-inverted-mobile-hover-bg-color: var(--color-light-specialbg-secondary-transparent-inverted);
 
     /* focus mobile */
     --form-control-focus-mobile-shadow: none;
-    --form-control-focus-mobile-bg-color: var(--color-light-bg-secondary);
+    --form-control-focus-mobile-bg-color: var(--color-light-specialbg-secondary-transparent);
     --form-control-focus-error-mobile-shadow: none;
     --form-control-inverted-focus-error-mobile-shadow: none;
-    --form-control-inverted-focus-mobile-bg-color: var(--color-light-bg-secondary-inverted);
+    --form-control-inverted-focus-mobile-bg-color: var(--color-light-specialbg-secondary-transparent-inverted);
     --form-control-inverted-focus-mobile-shadow: none;
 
     /* error mobile */
     --form-control-error-mobile-shadow: none;
     --form-control-inverted-error-mobile-shadow: none;
-    --form-control-error-mobile-bg-color: var(--color-light-bg-secondary);
-    --form-control-inverted-error-mobile-bg-color: var(--color-light-bg-secondary-inverted);
+    --form-control-error-mobile-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --form-control-inverted-error-mobile-bg-color: var(--color-light-specialbg-secondary-transparent-inverted);
     --form-control-error-mobile-disabled-shadow: var(--form-control-mobile-disabled-shadow);
     --form-control-inverted-error-mobile-disabled-shadow: var(
         --form-control-mobile-inverted-disabled-shadow
