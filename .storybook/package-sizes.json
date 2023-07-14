@@ -189,7 +189,7 @@
     "input-autocomplete": {
         "desktop.js": 204.7,
         "index.js": 207.5,
-        "mobile.js": 207.6,
+        "mobile.js": 207.62,
         "responsive.js": 207.48
     },
     "indicator": {
@@ -307,7 +307,7 @@
         "responsive.js": 162.92
     },
     "calendar-with-skeleton": {
-        "index.js": 164.01
+        "index.js": 164
     },
     "calendar-range": {
         "index.js": 228.82

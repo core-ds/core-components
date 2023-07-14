@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.4.0
+
+### Minor Changes
+
+### [#730](https://github.com/core-ds/core-components/pull/730)
+
+-   Параметры `event` и `payload` в пропе `onClick` передаются всегда
+
 ## 5.3.2
 
 ### Patch Changes

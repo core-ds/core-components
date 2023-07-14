@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.0.39
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@5.4.0
+
 ## 7.0.38
 
 ### Patch Changes

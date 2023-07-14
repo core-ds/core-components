@@ -1,3 +1,40 @@
+## 41.14.1
+
+<sup><time>06.07.2023</time></sup>
+
+### [#735](https://github.com/core-ds/core-components/pull/735)
+
+#### Что изменилось
+- Изменены боковые отступы для компонента CalendarWithSkeleton
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-with-skeleton`
+
+
+### [#736](https://github.com/core-ds/core-components/pull/736)
+
+#### Что изменилось
+- Добавлена возможность переопределять props в компоненте InputAutocompleteModalMobile
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+
+## 41.14.0
+
+<sup><time>29.06.2023</time></sup>
+
+### [#730](https://github.com/core-ds/core-components/pull/730)
+
+#### Что изменилось
+- Параметры `event` и `payload` в пропе `onClick` передаются всегда
+
+#### Влияние на компоненты
+- Минорное<br />`tag`
+
+
+
 ## 41.13.0
 
 <sup><time>22.06.2023</time></sup>

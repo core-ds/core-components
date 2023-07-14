@@ -1,5 +1,12 @@
 # Change Log
 
+## 9.4.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.4.3
+
 ## 9.4.1
 
 ### Patch Changes
