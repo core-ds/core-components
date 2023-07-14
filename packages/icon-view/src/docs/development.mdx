@@ -1,7 +1,10 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { SuperEllipse as SuperEllipseTS } from '../components/super-ellipse';
-import { Circle as CircleTS } from '../components/circle';
+import { SuperEllipse } from '../components/super-ellipse';
+import { Circle } from '../components/circle';
+import { NoShape } from '../components/no-shape';
+import { Rectangle } from '../components/rectangle';
+
 import styles from '!!raw-loader!../components/base-shape/index.module.css';
 
 
@@ -15,8 +18,10 @@ import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
 ## Свойства
 
 export const Shapes = {
-    Circle: CircleTS,
-    SuperEllipse: SuperEllipseTS,
+    Circle,
+    SuperEllipse,
+    Rectangle,
+    NoShape,
 };
 
 <ArgsTable components={Shapes} />
