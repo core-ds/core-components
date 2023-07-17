@@ -18,7 +18,7 @@
 
 @mixin bg-class-list;
 
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl {
     .padding-top-$(size) {
         padding-top: var(--gap-$(size));
     }

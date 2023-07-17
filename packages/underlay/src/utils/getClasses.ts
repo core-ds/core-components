@@ -4,7 +4,7 @@ import { BorderSizeType } from '../types';
 import styles from '../index.module.css';
 
 export const getClasses = (
-    backgroundColor: BackgroundColorType | undefined,
+    backgroundColor: BackgroundColorType | string | undefined,
     borderColor: BorderColorType | undefined,
     borderSize: BorderSizeType | undefined,
     shadow: ShadowType | undefined,

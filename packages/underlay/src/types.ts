@@ -2,30 +2,28 @@ import React from 'react';
 
 import { BackgroundColorType, BorderColorType, GapType, ShadowType } from '../../types';
 
-type PaddingSize = Omit<GapType, '5xl' | '6xl' | '7xl' | '8xl'>;
+export type UnderlayPaddingSize = Exclude<GapType, '7xl' | '8xl'>;
+export type UnderlayBorderRadius = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | '3xl';
+export type BorderSizeType = 1 | 2 | 4;
 
 type PaddingType = {
-    top?: PaddingSize;
-    right?: PaddingSize;
-    bottom?: PaddingSize;
-    left?: PaddingSize;
+    top?: UnderlayPaddingSize;
+    right?: UnderlayPaddingSize;
+    bottom?: UnderlayPaddingSize;
+    left?: UnderlayPaddingSize;
 };
 
-export type BorderRadiusType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | '3xl';
-
 export type CornersRadiusType = {
-    bottomRight?: BorderRadiusType;
-    bottomLeft?: BorderRadiusType;
-    topRight?: BorderRadiusType;
-    topLeft?: BorderRadiusType;
+    bottomRight?: UnderlayBorderRadius;
+    bottomLeft?: UnderlayBorderRadius;
+    topRight?: UnderlayBorderRadius;
+    topLeft?: UnderlayBorderRadius;
 };
 
 type DimensionsType = {
     width?: number | string;
     height?: number | string;
 };
-
-export type BorderSizeType = 1 | 2 | 4;
 
 export type ContentPropsType = {
     /**
@@ -39,11 +37,11 @@ export type ContentPropsType = {
     /**
      * Радиус бордера у контента
      */
-    borderRadius?: BorderRadiusType | CornersRadiusType;
+    borderRadius?: UnderlayBorderRadius | CornersRadiusType;
     /**
      * Цвет фона у контента
      */
-    backgroundColor?: BackgroundColorType;
+    backgroundColor?: BackgroundColorType | string;
     /**
      * Ссылка на изображение для фона
      */
@@ -71,6 +69,7 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
      * Размеры подложки
      */
     dimensions?: DimensionsType;
+
     /**
      * Внутренние отступы
      */
@@ -79,12 +78,12 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Радиус бордера
      */
-    borderRadius?: BorderRadiusType | CornersRadiusType;
+    borderRadius?: UnderlayBorderRadius | CornersRadiusType;
 
     /**
      * Цвет фона
      */
-    backgroundColor?: BackgroundColorType;
+    backgroundColor?: BackgroundColorType | string;
 
     /**
      * Ширина бордера
