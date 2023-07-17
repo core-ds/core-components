@@ -25,7 +25,7 @@ describe('Attach', () =>
                 noFileText: ' ',
             },
         },
-        'paddingRight:103px;transform: scale(2.1)',
+        'width:800px;paddingLeft:3px;transform: scale(2.1)',
         {
             viewport: { width: 1024, height: 600 },
         },

@@ -27,7 +27,7 @@ describe('CustomButton', () =>
                     'linear-gradient(264.15deg,rgb(255,66,202) 0px,rgb(255,138,0) 128px)',
             },
         },
-        'paddingRight:98px;transform:scale(2.3)',
+        'width:800px;transform:scale(2.3)',
         {
             viewport: { width: 1024, height: 600 },
         },
