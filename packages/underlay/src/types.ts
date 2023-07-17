@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BackgroundColorType, BorderColorType, GapType, ShadowType } from '../../types';
+import { BorderColorType, GapType, ShadowType } from '../../types';
 
 export type UnderlayPaddingSize = Exclude<GapType, '7xl' | '8xl'>;
 export type UnderlayBorderRadius = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | '3xl';
@@ -41,7 +41,7 @@ export type ContentPropsType = {
     /**
      * Цвет фона у контента
      */
-    backgroundColor?: BackgroundColorType | string;
+    backgroundColor?: string;
     /**
      * Ссылка на изображение для фона
      */
@@ -83,7 +83,7 @@ export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Цвет фона
      */
-    backgroundColor?: BackgroundColorType | string;
+    backgroundColor?: string;
 
     /**
      * Ширина бордера
