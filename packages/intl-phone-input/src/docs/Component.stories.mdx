@@ -2,10 +2,13 @@ import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
+import { IntlPhoneInputMobile } from '@alfalab/core-components-intl-phone-input/mobile';
 
-import { IntlPhoneInput as IntlPhoneInputTS } from '../component';
+import { IntlPhoneInputDesktop as IntlPhoneInputTS } from '../Component.desktop';
+import { IntlPhoneInputMobile as IntlPhoneInputMobileTS } from '../Component.mobile';
 import packageJson from '../../package.json';
 import Description from './description.mdx';
+import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title='Components/IntlPhoneInput' component={IntlPhoneInput} id='IntlPhoneInput' />
@@ -59,6 +62,54 @@ import Changelog from '../../CHANGELOG.md?raw';
     })}
 </Story>
 
+<Story name='IntlPhoneInputMobile'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('+79647820725');
+        const [selectedCountry, setSelectedCountry] = React.useState('RU');
+        const handleChange = React.useCallback(
+            (newValue) => {
+                setValue(newValue);
+            },
+            [setValue],
+        );
+        const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
+        const block = boolean('block', false);
+        const showActionButtons = boolean('showActionButtons', false);
+        const disabled = boolean('disabled', false);
+        const hideCountrySelect = boolean('hideCountrySelect', false);
+        const canBeEmptyCountry = boolean('canBeEmptyCountry', false);
+        const ruNumberPriority = boolean('ruNumberPriority', false);
+        const clear = boolean('clear', false);
+        const label = text('label', 'Номер телефона');
+        const clearableCountryCode = boolean('clearableCountryCode', true);
+        const handleCountryChange = React.useCallback((countryCode) => {
+            setSelectedCountry(countryCode);
+        });
+        return (
+            <>
+                <IntlPhoneInputMobile
+                    value={value}
+                    onChange={handleChange}
+                    size={size}
+                    showActionButtons={showActionButtons}
+                    block={block}
+                    label={label}
+                    disabled={disabled}
+                    canBeEmptyCountry={canBeEmptyCountry}
+                    hideCountrySelect={hideCountrySelect}
+                    clear={clear}
+                    ruNumberPriority={ruNumberPriority}
+                    defaultCountryIso2='RU'
+                    onCountryChange={handleCountryChange}
+                    clearableCountryCode={clearableCountryCode}
+                />
+                <br />
+                Код выбранной страны: <strong>{selectedCountry}</strong>
+            </>
+        );
+    })}
+</Story>
+
 {/* Docs */}
 
 <ComponentHeader
@@ -67,12 +118,8 @@ import Changelog from '../../CHANGELOG.md?raw';
     package='@alfalab/core-components/intl-phone-input'
 />
 
-```jsx
-import { IntlPhoneInput } from '@alfalab/core-components/intl-phone-input';
-```
-
 <Tabs
     description={<Description />}
     changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={IntlPhoneInputTS} />}
+    development={<Development />}
 />

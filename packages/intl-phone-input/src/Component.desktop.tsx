@@ -30,7 +30,7 @@ const DEFAULT_MAX_PHONE_LEN_BY_COUNTRY: MaxPhoneLenByCountry = { RU: 11 };
 
 type MaxPhoneLenByCountry = Record<string, number>;
 
-export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
+export type IntlPhoneInputDesktopProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
     Pick<SelectProps, 'preventFlip'> & {
         /**
          * Значение
@@ -99,7 +99,7 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
         clear?: boolean;
     };
 
-export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
+export const IntlPhoneInputDesktop = forwardRef<HTMLInputElement, IntlPhoneInputDesktopProps>(
     (
         {
             disabled = false,

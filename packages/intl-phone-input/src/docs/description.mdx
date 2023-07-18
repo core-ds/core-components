@@ -32,7 +32,7 @@ render(() => {
 
     return (
         <div style={{ width: '320px' }}>
-            <IntlPhoneInput
+            <IntlPhoneInputDesktop
                 value={value}
                 onChange={handleChange}
                 options={filteredOptions}
@@ -40,6 +40,47 @@ render(() => {
                 label='Номер телефона'
                 defaultCountryIso2='RU'
                 readOnly={false}
+                onCountryChange={handleCountryChange}
+            />
+            <br />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const options = [
+        { key: '+7 921 681 53 98' },
+        { key: '+7 921 681 52 97' },
+        { key: '+7 921 681 52 96' },
+        { key: '+7 921 681 52 95' },
+        { key: '+7 921 681 52 94' },
+    ];
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('+7');
+    const [selectedCountry, setSelectedCountry] = React.useState('RU');
+
+    const handleChange = newValue => setValue(newValue);
+
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <div>
+            <IntlPhoneInputMobile
+                value={value}
+                onChange={handleChange}
+                options={filteredOptions}
+                block={true}
+                showActionButton={false}
+                label='Номер телефона'
+                defaultCountryIso2='RU'
+                readOnly={false}
+                showActionButtons={false}
                 onCountryChange={handleCountryChange}
             />
             <br />
