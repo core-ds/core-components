@@ -15,74 +15,7 @@ import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
 
-export const BACKGROUND = [
-    'accent',
-    'info',
-    'attention-muted',
-    'positive-muted',
-    'negative-muted',
-    'primary',
-    'primary-inverted',
-    'secondary',
-    'secondary-inverted',
-    'tertiary',
-    'tertiary-inverted',
-    'quaternary',
-    'quaternary-inverted',
-    'specialbg-component',
-    'specialbg-component-inverted',
-    'specialbg-primary-grouped',
-    'specialbg-secondary-grouped',
-    'specialbg-tertiary-grouped',
-    'specialbg-secondary-transparent',
-    'specialbg-secondary-transparent-inverted',
-    'specialbg-tertiary-transparent',
-    'specialbg-tertiary-transparent-inverted',
-];
-export const BORDER_COLOR = [
-    'accent',
-    'key',
-    'key-inverted',
-    'link',
-    'primary',
-    'primary-inverted',
-    'secondary',
-    'secondary-inverted',
-    'tertiary',
-    'tertiary-inverted',
-    'underline',
-    'underline-inverted',
-    'graphic-attention',
-    'graphic-link',
-    'graphic-negative',
-    'graphic-positive',
-    'specialbg-secondary-transparent',
-    'specialbg-secondary-transparent-inverted',
-    'specialbg-tertiary-transparent',
-    'specialbg-tertiary-transparent-inverted',
-];
-export const SHADOW = [
-    'shadow-xs',
-    'shadow-s',
-    'shadow-m',
-    'shadow-l',
-    'shadow-xl',
-    'shadow-xs-hard',
-    'shadow-s-hard',
-    'shadow-m-hard',
-    'shadow-l-hard',
-    'shadow-xl-hard',
-    'shadow-xs-up',
-    'shadow-s-up',
-    'shadow-m-up',
-    'shadow-l-up',
-    'shadow-xl-up',
-    'shadow-xs-hard-up',
-    'shadow-s-hard-up',
-    'shadow-m-hard-up',
-    'shadow-l-hard-up',
-    'shadow-xl-hard-up',
-];
+import { BACKGROUND, BORDER_COLOR, SHADOW } from '../constants';
 
 export const ChildElement = ({ children }) => {
     return (
@@ -145,7 +78,7 @@ export const ChildElement = ({ children }) => {
                 topRight: topRightCorner,
                 topLeft: topLeftCorner,
             },
-            backgroundColor: select('backgroundColor', BACKGROUND, 'primary', 'contentProps'),
+            backgroundColor: text('backgroundColor', 'primary', 'contentProps'),
             backgroundImageURL: text('backgroundImageURL', '', 'contentProps'),
             shadow: select('shadow', SHADOW, 'shadow-s', 'contentProps'),
             axis: select('axis', ['vertical', 'horizontal'], 'vertical', 'contentProps'),
@@ -161,9 +94,8 @@ export const ChildElement = ({ children }) => {
                 borderRadius={borderRadius}
                 borderSize={borderSize}
                 shadow={select('shadow', SHADOW, 'shadow-l', 'underlayProps')}
-                backgroundColor={select(
+                backgroundColor={text(
                     'backgroundColor',
-                    BACKGROUND,
                     'positive-muted',
                     'underlayProps',
                 )}

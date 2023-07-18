@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import { getBorderCorners } from './utils/getBorderCorners';
-import { getClasses } from './utils/getClasses';
+import { getClasses, isBackgroundToken } from './utils/getClasses';
 import { UnderlayProps } from './types';
 
 import styles from './index.module.css';
@@ -41,10 +41,24 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
         const bordersStyles = getBorderCorners(borderRadius);
         const contentBordersStyles = getBorderCorners(contentProps?.borderRadius);
 
+        const underlayStyles = {
+            ...dimensions,
+            ...(isBackgroundToken(backgroundColor) ? {} : { backgroundColor }),
+        };
+
+        const contentStyles = {
+            ...(isBackgroundToken(contentProps?.backgroundColor)
+                ? {}
+                : { backgroundColor: contentProps?.backgroundColor }),
+            ...(contentProps?.backgroundImageURL
+                ? { backgroundImage: `url(${contentProps.backgroundImageURL})` }
+                : {}),
+        };
+
         return (
             <div
                 ref={ref}
-                style={{ ...dimensions }}
+                style={underlayStyles}
                 className={cn(
                     styles.component,
                     paddingStyles,
@@ -57,11 +71,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
                 {...restProps}
             >
                 <div
-                    style={
-                        contentProps?.backgroundImageURL
-                            ? { backgroundImage: `url(${contentProps.backgroundImageURL})` }
-                            : undefined
-                    }
+                    style={contentStyles}
                     className={cn(
                         styles.content,
                         { [styles.backgroundImage]: contentProps?.backgroundImageURL },
@@ -76,6 +86,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
                         contentProps?.alignment && styles[`align-${contentProps.alignment}`],
                         contentProps?.justifyContent &&
                             styles[`justify-${contentProps.justifyContent}`],
+                        contentProps?.className,
                     )}
                 >
                     {children}

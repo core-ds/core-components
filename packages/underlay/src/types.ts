@@ -62,6 +62,10 @@ export type ContentPropsType = {
      * Выравнивание контента
      */
     justifyContent?: 'start' | 'end' | 'center';
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 };
 
 export type UnderlayProps = React.HTMLAttributes<HTMLDivElement> & {
