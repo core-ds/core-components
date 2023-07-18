@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.4.3
+
+### Patch Changes
+
+### [#746](https://github.com/core-ds/core-components/pull/746)
+
+-   Динамический импорт библиотеки libphonenumber-js в cjs сборках заменен на require
+
+-   Обновлены зависимости
+    -   select@14.3.2
+    -   input-autocomplete@9.4.4
+
 ## 9.4.2
 
 ### Patch Changes
