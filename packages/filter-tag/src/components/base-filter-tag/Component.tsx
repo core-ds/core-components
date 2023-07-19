@@ -7,9 +7,9 @@ import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 
-export type FilterTagProps = {
+export type BaseFilterTagProps = {
     /**
      * Состояние выбора
      */
@@ -76,6 +76,11 @@ export type FilterTagProps = {
      * Стиль тега
      */
     view?: 'outlined' | 'filled';
+
+    /**
+     * Основные стили компонента.
+     */
+    styles?: { [key: string]: string };
 };
 
 const isKeyBoardEvent = (
@@ -83,7 +88,7 @@ const isKeyBoardEvent = (
 ): event is KeyboardEvent<HTMLDivElement> =>
     (event as KeyboardEvent<HTMLDivElement>).key !== undefined;
 
-export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
+export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
     (
         {
             children,
@@ -99,6 +104,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             showClear = true,
             className,
             dataTestId,
+            styles = {},
         },
         ref,
     ) => {
@@ -127,12 +133,23 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
-                className={cn(className, [styles.component], styles[shapeClassName], styles[size], {
-                    [styles.checked]: checked,
-                    [styles.disabled]: disabled,
-                    [styles.focused]: focused,
-                    [styles.open]: open,
-                })}
+                className={cn(
+                    className,
+                    commonStyles.component,
+                    commonStyles[shapeClassName],
+                    commonStyles[size],
+                    styles.component,
+                    styles[shapeClassName],
+                    styles[size],
+                    {
+                        [commonStyles.checked]: checked,
+                        [styles.checked]: checked,
+                        [commonStyles.disabled]: disabled,
+                        [styles.disabled]: disabled,
+                        [commonStyles.focused]: focused,
+                        [commonStyles.open]: open,
+                    },
+                )}
                 ref={ref}
                 data-test-id={dataTestId}
                 onClick={disabled ? undefined : onClick}
@@ -142,19 +159,25 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     ref={valueRef}
                     disabled={disabled}
                     className={cn(
+                        commonStyles.valueButton,
                         styles.valueButton,
+                        commonStyles[size],
                         styles[size],
+                        commonStyles[shapeClassName],
                         styles[shapeClassName],
-                        styles[view],
+                        commonStyles[view],
                         {
+                            [styles[view]]: Boolean(styles[view]),
+                            [commonStyles.checked]: checked,
                             [styles.checked]: checked,
-                            [styles.open]: open,
+                            [commonStyles.open]: open,
+                            [commonStyles.close]: !showClear,
                             [styles.close]: !showClear,
                         },
                     )}
                 >
                     <span>{children}</span>
-                    <span className={styles.chevron}>
+                    <span className={commonStyles.chevron}>
                         {size === 'xxs' ? <ChevronDownCompactSIcon /> : <ChevronDownMIcon />}
                     </span>
                 </button>
@@ -162,12 +185,19 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                 {checked && !disabled && showClear && (
                     <div
                         role='button'
-                        className={cn(styles.clear, styles[size], styles[shapeClassName])}
+                        className={cn(
+                            commonStyles.clear,
+                            styles.clear,
+                            commonStyles[size],
+                            styles[size],
+                            styles[shapeClassName],
+                            commonStyles[shapeClassName],
+                        )}
                         onClick={handleClear}
                         onKeyDown={handleClear}
                         tabIndex={0}
                     >
-                        <span className={styles.iconWrapper}>
+                        <span className={commonStyles.iconWrapper}>
                             {size === 'xxs' ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
                         </span>
                     </div>

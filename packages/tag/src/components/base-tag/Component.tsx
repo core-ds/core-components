@@ -5,17 +5,26 @@ import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
 
 import defaultColors from './default.module.css';
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStylesMap = {
+const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
 
-type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
+};
 
-export type TagProps = Omit<NativeProps, 'onClick'> & {
+export type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
     /**
      * Отображение кнопки в отмеченном (зажатом) состоянии
      */
@@ -89,9 +98,19 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
      * Стиль тега
      */
     view?: 'outlined' | 'filled';
+
+    /**
+     * Основные стили компонента.
+     */
+    styles?: { [key: string]: string };
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStylesMap?: StyleColors;
 };
 
-export const Tag = forwardRef<HTMLButtonElement, TagProps>(
+export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
     (
         {
             rightAddons,
@@ -109,6 +128,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             view = 'outlined',
             childrenClassName,
             childrenRef,
+            styles = {},
+            colorStylesMap = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -125,17 +146,22 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
 
         const tagProps = {
             className: cn(
-                styles.component,
+                commonStyles.component,
+                colorCommonStyles[colors].component,
                 colorStyles.component,
+                commonStyles[size],
                 styles[size],
-                colorStyles[view],
-                styles[shapeClassName],
+                colorCommonStyles[colors][view],
                 {
-                    [styles.checked]: checked,
-                    [colorStyles.checked]: checked,
-                    [styles.focused]: focused,
-                    [styles.withRightAddons]: Boolean(rightAddons),
-                    [styles.withLeftAddons]: Boolean(leftAddons),
+                    [commonStyles.checked]: checked,
+                    [commonStyles[shapeClassName]]: Boolean(commonStyles[shapeClassName]),
+                    [styles[shapeClassName]]: Boolean(styles[shapeClassName]),
+                    [colorCommonStyles[colors].checked]: checked,
+                    [colorStyles.checked]: checked && Boolean(colorStyles.checked),
+                    [colorStyles[view]]: Boolean(colorStyles[view]),
+                    [commonStyles.focused]: focused,
+                    [commonStyles.withRightAddons]: Boolean(rightAddons),
+                    [commonStyles.withLeftAddons]: Boolean(leftAddons),
                 },
                 className,
             ),
@@ -156,7 +182,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                 {...tagProps}
                 {...restProps}
             >
-                {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
+                {leftAddons ? <span className={commonStyles.addons}>{leftAddons}</span> : null}
 
                 {children && (
                     <span ref={childrenRef} className={childrenClassName}>
@@ -164,7 +190,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                     </span>
                 )}
 
-                {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
+                {rightAddons ? <span className={commonStyles.addons}>{rightAddons}</span> : null}
             </button>
         );
     },

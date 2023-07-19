@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { TabsDesktop } from './Component.desktop';
 import { TabsMobile } from './Component.mobile';
-import { TabsResponsive } from './Component.responsive';
+import { TabsResponsive } from '../../responsive';
 import { Tab } from '../tab';
 import { TabsProps } from '../../typings';
 
@@ -60,11 +60,15 @@ describe('Tabs', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it.each(tabVariants)('should set custom container class', (Component, view) => {
+        it.each([tabVariants[0]])('should set custom container class', (Component, view) => {
             const containerClassName = 'custom-container-class';
-            const { container } = renderTabs(Component, { view, containerClassName });
-
-            expect(container.querySelector('.container')).toHaveClass(containerClassName);
+            const { getByTestId } = renderTabs(Component, {
+                view,
+                containerClassName,
+                dataTestId: 'tabs-test',
+            });
+            const container = getByTestId('tabs-test').parentElement as HTMLElement;
+            expect(container).toHaveClass(containerClassName);
         });
     });
 

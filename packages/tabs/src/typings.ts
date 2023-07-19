@@ -86,6 +86,12 @@ export type TabsProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Контрольная точка для тега, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 };
 
 export type TabProps = {
@@ -179,6 +185,7 @@ export type TabListProps = Pick<
 
 export type SecondaryTabListProps = TabListProps & {
     tagSize?: TagProps['size'];
+    TagComponent?: FC<Omit<TagProps, 'breakpoint'>>;
 };
 
 export type UseTabsProps = TabListProps;

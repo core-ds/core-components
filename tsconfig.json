@@ -29,6 +29,8 @@
             "@alfalab/core-components-code-input/*": ["packages/code-input/src/*"],
             "@alfalab/core-components-checkbox-group/*": ["packages/checkbox-group/src/*"],
             "@alfalab/core-components-radio-group/*": ["packages/radio-group/src/*"],
+            "@alfalab/core-components-tag/*": ["packages/tag/src/*"],
+            "@alfalab/core-components-filter-tag/*": ["packages/filter-tag/src/*"],
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

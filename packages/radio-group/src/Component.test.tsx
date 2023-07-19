@@ -31,6 +31,20 @@ const TagGroup = ({ ...restProps }: Partial<RadioGroupProps>) => (
 );
 
 describe('RadioGroup', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Display tests', () => {
         it('should display with children like boolean or string or others react children type correctly', () => {
             expect(

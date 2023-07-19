@@ -565,7 +565,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component s outlined rounded my-tag"
+              class="component component component s s outlined rounded outlined my-tag"
               type="button"
             >
               <span>
@@ -583,7 +583,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component s outlined rounded"
+              class="component component component s s outlined rounded outlined"
               type="button"
             >
               <span>
@@ -601,7 +601,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component s outlined rounded"
+              class="component component component s s outlined rounded outlined"
               type="button"
             >
               <span>
@@ -635,7 +635,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component s outlined rounded my-tag"
+            class="component component component s s outlined rounded outlined my-tag"
             type="button"
           >
             <span>
@@ -653,7 +653,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component s outlined rounded"
+            class="component component component s s outlined rounded outlined"
             type="button"
           >
             <span>
@@ -671,7 +671,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component s outlined rounded"
+            class="component component component s s outlined rounded outlined"
             type="button"
           >
             <span>

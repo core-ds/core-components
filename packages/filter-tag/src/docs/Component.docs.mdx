@@ -1,0 +1,24 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories.tsx';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+import packageJson from '../../package.json';
+
+<Meta of={Stories} />
+
+<ComponentHeader
+    name='FilterTag'
+    version={packageJson.version}
+    package='@alfalab/core-components/filter-tag'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=7300%3A40133'
+    children='Используется чтобы вывести параметры фильтрации и отобразить примененное значение.'
+/>
+
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>
