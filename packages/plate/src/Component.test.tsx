@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 
 import userEvent from '@testing-library/user-event';
-import { Plate, PlateProps } from './index';
+import { PlateDesktop as Plate, PlateDesktopProps as PlateProps } from './desktop';
 import { Button } from '../../button/src';
 
 describe('Plate', () => {

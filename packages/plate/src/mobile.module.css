@@ -1,0 +1,10 @@
+@import '../../themes/src/default.css';
+
+.bold {
+    @mixin headline-system-mobile_xsmall;
+    padding: 6px var(--gap-s) 6px var(--gap-2xs);
+}
+
+.description {
+    padding: 0 var(--gap-s) var(--gap-2xs) var(--gap-2xs);
+}
