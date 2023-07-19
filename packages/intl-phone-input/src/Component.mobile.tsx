@@ -96,8 +96,9 @@ export type IntlPhoneInputMobileProps = Partial<Omit<InputAutocompleteMobileProp
          * Разрешает очищать поле крестиком
          */
         clear?: boolean;
+
         /*
-         * Показывать кнопки отмены и продолжить при валидном значении
+         * Разрешает показывать кнопки отмены и продолжить при валидном значении
          */
         showActionButtons?: boolean;
     };
