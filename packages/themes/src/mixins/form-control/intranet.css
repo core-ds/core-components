@@ -5,14 +5,13 @@
     --form-control-m-border-radius: 10px;
     --form-control-l-border-radius: 10px;
     --form-control-xl-border-radius: var(--border-radius-l);
-    --form-control-border-bottom: 0;
-    --form-control-inverted-border-bottom: 0;
+    --form-control-mobile-xl-border-radius: var(--border-radius-l);
+
+    /* bg-color */
     --form-control-bg-color: var(--color-light-bg-secondary);
     --form-control-inverted-bg-color: var(--color-light-bg-secondary-inverted);
 
     /* disabled */
-    --form-control-disabled-border-bottom: 0;
-    --form-control-inverted-disabled-border-bottom: 0;
     --form-control-disabled-bg-color: var(--color-light-bg-primary);
     --form-control-inverted-disabled-bg-color: var(--color-light-bg-primary-inverted);
     --form-control-disabled-shadow: inset 0 0 0 1px var(--color-light-border-secondary);
@@ -21,29 +20,34 @@
     --form-control-disabled-filled-label-color: var(--color-light-text-tertiary);
     --form-control-inverted-disabled-filled-label-color: var(--color-light-text-tertiary-inverted);
 
-    /* focus */
-    --form-control-focus-shadow: none;
-    --form-control-focus-border-bottom: 0;
-    --form-control-inverted-focus-border-bottom: 0;
-    --form-control-focus-bg-color: var(--color-light-bg-secondary-shade-7);
-    --form-control-inverted-focus-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
+    /* hover */
     --form-control-hover-bg-color: var(--color-light-bg-secondary-shade-7);
     --form-control-inverted-hover-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
+
+    /* focus */
+    --form-control-focus-shadow: none;
+    --form-control-focus-bg-color: var(--color-light-bg-secondary-shade-7);
+    --form-control-inverted-focus-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
     --form-control-inverted-focus-shadow: none;
     --form-control-focus-error-shadow: none;
     --form-control-inverted-focus-error-shadow: none;
 
     /* error */
-    --form-control-error-label-color: var(--color-light-text-secondary);
-    --form-control-inverted-error-label-color: var(--color-light-bg-secondary-inverted);
     --form-control-error-shadow: none;
     --form-control-inverted-error-shadow: none;
     --form-control-error-disabled-shadow: var(--form-control-disabled-shadow);
-    --form-control-error-border-bottom: 0;
-    --form-control-inverted-error-border-bottom: 0;
+    --form-control-inverted-error-disabled-shadow: var(--form-control-inverted-disabled-shadow);
     --form-control-error-bg-color: var(--color-light-bg-secondary);
     --form-control-inverted-error-bg-color: var(--color-light-bg-secondary-inverted);
 
     /* paddings */
     --form-control-sub-paddings: 0 var(--gap-2xs);
+
+    /* hover mobile */
+    --form-control-mobile-hover-bg-color: var(--color-light-bg-secondary-shade-7);
+    --form-control-inverted-mobile-hover-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
+
+    /* focus mobile */
+    --form-control-focus-mobile-bg-color: var(--color-light-bg-secondary-shade-7);
+    --form-control-inverted-focus-mobile-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
 }

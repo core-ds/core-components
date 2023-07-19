@@ -1,0 +1,39 @@
+@import '../../vars.css';
+
+.component {
+    color: var(--form-control-inverted-color);
+}
+
+.label {
+    color: var(--form-control-inverted-label-color);
+}
+
+.hint {
+    color: var(--form-control-inverted-hint-color);
+}
+
+/* DISABLED STATE */
+
+.disabled {
+    color: var(--form-control-inverted-disabled-color);
+}
+
+.disabled.filled .label {
+    color: var(--form-control-inverted-disabled-filled-label-color);
+}
+
+/* FOCUS STATE */
+
+.focused:not(.disabled):not(.hasError):before {
+    border-bottom: var(--form-control-inverted-focus-border-bottom);
+}
+
+/* ERROR STATE */
+
+.error {
+    color: var(--form-control-inverted-error-color);
+}
+
+.hasError .label {
+    color: var(--form-control-inverted-error-label-color);
+}

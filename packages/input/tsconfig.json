@@ -6,8 +6,9 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../form-control" }, { "path": "../loader" }, { "path": "../badge" }]
+    "references": [{ "path": "../button" }, { "path": "../form-control" }, { "path": "../loader" }, { "path": "../badge" }, { "path": "../mq" }]
 }

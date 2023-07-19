@@ -31,6 +31,8 @@
             "@alfalab/core-components-radio-group/*": ["packages/radio-group/src/*"],
             "@alfalab/core-components-tag/*": ["packages/tag/src/*"],
             "@alfalab/core-components-filter-tag/*": ["packages/filter-tag/src/*"],
+            "@alfalab/core-components-form-control/*": ["packages/form-control/src/*"],
+            "@alfalab/core-components-input/*": ["packages/input/src/*"],
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

@@ -5,6 +5,20 @@ import userEvent from '@testing-library/user-event';
 import { NumberInput } from '.';
 
 describe('NumberInput', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<NumberInput value='1234.567' />).container).toMatchSnapshot();

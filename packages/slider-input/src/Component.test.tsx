@@ -4,6 +4,20 @@ import { render, fireEvent } from '@testing-library/react';
 import { SliderInput } from './index';
 
 describe('SliderInput', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     it('should match snapshot', () => {
         const { container } = render(<SliderInput />);
         expect(container).toMatchSnapshot();

@@ -19,7 +19,7 @@ import {
     dateInLimits,
 } from '@alfalab/core-components-calendar';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { InputProps } from '@alfalab/core-components-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
@@ -146,6 +146,11 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Отображение компонента в мобильном или десктопном виде
      */
     view?: 'desktop' | 'mobile';
+
+    /**
+     * Компонент инпута
+     */
+    InputComponent?: ElementType;
 };
 
 export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputProps>(
@@ -168,6 +173,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             zIndexPopover,
             preventFlip,
             Calendar = DefaultCalendar,
+            InputComponent,
             calendarProps = {},
             defaultMonth,
             minDate = calendarProps.minDate,
@@ -352,31 +358,33 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                 onFocus={inputDisabled ? undefined : handleInputWrapperFocus}
                 onBlur={handleBlur}
             >
-                <Input
-                    {...restProps}
-                    block={block}
-                    ref={mergeRefs([ref, inputRef])}
-                    value={value}
-                    onChange={handleChange}
-                    disabled={disabled}
-                    readOnly={readOnly}
-                    className={inputClassName}
-                    onClear={handleClear}
-                    error={error}
-                    rightAddons={
-                        <React.Fragment>
-                            {rightAddons}
-                            {picker && (
-                                <IconButton
-                                    className={styles.calendarIcon}
-                                    onClick={inputDisabled ? undefined : handleIconButtonClick}
-                                    icon={CalendarMIcon}
-                                    size='s'
-                                />
-                            )}
-                        </React.Fragment>
-                    }
-                />
+                {InputComponent ? (
+                    <InputComponent
+                        {...restProps}
+                        block={block}
+                        ref={mergeRefs([ref, inputRef])}
+                        value={value}
+                        onChange={handleChange}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        className={inputClassName}
+                        onClear={handleClear}
+                        error={error}
+                        rightAddons={
+                            <React.Fragment>
+                                {rightAddons}
+                                {picker && (
+                                    <IconButton
+                                        className={styles.calendarIcon}
+                                        onClick={inputDisabled ? undefined : handleIconButtonClick}
+                                        icon={CalendarMIcon}
+                                        size='s'
+                                    />
+                                )}
+                            </React.Fragment>
+                        }
+                    />
+                ) : null}
                 {picker && (
                     <Popover
                         open={open}

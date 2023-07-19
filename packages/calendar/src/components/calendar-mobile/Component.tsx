@@ -282,7 +282,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             return (
                 <CalendarDesktop
                     responsive={true}
-                    className={styles.calendar}
+                    className={cn(className, styles.calendar)}
                     {...commonProps}
                     {...restProps}
                 />

@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Input as DefaultInput } from '@alfalab/core-components-input';
+import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
 import { FieldProps } from '@alfalab/core-components-select';
 
 import { InputAutocompleteDesktopProps } from '../Component.desktop';

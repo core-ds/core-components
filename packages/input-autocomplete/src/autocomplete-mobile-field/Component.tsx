@@ -1,14 +1,17 @@
 import React, { useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
+import {
+    FormControlMobile,
+    FormControlMobileProps,
+} from '@alfalab/core-components-form-control/mobile';
 import { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
-export type AutocompleteMobileFieldProps = FormControlProps &
+export type AutocompleteMobileFieldProps = FormControlMobileProps &
     Omit<BaseFieldProps, 'selected' | 'multiple' | 'success'> &
     Pick<InputAutocompleteProps, 'value'>;
 
@@ -48,7 +51,7 @@ export const AutocompleteMobileField = ({
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
         >
-            <FormControl
+            <FormControlMobile
                 fieldClassName={cn(styles.field, fieldClassName, {
                     [styles.disabled]: disabled,
                     [styles.focusVisible]: focusVisible,
@@ -73,7 +76,7 @@ export const AutocompleteMobileField = ({
                     )}
                     {filled && <div className={styles.value}>{value}</div>}
                 </div>
-            </FormControl>
+            </FormControlMobile>
         </div>
     );
 };

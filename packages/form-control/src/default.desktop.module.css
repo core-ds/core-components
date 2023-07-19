@@ -1,9 +1,4 @@
-@import '../../themes/src/default.css';
 @import './vars.css';
-
-.component {
-    color: var(--form-control-color);
-}
 
 .inner {
     background-color: var(--form-control-bg-color);
@@ -14,33 +9,20 @@
     border-bottom: var(--form-control-border-bottom);
 }
 
-.label {
-    color: var(--form-control-label-color);
-}
-
-.hint {
-    color: var(--form-control-hint-color);
-}
-
 /* DISABLED STATE */
 
 .disabled {
     background-color: var(--form-control-disabled-bg-color);
-    color: var(--form-control-disabled-color);
     box-shadow: var(--form-control-disabled-shadow);
-}
-
-.disabled.hasError {
-    box-shadow: var(--form-control-error-disabled-shadow);
-    background-color: var(--form-control-disabled-bg-color);
 }
 
 .disabled:before {
     border-bottom: var(--form-control-disabled-border-bottom);
 }
 
-.disabled.filled .label {
-    color: var(--form-control-disabled-filled-label-color);
+.disabled.hasError {
+    box-shadow: var(--form-control-error-disabled-shadow);
+    background-color: var(--form-control-disabled-bg-color);
 }
 
 /* HOVER STATE */
@@ -50,10 +32,6 @@
 }
 
 /* FOCUS STATE */
-
-.focused:not(.disabled):not(.hasError):before {
-    border-bottom: var(--form-control-focus-border-bottom);
-}
 
 .focused.inner,
 .focused.inner:hover {
@@ -65,21 +43,11 @@
     }
 }
 
-/* ERROR STATE */
-
-.error {
-    color: var(--form-control-error-color);
-}
-
-.hasError .label {
-    color: var(--form-control-error-label-color);
+.hasError {
+    box-shadow: var(--form-control-error-shadow);
+    background-color: var(--form-control-error-bg-color);
 }
 
 .hasError:before {
     border-bottom: var(--form-control-error-border-bottom);
-}
-
-.hasError {
-    box-shadow: var(--form-control-error-shadow);
-    background-color: var(--form-control-error-bg-color);
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { Input } from './index';
+import { InputDesktop as Input } from './desktop';
 
 describe('Input', () => {
     describe('Snapshots tests', () => {

@@ -5,6 +5,20 @@ import userEvent from '@testing-library/user-event';
 import { PhoneInput } from './index';
 
 describe('PhoneInput', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     const dataTestId = 'test-id';
 
     it('should match snapshot', () => {

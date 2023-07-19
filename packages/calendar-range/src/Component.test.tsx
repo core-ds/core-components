@@ -15,6 +15,20 @@ import { CalendarRange } from './index';
 jest.useFakeTimers();
 
 describe('CalendarRange', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     const defaultDate = new Date('October 01, 2020 00:00:00');
     const currentDate = new Date();
     const currentMonth = startOfMonth(currentDate);
@@ -226,14 +240,14 @@ describe('CalendarRange', () => {
             const [inputFrom, inputTo] = queryAllByRole('textbox') as HTMLInputElement[];
 
             await waitFor(() => {
-                fireEvent.focus(inputFrom);
+                fireEvent.click(inputFrom);
                 expect(
                     document.querySelector('.from-calendar .button.month .buttonContent'),
                 ).toHaveTextContent(currentMonthName);
             });
 
             await waitFor(() => {
-                fireEvent.focus(inputTo);
+                fireEvent.click(inputTo);
                 expect(
                     document.querySelector('.to-calendar .button.month .buttonContent'),
                 ).toHaveTextContent(currentMonthName);
@@ -251,7 +265,7 @@ describe('CalendarRange', () => {
             const [inputFrom, inputTo] = queryAllByRole('textbox') as HTMLInputElement[];
 
             await waitFor(() => {
-                fireEvent.focus(inputTo);
+                fireEvent.click(inputTo);
 
                 expect(document.querySelector('.to-calendar')).toBeInTheDocument();
             });

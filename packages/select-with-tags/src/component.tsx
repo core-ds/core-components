@@ -35,6 +35,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             transformCollapsedTagText,
             transformTagText,
             Tag,
+            breakpoint,
             ...restProps
         },
         ref,
@@ -138,6 +139,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     transformTagText,
                     handleUpdatePopover,
                     isPopoverOpen,
+                    breakpoint,
                 }}
                 selected={selected || selectedTags}
                 autocomplete={isAutocomplete}

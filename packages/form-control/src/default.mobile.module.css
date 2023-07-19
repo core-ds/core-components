@@ -1,0 +1,53 @@
+@import './vars.css';
+
+.inner {
+    background-color: var(--form-control-mobile-bg-color);
+}
+
+/* Нижняя граница */
+.inner:before {
+    border-bottom: var(--form-control-mobile-border-bottom);
+}
+
+/* DISABLED STATE */
+
+.disabled {
+    background-color: var(--form-control-mobile-disabled-bg-color);
+    box-shadow: var(--form-control-mobile-disabled-shadow);
+}
+
+.disabled:before {
+    border-bottom: var(--form-control-mobile-disabled-border-bottom);
+}
+
+.disabled.hasError {
+    box-shadow: var(--form-control-error-mobile-disabled-shadow);
+    background-color: var(--form-control-mobile-disabled-bg-color);
+}
+
+/* HOVER STATE */
+
+.inner:not(.disabled):hover {
+    background-color: var(--form-control-mobile-hover-bg-color);
+}
+
+/* FOCUS STATE */
+
+.focused.inner,
+.focused.inner:hover {
+    background-color: var(--form-control-focus-mobile-bg-color);
+    box-shadow: var(--form-control-focus-mobile-shadow);
+
+    &.hasError {
+        box-shadow: var(--form-control-focus-error-mobile-shadow);
+    }
+}
+
+.hasError {
+    box-shadow: var(--form-control-error-mobile-shadow);
+    background-color: var(--form-control-error-mobile-bg-color);
+}
+
+.hasError:before {
+    border-bottom: var(--form-control-error-mobile-border-bottom);
+}
