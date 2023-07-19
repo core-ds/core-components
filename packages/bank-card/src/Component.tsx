@@ -1,7 +1,7 @@
 import React, { ChangeEvent, MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 
-import { MaskedInputDesktop } from '@alfalab/core-components-masked-input/desktop';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
 import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
 import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
@@ -127,7 +127,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
                     <div className={styles.content} style={{ backgroundColor }}>
                         <div className={styles.bankLogo}>{bankLogo}</div>
 
-                        <MaskedInputDesktop
+                        <MaskedInput
                             ref={ref}
                             value={value}
                             mask={getMask}

@@ -1,9 +1,8 @@
 import { Meta, ArgsTable, Story, Markdown } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
 
-import { MaskedInput } from '../Component.responsive';
-import { MaskedInputDesktop } from '../Component.desktop';
-import { MaskedInputMobile } from '../Component.mobile';
+import { MaskedInput as MaskedInputTS } from '../Component';
 import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
@@ -49,15 +48,11 @@ export const mask = [
 />
 
 ```jsx
-import { MaskedInput } from '@alfalab/core-components/masked-input'
-import { MaskedInputMobile } from '@alfalab/core-components/masked-input/mobile'
-import { MaskedInputDesktop } from '@alfalab/core-components/masked-input/desktop';
+import { MaskedInput } from '@alfalab/core-components/masked-input';
 ```
-Из индекса импортируется responsive версия компонента. 
-
 
 <Tabs
     description={<Description />}
-    props={<ArgsTable components={{MaskedInputDesktop, MaskedInputMobile, MaskedInput}}  />}
+    props={<ArgsTable of={MaskedInputTS} />}
     changelog={<Markdown>{Changelog}</Markdown>}
 />

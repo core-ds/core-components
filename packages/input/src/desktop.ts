@@ -1,1 +1,1 @@
-export * from './Component.desktop'
+export * from './Component.desktop';
