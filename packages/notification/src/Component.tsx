@@ -75,6 +75,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         {
             className,
             actionSectionClassName,
+            closerClassName,
             children,
             visible,
             offset = 108,
@@ -210,6 +211,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     actionSectionClassName,
                                     styles.actionSection,
                                 )}
+                                closerClassName={cn(styles.closeButton, closerClassName)}
                                 style={{
                                     top: offset,
                                     zIndex: computedZIndex,

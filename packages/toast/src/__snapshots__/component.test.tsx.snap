@@ -20,16 +20,22 @@ exports[`Toast Snapshots tests should match snapshot when open 1`] = `
       style="z-index: 1000;"
     >
       <div
-        class="contentWrap"
+        class="wrapper"
       >
         <div
-          class="content"
+          class="contentWrapper"
         >
-          <div>
+          <div
+            class="content"
+          >
             <div
-              class="children"
+              class="contentTitle"
             >
-              text
+              <div
+                class="children"
+              >
+                text
+              </div>
             </div>
           </div>
         </div>
@@ -61,16 +67,22 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
             class="component component"
           >
             <div
-              class="contentWrap"
+              class="wrapper"
             >
               <div
-                class="content"
+                class="contentWrapper"
               >
-                <div>
+                <div
+                  class="content"
+                >
                   <div
-                    class="children"
+                    class="contentTitle"
                   >
-                    text
+                    <div
+                      class="children"
+                    >
+                      text
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,16 +122,22 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
             class="component component"
           >
             <div
-              class="contentWrap"
+              class="wrapper"
             >
               <div
-                class="content"
+                class="contentWrapper"
               >
-                <div>
+                <div
+                  class="content"
+                >
                   <div
-                    class="children"
+                    class="contentTitle"
                   >
-                    text
+                    <div
+                      class="children"
+                    >
+                      text
+                    </div>
                   </div>
                 </div>
               </div>

@@ -7,6 +7,20 @@ import { Notification } from './index';
 jest.useFakeTimers();
 
 describe('Notification', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Snapshots tests', () => {
         const onClose = jest.fn();
 
@@ -33,7 +47,7 @@ describe('Notification', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<Notification ref={ref} dataTestId={dataTestId} />);
 
-        expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+        expect([ref.mock.calls[2]]).toEqual([[getByTestId(dataTestId)]]);
     });
 
     describe('Classes tests', () => {

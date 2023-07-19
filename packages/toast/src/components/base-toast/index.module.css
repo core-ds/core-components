@@ -1,5 +1,5 @@
-@import '../../themes/src/default.css';
-@import '../../toast-plate/src/vars.css';
+@import '../../../../themes/src/default.css';
+@import '../../../../toast-plate/src/vars.css';
 
 :root {
     --toast-box-shadow: var(--shadow-m);
