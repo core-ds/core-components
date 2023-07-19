@@ -1,0 +1,10 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    background-color: var(--code-input-mobile-bg-color);
+}
+
+.compact {
+    margin-right: var(--gap-2xs);
+}

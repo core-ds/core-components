@@ -26,6 +26,7 @@
             "@alfalab/core-components-plate/*": ["packages/plate/src/*"],
             "@alfalab/core-components-toast-plate/*": ["packages/toast-plate/src/*"],
             "@alfalab/core-components-toast/*": ["packages/toast/src/*"],
+            "@alfalab/core-components-code-input/*": ["packages/code-input/src/*"],
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

@@ -10,28 +10,28 @@ exports[`CodeInput Display tests should display correctly 1`] = `
     >
       <input
         autocomplete="one-time-code"
-        class="input"
+        class="input component"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
       />
       <input
         autocomplete=""
-        class="input"
+        class="input component"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
       />
       <input
         autocomplete=""
-        class="input"
+        class="input component"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
       />
       <input
         autocomplete=""
-        class="input"
+        class="input component"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
@@ -51,28 +51,28 @@ exports[`CodeInput Display tests should display correctly with error 1`] = `
     >
       <input
         autocomplete="one-time-code"
-        class="input hasError"
+        class="input component hasError"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
       />
       <input
         autocomplete=""
-        class="input hasError"
+        class="input component hasError"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
       />
       <input
         autocomplete=""
-        class="input hasError"
+        class="input component hasError"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
       />
       <input
         autocomplete=""
-        class="input hasError"
+        class="input component hasError"
         inputmode="numeric"
         pattern="[0-9]*"
         value=""
