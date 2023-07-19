@@ -6,6 +6,8 @@
 @import './select/site.css';
 @import './slider-input/site.css';
 @import './calendar-input/site.css';
+@import './checkbox-group/site.css';
+@import './radio-group/site.css';
 
 @define-mixin theme-site {
     @mixin button-site;
@@ -16,4 +18,6 @@
     @mixin select-site;
     @mixin slider-input-site;
     @mixin calendar-input-site;
+    @mixin checkbox-group-site;
+    @mixin radio-group-site;
 }

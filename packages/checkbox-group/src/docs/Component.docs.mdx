@@ -1,0 +1,24 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+import packageJson from '../../package.json';
+
+<Meta of={Stories} />
+
+<ComponentHeader
+    name='CheckboxGroup'
+    version={packageJson.version}
+    package='@alfalab/core-components/checkbox-group'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=87638%3A113379&mode=design&t=95S9JXl5nVy6yP2f-1'
+    children='Используется для выбора одного или нескольких доступных значений.'
+/>
+
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

@@ -1,8 +1,6 @@
 @import './button/mobile.css';
 @import './form-control/mobile.css';
 @import './tag/mobile.css';
-@import './checkbox/mobile.css';
-@import './radio/mobile.css';
 @import './input/mobile.css';
 @import './slider/mobile.css';
 @import './slider-input/mobile.css';
@@ -12,12 +10,12 @@
 @import './steps/mobile.css';
 @import './confirmation/mobile.css';
 @import './calendar-input/mobile.css';
+@import './checkbox-group/mobile.css';
+@import './radio-group/mobile.css';
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
     @mixin tag-mobile;
-    @mixin checkbox-mobile;
-    @mixin radio-mobile;
     @mixin form-control-mobile;
     @mixin input-mobile;
     @mixin slider-mobile;
@@ -28,4 +26,6 @@
     @mixin steps-mobile;
     @mixin confirmation-mobile;
     @mixin calendar-input-mobile;
+    @mixin checkbox-group-mobile;
+    @mixin radio-group-mobile;
 }

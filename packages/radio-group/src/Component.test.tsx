@@ -1,7 +1,10 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { RadioGroup, RadioGroupProps } from './index';
+import {
+    RadioGroupDesktop as RadioGroup,
+    RadioGroupDesktopProps as RadioGroupProps,
+} from './desktop';
 import { Radio } from '../../radio/src';
 import { Tag } from '../../tag/src';
 
