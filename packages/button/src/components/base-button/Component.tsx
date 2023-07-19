@@ -1,10 +1,8 @@
-// TODO Вид кнопок зависит от порядка импорта стилей. Исправить!!!.
+// TODO Вид кнопок зависит от порядка импорта стилей.
 /* eslint-disable simple-import-sort/imports */
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
-    ElementType,
-    ReactNode,
     useEffect,
     useRef,
     useState,
@@ -15,9 +13,10 @@ import cn from 'classnames';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '../../../../utils';
+import { BaseButtonProps, ComponentProps } from '../../typings';
 
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 import defaultColors from './default.module.css';
 import invertedColors from './inverted.module.css';
 
@@ -25,92 +24,6 @@ const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
-
-export type ComponentProps = {
-    /**
-     * Тип кнопки
-     */
-    view?:
-        | 'accent'
-        | 'primary'
-        | 'secondary'
-        | 'tertiary'
-        | 'outlined' // deprecated
-        | 'filled' // deprecated
-        | 'transparent' // deprecated
-        | 'link'
-        | 'ghost';
-
-    /**
-     * Слот слева
-     */
-    leftAddons?: ReactNode;
-
-    /**
-     * Слот справа
-     */
-    rightAddons?: ReactNode;
-
-    /**
-     * Размер компонента
-     */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для спиннера
-     */
-    spinnerClassName?: string;
-
-    /**
-     * Выводит ссылку в виде кнопки
-     */
-    href?: string;
-
-    /**
-     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
-     */
-    Component?: ElementType;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Показать лоадер
-     */
-    loading?: boolean;
-
-    /**
-     * Не переносить текст кнопки на новую строку
-     */
-    nowrap?: boolean;
-
-    /**
-     * Набор цветов для компонента
-     */
-    colors?: 'default' | 'inverted';
-
-    /**
-     * Дочерние элементы.
-     */
-    children?: ReactNode;
-};
-
-export type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-export type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-
-export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
 /**
  * Минимальное время отображения лоадера - 500мс,
@@ -138,7 +51,7 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     );
 };
 
-export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
+export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, BaseButtonProps>(
     (
         {
             children,
@@ -156,6 +69,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             colors = 'default',
             Component = href ? 'a' : 'button',
             onClick,
+            styles = {},
+            colorStylesMap = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -178,18 +93,21 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
 
         const componentProps = {
             className: cn(
-                styles.component,
-                styles[view],
+                commonStyles.component,
+                commonStyles[view],
+                commonStyles[size],
                 styles[size],
                 colorStyles[colors].component,
                 colorStyles[colors][view],
+                colorStylesMap[colors].component,
                 {
-                    [styles.focused]: focused,
-                    [styles.block]: block,
-                    [styles.iconOnly]: iconOnly,
-                    [styles.loading]: showLoader,
-                    [styles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
-                    [styles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
+                    [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
+                    [commonStyles.focused]: focused,
+                    [commonStyles.block]: block,
+                    [commonStyles.iconOnly]: iconOnly,
+                    [commonStyles.loading]: showLoader,
+                    [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
+                    [commonStyles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
                     [colorStyles[colors].loading]: showLoader,
                 },
                 className,
@@ -205,12 +123,12 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
 
         const buttonChildren = (
             <React.Fragment>
-                {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
+                {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
                     <span
-                        className={cn(styles.text, {
-                            [styles.nowrap]: nowrap,
-                            [styles.stretchText]: !(leftAddons || rightAddons),
+                        className={cn(commonStyles.text, {
+                            [commonStyles.nowrap]: nowrap,
+                            [commonStyles.stretchText]: !(leftAddons || rightAddons),
                         })}
                     >
                         {children}
@@ -221,11 +139,15 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     <Spinner
                         dataTestId={getDataTestId(dataTestId, 'loader')}
                         visible={true}
-                        className={cn(styles.loader, colorStyles[colors].loader, spinnerClassName)}
+                        className={cn(
+                            commonStyles.loader,
+                            colorStyles[colors].loader,
+                            spinnerClassName,
+                        )}
                     />
                 )}
 
-                {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
+                {rightAddons && <span className={commonStyles.addons}>{rightAddons}</span>}
             </React.Fragment>
         );
 
@@ -294,14 +216,3 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         );
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-Button.defaultProps = {
-    view: 'secondary',
-    size: 'm',
-    block: false,
-    loading: false,
-    nowrap: false,
-};

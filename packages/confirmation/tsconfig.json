@@ -8,6 +8,7 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-code-input/*": ["../code-input/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
         }
     },
     "references": [

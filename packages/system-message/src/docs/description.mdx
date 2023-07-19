@@ -3,7 +3,7 @@
 Компонент может использоваться как индикатор состояния системы или конкретного интерфейсного элемента,
 для уведомления пользователя об ошибках и вывода других сообщений системы, адресованных пользователю.
 
-```jsx live mobileHeight={770}
+```jsx live mobileHeight={786}
 const IS_MOBILE = document.body.clientWidth < 450;
 const SETTINGS_KEY = {
     subtitle: 'subtitle',
@@ -38,6 +38,8 @@ const SELECT_OPTIONS = [
         content: 'None',
     },
 ];
+
+const sizeButton = IS_MOBILE ? 'm' : 's';
 
 render(() => {
     const [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);
@@ -107,12 +109,12 @@ render(() => {
                             direction={settings[SETTINGS_KEY.button_columns] ? 'column' : 'row'}
                         >
                             {settings[SETTINGS_KEY.primary] && (
-                                <Button size='s' view='primary'>
+                                <Button size={sizeButton} view='primary'>
                                     Получить код
                                 </Button>
                             )}
 
-                            {settings[SETTINGS_KEY.secondary] && <Button size='s'>Отмена</Button>}
+                            {settings[SETTINGS_KEY.secondary] && <Button size={sizeButton}>Отмена</Button>}
                         </SystemMessage.Controls>
                     )}
                 </SystemMessage>
@@ -195,6 +197,8 @@ const SELECT_OPTIONS = [
     },
 ];
 
+const sizeButton = IS_MOBILE ? 'm' : 's';
+
 render(() => {
     const [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);
     const [open, setOpen] = React.useState(false);
@@ -262,13 +266,13 @@ render(() => {
                                 direction={settings[SETTINGS_KEY.button_columns] ? 'column' : 'row'}
                             >
                                 {settings[SETTINGS_KEY.primary] && (
-                                    <Button size='s' view='primary'>
+                                    <Button size={sizeButton} view='primary'>
                                         Получить код
                                     </Button>
                                 )}
 
                                 {settings[SETTINGS_KEY.secondary] && (
-                                    <Button size='s' onClick={() => setOpen(false)}>
+                                    <Button size={sizeButton} onClick={() => setOpen(false)}>
                                         Отмена
                                     </Button>
                                 )}

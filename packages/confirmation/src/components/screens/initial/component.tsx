@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
 import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
 import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
@@ -172,9 +172,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             )}
 
             {mobile ? (
-                <Button onClick={handleSmsHintLinkClick} view='link' size='xs'>
+                <ButtonMobile onClick={handleSmsHintLinkClick} view='link' size='xs'>
                     {texts.linkToHint}
-                </Button>
+                </ButtonMobile>
             ) : (
                 <Link
                     onClick={handleSmsHintLinkClick}

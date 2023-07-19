@@ -9,7 +9,8 @@
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"]
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
     "references": [

@@ -14,7 +14,13 @@ export type PickerButtonMobileProps = Omit<
     PickerButtonDesktopProps,
     'OptionsList' | 'Checkmark' | 'onScroll'
 > &
-    AdditionalMobileProps;
+    AdditionalMobileProps & {
+        /**
+         * Контрольная точка для кнопки, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
+    };
 
 export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobileProps>(
     (
@@ -33,6 +39,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             showArrow,
             Field = DefaultField,
             fieldProps = {},
+            breakpoint = 1024,
             ...restProps
         },
         ref,
@@ -46,6 +53,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
             leftAddons,
             rightAddons,
             showArrow,
+            breakpoint,
         };
 
         return (

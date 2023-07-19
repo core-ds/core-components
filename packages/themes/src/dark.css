@@ -255,8 +255,14 @@
     --color-light-specialbg-component-inverted-tint-20: var(
         --color-dark-specialbg-component-inverted-shade-20
     );
+    --color-light-specialbg-secondary-transparent-shade-7: var(
+        --color-dark-specialbg-secondary-transparent-tint-7
+    );
     --color-light-specialbg-secondary-transparent-shade-15: var(
         --color-dark-specialbg-secondary-transparent-tint-15
+    );
+    --color-light-specialbg-secondary-transparent-inverted-tint-15: var(
+        --color-dark-specialbg-secondary-transparent-inverted-shade-15
     );
     --color-light-specialbg-secondary-transparent-inverted-tint-20: var(
         --color-dark-specialbg-secondary-transparent-inverted-shade-20

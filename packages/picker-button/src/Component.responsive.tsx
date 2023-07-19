@@ -53,6 +53,7 @@ export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonR
                 footer={footer}
                 swipeable={swipeable}
                 bottomSheetProps={bottomSheetProps}
+                breakpoint={breakpoint}
                 {...restProps}
             />
         );

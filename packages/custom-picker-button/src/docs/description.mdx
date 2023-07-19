@@ -12,8 +12,24 @@ const optionsWithIcons = [
 
 render(
     <Space direction='horizontal'>
-        <CustomPickerButtonResponsive backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={optionsWithIcons} label='Picker button' />
-        <CustomPickerButtonResponsive backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={options} variant='compact' />
+        <CustomPickerButtonDesktop backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={optionsWithIcons} label='Picker button' />
+        <CustomPickerButtonDesktop backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={options} variant='compact' />
+    </Space>,
+);
+//MOBILE
+const options = [{ key: 'Car' }, { key: 'Star' }, { key: 'Flower' }, { key: 'Banknote' }];
+
+const optionsWithIcons = [
+    { key: 'Car', icon: CarMIcon },
+    { key: 'Star', icon: StarMIcon },
+    { key: 'Flower', icon: FlowerMMIcon },
+    { key: 'Banknote', icon: BanknoteMIcon },
+];
+
+render(
+    <Space direction='horizontal'>
+        <CustomPickerButtonMobile backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={optionsWithIcons} label='Picker button' />
+        <CustomPickerButtonMobile backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={options} variant='compact' />
     </Space>,
 );
 ```

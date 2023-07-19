@@ -11,7 +11,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { ComponentProps as ButtonProps } from '@alfalab/core-components-button';
+import { ButtonProps } from '@alfalab/core-components-button';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { useFocus } from '@alfalab/hooks';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';

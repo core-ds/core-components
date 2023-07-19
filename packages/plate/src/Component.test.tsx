@@ -4,9 +4,23 @@ import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon'
 
 import userEvent from '@testing-library/user-event';
 import { PlateDesktop as Plate, PlateDesktopProps as PlateProps } from './desktop';
-import { Button } from '../../button/src';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 
 describe('Plate', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { container } = render(

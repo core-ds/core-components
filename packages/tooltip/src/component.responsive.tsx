@@ -2,7 +2,7 @@ import React, { FC, Fragment } from 'react';
 import cn from 'classnames';
 
 import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { useMedia } from '@alfalab/hooks';
 
 import { TooltipDesktop, TooltipDesktopProps } from './desktop';
@@ -102,9 +102,9 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
                 onClose={handleClose}
                 hasCloser={hasCloser}
                 actionButton={
-                    <Button view='secondary' block={true} size='s' onClick={handleClose}>
+                    <ButtonMobile view='secondary' block={true} size='m' onClick={handleClose}>
                         {actionButtonTitle}
-                    </Button>
+                    </ButtonMobile>
                 }
                 {...bottomSheetProps}
             >

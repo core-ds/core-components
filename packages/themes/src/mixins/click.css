@@ -23,6 +23,7 @@
 @import './radio-group/click.css';
 @import './form-control/click.css';
 @import './input/click.css';
+@import './button/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -53,4 +54,5 @@
     @mixin radio-group-click;
     @mixin form-control-click;
     @mixin input-click;
+    @mixin button-click;
 }

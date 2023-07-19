@@ -1,18 +1,4 @@
-@import '../../themes/src/default.css';
-
-:root {
-    /* misc */
-    --button-font-family: var(--font-family);
-    --button-font-weight: 500;
-
-    /* border-radius */
-    --button-xxs-size-border-radius: 6px;
-    --button-xs-size-border-radius: var(--border-radius-m);
-    --button-s-size-border-radius: var(--border-radius-m);
-    --button-m-size-border-radius: var(--border-radius-l);
-    --button-l-size-border-radius: var(--border-radius-l);
-    --button-xl-size-border-radius: var(--border-radius-l);
-}
+@import '../../vars.css';
 
 .component {
     position: relative;
@@ -70,7 +56,6 @@
     min-height: var(--size-xxs-height);
     padding: 0 15px;
     font-size: 14px;
-    border-radius: var(--button-xxs-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-xxs-height);
@@ -82,7 +67,6 @@
     min-height: var(--size-xs-height);
     padding: 0 19px;
     font-size: 14px;
-    border-radius: var(--button-xs-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-xs-height);
@@ -94,7 +78,6 @@
     min-height: var(--size-s-height);
     font-size: 16px;
     line-height: 24px;
-    border-radius: var(--button-s-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-s-height);
@@ -107,7 +90,6 @@
     padding: 0 27px;
     font-size: 16px;
     line-height: 24px;
-    border-radius: var(--button-m-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-m-height);
@@ -120,7 +102,6 @@
     padding: 0 31px;
     font-size: 18px;
     line-height: 24px;
-    border-radius: var(--button-l-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-l-height);
@@ -133,7 +114,6 @@
     padding: 0 35px;
     font-size: 18px;
     line-height: 24px;
-    border-radius: var(--button-xl-size-border-radius);
 
     &.iconOnly {
         min-width: var(--size-xl-height);

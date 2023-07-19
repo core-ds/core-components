@@ -9,6 +9,7 @@
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
@@ -17,6 +18,6 @@
         { "path": "../input" },
         { "path": "../icon-button" },
         { "path": "../popover" },
-        { "path": "../modal" },
+        { "path": "../modal" }
     ]
 }
