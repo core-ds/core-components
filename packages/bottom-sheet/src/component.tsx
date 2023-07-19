@@ -119,7 +119,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [swipePhase, setSwipePhase] = useState<string>();
 
         /**
-         * Если перед спайпом был скролл, в момент начала свайпа deltaY будет содержать величину скролла, что
+         * Если перед спайпом был скролл, то в момент начала свайпа deltaY будет содержать величину скролла, что
          * вызовет прыжок контента. Чтобы этого избежать, при начале свайпа запоминаем величину скролла и deltaY
          */
         const initialDeltaY = useRef<number>(0);
