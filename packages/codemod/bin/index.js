@@ -7,19 +7,21 @@ const chalk = require('chalk');
 const path = require('path');
 const kebab = require('lodash.kebabcase');
 const { hideBin } = require('yargs/helpers');
+const glob = require('glob');
 
 const getTransformerPath = (componentName) =>
     path.resolve(__dirname, `../src/${kebab(componentName)}/transform.ts`);
 
 function main() {
     const { argv } = yargs(hideBin(process.argv));
+    const files = glob.sync(argv.glob);
 
     if (argv.help) {
         // TODO: show help
         return;
     }
 
-    if (!argv._ || argv._.length === 0) {
+    if (files.length === 0 && (!argv._ || argv._.length === 0)) {
         console.log(
             chalk.red(
                 'Укажите glob для файлов, которые нужно трансформировать, например src/**/*.tsx',
@@ -47,9 +49,9 @@ function main() {
         try {
             console.log(chalk.green(`Запускаем ${transformerName}:`));
             shell.exec(
-                `jscodeshift --parser=tsx --transform=${transformer} ${argv._.join(' ')} ${
-                    argv.packages ? `--packages=${argv.packages.replace(/\s/g, '')}` : ''
-                }`,
+                `jscodeshift --parser=tsx --transform=${transformer} ${
+                    files.length ? files.join(' ') : argv._.join(' ')
+                } ${argv.packages ? `--packages=${argv.packages.replace(/\s/g, '')}` : ''}`,
             );
         } catch (error) {
             console.log(chalk.red(error));
