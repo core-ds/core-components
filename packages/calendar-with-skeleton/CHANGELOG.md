@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.0.47
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.5.1
+
+## 5.0.46
+
+### Patch Changes
+
+### [#735](https://github.com/core-ds/core-components/pull/735)
+
+-   Изменены боковые отступы для компонента CalendarWithSkeleton
+
 ## 5.0.45
 
 ### Patch Changes

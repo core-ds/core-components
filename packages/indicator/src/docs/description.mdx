@@ -1,12 +1,15 @@
-## Примеры
+## Размер
+
+Компонент занимает заданную высоту, подстраивая под неё свои отступы и стиль текста.
 
 ```jsx live
 const styles = {
     display: 'flex',
-    justifyContent: 'space-between',
-    width: 233,
+    justifyContent: 'center',
+    gap: '20px',
+    width: 260,
     padding: 20,
-    backgroundColor: 'var(--color-light-bg-tertiary)',
+    backgroundColor: 'var(--color-light-bg-secondary)',
     borderRadius: '12px',
     boxSizing: 'border-box',
     alignItems: 'center',
@@ -15,73 +18,217 @@ const styles = {
 render(
     <Container>
         <div style={styles}>
+            <Indicator height={48} value={1} view='red' />
+            <Indicator height={40} value={1} view='red' />
+            <Indicator height={24} value={1} view='red' />
+            <Indicator height={20} value={1} view='red' />
             <Indicator view='red' />
-            <Indicator value={1} view='red' />
-            <Indicator size='m' value={1} view='red' />
-            <Indicator size='m' value={99} view='red' />
-            <Indicator size='m' value={100} view='red' />
-            <Indicator size='m' value={100} view='red' border={true} />
         </div>
-        <Gap size='xs' />
-        <div style={styles}>
-            <Indicator view='grey' />
-            <Indicator value={1} view='grey' />
-            <Indicator size='m' value={1} view='grey' />
-            <Indicator size='m' value={99} view='grey' />
-            <Indicator size='m' value={100} view='grey' />
-            <Indicator size='m' value={100} view='grey' border={true} />
-        </div>
-        <Gap size='xs' />
-        <div style={styles}>
-            <Indicator view='white' />
-            <Indicator value={1} view='white' />
-            <Indicator size='m' value={1} view='white' />
-            <Indicator size='m' value={99} view='white' />
-            <Indicator size='m' value={100} view='white' />
-            <Indicator size='m' value={100} view='white' border={true} />
-        </div>
-        <Gap size='xs' />
-        <div style={styles}>
-            <Indicator
-                backgroundColor='var(--color-light-graphic-positive)'
-                color='var(--color-light-text-primary-inverted)'
-            />
-            <Indicator
-                value={1}
-                backgroundColor='var(--color-light-graphic-positive)'
-                color='var(--color-light-text-primary-inverted)'
-            />
-            <Indicator
-                size='m'
-                value={1}
-                backgroundColor='var(--color-light-graphic-positive)'
-                color='var(--color-light-text-primary-inverted)'
-            />
-            <Indicator
-                size='m'
-                value={99}
-                backgroundColor='var(--color-light-graphic-positive)'
-                color='var(--color-light-text-primary-inverted)'
-            />
-            <Indicator
-                size='m'
-                value={100}
-                backgroundColor='var(--color-light-graphic-positive)'
-                color='var(--color-light-text-primary-inverted)'
-            />
+    </Container>
+);
+//MOBILE
+const styles = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    width: 320,
+    padding: 20,
+    backgroundColor: 'var(--color-light-bg-secondary)',
+    borderRadius: '12px',
+    boxSizing: 'border-box',
+    alignItems: 'center',
+};
 
+render(
+    <Container>
+        <div style={styles}>
+            <Indicator height={48} value={1} view='red' />
+            <Indicator height={40} value={1} view='red' />
+            <Indicator height={24} value={1} view='red' />
+            <Indicator height={20} value={1} view='red' />
+            <Indicator view='red' />
+        </div>
+    </Container>
+);
+```
+
+## Виды индикатора
+
+Индикатор имеет три преднастроенных вида.
+
+```jsx live
+render(() => {
+const [border, setBorder] = React.useState(false);
+
+const styles = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    width: 169,
+    padding: 20,
+    backgroundColor: 'var(--color-light-bg-secondary)',
+    borderRadius: '12px',
+    boxSizing: 'border-box',
+    alignItems: 'center',
+};
+    return (
+        <Container>
+
+            <div style={styles}>
+                <Indicator height={24} value={1} view='red' border={border} />
+                <Indicator height={24} value={99} view='red' border={border} />
+                <Indicator height={24} value={100} view='red' border={border} />
+            </div>
+            <Gap size='xs' />
+            <div style={styles}>
+                <Indicator height={24} value={1} view='grey' border={border} />
+                <Indicator height={24} value={99} view='grey' border={border} />
+                <Indicator height={24} value={100} view='grey' border={border} />
+            </div>
+            <Gap size='xs' />
+            <div style={styles}>
+                <Indicator height={24} value={1} view='white' border={border} />
+                <Indicator height={24} value={99} view='white' border={border} />
+                <Indicator height={24} value={100} view='white' border={border} />
+            </div>
+            <Gap size='xl' />
+            <Switch
+                block={true}
+                checked={border}
+                label='Обводка'
+                onChange={() => setBorder(!border)}
+            />
+        </Container>
+    );
+});
+//MOBILE
+render(() => {
+const [border, setBorder] = React.useState(false);
+
+const styles = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    width: 320,
+    padding: 20,
+    backgroundColor: 'var(--color-light-bg-secondary)',
+    borderRadius: '12px',
+    boxSizing: 'border-box',
+    alignItems: 'center',
+};
+
+    return (
+        <Container>
+
+            <div style={styles}>
+                <Indicator height={24} value={1} view='red' border={border} />
+                <Indicator height={24} value={99} view='red' border={border} />
+                <Indicator height={24} value={100} view='red' border={border} />
+            </div>
+            <Gap size='xs' />
+            <div style={styles}>
+                <Indicator height={24} value={1} view='grey' border={border} />
+                <Indicator height={24} value={99} view='grey' border={border} />
+                <Indicator height={24} value={100} view='grey' border={border} />
+            </div>
+            <Gap size='xs' />
+            <div style={styles}>
+                <Indicator height={24} value={1} view='white' border={border} />
+                <Indicator height={24} value={99} view='white' border={border} />
+                <Indicator height={24} value={100} view='white' border={border} />
+            </div>
+            <Gap size='l' />
+            <Switch
+                block={true}
+                checked={border}
+                label='Обводка'
+                onChange={() => setBorder(!border)}
+            />
+        </Container>
+    );
+});
+```
+
+## Кастомизация
+
+При необходимости, можно задать индикатору кастомный фон, цвет текста, цвет и толщину обводки.
+
+```jsx live
+const styles = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    width: 108,
+    padding: 20,
+    backgroundColor: 'var(--color-light-bg-secondary)',
+    borderRadius: '12px',
+    boxSizing: 'border-box',
+    alignItems: 'center',
+};
+
+render(
+    <Container>
+        <div style={styles}>
             <Indicator
-                size='m'
-                value={100}
-                backgroundColor='var(--color-light-graphic-positive)'
-                color='var(--color-light-text-primary-inverted)'
+                value={1}
+                height={24}
+                backgroundColor='var(--color-light-graphic-attention)'
+                color='var(--color-light-graphic-negative)'
+                border={{
+                    width: 4,
+                    color: 'var(--color-light-graphic-negative)',
+                }}
+            />
+            <Indicator
+                value={1}
+                height={24}
+                backgroundColor='var(--color-light-graphic-primary-inverted)'
+                color='var(--color-light-graphic-link)'
                 border={{
                     width: 2,
-                    color: 'var(--color-light-bg-primary)',
-                    style: 'dashed',
+                    color: 'var(--color-light-graphic-link)',
                 }}
             />
         </div>
-    </Container>,
+    </Container>
+);
+//MOBILE
+const styles = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    width: 320,
+    padding: 20,
+    backgroundColor: 'var(--color-light-bg-secondary)',
+    borderRadius: '12px',
+    boxSizing: 'border-box',
+    alignItems: 'center',
+};
+
+render(
+    <Container>
+        <div style={styles}>
+            <Indicator
+                value={1}
+                height={24}
+                backgroundColor='var(--color-light-graphic-attention)'
+                color='var(--color-light-graphic-negative)'
+                border={{
+                    width: 4,
+                    color: 'var(--color-light-graphic-negative)',
+                }}
+            />
+            <Indicator
+                value={1}
+                height={24}
+                backgroundColor='var(--color-light-graphic-primary-inverted)'
+                color='var(--color-light-graphic-link)'
+                border={{
+                    width: 2,
+                    color: 'var(--color-light-graphic-link)',
+                }}
+            />
+        </div>
+    </Container>
 );
 ```

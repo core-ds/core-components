@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.4.0
+
+### Minor Changes
+
+### [#745](https://github.com/core-ds/core-components/pull/745)
+
+-   Добавлен usePortal проп
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.2.0
+
 ## 6.3.0
 
 ### Minor Changes
