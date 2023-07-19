@@ -112,6 +112,17 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const sheetHeight = useRef(0);
         const sheetRef = useRef<HTMLDivElement>(null);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
+        const contentRef = useRef<HTMLDivElement>(null);
+
+        // Используется, чтобы вызвать ререндер при переключении фазы свайпа
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const [swipePhase, setSwipePhase] = useState<string>();
+
+        /**
+         * Если перед спайпом был скролл, в момент начала свайпа deltaY будет содержать величину скролла, что
+         * вызовет прыжок контента. Чтобы этого избежать, при начале свайпа запоминаем величину скролла и deltaY
+         */
+        const initialDeltaY = useRef<number>(0);
 
         const emptyHeader = !hasCloser && !leftAddons && !title && !hasBacker && !rightAddons;
 
@@ -297,6 +308,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleSheetSwipe: SwipeCallback = ({ dir, initial, velocity, deltaY }) => {
+            setSwipePhase('swipe');
             if (shouldSkipSwiping(dir, initial[1])) {
                 return;
             }
@@ -304,7 +316,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             magnetize(dir, velocity, deltaY);
         };
 
-        const handleSheetSwipeStart: SwipeCallback = ({ dir, initial }) => {
+        const handleSheetSwipeStart: SwipeCallback = ({ dir, initial, deltaY }) => {
+            setSwipePhase('start');
+
+            initialDeltaY.current =
+                dir === 'Down' ? (scrollableContainer.current?.scrollTop ?? 0) + deltaY : 0;
+
             if (shouldSkipSwiping(dir, initial[1])) {
                 return;
             }
@@ -313,15 +330,28 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleSheetSwiped: SwipeCallback = () => {
+            setSwipePhase('swiped');
             swipingInProgress.current = false;
         };
 
-        const handleSheetSwiping: SwipeCallback = ({ initial, deltaY, dir }) => {
+        const handleSheetSwiping: SwipeCallback = ({ initial, deltaY, dir, event }) => {
+            setSwipePhase('swiping');
+
             if (shouldSkipSwiping(dir, initial[1])) {
                 return;
             }
 
-            const offset = getSheetOffset(deltaY);
+            swipingInProgress.current = true;
+
+            // Учитываем начальный сдвиг, только если свайп начался внутри контента
+            const respectInitialDeltaY =
+                event.target === contentRef.current ||
+                contentRef.current?.contains(event.target as HTMLElement);
+
+            const offset = getSheetOffset(
+                respectInitialDeltaY ? deltaY - Math.max(0, initialDeltaY.current) : deltaY,
+            );
+
             const opacity = getBackdropOpacity(offset);
 
             setSheetOffset(offset);
@@ -471,6 +501,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                     [styles.noHeader]: hideHeader || emptyHeader,
                                     [styles.noFooter]: !actionButton,
                                 })}
+                                ref={contentRef}
                             >
                                 {children}
                             </div>
