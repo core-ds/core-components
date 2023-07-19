@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { Typography } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';

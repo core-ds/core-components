@@ -22,7 +22,8 @@
             "@alfalab/core-components-select/*": ["packages/select/src/*"],
             "@alfalab/core-components-*": ["packages/*/src"],
             "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
-            "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"]
+            "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"],
+            "@alfalab/core-components-button/*": ["packages/button/src/*"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],

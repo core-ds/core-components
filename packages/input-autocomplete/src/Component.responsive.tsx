@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonProps } from '@alfalab/core-components-button';
+import { ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { BaseSelectProps } from '@alfalab/core-components-select';
 import { useMedia } from '@alfalab/hooks';
