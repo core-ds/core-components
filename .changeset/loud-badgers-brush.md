@@ -5,4 +5,4 @@
 "@alfalab/core-components-vars": patch
 ---
 
-Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core тимизации
+Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core темизации
