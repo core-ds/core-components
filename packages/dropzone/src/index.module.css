@@ -2,7 +2,7 @@
 
 :root {
     --dropzone-active-bg: transparent;
-    --dropzone-border-radius: var(--border-radius-s);
+    --dropzone-border-radius: var(--border-radius-l);
 }
 
 .component {
