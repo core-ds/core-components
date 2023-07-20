@@ -4,8 +4,6 @@ import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
-export type TabsMatchMedia = 'desktop' | 'mobile';
-
 export type TabsProps = {
     /**
      * Дополнительный класс
@@ -38,9 +36,9 @@ export type TabsProps = {
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
-     * Режим отображения по умолчанию
+     * Значение по-умолчанию для хука useMatchMedia
      */
-    defaultMatch?: TabsMatchMedia;
+    defaultMatchMediaValue?: boolean | (() => boolean);
 
     /**
      * Мобильный вид
@@ -51,11 +49,6 @@ export type TabsProps = {
      * Рендерить заголовки табов в контейнере со скроллом
      */
     scrollable?: boolean;
-
-    /**
-     * Сворачивает не помещающиеся в окне табы в PickerButton
-     */
-    collapsible?: boolean;
 
     /**
      * Список табов, для контроля переноса вкладок в PickerButton
@@ -163,10 +156,9 @@ export type TabListProps = Pick<
     | 'className'
     | 'containerClassName'
     | 'size'
-    | 'defaultMatch'
+    | 'defaultMatchMediaValue'
     | 'selectedId'
     | 'scrollable'
-    | 'collapsible'
     | 'collapsedTabsIds'
     | 'onChange'
     | 'dataTestId'
@@ -191,5 +183,5 @@ export type SecondaryTabListProps = TabListProps & {
 export type UseTabsProps = TabListProps;
 
 export type Styles = {
-    styles: { [key: string]: string };
+    styles?: { [key: string]: string };
 };

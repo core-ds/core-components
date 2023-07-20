@@ -6,6 +6,34 @@
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
+    "exports": {
+        ".": {
+            "import": "./esm/index.js",
+            "require": "./index.js"
+        },
+        "./mobile": {
+            "import": "./esm/mobile.js",
+            "require": "./mobile.js"
+        },
+        "./desktop": {
+            "import": "./esm/desktop.js",
+            "require": "./desktop.js"
+        },
+        "./collapsible": {
+            "import": "./esm/collapsible.js",
+            "require": "./collapsible.js"
+        },
+        "./shared": {
+            "import": "./esm/shared.js",
+            "require": "./shared.js"
+        },
+        "./esm": "./esm/index.js",
+        "./cssm": "./cssm/index.js",
+        "./modern": "./modern/index.js",
+        "./esm/*": "./esm/*",
+        "./cssm/*": "./cssm/*",
+        "./modern/*": "./modern/*"
+    },
     "scripts": {
         "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
     },
@@ -21,6 +49,8 @@
         "@alfalab/core-components-tag": "^5.4.0",
         "@alfalab/core-components-picker-button": "^10.3.27",
         "@alfalab/core-components-badge": "^5.1.0",
+        "@alfalab/core-components-mq": "^4.1.4",
+        "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "compute-scroll-into-view": "^1.0.20",
         "@juggle/resize-observer": "^3.3.1",
