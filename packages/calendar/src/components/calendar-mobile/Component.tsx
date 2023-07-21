@@ -45,6 +45,11 @@ export type CalendarMobileProps = CalendarDesktopProps & {
     onClose?: () => void;
 
     /**
+     * Обработчик клика на тайтл месяца в мобильном календаре
+     */
+    onMonthTitleClick?: (event: React.SyntheticEvent) => void;
+
+    /**
      * Количество лет для генерации в обе стороны от текущего года
      */
     yearsAmount?: number;
@@ -71,6 +76,7 @@ const CalendarMonthOnlyView = ({
     events,
     holidays,
     onChange,
+    onMonthTitleClick,
     selectedFrom,
     selectedTo,
     rangeComplete,
@@ -177,23 +183,45 @@ const CalendarMonthOnlyView = ({
         }));
     }, [events, offDays, holidays, dayAddons, months, yearsAmount, minDate, maxDate, selected]);
 
-    const renderMonth = (index: number) => (
-        <div className={styles.daysTable} id={`month-${index}`}>
-            <span className={styles.month}>{activeMonths[index].title}</span>
-            <DaysTable
-                weeks={activeMonths[index].weeks}
-                activeMonth={activeMonth}
-                selectedFrom={selectedFrom}
-                selectedTo={selectedTo}
-                getDayProps={getDayProps}
-                highlighted={highlighted}
-                rangeComplete={rangeComplete}
-                hasHeader={false}
-                responsive={true}
-                shape={shape}
-            />
-        </div>
-    );
+    const renderMonth = (index: number) => {
+        const handleMonthTitleKeyDown = (event: React.KeyboardEvent<HTMLSpanElement>) => {
+            if (event.key === 'Enter' && onMonthTitleClick) {
+                onMonthTitleClick(event);
+            }
+        };
+
+        const handleMonthTitleClick = (event: React.MouseEvent<HTMLSpanElement>) => {
+            if (onMonthTitleClick) {
+                onMonthTitleClick(event);
+            }
+        };
+
+        return (
+            <div className={styles.daysTable} id={`month-${index}`}>
+                <span
+                    className={styles.month}
+                    onClick={handleMonthTitleClick}
+                    onKeyDown={handleMonthTitleKeyDown}
+                    tabIndex={-1}
+                    role='button'
+                >
+                    {activeMonths[index].title}
+                </span>
+                <DaysTable
+                    weeks={activeMonths[index].weeks}
+                    activeMonth={activeMonth}
+                    selectedFrom={selectedFrom}
+                    selectedTo={selectedTo}
+                    getDayProps={getDayProps}
+                    highlighted={highlighted}
+                    rangeComplete={rangeComplete}
+                    hasHeader={false}
+                    responsive={true}
+                    shape={shape}
+                />
+            </div>
+        );
+    };
 
     if (!scrollableContainer) return null;
 
@@ -222,6 +250,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             selectedFrom,
             selectedTo,
             onChange,
+            onMonthTitleClick,
             dataTestId,
             open,
             onClose,
@@ -273,6 +302,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         open={open}
                         yearsAmount={yearsAmount}
                         scrollableContainer={modalRef}
+                        onMonthTitleClick={onMonthTitleClick}
                         {...commonProps}
                         {...restProps}
                     />
