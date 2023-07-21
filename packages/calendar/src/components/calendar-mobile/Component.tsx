@@ -45,9 +45,9 @@ export type CalendarMobileProps = CalendarDesktopProps & {
     onClose?: () => void;
 
     /**
-     * Обработчик клика на тайтл месяца в мобильном календаре
+     * Обработчик клика на название месяца в мобильном календаре
      */
-    onMonthTitleClick?: (event: React.SyntheticEvent) => void;
+    onMonthTitleClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
 
     /**
      * Количество лет для генерации в обе стороны от текущего года
@@ -184,12 +184,6 @@ const CalendarMonthOnlyView = ({
     }, [events, offDays, holidays, dayAddons, months, yearsAmount, minDate, maxDate, selected]);
 
     const renderMonth = (index: number) => {
-        const handleMonthTitleKeyDown = (event: React.KeyboardEvent<HTMLSpanElement>) => {
-            if (event.key === 'Enter' && onMonthTitleClick) {
-                onMonthTitleClick(event);
-            }
-        };
-
         const handleMonthTitleClick = (event: React.MouseEvent<HTMLSpanElement>) => {
             if (onMonthTitleClick) {
                 onMonthTitleClick(event);
@@ -198,11 +192,11 @@ const CalendarMonthOnlyView = ({
 
         return (
             <div className={styles.daysTable} id={`month-${index}`}>
+                {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
                 <span
                     className={styles.month}
                     onClick={handleMonthTitleClick}
-                    onKeyDown={handleMonthTitleKeyDown}
-                    tabIndex={-1}
+                    tabIndex={0}
                     role='button'
                 >
                     {activeMonths[index].title}
