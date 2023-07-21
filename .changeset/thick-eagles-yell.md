@@ -2,4 +2,4 @@
 "@alfalab/core-components-calendar": minor
 ---
 
-Добавлен проп onMonthTitleClick
+В CalendarMobile добавлен проп onMonthTitleClick

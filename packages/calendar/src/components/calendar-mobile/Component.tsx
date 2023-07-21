@@ -183,36 +183,35 @@ const CalendarMonthOnlyView = ({
         }));
     }, [events, offDays, holidays, dayAddons, months, yearsAmount, minDate, maxDate, selected]);
 
-    const renderMonth = (index: number) => {
-        const activeMonthsTitle = (
-            /* eslint-disable-next-line jsx-a11y/click-events-have-key-events */
-            <span className={styles.month} onClick={onMonthTitleClick} tabIndex={0} role='button'>
-                {activeMonths[index].title}
-            </span>
-        );
-
-        return (
-            <div className={styles.daysTable} id={`month-${index}`}>
-                {onMonthTitleClick ? (
-                    activeMonthsTitle
-                ) : (
-                    <span className={styles.month}> {activeMonths[index].title} </span>
-                )}
-                <DaysTable
-                    weeks={activeMonths[index].weeks}
-                    activeMonth={activeMonth}
-                    selectedFrom={selectedFrom}
-                    selectedTo={selectedTo}
-                    getDayProps={getDayProps}
-                    highlighted={highlighted}
-                    rangeComplete={rangeComplete}
-                    hasHeader={false}
-                    responsive={true}
-                    shape={shape}
-                />
-            </div>
-        );
-    };
+    const renderMonth = (index: number) => (
+        <div className={styles.daysTable} id={`month-${index}`}>
+            {onMonthTitleClick ? (
+                /* eslint-disable-next-line jsx-a11y/click-events-have-key-events */
+                <span
+                    className={styles.month}
+                    onClick={onMonthTitleClick}
+                    tabIndex={0}
+                    role='button'
+                >
+                    {activeMonths[index].title}
+                </span>
+            ) : (
+                <span className={styles.month}> {activeMonths[index].title} </span>
+            )}
+            <DaysTable
+                weeks={activeMonths[index].weeks}
+                activeMonth={activeMonth}
+                selectedFrom={selectedFrom}
+                selectedTo={selectedTo}
+                getDayProps={getDayProps}
+                highlighted={highlighted}
+                rangeComplete={rangeComplete}
+                hasHeader={false}
+                responsive={true}
+                shape={shape}
+            />
+        </div>
+    );
 
     if (!scrollableContainer) return null;
 
