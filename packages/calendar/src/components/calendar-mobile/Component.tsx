@@ -190,17 +190,25 @@ const CalendarMonthOnlyView = ({
             }
         };
 
+        const activeMonthsTitle = (
+            /* eslint-disable-next-line jsx-a11y/click-events-have-key-events */
+            <span
+                className={styles.month}
+                onClick={handleMonthTitleClick}
+                tabIndex={0}
+                role='button'
+            >
+                {activeMonths[index].title}
+            </span>
+        );
+
         return (
             <div className={styles.daysTable} id={`month-${index}`}>
-                {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-                <span
-                    className={styles.month}
-                    onClick={handleMonthTitleClick}
-                    tabIndex={0}
-                    role='button'
-                >
-                    {activeMonths[index].title}
-                </span>
+                {onMonthTitleClick ? (
+                    activeMonthsTitle
+                ) : (
+                    <span className={styles.month}> {activeMonths[index].title} </span>
+                )}
                 <DaysTable
                     weeks={activeMonths[index].weeks}
                     activeMonth={activeMonth}
