@@ -110,7 +110,8 @@ export type BaseIntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onCh
         view?: 'desktop' | 'mobile';
 
         /**
-         * Отображение компонента в мобильном или десктопном виде
+         * Разрешает показывать кнопки Отмена/Продолжить
+         * При валидном значениии номера телефона
          */
         showActionButtons?: boolean;
     };
