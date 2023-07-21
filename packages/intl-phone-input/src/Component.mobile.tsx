@@ -6,7 +6,7 @@ import { BaseIntlPhoneInput, BaseIntlPhoneInputProps } from './components/base-i
 
 export type IntlPhoneInputMobileProps = Omit<
     BaseIntlPhoneInputProps,
-    'view' | 'Component' | 'readOnly'
+    'view' | 'InputAutocomplete' | 'readOnly'
 >;
 
 export const IntlPhoneInputMobile = forwardRef<HTMLInputElement, IntlPhoneInputMobileProps>(

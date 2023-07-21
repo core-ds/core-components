@@ -4,7 +4,7 @@ import { BaseIntlPhoneInput, BaseIntlPhoneInputProps } from './components/base-i
 
 export type IntlPhoneInputDesktopProps = Omit<
     BaseIntlPhoneInputProps,
-    'view' | 'Component' | 'showActionButtons'
+    'view' | 'InputAutocomplete' | 'showActionButtons'
 >;
 
 export const IntlPhoneInputDesktop = forwardRef<HTMLInputElement, IntlPhoneInputDesktopProps>(
