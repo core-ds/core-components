@@ -184,20 +184,9 @@ const CalendarMonthOnlyView = ({
     }, [events, offDays, holidays, dayAddons, months, yearsAmount, minDate, maxDate, selected]);
 
     const renderMonth = (index: number) => {
-        const handleMonthTitleClick = (event: React.MouseEvent<HTMLSpanElement>) => {
-            if (onMonthTitleClick) {
-                onMonthTitleClick(event);
-            }
-        };
-
         const activeMonthsTitle = (
             /* eslint-disable-next-line jsx-a11y/click-events-have-key-events */
-            <span
-                className={styles.month}
-                onClick={handleMonthTitleClick}
-                tabIndex={0}
-                role='button'
-            >
+            <span className={styles.month} onClick={onMonthTitleClick} tabIndex={0} role='button'>
                 {activeMonths[index].title}
             </span>
         );
