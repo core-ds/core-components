@@ -24,3 +24,7 @@
 .dialCode {
     color: var(--text-secondary-color);
 }
+
+.optionsList {
+    padding-top: var(--gap-xl);
+}

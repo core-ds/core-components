@@ -5,6 +5,8 @@ import React, { FC, useCallback, useMemo } from 'react';
 import {
     OptionsListProps,
     Select,
+    SelectMobile,
+    SelectMobileProps,
     SelectProps,
     VirtualOptionsList,
 } from '@alfalab/core-components-select';
@@ -22,6 +24,7 @@ type CountriesSelectProps = Pick<
     selected?: string;
     countries: Country[];
     fieldWidth: number | null;
+    view: 'desktop' | 'mobile';
 };
 
 export const CountriesSelect: FC<CountriesSelectProps> = ({
@@ -33,6 +36,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     preventFlip,
     onChange,
     dataTestId,
+    view,
 }) => {
     const options = useMemo(
         () =>
@@ -54,17 +58,32 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     );
 
     const renderOptionsList = useCallback(
-        (props: OptionsListProps) => (
-            <div style={{ width: fieldWidth || 0 }}>
-                <VirtualOptionsList {...props} />
-            </div>
-        ),
-        [fieldWidth],
+        (props: OptionsListProps) => {
+            const styleProps =
+                view === 'desktop'
+                    ? { style: { width: fieldWidth || 0 } }
+                    : { className: styles.optionsList };
+
+            return (
+                <div {...styleProps}>
+                    <VirtualOptionsList {...props} />
+                </div>
+            );
+        },
+        [fieldWidth, view],
     );
+
+    const getBottomSheetProps = (): Pick<SelectMobileProps, 'bottomSheetProps'> => ({
+        bottomSheetProps: {
+            hasCloser: false,
+        },
+    });
+
+    const Component = view === 'desktop' ? Select : SelectMobile;
 
     return (
         <div className={styles.component} onClick={(event) => event.stopPropagation()}>
-            <Select
+            <Component
                 dataTestId={dataTestId}
                 disabled={disabled}
                 size={size}
@@ -74,6 +93,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
                 Field={SelectField}
                 OptionsList={renderOptionsList}
                 preventFlip={preventFlip}
+                {...(view === 'mobile' && getBottomSheetProps())}
             />
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { IntlPhoneInput } from '.';
+import { BaseIntlPhoneInput as IntlPhoneInput } from './components/base-intl-phone-input';
 
 describe('IntlPhoneInput', () => {
     const testId = 'intl-phone-input';

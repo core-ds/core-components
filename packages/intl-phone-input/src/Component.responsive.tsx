@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { IntlPhoneInputDesktop, IntlPhoneInputDesktopProps } from './Component.desktop';
 import { IntlPhoneInputMobile, IntlPhoneInputMobileProps } from './Component.mobile';
@@ -14,21 +14,14 @@ export type IntlPhoneInputResponsiveProps = IntlPhoneInputDesktopProps &
         breakpoint?: number;
     };
 
-export type InputAutocompleteMedia = 'desktop' | 'mobile';
-
-export const IntlPhoneInputResponsive = forwardRef<
+export const IntlPhoneInput = forwardRef<
     HTMLInputElement | HTMLDivElement,
     IntlPhoneInputResponsiveProps
 >(({ breakpoint = 1024, ...restProps }, ref) => {
-    const [view] = useMedia<InputAutocompleteMedia>(
-        [
-            ['mobile', `(max-width: ${breakpoint - 1}px)`],
-            ['desktop', `(min-width: ${breakpoint}px)`],
-        ],
-        'desktop',
-    );
+    const query = `(min-width: ${breakpoint}px)`;
+    const [isDesktop] = useMatchMedia(query);
 
-    return view === 'desktop' ? (
+    return isDesktop ? (
         <IntlPhoneInputDesktop {...restProps} ref={ref as React.Ref<HTMLInputElement>} />
     ) : (
         <IntlPhoneInputMobile {...restProps} ref={ref as React.Ref<HTMLInputElement>} />
