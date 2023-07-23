@@ -263,7 +263,6 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         };
 
         const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-            inputProps?.onInput?.(event);
             setCountryByDialCodeWithLengthCheck(event.target.value);
             changePhone(addCountryCode(event.target.value));
         };
@@ -522,8 +521,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 ref={ref}
                 inputProps={{
                     clear: clear && !isEmptyValue,
-                    onClear: handleClear,
                     ...inputProps,
+                    onClear: handleClear,
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
                     type: 'tel',
