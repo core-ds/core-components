@@ -263,6 +263,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         };
 
         const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+            inputProps?.onInput?.(event);
             setCountryByDialCodeWithLengthCheck(event.target.value);
             changePhone(addCountryCode(event.target.value));
         };
@@ -425,7 +426,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const handleClear = () => {
+        const handleClear: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+            inputProps?.onClear?.(event);
+
             if (clearableCountryCode) {
                 onChange('+');
                 if (canBeEmptyCountry) {
@@ -459,6 +462,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             const resultNumber = preparedNumber.substring(0, maxPhoneLength + 1);
 
             if (resultNumber) {
+                inputProps?.onPaste?.(event);
                 setCountryIso2(targetCountry ? targetCountry.iso2 : undefined);
                 changePhone(addCountryCode(resultNumber));
             }
