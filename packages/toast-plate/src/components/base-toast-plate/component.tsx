@@ -204,7 +204,13 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                         >
                             <div className={commonStyles.contentTitle}>
                                 {title && (
-                                    <div className={cn(titleClassName, commonStyles.title)}>
+                                    <div
+                                        className={cn(
+                                            titleClassName,
+                                            commonStyles.title,
+                                            styles.title,
+                                        )}
+                                    >
                                         {title}
                                     </div>
                                 )}
@@ -218,6 +224,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                     className={cn(
                                         actionSectionClassName,
                                         commonStyles.actionSection,
+                                        styles.actionSection,
                                         {
                                             [commonStyles.hasCloser]: hasCloser,
                                             [commonStyles.bottomButton]: bottomButtonPosition,

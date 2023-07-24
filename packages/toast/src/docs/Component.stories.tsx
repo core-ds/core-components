@@ -38,6 +38,7 @@ export const toast: Story = {
             setButtonElement(node);
         };
         const containerRef = React.useRef();
+        const isMobile = document.body.clientWidth < 450;
         return (
             <div
                 style={{
@@ -94,7 +95,7 @@ export const toast: Story = {
                         autoCloseDelay={number('autoCloseDelay', 3000)}
                         actionButton={
                             <Button
-                                size='s'
+                                size={isMobile ? 'xs' : 's'}
                                 view='ghost'
                                 colors='inverted'
                                 onClick={() => {
@@ -210,7 +211,7 @@ export const toast_mobile: Story = {
                         autoCloseDelay={number('autoCloseDelay', 3000)}
                         actionButton={
                             <Button
-                                size='s'
+                                size='xs'
                                 view='ghost'
                                 colors='inverted'
                                 onClick={() => {

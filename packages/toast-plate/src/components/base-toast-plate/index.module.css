@@ -48,7 +48,6 @@
     display: flex;
     align-items: var(--toast-plate-action-align);
     flex-shrink: 0;
-    padding: var(--toast-plate-action-padding);
 
     &:not(.hasCloser) {
         padding-right: 0;
@@ -68,12 +67,6 @@
 
 .contentTitle {
     padding: var(--gap-3xs) 0;
-}
-
-.title {
-    @mixin paragraph_component;
-
-    font-weight: var(--toast-plate-title-font-weight);
 }
 
 .children {

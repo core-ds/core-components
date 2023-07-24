@@ -52,7 +52,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
                 class="contentTitle"
               >
                 <div
-                  class="title"
+                  class="title title"
                 >
                   title
                 </div>

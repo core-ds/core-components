@@ -18,6 +18,7 @@ export const toast_plate: Story = {
     name: 'ToastPlate',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const isMobile = document.body.clientWidth < 450;
         return (
             <div
                 style={{
@@ -50,7 +51,7 @@ export const toast_plate: Story = {
                             <Button
                                 view='ghost'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                size='s'
+                                size={isMobile ? 'xs' : 's'}
                             >
                                 Action Button
                             </Button>
@@ -100,7 +101,7 @@ export const toast_plate_mobile: Story = {
                             <Button
                                 view='ghost'
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                size='s'
+                                size='xs'
                             >
                                 Action Button
                             </Button>

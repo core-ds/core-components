@@ -9,6 +9,7 @@
     --toast-plate-action-align: flex-start;
     --toast-plate-action-margin: var(--gap-3xs);
     --toast-plate-action-padding: 0 var(--gap-2xl);
+    --toast-plate-mobile-action-padding: var(--gap-3xs) var(--gap-2xl);
     --toast-plate-action-bottom-padding: var(--gap-2xs) 0 0;
     --toast-plate-action-divider-display: block;
     --toast-plate-content-with-closer-right-padding: var(--gap-m);

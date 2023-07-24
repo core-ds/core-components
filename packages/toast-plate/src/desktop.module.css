@@ -1,6 +1,16 @@
 @import '../../themes/src/default.css';
 @import './vars.css';
 
+.actionSection {
+    padding: var(--toast-plate-action-padding);
+}
+
+.title {
+    @mixin paragraph_component;
+
+    font-weight: var(--toast-plate-title-font-weight);
+}
+
 .closeButtonWrapper {
     &:before {
         display: var(--toast-plate-action-divider-display);

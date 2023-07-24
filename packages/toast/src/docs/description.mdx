@@ -59,7 +59,7 @@ render(() => {
                 autoCloseDelay={3000}
                 actionButton={
                     <Button
-                        size='s'
+                        size={isMobile ? 'xs' : 's'}
                         view='ghost'
                         colors='inverted'
                         onClick={() => {
