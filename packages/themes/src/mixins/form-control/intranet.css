@@ -44,10 +44,10 @@
     --form-control-sub-paddings: 0 var(--gap-2xs);
 
     /* hover mobile */
-    --form-control-mobile-hover-bg-color: var(--color-light-bg-secondary-shade-7);
-    --form-control-inverted-mobile-hover-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
+    --form-control-mobile-hover-bg-color: var(--color-light-bg-secondary);
+    --form-control-inverted-mobile-hover-bg-color: var(--color-light-bg-secondary-inverted);
 
     /* focus mobile */
-    --form-control-focus-mobile-bg-color: var(--color-light-bg-secondary-shade-7);
-    --form-control-inverted-focus-mobile-bg-color: var(--color-light-bg-secondary-inverted-shade-7);
+    --form-control-focus-mobile-bg-color: var(--color-light-bg-secondary);
+    --form-control-inverted-focus-mobile-bg-color: var(--color-light-bg-secondary-inverted);
 }
