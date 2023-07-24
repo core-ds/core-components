@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.6
+
 ## 3.0.14
 
 ### Patch Changes

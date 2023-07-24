@@ -1,64 +1,118 @@
 ## Примеры
 
-Настраиваются: цвет фона, тень, радиус скругления, величина отступов, цвет и толщина обводки.
-При необходимости, можно сделать компонент кликабельным.
+Компонент состоит из подложки и контейнера для контента. При необходимости, можно сделать компонент кликабельным. Для подложки и контейнера можно настроить: фон, тень, радиусы скругления гаждого угла, цвет и толщину обводки. Для подложки можно настроить отступы до контейнера.
+Для контейнера можно настроить выравнивание вложенных элементов по горизонтальной и вертикальной осям.
 
 ```jsx live
 render(() => {
-    const styleContent = {
-        width: '288px',
-        height: '168px',
-        borderRadius: '8px',
-        backgroundColor: 'rgba(55, 120, 251, 0.1)',
-        border: '1px dashed rgb(55, 120, 251)',
-        boxSizing: 'border-box',
-    }
-
     const handleClick = () => {
-      alert('Клик!')
-    }
-
-    const css = `
-        div[data-test-id='test1'] {
-            cursor: pointer;
-            width: 320px;
-            height: 200px;
-        }
-
-        div[data-test-id='test2'] {
-            background-image: url(./images/underlay.png);
-            background-repeat: no-repeat;
-        }
-    `;
+        alert('Клик!');
+    };
 
     return (
-    <Container>
-        <Underlay
-            onClick={handleClick}
-            borderSize={1}
-            borderRadius='xl'
-            padding={{
-                top: 'm',
-                left:'m',
-                bottom: 'm',
-                right: 'm'
-            }}
-            overflow={false}
-            backgroundColor='positive-muted'
-            borderColor='graphic-positive'
-            dataTestId='test1'
-        >
-            <div style={styleContent} />
-        </Underlay>
-        <style>{css}</style>
-        <Gap size='l'/>
-        <Underlay
-            padding='m'
-            dataTestId='test2'
+        <Container>
+            <Underlay
+                onClick={handleClick}
+                borderRadius='m'
+                borderSize='1'
+                shadow='shadow-s'
+                backgroundColor='secondary'
+                borderColor='primary'
+                overflow={false}
+                dimensions={{ height: 160, width: 320 }}
+                padding={{
+                    top: 'm',
+                    right: 'm',
+                    bottom: 'm',
+                    left: 'm',
+                }}
+                contentProps={{
+                    borderSize: '1',
+                    borderColor: 'secondary',
+                    borderRadius: {
+                        bottomRight: 'm',
+                        bottomLeft: 'm',
+                        topRight: 'm',
+                        topLeft: 'm',
+                    },
+                    backgroundColor: 'primary',
+                    shadow: 'shadow-s',
+                    axis: 'vertical',
+                    alignment: 'center',
+                    justifyContent: 'center',
+                }}
             >
-                <div style={styleContent}/>
-        </Underlay>
-    </Container>
+                <PureCell direction='horizontal' verticalPadding='default' horizontalPadding='both'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor='primary'
+                                view='component'
+                                value='Value'
+                                valueColor='primary'
+                                rowLimit={1}
+                            >
+                                Title
+                            </PureCell.Text>
+                            <PureCell.Text titleColor='secondary' view='primary-small' rowLimit={1}>
+                                Subtitle
+                            </PureCell.Text>
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+                <PureCell direction='horizontal' verticalPadding='compact' horizontalPadding='both'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text
+                                titleColor='primary'
+                                view='component'
+                                value='Value'
+                                valueColor='primary'
+                                rowLimit={1}
+                            >
+                                Title
+                            </PureCell.Text>
+                            <PureCell.Text titleColor='secondary' view='primary-small' rowLimit={1}>
+                                Subtitle
+                            </PureCell.Text>
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            </Underlay>
+            <div style={{ height: 24 }}></div>
+            <Underlay
+                onClick={handleClick}
+                borderRadius='m'
+                borderSize='1'
+                shadow='shadow-s'
+                backgroundColor='secondary'
+                borderColor='primary'
+                overflow={false}
+                dimensions={{ height: 'auto', width: 320 }}
+                padding={{
+                    top: 'm',
+                    right: 'm',
+                    bottom: 'm',
+                    left: 'm',
+                }}
+                contentProps={{
+                    backgroundColor: 'secondary',
+                    axis: 'horizontal',
+                    alignment: 'center',
+                    justifyContent: 'center',
+                }}
+            >
+                <SuperEllipse size='80' backgroundColor='#2FC26E' border={true}>
+                    <CheckmarkHeavyMIcon color='#fff' />
+                </SuperEllipse>
+                <SuperEllipse size='80' backgroundColor='#F15045' border={true}>
+                    <CrossHeavyMIcon color='#fff' />
+                </SuperEllipse>
+                <SuperEllipse size='80' backgroundColor='#F6BF65' border={true}>
+                    <ExclamationMIcon color='#fff' />
+                </SuperEllipse>
+            </Underlay>
+        </Container>
     );
 });
 ```
