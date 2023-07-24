@@ -316,7 +316,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                                 )}
 
                                 {hasButtons && (
-                                    <div className={commonStyles.footer}>
+                                    <div className={styles.footer}>
                                         <ButtonList
                                             buttons={buttons}
                                             containerClassName={buttonsClassName}

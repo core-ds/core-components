@@ -193,10 +193,6 @@
     @mixin paragraph_primary_small;
 }
 
-.footer {
-    padding: var(--gap-l) 0 var(--gap-2xs) var(--gap-2xs);
-}
-
 .closer,
 .folder {
     display: block;

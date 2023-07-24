@@ -8,3 +8,7 @@
 .description {
     padding: 0 var(--gap-s) var(--gap-2xs) var(--gap-2xs);
 }
+
+.footer {
+    padding: var(--gap-s) 0 var(--gap-2xs) var(--gap-2xs);
+}
