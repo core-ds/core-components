@@ -1,5 +1,20 @@
 # Change Log
 
+## 10.3.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+    -   select@14.3.3
+
+## 10.3.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.3.2
+
 ## 10.3.26
 
 ### Patch Changes

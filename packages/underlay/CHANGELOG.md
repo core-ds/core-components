@@ -1,5 +1,13 @@
 # @alfalab/core-components-underlay
 
+## 1.2.0
+
+### Minor Changes
+
+### [#732](https://github.com/core-ds/core-components/pull/732)
+
+-   Добавлены пропсы размера и выбора закругления определенного угла рамки. Добавлен контент и contentProps с пропсами для настройки отображения контента
+
 ## 1.1.0
 
 ### Minor Changes

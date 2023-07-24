@@ -1,7 +1,6 @@
-## Размеры и форма
+## Размеры
 
-Компонент имеет несколько форм шейпа: SuperEllipse, Circle, Rectangle и NoShape.
-Для каждой формы доступно несколько размеров: 128px, 80px, 64px, 48px, 40px, 32px, 24px, 20px.
+Компонент имеет несколько форм шейпа. Для каждой формы доступны следующие размеры:
 
 ```jsx live
 render(() => {
@@ -18,27 +17,30 @@ render(() => {
     const onChange = (_, payload) => {
         setComponent(payload.value);
     };
+    
+    const styles = {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '16px',
+    }
 
     return (
         <Container>
-            <Row>
+            <div style={styles}>
                 {SIZES.map(size => (
-                    <Col key={size}>
-                        <Component size={size} >
-                         { size === '128' || size === '80' ?  <DiamondsXxlIcon/> : size === '20' ? <DiamondsSIcon/> : <DiamondsMIcon/>}
-                        </Component>
-                    </Col>
+                    <Component size={size} >
+                    { size === '128' || size === '80' ?  <DiamondsXxlIcon/> : size === '20' ? <DiamondsSIcon/> : <DiamondsMIcon/>}
+                    </Component>
                 ))}
-            </Row>
+            </div>
             <Row>
                 <RadioGroup
                     name='radioGroup'
                     onChange={onChange}
-                    hint='Выберите один из вариантов'
                     value={component}
                 >
                     {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
-                        <Radio label={c} value={c} size='m' key={c} />
+                        <Radio label={c === 'NoShape'? 'noShape' : c.toLowerCase()} value={c} size='m' key={c} />
                     ))}
                 </RadioGroup>
             </Row>
@@ -62,38 +64,39 @@ render(() => {
     const onChange = (_, payload) => {
         setComponent(payload.value);
     };
+    
+    const styles = {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '16px',
+    }
 
     return (
         <Container>
-            <Row >
+            <div style={styles} >
                 {BIG_SIZES.map(size => (
-                    <Col key={size}>
-                        <Component size={size} >
-                            { size !== '64' ? <DiamondsXxlIcon/> : <DiamondsMIcon/>}
-                        </Component>
-                    </Col>
+                    <Component size={size} >
+                        { size !== '64' ? <DiamondsXxlIcon/> : <DiamondsMIcon/>}
+                    </Component>
                 ))}
-            </Row>
-            <Row >
+            </div>
+            <Gap size='xl'/>
+            <div style={styles}>
                 {SMALL_SIZES.map(size => (
-                    <Col key={size}>
-                        <Component size={size} >
-                            { size !== '20' ? <DiamondsMIcon/> : <DiamondsSIcon/>}
-                        </Component>
-                    </Col>
+                    <Component size={size} >
+                        { size !== '20' ? <DiamondsMIcon/> : <DiamondsSIcon/>}
+                    </Component>
                 ))}
-            </Row>
-
+            </div>
 
             <Row>
                 <RadioGroup
                     name='radioGroup'
                     onChange={onChange}
-                    hint='Выберите один из вариантов'
                     value={component}
                 >
                     {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
-                        <Radio label={c} value={c} size='m' key={c} />
+                        <Radio label={c === 'NoShape'? 'noShape' : c.toLowerCase()} value={c} size='m' key={c} />
                     ))}
                 </RadioGroup>
             </Row>
@@ -102,258 +105,247 @@ render(() => {
 });
 ```
 
-## Шейп
+## Шейп и фоновый контент
 
-В основной шейп можно передать фон, изображение или иконку и дополнительно выделить его бордером. Допустимо одновременно использовать фон и изображение или фон и иконку.
+На фоновый слой можно передать различные виды контента или их комбинацию. Шейп отсечёт контент по своей форме. 
 
 ```jsx live
-<Container>
-    <Row>
-        <Col>
-            <SuperEllipse size='80' border={true}/>
-        </Col>
+render(() => {
+    const [component, setComponent] = React.useState('SuperEllipse');
+    const [value, setValue] = React.useState({
+        background: true,
+        image: false,
+        text: false,
+        icon: false,
+    });
 
-        <Col>
-            <SuperEllipse
-                size='80'
-                imageUrl="./images/imgBg.png"
-                backgroundColor='transparent'
-                border={true}
-            />
-        </Col>
+    const Component = {
+        Circle,
+        SuperEllipse,
+        Rectangle,
+        NoShape,
+    }[component];
 
-        <Col>
-            <SuperEllipse
-                size='80'
-                backgroundIcon={DiamondsMIcon}
-                backgroundColor='transparent'
-                border={{ width: 2, color: 'var(--color-light-border-accent)' }}
-            />
-        </Col>
+    const onChangeRadio = (_, payload) => {
+        setComponent(payload.value);
+    };
+    
+    const onChange = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.checked });
+    };
 
-        <Col>
-            <SuperEllipse
-                size='80'
-                text={
-                    <Typography.Title view='small' weight='bold' font='system' color='primary-inverted'>
-                        БК
-                    </Typography.Title>
-                }
-                backgroundColor='#ef3124'
-            />
-        </Col>
-    </Row>
-</Container>
+    return (
+        <Container>
+            <Row>
+                <Col>
+                    <Component
+                        size='80'
+                        backgroundColor={value.background ? 'var(--color-light-bg-secondary)' : 'transparent'}                        
+                        imageUrl={value.image && "./images/imgBg.png"}
+                        text={value.text &&
+                          <Typography.Title 
+                            view='small' weight='bold' 
+                            font='system' color='secondary'>
+                              БК
+                          </Typography.Title>
+                        }
+                    >{value.icon && <DiamondsMIcon/>}</Component>
+                </Col>
+            </Row>
+
+            <Row>
+            <CheckboxGroup
+                label='Контент'
+                onChange={onChange}
+            >
+                <Checkbox label='Цвет фона' name='background' checked={value.background} size='m' />
+                <Checkbox label='Изображение' name='image' checked={value.image} size='m' />
+                <Checkbox label='Текст' name='text' checked={value.text} size='m' />
+                <Checkbox label='Иконка' name='icon' checked={value.icon} size='m' />
+            </CheckboxGroup>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    name='radioGroup'
+                    onChange={onChangeRadio}
+                    label='Форма шейпа'
+                    value={component}
+                >
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
+                        <Radio label={c === 'NoShape'? 'noShape' : c.toLowerCase()} value={c} size='m' key={c} />
+                    ))}
+                </RadioGroup>
+            </Row>
+        </Container>
+    );
+});
 ```
 
-## Основной слот
+## Бордер
 
-В основном слоте могут располагаться иконка, инициалы или кастомная верстка. Размер слота зависит от размера компонента.
-
-```jsx live
-const style = {
-    width: '48px',
-    height: '48px',
-    borderRadius: '8px',
-    backgroundColor: 'rgba(55, 120, 251, 0.1)',
-    border: '1px dashed rgb(55, 120, 251)',
-    boxSizing: 'border-box',
-}
-
-const blank= <div style={style} ></div>
-render(
-    <Container>
-    <Row>
-        <Col>
-            <SuperEllipse size='80'>{blank}</SuperEllipse>
-        </Col>
-        <Col>
-            <SuperEllipse size='80'>
-                <DiamondsMIcon />
-            </SuperEllipse>
-        </Col>
-        <Col>
-            <SuperEllipse size='80'>
-                <Typography.Title view='small' weight='bold' font='system'>
-                    ЙО
-                </Typography.Title>
-            </SuperEllipse>
-        </Col>
-    </Row>
-</Container>
-);
-```
-
-## Аддоны
-
-Аддоны доступны только для SuperEllipse и Circle.
-
-В верхний и нижний аддон можно положить еще по одной IconView. IconView должна подходить по размеру и быть круглой. Вместо неё можно использовать подходящий по размеру badge или кастомную верстку. Аддон есть не у всех размеров компонента.
-
+Для большего контраста можно добавить шейпу бордер. Для значения `shape=noShape` бордер недоступен.
 
 ```jsx live
-const positive = <Badge
-    view='icon'
-    size='m'
-    iconColor='positive'
-    visibleColorOutline={true}
-    content={<CheckmarkCircleMIcon />}
-/>;
-const negative = <Badge
-    view='icon'
-    size='m'
-    iconColor='negative'
-    visibleColorOutline={true}
-    content={<CrossCircleMIcon />}
-/>;
-
-const iconViewSvg = <Circle size='24'> <DiamondsMIcon /> </Circle>
-const iconViewImage = <Circle size='24' imageUrl="./images/alfa.png"/>
-
-const style = {
-    width: '24px',
-    height: '24px',
-    borderRadius: '50%',
-    backgroundColor: 'rgba(55, 120, 251, 0.1)',
-    border: '1px dashed rgb(55, 120, 251)',
-    boxSizing: 'border-box',
-}
-
-const blank= <div style={style} ></div>
-
-render(
-    <Container>
-        <Row>
-            <Col>
-                <SuperEllipse size='80'  topAddons={blank} bottomAddons={blank}/>
-            </Col>
-
-            <Col>
-                <SuperEllipse size='80' topAddons={iconViewImage} />
-            </Col>
-
-            <Col>
-                <SuperEllipse size='80' bottomAddons={iconViewSvg} />
-            </Col>
-
-            <Col>
-                <SuperEllipse
-                    size='80'
-                    topAddons={positive}
-                    bottomAddons={negative}
+render(() => {
+    const [border, setBorder] = React.useState(false);
+return(
+        <Container>
+            <Row>
+                <Col>
+                    <SuperEllipse 
+                        size='80' 
+                        backgroundColor='var(--color-light-bg-secondary)' 
+                        border={border && { color: 'var(--color-light-border-primary)' }}
+                    >
+                        <DiamondsMIcon/>
+                    </SuperEllipse>
+                </Col>
+            </Row>
+            <Row>
+                <Switch
+                    block={true}
+                    checked={border}
+                    label='Обводка'
+                    onChange={() => setBorder(!border)}
                 />
-            </Col>
-        </Row>
-    </Container>
+            </Row>
+        </Container>
+    );
+});
+```
+
+## Слоты
+
+В зависимости от размера, компонент поддерживает один или несколько слотов. 
+Контент можно расположить в центральном слоте или в верхнем и нижнем аддоне. 
+В центральном слоте допустимо располагать иконки, в верхнем аддоне индикатор и другие 
+IconView cоответствующего размера, в нижнем аддоне только IconView cоответствующего размера. 
+Размер компонента так же определяет размер слотов и соответственно размеры контента который можно в них поместить. 
+Для шейпов `rectangle` и `noShape` верхний и нижний аддоны недоступны.
+
+```jsx live
+render(() => {
+    const [content, setContent] = React.useState('icon');
+    const [topAddons, setTopAddons] = React.useState('indicatorSmall');
+    const [bottomAddons, setBottomAddons] = React.useState('iconView');
+
+    const onChangeContent = (_, payload) => {
+        setContent(payload.value);
+    };
+
+    const onChangeTopAddons = (_, payload) => {
+        setTopAddons(payload.value);
+    }
+
+    const onChangeBottomAddons = (_, payload) => {
+        setBottomAddons(payload.value);
+    };
+
+    const iconViewSvg = bottomAddons === 'iconView' && <Circle size='24' backgroundIcon={ThumbUpCompactMIcon} />
+    const iconViewPositive = 
+    <Circle size='24'  backgroundColor='var(--color-light-graphic-positive)'>
+        <CheckmarkCompactMIcon color='var(--color-static-graphic-light)'/>
+    </Circle>
+    const indicatorSmall = topAddons === 'indicatorSmall' &&  <Indicator view='red' />
+    const indicator = <Indicator value={1} view='red' height={24} />
+
+    const topAddonsView = {
+        indicator,
+        iconViewPositive,
+    }[topAddons]
+
+    return(
+        <Container>
+            <Row>
+                <Col>
+                    <SuperEllipse 
+                        size='80'
+                        topAddons={topAddonsView}
+                        indicator={indicatorSmall}
+                        bottomAddons={iconViewSvg}>
+                            {content === 'icon' && <DiamondsMIcon/>}
+                    </SuperEllipse>
+                </Col>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    label='Центральный слот'
+                    name='radioGroup'
+                    onChange={onChangeContent}
+                    value={content}
+                >
+                    <Radio label='Иконка' value='icon' size='m'  />
+                    <Radio label='Без контента' value='noContent' size='m'  />
+                </RadioGroup>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    label='Верхний аддон'
+                    name='radioGroup'
+                    onChange={onChangeTopAddons}
+                    value={topAddons}
+                >
+                    <Radio label='Маленький индикатор' value='indicatorSmall' size='m'  />
+                    <Radio label='Индикатор' value='indicator' size='m'  />
+                    <Radio label='IconView' value='iconViewPositive' size='m'  />
+                    <Radio label='Без контента' value='noContent' size='m'  />
+                </RadioGroup>
+            </Row>
+
+            <Row>
+                <RadioGroup
+                    label='Нижний аддон'
+                    name='radioGroup'
+                    onChange={onChangeBottomAddons}
+                    value={bottomAddons}
+                >
+                    <Radio label='IconView' value='iconView' size='m'  />
+                    <Radio label='Без контента' value='noContent' size='m'  />
+                </RadioGroup>
+            </Row>
+        </Container>
+    );
+});
+```
+
+## Индикатор
+
+Компонент [Indicator](?path=/docs/components-indicator--docs) может отображаться только в верхнем аддоне. 
+Если в индикатор не передан контент, рекомендуем отображать его компактную версию.
+
+```jsx live
+    const styles = {
+        display: 'flex',
+        gap: '20px',
+    }
+
+render(
+        <div style={styles}>
+            <SuperEllipse size='80' indicator={<Indicator view='red' />} />
+            <SuperEllipse size='80' topAddons={<Indicator value={1} height={24} view='red' />} />
+            <SuperEllipse size='80' topAddons={<Indicator value={25} height={24} view='red' />} />
+            <SuperEllipse size='80' topAddons={<Indicator value={100} height={24} view='red' />}/>
+        </div>
 );
 //MOBILE
-const positive = <Badge
-    view='icon'
-    size='m'
-    iconColor='positive'
-    visibleColorOutline={true}
-    content={<CheckmarkCircleMIcon />}
-/>;
-const negative = <Badge
-    view='icon'
-    size='m'
-    iconColor='negative'
-    visibleColorOutline={true}
-    content={<CrossCircleMIcon />}
-/>;
-
-const iconViewSvg = <Circle size='24'> <DiamondsMIcon /> </Circle>
-const iconViewImage = <Circle size='24' imageUrl="./images/alfa.png"/>
-
-const style = {
-    width: '24px',
-    height: '24px',
-    borderRadius: '50%',
-    backgroundColor: 'rgba(55, 120, 251, 0.1)',
-    border: '1px dashed rgb(55, 120, 251)',
-    boxSizing: 'border-box',
-}
-
-const blank= <div style={style} ></div>
+    const styles = {
+        display: 'flex',
+        gap: '20px',
+    }
 
 render(
     <Container>
-        <Row>
-            <Col>
-                <SuperEllipse size='80'  topAddons={blank} bottomAddons={blank}/>
-            </Col>
-
-            <Col>
-                <SuperEllipse size='80' topAddons={iconViewImage} />
-            </Col>
-            <Col>
-                <SuperEllipse size='80' bottomAddons={iconViewSvg} />
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-                <SuperEllipse
-                    size='80'
-                    topAddons={positive}
-                    bottomAddons={negative}
-                />
-            </Col>
-        </Row>
+        <div style={styles}>
+            <SuperEllipse size='80' indicator={<Indicator view='red' />} />
+            <SuperEllipse size='80' topAddons={<Indicator value={1} height={24} view='red' />} />
+            <SuperEllipse size='80' topAddons={<Indicator value={25} height={24} view='red' />} />
+        </div>
+        <Gap size='l'/>
+        <SuperEllipse size='80' topAddons={<Indicator value={100} height={24} view='red' />}/>
     </Container>
-);
-```
-
-## Indicator и Counter
-
-Indicator и Counter доступны только для SuperEllipse и Circle.
-
-Counter всегда отображается в верхнем аддоне. Если в Counter не передан контент его следует отображать в специальном слоте Indicator и использовать соответствующую форму выреза.
-
-```jsx live
-render(
-    <Container>
-        <Row>
-            <Col>
-                <SuperEllipse size='80' indicator={<Badge view='count' />} />
-            </Col>
-
-            <Col>
-                <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={1}/>} />
-            </Col>
-
-            <Col>
-                <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={25} />} />
-            </Col>
-
-            <Col>
-                <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={100} />}
-                />
-            </Col>
-        </Row>
-    </Container>
-);
-//MOBILE
-render(
-    <Container>
-        <Row>
-            <Col>
-                <SuperEllipse size='80' indicator={<Badge view='count' />} />
-            </Col>
-
-            <Col>
-                <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={1}/>} />
-            </Col>
-            <Col>
-                <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={25} />} />
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-                <SuperEllipse size='80' topAddons={<Badge view='count' height={24} content={100} />}
-                />
-            </Col>
-        </Row>
-    </Container>
-);
+); 
 ```
 

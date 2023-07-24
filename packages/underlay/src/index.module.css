@@ -5,33 +5,46 @@
     box-sizing: border-box;
 }
 
+.content {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
 .overflowHide {
     overflow: hidden;
 }
 
 @mixin bg-class-list;
 
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
+@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl {
     .padding-top-$(size) {
         padding-top: var(--gap-$(size));
     }
-}
-
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
     .padding-right-$(size) {
         padding-right: var(--gap-$(size));
     }
-}
-
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
     .padding-bottom-$(size) {
         padding-bottom: var(--gap-$(size));
     }
-}
-
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl {
     .padding-left-$(size) {
         padding-left: var(--gap-$(size));
+    }
+}
+
+@each $size in xs, s, m, l, xl, xxl, 3xl {
+    .border-bottom-left-$(size) {
+        border-bottom-left-radius: var(--border-radius-$(size));
+    }
+    .border-bottom-right-$(size) {
+        border-bottom-right-radius: var(--border-radius-$(size));
+    }
+    .border-top-left-$(size) {
+        border-top-left-radius: var(--border-radius-$(size));
+    }
+    .border-top-right-$(size) {
+        border-top-right-radius: var(--border-radius-$(size));
     }
 }
 
@@ -62,7 +75,7 @@
     }
 }
 
-@each $radius in m, l, xl, xxl {
+@each $radius in xs, s, m, l, xl, xxl, 3xl {
     .border-radius-$(radius) {
         border-radius: var(--border-radius-$(radius));
     }
@@ -74,4 +87,40 @@
         border-width: $(width)px;
         border-style: solid;
     }
+}
+
+.direction-vertical {
+    flex-direction: column;
+}
+
+.direction-horizontal {
+    flex-direction: row;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+.align-center {
+    align-items: center;
+}
+.align-end {
+    align-items: flex-end;
+}
+.align-fill {
+    align-items: stretch;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+
+.backgroundImage {
+    background-size: cover;
+    background-repeat: no-repeat;
 }
