@@ -73,6 +73,10 @@
     display: var(--input-error-icon-not-alone-display);
 }
 
+button[class*='eye'] + .errorIcon {
+    margin-right: var(--gap-s);
+}
+
 .errorColorIcon {
     color: var(--color-light-graphic-negative);
 }
@@ -91,6 +95,10 @@
     &:not(:only-child) {
         margin-left: var(--gap-2xs);
     }
+}
+
+button[class*='eye'] + .successIcon {
+    margin-right: var(--gap-s);
 }
 
 .successColorIcon {

@@ -1,5 +1,13 @@
 # @alfalab/core-components-steps
 
+## 1.2.0
+
+### Minor Changes
+
+### [#738](https://github.com/core-ds/core-components/pull/738)
+
+-   fix(steps): make checkIsStepCustom's return value nullable
+
 ## 1.1.9
 
 ### Patch Changes

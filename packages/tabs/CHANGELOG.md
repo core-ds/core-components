@@ -1,5 +1,25 @@
 # Change Log
 
+## 7.7.0
+
+### Minor Changes
+
+### [#741](https://github.com/core-ds/core-components/pull/741)
+
+-   Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core темизации
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.28
+
+## 7.6.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.27
+
 ## 7.6.4
 
 ### Patch Changes

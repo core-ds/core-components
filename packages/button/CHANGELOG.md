@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.5.0
+
+### Minor Changes
+
+### [#741](https://github.com/core-ds/core-components/pull/741)
+
+-   Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core темизации
+
 ## 8.4.0
 
 ### Minor Changes

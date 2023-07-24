@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.1.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.2
+    -   input@11.1.17
+
+## 4.1.18
+
+### Patch Changes
+
+### [#698](https://github.com/core-ds/core-components/pull/698)
+
+-   Исправлена ошибка, из-за которой возникал отступ справа от "глаза" когда комопонент в состоянии ошибки
+
 ## 4.1.17
 
 ### Patch Changes

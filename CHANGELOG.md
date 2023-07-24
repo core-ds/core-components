@@ -1,3 +1,76 @@
+## 41.17.0
+
+<sup><time>20.07.2023</time></sup>
+
+### [#741](https://github.com/core-ds/core-components/pull/741)
+
+#### Что изменилось
+- Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core темизации
+
+#### Влияние на компоненты
+- Минорное<br />`button` `tabs` `themes` `vars`
+
+
+### [#732](https://github.com/core-ds/core-components/pull/732)
+
+#### Что изменилось
+- Добавлены пропсы размера и выбора закругления определенного угла рамки. Добавлен контент и contentProps с пропсами для настройки отображения контента
+
+#### Влияние на компоненты
+- Минорное<br />`underlay`
+
+
+
+## 41.15.0
+
+<sup><time>18.07.2023</time></sup>
+
+### [#738](https://github.com/core-ds/core-components/pull/738)
+
+#### Что изменилось
+- fix(steps): make checkIsStepCustom's return value nullable
+
+#### Влияние на компоненты
+- Минорное<br />`steps`
+
+
+### [#698](https://github.com/core-ds/core-components/pull/698)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой возникал отступ справа от "глаза" когда комопонент в состоянии ошибки
+
+#### Влияние на компоненты
+- Патчи<br />`password-input`
+
+
+### [#746](https://github.com/core-ds/core-components/pull/746)
+
+#### Что изменилось
+- Динамический импорт библиотеки libphonenumber-js в cjs сборках заменен на require
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+### [#745](https://github.com/core-ds/core-components/pull/745)
+
+#### Что изменилось
+- Добавлен usePortal проп
+
+#### Влияние на компоненты
+- Минорное<br />`base-modal` `bottom-sheet`
+
+
+### [#717](https://github.com/core-ds/core-components/pull/717)
+
+#### Что изменилось
+- Добавлен проп codeFormat в Amount.Pure
+
+#### Влияние на компоненты
+- Патчи<br />`amount`
+
+
+
 ## 41.14.1
 
 <sup><time>06.07.2023</time></sup>

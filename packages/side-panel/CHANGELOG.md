@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.0.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.6
+
+## 3.0.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.2.0
+    -   drawer@4.2.11
+
 ## 3.0.13
 
 ### Patch Changes
