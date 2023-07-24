@@ -4,18 +4,18 @@ import cn from 'classnames';
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { NavigationBar, NavigationBarProps } from '@alfalab/core-components-navigation-bar';
 
-import { HEADER_OFFSET } from '../../utils';
-
 import styles from './index.module.css';
 
 export type HeaderProps = Omit<NavigationBarProps, 'view' | 'size'> & {
     headerRef: RefObject<HTMLDivElement>;
+    headerOffset: number;
 };
 
 export const Header: FC<HeaderProps> = ({
     className,
     sticky,
     headerRef,
+    headerOffset,
     title,
     children,
     ...restProps
@@ -24,8 +24,8 @@ export const Header: FC<HeaderProps> = ({
         useContext(BaseModalContext);
 
     useEffect(() => {
-        setHeaderOffset(HEADER_OFFSET);
-    }, [setHeaderOffset]);
+        setHeaderOffset(headerOffset);
+    }, [headerOffset, setHeaderOffset]);
 
     useEffect(() => {
         setHasHeader(true);
