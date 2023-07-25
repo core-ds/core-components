@@ -396,6 +396,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     value={inputValue}
                     defaultValue={defaultValue}
                     disabled={disabled}
+                    inputClassName={inputClassName}
                     readOnly={readOnly}
                     mobileMode={mobileMode === 'native' ? 'native' : 'input'}
                     error={error}
