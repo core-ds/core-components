@@ -18,5 +18,5 @@ export default create({
     inputBorder: '#DBDEE1',
     inputTextColor: '#0B1F35',
     brandTitle: `core-components@${packageJson.version}`,
-    brandImage: './images/brand-image.svg',
+    brandImage: './images/brand-image.png',
 });
