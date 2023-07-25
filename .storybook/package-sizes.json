@@ -106,7 +106,7 @@
         "index.js": 3.63
     },
     "pure-cell": {
-        "index.js": 37.94
+        "index.js": 37.95
     },
     "progress-bar": {
         "index.js": 1.61
@@ -229,7 +229,7 @@
         "index.js": 7.13
     },
     "file-upload-item": {
-        "index.js": 17.02
+        "index.js": 17.05
     },
     "dropzone": {
         "index.js": 3.51
@@ -310,13 +310,13 @@
         "index.js": 164
     },
     "calendar-range": {
-        "index.js": 228.82
+        "index.js": 228.83
     },
     "calendar-input": {
-        "desktop.js": 220.85,
-        "index.js": 221.65,
-        "mobile.js": 220.87,
-        "responsive.js": 221.22
+        "desktop.js": 220.87,
+        "index.js": 221.67,
+        "mobile.js": 220.89,
+        "responsive.js": 221.24
     },
     "button": {
         "index.js": 6.48
