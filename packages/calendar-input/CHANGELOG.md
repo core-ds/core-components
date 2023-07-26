@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.2.29
+
+### Patch Changes
+
+### [#752](https://github.com/core-ds/core-components/pull/752)
+
+-   Свойство inputClassName передано компоненту инпута
+
+-   Обновлены зависимости
+    -   calendar@6.6.0
+
 ## 8.2.28
 
 ### Patch Changes

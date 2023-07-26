@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.6.0
+
+### Minor Changes
+
+### [#758](https://github.com/core-ds/core-components/pull/758)
+
+-   В CalendarMobile добавлен проп onMonthTitleClick
+
 ## 6.5.2
 
 ### Patch Changes

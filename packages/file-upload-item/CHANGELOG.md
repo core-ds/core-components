@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.1.24
+
+### Patch Changes
+
+### [#757](https://github.com/core-ds/core-components/pull/757)
+
+-   Перевели единицы измерения на русский язык
+
 ## 5.1.23
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.3.0
+
+### Minor Changes
+
+### [#753](https://github.com/core-ds/core-components/pull/753)
+
+-   Добавлен пропс className в слот main
+
 ## 4.2.14
 
 ### Patch Changes
