@@ -1,3 +1,53 @@
+## 41.18.0
+
+<sup><time>26.07.2023</time></sup>
+
+### [#754](https://github.com/core-ds/core-components/pull/754)
+
+#### Что изменилось
+- Pадиус скругления изменен на 12px во всех темах
+
+#### Влияние на компоненты
+- Минорное<br />`dropzone` `themes`
+
+
+### [#753](https://github.com/core-ds/core-components/pull/753)
+
+#### Что изменилось
+- Добавлен пропс className в слот main
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#757](https://github.com/core-ds/core-components/pull/757)
+
+#### Что изменилось
+- Перевели единицы измерения на русский язык
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#758](https://github.com/core-ds/core-components/pull/758)
+
+#### Что изменилось
+- В CalendarMobile добавлен проп onMonthTitleClick
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#752](https://github.com/core-ds/core-components/pull/752)
+
+#### Что изменилось
+- Свойство inputClassName передано компоненту инпута
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input`
+
+
+
 ## 41.17.0
 
 <sup><time>20.07.2023</time></sup>
