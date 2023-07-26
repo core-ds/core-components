@@ -2,12 +2,11 @@
 @import './vars.css';
 
 .actionSection {
-    padding: var(--toast-plate-mobile-action-padding);
+    align-items: flex-start;
 }
 
 .title {
     @mixin paragraph_primary_small;
-
     font-weight: var(--toast-plate-title-font-weight);
 }
 
@@ -15,4 +14,8 @@
     &:before {
         display: none;
     }
+}
+
+.closeButton {
+    align-items: flex-start;
 }

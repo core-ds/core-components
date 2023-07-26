@@ -248,7 +248,11 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                             <IconButton
                                 icon={CrossMIcon}
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                className={cn(commonStyles.closeButton, closerClassName)}
+                                className={cn(
+                                    commonStyles.closeButton,
+                                    styles.closeButton,
+                                    closerClassName,
+                                )}
                                 onClick={handleClose}
                                 aria-label='закрыть'
                             />

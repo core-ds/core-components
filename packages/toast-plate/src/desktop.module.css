@@ -2,13 +2,14 @@
 @import './vars.css';
 
 .actionSection {
-    padding: var(--toast-plate-action-padding);
+    align-items: var(--toast-plate-action-align);
 }
 
 .title {
     @mixin paragraph_component;
-
     font-weight: var(--toast-plate-title-font-weight);
+    @mixin row_limit 1;
+    word-break: break-all;
 }
 
 .closeButtonWrapper {
@@ -21,4 +22,8 @@
         width: 1px;
         content: '';
     }
+}
+
+.closeButton {
+    align-items: var(--toast-plate-close-button-align);
 }

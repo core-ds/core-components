@@ -14,13 +14,16 @@ import elementClosest from 'element-closest';
 
 import { Portal } from '@alfalab/core-components-portal';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
-import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
+import {
+    ToastPlateDesktop,
+    ToastPlateDesktopProps,
+} from '@alfalab/core-components-toast-plate/desktop';
 
 import { useClickOutside } from './utils';
 
 import styles from './index.module.css';
 
-export type NotificationProps = ToastPlateProps & {
+export type NotificationProps = ToastPlateDesktopProps & {
     /**
      * Управление видимостью компонента
      */
@@ -75,7 +78,6 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         {
             className,
             actionSectionClassName,
-            closerClassName,
             children,
             visible,
             offset = 108,
@@ -197,7 +199,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                 {(computedZIndex) => (
                     <Wrapper>
                         <div {...swipeableHandlers}>
-                            <ToastPlate
+                            <ToastPlateDesktop
                                 className={cn(
                                     styles.notificationComponent,
                                     {
@@ -211,7 +213,6 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     actionSectionClassName,
                                     styles.actionSection,
                                 )}
-                                closerClassName={cn(styles.closeButton, closerClassName)}
                                 style={{
                                     top: offset,
                                     zIndex: computedZIndex,
@@ -226,7 +227,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 {...restProps}
                             >
                                 {children}
-                            </ToastPlate>
+                            </ToastPlateDesktop>
                         </div>
                     </Wrapper>
                 )}

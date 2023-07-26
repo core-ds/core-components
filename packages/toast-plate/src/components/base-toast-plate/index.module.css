@@ -46,7 +46,7 @@
 
 .actionSection {
     display: flex;
-    align-items: var(--toast-plate-action-align);
+    padding: var(--toast-plate-action-padding);
     flex-shrink: 0;
 
     &:not(.hasCloser) {
@@ -98,6 +98,5 @@
 
 .closeButton {
     display: flex;
-    align-items: var(--toast-plate-close-button-align);
     height: 100%;
 }

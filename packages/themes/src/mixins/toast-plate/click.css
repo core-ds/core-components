@@ -2,8 +2,10 @@
     /* theme */
     --toast-plate-title-font-weight: 400;
     --toast-plate-bg-color: var(--color-light-bg-secondary-inverted);
+    --toast-plate-action-align: flex-start;
     --toast-plate-action-padding: 0 0 0 var(--gap-xl);
     --toast-plate-action-divider-display: none;
     --toast-plate-content-with-closer-right-padding: 0;
+    --toast-plate-close-button-align: flex-start;
     --toast-plate-action-margin: 0;
 }

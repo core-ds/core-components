@@ -6,7 +6,8 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-toast-plate/*": ["../toast-plate/src/*"]
         }
     },
     "references": [{ "path": "../portal" }, { "path": "../toast-plate" }, { "path": "../stack" }]
