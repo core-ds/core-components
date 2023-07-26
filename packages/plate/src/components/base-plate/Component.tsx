@@ -319,7 +319,10 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                                     <div className={styles.footer}>
                                         <ButtonList
                                             buttons={buttons}
-                                            containerClassName={buttonsClassName}
+                                            containerClassName={cn(
+                                                commonStyles.containerButton,
+                                                buttonsClassName,
+                                            )}
                                             buttonClassName={cn(
                                                 commonStyles.button,
                                                 buttonsClassName,
