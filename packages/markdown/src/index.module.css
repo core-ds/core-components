@@ -1,0 +1,45 @@
+.h1 {
+    margin-bottom: var(--gap-m);
+}
+
+.h2 {
+    padding-top: var(--gap-2xl);
+    margin-bottom: var(--gap-m);
+}
+
+.h3 {
+    padding-top: var(--gap-m);
+    margin-bottom: var(--gap-m);
+}
+
+.code {
+    margin-bottom: var(--gap-m);
+}
+
+.blockquote > p {
+    color: inherit;
+    font: inherit;
+}
+
+.list > li {
+    margin-top: 0;
+    margin-bottom: var(--gap-s);
+}
+
+.list > li:only-child {
+    margin-bottom: 0;
+}
+
+.list > li p {
+    margin: 0;
+}
+.imageContainer {
+    padding-top: var(--gap-m);
+    margin-bottom: var(--gap-xl);
+}
+
+.image {
+    display: block;
+    width: 100%;
+    border-radius: var(--border-radius-l);
+}

@@ -1,0 +1,43 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs';
+import { ComponentHeader } from 'storybook/blocks';
+import { Markdown } from '@alfalab/core-components-markdown';
+import packageJson from '../../package.json';
+import { Tabs } from 'storybook/blocks';
+import Description from './description.mdx';
+import { text } from '@storybook/addon-knobs';
+
+<Meta title='Components/Markdown' component={Markdown} id='Markdown' />
+
+<Story name='Markdown'>
+    {React.createElement(() => {
+        return <Markdown>{text("children",
+            `
+### h1
+
+## h2
+
+hello
+
+1. 123
+
+2. 333
+   `
+   )}</Markdown>;
+   })}
+    </Story>
+
+<ComponentHeader
+    name='Markdown'
+    version={packageJson.version}
+    package='@alfalab/core-components/markdown'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/branch/iXBg8h9LGQzDyIJT0OHM4v/Web-%3A%3A-Core-Default-Components?type=design&node-id=89835-120143&mode=design&t=lrmb1JJ6HkunHzwe-0'
+    children='Компонент для создания разметки.'
+/>
+
+## Подключение
+
+```jsx
+import { Markdown } from '@alfalab/core-components/markdown';
+```
+
+<Tabs description={<Description />} props={<ArgsTable of={Markdown} />} />
