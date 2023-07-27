@@ -440,6 +440,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         };
 
         const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = (event) => {
+            inputProps?.onPaste?.(event);
+
             event.preventDefault();
             const text = event.clipboardData?.getData('Text');
 
@@ -461,7 +463,6 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             const resultNumber = preparedNumber.substring(0, maxPhoneLength + 1);
 
             if (resultNumber) {
-                inputProps?.onPaste?.(event);
                 setCountryIso2(targetCountry ? targetCountry.iso2 : undefined);
                 changePhone(addCountryCode(resultNumber));
             }
