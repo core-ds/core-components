@@ -1,3 +1,14 @@
+.component > :first-child,
+.component > p:first-child > :first-child {
+    padding-top: 0;
+}
+
+.component > *:only-child,
+.component > p:only-child > *:only-child {
+    padding-top: 0;
+    margin-bottom: 0;
+}
+
 .h1 {
     margin-bottom: var(--gap-m);
 }
