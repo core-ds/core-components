@@ -1,40 +1,82 @@
 import React, { useMemo } from 'react';
 
 import { Link } from '@alfalab/core-components/link';
+import { List } from '@alfalab/core-components/list';
 import { Typography } from '@alfalab/core-components-typography';
 
-import { FontType, OverridesComponents, PlatformType } from '../typings';
+import { FontType, OverridesComponents, PaddingsMarkdownType, PlatformType } from '../typings';
 
 import styles from '../index.module.css';
 
-export const useOverrides = (font?: FontType, platform?: PlatformType): OverridesComponents =>
+export const useOverrides = (
+    platform?: PlatformType,
+    font?: FontType,
+    paddings?: PaddingsMarkdownType,
+): OverridesComponents =>
     useMemo(() => {
         const titleName = platform === 'desktop' ? 'Title' : 'TitleMobile';
         const Title = Typography[titleName];
 
+        const paddingStyles =
+            typeof paddings === 'number'
+                ? {
+                      paddingTop: paddings,
+                      paddingBottom: paddings,
+                      paddingLeft: paddings,
+                      paddingRight: paddings,
+                  }
+                : paddings;
+
         return {
             h1: (props) => (
-                <Title font={font} className={styles.h1} tag='h1' view='medium' color='primary'>
+                <Title
+                    style={{ ...paddingStyles }}
+                    font={font}
+                    className={styles.h1}
+                    tag='h1'
+                    view='medium'
+                    color='primary'
+                >
                     {props.children}
                 </Title>
             ),
             h2: (props) => (
-                <Title font={font} className={styles.h2} tag='h2' view='small' color='primary'>
+                <Title
+                    style={{ ...paddingStyles }}
+                    font={font}
+                    className={styles.h2}
+                    tag='h2'
+                    view='small'
+                    color='primary'
+                >
                     {props.children}
                 </Title>
             ),
             h3: (props) => (
-                <Title font={font} className={styles.h3} tag='h3' view='xsmall' color='primary'>
+                <Title
+                    style={{ ...paddingStyles }}
+                    font={font}
+                    className={styles.h3}
+                    tag='h3'
+                    view='xsmall'
+                    color='primary'
+                >
                     {props.children}
                 </Title>
             ),
             p: (props) => (
-                <Typography.Text tag='p' view='primary-medium' color='primary'>
+                <Typography.Text
+                    style={{ ...paddingStyles }}
+                    tag='p'
+                    view='primary-medium'
+                    color='primary'
+                >
                     {props.children}
                 </Typography.Text>
             ),
             blockquote: (props) => (
                 <Typography.Text
+                    style={{ ...paddingStyles }}
                     className={styles.blockquote}
                     tag='div'
                     view='primary-small'
@@ -44,12 +86,18 @@ export const useOverrides = (font?: FontType, platform?: PlatformType): Override
                 </Typography.Text>
             ),
             a: (props) => (
-                <Link target='_blank' rel='noopener noreferrer' href={props.href}>
+                <Link
+                    style={{ ...paddingStyles }}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={props.href}
+                >
                     {props.children}
                 </Link>
             ),
             code: (props) => (
                 <Typography.Text
+                    style={{ ...paddingStyles }}
                     tag='span'
                     className={styles.code}
                     view='primary-small'
@@ -59,9 +107,22 @@ export const useOverrides = (font?: FontType, platform?: PlatformType): Override
                 </Typography.Text>
             ),
             img: (props) => (
-                <div className={styles.imageContainer}>
+                <div style={{ ...paddingStyles }} className={styles.imageContainer}>
                     <img alt={props.alt} src={props.src} className={styles.image} />
                 </div>
             ),
+            ul: (props) => (
+                <List className={styles.list} tag={props.ordered ? 'ol' : 'ul'}>
+                    {props.children.filter((el) => el !== '\n')}
+                </List>
+            ),
+            ol: (props) => (
+                <List className={styles.list} tag={props.ordered ? 'ol' : 'ul'}>
+                    {props.children.filter((el) => el !== '\n')}
+                </List>
+            ),
+            li: (props) => (
+                <Typography.Text view='primary-medium'>{props.children}</Typography.Text>
+            ),
         };
-    }, [font, platform]);
+    }, [font, paddings, platform]);

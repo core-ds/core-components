@@ -2,4 +2,4 @@
 '@alfalab/core-components-markdown': major
 ---
 
-Добавлен компонент Markdown
+Добавлен новый компонент Markdown

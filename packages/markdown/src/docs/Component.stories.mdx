@@ -1,16 +1,22 @@
 import { ArgsTable, Meta, Story } from '@storybook/addon-docs';
 import { ComponentHeader } from 'storybook/blocks';
-import { Markdown } from '@alfalab/core-components-markdown';
+import { Markdown } from '../Component';
 import packageJson from '../../package.json';
 import { Tabs } from 'storybook/blocks';
 import Description from './description.mdx';
-import { text } from '@storybook/addon-knobs';
+import { number, radios, text } from '@storybook/addon-knobs';
 
 <Meta title='Components/Markdown' component={Markdown} id='Markdown' />
 
 <Story name='Markdown'>
     {React.createElement(() => {
-        return <Markdown>{text("children",
+        const paddings = {
+            paddingTop: number("paddingTop", null),
+            paddingBottom: number("paddingBottom", null),
+            paddingLeft: number("paddingLeft", null),
+            paddingRight: number("paddingRight", null)
+        }
+        return <Markdown paddings={paddings} font={radios("font", ["styrene", "system"], "styrene")} platform={radios("platform", ["desktop", "mobile"], "desktop")}>{text("children",
             `
 ### h1
 
@@ -22,9 +28,9 @@ hello
 
 2. 333
    `
-   )}</Markdown>;
+   ) \}</Markdown>;
    })}
-    </Story>
+      </Story>
 
 <ComponentHeader
     name='Markdown'

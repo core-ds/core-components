@@ -1,3 +1,5 @@
+@import '../../themes/src/default.css';
+
 .component > :first-child,
 .component > p:first-child > :first-child {
     padding-top: 0;
@@ -6,25 +8,25 @@
 .component > *:only-child,
 .component > p:only-child > *:only-child {
     padding-top: 0;
-    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .h1 {
-    margin-bottom: var(--gap-m);
+    padding-bottom: var(--gap-m);
 }
 
 .h2 {
     padding-top: var(--gap-2xl);
-    margin-bottom: var(--gap-m);
+    padding-bottom: var(--gap-m);
 }
 
 .h3 {
     padding-top: var(--gap-m);
-    margin-bottom: var(--gap-m);
+    padding-bottom: var(--gap-m);
 }
 
 .code {
-    margin-bottom: var(--gap-m);
+    padding-bottom: var(--gap-m);
 }
 
 .blockquote > p {
@@ -44,9 +46,10 @@
 .list > li p {
     margin: 0;
 }
+
 .imageContainer {
     padding-top: var(--gap-m);
-    margin-bottom: var(--gap-xl);
+    padding-bottom: var(--gap-xl);
 }
 
 .image {

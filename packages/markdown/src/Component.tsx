@@ -7,8 +7,15 @@ import { MarkdownProps } from './typings';
 
 import styles from './index.module.css';
 
-export const Markdown = ({ children, className, platform, font, overrides }: MarkdownProps) => {
-    const defaultOverrides = useOverrides(font, platform);
+export const Markdown = ({
+    children,
+    className,
+    platform,
+    font,
+    overrides,
+    paddings,
+}: MarkdownProps) => {
+    const defaultOverrides = useOverrides(platform, font, paddings);
 
     return (
         <ReactMarkdown
