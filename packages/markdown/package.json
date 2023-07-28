@@ -18,6 +18,7 @@
     "dependencies": {
         "@alfalab/core-components-typography": "^3.2.1",
         "@alfalab/core-components-list": "^3.2.1",
+        "@alfalab/core-components-link": "^5.0.5",
         "tslib": "^2.4.0",
         "classnames": "^2.3.1",
         "react-markdown": "^8.0.7"
