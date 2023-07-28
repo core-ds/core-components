@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
-import { Link } from '@alfalab/core-components/link';
-import { List } from '@alfalab/core-components/list';
+import { Link } from '@alfalab/core-components-link';
+import { List } from '@alfalab/core-components-list';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { FontType, OverridesComponents, PaddingsMarkdownType, PlatformType } from '../typings';
