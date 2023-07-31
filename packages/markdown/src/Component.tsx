@@ -11,7 +11,7 @@ export const Markdown = ({
     children,
     className,
     platform,
-    font,
+    font = 'system',
     overrides,
     paddings,
 }: MarkdownProps) => {

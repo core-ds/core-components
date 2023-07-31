@@ -30,7 +30,7 @@ export const useOverrides = (
         return {
             h1: (props) => (
                 <Title
-                    style={{ ...paddingStyles }}
+                    style={paddingStyles}
                     font={font}
                     className={styles.h1}
                     tag='h1'
@@ -42,7 +42,7 @@ export const useOverrides = (
             ),
             h2: (props) => (
                 <Title
-                    style={{ ...paddingStyles }}
+                    style={paddingStyles}
                     font={font}
                     className={styles.h2}
                     tag='h2'
@@ -54,7 +54,7 @@ export const useOverrides = (
             ),
             h3: (props) => (
                 <Title
-                    style={{ ...paddingStyles }}
+                    style={paddingStyles}
                     font={font}
                     className={styles.h3}
                     tag='h3'
@@ -66,7 +66,7 @@ export const useOverrides = (
             ),
             p: (props) => (
                 <Typography.Text
-                    style={{ ...paddingStyles }}
+                    style={paddingStyles}
                     tag='p'
                     view='primary-medium'
                     color='primary'
@@ -76,7 +76,7 @@ export const useOverrides = (
             ),
             blockquote: (props) => (
                 <Typography.Text
-                    style={{ ...paddingStyles }}
+                    style={paddingStyles}
                     className={styles.blockquote}
                     tag='div'
                     view='primary-small'
@@ -87,7 +87,7 @@ export const useOverrides = (
             ),
             a: (props) => (
                 <Link
-                    style={{ ...paddingStyles }}
+                    style={paddingStyles}
                     target='_blank'
                     rel='noopener noreferrer'
                     href={props.href}
@@ -97,7 +97,7 @@ export const useOverrides = (
             ),
             code: (props) => (
                 <Typography.Text
-                    style={{ ...paddingStyles }}
+                    style={paddingStyles}
                     tag='span'
                     className={styles.code}
                     view='primary-small'
@@ -107,7 +107,7 @@ export const useOverrides = (
                 </Typography.Text>
             ),
             img: (props) => (
-                <div style={{ ...paddingStyles }} className={styles.imageContainer}>
+                <div style={paddingStyles} className={styles.imageContainer}>
                     <img alt={props.alt} src={props.src} className={styles.image} />
                 </div>
             ),

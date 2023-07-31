@@ -1,12 +1,15 @@
-import { ArgsTable, Meta, Story } from '@storybook/addon-docs';
+import { Markdown, Meta, Story } from '@storybook/addon-docs';
+import { number, radios, text } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks';
-import { Markdown } from '../Component';
+
+import { Markdown as MarkdownComponent } from '../Component';
 import packageJson from '../../package.json';
 import { Tabs } from 'storybook/blocks';
 import Description from './description.mdx';
-import { number, radios, text } from '@storybook/addon-knobs';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
 
-<Meta title='Components/Markdown' component={Markdown} id='Markdown' />
+<Meta title='Components/Markdown' component={MarkdownComponent} id='Markdown' />
 
 <Story name='Markdown'>
     {React.createElement(() => {
@@ -16,7 +19,12 @@ import { number, radios, text } from '@storybook/addon-knobs';
             paddingLeft: number("paddingLeft", null),
             paddingRight: number("paddingRight", null)
         }
-        return <Markdown paddings={paddings} font={radios("font", ["styrene", "system"], "styrene")} platform={radios("platform", ["desktop", "mobile"], "desktop")}>{text("children",
+        return <MarkdownComponent
+            paddings={paddings}
+            font={radios('font', ['system', 'styrene'], 'system')}
+            platform={radios('platform', ['desktop', 'mobile'], 'desktop')}
+        >
+            {text('children',
             `
 ### h1
 
@@ -28,9 +36,9 @@ hello
 
 2. 333
    `
-   )}</Markdown>;
+   )}</MarkdownComponent>;
    })}
-      </Story>
+     </Story>
 
 <ComponentHeader
     name='Markdown'
@@ -40,10 +48,8 @@ hello
     children='Компонент для создания разметки.'
 />
 
-## Подключение
-
-```jsx
-import { Markdown } from '@alfalab/core-components/markdown';
-```
-
-<Tabs description={<Description />} props={<ArgsTable of={Markdown} />} />
+<Tabs
+    description={<Description />}
+    development={<Development />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+/>
