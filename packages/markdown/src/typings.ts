@@ -44,3 +44,20 @@ export type MarkdownProps = {
      */
     paddings?: PaddingsMarkdownType;
 };
+
+export type MarkdownDesktopProps = Omit<MarkdownProps, 'platform'>;
+
+export type MarkdownMobileProps = Omit<MarkdownProps, 'platform'>;
+
+export type MarkdownResponsiveProps = Omit<MarkdownProps, 'platform'> & {
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
+};

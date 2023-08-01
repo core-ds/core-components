@@ -7,4 +7,20 @@ import { Markdown as MarkdownTS } from '../Component';
 import { Markdown } from '@alfalab/core-components/markdown';
 ```
 
+## Стилизация
+
+Для стилизации определенного тега используйте класс с его названием.
+
+> Например для тега h1 -> `.h1 {}`
+
+## Переопределение
+
+Для каждого тега можно переопределить компонент.
+
+В `overrides` передать
+
+```
+{ h1: (props) => (<div>{props.children}</div>)}
+```
+
 <ArgsTable of={MarkdownTS} />

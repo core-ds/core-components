@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
 import { List } from '@alfalab/core-components-list';
@@ -32,7 +33,7 @@ export const useOverrides = (
                 <Title
                     style={paddingStyles}
                     font={font}
-                    className={styles.h1}
+                    className={cn(styles.h1, 'h1')}
                     tag='h1'
                     view='medium'
                     color='primary'
@@ -44,7 +45,7 @@ export const useOverrides = (
                 <Title
                     style={paddingStyles}
                     font={font}
-                    className={styles.h2}
+                    className={cn(styles.h2, 'h2')}
                     tag='h2'
                     view='small'
                     color='primary'
@@ -56,7 +57,7 @@ export const useOverrides = (
                 <Title
                     style={paddingStyles}
                     font={font}
-                    className={styles.h3}
+                    className={cn(styles.h3, 'h3')}
                     tag='h3'
                     view='xsmall'
                     color='primary'
@@ -67,6 +68,7 @@ export const useOverrides = (
             p: (props) => (
                 <Typography.Text
                     style={paddingStyles}
+                    className='p'
                     tag='p'
                     view='primary-medium'
                     color='primary'
@@ -77,7 +79,7 @@ export const useOverrides = (
             blockquote: (props) => (
                 <Typography.Text
                     style={paddingStyles}
-                    className={styles.blockquote}
+                    className={cn(styles.blockquote, 'blockquote')}
                     tag='div'
                     view='primary-small'
                     color='secondary'
@@ -88,6 +90,7 @@ export const useOverrides = (
             a: (props) => (
                 <Link
                     style={paddingStyles}
+                    className='a'
                     target='_blank'
                     rel='noopener noreferrer'
                     href={props.href}
@@ -99,7 +102,7 @@ export const useOverrides = (
                 <Typography.Text
                     style={paddingStyles}
                     tag='span'
-                    className={styles.code}
+                    className={cn(styles.code, 'code')}
                     view='primary-small'
                     color='secondary'
                 >
@@ -107,22 +110,32 @@ export const useOverrides = (
                 </Typography.Text>
             ),
             img: (props) => (
-                <div style={paddingStyles} className={styles.imageContainer}>
+                <div style={paddingStyles} className={cn(styles.imageContainer, 'img')}>
                     <img alt={props.alt} src={props.src} className={styles.image} />
                 </div>
             ),
             ul: (props) => (
-                <List className={styles.list} tag={props.ordered ? 'ol' : 'ul'}>
+                <List
+                    style={paddingStyles}
+                    className={cn(styles.list, 'ul')}
+                    tag={props.ordered ? 'ol' : 'ul'}
+                >
                     {props.children.filter((el) => el !== '\n')}
                 </List>
             ),
             ol: (props) => (
-                <List className={styles.list} tag={props.ordered ? 'ol' : 'ul'}>
+                <List
+                    style={paddingStyles}
+                    className={cn(styles.list, 'ol')}
+                    tag={props.ordered ? 'ol' : 'ul'}
+                >
                     {props.children.filter((el) => el !== '\n')}
                 </List>
             ),
             li: (props) => (
-                <Typography.Text view='primary-medium'>{props.children}</Typography.Text>
+                <Typography.Text className={cn(styles.li, 'li')} view='primary-medium'>
+                    {props.children}
+                </Typography.Text>
             ),
         };
     }, [font, paddings, platform]);
