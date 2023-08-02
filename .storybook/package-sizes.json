@@ -196,10 +196,10 @@
         "index.js": 1.99
     },
     "icon-view": {
-        "circle.js": 27.48,
-        "no-shape.js": 5.07,
-        "rectangle.js": 16.13,
-        "super-ellipse.js": 53.25
+        "circle.js": 27.51,
+        "no-shape.js": 5.1,
+        "rectangle.js": 16.16,
+        "super-ellipse.js": 53.29
     },
     "icon-button": {
         "index.js": 7.01
@@ -310,13 +310,13 @@
         "index.js": 164.17
     },
     "calendar-range": {
-        "index.js": 229.07
+        "index.js": 229.05
     },
     "calendar-input": {
-        "desktop.js": 221.09,
-        "index.js": 221.89,
-        "mobile.js": 221.12,
-        "responsive.js": 221.47
+        "desktop.js": 221.08,
+        "index.js": 221.88,
+        "mobile.js": 221.11,
+        "responsive.js": 221.46
     },
     "button": {
         "index.js": 6.48
