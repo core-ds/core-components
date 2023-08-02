@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.1.5
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   calendar@6.6.1
+    -   calendar-input@8.3.0
+    -   date-input@4.2.10
+
 ## 7.1.4
 
 ### Patch Changes

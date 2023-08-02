@@ -1,5 +1,14 @@
 # Change Log
 
+## 5.1.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.3
+    -   link@5.0.6
+    -   spinner@3.0.7
+
 ## 5.1.24
 
 ### Patch Changes

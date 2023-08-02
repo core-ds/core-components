@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.2.2
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   typography@3.2.2
+
 ## 3.2.1
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.0.42
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   form-control@9.0.6
+    -   select@14.3.4
+    -   tag@5.4.1
+
 ## 7.0.41
 
 ### Patch Changes
