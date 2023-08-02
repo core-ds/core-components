@@ -39,7 +39,6 @@ lerna exec \
 
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
-cp bin/send-stats.js dist/send-stats.js
 
 # копирую README.md в сборку корневого пакета
 cp README.md dist/README.md

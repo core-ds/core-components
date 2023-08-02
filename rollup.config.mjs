@@ -94,7 +94,7 @@ const es5 = {
         json(),
         postcssPlugin,
         copyPlugin('dist'),
-        copy({ targets: [{ src: ['../../bin/send-stats.js', 'package.json'], dest: 'dist' }] }),
+        copy({ targets: [{ src: ['package.json'], dest: 'dist' }] }),
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };

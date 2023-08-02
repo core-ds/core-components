@@ -7,6 +7,5 @@
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    },
-    "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
+    }
 }
