@@ -157,6 +157,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Отображение компонента в мобильном или десктопном виде
      */
     view?: 'desktop' | 'mobile';
+
+    /**
+     * Запретить ввод с клавиатуры
+     */
+    disableUserInput?: boolean;
 };
 
 export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
@@ -186,6 +191,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onCalendarChange,
             onKeyDown,
             readOnly,
+            disableUserInput = false,
             Calendar = DefaultCalendar,
             popoverPosition = 'bottom-start',
             zIndexPopover,
@@ -276,6 +282,12 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const handleInputKeyDown = useCallback(
             (event: KeyboardEvent<HTMLInputElement>) => {
+                const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
+
+                if (disableUserInput && !isCopy) {
+                    event.preventDefault();
+                }
+
                 if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
                     event.preventDefault();
                     calendarRef.current.focus();
@@ -283,7 +295,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
                 if (onKeyDown) onKeyDown(event);
             },
-            [onKeyDown],
+            [onKeyDown, disableUserInput],
         );
 
         const changeHandler = useCallback(
