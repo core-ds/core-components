@@ -1,0 +1,24 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import Changelog from '../../CHANGELOG.md?raw';
+import Description from './description.mdx';
+import packageJson from '../../package.json';
+
+<Meta
+    title='Tokens & assets/CSS-переменные'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
+    id='Guidelines/Css-vars'
+/>
+
+{/* Docs */}
+
+## CSS-переменные
+
+<ComponentHeader
+    name='vars'
+    version={packageJson.version}
+    package='@alfalab/core-components/vars'
+/>
+
+<Tabs description={<Description />} changelog={<Markdown>{Changelog}</Markdown>} />

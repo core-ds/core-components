@@ -1,7 +1,6 @@
 @import '../../themes/src/default.css';
 
 .eye:last-child {
-    margin-right: var(--gap-s-neg);
     height: 100%;
 }
 
@@ -17,4 +16,8 @@
 
 .input::-ms-reveal {
     display: none;
+}
+
+.addons {
+    padding-right: 0;
 }

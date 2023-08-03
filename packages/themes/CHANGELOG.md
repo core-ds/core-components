@@ -1,5 +1,21 @@
 # Change Log
 
+## 11.9.0
+
+### Minor Changes
+
+### [#754](https://github.com/core-ds/core-components/pull/754)
+
+-   Pадиус скругления изменен на 12px во всех темах
+
+## 11.8.0
+
+### Minor Changes
+
+### [#741](https://github.com/core-ds/core-components/pull/741)
+
+-   Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core темизации
+
 ## 11.7.0
 
 ### Minor Changes
