@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.7
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 5.0.6
 
 ### Patch Changes

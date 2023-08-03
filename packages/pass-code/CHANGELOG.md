@@ -1,5 +1,24 @@
 # @alfalab/core-components-pass-code
 
+## 1.0.18
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   gap@1.1.3
+
+## 1.0.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+
 ## 1.0.16
 
 ### Patch Changes

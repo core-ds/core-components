@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.3.20
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   icon-button@6.1.3
+
+## 6.3.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+    -   icon-button@6.1.2
+
 ## 6.3.18
 
 ### Patch Changes

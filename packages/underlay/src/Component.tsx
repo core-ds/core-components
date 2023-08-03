@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
+import { getBorderCorners } from './utils/getBorderCorners';
+import { getClasses, isBackgroundToken } from './utils/getClasses';
 import { UnderlayProps } from './types';
 
 import styles from './index.module.css';
@@ -11,6 +13,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
             children,
             borderRadius,
             shadow,
+            dimensions,
             borderSize,
             backgroundColor,
             borderColor,
@@ -18,6 +21,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
             padding,
             dataTestId,
             overflow = true,
+            contentProps,
             ...restProps
         },
         ref,
@@ -34,24 +38,59 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
             [styles[`padding-left-${paddingSize.left}`]]: paddingSize.left,
         };
 
+        const bordersStyles = getBorderCorners(borderRadius);
+        const contentBordersStyles = getBorderCorners(contentProps?.borderRadius);
+
+        const underlayStyles = {
+            ...dimensions,
+            ...(isBackgroundToken(backgroundColor) ? {} : { backgroundColor }),
+        };
+
+        const contentStyles = {
+            ...(isBackgroundToken(contentProps?.backgroundColor)
+                ? {}
+                : { backgroundColor: contentProps?.backgroundColor }),
+            ...(contentProps?.backgroundImageURL
+                ? { backgroundImage: `url(${contentProps.backgroundImageURL})` }
+                : {}),
+        };
+
         return (
             <div
                 ref={ref}
+                style={underlayStyles}
                 className={cn(
                     styles.component,
                     paddingStyles,
-                    backgroundColor && styles[`background-${backgroundColor}`],
-                    borderRadius && styles[`border-radius-${borderRadius}`],
-                    borderColor && styles[`border-color-${borderColor}`],
-                    borderSize && styles[`border-width-${borderSize}`],
-                    shadow && styles[shadow],
+                    bordersStyles,
+                    getClasses(backgroundColor, borderColor, borderSize, shadow),
                     { [styles.overflowHide]: !overflow },
                     className,
                 )}
                 data-test-id={dataTestId}
                 {...restProps}
             >
-                {children}
+                <div
+                    style={contentStyles}
+                    className={cn(
+                        styles.content,
+                        { [styles.backgroundImage]: contentProps?.backgroundImageURL },
+                        contentBordersStyles,
+                        getClasses(
+                            contentProps?.backgroundColor,
+                            contentProps?.borderColor,
+                            contentProps?.borderSize,
+                            contentProps?.shadow,
+                        ),
+                        contentProps?.axis && styles[`direction-${contentProps.axis}`],
+                        contentProps?.alignment && styles[`align-${contentProps.alignment}`],
+                        contentProps?.justifyContent &&
+                            styles[`justify-${contentProps.justifyContent}`],
+                        contentProps?.className,
+                    )}
+                >
+                    {children}
+                </div>
             </div>
         );
     },

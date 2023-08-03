@@ -1,20 +1,17 @@
 {
     "name": "@alfalab/core-components-chart",
-    "version": "3.1.11",
+    "version": "3.1.12",
     "description": "Chart component",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^3.2.1",
+        "@alfalab/core-components-typography": "^3.2.2",
         "classnames": "^2.3.1",
         "recharts": "^2.1.2",
         "tslib": "^2.4.0"

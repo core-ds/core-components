@@ -1,5 +1,54 @@
 # Change Log
 
+## 8.3.0
+
+### Minor Changes
+
+### [#756](https://github.com/core-ds/core-components/pull/756)
+
+-   Добавлены два коллбэка - onCalendarOpen и onCalendarClose
+
+### [#768](https://github.com/core-ds/core-components/pull/768)
+
+-   В компоненты CalendarInput, DateRangeInput, DateTimeInput добавлен проп disableUserInput отвечающий за запрет ввода с клавиатуры
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   calendar@6.6.1
+    -   date-input@4.2.10
+    -   popover@6.0.9
+
+## 8.2.29
+
+### Patch Changes
+
+### [#752](https://github.com/core-ds/core-components/pull/752)
+
+-   Свойство inputClassName передано компоненту инпута
+
+-   Обновлены зависимости
+    -   calendar@6.6.0
+
+## 8.2.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.5.2
+    -   date-input@4.2.9
+
+## 8.2.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.5.1
+
 ## 8.2.26
 
 ### Patch Changes

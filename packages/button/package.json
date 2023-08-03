@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-button",
-    "version": "8.4.0",
+    "version": "8.5.1",
     "description": "",
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
@@ -27,9 +27,6 @@
         "./cssm/*": "./cssm/*",
         "./modern/*": "./modern/*"
     },
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -39,7 +36,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-mq": "^4.1.4",
-        "@alfalab/core-components-spinner": "^3.0.6",
+        "@alfalab/core-components-spinner": "^3.0.7",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",

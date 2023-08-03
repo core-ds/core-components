@@ -1,14 +1,11 @@
 {
     "name": "@alfalab/core-components-bank-card",
-    "version": "5.2.23",
+    "version": "5.2.25",
     "description": "Bank card component",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -18,7 +15,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^6.1.16",
+        "@alfalab/core-components-masked-input": "^6.1.18",
         "@alfalab/icons-glyph": "^2.108.0",
         "@alfalab/icons-logotype": "^2.19.0",
         "classnames": "^2.3.1",

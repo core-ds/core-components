@@ -45,6 +45,11 @@ export type CalendarMobileProps = CalendarDesktopProps & {
     onClose?: () => void;
 
     /**
+     * Обработчик клика на название месяца в мобильном календаре
+     */
+    onMonthTitleClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+
+    /**
      * Количество лет для генерации в обе стороны от текущего года
      */
     yearsAmount?: number;
@@ -71,6 +76,7 @@ const CalendarMonthOnlyView = ({
     events,
     holidays,
     onChange,
+    onMonthTitleClick,
     selectedFrom,
     selectedTo,
     rangeComplete,
@@ -178,7 +184,19 @@ const CalendarMonthOnlyView = ({
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
-            <span className={styles.month}>{activeMonths[index].title}</span>
+            {onMonthTitleClick ? (
+                /* eslint-disable-next-line jsx-a11y/click-events-have-key-events */
+                <span
+                    className={styles.month}
+                    onClick={onMonthTitleClick}
+                    tabIndex={0}
+                    role='button'
+                >
+                    {activeMonths[index].title}
+                </span>
+            ) : (
+                <span className={styles.month}> {activeMonths[index].title} </span>
+            )}
             <DaysTable
                 weeks={activeMonths[index].weeks}
                 activeMonth={activeMonth}
@@ -221,6 +239,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             selectedFrom,
             selectedTo,
             onChange,
+            onMonthTitleClick,
             dataTestId,
             open,
             onClose,
@@ -271,6 +290,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         open={open}
                         yearsAmount={yearsAmount}
                         scrollableContainer={modalRef}
+                        onMonthTitleClick={onMonthTitleClick}
                         {...commonProps}
                         {...restProps}
                     />

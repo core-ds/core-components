@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.1.2
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   keyboard-focusable@4.0.7
+    -   progress-bar@3.0.5
+
+## 6.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+
 ## 6.1.0
 
 ### Minor Changes

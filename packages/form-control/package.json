@@ -1,14 +1,11 @@
 {
     "name": "@alfalab/core-components-form-control",
-    "version": "9.0.5",
+    "version": "9.0.6",
     "description": "FormControl component",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
