@@ -111,7 +111,7 @@ module.exports = {
         modifyCssRules(config);
         disableReactRefreshOverlay(config);
 
-        config.devtool = mode === 'PRODUCTION' ? 'source-map' : 'eval-cheap-module-source-map';
+        config.devtool = mode === 'PRODUCTION' ? false : 'eval-cheap-module-source-map';
 
         config.resolve = {
             fallback: {

@@ -1,14 +1,11 @@
 {
     "name": "@alfalab/core-components-mq",
-    "version": "4.1.4",
+    "version": "4.1.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"

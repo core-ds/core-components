@@ -1,39 +1,41 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, number } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Tooltip } from '@alfalab/core-components-tooltip';
 import { TooltipResponsive } from '@alfalab/core-components-tooltip/responsive';
 
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/Tooltip' component={Tooltip} id='Tooltip' />
+const meta: Meta<typeof Tooltip> = {
+    title: 'Components/Tooltip',
+    component: Tooltip,
+    id: 'Tooltip',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof Tooltip>;
 
-<Story name='Tooltip'>
-    {React.createElement(() => {
-        const POSITION_OPTIONS = [
-            'top',
-            'top-start',
-            'top-end',
-            'bottom',
-            'bottom-start',
-            'bottom-end',
-            'right',
-            'right-start',
-            'right-end',
-            'left',
-            'left-start',
-            'left-end',
-        ];
+const POSITION_OPTIONS = [
+    'top',
+    'top-start',
+    'top-end',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'right',
+    'right-start',
+    'right-end',
+    'left',
+    'left-start',
+    'left-end',
+] as const;
+
+export const tooltip: Story = {
+    name: 'Tooltip',
+    render: () => {
         const openSelectValue = select('open', ['true', 'false', 'undefined'], 'undefined');
         const open =
             openSelectValue === 'false' ? false : openSelectValue === 'true' ? true : undefined;
@@ -94,11 +96,12 @@ import {
                 </Tooltip>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='TooltipResponsive'>
-    {React.createElement(() => {
+export const tooltip_responsive: Story = {
+    name: 'TooltipResponsive',
+    render: () => {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => {
             setOpen(true);
@@ -106,20 +109,6 @@ import {
         const handleClose = () => {
             setOpen(false);
         };
-        const POSITION_OPTIONS = [
-            'top',
-            'top-start',
-            'top-end',
-            'bottom',
-            'bottom-start',
-            'bottom-end',
-            'right',
-            'right-start',
-            'right-end',
-            'left',
-            'left-start',
-            'left-end',
-        ];
         return (
             <div
                 style={{
@@ -149,20 +138,7 @@ import {
                 </TooltipResponsive>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Tooltip'
-    version={packageJson.version}
-    package='@alfalab/core-components/tooltip'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=298%3A37393'
-/>
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    development={<Development />}
-/>
+export default meta;

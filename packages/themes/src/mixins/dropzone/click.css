@@ -1,4 +1,3 @@
 @define-mixin dropzone-click {
     --dropzone-active-cursor: pointer;
-    --dropzone-border-radius: var(--border-radius-m);
 }

@@ -1,5 +1,23 @@
 # @alfalab/core-components-number-input
 
+## 1.0.16
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   input@11.1.18
+
+## 1.0.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.17
+
 ## 1.0.14
 
 ### Patch Changes

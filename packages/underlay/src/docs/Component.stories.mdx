@@ -1,82 +1,37 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Underlay } from '@alfalab/core-components-underlay';
+import { PureCell } from '@alfalab/core-components-pure-cell';
+import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
+
+import { ExclamationMIcon } from '@alfalab/icons-glyph/ExclamationMIcon';
+import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
+import { CheckmarkHeavyMIcon } from '@alfalab/icons-glyph/CheckmarkHeavyMIcon';
 
 import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
 
-export const BACKGROUND = [
-    'accent',
-    'info',
-    'attention-muted',
-    'positive-muted',
-    'negative-muted',
-    'primary',
-    'primary-inverted',
-    'secondary',
-    'secondary-inverted',
-    'tertiary',
-    'tertiary-inverted',
-    'quaternary',
-    'quaternary-inverted',
-    'specialbg-component',
-    'specialbg-component-inverted',
-    'specialbg-primary-grouped',
-    'specialbg-secondary-grouped',
-    'specialbg-tertiary-grouped',
-    'specialbg-secondary-transparent',
-    'specialbg-secondary-transparent-inverted',
-    'specialbg-tertiary-transparent',
-    'specialbg-tertiary-transparent-inverted',
-];
-export const BORDER_COLOR = [
-    'accent',
-    'key',
-    'key-inverted',
-    'link',
-    'primary',
-    'primary-inverted',
-    'secondary',
-    'secondary-inverted',
-    'tertiary',
-    'tertiary-inverted',
-    'underline',
-    'underline-inverted',
-    'graphic-attention',
-    'graphic-link',
-    'graphic-negative',
-    'graphic-positive',
-    'specialbg-secondary-transparent',
-    'specialbg-secondary-transparent-inverted',
-    'specialbg-tertiary-transparent',
-    'specialbg-tertiary-transparent-inverted',
-];
-export const SHADOW = [
-    'shadow-xs',
-    'shadow-s',
-    'shadow-m',
-    'shadow-l',
-    'shadow-xl',
-    'shadow-xs-hard',
-    'shadow-s-hard',
-    'shadow-m-hard',
-    'shadow-l-hard',
-    'shadow-xl-hard',
-    'shadow-xs-up',
-    'shadow-s-up',
-    'shadow-m-up',
-    'shadow-l-up',
-    'shadow-xl-up',
-    'shadow-xs-hard-up',
-    'shadow-s-hard-up',
-    'shadow-m-hard-up',
-    'shadow-l-hard-up',
-    'shadow-xl-hard-up',
-];
+import { BACKGROUND, BORDER_COLOR, SHADOW } from '../constants';
+
+export const ChildElement = ({ children }) => {
+    return (
+        <div
+            style={{
+                width: 'fit-content',
+                height: 70,
+                border: '2px solid var(--color-light-graphic-positive)',
+                margin: 4,
+                padding: 4,
+            }}
+        >
+            {children}
+        </div>
+    );
+};
 
 <Meta title='Components/Underlay' component={Underlay} id='Underlay' />
 
@@ -85,32 +40,88 @@ export const SHADOW = [
 <Story name='Underlay'>
     {React.createElement(() => {
         const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
-        const borderRadius = select('borderRadius', ['m', 'l', 'xl', 'xxl'], 'm');
-        const borderSize = select('borderSize', ['1', '2', '4'], '2');
-        const paddingTop = select('padding.top', paddingSizes, 'm');
-        const paddingRight = select('padding.right', paddingSizes, 'm');
-        const paddingBottom = select('padding.bottom', paddingSizes, 'm');
-        const paddingLeft = select('padding.left', paddingSizes, 'm');
-        const overflow = boolean('overflow', true);
+        const borderSizes = ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl'];
+        const borderRadius = {
+            bottomRight: select('borderRadius.bottomRight', borderSizes, 'm', 'underlayProps'),
+            bottomLeft: select('borderRadius.bottomLeft', borderSizes, 'm', 'underlayProps'),
+            topRight: select('borderRadius.topRight', borderSizes, 'm', 'underlayProps'),
+            topLeft: select('borderRadius.topLeft', borderSizes, 'm', 'underlayProps'),
+        }
+        const borderSize = select('borderSize', ['1', '2', '4'], '2', 'underlayProps');
+        const paddingTop = select('padding.top', paddingSizes, 'm', 'underlayProps');
+        const paddingRight = select('padding.right', paddingSizes, 'm', 'underlayProps');
+        const paddingBottom = select('padding.bottom', paddingSizes, 'm', 'underlayProps');
+        const paddingLeft = select('padding.left', paddingSizes, 'm', 'underlayProps');
+        const overflow = boolean('overflow', true, 'underlayProps');
+        const height = number('height', 250, undefined, 'underlayProps');
+        const width = number('width', 700, undefined, 'underlayProps');
+        const bottomRightCorner = select(
+            'borderRadius.bottomRight',
+            borderSizes,
+            'm',
+            'contentProps',
+        );
+        const bottomLeftCorner = select(
+            'borderRadius.bottomLeft',
+            borderSizes,
+            'm',
+            'contentProps',
+        );
+        const topRightCorner = select('borderRadius.topRight', borderSizes, 'm', 'contentProps');
+        const topLeftCorner = select('borderRadius.topLeft', borderSizes, 'm', 'contentProps');
+        const contentProps = {
+            borderSize: select('borderSize', ['1', '2', '4'], '1', 'contentProps'),
+            borderColor: select('borderColor', BORDER_COLOR, 'secondary', 'contentProps'),
+            borderRadius: {
+                bottomRight: bottomRightCorner,
+                bottomLeft: bottomLeftCorner,
+                topRight: topRightCorner,
+                topLeft: topLeftCorner,
+            },
+            backgroundColor: text('backgroundColor', 'primary', 'contentProps'),
+            backgroundImageURL: text('backgroundImageURL', '', 'contentProps'),
+            shadow: select('shadow', SHADOW, 'shadow-s', 'contentProps'),
+            axis: select('axis', ['vertical', 'horizontal'], 'vertical', 'contentProps'),
+            alignment: select(
+                'alignment',
+                ['start', 'end', 'fill', 'center'],
+                'center',
+                'contentProps',
+            )
+        };
         return (
             <Underlay
                 borderRadius={borderRadius}
                 borderSize={borderSize}
-                shadow={select('shadow', SHADOW, 'shadow-l')}
-                backgroundColor={select('backgroundColor', BACKGROUND, 'positive-muted')}
-                borderColor={select('borderColor', BORDER_COLOR, 'graphic-positive')}
+                shadow={select('shadow', SHADOW, 'shadow-l', 'underlayProps')}
+                backgroundColor={text(
+                    'backgroundColor',
+                    'positive-muted',
+                    'underlayProps',
+                )}
+                borderColor={select(
+                    'borderColor',
+                    BORDER_COLOR,
+                    'graphic-positive',
+                    'underlayProps',
+                )}
                 overflow={overflow}
+                dimensions={{ height, width }}
                 padding={{
                     top: paddingTop,
                     right: paddingRight,
                     bottom: paddingBottom,
                     left: paddingLeft,
                 }}
+                contentProps={contentProps}
             >
-                {text('children', 'Вам одобрено. Согласитесь на предложение')}
+                <ChildElement>Вам одобрено</ChildElement>
+                <ChildElement>Согласитесь на предложение</ChildElement>
+                <ChildElement>Успешно</ChildElement>
             </Underlay>
         );
     })}
+
 </Story>
 
 {/* Docs */}

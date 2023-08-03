@@ -9,7 +9,7 @@ const postcssMixins = require('postcss-mixins');
 
 const replaceMixinToRoot = (css) => css.replace(/@define-mixin.*$/m, ':root {');
 
-const bluetintThemes = ['mobile', 'intranet', 'click'];
+const bluetintThemes = ['mobile', 'intranet', 'click', 'corp'];
 const getPalette = (cssFile) =>
     bluetintThemes.some((x) => cssFile.includes(x)) ? 'bluetint' : 'indigo';
 

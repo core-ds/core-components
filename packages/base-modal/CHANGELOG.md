@@ -1,5 +1,25 @@
 # Change Log
 
+## 5.2.1
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   backdrop@3.0.7
+    -   portal@3.1.5
+
+## 5.2.0
+
+### Minor Changes
+
+### [#745](https://github.com/core-ds/core-components/pull/745)
+
+-   Добавлен usePortal проп
+
 ## 5.1.3
 
 ### Patch Changes
