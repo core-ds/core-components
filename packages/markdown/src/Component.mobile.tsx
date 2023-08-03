@@ -3,7 +3,7 @@ import React from 'react';
 import { Markdown } from './Component';
 import { MarkdownDesktopProps } from './typings';
 
-export const MarkdownDesktopComponent: React.FC<MarkdownDesktopProps> = ({
+export const MarkdownMobileComponent: React.FC<MarkdownDesktopProps> = ({
     children,
     ...restProps
 }) => (
