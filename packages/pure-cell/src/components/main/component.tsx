@@ -19,19 +19,29 @@ type Props = {
     isReverse?: boolean;
 
     /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
-export const Main: React.FC<Props> = ({ children, isReverse, dataTestId }) => {
+export const Main: React.FC<Props> = ({ children, isReverse, className, dataTestId }) => {
     const { direction = 'horizontal' } = useContext(PureCellContext);
 
     return (
         <div
-            className={cn(styles.component, styles[direction], {
-                [styles.reverse]: isReverse,
-            })}
+            className={cn(
+                styles.component,
+                styles[direction],
+                {
+                    [styles.reverse]: isReverse,
+                },
+                className,
+            )}
             data-test-id={getDataTestId(dataTestId, 'main')}
         >
             {children}

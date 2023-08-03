@@ -1,5 +1,25 @@
 # Change Log
 
+## 7.3.2
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   input@11.1.18
+    -   with-suffix@4.0.33
+
+## 7.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.17
+    -   with-suffix@4.0.32
+
 ## 7.3.0
 
 ### Minor Changes

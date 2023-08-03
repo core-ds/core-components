@@ -1,5 +1,45 @@
 # Change Log
 
+## 14.3.4
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   badge@5.1.1
+    -   base-modal@5.2.1
+    -   bottom-sheet@6.4.2
+    -   button@8.5.1
+    -   checkbox@3.1.5
+    -   form-control@9.0.6
+    -   input@11.1.18
+    -   modal@7.0.15
+    -   popover@6.0.9
+    -   scrollbar@2.1.6
+    -   skeleton@4.0.6
+
+## 14.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+    -   input@11.1.17
+    -   bottom-sheet@6.4.1
+    -   modal@7.0.14
+
+## 14.3.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.2.0
+    -   bottom-sheet@6.4.0
+    -   modal@7.0.13
+
 ## 14.3.1
 
 ### Patch Changes

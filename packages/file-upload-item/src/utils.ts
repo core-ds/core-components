@@ -5,7 +5,7 @@ import { DocumentTxtMIcon } from '@alfalab/icons-glyph/DocumentTxtMIcon';
 import { DocumentUnknownMIcon } from '@alfalab/icons-glyph/DocumentUnknownMIcon';
 
 export function humanFileSize(size: string | number) {
-    const units = ['B', 'KB', 'MB', 'GB'];
+    const units = ['Б', 'КБ', 'МБ', 'ГБ'];
 
     let humanSize: string | number = Number(size);
     let factor = 0;

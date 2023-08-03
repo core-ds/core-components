@@ -1,5 +1,19 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#772](https://github.com/core-ds/core-components/pull/772)
+
+-   Добавлен новый пропс shapeClassName для возможности стилизации формы шейпа
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 3.1.0
 
 ### Minor Changes

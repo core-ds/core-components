@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "41.14.0",
+    "version": "41.19.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -38,8 +38,7 @@
         "pub:ci": "node ./bin/release.js",
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
         "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
-        "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')}\""
+        "analyze-package-sizes": "node bin/analyze-package-sizes.mjs"
     },
     "browserslist": {
         "production": [

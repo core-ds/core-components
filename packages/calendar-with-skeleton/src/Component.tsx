@@ -29,9 +29,7 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
                     [styles.calendarVisible]: calendarVisible,
                 })}
             >
-                {calendarVisible && (
-                    <Calendar ref={ref} className={styles.contentCalendar} {...restProps} />
-                )}
+                {calendarVisible && <Calendar ref={ref} responsive={true} {...restProps} />}
 
                 <CSSTransition
                     in={!calendarVisible}

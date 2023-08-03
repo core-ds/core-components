@@ -1,5 +1,31 @@
 # Change Log
 
+## 7.0.15
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   base-modal@5.2.1
+    -   navigation-bar@0.3.7
+
+## 7.0.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.6
+
+## 7.0.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.2.0
+
 ## 7.0.12
 
 ### Patch Changes

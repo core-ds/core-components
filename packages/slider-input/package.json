@@ -1,14 +1,11 @@
 {
     "name": "@alfalab/core-components-slider-input",
-    "version": "7.1.20",
+    "version": "7.1.22",
     "description": "Slider input component",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -18,8 +15,8 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^11.1.16",
-        "@alfalab/core-components-slider": "^4.2.1",
+        "@alfalab/core-components-input": "^11.1.18",
+        "@alfalab/core-components-slider": "^4.2.2",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }

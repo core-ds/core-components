@@ -1,5 +1,46 @@
 # Change Log
 
+## 5.0.50
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   calendar@6.6.1
+    -   skeleton@4.0.6
+
+## 5.0.49
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.6.0
+
+## 5.0.48
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.5.2
+
+## 5.0.47
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.5.1
+
+## 5.0.46
+
+### Patch Changes
+
+### [#735](https://github.com/core-ds/core-components/pull/735)
+
+-   Изменены боковые отступы для компонента CalendarWithSkeleton
+
 ## 5.0.45
 
 ### Patch Changes

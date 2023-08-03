@@ -1,5 +1,34 @@
 # Change Log
 
+## 3.0.16
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   base-modal@5.2.1
+    -   drawer@4.2.12
+    -   mq@4.1.5
+    -   navigation-bar@0.3.7
+
+## 3.0.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.6
+
+## 3.0.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.2.0
+    -   drawer@4.2.11
+
 ## 3.0.13
 
 ### Patch Changes

@@ -425,7 +425,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const handleClear = () => {
+        const handleClear: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+            inputProps?.onClear?.(event);
+
             if (clearableCountryCode) {
                 onChange('+');
                 if (canBeEmptyCountry) {
@@ -438,6 +440,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         };
 
         const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = (event) => {
+            inputProps?.onPaste?.(event);
+
             event.preventDefault();
             const text = event.clipboardData?.getData('Text');
 
@@ -518,8 +522,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 ref={ref}
                 inputProps={{
                     clear: clear && !isEmptyValue,
-                    onClear: handleClear,
                     ...inputProps,
+                    onClear: handleClear,
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
                     type: 'tel',

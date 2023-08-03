@@ -1,5 +1,25 @@
 # Change Log
 
+## 4.2.27
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   popover@6.0.9
+    -   portal@3.1.5
+    -   toast-plate@5.1.24
+
+## 4.2.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.23
+
 ## 4.2.25
 
 ### Patch Changes

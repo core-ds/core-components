@@ -1,14 +1,11 @@
 {
     "name": "@alfalab/core-components-radio-group",
-    "version": "3.0.8",
+    "version": "3.0.9",
     "description": "Radio group",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"

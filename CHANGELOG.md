@@ -1,3 +1,199 @@
+## 41.19.0
+
+<sup><time>02.08.2023</time></sup>
+
+### [#772](https://github.com/core-ds/core-components/pull/772)
+
+#### Что изменилось
+- Добавлен новый пропс shapeClassName для возможности стилизации формы шейпа
+
+#### Влияние на компоненты
+- Минорное<br />`icon-view`
+
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+#### Что изменилось
+- Удален скрипт отправки статистики (send-stats)
+
+#### Влияние на компоненты
+- Патчи<br />`action-button` `alert` `amount` `amount-input` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `custom-picker-button` `date-input` `divider`<br /> `drawer` `filter-tag` `form-control` `gallery` `gap`<br /> `generic-wrapper` `grid` `hatching-progress-bar` `icon-button` `icon-view`<br /> `indicator` `input` `input-autocomplete` `intl-phone-input` `keyboard-focusable`<br /> `link` `list` `list-header` `loader` `masked-input`<br /> `modal` `mq` `notification` `notification-manager` `number-input`<br /> `pass-code` `phone-input` `picker-button` `plate` `popover`<br /> `portal` `progress-bar` `pure-cell` `pure-input` `radio`<br /> `radio-group` `scrollbar` `segmented-control` `select` `select-with-tags`<br /> `side-panel` `skeleton` `slider` `slider-input` `sortable-list`<br /> `space` `spinner` `status` `stepped-progress-bar` `steps`<br /> `switch` `system-message` `tabs` `tag` `textarea`<br /> `toast` `toast-plate` `tooltip` `typography` `underlay`<br /> `with-suffix`
+
+
+### [#756](https://github.com/core-ds/core-components/pull/756)
+
+#### Что изменилось
+- Добавлены два коллбэка - onCalendarOpen и onCalendarClose
+
+#### Влияние на компоненты
+- Минорное<br />`calendar-input`
+
+
+### [#768](https://github.com/core-ds/core-components/pull/768)
+
+#### Что изменилось
+- В компоненты CalendarInput, DateRangeInput, DateTimeInput добавлен проп disableUserInput отвечающий за запрет ввода с клавиатуры
+
+#### Влияние на компоненты
+- Минорное<br />`calendar-input` `date-range-input` `date-time-input`
+
+
+### [#760](https://github.com/core-ds/core-components/pull/760)
+
+#### Что изменилось
+- Добавлены вызовы inputProps хендлеров
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+
+## 41.18.0
+
+<sup><time>26.07.2023</time></sup>
+
+### [#754](https://github.com/core-ds/core-components/pull/754)
+
+#### Что изменилось
+- Pадиус скругления изменен на 12px во всех темах
+
+#### Влияние на компоненты
+- Минорное<br />`dropzone` `themes`
+
+
+### [#753](https://github.com/core-ds/core-components/pull/753)
+
+#### Что изменилось
+- Добавлен пропс className в слот main
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+
+### [#757](https://github.com/core-ds/core-components/pull/757)
+
+#### Что изменилось
+- Перевели единицы измерения на русский язык
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#758](https://github.com/core-ds/core-components/pull/758)
+
+#### Что изменилось
+- В CalendarMobile добавлен проп onMonthTitleClick
+
+#### Влияние на компоненты
+- Минорное<br />`calendar`
+
+
+### [#752](https://github.com/core-ds/core-components/pull/752)
+
+#### Что изменилось
+- Свойство inputClassName передано компоненту инпута
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input`
+
+
+
+## 41.17.0
+
+<sup><time>20.07.2023</time></sup>
+
+### [#741](https://github.com/core-ds/core-components/pull/741)
+
+#### Что изменилось
+- Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core темизации
+
+#### Влияние на компоненты
+- Минорное<br />`button` `tabs` `themes` `vars`
+
+
+### [#732](https://github.com/core-ds/core-components/pull/732)
+
+#### Что изменилось
+- Добавлены пропсы размера и выбора закругления определенного угла рамки. Добавлен контент и contentProps с пропсами для настройки отображения контента
+
+#### Влияние на компоненты
+- Минорное<br />`underlay`
+
+
+
+## 41.15.0
+
+<sup><time>18.07.2023</time></sup>
+
+### [#738](https://github.com/core-ds/core-components/pull/738)
+
+#### Что изменилось
+- fix(steps): make checkIsStepCustom's return value nullable
+
+#### Влияние на компоненты
+- Минорное<br />`steps`
+
+
+### [#698](https://github.com/core-ds/core-components/pull/698)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой возникал отступ справа от "глаза" когда комопонент в состоянии ошибки
+
+#### Влияние на компоненты
+- Патчи<br />`password-input`
+
+
+### [#746](https://github.com/core-ds/core-components/pull/746)
+
+#### Что изменилось
+- Динамический импорт библиотеки libphonenumber-js в cjs сборках заменен на require
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+### [#745](https://github.com/core-ds/core-components/pull/745)
+
+#### Что изменилось
+- Добавлен usePortal проп
+
+#### Влияние на компоненты
+- Минорное<br />`base-modal` `bottom-sheet`
+
+
+### [#717](https://github.com/core-ds/core-components/pull/717)
+
+#### Что изменилось
+- Добавлен проп codeFormat в Amount.Pure
+
+#### Влияние на компоненты
+- Патчи<br />`amount`
+
+
+
+## 41.14.1
+
+<sup><time>06.07.2023</time></sup>
+
+### [#735](https://github.com/core-ds/core-components/pull/735)
+
+#### Что изменилось
+- Изменены боковые отступы для компонента CalendarWithSkeleton
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-with-skeleton`
+
+
+### [#736](https://github.com/core-ds/core-components/pull/736)
+
+#### Что изменилось
+- Добавлена возможность переопределять props в компоненте InputAutocompleteModalMobile
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+
 ## 41.14.0
 
 <sup><time>29.06.2023</time></sup>

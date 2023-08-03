@@ -33,11 +33,7 @@ render(() => {
                     picker={true}
                     block={true}
                     size='m'
-                    {...(disableUserInput
-                        ? {
-                              onKeyDown: (e) => e.preventDefault(),
-                          }
-                        : null)}
+                    disableUserInput={disableUserInput}
                 />
             </div>
             <Gap size='xl' />

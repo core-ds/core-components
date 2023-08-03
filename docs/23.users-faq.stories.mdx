@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta
+    title='For users/Вопросы и ответы'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
+    id='Instructions/users_faq'
+/>
+
+## Специфичность
+
+Если стили, переданные через `className`, не перебивают дефолтные стили компонента, 
+то необходимо повысить специфичность передаваемых стилей.
+
+```css
+.yourClassName.yourClassName {
+    ...
+}
+```
