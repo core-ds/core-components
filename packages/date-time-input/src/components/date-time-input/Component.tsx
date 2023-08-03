@@ -4,6 +4,7 @@ import React, {
     ChangeEvent,
     ElementType,
     FocusEvent,
+    KeyboardEvent,
     MouseEvent,
     useEffect,
     useRef,
@@ -146,6 +147,11 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Отображение компонента в мобильном или десктопном виде
      */
     view?: 'desktop' | 'mobile';
+
+    /**
+     * Запретить ввод с клавиатуры
+     */
+    disableUserInput?: boolean;
 };
 
 export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputProps>(
@@ -156,6 +162,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             popoverClassName,
             disabled,
             readOnly,
+            disableUserInput = false,
             picker,
             defaultValue = '',
             value: propValue,
@@ -302,6 +309,14 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             setValue('');
         };
 
+        const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+            const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
+
+            if (disableUserInput && !isCopy) {
+                event.preventDefault();
+            }
+        };
+
         const handleCalendarChange = (date?: number) => {
             if (date) {
                 const newValue = parseTimestampToDate(date);
@@ -362,6 +377,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                     readOnly={readOnly}
                     className={inputClassName}
                     onClear={handleClear}
+                    onKeyDown={handleInputKeyDown}
                     error={error}
                     rightAddons={
                         <React.Fragment>

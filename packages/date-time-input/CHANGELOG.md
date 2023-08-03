@@ -1,5 +1,28 @@
 # @alfalab/core-components-date-time-input
 
+## 3.2.0
+
+### Minor Changes
+
+### [#768](https://github.com/core-ds/core-components/pull/768)
+
+-   В компоненты CalendarInput, DateRangeInput, DateTimeInput добавлен проп disableUserInput отвечающий за запрет ввода с клавиатуры
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.6.1
+    -   icon-button@6.1.3
+    -   input@11.1.18
+    -   popover@6.0.9
+
+## 3.1.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.6.0
+
 ## 3.1.12
 
 ### Patch Changes

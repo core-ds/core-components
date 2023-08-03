@@ -1,5 +1,16 @@
 # @alfalab/core-components-generic-wrapper
 
+## 1.0.3
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   gap@1.1.3
+
 ## 1.0.2
 
 ### Patch Changes

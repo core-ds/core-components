@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.1.18
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   masked-input@6.1.18
+
 ## 7.1.17
 
 ### Patch Changes
