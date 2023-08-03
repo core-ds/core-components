@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.1.24
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   badge@5.1.1
+    -   icon-button@6.1.3
+
 ## 5.1.23
 
 ### Patch Changes

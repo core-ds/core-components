@@ -1,5 +1,18 @@
 # Change Log
 
+## 11.1.18
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   badge@5.1.1
+    -   button@8.5.1
+    -   form-control@9.0.6
+
 ## 11.1.17
 
 ### Patch Changes

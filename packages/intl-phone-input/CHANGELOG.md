@@ -1,5 +1,21 @@
 # Change Log
 
+## 9.4.5
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+### [#760](https://github.com/core-ds/core-components/pull/760)
+
+-   Добавлены вызовы inputProps хендлеров
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.4.6
+    -   select@14.3.4
+
 ## 9.4.4
 
 ### Patch Changes

@@ -1,9 +1,9 @@
 /* eslint-disable no-useless-escape, jsx-a11y/click-events-have-key-events */
-
 import React, {
     ChangeEvent,
     ElementType,
     FocusEvent,
+    KeyboardEvent,
     MouseEvent,
     useEffect,
     useRef,
@@ -162,6 +162,11 @@ export type DateRangeInputProps = Omit<InputProps, 'onChange'> &
          * Компонент инпута
          */
         InputComponent?: ElementType;
+        
+        /**
+         * Запретить ввод с клавиатуры
+         */
+        disableUserInput?: boolean;
     };
 
 type GetDatesRet = { formattedValue: string; dateFrom?: Date; dateTo?: Date; dateArr: string[] };
@@ -174,6 +179,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             popoverClassName,
             disabled,
             readOnly,
+            disableUserInput = false,
             picker,
             defaultValue = '',
             value: propValue,
@@ -310,6 +316,14 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                 if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
                     calendarRef.current.focus();
                 }
+            }
+        };
+
+        const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+            const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
+
+            if (disableUserInput && !isCopy) {
+                event.preventDefault();
             }
         };
 
@@ -467,6 +481,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                         readOnly={readOnly}
                         className={inputClassName}
                         onClear={handleClear}
+                        onKeyDown={handleInputKeyDown}
                         rightAddons={
                             <React.Fragment>
                                 {rightAddons}

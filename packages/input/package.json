@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input",
-    "version": "11.1.17",
+    "version": "11.1.18",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -26,9 +26,6 @@
         "./cssm/*": "./cssm/*",
         "./modern/*": "./modern/*"
     },
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -37,9 +34,9 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^8.5.0",
-        "@alfalab/core-components-form-control": "^9.0.5",
-        "@alfalab/core-components-badge": "^5.1.0",
+        "@alfalab/core-components-button": "^8.5.1",
+        "@alfalab/core-components-form-control": "^9.0.6",
+        "@alfalab/core-components-badge": "^5.1.1",
         "@alfalab/core-components-mq": "^4.1.4",
         "@alfalab/hooks": "^1.13.0",
         "@alfalab/icons-glyph": "^2.108.0",

@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.2.12
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   base-modal@5.2.1
+    -   scrollbar@2.1.6
+
 ## 4.2.11
 
 ### Patch Changes

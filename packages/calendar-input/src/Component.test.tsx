@@ -136,6 +136,45 @@ describe('CalendarInput', () => {
             });
         });
 
+        it('should call "onCalendarOpen" callback', async () => {
+            const onCalendarOpen = jest.fn();
+            const { container } = render(
+                <CalendarInput
+                    calendarProps={{ className: 'calendar' }}
+                    onCalendarOpen={onCalendarOpen}
+                />,
+            );
+            const component = container.firstElementChild as HTMLDivElement;
+
+            await waitFor(() => {
+                fireEvent.focus(component);
+            });
+
+            await waitFor(() => {
+                expect(onCalendarOpen).toBeCalledTimes(1);
+            });
+        });
+
+        it('should call "onCalendarClose" callback', async () => {
+            const onCalendarClose = jest.fn();
+            const { container } = render(
+                <CalendarInput
+                    calendarProps={{ className: 'calendar' }}
+                    onCalendarClose={onCalendarClose}
+                />,
+            );
+            const component = container.firstElementChild as HTMLDivElement;
+
+            await waitFor(() => {
+                fireEvent.focus(component);
+            });
+
+            await waitFor(() => {
+                fireEvent.blur(component);
+                expect(onCalendarClose).toBeCalledTimes(1);
+            });
+        });
+
         it('should toggle calendar on enter if input focused', async () => {
             const { container, queryByRole } = render(
                 <CalendarInput calendarProps={{ className: 'calendar' }} />,

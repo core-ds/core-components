@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.9.0
+
+### Minor Changes
+
+### [#754](https://github.com/core-ds/core-components/pull/754)
+
+-   Pадиус скругления изменен на 12px во всех темах
+
 ## 11.8.0
 
 ### Minor Changes
