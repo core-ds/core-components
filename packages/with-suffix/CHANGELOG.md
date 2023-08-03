@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.0.33
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   input@11.1.18
+    -   portal@3.1.5
+
 ## 4.0.32
 
 ### Patch Changes

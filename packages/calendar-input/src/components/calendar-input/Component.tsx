@@ -5,7 +5,6 @@ import React, {
     forwardRef,
     KeyboardEvent,
     MouseEvent,
-    useCallback,
     useEffect,
     useRef,
     useState,
@@ -139,6 +138,16 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     onCalendarChange?: CalendarProps['onChange'];
 
     /**
+     *  Обработчик открытия календаря
+     */
+    onCalendarOpen?: () => void;
+
+    /**
+     *  Обработчик закрытия календаря
+     */
+    onCalendarClose?: () => void;
+
+    /**
      * Позиционирование поповера с календарем
      */
     popoverPosition?: PopoverProps['position'];
@@ -157,6 +166,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Отображение компонента в мобильном или десктопном виде
      */
     view?: 'desktop' | 'mobile';
+
+    /**
+     * Запретить ввод с клавиатуры
+     */
+    disableUserInput?: boolean;
 };
 
 export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
@@ -184,8 +198,11 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onChange = () => null,
             onInputChange,
             onCalendarChange,
+            onCalendarOpen,
+            onCalendarClose,
             onKeyDown,
             readOnly,
+            disableUserInput = false,
             Calendar = DefaultCalendar,
             popoverPosition = 'bottom-start',
             zIndexPopover,
@@ -210,141 +227,133 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const calendarValue = inputValue ? parseDateString(inputValue).getTime() : undefined;
 
-        const checkInputValueIsValid = useCallback(
-            (newInputValue?: string) => {
-                if (!newInputValue) return false;
+        const checkInputValueIsValid = (newInputValue?: string) => {
+            if (!newInputValue) return false;
 
-                const dateValue = parseDateString(newInputValue).getTime();
+            const dateValue = parseDateString(newInputValue).getTime();
 
-                return !!(
-                    dateValue &&
-                    isCompleteDateInput(newInputValue) &&
-                    dateInLimits(dateValue, minDate, maxDate) &&
-                    !offDays.includes(dateValue)
-                );
-            },
-            [maxDate, minDate, offDays],
-        );
+            return !!(
+                dateValue &&
+                isCompleteDateInput(newInputValue) &&
+                dateInLimits(dateValue, minDate, maxDate) &&
+                !offDays.includes(dateValue)
+            );
+        };
 
         const inputDisabled = disabled || readOnly;
 
         const inputWrapperRef = useRef<HTMLDivElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
-        const handleKeyDown = useCallback(
-            (event: KeyboardEvent<HTMLDivElement>) => {
-                if ((event.target as HTMLElement).tagName === 'INPUT' && event.key === 'Enter') {
-                    setOpen(!open);
+        const openCalendar = () => {
+            setOpen(true);
+            onCalendarOpen?.();
+        };
+
+        const closeCalendar = () => {
+            setOpen(false);
+            onCalendarClose?.();
+        };
+
+        const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+            if ((event.target as HTMLElement).tagName === 'INPUT' && event.key === 'Enter') {
+                if (open) {
+                    closeCalendar();
+                } else {
+                    openCalendar();
                 }
+            }
 
-                if (event.key === 'Escape') {
-                    setOpen(false);
-                }
-            },
-            [open],
-        );
+            if (event.key === 'Escape') {
+                closeCalendar();
+            }
+        };
 
-        const handleClick = useCallback(() => {
-            if (!open) setOpen(true);
-        }, [open]);
+        const handleClick = () => {
+            if (!open) openCalendar();
+        };
 
-        const handleFocus = useCallback(
-            (event: FocusEvent<HTMLDivElement>) => {
-                if (view === 'desktop') {
-                    setOpen(true);
+        const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
+            if (view === 'desktop') {
+                openCalendar();
 
-                    if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
-                        calendarRef.current.focus();
-                    }
-                }
-            },
-            [open, view],
-        );
-
-        const handleBlur = useCallback(
-            (event: FocusEvent<HTMLDivElement>) => {
-                if (view === 'desktop') {
-                    const target = (event.relatedTarget || document.activeElement) as HTMLElement;
-
-                    if (calendarRef.current && calendarRef.current.contains(target) === false) {
-                        setOpen(false);
-                    }
-                }
-            },
-            [view],
-        );
-
-        const handleInputKeyDown = useCallback(
-            (event: KeyboardEvent<HTMLInputElement>) => {
-                if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
-                    event.preventDefault();
+                if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
                     calendarRef.current.focus();
                 }
+            }
+        };
 
-                if (onKeyDown) onKeyDown(event);
-            },
-            [onKeyDown],
-        );
+        const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+            if (view === 'desktop') {
+                const target = (event.relatedTarget || document.activeElement) as HTMLElement;
 
-        const changeHandler = useCallback(
-            (
-                event: ChangeEvent<HTMLInputElement> | null,
-                newValue: string,
-                newDate: Date,
-                initiator: 'input' | 'calendar' = 'input',
-                shouldChange = true,
-            ) => {
-                if (initiator === 'input' && event && onInputChange) {
-                    onInputChange(event, { value: newValue, date: newDate });
+                if (calendarRef.current && calendarRef.current.contains(target) === false) {
+                    closeCalendar();
                 }
+            }
+        };
 
-                if (initiator === 'calendar' && onCalendarChange) {
-                    onCalendarChange(newDate.getTime());
-                }
+        const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+            const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
 
-                setInputValue(newValue);
+            if (disableUserInput && !isCopy) {
+                event.preventDefault();
+            }
 
-                if (shouldChange) {
-                    onChange(event, { date: newDate, value: newValue });
-                }
-            },
-            [onCalendarChange, onChange, onInputChange],
-        );
+            if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
+                event.preventDefault();
+                calendarRef.current.focus();
+            }
 
-        const handleInputChange = useCallback<Required<DateInputProps>['onChange']>(
-            (event, payload) => {
-                changeHandler(
-                    event,
-                    payload.value,
-                    payload.date,
-                    'input',
-                    !payload.value || checkInputValueIsValid(payload.value),
-                );
-            },
-            [changeHandler, checkInputValueIsValid],
-        );
+            if (onKeyDown) onKeyDown(event);
+        };
 
-        const handleCalendarChange = useCallback<Required<CalendarProps>['onChange']>(
-            (date?: number) => {
-                if (date) {
-                    changeHandler(null, formatDate(date), new Date(date), 'calendar');
-                }
+        const changeHandler = (
+            event: ChangeEvent<HTMLInputElement> | null,
+            newValue: string,
+            newDate: Date,
+            initiator: 'input' | 'calendar' = 'input',
+            shouldChange = true,
+        ) => {
+            if (initiator === 'input' && event && onInputChange) {
+                onInputChange(event, { value: newValue, date: newDate });
+            }
 
-                if (view === 'desktop') {
-                    setOpen(false);
-                }
-            },
-            [changeHandler, view],
-        );
+            if (initiator === 'calendar' && onCalendarChange) {
+                onCalendarChange(newDate.getTime());
+            }
 
-        const handleCalendarWrapperMouseDown = useCallback((event: MouseEvent<HTMLDivElement>) => {
+            setInputValue(newValue);
+
+            if (shouldChange) {
+                onChange(event, { date: newDate, value: newValue });
+            }
+        };
+
+        const handleInputChange: DateInputProps['onChange'] = (event, payload) => {
+            changeHandler(
+                event,
+                payload.value,
+                payload.date,
+                'input',
+                !payload.value || checkInputValueIsValid(payload.value),
+            );
+        };
+
+        const handleCalendarChange: CalendarProps['onChange'] = (date?: number) => {
+            if (date) {
+                changeHandler(null, formatDate(date), new Date(date), 'calendar');
+            }
+
+            if (view === 'desktop') {
+                closeCalendar();
+            }
+        };
+
+        const handleCalendarWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
             // Не дает инпуту терять фокус при выборе даты
             event.preventDefault();
-        }, []);
-
-        const handleCalendarClose = useCallback(() => {
-            setOpen(false);
-        }, []);
+        };
 
         useEffect(() => {
             setOpen(defaultOpen);
@@ -363,7 +372,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     {...calendarProps}
                     responsive={calendarResponsive}
                     open={open}
-                    onClose={handleCalendarClose}
+                    onClose={closeCalendar}
                     ref={calendarRef}
                     defaultMonth={defaultMonth}
                     value={checkInputValueIsValid(inputValue) ? calendarValue : undefined}
@@ -396,6 +405,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     value={inputValue}
                     defaultValue={defaultValue}
                     disabled={disabled}
+                    inputClassName={inputClassName}
                     readOnly={readOnly}
                     mobileMode={mobileMode === 'native' ? 'native' : 'input'}
                     error={error}

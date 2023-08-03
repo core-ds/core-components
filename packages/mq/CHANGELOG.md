@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.5
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 4.1.4
 
 ### Patch Changes

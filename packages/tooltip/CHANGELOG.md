@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.2.27
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.4.2
+    -   button@8.5.1
+    -   popover@6.0.9
+
 ## 6.2.26
 
 ### Patch Changes

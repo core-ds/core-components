@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.12
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   base-modal@5.2.1
+    -   icon-button@6.1.3
+    -   tooltip@6.2.27
+    -   typography@3.2.2
+
 ## 5.2.11
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.4.2
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   backdrop@3.0.7
+    -   base-modal@5.2.1
+    -   navigation-bar@0.3.7
+
 ## 6.4.1
 
 ### Patch Changes

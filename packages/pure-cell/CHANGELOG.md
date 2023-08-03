@@ -1,5 +1,27 @@
 # Change Log
 
+## 4.3.1
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   amount@3.2.2
+    -   button@8.5.1
+    -   comment@2.1.11
+    -   typography@3.2.2
+
+## 4.3.0
+
+### Minor Changes
+
+### [#753](https://github.com/core-ds/core-components/pull/753)
+
+-   Добавлен пропс className в слот main
+
 ## 4.2.14
 
 ### Patch Changes

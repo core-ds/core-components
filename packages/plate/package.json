@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-plate",
-    "version": "6.3.19",
+    "version": "6.3.20",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -26,9 +26,6 @@
         "./cssm/*": "./cssm/*",
         "./modern/*": "./modern/*"
     },
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -37,8 +34,8 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^8.5.0",
-        "@alfalab/core-components-icon-button": "^6.1.2",
+        "@alfalab/core-components-button": "^8.5.1",
+        "@alfalab/core-components-icon-button": "^6.1.3",
         "@alfalab/core-components-mq": "^4.1.4",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",

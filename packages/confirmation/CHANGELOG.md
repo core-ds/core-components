@@ -1,5 +1,20 @@
 # Change Log
 
+## 12.5.2
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   code-input@2.3.4
+    -   link@5.0.6
+    -   loader@3.0.7
+    -   typography@3.2.2
+
 ## 12.5.1
 
 ### Patch Changes
