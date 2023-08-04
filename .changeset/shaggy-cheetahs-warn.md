@@ -1,5 +1,5 @@
 ---
-"@alfalab/core-components-cdn-icon": minor
+"@alfalab/core-components-cdn-icon": patch
 ---
 
-fix(cdn-icon): added color icon support
+Исправлено отображение цветных иконок
