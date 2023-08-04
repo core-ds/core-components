@@ -285,13 +285,14 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
         };
 
         const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
+            event.persist();
             const target = event.target as HTMLInputElement;
 
             /**
              * В сафари выделение корректно работает только с асинхронным вызовом
              */
             requestAnimationFrame(() => {
-                target.select();
+                target?.select();
             });
         };
 
