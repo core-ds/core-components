@@ -44,7 +44,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
         },
         ref,
     ) => {
-        const fieldDedaultProps = {
+        const fieldDefaultProps = {
             view,
             loading,
             /** size у select, button несовместимы */
@@ -71,7 +71,7 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
                 size={size === 'm' ? 'm' : 's'}
                 closeOnSelect={true}
                 fieldProps={{
-                    ...fieldDedaultProps,
+                    ...fieldDefaultProps,
                     ...(fieldProps as object),
                 }}
                 ref={ref}

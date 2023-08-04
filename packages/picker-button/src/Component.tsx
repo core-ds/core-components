@@ -86,7 +86,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
         const isSideGap =
             !!restProps.popoverPosition && SIDE_POSITIONS.includes(restProps.popoverPosition);
 
-        const fieldDedaultProps = {
+        const fieldDefaultProps = {
             view,
             loading,
             /** size у select, button несовместимы */
@@ -107,7 +107,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
                 Field={Field}
                 size={size === 'm' ? 'm' : 's'}
                 fieldProps={{
-                    ...fieldDedaultProps,
+                    ...fieldDefaultProps,
                     ...(fieldProps as object),
                 }}
                 Optgroup={Optgroup}
