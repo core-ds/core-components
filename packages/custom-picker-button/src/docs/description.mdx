@@ -12,12 +12,20 @@ const optionsWithIcons = [
 
 render(
     <Space direction='horizontal'>
-        <CustomPickerButtonResponsive backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={optionsWithIcons} label='Picker button' />
-        <CustomPickerButtonResponsive backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)' options={options} variant='compact' />
+        <CustomPickerButtonResponsive
+            backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)'
+            options={optionsWithIcons}
+            label='Picker button'
+        />
+        <CustomPickerButtonResponsive
+            backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)'
+            options={options}
+            variant='compact'
+        />
     </Space>,
 );
 ```
 
 ## Морфология
 
-Компонент представляет из себя [Select](/docs/components-select--docs) с [CustomButton](/docs/components-custombutton--docs) вместо стандартного `field`.
+Компонент представляет из себя [Select](/docs/select--docs) с [CustomButton](/docs/custombutton--docs) вместо стандартного `field`.
