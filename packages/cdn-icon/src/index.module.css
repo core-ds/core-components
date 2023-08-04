@@ -6,6 +6,6 @@
 .component svg {
     fill: currentColor;
 }
-.component.parentColor path {
+.parentColor path {
     fill: inherit;
 }
