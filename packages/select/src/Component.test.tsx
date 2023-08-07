@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, queryByText } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as popoverModule from '@alfalab/core-components-popover';
@@ -158,9 +158,42 @@ describe('Select', () => {
         });
 
         it('should render placeholder', () => {
-            const { getByText } = render(<Select {...baseProps} placeholder={PLACEHOLDER} />);
+            const { getByText, rerender } = render(
+                <Select {...baseProps} placeholder={PLACEHOLDER} />,
+            );
 
             expect(getByText(PLACEHOLDER)).toBeInTheDocument();
+
+            rerender(
+                <Select
+                    {...baseProps}
+                    placeholder={PLACEHOLDER}
+                    label={LABEL_TEXT}
+                    labelView='outer'
+                />,
+            );
+
+            expect(getByText(PLACEHOLDER)).toBeInTheDocument();
+
+            rerender(
+                <Select
+                    {...baseProps}
+                    placeholder={PLACEHOLDER}
+                    label={LABEL_TEXT}
+                    labelView='inner'
+                    defaultOpen={true}
+                />,
+            );
+
+            expect(getByText(PLACEHOLDER)).toBeInTheDocument();
+        });
+
+        it('should not render placeholder', async () => {
+            const { rerender, container } = render(
+                <Select {...baseProps} placeholder={PLACEHOLDER} label={LABEL_TEXT} />,
+            );
+
+            expect(await queryByText(container, PLACEHOLDER)).not.toBeInTheDocument();
         });
     });
 

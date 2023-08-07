@@ -467,7 +467,9 @@ export const BaseSelectMobile = forwardRef(
                             {label || placeholder}
                         </ModalMobile.Header>
 
-                        {renderOptionsList()}
+                        <ModalMobile.Content flex={true} className={styles.modalContent}>
+                            {renderOptionsList()}
+                        </ModalMobile.Content>
 
                         {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
                     </ModalMobile>
