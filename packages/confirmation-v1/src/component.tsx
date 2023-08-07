@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { Link } from '@alfalab/core-components-link';
 
 import { Overlimit, SignConfirmation } from './components';

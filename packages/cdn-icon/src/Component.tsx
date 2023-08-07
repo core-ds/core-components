@@ -36,6 +36,8 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
 }) => {
     const [icon, setIcon] = useState('');
 
+    const monoIcon = !name.includes('_color');
+
     useEffect(() => {
         const xhr = new XMLHttpRequest();
 
@@ -53,7 +55,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     return (
         <span
             style={{ color }}
-            className={cn(styles.component, className)}
+            className={cn(styles.component, className, { [styles.parentColor]: monoIcon })}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: icon }}
             data-test-id={dataTestId}

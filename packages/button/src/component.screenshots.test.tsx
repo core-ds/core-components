@@ -26,7 +26,10 @@ describe('Button', () =>
                 size: 'xl',
             },
         },
-        'transform:scale(2.3)',
+        'width:800px;transform:scale(2.3)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     ));
 
 describe(
@@ -220,5 +223,53 @@ describe(
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
         },
+    }),
+);
+
+describe(
+    'Button | mobile view & sizes',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 200, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['accent', 'primary'],
+                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 200, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['secondary', 'tertiary'],
+                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                    },
+                }),
+            ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 200, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['link', 'ghost'],
+                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: { width: 740, height: 100 },
     }),
 );

@@ -1,1 +1,1 @@
-export * from './Component.mobile';
+export { PickerButtonMobile, PickerButtonMobileProps } from './Component.mobile';

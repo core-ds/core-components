@@ -7,6 +7,20 @@ import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
  * TODO: сделать тесты на все таймеры
  */
 describe('Confirmation', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     const baseProps: DesktopConfirmationProps = {
         screen: 'INITIAL',
         state: 'INITIAL',

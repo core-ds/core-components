@@ -2,7 +2,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
-import {DateTimeInputDesktop as DateTimeInput } from './desktop';
+import { DateTimeInputDesktop as DateTimeInput } from './desktop';
 import { addTimeToDate, getFullDateTime } from './utils';
 
 describe('DateTimeInput', () => {
@@ -19,7 +19,7 @@ describe('DateTimeInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(

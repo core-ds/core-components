@@ -7,8 +7,15 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
-            "@alfalab/core-components-form-control/*": ["../form-control/src/*"]
+            "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../form-control" }, { "path": "../loader" }, { "path": "../badge" }, { "path": "../mq" }]
+    "references": [
+        { "path": "../button" },
+        { "path": "../form-control" },
+        { "path": "../loader" },
+        { "path": "../badge" },
+        { "path": "../mq" }
+    ]
 }

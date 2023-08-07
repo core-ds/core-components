@@ -1,14 +1,14 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import { Button, ComponentProps as ButtonComponentProps } from '@alfalab/core-components-button';
+import { Button, ButtonProps } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
 
 const DEFAULT_BUTTON_COLOR = '#FF45C3';
 const DEFAULT_CONTENT_COLOR = 'white';
 
-export type ComponentProps = Omit<ButtonComponentProps, 'view' | 'colors'> & {
+export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
     /**
      * Цвет кнопки
      */
@@ -53,6 +53,7 @@ export const CustomButton = React.forwardRef<
 
         const buttonClassName = cn(
             styles.customButton,
+            styles.border,
             className,
             styles[contentColor],
             styles[stateType],

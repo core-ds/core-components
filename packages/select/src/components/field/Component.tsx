@@ -1,7 +1,7 @@
 import React, { ElementType, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { FormControlProps } from '@alfalab/core-components-form-control';
+import type { FormControlProps } from '@alfalab/core-components-form-control';
 import { useFocus } from '@alfalab/hooks';
 
 import { FieldProps as BaseFieldProps } from '../../typings';
@@ -51,7 +51,8 @@ export const Field = ({
     const value = valueRenderer({ selected, selectedMultiple });
 
     const filled = Boolean(value);
-    const showLabel = !!label && (filled || !placeholder || labelView === 'outer');
+    const showLabel = !!label || labelView === 'outer';
+    const showPlaceholder = !!placeholder && !filled && (open || !label || labelView === 'outer');
 
     return (
         <div
@@ -68,9 +69,9 @@ export const Field = ({
                     })}
                     block={true}
                     size={size}
-                    focused={open || focused}
+                    focused={focused || open}
                     disabled={disabled}
-                    filled={filled}
+                    filled={filled || (!!placeholder && open)}
                     label={showLabel && label}
                     labelView={labelView}
                     error={error}
@@ -91,8 +92,14 @@ export const Field = ({
                     {...innerProps}
                 >
                     <div className={styles.contentWrapper}>
-                        {placeholder && !filled && (
-                            <span className={styles.placeholder}>{placeholder}</span>
+                        {showPlaceholder && (
+                            <span
+                                className={cn(styles.placeholder, {
+                                    [styles.focused]: focused || open,
+                                })}
+                            >
+                                {placeholder}
+                            </span>
                         )}
                         {filled && <div className={styles.value}>{value}</div>}
                     </div>

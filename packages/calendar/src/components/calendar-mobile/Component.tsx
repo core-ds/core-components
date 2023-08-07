@@ -7,17 +7,20 @@ import getMonth from 'date-fns/getMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
-import { limitDate, monthName, useCalendar, WEEKDAYS } from '../..';
 import { CalendarDesktop, CalendarDesktopProps } from '../../Component.desktop';
 import { Month } from '../../typings';
+import { useCalendar } from '../../useCalendar';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
     generateMonths,
     generateWeeks,
+    limitDate,
+    monthName,
+    WEEKDAYS,
 } from '../../utils';
 import { DaysTable } from '../days-table';
 
@@ -98,7 +101,6 @@ const CalendarMonthOnlyView = ({
 
         return yearsAmount * 12 + monthIndex;
     }, [selectedFrom, value, yearsAmount]);
-
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
         [monthTimestamp],
@@ -251,7 +253,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         ref,
     ) => {
         const [modalRef, setModalRef] = useState<HTMLElement>();
-
         const monthOnlyView = selectorView === 'month-only';
 
         const handleClose = () => {
@@ -319,34 +320,34 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
 
                 return (
                     <React.Fragment>
-                        <Button view='secondary' size='s' block={true} onClick={handleClear}>
+                        <ButtonMobile view='secondary' size='m' block={true} onClick={handleClear}>
                             Сбросить
-                        </Button>
-                        <Button
+                        </ButtonMobile>
+                        <ButtonMobile
                             view='primary'
-                            size='s'
+                            size='m'
                             block={true}
                             onClick={handleClose}
                             disabled={selectButtonDisabled}
                         >
                             Выбрать
-                        </Button>
+                        </ButtonMobile>
                     </React.Fragment>
                 );
             }
 
             if (value) {
                 return (
-                    <Button view='primary' size='s' block={true} onClick={handleClose}>
+                    <ButtonMobile view='primary' size='m' block={true} onClick={handleClose}>
                         Выбрать
-                    </Button>
+                    </ButtonMobile>
                 );
             }
 
             return (
-                <Button view='secondary' size='s' block={true} onClick={handleClose}>
+                <ButtonMobile view='secondary' size='m' block={true} onClick={handleClose}>
                     Отмена
-                </Button>
+                </ButtonMobile>
             );
         };
 

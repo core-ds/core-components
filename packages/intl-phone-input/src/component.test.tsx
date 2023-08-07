@@ -17,7 +17,7 @@ describe('IntlPhoneInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     const testId = 'intl-phone-input';
 
     it('should match snapshot', () => {

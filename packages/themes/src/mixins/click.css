@@ -24,8 +24,7 @@
 @import './side-panel/click.css';
 @import './form-control/click.css';
 @import './input/click.css';
-
-
+@import './button/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -57,4 +56,5 @@
     @mixin side-panel-click;
     @mixin form-control-click;
     @mixin input-click;
+    @mixin button-click;
 }

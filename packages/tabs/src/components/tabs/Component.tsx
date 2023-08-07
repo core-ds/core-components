@@ -7,16 +7,16 @@ export const Tabs = ({
     className,
     containerClassName,
     size,
-    defaultMatch,
+    defaultMatchMediaValue,
     children,
     selectedId,
     scrollable,
-    collapsible,
     collapsedTabsIds,
     fullWidthScroll = false,
     keepMounted = false,
     dataTestId,
     onChange,
+    breakpoint = 1024,
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(
@@ -53,12 +53,12 @@ export const Tabs = ({
                 titles={titles}
                 selectedId={selectedId}
                 scrollable={scrollable}
-                collapsible={collapsible}
                 collapsedTabsIds={collapsedTabsIds}
                 onChange={onChange}
                 dataTestId={dataTestId}
-                defaultMatch={defaultMatch}
+                defaultMatchMediaValue={defaultMatchMediaValue}
                 fullWidthScroll={fullWidthScroll}
+                breakpoint={breakpoint}
             />
 
             {tabs.map((tab) => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}

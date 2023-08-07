@@ -1,0 +1,45 @@
+@import '../../vars.css';
+
+.component {
+    &.outlined {
+        color: var(--tag-text-color);
+        border-color: var(--tag-border-color);
+        background-color: var(--tag-outlined-background-color);
+
+        &:disabled {
+            border-color: var(--tag-border-color-disabled);
+            color: var(--tag-text-color-disabled);
+            background-color: var(--tag-outlined-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                border-color: var(--tag-border-color-hover);
+                background-color: var(--tag-outlined-background-color-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            border-color: var(--tag-border-color-active);
+            background-color: var(--tag-outlined-background-color-active);
+        }
+    }
+
+    &.filled {
+        color: var(--tag-text-color);
+        border-color: var(--tag-filled-border-color);
+
+        &:disabled {
+            color: var(--tag-text-color-disabled);
+        }
+    }
+
+    &.checked {
+        color: var(--tag-text-color-checked);
+
+        &:disabled {
+            border-color: var(--tag-border-color-checked-disabled);
+            color: var(--tag-text-color-checked-disabled);
+        }
+    }
+}

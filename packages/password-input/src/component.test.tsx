@@ -36,7 +36,7 @@ describe('PasswordInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     const dataTestId = 'test-id';
 
     describe('snapshots tests', () => {

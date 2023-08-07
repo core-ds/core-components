@@ -1,27 +1,22 @@
 import React from 'react';
 
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { SecondaryTabListProps, TabsMatchMedia } from '../../typings';
+import { SecondaryTabListProps } from '../../typings';
 
 import { SecondaryTabListDesktop } from './Component.desktop';
 import { SecondaryTabListMobile } from './Component.mobile';
 
 export const SecondaryTabListResponsive = ({
     size,
-    defaultMatch = 'desktop',
+    defaultMatchMediaValue,
     fullWidthScroll,
+    breakpoint = 768,
     ...restProps
 }: SecondaryTabListProps) => {
-    const [view] = useMedia<TabsMatchMedia>(
-        [
-            ['mobile', '(max-width: 767px)'],
-            ['desktop', '(min-width: 768px)'],
-        ],
-        defaultMatch,
-    );
+    const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
-    return view === 'desktop' ? (
+    return isDesktop ? (
         <SecondaryTabListDesktop size={size} {...restProps} />
     ) : (
         <SecondaryTabListMobile fullWidthScroll={fullWidthScroll} {...restProps} />

@@ -16,6 +16,7 @@ export const ConfirmationContext = createContext<TConfirmationContext>({
     tempBlockDuration: ONE_DAY,
     phone: '',
     hideCountdownSection: false,
+    breakpoint: 1024,
     onTempBlockFinished: mockFn,
     onInputFinished: mockFn,
     onChangeState: mockFn,

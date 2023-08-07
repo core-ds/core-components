@@ -18,7 +18,7 @@ describe('NumberInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<NumberInput value='1234.567' />).container).toMatchSnapshot();

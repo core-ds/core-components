@@ -1,13 +1,15 @@
 {
-    "include": ["src", "../../typings", "../utils"],
+    "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
+            "@alfalab/core-components-select/*": ["../select/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
@@ -22,6 +24,7 @@
         { "path": "../base-modal" },
         { "path": "../modal" },
         { "path": "../scrollbar" },
-        { "path": "../badge" }
+        { "path": "../badge" },
+        { "path": "../shared" }
     ]
 }
