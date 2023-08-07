@@ -3,7 +3,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as popoverModule from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
-import { Toast, ToastProps } from './index';
+import { ToastDesktop as Toast, ToastDesktopProps as ToastProps } from './desktop';
 
 import { asyncRender } from '../../utils/test-utils';
 

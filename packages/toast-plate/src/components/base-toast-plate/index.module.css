@@ -1,5 +1,5 @@
-@import '../../themes/src/default.css';
-@import './vars.css';
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     position: relative;
@@ -16,8 +16,13 @@
     }
 }
 
-.contentWrap {
+.wrapper {
     display: flex;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-grow: 1;
 }
 
 .block {
@@ -28,6 +33,11 @@
 .content {
     display: flex;
     flex-grow: 1;
+    justify-content: space-between;
+
+    &.direction {
+        flex-direction: column;
+    }
 
     &.hasCloser:not(.hasActionButton) {
         padding-right: var(--toast-plate-content-with-closer-right-padding);
@@ -36,13 +46,15 @@
 
 .actionSection {
     display: flex;
-    align-items: var(--toast-plate-action-align);
-    flex-shrink: 0;
-    margin: var(--toast-plate-action-margin) 0;
     padding: var(--toast-plate-action-padding);
+    flex-shrink: 0;
 
-    &:last-child {
+    &:not(.hasCloser) {
         padding-right: 0;
+    }
+
+    &.bottomButton {
+        padding: var(--toast-plate-action-bottom-padding);
     }
 }
 
@@ -53,10 +65,8 @@
     padding-right: var(--gap-s);
 }
 
-.title {
-    @mixin accent_primary_medium;
-
-    font-weight: var(--toast-plate-title-font-weight);
+.contentTitle {
+    padding: var(--gap-3xs) 0;
 }
 
 .children {
@@ -88,6 +98,5 @@
 
 .closeButton {
     display: flex;
-    align-items: var(--toast-plate-close-button-align);
     height: 100%;
 }

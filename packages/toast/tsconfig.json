@@ -7,6 +7,7 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-toast-plate/*": ["../toast-plate/src/*"],
             "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
@@ -14,6 +15,7 @@
         { "path": "../toast-plate" },
         { "path": "../popover" },
         { "path": "../portal" },
-        { "path": "../stack" }
+        { "path": "../stack" },
+        { "path": "../mq" }
     ]
 }

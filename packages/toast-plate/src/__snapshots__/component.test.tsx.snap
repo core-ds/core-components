@@ -7,16 +7,16 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
       class="component component"
     >
       <div
-        class="contentWrap"
+        class="wrapper"
       >
         <div
-          class="content"
+          class="contentWrapper"
         >
           <div
             class="leftAddons"
           >
             <div
-              class="wrapper positive m badge"
+              class="wrapper positive m outlineColor badge"
               data-test-id="badge"
             >
               <div
@@ -40,16 +40,22 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="content"
+          >
             <div
-              class="title"
+              class="contentTitle"
             >
-              title
-            </div>
-            <div
-              class="children"
-            >
-              text
+              <div
+                class="title title"
+              >
+                title
+              </div>
+              <div
+                class="children"
+              >
+                text
+              </div>
             </div>
           </div>
         </div>
@@ -66,10 +72,10 @@ exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] 
       class="component component"
     >
       <div
-        class="contentWrap"
+        class="wrapper"
       >
         <div
-          class="content"
+          class="contentWrapper"
         >
           <div
             class="leftAddons"
@@ -78,7 +84,13 @@ exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] 
               leftAddons
             </div>
           </div>
-          <div />
+          <div
+            class="content"
+          >
+            <div
+              class="contentTitle"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -93,21 +105,27 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
       class="component component"
     >
       <div
-        class="contentWrap"
+        class="wrapper"
       >
         <div
-          class="content"
+          class="contentWrapper"
         >
-          <div>
+          <div
+            class="content"
+          >
             <div
-              class="title"
+              class="contentTitle"
             >
-              title
-            </div>
-            <div
-              class="children"
-            >
-              text
+              <div
+                class="title title"
+              >
+                title
+              </div>
+              <div
+                class="children"
+              >
+                text
+              </div>
             </div>
           </div>
         </div>

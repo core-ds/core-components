@@ -1,0 +1,23 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { ToastDesktop } from '../Component.desktop';
+import { ToastMobile } from '../Component.mobile';
+import { Toast } from '../Component.responsive';
+import styles from '!!raw-loader!../components/base-toast/index.module.css';
+
+## Подключение
+
+```jsx
+import { Toast } from '@alfalab/core-components/toast';
+import { ToastMobile } from '@alfalab/core-components/toast/mobile';
+import { ToastDesktop } from '@alfalab/core-components/toast/desktop';
+```
+Из индекса импортируется responsive версия компонента. 
+
+## Свойства
+
+<ArgsTable components={{ToastDesktop, ToastMobile, Toast}} />
+
+## Переменные
+
+<CssVars css={styles} />

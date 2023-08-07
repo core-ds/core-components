@@ -9,7 +9,7 @@ import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import defaultColors from './default.module.css';
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {
@@ -23,7 +23,7 @@ export type BadgeIcons = {
     attention: JSX.Element;
 };
 
-export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
+export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Дополнительный класс
      */
@@ -108,15 +108,25 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Положение кнопки под заголовком компонента
+     */
+    bottomButtonPosition?: boolean;
+
+    /**
+     * Основные стили компонента.
+     */
+    styles?: { [key: string]: string };
 };
 
 const iconDefaultComponents = {
-    negative: <CrossCircleMIcon className={styles.badgeIcon} />,
-    positive: <CheckmarkCircleMIcon className={styles.badgeIcon} />,
-    attention: <AlertCircleMIcon className={styles.badgeIcon} />,
+    negative: <CrossCircleMIcon className={commonStyles.badgeIcon} />,
+    positive: <CheckmarkCircleMIcon className={commonStyles.badgeIcon} />,
+    attention: <AlertCircleMIcon className={commonStyles.badgeIcon} />,
 };
 
-export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
+export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
     (
         {
             dataTestId,
@@ -136,6 +146,8 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             colors = 'default',
             closerWrapperClassName,
             closerClassName,
+            bottomButtonPosition = false,
+            styles = {},
             ...restProps
         },
         ref,
@@ -158,57 +170,76 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
         return (
             <div
                 className={cn(
-                    styles.component,
+                    commonStyles.component,
                     colorStyles[colors].component,
-                    { [styles.block]: block, [styles.hasCloser]: hasCloser },
+                    { [commonStyles.block]: block, [commonStyles.hasCloser]: hasCloser },
                     className,
                 )}
                 ref={ref}
                 data-test-id={dataTestId}
                 {...restProps}
             >
-                <div className={styles.contentWrap}>
-                    <div
-                        className={cn(contentClassName, styles.content, {
-                            [styles.hasCloser]: hasCloser,
-                            [styles.hasActionButton]: !!actionButton,
-                        })}
-                    >
+                <div className={commonStyles.wrapper}>
+                    <div className={commonStyles.contentWrapper}>
                         {needRenderLeftAddons && (
-                            <div className={styles.leftAddons}>
+                            <div className={commonStyles.leftAddons}>
                                 {leftAddons || (
                                     <Badge
                                         view='icon'
                                         content={badge && iconComponents[badge]}
                                         iconColor={badge}
-                                        className={styles.badge}
+                                        className={commonStyles.badge}
                                         dataTestId='badge'
+                                        visibleColorOutline={true}
                                     />
                                 )}
                             </div>
                         )}
-
-                        <div>
-                            {title && (
-                                <div className={cn(titleClassName, styles.title)}>{title}</div>
-                            )}
-                            {children && <div className={styles.children}>{children}</div>}
-                        </div>
-                    </div>
-
-                    {actionButton && (
                         <div
-                            className={cn(actionSectionClassName, styles.actionSection, {
-                                [styles.hasCloser]: hasCloser,
+                            className={cn(contentClassName, commonStyles.content, {
+                                [commonStyles.hasCloser]: hasCloser,
+                                [commonStyles.hasActionButton]: !!actionButton,
+                                [commonStyles.direction]: bottomButtonPosition,
                             })}
                         >
-                            {actionButton}
-                        </div>
-                    )}
+                            <div className={commonStyles.contentTitle}>
+                                {title && (
+                                    <div
+                                        className={cn(
+                                            titleClassName,
+                                            commonStyles.title,
+                                            styles.title,
+                                        )}
+                                    >
+                                        {title}
+                                    </div>
+                                )}
+                                {children && (
+                                    <div className={commonStyles.children}>{children}</div>
+                                )}
+                            </div>
 
+                            {actionButton && (
+                                <div
+                                    className={cn(
+                                        actionSectionClassName,
+                                        commonStyles.actionSection,
+                                        styles.actionSection,
+                                        {
+                                            [commonStyles.hasCloser]: hasCloser,
+                                            [commonStyles.bottomButton]: bottomButtonPosition,
+                                        },
+                                    )}
+                                >
+                                    {actionButton}
+                                </div>
+                            )}
+                        </div>
+                    </div>
                     {hasCloser && (
                         <div
                             className={cn(
+                                commonStyles.closeButtonWrapper,
                                 styles.closeButtonWrapper,
                                 colorStyles[colors].closeButtonWrapper,
                                 closerWrapperClassName,
@@ -217,7 +248,11 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                             <IconButton
                                 icon={CrossMIcon}
                                 colors={colors === 'default' ? 'inverted' : 'default'}
-                                className={cn(styles.closeButton, closerClassName)}
+                                className={cn(
+                                    commonStyles.closeButton,
+                                    styles.closeButton,
+                                    closerClassName,
+                                )}
                                 onClick={handleClose}
                                 aria-label='закрыть'
                             />
