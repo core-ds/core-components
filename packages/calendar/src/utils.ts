@@ -223,8 +223,8 @@ export function getSelectionRange(
 
     if (start && end && start !== end) {
         return {
-            start: min([start, end]),
-            end: max([start, end]),
+            start: startOfDay(min([start, end])),
+            end: startOfDay(max([start, end])),
         };
     }
 
