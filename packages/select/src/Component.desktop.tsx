@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react';
 
-import { FormControlProps } from '@alfalab/core-components-form-control/src/Component';
+import {
+    FormControlDesktop,
+    FormControlDesktopProps,
+} from '@alfalab/core-components-form-control/desktop';
 
 import { Arrow as DefaultArrow } from './components/arrow';
 import { BaseSelect } from './components/base-select';
@@ -10,7 +13,7 @@ import { Option as DefaultOption } from './components/option';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { BaseSelectProps } from './typings';
 
-export type SelectFieldProps = Omit<FormControlProps, 'size'> & Record<string, unknown>;
+export type SelectFieldProps = Omit<FormControlDesktopProps, 'size'> & Record<string, unknown>;
 
 export type SelectDesktopProps = Omit<BaseSelectProps, 'fieldProps'> & {
     /**
@@ -27,6 +30,7 @@ export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
             OptionsList = DefaultOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            fieldProps={},
             ...restProps
         },
         ref,
@@ -35,6 +39,10 @@ export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
             ref={ref}
             Option={Option}
             Field={Field}
+            fieldProps={{
+                FormControlComponent: FormControlDesktop,
+                ...(fieldProps as object),
+            }}
             Optgroup={Optgroup}
             OptionsList={OptionsList}
             Arrow={Arrow}

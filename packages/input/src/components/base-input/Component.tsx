@@ -1,6 +1,7 @@
 import React, {
     AnimationEvent,
     ChangeEvent,
+    ElementType,
     Fragment,
     InputHTMLAttributes,
     MouseEvent,
@@ -14,7 +15,6 @@ import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
 import { Button } from '@alfalab/core-components-button';
-import { FormControl } from '@alfalab/core-components-form-control';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -24,12 +24,21 @@ import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStyles = {
+const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
 
-export type InputProps = Omit<
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
+};
+
+export type BaseInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
     | 'size'
     | 'type'
@@ -103,7 +112,7 @@ export type InputProps = Omit<
     /**
      * Ref для обертки input
      */
-    wrapperRef?: React.Ref<HTMLDivElement>;
+    wrapperRef?: React.Ref<HTMLDivElement> | null;
 
     /**
      * Слот слева
@@ -179,14 +188,23 @@ export type InputProps = Omit<
      * Обработчик MouseUp по полю
      */
     onMouseUp?: (event: MouseEvent<HTMLDivElement>) => void;
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    FormControlComponent?: ElementType;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStyles?: StyleColors;
 };
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
     (
         {
             size = 's',
@@ -223,6 +241,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             defaultValue,
             wrapperRef,
             readOnly,
+            FormControlComponent,
+            colorStyles = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -327,7 +347,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 tabIndex={-1}
                             >
                                 <CrossCircleMIcon
-                                    className={cn(styles.clearIcon, colorStyles[colors].clearIcon)}
+                                    className={cn(styles.clearIcon, colorCommonStyles[colors].clearIcon)}
                                 />
                             </Button>
                         )}
@@ -361,8 +381,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             );
         };
 
-        return (
-            <FormControl
+        return FormControlComponent ? (
+            <FormControlComponent
                 ref={wrapperRef}
                 className={cn(className, focused && focusedClassName, filled && filledClassName)}
                 fieldClassName={cn(fieldClassName, {
@@ -392,13 +412,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     {...restProps}
                     className={cn(
                         styles.input,
+                        colorCommonStyles[colors].input,
                         colorStyles[colors].input,
                         {
                             [styles.error]: error,
                             [colorStyles[colors].error]: error,
                             [styles[size]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
-                            [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },
                         inputClassName,
                     )}
@@ -414,16 +435,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     data-test-id={dataTestId}
                     aria-label={typeof label === 'string' ? label : undefined}
                 />
-            </FormControl>
-        );
+            </FormControlComponent>
+        ) : null;
     },
 );
-
-/**
- * Для отображения в сторибуке
- */
-Input.defaultProps = {
-    size: 's',
-    type: 'text',
-    block: false,
-};

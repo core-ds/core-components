@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s"
+        class="component component s s"
       >
         <div
-          class="inner inner filled"
+          class="inner inner inner inner filled"
         >
           <div
             class="inputWrapper"
@@ -18,7 +18,7 @@ Object {
               class="input"
             >
               <input
-                class="input input"
+                class="input input input"
                 type="text"
                 value="value"
               />
@@ -30,10 +30,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s"
+      class="component component s s"
     >
       <div
-        class="inner inner filled"
+        class="inner inner inner inner filled"
       >
         <div
           class="inputWrapper"
@@ -42,7 +42,7 @@ Object {
             class="input"
           >
             <input
-              class="input input"
+              class="input input input"
               type="text"
               value="value"
             />

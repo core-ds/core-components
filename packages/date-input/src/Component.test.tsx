@@ -5,6 +5,20 @@ import { render, waitFor } from '@testing-library/react';
 import { DateInput } from './index';
 
 describe('DateInput', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+    
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(render(<DateInput defaultValue='01.01.2021' />).container).toMatchSnapshot();

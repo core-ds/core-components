@@ -1,5 +1,4 @@
-@import '../../themes/src/default.css';
-@import './vars.css';
+@import '../../vars.css';
 
 .component {
     font-family: var(--form-control-font-family);
@@ -93,8 +92,6 @@
 
     display: block;
     margin-bottom: calc(var(--gap-s) / 2);
-    padding: var(--form-control-sub-paddings);
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -108,7 +105,6 @@
 
 .s .inner {
     min-height: var(--form-control-s-min-height);
-    border-radius: var(--form-control-s-border-radius);
 }
 
 .s .hasInnerLabel .input > * {
@@ -121,7 +117,6 @@
 
 .m .inner {
     min-height: var(--form-control-m-min-height);
-    border-radius: var(--form-control-m-border-radius);
 }
 
 .m .hasInnerLabel .input > * {
@@ -134,7 +129,6 @@
 
 .l .inner {
     min-height: var(--form-control-l-min-height);
-    border-radius: var(--form-control-l-border-radius);
 }
 
 .l .hasInnerLabel .input > * {
@@ -147,7 +141,6 @@
 
 .xl .inner {
     min-height: var(--form-control-xl-min-height);
-    border-radius: var(--form-control-xl-border-radius);
 }
 
 .xl .label {

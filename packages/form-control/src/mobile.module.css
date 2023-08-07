@@ -1,0 +1,31 @@
+@import './vars.css';
+
+.above {
+    padding: var(--form-control-mobile-sub-paddings);
+}
+
+.sub {
+    padding: var(--form-control-mobile-sub-paddings);
+}
+
+.error {
+    padding: var(--form-control-mobile-sub-paddings);
+}
+
+/* SIZES */
+
+.s .inner {
+    border-radius: var(--form-control-mobile-s-border-radius);
+}
+
+.m .inner {
+    border-radius: var(--form-control-mobile-m-border-radius);
+}
+
+.l .inner {
+    border-radius: var(--form-control-mobile-l-border-radius);
+}
+
+.xl .inner {
+    border-radius: var(--form-control-mobile-xl-border-radius);
+}

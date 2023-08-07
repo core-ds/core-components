@@ -25,7 +25,10 @@ describe('SliderInput ', () =>
                 block: true,
             },
         },
-        'padding: 28px 270px 0; transform:scale(2.1)',
+        'padding: 28px 270px 0;width:800px;transform:scale(2.1)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     ));
 
 describe('SliderInput | sprite', () => {

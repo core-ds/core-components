@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s"
+        class="component component s s"
       >
         <div
-          class="inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -24,10 +24,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s"
+      class="component component s s"
     >
       <div
-        class="inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -99,10 +99,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s hasRightAddons"
+        class="component component s s hasRightAddons"
       >
         <div
-          class="inner inner hasError"
+          class="inner inner inner inner hasError"
         >
           <div
             class="inputWrapper"
@@ -123,10 +123,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s hasRightAddons"
+      class="component component s s hasRightAddons"
     >
       <div
-        class="inner inner hasError"
+        class="inner inner inner inner hasError"
       >
         <div
           class="inputWrapper"
@@ -204,10 +204,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s"
+        class="component component s s"
       >
         <div
-          class="inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -225,10 +225,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s"
+      class="component component s s"
     >
       <div
-        class="inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -303,10 +303,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s hasRightAddons"
+        class="component component s s hasRightAddons"
       >
         <div
-          class="inner inner hasError"
+          class="inner inner inner inner hasError"
         >
           <div
             class="inputWrapper"
@@ -327,10 +327,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s hasRightAddons"
+      class="component component s s hasRightAddons"
     >
       <div
-        class="inner inner hasError"
+        class="inner inner inner inner hasError"
       >
         <div
           class="inputWrapper"
@@ -408,10 +408,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s"
+        class="component component s s"
       >
         <div
-          class="inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -422,7 +422,7 @@ Object {
           </div>
         </div>
         <span
-          class="sub hint"
+          class="sub sub hint"
         >
           This is hint
         </span>
@@ -431,10 +431,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s"
+      class="component component s s"
     >
       <div
-        class="inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -445,7 +445,7 @@ Object {
         </div>
       </div>
       <span
-        class="sub hint"
+        class="sub sub hint"
       >
         This is hint
       </span>
@@ -511,10 +511,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s"
+        class="component component s s"
       >
         <div
-          class="inner inner hasInnerLabel"
+          class="inner inner inner inner hasInnerLabel"
         >
           <div
             class="inputWrapper"
@@ -548,10 +548,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s"
+      class="component component s s"
     >
       <div
-        class="inner inner hasInnerLabel"
+        class="inner inner inner inner hasInnerLabel"
       >
         <div
           class="inputWrapper"
@@ -642,10 +642,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s hasLeftAddons"
+        class="component component s s hasLeftAddons"
       >
         <div
-          class="inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="addons leftAddons"
@@ -667,10 +667,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s hasLeftAddons"
+      class="component component s s hasLeftAddons"
     >
       <div
-        class="inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="addons leftAddons"
@@ -749,17 +749,17 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s"
+        class="component component s s"
       >
         <span
-          class="above label"
+          class="above above label"
         >
           <span>
             This is label
           </span>
         </span>
         <div
-          class="inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -774,17 +774,17 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s"
+      class="component component s s"
     >
       <span
-        class="above label"
+        class="above above label"
       >
         <span>
           This is label
         </span>
       </span>
       <div
-        class="inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -856,10 +856,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component component s hasRightAddons"
+        class="component component s s hasRightAddons"
       >
         <div
-          class="inner inner"
+          class="inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -881,10 +881,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component s hasRightAddons"
+      class="component component s s hasRightAddons"
     >
       <div
-        class="inner inner"
+        class="inner inner inner inner"
       >
         <div
           class="inputWrapper"

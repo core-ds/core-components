@@ -1,6 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
 
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 
 import { Arrow as DefaultArrow } from './components/arrow';
 import { BaseSelectMobile } from './components/base-select-mobile';
@@ -119,7 +120,10 @@ export const SelectMobile = forwardRef(
                 open={openProp}
                 size={size}
                 optionsSize={optionsSize}
-                fieldProps={fieldProps}
+                fieldProps={{
+                    FormControlComponent: FormControlMobile,
+                    ...(fieldProps as object),
+                }}
                 optionProps={optionProps}
                 Arrow={Arrow}
                 Field={Field}

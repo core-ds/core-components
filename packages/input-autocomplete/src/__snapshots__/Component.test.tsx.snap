@@ -15,12 +15,13 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
         class="component"
       >
         <div
-          class="component component s block"
+          class="component component s s block"
         >
           <div
             aria-controls="downshift-1-menu"
             aria-labelledby="downshift-1-label"
-            class="field inner inner"
+            class="field inner inner inner inner"
+            formcontrolcomponent="[object Object]"
             id="downshift-0-input"
             tabindex="0"
           >
@@ -60,12 +61,13 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
         class="component"
       >
         <div
-          class="component component s block"
+          class="component component s s block"
         >
           <div
             aria-controls="downshift-3-menu"
             aria-labelledby="downshift-3-label"
-            class="field inner inner"
+            class="field inner inner inner inner"
+            formcontrolcomponent="[object Object]"
             id="downshift-2-input"
             tabindex="0"
           >
@@ -180,10 +182,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                       class="bottomAddons"
                     >
                       <div
-                        class="component component bottomAddonInput s block"
+                        class="component component bottomAddonInput s s block"
                       >
                         <div
-                          class="inner inner"
+                          class="inner inner inner inner"
                         >
                           <div
                             class="inputWrapper"
@@ -192,7 +194,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               class="input"
                             >
                               <input
-                                class="input input"
+                                class="input input input"
                                 type="text"
                                 value=""
                               />

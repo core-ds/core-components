@@ -1,6 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { act, fireEvent, getByTestId, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 import { DateRangeInputDesktop as DateRangeInput } from './desktop';
 import { parseDateString } from './utils';

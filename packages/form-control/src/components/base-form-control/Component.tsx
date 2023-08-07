@@ -2,15 +2,24 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
 
 import defaultColors from './default.module.css';
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStyles = {
+const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
 
-export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
+export type StyleColors = {
+    default: {
+        [key: string]: string;
+    };
+    inverted: {
+        [key: string]: string;
+    };
+};
+
+export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Растягивает компонент на ширину контейнера
      */
@@ -115,9 +124,19 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
      * Компонент поля (инпут, textarea и пр.)
      */
     children?: ReactNode;
+
+    /**
+     * Основные стили компонента.
+     */
+    styles: { [key: string]: string };
+
+    /**
+     * Стили компонента для default и inverted режима.
+     */
+    colorStyles?: StyleColors;
 };
 
-export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
+export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlProps>(
     (
         {
             block = false,
@@ -141,6 +160,8 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             bottomAddons,
             children,
             dataTestId,
+            styles,
+            colorStyles = { default: {}, inverted: {} },
             ...restProps
         },
         ref,
@@ -151,64 +172,95 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             <div
                 data-test-id={dataTestId}
                 className={cn(
-                    styles.component,
-                    colorStyles[colors].component,
+                    commonStyles.component,
+                    colorCommonStyles[colors].component,
                     className,
+                    commonStyles[size],
                     styles[size],
                     {
-                        [styles.block]: block,
-                        [styles.hasLeftAddons]: leftAddons,
-                        [styles.hasRightAddons]: rightAddons || error,
+                        [commonStyles.block]: block,
+                        [commonStyles.hasLeftAddons]: leftAddons,
+                        [commonStyles.hasRightAddons]: rightAddons || error,
                     },
                 )}
             >
                 {label && labelView === 'outer' && (
-                    <span className={cn(styles.above, colorStyles[colors].label)}>{label}</span>
+                    <span
+                        className={cn(
+                            commonStyles.above,
+                            styles.above,
+                            colorCommonStyles[colors].label,
+                        )}
+                    >
+                        {label}
+                    </span>
                 )}
                 <div
                     {...restProps}
-                    className={cn(fieldClassName, styles.inner, colorStyles[colors].inner, {
-                        [styles.disabled]: disabled || readOnly,
-                        [colorStyles[colors].disabled]: disabled || readOnly,
-                        [styles.filled]: filled,
-                        [colorStyles[colors].filled]: filled,
-                        [styles.hasInnerLabel]: label && labelView === 'inner',
-                        [styles.focused]: focused,
-                        [colorStyles[colors].focused]: focused,
-                        [styles.hasError]: error,
-                        [colorStyles[colors].hasError]: error,
-                    })}
+                    className={cn(
+                        fieldClassName,
+                        commonStyles.inner,
+                        styles.inner,
+                        colorCommonStyles[colors].inner,
+                        colorStyles[colors].inner,
+                        {
+                            [commonStyles.disabled]: disabled || readOnly,
+                            [colorCommonStyles[colors].disabled]: disabled || readOnly,
+                            [colorStyles[colors].disabled]: disabled || readOnly,
+                            [commonStyles.filled]: filled,
+                            [colorCommonStyles[colors].filled]: filled,
+                            [commonStyles.hasInnerLabel]: label && labelView === 'inner',
+                            [commonStyles.focused]: focused,
+                            [colorCommonStyles[colors].focused]: focused,
+                            [colorStyles[colors].focused]: focused,
+                            [commonStyles.hasError]: error,
+                            [colorCommonStyles[colors].hasError]: error,
+                            [colorStyles[colors].hasError]: error,
+                        },
+                    )}
                     ref={ref}
                 >
                     {leftAddons && (
-                        <div className={cn(styles.addons, styles.leftAddons, addonsClassName)}>
+                        <div
+                            className={cn(
+                                commonStyles.addons,
+                                commonStyles.leftAddons,
+                                addonsClassName,
+                            )}
+                        >
                             {leftAddons}
                         </div>
                     )}
 
-                    <div className={cn(styles.inputWrapper, inputWrapperClassName)}>
+                    <div className={cn(commonStyles.inputWrapper, inputWrapperClassName)}>
                         {label && labelView === 'inner' && (
                             <React.Fragment>
-                                <span className={styles.hiddenLabel} aria-hidden={true}>
+                                <span className={commonStyles.hiddenLabel} aria-hidden={true}>
                                     {label}
                                 </span>
                                 <div
                                     className={cn(
-                                        styles.label,
-                                        colorStyles[colors].label,
+                                        commonStyles.label,
+                                        colorCommonStyles[colors].label,
                                         labelClassName,
                                     )}
                                 >
-                                    <span className={styles.labelInner}>{label}</span>
+                                    <span className={commonStyles.labelInner}>{label}</span>
                                 </div>
                             </React.Fragment>
                         )}
 
-                        <div className={styles.input}>{children}</div>
+                        <div className={commonStyles.input}>{children}</div>
                     </div>
 
                     {rightAddons && (
-                        <div className={cn(styles.addons, styles.rightAddons, addonsClassName)}>
+                        <div
+                            className={cn(
+                                commonStyles.addons,
+                                commonStyles.rightAddons,
+                                addonsClassName,
+                            )}
+                        >
                             {rightAddons}
                         </div>
                     )}
@@ -217,7 +269,11 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
 
                 {errorMessage && (
                     <span
-                        className={cn(styles.sub, styles.error, colorStyles[colors].error)}
+                        className={cn(
+                            commonStyles.sub,
+                            styles.error,
+                            colorCommonStyles[colors].error,
+                        )}
                         role='alert'
                     >
                         {errorMessage}
@@ -225,7 +281,11 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                 )}
 
                 {hint && !errorMessage && (
-                    <span className={cn(styles.sub, colorStyles[colors].hint)}>{hint}</span>
+                    <span
+                        className={cn(commonStyles.sub, styles.sub, colorCommonStyles[colors].hint)}
+                    >
+                        {hint}
+                    </span>
                 )}
             </div>
         );

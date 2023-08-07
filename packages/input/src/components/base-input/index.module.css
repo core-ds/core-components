@@ -1,6 +1,5 @@
-@import '../../themes/src/default.css';
-@import '../../form-control/src/vars.css';
-@import './vars.css';
+@import '../../../../form-control/src/vars.css';
+@import '../../vars.css';
 
 .input {
     @mixin paragraph_component;
