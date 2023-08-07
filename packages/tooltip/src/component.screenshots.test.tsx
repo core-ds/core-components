@@ -12,6 +12,7 @@ describe('Tooltip', () => {
     createPreview(
         {
             componentName: 'Tooltip',
+            subComponentName: 'TooltipDesktop',
             testStory: false,
             knobs: {
                 open: true,
@@ -26,6 +27,7 @@ describe('Tooltip', () => {
 
         const cases = generateTestCases({
             componentName: 'Tooltip',
+            subComponentName: 'TooltipDesktop',
             testStory: false,
             knobs: {
                 open: true,
@@ -77,6 +79,7 @@ describe('Tooltip', () => {
 
         const cases = generateTestCases({
             componentName: 'Tooltip',
+            subComponentName: 'TooltipDesktop',
             testStory: false,
             knobs: {
                 open: true,
@@ -117,6 +120,7 @@ describe('Tooltip', () => {
 
         const cases = generateTestCases({
             componentName: 'Tooltip',
+            subComponentName: 'TooltipDesktop',
             testStory: false,
             knobs: {
                 open: true,
