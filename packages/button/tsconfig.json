@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../spinner" }, { "path": "../shared" }]
+    "references": [{ "path": "../spinner" }, { "path": "../shared" }, { "path": "../mq" }]
 }

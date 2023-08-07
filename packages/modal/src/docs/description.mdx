@@ -680,14 +680,14 @@ render(() => {
                         layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
                     >
                         {footerSettings.hasSecondaryButton && (
-                            <Button view='secondary' size='s' onClick={handleClose} block={true}>
+                            <ButtonMobile view='secondary' size='m' onClick={handleClose} block={true}>
                                 Secondary
-                            </Button>
+                            </ButtonMobile>
                         )}
                         {footerSettings.hasPrimaryButton && (
-                            <Button view='primary' size='s' onClick={handleClose} block={true}>
+                            <ButtonMobile view='primary' size='m' onClick={handleClose} block={true}>
                                 Primary
-                            </Button>
+                            </ButtonMobile>
                         )}
                     </ModalMobile.Footer>
                 )}
@@ -751,7 +751,7 @@ render(() => {
 
     return (
         <Container>
-            <Button size={document.body.clientWidth < 450 ? 'xs' : 's'} onClick={handleOpen}>
+            <Button size={document.body.clientWidth < 450 ? 'm' : 's'} onClick={handleOpen}>
                 Показать модалку
             </Button>
 
@@ -775,7 +775,7 @@ render(() => {
                 </Modal.Content>
                 <Modal.Footer sticky={true}>
                     <Button
-                        size={document.body.clientWidth < 450 ? 'xs' : 's'}
+                        size={document.body.clientWidth < 450 ? 'm' : 's'}
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose

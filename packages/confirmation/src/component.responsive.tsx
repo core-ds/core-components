@@ -6,7 +6,10 @@ import { ConfirmationDesktop } from './component.desktop';
 import { ConfirmationMobile } from './component.mobile';
 import { ConfirmationProps } from './types';
 
-export type ResponsiveConfirmationProps = Omit<ConfirmationProps, 'confirmationScreens'> & {
+export type ResponsiveConfirmationProps = Omit<
+    ConfirmationProps,
+    'confirmationScreens' | 'breakpoint'
+> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -23,6 +26,6 @@ export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = ({
     return isDesktop ? (
         <ConfirmationDesktop {...restProps} />
     ) : (
-        <ConfirmationMobile {...restProps} />
+        <ConfirmationMobile breakpoint={breakpoint} {...restProps} />
     );
 };

@@ -121,6 +121,12 @@
     "light-text-secondary-inverted": {
         "tint": [20, 30]
     },
+    "light-specialbg-secondary-transparent": {
+        "shade": [7, 15]
+    },
+    "light-specialbg-secondary-transparent-inverted": {
+        "tint": [15, 20]
+    },
     "light-specialbg-tertiary-transparent": {
         "shade": [7, 15]
     },

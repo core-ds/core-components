@@ -3,7 +3,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 import { Input as CoreInput } from '@alfalab/core-components-input';
 import {
     SelectMobileProps,
@@ -58,12 +58,12 @@ export type InputAutocompleteModalMobileProps = Omit<
     /**
      * Дополнительные пропсы на кнопку "продолжить"
      */
-    continueButtonProps?: ButtonProps;
+    continueButtonProps?: ButtonMobileProps;
 
     /**
      * Дополнительные пропсы на кнопку "отмена"
      */
-    cancelButtonProps?: ButtonProps;
+    cancelButtonProps?: ButtonMobileProps;
 
     /**
      * Кастомный инпут
@@ -172,24 +172,24 @@ export const InputAutocompleteModalMobile = React.forwardRef<
 
         const renderFooter = () => (
             <React.Fragment>
-                <Button
+                <ButtonMobile
                     block={true}
                     view='secondary'
-                    size='s'
+                    size='m'
                     onClick={handleCancel}
                     {...cancelButtonProps}
                 >
                     Отмена
-                </Button>
-                <Button
+                </ButtonMobile>
+                <ButtonMobile
                     block={true}
                     view='primary'
-                    size='s'
+                    size='m'
                     onClick={handleApply}
                     {...continueButtonProps}
                 >
                     Продолжить
-                </Button>
+                </ButtonMobile>
             </React.Fragment>
         );
 

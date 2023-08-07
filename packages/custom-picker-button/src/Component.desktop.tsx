@@ -33,6 +33,7 @@ export const CustomPickerButtonDesktop = forwardRef<
                 backgroundColor,
                 contentColor,
                 stateType,
+                breakpoint: 1,
             }}
             Field={DefaultField}
             ref={ref}

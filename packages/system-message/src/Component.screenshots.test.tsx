@@ -83,7 +83,10 @@ describe('SystemMessage ', () => {
                 breakpoint: 600,
             },
         },
-        'transform:scale(0.9)',
+        'width:800px;transform:scale(0.9)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     );
 
     describe('desktop', () => {

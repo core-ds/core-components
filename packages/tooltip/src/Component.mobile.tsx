@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import cn from 'classnames';
 
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { TooltipMobileProps } from './types';
 
@@ -25,9 +25,9 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
             container={getPortalContainer}
             onClose={onClose}
             actionButton={
-                <Button view='secondary' block={true} size='s' onClick={onClose}>
+                <ButtonMobile view='secondary' block={true} size='s' onClick={onClose}>
                     {actionButtonTitle}
-                </Button>
+                </ButtonMobile>
             }
         >
             {content}

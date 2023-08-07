@@ -13,7 +13,7 @@ exports[`Snapshots tests should display correctly 1`] = `
       <button
         aria-controls="downshift-3-menu"
         aria-labelledby="downshift-3-label"
-        class="component secondary m component secondary block withRightAddons component"
+        class="component secondary m m component secondary component secondary block withRightAddons component"
         id="downshift-2-input"
         tabindex="0"
         type="button"
@@ -68,7 +68,7 @@ exports[`Snapshots tests should display correctly 2`] = `
       <button
         aria-controls="downshift-11-menu"
         aria-labelledby="downshift-11-label"
-        class="component secondary m component secondary block withRightAddons component"
+        class="component secondary m m component secondary component secondary block withRightAddons component"
         id="downshift-10-input"
         tabindex="0"
         type="button"
@@ -123,7 +123,7 @@ exports[`Snapshots tests should display correctly 3`] = `
       <button
         aria-controls="downshift-19-menu"
         aria-labelledby="downshift-19-label"
-        class="component secondary m component secondary block withRightAddons component"
+        class="component secondary m m component secondary component secondary block withRightAddons component"
         id="downshift-18-input"
         tabindex="0"
         type="button"
@@ -179,7 +179,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       <button
         aria-controls="downshift-7-menu"
         aria-labelledby="downshift-7-label"
-        class="component secondary m component secondary block iconOnly component"
+        class="component secondary m m component secondary component secondary block iconOnly component"
         id="downshift-6-input"
         tabindex="0"
         type="button"
@@ -274,7 +274,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s component ghost cc-icon-button button mobile primary component"
+                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
@@ -1279,7 +1279,7 @@ exports[`Snapshots tests should display opened correctly 3`] = `
       <button
         aria-controls="downshift-15-menu"
         aria-labelledby="downshift-15-label"
-        class="component secondary m component secondary block iconOnly component"
+        class="component secondary m m component secondary component secondary block iconOnly component"
         id="downshift-14-input"
         tabindex="0"
         type="button"
@@ -1374,7 +1374,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s component ghost cc-icon-button button mobile primary component"
+                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span
@@ -2379,7 +2379,7 @@ exports[`Snapshots tests should display opened correctly 5`] = `
       <button
         aria-controls="downshift-23-menu"
         aria-labelledby="downshift-23-label"
-        class="component secondary m component secondary block iconOnly component"
+        class="component secondary m m component secondary component secondary block iconOnly component"
         id="downshift-22-input"
         tabindex="0"
         type="button"
@@ -2474,7 +2474,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component ghost s component ghost cc-icon-button button mobile primary component"
+                            class="component ghost s s component ghost component ghost cc-icon-button button mobile primary component"
                             type="button"
                           >
                             <span

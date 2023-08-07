@@ -4,7 +4,7 @@ import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 import { Input as CoreInput } from '@alfalab/core-components-input';
 import { SelectMobile, SelectMobileProps } from '@alfalab/core-components-select/mobile';
 import type {
@@ -63,12 +63,12 @@ export type InputAutocompleteMobileProps = Omit<
     /**
      * Дополнительные пропсы на кнопку "продолжить"
      */
-    continueButtonProps?: ButtonProps;
+    continueButtonProps?: ButtonMobileProps;
 
     /**
      * Дополнительные пропсы на кнопку "отмена"
      */
-    cancelButtonProps?: ButtonProps;
+    cancelButtonProps?: ButtonMobileProps;
 
     /**
      * Кастомный инпут
@@ -176,24 +176,24 @@ export const InputAutocompleteMobile = React.forwardRef(
             return {
                 actionButton: (
                     <div className={styles.footer}>
-                        <Button
+                        <ButtonMobile
                             block={true}
                             view='secondary'
-                            size='s'
+                            size='m'
                             onClick={handleCancel}
                             {...cancelButtonProps}
                         >
                             Отмена
-                        </Button>
-                        <Button
+                        </ButtonMobile>
+                        <ButtonMobile
                             block={true}
                             view='primary'
-                            size='s'
+                            size='m'
                             onClick={handleApply}
                             {...continueButtonProps}
                         >
                             Продолжить
-                        </Button>
+                        </ButtonMobile>
                     </div>
                 ),
                 title: label || placeholder,
