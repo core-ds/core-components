@@ -106,7 +106,7 @@
         "index.js": 3.63
     },
     "pure-cell": {
-        "index.js": 37.95
+        "index.js": 37.96
     },
     "progress-bar": {
         "index.js": 1.61
@@ -181,7 +181,7 @@
         "index.js": 2.11
     },
     "intl-phone-input": {
-        "index.js": 716.63
+        "index.js": 716.66
     },
     "input": {
         "index.js": 13.72
@@ -241,16 +241,16 @@
         "index.js": 1.31
     },
     "date-time-input": {
-        "desktop.js": 220.14,
+        "desktop.js": 220.15,
         "index.js": 220.51,
         "mobile.js": 220.17,
         "responsive.js": 220.52
     },
     "date-range-input": {
-        "desktop.js": 221.79,
-        "index.js": 222.16,
-        "mobile.js": 221.82,
-        "responsive.js": 222.17
+        "desktop.js": 221.8,
+        "index.js": 222.17,
+        "mobile.js": 221.83,
+        "responsive.js": 222.18
     },
     "date-input": {
         "index.js": 58.4
@@ -295,28 +295,28 @@
         "index.js": 436.22
     },
     "cdn-icon": {
-        "index.js": 1.64
+        "index.js": 1.68
     },
     "card-image": {
         "index.js": 2.03
     },
     "calendar": {
-        "desktop.js": 60.34,
-        "index.js": 164.62,
+        "desktop.js": 60.35,
+        "index.js": 164.63,
         "mobile.js": 162.7,
-        "responsive.js": 162.7
+        "responsive.js": 162.71
     },
     "calendar-with-skeleton": {
-        "index.js": 163.78
+        "index.js": 163.79
     },
     "calendar-range": {
-        "index.js": 228.66
+        "index.js": 228.67
     },
     "calendar-input": {
-        "desktop.js": 220.69,
-        "index.js": 221.49,
-        "mobile.js": 220.71,
-        "responsive.js": 221.06
+        "desktop.js": 220.7,
+        "index.js": 221.5,
+        "mobile.js": 220.72,
+        "responsive.js": 221.07
     },
     "button": {
         "index.js": 6.48
