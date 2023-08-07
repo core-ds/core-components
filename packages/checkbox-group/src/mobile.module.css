@@ -1,0 +1,13 @@
+@import './vars.css';
+
+.checkboxList {
+    padding-left: var(--checkbox-group-mobile-list-padding-left);
+}
+
+.label {
+    padding-left: var(--checkbox-group-mobile-sub-padding-left);
+}
+
+.sub {
+    padding-left: var(--checkbox-group-mobile-sub-padding-left);
+}

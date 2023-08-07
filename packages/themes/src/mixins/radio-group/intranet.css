@@ -1,0 +1,4 @@
+@define-mixin radio-group-intranet {
+    --radio-group-sub-padding-left: var(--gap-2xs);
+    --radio-group-list-padding-left: var(--gap-3xs);
+}
