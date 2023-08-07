@@ -148,6 +148,24 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
             </td>
         </tr>
         <tr>
+            <td>42-tag-click</td>
+            <td>
+                - <b>В теме click</b> принудительно устанавливает `view="filled"`
+            </td>
+        </tr>
+        <tr>
+            <td>42-tag-intranet</td>
+            <td>
+                - <b>В теме intranet</b> Принудительно устанавливает `view="filled"` и `shape="rectangular"`
+            </td>
+        </tr>
+        <tr>
+            <td>42-tag-mobile</td>
+            <td>
+                - <b>В теме mobile</b> Принудительно устанавливает `view="filled"` и `shape="rectangular"`
+            </td>
+        </tr>
+        <tr>
             <td>42-button</td>
             <td rowspan="11">
                 Кодмоды, связанные с появлением responsive, desktop и mobile версий компонентов.
@@ -183,7 +201,9 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
 ```bash
 $ yarn test:codemod
 ```
+
 or
+
 ```
 $ npx jest packages/codemod/src --config=jest.codemod.config.js
 ```
