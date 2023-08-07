@@ -8,7 +8,7 @@ export type OptionMatcher = (option: OptionShape, inputValue: string) => boolean
 export type TagProps = {
     option: OptionShape;
     handleDeleteTag?: (key: string) => void;
-} & TagPropsBase;
+} & Omit<TagPropsBase, 'breakpoint'>;
 
 export type TagComponent = FC<TagProps>;
 

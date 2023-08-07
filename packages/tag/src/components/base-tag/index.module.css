@@ -1,4 +1,4 @@
-@import './vars.css';
+@import '../../vars.css';
 
 .component {
     display: inline-flex;
@@ -220,25 +220,5 @@
     &.l,
     &.xl {
         border-radius: var(--tag-border-radius);
-    }
-}
-
-.rectangular {
-    &.xxs {
-        border-radius: var(--tag-rectangular-xxs-border-radius);
-    }
-
-    &.xs {
-        border-radius: var(--tag-rectangular-xs-border-radius);
-    }
-
-    &.s {
-        border-radius: var(--tag-rectangular-s-border-radius);
-    }
-
-    &.m,
-    &.l,
-    &.xl {
-        border-radius: var(--tag-alt-border-radius);
     }
 }

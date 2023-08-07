@@ -1,17 +1,22 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { FilterTag as FilterTagTS } from '../Component';
-import styles from '!!raw-loader!../index.module.css';
+import { FilterTagDesktop } from '../Component.desktop';
+import { FilterTagMobile } from '../Component.mobile';
+import { FilterTag } from '../Component.responsive';
+import styles from '!!raw-loader!../components/base-filter-tag/index.module.css';
 
 ## Подключение
 
 ```jsx
 import { FilterTag } from '@alfalab/core-components/filter-tag';
+import { FilterTagMobile } from '@alfalab/core-components/filter-tag/mobile';
+import { FilterTagDesktop } from '@alfalab/core-components/filter-tag/desktop';
 ```
+Из индекса импортируется responsive версия компонента. 
 
 ## Свойства
 
-<ArgsTable of={FilterTagTS} />
+<ArgsTable components={{FilterTagDesktop, FilterTagMobile, FilterTag}} />
 
 ## Переменные
 

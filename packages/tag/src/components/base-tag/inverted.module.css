@@ -1,4 +1,4 @@
-@import './vars.css';
+@import '../../vars.css';
 
 .component {
     &.outlined {
@@ -12,9 +12,11 @@
             background-color: var(--tag-inverted-outlined-background-color-disabled);
         }
 
-        &:hover:not(:disabled) {
-            border-color: var(--tag-inverted-border-color-hover);
-            background-color: var(--tag-inverted-outlined-background-color-hover);
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                border-color: var(--tag-inverted-border-color-hover);
+                background-color: var(--tag-inverted-outlined-background-color-hover);
+            }
         }
 
         &:active:not(:disabled) {
@@ -26,39 +28,18 @@
     &.filled {
         color: var(--tag-inverted-text-color);
         border-color: var(--tag-inverted-filled-border-color);
-        background-color: var(--tag-inverted-filled-background-color);
 
         &:disabled {
             color: var(--tag-inverted-text-color-disabled);
-            background-color: var(--tag-inverted-filled-background-color-disabled);
-        }
-
-        &:hover:not(:disabled) {
-            background-color: var(--tag-inverted-filled-background-color-hover);
-        }
-
-        &:active:not(:disabled) {
-            background-color: var(--tag-inverted-filled-background-color-active);
         }
     }
 
     &.checked {
-        border-color: var(--tag-inverted-border-color-checked);
-        background-color: var(--tag-inverted-background-color-checked);
         color: var(--tag-inverted-text-color-checked);
 
         &:disabled {
-            background-color: var(--tag-inverted-background-color-checked-disabled);
             border-color: var(--tag-inverted-border-color-checked-disabled);
             color: var(--tag-inverted-text-color-checked-disabled);
-        }
-
-        &:hover:not(:disabled) {
-            background-color: var(--tag-inverted-background-color-checked-hover);
-        }
-
-        &:active:not(:disabled) {
-            background-color: var(--tag-inverted-background-color-checked-active);
         }
     }
 }

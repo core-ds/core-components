@@ -28,7 +28,10 @@ describe('FilterTag', () => {
                 checked: true,
             },
         },
-        'transform:scale(2.2)',
+        'width:800px;transform:scale(2.2)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     );
 });
 
@@ -82,7 +85,7 @@ describe('FilterTag | main props', () => {
             screenshotOpts: {
                 fullPage: true,
             },
-            viewport: { width: 740, height: 100 },
+            viewport: { width: 1024, height: 100 },
             theme,
         })();
 
