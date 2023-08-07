@@ -169,6 +169,7 @@
         "jest-image-snapshot": "^6.1.0",
         "json": "^10.0.0",
         "lerna": "^6.1.0",
+        "levenary": "^1.1.1",
         "lint-staged": "^12.5.0",
         "lodash.camelcase": "^4.3.0",
         "lodash.kebabcase": "^4.1.1",
