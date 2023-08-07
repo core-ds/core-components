@@ -10,8 +10,8 @@
     },
     "tooltip": {
         "desktop.js": 44.31,
-        "index.js": 93.02,
-        "responsive.js": 93.01
+        "index.js": 93.21,
+        "responsive.js": 93.2
     },
     "toast": {
         "index.js": 55.15
@@ -29,13 +29,13 @@
         "index.js": 4.18
     },
     "tabs": {
-        "desktop.js": 213.47,
-        "index.js": 214.47,
-        "mobile.js": 213.6,
-        "responsive.js": 214.5
+        "desktop.js": 213.65,
+        "index.js": 214.65,
+        "mobile.js": 213.78,
+        "responsive.js": 214.68
     },
     "table": {
-        "index.js": 210.7
+        "index.js": 210.88
     },
     "system-message": {
         "desktop.js": 3.95,
@@ -83,12 +83,12 @@
         "responsive.js": 88.51
     },
     "select": {
-        "index.js": 204.15,
-        "mobile.js": 200.12,
-        "responsive.js": 200.52
+        "index.js": 204.33,
+        "mobile.js": 200.29,
+        "responsive.js": 200.7
     },
     "select-with-tags": {
-        "index.js": 206.72
+        "index.js": 206.9
     },
     "segmented-control": {
         "index.js": 13.22
@@ -121,10 +121,10 @@
         "index.js": 11.17
     },
     "picker-button": {
-        "desktop.js": 203.79,
-        "index.js": 204.71,
-        "mobile.js": 203.45,
-        "responsive.js": 204.71
+        "desktop.js": 203.97,
+        "index.js": 204.89,
+        "mobile.js": 203.63,
+        "responsive.js": 204.89
     },
     "phone-input": {
         "index.js": 24.41
@@ -181,16 +181,16 @@
         "index.js": 2.11
     },
     "intl-phone-input": {
-        "index.js": 716.66
+        "index.js": 716.85
     },
     "input": {
         "index.js": 13.72
     },
     "input-autocomplete": {
-        "desktop.js": 204.97,
-        "index.js": 207.77,
-        "mobile.js": 207.89,
-        "responsive.js": 207.75
+        "desktop.js": 205.16,
+        "index.js": 207.96,
+        "mobile.js": 208.08,
+        "responsive.js": 207.94
     },
     "indicator": {
         "index.js": 1.99
@@ -220,7 +220,7 @@
         "index.js": 1.36
     },
     "gallery": {
-        "index.js": 206.49
+        "index.js": 206.66
     },
     "form-control": {
         "index.js": 2.79
@@ -256,10 +256,10 @@
         "index.js": 58.4
     },
     "custom-picker-button": {
-        "desktop.js": 206.15,
-        "index.js": 207.93,
-        "mobile.js": 206.15,
-        "responsive.js": 207.94
+        "desktop.js": 206.33,
+        "index.js": 208.11,
+        "mobile.js": 206.33,
+        "responsive.js": 208.12
     },
     "custom-button": {
         "index.js": 6.91
@@ -322,7 +322,7 @@
         "index.js": 6.48
     },
     "bottom-sheet": {
-        "index.js": 64.84
+        "index.js": 65.02
     },
     "base-modal": {
         "index.js": 39.89
