@@ -17,11 +17,11 @@ import { useFocus } from '@alfalab/hooks';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
-import { ButtonList } from './components/button-list/component';
+import { ButtonList } from '../button-list/component';
 
-import styles from './index.module.css';
+import commonStyles from './index.module.css';
 
-export type PlateProps = {
+export type BasePlateProps = {
     /**
      * Управление наличием закрывающего крестика
      */
@@ -144,10 +144,15 @@ export type PlateProps = {
      * Количество строк (не поддерживает IE)
      */
     rowLimit?: 1 | 2 | 3;
+
+    /**
+     * Основные стили компонента.
+     */
+    styles?: { [key: string]: string };
 };
 
 /* eslint-disable complexity */
-export const Plate = forwardRef<HTMLDivElement, PlateProps>(
+export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
     (
         {
             hasCloser,
@@ -174,6 +179,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             onClose,
             onToggle,
             rowLimit,
+            styles = {},
         },
         ref,
     ) => {
@@ -196,7 +202,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         const hasSubAddons = !!subAddons && typeof subAddons !== 'boolean';
         const hasAnyAddons = leftAddons || subAddons || foldable || hasCloser;
 
-        const rowLimitStyles = rowLimit && styles[`rowLimit${rowLimit}`];
+        const rowLimitStyles = rowLimit && commonStyles[`rowLimit${rowLimit}`];
 
         const handleClick = useCallback(
             (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
@@ -251,17 +257,17 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
                 className={cn(
-                    styles.component,
-                    styles[view],
+                    commonStyles.component,
+                    commonStyles[view],
                     {
-                        [styles.foldable]: foldable,
-                        [styles.focused]: focused,
-                        [styles.isHidden]: hasCloser && isHidden,
-                        [styles.isFolded]: foldable && folded,
-                        [styles.rounded]: rounded,
-                        [styles.rect]: !rounded,
-                        [styles.noBorder]: !border,
-                        [styles.shadow]: shadow,
+                        [commonStyles.foldable]: foldable,
+                        [commonStyles.focused]: focused,
+                        [commonStyles.isHidden]: hasCloser && isHidden,
+                        [commonStyles.isFolded]: foldable && folded,
+                        [commonStyles.rounded]: rounded,
+                        [commonStyles.rect]: !rounded,
+                        [commonStyles.noBorder]: !border,
+                        [commonStyles.shadow]: shadow,
                     },
                     className,
                 )}
@@ -273,24 +279,38 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 tabIndex={foldable ? 0 : -1}
                 data-test-id={dataTestId}
             >
-                <div className={styles.inner}>
-                    {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
+                <div className={commonStyles.inner}>
+                    {leftAddons && <div className={commonStyles.leftAddons}>{leftAddons}</div>}
                     <div
-                        className={cn(styles.contentContainer, contentClassName, {
-                            [styles.withoutTitle]: !title && hasAnyAddons,
-                            [styles.limitWidth]: limitContentWidth,
+                        className={cn(commonStyles.contentContainer, contentClassName, {
+                            [commonStyles.withoutTitle]: !title && hasAnyAddons,
+                            [commonStyles.limitWidth]: limitContentWidth,
                         })}
                     >
-                        {title && <div className={styles[titleView]}>{title}</div>}
+                        {title && (
+                            <div
+                                className={cn(commonStyles[titleView], {
+                                    [styles[titleView]]: Boolean(styles[titleView]),
+                                })}
+                            >
+                                {title}
+                            </div>
+                        )}
                         {hasContent && (
                             <div
                                 ref={contentRef}
-                                className={cn(styles.content, {
-                                    [styles.isFolded]: foldable && folded,
+                                className={cn(commonStyles.content, {
+                                    [commonStyles.isFolded]: foldable && folded,
                                 })}
                             >
                                 {children && (
-                                    <div className={cn(styles.description, rowLimitStyles)}>
+                                    <div
+                                        className={cn(
+                                            commonStyles.description,
+                                            styles.description,
+                                            rowLimitStyles,
+                                        )}
+                                    >
                                         {children}
                                     </div>
                                 )}
@@ -299,8 +319,14 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                                     <div className={styles.footer}>
                                         <ButtonList
                                             buttons={buttons}
-                                            containerClassName={buttonsClassName}
-                                            buttonClassName={cn(styles.button, buttonsClassName)}
+                                            containerClassName={cn(
+                                                commonStyles.containerButton,
+                                                buttonsClassName,
+                                            )}
+                                            buttonClassName={cn(
+                                                commonStyles.button,
+                                                buttonsClassName,
+                                            )}
                                         />
                                     </div>
                                 )}
@@ -309,20 +335,20 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     </div>
 
                     {hasSubAddons && (
-                        <div ref={subAddonsRef} className={styles.subAddons}>
+                        <div ref={subAddonsRef} className={commonStyles.subAddons}>
                             <ButtonList
                                 buttons={subAddons}
                                 containerClassName={subAddonsClassName}
-                                buttonClassName={styles.button}
+                                buttonClassName={commonStyles.button}
                             />
                         </div>
                     )}
 
                     {foldable && (
-                        <div className={styles.rightAddons}>
+                        <div className={commonStyles.rightAddons}>
                             <div
-                                className={cn(styles.folder, {
-                                    [styles.isFolded]: folded,
+                                className={cn(commonStyles.folder, {
+                                    [commonStyles.isFolded]: folded,
                                 })}
                             >
                                 <ChevronDownMIcon />
@@ -331,9 +357,9 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     )}
 
                     {hasCloser && !foldable && (
-                        <div className={styles.rightAddons}>
+                        <div className={commonStyles.rightAddons}>
                             <IconButton
-                                className={styles.closer}
+                                className={commonStyles.closer}
                                 aria-label='закрыть'
                                 icon={CrossMIcon}
                                 size='xxs'
@@ -346,13 +372,3 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         );
     },
 );
-/* eslint-enable complexity */
-
-/**
- * Для отображения в сторибуке
- */
-Plate.defaultProps = {
-    foldable: false,
-    defaultFolded: true,
-    view: 'common',
-};

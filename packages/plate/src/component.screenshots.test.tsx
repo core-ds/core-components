@@ -26,7 +26,10 @@ describe('Plate', () => {
                 buttons: true,
             },
         },
-        'transform:scale(1.3);padding:0 200px;',
+        'width:800px;transform:scale(1.3);padding:0 200px;',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     );
 });
 
@@ -54,10 +57,6 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
-        viewport: {
-            width: 840,
-            height: 100,
-        },
     }),
 );
 
@@ -75,7 +74,7 @@ describe(
                             'Вам одобрено. Согласитесь на предложение, спустя какое-то время специалист с Вами свяжется для уточнения информации',
                         view: ['negative', 'positive', 'attention', 'common'],
                     },
-                    size: { width: 400, height: 120 },
+                    size: { width: 400, height: 140 },
                 }),
             ],
         ],
@@ -83,7 +82,7 @@ describe(
             fullPage: true,
         },
         viewport: {
-            width: 840,
+            width: 1024,
             height: 100,
         },
     }),
@@ -103,7 +102,7 @@ describe(
                             'Вам одобрено. Согласитесь на предложение, спустя какое-то время специалист с Вами свяжется для уточнения информации',
                         rowLimit: [undefined, 1, 2, 3],
                     },
-                    size: { width: 400, height: 120 },
+                    size: { width: 400, height: 140 },
                 }),
             ],
         ],
@@ -111,7 +110,7 @@ describe(
             fullPage: true,
         },
         viewport: {
-            width: 840,
+            width: 1024,
             height: 100,
         },
     }),
@@ -129,8 +128,9 @@ describe(
                 buttons: true,
                 leftAddons: [false, true],
             },
+            wrapperStyles: 'width:500px',
         }),
-        viewport: { width: 500, height: 160 },
+        viewport: { width: 1024, height: 160 },
     }),
 );
 
@@ -147,8 +147,9 @@ describe(
                 leftAddons: true,
                 buttons: true,
             },
+            wrapperStyles: 'width:500px',
         }),
-        viewport: { width: 500, height: 160 },
+        viewport: { width: 1024, height: 160 },
     }),
 );
 
@@ -173,7 +174,7 @@ describe(
             fullPage: true,
         },
         viewport: {
-            width: 840,
+            width: 1024,
             height: 100,
         },
     }),

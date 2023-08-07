@@ -23,6 +23,7 @@
             "@alfalab/core-components-*": ["packages/*/src"],
             "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
             "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"],
+            "@alfalab/core-components-plate/*": ["packages/plate/src/*"],
             "@alfalab/core-components-toast-plate/*": ["packages/toast-plate/src/*"],
             "@alfalab/core-components-toast/*": ["packages/toast/src/*"],
             "@alfalab/core-components-code-input/*": ["packages/code-input/src/*"],

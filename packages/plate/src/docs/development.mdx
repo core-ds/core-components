@@ -1,0 +1,23 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { Plate } from '../Component.responsive';
+import { PlateMobile } from '../Component.mobile';
+import { PlateDesktop } from '../Component.desktop';
+import styles from '!!raw-loader!../components/base-plate/index.module.css';
+
+## Подключение
+
+```jsx
+import { Plate } from '@alfalab/core-components/plate';
+import { PlateMobile } from '@alfalab/core-components/plate/mobile';
+import { PlateDesktop } from '@alfalab/core-components/plate/desktop';
+```
+Из индекса импортируется responsive версия компонента. 
+
+## Свойства
+
+<ArgsTable components={{ PlateDesktop, PlateMobile, Plate }} />
+
+## Переменные
+
+<CssVars css={styles} />

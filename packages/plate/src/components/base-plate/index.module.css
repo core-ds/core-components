@@ -1,10 +1,10 @@
-@import '../../themes/src/default.css';
+@import '../../../../themes/src/default.css';
 
 :root {
     /* border */
     --plate-border-left: 2px;
     --plate-border: 0 0 0 1px;
-    --plate-border-radius: var(--border-radius-m);
+    --plate-border-radius: var(--border-radius-l);
 
     /* width limit */
 
@@ -154,11 +154,6 @@
     word-break: break-word;
 }
 
-.bold {
-    @mixin headline-system_xsmall;
-    padding: 5px var(--gap-s) 5px var(--gap-2xs);
-}
-
 .light {
     @mixin paragraph_primary_small;
     padding: 6px var(--gap-s) 6px var(--gap-2xs);
@@ -196,11 +191,6 @@
 
 .description {
     @mixin paragraph_primary_small;
-    padding: var(--gap-2xs) var(--gap-s) var(--gap-2xs) var(--gap-2xs);
-}
-
-.footer {
-    padding: var(--gap-l) 0 var(--gap-2xs) var(--gap-2xs);
 }
 
 .closer,
@@ -229,6 +219,10 @@
     &.isFolded {
         transform: rotate(0deg);
     }
+}
+
+.containerButton {
+    display: flex;
 }
 
 .button {
