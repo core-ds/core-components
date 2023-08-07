@@ -56,7 +56,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     const renderOptionsList = useCallback(
         (props: OptionsListProps) => (
             <div style={{ width: fieldWidth || 0 }}>
-                <VirtualOptionsList {...props} />
+                <VirtualOptionsList {...props} optionsListWidth='field' />
             </div>
         ),
         [fieldWidth],
