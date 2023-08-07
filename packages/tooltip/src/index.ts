@@ -1,3 +1,2 @@
-export { TooltipDesktop as Tooltip } from './desktop';
-export type { TooltipDesktopProps as TooltipProps } from './desktop';
-export * from './component.responsive';
+export { TooltipResponsive as Tooltip } from './Component.responsive';
+export type { TooltipResponsiveProps as TooltipProps } from './types';

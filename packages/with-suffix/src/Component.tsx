@@ -5,7 +5,6 @@ import React, {
     ReactNode,
     RefAttributes,
     useCallback,
-    useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
@@ -50,7 +49,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
         ) => {
             const uncontrolled = value === undefined;
 
-            const inputRef = useRef<HTMLInputElement>(null);
+            const [inputNode, setInputNode] = useState<HTMLInputElement | null>(null);
 
             const [stateValue, setStateValue] = useState(defaultValue || '');
 
@@ -82,8 +81,8 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const getPortalContainer = useCallback(
                 // TODO: Изменить сигнатуру getPortalContainer в Portal
-                () => (inputRef.current as HTMLElement).parentElement as HTMLElement,
-                [],
+                () => inputNode?.parentElement as HTMLElement,
+                [inputNode],
             );
 
             const visibleValue = uncontrolled ? stateValue : value;
@@ -91,7 +90,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
             return (
                 <Fragment>
                     <Input
-                        ref={mergeRefs([ref, inputRef])}
+                        ref={mergeRefs([ref, setInputNode])}
                         value={visibleValue}
                         disabled={disabled}
                         readOnly={readOnly}

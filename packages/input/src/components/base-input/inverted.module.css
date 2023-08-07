@@ -1,0 +1,46 @@
+@import '../../vars.css';
+
+.input {
+    color: var(--input-inverted-color);
+    caret-color: var(--input-inverted-caret-color);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.input:-webkit-autofill {
+    -webkit-text-fill-color: var(--input-inverted-color);
+}
+
+.input::placeholder {
+    color: var(--input-inverted-placeholder-color);
+}
+
+.hasInnerLabel::placeholder {
+    color: var(--input-inverted-with-label-placeholder-color);
+}
+
+.clearIcon {
+    color: var(--color-light-graphic-primary-inverted);
+}
+
+/* READ-ONLY STATE */
+
+.input:read-only {
+    color: var(--input-inverted-read-only-color);
+
+    &:focus::placeholder {
+        color: var(--input-inverted-placeholder-color);
+    }
+}
+
+/* DISABLED STATE */
+
+.input:disabled {
+    color: var(--input-inverted-disabled-color);
+    -webkit-text-fill-color: var(--input-inverted-disabled-color);
+}
+
+/* FOCUS STATE */
+
+.input:focus::placeholder {
+    color: var(--input-inverted-focus-placeholder-color);
+}

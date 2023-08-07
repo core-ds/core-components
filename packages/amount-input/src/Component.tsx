@@ -108,6 +108,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             clear = false,
             onChange,
             onClear,
+            breakpoint = 1024,
             ...restProps
         },
         ref,
@@ -255,6 +256,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     pattern={`[${positiveOnly ? '' : '-'}0-9\\s\\.,]*`}
                     dataTestId={dataTestId}
                     ref={ref}
+                    breakpoint={breakpoint}
                 />
             </div>
         );

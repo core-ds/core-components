@@ -4,7 +4,6 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalContext, BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Scrollbar, ScrollbarProps } from '@alfalab/core-components-scrollbar';
 
 import styles from './index.module.css';
 
@@ -22,11 +21,6 @@ export type DrawerProps = Omit<BaseModalProps, 'container'> & {
      * @default true
      */
     nativeScrollbar?: boolean;
-
-    /**
-     * Пропсы кастомного скроллбара.
-     */
-    scrollbarProps?: Partial<Omit<ScrollbarProps, 'children'>>;
 
     /**
      * Пропсы для анимации контента (CSSTransition)
@@ -72,7 +66,6 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
             contentTransitionProps,
             nativeScrollbar = true,
             placement = 'right',
-            scrollbarProps,
             ...restProps
         },
         ref,
@@ -105,17 +98,6 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
             };
         }, [restProps.transitionProps, isLeftPlacement, isRightPlacement]);
 
-        const renderWithNativeScrollbar = () => <div className={styles.content}>{children}</div>;
-
-        const renderWithCustomScrollbar = () => (
-            <Scrollbar
-                {...scrollbarProps}
-                className={cn(styles.simplebar, scrollbarProps?.className)}
-            >
-                {children}
-            </Scrollbar>
-        );
-
         return (
             <BaseModal
                 {...restProps}
@@ -125,6 +107,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                 className={cn(styles.component, className, {
                     [styles.rightPlacement]: isRightPlacement,
                     [styles.leftPlacement]: isLeftPlacement,
+                    [styles.customScrollbar]: !nativeScrollbar,
                 })}
                 transitionProps={transitionProps}
                 backdropProps={{ ...backdropProps, ...restProps.backdropProps }}
@@ -134,7 +117,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                     appear={true}
                     in={open}
                 >
-                    {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
+                    <div className={styles.content}>{children}</div>
                 </CSSTransition>
             </BaseModal>
         );

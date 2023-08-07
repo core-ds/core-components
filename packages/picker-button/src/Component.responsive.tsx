@@ -2,11 +2,11 @@ import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ButtonProps } from '@alfalab/core-components-button';
-import { AdditionalMobileProps } from '@alfalab/core-components-select';
+import type { AdditionalMobileProps } from '@alfalab/core-components-select/shared';
 import { useMedia } from '@alfalab/hooks';
 
-import { PickerButtonDesktop, PickerButtonDesktopProps } from './Component';
-import { PickerButtonMobile } from './Component.mobile';
+import { PickerButtonDesktop, PickerButtonDesktopProps } from './desktop';
+import { PickerButtonMobile } from './mobile';
 
 export type PickerButtonMatchMedia = 'desktop' | 'mobile';
 
@@ -53,6 +53,7 @@ export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonR
                 footer={footer}
                 swipeable={swipeable}
                 bottomSheetProps={bottomSheetProps}
+                breakpoint={breakpoint}
                 {...restProps}
             />
         );

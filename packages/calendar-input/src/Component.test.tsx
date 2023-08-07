@@ -2,9 +2,23 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, waitFor, fireEvent } from '@testing-library/react';
 
-import { CalendarInput } from './index';
+import { CalendarInputDesktop as CalendarInput } from './desktop';
 
 describe('CalendarInput', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+    
     const getSelectedDay = () =>
         document.querySelector('td[aria-selected="true"]') as HTMLButtonElement;
 

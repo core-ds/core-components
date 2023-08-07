@@ -20,9 +20,9 @@ import {
 } from 'downshift';
 
 import { Popover } from '@alfalab/core-components-popover';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { getDataTestId } from '../../../../utils';
 import { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';

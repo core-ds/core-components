@@ -1,14 +1,22 @@
 import { ArgsTable } from '@storybook/addon-docs';
-import { InputAutocompleteResponsive as InputAutocompleteTS } from '../responsive';
-import { InputAutocompleteMobile as InputAutocompleteMobileTS } from '../Component.mobile';
+import { InputAutocomplete } from '..';
+import { InputAutocompleteMobile } from '../mobile';
+import { InputAutocompleteDesktop } from '../desktop';
 
 ## Подключение
 
 ```jsx
 import { InputAutocomplete } from '@alfalab/core-components/input-autocomplete';
+import { InputAutocompleteDesktop } from '@alfalab/core-components/input-autocomplete/desktop';
+import { InputAutocompleteMobile } from '@alfalab/core-components/input-autocomplete/mobile';
 ```
 
 ## Свойства
 
-<ArgsTable components={{InputAutocomplete: InputAutocompleteTS, InputAutocompleteMobile: InputAutocompleteMobileTS}} />
-
+<ArgsTable
+    components={{
+        InputAutocomplete,
+        InputAutocompleteDesktop,
+        InputAutocompleteMobile,
+    }}
+/>

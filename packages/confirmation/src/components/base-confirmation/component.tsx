@@ -39,6 +39,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     mobile,
     clearCodeOnError = true,
     hideCountdownSection = false,
+    breakpoint = 1024,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);
@@ -98,6 +99,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         tempBlockDuration,
         phone,
         blockSmsRetry,
+        breakpoint,
         onTempBlockFinished,
         onChangeState,
         onChangeScreen,

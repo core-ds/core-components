@@ -27,7 +27,7 @@ describe('NotificationManager', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Snapshots tests', () => {
         it('should match empty snapshot', () => {
             const { baseElement } = render(

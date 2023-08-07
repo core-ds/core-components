@@ -1,1 +1,1 @@
-export * from './Component.desktop';
+export { InputAutocompleteDesktop, InputAutocompleteDesktopProps } from './Component.desktop';

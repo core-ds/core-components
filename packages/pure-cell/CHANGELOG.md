@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.3.2
+
+### Patch Changes
+
+### [#776](https://github.com/core-ds/core-components/pull/776)
+
+-   Добавлена возможность передавать дополнительные props в компонент PureCell
+
 ## 4.3.1
 
 ### Patch Changes

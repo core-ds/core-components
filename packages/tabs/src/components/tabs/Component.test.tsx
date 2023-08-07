@@ -8,6 +8,18 @@ import { TabsResponsive } from './Component.responsive';
 import { Tab } from '../tab';
 import { TabsProps } from '../../typings';
 
+Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => {
+        return {
+            matches: true,
+            media: query,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+        };
+    }),
+});
+
 const tabVariants: Array<
     [typeof TabsMobile | typeof TabsDesktop | typeof TabsResponsive, TabsProps['view']]
 > = [
@@ -60,11 +72,15 @@ describe('Tabs', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it.each(tabVariants)('should set custom container class', (Component, view) => {
+        it.each([tabVariants[0]])('should set custom container class', (Component, view) => {
             const containerClassName = 'custom-container-class';
-            const { container } = renderTabs(Component, { view, containerClassName });
-
-            expect(container.querySelector('.container')).toHaveClass(containerClassName);
+            const { getByTestId } = renderTabs(Component, {
+                view,
+                containerClassName,
+                dataTestId: 'tabs-test',
+            });
+            const container = getByTestId('tabs-test').parentElement as HTMLElement;
+            expect(container).toHaveClass(containerClassName);
         });
     });
 

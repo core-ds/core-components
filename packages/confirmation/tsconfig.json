@@ -6,7 +6,9 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-code-input/*": ["../code-input/src/*"],
+            "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
     "references": [
@@ -14,6 +16,7 @@
         { "path": "../loader" },
         { "path": "../link" },
         { "path": "../typography" },
-        { "path": "../code-input" }
+        { "path": "../code-input" },
+        { "path": "../mq" }
     ]
 }

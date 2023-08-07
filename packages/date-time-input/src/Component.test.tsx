@@ -2,10 +2,24 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
-import { DateTimeInput } from '.';
+import { DateTimeInputDesktop as DateTimeInput } from './desktop';
 import { addTimeToDate, getFullDateTime } from './utils';
 
 describe('DateTimeInput', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(

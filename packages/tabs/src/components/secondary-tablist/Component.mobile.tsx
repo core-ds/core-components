@@ -1,6 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { TagMobile } from '@alfalab/core-components-tag/mobile';
+
 import { SecondaryTabListProps } from '../../typings';
 
 import { SecondaryTabList } from './Component';
@@ -21,6 +23,7 @@ export const SecondaryTabListMobile = ({
 }: SecondaryTabListMobileProps) => (
     <SecondaryTabList
         {...restProps}
+        TagComponent={TagMobile}
         styles={styles}
         className={cn(className, styles.mobile)}
         tagSize='xs'
