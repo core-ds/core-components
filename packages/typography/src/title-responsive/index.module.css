@@ -24,23 +24,23 @@
 }
 
 .system-xlarge {
-    @mixin headline-system_medium;
+    @mixin headline-system-mobile_xlarge;
 }
 
 .system-large {
-    @mixin headline-system_small;
+    @mixin headline-system-mobile_large;
 }
 
 .system-medium {
-    @mixin headline-system_xsmall;
+    @mixin headline-system-mobile_medium;
 }
 
 .system-small {
-    @mixin headline-system_xsmall;
+    @mixin headline-system-mobile_small;
 }
 
 .system-xsmall {
-    @mixin headline-system_xsmall;
+    @mixin headline-system-mobile_xsmall;
 }
 
 .margins-xlarge {
@@ -61,48 +61,6 @@
 
 .margins-xsmall {
     @mixin margin-small;
-}
-
-@media screen and (min-width: 600px) {
-    .system-xlarge {
-        @mixin headline-system_large;
-    }
-
-    .system-large {
-        @mixin headline-system_medium;
-    }
-
-    .system-medium {
-        @mixin headline-system_small;
-    }
-
-    .system-small {
-        @mixin headline-system_small;
-    }
-
-    .system-xsmall {
-        @mixin headline-system_xsmall;
-    }
-
-    .margins-xlarge {
-        @mixin margin-large;
-    }
-
-    .margins-large {
-        @mixin margin-medium;
-    }
-
-    .margins-medium {
-        @mixin margin-small;
-    }
-
-    .margins-small {
-        @mixin margin-small;
-    }
-
-    .margins-xsmall {
-        @mixin margin-small;
-    }
 }
 
 @media screen and (min-width: 1024px) {
