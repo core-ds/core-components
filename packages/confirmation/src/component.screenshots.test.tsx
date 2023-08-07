@@ -21,7 +21,10 @@ describe('Confirmation ', () => {
             componentName: 'Confirmation',
             knobs: {},
         },
-        'transform:scale(0.9)',
+        'width:800px;transform:scale(0.9)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     );
 });
 

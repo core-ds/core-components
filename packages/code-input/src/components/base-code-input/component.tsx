@@ -2,7 +2,6 @@ import React, {
     createRef,
     FocusEventHandler,
     forwardRef,
-    ReactNode,
     RefObject,
     useEffect,
     useImperativeHandle,
@@ -12,82 +11,20 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { Input, InputProps } from './components';
+import {
+    BaseCodeInputProps,
+    CredentialOtp,
+    CredentialRequestOtpOptions,
+    CustomInputRef,
+} from '../../typings';
+import { Input, InputProps } from '..';
 
 import styles from './index.module.css';
-
-export type CodeInputProps = {
-    /**
-     * Количество полей
-     */
-    fields?: number;
-
-    /**
-     * Значение для предзаполнения
-     */
-    initialValues?: string;
-
-    /**
-     * Заблокированное состояние
-     */
-    disabled?: boolean;
-
-    /**
-     * Состояние с ошибкой
-     */
-    error?: ReactNode;
-
-    /**
-     * Дополнительный класс (native prop)
-     */
-    className?: string;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Флаг - нужно ли очищать код при возникновении ошибки
-     * @default true
-     */
-    clearCodeOnError?: boolean;
-
-    /**
-     * Коллбэк вызываемый после окончания проигрывания анимации при возникновении ошибки.
-     */
-    onErrorAnimationEnd?: () => void;
-
-    /**
-     * Коллбек ввода значения
-     */
-    onChange?: (code: string) => void;
-
-    /**
-     * Коллбек полного заполнения
-     */
-    onComplete?: (code: string) => void;
-};
-
-export type CustomInputRef = {
-    focus: (index?: number) => void;
-    blur: () => void;
-    reset: () => void;
-    unselect: () => void;
-};
-
-interface CredentialRequestOtpOptions extends CredentialRequestOptions {
-    otp: { transport: Array<'sms'> };
-}
-
-interface CredentialOtp extends Credential {
-    code?: string;
-}
 
 /** После истечения этого времени код очищается */
 const CODE_ERROR_HINT_VISIBLE_DURATION = 300;
 
-export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
+export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
     (
         {
             className,
@@ -100,6 +37,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             onErrorAnimationEnd,
             onChange,
             onComplete,
+            stylesInput = {},
         },
         ref,
     ) => {
@@ -367,7 +305,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
                             onChange={handleChangeFromEvent}
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
-                            className={styles.input}
+                            stylesInput={stylesInput}
                             compact={fields > 6}
                         />
                     ))}

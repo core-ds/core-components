@@ -23,6 +23,7 @@
             "@alfalab/core-components-*": ["packages/*/src"],
             "@alfalab/core-components-icon-view/*": ["packages/icon-view/src/*"],
             "@alfalab/core-components-picker-button/*": ["packages/picker-button/src/*"],
+            "@alfalab/core-components-code-input/*": ["packages/code-input/src/*"],
             "@alfalab/core-components-checkbox-group/*": ["packages/checkbox-group/src/*"],
             "@alfalab/core-components-radio-group/*": ["packages/radio-group/src/*"],
             "@alfalab/core-components-form-control/*": ["packages/form-control/src/*"],
