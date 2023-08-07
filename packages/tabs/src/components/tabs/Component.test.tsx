@@ -8,6 +8,18 @@ import { TabsResponsive } from './Component.responsive';
 import { Tab } from '../tab';
 import { TabsProps } from '../../typings';
 
+Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => {
+        return {
+            matches: true,
+            media: query,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+        };
+    }),
+});
+
 const tabVariants: Array<
     [typeof TabsMobile | typeof TabsDesktop | typeof TabsResponsive, TabsProps['view']]
 > = [

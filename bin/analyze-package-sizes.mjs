@@ -20,7 +20,7 @@ const packageList = packages
 
 async function calculateBundleSize(packageName) {
     const entryPoints = await globby(
-        `./packages/${packageName}/src/{index,desktop,mobile,responsive,circle,super-ellipse,rectangle,no-shape,shared}.ts`,
+        `./packages/${packageName}/src/{index,desktop,mobile,responsive,circle,super-ellipse,rectangle,no-shape,shared|collapsible}.ts`,
     );
 
     const result = await esbuild.build({
