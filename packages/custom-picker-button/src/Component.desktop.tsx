@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { CustomButtonProps } from '@alfalab/core-components-custom-button';
+import type { CustomButtonProps } from '@alfalab/core-components-custom-button';
 import {
     PickerButtonDesktop,
     PickerButtonDesktopProps,
@@ -33,6 +33,7 @@ export const CustomPickerButtonDesktop = forwardRef<
                 backgroundColor,
                 contentColor,
                 stateType,
+                breakpoint: 1,
             }}
             Field={DefaultField}
             ref={ref}

@@ -1,8 +1,10 @@
 import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
-
 import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+
 import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
 import { ModalDesktop } from '@alfalab/core-components-modal/Component.desktop';
 import { ModalResponsive } from '@alfalab/core-components-modal/Component.responsive';
@@ -30,18 +32,18 @@ export const Text = () => (
 export const Footer = ({ isPreview, isMobile }) => (
     <>
     {!isMobile ? 
-        (<><Button size='s' view='primary'>
+        (<><ButtonDesktop size='s' view='primary'>
             {isPreview ? 'Кнопка' : 'Сохранить'}
-        </Button>
-        <Button size='s' view='secondary'>
+        </ButtonDesktop>
+        <ButtonDesktop size='s' view='secondary'>
             {isPreview ? 'Кнопка' : 'Отмена'}
-        </Button></>) :
-        (<><Button size='s' view='secondary'>
+        </ButtonDesktop></>) :
+        (<><ButtonMobile size='m' view='secondary'>
             {isPreview ? 'Кнопка' : 'Отмена'}
-        </Button>
-         <Button size='s' view='primary'>
+        </ButtonMobile>
+         <ButtonMobile size='m' view='primary'>
             {isPreview ? 'Кнопка' : 'Сохранить'}
-        </Button></>)}
+        </ButtonMobile></>)}
     </>
 );
 

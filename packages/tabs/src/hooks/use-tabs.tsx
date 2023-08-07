@@ -1,6 +1,7 @@
 import { KeyboardEvent, MouseEvent, MutableRefObject, useCallback, useRef, useState } from 'react';
 
-import { getDataTestId } from '../../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import { TabListTitle, UseTabsProps } from '../typings';
 
 export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
@@ -107,6 +108,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
             role: 'tab',
             tabIndex: itemSelected ? 0 : -1,
             'aria-selected': itemSelected,
+            selected: itemSelected,
             'data-test-id': getDataTestId(item.dataTestId, 'toggle'),
             disabled: item.disabled,
             ref: (node: HTMLButtonElement) => {

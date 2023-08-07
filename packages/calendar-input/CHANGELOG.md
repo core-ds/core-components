@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.6.2
+
 ## 8.3.0
 
 ### Minor Changes

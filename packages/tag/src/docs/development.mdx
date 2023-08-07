@@ -1,17 +1,22 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { Tag as TagTS } from '../Component';
+import { TagDesktop } from '../Component.desktop';
+import { TagMobile } from '../Component.mobile';
+import { Tag } from '../Component.responsive';
 import styles from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
 import { Tag } from '@alfalab/core-components/tag';
+import { TagDesktop } from '@alfalab/core-components/tag/desktop';
+import { TagMobile } from '@alfalab/core-components/tag/mobile';
 ```
+Из индекса импортируется responsive версия компонента. 
 
 ## Свойства
 
-<ArgsTable of={TagTS} />
+<ArgsTable components={{TagDesktop, TagMobile, Tag}} />
 
 ## Переменные
 

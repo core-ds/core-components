@@ -15,6 +15,10 @@
     will-change: transform;
 }
 
+.customScrollbar {
+    @mixin custom-scrollbar;
+}
+
 .rightPlacement {
     right: 0;
     align-self: flex-end;
@@ -30,10 +34,6 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-.simplebar {
-    height: 100vh;
 }
 
 /* enter */

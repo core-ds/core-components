@@ -13,10 +13,10 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
       class="component xl"
     >
       <div
-        class="component component xl block hasRightAddons"
+        class="component component xl xl block hasRightAddons"
       >
         <div
-          class="field inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -77,10 +77,10 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
       class="component xl"
     >
       <div
-        class="component component xl block hasRightAddons"
+        class="component component xl xl block hasRightAddons"
       >
         <div
-          class="field inner inner filled"
+          class="field inner inner inner inner filled"
         >
           <div
             class="inputWrapper"
@@ -92,7 +92,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                 class="contentWrapper hasTags contentWrapperVertical"
               >
                 <button
-                  class="component component xxs outlined rounded checked tag"
+                  class="component component component xxs xxs outlined checked rounded outlined tag"
                   type="button"
                 >
                   <span>
@@ -120,7 +120,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component component xxs outlined rounded checked tag"
+                  class="component component component xxs xxs outlined checked rounded outlined tag"
                   type="button"
                 >
                   <span>
@@ -148,7 +148,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component component xxs outlined rounded checked tag"
+                  class="component component component xxs xxs outlined checked rounded outlined tag"
                   type="button"
                 >
                   <span>

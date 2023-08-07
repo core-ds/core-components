@@ -1,12 +1,13 @@
 {
-    "include": ["src", "../../typings", "../utils", "../types"],
+    "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
     "references": [
@@ -14,6 +15,7 @@
         { "path": "../base-modal" },
         { "path": "../icon-button" },
         { "path": "../typography" },
-        { "path": "../navigation-bar" }
+        { "path": "../navigation-bar" },
+        { "path": "../shared" }
     ]
 }

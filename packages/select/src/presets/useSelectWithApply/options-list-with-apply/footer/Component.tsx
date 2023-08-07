@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 
 import { OptionShape } from '../../../../typings';
 
@@ -24,14 +24,14 @@ export const Footer = ({
         tabIndex={0}
         className={styles.footer}
     >
-        <Button size='xxs' view='primary' onClick={handleApply}>
+        <ButtonDesktop size='xxs' view='primary' onClick={handleApply}>
             Применить
-        </Button>
+        </ButtonDesktop>
 
         {showClear && selectedDraft.length > 0 && (
-            <Button size='xxs' view='secondary' onClick={handleClear}>
+            <ButtonDesktop size='xxs' view='secondary' onClick={handleClear}>
                 Сбросить
-            </Button>
+            </ButtonDesktop>
         )}
     </div>
 );

@@ -17,7 +17,8 @@ export type FatalErrorProps = {
 };
 
 export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
-    const { alignContent, texts, onFatalErrorOkButtonClick } = useContext(ConfirmationContext);
+    const { alignContent, texts, onFatalErrorOkButtonClick, breakpoint } =
+        useContext(ConfirmationContext);
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
@@ -36,6 +37,7 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
                 view='secondary'
                 onClick={onFatalErrorOkButtonClick}
                 className={styles.button}
+                breakpoint={breakpoint}
             >
                 {texts.fatalErrorButton}
             </Button>

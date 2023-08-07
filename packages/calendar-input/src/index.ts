@@ -1,4 +1,2 @@
-export { CalendarInputResponsive as CalendarInput } from './responsive';
-export type { CalendarInputResponsiveProps as CalendarInputProps } from './responsive';
-
-export * from './utils';
+export { CalendarInputResponsive as CalendarInput } from './Component.responsive';
+export type { CalendarInputResponsiveProps as CalendarInputProps } from './Component.responsive';

@@ -31,6 +31,7 @@ import {
         const showPrimaryButton = boolean('showPrimaryButton', true);
         const showSecondaryButton = boolean('showSecondaryButton', true);
         const fullHeight = boolean('fullHeight', false);
+        const breakpoint = number('breakpoint', 1024)
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
         const renderGraphic = () => {
@@ -85,7 +86,7 @@ import {
                     <SystemMessage
                         dataTestId='system-message'
                         fullHeight={fullHeight}
-                        breakpoint={number('breakpoint', 1024)}
+                        breakpoint={breakpoint}
                     >
                         {renderGraphic()}
                         {title && (
@@ -107,11 +108,11 @@ import {
                         {controls && (
                             <SystemMessage.Controls direction={controlDirection}>
                                 {showPrimaryButton && (
-                                    <Button size='s' view='primary'>
+                                    <Button size={document.body.clientWidth < 371 ? 'm' : 's'} view='primary' breakpoint={breakpoint}>
                                         Получить код
                                     </Button>
                                 )}
-                                {showSecondaryButton && <Button size='s'>Отмена</Button>}
+                                {showSecondaryButton && <Button size={document.body.clientWidth < 371 ? 'm' : 's'} breakpoint={breakpoint}>Отмена</Button>}
                             </SystemMessage.Controls>
                         )}
                     </SystemMessage>

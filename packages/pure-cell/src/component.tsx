@@ -151,6 +151,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureProps>(
 
         return (
             <Component
+                {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                 ref={ref}
                 tabIndex={0}
                 className={cn(addClasses, className)}

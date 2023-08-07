@@ -13,11 +13,25 @@ import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
 
-import { Calendar } from './index';
+import { CalendarDesktop as Calendar } from './desktop';
 
 jest.useFakeTimers();
 
 describe('Calendar', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     const defaultDate = new Date('November 30, 2020 00:00:00');
     const defaultValue = defaultDate.getTime();
     const defaultDateOfMonth = defaultDate.getDate().toString();

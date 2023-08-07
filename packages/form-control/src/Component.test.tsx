@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { FormControl } from './index';
+import { FormControlDesktop as FormControl } from './desktop';
 
 describe('FormControl', () => {
     describe('Snapshots tests', () => {

@@ -1,0 +1,13 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    color: var(--toast-plate-inverted-color);
+    background-color: var(--toast-plate-inverted-bg-color);
+}
+
+.closeButtonWrapper {
+    &:before {
+        background-color: var(--color-light-border-secondary);
+    }
+}

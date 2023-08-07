@@ -21,11 +21,22 @@ export type InputProps = Omit<
     compact?: boolean;
     onChange: (event: ChangeEvent<HTMLInputElement>, payload: { index: number }) => void;
     onKeyDown: (event: KeyboardEvent<HTMLInputElement>, payload: { index: number }) => void;
+    stylesInput?: { [key: string]: string };
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     (
-        { index, error, disabled, value = '', compact = false, onChange, onKeyDown, onFocus },
+        {
+            index,
+            error,
+            disabled,
+            value = '',
+            compact = false,
+            onChange,
+            onKeyDown,
+            onFocus,
+            stylesInput = {},
+        },
         ref,
     ) => {
         const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -37,23 +48,25 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         };
 
         const handleClick: MouseEventHandler = (event) => {
+            event.persist();
             const target = event.target as HTMLInputElement;
 
             /**
              * В сафари выделение корректно работает только с асинхронным вызовом
              */
             requestAnimationFrame(() => {
-                target.select();
+                target?.select();
             });
         };
 
         return (
             <input
                 ref={ref}
-                className={cn(styles.input, {
+                className={cn(styles.input, stylesInput.component, {
                     [styles.hasError]: error,
                     [styles.disabled]: disabled,
                     [styles.compact]: compact,
+                    [stylesInput.compact]: Boolean(stylesInput.compact) && compact,
                 })}
                 disabled={disabled}
                 value={value}

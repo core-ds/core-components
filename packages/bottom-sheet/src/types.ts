@@ -270,4 +270,24 @@ export type BottomSheetProps = {
      * Вызывается после притягивания к одной из `magneticAreas`
      */
     onMagnetize?: (index: number) => void;
+
+    /**
+     * Содержимое bottom-sheet всегда в DOM
+     */
+    keepMounted?: boolean;
+
+    /**
+     * Отключает автоматический перевод фокуса на bottom-sheet при открытии
+     */
+    disableAutoFocus?: boolean;
+
+    /**
+     * Отключает восстановление фокуса на предыдущем элементе после закрытия bottom-sheet
+     */
+    disableRestoreFocus?: boolean;
+
+    /**
+     * Отключает вызов `onClose` при нажатии Escape
+     */
+    disableEscapeKeyDown?: boolean;
 };

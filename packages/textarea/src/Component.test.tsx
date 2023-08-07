@@ -5,6 +5,20 @@ import userEvent from '@testing-library/user-event';
 import { Textarea } from './index';
 
 describe('Textarea', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: false,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { container } = render(<Textarea value='value' nativeScrollbar={true} />);
@@ -51,7 +65,7 @@ describe('Textarea', () => {
         const dataTestId = 'test-id';
         render(<Textarea ref={textareaRef} dataTestId={dataTestId} />);
 
-        expect(textareaRef.mock.calls).toEqual([[screen.getByTestId(dataTestId)]]);
+        expect(textareaRef.mock.calls[0][0]).toEqual(screen.getByTestId(dataTestId));
     });
 
     it('should set `data-test-id` attribute to textarea', () => {

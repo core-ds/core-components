@@ -1,4 +1,5 @@
 @import '../../../../themes/src/default.css';
+@import '../../../../input/src/vars.css';
 @import '../../vars.css';
 
 .component {
@@ -20,9 +21,14 @@
     cursor: var(--disabled-cursor);
 }
 
-/* TODO: Заюзать переменные из инпута */
 .placeholder {
-    color: var(--color-light-text-secondary);
+    color: var(--input-placeholder-color);
+    transition: color 0.2s ease;
+    animation: show-placeholder 0.2s ease;
+
+    &.focused {
+        color: var(--input-focus-placeholder-color);
+    }
 }
 
 .contentWrapper {
@@ -42,4 +48,13 @@
 
 .focusVisible {
     @mixin focus-outline;
+}
+
+@keyframes show-placeholder {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { RadioGroup, RadioGroupProps } from './index';
+import { RadioGroupDesktop as RadioGroup, RadioGroupDesktopProps as RadioGroupProps } from './desktop';
 import { Radio } from '../../radio/src';
 import { Tag } from '../../tag/src';
 
@@ -28,6 +28,20 @@ const TagGroup = ({ ...restProps }: Partial<RadioGroupProps>) => (
 );
 
 describe('RadioGroup', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Display tests', () => {
         it('should display with children like boolean or string or others react children type correctly', () => {
             expect(

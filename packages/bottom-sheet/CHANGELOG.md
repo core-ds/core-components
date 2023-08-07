@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.5.0
+
+### Minor Changes
+
+### [#780](https://github.com/core-ds/core-components/pull/780)
+
+-   Добавлены пропсы keepMounted, disableAutofocus, disableRestoreFocus, disableEscapeKeyDown
+
 ## 6.4.2
 
 ### Patch Changes
