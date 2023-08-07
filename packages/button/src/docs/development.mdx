@@ -1,24 +1,27 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { Button as ButtonTS } from '../Component';
-import styles from '!!raw-loader!../index.module.css';
-import colorsStyles from '!!raw-loader!../default.module.css';
+import { Button } from '../index';
+import { ButtonDesktop } from '../desktop';
+import { ButtonMobile } from '../mobile';
+import styles from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
 import { Button } from '@alfalab/core-components/button';
+import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
+import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 ```
+Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
 ```jsx live
     <Button view='primary'>Primary</Button>
-
 ```
 
-<ArgsTable of={ButtonTS} />
+<ArgsTable components={{ButtonDesktop, ButtonMobile, Button}} />
 
 ## Переменные
 
-<CssVars css={`${styles}${colorsStyles}`} />
+<CssVars css={styles} />

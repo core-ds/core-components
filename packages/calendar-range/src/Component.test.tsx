@@ -27,6 +27,20 @@ describe('CalendarRange', () => {
             jest.advanceTimersByTime(300);
         });
 
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(
@@ -215,7 +229,7 @@ describe('CalendarRange', () => {
 
     describe('isPopover', () => {
         it('should open empty input calendar with month from filled input', async () => {
-            const { queryAllByRole } = render(
+            const { queryAllByRole, container } = render(
                 <CalendarRange
                     inputFromProps={{ calendarProps: { className: 'from-calendar' } }}
                     inputToProps={{ calendarProps: { className: 'to-calendar' } }}
@@ -226,14 +240,15 @@ describe('CalendarRange', () => {
             const [inputFrom, inputTo] = queryAllByRole('textbox') as HTMLInputElement[];
 
             await waitFor(() => {
-                fireEvent.focus(inputFrom);
+                fireEvent.click(inputFrom);
+
                 expect(
-                    document.querySelector('.from-calendar .button.month .buttonContent'),
+                    document.querySelector('.from-calendar button.month .buttonContent'),
                 ).toHaveTextContent(currentMonthName);
             });
 
             await waitFor(() => {
-                fireEvent.focus(inputTo);
+                fireEvent.click(inputTo);
                 expect(
                     document.querySelector('.to-calendar .button.month .buttonContent'),
                 ).toHaveTextContent(currentMonthName);
@@ -251,7 +266,7 @@ describe('CalendarRange', () => {
             const [inputFrom, inputTo] = queryAllByRole('textbox') as HTMLInputElement[];
 
             await waitFor(() => {
-                fireEvent.focus(inputTo);
+                fireEvent.click(inputTo);
 
                 expect(document.querySelector('.to-calendar')).toBeInTheDocument();
             });

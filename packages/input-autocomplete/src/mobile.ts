@@ -1,2 +1,5 @@
-export * from './Component.mobile';
-export * from './Component.modal.mobile';
+export { InputAutocompleteMobile, InputAutocompleteMobileProps } from './Component.mobile';
+export {
+    InputAutocompleteModalMobile,
+    InputAutocompleteModalMobileProps,
+} from './Component.modal.mobile';

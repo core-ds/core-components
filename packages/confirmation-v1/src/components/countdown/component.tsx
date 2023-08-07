@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { usePrevious } from '@alfalab/hooks';
 import { phoneNumber } from '@alfalab/utils';
 

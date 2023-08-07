@@ -3,7 +3,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Input as DefaultInput } from '@alfalab/core-components-input';
-import { FieldProps } from '@alfalab/core-components-select';
+import type { FieldProps } from '@alfalab/core-components-select/shared';
 
 import { InputAutocompleteDesktopProps } from '../Component.desktop';
 

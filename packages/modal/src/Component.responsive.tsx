@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Closer } from '@alfalab/core-components-navigation-bar';
 import { useMedia } from '@alfalab/hooks';
 
 import { Content } from './components/content/Component';
@@ -33,5 +32,4 @@ export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
     Header,
     Content,
     Footer,
-    Closer,
 });

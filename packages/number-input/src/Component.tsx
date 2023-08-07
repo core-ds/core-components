@@ -121,13 +121,15 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
             const disallowedSymbols = /[/|?!@#$%^&*()_=A-Za-zА-Яа-яЁё ]/;
             const oneKeyPress = !event.altKey && !event.metaKey && !event.ctrlKey;
+            const target = event.target as HTMLInputElement;
 
             // Запрещаем вводить неразрешенные символы за исключением комбинаций клавиш
             if (oneKeyPress && event.key.length === 1 && disallowedSymbols.test(event.key)) {
                 return event.preventDefault();
             }
 
-            const val = event.target.value;
+            const val = target.value;
+
             const hasSeparator = (val.match(createSeparatorsRegExp()) || []).length > 0;
 
             // Запрещаем вводить второй сепаратор
@@ -143,7 +145,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
                 return event.preventDefault();
             }
 
-            const selectionStart = event.target.selectionStart || 0;
+            const selectionStart = target.selectionStart || 0;
 
             // Запрещаем вводить цифры в дробную часть, если кол-во цифр больше fractionLength
             if (
