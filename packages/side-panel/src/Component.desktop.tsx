@@ -15,10 +15,7 @@ import styles from './desktop.module.css';
 import transitions from './transitions.desktop.module.css';
 
 export type SidePanelDesktopProps = BaseModalProps &
-    Pick<
-        DrawerProps,
-        'placement' | 'nativeScrollbar' | 'contentTransitionProps' | 'scrollbarProps'
-    > & {
+    Pick<DrawerProps, 'placement' | 'nativeScrollbar' | 'contentTransitionProps'> & {
         /**
          * Ширина модального окна
          * @default "s"

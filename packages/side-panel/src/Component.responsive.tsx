@@ -13,10 +13,7 @@ import { ResponsiveContext } from './ResponsiveContext';
 import { TResponsiveModalContext } from './typings';
 
 export type SidePanelResponsiveProps = BaseModalProps &
-    Pick<
-        DrawerProps,
-        'contentTransitionProps' | 'placement' | 'nativeScrollbar' | 'scrollbarProps'
-    > & {
+    Pick<DrawerProps, 'contentTransitionProps' | 'placement' | 'nativeScrollbar'> & {
         /**
          * Ширина модального окна
          * @default "s"
