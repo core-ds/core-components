@@ -1,6 +1,6 @@
 ## TabsPrimary
 
-Для переключения контента всей страницы рекомендуется использовать основной вид табов.  
+Для переключения контента всей страницы рекомендуется использовать основной вид табов.
 Для TabsPrimary рекомендуется использовать только М размер.
 
 ```jsx live
@@ -81,7 +81,7 @@ render(() => {
 
 ## TabsSecondary
 
-Для переключения контента внутри блока рекомендуется использовать второстепенный вид табов.  
+Для переключения контента внутри блока рекомендуется использовать второстепенный вид табов.
 Для десктопа рекомендуется использовать S и XS размер табов и XXS размер для мобильной версии интерфейса.
 
 ```jsx live
@@ -213,18 +213,28 @@ render(() => {
 
     return (
         <div>
-            <TabsDesktop
-                scrollable={overflow !== 'collapsible'}
-                collapsible={overflow !== 'scrollable'}
-                collapsedTabsIds={overflow === 'collapsible' && manuallyCollapsedTabs}
-                selectedId={selectedId}
-                onChange={handleChange}
-                view={view}
-            >
-                {tabs.map((tab) => (
-                    <Tab key={tab.id} {...tab} />
-                ))}
-            </TabsDesktop>
+            {overflow === 'scrollable' ? (
+                <TabsDesktop
+                    scrollable={true}
+                    selectedId={selectedId}
+                    onChange={handleChange}
+                    view={view}
+                >
+                    {tabs.map((tab) => (
+                        <Tab key={tab.id} {...tab} />
+                    ))}
+                </TabsDesktop>
+            ) : (
+                <TabsCollapsible
+                    collapsedTabsIds={manuallyCollapsedTabs}
+                    selectedId={selectedId}
+                    onChange={handleChange}
+                >
+                    {tabs.map((tab) => (
+                        <Tab key={tab.id} {...tab} />
+                    ))}
+                </TabsCollapsible>
+            )}
             <br />
             <div>Выбран таб: {title}</div>
             <br />

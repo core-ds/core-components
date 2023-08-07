@@ -30,4 +30,8 @@
 
     /* управляет видимостью иконки ошибки, если она стоит рядом с другой иконкой */
     --input-error-icon-not-alone-display: none;
+
+    /* mobile */
+    --input-error-mobile-color: var(--color-light-text-negative);
+    --input-inverted-error-mobile-color: var(--color-light-text-accent);
 }

@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.4.6
+
+### Patch Changes
+
+### [#775](https://github.com/core-ds/core-components/pull/775)
+
+-   Исправлен перенос контента в options для селекта с выбором кода страны
+
+-   Обновлены зависимости
+    -   select@14.3.5
+    -   input-autocomplete@9.4.7
+
 ## 9.4.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.6.2
+
+### Patch Changes
+
+### [#774](https://github.com/core-ds/core-components/pull/774)
+
+-   Исправлены границы выделения выбранного периода при динамической установке значений
+
 ## 6.6.1
 
 ### Patch Changes

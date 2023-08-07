@@ -15,7 +15,7 @@ import React, {
 import cn from 'classnames';
 
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { FieldProps } from '@alfalab/core-components-select';
+import type { FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { TagComponent } from '../../types';

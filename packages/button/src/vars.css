@@ -1,0 +1,225 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* misc */
+    --button-font-family: var(--font-family);
+    --button-font-weight: 500;
+
+    /* border-radius desktop */
+    --button-xxs-size-border-radius: 6px;
+    --button-xs-size-border-radius: var(--border-radius-m);
+    --button-s-size-border-radius: var(--border-radius-m);
+    --button-m-size-border-radius: var(--border-radius-l);
+    --button-l-size-border-radius: var(--border-radius-l);
+    --button-xl-size-border-radius: var(--border-radius-l);
+
+    /* primary */
+    --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-hover-bg-color: var(--color-light-bg-secondary-inverted-tint-15);
+    --button-primary-active-bg-color: var(--color-light-bg-secondary-inverted-tint-20);
+    --button-primary-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-primary-color: var(--color-light-text-primary-inverted);
+    --button-primary-disabled-color: var(--color-light-text-tertiary);
+
+    /* accent */
+    --button-accent-base-bg-color: var(--color-light-bg-accent);
+    --button-accent-hover-bg-color: var(--color-light-bg-accent-shade-7);
+    --button-accent-active-bg-color: var(--color-light-bg-accent-shade-15);
+    --button-accent-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-accent-color: var(--color-static-text-primary-light);
+    --button-accent-disabled-color: var(--color-light-text-tertiary);
+
+    /* secondary */
+    --button-secondary-base-bg-color: var(--color-light-specialbg-tertiary-transparent);
+    --button-secondary-hover-bg-color: var(--color-light-specialbg-tertiary-transparent-shade-7);
+    --button-secondary-active-bg-color: var(--color-light-specialbg-tertiary-transparent-shade-15);
+    --button-secondary-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-secondary-base-border-color: transparent;
+    --button-secondary-disabled-border-color: transparent;
+    --button-secondary-color: var(--color-light-text-primary);
+    --button-secondary-disabled-color: var(--color-light-text-tertiary);
+
+    /* tertiary */
+    --button-tertiary-base-bg-color: transparent;
+    --button-tertiary-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
+    --button-tertiary-active-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --button-tertiary-hover-border-color: var(--color-light-border-tertiary-inverted);
+    --button-tertiary-disabled-bg-color: transparent;
+    --button-tertiary-base-border-color: var(--color-light-border-underline-inverted);
+    --button-tertiary-disabled-border-color: var(--color-light-graphic-tertiary);
+    --button-tertiary-color: var(--color-light-text-primary);
+    --button-tertiary-disabled-color: var(--color-light-text-tertiary);
+
+    /* outlined */
+    --button-outlined-base-bg-color: transparent;
+    --button-outlined-hover-bg-color: rgba(0, 0, 0, 0.07);
+    --button-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
+    --button-outlined-disabled-bg-color: transparent;
+    --button-outlined-base-border-color: var(--color-light-border-underline-inverted);
+    --button-outlined-disabled-border-color: var(--color-light-border-underline-inverted-alpha-30);
+    --button-outlined-color: var(--color-light-text-primary);
+    --button-outlined-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* ghost */
+    --button-ghost-base-color: var(--color-light-text-primary);
+    --button-ghost-hover-color: var(--color-light-text-primary-tint-24);
+    --button-ghost-active-color: var(--color-light-text-primary-tint-40);
+    --button-ghost-disabled-color: var(--color-light-text-tertiary);
+
+    /* link */
+    --button-link-base-color: var(--color-light-text-primary);
+    --button-link-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
+    --button-link-active-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --button-link-disabled-color: var(--color-light-text-tertiary);
+
+    /* loader */
+    --button-spinner-static-color: var(--color-static-graphic-light);
+    --button-spinner-primary-color: var(--color-light-graphic-primary-inverted);
+    --button-spinner-default-color: var(--color-light-graphic-primary);
+
+    /* primary inverted */
+    --button-inverted-primary-base-bg-color: var(--color-light-bg-secondary);
+    --button-inverted-primary-hover-bg-color: var(--color-light-bg-secondary-shade-7);
+    --button-inverted-primary-active-bg-color: var(--color-light-bg-secondary-shade-15);
+    --button-inverted-primary-disabled-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-primary-disabled-color: var(--color-light-text-tertiary-inverted);
+    --button-inverted-primary-color: var(--color-light-text-primary);
+
+    /* accent inverted */
+    --button-inverted-accent-base-bg-color: var(--color-light-bg-accent);
+    --button-inverted-accent-hover-bg-color: var(--color-light-bg-accent-tint-15);
+    --button-inverted-accent-active-bg-color: var(--color-light-bg-accent-tint-20);
+    --button-inverted-accent-disabled-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-accent-disabled-color: var(--color-light-text-tertiary-inverted);
+    --button-inverted-accent-color: var(--color-static-text-primary-light);
+
+    /* secondary inverted */
+    --button-inverted-secondary-base-bg-color: var(
+        --color-light-specialbg-tertiary-transparent-inverted
+    );
+    --button-inverted-secondary-hover-bg-color: var(
+        --color-light-specialbg-tertiary-transparent-inverted-tint-15
+    );
+    --button-inverted-secondary-active-bg-color: var(
+        --color-light-specialbg-tertiary-transparent-inverted-tint-20
+    );
+    --button-inverted-secondary-disabled-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-secondary-base-border-color: transparent;
+    --button-inverted-secondary-disabled-border-color: transparent;
+    --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-secondary-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* tertiary inverted */
+    --button-inverted-tertiary-base-bg-color: transparent;
+    --button-inverted-tertiary-hover-bg-color: var(--color-light-bg-primary-alpha-15);
+    --button-inverted-tertiary-active-bg-color: var(--color-light-bg-primary-alpha-20);
+    --button-inverted-tertiary-hover-border-color: var(--color-light-border-underline);
+    --button-inverted-tertiary-disabled-bg-color: transparent;
+    --button-inverted-tertiary-base-border-color: var(--color-light-border-underline);
+    --button-inverted-tertiary-disabled-border-color: var(--color-light-graphic-tertiary-inverted);
+    --button-inverted-tertiary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-tertiary-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* outlined inverted */
+    --button-inverted-outlined-base-bg-color: transparent;
+    --button-inverted-outlined-hover-bg-color: rgba(255, 255, 255, 0.15);
+    --button-inverted-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
+    --button-inverted-outlined-disabled-bg-color: transparent;
+    --button-inverted-outlined-base-border-color: var(--color-light-border-underline-inverted);
+    --button-inverted-outlined-disabled-border-color: color-mod(
+        var(--color-dark-border-tertiary) alpha(30%)
+    );
+    --button-inverted-outlined-color: var(--color-dark-text-primary);
+    --button-inverted-outlined-disabled-color: color-mod(var(--color-dark-text-primary) alpha(30%));
+
+    /* ghost inverted */
+    --button-inverted-ghost-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-ghost-hover-color: var(--color-light-text-primary-inverted-shade-24);
+    --button-inverted-ghost-active-color: var(--color-light-text-primary-inverted-shade-40);
+    --button-inverted-ghost-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* link inverted */
+    --button-inverted-link-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-link-hover-bg-color: var(--color-light-bg-primary-alpha-15);
+    --button-inverted-link-active-bg-color: var(--color-light-bg-primary-alpha-20);
+    --button-inverted-link-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* loader inverted */
+    --button-spinner-static-color: var(--color-static-graphic-light);
+    --button-spinner-inverted-color: var(--color-light-graphic-primary-inverted);
+    --button-spinner-inverted-primary-color: var(--color-light-graphic-primary);
+
+    /* border-radius mobile */
+    --button-xxs-size-mobile-border-radius: var(--border-radius-m);
+    --button-xs-size-mobile-border-radius: var(--border-radius-l);
+    --button-s-size-mobile-border-radius: var(--border-radius-l);
+    --button-m-size-mobile-border-radius: var(--border-radius-xl);
+    --button-l-size-mobile-border-radius: var(--border-radius-xl);
+    --button-xl-size-mobile-border-radius: var(--border-radius-xl);
+
+    /* primary mobile */
+    --button-primary-mobile-disabled-color: var(--color-light-text-tertiary);
+    --button-primary-mobile-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
+
+    /* primary inverted mobile */
+    --button-inverted-primary-mobile-disabled-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-primary-mobile-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* secondary mobile */
+    --button-secondary-mobile-base-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-secondary-mobile-active-bg-color: var(
+        --color-light-specialbg-secondary-transparent-shade-15
+    );
+    --button-secondary-mobile-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-5);
+    --button-secondary-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* secondary inverted mobile */
+    --button-inverted-secondary-mobile-base-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted
+    );
+    --button-inverted-secondary-mobile-active-bg-color: var(
+        --color-light-specialbg-secondary-transparent-inverted-tint-20
+    );
+    --button-inverted-secondary-mobile-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
+    --button-inverted-secondary-mobile-disabled-color: var(
+        --color-light-text-primary-inverted-alpha-30
+    );
+
+    /* tertiary mobile */
+    --button-tertiary-mobile-disabled-border-color: var(
+        --color-light-border-underline-inverted-alpha-30
+    );
+    --button-tertiary-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* tertiary inverted mobile */
+    --button-inverted-tertiary-mobile-disabled-border-color: var(
+        --color-light-border-underline-alpha-30
+    );
+    --button-inverted-tertiary-mobile-disabled-color: var(
+        --color-light-text-primary-inverted-alpha-30
+    );
+
+    /* link mobile */
+    --button-link-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* link inverted mobile */
+    --button-inverted-link-mobile-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
+
+    /* ghost mobile */
+    --button-ghost-mobile-active-color: var(--color-light-text-primary-tint-50);
+    --button-ghost-mobile-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* ghost mobile inverted */
+    --button-inverted-ghost-mobile-active-color: var(--color-light-text-primary-inverted-shade-50);
+    --button-inverted-ghost-mobile-disabled-color: var(
+        --color-light-text-primary-inverted-alpha-30
+    );
+}

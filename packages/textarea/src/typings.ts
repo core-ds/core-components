@@ -148,4 +148,10 @@ export type TextareaIncomeProps = {
      * Разрешить переполнение, если количество символов превышает maxLength
      */
     allowOverflow?: boolean;
+    
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 };

@@ -16,12 +16,12 @@ Object {
           class="component"
         >
           <div
-            class="component component s block hasRightAddons"
+            class="component component s s block hasRightAddons"
           >
             <div
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
-              class="field inner inner"
+              class="field inner inner inner inner"
               id="downshift-0-input"
               tabindex="0"
             >
@@ -74,12 +74,12 @@ Object {
         class="component"
       >
         <div
-          class="component component s block hasRightAddons"
+          class="component component s s block hasRightAddons"
         >
           <div
             aria-controls="downshift-1-menu"
             aria-labelledby="downshift-1-label"
-            class="field inner inner"
+            class="field inner inner inner inner"
             id="downshift-0-input"
             tabindex="0"
           >
@@ -183,12 +183,12 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
       class="component"
     >
       <div
-        class="component component s block hasRightAddons"
+        class="component component s s block hasRightAddons"
       >
         <div
           aria-controls="downshift-3-menu"
           aria-labelledby="downshift-3-label"
-          class="field inner inner hasError"
+          class="field inner inner inner inner hasError"
           id="downshift-2-input"
           tabindex="0"
         >
@@ -247,12 +247,12 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
       class="component"
     >
       <div
-        class="component component s block hasRightAddons"
+        class="component component s s block hasRightAddons"
       >
         <div
           aria-controls="downshift-5-menu"
           aria-labelledby="downshift-5-label"
-          class="field inner inner focused"
+          class="field inner inner inner inner focused"
           id="downshift-4-input"
           tabindex="0"
         >

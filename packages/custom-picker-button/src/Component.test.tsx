@@ -41,7 +41,7 @@ describe.each(customPickerButtonVariants)('Snapshots tests', (Component) => {
     Object.defineProperty(window, 'matchMedia', {
         writable: true,
         value: jest.fn().mockImplementation((query) => ({
-            matches: false,
+            matches: true,
             media: query,
             onchange: null,
             addListener: jest.fn(),
