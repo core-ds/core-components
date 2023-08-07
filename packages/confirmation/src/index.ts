@@ -1,6 +1,6 @@
-export { ConfirmationDesktop as Confirmation } from './desktop';
-export * from './responsive';
-export * from './components';
-export * from './context';
-export * from './types';
-export * from './utils';
+export {
+    ConfirmationResponsive as Confirmation,
+    ResponsiveConfirmationProps as ConfirmationProps,
+} from './component.responsive';
+
+export { useConfirmation, useCountdown } from './utils';

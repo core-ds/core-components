@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings", "../utils"],
+    "include": ["src", "../../typings"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -9,13 +9,15 @@
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-modal/*": ["../modal/src/*"],
             "@alfalab/core-components-picker-button/*": ["../picker-button/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-select/*": ["../select/src/*"]
         }
     },
     "references": [
         { "path": "../tag" },
         { "path": "../keyboard-focusable" },
         { "path": "../picker-button" },
-        { "path": "../badge" }
+        { "path": "../badge" },
+        { "path": "../shared" }
     ]
 }

@@ -1,11 +1,31 @@
 {
     "name": "@alfalab/core-components-date-time-input",
-    "version": "3.2.0",
+    "version": "3.2.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
+    "exports": {
+        ".": {
+            "import": "./esm/index.js",
+            "require": "./index.js"
+        },
+        "./mobile": {
+            "import": "./esm/mobile.js",
+            "require": "./mobile.js"
+        },
+        "./desktop": {
+            "import": "./esm/desktop.js",
+            "require": "./desktop.js"
+        },
+        "./esm": "./esm/index.js",
+        "./cssm": "./cssm/index.js",
+        "./modern": "./modern/index.js",
+        "./esm/*": "./esm/*",
+        "./cssm/*": "./cssm/*",
+        "./modern/*": "./modern/*"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -15,7 +35,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^6.6.1",
+        "@alfalab/core-components-calendar": "^6.6.2",
         "@alfalab/core-components-input": "^11.1.18",
         "@alfalab/core-components-icon-button": "^6.1.3",
         "@alfalab/core-components-popover": "^6.0.9",

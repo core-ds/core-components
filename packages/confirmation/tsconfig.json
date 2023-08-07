@@ -15,6 +15,7 @@
         { "path": "../loader" },
         { "path": "../link" },
         { "path": "../typography" },
-        { "path": "../code-input" }
+        { "path": "../code-input" },
+        { "path": "../mq" }
     ]
 }

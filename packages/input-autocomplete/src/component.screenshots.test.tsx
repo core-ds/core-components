@@ -119,15 +119,36 @@ describe('InputAutocompleteModalMobile | interactions', () => {
         try {
             await page.click('[role="combobox"]');
 
-            await matchHtml({ context, page, expect });
+            await matchHtml({
+                context,
+                page,
+                expect,
+                screenshotOpts: {
+                    fullPage: true,
+                },
+            });
 
             await page.fill('input', 'Nep');
 
-            await matchHtml({ context, page, expect });
+            await matchHtml({
+                context,
+                page,
+                expect,
+                screenshotOpts: {
+                    fullPage: true,
+                },
+            });
 
             await page.click('button[data-test-id="continue"]');
 
-            await matchHtml({ context, page, expect });
+            await matchHtml({
+                context,
+                page,
+                expect,
+                screenshotOpts: {
+                    fullPage: true,
+                },
+            });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error((error as Error).message);

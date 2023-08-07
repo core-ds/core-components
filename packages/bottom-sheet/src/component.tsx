@@ -13,8 +13,7 @@ import { SwipeCallback, SwipeDirections, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -85,6 +84,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             onClose,
             onBack,
             onMagnetize,
+            disableRestoreFocus,
+            disableAutoFocus,
+            disableEscapeKeyDown,
+            keepMounted,
         },
         ref,
     ) => {
@@ -430,6 +433,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     onExited: handleExited,
                     onEntered: handleEntered,
                 }}
+                disableAutoFocus={disableAutoFocus}
+                disableEscapeKeyDown={disableEscapeKeyDown}
+                disableRestoreFocus={disableRestoreFocus}
+                keepMounted={keepMounted}
             >
                 <div
                     style={{ ...getHeightStyles() }}

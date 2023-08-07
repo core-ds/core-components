@@ -26,7 +26,6 @@ describe('Tabs ', () => {
     );
 });
 
-// TODO: кривые скриншоты
 describe('Tabs | TabsDesktop', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -43,10 +42,16 @@ describe('Tabs | TabsDesktop', () => {
                 width: 700,
                 height: 150,
             },
+            evaluate: async (page) => {
+                const primaryTab = await page.$$('button[id="tab-1"]');
+
+                // При переключении тем меняется ширина таба, но ширина линии остается прежней, поэтому нужен такой хак!
+                if (primaryTab.length) {
+                    await page.click('button[id="tab-5"]');
+                    await page.click('button[id="tab-1"]');
+                }
+            },
             matchImageSnapshotOptions: {
-                failureThresholdType: 'pixel',
-                // TODO: ширина линии на сервере чуть больше
-                failureThreshold: 50,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },

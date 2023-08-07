@@ -6,12 +6,11 @@ import throttle from 'lodash.throttle';
 import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 import { Input as CoreInput } from '@alfalab/core-components-input';
-import {
+import { SelectMobile, SelectMobileProps } from '@alfalab/core-components-select/mobile';
+import type {
     BaseSelectChangePayload,
     BaseSelectProps,
-    SelectMobile,
-    SelectMobileProps,
-} from '@alfalab/core-components-select';
+} from '@alfalab/core-components-select/shared';
 
 import { AutocompleteMobileField } from './autocomplete-mobile-field';
 

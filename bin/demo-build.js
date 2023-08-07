@@ -127,9 +127,7 @@ function buildStorybookUrl() {
                 .join('');
         };
 
-        url += `/?path=/docs/components-${packageToComponentName(
-            affectedPackage,
-        ).toLowerCase()}--docs`;
+        url += `/?path=/docs/${packageToComponentName(affectedPackage).toLowerCase()}--docs`;
     }
 
     return encodeURI(url);

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
 import { PickerButton } from './index';
-import { PickerButtonDesktop } from './Component';
+import { PickerButtonDesktop } from './Component.desktop';
 import { PickerButtonMobile } from './Component.mobile';
 
 const testId = 'picker-button-test-id';

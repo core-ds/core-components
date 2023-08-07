@@ -755,15 +755,15 @@ render(() => {
                 Показать модалку
             </Button>
 
-            <ModalResponsive open={open} onClose={handleClose} fixedPosition={true}>
-                <ModalResponsive.Header
+            <Modal open={open} onClose={handleClose} fixedPosition={true}>
+                <Modal.Header
                     sticky={true}
                     hasCloser={true}
                     hasBackButton={step !== 1}
                     title={item.title}
                     onBack={() => setStep(step - 1)}
                 />
-                <ModalResponsive.Content flex={true}>
+                <Modal.Content flex={true}>
                     <div
                         style={{
                             ...commonStyles,
@@ -772,8 +772,8 @@ render(() => {
                     >
                         <span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>
                     </div>
-                </ModalResponsive.Content>
-                <ModalResponsive.Footer sticky={true}>
+                </Modal.Content>
+                <Modal.Footer sticky={true}>
                     <Button
                         size={document.body.clientWidth < 450 ? 'm' : 's'}
                         view='primary'
@@ -783,8 +783,8 @@ render(() => {
                     >
                         {item.btnText}
                     </Button>
-                </ModalResponsive.Footer>
-            </ModalResponsive>
+                </Modal.Footer>
+            </Modal>
         </Container>
     );
 });

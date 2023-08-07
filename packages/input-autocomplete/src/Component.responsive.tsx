@@ -5,7 +5,7 @@ import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { BaseSelectProps } from '@alfalab/core-components-select';
+import type { BaseSelectProps } from '@alfalab/core-components-select/shared';
 import { useMedia } from '@alfalab/hooks';
 
 import { InputAutocompleteDesktop, InputAutocompleteDesktopProps } from './Component.desktop';

@@ -1,15 +1,15 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { ConfirmationMobile as ConfirmationMobileTS } from '../component.mobile';
-import { ConfirmationDesktop as ConfirmationDesktopTS } from '../component.desktop';
-import { ConfirmationResponsive as ConfirmationResponsiveTS } from '../component.responsive';
+import { ConfirmationMobile } from '../component.mobile';
+import { ConfirmationDesktop } from '../component.desktop';
+import { ConfirmationResponsive } from '../component.responsive';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
 import { Confirmation } from '@alfalab/core-components/confirmation';
-import { ConfirmationResponsive } from '@alfalab/core-components/confirmation/responsive';
+import { ConfirmationDesktop } from '@alfalab/core-components/confirmation/desktop';
 import { ConfirmationMobile } from '@alfalab/core-components/confirmation/mobile';
 ```
 
@@ -17,7 +17,7 @@ import { ConfirmationMobile } from '@alfalab/core-components/confirmation/mobile
 
 Компонент содержит в себе несколько экранов и может быть в нескольких состояниях:
 
-```jsx
+```typescript
 export type ConfirmationScreen =
     | 'INITIAL' // начальный экран
     | 'HINT' // экран "Не приходит смс?"
@@ -69,38 +69,38 @@ const Example = () => {
 
 На каждом экране можно кастомизировать тексты. Для этого есть специальное свойство `texts`:
 
-```jsx
+```typescript
 export type ConfirmationTexts = {
     /**
      * Экран INITIAL
      */
-    title?: ReactNode, // заголовок
-    codeError?: string, // ошибка проверки кода
-    codeChecking?: string, // код проверяется
-    codeSending?: string, // код отправляется
-    codeSended?: string, // код отправлен
-    buttonRetry?: string, // кнопка повторной отправки кода
-    linkToHint?: string, // ссылка на экран HINT
-    noAttemptsLeft?: string, // не осталось попыток запроса кода
-    countdown?: string, // 'запросить повторно можно через'
+    title?: ReactNode; // заголовок
+    codeError?: string; // ошибка проверки кода
+    codeChecking?: string; // код проверяется
+    codeSending?: string; // код отправляется
+    codeSended?: string; // код отправлен
+    buttonRetry?: string; // кнопка повторной отправки кода
+    linkToHint?: string; // ссылка на экран HINT
+    noAttemptsLeft?: string; // не осталось попыток запроса кода
+    countdown?: string; // 'запросить повторно можно через'
 
     /**
      * Экран HINT
      */
-    hintButton?: string, // кнопка 'Вернуться'
+    hintButton?: string; // кнопка 'Вернуться'
 
     /**
      * Экран FATAL_ERROR
      */
-    fatalErrorTitle?: ReactNode, // заголовок
-    fatalErrorDescription?: ReactNode, // описание
-    fatalErrorButton?: string, // кнопка
+    fatalErrorTitle?: ReactNode; // заголовок
+    fatalErrorDescription?: ReactNode; // описание
+    fatalErrorButton?: string; // кнопка
 
     /**
      * Экран TEMP_BLOCK
      */
-    tempBlockTitle?: ReactNode, // заголовок
-    tempBlockDescription?: ReactNode, // описание
+    tempBlockTitle?: ReactNode; // заголовок
+    tempBlockDescription?: ReactNode; // описание
 };
 ```
 
@@ -131,9 +131,9 @@ const Example = () => {
 
 <ArgsTable
     components={{
-        Confirmation: ConfirmationDesktopTS,
-        ConfirmationMobile: ConfirmationMobileTS,
-        ConfirmationResponsive: ConfirmationResponsiveTS,
+        ConfirmationDesktop,
+        ConfirmationMobile,
+        ConfirmationResponsive,
     }}
 />
 
