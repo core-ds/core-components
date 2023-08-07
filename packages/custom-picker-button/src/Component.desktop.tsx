@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { CustomButtonProps } from '@alfalab/core-components-custom-button';
+import type { CustomButtonProps } from '@alfalab/core-components-custom-button';
 import {
     PickerButtonDesktop,
     PickerButtonDesktopProps,

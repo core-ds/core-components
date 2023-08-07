@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import { AnyObject, BaseSelectProps, OptionShape, processOptions } from '../..';
+import type { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
+import { processOptions } from '../../utils';
 
 import { OptionsListWithApply } from './options-list-with-apply';
 
