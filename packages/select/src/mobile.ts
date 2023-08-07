@@ -1,5 +1,5 @@
-export { SelectMobile } from './components/select-mobile';
-export { SelectModalMobile } from './components/select-modal-mobile';
+export { SelectMobile } from './Component.mobile';
+export { SelectModalMobile } from './Component.modal.mobile';
 
-export type { SelectMobileProps } from './components/select-mobile';
-export type { SelectModalMobileProps } from './components/select-modal-mobile';
+export type { SelectMobileProps } from './Component.mobile';
+export type { SelectModalMobileProps } from './Component.modal.mobile';

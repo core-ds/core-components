@@ -48,13 +48,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         };
 
         const handleClick: MouseEventHandler = (event) => {
+            event.persist();
             const target = event.target as HTMLInputElement;
 
             /**
              * В сафари выделение корректно работает только с асинхронным вызовом
              */
             requestAnimationFrame(() => {
-                target.select();
+                target?.select();
             });
         };
 

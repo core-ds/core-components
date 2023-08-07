@@ -7,7 +7,7 @@ import {
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
     OptionsList as DefaultOptionsList,
-} from '@alfalab/core-components-select';
+} from '@alfalab/core-components-select/shared';
 
 import { AutocompleteField } from './autocomplete-field';
 

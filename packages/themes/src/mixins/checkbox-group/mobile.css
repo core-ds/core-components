@@ -1,0 +1,4 @@
+@define-mixin checkbox-group-mobile {
+    --checkbox-group-sub-padding-left: var(--gap-2xs);
+    --checkbox-group-list-padding-left: var(--gap-3xs);
+}

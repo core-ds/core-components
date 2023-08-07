@@ -1,0 +1,15 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --checkbox-group-error-color: var(--color-light-text-negative);
+    --checkbox-group-hint-color: var(--color-light-text-secondary);
+    --checkbox-group-label-color: var(--color-light-text-primary);
+    --checkbox-group-error-padding-left: var(--gap-s);
+    --checkbox-group-error-border-left: 1px solid var(--color-light-text-negative);
+    --checkbox-group-sub-padding-left: 0;
+    --checkbox-group-list-padding-left: 0;
+
+    /* mobile */
+    --checkbox-group-mobile-sub-padding-left: var(--gap-2xs);
+    --checkbox-group-mobile-list-padding-left: var(--gap-3xs);
+}

@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.3.5
+
+### Patch Changes
+
+### [#777](https://github.com/core-ds/core-components/pull/777)
+
+-   Исправлена ошибка с фокусом в 16 реакте
+
 ## 2.3.4
 
 ### Patch Changes

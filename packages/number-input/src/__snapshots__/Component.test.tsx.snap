@@ -3,10 +3,10 @@
 exports[`NumberInput Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component component s"
+    class="component component s s"
   >
     <div
-      class="inner inner filled"
+      class="inner inner inner inner filled"
     >
       <div
         class="inputWrapper"
@@ -15,7 +15,7 @@ exports[`NumberInput Snapshots tests should match snapshot 1`] = `
           class="input"
         >
           <input
-            class="input input"
+            class="input input input"
             inputmode="decimal"
             type="text"
             value="1234.567"

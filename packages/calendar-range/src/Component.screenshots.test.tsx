@@ -16,7 +16,10 @@ describe('CalendarRange', () =>
                 selectorView: 'full',
             },
         },
-        'transform: scale(0.8)',
+        'width:800px;transform: scale(0.8)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     ));
 
 describe(

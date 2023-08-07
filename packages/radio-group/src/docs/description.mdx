@@ -2,7 +2,7 @@
 
 Группа радиокнопок используется когда пользователю доступно несколько вариантов выбора.
 Обычно от двух до пяти. Если вариантов больше, возможно следует использовать другой контрол,
-например [Select](?path=/docs/components-select--docs).
+например [Select](?path=/docs/select--docs).
 
 Для выбора пункта необходимо кликнуть по названию пункта или по радиокнопке. Повторное нажатие не снимет выбор.
 
@@ -32,7 +32,7 @@ render(() => {
 
     return (
         <div style={{ width: '100%' }}>
-            <RadioGroup
+            <RadioGroupDesktop
                 label='Ближайшая планета к Солнцу'
                 direction='horizontal'
                 name='radioGroup'
@@ -44,7 +44,45 @@ render(() => {
                 <Radio label='Меркурий' value='one' size='m' />
                 <Radio label='Венера' value='two' size='m' />
                 <Radio label='Нептун' value='three' size='m' />
-            </RadioGroup>
+            </RadioGroupDesktop>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Правильный ответ: Меркурий')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState('one');
+    const [error, setError] = React.useState(false);
+
+    const onChange = (_, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <RadioGroupMobile
+                label='Ближайшая планета к Солнцу'
+                direction='horizontal'
+                name='radioGroup'
+                onChange={onChange}
+                hint='Выберите один из вариантов'
+                error={error}
+                value={value}
+            >
+                <Radio label='Меркурий' value='one' size='m' />
+                <Radio label='Венера' value='two' size='m' />
+                <Radio label='Нептун' value='three' size='m' />
+            </RadioGroupMobile>
 
             <Gap size='2xl' />
 
@@ -76,7 +114,7 @@ render(() => {
 
     return (
         <div style={{ width: '100%' }}>
-            <RadioGroup
+            <RadioGroupDesktop
                 label='Выберите планету земной группы'
                 onChange={onChange}
                 hint='Только одна из этих планет принадлежит земной группе'
@@ -88,7 +126,45 @@ render(() => {
                 <Radio label='Меркурий' value='three' size='m' />
                 <Radio label='Сатурн' value='four' size='m' />
                 <Radio label='Нептун' value='five' size='m' />
-            </RadioGroup>
+            </RadioGroupDesktop>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Правильный ответ: Марс')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState('one');
+    const [error, setError] = React.useState(false);
+
+    const onChange = (_, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <RadioGroupMobile
+                label='Выберите планету земной группы'
+                onChange={onChange}
+                hint='Только одна из этих планет принадлежит земной группе'
+                error={error}
+                value={value}
+            >
+                <Radio label='Марс' value='one' size='m' />
+                <Radio label='Юпитер' value='two' size='m' />
+                <Radio label='Меркурий' value='three' size='m' />
+                <Radio label='Сатурн' value='four' size='m' />
+                <Radio label='Нептун' value='five' size='m' />
+            </RadioGroupMobile>
 
             <Gap size='2xl' />
 
@@ -122,7 +198,7 @@ render(() => {
 
     return (
         <div style={{ width: '100%' }}>
-            <RadioGroup
+            <RadioGroupDesktop
                 label='Выберите один из вариантов'
                 onChange={onChange}
                 direction='horizontal'
@@ -136,7 +212,47 @@ render(() => {
                 <Tag value='two'>Вариант 2</Tag>
                 <Tag value='three'>Вариант 3</Tag>
                 <Tag value='four'>Вариант 4</Tag>
-            </RadioGroup>
+            </RadioGroupDesktop>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Error message')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState('one');
+    const [error, setError] = React.useState(false);
+
+    const onChange = (_, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <RadioGroupMobile
+                label='Выберите один из вариантов'
+                onChange={onChange}
+                direction='horizontal'
+                type='tag'
+                hint='Выберите один из вариантов'
+                error={error}
+                value={value}
+                name='radioGroupTag'
+            >
+                <Tag value='one'>Вариант 1</Tag>
+                <Tag value='two'>Вариант 2</Tag>
+                <Tag value='three'>Вариант 3</Tag>
+                <Tag value='four'>Вариант 4</Tag>
+            </RadioGroupMobile>
 
             <Gap size='2xl' />
 

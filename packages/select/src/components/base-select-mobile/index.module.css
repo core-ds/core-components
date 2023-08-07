@@ -13,6 +13,10 @@
 
 .sheetContent {
     padding: 0;
+
+    & .modalContent {
+        padding: 0;
+    }
 }
 
 .sheetContainer {

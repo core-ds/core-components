@@ -1,14 +1,14 @@
-import { ChangeEvent, FC, ReactNode } from 'react';
+import type { ChangeEvent, FC, ReactNode } from 'react';
 
-import { BaseSelectProps, OptionShape } from '@alfalab/core-components-select';
-import { TagProps as TagPropsBase } from '@alfalab/core-components-tag';
+import type { BaseSelectProps, OptionShape } from '@alfalab/core-components-select/shared';
+import type { TagProps as TagPropsBase } from '@alfalab/core-components-tag';
 
 export type OptionMatcher = (option: OptionShape, inputValue: string) => boolean;
 
 export type TagProps = {
     option: OptionShape;
     handleDeleteTag?: (key: string) => void;
-} & TagPropsBase;
+} & Omit<TagPropsBase, 'breakpoint'>;
 
 export type TagComponent = FC<TagProps>;
 
@@ -74,4 +74,10 @@ export type SelectWithTagsProps = Omit<
      * Трансформировать текст компонента Тэг
      */
     transformTagText?: (tagText?: ReactNode) => ReactNode;
+    
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 };

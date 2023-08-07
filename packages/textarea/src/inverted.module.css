@@ -1,5 +1,5 @@
 @import '../../themes/src/default.css';
-@import '../../input/src/inverted.module.css';
+@import '../../input/src/components/base-input/inverted.module.css';
 @import '../../form-control/src/vars.css';
 
 .textarea {

@@ -4,6 +4,11 @@
     --form-control-m-border-radius: 4px 4px 0 0;
     --form-control-l-border-radius: 4px 4px 0 0;
     --form-control-xl-border-radius: 4px 4px 0 0;
+    --form-control-mobile-s-border-radius: 4px 4px 0 0;
+    --form-control-mobile-m-border-radius: 4px 4px 0 0;
+    --form-control-mobile-l-border-radius: 4px 4px 0 0;
+    --form-control-mobile-xl-border-radius: 4px 4px 0 0;
+    --form-control-mobile-sub-paddings: 0;
     --form-control-bg-backdrop-filter: blur(20px);
     --form-control-border-bottom: 1px solid var(--color-light-border-underline);
     --form-control-inverted-border-bottom: 1px solid var(--color-light-border-underline-inverted);
@@ -42,4 +47,52 @@
     --form-control-inverted-disabled-bg-color: var(
         --color-light-specialbg-component-inverted-tint-15
     );
+
+    /* color mobile */
+    --form-control-mobile-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
+    --form-control-inverted-mobile-bg-color: var(--color-light-specialbg-component-inverted);
+
+    /* disabled mobile */
+    --form-control-mobile-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --form-control-mobile-inverted-disabled-bg-color: var(
+        --color-light-specialbg-component-inverted-tint-15
+    );
+    --form-control-mobile-disabled-shadow: none;
+    --form-control-mobile-inverted-disabled-shadow: none;
+
+    /* hover mobile */
+    --form-control-mobile-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --form-control-inverted-mobile-hover-bg-color: var(
+        --color-light-specialbg-component-inverted-tint-15
+    );
+
+    /* focus mobile */
+    --form-control-focus-mobile-shadow: none;
+    --form-control-focus-mobile-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
+    --form-control-focus-error-mobile-shadow: none;
+    --form-control-inverted-focus-error-mobile-shadow: none;
+    --form-control-inverted-focus-mobile-bg-color: var(
+        --color-light-specialbg-component-inverted-tint-15
+    );
+    --form-control-inverted-focus-mobile-shadow: none;
+
+    /* error mobile */
+    --form-control-error-mobile-shadow: none;
+    --form-control-inverted-error-mobile-shadow: none;
+    --form-control-error-mobile-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
+    --form-control-inverted-error-mobile-bg-color: var(--color-light-specialbg-component-inverted);
+    --form-control-error-mobile-disabled-shadow: var(--form-control-focus-error-mobile-shadow);
+    --form-control-inverted-error-mobile-disabled-shadow: var(
+        --form-control-inverted-focus-error-mobile-shadow
+    );
+
+    /* border-bottom mobile */
+    --form-control-mobile-border-bottom: 1px solid var(--color-light-border-underline);
+    --form-control-inverted-mobile-border-bottom: 1px solid
+        var(--color-light-border-underline-inverted);
+    --form-control-mobile-disabled-border-bottom: 1px dashed var(--color-light-border-underline);
+    --form-control-inverted-mobile-disabled-border-bottom: 1px dashed
+        var(--color-light-border-underline-inverted);
+    --form-control-error-mobile-border-bottom: 1px solid var(--color-static-border-accent);
+    --form-control-inverted-error-mobile-border-bottom: 1px solid var(--color-static-border-accent);
 }

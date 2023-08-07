@@ -1,5 +1,12 @@
 # Change Log
 
+## 12.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   code-input@2.3.5
+
 ## 12.5.2
 
 ### Patch Changes

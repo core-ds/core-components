@@ -50,6 +50,7 @@ describe(
                 }),
             ],
         ],
+        evaluate: (page: Page) => page.waitForTimeout(300),
         screenshotOpts: {
             fullPage: true,
         },

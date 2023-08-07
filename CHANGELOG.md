@@ -1,3 +1,62 @@
+## 41.20.0
+
+<sup><time>07.08.2023</time></sup>
+
+### [#780](https://github.com/core-ds/core-components/pull/780)
+
+#### Что изменилось
+- Добавлены пропсы keepMounted, disableAutofocus, disableRestoreFocus, disableEscapeKeyDown
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#775](https://github.com/core-ds/core-components/pull/775)
+
+#### Что изменилось
+- Исправлен перенос контента в options для селекта с выбором кода страны
+
+#### Влияние на компоненты
+- Патчи<br />`intl-phone-input`
+
+
+### [#774](https://github.com/core-ds/core-components/pull/774)
+
+#### Что изменилось
+- Исправлены границы выделения выбранного периода при динамической установке значений
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#777](https://github.com/core-ds/core-components/pull/777)
+
+#### Что изменилось
+- Исправлена ошибка с фокусом в 16 реакте
+
+#### Влияние на компоненты
+- Патчи<br />`code-input`
+
+
+### [#778](https://github.com/core-ds/core-components/pull/778)
+
+#### Что изменилось
+- Исправлено отображение цветных иконок
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon`
+
+
+### [#776](https://github.com/core-ds/core-components/pull/776)
+
+#### Что изменилось
+- Добавлена возможность передавать дополнительные props в компонент PureCell
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+
 ## 41.19.0
 
 <sup><time>02.08.2023</time></sup>

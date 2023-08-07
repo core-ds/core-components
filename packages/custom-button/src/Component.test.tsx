@@ -6,6 +6,20 @@ import { CustomButton } from './index';
 const dataTestId = 'test-id';
 
 describe('CustomButton', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<CustomButton />)).toMatchSnapshot();

@@ -3,10 +3,9 @@ import type { Theme, TPatternLockInstance } from 'react-canvas-pattern-lock';
 import { ReactCanvasPatternLock } from 'react-canvas-pattern-lock';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { Gap } from '@alfalab/core-components-gap';
-
-import { getDataTestId } from '../../utils';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { DEFAULT_EXTRA_BOUNDS, OBSERVABLE_TOKENS, OBSERVE_OPTIONS, THEME_STATE } from './consts';
 import type { PatternLockProps } from './typings';
@@ -98,14 +97,14 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
                 />
 
                 {showForgotCodeBtn ? (
-                    <Button
+                    <ButtonMobile
                         view='link'
                         className={styles.forgotBtn}
                         onClick={onForgotBtnClick}
                         dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
                     >
                         {forgotCodeBtnText}
-                    </Button>
+                    </ButtonMobile>
                 ) : (
                     <div className={styles.forgotBtn} />
                 )}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { CheckboxGroup, CheckboxGroupProps } from './index';
+import { CheckboxGroupDesktop as CheckboxGroup, CheckboxGroupDesktopProps as CheckboxGroupProps } from './desktop';
 import { Checkbox } from '../../checkbox/src';
 import { Tag } from '../../tag/src';
 
@@ -28,6 +28,20 @@ const TagGroup = ({ ...restProps }: Partial<CheckboxGroupProps>) => (
 );
 
 describe('Checkbox', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Display tests', () => {
         it('should display with children like boolean or string or others react children type correctly', () => {
             expect(
