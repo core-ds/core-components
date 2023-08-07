@@ -1,9 +1,9 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { PeriodSlider as PeriodSliderTS } from '..';
-import { CalendarDesktop as CalendarDesktopTS } from '../desktop';
-import { CalendarMobile as CalendarMobileTS } from '../mobile';
-import { CalendarResponsive as CalendarResponsiveTS } from '../responsive';
+import { PeriodSlider } from '../shared';
+import { CalendarDesktop } from '../desktop';
+import { CalendarMobile } from '../mobile';
+import { CalendarResponsive } from '../Component.responsive';
 import styles from '!!raw-loader!../desktop.module.css';
 import vars from '!!raw-loader!../vars.css';
 
@@ -11,21 +11,20 @@ import vars from '!!raw-loader!../vars.css';
 
 ```jsx
 import { Calendar } from '@alfalab/core-components/calendar';
-import { CalendarResponsive } from '@alfalab/core-components/calendar/responsive';
 import { CalendarDesktop } from '@alfalab/core-components/calendar/desktop';
 import { CalendarMobile } from '@alfalab/core-components/calendar/mobile';
 ```
 
-Из индекса импортируются responsive, desktop и mobile версии компонента.
+Из индекса импортируются responsive версия компонента.
 
 ## Свойства
 
 <ArgsTable
     components={{
-        Calendar: CalendarDesktopTS,
-        CalendarMobile: CalendarMobileTS,
-        CalendarResponsive: CalendarResponsiveTS,
-        PeriodSlider: PeriodSliderTS,
+        Calendar: CalendarResponsive,
+        CalendarDesktop,
+        CalendarMobile,
+        PeriodSlider,
     }}
 />
 
