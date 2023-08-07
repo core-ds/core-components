@@ -33,7 +33,7 @@ const POSITION_OPTIONS = [
     'left-end',
 ] as const;
 
-export const tooltip: Story = {
+export const tooltip_desktop: Story = {
     name: 'Tooltip',
     render: () => {
         const openSelectValue = select('open', ['true', 'false', 'undefined'], 'undefined');

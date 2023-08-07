@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings", "../utils", "../types"],
+    "include": ["src", "../../typings", "../types"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -14,6 +14,7 @@
         { "path": "../base-modal" },
         { "path": "../icon-button" },
         { "path": "../typography" },
-        { "path": "../navigation-bar" }
+        { "path": "../navigation-bar" },
+        { "path": "../shared" }
     ]
 }
