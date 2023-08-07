@@ -3,14 +3,6 @@ import { NormalComponents } from 'react-markdown/lib/complex-types';
 
 export type FontType = 'styrene' | 'system' | undefined;
 export type PlatformType = 'desktop' | 'mobile';
-export type PaddingsMarkdownType =
-    | number
-    | {
-          paddingTop?: number;
-          paddingBottom?: number;
-          paddingLeft?: number;
-          paddingRight?: number;
-      };
 
 export type OverridesComponents =
     | Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>
@@ -38,11 +30,6 @@ export type MarkdownProps = {
      * Переопределение компонентов для тегов разметки
      */
     overrides?: OverridesComponents;
-
-    /**
-     * Переопределение отступов для разметки
-     */
-    paddings?: PaddingsMarkdownType;
 };
 
 export type MarkdownDesktopProps = Omit<MarkdownProps, 'platform'>;

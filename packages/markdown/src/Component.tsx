@@ -13,9 +13,8 @@ export const Markdown = ({
     platform,
     font = 'system',
     overrides,
-    paddings,
 }: MarkdownProps) => {
-    const defaultOverrides = useOverrides(platform, font, paddings);
+    const defaultOverrides = useOverrides(platform, font);
 
     return (
         <ReactMarkdown
