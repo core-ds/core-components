@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
 ## 4.0.7
 
 ### Patch Changes

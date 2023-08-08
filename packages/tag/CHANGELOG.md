@@ -1,5 +1,24 @@
 # Change Log
 
+## 6.0.0
+
+### Major Changes
+
+### [#700](https://github.com/core-ds/core-components/pull/700)
+
+-   Для компонента Tag добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.2.0
+
 ## 5.4.1
 
 ### Patch Changes

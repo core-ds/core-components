@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.0
+    -   skeleton@4.1.0
+
 ## 5.0.51
 
 ### Patch Changes

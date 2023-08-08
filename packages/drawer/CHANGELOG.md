@@ -1,5 +1,24 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+### [#703](https://github.com/core-ds/core-components/pull/703)
+
+-   Кастомный js скроллбар заменен на css версию
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.3.0
+
 ## 4.2.12
 
 ### Patch Changes

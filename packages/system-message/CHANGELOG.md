@@ -1,5 +1,25 @@
 # @alfalab/core-components-system-message
 
+## 2.0.0
+
+### Major Changes
+
+### [#708](https://github.com/core-ds/core-components/pull/708)
+
+-   Удалена responsive точка входа
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   mq@4.2.0
+
 ## 1.0.3
 
 ### Patch Changes

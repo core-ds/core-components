@@ -1,5 +1,30 @@
 # Change Log
 
+## 9.0.0
+
+### Major Changes
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Утилиты и константы экспортируются из shared
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Удалена responsive точка входа. (В проектах нужно заменить импорт @alfalab/core-components-calendar/responsive на @alfalab/core-components-calendar)
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.0
+    -   date-input@4.3.0
+    -   popover@6.1.0
+
 ## 8.3.1
 
 ### Patch Changes

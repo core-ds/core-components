@@ -1,5 +1,18 @@
 # @alfalab/core-components-steps
 
+## 1.3.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.2.0
+
 ## 1.2.1
 
 ### Patch Changes

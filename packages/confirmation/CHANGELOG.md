@@ -1,5 +1,29 @@
 # Change Log
 
+## 13.0.0
+
+### Major Changes
+
+### [#705](https://github.com/core-ds/core-components/pull/705)
+
+-   Удалена responsive точка входа. Теперь responsive компонент импортируется из индексного файла.
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.0.0
+    -   button@9.0.0
+    -   code-input@3.0.0
+    -   link@5.1.0
+    -   loader@3.1.0
+    -   mq@4.2.0
+
 ## 12.5.3
 
 ### Patch Changes

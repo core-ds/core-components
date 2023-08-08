@@ -1,5 +1,20 @@
 # Change Log
 
+## 1.4.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@9.0.0
+    -   link@5.1.0
+    -   loader@3.1.0
+
 ## 1.3.2
 
 ### Patch Changes

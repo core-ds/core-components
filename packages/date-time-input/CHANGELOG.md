@@ -1,5 +1,31 @@
 # @alfalab/core-components-date-time-input
 
+## 4.0.0
+
+### Major Changes
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Удалена responsive точка входа. (В проектах нужно заменить импорт @alfalab/core-components-calendar/responsive на @alfalab/core-components-calendar)
+
+### Minor Changes
+
+### [#716](https://github.com/core-ds/core-components/pull/716)
+
+-   Компонент Input заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.0
+    -   icon-button@6.2.0
+    -   input@12.0.0
+    -   popover@6.1.0
+
 ## 3.2.1
 
 ### Patch Changes

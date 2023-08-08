@@ -1,5 +1,27 @@
 # Change Log
 
+## 12.0.0
+
+### Major Changes
+
+### [#716](https://github.com/core-ds/core-components/pull/716)
+
+-   Для компонента Input добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.2.0
+    -   button@9.0.0
+    -   form-control@10.0.0
+    -   mq@4.2.0
+
 ## 11.1.18
 
 ### Patch Changes

@@ -1,5 +1,32 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+### [#704](https://github.com/core-ds/core-components/pull/704)
+
+-   Хуки, общие компоненты и некоторые типы теперь экспортируются из shared (@alfalab/core-components/tabs/shared)
+-   Удалена responsive точка входа.
+-   Prop defaultMatch заменен на defaultMatchMediaValue и имеет теперь другой тип
+-   Удален prop collapsible, вместо него теперь отдельный компонент TabsCollapsible (@alfalab/core-components/tabs/collapsible)
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@6.0.0
+    -   shared@0.1.0
+    -   badge@5.2.0
+    -   keyboard-focusable@4.1.0
+    -   mq@4.2.0
+    -   picker-button@11.0.0
+
 ## 7.7.2
 
 ### Patch Changes

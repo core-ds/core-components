@@ -1,5 +1,26 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+### [#743](https://github.com/core-ds/core-components/pull/743)
+
+-   Для компонента Plate добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@9.0.0
+    -   icon-button@6.2.0
+    -   mq@4.2.0
+
 ## 6.3.20
 
 ### Patch Changes

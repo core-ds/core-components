@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.3.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@10.0.0
+
 ## 8.2.3
 
 ### Patch Changes

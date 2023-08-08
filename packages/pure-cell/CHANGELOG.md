@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.4.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   typography@4.0.0
+    -   amount@3.3.0
+    -   button@9.0.0
+    -   comment@2.2.0
+
 ## 4.3.2
 
 ### Patch Changes

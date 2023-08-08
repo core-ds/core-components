@@ -1,5 +1,25 @@
 # Change Log
 
+## 11.0.0
+
+### Major Changes
+
+### [#711](https://github.com/core-ds/core-components/pull/711)
+
+-   Удалена responsive точка входа.
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.0.0
+    -   button@9.0.0
+
 ## 10.3.30
 
 ### Patch Changes

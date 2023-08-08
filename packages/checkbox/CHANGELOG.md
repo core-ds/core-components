@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#734](https://github.com/core-ds/core-components/pull/734)
+
+-   В компонентах Radio и Checkbox для выбранных контролов токен фона был изменен на --color-light-graphic-primary в темах default и site
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
 ## 3.1.5
 
 ### Patch Changes

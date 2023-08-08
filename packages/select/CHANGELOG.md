@@ -1,5 +1,53 @@
 # Change Log
 
+## 15.0.0
+
+### Major Changes
+
+### [#711](https://github.com/core-ds/core-components/pull/711)
+
+-   Удалена responsive точка входа. Responsive компонент теперь экспортируется из индексного файла
+-   Пресеты и утилиты вынесены в shared (@alfalab/core-components/select/shared)
+-   Десктопный компонент теперь экспортируется из desktop -> import {SelectDesktop} from '@alfalab/core-components/select/desktop'
+
+### Minor Changes
+
+### [#687](https://github.com/core-ds/core-components/pull/687)
+
+-   Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+### [#719](https://github.com/core-ds/core-components/pull/719)
+
+-   Поведение плейсхолдера и лейбла изменено на стандартное. Теперь, в дефолтном состоянии, в инпутах с внутренним положением лейбла отображается лейбл, а не плейсхолдер.
+
+### [#716](https://github.com/core-ds/core-components/pull/716)
+
+-   Компонент FormControl заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+### [#781](https://github.com/core-ds/core-components/pull/781)
+
+-   Исправлена ошибка, из-за которой не срабатывал onBlur в мобильном селекте
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.6.0
+    -   shared@0.1.0
+    -   skeleton@4.1.0
+    -   modal@8.0.0
+    -   checkbox@3.2.0
+    -   badge@5.2.0
+    -   base-modal@5.3.0
+    -   button@9.0.0
+    -   form-control@10.0.0
+    -   input@12.0.0
+    -   popover@6.1.0
+    -   scrollbar@2.2.0
+
 ## 14.3.5
 
 ### Patch Changes

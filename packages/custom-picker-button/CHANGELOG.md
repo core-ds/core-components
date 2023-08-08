@@ -1,5 +1,26 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.0.0
+
+### Major Changes
+
+### [#711](https://github.com/core-ds/core-components/pull/711)
+
+-   Удалена responsive точка входа
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   custom-button@3.3.0
+    -   mq@4.2.0
+    -   picker-button@11.0.0
+
 ## 1.0.7
 
 ### Patch Changes

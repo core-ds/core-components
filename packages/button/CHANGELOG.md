@@ -1,5 +1,26 @@
 # Change Log
 
+## 9.0.0
+
+### Major Changes
+
+### [#687](https://github.com/core-ds/core-components/pull/687)
+
+-   Для компонента Button добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   mq@4.2.0
+    -   spinner@3.1.0
+
 ## 8.5.1
 
 ### Patch Changes

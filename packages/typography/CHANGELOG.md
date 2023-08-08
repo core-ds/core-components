@@ -1,5 +1,19 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+### [#771](https://github.com/core-ds/core-components/pull/771)
+
+-   Исправлена типографика в компоненте TitleResponsive для шрифта system с headline-system на headline-system-mobile
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
 ## 3.2.2
 
 ### Patch Changes

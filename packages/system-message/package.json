@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-system-message",
-    "version": "1.0.3",
+    "version": "2.0.0",
     "description": "System message component",
     "keywords": [],
     "license": "MIT",
@@ -34,8 +34,8 @@
         "react": ">=16.8.0"
     },
     "dependencies": {
-        "@alfalab/core-components-mq": "^4.1.5",
-        "@alfalab/core-components-shared": "^0.0.0",
+        "@alfalab/core-components-mq": "^4.2.0",
+        "@alfalab/core-components-shared": "^0.1.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }

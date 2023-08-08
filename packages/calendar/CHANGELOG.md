@@ -1,5 +1,35 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Из index теперь экспортируется responsive версия компонента. Десктопная версия импортируется отсюда -> @alfalab/core-components-calendar/desktop
+-   Утилиты и константы экспортируются из shared
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Удалена responsive точка входа. (В проектах нужно заменить импорт @alfalab/core-components-calendar/responsive на @alfalab/core-components-calendar)
+
+### Minor Changes
+
+### [#687](https://github.com/core-ds/core-components/pull/687)
+
+-   Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@8.0.0
+    -   button@9.0.0
+    -   icon-button@6.2.0
+
 ## 6.6.2
 
 ### Patch Changes

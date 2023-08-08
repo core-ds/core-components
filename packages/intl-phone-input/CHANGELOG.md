@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.5.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@10.0.0
+    -   select@15.0.0
+
 ## 9.4.6
 
 ### Patch Changes

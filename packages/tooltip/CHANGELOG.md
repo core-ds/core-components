@@ -1,5 +1,34 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+### [#709](https://github.com/core-ds/core-components/pull/709)
+
+-   Удалена responsive точка входа.
+-   Из индексного файла теперь тянется responsive версия компонента
+-   Prop defaultMatch заменен на defaultMatchMediaValue и имеет теперь другой тип
+-   Добавлена мобильная версия - TooltipMobile
+
+### Minor Changes
+
+### [#687](https://github.com/core-ds/core-components/pull/687)
+
+-   Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.6.0
+    -   button@9.0.0
+    -   mq@4.2.0
+    -   popover@6.1.0
+
 ## 6.2.28
 
 ### Patch Changes
