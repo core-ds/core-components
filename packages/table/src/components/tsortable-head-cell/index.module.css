@@ -1,9 +1,5 @@
 @import '../../../../themes/src/default.css';
 
-.component {
-    position: relative;
-}
-
 .content {
     display: flex;
     align-items: flex-start;

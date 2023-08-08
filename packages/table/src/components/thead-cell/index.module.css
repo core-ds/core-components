@@ -4,7 +4,6 @@
     @mixin paragraph_caps;
 
     line-height: 20px;
-    position: relative;
     text-align: left;
     color: var(--color-light-text-primary);
     padding: var(--gap-2xl) var(--gap-s) var(--gap-2xs);
@@ -19,6 +18,10 @@
 
     &:last-child {
         padding-right: var(--gap-m);
+    }
+
+    &:not(.stickyHeader) {
+        position: relative;
     }
 }
 
