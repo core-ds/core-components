@@ -9,7 +9,8 @@ import React, {
 } from 'react';
 import { use100vh } from 'react-div-100vh';
 import mergeRefs from 'react-merge-refs';
-import { SwipeCallback, SwipeDirections, useSwipeable } from 'react-swipeable';
+import { SwipeCallback, TapCallback, useSwipeable } from 'react-swipeable';
+import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -22,7 +23,6 @@ import type { BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
     convertPercentToNumber,
-    HEADER_OFFSET,
     MARKER_HEIGHT,
     SCROLL_OFFSET,
     SWIPE_VELOCITY,
@@ -76,11 +76,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             initialActiveAreaIndex,
             dataTestId,
             swipeable = true,
+            swipeableContent = true,
+            swipeThreshold = 5,
             scrollLocked: scrollLockedProp,
             backdropProps,
             scrollableContainerRef = () => null,
             bottomSheetInstanceRef,
             sheetContainerRef = () => null,
+            headerOffset = 24,
             onClose,
             onBack,
             onMagnetize,
@@ -88,6 +91,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             disableAutoFocus,
             disableEscapeKeyDown,
             keepMounted,
+            onMagnetizeEnd,
+            onOffsetChange,
         },
         ref,
     ) => {
@@ -98,11 +103,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
-                return magneticAreasProp.map((area) => convertPercentToNumber(area, fullHeight));
+                return magneticAreasProp.map((area) =>
+                    convertPercentToNumber(area, fullHeight, headerOffset),
+                );
             }
 
-            return [0, fullHeight - HEADER_OFFSET];
-        }, [fullHeight, magneticAreasProp]);
+            return [0, fullHeight - headerOffset];
+        }, [fullHeight, headerOffset, magneticAreasProp]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
@@ -110,8 +117,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [activeArea, setActiveArea] = useState(0);
 
-        const swipingInProgress = useRef<boolean | null>(null);
+        const [swipingInProgress, setSwipingInProgress] = useState<boolean | null>(null);
+        const scrollOccurred = useRef<boolean>(false);
         const headerRef = useRef<HTMLDivElement>(null);
+        const contentRef = useRef<HTMLDivElement>(null);
         const sheetHeight = useRef(0);
         const sheetRef = useRef<HTMLDivElement>(null);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
@@ -126,6 +135,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 : { title: title ? title?.toString() : undefined }),
             scrollableParentRef: scrollableContainer,
             headerRef,
+            headerOffset,
             className: headerClassName,
             addonClassName,
             closerClassName,
@@ -170,7 +180,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             return Math.max(0, Math.round(offset));
         };
 
-        const getActiveAreaIndex = (area?: number) => magneticAreas.findIndex((a) => a === area);
+        const getActiveAreaIndex = (area: number) => magneticAreas.findIndex((a) => a === area);
 
         const setSheetHeight = () => {
             if (sheetRef.current) {
@@ -178,8 +188,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
         };
 
+        const handleTransitionEnd = (event: React.TransitionEvent) => {
+            setSheetHeight();
+
+            if (event.propertyName === 'transform' && event.target === event.currentTarget) {
+                onMagnetizeEnd?.();
+            }
+        };
+
         const scrollToArea = (idx: number) => {
-            swipingInProgress.current = false;
+            setSwipingInProgress(false);
             const nextArea = magneticAreas[idx];
 
             if (nextArea === 0) {
@@ -191,12 +209,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (nextArea) {
                 setActiveArea(nextArea);
                 setSheetOffset(lastMagneticArea - nextArea);
+                onMagnetize?.(getActiveAreaIndex(nextArea));
             }
         };
 
-        const magnetize = (dir: SwipeDirections, velocity: number, deltaY: number) => {
-            const shouldMagnetizeDownByVelocity = dir === 'Down' && velocity >= SWIPE_VELOCITY;
-            const shouldMagnetizeUpByVelocity = dir === 'Up' && velocity >= SWIPE_VELOCITY;
+        const magnetize = (velocity: number, deltaY: number) => {
+            const shouldMagnetizeDownByVelocity = deltaY >= 0 && velocity >= SWIPE_VELOCITY;
+            const shouldMagnetizeUpByVelocity = deltaY < 0 && velocity >= SWIPE_VELOCITY;
 
             if (shouldMagnetizeDownByVelocity) {
                 const nextArea = magneticAreas
@@ -217,15 +236,24 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 setSheetOffset(offset);
                 setActiveArea((prevState) => nextArea ?? prevState);
 
+                if (nextArea) {
+                    onMagnetize?.(getActiveAreaIndex(nextArea));
+                }
+
                 return;
             }
 
             if (shouldMagnetizeUpByVelocity) {
                 const nextArea = magneticAreas.find((area) => area > activeArea);
+
                 const offset = nextArea ? lastMagneticArea - nextArea : 0;
 
                 setSheetOffset(offset);
                 setActiveArea((prevState) => nextArea ?? prevState);
+
+                if (nextArea) {
+                    onMagnetize?.(getActiveAreaIndex(nextArea));
+                }
 
                 return;
             }
@@ -234,7 +262,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const currentSheetHeight = lastMagneticArea - offset;
             const secondArea = magneticAreas[1];
             const isSecondArea = activeArea === secondArea;
-            const canClose = magneticAreas[0] === 0 && dir === 'Down';
+            const canClose = magneticAreas[0] === 0 && deltaY >= 0;
             const shouldCloseByOffset =
                 isSecondArea && canClose && 1 - currentSheetHeight / activeArea > CLOSE_OFFSET;
 
@@ -265,6 +293,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 setSheetOffset(lastMagneticArea - nearestArea);
                 setActiveArea(nearestArea);
                 setBackdropOpacity(1);
+                onMagnetize?.(getActiveAreaIndex(nearestArea));
             }
         };
 
@@ -272,10 +301,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
          * Если контент внутри шторки скроллится - то шторка не должна свайпаться
          * Если шапка внутри шторки зафиксирована - то шторка должна свайпаться только в области шапки
          */
-        const shouldSkipSwiping = (dir: SwipeDirections, startY: number) => {
+        const shouldSkipSwiping = (deltaY: number, startY: number, event: HandledEvents) => {
             if (!swipeable) return true;
 
-            if (scrollLockedProp || swipingInProgress.current) return false;
+            if (!swipeableContent && contentRef.current?.contains(event.target as HTMLElement)) {
+                return true;
+            }
+
+            if (scrollLockedProp || swipingInProgress) return false;
 
             const scrollableNode = scrollableContainer.current;
             // Точка верхней границы (y координата)
@@ -291,37 +324,49 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 return false;
             }
 
-            return dir === 'Down'
-                ? scrollableNode.scrollTop > 0
-                : scrollableNode.scrollHeight -
-                      scrollableNode.scrollTop -
-                      scrollableNode.clientHeight >
+            const shouldScroll =
+                deltaY >= 0
+                    ? scrollableNode.scrollTop > 0
+                    : scrollableNode.scrollHeight -
+                          scrollableNode.scrollTop -
+                          scrollableNode.clientHeight >
                       SCROLL_OFFSET;
+
+            if (!scrollOccurred.current && shouldScroll) {
+                scrollOccurred.current = true;
+            }
+
+            return shouldScroll;
         };
 
-        const handleSheetSwipe: SwipeCallback = ({ dir, initial, velocity, deltaY }) => {
-            if (shouldSkipSwiping(dir, initial[1])) {
+        const handleSheetSwipe: SwipeCallback = ({ initial, velocity, deltaY, event }) => {
+            if (scrollOccurred.current || shouldSkipSwiping(deltaY, initial[1], event)) {
                 return;
             }
 
-            magnetize(dir, velocity, deltaY);
+            magnetize(velocity, deltaY);
         };
 
-        const handleSheetSwipeStart: SwipeCallback = ({ dir, initial }) => {
-            if (shouldSkipSwiping(dir, initial[1])) {
+        const handleSheetSwipeStart: SwipeCallback = ({ deltaY, initial, event }) => {
+            if (shouldSkipSwiping(deltaY, initial[1], event)) {
                 return;
             }
 
-            swipingInProgress.current = true;
+            setSwipingInProgress(true);
         };
 
-        const handleSheetSwiped: SwipeCallback = () => {
-            swipingInProgress.current = false;
+        const handleTouchEnd: TapCallback = () => {
+            setSwipingInProgress(false);
+            scrollOccurred.current = false;
         };
 
-        const handleSheetSwiping: SwipeCallback = ({ initial, deltaY, dir }) => {
-            if (shouldSkipSwiping(dir, initial[1])) {
+        const handleSheetSwiping: SwipeCallback = ({ initial, deltaY, event }) => {
+            if (scrollOccurred.current || shouldSkipSwiping(deltaY, initial[1], event)) {
                 return;
+            }
+
+            if (!swipingInProgress) {
+                setSwipingInProgress(true);
             }
 
             const offset = getSheetOffset(deltaY);
@@ -334,24 +379,40 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const sheetSwipeableHandlers = useSwipeable({
             onSwipeStart: handleSheetSwipeStart,
             onSwiping: handleSheetSwiping,
-            onSwipedDown: handleSheetSwipe,
-            onSwipedUp: handleSheetSwipe,
-            onSwiped: handleSheetSwiped,
+            onSwiped: handleSheetSwipe,
+            onTouchEndOrOnMouseUp: handleTouchEnd,
             trackMouse: swipeable,
-            delta: 5,
+            delta: swipeThreshold,
         });
 
         const handleExited = (node: HTMLElement) => {
             const idx = initialActiveAreaIndex as number;
+            const nextArea = hasInitialIdx ? magneticAreas[idx] : lastMagneticArea;
 
             setBackdropOpacity(1);
             setSheetOffset(
                 hasInitialIdx ? lastMagneticArea - magneticAreas[idx] : magneticAreas[0],
             );
-            setActiveArea(hasInitialIdx ? magneticAreas[idx] : lastMagneticArea);
-
+            setActiveArea(nextArea);
+            onMagnetizeEnd?.();
             if (transitionProps.onExited) {
                 transitionProps.onExited(node);
+            }
+        };
+
+        const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
+            onMagnetize?.(initialActiveAreaIndex || magneticAreas.length - 1);
+
+            if (transitionProps.onEnter) {
+                transitionProps.onEnter(node, isAppearing);
+            }
+        };
+
+        const handleExit = (node: HTMLElement) => {
+            onMagnetize?.(0);
+
+            if (transitionProps.onExit) {
+                transitionProps.onExit(node);
             }
         };
 
@@ -359,7 +420,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             setBackdropOpacity(1);
             setSheetHeight();
             // Ready for swiping
-            swipingInProgress.current = false;
+            setSwipingInProgress(false);
+            onMagnetizeEnd?.();
 
             if (transitionProps.onEntered) {
                 transitionProps.onEntered(node, isAppearing);
@@ -382,9 +444,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         }, [isFirstRender]);
 
         useEffect(() => {
-            onMagnetize?.(open ? getActiveAreaIndex(activeArea) : 0);
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [activeArea, open]);
+            if (!sheetRef.current) return;
+
+            const maxOffset = fullHeight - headerOffset;
+
+            const offset = open ? sheetOffset : maxOffset;
+
+            const percent = (offset / maxOffset) * 100;
+
+            onOffsetChange?.(offset, percent);
+        }, [fullHeight, headerOffset, onOffsetChange, open, sheetOffset]);
 
         useImperativeHandle(bottomSheetInstanceRef, () => ({
             scrollToArea,
@@ -432,6 +501,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     ...transitionProps,
                     onExited: handleExited,
                     onEntered: handleEntered,
+                    onEnter: handleEnter,
+                    onExit: handleExit,
                 }}
                 disableAutoFocus={disableAutoFocus}
                 disableEscapeKeyDown={disableEscapeKeyDown}
@@ -440,12 +511,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             >
                 <div
                     style={{ ...getHeightStyles() }}
-                    className={styles.wrapper}
+                    className={cn(styles.wrapper, {
+                        [styles.fullscreen]: headerOffset === 0 && sheetOffset === 0,
+                    })}
                     onTransitionEnd={setSheetHeight}
                 >
                     <div
                         className={cn(styles.component, bgClassName, className, {
-                            [styles.withTransition]: swipingInProgress.current === false,
+                            [styles.withTransition]: swipingInProgress === false,
                         })}
                         style={{
                             ...getSwipeStyles(),
@@ -453,7 +526,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         }}
                         {...sheetSwipeableHandlers}
                         ref={mergeRefs([sheetRef, sheetContainerRef, sheetSwipeableHandlers.ref])}
-                        onTransitionEnd={setSheetHeight}
+                        onTransitionEnd={handleTransitionEnd}
                     >
                         <div
                             {...containerProps}
@@ -462,8 +535,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                 containerProps?.className,
                                 containerClassName,
                                 {
-                                    [styles.scrollLocked]:
-                                        scrollLockedProp || swipingInProgress.current,
+                                    [styles.scrollLocked]: scrollLockedProp || swipingInProgress,
                                     [styles.hiddenScrollbar]: hideScrollbar,
                                 },
                             )}
@@ -474,6 +546,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             {!hideHeader && !emptyHeader && <Header {...headerProps} />}
 
                             <div
+                                ref={contentRef}
                                 className={cn(styles.content, contentClassName, {
                                     [styles.noHeader]: hideHeader || emptyHeader,
                                     [styles.noFooter]: !actionButton,
