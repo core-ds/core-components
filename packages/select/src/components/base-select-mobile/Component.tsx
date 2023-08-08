@@ -113,6 +113,7 @@ export const BaseSelectMobile = forwardRef(
             onChange,
             onOpen,
             onFocus,
+            onBlur,
             Arrow = DefaultArrow,
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
@@ -286,6 +287,10 @@ export const BaseSelectMobile = forwardRef(
             }
         };
 
+        const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+            if (!open && onBlur) onBlur(event);
+        };
+
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
             if (autocomplete && !open && (event.key.length === 1 || event.key === 'Backspace')) {
@@ -414,6 +419,7 @@ export const BaseSelectMobile = forwardRef(
                     valueRenderer={valueRenderer}
                     className={fieldClassName}
                     innerProps={{
+                        onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,
                         onClick: disabled ? undefined : handleFieldClick,
                         tabIndex: disabled ? -1 : 0,
