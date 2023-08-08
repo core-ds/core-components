@@ -1,3 +1,356 @@
+## 42.0.0
+
+<sup><time>08.08.2023</time></sup>
+
+### [#703](https://github.com/core-ds/core-components/pull/703)
+
+#### Что изменилось
+- Кастомный js скроллбар заменен на css версию
+
+#### Влияние на компоненты
+- Мажорное<br />`drawer` `side-panel`
+
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+#### Что изменилось
+- Утилиты и константы экспортируются из shared
+
+#### Влияние на компоненты
+- Мажорное<br />`calendar-input`
+
+<br />
+
+#### Что изменилось
+- Из index теперь экспортируется responsive версия компонента. Десктопная версия импортируется отсюда -> @alfalab/core-components-calendar/desktop
+- Утилиты и константы экспортируются из shared
+
+#### Влияние на компоненты
+- Мажорное<br />`calendar`
+
+<br />
+
+#### Что изменилось
+- Удалена responsive точка входа. (В проектах нужно заменить импорт @alfalab/core-components-calendar/responsive на @alfalab/core-components-calendar)
+
+#### Влияние на компоненты
+- Мажорное<br />`calendar` `calendar-input` `date-range-input` `date-time-input`
+
+
+### [#708](https://github.com/core-ds/core-components/pull/708)
+
+#### Что изменилось
+- Удалена responsive точка входа
+
+#### Влияние на компоненты
+- Мажорное<br />`system-message`
+
+
+### [#687](https://github.com/core-ds/core-components/pull/687)
+
+#### Что изменилось
+- Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+#### Влияние на компоненты
+- Минорное<br />`calendar` `input-autocomplete` `pass-code` `pattern-lock` `select`<br /> `tooltip`
+
+<br />
+
+#### Что изменилось
+- Для компонента Button добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`button`
+
+
+### [#742](https://github.com/core-ds/core-components/pull/742)
+
+#### Что изменилось
+- Для компонента ToastPlate добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`toast-plate`
+
+<br />
+
+#### Что изменилось
+- Для компонента Toast добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`toast`
+
+
+### [#709](https://github.com/core-ds/core-components/pull/709)
+
+#### Что изменилось
+- Удалена responsive точка входа.
+- Из индексного файла теперь тянется responsive версия компонента
+- Prop defaultMatch заменен на defaultMatchMediaValue и имеет теперь другой тип
+- Добавлена мобильная версия - TooltipMobile
+
+#### Влияние на компоненты
+- Мажорное<br />`tooltip`
+
+
+### [#743](https://github.com/core-ds/core-components/pull/743)
+
+#### Что изменилось
+- Для компонента Plate добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`plate`
+
+
+### [#711](https://github.com/core-ds/core-components/pull/711)
+
+#### Что изменилось
+- Удалена responsive точка входа
+
+#### Влияние на компоненты
+- Мажорное<br />`custom-picker-button`
+
+<br />
+
+#### Что изменилось
+- Удалена responsive точка входа. Responsive компонент теперь экспортируется из индексного файла
+- Пресеты и утилиты вынесены в shared (@alfalab/core-components/select/shared)
+- Десктопный компонент теперь экспортируется из desktop -> import {SelectDesktop} from '@alfalab/core-components/select/desktop'
+
+#### Влияние на компоненты
+- Мажорное<br />`select`
+
+<br />
+
+#### Что изменилось
+- Добавлен проп style
+
+#### Влияние на компоненты
+- Минорное<br />`skeleton`
+
+<br />
+
+#### Что изменилось
+- Удалена responsive точка входа.
+
+#### Влияние на компоненты
+- Мажорное<br />`picker-button`
+
+<br />
+
+#### Что изменилось
+- Удалена responsive точка входа. Responsive компонент теперь экспортируется из индексного файла
+- Десктопный компонент теперь экспортируется из desktop -> import {InputAutocompleteDesktop} from '@alfalab/core-components/input-autocomplete/desktop'
+
+#### Влияние на компоненты
+- Мажорное<br />`input-autocomplete`
+
+
+### [#719](https://github.com/core-ds/core-components/pull/719)
+
+#### Что изменилось
+- Поведение плейсхолдера и лейбла изменено на стандартное. Теперь, в дефолтном состоянии, в инпутах с внутренним положением лейбла отображается лейбл, а не плейсхолдер.
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete` `select`
+
+
+### [#716](https://github.com/core-ds/core-components/pull/716)
+
+#### Что изменилось
+- Компонент FormControl заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+#### Влияние на компоненты
+- Минорное<br />`select` `input-autocomplete`
+
+<br />
+
+#### Что изменилось
+- Компонент Input заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+#### Влияние на компоненты
+- Минорное<br />`date-time-input` `date-range-input`
+
+<br />
+
+#### Что изменилось
+- Для компонента FormControl добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`form-control`
+
+<br />
+
+#### Что изменилось
+- Для компонента Input добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`input`
+
+
+### [#705](https://github.com/core-ds/core-components/pull/705)
+
+#### Что изменилось
+- Удалена responsive точка входа. Теперь responsive компонент импортируется из индексного файла.
+
+#### Влияние на компоненты
+- Мажорное<br />`confirmation`
+
+
+### [#734](https://github.com/core-ds/core-components/pull/734)
+
+#### Что изменилось
+- Для компонента RadioGroup добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`radio-group`
+
+<br />
+
+#### Что изменилось
+- Для компонента CheckboxGroup добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`checkbox-group`
+
+<br />
+
+#### Что изменилось
+- В компонентах Radio и Checkbox для выбранных контролов токен фона был изменен на --color-light-graphic-primary в темах default и site
+
+#### Влияние на компоненты
+- Минорное<br />`radio` `checkbox`
+
+
+### [#731](https://github.com/core-ds/core-components/pull/731)
+
+#### Что изменилось
+- Добавлены пропсы onOffsetChange, onMagnetizeEnd,  swipeableContent, swipeThreshold,  headerOffset
+- Исправлена ошибка, из-за которой компонент закрывался после события скролла.
+- Исправлена ошибка, из-за которой шторка неверно позиционировалась после свайпа влево/вправо
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#700](https://github.com/core-ds/core-components/pull/700)
+
+#### Что изменилось
+- Для компонента Tag добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`tag`
+
+<br />
+
+#### Что изменилось
+- Для компонента FilterTag добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`filter-tag`
+
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+#### Что изменилось
+- Новый пакет с общими утилитами и т.п
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+<br />
+
+#### Что изменилось
+- Теперь каждый пакет публикуется с исходниками
+
+#### Влияние на компоненты
+- Минорное<br />`action-button` `alert` `amount` `amount-input` `attach`<br /> `backdrop` `badge` `bank-card` `base-modal` `bottom-sheet`<br /> `button` `calendar` `calendar-input` `calendar-range` `calendar-with-skeleton`<br /> `card-image` `cdn-icon` `chart` `checkbox` `checkbox-group`<br /> `circular-progress-bar` `code-input` `collapse` `comment` `confirmation`<br /> `confirmation-v1` `custom-button` `custom-picker-button` `date-input` `date-range-input`<br /> `date-time-input` `divider` `drawer` `dropzone` `file-upload-item`<br /> `filter-tag` `form-control` `gallery` `gap` `generic-wrapper`<br /> `global-store` `grid` `hatching-progress-bar` `icon-button` `icon-view`<br /> `indicator` `input` `input-autocomplete` `intl-phone-input` `keyboard-focusable`<br /> `link` `list` `list-header` `loader` `masked-input`<br /> `modal` `mq` `navigation-bar` `notification` `notification-manager`<br /> `number-input` `pagination` `pass-code` `password-input` `pattern-lock`<br /> `phone-input` `picker-button` `plate` `popover` `portal`<br /> `progress-bar` `pure-cell` `pure-input` `radio` `radio-group`<br /> `scrollbar` `segmented-control` `select` `select-with-tags` `side-panel`<br /> `skeleton` `slider` `slider-input` `sortable-list` `space`<br /> `spinner` `stack` `status` `stepped-progress-bar` `steps`<br /> `switch` `system-message` `table` `tabs` `tag`<br /> `textarea` `time-input` `toast` `toast-plate` `tooltip`<br /> `typography` `underlay` `with-suffix`
+
+
+### [#781](https://github.com/core-ds/core-components/pull/781)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не срабатывал onBlur в мобильном селекте
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#644](https://github.com/core-ds/core-components/pull/644)
+
+#### Что изменилось
+- Удален компонент Modal.Closer (он больше не работает). Вместо него нужно использовать проп hasCloser у Modal.Header
+
+#### Влияние на компоненты
+- Мажорное<br />`modal`
+
+
+### [#706](https://github.com/core-ds/core-components/pull/706)
+
+#### Что изменилось
+- Удалена responsive точка входа. Теперь responsive компонент импортируется из индексного файла.
+
+#### Влияние на компоненты
+- Мажорное<br />`modal`
+
+
+### [#771](https://github.com/core-ds/core-components/pull/771)
+
+#### Что изменилось
+- Исправлена типографика в компоненте TitleResponsive для шрифта system с headline-system на headline-system-mobile
+
+#### Влияние на компоненты
+- Мажорное<br />`typography`
+
+
+### [#704](https://github.com/core-ds/core-components/pull/704)
+
+#### Что изменилось
+- Хуки, общие компоненты и некоторые типы теперь экспортируются из shared (@alfalab/core-components/tabs/shared)
+- Удалена responsive точка входа.
+- Prop defaultMatch заменен на defaultMatchMediaValue и имеет теперь другой тип
+- Удален prop collapsible, вместо него теперь отдельный компонент TabsCollapsible (@alfalab/core-components/tabs/collapsible)
+
+#### Влияние на компоненты
+- Мажорное<br />`tabs`
+
+
+### [#782](https://github.com/core-ds/core-components/pull/782)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не фиксировался TSortableHeadCell тип заголовка со stickyHeader
+
+#### Влияние на компоненты
+- Патчи<br />`table`
+
+
+### [#707](https://github.com/core-ds/core-components/pull/707)
+
+#### Что изменилось
+- Удалена responsive точка входа
+
+#### Влияние на компоненты
+- Мажорное<br />`side-panel`
+
+
+### [#783](https://github.com/core-ds/core-components/pull/783)
+
+#### Что изменилось
+- Расширен тип пропа icon, теперь разрешено передавать ReactElement
+
+#### Влияние на компоненты
+- Минорное<br />`icon-button`
+
+
+### [#739](https://github.com/core-ds/core-components/pull/739)
+
+#### Что изменилось
+- Для компонента CodeInput добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+#### Влияние на компоненты
+- Мажорное<br />`code-input`
+
+
+
 ## 41.20.0
 
 <sup><time>07.08.2023</time></sup>
