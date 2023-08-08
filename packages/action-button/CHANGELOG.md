@@ -1,5 +1,30 @@
 # Change Log
 
+## 1.3.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   spinner@3.1.0
+
+## 1.2.1
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   spinner@3.0.7
+
 ## 1.2.0
 
 ### Minor Changes

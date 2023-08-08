@@ -1,5 +1,48 @@
 # Change Log
 
+## 2.3.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+### [#782](https://github.com/core-ds/core-components/pull/782)
+
+-   Исправлена ошибка, из-за которой не фиксировался TSortableHeadCell тип заголовка со stickyHeader
+
+-   Обновлены зависимости
+    -   select@15.0.0
+    -   button@9.0.0
+    -   pagination@2.1.0
+
+## 2.2.42
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.3.5
+
+## 2.2.41
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   select@14.3.4
+    -   pagination@2.0.21
+
+## 2.2.40
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+    -   select@14.3.3
+
 ## 2.2.39
 
 ### Patch Changes

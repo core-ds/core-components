@@ -1,5 +1,40 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### [#783](https://github.com/core-ds/core-components/pull/783)
+
+-   Расширен тип пропа icon, теперь разрешено передавать ReactElement
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@9.0.0
+
+## 6.1.3
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   button@8.5.1
+
+## 6.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+
 ## 6.1.1
 
 ### Patch Changes

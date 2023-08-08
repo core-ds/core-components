@@ -27,6 +27,11 @@ export type BaseShapeProps = {
     backgroundColor?: string;
 
     /**
+     * Дополнительный класс для стилизации формы шейпа.
+     */
+    shapeClassName?: string;
+
+    /**
      * Видимость обводки
      * @default false
      */
@@ -92,6 +97,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             imageUrl,
             backgroundIcon: Icon,
             className,
+            shapeClassName,
             text,
             children,
             topAddons,
@@ -133,7 +139,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         focusable={false}
                     >
                         <path
-                            className={styles.bg}
+                            className={cn(styles.bg, shapeClassName)}
                             style={{
                                 fill: backgroundColor,
                             }}

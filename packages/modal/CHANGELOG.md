@@ -1,5 +1,48 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+### [#644](https://github.com/core-ds/core-components/pull/644)
+
+-   Удален компонент Modal.Closer (он больше не работает). Вместо него нужно использовать проп hasCloser у Modal.Header
+
+### [#706](https://github.com/core-ds/core-components/pull/706)
+
+-   Удалена responsive точка входа. Теперь responsive компонент импортируется из индексного файла.
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.3.0
+    -   navigation-bar@0.4.0
+
+## 7.0.15
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   base-modal@5.2.1
+    -   navigation-bar@0.3.7
+
+## 7.0.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.6
+
 ## 7.0.13
 
 ### Patch Changes

@@ -20,6 +20,11 @@
     pointer-events: none;
     border-top-right-radius: var(--border-radius-xl);
     border-top-left-radius: var(--border-radius-xl);
+    transition: border-radius 0.3s ease;
+}
+
+.fullscreen {
+    border-radius: 0;
 }
 
 .component {

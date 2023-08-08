@@ -1,5 +1,25 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#711](https://github.com/core-ds/core-components/pull/711)
+
+-   Добавлен проп style
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+## 4.0.6
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 4.0.5
 
 ### Patch Changes

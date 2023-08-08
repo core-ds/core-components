@@ -1,5 +1,44 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.2.0
+    -   link@5.1.0
+    -   spinner@3.1.0
+
+## 5.1.25
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.3
+    -   link@5.0.6
+    -   spinner@3.0.7
+
+## 5.1.24
+
+### Patch Changes
+
+### [#757](https://github.com/core-ds/core-components/pull/757)
+
+-   Перевели единицы измерения на русский язык
+
+## 5.1.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.2
+
 ## 5.1.22
 
 ### Patch Changes

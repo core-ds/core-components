@@ -1,5 +1,40 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+### [#739](https://github.com/core-ds/core-components/pull/739)
+
+-   Для компонента CodeInput добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.2.0
+
+## 2.3.5
+
+### Patch Changes
+
+### [#777](https://github.com/core-ds/core-components/pull/777)
+
+-   Исправлена ошибка с фокусом в 16 реакте
+
+## 2.3.4
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 2.3.3
 
 ### Patch Changes

@@ -1,5 +1,35 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.2.0
+    -   input@12.0.0
+
+## 4.1.20
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.3
+    -   input@11.1.18
+
+## 4.1.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.2
+    -   input@11.1.17
+
 ## 4.1.18
 
 ### Patch Changes

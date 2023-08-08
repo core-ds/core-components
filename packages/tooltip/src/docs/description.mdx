@@ -2,33 +2,33 @@
 
 ```jsx live
 <div style={{display: 'flex'}}>
-    <Tooltip
+    <TooltipDesktop
         position='bottom'
         trigger='click'
-        content={ 
+        content={
             <div style={{ width: 241}}> Пример небольшого вспомогательного текста. </div>
         }
     >
         <Button view='primary'>Показать Tooltip</Button>
-    </Tooltip>     
+    </TooltipDesktop>
     <Gap direction='horizontal' size='m'/>
-    <Tooltip content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>
+    <TooltipDesktop content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>
         <Button view='primary'>Показать Hint</Button>
-    </Tooltip>
+    </TooltipDesktop>
 </div>
 //MOBILE
 <Container>
-    <TooltipResponsive
+    <Tooltip
         position='bottom'
         trigger='click'
-        content={ 
+        content={
             <div> Пример небольшого вспомогательного текста. </div>
         }
     >
         <div style={{ width: 320 }}>
             <Button block={true} view='primary'>Показать Tooltip</Button>
         </div>
-    </TooltipResponsive>
+    </Tooltip>
     <Gap size='m'/>
     <Tooltip content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>
         <div style={{ width: 320 }}>
@@ -40,7 +40,7 @@
 
 ## Позиционирование
 
-Если тултип не помещается в переданной позиции `position`, то он поробует отобразится с противоположной стороны. 
+Если тултип не помещается в переданной позиции `position`, то он поробует отобразится с противоположной стороны.
 Можно вручную указать, в каких позициях следует отображать компонент в случае нехватки места, для этого используйте свойство `fallbackPlacements`.
 
 ```jsx live
@@ -57,7 +57,7 @@
         position='left'
         fallbackPlacements={['bottom', 'top']}
         trigger='click'
-        content={<div style={{ width: 241}}> Пример небольшого вспомогательного текста. </div>}
+        content={<div style={{ width: 241 }}> Пример небольшого вспомогательного текста. </div>}
     >
         <Button view='primary'>Показать Tooltip</Button>
     </Tooltip>
@@ -66,4 +66,4 @@
 
 ## Морфология
 
-Мобильная версия компонента построена на базе [BottomSheet](/docs/components-bottomsheet--docs).
+Мобильная версия компонента построена на базе [BottomSheet](/docs/bottomsheet--docs).

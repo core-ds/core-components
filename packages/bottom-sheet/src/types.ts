@@ -133,6 +133,16 @@ export type BottomSheetProps = {
     swipeable?: boolean;
 
     /**
+     * Будет ли свайпаться контент
+     */
+    swipeableContent?: boolean;
+
+    /**
+     * Порог свайпа
+     */
+    swipeThreshold?: number;
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -257,6 +267,31 @@ export type BottomSheetProps = {
     hideScrollbar?: boolean;
 
     /**
+     * Верхний отступ шторки, если она открыта на максимальную высоту
+     */
+    headerOffset?: number;
+
+    /**
+     * Содержимое bottom-sheet всегда в DOM
+     */
+    keepMounted?: boolean;
+
+    /**
+     * Отключает автоматический перевод фокуса на bottom-sheet при открытии
+     */
+    disableAutoFocus?: boolean;
+
+    /**
+     * Отключает восстановление фокуса на предыдущем элементе после закрытия bottom-sheet
+     */
+    disableRestoreFocus?: boolean;
+
+    /**
+     * Отключает вызов `onClose` при нажатии Escape
+     */
+    disableEscapeKeyDown?: boolean;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -267,7 +302,17 @@ export type BottomSheetProps = {
     onBack?: () => void;
 
     /**
-     * Вызывается после притягивания к одной из `magneticAreas`
+     * Вызывается в начале анимации притягивания к одной из `magneticAreas`
      */
     onMagnetize?: (index: number) => void;
+
+    /**
+     * Вызывается после окончания анимации притягивания
+     */
+    onMagnetizeEnd?: () => void;
+
+    /**
+     * Вызывается при изменении положения шторки
+     */
+    onOffsetChange?: (offset: number, percent: number) => void;
 };

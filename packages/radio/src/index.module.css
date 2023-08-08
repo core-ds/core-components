@@ -6,18 +6,18 @@
 
     /* unchecked */
     --radio-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-border-color: var(--color-light-border-underline-inverted);
-    --radio-hover-bg-color: var(--color-light-graphic-tertiary);
-    --radio-hover-border-color: var(--color-light-border-underline-inverted);
-    --radio-active-bg-color: var(--color-light-graphic-tertiary);
-    --radio-active-border-color: var(--color-light-border-key);
+    --radio-border-color: var(--color-light-graphic-secondary);
+    --radio-hover-bg-color: var(--color-light-graphic-primary-inverted-shade-7);
+    --radio-hover-border-color: var(--color-light-graphic-secondary);
+    --radio-active-bg-color: var(--color-light-graphic-primary-inverted-shade-15);
+    --radio-active-border-color: var(--color-light-graphic-secondary);
 
     /* checked */
-    --radio-checked-bg-color: var(--color-light-graphic-accent);
+    --radio-checked-bg-color: var(--color-light-graphic-primary);
     --radio-checked-border-color: transparent;
-    --radio-checked-hover-bg-color: var(--color-light-graphic-accent-shade-10);
+    --radio-checked-hover-bg-color: var(--color-light-graphic-primary-tint-15);
     --radio-checked-hover-border-color: transparent;
-    --radio-checked-active-bg-color: var(--color-light-graphic-accent-shade-30);
+    --radio-checked-active-bg-color: var(--color-light-graphic-primary-tint-20);
     --radio-checked-active-border-color: transparent;
 
     /* disabled */
@@ -34,7 +34,7 @@
     --radio-checked-disabled-border-color: transparent;
 
     /* icon */
-    --radio-icon-color: var(--color-static-graphic-light);
+    --radio-icon-color: var(--color-light-graphic-primary-inverted);
 }
 
 .container {

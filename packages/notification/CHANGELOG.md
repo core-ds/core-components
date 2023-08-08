@@ -1,5 +1,39 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.0.0
+    -   portal@3.2.0
+    -   stack@4.1.0
+
+## 6.1.27
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   portal@3.1.5
+    -   toast-plate@5.1.24
+
+## 6.1.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.23
+
 ## 6.1.25
 
 ### Patch Changes

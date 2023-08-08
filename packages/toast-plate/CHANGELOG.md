@@ -1,5 +1,45 @@
 # Change Log
 
+## 6.0.0
+
+### Major Changes
+
+### [#742](https://github.com/core-ds/core-components/pull/742)
+
+-   Для компонента ToastPlate добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.2.0
+    -   icon-button@6.2.0
+    -   mq@4.2.0
+
+## 5.1.24
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   badge@5.1.1
+    -   icon-button@6.1.3
+
+## 5.1.23
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.2
+
 ## 5.1.22
 
 ### Patch Changes

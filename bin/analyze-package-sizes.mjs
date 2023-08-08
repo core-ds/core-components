@@ -2,6 +2,7 @@ import * as esbuild from 'esbuild';
 import globby from 'globby';
 import shell from 'shelljs';
 import fs from 'node:fs';
+import { ENTRY_POINTS } from '../entry-points.mjs';
 
 const packages = shell.exec(
     `lerna list \\
@@ -20,7 +21,7 @@ const packageList = packages
 
 async function calculateBundleSize(packageName) {
     const entryPoints = await globby(
-        `./packages/${packageName}/src/{index,desktop,mobile,responsive,circle,super-ellipse,rectangle,no-shape,shared}.ts`,
+        `./packages/${packageName}/src/{${ENTRY_POINTS.join(',')}}.ts`,
     );
 
     const result = await esbuild.build({

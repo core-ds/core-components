@@ -9,12 +9,12 @@ Object {
         class="component checkbox vertical"
       >
         <span
-          class="label"
+          class="label label"
         >
           Заголовок группы
         </span>
         <div
-          class="checkboxList"
+          class="checkboxList checkboxList"
         >
           <label
             class="component s start my-checkbox checkbox"
@@ -82,12 +82,12 @@ Object {
       class="component checkbox vertical"
     >
       <span
-        class="label"
+        class="label label"
       >
         Заголовок группы
       </span>
       <div
-        class="checkboxList"
+        class="checkboxList checkboxList"
       >
         <label
           class="component s start my-checkbox checkbox"
@@ -212,12 +212,12 @@ Object {
         class="component checkbox vertical error"
       >
         <span
-          class="label"
+          class="label label"
         >
           Заголовок группы
         </span>
         <div
-          class="checkboxList"
+          class="checkboxList checkboxList"
         >
           <label
             class="component s start my-checkbox checkbox"
@@ -278,7 +278,7 @@ Object {
           </label>
         </div>
         <span
-          class="sub errorMessage"
+          class="sub sub errorMessage"
           role="alert"
         >
           Error
@@ -291,12 +291,12 @@ Object {
       class="component checkbox vertical error"
     >
       <span
-        class="label"
+        class="label label"
       >
         Заголовок группы
       </span>
       <div
-        class="checkboxList"
+        class="checkboxList checkboxList"
       >
         <label
           class="component s start my-checkbox checkbox"
@@ -357,7 +357,7 @@ Object {
         </label>
       </div>
       <span
-        class="sub errorMessage"
+        class="sub sub errorMessage"
         role="alert"
       >
         Error
@@ -427,12 +427,12 @@ Object {
         class="component checkbox vertical"
       >
         <span
-          class="label"
+          class="label label"
         >
           Заголовок группы
         </span>
         <div
-          class="checkboxList"
+          class="checkboxList checkboxList"
         >
           <label
             class="component s start my-checkbox checkbox"
@@ -462,12 +462,12 @@ Object {
       class="component checkbox vertical"
     >
       <span
-        class="label"
+        class="label label"
       >
         Заголовок группы
       </span>
       <div
-        class="checkboxList"
+        class="checkboxList checkboxList"
       >
         <label
           class="component s start my-checkbox checkbox"
@@ -554,7 +554,7 @@ Object {
         class="component tag vertical"
       >
         <span
-          class="label"
+          class="label label"
         >
           Заголовок группы
         </span>
@@ -565,7 +565,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component s outlined rounded my-tag"
+              class="component component component s s outlined rounded outlined my-tag"
               type="button"
             >
               <span>
@@ -583,7 +583,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component s outlined rounded"
+              class="component component component s s outlined rounded outlined"
               type="button"
             >
               <span>
@@ -601,7 +601,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component component s outlined rounded"
+              class="component component component s s outlined rounded outlined"
               type="button"
             >
               <span>
@@ -624,7 +624,7 @@ Object {
       class="component tag vertical"
     >
       <span
-        class="label"
+        class="label label"
       >
         Заголовок группы
       </span>
@@ -635,7 +635,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component s outlined rounded my-tag"
+            class="component component component s s outlined rounded outlined my-tag"
             type="button"
           >
             <span>
@@ -653,7 +653,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component s outlined rounded"
+            class="component component component s s outlined rounded outlined"
             type="button"
           >
             <span>
@@ -671,7 +671,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component component s outlined rounded"
+            class="component component component s s outlined rounded outlined"
             type="button"
           >
             <span>
@@ -751,12 +751,12 @@ Object {
         class="component checkbox vertical"
       >
         <span
-          class="label"
+          class="label label"
         >
           Заголовок группы
         </span>
         <div
-          class="checkboxList"
+          class="checkboxList checkboxList"
         />
       </div>
     </div>
@@ -766,12 +766,12 @@ Object {
       class="component checkbox vertical"
     >
       <span
-        class="label"
+        class="label label"
       >
         Заголовок группы
       </span>
       <div
-        class="checkboxList"
+        class="checkboxList checkboxList"
       />
     </div>
   </div>,

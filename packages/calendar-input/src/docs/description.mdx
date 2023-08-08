@@ -5,7 +5,7 @@
 
 ```jsx live mobileHeight={640}
 render(() => {
-    const [keyPress, setKeyPress] = React.useState(false);
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
     const defaultMonth = new Date('December 1, 2022 00:00:00');
 
     const events = [new Date().setDate(13), new Date().setDate(19)];
@@ -23,10 +23,6 @@ render(() => {
         new Date().setDate(25),
         new Date().setDate(31),
     ];
-
-    const handleChange = (event) => {
-        event.preventDefault();
-    };
 
     return (
         <Space size={24}>
@@ -35,24 +31,24 @@ render(() => {
                 defaultMonth={defaultMonth}
                 events={events}
                 offDays={offDays}
-                onKeyPress={keyPress ? handleChange : null}
                 calendarProps={{
                     selectorView: 'month-only',
                     holidays: holidays,
                 }}
+                disableUserInput={disableUserInput}
             />
             <Switch
                 block={true}
-                checked={keyPress}
+                checked={disableUserInput}
                 label='Запретить ввод с клавиатуры'
-                onChange={() => setKeyPress(!keyPress)}
+                onChange={() => setDisableUserInput(!disableUserInput)}
             />
         </Space>
     );
 });
 //MOBILE
 render(() => {
-    const [keyPress, setKeyPress] = React.useState(false);
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
     const defaultMonth = new Date('December 1, 2022 00:00:00');
 
     const events = [new Date().setDate(13), new Date().setDate(19)];
@@ -71,10 +67,6 @@ render(() => {
         new Date().setDate(31),
     ];
 
-    const handleChange = (event) => {
-        event.preventDefault();
-    };
-
     return (
         <>
             <CalendarInputMobile
@@ -82,21 +74,21 @@ render(() => {
                 defaultMonth={defaultMonth}
                 events={events}
                 offDays={offDays}
-                onKeyPress={keyPress ? handleChange : null}
                 calendarProps={{
                     selectorView: 'month-only',
                     holidays: holidays,
                 }}
                 block={true}
+                disableUserInput={disableUserInput}
             />
 
             <Gap size='xl' />
 
             <Switch
                 block={true}
-                checked={keyPress}
+                checked={disableUserInput}
                 label='Запретить ввод с клавиатуры'
-                onChange={() => setKeyPress(!keyPress)}
+                onChange={() => setDisableUserInput(!disableUserInput)}
             />
         </>
     );
@@ -105,10 +97,10 @@ render(() => {
 
 ## Календарь
 
-Настройки календаря можно посмотреть на страничке компонента [Calendar](?path=/docs/components-calendar--docs).
+Настройки календаря можно посмотреть на страничке компонента [Calendar](?path=/docs/calendar--docs).
 
 ## Морфология
 
-Поле ввода является оберткой над [FormControl](?path=/docs/components-formcontrol--docs),
+Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs),
 поэтому наследует все доступные для него настройки. Пикер это
-[Calendar](?path=/docs/components-calendar--docs) переданный в [Popover](?path=/docs/components-popover--docs).
+[Calendar](?path=/docs/calendar--docs) переданный в [Popover](?path=/docs/popover--docs).

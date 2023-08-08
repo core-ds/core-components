@@ -1,5 +1,33 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.1.0
+    -   global-store@2.1.0
+    -   portal@3.2.0
+    -   stack@4.1.0
+
+## 5.2.1
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   backdrop@3.0.7
+    -   portal@3.1.5
+
 ## 5.2.0
 
 ### Minor Changes

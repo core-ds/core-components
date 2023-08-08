@@ -1,5 +1,39 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.3.0
+
+### Minor Changes
+
+### [#687](https://github.com/core-ds/core-components/pull/687)
+
+-   Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   button@9.0.0
+    -   gap@1.2.0
+
+## 1.2.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   gap@1.1.3
+
+## 1.2.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+
 ## 1.2.2
 
 ### Patch Changes

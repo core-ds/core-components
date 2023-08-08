@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { addons, types } from '@storybook/manager-api';
 import { Form } from '@storybook/components';
-import { getStoryDoc } from '../utils';
+import { getStoryDoc, getAsyncStoryDoc } from '../utils';
 
 export const ADDON_ID = 'theme-switcher';
 
@@ -13,6 +13,22 @@ const createThemeChangeEvent = (newTheme) =>
 const Addon = () => {
     const [theme, setTheme] = useState('default');
 
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('selectedTheme');
+        const themeChangeEvent = createThemeChangeEvent(savedTheme || 'default');
+        
+        setTheme(savedTheme || 'default');
+        
+        getAsyncStoryDoc()
+        .then((storyDoc) => {
+            storyDoc.body.dispatchEvent(themeChangeEvent);
+            document.body.dispatchEvent(themeChangeEvent);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }, []);
+
     const handleChange = (event) => {
         const newTheme = event.target.value;
         const themeChangeEvent = createThemeChangeEvent(newTheme);
@@ -20,6 +36,7 @@ const Addon = () => {
         setTheme(newTheme);
         document.body.dispatchEvent(themeChangeEvent);
         getStoryDoc().body.dispatchEvent(themeChangeEvent);
+        localStorage.setItem('selectedTheme', newTheme);
     };
 
     return (

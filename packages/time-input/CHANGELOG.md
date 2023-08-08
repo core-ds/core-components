@@ -1,5 +1,32 @@
 # @alfalab/core-components-time-input
 
+## 2.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.0.0
+
+## 2.1.19
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.18
+
+## 2.1.18
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.17
+
 ## 2.1.17
 
 ### Patch Changes

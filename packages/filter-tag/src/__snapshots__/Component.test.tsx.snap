@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rounded s"
+        class="component rounded s component rounded s"
       >
         <button
-          class="valueButton s rounded outlined"
+          class="valueButton valueButton s s rounded rounded outlined outlined"
           type="button"
         >
           <span>
@@ -37,10 +37,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rounded s"
+      class="component rounded s component rounded s"
     >
       <button
-        class="valueButton s rounded outlined"
+        class="valueButton valueButton s s rounded rounded outlined outlined"
         type="button"
       >
         <span>
@@ -125,10 +125,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rectangular s"
+        class="component rectangular s component rectangular s"
       >
         <button
-          class="valueButton s rectangular outlined"
+          class="valueButton valueButton s s rectangular rectangular outlined outlined"
           type="button"
         >
           <span>
@@ -156,10 +156,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rectangular s"
+      class="component rectangular s component rectangular s"
     >
       <button
-        class="valueButton s rectangular outlined"
+        class="valueButton valueButton s s rectangular rectangular outlined outlined"
         type="button"
       >
         <span>
@@ -244,10 +244,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rectangular s"
+        class="component rectangular s component rectangular s"
       >
         <button
-          class="valueButton s rectangular outlined"
+          class="valueButton valueButton s s rectangular rectangular outlined outlined"
           type="button"
         >
           <span>
@@ -275,10 +275,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rectangular s"
+      class="component rectangular s component rectangular s"
     >
       <button
-        class="valueButton s rectangular outlined"
+        class="valueButton valueButton s s rectangular rectangular outlined outlined"
         type="button"
       >
         <span>
@@ -363,10 +363,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component rounded s"
+        class="component rounded s component rounded s"
       >
         <button
-          class="valueButton s rounded outlined"
+          class="valueButton valueButton s s rounded rounded outlined outlined"
           type="button"
         >
           <span />
@@ -392,10 +392,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component rounded s"
+      class="component rounded s component rounded s"
     >
       <button
-        class="valueButton s rounded outlined"
+        class="valueButton valueButton s s rounded rounded outlined outlined"
         type="button"
       >
         <span />

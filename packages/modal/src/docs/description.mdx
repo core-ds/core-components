@@ -680,14 +680,14 @@ render(() => {
                         layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
                     >
                         {footerSettings.hasSecondaryButton && (
-                            <Button view='secondary' size='s' onClick={handleClose} block={true}>
+                            <ButtonMobile view='secondary' size='m' onClick={handleClose} block={true}>
                                 Secondary
-                            </Button>
+                            </ButtonMobile>
                         )}
                         {footerSettings.hasPrimaryButton && (
-                            <Button view='primary' size='s' onClick={handleClose} block={true}>
+                            <ButtonMobile view='primary' size='m' onClick={handleClose} block={true}>
                                 Primary
-                            </Button>
+                            </ButtonMobile>
                         )}
                     </ModalMobile.Footer>
                 )}
@@ -751,19 +751,19 @@ render(() => {
 
     return (
         <Container>
-            <Button size={document.body.clientWidth < 450 ? 'xs' : 's'} onClick={handleOpen}>
+            <Button size={document.body.clientWidth < 450 ? 'm' : 's'} onClick={handleOpen}>
                 Показать модалку
             </Button>
 
-            <ModalResponsive open={open} onClose={handleClose} fixedPosition={true}>
-                <ModalResponsive.Header
+            <Modal open={open} onClose={handleClose} fixedPosition={true}>
+                <Modal.Header
                     sticky={true}
                     hasCloser={true}
                     hasBackButton={step !== 1}
                     title={item.title}
                     onBack={() => setStep(step - 1)}
                 />
-                <ModalResponsive.Content flex={true}>
+                <Modal.Content flex={true}>
                     <div
                         style={{
                             ...commonStyles,
@@ -772,10 +772,10 @@ render(() => {
                     >
                         <span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>
                     </div>
-                </ModalResponsive.Content>
-                <ModalResponsive.Footer sticky={true}>
+                </Modal.Content>
+                <Modal.Footer sticky={true}>
                     <Button
-                        size={document.body.clientWidth < 450 ? 'xs' : 's'}
+                        size={document.body.clientWidth < 450 ? 'm' : 's'}
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose
@@ -783,8 +783,8 @@ render(() => {
                     >
                         {item.btnText}
                     </Button>
-                </ModalResponsive.Footer>
-            </ModalResponsive>
+                </Modal.Footer>
+            </Modal>
         </Container>
     );
 });

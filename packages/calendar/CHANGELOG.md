@@ -1,5 +1,73 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Из index теперь экспортируется responsive версия компонента. Десктопная версия импортируется отсюда -> @alfalab/core-components-calendar/desktop
+-   Утилиты и константы экспортируются из shared
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Удалена responsive точка входа. (В проектах нужно заменить импорт @alfalab/core-components-calendar/responsive на @alfalab/core-components-calendar)
+
+### Minor Changes
+
+### [#687](https://github.com/core-ds/core-components/pull/687)
+
+-   Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@8.0.0
+    -   button@9.0.0
+    -   icon-button@6.2.0
+
+## 6.6.2
+
+### Patch Changes
+
+### [#774](https://github.com/core-ds/core-components/pull/774)
+
+-   Исправлены границы выделения выбранного периода при динамической установке значений
+
+## 6.6.1
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   icon-button@6.1.3
+    -   modal@7.0.15
+
+## 6.6.0
+
+### Minor Changes
+
+### [#758](https://github.com/core-ds/core-components/pull/758)
+
+-   В CalendarMobile добавлен проп onMonthTitleClick
+
+## 6.5.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+    -   icon-button@6.1.2
+    -   modal@7.0.14
+
 ## 6.5.1
 
 ### Patch Changes

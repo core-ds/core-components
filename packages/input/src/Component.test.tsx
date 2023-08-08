@@ -2,9 +2,23 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { Input } from './index';
+import { InputDesktop as Input } from './desktop';
 
 describe('Input', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<Input value='value' onChange={jest.fn()} />)).toMatchSnapshot();

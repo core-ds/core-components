@@ -82,9 +82,9 @@ render(() => {
 
     return (
         <Container>
-            <Button type='button' size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile type='button' size='s' onClick={handleOpen} block={true}>
                 Показать анатомию
-            </Button>
+            </ButtonMobile>
             <BottomSheet
                 trimTitle={false}
                 open={open}
@@ -228,9 +228,9 @@ render(() => {
 
     return (
         <Container>
-            <Button size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile size='s' onClick={handleOpen} block={true}>
                 Показать шторку
-            </Button>
+            </ButtonMobile>
 
             <Gap size='2xl' />
 
@@ -367,18 +367,19 @@ render(() => {
                         <div
                             style={{
                                 display: 'flex',
-                                flexDirection: footerViewSelected === 'vertical' ? 'column-reverse' : 'row',
+                                flexDirection:
+                                    footerViewSelected === 'vertical' ? 'column-reverse' : 'row',
                             }}
                         >
                             {footerSettings.hasSecondaryButton && (
-                                <Button
+                                <ButtonMobile
                                     view='secondary'
-                                    size='s'
+                                    size='m'
                                     onClick={handleClose}
                                     block={true}
                                 >
                                     Secondary
-                                </Button>
+                                </ButtonMobile>
                             )}
 
                             {footerSettings.hasPrimaryButton &&
@@ -387,9 +388,9 @@ render(() => {
                             ) : null}
 
                             {footerSettings.hasPrimaryButton && (
-                                <Button view='primary' size='s' onClick={handleClose} block={true}>
+                                <ButtonMobile view='primary' size='m' onClick={handleClose} block={true}>
                                     Primary
-                                </Button>
+                                </ButtonMobile>
                             )}
                         </div>
                     ) : undefined
@@ -464,9 +465,9 @@ render(() => {
 
     return (
         <Container>
-            <Button size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile size='s' onClick={handleOpen} block={true}>
                 Показать шторку
-            </Button>
+            </ButtonMobile>
 
             <BottomSheet
                 open={open}
@@ -479,15 +480,15 @@ render(() => {
                 title={item.title}
                 onBack={() => setStep(step - 1)}
                 actionButton={
-                    <Button
-                        size='xs'
+                    <ButtonMobile
+                        size='m'
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose
                         }
                     >
                         {item.btnText}
-                    </Button>
+                    </ButtonMobile>
                 }
             >
                 <div style={{ ...commonStyles, height: '100%' }}>
@@ -593,14 +594,14 @@ render(() => {
                     : 'var(--color-light-bg-primary)',
             }}
         >
-            <Button
+            <ButtonMobile
                 view={isNotLastAreaWithExtTrigger ? 'accent' : 'secondary'}
                 size='s'
                 onClick={openWithExternalTrigger ? magnetizeToLastArea : handleOpen}
                 block={true}
             >
                 {isExternalTrigger ? 'Открыть полностью' : 'Показать шторку'}
-            </Button>
+            </ButtonMobile>
 
             <Gap size='2xl' />
 

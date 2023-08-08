@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, queryByText } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as popoverModule from '@alfalab/core-components-popover';
@@ -7,7 +7,9 @@ import * as popoverModule from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { asyncRender } from '../../utils/test-utils';
 
-import { FieldProps as BaseFieldProps, Select, OptionsListProps, OptionProps } from './index';
+import { FieldProps as BaseFieldProps, OptionsListProps, OptionProps } from './shared';
+import { SelectDesktop as Select } from './desktop';
+import { SelectMobile } from './mobile';
 
 jest.mock('./components/field', () =>
     Object.assign({}, jest.requireActual('./components/field') as Record<any, any>),
@@ -157,9 +159,42 @@ describe('Select', () => {
         });
 
         it('should render placeholder', () => {
-            const { getByText } = render(<Select {...baseProps} placeholder={PLACEHOLDER} />);
+            const { getByText, rerender } = render(
+                <Select {...baseProps} placeholder={PLACEHOLDER} />,
+            );
 
             expect(getByText(PLACEHOLDER)).toBeInTheDocument();
+
+            rerender(
+                <Select
+                    {...baseProps}
+                    placeholder={PLACEHOLDER}
+                    label={LABEL_TEXT}
+                    labelView='outer'
+                />,
+            );
+
+            expect(getByText(PLACEHOLDER)).toBeInTheDocument();
+
+            rerender(
+                <Select
+                    {...baseProps}
+                    placeholder={PLACEHOLDER}
+                    label={LABEL_TEXT}
+                    labelView='inner'
+                    defaultOpen={true}
+                />,
+            );
+
+            expect(getByText(PLACEHOLDER)).toBeInTheDocument();
+        });
+
+        it('should not render placeholder', async () => {
+            const { rerender, container } = render(
+                <Select {...baseProps} placeholder={PLACEHOLDER} label={LABEL_TEXT} />,
+            );
+
+            expect(await queryByText(container, PLACEHOLDER)).not.toBeInTheDocument();
         });
     });
 
@@ -728,6 +763,20 @@ describe('Select', () => {
             fireEvent.click(getByText(optionToSelect.content));
 
             expect(valueRenderer).toHaveBeenLastCalledWith(expectedCallArgument);
+        });
+    });
+
+    describe('SelectMobile callback tests', () => {
+        it('should call onFocus and onBlur', async () => {
+            const onFocus = jest.fn();
+            const onBlur = jest.fn();
+            render(
+                <SelectMobile {...baseProps} options={options} onFocus={onFocus} onBlur={onBlur} />,
+            );
+            fireEvent.focus(document.querySelector('.field') as HTMLElement);
+            fireEvent.blur(document.querySelector('.field') as HTMLElement);
+            expect(onFocus).toBeCalledTimes(1);
+            expect(onBlur).toBeCalledTimes(1);
         });
     });
 

@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+## 3.1.0
+
+### Minor Changes
+
+### [#754](https://github.com/core-ds/core-components/pull/754)
+
+-   Pадиус скругления изменен на 12px во всех темах
+
 ## 3.0.9
 
 ### Patch Changes

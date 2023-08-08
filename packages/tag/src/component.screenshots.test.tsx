@@ -28,7 +28,10 @@ describe('Tag', () => {
                 checked: true,
             },
         },
-        'transform:scale(2.7)',
+        'width:800px;transform:scale(2.7)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     );
 });
 
@@ -66,7 +69,7 @@ describe('Tag | main props', () => {
             screenshotOpts: {
                 fullPage: true,
             },
-            viewport: { width: 740, height: 100 },
+            viewport: { width: 1024, height: 100 },
             theme,
         })();
 
@@ -85,14 +88,12 @@ describe('Tag | right addons', () => {
                     disabled: [false, true],
                 },
             }),
-            screenshotOpts: {
-                fullPage: true,
-            },
+            screenshotOpts: { clip: { x: 0, y: 0, width: 180, height: 80 } },
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
-            viewport: { width: 180, height: 80 },
+            viewport: { width: 1024, height: 80 },
             theme,
         })();
 
@@ -135,7 +136,7 @@ describe('Tag | inverted', () => {
             screenshotOpts: {
                 fullPage: true,
             },
-            viewport: { width: 740, height: 100 },
+            viewport: { width: 1024, height: 100 },
             theme,
         })();
 

@@ -1,0 +1,245 @@
+@import '../../../../themes/src/default.css';
+
+:root {
+    /* border */
+    --plate-border-left: 2px;
+    --plate-border: 0 0 0 1px;
+    --plate-border-radius: var(--border-radius-l);
+
+    /* width limit */
+
+    --plate-width-limit: 560px;
+
+    /* custom view */
+    --plate-background: transparent;
+    --plate-border-color: var(--color-static-status-grey);
+    --plate-box-shadow: var(--shadow-s);
+}
+
+.component {
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    color: var(--color-light-text-primary);
+    width: 100%;
+    min-height: 56px;
+    padding: var(--gap-s);
+    outline: none;
+
+    &:before {
+        content: '';
+        width: var(--plate-border-left);
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+.foldable {
+    cursor: pointer;
+}
+
+.component * {
+    box-sizing: border-box;
+}
+
+.focused {
+    @mixin focus-outline;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rounded,
+.noBorder {
+    &:before {
+        display: none;
+    }
+}
+
+.shadow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-shadow: var(--plate-box-shadow);
+    pointer-events: none;
+}
+
+.rounded {
+    border-radius: var(--plate-border-radius);
+    &.shadow:after {
+        border-radius: var(--plate-border-radius);
+    }
+}
+
+.common {
+    background-color: var(--color-light-specialbg-secondary-transparent);
+    box-shadow: var(--plate-border) var(--color-static-status-grey);
+    &:before {
+        background-color: var(--color-static-status-grey);
+    }
+}
+
+.negative {
+    background-color: var(--color-light-bg-negative-muted);
+    box-shadow: var(--plate-border) var(--color-static-status-red);
+    &:before {
+        background-color: var(--color-static-status-red);
+    }
+}
+
+.positive {
+    background-color: var(--color-light-bg-positive-muted);
+    box-shadow: var(--plate-border) var(--color-static-status-green);
+    &:before {
+        background-color: var(--color-static-status-green);
+    }
+}
+
+.attention {
+    background-color: var(--color-light-bg-attention-muted);
+    box-shadow: var(--plate-border) var(--color-static-status-orange);
+    &:before {
+        background-color: var(--color-static-status-orange);
+    }
+}
+
+.custom {
+    background: var(--plate-background);
+    box-shadow: var(--plate-border) var(--plate-border-color);
+    &:before {
+        background-color: var(--plate-border-color);
+    }
+}
+
+.rect,
+.noBorder {
+    box-shadow: none;
+}
+
+.isHidden {
+    display: none;
+}
+
+.leftAddons,
+.rightAddons {
+    display: inline-flex;
+    padding: var(--gap-2xs);
+}
+
+.leftAddons {
+    flex-shrink: 0;
+    min-width: 24px;
+    margin-right: var(--gap-2xs);
+}
+
+.subAddons {
+    cursor: default;
+    align-self: flex-start;
+}
+
+.bold,
+.light {
+    word-break: break-word;
+}
+
+.light {
+    @mixin paragraph_primary_small;
+    padding: 6px var(--gap-s) 6px var(--gap-2xs);
+}
+
+.foldable .content {
+    max-height: 300vh;
+}
+
+.content {
+    @mixin paragraph_primary_small;
+
+    overflow: hidden;
+    transition: max-height 2s ease-in-out;
+    cursor: default;
+
+    &.isFolded.isFolded {
+        max-height: 0;
+        transition: max-height 1s cubic-bezier(0, 1, 0, 1);
+    }
+}
+
+.contentContainer {
+    flex: 1;
+    margin-right: auto;
+
+    &.withoutTitle {
+        padding-top: var(--gap-3xs);
+    }
+}
+
+.limitWidth {
+    max-width: var(--plate-width-limit);
+}
+
+.description {
+    @mixin paragraph_primary_small;
+}
+
+.closer,
+.folder {
+    display: block;
+    height: 24px;
+    width: 24px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    margin-left: var(--gap-s);
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}
+
+.folder {
+    transition: transform 0.15s ease-in-out, opacity 0.2s ease;
+    transform: var(--arrow-transform);
+
+    &.isFolded {
+        transform: rotate(0deg);
+    }
+}
+
+.containerButton {
+    display: flex;
+}
+
+.button {
+    &:not(:last-child) {
+        margin-right: var(--gap-xs);
+    }
+}
+
+.rowLimit1 {
+    @mixin row_limit 1;
+    word-break: break-all;
+}
+
+.rowLimit2 {
+    @mixin row_limit 2;
+}
+
+.rowLimit3 {
+    @mixin row_limit 3;
+}

@@ -17,30 +17,37 @@ render(() => {
     const onChange = (_, payload) => {
         setComponent(payload.value);
     };
-    
+
     const styles = {
         display: 'flex',
         justifyContent: 'center',
         gap: '16px',
-    }
+    };
 
     return (
         <Container>
             <div style={styles}>
-                {SIZES.map(size => (
-                    <Component size={size} >
-                    { size === '128' || size === '80' ?  <DiamondsXxlIcon/> : size === '20' ? <DiamondsSIcon/> : <DiamondsMIcon/>}
+                {SIZES.map((size) => (
+                    <Component size={size}>
+                        {size === '128' || size === '80' ? (
+                            <DiamondsXxlIcon />
+                        ) : size === '20' ? (
+                            <DiamondsSIcon />
+                        ) : (
+                            <DiamondsMIcon />
+                        )}
                     </Component>
                 ))}
             </div>
             <Row>
-                <RadioGroup
-                    name='radioGroup'
-                    onChange={onChange}
-                    value={component}
-                >
-                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
-                        <Radio label={c === 'NoShape'? 'noShape' : c.toLowerCase()} value={c} size='m' key={c} />
+                <RadioGroup name='radioGroup' onChange={onChange} value={component}>
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map((c) => (
+                        <Radio
+                            label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
+                            value={c}
+                            size='m'
+                            key={c}
+                        />
                     ))}
                 </RadioGroup>
             </Row>
@@ -64,39 +71,40 @@ render(() => {
     const onChange = (_, payload) => {
         setComponent(payload.value);
     };
-    
+
     const styles = {
         display: 'flex',
         justifyContent: 'center',
         gap: '16px',
-    }
+    };
 
     return (
         <Container>
-            <div style={styles} >
-                {BIG_SIZES.map(size => (
-                    <Component size={size} >
-                        { size !== '64' ? <DiamondsXxlIcon/> : <DiamondsMIcon/>}
+            <div style={styles}>
+                {BIG_SIZES.map((size) => (
+                    <Component size={size}>
+                        {size !== '64' ? <DiamondsXxlIcon /> : <DiamondsMIcon />}
                     </Component>
                 ))}
             </div>
-            <Gap size='xl'/>
+            <Gap size='xl' />
             <div style={styles}>
-                {SMALL_SIZES.map(size => (
-                    <Component size={size} >
-                        { size !== '20' ? <DiamondsMIcon/> : <DiamondsSIcon/>}
+                {SMALL_SIZES.map((size) => (
+                    <Component size={size}>
+                        {size !== '20' ? <DiamondsMIcon /> : <DiamondsSIcon />}
                     </Component>
                 ))}
             </div>
 
             <Row>
-                <RadioGroup
-                    name='radioGroup'
-                    onChange={onChange}
-                    value={component}
-                >
-                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
-                        <Radio label={c === 'NoShape'? 'noShape' : c.toLowerCase()} value={c} size='m' key={c} />
+                <RadioGroup name='radioGroup' onChange={onChange} value={component}>
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map((c) => (
+                        <Radio
+                            label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
+                            value={c}
+                            size='m'
+                            key={c}
+                        />
                     ))}
                 </RadioGroup>
             </Row>
@@ -107,7 +115,7 @@ render(() => {
 
 ## Шейп и фоновый контент
 
-На фоновый слой можно передать различные виды контента или их комбинацию. Шейп отсечёт контент по своей форме. 
+На фоновый слой можно передать различные виды контента или их комбинацию. Шейп отсечёт контент по своей форме.
 
 ```jsx live
 render(() => {
@@ -129,7 +137,7 @@ render(() => {
     const onChangeRadio = (_, payload) => {
         setComponent(payload.value);
     };
-    
+
     const onChange = (_, payload) => {
         setValue({ ...value, [payload.name]: payload.checked });
     };
@@ -140,29 +148,40 @@ render(() => {
                 <Col>
                     <Component
                         size='80'
-                        backgroundColor={value.background ? 'var(--color-light-bg-secondary)' : 'transparent'}                        
-                        imageUrl={value.image && "./images/imgBg.png"}
-                        text={value.text &&
-                          <Typography.Title 
-                            view='small' weight='bold' 
-                            font='system' color='secondary'>
-                              БК
-                          </Typography.Title>
+                        backgroundColor={
+                            value.background ? 'var(--color-light-bg-secondary)' : 'transparent'
                         }
-                    >{value.icon && <DiamondsMIcon/>}</Component>
+                        imageUrl={value.image && './images/imgBg.png'}
+                        text={
+                            value.text && (
+                                <Typography.Title
+                                    view='small'
+                                    weight='bold'
+                                    font='system'
+                                    color='secondary'
+                                >
+                                    БК
+                                </Typography.Title>
+                            )
+                        }
+                    >
+                        {value.icon && <DiamondsMIcon />}
+                    </Component>
                 </Col>
             </Row>
 
             <Row>
-            <CheckboxGroup
-                label='Контент'
-                onChange={onChange}
-            >
-                <Checkbox label='Цвет фона' name='background' checked={value.background} size='m' />
-                <Checkbox label='Изображение' name='image' checked={value.image} size='m' />
-                <Checkbox label='Текст' name='text' checked={value.text} size='m' />
-                <Checkbox label='Иконка' name='icon' checked={value.icon} size='m' />
-            </CheckboxGroup>
+                <CheckboxGroup label='Контент' onChange={onChange}>
+                    <Checkbox
+                        label='Цвет фона'
+                        name='background'
+                        checked={value.background}
+                        size='m'
+                    />
+                    <Checkbox label='Изображение' name='image' checked={value.image} size='m' />
+                    <Checkbox label='Текст' name='text' checked={value.text} size='m' />
+                    <Checkbox label='Иконка' name='icon' checked={value.icon} size='m' />
+                </CheckboxGroup>
             </Row>
 
             <Row>
@@ -172,8 +191,13 @@ render(() => {
                     label='Форма шейпа'
                     value={component}
                 >
-                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map(c => (
-                        <Radio label={c === 'NoShape'? 'noShape' : c.toLowerCase()} value={c} size='m' key={c} />
+                    {['SuperEllipse', 'Circle', 'Rectangle', 'NoShape'].map((c) => (
+                        <Radio
+                            label={c === 'NoShape' ? 'noShape' : c.toLowerCase()}
+                            value={c}
+                            size='m'
+                            key={c}
+                        />
                     ))}
                 </RadioGroup>
             </Row>
@@ -189,16 +213,16 @@ render(() => {
 ```jsx live
 render(() => {
     const [border, setBorder] = React.useState(false);
-return(
+    return (
         <Container>
             <Row>
                 <Col>
-                    <SuperEllipse 
-                        size='80' 
-                        backgroundColor='var(--color-light-bg-secondary)' 
+                    <SuperEllipse
+                        size='80'
+                        backgroundColor='var(--color-light-bg-secondary)'
                         border={border && { color: 'var(--color-light-border-primary)' }}
                     >
-                        <DiamondsMIcon/>
+                        <DiamondsMIcon />
                     </SuperEllipse>
                 </Col>
             </Row>
@@ -217,11 +241,11 @@ return(
 
 ## Слоты
 
-В зависимости от размера, компонент поддерживает один или несколько слотов. 
-Контент можно расположить в центральном слоте или в верхнем и нижнем аддоне. 
-В центральном слоте допустимо располагать иконки, в верхнем аддоне индикатор и другие 
-IconView cоответствующего размера, в нижнем аддоне только IconView cоответствующего размера. 
-Размер компонента так же определяет размер слотов и соответственно размеры контента который можно в них поместить. 
+В зависимости от размера, компонент поддерживает один или несколько слотов.
+Контент можно расположить в центральном слоте или в верхнем и нижнем аддоне.
+В центральном слоте допустимо располагать иконки, в верхнем аддоне индикатор и другие
+IconView cоответствующего размера, в нижнем аддоне только IconView cоответствующего размера.
+Размер компонента так же определяет размер слотов и соответственно размеры контента который можно в них поместить.
 Для шейпов `rectangle` и `noShape` верхний и нижний аддоны недоступны.
 
 ```jsx live
@@ -236,35 +260,39 @@ render(() => {
 
     const onChangeTopAddons = (_, payload) => {
         setTopAddons(payload.value);
-    }
+    };
 
     const onChangeBottomAddons = (_, payload) => {
         setBottomAddons(payload.value);
     };
 
-    const iconViewSvg = bottomAddons === 'iconView' && <Circle size='24' backgroundIcon={ThumbUpCompactMIcon} />
-    const iconViewPositive = 
-    <Circle size='24'  backgroundColor='var(--color-light-graphic-positive)'>
-        <CheckmarkCompactMIcon color='var(--color-static-graphic-light)'/>
-    </Circle>
-    const indicatorSmall = topAddons === 'indicatorSmall' &&  <Indicator view='red' />
-    const indicator = <Indicator value={1} view='red' height={24} />
+    const iconViewSvg = bottomAddons === 'iconView' && (
+        <Circle size='24' backgroundIcon={ThumbUpCompactMIcon} />
+    );
+    const iconViewPositive = (
+        <Circle size='24' backgroundColor='var(--color-light-graphic-positive)'>
+            <CheckmarkCompactMIcon color='var(--color-static-graphic-light)' />
+        </Circle>
+    );
+    const indicatorSmall = topAddons === 'indicatorSmall' && <Indicator view='red' />;
+    const indicator = <Indicator value={1} view='red' height={24} />;
 
     const topAddonsView = {
         indicator,
         iconViewPositive,
-    }[topAddons]
+    }[topAddons];
 
-    return(
+    return (
         <Container>
             <Row>
                 <Col>
-                    <SuperEllipse 
+                    <SuperEllipse
                         size='80'
                         topAddons={topAddonsView}
                         indicator={indicatorSmall}
-                        bottomAddons={iconViewSvg}>
-                            {content === 'icon' && <DiamondsMIcon/>}
+                        bottomAddons={iconViewSvg}
+                    >
+                        {content === 'icon' && <DiamondsMIcon />}
                     </SuperEllipse>
                 </Col>
             </Row>
@@ -276,8 +304,8 @@ render(() => {
                     onChange={onChangeContent}
                     value={content}
                 >
-                    <Radio label='Иконка' value='icon' size='m'  />
-                    <Radio label='Без контента' value='noContent' size='m'  />
+                    <Radio label='Иконка' value='icon' size='m' />
+                    <Radio label='Без контента' value='noContent' size='m' />
                 </RadioGroup>
             </Row>
 
@@ -288,10 +316,10 @@ render(() => {
                     onChange={onChangeTopAddons}
                     value={topAddons}
                 >
-                    <Radio label='Маленький индикатор' value='indicatorSmall' size='m'  />
-                    <Radio label='Индикатор' value='indicator' size='m'  />
-                    <Radio label='IconView' value='iconViewPositive' size='m'  />
-                    <Radio label='Без контента' value='noContent' size='m'  />
+                    <Radio label='Маленький индикатор' value='indicatorSmall' size='m' />
+                    <Radio label='Индикатор' value='indicator' size='m' />
+                    <Radio label='IconView' value='iconViewPositive' size='m' />
+                    <Radio label='Без контента' value='noContent' size='m' />
                 </RadioGroup>
             </Row>
 
@@ -302,8 +330,8 @@ render(() => {
                     onChange={onChangeBottomAddons}
                     value={bottomAddons}
                 >
-                    <Radio label='IconView' value='iconView' size='m'  />
-                    <Radio label='Без контента' value='noContent' size='m'  />
+                    <Radio label='IconView' value='iconView' size='m' />
+                    <Radio label='Без контента' value='noContent' size='m' />
                 </RadioGroup>
             </Row>
         </Container>
@@ -313,28 +341,28 @@ render(() => {
 
 ## Индикатор
 
-Компонент [Indicator](?path=/docs/components-indicator--docs) может отображаться только в верхнем аддоне. 
+Компонент [Indicator](?path=/docs/indicator--docs) может отображаться только в верхнем аддоне.
 Если в индикатор не передан контент, рекомендуем отображать его компактную версию.
 
 ```jsx live
-    const styles = {
-        display: 'flex',
-        gap: '20px',
-    }
+const styles = {
+    display: 'flex',
+    gap: '20px',
+};
 
 render(
-        <div style={styles}>
-            <SuperEllipse size='80' indicator={<Indicator view='red' />} />
-            <SuperEllipse size='80' topAddons={<Indicator value={1} height={24} view='red' />} />
-            <SuperEllipse size='80' topAddons={<Indicator value={25} height={24} view='red' />} />
-            <SuperEllipse size='80' topAddons={<Indicator value={100} height={24} view='red' />}/>
-        </div>
+    <div style={styles}>
+        <SuperEllipse size='80' indicator={<Indicator view='red' />} />
+        <SuperEllipse size='80' topAddons={<Indicator value={1} height={24} view='red' />} />
+        <SuperEllipse size='80' topAddons={<Indicator value={25} height={24} view='red' />} />
+        <SuperEllipse size='80' topAddons={<Indicator value={100} height={24} view='red' />} />
+    </div>,
 );
 //MOBILE
-    const styles = {
-        display: 'flex',
-        gap: '20px',
-    }
+const styles = {
+    display: 'flex',
+    gap: '20px',
+};
 
 render(
     <Container>
@@ -343,9 +371,8 @@ render(
             <SuperEllipse size='80' topAddons={<Indicator value={1} height={24} view='red' />} />
             <SuperEllipse size='80' topAddons={<Indicator value={25} height={24} view='red' />} />
         </div>
-        <Gap size='l'/>
-        <SuperEllipse size='80' topAddons={<Indicator value={100} height={24} view='red' />}/>
-    </Container>
-); 
+        <Gap size='l' />
+        <SuperEllipse size='80' topAddons={<Indicator value={100} height={24} view='red' />} />
+    </Container>,
+);
 ```
-

@@ -1,9 +1,9 @@
 import React, { ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { Color, Typography } from '@alfalab/core-components-typography';
 
-import { getDataTestId } from '../../../../utils/getDataTestId';
 import { PureCellContext } from '../../component';
 
 import styles from './index.module.css';

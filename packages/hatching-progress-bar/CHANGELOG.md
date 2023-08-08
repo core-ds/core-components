@@ -1,5 +1,21 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+## 2.0.5
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 2.0.4
 
 ### Patch Changes

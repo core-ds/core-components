@@ -31,25 +31,31 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
           style="top: 0px; z-index: 1001;"
         >
           <div
-            class="contentWrap"
+            class="wrapper"
           >
             <div
-              class="toastContent content hasCloser"
+              class="contentWrapper"
             >
-              <div>
+              <div
+                class="toastContent content hasCloser"
+              >
                 <div
-                  class="title"
+                  class="contentTitle"
                 >
-                  title
+                  <div
+                    class="title title"
+                  >
+                    title
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              class="closeButtonWrapper closeButtonWrapper"
+              class="closeButtonWrapper closeButtonWrapper closeButtonWrapper"
             >
               <button
                 aria-label="закрыть"
-                class="component ghost s component ghost cc-icon-button closeButton primary component"
+                class="component ghost s s component ghost component ghost cc-icon-button closeButton closeButton primary component"
                 type="button"
               >
                 <span
@@ -86,25 +92,31 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
           style="top: 0px; z-index: 1001;"
         >
           <div
-            class="contentWrap"
+            class="wrapper"
           >
             <div
-              class="toastContent content hasCloser"
+              class="contentWrapper"
             >
-              <div>
+              <div
+                class="toastContent content hasCloser"
+              >
                 <div
-                  class="title"
+                  class="contentTitle"
                 >
-                  title
+                  <div
+                    class="title title"
+                  >
+                    title
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              class="closeButtonWrapper closeButtonWrapper"
+              class="closeButtonWrapper closeButtonWrapper closeButtonWrapper"
             >
               <button
                 aria-label="закрыть"
-                class="component ghost s component ghost cc-icon-button closeButton primary component"
+                class="component ghost s s component ghost component ghost cc-icon-button closeButton closeButton primary component"
                 type="button"
               >
                 <span
@@ -141,25 +153,31 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
           style="top: 0px; z-index: 1001;"
         >
           <div
-            class="contentWrap"
+            class="wrapper"
           >
             <div
-              class="toastContent content hasCloser"
+              class="contentWrapper"
             >
-              <div>
+              <div
+                class="toastContent content hasCloser"
+              >
                 <div
-                  class="title"
+                  class="contentTitle"
                 >
-                  title
+                  <div
+                    class="title title"
+                  >
+                    title
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              class="closeButtonWrapper closeButtonWrapper"
+              class="closeButtonWrapper closeButtonWrapper closeButtonWrapper"
             >
               <button
                 aria-label="закрыть"
-                class="component ghost s component ghost cc-icon-button closeButton primary component"
+                class="component ghost s s component ghost component ghost cc-icon-button closeButton closeButton primary component"
                 type="button"
               >
                 <span

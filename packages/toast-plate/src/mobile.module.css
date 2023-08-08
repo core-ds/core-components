@@ -1,0 +1,21 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.actionSection {
+    align-items: flex-start;
+}
+
+.title {
+    @mixin paragraph_primary_small;
+    font-weight: var(--toast-plate-title-font-weight);
+}
+
+.closeButtonWrapper {
+    &:before {
+        display: none;
+    }
+}
+
+.closeButton {
+    align-items: flex-start;
+}

@@ -35,7 +35,7 @@ export const TSortableHeadCell = ({
     }, [defaultIsSortedDesc, isSortedDesc]);
 
     return (
-        <THeadCell className={cn(className, styles.component)} {...restProps}>
+        <THeadCell className={className} {...restProps}>
             <div className={cn(styles.content, { [styles.reverse]: textAlign === 'right' })}>
                 {children}
                 <SortIcon

@@ -1,5 +1,48 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+### [#742](https://github.com/core-ds/core-components/pull/742)
+
+-   Для компонента Toast добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.0.0
+    -   mq@4.2.0
+    -   popover@6.1.0
+    -   portal@3.2.0
+    -   stack@4.1.0
+
+## 4.2.27
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   popover@6.0.9
+    -   portal@3.1.5
+    -   toast-plate@5.1.24
+
+## 4.2.26
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@5.1.23
+
 ## 4.2.25
 
 ### Patch Changes

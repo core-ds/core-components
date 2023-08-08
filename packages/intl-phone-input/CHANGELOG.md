@@ -1,5 +1,55 @@
 # Change Log
 
+## 9.5.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@10.0.0
+    -   select@15.0.0
+
+## 9.4.6
+
+### Patch Changes
+
+### [#775](https://github.com/core-ds/core-components/pull/775)
+
+-   Исправлен перенос контента в options для селекта с выбором кода страны
+
+-   Обновлены зависимости
+    -   select@14.3.5
+    -   input-autocomplete@9.4.7
+
+## 9.4.5
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+### [#760](https://github.com/core-ds/core-components/pull/760)
+
+-   Добавлены вызовы inputProps хендлеров
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.4.6
+    -   select@14.3.4
+
+## 9.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@9.4.5
+    -   select@14.3.3
+
 ## 9.4.3
 
 ### Patch Changes

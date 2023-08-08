@@ -4,8 +4,8 @@ import React, { forwardRef } from 'react';
 import { CustomButtonProps } from '@alfalab/core-components-custom-button';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { PickerButtonDesktopProps } from '@alfalab/core-components-picker-button';
-import { AdditionalMobileProps } from '@alfalab/core-components-select';
+import type { PickerButtonDesktopProps } from '@alfalab/core-components-picker-button/desktop';
+import type { AdditionalMobileProps } from '@alfalab/core-components-select/shared';
 
 import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './Component.desktop';
 import { CustomPickerButtonMobile } from './Component.mobile';

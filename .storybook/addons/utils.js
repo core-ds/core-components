@@ -50,3 +50,17 @@ export const setPreviewMetricsConnection = () => {
 export function rmCommentsFromCss(css) {
     return css.replace(/\/\*[\s\S]*?\*\//g, '');
 }
+
+export const getAsyncStoryDoc = async () => {
+    const iframe = document.querySelector('iframe');
+  
+    if (!iframe) {
+      throw new Error('iframe not found');
+    }
+  
+    await new Promise((resolve) => {
+      iframe.addEventListener('load', resolve);
+    });
+
+    return iframe.contentDocument;
+};

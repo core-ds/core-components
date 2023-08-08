@@ -1,5 +1,29 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.0.0
+
+## 3.0.13
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   typography@3.2.2
+
 ## 3.0.12
 
 ### Patch Changes

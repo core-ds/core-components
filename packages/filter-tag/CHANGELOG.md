@@ -1,5 +1,32 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+### [#700](https://github.com/core-ds/core-components/pull/700)
+
+-   Для компонента FilterTag добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.2.0
+
+## 2.1.8
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 2.1.7
 
 ### Patch Changes

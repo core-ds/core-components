@@ -9,8 +9,10 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
-import { CodeInput, CodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
+import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
+import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
 import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 import { usePrevious } from '@alfalab/hooks';
@@ -55,7 +57,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     const timerId = useRef(0);
 
-    const handleInputComplete: CodeInputProps['onComplete'] = (code) => {
+    const handleInputComplete: BaseCodeInputProps['onComplete'] = (code) => {
         onInputFinished(code);
     };
 
@@ -135,6 +137,8 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     const timePassed = timeLeft === 0;
 
+    const ComponentCodeInput = mobile ? CodeInputMobile : CodeInputDesktop;
+
     return (
         <div className={cn(styles.component, styles[alignContent])}>
             <Header mobile={mobile}>{texts.title}</Header>
@@ -146,7 +150,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             >
                 Код отправлен на {phone}
             </Typography.Text>
-            <CodeInput
+            <ComponentCodeInput
                 disabled={processing}
                 error={getCodeInputError()}
                 ref={inputRef}
@@ -168,9 +172,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             )}
 
             {mobile ? (
-                <Button onClick={handleSmsHintLinkClick} view='link' size='xs'>
+                <ButtonMobile onClick={handleSmsHintLinkClick} view='link' size='xs'>
                     {texts.linkToHint}
-                </Button>
+                </ButtonMobile>
             ) : (
                 <Link
                     onClick={handleSmsHintLinkClick}

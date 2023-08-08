@@ -2,9 +2,23 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, waitFor, fireEvent } from '@testing-library/react';
 
-import { CalendarInput } from './index';
+import { CalendarInputDesktop as CalendarInput } from './desktop';
 
 describe('CalendarInput', () => {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+    
     const getSelectedDay = () =>
         document.querySelector('td[aria-selected="true"]') as HTMLButtonElement;
 
@@ -119,6 +133,45 @@ describe('CalendarInput', () => {
 
             await waitFor(() => {
                 expect(document.querySelector('.calendar')).not.toBeInTheDocument();
+            });
+        });
+
+        it('should call "onCalendarOpen" callback', async () => {
+            const onCalendarOpen = jest.fn();
+            const { container } = render(
+                <CalendarInput
+                    calendarProps={{ className: 'calendar' }}
+                    onCalendarOpen={onCalendarOpen}
+                />,
+            );
+            const component = container.firstElementChild as HTMLDivElement;
+
+            await waitFor(() => {
+                fireEvent.focus(component);
+            });
+
+            await waitFor(() => {
+                expect(onCalendarOpen).toBeCalledTimes(1);
+            });
+        });
+
+        it('should call "onCalendarClose" callback', async () => {
+            const onCalendarClose = jest.fn();
+            const { container } = render(
+                <CalendarInput
+                    calendarProps={{ className: 'calendar' }}
+                    onCalendarClose={onCalendarClose}
+                />,
+            );
+            const component = container.firstElementChild as HTMLDivElement;
+
+            await waitFor(() => {
+                fireEvent.focus(component);
+            });
+
+            await waitFor(() => {
+                fireEvent.blur(component);
+                expect(onCalendarClose).toBeCalledTimes(1);
             });
         });
 

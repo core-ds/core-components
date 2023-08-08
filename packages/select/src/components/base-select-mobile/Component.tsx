@@ -19,8 +19,8 @@ import {
 
 import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { getDataTestId } from '../../../../utils';
 import {
     AnyObject,
     BaseSelectProps,
@@ -113,6 +113,7 @@ export const BaseSelectMobile = forwardRef(
             onChange,
             onOpen,
             onFocus,
+            onBlur,
             Arrow = DefaultArrow,
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
@@ -286,6 +287,10 @@ export const BaseSelectMobile = forwardRef(
             }
         };
 
+        const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+            if (!open && onBlur) onBlur(event);
+        };
+
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
             if (autocomplete && !open && (event.key.length === 1 || event.key === 'Backspace')) {
@@ -414,6 +419,7 @@ export const BaseSelectMobile = forwardRef(
                     valueRenderer={valueRenderer}
                     className={fieldClassName}
                     innerProps={{
+                        onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,
                         onClick: disabled ? undefined : handleFieldClick,
                         tabIndex: disabled ? -1 : 0,
@@ -467,7 +473,9 @@ export const BaseSelectMobile = forwardRef(
                             {label || placeholder}
                         </ModalMobile.Header>
 
-                        {renderOptionsList()}
+                        <ModalMobile.Content flex={true} className={styles.modalContent}>
+                            {renderOptionsList()}
+                        </ModalMobile.Content>
 
                         {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
                     </ModalMobile>

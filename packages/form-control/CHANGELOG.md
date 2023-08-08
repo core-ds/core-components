@@ -1,5 +1,32 @@
 # Change Log
 
+## 10.0.0
+
+### Major Changes
+
+### [#716](https://github.com/core-ds/core-components/pull/716)
+
+-   Для компонента FormControl добавлены мобильная и адаптивная версии компонента. Responsive компонент теперь экспортируется из индексного файла
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   mq@4.2.0
+
+## 9.0.6
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
 ## 9.0.5
 
 ### Patch Changes

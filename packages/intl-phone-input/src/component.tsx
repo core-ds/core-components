@@ -3,10 +3,11 @@ import cn from 'classnames';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
 import {
-    InputAutocomplete,
-    InputAutocompleteProps,
-} from '@alfalab/core-components-input-autocomplete';
-import { OptionShape, SelectProps } from '@alfalab/core-components-select';
+    InputAutocompleteDesktop,
+    InputAutocompleteDesktopProps,
+} from '@alfalab/core-components-input-autocomplete/desktop';
+import type { SelectProps } from '@alfalab/core-components-select';
+import type { OptionShape } from '@alfalab/core-components-select/shared';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
 
@@ -30,7 +31,7 @@ const DEFAULT_MAX_PHONE_LEN_BY_COUNTRY: MaxPhoneLenByCountry = { RU: 11 };
 
 type MaxPhoneLenByCountry = Record<string, number>;
 
-export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
+export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteDesktopProps, 'onChange'>> &
     Pick<SelectProps, 'preventFlip'> & {
         /**
          * Значение
@@ -425,7 +426,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const handleClear = () => {
+        const handleClear: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+            inputProps?.onClear?.(event);
+
             if (clearableCountryCode) {
                 onChange('+');
                 if (canBeEmptyCountry) {
@@ -438,6 +441,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         };
 
         const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = (event) => {
+            inputProps?.onPaste?.(event);
+
             event.preventDefault();
             const text = event.clipboardData?.getData('Text');
 
@@ -513,13 +518,13 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
         return (
-            <InputAutocomplete
+            <InputAutocompleteDesktop
                 {...restProps}
                 ref={ref}
                 inputProps={{
                     clear: clear && !isEmptyValue,
-                    onClear: handleClear,
                     ...inputProps,
+                    onClear: handleClear,
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
                     type: 'tel',

@@ -1,20 +1,19 @@
 import { CssVars } from 'storybook/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-import { TooltipDesktop } from '../Component';
+import { TooltipDesktop } from '../desktop';
 import styles from '!!raw-loader!../index.module.css';
 
 ## Подключение
 
 ```jsx
-// Десктоп версия
+// Респонсив версия
 import { Tooltip } from '@alfalab/core-components/tooltip';
-// или
+
+// Десктоп версия
 import { TooltipDesktop } from '@alfalab/core-components/tooltip/desktop';
 
-// Респонсив версия
-import { TooltipResponsive } from '@alfalab/core-components/tooltip/responsive';
-//или
-import { TooltipResponsive } from '@alfalab/core-components/tooltip';
+// Мобильная версия
+import { TooltipMobile } from '@alfalab/core-components/tooltip/mobile';
 ```
 
 ## Свойства

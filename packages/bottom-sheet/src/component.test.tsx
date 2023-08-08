@@ -386,12 +386,14 @@ describe('Bottom sheet', () => {
             expect(component).not.toBeInTheDocument();
         });
 
-        it('should call onMagnetize prop after opening', async () => {
+        it('should call onMagnetize and onMagnetizeEnd prop after opening', async () => {
             const onMagnetize = jest.fn();
+            const onMagnetizeEnd = jest.fn();
 
             render(
                 <BottomSheetWrapper
                     onMagnetize={onMagnetize}
+                    onMagnetizeEnd={onMagnetizeEnd}
                     transitionProps={{
                         timeout: 0,
                     }}
@@ -399,16 +401,19 @@ describe('Bottom sheet', () => {
             );
 
             await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
+            await waitFor(() => expect(onMagnetizeEnd).toBeCalledTimes(1));
         });
 
-        it('should call onMagnetize prop with initialAreaIdx after opening', async () => {
+        it('should call onMagnetize and onMagnetizeEnd prop with initialAreaIdx after opening', async () => {
             const onMagnetize = jest.fn();
+            const onMagnetizeEnd = jest.fn();
 
             render(
                 <BottomSheetWrapper
                     magneticAreas={[0, 200, 500]}
                     initialActiveAreaIndex={1}
                     onMagnetize={onMagnetize}
+                    onMagnetizeEnd={onMagnetizeEnd}
                     transitionProps={{
                         timeout: 0,
                     }}
@@ -416,19 +421,20 @@ describe('Bottom sheet', () => {
             );
 
             await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
+            await waitFor(() => expect(onMagnetizeEnd).toBeCalledTimes(1));
         });
 
-        it('should call onMagnetize prop after closing', async () => {
+        it('should call onMagnetize and onMagnetizeEnd prop after closing', async () => {
             const onMagnetize = jest.fn();
-            const onEntered = jest.fn();
+            const onMagnetizeEnd = jest.fn();
 
             const { getByTestId } = render(
                 <BottomSheetWrapper
                     dataTestId={dataTestId}
                     onMagnetize={onMagnetize}
+                    onMagnetizeEnd={onMagnetizeEnd}
                     transitionProps={{
                         timeout: 0,
-                        onEntered,
                     }}
                 />,
             );
@@ -437,6 +443,7 @@ describe('Bottom sheet', () => {
             fireEvent.mouseUp(getByTestId(dataTestId));
 
             await waitFor(() => expect(onMagnetize).toBeCalledWith(0));
+            await waitFor(() => expect(onMagnetizeEnd).toBeCalledTimes(1));
         });
     });
 });

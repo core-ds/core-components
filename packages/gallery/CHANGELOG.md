@@ -1,5 +1,50 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.0.0
+    -   typography@4.0.0
+    -   base-modal@5.3.0
+    -   icon-button@6.2.0
+
+## 5.2.13
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@6.2.28
+
+## 5.2.12
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   base-modal@5.2.1
+    -   icon-button@6.1.3
+    -   tooltip@6.2.27
+    -   typography@3.2.2
+
+## 5.2.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.1.2
+    -   tooltip@6.2.26
+
 ## 5.2.10
 
 ### Patch Changes

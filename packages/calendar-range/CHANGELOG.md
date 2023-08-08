@@ -1,5 +1,58 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar-input@9.0.0
+    -   calendar@7.0.0
+    -   date-input@4.3.0
+
+## 7.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.6.2
+    -   calendar-input@8.3.1
+
+## 7.1.5
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   calendar@6.6.1
+    -   calendar-input@8.3.0
+    -   date-input@4.2.10
+
+## 7.1.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.6.0
+    -   calendar-input@8.2.29
+
+## 7.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.5.2
+    -   calendar-input@8.2.28
+    -   date-input@4.2.9
+
 ## 7.1.2
 
 ### Patch Changes

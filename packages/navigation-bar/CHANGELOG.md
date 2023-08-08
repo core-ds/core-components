@@ -1,5 +1,38 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.4.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   typography@4.0.0
+    -   button@9.0.0
+    -   icon-button@6.2.0
+
+## 0.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.1
+    -   icon-button@6.1.3
+    -   typography@3.2.2
+
+## 0.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+    -   icon-button@6.1.2
+
 ## 0.3.5
 
 ### Patch Changes

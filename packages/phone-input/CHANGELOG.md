@@ -1,5 +1,36 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.2.0
+
+## 7.1.18
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   masked-input@6.1.18
+
+## 7.1.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.1.17
+
 ## 7.1.16
 
 ### Patch Changes

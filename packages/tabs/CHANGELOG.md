@@ -1,5 +1,66 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+### [#704](https://github.com/core-ds/core-components/pull/704)
+
+-   Хуки, общие компоненты и некоторые типы теперь экспортируются из shared (@alfalab/core-components/tabs/shared)
+-   Удалена responsive точка входа.
+-   Prop defaultMatch заменен на defaultMatchMediaValue и имеет теперь другой тип
+-   Удален prop collapsible, вместо него теперь отдельный компонент TabsCollapsible (@alfalab/core-components/tabs/collapsible)
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@6.0.0
+    -   shared@0.1.0
+    -   badge@5.2.0
+    -   keyboard-focusable@4.1.0
+    -   mq@4.2.0
+    -   picker-button@11.0.0
+
+## 7.7.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.30
+
+## 7.7.1
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   badge@5.1.1
+    -   keyboard-focusable@4.0.7
+    -   picker-button@10.3.29
+    -   tag@5.4.1
+
+## 7.7.0
+
+### Minor Changes
+
+### [#741](https://github.com/core-ds/core-components/pull/741)
+
+-   Перевод corp темизации на bluetint цвета, приведение компонентов Input, Select к core темизации
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@10.3.28
+
 ## 7.6.5
 
 ### Patch Changes

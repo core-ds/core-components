@@ -1,5 +1,36 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@7.0.0
+
+## 4.0.28
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   plate@6.3.20
+
+## 4.0.27
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   plate@6.3.19
+
 ## 4.0.26
 
 ### Patch Changes

@@ -60,24 +60,27 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         },
         ref,
     ) => {
-        const inputRef = useRef<HTMLInputElement>(null);
+        const [inputNode, setInputNode] = useState<HTMLInputElement | null>(null);
         const textMask = useRef<TextMaskInputElement | null>(null);
 
         const [inputValue, setInputValue] = useState(value || defaultValue || '');
         // Не показываем сырое значение до применения маски
         const [textHidden, setTextHidden] = useState(true);
 
-        const update = useCallback((newValue = '') => {
-            if (textMask.current && inputRef.current) {
-                try {
-                    textMask.current.update(newValue);
-                } catch (e) {
-                    // ignore masking errors
-                }
+        const update = useCallback(
+            (newValue = '') => {
+                if (textMask.current && inputNode) {
+                    try {
+                        textMask.current.update(newValue);
+                    } catch (e) {
+                        // ignore masking errors
+                    }
 
-                setInputValue(inputRef.current.value);
-            }
-        }, []);
+                    setInputValue(inputNode.value);
+                }
+            },
+            [inputNode],
+        );
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -101,10 +104,10 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         );
 
         useEffect(() => {
-            if (inputRef.current) {
+            if (inputNode) {
                 textMask.current = createTextMaskInputElement({
                     mask,
-                    inputElement: inputRef.current,
+                    inputElement: inputNode,
                     pipe: onBeforeDisplay,
                     guide: false,
                     keepCharPositions,
@@ -115,7 +118,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                     previousConformedValue: '',
                 });
             }
-        }, [onBeforeDisplay, mask, keepCharPositions]);
+        }, [onBeforeDisplay, mask, keepCharPositions, inputNode]);
 
         useEffect(() => {
             update(value || defaultValue);
@@ -132,7 +135,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                 value={inputValue}
                 onChange={handleInputChange}
                 onClear={handleClear}
-                ref={mergeRefs([ref, inputRef])}
+                ref={mergeRefs([ref, setInputNode])}
             />
         );
     },

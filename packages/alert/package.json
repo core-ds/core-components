@@ -1,14 +1,11 @@
 {
     "name": "@alfalab/core-components-alert",
-    "version": "4.0.26",
+    "version": "4.1.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -17,7 +14,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-plate": "^6.3.18",
+        "@alfalab/core-components-plate": "^7.0.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }

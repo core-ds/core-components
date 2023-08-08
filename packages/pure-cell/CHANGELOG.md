@@ -1,5 +1,59 @@
 # Change Log
 
+## 4.4.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   typography@4.0.0
+    -   amount@3.3.0
+    -   button@9.0.0
+    -   comment@2.2.0
+
+## 4.3.2
+
+### Patch Changes
+
+### [#776](https://github.com/core-ds/core-components/pull/776)
+
+-   Добавлена возможность передавать дополнительные props в компонент PureCell
+
+## 4.3.1
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   amount@3.2.2
+    -   button@8.5.1
+    -   comment@2.1.11
+    -   typography@3.2.2
+
+## 4.3.0
+
+### Minor Changes
+
+### [#753](https://github.com/core-ds/core-components/pull/753)
+
+-   Добавлен пропс className в слот main
+
+## 4.2.14
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@8.5.0
+
 ## 4.2.13
 
 ### Patch Changes

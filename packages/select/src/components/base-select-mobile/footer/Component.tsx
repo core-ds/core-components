@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
-import { Button } from '@alfalab/core-components-button';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import styles from './index.module.css';
 
@@ -28,14 +28,19 @@ export const Footer = ({ handleApply, handleClear, showClear }: FooterProps) => 
             })}
         >
             {showClear && (
-                <Button size='s' view='secondary' className={styles.button} onClick={handleClear}>
+                <ButtonMobile
+                    size='m'
+                    view='secondary'
+                    className={styles.button}
+                    onClick={handleClear}
+                >
                     Сбросить
-                </Button>
+                </ButtonMobile>
             )}
 
-            <Button size='s' view='primary' className={styles.button} onClick={handleApply}>
+            <ButtonMobile size='m' view='primary' className={styles.button} onClick={handleApply}>
                 Применить
-            </Button>
+            </ButtonMobile>
         </div>
     );
 };

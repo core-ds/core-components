@@ -44,13 +44,13 @@ Object {
             <span
               class="size"
             >
-              43.95 KB
+              43.95 КБ
             </span>
           </div>
         </div>
         <a
           aria-label="скачать"
-          class="component ghost s component ghost cc-icon-button download primary component"
+          class="component ghost s s component ghost component ghost cc-icon-button download primary component"
           download="новое_название_файла"
           href="/link"
         >
@@ -78,7 +78,7 @@ Object {
         </a>
         <button
           aria-label="удалить"
-          class="component ghost s component ghost cc-icon-button delete primary component"
+          class="component ghost s s component ghost component ghost cc-icon-button delete primary component"
           type="button"
         >
           <span
@@ -146,13 +146,13 @@ Object {
           <span
             class="size"
           >
-            43.95 KB
+            43.95 КБ
           </span>
         </div>
       </div>
       <a
         aria-label="скачать"
-        class="component ghost s component ghost cc-icon-button download primary component"
+        class="component ghost s s component ghost component ghost cc-icon-button download primary component"
         download="новое_название_файла"
         href="/link"
       >
@@ -180,7 +180,7 @@ Object {
       </a>
       <button
         aria-label="удалить"
-        class="component ghost s component ghost cc-icon-button delete primary component"
+        class="component ghost s s component ghost component ghost cc-icon-button delete primary component"
         type="button"
       >
         <span

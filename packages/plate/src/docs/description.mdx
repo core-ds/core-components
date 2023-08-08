@@ -10,93 +10,109 @@
 
 Для плашки можно включить скругление и обводку. Наличие скругления влияет на формат обводки.
 
-```jsx live
-<Space fullWidth>
-    <Plate
-        view='positive'
-        title='Компонент плашки'
-        border={false}
-        subAddons={[<Button>Подробнее</Button>]}
-        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-    />
-    <Plate
-        view='positive'
-        title='Компонент плашки'
-        subAddons={[<Button>Подробнее</Button>]}
-        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-    />
-    <Plate
-        view='positive'
-        title='Компонент плашки'
-        rounded={false}
-        border={false}
-        subAddons={[<Button>Подробнее</Button>]}
-        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-    />
-    <Plate
-        view='positive'
-        title='Компонент плашки'
-        rounded={false}
-        subAddons={[<Button>Подробнее</Button>]}
-        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-    />
-</Space>
+```jsx live mobileHeight={510}
+render(() => {
+    const isMobile = document.body.clientWidth < 450;
+    return (
+        <Space fullWidth>
+            <Plate
+                view='positive'
+                title='Компонент плашки'
+                border={false}
+                subAddons={!isMobile && [<Button>Подробнее</Button>]}
+                buttons={isMobile && [<Button>Подробнее</Button>]}
+                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+            />
+            <Plate
+                view='positive'
+                title='Компонент плашки'
+                subAddons={!isMobile && [<Button>Подробнее</Button>]}
+                buttons={isMobile && [<Button>Подробнее</Button>]}
+                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+            />
+            <Plate
+                view='positive'
+                title='Компонент плашки'
+                rounded={false}
+                border={false}
+                subAddons={!isMobile && [<Button>Подробнее</Button>]}
+                buttons={isMobile && [<Button>Подробнее</Button>]}
+                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+            />
+            <Plate
+                view='positive'
+                title='Компонент плашки'
+                rounded={false}
+                subAddons={!isMobile && [<Button>Подробнее</Button>]}
+                buttons={isMobile && [<Button>Подробнее</Button>]}
+                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+            />
+        </Space>
+    );
+});
 ```
 
 ### Фон
 
 Компоненту может быть задан произвольный фон с использованием токенов из набора bg или передано фоновое изображение. При необходимости для плашки может быть включена тень.
 
-```jsx live
-<Space fullWidth>
-    <Plate
-        view='positive'
-        hasCloser
-        title='Компонент плашки'
-        subAddons={[<Button>Подробнее</Button>, <Button>Хорошо</Button>]}
-        leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-    />
+```jsx live mobileHeight={560}
+render(() => {
+    const isMobile = document.body.clientWidth < 450;
+    return (
+        <Space fullWidth>
+            <Plate
+                view='positive'
+                hasCloser
+                title='Компонент плашки'
+                subAddons={!isMobile && [<Button>Подробнее</Button>, <Button>Хорошо</Button>]}
+                buttons={isMobile && [<Button>Подробнее</Button>, <Button>Хорошо</Button>]}
+                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+            />
 
-    <Plate
-        view='negative'
-        hasCloser
-        title='Компонент плашки'
-        subAddons={[<Button>Хорошо</Button>]}
-        leftAddons={<Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />}
-    />
+            <Plate
+                view='negative'
+                hasCloser
+                title='Компонент плашки'
+                subAddons={!isMobile && [<Button>Хорошо</Button>]}
+                buttons={isMobile && [<Button>Хорошо</Button>]}
+                leftAddons={<Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />}
+            />
 
-    <Plate
-        view='attention'
-        hasCloser
-        title='Компонент плашки'
-        leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}
-    />
-    <Plate
-        view='common'
-        hasCloser
-        title='Компонент плашки'
-        leftAddons={
-            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-        }
-    />
-    <Plate
-        view='custom'
-        hasCloser
-        title='Компонент плашки'
-        leftAddons={
-            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-        }
-    />
-    <Plate
-        view='custom'
-        hasCloser
-        title='Компонент плашки'
-        className='plateGlobal'
-        leftAddons={
-            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-        }
-    />
-</Space>
+            <Plate
+                view='attention'
+                hasCloser
+                title='Компонент плашки'
+                leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}
+            />
+            <Plate
+                view='common'
+                hasCloser
+                title='Компонент плашки'
+                leftAddons={
+                    <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
+                }
+            />
+            <Plate
+                view='custom'
+                hasCloser
+                title='Компонент плашки'
+                leftAddons={
+                    <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
+                }
+            />
+            <Plate
+                view='custom'
+                hasCloser
+                title='Компонент плашки'
+                className='plateGlobal'
+                leftAddons={
+                    <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
+                }
+            />
+        </Space>
+    );
+});
 ```
 
 ### Механики

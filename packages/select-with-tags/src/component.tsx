@@ -7,7 +7,7 @@ import {
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
     OptionsList as DefaultOptionsList,
-} from '@alfalab/core-components-select';
+} from '@alfalab/core-components-select/shared';
 
 import { TagList } from './components';
 import { SelectWithTagsProps } from './types';
@@ -35,6 +35,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             transformCollapsedTagText,
             transformTagText,
             Tag,
+            breakpoint,
             ...restProps
         },
         ref,
@@ -138,6 +139,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     transformTagText,
                     handleUpdatePopover,
                     isPopoverOpen,
+                    breakpoint,
                 }}
                 selected={selected || selectedTags}
                 autocomplete={isAutocomplete}

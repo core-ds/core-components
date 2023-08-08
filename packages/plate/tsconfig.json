@@ -6,10 +6,9 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [
-      { "path": "../button" }, { "path": "../icon-button" }
-    ]
+    "references": [{ "path": "../button" }, { "path": "../icon-button" }, { "path": "../mq" }]
 }

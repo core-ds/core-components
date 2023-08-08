@@ -1,5 +1,79 @@
 # Change Log
 
+## 9.0.0
+
+### Major Changes
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Утилиты и константы экспортируются из shared
+
+### [#702](https://github.com/core-ds/core-components/pull/702)
+
+-   Удалена responsive точка входа. (В проектах нужно заменить импорт @alfalab/core-components-calendar/responsive на @alfalab/core-components-calendar)
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.0
+    -   date-input@4.3.0
+    -   popover@6.1.0
+
+## 8.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.6.2
+
+## 8.3.0
+
+### Minor Changes
+
+### [#756](https://github.com/core-ds/core-components/pull/756)
+
+-   Добавлены два коллбэка - onCalendarOpen и onCalendarClose
+
+### [#768](https://github.com/core-ds/core-components/pull/768)
+
+-   В компоненты CalendarInput, DateRangeInput, DateTimeInput добавлен проп disableUserInput отвечающий за запрет ввода с клавиатуры
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   calendar@6.6.1
+    -   date-input@4.2.10
+    -   popover@6.0.9
+
+## 8.2.29
+
+### Patch Changes
+
+### [#752](https://github.com/core-ds/core-components/pull/752)
+
+-   Свойство inputClassName передано компоненту инпута
+
+-   Обновлены зависимости
+    -   calendar@6.6.0
+
+## 8.2.28
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@6.5.2
+    -   date-input@4.2.9
+
 ## 8.2.27
 
 ### Patch Changes

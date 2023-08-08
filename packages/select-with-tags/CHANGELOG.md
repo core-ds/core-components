@@ -1,5 +1,47 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.0.0
+    -   tag@6.0.0
+    -   form-control@10.0.0
+
+## 7.0.43
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.3.5
+
+## 7.0.42
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   form-control@9.0.6
+    -   select@14.3.4
+    -   tag@5.4.1
+
+## 7.0.41
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@14.3.3
+
 ## 7.0.40
 
 ### Patch Changes

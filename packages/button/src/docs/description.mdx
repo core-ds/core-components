@@ -4,24 +4,38 @@
 <Container>
     <Row align='middle'>
         <Col>
-            <Button view='accent'>Accent</Button>
+            <ButtonDesktop view='accent'>Accent</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='primary'>Primary</Button>
+            <ButtonDesktop view='primary'>Primary</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='secondary'>Secondary</Button>
+            <ButtonDesktop view='secondary'>Secondary</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='tertiary'>Tertiary</Button>
+            <ButtonDesktop view='tertiary'>Tertiary</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='link'>Link</Button>
+            <ButtonDesktop view='link'>Link</ButtonDesktop>
         </Col>
         <Col>
-            <Button view='ghost'>Ghost</Button>
+            <ButtonDesktop view='ghost'>Ghost</ButtonDesktop>
         </Col>
     </Row>
+</Container>
+//MOBILE
+<Container>
+    <ButtonMobile block={true} view='accent'>Accent</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='primary'>Primary</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='secondary'>Secondary</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='tertiary'>Tertiary</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='link'>Link</ButtonMobile>
+        <Gap size='m' />
+    <ButtonMobile block={true} view='ghost'>Ghost</ButtonMobile>
 </Container>
 ```
 
@@ -37,13 +51,28 @@ render(
         <Row>
             {SIZES.map((size) => (
                 <Col key={size}>
-                    <Button size={size} view='primary'>
-                        Label
-                    </Button>
+                    <ButtonDesktop size={size} view='primary'>
+                        {`${size.toUpperCase()}-size`}
+                    </ButtonDesktop>
                 </Col>
             ))}
         </Row>
     </Container>,
+);
+//MOBILE
+const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+
+render(
+    <Container>
+        {SIZES.map((size) => (
+        <>
+            <ButtonMobile block={true} size={size} view='primary'>
+                {`${size.toUpperCase()}-size`}
+            </ButtonMobile>
+            <Gap size='m' />
+        </>
+        ))}
+    </Container>
 );
 ```
 
@@ -56,18 +85,35 @@ render(
 <Container>
     <Row>
         <Col>
-            <Button>0</Button>
+            <ButtonDesktop>0</ButtonDesktop>
         </Col>
     </Row>
     <Row>
         <Col>
-            <Button>Очень длинный лейбл</Button>
+            <ButtonDesktop>Очень длинный лейбл</ButtonDesktop>
         </Col>
     </Row>
     <br />
-    <Button block={true} size='m' nowrap={true}>
+    <ButtonDesktop block={true} size='m' nowrap={true}>
         Занимает всю ширину контейнера
-    </Button>
+    </ButtonDesktop>
+</Container>
+//MOBILE
+<Container>
+    <Row>
+        <Col>
+            <ButtonMobile>0</ButtonMobile>
+        </Col>
+    </Row>
+    <Row>
+        <Col>
+            <ButtonMobile>Очень длинный лейбл</ButtonMobile>
+        </Col>
+    </Row>
+    <br />
+    <ButtonMobile block={true} size='m' nowrap={true}>
+        Занимает всю ширину контейнера
+    </ButtonMobile>
 </Container>
 ```
 
@@ -90,15 +136,59 @@ render(() => {
         <Container>
             <Row>
                 <Col>
-                    <Button
+                    <ButtonDesktop
                         leftAddons={leftAddons && <StarMIcon />}
                         rightAddons={rightAddons && <StarMIcon />}
                         view='primary'
                     >
                         {label && 'Label'}
-                    </Button>
+                    </ButtonDesktop>
                 </Col>
             </Row>
+
+            <Row align='middle'>
+                <Switch label={<span>Label</span>} checked={label} onChange={handleLabelChange} />
+            </Row>
+
+            <Row align='middle'>
+                <Switch
+                    label={<span>LeftAddons</span>}
+                    checked={leftAddons}
+                    onChange={handleLeftAddonsChange}
+                />
+            </Row>
+
+            <Row align='middle'>
+                <Switch
+                    label={<span>RightAddons</span>}
+                    checked={rightAddons}
+                    onChange={handleRightAddonsChange}
+                />
+            </Row>
+        </Container>
+    );
+});
+//MOBILE
+render(() => {
+    const [label, setLabel] = React.useState(true);
+    const [leftAddons, setLeftAddonsl] = React.useState(false);
+    const [rightAddons, setRightAddons] = React.useState(false);
+
+    const handleLabelChange = () => setLabel(!label);
+    const handleLeftAddonsChange = () => setLeftAddonsl(!leftAddons);
+    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
+
+    return (
+        <Container>
+
+            <ButtonMobile
+                leftAddons={leftAddons && <StarMIcon />}
+                rightAddons={rightAddons && <StarMIcon />}
+                view='primary'
+                block={true}
+            >
+                {label && 'Label'}
+            </ButtonMobile>
 
             <Row align='middle'>
                 <Switch label={<span>Label</span>} checked={label} onChange={handleLabelChange} />
@@ -137,9 +227,32 @@ render(() => {
     return (
         <Container>
             <div style={{ display: 'flex', width: '180px' }}>
-                <Button view='primary' nowrap={checked}>
+                <ButtonDesktop view='primary' nowrap={checked}>
                     Пример длинного текста
-                </Button>
+                </ButtonDesktop>
+            </div>
+            <Row align='middle'>
+                <Switch
+                    label={<span>Запретить перенос строки</span>}
+                    checked={checked}
+                    onChange={handleChange}
+                />
+            </Row>
+        </Container>
+    );
+});
+//MOBILE
+render(() => {
+    const [checked, setChecked] = React.useState(true);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Container>
+            <div style={{ display: 'flex', width: '180px' }}>
+                <ButtonMobile view='primary' nowrap={checked}>
+                    Пример длинного текста
+                </ButtonMobile>
             </div>
             <Row align='middle'>
                 <Switch
@@ -176,24 +289,60 @@ render(() => {
         <Container>
             <Row align='middle'>
                 <Col>
-                    <Button
+                    <ButtonDesktop
                         view='primary'
                         loading={loading.primary}
                         onClick={() => handleClick('primary', 30)}
                     >
                         Быстрый запрос (30ms)
-                    </Button>
+                    </ButtonDesktop>
                 </Col>
                 <Col>
-                    <Button
+                    <ButtonDesktop
                         view='secondary'
                         loading={loading.secondary}
                         onClick={() => handleClick('secondary', 1500)}
                     >
                         Долгий запрос (1500ms)
-                    </Button>
+                    </ButtonDesktop>
                 </Col>
             </Row>
+        </Container>
+    );
+});
+//MOBILE
+render(() => {
+    const [loading, setLoading] = React.useState({
+        primary: false,
+        secondary: false,
+    });
+
+    const handleClick = (buttonName, timeout) => {
+        setLoading({ ...loading, [buttonName]: true });
+        setTimeout(() => {
+            setLoading({ ...loading, [buttonName]: false });
+        }, timeout);
+    };
+
+    return (
+        <Container>
+            <ButtonMobile
+                view='primary'
+                loading={loading.primary}
+                block={true}
+                onClick={() => handleClick('primary', 30)}
+            >
+                Быстрый запрос (30ms)
+            </ButtonMobile>
+            <Gap size='m' />
+            <ButtonMobile
+                view='secondary'
+                loading={loading.secondary}
+                block={true}
+                onClick={() => handleClick('secondary', 1500)}
+            >
+                Долгий запрос (1500ms)
+            </ButtonMobile>
         </Container>
     );
 });
@@ -207,18 +356,24 @@ render(() => {
 <Container>
     <Row align='middle'>
         <Col>
-            <Button view='primary' href='https://alfabank.ru' target='_blank'>
+            <ButtonDesktop view='primary' href='https://alfabank.ru' target='_blank'>
                 Кнопка-ссылка
-            </Button>
+            </ButtonDesktop>
         </Col>
     </Row>
+</Container>
+//MOBILE
+<Container>
+    <ButtonMobile block={true} view='primary' href='https://alfabank.ru' target='_blank'>
+        Кнопка-ссылка
+    </ButtonMobile>
 </Container>
 ```
 
 ## Другие кнопки
 
-Если нужна кнопка с одной иконкой, но без подложки, используйте <a href="/docs/iconbutton--icon-button">IconButton</a>.
+Если нужна кнопка с одной иконкой, но без подложки, используйте [IconButton](/docs/iconbutton--docs).
 
-Если нужна кнопка с другим цветом фона, используйте <a href="/docs/custombutton--custom-button">CustomButton</a>.
+Если нужна кнопка с другим цветом фона, используйте [CustomButton](/docs/custombutton--docs).
 
-Если нужна кнопка с выпадающим списком, используйте <a href="/docs/pickerbutton--picker-button">PickerButton</a>.
+Если нужна кнопка с выпадающим списком, используйте [PickerButton](/docs/pickerbutton--docs).

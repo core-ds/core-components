@@ -1,0 +1,102 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: var(--toast-plate-border-radius);
+    min-height: 56px;
+    padding: var(--gap-m);
+
+    &.hasCloser {
+        /* 2×16 + 24 */
+        padding-right: 56px;
+    }
+}
+
+.wrapper {
+    display: flex;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+.block {
+    display: flex;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    &.direction {
+        flex-direction: column;
+    }
+
+    &.hasCloser:not(.hasActionButton) {
+        padding-right: var(--toast-plate-content-with-closer-right-padding);
+    }
+}
+
+.actionSection {
+    display: flex;
+    padding: var(--toast-plate-action-padding);
+    flex-shrink: 0;
+
+    &:not(.hasCloser) {
+        padding-right: 0;
+    }
+
+    &.bottomButton {
+        padding: var(--toast-plate-action-bottom-padding);
+    }
+}
+
+.leftAddons {
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+    padding-right: var(--gap-s);
+}
+
+.contentTitle {
+    padding: var(--gap-3xs) 0;
+}
+
+.children {
+    @mixin paragraph_primary_small;
+
+    word-break: break-word;
+}
+
+.title + .children {
+    margin-top: var(--gap-2xs);
+}
+
+.closeButtonWrapper {
+    position: absolute;
+    top: var(--gap-2xs);
+    bottom: var(--gap-2xs);
+    right: var(--gap-2xs);
+
+    &:before {
+        display: var(--toast-plate-action-divider-display);
+        position: absolute;
+        right: 51px;
+        top: var(--gap-s);
+        bottom: var(--gap-s);
+        width: 1px;
+        content: '';
+    }
+}
+
+.closeButton {
+    display: flex;
+    height: 100%;
+}

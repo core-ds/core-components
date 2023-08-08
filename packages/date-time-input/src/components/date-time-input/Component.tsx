@@ -4,6 +4,7 @@ import React, {
     ChangeEvent,
     ElementType,
     FocusEvent,
+    KeyboardEvent,
     MouseEvent,
     useEffect,
     useRef,
@@ -12,14 +13,11 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import {
-    Calendar as DefaultCalendar,
-    CalendarMobileProps,
-    CalendarProps,
-    dateInLimits,
-} from '@alfalab/core-components-calendar';
+import type { CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
+import type { CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
+import { dateInLimits } from '@alfalab/core-components-calendar/shared';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { InputProps } from '@alfalab/core-components-input';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
@@ -83,7 +81,7 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Доп. пропсы для календаря
      */
     calendarProps?:
-        | (CalendarProps & Record<string, unknown>)
+        | (CalendarDesktopProps & Record<string, unknown>)
         | (CalendarMobileProps & Record<string, unknown>);
 
     /**
@@ -146,6 +144,16 @@ export type DateTimeInputProps = Omit<InputProps, 'onChange'> & {
      * Отображение компонента в мобильном или десктопном виде
      */
     view?: 'desktop' | 'mobile';
+
+    /**
+     * Компонент инпута
+     */
+    InputComponent?: ElementType;
+
+    /**
+     * Запретить ввод с клавиатуры
+     */
+    disableUserInput?: boolean;
 };
 
 export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputProps>(
@@ -156,6 +164,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             popoverClassName,
             disabled,
             readOnly,
+            disableUserInput = false,
             picker,
             defaultValue = '',
             value: propValue,
@@ -167,7 +176,8 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             popoverPosition = 'bottom-start',
             zIndexPopover,
             preventFlip,
-            Calendar = DefaultCalendar,
+            InputComponent,
+            Calendar,
             calendarProps = {},
             defaultMonth,
             minDate = calendarProps.minDate,
@@ -302,6 +312,14 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             setValue('');
         };
 
+        const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+            const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
+
+            if (disableUserInput && !isCopy) {
+                event.preventDefault();
+            }
+        };
+
         const handleCalendarChange = (date?: number) => {
             if (date) {
                 const newValue = parseTimestampToDate(date);
@@ -324,25 +342,26 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             }
         };
 
-        const renderCalendar = () => (
-            // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-            <div onMouseDown={handleCalendarWrapperMouseDown}>
-                <Calendar
-                    {...calendarProps}
-                    responsive={calendarResponsive}
-                    open={open}
-                    onClose={handleMobileCalendarClose}
-                    ref={calendarRef}
-                    defaultMonth={defaultMonth}
-                    value={checkInputValueIsValid(value) ? calendarValue : undefined}
-                    onChange={handleCalendarChange}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    offDays={offDays}
-                    events={events}
-                />
-            </div>
-        );
+        const renderCalendar = () =>
+            Calendar ? (
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+                <div onMouseDown={handleCalendarWrapperMouseDown}>
+                    <Calendar
+                        {...calendarProps}
+                        responsive={calendarResponsive}
+                        open={open}
+                        onClose={handleMobileCalendarClose}
+                        ref={calendarRef}
+                        defaultMonth={defaultMonth}
+                        value={checkInputValueIsValid(value) ? calendarValue : undefined}
+                        onChange={handleCalendarChange}
+                        minDate={minDate}
+                        maxDate={maxDate}
+                        offDays={offDays}
+                        events={events}
+                    />
+                </div>
+            ) : null;
 
         return (
             <div
@@ -352,31 +371,34 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                 onFocus={inputDisabled ? undefined : handleInputWrapperFocus}
                 onBlur={handleBlur}
             >
-                <Input
-                    {...restProps}
-                    block={block}
-                    ref={mergeRefs([ref, inputRef])}
-                    value={value}
-                    onChange={handleChange}
-                    disabled={disabled}
-                    readOnly={readOnly}
-                    className={inputClassName}
-                    onClear={handleClear}
-                    error={error}
-                    rightAddons={
-                        <React.Fragment>
-                            {rightAddons}
-                            {picker && (
-                                <IconButton
-                                    className={styles.calendarIcon}
-                                    onClick={inputDisabled ? undefined : handleIconButtonClick}
-                                    icon={CalendarMIcon}
-                                    size='s'
-                                />
-                            )}
-                        </React.Fragment>
-                    }
-                />
+                {InputComponent ? (
+                    <InputComponent
+                        {...restProps}
+                        block={block}
+                        ref={mergeRefs([ref, inputRef])}
+                        value={value}
+                        onChange={handleChange}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        className={inputClassName}
+                        onClear={handleClear}
+                        onKeyDown={handleInputKeyDown}
+                        error={error}
+                        rightAddons={
+                            <React.Fragment>
+                                {rightAddons}
+                                {picker && (
+                                    <IconButton
+                                        className={styles.calendarIcon}
+                                        onClick={inputDisabled ? undefined : handleIconButtonClick}
+                                        icon={CalendarMIcon}
+                                        size='s'
+                                    />
+                                )}
+                            </React.Fragment>
+                        }
+                    />
+                ) : null}
                 {picker && (
                     <Popover
                         open={open}

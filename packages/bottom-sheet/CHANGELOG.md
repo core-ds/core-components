@@ -1,5 +1,55 @@
 # Change Log
 
+## 6.6.0
+
+### Minor Changes
+
+### [#731](https://github.com/core-ds/core-components/pull/731)
+
+-   Добавлены пропсы onOffsetChange, onMagnetizeEnd, swipeableContent, swipeThreshold, headerOffset
+-   Исправлена ошибка, из-за которой компонент закрывался после события скролла.
+-   Исправлена ошибка, из-за которой шторка неверно позиционировалась после свайпа влево/вправо
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.1.0
+    -   backdrop@3.1.0
+    -   base-modal@5.3.0
+    -   navigation-bar@0.4.0
+
+## 6.5.0
+
+### Minor Changes
+
+### [#780](https://github.com/core-ds/core-components/pull/780)
+
+-   Добавлены пропсы keepMounted, disableAutofocus, disableRestoreFocus, disableEscapeKeyDown
+
+## 6.4.2
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   backdrop@3.0.7
+    -   base-modal@5.2.1
+    -   navigation-bar@0.3.7
+
+## 6.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.6
+
 ## 6.4.0
 
 ### Minor Changes

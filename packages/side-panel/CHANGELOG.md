@@ -1,5 +1,53 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+### [#703](https://github.com/core-ds/core-components/pull/703)
+
+-   Кастомный js скроллбар заменен на css версию
+
+### [#707](https://github.com/core-ds/core-components/pull/707)
+
+-   Удалена responsive точка входа
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   drawer@5.0.0
+    -   shared@0.1.0
+    -   base-modal@5.3.0
+    -   mq@4.2.0
+    -   navigation-bar@0.4.0
+
+## 3.0.16
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   base-modal@5.2.1
+    -   drawer@4.2.12
+    -   mq@4.1.5
+    -   navigation-bar@0.3.7
+
+## 3.0.15
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.3.6
+
 ## 3.0.14
 
 ### Patch Changes

@@ -2,7 +2,7 @@
 
 Группа чекбоксов используется когда пользователю доступно несколько вариантов выбора.
 Обычно от двух до пяти. Если вариантов больше, возможно следует использовать другой контрол,
-например [Select](?path=/docs/components-select--docs).
+например [Select](?path=/docs/select--docs).
 
 Для выбора пункта необходимо кликнуть по названию пункта или по чекбоксу. Повторное нажатие снимет выбор.
 
@@ -25,7 +25,7 @@ render(() => {
 
     return (
         <div style={{ width: '100%' }}>
-            <CheckboxGroup
+            <CheckboxGroupDesktop
                 label='Планеты расположенные между Землёй и Солнцем'
                 direction='horizontal'
                 onChange={onChange}
@@ -35,7 +35,43 @@ render(() => {
                 <Checkbox label='Меркурий' name='one' checked={value.one} size='m' />
                 <Checkbox label='Венера' name='two' checked={value.two} size='m' />
                 <Checkbox label='Нептун' name='three' checked={value.three} size='m' />
-            </CheckboxGroup>
+            </CheckboxGroupDesktop>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Правильный ответ: Венера и Меркурий')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState({ one: false, two: false, three: false });
+    const [error, setError] = React.useState(false);
+
+    const onChange = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.checked });
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <CheckboxGroupMobile
+                label='Планеты расположенные между Землёй и Солнцем'
+                direction='horizontal'
+                onChange={onChange}
+                hint='Выберите несколько планет'
+                error={error}
+            >
+                <Checkbox label='Меркурий' name='one' checked={value.one} size='m' />
+                <Checkbox label='Венера' name='two' checked={value.two} size='m' />
+                <Checkbox label='Нептун' name='three' checked={value.three} size='m' />
+            </CheckboxGroupMobile>
 
             <Gap size='2xl' />
 
@@ -73,7 +109,7 @@ render(() => {
 
     return (
         <div style={{ width: '100%' }}>
-            <CheckboxGroup
+            <CheckboxGroupDesktop
                 label='Выберите планеты земной группы'
                 onChange={onChange}
                 hint='Несколько из этих планет принадлежат земной группе'
@@ -84,7 +120,50 @@ render(() => {
                 <Checkbox label='Меркурий' name='three' checked={value.three} size='m' />
                 <Checkbox label='Сатурн' name='four' checked={value.four} size='m' />
                 <Checkbox label='Нептун' name='five' checked={value.five} size='m' />
-            </CheckboxGroup>
+            </CheckboxGroupDesktop>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Правильный ответ: Марс и Меркурий')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState({
+        one: false,
+        two: false,
+        three: false,
+        four: false,
+        five: false,
+    });
+    const [error, setError] = React.useState(false);
+
+    const onChange = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.checked });
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <CheckboxGroupMobile
+                label='Выберите планеты земной группы'
+                onChange={onChange}
+                hint='Несколько из этих планет принадлежат земной группе'
+                error={error}
+            >
+                <Checkbox label='Марс' name='one' checked={value.one} size='m' />
+                <Checkbox label='Юпитер' name='two' checked={value.two} size='m' />
+                <Checkbox label='Меркурий' name='three' checked={value.three} size='m' />
+                <Checkbox label='Сатурн' name='four' checked={value.four} size='m' />
+                <Checkbox label='Нептун' name='five' checked={value.five} size='m' />
+            </CheckboxGroupMobile>
 
             <Gap size='2xl' />
 
@@ -118,7 +197,7 @@ render(() => {
 
     return (
         <div style={{ width: '100%' }}>
-            <CheckboxGroup
+            <CheckboxGroupDesktop
                 label='Выберите один или несколько вариантов'
                 onChange={onChange}
                 direction='horizontal'
@@ -138,7 +217,53 @@ render(() => {
                 <Tag name='four' checked={value.four}>
                     Вариант 4
                 </Tag>
-            </CheckboxGroup>
+            </CheckboxGroupDesktop>
+
+            <Gap size='2xl' />
+
+            <Space direction='horizontal' wrap={true}>
+                <Button size='xxs' onClick={() => setError(false)}>
+                    По умолчанию
+                </Button>
+                <Button size='xxs' onClick={() => setError('Error message')}>
+                    Состояние ошибки
+                </Button>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState({ one: false, two: false, three: false, four: false });
+    const [error, setError] = React.useState(false);
+
+    const onChange = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.checked });
+    };
+
+    return (
+        <div style={{ width: '100%' }}>
+            <CheckboxGroupMobile
+                label='Выберите один или несколько вариантов'
+                onChange={onChange}
+                direction='horizontal'
+                type='tag'
+                hint='Выберите один из вариантов'
+                error={error}
+            >
+                <Tag name='one' checked={value.one}>
+                    Вариант 1
+                </Tag>
+                <Tag name='two' checked={value.two}>
+                    Вариант 2
+                </Tag>
+                <Tag name='three' checked={value.three}>
+                    Вариант 3
+                </Tag>
+                <Tag name='four' checked={value.four}>
+                    Вариант 4
+                </Tag>
+            </CheckboxGroupMobile>
 
             <Gap size='2xl' />
 

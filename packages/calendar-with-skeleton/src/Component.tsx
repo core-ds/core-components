@@ -2,12 +2,12 @@ import React, { forwardRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
-import { Calendar, CalendarProps } from '@alfalab/core-components-calendar';
+import { CalendarDesktop, CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import styles from './index.module.css';
 
-export type CalendarWithSkeletonProps = CalendarProps & {
+export type CalendarWithSkeletonProps = CalendarDesktopProps & {
     /**
      * Флаг включения анимации скелета
      */
@@ -29,7 +29,7 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
                     [styles.calendarVisible]: calendarVisible,
                 })}
             >
-                {calendarVisible && <Calendar ref={ref} responsive={true} {...restProps} />}
+                {calendarVisible && <CalendarDesktop ref={ref} responsive={true} {...restProps} />}
 
                 <CSSTransition
                     in={!calendarVisible}

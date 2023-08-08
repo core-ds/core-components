@@ -1,13 +1,34 @@
 {
     "name": "@alfalab/core-components-code-input",
-    "version": "2.3.3",
+    "version": "3.0.0",
     "description": "Code input",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "scripts": {
-        "postinstall": "node -e \"if (require('fs').existsSync('./send-stats.js')){require('./send-stats.js')} \""
+    "exports": {
+        ".": {
+            "import": "./esm/index.js",
+            "require": "./index.js"
+        },
+        "./mobile": {
+            "import": "./esm/mobile.js",
+            "require": "./mobile.js"
+        },
+        "./desktop": {
+            "import": "./esm/desktop.js",
+            "require": "./desktop.js"
+        },
+        "./shared": {
+            "import": "./esm/shared.js",
+            "require": "./shared.js"
+        },
+        "./esm": "./esm/index.js",
+        "./cssm": "./cssm/index.js",
+        "./modern": "./modern/index.js",
+        "./esm/*": "./esm/*",
+        "./cssm/*": "./cssm/*",
+        "./modern/*": "./modern/*"
     },
     "publishConfig": {
         "access": "public",
@@ -18,6 +39,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "@alfalab/core-components-mq": "^4.2.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }

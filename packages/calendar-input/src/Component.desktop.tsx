@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 
+import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { DateInputProps } from '@alfalab/core-components-date-input';
 
@@ -8,5 +9,5 @@ import { CalendarInput, CalendarInputProps } from './components/calendar-input/C
 export type CalendarInputDesktopProps = Omit<CalendarInputProps, 'view'>;
 
 export const CalendarInputDesktop = forwardRef<HTMLInputElement, CalendarInputDesktopProps>(
-    (props, ref) => <CalendarInput {...props} ref={ref} />,
+    (props, ref) => <CalendarInput Calendar={CalendarDesktop} {...props} ref={ref} />,
 );

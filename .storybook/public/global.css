@@ -226,7 +226,7 @@ div.sidebar-subheading > button > span:first-of-type {
 /* Заголовки папок */
 .sidebar-container .sidebar-item {
     position: relative;
-    padding: 6px 0 6px 26px;
+    padding: 0;
     color: var(--color-light-text-primary);
     font-weight: 400;
     font-size: 14px;
@@ -239,7 +239,7 @@ div.sidebar-subheading > button > span:first-of-type {
 
 .sidebar-container button.sidebar-item {
     width: 100%;
-    padding-left: 4px;
+    padding: 6px 0 6px 4px;
 }
 
 .sidebar-container .sidebar-item > span:first-child {
@@ -276,6 +276,11 @@ div.sidebar-subheading > button > span:first-of-type {
 
 .sidebar-item {
     border-radius: 6px;
+}
+
+.sidebar-item > a {
+    font-size: 14px;
+    padding: 6px 0 6px 26px;
 }
 
 .sidebar-container .sidebar-item:hover {
@@ -556,9 +561,9 @@ body[data-theme$='-inverted'] .sbdocs-preview {
 
 /* */
 .sidebar-item#components,
-#components--screenshots,
-#components--screenshots-sprite,
-#mobileframe--docs {
+div[data-item-id='components--screenshots'],
+div[data-item-id='components--screenshots-sprite'],
+div[data-item-id='mobileframe--docs'] {
     display: none;
 }
 

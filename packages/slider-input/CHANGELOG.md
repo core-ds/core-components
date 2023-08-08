@@ -1,5 +1,38 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+### [#713](https://github.com/core-ds/core-components/pull/713)
+
+-   Теперь каждый пакет публикуется с исходниками
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.0.0
+    -   slider@4.3.0
+
+## 7.1.22
+
+### Patch Changes
+
+### [#766](https://github.com/core-ds/core-components/pull/766)
+
+-   Удален скрипт отправки статистики (send-stats)
+
+-   Обновлены зависимости
+    -   input@11.1.18
+    -   slider@4.2.2
+
+## 7.1.21
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@11.1.17
+
 ## 7.1.20
 
 ### Patch Changes

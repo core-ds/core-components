@@ -1,16 +1,15 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
-import { Tab as TabTS, TabsDesktop as TabsDesktopTS } from '../desktop';
-import { TabsMobile as TabsMobileTS } from '../mobile';
-import { TabsResponsive as TabsResponsiveTS } from '../responsive';
+import { Tab, TabsDesktop } from '../desktop';
+import { TabsMobile } from '../mobile';
+import { Tabs } from '..';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
 
 ```jsx
 // Импорт адаптивных табов
-import { TabsResponsive, Tab } from '@alfalab/core-components/tabs';
-import { TabsResponsive, Tab } from '@alfalab/core-components/tabs/responsive';
+import { Tabs, Tab } from '@alfalab/core-components/tabs';
 
 // Импорт только десктопных табов
 import { TabsDesktop, Tab } from '@alfalab/core-components/tabs/desktop';
@@ -21,22 +20,22 @@ import { TabsMobile, Tab } from '@alfalab/core-components/tabs/mobile';
 
 ## Tips & Tricks
 
-- Свойство `title` будет использовано для генерации заголовков, а `id` для переключения табов.
+-   Свойство `title` будет использовано для генерации заголовков, а `id` для переключения табов.
 
-- С помощью свойства `disabled` таб можно заблокировать для выбора.
+-   С помощью свойства `disabled` таб можно заблокировать для выбора.
 
-- По умолчанию в DOM рендерится контент только активного таба, с помощью `keepMounted` можно указать, контент каких табов нужно рендерить в любом случае. Контент в таком случае останется невидимым, но всегда будет находиться в DOM.
+-   По умолчанию в DOM рендерится контент только активного таба, с помощью `keepMounted` можно указать, контент каких табов нужно рендерить в любом случае. Контент в таком случае останется невидимым, но всегда будет находиться в DOM.
 
 ## Свойства
 
 <ArgsTable
-        components={{
-            TabsDesktop: TabsDesktopTS,
-            TabsMobile: TabsMobileTS,
-            TabsResponsive: TabsResponsiveTS,
-            Tab: TabTS,
-        }}
-        />
+    components={{
+        TabsDesktop,
+        TabsMobile,
+        TabsResponsive: Tabs,
+        Tab,
+    }}
+/>
 
 ## Переменные
 

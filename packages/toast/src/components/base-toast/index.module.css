@@ -1,0 +1,53 @@
+@import '../../../../themes/src/default.css';
+@import '../../../../toast-plate/src/vars.css';
+
+:root {
+    --toast-box-shadow: var(--shadow-m);
+}
+
+.toastPlate {
+    box-shadow: var(--toast-box-shadow);
+    word-break: break-word;
+}
+
+.title {
+    font-weight: 400;
+}
+
+.popoverInner {
+    border: none;
+    border-radius: var(--toast-plate-border-radius);
+    box-shadow: var(--toast-box-shadow);
+    background-color: transparent;
+}
+
+.block {
+    width: 100%;
+}
+
+.fixed {
+    position: fixed;
+    bottom: var(--gap-2xl);
+
+    &.enter {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    &.enterActive {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    }
+
+    &.exit {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    &.exitActive {
+        opacity: 0;
+        transform: scale(0.98);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    }
+}
