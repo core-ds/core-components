@@ -9,6 +9,7 @@ import { asyncRender } from '../../utils/test-utils';
 
 import { FieldProps as BaseFieldProps, OptionsListProps, OptionProps } from './shared';
 import { SelectDesktop as Select } from './desktop';
+import { SelectMobile } from './mobile';
 
 jest.mock('./components/field', () =>
     Object.assign({}, jest.requireActual('./components/field') as Record<any, any>),
@@ -762,6 +763,20 @@ describe('Select', () => {
             fireEvent.click(getByText(optionToSelect.content));
 
             expect(valueRenderer).toHaveBeenLastCalledWith(expectedCallArgument);
+        });
+    });
+
+    describe('SelectMobile callback tests', () => {
+        it('should call onFocus and onBlur', async () => {
+            const onFocus = jest.fn();
+            const onBlur = jest.fn();
+            render(
+                <SelectMobile {...baseProps} options={options} onFocus={onFocus} onBlur={onBlur} />,
+            );
+            fireEvent.focus(document.querySelector('.field') as HTMLElement);
+            fireEvent.blur(document.querySelector('.field') as HTMLElement);
+            expect(onFocus).toBeCalledTimes(1);
+            expect(onBlur).toBeCalledTimes(1);
         });
     });
 
