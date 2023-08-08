@@ -1,4 +1,10 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
+import React, {
+    AnchorHTMLAttributes,
+    ButtonHTMLAttributes,
+    ElementType,
+    forwardRef,
+    ReactElement,
+} from 'react';
 import cn from 'classnames';
 
 import { Button, ButtonProps } from '@alfalab/core-components-button';
@@ -16,7 +22,7 @@ export type IconButtonProps = {
     /**
      * Компонент иконки
      */
-    icon: ElementType<{ className?: string }>;
+    icon: ElementType<{ className?: string }> | ReactElement;
 
     /**
      * Тип кнопки
@@ -81,7 +87,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             size='s'
         >
             <span className={cn(styles.iconWrapper, styles[size], styles[alignIcon])}>
-                <Icon className={styles.icon} />
+                {React.isValidElement(Icon) ? (
+                    React.cloneElement(Icon, { className: cn(styles.icon, Icon.props.className) })
+                ) : (
+                    <Icon className={styles.icon} />
+                )}
             </span>
         </Button>
     ),
