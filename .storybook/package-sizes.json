@@ -179,6 +179,11 @@
     "masked-input": {
         "index.js": 26.37
     },
+    "markdown": {
+        "desktop.js": 118.93,
+        "index.js": 120.35,
+        "mobile.js": 118.93
+    },
     "loader": {
         "index.js": 1.39
     },
