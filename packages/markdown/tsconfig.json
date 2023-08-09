@@ -13,6 +13,7 @@
         { "path": "../typography" },
         { "path": "../list" },
         { "path": "../link" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../shared" }
     ]
 }

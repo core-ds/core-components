@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
-
-import { isClient } from '../../utils';
+import { isClient } from '@alfalab/core-components-shared';
 
 import { Markdown } from './Component';
 import { MarkdownResponsiveProps } from './typings';
