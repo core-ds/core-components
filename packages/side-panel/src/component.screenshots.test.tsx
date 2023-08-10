@@ -197,11 +197,7 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
-        // TODO моргающий тест
-        matchImageSnapshotOptions: {
-            failureThreshold: 1.2,
-            failureThresholdType: 'percent',
-        },
+        evaluate: (p) => p.waitForTimeout(300),
     }),
 );
 
@@ -230,6 +226,7 @@ describe('SidePanelDesktop', () => {
             screenshotOpts: {
                 fullPage: true,
             },
+            evaluate: (p) => p.waitForTimeout(300),
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
@@ -264,6 +261,7 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        evaluate: (p) => p.waitForTimeout(300),
     }),
 );
 
@@ -312,6 +310,7 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        evaluate: (p) => p.waitForTimeout(300),
     }),
 );
 
@@ -337,6 +336,7 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        evaluate: (p) => p.waitForTimeout(300),
     }),
 );
 
@@ -364,6 +364,7 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        evaluate: (p) => p.waitForTimeout(300),
     }),
 );
 
@@ -390,5 +391,6 @@ describe(
         screenshotOpts: {
             fullPage: true,
         },
+        evaluate: (p) => p.waitForTimeout(300),
     }),
 );

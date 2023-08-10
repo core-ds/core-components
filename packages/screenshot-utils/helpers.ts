@@ -117,7 +117,7 @@ export const matchHtml = async ({
     try {
         expect(image).toMatchImageSnapshot({
             comparisonMethod: 'ssim',
-            failureThreshold: 0.005,
+            failureThreshold: 0.0005,
             failureThresholdType: 'percent',
             customSnapshotIdentifier,
             ...matchImageSnapshotOptions,
