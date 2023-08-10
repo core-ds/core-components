@@ -62,6 +62,10 @@
     height: inherit;
 }
 
+.overflowHidden.overflowHidden {
+    overflow: hidden;
+}
+
 .customScrollbar {
     @mixin custom-scrollbar;
 }

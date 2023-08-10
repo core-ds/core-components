@@ -149,6 +149,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             colorStyles[colors].textarea,
             styles[size],
             {
+                [styles.overflowHidden]: autosize && !maxRows,
                 [styles.customScrollbar]: !nativeScrollbar,
                 [styles.hasInnerLabel]: hasInnerLabel,
                 [colorStyles[colors].hasInnerLabel]: hasInnerLabel,
