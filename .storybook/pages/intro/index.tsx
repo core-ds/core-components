@@ -32,12 +32,12 @@ const PLATE_DATA = [
     {
         title: 'Подключение',
         description: 'Импорты и конфигурация',
-        link: BASE_URL + '?path=/docs/for-users-подключение--docs',
+        link: BASE_URL + '?path=/docs/instructions-installation--docs',
     },
     {
         title: 'Контрибьютинг',
         description: 'Приносите свои реквесты',
-        link: BASE_URL + '?path=/docs/for-contributors-создание-компонентов--docs',
+        link: BASE_URL + '?path=/docs/instructions-contributing--docs',
     },
 ];
 
