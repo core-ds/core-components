@@ -1,7 +1,7 @@
 {
     "name": "@alfalab/core-components-markdown",
     "description": "",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
     "publishConfig": {
