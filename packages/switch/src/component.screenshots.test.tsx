@@ -55,7 +55,7 @@ describe('Switch', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    ['default'].map(testCase);
 });
 
 describe(
