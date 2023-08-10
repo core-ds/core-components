@@ -1,3 +1,17 @@
+## 42.1.0
+
+<sup><time>10.08.2023</time></sup>
+
+### [#767](https://github.com/core-ds/core-components/pull/767)
+
+#### Что изменилось
+- Добавлен новый компонент Markdown
+
+#### Влияние на компоненты
+- Минорное<br />`markdown`
+
+
+
 ## 42.0.0
 
 <sup><time>08.08.2023</time></sup>
