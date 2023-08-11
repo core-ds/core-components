@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
-import { Loader } from '@alfalab/core-components-loader';
+import { Spinner } from '@alfalab/core-components-spinner';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
@@ -50,7 +50,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
                     [styles.typographyTheme]: !mobile,
                 })}
             >
-                <Loader />
+                <Spinner visible={true} />
 
                 <span className={styles.loaderText}>
                     {state === 'CODE_CHECKING' ? texts.codeChecking : texts.codeSending}
