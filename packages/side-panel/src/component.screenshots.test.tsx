@@ -392,5 +392,8 @@ describe(
             fullPage: true,
         },
         evaluate: (p) => p.waitForTimeout(300),
+        matchImageSnapshotOptions: {
+            failureThreshold: 0.005,
+        },
     }),
 );

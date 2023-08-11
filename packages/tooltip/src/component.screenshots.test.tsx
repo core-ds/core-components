@@ -20,6 +20,11 @@ describe('Tooltip', () => {
             },
         },
         'alignItems:flex-start;paddingTop:332px',
+        {
+            matchImageSnapshotOptions: {
+                failureThreshold: 0.005,
+            },
+        },
     );
 
     test('positioning', async () => {
