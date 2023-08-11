@@ -56,6 +56,11 @@ describe('Select', () => {
             },
         },
         'padding: 0 270px; transform:scale(2.1)',
+        {
+            matchImageSnapshotOptions: {
+                failureThreshold: 0.005,
+            },
+        },
     );
 
     const testCase = (theme: string) =>

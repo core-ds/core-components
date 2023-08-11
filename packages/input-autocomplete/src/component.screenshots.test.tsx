@@ -119,6 +119,8 @@ describe('InputAutocompleteModalMobile | interactions', () => {
         try {
             await page.click('[role="combobox"]');
 
+            await page.waitForTimeout(300);
+
             await matchHtml({
                 context,
                 page,
@@ -129,6 +131,8 @@ describe('InputAutocompleteModalMobile | interactions', () => {
             });
 
             await page.fill('input', 'Nep');
+
+            await page.waitForTimeout(300);
 
             await matchHtml({
                 context,
