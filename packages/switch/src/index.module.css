@@ -7,8 +7,8 @@
     --switch-border-color: var(--color-light-graphic-secondary);
 
     /* checked */
-    --switch-checked-bg-color: var(--color-light-graphic-accent);
-    --switch-checked-border-color: var(--color-light-graphic-accent);
+    --switch-checked-bg-color: var(--color-light-graphic-positive);
+    --switch-checked-border-color: transparent;
 
     /* disabled */
     --switch-disabled-color: var(--color-light-text-secondary);

@@ -1,5 +1,0 @@
-@define-mixin switch-click {
-    /* theme */
-    --switch-checked-bg-color: var(--color-light-graphic-positive);
-    --switch-checked-border-color: transparent;
-}
