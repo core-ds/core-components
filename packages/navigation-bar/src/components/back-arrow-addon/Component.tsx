@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { Typography } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
@@ -46,7 +46,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     const Icon = view === 'desktop' ? ArrowLeftMediumMIcon : ArrowLeftMIcon;
 
     return (
-        <Button
+        <ButtonDesktop
             view='ghost'
             size={view === 'mobile' ? 'xxs' : 's'}
             onClick={onClick}
@@ -77,6 +77,6 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
                     </Typography.Text>
                 )}
             </div>
-        </Button>
+        </ButtonDesktop>
     );
 };
