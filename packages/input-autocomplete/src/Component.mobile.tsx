@@ -3,11 +3,11 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
-import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 import { Input as CoreInput } from '@alfalab/core-components-input';
 import { SelectMobile, SelectMobileProps } from '@alfalab/core-components-select/mobile';
 import type {
+    AdditionalMobileProps,
     BaseSelectChangePayload,
     BaseSelectProps,
 } from '@alfalab/core-components-select/shared';
@@ -53,7 +53,7 @@ export type InputAutocompleteMobileProps = Omit<
     /**
      * Дополнительные пропсы компонента BottomSheet
      */
-    bottomSheetProps?: Partial<BottomSheetProps>;
+    bottomSheetProps?: AdditionalMobileProps['bottomSheetProps'];
 
     /**
      * Дополнительные пропсы на слот под заголовком компонента BottomSheet

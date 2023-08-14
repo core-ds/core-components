@@ -7,14 +7,6 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@alfalab/core-components-typography@^3.2.1":
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-typography/-/core-components-typography-3.2.2.tgz#08f605acdb88d24e228c918c422d21283b7e1d93"
-  integrity sha512-vsU+z7VlGz1ixhugqmDVeekpx6Rw+MtrlBjOaz/M2Xk/BNTMaf1sDTJCEYu3cbtpNufRks3z9tdwDJX84BtyJA==
-  dependencies:
-    classnames "^2.3.1"
-    tslib "^2.4.0"
-
 "@alfalab/core-components@>=35.1.0":
   version "41.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components/-/core-components-41.7.0.tgz#86b11140666b454b0393899855e68729e3a862c4"

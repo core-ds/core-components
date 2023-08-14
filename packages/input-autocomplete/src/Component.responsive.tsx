@@ -1,8 +1,6 @@
 import React, { forwardRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { BaseSelectProps } from '@alfalab/core-components-select/shared';
