@@ -10,7 +10,8 @@ import {
 describe('InputAutocomplete', () => {
     createPreview(
         {
-            componentName: 'Select',
+            packageName: 'select',
+            componentName: 'SelectDesktop',
             knobs: {
                 label: 'Автокомплит',
                 size: 'm',
