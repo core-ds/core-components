@@ -31,7 +31,7 @@ import {
         const showPrimaryButton = boolean('showPrimaryButton', true);
         const showSecondaryButton = boolean('showSecondaryButton', true);
         const fullHeight = boolean('fullHeight', false);
-        const breakpoint = number('breakpoint', 1024)
+        const breakpoint = number('breakpoint', 1024);
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
         const renderGraphic = () => {
@@ -87,6 +87,12 @@ import {
                         dataTestId='system-message'
                         fullHeight={fullHeight}
                         breakpoint={breakpoint}
+                        padding={{
+                            top: number('paddingTop', 0),
+                            right: number('paddingRight', 40),
+                            bottom: number('paddingBottom', 0),
+                            left: number('paddingLeft', 40),
+                        }}
                     >
                         {renderGraphic()}
                         {title && (
@@ -108,11 +114,22 @@ import {
                         {controls && (
                             <SystemMessage.Controls direction={controlDirection}>
                                 {showPrimaryButton && (
-                                    <Button size={document.body.clientWidth < 371 ? 'm' : 's'} view='primary' breakpoint={breakpoint}>
+                                    <Button
+                                        size={document.body.clientWidth < 371 ? 'm' : 's'}
+                                        view='primary'
+                                        breakpoint={breakpoint}
+                                    >
                                         Получить код
                                     </Button>
                                 )}
-                                {showSecondaryButton && <Button size={document.body.clientWidth < 371 ? 'm' : 's'} breakpoint={breakpoint}>Отмена</Button>}
+                                {showSecondaryButton && (
+                                    <Button
+                                        size={document.body.clientWidth < 371 ? 'm' : 's'}
+                                        breakpoint={breakpoint}
+                                    >
+                                        Отмена
+                                    </Button>
+                                )}
                             </SystemMessage.Controls>
                         )}
                     </SystemMessage>

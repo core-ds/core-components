@@ -31,3 +31,9 @@
         margin-right: 0;
     }
 }
+
+.stretch {
+    & > * {
+        flex: 1;
+    }
+}

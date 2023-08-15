@@ -99,7 +99,13 @@ describe('SystemMessage ', () => {
         Object.keys(MOBILE_TESTS).forEach((testName) => {
             test(testName, () =>
                 testComponent(
-                    MOBILE_TESTS[testName].knobs,
+                    {
+                        paddingTop: 48,
+                        paddingRight: 0,
+                        paddingBottom: 0,
+                        paddingLeft: 0,
+                        ...MOBILE_TESTS[testName].knobs,
+                    },
                     mobileViewport,
                     MOBILE_TESTS[testName].evaluate,
                 ),

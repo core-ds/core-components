@@ -9,30 +9,35 @@ exports[`SystemMessage Snapshots tests should match snapshot 1`] = `
     <div
       class="component"
       data-test-id="system-message-graphic"
+      style="padding-bottom: 24px;"
     >
       i
     </div>
     <h3
       class="component component"
       data-test-id="system-message-title"
+      style="padding-bottom: 12px;"
     >
       Title
     </h3>
     <span
       class="component"
       data-test-id="system-message-subtitle"
+      style="padding-bottom: 12px;"
     >
       Subtitle
     </span>
     <span
       class="component"
       data-test-id="system-message-caption"
+      style="padding-bottom: 12px;"
     >
       Caption
     </span>
     <div
-      class="component row component"
+      class="component row stretch"
       data-test-id="system-message-controls"
+      style="padding-top: 16px;"
     >
       Buttons
     </div>

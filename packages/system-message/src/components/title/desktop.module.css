@@ -10,6 +10,4 @@
     font-size: var(--sys-message-desktop-title-font-size);
     line-height: var(--sys-message-desktop-title-line-height);
     font-weight: var(--sys-message-desktop-title-font-weight);
-
-    padding-bottom: var(--gap-m);
 }

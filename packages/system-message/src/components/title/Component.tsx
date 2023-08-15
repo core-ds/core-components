@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { createPaddingStyle, getDataTestId } from '@alfalab/core-components-shared';
 
+import { PaddingType } from '../../../../types';
 import { SystemMessageContext } from '../../Context';
 
 import desktopStyles from './desktop.module.css';
@@ -25,10 +26,25 @@ type TitleProps = {
      * Заголовок
      */
     children: React.ReactNode;
+
+    /**
+     * Отступы
+     */
+    padding?: PaddingType;
 };
 
-export const Title: React.FC<TitleProps> = ({ tag = 'h3', className, children }) => {
+const DEFAULT_DESKTOP_PADDING = { bottom: 16 };
+const DEFAULT_MOBILE_PADDING = { bottom: 12 };
+
+export const Title: React.FC<TitleProps> = ({
+    tag = 'h3',
+    className,
+    children,
+    padding: paddingProp,
+}) => {
     const { dataTestId, view } = useContext(SystemMessageContext);
+    const padding =
+        paddingProp ?? (view === 'mobile' ? DEFAULT_MOBILE_PADDING : DEFAULT_DESKTOP_PADDING);
 
     const Component = tag;
 
@@ -39,6 +55,7 @@ export const Title: React.FC<TitleProps> = ({ tag = 'h3', className, children })
                 [mobileStyles.component]: view === 'mobile',
             })}
             data-test-id={getDataTestId(dataTestId, 'title')}
+            style={createPaddingStyle(padding)}
         >
             {children}
         </Component>

@@ -99,3 +99,13 @@ export type GapType =
     | '6xl'
     | '7xl'
     | '8xl';
+
+export type PaddingType =
+    | number
+    | string
+    | {
+          top?: number;
+          right?: number;
+          bottom?: number;
+          left?: number;
+      };

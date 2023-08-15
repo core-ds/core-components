@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { createPaddingStyle, getDataTestId } from '@alfalab/core-components-shared';
 
+import { PaddingType } from '../../../../types';
 import { SystemMessageContext } from '../../Context';
 
 import styles from './index.module.css';
@@ -17,15 +18,27 @@ type CaptionProps = {
      * Дочерние элементы
      */
     children: React.ReactNode;
+
+    /**
+     * Отступы
+     */
+    padding?: PaddingType;
 };
 
-export const Caption: React.FC<CaptionProps> = ({ className, children }) => {
+const DEFAULT_PADDING = { bottom: 12 };
+
+export const Caption: React.FC<CaptionProps> = ({
+    className,
+    children,
+    padding = DEFAULT_PADDING,
+}) => {
     const { dataTestId } = useContext(SystemMessageContext);
 
     return (
         <span
             className={cn(styles.component, className)}
             data-test-id={getDataTestId(dataTestId, 'caption')}
+            style={createPaddingStyle(padding)}
         >
             {children}
         </span>

@@ -10,6 +10,4 @@
     font-size: var(--sys-message-mobile-title-font-size);
     line-height: var(--sys-message-mobile-title-line-height);
     font-weight: var(--sys-message-mobile-title-font-weight);
-
-    padding-bottom: var(--gap-s);
 }

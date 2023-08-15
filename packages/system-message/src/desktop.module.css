@@ -1,6 +1,0 @@
-@import '../../themes/src/default.css';
-
-.component {
-    padding-left: var(--gap-3xl);
-    padding-right: var(--gap-3xl);
-}
