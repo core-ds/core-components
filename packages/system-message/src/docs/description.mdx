@@ -114,7 +114,9 @@ render(() => {
                                 </Button>
                             )}
 
-                            {settings[SETTINGS_KEY.secondary] && <Button size={sizeButton}>Отмена</Button>}
+                            {settings[SETTINGS_KEY.secondary] && (
+                                <Button size={sizeButton}>Отмена</Button>
+                            )}
                         </SystemMessage.Controls>
                     )}
                 </SystemMessage>
@@ -241,7 +243,10 @@ render(() => {
             <Modal open={open} onClose={() => setOpen(false)}>
                 <Modal.Header hasCloser={true} />
                 <Modal.Content flex={true}>
-                    <SystemMessage fullHeight={true}>
+                    <SystemMessage
+                        fullHeight={true}
+                        padding={IS_MOBILE ? 0 : { right: 24, left: 24, bottom: 24 }}
+                    >
                         {renderGraphic()}
 
                         <SystemMessage.Title>

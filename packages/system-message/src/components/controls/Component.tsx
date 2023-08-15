@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { createPaddingStyle, getDataTestId } from '@alfalab/core-components-shared';
 
+import { PaddingType } from '../../../../types';
 import { SystemMessageContext } from '../../Context';
 
-import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
-import mobileStyles from './mobile.module.css';
 
 type ControlsProps = {
     /**
@@ -24,29 +23,40 @@ type ControlsProps = {
      * Дочерние элементы
      */
     children: React.ReactNode;
+
+    /**
+     * Отступы
+     */
+    padding?: PaddingType;
 };
+
+const DEFAULT_DESKTOP_PADDING = { top: 24 };
+
+const DEFAULT_MOBILE_PADDING = { top: 16 };
 
 export const Controls: React.FC<ControlsProps> = ({
     direction: directionProp,
     children,
     className,
+    padding: paddingProp,
 }) => {
     const { dataTestId, view } = useContext(SystemMessageContext);
     const defaultDirection = view === 'mobile' ? 'column' : 'row';
     const direction = directionProp || defaultDirection;
     const isMultipleElements = React.Children.toArray(children).length > 1;
-    const isColumn = isMultipleElements && direction === 'column' && view === 'mobile';
+    const isColumn = isMultipleElements && direction === 'column';
+    const padding =
+        paddingProp ?? (view === 'mobile' ? DEFAULT_MOBILE_PADDING : DEFAULT_DESKTOP_PADDING);
 
     return (
         <div
             className={cn(styles.component, className, {
                 [styles.row]: !isColumn,
                 [styles.column]: isColumn,
-                [desktopStyles.component]: view === 'desktop',
-                [desktopStyles.multiple]: isMultipleElements,
-                [mobileStyles.component]: view === 'mobile',
+                [styles.stretch]: isMultipleElements || view === 'mobile',
             })}
             data-test-id={getDataTestId(dataTestId, 'controls')}
+            style={createPaddingStyle(padding)}
         >
             {children}
         </div>

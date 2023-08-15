@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { PaddingType } from '../../types';
+
 export type SystemMessageBaseProps = {
     /**
      * Дополнительный класс
@@ -20,6 +22,11 @@ export type SystemMessageBaseProps = {
      * Дочерние элементы.
      */
     children: ReactNode;
+
+    /**
+     * Отступы.
+     */
+    padding?: PaddingType;
 
     view: 'desktop' | 'mobile';
 };
