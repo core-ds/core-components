@@ -45,9 +45,9 @@
         "index.js": 142.69
     },
     "system-message": {
-        "desktop.js": 3.95,
-        "index.js": 6.77,
-        "mobile.js": 3.94
+        "desktop.js": 4.22,
+        "index.js": 7.05,
+        "mobile.js": 4.22
     },
     "switch": {
         "index.js": 4.11
@@ -89,7 +89,7 @@
         "shared.js": 39.74
     },
     "shared": {
-        "index.js": 0.14
+        "index.js": 0.35
     },
     "select": {
         "desktop.js": 126.58,
