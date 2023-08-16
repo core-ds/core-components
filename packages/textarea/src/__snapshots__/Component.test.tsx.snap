@@ -16,7 +16,7 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s filled"
+            class="textarea textarea s overflowHidden filled"
             rows="1"
           >
             value
@@ -44,7 +44,7 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s filled"
+            class="textarea textarea s overflowHidden filled"
             rows="1"
           >
             value
@@ -77,7 +77,7 @@ exports[`Textarea Snapshots tests should match snapshot with custom scrollbar 1`
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s customScrollbar filled"
+            class="textarea textarea s overflowHidden customScrollbar filled"
             rows="1"
           >
             value
@@ -105,7 +105,7 @@ exports[`Textarea Snapshots tests should match snapshot with default counter 1`]
         >
           <textarea
             autocomplete="on"
-            class="textarea textarea s filled"
+            class="textarea textarea s overflowHidden filled"
             rows="1"
           >
             value
