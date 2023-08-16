@@ -46,7 +46,8 @@ const groups = [
 describe('Select', () => {
     createPreview(
         {
-            componentName: 'Select',
+            packageName: 'select',
+            componentName: 'SelectDesktop',
             knobs: {
                 label: 'Селект',
                 size: 'm',
