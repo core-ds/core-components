@@ -1,0 +1,1 @@
+export { PopupBackdrop } from './Component';

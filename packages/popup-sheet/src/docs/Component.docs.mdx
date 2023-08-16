@@ -1,0 +1,23 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+import packageJson from '../../package.json';
+
+<Meta of={Stories} />
+
+<ComponentHeader
+    name='PopupSheet'
+    version={packageJson.version}
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/branch/6PuTP8TCFFUSFKjNGa1mRY/Web-%3A%3A-Core-Default-Components?type=design&node-id=101989-151019&mode=design&t=3rufpS0bE8qjUNNE-0'
+    children='Используется для отображения контента в модальном слое.'
+/>
+
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

@@ -119,6 +119,19 @@ export type BaseModalProps = {
     contentClassName?: string;
 
     /**
+     * Дополнительные пропсы на обертку контента
+     */
+    contentProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+    /**
+     * Дополнительные пропсы на компонентную обертку контента
+     */
+    componentDivProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >;
+
+    /**
      * Дополнительный класс для обертки (Modal)
      */
     wrapperClassName?: string;
@@ -237,6 +250,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             keepMounted = false,
             className,
             contentClassName,
+            contentProps,
+            componentDivProps,
             wrapperClassName,
             onBackdropClick,
             onClose,
@@ -549,10 +564,26 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     onExited={handleExited}
                                 >
                                     <div
-                                        className={cn(styles.component, className)}
-                                        ref={mergeRefs([componentRef, componentNodeRef])}
+                                        {...componentDivProps}
+                                        className={cn(
+                                            styles.component,
+                                            className,
+                                            componentDivProps?.className,
+                                        )}
+                                        ref={mergeRefs([
+                                            componentRef,
+                                            componentNodeRef,
+                                            componentDivProps?.ref || null,
+                                        ])}
                                     >
-                                        <div className={cn(styles.content, contentClassName)}>
+                                        <div
+                                            {...contentProps}
+                                            className={cn(
+                                                styles.content,
+                                                contentClassName,
+                                                contentProps?.className,
+                                            )}
+                                        >
                                             {children}
                                         </div>
                                     </div>

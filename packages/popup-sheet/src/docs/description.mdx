@@ -1,0 +1,92 @@
+## Примеры
+
+Компонент состоит из кастомизируемого слота и контрола для управления закрытием. Скролл внутри компонента не предусмотрен.
+Компонент не имеет десктопной версии.
+
+```jsx live mobileOnly mobileHeight={640}
+const SETTINGS = [
+    { label: 'Крестик', name: 'hasCloser' },
+    { label: 'Закрытие свайпом', name: 'swipeable' },
+    { label: 'Кастомный контент', name: 'customContent' },
+];
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+    const [settings, setSettings] = React.useState(() =>
+        SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
+    );
+
+    const handleSettingsChange = (_, { name, checked }) => {
+        setSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
+    return (
+        <div>
+            <ButtonMobile type='button' size='s' onClick={() => setOpen(true)} block={true}>
+                Показать шторку
+            </ButtonMobile>
+
+            <Gap size='m' />
+
+            <CheckboxGroup onChange={handleSettingsChange}>
+                {SETTINGS.map((item) => (
+                    <Switch
+                        key={item.name}
+                        size='m'
+                        label={item.label}
+                        name={item.name}
+                        checked={settings[item.name]}
+                    />
+                ))}
+            </CheckboxGroup>
+
+            <PopupSheet
+                hasCloser={settings.hasCloser}
+                swipeable={settings.swipeable}
+                open={open}
+                onClose={() => setOpen(false)}
+                padding={0}
+            >
+                {settings.customContent ? (
+                    <SystemMessageMobile padding={32}>
+                        <SystemMessageMobile.Graphic padding={{ top: 48 }}>
+                            <SuperEllipse size={80}>
+                                <MobilePhoneBubbleLineMIcon color='var(--color-light-graphic-primary)' />
+                            </SuperEllipse>
+                        </SystemMessageMobile.Graphic>
+
+                        <SystemMessageMobile.Title>
+                            Подтвердите подключение кодом из смс
+                        </SystemMessageMobile.Title>
+
+                        <SystemMessageMobile.Subtitle>
+                            {`Проверили вашу заявку — всё в порядке. Осталось подтвердить подключение`}
+                        </SystemMessageMobile.Subtitle>
+
+                        <SystemMessageMobile.Controls>
+                            <ButtonMobile size='m' view='secondary' onClick={() => setOpen(false)}>
+                                Получить код
+                            </ButtonMobile>
+                        </SystemMessageMobile.Controls>
+                    </SystemMessageMobile>
+                ) : (
+                    <div
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: 200,
+                            color: 'rgba(55, 120, 251, 1)',
+                            backgroundColor: 'rgba(55, 120, 251, 0.1)',
+                        }}
+                    >
+                        <Typography.Text view='caps' weight='bold'>
+                            Custom
+                        </Typography.Text>
+                    </div>
+                )}
+            </PopupSheet>
+        </div>
+    );
+});
+```
