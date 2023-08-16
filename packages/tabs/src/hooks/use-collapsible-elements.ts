@@ -45,9 +45,18 @@ export const useCollapsibleElements = <
         };
 
         const handleElementsResize = (entries: ResizeObserverEntry[]) => {
-            const [{ inlineSize }] = entries[0].contentBoxSize;
+            if (Array.isArray(entries[0].contentBoxSize)) {
+                const [{ inlineSize }] = entries[0].contentBoxSize;
 
-            collapseElements(inlineSize);
+                collapseElements(inlineSize);
+            } else {
+                // firefox v69-91 compatibility. See https://caniuse.com/mdn-api_resizeobserverentry_contentboxsize
+                const { inlineSize } = entries[0].contentBoxSize as unknown as {
+                    inlineSize: number;
+                };
+
+                collapseElements(inlineSize);
+            }
         };
 
         const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
