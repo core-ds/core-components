@@ -5,15 +5,18 @@ import {
     FormControlMobile,
     FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
-import { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
 import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
 export type AutocompleteMobileFieldProps = FormControlMobileProps &
-    Omit<BaseFieldProps, 'selected' | 'multiple' | 'success'> &
-    Pick<InputAutocompleteProps, 'value'>;
+    Omit<BaseFieldProps, 'selected' | 'multiple' | 'success'> & {
+        /**
+         * Значение поля ввода
+         */
+        value?: string;
+    };
 
 export const AutocompleteMobileField = ({
     size = 'm',

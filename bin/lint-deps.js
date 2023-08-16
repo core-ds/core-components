@@ -25,6 +25,7 @@ const options = {
         'node_modules',
         '**/*.test.ts',
         '**/*.test.tsx',
+        '**/*.stories.tsx',
     ],
     ignoreMatches: ['tslib'],
     parsers: {
@@ -53,7 +54,7 @@ async function run() {
             options,
         );
 
-        if (dependencies.length > 0 || missing.length > 0) {
+        if (dependencies.length > 0 || Object.keys(missing).length > 0) {
             if (!result) {
                 result = {};
             }
