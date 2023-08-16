@@ -113,6 +113,11 @@ export type ConfirmationProps = {
     hideCountdownSection?: boolean;
 
     /**
+     *  Слот для контента с подсказкой на главном экране
+     */
+    initialScreenHintSlot?: ReactNode;
+
+    /**
      * Контрольная точка для кнопки, с нее начинается desktop версия
      * @default 1024
      */
@@ -139,7 +144,11 @@ export type TConfirmationContext = Required<
 > &
     Pick<
         ConfirmationProps,
-        'phone' | 'blockSmsRetry' | 'onTempBlockFinished' | 'clearCodeOnError'
+        | 'phone'
+        | 'blockSmsRetry'
+        | 'onTempBlockFinished'
+        | 'clearCodeOnError'
+        | 'initialScreenHintSlot'
     > & {
         timeLeft: number;
     } & {

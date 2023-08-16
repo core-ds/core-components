@@ -6,6 +6,7 @@ import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 import { useConfirmation } from '@alfalab/core-components-confirmation';
 import { ConfirmationMobile } from '@alfalab/core-components-confirmation/mobile';
 import { ConfirmationDesktop } from '@alfalab/core-components-confirmation/desktop';
+import { Button } from '@alfalab/core-components-button';
 import { Confirmation } from '@alfalab/core-components-confirmation';
 import packageJson from '../../package.json';
 import Changelog from '../../CHANGELOG.md?raw';
@@ -135,6 +136,11 @@ import {
                         onSmsRetryClick={handleSmsRetryClick}
                         onTempBlockFinished={handleTempBlockFinished}
                         phone={'+7 ··· ··· 07-24'}
+                        initialScreenHintSlot={
+                            boolean('initialScreenHintSlot', false) ? (
+                                <Button size='s'>Custom Button</Button>
+                            ) : null
+                        }
                     />
                 </div>
             </div>

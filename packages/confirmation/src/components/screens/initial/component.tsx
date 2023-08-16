@@ -43,6 +43,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         phone,
         clearCodeOnError,
         hideCountdownSection,
+        initialScreenHintSlot,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -133,6 +134,31 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         return false;
     };
 
+    const renderHintButton = () => {
+        if (initialScreenHintSlot) {
+            return initialScreenHintSlot;
+        }
+
+        if (mobile) {
+            return (
+                <ButtonMobile onClick={handleSmsHintLinkClick} view='link' size='xs'>
+                    {texts.linkToHint}
+                </ButtonMobile>
+            );
+        }
+
+        return (
+            <Link
+                onClick={handleSmsHintLinkClick}
+                className={styles.smsComeLink}
+                view={mobile ? 'primary' : 'secondary'}
+                pseudo={true}
+            >
+                {texts.linkToHint}
+            </Link>
+        );
+    };
+
     const processing = ['CODE_CHECKING', 'CODE_SENDING'].includes(state);
 
     const timePassed = timeLeft === 0;
@@ -171,20 +197,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 />
             )}
 
-            {mobile ? (
-                <ButtonMobile onClick={handleSmsHintLinkClick} view='link' size='xs'>
-                    {texts.linkToHint}
-                </ButtonMobile>
-            ) : (
-                <Link
-                    onClick={handleSmsHintLinkClick}
-                    className={styles.smsComeLink}
-                    view={mobile ? 'primary' : 'secondary'}
-                    pseudo={true}
-                >
-                    {texts.linkToHint}
-                </Link>
-            )}
+            {renderHintButton()}
         </div>
     );
 };
