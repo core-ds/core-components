@@ -4,6 +4,7 @@ import addMonths from 'date-fns/addMonths';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import eachMonthOfInterval from 'date-fns/eachMonthOfInterval';
 import eachYearOfInterval from 'date-fns/eachYearOfInterval';
+import endOfDay from 'date-fns/endOfDay';
 import endOfWeek from 'date-fns/endOfWeek';
 import endOfYear from 'date-fns/endOfYear';
 import format from 'date-fns/format';
@@ -165,8 +166,8 @@ export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: D
 export function limitDate(date: Date | number, minDate?: Date | number, maxDate?: Date | number) {
     let limitedDate = date;
 
-    if (minDate) limitedDate = max([minDate, limitedDate]);
-    if (maxDate) limitedDate = min([maxDate, limitedDate]);
+    if (minDate) limitedDate = max([startOfDay(minDate), limitedDate]);
+    if (maxDate) limitedDate = min([endOfDay(maxDate), limitedDate]);
 
     return new Date(limitedDate);
 }
