@@ -27,7 +27,7 @@
         "index.js": 17.95
     },
     "textarea": {
-        "index.js": 13.82
+        "index.js": 13.85
     },
     "tag": {
         "desktop.js": 4.6,
@@ -35,11 +35,11 @@
         "mobile.js": 4.6
     },
     "tabs": {
-        "collapsible.js": 157.78,
+        "collapsible.js": 157.87,
         "desktop.js": 12.87,
         "index.js": 15.36,
         "mobile.js": 13.02,
-        "shared.js": 15.81
+        "shared.js": 15.89
     },
     "table": {
         "index.js": 142.69
@@ -141,7 +141,7 @@
         "shared.js": 3.01
     },
     "phone-input": {
-        "index.js": 27.75
+        "index.js": 27.71
     },
     "pattern-lock": {
         "index.js": 23.08
@@ -265,13 +265,13 @@
         "index.js": 1.31
     },
     "date-time-input": {
-        "desktop.js": 129.77,
-        "index.js": 223.58,
-        "mobile.js": 222.14
+        "desktop.js": 129.78,
+        "index.js": 223.59,
+        "mobile.js": 222.15
     },
     "date-range-input": {
-        "desktop.js": 131.38,
-        "index.js": 225.21,
+        "desktop.js": 131.39,
+        "index.js": 225.22,
         "mobile.js": 223.78
     },
     "date-input": {
@@ -327,22 +327,22 @@
         "index.js": 2.03
     },
     "calendar": {
-        "desktop.js": 62.43,
-        "index.js": 164.7,
+        "desktop.js": 62.44,
+        "index.js": 164.71,
         "mobile.js": 163.9,
-        "shared.js": 46.28
+        "shared.js": 46.36
     },
     "calendar-with-skeleton": {
         "index.js": 63.54
     },
     "calendar-range": {
-        "index.js": 231.86
+        "index.js": 231.87
     },
     "calendar-input": {
         "desktop.js": 130.95,
         "index.js": 224.26,
         "mobile.js": 223.35,
-        "shared.js": 64.34
+        "shared.js": 64.42
     },
     "button": {
         "desktop.js": 6.75,
