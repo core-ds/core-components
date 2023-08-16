@@ -16,3 +16,7 @@
 .open {
     transform: var(--arrow-transform);
 }
+
+.linkOpen:not(:hover) {
+    background-color: var(--color-light-specialbg-secondary-transparent);
+}

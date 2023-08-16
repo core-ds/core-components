@@ -77,7 +77,9 @@ export const Field = ({
                 block={true}
                 view={view}
                 size={buttonSize}
-                className={cn(styles.component, view === 'primary' && styles.primary, className)}
+                className={cn(className, {
+                    [styles.linkOpen]: view === 'link' && open,
+                })}
             >
                 {buttonVariant !== 'compact' && label}
             </Button>
