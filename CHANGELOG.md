@@ -1,3 +1,123 @@
+## 42.2.0
+
+<sup><time>17.08.2023</time></sup>
+
+### [#785](https://github.com/core-ds/core-components/pull/785)
+
+#### Что изменилось
+- Цвет компонента в выбранном состоянии заменен с красного на зеленый
+
+#### Влияние на компоненты
+- Минорное<br />`switch` `themes`
+
+
+### [#791](https://github.com/core-ds/core-components/pull/791)
+
+#### Что изменилось
+- Добавлен экспорт back-arrow-addon
+
+#### Влияние на компоненты
+- Минорное<br />`navigation-bar`
+
+<br />
+
+#### Что изменилось
+- Добавлена easeInOutQuad функция
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+<br />
+
+#### Что изменилось
+- Добавлен проп contentProps, componentDivProps
+
+#### Влияние на компоненты
+- Минорное<br />`base-modal`
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент PopupSheet
+
+#### Влияние на компоненты
+- Минорное<br />`popup-sheet`
+
+
+### [#790](https://github.com/core-ds/core-components/pull/790)
+
+#### Что изменилось
+- Добавлена функция createPaddingStyle
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+<br />
+
+#### Что изменилось
+- Добавлен проп padding во все составные части компонента
+- Теперь проп direction будет влиять на расположение кнопок в десктопной версии компонента
+
+#### Влияние на компоненты
+- Минорное<br />`system-message`
+
+
+### [#787](https://github.com/core-ds/core-components/pull/787)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой появлялся вертикальный скролл при autosize=true
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#789](https://github.com/core-ds/core-components/pull/789)
+
+#### Что изменилось
+- Добавлен проп initialScreenHintSlot для возможности замены ссылки "не приходит сообщение" на кастомный контент
+- Loader заменен на Spinner
+
+#### Влияние на компоненты
+- Минорное<br />`confirmation`
+
+
+### [#786](https://github.com/core-ds/core-components/pull/786)
+
+#### Что изменилось
+- Исправлена ошибка c ResizeObserver в компоненте TabsCollapsible, возникающая в старых версиях firefox
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#794](https://github.com/core-ds/core-components/pull/794)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой невозможно было программно установить фокус
+
+#### Влияние на компоненты
+- Патчи<br />`phone-input`
+
+
+### [#792](https://github.com/core-ds/core-components/pull/792)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не всегда выбиралась минимально допустимая дата при указанном minDate
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+#### Что изменилось
+- Добавлены недостающие зависимости в package.json
+
+#### Влияние на компоненты
+- Патчи<br />`calendar` `calendar-input` `cdn-icon` `custom-picker-button` `date-range-input`<br /> `date-time-input` `drawer` `file-upload-item` `input-autocomplete` `markdown`<br /> `navigation-bar` `plate` `pure-cell` `select` `sortable-list`<br />
+
+
+
 ## 42.1.0
 
 <sup><time>10.08.2023</time></sup>
