@@ -255,11 +255,11 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               style="max-height: 744px;"
             >
               <div
+                class="marker defaultMarker"
+              />
+              <div
                 class="scrollableContainer sheetContainer"
               >
-                <div
-                  class="marker"
-                />
                 <div
                   class="header headerWrapper sticky"
                 >
@@ -1356,11 +1356,11 @@ exports[`Snapshots tests should display opened correctly 4`] = `
               style="max-height: 744px;"
             >
               <div
+                class="marker defaultMarker"
+              />
+              <div
                 class="scrollableContainer sheetContainer"
               >
-                <div
-                  class="marker"
-                />
                 <div
                   class="header headerWrapper sticky"
                 >
@@ -2457,11 +2457,11 @@ exports[`Snapshots tests should display opened correctly 6`] = `
               style="max-height: 744px;"
             >
               <div
+                class="marker defaultMarker"
+              />
+              <div
                 class="scrollableContainer sheetContainer"
               >
-                <div
-                  class="marker"
-                />
                 <div
                   class="header headerWrapper sticky"
                 >
