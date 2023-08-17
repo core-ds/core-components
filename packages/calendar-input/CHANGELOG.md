@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   calendar@7.0.1
+    -   date-input@4.3.1
+
 ## 9.0.0
 
 ### Major Changes

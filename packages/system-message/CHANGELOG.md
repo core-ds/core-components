@@ -1,5 +1,19 @@
 # @alfalab/core-components-system-message
 
+## 2.1.0
+
+### Minor Changes
+
+### [#790](https://github.com/core-ds/core-components/pull/790)
+
+-   Добавлен проп padding во все составные части компонента
+-   Теперь проп direction будет влиять на расположение кнопок в десктопной версии компонента
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.2.0
+
 ## 2.0.0
 
 ### Major Changes

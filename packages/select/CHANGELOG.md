@@ -1,5 +1,21 @@
 # Change Log
 
+## 15.0.1
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   shared@0.2.0
+    -   base-modal@5.4.0
+    -   bottom-sheet@6.6.1
+    -   modal@8.0.1
+    -   button@9.0.1
+    -   input@12.0.1
+
 ## 15.0.0
 
 ### Major Changes

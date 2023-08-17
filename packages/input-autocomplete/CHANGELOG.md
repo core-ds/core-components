@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.0.1
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   select@15.0.1
+    -   button@9.0.1
+    -   input@12.0.1
+
 ## 10.0.0
 
 ### Major Changes

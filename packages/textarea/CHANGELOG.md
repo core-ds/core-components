@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.3.1
+
+### Patch Changes
+
+### [#787](https://github.com/core-ds/core-components/pull/787)
+
+-   Исправлена ошибка, из-за которой появлялся вертикальный скролл при autosize=true
+
 ## 8.3.0
 
 ### Minor Changes

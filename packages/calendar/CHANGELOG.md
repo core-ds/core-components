@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+### [#792](https://github.com/core-ds/core-components/pull/792)
+
+-   Исправлена ошибка, из-за которой не всегда выбиралась минимально допустимая дата при указанном minDate
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   modal@8.0.1
+    -   button@9.0.1
+    -   icon-button@6.2.1
+
 ## 7.0.0
 
 ### Major Changes

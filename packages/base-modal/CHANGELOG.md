@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.4.0
+
+### Minor Changes
+
+### [#791](https://github.com/core-ds/core-components/pull/791)
+
+-   Добавлен проп contentProps, componentDivProps
+
 ## 5.3.0
 
 ### Minor Changes

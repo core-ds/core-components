@@ -1,5 +1,16 @@
 # @alfalab/core-components-sortable-list
 
+## 1.1.1
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   shared@0.2.0
+
 ## 1.1.0
 
 ### Minor Changes

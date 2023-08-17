@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.5.0
+    -   base-modal@5.4.0
+
 ## 8.0.0
 
 ### Major Changes

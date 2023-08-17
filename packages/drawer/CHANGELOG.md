@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   base-modal@5.4.0
+
 ## 5.0.0
 
 ### Major Changes

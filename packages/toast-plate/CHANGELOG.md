@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.2.1
+
 ## 6.0.0
 
 ### Major Changes

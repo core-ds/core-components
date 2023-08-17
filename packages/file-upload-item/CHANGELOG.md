@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.1
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   icon-button@6.2.1
+
 ## 5.2.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#785](https://github.com/core-ds/core-components/pull/785)
+
+-   Цвет компонента в выбранном состоянии заменен с красного на зеленый
+
 ## 3.1.0
 
 ### Minor Changes

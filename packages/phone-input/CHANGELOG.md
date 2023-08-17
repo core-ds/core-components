@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.2.1
+
+### Patch Changes
+
+### [#794](https://github.com/core-ds/core-components/pull/794)
+
+-   Исправлена ошибка, из-за которой невозможно было программно установить фокус
+
+-   Обновлены зависимости
+    -   masked-input@6.2.1
+
 ## 7.2.0
 
 ### Minor Changes

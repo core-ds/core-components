@@ -1,5 +1,18 @@
 # @alfalab/core-components-custom-picker-button
 
+## 2.0.1
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   select@15.0.1
+    -   picker-button@11.0.1
+    -   custom-button@3.3.1
+
 ## 2.0.0
 
 ### Major Changes

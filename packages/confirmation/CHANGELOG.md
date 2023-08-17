@@ -1,5 +1,19 @@
 # Change Log
 
+## 13.1.0
+
+### Minor Changes
+
+### [#789](https://github.com/core-ds/core-components/pull/789)
+
+-   Добавлен проп initialScreenHintSlot для возможности замены ссылки "не приходит сообщение" на кастомный контент
+-   Loader заменен на Spinner
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@9.0.1
+
 ## 13.0.0
 
 ### Major Changes

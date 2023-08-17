@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+### [#786](https://github.com/core-ds/core-components/pull/786)
+
+-   Исправлена ошибка c ResizeObserver в компоненте TabsCollapsible, возникающая в старых версиях firefox
+
+-   Обновлены зависимости
+    -   shared@0.2.0
+    -   picker-button@11.0.1
+
 ## 8.0.0
 
 ### Major Changes

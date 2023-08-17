@@ -1,5 +1,24 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.5.0
+
+### Minor Changes
+
+### [#791](https://github.com/core-ds/core-components/pull/791)
+
+-   Добавлен экспорт back-arrow-addon
+
+### Patch Changes
+
+### [#793](https://github.com/core-ds/core-components/pull/793)
+
+-   Добавлены недостающие зависимости в package.json
+
+-   Обновлены зависимости
+    -   shared@0.2.0
+    -   button@9.0.1
+    -   icon-button@6.2.1
+
 ## 0.4.0
 
 ### Minor Changes
