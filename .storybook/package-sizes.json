@@ -35,7 +35,7 @@
         "mobile.js": 4.6
     },
     "tabs": {
-        "collapsible.js": 157.87,
+        "collapsible.js": 157.86,
         "desktop.js": 12.87,
         "index.js": 15.36,
         "mobile.js": 13.02,
@@ -138,9 +138,9 @@
         "mobile.js": 13.42
     },
     "picker-button": {
-        "desktop.js": 149.86,
-        "index.js": 208.1,
-        "mobile.js": 206.83,
+        "desktop.js": 149.85,
+        "index.js": 208.09,
+        "mobile.js": 206.82,
         "shared.js": 3.01
     },
     "phone-input": {
@@ -282,9 +282,9 @@
         "index.js": 61.77
     },
     "custom-picker-button": {
-        "desktop.js": 151.33,
-        "index.js": 209.74,
-        "mobile.js": 208.28
+        "desktop.js": 151.32,
+        "index.js": 209.73,
+        "mobile.js": 208.27
     },
     "custom-button": {
         "index.js": 8.91
