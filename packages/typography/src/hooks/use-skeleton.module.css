@@ -1,0 +1,5 @@
+@import '../../../themes/src/default.css';
+
+.skeletonText.skeletonText {
+    border-radius: var(--border-radius-pill);
+}

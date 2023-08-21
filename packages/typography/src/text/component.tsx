@@ -1,8 +1,10 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Color } from '../colors';
-import { TextElementType } from '../types';
+import { useSkeleton } from '../hooks';
+import { TextElementType, TextSkeletonProps } from '../types';
 
 import colors from '../colors.module.css';
 import styles from './index.module.css';
@@ -67,6 +69,16 @@ type TextBaseProps = {
      * Количество строк (не поддерживает IE)
      */
     rowLimit?: 1 | 2 | 3;
+
+    /**
+     * Показать скелетон
+     */
+    showSkeleton?: boolean;
+
+    /**
+     * Пропы для скелетона
+     */
+    skeletonProps?: TextSkeletonProps;
 };
 
 type TextPTagProps = Omit<TextBaseProps, 'tag' | 'defaultMargins'> & {
@@ -89,28 +101,45 @@ export const Text = forwardRef<TextElementType, TextProps>(
             dataTestId,
             children,
             rowLimit,
+            showSkeleton,
+            skeletonProps,
             ...restProps
         },
         ref,
-    ) => (
-        <Component
-            className={cn(
-                {
-                    [styles.paragraph]: Component === 'p' && !defaultMargins,
-                    [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
-                    [styles.monospace]: monospaceNumbers,
-                    [styles[`rowLimit${rowLimit}`]]: rowLimit,
-                },
-                className,
-                color && colors[color],
-                styles[view],
-                weight && styles[weight],
-            )}
-            data-test-id={dataTestId}
-            ref={ref as never}
-            {...restProps}
-        >
-            {children}
-        </Component>
-    ),
+    ) => {
+        const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
+
+        const skeleton = renderSkeleton({
+            wrapperClassName: cn({
+                [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
+            }),
+            dataTestId,
+        });
+
+        if (skeleton) {
+            return skeleton;
+        }
+
+        return (
+            <Component
+                className={cn(
+                    {
+                        [styles.paragraph]: Component === 'p' && !defaultMargins,
+                        [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
+                        [styles.monospace]: monospaceNumbers,
+                        [styles[`rowLimit${rowLimit}`]]: rowLimit,
+                    },
+                    className,
+                    color && colors[color],
+                    styles[view],
+                    weight && styles[weight],
+                )}
+                data-test-id={dataTestId}
+                ref={mergeRefs([ref, textRef])}
+                {...restProps}
+            >
+                {children}
+            </Component>
+        );
+    },
 );

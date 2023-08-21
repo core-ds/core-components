@@ -1,17 +1,42 @@
-Компонент скелетной загрузки.
+## Примеры
+
+Скелетон должен максимально точно повторять форму ожидаемого контента.
+Для скелетонизации текстового контента используйте компонент [Typography](/docs/typography--docs).
 
 ```jsx live
-<Space>
-    <Skeleton visible={true} animate={true}>
-        Заголовок
-    </Skeleton>
-    <Skeleton visible={true} animate={true}>
-        Какой-то текст
-    </Skeleton>
-    <Skeleton visible={true} animate={true}>
-        <Typography.Text view='primary-large' tag='tag'>
-            Какой-то текст
-        </Typography.Text>
-    </Skeleton>
-</Space>
+const SHAPRE_STYLE = {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    backgroundImage: 'url(./images/imgBg.png)',
+    backgroundSize: 'cover',
+};
+
+render(() => {
+    const [visible, setVisible] = React.useState(false);
+
+    return (
+        <>
+            <Switch
+                checked={visible}
+                label='Скелетонизация контента'
+                onChange={() => setVisible((p) => !p)}
+            />
+
+            <Gap size='l' />
+
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Skeleton visible={visible}>
+                    <div style={SHAPRE_STYLE} />
+                </Skeleton>
+
+                <Gap size='s' direction='horizontal' />
+
+                <Skeleton visible={visible} style={{ borderRadius: 'var(--border-radius-s)' }}>
+                    <Status view='contrast'>This is fine</Status>
+                </Skeleton>
+            </div>
+        </>
+    );
+});
 ```

@@ -1,7 +1,10 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Color } from '../colors';
+import { useSkeleton } from '../hooks';
+import { TextSkeletonProps } from '../types';
 
 import colors from '../colors.module.css';
 
@@ -57,6 +60,16 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
      * Количество строк (не поддерживает IE)
      */
     rowLimit?: 1 | 2 | 3;
+
+    /**
+     * Показать скелетон
+     */
+    showSkeleton?: boolean;
+
+    /**
+     * Пропы для скелетона
+     */
+    skeletonProps?: TextSkeletonProps;
 };
 
 type Styles = {
@@ -81,25 +94,40 @@ export const Title = forwardRef<TitleElementType, TitleProps & Styles>(
             children,
             rowLimit,
             styles,
+            skeletonProps,
+            showSkeleton,
             ...restProps
         },
         ref,
-    ) => (
-        <Component
-            className={cn(
-                styles.component,
-                className,
-                styles[`${font}-${view}`],
-                defaultMargins && styles[`margins-${view}`],
-                styles[weight],
-                color && colors[color],
-                { [styles[`rowLimit${rowLimit}`]]: rowLimit },
-            )}
-            data-test-id={dataTestId}
-            ref={ref}
-            {...restProps}
-        >
-            {children}
-        </Component>
-    ),
+    ) => {
+        const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
+
+        const skeleton = renderSkeleton({
+            wrapperClassName: cn(defaultMargins && styles[`margins-${view}`]),
+            dataTestId,
+        });
+
+        if (skeleton) {
+            return skeleton;
+        }
+
+        return (
+            <Component
+                className={cn(
+                    styles.component,
+                    className,
+                    styles[`${font}-${view}`],
+                    defaultMargins && styles[`margins-${view}`],
+                    styles[weight],
+                    color && colors[color],
+                    { [styles[`rowLimit${rowLimit}`]]: rowLimit },
+                )}
+                data-test-id={dataTestId}
+                ref={mergeRefs([ref, textRef])}
+                {...restProps}
+            >
+                {children}
+            </Component>
+        );
+    },
 );
