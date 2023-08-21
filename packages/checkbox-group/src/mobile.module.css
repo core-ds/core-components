@@ -5,6 +5,8 @@
 }
 
 .label {
+    @mixin paragraph_component_secondary;
+    color: var(--checkbox-group-mobile-label-color);
     padding-left: var(--checkbox-group-mobile-sub-padding-left);
 }
 

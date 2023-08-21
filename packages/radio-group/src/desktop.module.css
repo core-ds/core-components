@@ -5,6 +5,8 @@
 }
 
 .label {
+    @mixin paragraph_primary_medium;
+    color: var(--radio-group-label-color);
     padding-left: var(--radio-group-sub-padding-left);
 }
 

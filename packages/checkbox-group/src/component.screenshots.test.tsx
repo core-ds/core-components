@@ -99,3 +99,21 @@ describe(
         },
     }),
 );
+
+describe(
+    'CheckboxGroup | mobile',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'CheckboxGroup',
+            testStory: false,
+            knobs: {
+                direction: ['horizontal', 'vertical'],
+                label: 'Заголовок',
+            },
+        }),
+        screenshotOpts: {
+            clip: clipCheckbox,
+        },
+        viewport: { width: 600, height: 600 },
+    }),
+);
