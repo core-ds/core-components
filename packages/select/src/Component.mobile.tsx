@@ -10,6 +10,7 @@ import { Field as DefaultField } from './components/field';
 import { Optgroup as DefaultOptgroup } from './components/optgroup';
 import { Option as DefaultOption } from './components/option';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
+import { Search as DefaultSearch } from './components/search';
 import { VirtualOptionsList as DefaultVirtualOptionsList } from './components/virtual-options-list';
 import { useSelectWithApply, UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
 import { Header } from './presets/useSelectWithApply/options-list-with-apply/header/Component';
@@ -79,6 +80,7 @@ export const SelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            Search = DefaultSearch,
             selected,
             options,
             OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
@@ -129,6 +131,7 @@ export const SelectMobile = forwardRef(
                 Field={Field}
                 Optgroup={Optgroup}
                 Option={Option}
+                Search={Search}
                 isBottomSheet={true}
                 options={options}
                 selected={selected}

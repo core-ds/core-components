@@ -277,6 +277,26 @@ export type BaseSelectProps = {
     Option?: FC<OptionProps>;
 
     /**
+     * Включает отображение поиска
+     */
+    showSearch?: boolean;
+
+    /**
+     * Компонент поиска
+     */
+    Search?: FC<SearchProps & RefAttributes<HTMLInputElement>>;
+
+    /**
+     * Настройки поиска
+     */
+    searchProps?: {
+        componentProps?: SearchProps;
+        accessor?: (option: OptionShape) => string;
+        value?: string;
+        onChange?: (value: string) => void;
+    };
+
+    /**
      * Обработчик выбора
      */
     onChange?: (payload: BaseSelectChangePayload) => void;
@@ -439,6 +459,11 @@ export type OptionsListProps = {
      * Дополнительный класс для компонента группы пунктов
      */
     optionGroupClassName?: string;
+
+    /**
+     * Дополнительный класс для скроллбара
+     */
+    scrollbarClassName?: string;
 
     /**
      * Размер компонента
@@ -689,3 +714,5 @@ export type CheckmarkProps = {
      */
     icon?: FC<SVGProps<SVGSVGElement>>;
 };
+
+export type SearchProps = InputProps;

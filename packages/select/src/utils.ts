@@ -36,8 +36,10 @@ export const joinOptions = ({
 export function processOptions(
     options: BaseSelectProps['options'],
     selected: BaseSelectProps['selected'] = [],
+    filterFn: (option: OptionShape) => boolean = () => true,
 ) {
     const flatOptions: OptionShape[] = [];
+    const filteredOptions: BaseSelectProps['options'] = [];
 
     const selectedArray = Array.isArray(selected) ? selected : [selected];
     const selectedOptions = selectedArray.filter(isOptionShape);
@@ -48,22 +50,39 @@ export function processOptions(
     const isSelected = (option: OptionShape) => selectedKeys.includes(option.key);
 
     const process = (option: OptionShape) => {
-        flatOptions.push(option);
-
         if (isSelected(option)) {
             selectedOptions.push(option);
         }
+
+        if (!filterFn(option)) return false;
+
+        flatOptions.push(option);
+
+        return true;
     };
 
     options.forEach((option) => {
         if (isGroup(option)) {
-            option.options.forEach(process);
+            const group: GroupShape = {
+                ...option,
+                options: [],
+            };
+
+            option.options.forEach((groupOption) => {
+                const matched = process(groupOption);
+
+                if (matched) group.options.push(groupOption);
+            });
+
+            if (group.options.length) filteredOptions.push(group);
         } else {
-            process(option);
+            const matched = process(option);
+
+            if (matched) filteredOptions.push(option);
         }
     });
 
-    return { flatOptions, selectedOptions };
+    return { filteredOptions, flatOptions, selectedOptions };
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -131,6 +150,19 @@ export function useVisibleOptions({
             styleTarget.style.height = `${height}px`;
         }
     }, [listRef, open, styleTargetRef, visibleOptions, invalidate]);
+}
+
+export function defaultFilterFn(optionText: string, search: string) {
+    if (!search) return true;
+
+    return optionText.toLowerCase().includes(search.toLowerCase());
+}
+
+export function defaultAccessor(option: OptionShape) {
+    if (typeof option.content === 'string') return option.content;
+    if (typeof option.value === 'string') return option.value;
+
+    return option.key;
 }
 
 // TODO: перенести

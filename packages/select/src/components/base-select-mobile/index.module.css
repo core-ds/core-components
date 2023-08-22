@@ -16,6 +16,8 @@
 
     & .modalContent {
         padding: 0;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -25,6 +27,28 @@
 
 .block {
     width: 100%;
+}
+
+.optionsListWrapper {
+    flex: 1;
+}
+
+.optionsList {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.scrollbar {
+    flex: 1;
+}
+
+.emptySearchPlaceholder {
+    text-align: center;
+}
+
+.search {
+    padding: var(--gap-m) var(--gap-xs) var(--gap-s);
 }
 
 /* width: max-content; fix for IE */

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import type { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
-import { processOptions } from '../../utils';
+import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
 
 import { OptionsListWithApply } from './options-list-with-apply';
 
@@ -32,6 +32,11 @@ export type UseSelectWithApplyProps = {
     optionsListProps?: BaseSelectProps['optionsListProps'];
 
     /**
+     *  Настройки поиска
+     */
+    searchProps?: BaseSelectProps['searchProps'];
+
+    /**
      * Показывать кнопку очистки
      */
     showClear?: boolean;
@@ -60,10 +65,18 @@ export function useSelectWithApply({
     showClear = true,
     showSelectAll = false,
     showHeaderWithSelectAll = false,
+    searchProps = {},
 }: UseSelectWithApplyProps) {
+    const [search, setSearch] = useState('');
+
+    const accessor = searchProps.accessor || defaultAccessor;
+
     const { flatOptions, selectedOptions } = useMemo(
-        () => processOptions(options, selected),
-        [options, selected],
+        () =>
+            processOptions(options, selected, (option) =>
+                defaultFilterFn(accessor(option), search),
+            ),
+        [accessor, options, search, selected],
     );
 
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
@@ -150,5 +163,10 @@ export function useSelectWithApply({
         options: memoizedOptions,
         onChange: handleChange,
         selected,
+        searchProps: {
+            ...searchProps,
+            value: search,
+            onChange: setSearch,
+        },
     };
 }

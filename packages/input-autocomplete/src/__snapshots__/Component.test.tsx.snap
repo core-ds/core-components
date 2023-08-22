@@ -209,14 +209,15 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                   >
                     <div
                       aria-labelledby="downshift-3-label"
+                      class="optionsListWrapper"
                       id="downshift-3-menu"
                       role="listbox"
                     >
                       <div
-                        class="optionsList s"
+                        class="optionsList s optionsList"
                       >
                         <div
-                          class="component component scrollable"
+                          class="component component scrollable scrollbar"
                           data-simplebar="init"
                           style="min-width: 0px;"
                         >

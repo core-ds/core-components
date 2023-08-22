@@ -28,12 +28,13 @@ import {
     OptionShape,
     OptionsListProps,
 } from '../../typings';
-import { processOptions } from '../../utils';
+import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
 import { Arrow as DefaultArrow } from '../arrow';
 import { Field as DefaultField } from '../field';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { Option as DefaultOption } from '../option';
 import { OptionsList as DefaultOptionsList } from '../options-list';
+import { Search as DefaultSearch } from '../search';
 
 import styles from './index.module.css';
 
@@ -109,6 +110,8 @@ export const BaseSelectMobile = forwardRef(
             placeholder,
             fieldProps = {},
             optionProps = {},
+            searchProps = {},
+            showSearch = false,
             valueRenderer,
             onChange,
             onOpen,
@@ -119,6 +122,7 @@ export const BaseSelectMobile = forwardRef(
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             OptionsList = DefaultOptionsList,
+            Search = DefaultSearch,
             swipeable,
             footer,
             isBottomSheet,
@@ -135,12 +139,24 @@ export const BaseSelectMobile = forwardRef(
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
         const alreadyClickedRef = useRef<boolean>(false);
+        const searchRef = useRef<HTMLInputElement>(null);
+
+        const [searchState, setSearchState] = React.useState('');
+
+        const [search, setSearch] = searchProps?.value
+            ? [searchProps.value, searchProps.onChange]
+            : [searchState, setSearchState];
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
-        const { flatOptions, selectedOptions } = useMemo(
-            () => processOptions(options, selected),
-            [options, selected],
+        const accessor = searchProps.accessor || defaultAccessor;
+
+        const { filteredOptions, flatOptions, selectedOptions } = useMemo(
+            () =>
+                processOptions(options, selected, (option) =>
+                    defaultFilterFn(accessor(option), search),
+                ),
+            [accessor, options, search, selected],
         );
 
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
@@ -218,6 +234,13 @@ export const BaseSelectMobile = forwardRef(
                             name,
                         });
                     }, 0);
+                }
+
+                if (isOpen && showSearch) {
+                    setTimeout(() => {
+                        searchRef.current?.focus();
+                        // BottomSheet transition duration
+                    }, 500);
                 }
             },
             stateReducer: (state, actionAndChanges) => {
@@ -362,20 +385,49 @@ export const BaseSelectMobile = forwardRef(
                 <input type='hidden' name={name} value={option.key} key={option.key} />
             ));
 
+        const renderSearch = () =>
+            showSearch && (
+                <Search
+                    {...searchProps?.componentProps}
+                    value={search}
+                    onChange={(_, payload) => setSearch?.(payload.value)}
+                    dataTestId={getDataTestId(dataTestId, 'search')}
+                    onClear={() => setSearch?.('')}
+                    className={styles.search}
+                    ref={searchRef}
+                />
+            );
+
+        const { emptyPlaceholder } = optionsListProps as OptionsListProps;
+
+        const renderEmptyPlaceholder = () => {
+            if (emptyPlaceholder) {
+                return emptyPlaceholder;
+            }
+
+            if (showSearch) {
+                return <div className={styles.emptySearchPlaceholder}>Ничего не нашлось</div>;
+            }
+
+            return undefined;
+        };
+
         const renderOptionsList = () => {
-            if (flatOptions.length === 0 && !showEmptyOptionsList) return null;
+            if (flatOptions.length === 0 && !showEmptyOptionsList && !showSearch) return null;
 
             return (
-                <div {...menuProps} className={optionsListClassName}>
+                <div {...menuProps} className={cn(styles.optionsListWrapper, optionsListClassName)}>
                     <OptionsList
                         {...(optionsListProps as OptionsListProps)}
                         ref={scrollableContainerRef}
+                        className={styles.optionsList}
+                        scrollbarClassName={styles.scrollbar}
                         optionsListWidth={optionsListWidth}
                         flatOptions={flatOptions}
                         highlightedIndex={highlightedIndex}
                         open={open}
                         size={size}
-                        options={options}
+                        options={filteredOptions}
                         Optgroup={Optgroup}
                         Option={Option}
                         selectedItems={selectedItems}
@@ -385,6 +437,7 @@ export const BaseSelectMobile = forwardRef(
                         visibleOptions={0}
                         dataTestId={getDataTestId(dataTestId, 'options-list')}
                         optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
+                        emptyPlaceholder={renderEmptyPlaceholder()}
                     />
                 </div>
             );
@@ -450,7 +503,14 @@ export const BaseSelectMobile = forwardRef(
                         hasCloser={true}
                         swipeable={swipeable}
                         scrollableContainerRef={scrollableContainerRef}
+                        initialHeight={showSearch ? 'full' : 'default'}
                         {...bottomSheetProps}
+                        bottomAddons={
+                            <React.Fragment>
+                                {renderSearch()}
+                                {bottomSheetProps?.bottomAddons}
+                            </React.Fragment>
+                        }
                     >
                         {renderOptionsList()}
                     </BottomSheet>
@@ -469,7 +529,12 @@ export const BaseSelectMobile = forwardRef(
                             modalProps?.ref as React.Ref<HTMLDivElement>,
                         ])}
                     >
-                        <ModalMobile.Header hasCloser={true} sticky={true} {...modalHeaderProps}>
+                        <ModalMobile.Header
+                            hasCloser={true}
+                            sticky={true}
+                            bottomAddons={renderSearch()}
+                            {...modalHeaderProps}
+                        >
                             {label || placeholder}
                         </ModalMobile.Header>
 

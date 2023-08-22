@@ -306,20 +306,24 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="bottomAddons"
+                  />
                 </div>
                 <div
                   class="content sheetContent noFooter"
                 >
                   <div
                     aria-labelledby="downshift-7-label"
+                    class="optionsListWrapper"
                     id="downshift-7-menu"
                     role="listbox"
                   >
                     <div
-                      class="optionsList s"
+                      class="optionsList s optionsList"
                     >
                       <div
-                        class="component component scrollable"
+                        class="component component scrollable scrollbar"
                         data-simplebar="init"
                         style="min-width: 0px;"
                       >
@@ -1407,20 +1411,24 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="bottomAddons"
+                  />
                 </div>
                 <div
                   class="content sheetContent noFooter"
                 >
                   <div
                     aria-labelledby="downshift-15-label"
+                    class="optionsListWrapper"
                     id="downshift-15-menu"
                     role="listbox"
                   >
                     <div
-                      class="optionsList s"
+                      class="optionsList s optionsList"
                     >
                       <div
-                        class="component component scrollable"
+                        class="component component scrollable scrollbar"
                         data-simplebar="init"
                         style="min-width: 0px;"
                       >
@@ -2508,20 +2516,24 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="bottomAddons"
+                  />
                 </div>
                 <div
                   class="content sheetContent noFooter"
                 >
                   <div
                     aria-labelledby="downshift-23-label"
+                    class="optionsListWrapper"
                     id="downshift-23-menu"
                     role="listbox"
                   >
                     <div
-                      class="optionsList s"
+                      class="optionsList s optionsList"
                     >
                       <div
-                        class="component component scrollable"
+                        class="component component scrollable scrollbar"
                         data-simplebar="init"
                         style="min-width: 0px;"
                       >
