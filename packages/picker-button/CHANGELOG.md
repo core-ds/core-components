@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.0.2
+
+### Patch Changes
+
+### [#798](https://github.com/core-ds/core-components/pull/798)
+
+-   Изменен цвет кнопки с view='link'. Теперь фон будет различаться в зависимости от состояния open
+
+-   Обновлены зависимости
+    -   button@9.0.2
+    -   select@15.0.2
+
 ## 11.0.1
 
 ### Patch Changes

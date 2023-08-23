@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.0.2
+
+### Patch Changes
+
+### [#801](https://github.com/core-ds/core-components/pull/801)
+
+-   Исправлена проблема со специфичностью некоторых стилей
+
 ## 9.0.1
 
 ### Patch Changes

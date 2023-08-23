@@ -1,5 +1,16 @@
 # Change Log
 
+## 12.0.2
+
+### Patch Changes
+
+### [#807](https://github.com/core-ds/core-components/pull/807)
+
+-   Исправлено выравнивание success иконки в старых браузерах
+
+-   Обновлены зависимости
+    -   button@9.0.2
+
 ## 12.0.1
 
 ### Patch Changes
