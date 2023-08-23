@@ -38,6 +38,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     popoverClassName,
     updatePopover,
     targetClassName,
+    targetTag: TargetTag = 'div',
     zIndex,
     onClose,
     onOpen,
@@ -205,10 +206,10 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
 
     return (
         <Fragment>
-            <div ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
+            <TargetTag ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
                 {children.props.disabled && <div className={styles.overlap} />}
                 {children}
-            </div>
+            </TargetTag>
 
             <Popover
                 anchorElement={anchor || target}

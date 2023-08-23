@@ -17,6 +17,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
     targetClassName,
     children,
     getPortalContainer,
+    targetTag: TargetTag = 'div',
     ...restProps
 }) => (
     <Fragment>
@@ -34,14 +35,13 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
         </BottomSheet>
 
         {/** TODO: проверить тултип на доступность */}
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-        <div
+        <TargetTag
             ref={targetRef as React.Ref<HTMLDivElement>}
             onClick={onOpen}
             className={cn(styles.target, targetClassName)}
         >
             {children?.props.disabled && <div className={styles.overlap} />}
             {children}
-        </div>
+        </TargetTag>
     </Fragment>
 );
