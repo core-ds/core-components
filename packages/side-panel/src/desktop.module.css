@@ -1,6 +1,6 @@
 @import './vars.css';
 
-.s {
+.s.s {
     width: var(--side-panel-s-width);
 }
 
