@@ -319,7 +319,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
             const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
 
-            if (disableUserInput && !isCopy) {
+            if (disableUserInput && !isCopy && event.key !== 'Tab') {
                 event.preventDefault();
             }
         };
