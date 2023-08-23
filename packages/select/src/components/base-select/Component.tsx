@@ -187,10 +187,14 @@ export const BaseSelect = forwardRef(
                     }, 0);
                 }
 
-                if (changes.isOpen && showSearch) {
-                    setTimeout(() => {
-                        searchRef.current?.focus();
-                    }, 0);
+                if (showSearch) {
+                    if (changes.isOpen) {
+                        setTimeout(() => {
+                            searchRef.current?.focus();
+                        }, 0);
+                    } else {
+                        setSearch?.('');
+                    }
                 }
             },
             stateReducer: (state, actionAndChanges) => {

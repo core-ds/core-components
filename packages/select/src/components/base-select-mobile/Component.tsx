@@ -236,11 +236,15 @@ export const BaseSelectMobile = forwardRef(
                     }, 0);
                 }
 
-                if (isOpen && showSearch) {
-                    setTimeout(() => {
-                        searchRef.current?.focus();
-                        // BottomSheet transition duration
-                    }, 500);
+                if (showSearch) {
+                    if (isOpen) {
+                        setTimeout(() => {
+                            searchRef.current?.focus();
+                            // BottomSheet transition duration
+                        }, 500);
+                    } else {
+                        setSearch?.('');
+                    }
                 }
             },
             stateReducer: (state, actionAndChanges) => {
