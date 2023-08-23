@@ -1,3 +1,44 @@
+## 42.2.1
+
+<sup><time>23.08.2023</time></sup>
+
+### [#806](https://github.com/core-ds/core-components/pull/806)
+
+#### Что изменилось
+- Исправлен коллбек getPortalContainer
+
+#### Влияние на компоненты
+- Патчи<br />`with-suffix`
+
+
+### [#798](https://github.com/core-ds/core-components/pull/798)
+
+#### Что изменилось
+- Изменен цвет кнопки с view='link'. Теперь фон будет различаться в зависимости от состояния open
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button`
+
+
+### [#807](https://github.com/core-ds/core-components/pull/807)
+
+#### Что изменилось
+- Исправлено выравнивание success иконки в старых браузерах
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+### [#801](https://github.com/core-ds/core-components/pull/801)
+
+#### Что изменилось
+- Исправлена проблема со специфичностью некоторых стилей
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+
 ## 42.2.0
 
 <sup><time>17.08.2023</time></sup>
