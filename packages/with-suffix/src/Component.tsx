@@ -81,7 +81,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const getPortalContainer = useCallback(
                 // TODO: Изменить сигнатуру getPortalContainer в Portal
-                () => inputNode?.parentElement as HTMLElement,
+                () => (inputNode?.parentElement || null) as HTMLElement,
                 [inputNode],
             );
 
