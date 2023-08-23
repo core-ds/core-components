@@ -137,6 +137,7 @@
 }
 
 .ghost {
+    background-color: transparent;
     color: var(--button-ghost-base-color);
 
     @media (hover: hover) {
