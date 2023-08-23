@@ -96,9 +96,10 @@ export const BaseSelect = forwardRef(
 
         const [searchState, setSearchState] = React.useState('');
 
-        const [search, setSearch] = searchProps?.value
-            ? [searchProps.value, searchProps.onChange]
-            : [searchState, setSearchState];
+        const [search, setSearch] =
+            typeof searchProps?.value === 'string'
+                ? [searchProps.value, searchProps.onChange]
+                : [searchState, setSearchState];
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
