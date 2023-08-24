@@ -98,3 +98,21 @@ describe(
         },
     }),
 );
+
+describe(
+    'RadioGroup | mobile',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'RadioGroup',
+            testStory: false,
+            knobs: {
+                direction: ['horizontal', 'vertical'],
+                label: 'Заголовок',
+            },
+        }),
+        screenshotOpts: {
+            clip: clipRadio,
+        },
+        viewport: { width: 600, height: 600 },
+    }),
+);

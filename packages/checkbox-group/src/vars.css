@@ -12,4 +12,5 @@
     /* mobile */
     --checkbox-group-mobile-sub-padding-left: var(--gap-2xs);
     --checkbox-group-mobile-list-padding-left: var(--gap-3xs);
+    --checkbox-group-mobile-label-color: var(--color-light-text-secondary);
 }
