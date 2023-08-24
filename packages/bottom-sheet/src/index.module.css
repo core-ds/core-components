@@ -16,7 +16,6 @@
 
 .wrapper {
     transform: translateY(100%);
-    overflow: hidden;
     pointer-events: none;
     border-top-right-radius: var(--border-radius-xl);
     border-top-left-radius: var(--border-radius-xl);
@@ -28,7 +27,6 @@
 }
 
 .component {
-    overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -48,18 +46,23 @@
     position: relative;
     height: 100%;
     background-color: inherit;
+    border-radius: inherit;
 }
 
 .marker {
     position: fixed;
     top: var(--gap-2xs);
-    left: 50%;
+    right: 0;
+    left: 0;
+    z-index: 1000;
     width: 36px;
+    margin: 0 auto;
+}
+
+.defaultMarker {
     height: 4px;
     border-radius: var(--border-radius-xxl);
-    transform: translateX(-50%);
     background-color: var(--color-light-graphic-quaternary);
-    z-index: 1000;
 }
 
 .content {
