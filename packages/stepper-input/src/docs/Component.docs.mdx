@@ -1,0 +1,23 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+import packageJson from '../../package.json';
+
+<Meta of={Stories} />
+
+<ComponentHeader
+    name='StepperInput'
+    version={packageJson.version}
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/branch/sTvZuRwVVNEv8m0N8RJa4S/Web-%3A%3A-Core-Default-Components?type=design&node-id=103894-5905&mode=design&t=bmvnc1xzpbfdGJe9-0'
+    children='Используется для ввода цифровых значений c заданным шагом.'
+/>
+
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

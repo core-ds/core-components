@@ -15,6 +15,7 @@ import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
 import { Button } from '@alfalab/core-components-button';
+import { inputUtils } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -202,6 +203,11 @@ export type BaseInputProps = Omit<
      * Стили компонента для default и inverted режима.
      */
     colorStyles?: StyleColors;
+
+    /**
+     * Запрещает ввод с клавиатуры
+     */
+    disableUserInput?: boolean;
 };
 
 export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
@@ -243,6 +249,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             readOnly,
             FormControlComponent,
             colorStyles = { default: {}, inverted: {} },
+            onKeyDown,
+            disableUserInput,
             ...restProps
         },
         ref,
@@ -330,6 +338,11 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             [onAnimationStart],
         );
 
+        const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+            inputUtils.disableUserInput(disableUserInput, e);
+            onKeyDown?.(e);
+        };
+
         const renderRightAddons = () => {
             const addonsVisible = clearButtonVisible || rightAddons || error || success;
 
@@ -347,7 +360,10 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 tabIndex={-1}
                             >
                                 <CrossCircleMIcon
-                                    className={cn(styles.clearIcon, colorCommonStyles[colors].clearIcon)}
+                                    className={cn(
+                                        styles.clearIcon,
+                                        colorCommonStyles[colors].clearIcon,
+                                    )}
                                 />
                             </Button>
                         )}
@@ -427,6 +443,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
                     onChange={handleInputChange}
+                    onKeyDown={handleKeyDown}
                     onAnimationStart={handleAnimationStart}
                     ref={mergeRefs([ref, inputRef])}
                     type={type}

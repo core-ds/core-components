@@ -1,0 +1,17 @@
+@import '../../../../themes/src/default.css';
+
+.steppers {
+    background-color: var(--color-light-bg-primary);
+}
+
+.steppersFocused {
+    background-color: var(--color-light-specialbg-secondary-transparent);
+}
+
+.s {
+    margin-right: var(--gap-xs-neg);
+}
+
+.m {
+    margin-right: var(--gap-2xs-neg);
+}

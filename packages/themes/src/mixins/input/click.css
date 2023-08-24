@@ -1,5 +1,0 @@
-@define-mixin input-click {
-    /* mobile */
-    --input-error-mobile-color: var(--color-light-text-primary);
-    --input-inverted-error-mobile-color: var(--color-light-text-primary-inverted);
-}

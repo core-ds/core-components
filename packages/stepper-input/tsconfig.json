@@ -9,8 +9,12 @@
             "@alfalab/core-components-*": ["../*/src"],
             "@alfalab/core-components-form-control/*": ["../form-control/src/*"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
-            "@alfalab/core-components-button/*": ["../button/src/*"]
+            "@alfalab/core-components-number-input/*": ["../number-input/src/*"]
         }
     },
-    "references": [{ "path": "../input" }]
+    "references": [
+        { "path": "../number-input" },
+        { "path": "../icon-button" },
+        { "path": "../shared" }
+    ]
 }
