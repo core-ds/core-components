@@ -414,9 +414,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         };
 
         const handleCalendarChange = (date?: number) => {
-            if (date) {
-                updatePeriod(date);
-            }
+            updatePeriod(date);
         };
 
         const handleCalendarWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
