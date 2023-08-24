@@ -1,6 +1,6 @@
 @import '../../../../themes/src/default.css';
 
-.tag.tag {
+button.tag.tag {
     color: var(--color-light-text-secondary);
     border-radius: var(--border-radius-m);
     border: none;
