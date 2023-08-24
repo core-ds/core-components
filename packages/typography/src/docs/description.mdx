@@ -116,3 +116,45 @@ render(() => {
     );
 });
 ```
+
+## Скелетонизация текста
+
+Скелетон подстраивается под заданный стиль типографики.
+
+```jsx live
+const IS_MOBILE = document.body.clientWidth < 450;
+render(() => {
+    const [showSkeleton, setShowSkeleton] = React.useState(false);
+
+    return (
+        <>
+            <Switch
+                checked={showSkeleton}
+                label='Скелетонизация контента'
+                onChange={() => setShowSkeleton((p) => !p)}
+            />
+
+            <Gap size='l' />
+
+            <Typography.TitleResponsive
+                view='small'
+                font='system'
+                showSkeleton={showSkeleton}
+                skeletonProps={{ width: IS_MOBILE ? ['100%', '34%'] : 420 }}
+            >
+                Почему банк проверяет мои операции?
+            </Typography.TitleResponsive>
+
+            <Gap size='s' />
+
+            <Typography.Text tag='p' view='primary-medium' showSkeleton={showSkeleton}>
+                {`В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
+                легализации доходов, полученных преступным путём, и финансированию терроризма». В
+                рамках закона банки могут блокировать карты, отказывать в проведении сомнительных
+                операций, ограничить доступ в интернет-банк или запрашивать документы, если по
+                операции клиента возникли подозрения.`}
+            </Typography.Text>
+        </>
+    );
+});
+```
