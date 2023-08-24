@@ -6,10 +6,8 @@
 
 .notificationComponent {
     visibility: hidden;
-    position: fixed;
     right: var(--gap-s);
     transform: translate(0, -500px);
-    display: inline-flex;
     width: calc(100% - var(--gap-xl));
     max-width: calc(100vw - var(--gap-xl));
     user-select: none;
@@ -34,6 +32,10 @@
             transform: translate(calc(100% + var(--gap-4xl)), 0);
         }
     }
+}
+
+.notificationComponent.notificationComponent {
+    position: fixed;
 }
 
 .toastContent {

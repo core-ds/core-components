@@ -1,14 +1,17 @@
 @import './vars.css';
 
 .component {
-    position: fixed;
     top: 0;
-    flex: 1;
     height: 100%;
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     max-width: 600px;
+}
+
+.component.component {
+    position: fixed;
+    flex: 1;
 }
 
 .mobileContent {
