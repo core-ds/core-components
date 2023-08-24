@@ -41,3 +41,21 @@ export function getInsertedNumber({
 
     return rawValue;
 }
+
+export function deleteMaskChar(previousValue: string, rawValue: string) {
+    const prevRawValueAsArr = deleteFormatting(rawValue).split('').reverse();
+    let prevConformedCharIdx = previousValue.length - 1;
+    let isMaskRemoved = false;
+    const newRaw: string[] = [];
+
+    prevRawValueAsArr.forEach((char) => {
+        if (isMaskRemoved || char === previousValue[prevConformedCharIdx]) {
+            newRaw.push(char);
+            prevConformedCharIdx -= 1;
+        } else if (char === '7') {
+            isMaskRemoved = true;
+        }
+    });
+
+    return newRaw.reverse().join('');
+}

@@ -1,10 +1,11 @@
+/* eslint-disable complexity, no-param-reassign */
 import React, { useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { conformToMask, TextMaskConfig } from 'text-mask-core';
 
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
-import { deleteFormatting, getInsertedNumber, setCaretPosition } from './utils';
+import { deleteFormatting, deleteMaskChar, getInsertedNumber, setCaretPosition } from './utils';
 
 const mask = [
     '+',
@@ -39,6 +40,21 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             (conformedValue: string, config: TextMaskConfig) => {
                 const { rawValue, previousConformedValue, currentCaretPosition } = config;
 
+                const previousValueWithoutFormatting = previousConformedValue
+                    ? deleteFormatting(previousConformedValue)
+                    : '';
+
+                /*
+                 * Удаляем лишний символ маски при вводе или вставке значений перед знаком + или после него.
+                 */
+                if (previousConformedValue && rawValue.indexOf('+7') !== 0) {
+                    const newRaw = deleteMaskChar(previousValueWithoutFormatting, rawValue);
+
+                    conformedValue = conformToMask(newRaw, mask, config).conformedValue;
+                }
+
+                const currentValueWithoutFormatting = deleteFormatting(conformedValue) || '';
+
                 /*
                  * код ниже нужен для фикса следующих багов библиотеки text-mask:
                  * 1) так как код страны указан в маске жестко как "+7",
@@ -47,11 +63,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                  * при редактировании цифр рядом с этими символами каретка перескакивает через них,
                  * а не остается на том же месте, на котором была до редактирования
                  */
-                const previousValueWithoutFormatting = previousConformedValue
-                    ? deleteFormatting(previousConformedValue)
-                    : '';
-                const currentValueWithoutFormatting = deleteFormatting(conformedValue) || '';
-
                 if (
                     previousConformedValue &&
                     (([3, 6].includes(currentCaretPosition) &&
