@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+### [#812](https://github.com/core-ds/core-components/pull/812)
+
+-   fix: increased css specificity
+
+-   Обновлены зависимости
+    -   drawer@5.0.2
+    -   navigation-bar@0.5.2
+
 ## 4.0.2
 
 ### Patch Changes

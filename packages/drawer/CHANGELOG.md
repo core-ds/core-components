@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.2
+
+### Patch Changes
+
+### [#812](https://github.com/core-ds/core-components/pull/812)
+
+-   fix: increased css specificity
+
 ## 5.0.1
 
 ### Patch Changes

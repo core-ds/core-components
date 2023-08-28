@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.2.3
+
+### Patch Changes
+
+### [#802](https://github.com/core-ds/core-components/pull/802)
+
+-   Исправлена ошибка, из-за которой в поле вставлялась лишняя 7 при вводе значения перед +7
+
 ## 7.2.2
 
 ### Patch Changes
