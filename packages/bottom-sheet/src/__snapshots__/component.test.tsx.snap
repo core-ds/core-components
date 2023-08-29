@@ -45,11 +45,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                 style="max-height: 744px;"
               >
                 <div
+                  class="marker defaultMarker"
+                />
+                <div
                   class="scrollableContainer"
                 >
-                  <div
-                    class="marker"
-                  />
                   <div
                     class="header headerWrapper hasContent"
                   >
@@ -135,11 +135,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                 style="max-height: 744px;"
               >
                 <div
+                  class="marker defaultMarker"
+                />
+                <div
                   class="scrollableContainer"
                 >
-                  <div
-                    class="marker"
-                  />
                   <div
                     class="header headerWrapper hasContent"
                   >

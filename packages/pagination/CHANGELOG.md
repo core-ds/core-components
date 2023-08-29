@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@6.0.1
+
+## 2.1.1
+
+### Patch Changes
+
+### [#810](https://github.com/core-ds/core-components/pull/810)
+
+-   Повышена специфичность стилей
+
 ## 2.1.0
 
 ### Minor Changes

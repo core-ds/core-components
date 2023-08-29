@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+### [#822](https://github.com/core-ds/core-components/pull/822)
+
+-   Убрали свойство colorStylesMap из общего типа BaseTagProps
+
 ## 6.0.0
 
 ### Major Changes

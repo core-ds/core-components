@@ -26,7 +26,6 @@
 
 .target {
     cursor: pointer;
-    width: max-content;
     position: relative;
 
     & .overlap {

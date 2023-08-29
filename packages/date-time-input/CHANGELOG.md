@@ -1,5 +1,29 @@
 # @alfalab/core-components-date-time-input
 
+## 4.0.4
+
+### Patch Changes
+
+### [#815](https://github.com/core-ds/core-components/pull/815)
+
+-   Исправлена проблема, из-за которой при включенной пропсе disableUserInput невозможно было переставить фокус клавишей Tab
+
+## 4.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.3
+
+## 4.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.0.2
+    -   calendar@7.0.2
+    -   icon-button@6.2.2
+
 ## 4.0.1
 
 ### Patch Changes

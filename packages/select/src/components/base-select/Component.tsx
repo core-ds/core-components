@@ -23,7 +23,13 @@ import { Popover } from '@alfalab/core-components-popover';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { AnyObject, BaseSelectProps, OptionShape, OptionsListProps } from '../../typings';
+import {
+    AnyObject,
+    BaseSelectProps,
+    OptionShape,
+    OptionsListProps,
+    SearchProps,
+} from '../../typings';
 import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';
 
@@ -425,6 +431,16 @@ export const BaseSelect = forwardRef(
                 return null;
             }
 
+            const handleClear: SearchProps['onClear'] = (event) => {
+                setSearch?.('');
+                searchProps?.componentProps?.onClear?.(event);
+            };
+
+            const handleChange: SearchProps['onChange'] = (event, payload) => {
+                setSearch?.(payload.value);
+                searchProps?.componentProps?.onChange?.(event, payload);
+            };
+
             return (
                 <React.Fragment>
                     {header}
@@ -432,10 +448,10 @@ export const BaseSelect = forwardRef(
                         <Search
                             {...searchProps?.componentProps}
                             value={search}
-                            onChange={(_, payload) => setSearch?.(payload.value)}
+                            onChange={handleChange}
                             dataTestId={getDataTestId(dataTestId, 'search')}
-                            onClear={() => setSearch?.('')}
-                            className={styles.search}
+                            onClear={handleClear}
+                            className={cn(styles.search, searchProps?.componentProps?.className)}
                             ref={searchRef}
                         />
                     )}

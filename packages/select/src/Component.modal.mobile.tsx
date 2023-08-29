@@ -85,6 +85,8 @@ export const SelectModalMobile = forwardRef(
             useWithApplyHook = multiple,
             modalHeaderProps,
             showHeaderWithSelectAll,
+            showSearch,
+            searchProps,
             ...restProps
         }: SelectModalMobileProps,
         ref,
@@ -98,6 +100,8 @@ export const SelectModalMobile = forwardRef(
             selected,
             options,
             onChange,
+            showSearch,
+            searchProps,
             showClear,
             showSelectAll,
         });

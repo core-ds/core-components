@@ -1,5 +1,37 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+### [#814](https://github.com/core-ds/core-components/pull/814)
+
+-   Добавлен проп targetTag
+-   Исправлена проблема, из-за которой контент тултипа выходил за границы экрана
+
+## 7.0.4
+
+### Patch Changes
+
+### [#819](https://github.com/core-ds/core-components/pull/819)
+
+-   Исправлена ошибка, из-за которой невозможно было заменить дефолтные кнопки подтверждения
+
+## 7.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.7.0
+
+## 7.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@9.0.2
+    -   bottom-sheet@6.6.2
+
 ## 7.0.1
 
 ### Patch Changes

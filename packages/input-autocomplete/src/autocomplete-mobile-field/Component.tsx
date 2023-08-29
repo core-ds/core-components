@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { ElementType, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import {
@@ -9,6 +9,13 @@ import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-sele
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
+
+type FieldProps = {
+    /**
+     * Компонент FormControl
+     */
+    FormControlComponent?: ElementType;
+};
 
 export type AutocompleteMobileFieldProps = FormControlMobileProps &
     Omit<BaseFieldProps, 'selected' | 'multiple' | 'success'> & {
@@ -33,8 +40,9 @@ export const AutocompleteMobileField = ({
     toggleMenu,
     setSelectedItems,
     selectedMultiple,
+    FormControlComponent,
     ...restProps
-}: AutocompleteMobileFieldProps) => {
+}: AutocompleteMobileFieldProps & FieldProps) => {
     const [focused, setFocused] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);

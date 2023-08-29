@@ -92,6 +92,8 @@ export const SelectMobile = forwardRef(
             showSelectAll,
             showHeaderWithSelectAll,
             useWithApplyHook = multiple,
+            showSearch,
+            searchProps,
             ...restProps
         }: SelectMobileProps,
         ref,
@@ -102,6 +104,8 @@ export const SelectMobile = forwardRef(
                 Footer,
             },
             OptionsList,
+            showSearch,
+            searchProps,
             selected,
             options,
             onChange,

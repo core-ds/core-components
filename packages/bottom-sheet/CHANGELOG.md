@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.7.0
+
+### Minor Changes
+
+### [#799](https://github.com/core-ds/core-components/pull/799)
+
+-   Добавлены новый пропы swipeableMarker и swipeableMarkerClassName
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.5.2
+
+## 6.6.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.5.1
+
 ## 6.6.1
 
 ### Patch Changes

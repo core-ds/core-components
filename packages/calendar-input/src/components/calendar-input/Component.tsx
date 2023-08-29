@@ -239,6 +239,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const inputDisabled = disabled || readOnly;
 
+        const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
@@ -268,6 +269,10 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const handleClick = () => {
             if (!open) openCalendar();
+
+            if (view === 'desktop' && inputRef.current) {
+                inputRef.current.focus();
+            }
         };
 
         const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
@@ -293,7 +298,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
             const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
 
-            if (disableUserInput && !isCopy) {
+            if (disableUserInput && !isCopy && event.key !== 'Tab') {
                 event.preventDefault();
             }
 
@@ -399,7 +404,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             >
                 <DateInput
                     {...restProps}
-                    ref={ref}
+                    ref={mergeRefs([inputRef, ref])}
                     wrapperRef={mergeRefs([wrapperRef, inputWrapperRef])}
                     value={inputValue}
                     defaultValue={defaultValue}

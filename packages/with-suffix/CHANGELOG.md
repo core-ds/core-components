@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.1.2
+
+### Patch Changes
+
+### [#806](https://github.com/core-ds/core-components/pull/806)
+
+-   Исправлен коллбек getPortalContainer
+
+-   Обновлены зависимости
+    -   input@12.0.2
+
 ## 4.1.1
 
 ### Patch Changes

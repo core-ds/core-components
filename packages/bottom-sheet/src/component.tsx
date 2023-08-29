@@ -93,6 +93,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             keepMounted,
             onMagnetizeEnd,
             onOffsetChange,
+            swipeableMarker,
+            swipeableMarkerClassName,
         },
         ref,
     ) => {
@@ -467,6 +469,30 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             maxHeight: isFirstRender ? 0 : `${lastMagneticArea}px`,
         });
 
+        const renderMarker = () => {
+            if (swipeable) {
+                if (swipeableMarker) {
+                    return (
+                        <div className={cn(styles.marker, swipeableMarkerClassName)}>
+                            {swipeableMarker}
+                        </div>
+                    );
+                }
+
+                return (
+                    <div
+                        className={cn(
+                            styles.marker,
+                            styles.defaultMarker,
+                            swipeableMarkerClassName,
+                        )}
+                    />
+                );
+            }
+
+            return null;
+        };
+
         const bgClassName = backgroundColor && styles[`background-${backgroundColor}`];
 
         return (
@@ -528,6 +554,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         ref={mergeRefs([sheetRef, sheetContainerRef, sheetSwipeableHandlers.ref])}
                         onTransitionEnd={handleTransitionEnd}
                     >
+                        {renderMarker()}
                         <div
                             {...containerProps}
                             className={cn(
@@ -541,8 +568,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             )}
                             ref={mergeRefs([scrollableContainer, scrollableContainerRef])}
                         >
-                            {swipeable && <div className={cn(styles.marker)} />}
-
                             {!hideHeader && !emptyHeader && <Header {...headerProps} />}
 
                             <div

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -25,7 +25,18 @@ type CDNIconProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Fallback на случай, если не удастся загрузить иконку
+     */
+    fallback?: ReactNode;
 };
+
+enum LoadingStatus {
+    INITIAL,
+    SUCCESS,
+    FAILURE,
+}
 
 export const CDNIcon: React.FC<CDNIconProps> = ({
     name,
@@ -33,7 +44,9 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     dataTestId,
     className,
     baseUrl = 'https://alfabank.servicecdn.ru/icons',
+    fallback,
 }) => {
+    const [loadingStatus, setLoadingStatus] = useState<LoadingStatus>(LoadingStatus.INITIAL);
     const [icon, setIcon] = useState('');
 
     const monoIcon = !name.includes('_color');
@@ -46,7 +59,14 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
         xhr.onload = function onload() {
             const svg = xhr.response;
 
-            if (svg.startsWith('<svg')) setIcon(svg);
+            if (svg.startsWith('<svg')) {
+                setLoadingStatus(LoadingStatus.SUCCESS);
+                setIcon(svg);
+            }
+        };
+
+        xhr.onerror = function onError() {
+            setLoadingStatus(LoadingStatus.FAILURE);
         };
 
         return () => xhr.abort();
@@ -56,9 +76,10 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
         <span
             style={{ color }}
             className={cn(styles.component, className, { [styles.parentColor]: monoIcon })}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: icon }}
             data-test-id={dataTestId}
+            {...(loadingStatus === LoadingStatus.FAILURE
+                ? { children: fallback }
+                : { dangerouslySetInnerHTML: { __html: icon } })}
         />
     );
 };

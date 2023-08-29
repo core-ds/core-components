@@ -21,7 +21,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
             aria-controls="downshift-1-menu"
             aria-labelledby="downshift-1-label"
             class="field inner inner inner inner"
-            formcontrolcomponent="[object Object]"
             id="downshift-0-input"
             tabindex="0"
           >
@@ -67,7 +66,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
             aria-controls="downshift-3-menu"
             aria-labelledby="downshift-3-label"
             class="field inner inner inner inner"
-            formcontrolcomponent="[object Object]"
             id="downshift-2-input"
             tabindex="0"
           >
@@ -127,11 +125,11 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                 style="max-height: 744px; height: 744px;"
               >
                 <div
+                  class="marker defaultMarker"
+                />
+                <div
                   class="scrollableContainer sheetContainer"
                 >
-                  <div
-                    class="marker"
-                  />
                   <div
                     class="header headerWrapper sticky"
                   >

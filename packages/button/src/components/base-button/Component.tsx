@@ -1,5 +1,3 @@
-// TODO Вид кнопок зависит от порядка импорта стилей.
-/* eslint-disable simple-import-sort/imports */
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
@@ -10,14 +8,14 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
 import { BaseButtonProps, ComponentProps } from '../../typings';
 
-import commonStyles from './index.module.css';
 import defaultColors from './default.module.css';
+import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
 const colorStyles = {

@@ -167,6 +167,119 @@ render(() => {
 });
 ```
 
+## Поиск среди элементов списка
+
+Если список содержит большое количество пунктов, используя `showSearch` можно добавить в шапку дропдауна поиск, с помощью которого пользователь сможет отфильтровать элементы списка.
+
+По умолчанию компонент ищет строковое значение среди полей `content`, `value` и `key` и фильтрует по нему. Переопределить это поведение можно с помощью `searchProps.accessor`.
+
+```jsx live mobileHeight={640}
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [selectedFirst, setSelectedFirst] = React.useState([]);
+    const [selectedSecond, setSelectedSecond] = React.useState([]);
+
+    return (
+        <div style={{ width: 320 }}>
+            <SelectDesktop
+                allowUnselect={true}
+                size='m'
+                placeholder='Выберите элементы'
+                label='Селект с поиском'
+                Option={BaseOption}
+                multiple={true}
+                block={true}
+                {...useSelectWithApply({
+                    showSearch: true,
+                    searchProps: {
+                        componentProps: {
+                            placeholder: 'Поиск по элементам',
+                            leftAddons: <StarMIcon />,
+                        },
+                    },
+                    options: OPTIONS,
+                    selected: selectedFirst,
+                    onChange: ({ selectedMultiple }) => {
+                        setSelectedFirst(selectedMultiple.map((option) => option.key));
+                    },
+                })}
+            />
+            <div style={{ height: 'var(--gap-m)' }} />
+            <SelectDesktop
+                showSearch={true}
+                searchProps={{
+                    componentProps: {
+                        placeholder: 'Поиск по элементам',
+                        leftAddons: <StarMIcon />,
+                    },
+                }}
+                selected={selectedSecond}
+                allowUnselect={true}
+                size='m'
+                options={OPTIONS}
+                placeholder='Выберите элементы'
+                label='Селект с поиском'
+                Option={BaseOption}
+                block={true}
+                onChange={({ selected }) => {
+                    setSelectedSecond(selected);
+                }}
+            />
+        </div>
+    );
+});
+//MOBILE
+const OPTIONS = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState([]);
+
+    return (
+        <div style={{ width: '100%' }}>
+            <SelectMobile
+                showSearch={true}
+                searchProps={{
+                    componentProps: {
+                        placeholder: 'Поиск по элементам',
+                        leftAddons: <StarMIcon />,
+                    },
+                }}
+                multiple={true}
+                allowUnselect={true}
+                options={OPTIONS}
+                placeholder='Выберите элементы'
+                label='Селект с поиском'
+                Option={BaseOption}
+                block={true}
+                selected={selected}
+                onChange={({ selectedMultiple }) => {
+                    setSelected(selectedMultiple.map((option) => option.key));
+                }}
+            />
+        </div>
+    );
+});
+```
+
 ## Группировка
 
 Пункты списка можно группировать.

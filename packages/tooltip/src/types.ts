@@ -139,6 +139,12 @@ export type TooltipDesktopProps = {
      * Использовать ширину родительского элемента
      */
     useAnchorWidth?: boolean;
+
+    /**
+     * Тэг для target обертки
+     * @default div
+     */
+    targetTag?: 'div' | 'span';
 };
 
 export type TooltipMobileProps = Omit<BottomSheetProps, 'actionButton'> &
@@ -152,6 +158,7 @@ export type TooltipMobileProps = Omit<BottomSheetProps, 'actionButton'> &
         | 'zIndex'
         | 'dataTestId'
         | 'getPortalContainer'
+        | 'targetTag'
     > & {
         /**
          * Заголовок кнопки в футере

@@ -315,7 +315,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
         const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
             const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
 
-            if (disableUserInput && !isCopy) {
+            if (disableUserInput && !isCopy && event.key !== 'Tab') {
                 event.preventDefault();
             }
         };

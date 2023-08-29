@@ -6,13 +6,16 @@
 }
 
 .component {
-    position: fixed;
     top: 0;
     height: 100%;
     width: var(--drawer-width);
     flex: 1;
     overflow: auto;
     will-change: transform;
+}
+
+.component.component {
+    position: fixed;
 }
 
 .customScrollbar {

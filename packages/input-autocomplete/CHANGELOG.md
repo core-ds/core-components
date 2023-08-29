@@ -1,5 +1,32 @@
 # Change Log
 
+## 10.0.4
+
+### Patch Changes
+
+### [#823](https://github.com/core-ds/core-components/pull/823)
+
+-   Незначительные исправления компонента
+
+-   Обновлены зависимости
+    -   select@15.0.4
+
+## 10.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.0.3
+
+## 10.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.0.2
+    -   button@9.0.2
+    -   select@15.0.2
+
 ## 10.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-typography",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,7 +14,10 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "@alfalab/core-components-skeleton": "^4.1.0",
+        "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
+        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     }
 }

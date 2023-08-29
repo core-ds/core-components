@@ -22,7 +22,10 @@ describe('Tabs ', () => {
                 size: 'xs',
             },
         },
-        'transform:scale(2.2)',
+        'width:800px;transform:scale(2.2)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
     );
 });
 

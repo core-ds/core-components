@@ -51,9 +51,7 @@
 }
 
 .label {
-    @mixin paragraph_primary_medium;
     margin-bottom: var(--gap-s);
-    color: var(--checkbox-group-label-color);
 }
 
 .sub {

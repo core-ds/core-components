@@ -1,5 +1,33 @@
 # @alfalab/core-components-date-range-input
 
+## 3.0.4
+
+### Patch Changes
+
+### [#815](https://github.com/core-ds/core-components/pull/815)
+
+-   Исправлена проблема, из-за которой при включенной пропсе disableUserInput невозможно было переставить фокус клавишей Tab
+
+## 3.0.3
+
+### Patch Changes
+
+### [#809](https://github.com/core-ds/core-components/pull/809)
+
+-   Исправлена ошибка, из-за которой не сбрасывался выбранный диапозон в мобильном календаре
+
+-   Обновлены зависимости
+    -   calendar@7.0.3
+
+## 3.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.0.2
+    -   calendar@7.0.2
+    -   icon-button@6.2.2
+
 ## 3.0.1
 
 ### Patch Changes

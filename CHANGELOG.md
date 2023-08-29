@@ -1,3 +1,204 @@
+## 42.4.0
+
+<sup><time>29.08.2023</time></sup>
+
+### [#813](https://github.com/core-ds/core-components/pull/813)
+
+#### Что изменилось
+- Изменили дефолтное значение breakpoint с 768 на 1024
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#815](https://github.com/core-ds/core-components/pull/815)
+
+#### Что изменилось
+- Исправлена проблема, из-за которой при включенной пропсе disableUserInput невозможно было переставить фокус клавишей Tab
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input` `date-range-input` `date-time-input`
+
+
+### [#823](https://github.com/core-ds/core-components/pull/823)
+
+#### Что изменилось
+- Незначительные исправления компонента
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#822](https://github.com/core-ds/core-components/pull/822)
+
+#### Что изменилось
+- Убрали свойство colorStylesMap из общего типа BaseTagProps
+
+#### Влияние на компоненты
+- Патчи<br />`tag`
+
+
+### [#811](https://github.com/core-ds/core-components/pull/811)
+
+#### Что изменилось
+- Добавлен проп fallback
+
+#### Влияние на компоненты
+- Минорное<br />`cdn-icon`
+
+
+### [#814](https://github.com/core-ds/core-components/pull/814)
+
+#### Что изменилось
+- Добавлен проп targetTag
+- Исправлена проблема, из-за которой контент тултипа выходил за границы экрана
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+### [#821](https://github.com/core-ds/core-components/pull/821)
+
+#### Что изменилось
+- Исправлено ошибка, из-за которой невозможно было выбрать опцию в мобильном селекте
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#818](https://github.com/core-ds/core-components/pull/818)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой после анимации не всегда отображался дочерний элемент в safari
+
+#### Влияние на компоненты
+- Патчи<br />`collapse`
+
+
+
+## 42.3.1
+
+<sup><time>29.08.2023</time></sup>
+
+### [#819](https://github.com/core-ds/core-components/pull/819)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой невозможно было заменить дефолтные кнопки подтверждения
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+
+## 42.3.0
+
+<sup><time>28.08.2023</time></sup>
+
+### [#809](https://github.com/core-ds/core-components/pull/809)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не сбрасывался выбранный диапозон в мобильном календаре
+
+#### Влияние на компоненты
+- Патчи<br />`date-range-input`
+
+
+### [#812](https://github.com/core-ds/core-components/pull/812)
+
+#### Что изменилось
+- fix: increased css specificity
+
+#### Влияние на компоненты
+- Патчи<br />`drawer` `notification` `side-panel`
+
+
+### [#800](https://github.com/core-ds/core-components/pull/800)
+
+#### Что изменилось
+- Добавлены пропы showSkeleton, skeletonProps для скелетонизации текста
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#810](https://github.com/core-ds/core-components/pull/810)
+
+#### Что изменилось
+- Повышена специфичность стилей
+
+#### Влияние на компоненты
+- Патчи<br />`pagination`
+
+
+### [#799](https://github.com/core-ds/core-components/pull/799)
+
+#### Что изменилось
+- Добавлены новый пропы swipeableMarker и swipeableMarkerClassName
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#803](https://github.com/core-ds/core-components/pull/803)
+
+#### Что изменилось
+- Исправили стили для label в мобильных компонентах CheckboxGroup и RadioGroup
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox-group` `radio-group`
+
+
+### [#802](https://github.com/core-ds/core-components/pull/802)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой в поле вставлялась лишняя 7 при вводе значения перед +7
+
+#### Влияние на компоненты
+- Патчи<br />`phone-input`
+
+
+
+## 42.2.1
+
+<sup><time>23.08.2023</time></sup>
+
+### [#806](https://github.com/core-ds/core-components/pull/806)
+
+#### Что изменилось
+- Исправлен коллбек getPortalContainer
+
+#### Влияние на компоненты
+- Патчи<br />`with-suffix`
+
+
+### [#798](https://github.com/core-ds/core-components/pull/798)
+
+#### Что изменилось
+- Изменен цвет кнопки с view='link'. Теперь фон будет различаться в зависимости от состояния open
+
+#### Влияние на компоненты
+- Патчи<br />`picker-button`
+
+
+### [#807](https://github.com/core-ds/core-components/pull/807)
+
+#### Что изменилось
+- Исправлено выравнивание success иконки в старых браузерах
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+
+### [#801](https://github.com/core-ds/core-components/pull/801)
+
+#### Что изменилось
+- Исправлена проблема со специфичностью некоторых стилей
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+
 ## 42.2.0
 
 <sup><time>17.08.2023</time></sup>

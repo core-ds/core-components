@@ -32,6 +32,11 @@ export type UseSelectWithApplyProps = {
     optionsListProps?: BaseSelectProps['optionsListProps'];
 
     /**
+     * Включает отображение поиска
+     */
+    showSearch?: BaseSelectProps['showSearch'];
+
+    /**
      *  Настройки поиска
      */
     searchProps?: BaseSelectProps['searchProps'];
@@ -65,6 +70,7 @@ export function useSelectWithApply({
     showClear = true,
     showSelectAll = false,
     showHeaderWithSelectAll = false,
+    showSearch,
     searchProps = {},
 }: UseSelectWithApplyProps) {
     const [search, setSearch] = useState('');
@@ -73,10 +79,12 @@ export function useSelectWithApply({
 
     const { flatOptions, selectedOptions } = useMemo(
         () =>
-            processOptions(options, selected, (option) =>
-                defaultFilterFn(accessor(option), search),
+            processOptions(
+                options,
+                selected,
+                showSearch ? (option) => defaultFilterFn(accessor(option), search) : undefined,
             ),
-        [accessor, options, search, selected],
+        [accessor, options, search, selected, showSearch],
     );
 
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
@@ -163,10 +171,13 @@ export function useSelectWithApply({
         options: memoizedOptions,
         onChange: handleChange,
         selected,
-        searchProps: {
-            ...searchProps,
-            value: search,
-            onChange: setSearch,
-        },
+        showSearch,
+        searchProps: showSearch
+            ? {
+                  ...searchProps,
+                  value: search,
+                  onChange: setSearch,
+              }
+            : undefined,
     };
 }

@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+### [#803](https://github.com/core-ds/core-components/pull/803)
+
+-   Исправили стили для label в мобильных компонентах CheckboxGroup и RadioGroup
+
 ## 4.0.0
 
 ### Major Changes

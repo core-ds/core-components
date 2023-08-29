@@ -11,7 +11,7 @@ export const SecondaryTabListResponsive = ({
     size,
     defaultMatchMediaValue,
     fullWidthScroll,
-    breakpoint = 768,
+    breakpoint = 1024,
     ...restProps
 }: SecondaryTabListProps) => {
     const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);

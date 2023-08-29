@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, RefObject } from 'react';
+import type { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
 import type { TransitionProps } from 'react-transition-group/Transition';
 
 import type { BaseModalProps } from '@alfalab/core-components-base-modal';
@@ -110,6 +110,16 @@ export type BottomSheetProps = {
      * Дополнительный класс для обертки модального окна
      */
     modalWrapperClassName?: string;
+
+    /**
+     * Дополнительный класс для маркера
+     */
+    swipeableMarkerClassName?: string;
+
+    /**
+     * Кастомный маркер
+     */
+    swipeableMarker?: ReactElement;
 
     /**
      * TransitionProps, прокидываются в компонент CSSTransitionProps.
