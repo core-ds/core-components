@@ -9,9 +9,9 @@ import invertedColors from './inverted.desktop.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-}
+};
 
-export type TagDesktopProps = Omit<BaseTagProps, 'styles'>;
+export type TagDesktopProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'>;
 
 export const TagDesktop = forwardRef<HTMLButtonElement, TagDesktopProps>((restProps, ref) => (
     <BaseTag {...restProps} colorStylesMap={colorStyles} ref={ref} styles={styles} />
