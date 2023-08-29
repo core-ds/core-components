@@ -2,17 +2,10 @@ import React from 'react';
 import cn from 'classnames';
 import { addons } from '@storybook/manager-api';
 import { setThemeStylesInIframeHtmlPage, themeChangeListen } from './addons/theme-switcher/utils';
-import { setModeVarsInIframeHtmlPage, modeChangeListen } from './addons/mode-switcher/utils';
+import { modeChangeListen, setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
 import { ModeChecker } from './components/mode-checker';
 import { rmCommentsFromCss, setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
-
-import { setPreviewMetricsConnection } from './addons/utils';
-
-if (process.env.NODE_ENV !== 'development') {
-    setPreviewMetricsConnection();
-}
-
 import guidelinesStyles from '!css-loader!!postcss-loader!./public/guidelines.css';
 import './blocks/code-editor/github-light-theme.css';
 

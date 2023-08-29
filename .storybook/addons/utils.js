@@ -1,8 +1,4 @@
-import {
-    setMetricConfig,
-    setPreviewObserveConnection,
-    setManagerObserveConnection,
-} from '../metrics';
+import { setMetricConfig, setManagerObserveConnection } from '../metrics';
 
 export const MODE_COLORS_TAG_ID = 'mode-colors';
 
@@ -42,24 +38,19 @@ export const setManagerMetricsConnection = () => {
     setManagerObserveConnection();
 };
 
-export const setPreviewMetricsConnection = () => {
-    setMetricConfig();
-    setPreviewObserveConnection();
-};
-
 export function rmCommentsFromCss(css) {
     return css.replace(/\/\*[\s\S]*?\*\//g, '');
 }
 
 export const getAsyncStoryDoc = async () => {
     const iframe = document.querySelector('iframe');
-  
+
     if (!iframe) {
-      throw new Error('iframe not found');
+        throw new Error('iframe not found');
     }
-  
+
     await new Promise((resolve) => {
-      iframe.addEventListener('load', resolve);
+        iframe.addEventListener('load', resolve);
     });
 
     return iframe.contentDocument;
