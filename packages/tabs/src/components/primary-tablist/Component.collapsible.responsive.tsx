@@ -10,7 +10,7 @@ import { CollapsiblePrimaryTabListMobile } from './Component.collapsible.mobile'
 export const CollapsiblePrimaryTabListResponsive = ({
     size,
     fullWidthScroll,
-    breakpoint = 768,
+    breakpoint = 1024,
     defaultMatchMediaValue,
     ...restProps
 }: TabListProps) => {

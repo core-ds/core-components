@@ -9,7 +9,7 @@ import { PrimaryTabListMobile } from './Component.mobile';
 
 export const PrimaryTabListResponsive = ({
     size,
-    breakpoint = 768,
+    breakpoint = 1024,
     fullWidthScroll,
     defaultMatchMediaValue,
     ...restProps
