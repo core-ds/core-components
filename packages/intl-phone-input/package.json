@@ -6,6 +6,26 @@
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
+    "exports": {
+        ".": {
+            "import": "./esm/index.js",
+            "require": "./index.js"
+        },
+        "./mobile": {
+            "import": "./esm/mobile.js",
+            "require": "./mobile.js"
+        },
+        "./desktop": {
+            "import": "./esm/desktop.js",
+            "require": "./desktop.js"
+        },
+        "./esm": "./esm/index.js",
+        "./cssm": "./cssm/index.js",
+        "./modern": "./modern/index.js",
+        "./esm/*": "./esm/*",
+        "./cssm/*": "./cssm/*",
+        "./modern/*": "./modern/*"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -14,6 +34,7 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
+        "@alfalab/core-components-mq": "^4.2.0",
         "@alfalab/core-components-input-autocomplete": "10.0.2",
         "@alfalab/core-components-select": "^15.0.2",
         "@alfalab/hooks": "^1.13.0",

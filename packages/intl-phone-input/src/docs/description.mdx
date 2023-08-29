@@ -1,22 +1,20 @@
-Компонент текстового поля для ввода международных номеров телефонов.
+## Стандартный вид компонента
 
-**Жирный компонент. Для форматирования номера телефона используется библиотека `libphonenumber-js` весом в 140KB.**
-
-**Библиотека собирается в отдельный чанк. При сборке вашего проекта убедитесь, что у вас она тоже собралась отдельным чанком.**
-
-**Если вы используете `arui-scripts` для сборки, версия `arui-scripts` должна быть не ниже 9.7.0.**
-
-### Кейс с автокомплитом
+Стандартный вид компонента — поле с пикером страны и предопределённым кодом страны. 
+Для упрощения ввода номера можно включить режим автокомплита.
 
 ```jsx live
 render(() => {
     const options = [
-        { key: '+7 921 681 53 98' },
+        { key: '+7 912 681 53 98' },
         { key: '+7 921 681 52 97' },
         { key: '+7 921 681 52 96' },
-        { key: '+7 921 681 52 95' },
+        { key: '+7 912 671 52 95' },
         { key: '+7 921 681 52 94' },
     ];
+    
+    const [clearCountryCode, setClearCountryCode] = React.useState(false);
+    const [autocomplete, setAutocomplete] = React.useState(false);
 
     const matchOption = (option, inputValue) =>
         option.key.toLowerCase().includes((inputValue || '').toLowerCase());
@@ -32,7 +30,218 @@ render(() => {
 
     return (
         <div style={{ width: '320px' }}>
-            <IntlPhoneInput
+            <IntlPhoneInputDesktop
+                value={value}
+                onChange={handleChange}
+                options={autocomplete ? filteredOptions : options }
+                block={true}
+                label='Номер телефона'
+                defaultCountryIso2='RU'
+                readOnly={false}
+                onCountryChange={handleCountryChange}
+                clearableCountryCode={clearCountryCode}
+            />
+            <Gap size='l' />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+            <Gap size='xl' />
+            <Switch
+                checked={clearCountryCode}
+                label='Разрешить удаление кода страны'
+                onChange={() => setClearCountryCode((prevState) => !prevState)}
+            />
+            <Gap size='l' />
+            <Switch
+                checked={autocomplete}
+                label='Режим автокомплита'
+                onChange={() => {
+                    setAutocomplete((prevState) => !prevState);
+                }}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const options = [
+        { key: '+7 912 681 53 98' },
+        { key: '+7 921 681 52 97' },
+        { key: '+7 921 681 52 96' },
+        { key: '+7 912 671 52 95' },
+        { key: '+7 921 681 52 94' },
+    ];
+    
+    const [clearCountryCode, setClearCountryCode] = React.useState(false);
+    const [autocomplete, setAutocomplete] = React.useState(false);
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('+7');
+    const [selectedCountry, setSelectedCountry] = React.useState('RU');
+
+    const handleChange = newValue => setValue(newValue);
+
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <div style={{ width: '320px' }}>
+            <IntlPhoneInputMobile
+                value={value}
+                onChange={handleChange}
+                options={autocomplete ? filteredOptions : options }
+                block={true}
+                label='Номер телефона'
+                defaultCountryIso2='RU'
+                readOnly={false}
+                onCountryChange={handleCountryChange}
+                clearableCountryCode={clearCountryCode}
+            />
+            <Gap size='l' />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+            <Gap size='xl' />
+            <Switch
+                checked={clearCountryCode}
+                label='Разрешить удаление кода страны'
+                onChange={() => setClearCountryCode((prevState) => !prevState)}
+            />
+            <Gap size='l' />
+            <Switch
+                checked={autocomplete}
+                label='Режим автокомплита'
+                onChange={() => {
+                    setAutocomplete((prevState) => !prevState);
+                }}
+            />
+        </div>
+    );
+});
+```
+
+## Инпут без пикера страны
+
+При необходимости можно отключить возможность явно выбирать код страны через селект. 
+Инпут сам определит страну после ввода её кода.
+
+```jsx live
+render(() => {
+    const options = [
+        { key: '+7 912 681 53 98' },
+        { key: '+7 921 681 52 97' },
+        { key: '+7 921 681 52 96' },
+        { key: '+7 912 671 52 95' },
+        { key: '+7 921 681 52 94' },
+    ];
+    
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+    const [selectedCountry, setSelectedCountry] = React.useState('');
+
+    const handleChange = newValue => setValue(newValue);
+
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <div style={{ width: '320px' }}>
+            <IntlPhoneInputDesktop
+                value={value}
+                onChange={handleChange}
+                options={filteredOptions}
+                block={true}
+                label='Номер телефона'
+                readOnly={false}
+                onCountryChange={handleCountryChange}
+                canBeEmptyCountry={true}
+                defaultCountryIso2={selectedCountry}
+                hideCountrySelect={true}
+            />
+            <Gap size='l' />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const options = [
+        { key: '+7 912 681 53 98' },
+        { key: '+7 921 681 52 97' },
+        { key: '+7 921 681 52 96' },
+        { key: '+7 912 671 52 95' },
+        { key: '+7 921 681 52 94' },
+    ];
+    
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+    const [selectedCountry, setSelectedCountry] = React.useState('');
+
+    const handleChange = newValue => setValue(newValue);
+
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <div style={{ width: '320px' }}>
+            <IntlPhoneInputMobile
+                value={value}
+                onChange={handleChange}
+                options={filteredOptions}
+                block={true}
+                label='Номер телефона'
+                readOnly={false}
+                onCountryChange={handleCountryChange}
+                canBeEmptyCountry={true}
+                defaultCountryIso2={selectedCountry}
+                hideCountrySelect={true}
+            />
+            <Gap size='l' />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+        </div>
+    );
+});
+```
+
+## Работа с буфером обмена
+
+Если выбрана Россия, и скопированный номер начинается с 7 или 8, то при вставке он конвертируется в формат "+7". 
+Если номер в буфере начинается с другой цифры, то перед ним всё равно будут вставлены "+7". 
+За это отвечает настройка `ruNumberPriority`. 
+Если эта опция неактивна, к номеру в буфере будет добавляться только "+", если его не было изначально.
+
+```jsx live
+render(() => {
+    const options = [
+        { key: '+7 912 681 53 98' },
+        { key: '+7 921 681 52 97' },
+        { key: '+7 921 681 52 96' },
+        { key: '+7 912 671 52 95' },
+        { key: '+7 921 681 52 94' },
+    ];
+    
+    const [ruPriority, setRuPriority] = React.useState(false);
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('+7');
+    const [selectedCountry, setSelectedCountry] = React.useState('RU');
+
+    const handleChange = newValue => setValue(newValue);
+
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <div style={{ width: '320px' }}>
+            <IntlPhoneInputDesktop
                 value={value}
                 onChange={handleChange}
                 options={filteredOptions}
@@ -41,10 +250,69 @@ render(() => {
                 defaultCountryIso2='RU'
                 readOnly={false}
                 onCountryChange={handleCountryChange}
+                ruNumberPriority={ruPriority}
             />
-            <br />
+            <Gap size='l' />
             Код выбранной страны: <strong>{selectedCountry}</strong>
+            <Gap size='xl' />
+            <Switch
+                checked={ruPriority}
+                label='ruNumberPriority'
+                onChange={() => setRuPriority((prevState) => !prevState)}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const options = [
+        { key: '+7 912 681 53 98' },
+        { key: '+7 921 681 52 97' },
+        { key: '+7 921 681 52 96' },
+        { key: '+7 912 671 52 95' },
+        { key: '+7 921 681 52 94' },
+    ];
+    
+    const [ruPriority, setRuPriority] = React.useState(false);
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('+7');
+    const [selectedCountry, setSelectedCountry] = React.useState('RU');
+
+    const handleChange = newValue => setValue(newValue);
+
+    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <div style={{ width: '320px' }}>
+            <IntlPhoneInputMobile
+                value={value}
+                onChange={handleChange}
+                options={filteredOptions}
+                block={true}
+                label='Номер телефона'
+                defaultCountryIso2='RU'
+                readOnly={false}
+                onCountryChange={handleCountryChange}
+                ruNumberPriority={ruPriority}
+            />
+            <Gap size='l' />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+            <Gap size='xl' />
+            <Switch
+                checked={ruPriority}
+                label='ruNumberPriority'
+                onChange={() => setRuPriority((prevState) => !prevState)}
+            />
         </div>
     );
 });
 ```
+
+## Морфология
+
+Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs), поэтому наследует все доступные для него настройки.

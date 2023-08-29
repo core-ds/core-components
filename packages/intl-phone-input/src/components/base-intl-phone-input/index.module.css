@@ -1,4 +1,4 @@
-@import '../../themes/src/default.css';
+@import '../../../../themes/src/default.css';
 
 .addons {
     padding-left: 0;
@@ -22,4 +22,8 @@
 
 .emptyCountryIcon {
     color: var(--color-light-graphic-secondary);
+}
+
+.error {
+    color: var(--color-light-text-negative);
 }

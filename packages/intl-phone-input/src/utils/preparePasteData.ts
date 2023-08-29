@@ -1,3 +1,4 @@
+import { validateRuNumber } from './validateRuNumber';
 /**
  * Подготовка данных для вставки из буфера обмена.
  * @param phoneValue Телефон уже введённый в поле ввода.
@@ -18,15 +19,15 @@ export function preparePasteData(
     const cutNumberWithPlus = trimNumber.replace(/[^+\d]/g, '');
     const isTextHavePlus = cutNumberWithPlus[0] === '+';
     const cutNumber = trimNumber.replace(/[^\d]/g, '');
-    const isRuNumberInBuffer =
-        cutNumber[0] === '7' || cutNumber[0] === '8' || cutNumber.substring(0, 2) === '+7';
+    const isRuNumberInBuffer = validateRuNumber(cutNumber);
+    const isRuNumberInPhoneValue = validateRuNumber(phoneValue);
     let resultNumber = '';
 
     // вставка в поле c "+"
     if (phoneValue === '+') {
         resultNumber = `+${cutNumber}`;
         // вставка в поле, в которое введена часть номера
-    } else if (phoneValue === '+7' && isRuNumberInBuffer) {
+    } else if (isRuNumberInPhoneValue && (isRuNumberInBuffer || ruNumberPriority)) {
         resultNumber = `+7${cutNumber.substring(cutNumber.length - 10)}`;
     } else if (phoneValue) {
         const startText = phoneValue.substring(0, selectionStart || 0);

@@ -1,21 +1,20 @@
-import React, { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, ElementType, forwardRef, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
-import {
-    InputAutocompleteDesktop,
-    InputAutocompleteDesktopProps,
-} from '@alfalab/core-components-input-autocomplete/desktop';
+import { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
+import { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
+import { InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
 import type { SelectProps } from '@alfalab/core-components-select';
 import type { OptionShape } from '@alfalab/core-components-select/shared';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
 
-import { calculateCaretPos } from './utils/calculateCaretPos';
-import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
-import { preparePasteData } from './utils/preparePasteData';
-import { CountriesSelect, FlagIcon } from './components';
-import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
+import { useCaretAvoidCountryCode } from '../../useCaretAvoidCountryCode';
+import { calculateCaretPos } from '../../utils/calculateCaretPos';
+import { formatPhoneWithUnclearableCountryCode } from '../../utils/format-phone-with-unclearable-country-code';
+import { preparePasteData } from '../../utils/preparePasteData';
+import { CountriesSelect, FlagIcon } from '..';
 
 import styles from './index.module.css';
 
@@ -31,7 +30,7 @@ const DEFAULT_MAX_PHONE_LEN_BY_COUNTRY: MaxPhoneLenByCountry = { RU: 11 };
 
 type MaxPhoneLenByCountry = Record<string, number>;
 
-export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteDesktopProps, 'onChange'>> &
+export type BaseIntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
     Pick<SelectProps, 'preventFlip'> & {
         /**
          * Значение
@@ -98,9 +97,24 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteDesktopProps, 'o
          * Разрешает очищать поле крестиком
          */
         clear?: boolean;
+
+        /**
+         * Компонент InputAutocomplete
+         */
+        InputAutocompleteComponent?: ElementType;
+
+        /**
+         * Компонент CountriesSelect
+         */
+        CountriesSelectComponent?: ElementType;
+
+        /**
+         * Мобильный компонент
+         */
+        mobile?: boolean;
     };
 
-export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
+export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInputProps>(
     (
         {
             disabled = false,
@@ -123,6 +137,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             preventFlip,
             inputProps,
             maxPhoneLen = DEFAULT_MAX_PHONE_LEN_BY_COUNTRY,
+            InputAutocompleteComponent,
+            CountriesSelectComponent,
+            mobile = false,
+            error,
             ...restProps
         },
         ref,
@@ -130,7 +148,6 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const [countryIso2, setCountryIso2] = useState<string | undefined>(
             defaultCountryIso2.toLowerCase(),
         );
-
         const inputRef = useRef<HTMLInputElement>(null);
         const [inputWrapperRef, setInputWrapperRef] = useState<HTMLDivElement | null>(null);
 
@@ -331,7 +348,6 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             if (newValueDecimal.length > maxPhoneLength) {
                 newValue = newValue.slice(0, -1);
             }
-
             if (ruNumberPriority && !value && countryIso2 === 'ru') {
                 if (newValue === '7' || newValue === '8') {
                     newValue = '+7';
@@ -458,6 +474,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 selectionEnd || 0,
                 ruNumberPriority && countryIso2 === 'ru',
             );
+
             const targetCountry = getCountryByNumber(preparedNumber);
             const maxPhoneLength =
                 (targetCountry && maxPhoneLen?.[targetCountry.iso2.toUpperCase()]) || MAX_PHONE_LEN;
@@ -489,7 +506,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         setCountryByDialCode(value);
                     }
                 })
-                .catch((error) => `An error occurred while loading libphonenumber-js:\n${error}`);
+                .catch(
+                    (errorLib) => `An error occurred while loading libphonenumber-js:\n${errorLib}`,
+                );
 
             /* eslint-disable-next-line react-hooks/exhaustive-deps */
         }, [value]);
@@ -517,47 +536,100 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
-        return (
-            <InputAutocompleteDesktop
+        const getLeftAddons = (isCountriesBottomSheet = false) =>
+            hideCountrySelect || isCountriesBottomSheet ? (
+                <span className={styles.flagIconWrapper}>
+                    {countryIso2 ? (
+                        <FlagIcon country={countryIso2} />
+                    ) : (
+                        <WorldMagnifierMIcon className={styles.emptyCountryIcon} />
+                    )}
+                </span>
+            ) : (
+                countries.length > 1 && (
+                    <CountriesSelect
+                        dataTestId='countries-select'
+                        disabled={disabled || readOnly}
+                        size={size}
+                        selected={countryIso2}
+                        countries={countries}
+                        CountriesSelectComponent={CountriesSelectComponent}
+                        mobile={mobile}
+                        onChange={handleSelectChange}
+                        fieldWidth={
+                            inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
+                        }
+                        preventFlip={preventFlip}
+                    />
+                )
+            );
+
+        const handleClearBottomSheet = () => {
+            if (clearableCountryCode) {
+                onChange('+');
+                if (canBeEmptyCountry) {
+                    setCountryIso2(undefined);
+                    handleCountryChange(undefined);
+                }
+            } else {
+                onChange(value.substring(0, countryCodeLength));
+            }
+        };
+
+        const getInputAutocompleteMobileProps = (): Partial<InputAutocompleteMobileProps> => ({
+            bottomSheetHeaderAddonsProps: {
+                ref: inputRef,
+                leftAddons: getLeftAddons(true),
+                onKeyDown: handleKeyDown,
+                onChange: handleChange,
+                onInput: handleInputChange,
+                onPaste: handlePaste,
+                type: 'tel',
+                colors,
+                disabled,
+                value,
+                clear: clear && !isEmptyValue,
+                error,
+                ...restProps.bottomSheetHeaderAddonsProps,
+            },
+            bottomSheetProps: {
+                hasCloser: false,
+                ...restProps.bottomSheetProps,
+            },
+            onClearFilter: handleClearBottomSheet,
+            fieldProps: {
+                leftAddons: getLeftAddons(),
+                addonsClassName: styles.addons,
+                value,
+            },
+            fieldClassName: error ? styles.error : undefined,
+            filter: value,
+            onCancel: handleClearBottomSheet,
+        });
+
+        const getInputAutocompleteProps = (): Partial<InputAutocompleteDesktopProps> => ({
+            readOnly,
+            inputProps: {
+                ...inputProps,
+                clear: clear && !isEmptyValue,
+                onClear: handleClear,
+                ref: inputRef,
+                wrapperRef: setInputWrapperRef,
+                type: 'tel',
+                colors,
+                className: cn(className, styles[size]),
+                addonsClassName: styles.addons,
+                onKeyDown: handleKeyDown,
+                onPaste: handlePaste,
+                leftAddons: getLeftAddons(),
+            },
+        });
+
+        return InputAutocompleteComponent ? (
+            <InputAutocompleteComponent
                 {...restProps}
                 ref={ref}
-                inputProps={{
-                    clear: clear && !isEmptyValue,
-                    ...inputProps,
-                    onClear: handleClear,
-                    ref: inputRef,
-                    wrapperRef: setInputWrapperRef,
-                    type: 'tel',
-                    colors,
-                    className: cn(className, styles[size]),
-                    addonsClassName: styles.addons,
-                    onKeyDown: handleKeyDown,
-                    onPaste: handlePaste,
-                    leftAddons: hideCountrySelect ? (
-                        <span className={styles.flagIconWrapper}>
-                            {countryIso2 ? (
-                                <FlagIcon country={countryIso2} />
-                            ) : (
-                                <WorldMagnifierMIcon className={styles.emptyCountryIcon} />
-                            )}
-                        </span>
-                    ) : (
-                        countries.length > 1 && (
-                            <CountriesSelect
-                                dataTestId='countries-select'
-                                disabled={disabled || readOnly}
-                                size={size}
-                                selected={countryIso2}
-                                countries={countries}
-                                onChange={handleSelectChange}
-                                fieldWidth={
-                                    inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
-                                }
-                                preventFlip={preventFlip}
-                            />
-                        )
-                    ),
-                }}
+                {...(mobile ? getInputAutocompleteMobileProps() : getInputAutocompleteProps())}
                 optionsListWidth='field'
                 closeOnSelect={true}
                 onInput={handleInputChange}
@@ -568,7 +640,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 size={size}
                 className={className}
                 value={value}
+                error={error}
             />
-        );
+        ) : null;
     },
 );

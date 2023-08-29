@@ -1,0 +1,24 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { IntlPhoneInput } from '../index';
+import { IntlPhoneInputDesktop } from '../desktop';
+import { IntlPhoneInputMobile } from '../mobile';
+
+## Подключение
+
+```jsx
+import { IntlPhoneInput } from '@alfalab/core-components/intl-phone-input';
+import { IntlPhoneInputDesktop } from '@alfalab/core-components/intl-phone-input/desktop';
+import { IntlPhoneInputMobile } from '@alfalab/core-components/intl-phone-input/mobile';
+```
+Из индекса импортируется responsive версия компонента.
+
+## Сборка
+
+Для форматирования номера телефона используется библиотека libphonenumber-js весом в 140KB.
+Библиотека собирается в отдельный чанк. 
+При сборке вашего проекта убедитесь, что у вас она тоже собралась отдельным чанком. 
+Если вы используете arui-scripts для сборки, версия arui-scripts должна быть не ниже 9.7.0.
+
+## Свойства
+
+<ArgsTable components={{IntlPhoneInputDesktop, IntlPhoneInputMobile, IntlPhoneInput}} />

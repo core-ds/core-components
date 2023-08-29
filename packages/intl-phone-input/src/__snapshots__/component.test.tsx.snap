@@ -4,7 +4,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
 <div>
   <div
     aria-haspopup="listbox"
-    aria-owns="downshift-1-menu"
+    aria-owns="downshift-5-menu"
     class="component"
     role="combobox"
     tabindex="-1"
@@ -23,7 +23,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
           >
             <div
               aria-haspopup="listbox"
-              aria-owns="downshift-3-menu"
+              aria-owns="downshift-7-menu"
               class="component"
               data-test-id="countries-select"
               role="combobox"
@@ -33,10 +33,10 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
                 class="component m"
               >
                 <div
-                  aria-controls="downshift-3-menu"
-                  aria-labelledby="downshift-3-label"
+                  aria-controls="downshift-7-menu"
+                  aria-labelledby="downshift-7-label"
                   class="inner"
-                  id="downshift-2-input"
+                  id="downshift-6-input"
                   tabindex="0"
                 >
                   <span
@@ -96,11 +96,11 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="downshift-1-menu"
-              aria-labelledby="downshift-1-label"
+              aria-controls="downshift-5-menu"
+              aria-labelledby="downshift-5-label"
               autocomplete="off"
               class="input input input"
-              id="downshift-0-input"
+              id="downshift-4-input"
               tabindex="0"
               type="tel"
               value="+7 111 111 11 11"

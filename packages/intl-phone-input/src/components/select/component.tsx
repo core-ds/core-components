@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { ElementType, FC, useCallback, useMemo } from 'react';
 
-import { SelectDesktop, SelectDesktopProps } from '@alfalab/core-components-select/desktop';
+import {  SelectProps } from '@alfalab/core-components-select';
 import { OptionsListProps, VirtualOptionsList } from '@alfalab/core-components-select/shared';
 import { Country } from '@alfalab/utils';
 
@@ -12,12 +12,14 @@ import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
 import styles from './index.module.css';
 
 type CountriesSelectProps = Pick<
-    SelectDesktopProps,
+    SelectProps,
     'size' | 'dataTestId' | 'disabled' | 'onChange' | 'preventFlip'
 > & {
     selected?: string;
     countries: Country[];
     fieldWidth: number | null;
+    CountriesSelectComponent?: ElementType;
+    mobile?: boolean;
 };
 
 export const CountriesSelect: FC<CountriesSelectProps> = ({
@@ -29,6 +31,8 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     preventFlip,
     onChange,
     dataTestId,
+    CountriesSelectComponent,
+    mobile,
 }) => {
     const options = useMemo(
         () =>
@@ -51,16 +55,16 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
 
     const renderOptionsList = useCallback(
         (props: OptionsListProps) => (
-            <div style={{ width: fieldWidth || 0 }}>
+            <div style={{...(!mobile && { width: fieldWidth || 0 })}}>
                 <VirtualOptionsList {...props} optionsListWidth='field' />
             </div>
         ),
-        [fieldWidth],
+        [fieldWidth, mobile],
     );
 
     return (
         <div className={styles.component} onClick={(event) => event.stopPropagation()}>
-            <SelectDesktop
+           {CountriesSelectComponent? <CountriesSelectComponent
                 dataTestId={dataTestId}
                 disabled={disabled}
                 size={size}
@@ -70,7 +74,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
                 Field={SelectField}
                 OptionsList={renderOptionsList}
                 preventFlip={preventFlip}
-            />
+            /> : null}
         </div>
     );
 };
