@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#800](https://github.com/core-ds/core-components/pull/800)
+
+-   Добавлены пропы showSkeleton, skeletonProps для скелетонизации текста
+
 ## 4.0.0
 
 ### Major Changes

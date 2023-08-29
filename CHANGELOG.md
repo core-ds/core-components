@@ -1,3 +1,85 @@
+## 42.3.1
+
+<sup><time>29.08.2023</time></sup>
+
+### [#819](https://github.com/core-ds/core-components/pull/819)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой невозможно было заменить дефолтные кнопки подтверждения
+
+#### Влияние на компоненты
+- Патчи<br />`tooltip`
+
+
+
+## 42.3.0
+
+<sup><time>28.08.2023</time></sup>
+
+### [#809](https://github.com/core-ds/core-components/pull/809)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не сбрасывался выбранный диапозон в мобильном календаре
+
+#### Влияние на компоненты
+- Патчи<br />`date-range-input`
+
+
+### [#812](https://github.com/core-ds/core-components/pull/812)
+
+#### Что изменилось
+- fix: increased css specificity
+
+#### Влияние на компоненты
+- Патчи<br />`drawer` `notification` `side-panel`
+
+
+### [#800](https://github.com/core-ds/core-components/pull/800)
+
+#### Что изменилось
+- Добавлены пропы showSkeleton, skeletonProps для скелетонизации текста
+
+#### Влияние на компоненты
+- Минорное<br />`typography`
+
+
+### [#810](https://github.com/core-ds/core-components/pull/810)
+
+#### Что изменилось
+- Повышена специфичность стилей
+
+#### Влияние на компоненты
+- Патчи<br />`pagination`
+
+
+### [#799](https://github.com/core-ds/core-components/pull/799)
+
+#### Что изменилось
+- Добавлены новый пропы swipeableMarker и swipeableMarkerClassName
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#803](https://github.com/core-ds/core-components/pull/803)
+
+#### Что изменилось
+- Исправили стили для label в мобильных компонентах CheckboxGroup и RadioGroup
+
+#### Влияние на компоненты
+- Патчи<br />`checkbox-group` `radio-group`
+
+
+### [#802](https://github.com/core-ds/core-components/pull/802)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой в поле вставлялась лишняя 7 при вводе значения перед +7
+
+#### Влияние на компоненты
+- Патчи<br />`phone-input`
+
+
+
 ## 42.2.1
 
 <sup><time>23.08.2023</time></sup>

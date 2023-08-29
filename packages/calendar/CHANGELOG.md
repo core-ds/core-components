@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@8.0.3
+
 ## 7.0.2
 
 ### Patch Changes
