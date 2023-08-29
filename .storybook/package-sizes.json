@@ -93,8 +93,8 @@
     },
     "select": {
         "desktop.js": 126.58,
-        "index.js": 195.88,
-        "mobile.js": 166.08,
+        "index.js": 195.91,
+        "mobile.js": 166.11,
         "shared.js": 150.97
     },
     "select-with-tags": {
@@ -139,8 +139,8 @@
     },
     "picker-button": {
         "desktop.js": 149.85,
-        "index.js": 209.62,
-        "mobile.js": 208.34,
+        "index.js": 209.65,
+        "mobile.js": 208.38,
         "shared.js": 3.01
     },
     "phone-input": {
@@ -213,8 +213,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 153.43,
-        "index.js": 213.52,
-        "mobile.js": 174.76
+        "index.js": 213.55,
+        "mobile.js": 174.79
     },
     "indicator": {
         "index.js": 1.99
@@ -283,8 +283,8 @@
     },
     "custom-picker-button": {
         "desktop.js": 151.32,
-        "index.js": 211.25,
-        "mobile.js": 209.8
+        "index.js": 211.29,
+        "mobile.js": 209.83
     },
     "custom-button": {
         "index.js": 8.91
