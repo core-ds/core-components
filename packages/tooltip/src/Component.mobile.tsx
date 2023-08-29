@@ -21,14 +21,14 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
 }) => (
     <Fragment>
         <BottomSheet
-            {...restProps}
-            container={getPortalContainer}
-            onClose={onClose}
             actionButton={
                 <ButtonMobile view='secondary' block={true} size='s' onClick={onClose}>
                     {actionButtonTitle}
                 </ButtonMobile>
             }
+            {...restProps}
+            container={getPortalContainer}
+            onClose={onClose}
         >
             {content}
         </BottomSheet>
