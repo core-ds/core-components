@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.4
+
+### Patch Changes
+
+### [#819](https://github.com/core-ds/core-components/pull/819)
+
+-   Исправлена ошибка, из-за которой невозможно было заменить дефолтные кнопки подтверждения
+
 ## 7.0.3
 
 ### Patch Changes
