@@ -9,9 +9,9 @@
         "index.js": 5.7
     },
     "tooltip": {
-        "desktop.js": 44.31,
-        "index.js": 97.03,
-        "mobile.js": 69.87
+        "desktop.js": 44.33,
+        "index.js": 97.06,
+        "mobile.js": 69.88
     },
     "toast": {
         "desktop.js": 57.73,
@@ -244,7 +244,7 @@
         "index.js": 1.36
     },
     "gallery": {
-        "index.js": 193.15
+        "index.js": 193.16
     },
     "form-control": {
         "desktop.js": 3.19,
@@ -269,14 +269,14 @@
         "index.js": 1.31
     },
     "date-time-input": {
-        "desktop.js": 129.78,
-        "index.js": 225.13,
-        "mobile.js": 223.69
+        "desktop.js": 129.79,
+        "index.js": 225.15,
+        "mobile.js": 223.71
     },
     "date-range-input": {
-        "desktop.js": 131.38,
-        "index.js": 226.76,
-        "mobile.js": 225.33
+        "desktop.js": 131.4,
+        "index.js": 226.78,
+        "mobile.js": 225.34
     },
     "date-input": {
         "index.js": 61.77
@@ -325,7 +325,7 @@
         "index.js": 439.26
     },
     "cdn-icon": {
-        "index.js": 1.68
+        "index.js": 1.76
     },
     "card-image": {
         "index.js": 2.03
@@ -340,12 +340,12 @@
         "index.js": 63.54
     },
     "calendar-range": {
-        "index.js": 233.42
+        "index.js": 233.5
     },
     "calendar-input": {
-        "desktop.js": 130.95,
-        "index.js": 225.81,
-        "mobile.js": 224.9,
+        "desktop.js": 131.04,
+        "index.js": 225.89,
+        "mobile.js": 224.98,
         "shared.js": 64.42
     },
     "button": {
