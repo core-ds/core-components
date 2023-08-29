@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+### [#814](https://github.com/core-ds/core-components/pull/814)
+
+-   Добавлен проп targetTag
+-   Исправлена проблема, из-за которой контент тултипа выходил за границы экрана
+
 ## 7.0.4
 
 ### Patch Changes

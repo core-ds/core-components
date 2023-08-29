@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [#811](https://github.com/core-ds/core-components/pull/811)
+
+-   Добавлен проп fallback
+
 ## 5.1.1
 
 ### Patch Changes

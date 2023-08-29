@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.0.4
+
+### Patch Changes
+
+### [#813](https://github.com/core-ds/core-components/pull/813)
+
+-   Изменили дефолтное значение breakpoint с 768 на 1024
+
+-   Обновлены зависимости
+    -   tag@6.0.1
+    -   picker-button@11.0.4
+
 ## 8.0.3
 
 ### Patch Changes
