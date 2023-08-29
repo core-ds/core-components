@@ -1,6 +1,5 @@
 .target {
     position: relative;
-    width: max-content;
 
     & .overlap {
         position: absolute;
