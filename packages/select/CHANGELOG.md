@@ -1,5 +1,13 @@
 # Change Log
 
+## 15.0.4
+
+### Patch Changes
+
+### [#821](https://github.com/core-ds/core-components/pull/821)
+
+-   Исправлено ошибка, из-за которой невозможно было выбрать опцию в мобильном селекте
+
 ## 15.0.3
 
 ### Patch Changes

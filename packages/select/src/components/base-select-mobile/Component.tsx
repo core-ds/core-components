@@ -232,11 +232,13 @@ export const BaseSelectMobile = forwardRef(
                         initiatorRef.current = selectedItem;
 
                         if (selectedItem && !selectedItem.disabled && !alreadyClickedRef.current) {
-                            alreadyClickedRef.current = true;
                             // TODO!!! Проблема downshift + React 18. ItemClick срабатывает дважды. См https://github.com/downshift-js/downshift/issues/1384
-                            setTimeout(() => {
-                                alreadyClickedRef.current = false;
-                            });
+                            if (React.version.indexOf('18') === 0) {
+                                alreadyClickedRef.current = true;
+                                setTimeout(() => {
+                                    alreadyClickedRef.current = false;
+                                });
+                            }
                             const alreadySelected = selectedItems.includes(selectedItem);
                             const allowRemove =
                                 allowUnselect || (multiple && selectedItems.length > 1);

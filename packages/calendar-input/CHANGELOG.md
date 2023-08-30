@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.0.4
+
+### Patch Changes
+
+### [#815](https://github.com/core-ds/core-components/pull/815)
+
+-   Исправлена проблема, из-за которой при включенной пропсе disableUserInput невозможно было переставить фокус клавишей Tab
+
 ## 9.0.3
 
 ### Patch Changes

@@ -1,3 +1,81 @@
+## 42.4.0
+
+<sup><time>29.08.2023</time></sup>
+
+### [#813](https://github.com/core-ds/core-components/pull/813)
+
+#### Что изменилось
+- Изменили дефолтное значение breakpoint с 768 на 1024
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#815](https://github.com/core-ds/core-components/pull/815)
+
+#### Что изменилось
+- Исправлена проблема, из-за которой при включенной пропсе disableUserInput невозможно было переставить фокус клавишей Tab
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input` `date-range-input` `date-time-input`
+
+
+### [#823](https://github.com/core-ds/core-components/pull/823)
+
+#### Что изменилось
+- Незначительные исправления компонента
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+
+### [#822](https://github.com/core-ds/core-components/pull/822)
+
+#### Что изменилось
+- Убрали свойство colorStylesMap из общего типа BaseTagProps
+
+#### Влияние на компоненты
+- Патчи<br />`tag`
+
+
+### [#811](https://github.com/core-ds/core-components/pull/811)
+
+#### Что изменилось
+- Добавлен проп fallback
+
+#### Влияние на компоненты
+- Минорное<br />`cdn-icon`
+
+
+### [#814](https://github.com/core-ds/core-components/pull/814)
+
+#### Что изменилось
+- Добавлен проп targetTag
+- Исправлена проблема, из-за которой контент тултипа выходил за границы экрана
+
+#### Влияние на компоненты
+- Минорное<br />`tooltip`
+
+
+### [#821](https://github.com/core-ds/core-components/pull/821)
+
+#### Что изменилось
+- Исправлено ошибка, из-за которой невозможно было выбрать опцию в мобильном селекте
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#818](https://github.com/core-ds/core-components/pull/818)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой после анимации не всегда отображался дочерний элемент в safari
+
+#### Влияние на компоненты
+- Патчи<br />`collapse`
+
+
+
 ## 42.3.1
 
 <sup><time>29.08.2023</time></sup>

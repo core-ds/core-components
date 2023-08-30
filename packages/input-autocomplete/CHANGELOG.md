@@ -1,5 +1,16 @@
 # Change Log
 
+## 10.0.4
+
+### Patch Changes
+
+### [#823](https://github.com/core-ds/core-components/pull/823)
+
+-   Незначительные исправления компонента
+
+-   Обновлены зависимости
+    -   select@15.0.4
+
 ## 10.0.3
 
 ### Patch Changes

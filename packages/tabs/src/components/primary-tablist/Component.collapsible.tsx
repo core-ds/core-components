@@ -26,7 +26,7 @@ export const CollapsiblePrimaryTabList = ({
     fullWidthScroll,
     onChange,
     dataTestId,
-    breakpoint = 768,
+    breakpoint = 1024,
     defaultMatchMediaValue,
 }: TabListProps & Styles) => {
     const lineRef = useRef<HTMLDivElement>(null);

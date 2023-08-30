@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.1
+
+### Patch Changes
+
+### [#818](https://github.com/core-ds/core-components/pull/818)
+
+-   Исправлена ошибка, из-за которой после анимации не всегда отображался дочерний элемент в safari
+
 ## 4.2.0
 
 ### Minor Changes

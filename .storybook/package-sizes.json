@@ -9,9 +9,9 @@
         "index.js": 5.7
     },
     "tooltip": {
-        "desktop.js": 44.31,
-        "index.js": 97.03,
-        "mobile.js": 69.87
+        "desktop.js": 44.33,
+        "index.js": 97.06,
+        "mobile.js": 69.88
     },
     "toast": {
         "desktop.js": 57.73,
@@ -93,8 +93,8 @@
     },
     "select": {
         "desktop.js": 126.58,
-        "index.js": 195.88,
-        "mobile.js": 166.08,
+        "index.js": 195.91,
+        "mobile.js": 166.11,
         "shared.js": 150.97
     },
     "select-with-tags": {
@@ -139,8 +139,8 @@
     },
     "picker-button": {
         "desktop.js": 149.85,
-        "index.js": 209.62,
-        "mobile.js": 208.34,
+        "index.js": 209.65,
+        "mobile.js": 208.38,
         "shared.js": 3.01
     },
     "phone-input": {
@@ -213,8 +213,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 153.43,
-        "index.js": 213.52,
-        "mobile.js": 174.76
+        "index.js": 213.57,
+        "mobile.js": 174.81
     },
     "indicator": {
         "index.js": 1.99
@@ -244,7 +244,7 @@
         "index.js": 1.36
     },
     "gallery": {
-        "index.js": 193.15
+        "index.js": 193.16
     },
     "form-control": {
         "desktop.js": 3.19,
@@ -269,22 +269,22 @@
         "index.js": 1.31
     },
     "date-time-input": {
-        "desktop.js": 129.78,
-        "index.js": 225.13,
-        "mobile.js": 223.69
+        "desktop.js": 129.79,
+        "index.js": 225.15,
+        "mobile.js": 223.71
     },
     "date-range-input": {
-        "desktop.js": 131.38,
-        "index.js": 226.76,
-        "mobile.js": 225.33
+        "desktop.js": 131.4,
+        "index.js": 226.78,
+        "mobile.js": 225.34
     },
     "date-input": {
         "index.js": 61.77
     },
     "custom-picker-button": {
         "desktop.js": 151.32,
-        "index.js": 211.25,
-        "mobile.js": 209.8
+        "index.js": 211.29,
+        "mobile.js": 209.83
     },
     "custom-button": {
         "index.js": 8.91
@@ -325,7 +325,7 @@
         "index.js": 439.26
     },
     "cdn-icon": {
-        "index.js": 1.68
+        "index.js": 1.76
     },
     "card-image": {
         "index.js": 2.03
@@ -340,12 +340,12 @@
         "index.js": 63.54
     },
     "calendar-range": {
-        "index.js": 233.42
+        "index.js": 233.5
     },
     "calendar-input": {
-        "desktop.js": 130.95,
-        "index.js": 225.81,
-        "mobile.js": 224.9,
+        "desktop.js": 131.04,
+        "index.js": 225.89,
+        "mobile.js": 224.98,
         "shared.js": 64.42
     },
     "button": {

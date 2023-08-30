@@ -30,33 +30,34 @@ type EventParams = {
      * Значение
      */
     value?: Nullable<string>;
-
-    /**
-     * Пользовательские данные
-     */
-    dimension_1?: Nullable<string>;
-    /**
-     * Пользовательские данные
-     */
-    dimension_2?: Nullable<string>;
 };
 
-export const trackEvent = ({
-    category,
-    action = 'click',
-    label,
-    property,
-    value,
-    dimension_1,
-    dimension_2,
-}: EventParams) => {
-    window.sp('trackStructEvent', category, action, label, property, value, [
-        {
-            schema: 'iglu:com.alfabank/custom_dimension/jsonschema/1-0-0',
-            data: {
-                '1': dimension_1,
-                '2': dimension_2,
-            },
-        },
-    ]);
+const trackEvent = ({ category, action = 'click', label, property, value }: EventParams) => {
+    window.sp('trackStructEvent', category, action, label, property, value);
+};
+
+export const TRACK_EVENT = {
+    USER: () => {
+        trackEvent({ category: CATEGORY.USERS, action: 'Page view' });
+    },
+    DOCS: (property: string) => {
+        trackEvent({
+            category: CATEGORY.COMPONENT,
+            label: 'Docs',
+            property,
+        });
+    },
+    CANVAS: (property: string) => {
+        trackEvent({
+            category: CATEGORY.COMPONENT,
+            label: 'Canvas',
+            property,
+        });
+    },
+    SEARCH_VALUE: (property: string) => {
+        trackEvent({
+            category: CATEGORY.SEARCH_VALUE,
+            property,
+        });
+    },
 };

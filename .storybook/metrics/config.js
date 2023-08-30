@@ -1,11 +1,3 @@
-import {
-    observeExplorerMenu,
-    observeLink,
-    observePreviewFrameComponent,
-    observePreviewModeTabs,
-    observeSwitcher,
-} from './observers';
-
 export const setMetricConfig = () => {
     (function (p, l, o, w, i, n, g) {
         if (!p[i]) {
@@ -25,6 +17,7 @@ export const setMetricConfig = () => {
 
     function getMetricUrl() {
         const { hostname } = window.location;
+
         switch (hostname) {
             case 'core-ds.github.io': {
                 return 'metrics.alfabank.ru/metrica/intra';
@@ -48,17 +41,4 @@ export const setMetricConfig = () => {
 
     sp('enableActivityTracking', 30, 10);
     sp('trackPageView');
-};
-
-export const setManagerObserveConnection = () => {
-    window.addEventListener('load', () => {
-        observeLink();
-        observeSwitcher();
-        observeExplorerMenu();
-        observePreviewModeTabs();
-    });
-};
-
-export const setPreviewObserveConnection = () => {
-    observePreviewFrameComponent();
 };
