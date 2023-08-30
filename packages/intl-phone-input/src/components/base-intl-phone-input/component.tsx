@@ -141,6 +141,7 @@ export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInpu
             CountriesSelectComponent,
             mobile = false,
             error,
+            bottomSheetHeaderAddonsProps,
             ...restProps
         },
         ref,
@@ -442,9 +443,7 @@ export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInpu
             }
         };
 
-        const handleClear: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-            inputProps?.onClear?.(event);
-
+        const clearInput = () => {
             if (clearableCountryCode) {
                 onChange('+');
                 if (canBeEmptyCountry) {
@@ -454,6 +453,11 @@ export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInpu
             } else {
                 onChange(value.substring(0, countryCodeLength));
             }
+        };
+
+        const handleClear: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+            inputProps?.onClear?.(event);
+            clearInput();
         };
 
         const handlePaste: React.ClipboardEventHandler<HTMLInputElement> = (event) => {
@@ -484,6 +488,16 @@ export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInpu
                 setCountryIso2(targetCountry ? targetCountry.iso2 : undefined);
                 changePhone(addCountryCode(resultNumber));
             }
+        };
+
+        const handleClearFilterBottomSheet = () => {
+            restProps?.onClearFilter?.();
+            clearInput();
+        };
+
+        const handleCancelBottomSheet = () => {
+            restProps?.onCancel?.();
+            clearInput();
         };
 
         useEffect(() => {
@@ -564,20 +578,9 @@ export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInpu
                 )
             );
 
-        const handleClearBottomSheet = () => {
-            if (clearableCountryCode) {
-                onChange('+');
-                if (canBeEmptyCountry) {
-                    setCountryIso2(undefined);
-                    handleCountryChange(undefined);
-                }
-            } else {
-                onChange(value.substring(0, countryCodeLength));
-            }
-        };
-
         const getInputAutocompleteMobileProps = (): Partial<InputAutocompleteMobileProps> => ({
             bottomSheetHeaderAddonsProps: {
+                ...bottomSheetHeaderAddonsProps,
                 ref: inputRef,
                 leftAddons: getLeftAddons(true),
                 onKeyDown: handleKeyDown,
@@ -590,13 +593,9 @@ export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInpu
                 value,
                 clear: clear && !isEmptyValue,
                 error,
-                ...restProps.bottomSheetHeaderAddonsProps,
+                className: styles.input,
             },
-            bottomSheetProps: {
-                hasCloser: false,
-                ...restProps.bottomSheetProps,
-            },
-            onClearFilter: handleClearBottomSheet,
+            onClearFilter: handleClearFilterBottomSheet,
             fieldProps: {
                 leftAddons: getLeftAddons(),
                 addonsClassName: styles.addons,
@@ -604,7 +603,7 @@ export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInpu
             },
             fieldClassName: error ? styles.error : undefined,
             filter: value,
-            onCancel: handleClearBottomSheet,
+            onCancel: handleCancelBottomSheet,
         });
 
         const getInputAutocompleteProps = (): Partial<InputAutocompleteDesktopProps> => ({

@@ -24,6 +24,10 @@
     color: var(--color-light-graphic-secondary);
 }
 
+.input {
+    padding-top: var(--gap-xs);
+}
+
 .error {
     color: var(--color-light-text-negative);
 }

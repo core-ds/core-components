@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { ElementType, FC, useCallback, useMemo } from 'react';
 
-import {  SelectProps } from '@alfalab/core-components-select';
+import { SelectProps } from '@alfalab/core-components-select';
 import { OptionsListProps, VirtualOptionsList } from '@alfalab/core-components-select/shared';
 import { Country } from '@alfalab/utils';
 
@@ -55,7 +55,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
 
     const renderOptionsList = useCallback(
         (props: OptionsListProps) => (
-            <div style={{...(!mobile && { width: fieldWidth || 0 })}}>
+            <div style={{ ...(!mobile && { width: fieldWidth || 0 }) }}>
                 <VirtualOptionsList {...props} optionsListWidth='field' />
             </div>
         ),
@@ -64,17 +64,24 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
 
     return (
         <div className={styles.component} onClick={(event) => event.stopPropagation()}>
-           {CountriesSelectComponent? <CountriesSelectComponent
-                dataTestId={dataTestId}
-                disabled={disabled}
-                size={size}
-                options={options}
-                selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
-                onChange={onChange}
-                Field={SelectField}
-                OptionsList={renderOptionsList}
-                preventFlip={preventFlip}
-            /> : null}
+            {CountriesSelectComponent ? (
+                <CountriesSelectComponent
+                    dataTestId={dataTestId}
+                    disabled={disabled}
+                    size={size}
+                    options={options}
+                    selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
+                    onChange={onChange}
+                    Field={SelectField}
+                    OptionsList={renderOptionsList}
+                    {...(mobile && {
+                        bottomSheetProps: {
+                            title: 'Выберите страну',
+                        },
+                    })}
+                    preventFlip={preventFlip}
+                />
+            ) : null}
         </div>
     );
 };

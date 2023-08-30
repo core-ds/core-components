@@ -3,7 +3,7 @@
 Стандартный вид компонента — поле с пикером страны и предопределённым кодом страны. 
 Для упрощения ввода номера можно включить режим автокомплита.
 
-```jsx live
+```jsx live mobileHeight={720}
 render(() => {
     const options = [
         { key: '+7 912 681 53 98' },
@@ -97,6 +97,7 @@ render(() => {
                 readOnly={false}
                 onCountryChange={handleCountryChange}
                 clearableCountryCode={clearCountryCode}
+                clear={true}
             />
             <Gap size='l' />
             Код выбранной страны: <strong>{selectedCountry}</strong>
@@ -124,7 +125,7 @@ render(() => {
 При необходимости можно отключить возможность явно выбирать код страны через селект. 
 Инпут сам определит страну после ввода её кода.
 
-```jsx live
+```jsx live mobileHeight={720}
 render(() => {
     const options = [
         { key: '+7 912 681 53 98' },
@@ -200,6 +201,7 @@ render(() => {
                 canBeEmptyCountry={true}
                 defaultCountryIso2={selectedCountry}
                 hideCountrySelect={true}
+                clear={true}
             />
             <Gap size='l' />
             Код выбранной страны: <strong>{selectedCountry}</strong>
@@ -215,7 +217,7 @@ render(() => {
 За это отвечает настройка `ruNumberPriority`. 
 Если эта опция неактивна, к номеру в буфере будет добавляться только "+", если его не было изначально.
 
-```jsx live
+```jsx live mobileHeight={720}
 render(() => {
     const options = [
         { key: '+7 912 681 53 98' },
@@ -299,6 +301,7 @@ render(() => {
                 readOnly={false}
                 onCountryChange={handleCountryChange}
                 ruNumberPriority={ruPriority}
+                clear={true}
             />
             <Gap size='l' />
             Код выбранной страны: <strong>{selectedCountry}</strong>
