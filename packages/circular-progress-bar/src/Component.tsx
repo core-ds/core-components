@@ -257,9 +257,12 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
     return (
         <div
-            className={cn(styles.component, styles[size], className)}
+            className={cn(styles.component, styles[size], className, {
+                [styles[`bg-${view}`]]: fillComplete && isComplete,
+            })}
             style={{
                 ...(height && { height, width: height }),
+                ...(circleColor && { backgroundColor: circleColor }),
             }}
             data-test-id={dataTestId}
         >
@@ -278,12 +281,9 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     strokeWidth={STROKE[size]}
                 />
                 <circle
-                    className={cn(styles.progressCircle, styles[view], styles[size], {
-                        [styles[`bg-${view}`]]: fillComplete && isComplete,
-                    })}
+                    className={cn(styles.progressCircle, styles[view], styles[size])}
                     style={{
                         ...(progressStrokeColor && { stroke: progressStrokeColor }),
-                        ...(circleColor && { fill: circleColor }),
                     }}
                     cx={memorized.center}
                     cy={memorized.center}
