@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { IntlPhoneInput } from './';
+import { IntlPhoneInputDesktop as IntlPhoneInput } from './desktop';
 
 describe('IntlPhoneInput', () => {
     Object.defineProperty(window, 'matchMedia', {

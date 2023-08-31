@@ -1,1 +1,4 @@
-export * from './Component.responsive';
+export {
+    IntlPhoneInputResponsive as IntlPhoneInput,
+    IntlPhoneInputPropsResponsive as IntlPhoneInputProps,
+} from './Component.responsive';

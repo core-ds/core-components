@@ -30,91 +30,98 @@ const DEFAULT_MAX_PHONE_LEN_BY_COUNTRY: MaxPhoneLenByCountry = { RU: 11 };
 
 type MaxPhoneLenByCountry = Record<string, number>;
 
-export type BaseIntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
-    Pick<SelectProps, 'preventFlip'> & {
-        /**
-         * Значение
-         */
-        value: string;
+export type BaseIntlPhoneInputProps = {
+    /**
+     * Значение
+     */
+    value: string;
 
-        /**
-         * Набор цветов для компонента
-         */
-        colors?: 'default' | 'inverted';
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 
-        /**
-         * Обработчик события изменения значения
-         */
-        onChange: (value: string) => void;
+    /**
+     * Обработчик события изменения значения
+     */
+    onChange: (value: string) => void;
 
-        /**
-         * Дефолтный код страны
-         */
-        defaultCountryIso2?: string;
+    /**
+     * Дефолтный код страны
+     */
+    defaultCountryIso2?: string;
 
-        /**
-         * Обработчик события изменения страны
-         */
-        onCountryChange?: (countryCode?: CountryCode) => void;
+    /**
+     * Обработчик события изменения страны
+     */
+    onCountryChange?: (countryCode?: CountryCode) => void;
 
-        /**
-         * Список стран
-         */
-        countries?: Country[];
+    /**
+     * Список стран
+     */
+    countries?: Country[];
 
-        /**
-         * Максимальная длина кода страны
-         */
-        maxDialCodeLength?: number;
+    /**
+     * Максимальная длина кода страны
+     */
+    maxDialCodeLength?: number;
 
-        /**
-         * Возможность стереть код страны
-         */
-        clearableCountryCode?: boolean;
+    /**
+     * Возможность стереть код страны
+     */
+    clearableCountryCode?: boolean;
 
-        /**
-         * Ограничение длин вводимых номеров по странам.
-         */
-        maxPhoneLen?: MaxPhoneLenByCountry;
+    /**
+     * Ограничение длин вводимых номеров по странам.
+     */
+    maxPhoneLen?: MaxPhoneLenByCountry;
 
-        /*
-         * Отключает выбор страны через селект
-         */
-        hideCountrySelect?: boolean;
+    /*
+     * Отключает выбор страны через селект
+     */
+    hideCountrySelect?: boolean;
 
-        /*
-         * Разрешает состояние без выбранной страны
-         */
-        canBeEmptyCountry?: boolean;
+    /*
+     * Разрешает состояние без выбранной страны
+     */
+    canBeEmptyCountry?: boolean;
 
-        /*
-         * Подставляет +7 при выбранной стране 'ru' и вводе первых цифр номера.
-         * При canBeEmptyCountry - работает только с дефолтным значением 'ru'
-         */
-        ruNumberPriority?: boolean;
+    /*
+     * Подставляет +7 при выбранной стране 'ru' и вводе первых цифр номера.
+     * При canBeEmptyCountry - работает только с дефолтным значением 'ru'
+     */
+    ruNumberPriority?: boolean;
 
-        /*
-         * Разрешает очищать поле крестиком
-         */
-        clear?: boolean;
+    /*
+     * Разрешает очищать поле крестиком
+     */
+    clear?: boolean;
 
-        /**
-         * Компонент InputAutocomplete
-         */
-        InputAutocompleteComponent?: ElementType;
+    /**
+     * Компонент InputAutocomplete
+     */
+    InputAutocompleteComponent?: ElementType;
 
-        /**
-         * Компонент CountriesSelect
-         */
-        CountriesSelectComponent?: ElementType;
+    /**
+     * Компонент CountriesSelect
+     */
+    CountriesSelectComponent?: ElementType;
 
-        /**
-         * Мобильный компонент
-         */
-        mobile?: boolean;
-    };
+    /**
+     * Мобильный компонент
+     */
+    mobile?: boolean;
 
-export const BaseIntlPhoneInput = forwardRef<HTMLInputElement, BaseIntlPhoneInputProps>(
+    /**
+     * Кастомный инпут
+     */
+    Input?: InputAutocompleteMobileProps['Input'] | InputAutocompleteDesktopProps['Input'];
+};
+export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange' | 'Input'>> &
+    Pick<SelectProps, 'preventFlip'> &
+    BaseIntlPhoneInputProps;
+
+export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
     (
         {
             disabled = false,

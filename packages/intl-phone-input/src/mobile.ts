@@ -1,1 +1,1 @@
-export * from './Component.mobile';
+export { IntlPhoneInputMobile, IntlPhoneInputMobileProps } from './Component.mobile';

@@ -1,1 +1,1 @@
-export * from './Component.desktop';
+export { IntlPhoneInputDesktop, IntlPhoneInputDesktopProps } from './Component.desktop';
