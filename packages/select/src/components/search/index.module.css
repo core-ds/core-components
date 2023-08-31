@@ -1,0 +1,6 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    width: auto;
+}

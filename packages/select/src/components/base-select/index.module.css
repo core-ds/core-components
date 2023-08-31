@@ -58,6 +58,18 @@
     width: 100%;
 }
 
+.emptySearchPlaceholder {
+    text-align: center;
+}
+
+.search {
+    margin: var(--gap-s) var(--gap-s) 0;
+
+    &:last-child {
+        margin-bottom: var(--gap-s);
+    }
+}
+
 /* width: max-content; fix for IE */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

@@ -11,6 +11,7 @@ import { Field as DefaultField } from './components/field';
 import { Optgroup as DefaultOptgroup } from './components/optgroup';
 import { Option as DefaultOption } from './components/option';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
+import { Search as DefaultSearch } from './components/search';
 import { BaseSelectProps } from './typings';
 
 export type SelectFieldProps = Omit<FormControlDesktopProps, 'size'> & Record<string, unknown>;
@@ -30,7 +31,8 @@ export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
             OptionsList = DefaultOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            fieldProps={},
+            Search = DefaultSearch,
+            fieldProps = {},
             ...restProps
         },
         ref,
@@ -43,6 +45,7 @@ export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
                 FormControlComponent: FormControlDesktop,
                 ...(fieldProps as object),
             }}
+            Search={Search}
             Optgroup={Optgroup}
             OptionsList={OptionsList}
             Arrow={Arrow}

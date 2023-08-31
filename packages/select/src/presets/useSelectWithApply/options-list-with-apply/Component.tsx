@@ -35,6 +35,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             visibleOptions = DEFAULT_VISIBLE_OPTIONS,
             Footer = DefaultFooter,
             Header = DefaultHeader,
+            header,
             headerProps,
             ...restProps
         }: OptionsListWithApplyProps,
@@ -81,6 +82,17 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
+        const renderHeader = () => {
+            if (!showHeaderWithSelectAll && !header) return undefined;
+
+            return (
+                <React.Fragment>
+                    {header}
+                    {showHeaderWithSelectAll && <Header {...headerProps} />}
+                </React.Fragment>
+            );
+        };
+
         return (
             <OptionsList
                 {...restProps}
@@ -91,7 +103,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
                 getOptionProps={getOptionProps}
                 onApply={handleApply}
                 onClear={handleClear}
-                header={showHeaderWithSelectAll ? <Header {...headerProps} /> : undefined}
+                header={renderHeader()}
                 footer={
                     <Footer
                         handleApply={handleApply}

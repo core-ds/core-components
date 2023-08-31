@@ -25,6 +25,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             size = 's',
             className,
             optionGroupClassName,
+            scrollbarClassName,
             Option,
             getOptionProps,
             options = [],
@@ -73,7 +74,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             invalidate: options,
         });
 
-        if (options.length === 0 && !emptyPlaceholder) {
+        if (options.length === 0 && !emptyPlaceholder && !header && !footer) {
             return null;
         }
 
@@ -98,7 +99,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
             return (
                 <Scrollbar
-                    className={styles.scrollable}
+                    className={cn(styles.scrollable, scrollbarClassName)}
                     ref={scrollbarRef}
                     horizontalAutoStretch={optionsListWidth === 'content'}
                     scrollableNodeProps={scrollableNodeProps}
@@ -110,7 +111,11 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         };
 
         const renderWithNativeScrollbar = () => (
-            <div className={styles.scrollable} ref={mergeRefs([listRef, ref])} onScroll={onScroll}>
+            <div
+                className={cn(styles.scrollable, scrollbarClassName)}
+                ref={mergeRefs([listRef, ref])}
+                onScroll={onScroll}
+            >
                 {renderListItems()}
             </div>
         );
