@@ -35,14 +35,14 @@
         "mobile.js": 4.6
     },
     "tabs": {
-        "collapsible.js": 157.86,
+        "collapsible.js": 166.96,
         "desktop.js": 12.87,
         "index.js": 15.36,
         "mobile.js": 13.02,
         "shared.js": 15.89
     },
     "table": {
-        "index.js": 142.69
+        "index.js": 149.61
     },
     "system-message": {
         "desktop.js": 4.22,
@@ -92,13 +92,13 @@
         "index.js": 0.43
     },
     "select": {
-        "desktop.js": 126.58,
-        "index.js": 195.91,
-        "mobile.js": 166.11,
-        "shared.js": 150.97
+        "desktop.js": 138.62,
+        "index.js": 203.74,
+        "mobile.js": 173.3,
+        "shared.js": 161.93
     },
     "select-with-tags": {
-        "index.js": 155.46
+        "index.js": 162.6
     },
     "segmented-control": {
         "index.js": 13.22
@@ -138,9 +138,9 @@
         "mobile.js": 13.42
     },
     "picker-button": {
-        "desktop.js": 149.85,
-        "index.js": 209.65,
-        "mobile.js": 208.38,
+        "desktop.js": 158.95,
+        "index.js": 217.78,
+        "mobile.js": 216.5,
         "shared.js": 3.01
     },
     "phone-input": {
@@ -204,7 +204,7 @@
         "index.js": 2.11
     },
     "intl-phone-input": {
-        "index.js": 663.93
+        "index.js": 666.94
     },
     "input": {
         "desktop.js": 16.41,
@@ -212,9 +212,9 @@
         "mobile.js": 16.4
     },
     "input-autocomplete": {
-        "desktop.js": 153.43,
-        "index.js": 213.57,
-        "mobile.js": 174.81
+        "desktop.js": 156.42,
+        "index.js": 217.03,
+        "mobile.js": 177.33
     },
     "indicator": {
         "index.js": 1.99
@@ -282,9 +282,9 @@
         "index.js": 61.77
     },
     "custom-picker-button": {
-        "desktop.js": 151.32,
-        "index.js": 211.29,
-        "mobile.js": 209.83
+        "desktop.js": 160.42,
+        "index.js": 219.41,
+        "mobile.js": 217.96
     },
     "custom-button": {
         "index.js": 8.91
