@@ -5,4 +5,4 @@
 "@alfalab/core-components-select": minor
 ---
 
-feat(select): add search feature
+feat(select): добавлена возможность фильтрации пунктов
