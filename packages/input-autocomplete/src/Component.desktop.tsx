@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, forwardRef, RefAttributes } from 'react';
 
 import { InputProps } from '@alfalab/core-components-input';
 import {
+    AnyObject,
     BaseSelect,
     BaseSelectProps,
     Optgroup as DefaultOptgroup,
@@ -73,7 +74,11 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             closeOnSelect={closeOnSelect}
             Option={Option}
             Field={AutocompleteField}
+            Optgroup={Optgroup}
+            OptionsList={OptionsList}
+            {...restProps}
             fieldProps={{
+                ...(restProps.fieldProps as AnyObject),
                 Input,
                 onInput,
                 value,
@@ -81,9 +86,6 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
                 readOnly,
                 success,
             }}
-            Optgroup={Optgroup}
-            OptionsList={OptionsList}
-            {...restProps}
         />
     ),
 );

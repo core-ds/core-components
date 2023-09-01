@@ -195,18 +195,19 @@ export const InputAutocompleteModalMobile = React.forwardRef<
 
         return (
             <SelectModalMobile
-                ref={mergeRefs([ref, targetRef])}
-                name={name}
                 Field={AutocompleteMobileField}
+                useWithApplyHook={false}
+                {...restProps}
+                ref={mergeRefs([ref, targetRef])}
                 Arrow={Arrow}
                 onOpen={handleOpen}
                 onChange={handleChange}
                 multiple={multiple}
                 open={openProp ?? open}
                 size={size}
-                fieldProps={{ value }}
+                fieldProps={{ value, ...(restProps.fieldProps as Record<string, unknown>) }}
                 placeholder={placeholder}
-                useWithApplyHook={false}
+                name={name}
                 modalProps={{
                     ...modalProps,
                     componentRef: modalScrollableRef,
@@ -220,7 +221,6 @@ export const InputAutocompleteModalMobile = React.forwardRef<
                     ...modalFooterProps,
                     children: renderFooter(),
                 }}
-                {...restProps}
             />
         );
     },
