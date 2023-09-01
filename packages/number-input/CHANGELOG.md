@@ -1,5 +1,18 @@
 # @alfalab/core-components-number-input
 
+## 1.2.0
+
+### Minor Changes
+
+### [#817](https://github.com/core-ds/core-components/pull/817)
+
+-   Добавлена мобильная и десктопная версия компонента
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.0
+
 ## 1.1.2
 
 ### Patch Changes

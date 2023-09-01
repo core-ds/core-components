@@ -1,5 +1,22 @@
 # Change Log
 
+## 15.1.0
+
+### Minor Changes
+
+### [#805](https://github.com/core-ds/core-components/pull/805)
+
+-   feat(select): добавлена возможность фильтрации пунктов
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.3.0
+    -   input@12.1.0
+    -   bottom-sheet@6.7.1
+    -   button@9.0.3
+    -   modal@8.0.4
+
 ## 15.0.4
 
 ### Patch Changes

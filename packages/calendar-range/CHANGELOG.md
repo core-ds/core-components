@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.3
+    -   calendar@7.0.4
+    -   calendar-input@9.0.5
+
 ## 7.2.4
 
 ### Patch Changes

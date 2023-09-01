@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.7.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.3.0
+    -   navigation-bar@0.5.3
+
 ## 6.7.0
 
 ### Minor Changes
