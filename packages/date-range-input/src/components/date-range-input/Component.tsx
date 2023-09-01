@@ -3,7 +3,6 @@ import React, {
     ChangeEvent,
     ElementType,
     FocusEvent,
-    KeyboardEvent,
     MouseEvent,
     useEffect,
     useRef,
@@ -316,14 +315,6 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             }
         };
 
-        const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-            const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
-
-            if (disableUserInput && !isCopy && event.key !== 'Tab') {
-                event.preventDefault();
-            }
-        };
-
         const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {
                 const target = (event.relatedTarget || document.activeElement) as HTMLElement;
@@ -476,7 +467,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                         readOnly={readOnly}
                         className={inputClassName}
                         onClear={handleClear}
-                        onKeyDown={handleInputKeyDown}
+                        disableUserInput={disableUserInput}
                         rightAddons={
                             <React.Fragment>
                                 {rightAddons}

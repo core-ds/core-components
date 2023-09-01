@@ -210,6 +210,8 @@ export type BaseInputProps = Omit<
     disableUserInput?: boolean;
 };
 
+const preventDefault = (e: React.UIEvent<HTMLElement>) => e.preventDefault();
+
 export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
     (
         {
@@ -358,6 +360,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 className={styles.clearButton}
                                 onClick={handleClear}
                                 tabIndex={-1}
+                                onMouseDown={preventDefault}
                             >
                                 <CrossCircleMIcon
                                     className={cn(
