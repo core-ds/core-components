@@ -1,0 +1,41 @@
+## Примеры
+
+В данном примере шаг равен единице. Максимальное значение 10, минимальное 0.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState();
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
+
+    const handleChange = (e, { valueString }) => {
+        setValue(valueString);
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <StepperInput
+                value={value}
+                onChange={handleChange}
+                step={1}
+                min={0}
+                max={10}
+                block={true}
+                disableUserInput={disableUserInput}
+            />
+
+            <Gap size='l' />
+
+            <Switch
+                block={true}
+                checked={disableUserInput}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setDisableUserInput(!disableUserInput)}
+            />
+        </div>
+    );
+});
+```
+
+## Морфология
+
+Компонент является оберткой над [FormControl](?path=/docs/formcontrol--docs), поэтому наследует все доступные для него настройки.

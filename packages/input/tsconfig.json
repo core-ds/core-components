@@ -16,6 +16,7 @@
         { "path": "../form-control" },
         { "path": "../loader" },
         { "path": "../badge" },
-        { "path": "../mq" }
+        { "path": "../mq" },
+        { "path": "../shared" }
     ]
 }

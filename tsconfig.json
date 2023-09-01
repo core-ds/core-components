@@ -37,7 +37,9 @@
             "@alfalab/core-components-calendar-input/*": ["packages/calendar-input/src/*"],
             "@alfalab/core-components-calendar/*": ["packages/calendar/src/*"],
             "@alfalab/core-components-tooltip/*": ["packages/tooltip/src/*"],
-            "@alfalab/core-components-input-autocomplete/*": ["packages/input-autocomplete/src/*"]
+            "@alfalab/core-components-input-autocomplete/*": ["packages/input-autocomplete/src/*"],
+            "@alfalab/core-components-step-input/*": ["packages/step-input/src/*"],
+            "@alfalab/core-components-number-input/*": ["packages/number-input/src/*"]
         }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
