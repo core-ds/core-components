@@ -43,8 +43,7 @@ export const ScrollableContainer = ({
             });
 
             // TODO: animate?
-            actions.forEach(({ el, left }, index) => {
-                if (index === 0) return;
+            actions.forEach(({ el, left }) => {
                 // eslint-disable-next-line no-param-reassign
                 el.scrollLeft =
                     el.scrollLeft > left
