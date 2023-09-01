@@ -62,7 +62,7 @@ export const plate: Story = {
                 <style>
                     {`.custom {
                         background: rgba(207, 112, 255, 0.1);
-                        box-shadow: var(--plate-border) rgba(207, 112, 255, 1);
+                        box-shadow: 0 0 0 1px rgba(207, 112, 255, 1);
                     `}
                 </style>
                 <Plate
@@ -142,7 +142,7 @@ export const plate_mobile: Story = {
                 <style>
                     {`.custom {
                         background: rgba(207, 112, 255, 0.1);
-                        box-shadow: var(--plate-border) rgba(207, 112, 255, 1);
+                        box-shadow: 0 0 0 1px rgba(207, 112, 255, 1);
                     `}
                 </style>
                 <PlateMobile
@@ -221,7 +221,7 @@ export const plate_desktop: Story = {
                 <style>
                     {`.custom {
                         background: rgba(207, 112, 255, 0.1);
-                        box-shadow: var(--plate-border) rgba(207, 112, 255, 1);
+                        box-shadow: 0 0 0 1px rgba(207, 112, 255, 1);
                     `}
                 </style>
                 <PlateDesktop

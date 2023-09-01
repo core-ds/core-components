@@ -3,7 +3,7 @@
 :root {
     /* border */
     --plate-border-left: 2px;
-    --plate-border: 0 0 0 1px;
+    --plate-border-width: 1px;
     --plate-border-radius: var(--border-radius-l);
 
     /* width limit */
@@ -85,7 +85,7 @@
 
 .common {
     background-color: var(--color-light-specialbg-secondary-transparent);
-    box-shadow: var(--plate-border) var(--color-static-status-grey);
+    border: var(--plate-border-width) solid var(--color-static-status-grey);
     &:before {
         background-color: var(--color-static-status-grey);
     }
@@ -93,7 +93,7 @@
 
 .negative {
     background-color: var(--color-light-bg-negative-muted);
-    box-shadow: var(--plate-border) var(--color-static-status-red);
+    border: var(--plate-border-width) solid var(--color-static-status-red);
     &:before {
         background-color: var(--color-static-status-red);
     }
@@ -101,7 +101,7 @@
 
 .positive {
     background-color: var(--color-light-bg-positive-muted);
-    box-shadow: var(--plate-border) var(--color-static-status-green);
+    border: var(--plate-border-width) solid var(--color-static-status-green);
     &:before {
         background-color: var(--color-static-status-green);
     }
@@ -109,7 +109,7 @@
 
 .attention {
     background-color: var(--color-light-bg-attention-muted);
-    box-shadow: var(--plate-border) var(--color-static-status-orange);
+    border: var(--plate-border-width) solid var(--color-static-status-orange);
     &:before {
         background-color: var(--color-static-status-orange);
     }
@@ -117,7 +117,7 @@
 
 .custom {
     background: var(--plate-background);
-    box-shadow: var(--plate-border) var(--plate-border-color);
+    border: var(--plate-border-width) solid var(--plate-border-color);
     &:before {
         background-color: var(--plate-border-color);
     }
@@ -125,7 +125,7 @@
 
 .rect,
 .noBorder {
-    box-shadow: none;
+    border: none;
 }
 
 .isHidden {
