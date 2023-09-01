@@ -20,6 +20,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: var(--border-radius-pill);
+
+    &.bg-positive {
+        background: var(--circular-progress-bar-positive-color);
+    }
+
+    &.bg-negative {
+        background: var(--circular-progress-bar-negative-color);
+    }
 }
 
 .svg {
@@ -162,14 +171,6 @@
 
 .progressCircle {
     stroke-linecap: round;
-
-    &.bg-positive {
-        fill: var(--circular-progress-bar-positive-color);
-    }
-
-    &.bg-negative {
-        fill: var(--circular-progress-bar-negative-color);
-    }
 }
 
 .iconWrapper {

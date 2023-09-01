@@ -3,43 +3,11 @@ import cn from 'classnames';
 
 import { Typography } from '@alfalab/core-components-typography';
 
+import { SIZES, STROKE, TYPOGRAPHY_COLOR, VIEW_TEXT, VIEW_TITLE } from './consts';
+
 import styles from './index.module.css';
 
-const SIZES = {
-    xs: 24,
-    s: 48,
-    m: 64,
-    l: 80,
-    xl: 128,
-    xxl: 144,
-};
-
-const STROKE = {
-    xs: 4,
-    s: 4,
-    m: 6,
-    l: 8,
-    xl: 10,
-    xxl: 12,
-};
-
-const VIEW_TITLE = {
-    xs: 'small',
-    s: 'small',
-    m: 'small',
-    l: 'xsmall',
-    xl: 'medium',
-    xxl: 'medium',
-} as const;
-
-const VIEW_TEXT = {
-    xs: 'secondary-small',
-    s: 'secondary-small',
-    m: 'secondary-large',
-    l: 'secondary-large',
-    xl: 'secondary-large',
-    xxl: 'secondary-large',
-} as const;
+export type TypographyColor = 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative';
 
 export type CircularProgressBarProps = {
     /**
@@ -60,7 +28,7 @@ export type CircularProgressBarProps = {
     /**
      * Цвет контента
      */
-    contentColor?: 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative';
+    contentColor?: TypographyColor | string;
 
     /**
      * Дополнительный текст
@@ -140,9 +108,19 @@ export type CircularProgressBarProps = {
     dataTestId?: string;
 
     /**
-     * Дочерние элементы.
+     * Дочерние элементы
      */
     children?: ReactNode;
+
+    /**
+     * Цвет прогресса
+     */
+    progressStrokeColor?: string;
+
+    /**
+     * Цвет заливки внутри круга
+     */
+    circleColor?: string;
 };
 
 /**
@@ -168,6 +146,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     direction = 'clockwise',
     height,
     children,
+    progressStrokeColor,
+    circleColor,
 }) => {
     const memorized = useMemo(() => {
         const strokeWidth = STROKE[size];
@@ -197,25 +177,34 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     const titleContent = titleComplete && isComplete ? titleComplete : title;
     const subtitleContent = subtitleComplete && isComplete ? subtitleComplete : subtitle;
     const IconComponent = IconComplete && isComplete ? IconComplete : Icon;
+    const typographyContentColor = TYPOGRAPHY_COLOR.includes(contentColor)
+        ? (contentColor as TypographyColor)
+        : undefined;
 
     const renderTitleString = () =>
         SIZES[size] > 64 ? (
             <Typography.TitleMobile
                 className={cn(styles.typography, styles.title)}
-                color={isCompleteTextColor ? completeTextColor : contentColor}
+                color={isCompleteTextColor ? completeTextColor : typographyContentColor}
                 tag='div'
                 font='system'
                 view={VIEW_TITLE[size]}
+                style={{
+                    ...(!typographyContentColor && { color: contentColor }),
+                }}
             >
                 {titleContent}
             </Typography.TitleMobile>
         ) : (
             <Typography.Text
                 className={styles.title}
-                color={isCompleteTextColor ? completeTextColor : contentColor}
+                color={isCompleteTextColor ? completeTextColor : typographyContentColor}
                 tag='div'
                 weight='bold'
                 view={VIEW_TEXT[size]}
+                style={{
+                    ...(!typographyContentColor && { color: contentColor }),
+                }}
             >
                 {titleContent}
             </Typography.Text>
@@ -228,8 +217,11 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             <Typography.Text
                 tag='div'
                 className={styles.subtitle}
-                color={isCompleteTextColor ? completeTextColor : contentColor}
+                color={isCompleteTextColor ? completeTextColor : typographyContentColor}
                 view='primary-small'
+                style={{
+                    ...(!typographyContentColor && { color: contentColor }),
+                }}
             >
                 {subtitleContent}
             </Typography.Text>
@@ -265,9 +257,12 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
     return (
         <div
-            className={cn(styles.component, styles[size], className)}
+            className={cn(styles.component, styles[size], className, {
+                [styles[`bg-${view}`]]: fillComplete && isComplete,
+            })}
             style={{
                 ...(height && { height, width: height }),
+                ...(circleColor && { backgroundColor: circleColor }),
             }}
             data-test-id={dataTestId}
         >
@@ -286,9 +281,10 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     strokeWidth={STROKE[size]}
                 />
                 <circle
-                    className={cn(styles.progressCircle, styles[view], styles[size], {
-                        [styles[`bg-${view}`]]: fillComplete && isComplete,
-                    })}
+                    className={cn(styles.progressCircle, styles[view], styles[size])}
+                    style={{
+                        ...(progressStrokeColor && { stroke: progressStrokeColor }),
+                    }}
                     cx={memorized.center}
                     cy={memorized.center}
                     r={memorized.radius}
