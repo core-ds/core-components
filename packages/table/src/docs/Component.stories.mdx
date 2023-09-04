@@ -1,6 +1,6 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ArgsTabs, ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Amount } from '@alfalab/core-components-amount';
 import { Space } from '@alfalab/core-components-space';
@@ -116,7 +116,7 @@ import { Table } from '@alfalab/core-components/table';
     description={<Description />}
     changelog={<Markdown>{Changelog}</Markdown>}
     props={
-        <ArgsTable
+        <ArgsTabs
             components={{
                 Table: TableTS,
                 Wrapper: TableTS.Wrapper,
