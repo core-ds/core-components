@@ -1,5 +1,6 @@
 .target {
     position: relative;
+    display: inline-block;
 
     & .overlap {
         position: absolute;
@@ -7,4 +8,8 @@
         width: 100%;
         z-index: 2;
     }
+}
+
+.inline {
+    display: inline;
 }

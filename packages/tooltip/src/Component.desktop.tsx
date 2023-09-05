@@ -167,7 +167,9 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
 
     const getTargetProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
-            className: cn(styles.target, targetClassName),
+            className: cn(styles.target, targetClassName, {
+                [styles.inline]: TargetTag === 'span',
+            }),
         };
 
         switch (trigger) {

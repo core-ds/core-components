@@ -147,7 +147,7 @@ export type TooltipDesktopProps = {
     targetTag?: 'div' | 'span';
 };
 
-export type TooltipMobileProps = Omit<BottomSheetProps, 'actionButton'> &
+export type TooltipMobileProps = Omit<Partial<BottomSheetProps>, 'actionButton'> &
     Pick<
         TooltipDesktopProps,
         | 'content'
