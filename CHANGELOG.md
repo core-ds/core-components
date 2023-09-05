@@ -1,3 +1,67 @@
+## 42.5.0
+
+<sup><time>01.09.2023</time></sup>
+
+### [#817](https://github.com/core-ds/core-components/pull/817)
+
+#### Что изменилось
+- Добавлена утилита disableUserInput
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+<br />
+
+#### Что изменилось
+- Мобильный form-control в теме click приведен к дефолтному виду
+
+#### Влияние на компоненты
+- Минорное<br />`themes`
+
+<br />
+
+#### Что изменилось
+- Добавлен проп disableUserInput
+
+#### Влияние на компоненты
+- Минорное<br />`input`
+
+<br />
+
+#### Что изменилось
+- Добавлен новый компонент StepperInput
+
+#### Влияние на компоненты
+- Минорное<br />`stepper-input`
+
+<br />
+
+#### Что изменилось
+- Добавлена мобильная и десктопная версия компонента
+
+#### Влияние на компоненты
+- Минорное<br />`number-input`
+
+
+### [#805](https://github.com/core-ds/core-components/pull/805)
+
+#### Что изменилось
+- feat(select): добавлена возможность фильтрации пунктов
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete` `input` `picker-button` `select`
+
+
+### [#808](https://github.com/core-ds/core-components/pull/808)
+
+#### Что изменилось
+- Добавлены новые пропсы progressStrokeColor и circleColor
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+
 ## 42.4.0
 
 <sup><time>29.08.2023</time></sup>

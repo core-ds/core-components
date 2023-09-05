@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FocusEvent, KeyboardEvent, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
+import type { InputProps } from '@alfalab/core-components-input';
 
-import { createSeparatorsRegExp, getAllowedValue, SEPARATORS, SIGNS } from './utils';
+import { createSeparatorsRegExp, getAllowedValue, SEPARATORS, SIGNS } from '../../utils';
 
 export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
@@ -25,6 +25,11 @@ export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
      * Количество символов после разделителя
      */
     fractionLength?: number;
+
+    /**
+     *  Компонент инпута
+     */
+    Input: React.FC<InputProps & { ref?: React.Ref<HTMLInputElement> }>;
 
     /**
      * Обработчик события изменения значения
@@ -55,6 +60,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             separator = ',',
             fractionLength,
             defaultValue,
+            Input,
             ...restProps
         },
         ref,

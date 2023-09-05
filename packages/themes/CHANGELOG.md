@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.11.0
+
+### Minor Changes
+
+### [#817](https://github.com/core-ds/core-components/pull/817)
+
+-   Мобильный form-control в теме click приведен к дефолтному виду
+
 ## 11.10.0
 
 ### Minor Changes

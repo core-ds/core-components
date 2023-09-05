@@ -35,11 +35,15 @@ import styles from '!!raw-loader!../index.module.css';
             'secondary',
         );
         const subtitleComplete = text('subtitleComplete');
+        const progressStrokeColor = text('progressStrokeColor');
+        const circleColor = text('circleColor');
         return (
             <>
                 <CircularProgressBar
                     value={value}
                     view={view}
+                    progressStrokeColor={progressStrokeColor}
+                    circleColor={circleColor}
                     title={title}
                     titleComplete={titleComplete}
                     subtitle={subtitle}

@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#808](https://github.com/core-ds/core-components/pull/808)
+
+-   Добавлены новые пропсы progressStrokeColor и circleColor
+
 ## 3.1.1
 
 ### Patch Changes

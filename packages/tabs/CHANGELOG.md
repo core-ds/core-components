@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.0.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.3.0
+    -   picker-button@11.1.0
+
 ## 8.0.4
 
 ### Patch Changes

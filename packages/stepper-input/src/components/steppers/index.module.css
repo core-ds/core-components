@@ -1,0 +1,21 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    overflow: visible;
+}
+
+.separator {
+    height: 18px;
+    width: 1px;
+    background-color: var(--color-light-specialbg-tertiary-transparent);
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+}

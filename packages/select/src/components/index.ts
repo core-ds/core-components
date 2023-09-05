@@ -6,3 +6,4 @@ export * from './option';
 export * from './options-list';
 export * from './virtual-options-list';
 export * from './base-option';
+export * from './search';

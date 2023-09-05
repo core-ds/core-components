@@ -23,13 +23,21 @@ import { Popover } from '@alfalab/core-components-popover';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
-import { processOptions } from '../../utils';
+import {
+    AnyObject,
+    BaseSelectProps,
+    OptionShape,
+    OptionsListProps,
+    SearchProps,
+} from '../../typings';
+import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';
 
 import styles from './index.module.css';
 
 export const BaseSelect = forwardRef(
+    // TODO: 😭
+    // eslint-disable-next-line complexity
     (
         {
             dataTestId,
@@ -65,6 +73,8 @@ export const BaseSelect = forwardRef(
             fieldProps = {},
             optionsListProps = {},
             optionProps = {},
+            searchProps = {},
+            showSearch = false,
             valueRenderer,
             onChange,
             onOpen,
@@ -76,6 +86,7 @@ export const BaseSelect = forwardRef(
             OptionsList = () => null,
             Optgroup = () => null,
             Option = () => null,
+            Search = () => null,
             updatePopover,
             zIndexPopover,
             showEmptyOptionsList = false,
@@ -87,12 +98,25 @@ export const BaseSelect = forwardRef(
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
+        const searchRef = useRef<HTMLInputElement>(null);
+
+        const [searchState, setSearchState] = React.useState('');
+
+        const [search, setSearch] =
+            typeof searchProps?.value === 'string'
+                ? [searchProps.value, searchProps.onChange]
+                : [searchState, setSearchState];
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
-        const { flatOptions, selectedOptions } = useMemo(
-            () => processOptions(options, selected),
-            [options, selected],
+        const accessor = searchProps.accessor || defaultAccessor;
+
+        const { filteredOptions, flatOptions, selectedOptions } = useMemo(
+            () =>
+                processOptions(options, selected, (option) =>
+                    defaultFilterFn(accessor(option), search),
+                ),
+            [accessor, options, search, selected],
         );
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
@@ -168,6 +192,16 @@ export const BaseSelect = forwardRef(
                             name,
                         });
                     }, 0);
+                }
+
+                if (showSearch) {
+                    if (changes.isOpen) {
+                        setTimeout(() => {
+                            searchRef.current?.focus();
+                        }, 0);
+                    } else {
+                        setSearch?.('');
+                    }
                 }
             },
             stateReducer: (state, actionAndChanges) => {
@@ -351,7 +385,7 @@ export const BaseSelect = forwardRef(
         useLayoutEffect_SAFE_FOR_SSR(calcOptionsListWidth, [
             open,
             optionsListWidth,
-            options,
+            filteredOptions,
             selectedItems,
         ]);
 
@@ -377,12 +411,67 @@ export const BaseSelect = forwardRef(
                     name={name}
                     value={value}
                     onChange={handleNativeSelectChange}
-                    options={options}
+                    options={filteredOptions}
                 />
             );
-        }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, options, menuProps]);
+        }, [
+            multiple,
+            selectedItems,
+            disabled,
+            name,
+            handleNativeSelectChange,
+            filteredOptions,
+            menuProps,
+        ]);
 
-        const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList;
+        const { header, emptyPlaceholder } = optionsListProps as OptionsListProps;
+
+        const renderOptionsListHeader = () => {
+            if (!showSearch && !header) {
+                return null;
+            }
+
+            const handleClear: SearchProps['onClear'] = (event) => {
+                setSearch?.('');
+                searchProps?.componentProps?.onClear?.(event);
+            };
+
+            const handleChange: SearchProps['onChange'] = (event, payload) => {
+                setSearch?.(payload.value);
+                searchProps?.componentProps?.onChange?.(event, payload);
+            };
+
+            return (
+                <React.Fragment>
+                    {header}
+                    {showSearch && (
+                        <Search
+                            {...searchProps?.componentProps}
+                            value={search}
+                            onChange={handleChange}
+                            dataTestId={getDataTestId(dataTestId, 'search')}
+                            onClear={handleClear}
+                            className={cn(styles.search, searchProps?.componentProps?.className)}
+                            ref={searchRef}
+                        />
+                    )}
+                </React.Fragment>
+            );
+        };
+
+        const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList || showSearch;
+
+        const renderEmptyPlaceholder = useCallback(() => {
+            if (emptyPlaceholder) {
+                return emptyPlaceholder;
+            }
+
+            if (showSearch) {
+                return <div className={styles.emptySearchPlaceholder}>Ничего не нашлось</div>;
+            }
+
+            return undefined;
+        }, [emptyPlaceholder, showSearch]);
 
         return (
             <div
@@ -456,7 +545,7 @@ export const BaseSelect = forwardRef(
                                     highlightedIndex={highlightedIndex}
                                     open={open}
                                     size={size}
-                                    options={options}
+                                    options={filteredOptions}
                                     Optgroup={Optgroup}
                                     Option={Option}
                                     selectedItems={selectedItems}
@@ -466,6 +555,8 @@ export const BaseSelect = forwardRef(
                                     visibleOptions={visibleOptions}
                                     onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
+                                    header={renderOptionsListHeader()}
+                                    emptyPlaceholder={renderEmptyPlaceholder()}
                                 />
                                 <div className={styles.optionsListBorder} />
                             </div>

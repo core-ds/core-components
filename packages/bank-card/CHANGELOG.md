@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.3.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.2.3
+
 ## 5.3.2
 
 ### Patch Changes

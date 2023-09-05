@@ -1,5 +1,19 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+### [#805](https://github.com/core-ds/core-components/pull/805)
+
+-   feat(select): добавлена возможность фильтрации пунктов
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.1.0
+    -   button@9.0.3
+
 ## 11.0.4
 
 ### Patch Changes

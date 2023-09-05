@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.3.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.1.1
+    -   icon-button@6.2.3
+
 ## 5.3.5
 
 ### Patch Changes
