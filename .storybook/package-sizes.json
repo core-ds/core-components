@@ -9,9 +9,9 @@
         "index.js": 5.7
     },
     "tooltip": {
-        "desktop.js": 44.33,
-        "index.js": 97.06,
-        "mobile.js": 69.88
+        "desktop.js": 44.35,
+        "index.js": 96.96,
+        "mobile.js": 70.05
     },
     "toast": {
         "desktop.js": 57.73,
@@ -36,10 +36,10 @@
     },
     "tabs": {
         "collapsible.js": 167.26,
-        "desktop.js": 12.87,
-        "index.js": 15.36,
-        "mobile.js": 13.02,
-        "shared.js": 15.89
+        "desktop.js": 12.86,
+        "index.js": 15.35,
+        "mobile.js": 13.01,
+        "shared.js": 15.88
     },
     "table": {
         "index.js": 149.92
@@ -251,7 +251,7 @@
         "index.js": 1.36
     },
     "gallery": {
-        "index.js": 193.16
+        "index.js": 193.19
     },
     "form-control": {
         "desktop.js": 3.19,
