@@ -4,7 +4,6 @@ import React, {
     ChangeEvent,
     ElementType,
     FocusEvent,
-    KeyboardEvent,
     MouseEvent,
     useEffect,
     useRef,
@@ -312,14 +311,6 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             setValue('');
         };
 
-        const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-            const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
-
-            if (disableUserInput && !isCopy && event.key !== 'Tab') {
-                event.preventDefault();
-            }
-        };
-
         const handleCalendarChange = (date?: number) => {
             if (date) {
                 const newValue = parseTimestampToDate(date);
@@ -382,7 +373,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                         readOnly={readOnly}
                         className={inputClassName}
                         onClear={handleClear}
-                        onKeyDown={handleInputKeyDown}
+                        disableUserInput={disableUserInput}
                         error={error}
                         rightAddons={
                             <React.Fragment>

@@ -296,12 +296,6 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         };
 
         const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-            const isCopy = (event.metaKey || event.ctrlKey) && event.key === 'c';
-
-            if (disableUserInput && !isCopy && event.key !== 'Tab') {
-                event.preventDefault();
-            }
-
             if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
                 event.preventDefault();
                 calendarRef.current.focus();
@@ -413,6 +407,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     readOnly={readOnly}
                     mobileMode={mobileMode === 'native' ? 'native' : 'input'}
                     error={error}
+                    disableUserInput={disableUserInput}
                     rightAddons={
                         <React.Fragment>
                             {rightAddons}
