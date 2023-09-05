@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.3.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.1.2
+
 ## 5.3.6
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.1.2
+
+### Patch Changes
+
+### [#829](https://github.com/core-ds/core-components/pull/829)
+
+-   Добавлен внутренний стейт в мобильный тултип
+-   css-свойство display у target элемента заменено c block на inline-block
+
 ## 7.1.1
 
 ### Patch Changes

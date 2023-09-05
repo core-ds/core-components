@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.1.1
+
+### Patch Changes
+
+### [#826](https://github.com/core-ds/core-components/pull/826)
+
+-   При нажатии на крестик очистки инпут больше не теряет фокус
+
 ## 12.1.0
 
 ### Minor Changes

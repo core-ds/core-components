@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.0.6
+
+### Patch Changes
+
+### [#824](https://github.com/core-ds/core-components/pull/824)
+
+-   Исправлен автоматический скролл к активному табу, если он находится вне области видимости
+
+-   Обновлены зависимости
+    -   picker-button@11.1.1
+
 ## 8.0.5
 
 ### Patch Changes

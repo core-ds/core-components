@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.4
+
+### Patch Changes
+
+### [#827](https://github.com/core-ds/core-components/pull/827)
+
+-   Реализация бордера заменена с box-shadow на border😀
+
 ## 7.0.3
 
 ### Patch Changes

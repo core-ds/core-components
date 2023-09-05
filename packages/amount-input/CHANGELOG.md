@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.1
+    -   with-suffix@4.1.4
+
 ## 7.4.3
 
 ### Patch Changes
