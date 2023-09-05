@@ -42,14 +42,14 @@ render(() => {
                 clearableCountryCode={clearCountryCode}
             />
             <Gap size='l' />
-            Код выбранной страны: <strong>{selectedCountry}</strong>
+            Код выбранной страны: <span>{selectedCountry.toLowerCase()}</span>
             <Gap size='xl' />
             <Switch
                 checked={clearCountryCode}
                 label='Разрешить удаление кода страны'
                 onChange={() => setClearCountryCode((prevState) => !prevState)}
             />
-            <Gap size='l' />
+            <Gap size='m' />
             <Switch
                 checked={autocomplete}
                 label='Режим автокомплита'
@@ -93,21 +93,23 @@ render(() => {
                 options={autocomplete ? filteredOptions : options }
                 block={true}
                 label='Номер телефона'
+                labelView='outer'
                 defaultCountryIso2='RU'
                 readOnly={false}
                 onCountryChange={handleCountryChange}
                 clearableCountryCode={clearCountryCode}
                 clear={true}
+                size='s'
             />
             <Gap size='l' />
-            Код выбранной страны: <strong>{selectedCountry}</strong>
+            Код выбранной страны: <span>{selectedCountry.toLowerCase()}</span>
             <Gap size='xl' />
             <Switch
                 checked={clearCountryCode}
                 label='Разрешить удаление кода страны'
                 onChange={() => setClearCountryCode((prevState) => !prevState)}
             />
-            <Gap size='l' />
+            <Gap size='m' />
             <Switch
                 checked={autocomplete}
                 label='Режим автокомплита'
@@ -162,7 +164,7 @@ render(() => {
                 hideCountrySelect={true}
             />
             <Gap size='l' />
-            Код выбранной страны: <strong>{selectedCountry}</strong>
+            Код выбранной страны: <span>{selectedCountry.toLowerCase()}</span>
         </div>
     );
 });
@@ -196,15 +198,17 @@ render(() => {
                 options={filteredOptions}
                 block={true}
                 label='Номер телефона'
+                labelView='outer'
                 readOnly={false}
                 onCountryChange={handleCountryChange}
                 canBeEmptyCountry={true}
                 defaultCountryIso2={selectedCountry}
                 hideCountrySelect={true}
                 clear={true}
+                size='s'
             />
             <Gap size='l' />
-            Код выбранной страны: <strong>{selectedCountry}</strong>
+            Код выбранной страны: <span>{selectedCountry.toLowerCase()}</span>
         </div>
     );
 });
@@ -255,7 +259,7 @@ render(() => {
                 ruNumberPriority={ruPriority}
             />
             <Gap size='l' />
-            Код выбранной страны: <strong>{selectedCountry}</strong>
+            Код выбранной страны: <span>{selectedCountry.toLowerCase()}</span>
             <Gap size='xl' />
             <Switch
                 checked={ruPriority}
@@ -297,14 +301,16 @@ render(() => {
                 options={filteredOptions}
                 block={true}
                 label='Номер телефона'
+                labelView='outer'
                 defaultCountryIso2='RU'
                 readOnly={false}
                 onCountryChange={handleCountryChange}
                 ruNumberPriority={ruPriority}
                 clear={true}
+                size='s'
             />
             <Gap size='l' />
-            Код выбранной страны: <strong>{selectedCountry}</strong>
+            Код выбранной страны: <span>{selectedCountry.toLowerCase()}</span>
             <Gap size='xl' />
             <Switch
                 checked={ruPriority}
