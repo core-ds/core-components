@@ -25,6 +25,7 @@
 }
 
 .target {
+    display: inline-block;
     cursor: pointer;
     position: relative;
 
@@ -35,4 +36,8 @@
         width: 100%;
         z-index: 2;
     }
+}
+
+.inline {
+    display: inline;
 }
