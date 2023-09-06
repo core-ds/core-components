@@ -39,7 +39,7 @@ render(() => {
             return;
         }
 
-        setTimeout(() => setScreen(SCREENS.SUCCESS), 300);
+        setTimeout(() => setScreen(SCREENS.SUCCESS), 500);
     };
 
     const handleChange = (value) => {
@@ -57,7 +57,10 @@ render(() => {
                 <Button
                     block
                     onClick={() => {
-                        setPassCodeParams({ codeLength: MAX_LENGTH });
+                        setPassCodeParams({
+                            codeLength: MAX_LENGTH,
+                            message: 'Введите код из четырёх цифр',
+                        });
                         setScreen(SCREENS.ENTER_CODE);
                     }}
                 >

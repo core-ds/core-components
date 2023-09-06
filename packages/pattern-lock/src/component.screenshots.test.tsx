@@ -34,17 +34,6 @@ async function testComponent(
     };
 
     try {
-        await page.waitForTimeout(100);
-
-        await page.locator('canvas').evaluate((canvas: HTMLCanvasElement) => {
-            const canvasStyles = getComputedStyle(canvas);
-            const img = document.createElement('img');
-            img.style.display = canvasStyles.display;
-            img.style.margin = canvasStyles.margin;
-            img.src = canvas.toDataURL('png');
-            canvas.parentNode!.replaceChild(img, canvas);
-        });
-
         await matchHtml({
             context,
             page,
@@ -113,6 +102,10 @@ describe('PatternLock | screenshots', () => {
 
     test('error message', async () => {
         await testComponent({ knobs: { error: 'Error message' } });
+    });
+
+    test('message', async () => {
+        await testComponent({ knobs: { message: 'Message' } });
     });
 
     test('m - viewport', async () => {

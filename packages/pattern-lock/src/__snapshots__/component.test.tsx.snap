@@ -10,7 +10,7 @@ exports[`PatternLock test Snapshot tests should match snapshot 1`] = `
       data-gap-size="xs"
     />
     <div
-      class="error"
+      class="message"
     />
     <div
       class="gap vertical"
@@ -33,7 +33,7 @@ exports[`PatternLock test Snapshot tests should match snapshot with error prop 1
       data-gap-size="xs"
     />
     <div
-      class="error"
+      class="message error"
     >
       Error message
     </div>

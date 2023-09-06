@@ -47,5 +47,5 @@
 }
 
 .shake {
-    animation: shake 0.15s linear 0s 3;
+    animation: shake 0.15s linear 25ms 3;
 }

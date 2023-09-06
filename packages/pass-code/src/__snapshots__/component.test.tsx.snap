@@ -6,7 +6,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
     class="component"
   >
     <div
-      class="error"
+      class="message"
     />
     <div
       class="gap vertical"
@@ -184,7 +184,7 @@ exports[`PassCode Snapshot tests should match snapshot with error prop 1`] = `
     class="component"
   >
     <div
-      class="error"
+      class="message error"
     >
       Error message
     </div>
@@ -380,7 +380,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
     class="component"
   >
     <div
-      class="error"
+      class="message"
     />
     <div
       class="gap vertical"

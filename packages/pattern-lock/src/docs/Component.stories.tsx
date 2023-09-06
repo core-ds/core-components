@@ -1,23 +1,24 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import { Story } from '@storybook/addon-docs';
 import { radios, text, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { Meta, StoryObj } from '@storybook/react';
 import { PatternLock } from '@alfalab/core-components-pattern-lock';
-
-import packageJson from '../../package.json';
-import Development from './development.mdx';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/PatternLock' component={PatternLock} id='PatternLock' />
+const meta: Meta<typeof PatternLock> = {
+    title: 'Components/PatternLock',
+    component: PatternLock,
+    id: 'PatternLock',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof PatternLock>;
 
-<Story name='PatternLock'>
-    {React.createElement(() => {
+export const pattern_lock: Story = {
+    name: 'PatternLock',
+    render: () => {
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
         return (
@@ -42,25 +43,13 @@ import {
                         { 'space-around': 'space-around', 'space-between': 'space-between' },
                         'space-between',
                     )}
+                    message={text('message', '')}
                     error={text('error', '')}
-                    showForgotCodeBtn={boolean('showForgotCodeBtn', false)}
+                    showForgotCodeBtn={boolean('showForgotCodeBtn', false) as false}
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='PatternLock'
-    version={packageJson.version}
-    package='@alfalab/core-components/pattern-lock'
-    children='Компонент для авторизации пользователя с помощью графического ключа.'
-/>
-
-<Tabs
-    description={<Description />}
-    development={<Development />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-/>
+export default meta;

@@ -84,6 +84,22 @@ describe('PassCode', () => {
             expect(getByText(errorMessage)).toBeInTheDocument();
         });
 
+        it('should shown message', () => {
+            const dataTestId = 'pass-code';
+            const message = 'message';
+            const { getByText, getByTestId } = render(
+                <PassCode
+                    message={message}
+                    value='1234'
+                    codeLength={4}
+                    onChange={jest.fn}
+                    dataTestId={dataTestId}
+                />,
+            );
+
+            expect(getByText(message)).toBeInTheDocument();
+        });
+
         it('should render left addons', () => {
             const leftAddonText = 'Left addon text';
             const { container, getByText } = render(

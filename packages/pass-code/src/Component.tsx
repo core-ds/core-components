@@ -28,7 +28,12 @@ export type BasePassCodeProps = {
     /**
      * Отображение ошибки
      */
-    error?: ReactNode | boolean;
+    error?: ReactNode;
+
+    /**
+     *  Сообщение над клавиатурой
+     */
+    message?: ReactNode;
 
     /**
      * Слот слева.
@@ -76,6 +81,7 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             leftAddons,
             rightAddons,
             error,
+            message,
             onChange,
             maxCodeLength = 10,
             codeLength,
@@ -98,15 +104,28 @@ export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
             }
         };
 
+        const renderError = () => (
+            <div
+                className={cn(styles.message, styles.error)}
+                data-test-id={getDataTestId(dataTestId, 'error')}
+            >
+                {error}
+            </div>
+        );
+
+        const renderMessage = () => (
+            <div className={styles.message} data-test-id={getDataTestId(dataTestId, 'message')}>
+                {message}
+            </div>
+        );
+
         return (
             <div
                 className={cn(styles.component, className)}
                 ref={ref}
                 data-test-id={getDataTestId(dataTestId, 'wrapper')}
             >
-                <div className={styles.error} data-test-id={getDataTestId(dataTestId, 'error')}>
-                    {error}
-                </div>
+                {error ? renderError() : renderMessage()}
 
                 <Gap size='m' />
 
