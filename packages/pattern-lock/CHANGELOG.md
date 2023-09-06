@@ -1,5 +1,13 @@
 # @alfalab/core-components-pattern-lock
 
+## 1.4.0
+
+### Minor Changes
+
+### [#830](https://github.com/core-ds/core-components/pull/830)
+
+-   Добавлен message prop
+
 ## 1.3.3
 
 ### Patch Changes
