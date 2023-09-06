@@ -1,3 +1,17 @@
+## 42.6.0
+
+<sup><time>06.09.2023</time></sup>
+
+### [#830](https://github.com/core-ds/core-components/pull/830)
+
+#### Что изменилось
+- Добавлен message prop
+
+#### Влияние на компоненты
+- Минорное<br />`pass-code` `pattern-lock`
+
+
+
 ## 42.5.1
 
 <sup><time>05.09.2023</time></sup>
