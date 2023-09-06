@@ -38,6 +38,14 @@ describe(
                 }),
             ],
             [
+                'with message',
+                createStorybookUrl({
+                    componentName: 'PassCode',
+                    testStory: false,
+                    knobs: { value: '1234', message: 'Message' },
+                }),
+            ],
+            [
                 'with addons',
                 createStorybookUrl({
                     componentName: 'PassCode',
