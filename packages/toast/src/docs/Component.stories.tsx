@@ -39,6 +39,7 @@ export const toast: Story = {
         };
         const containerRef = React.useRef();
         const isMobile = document.body.clientWidth < 450;
+        const closeWithClickOutside = boolean('closeWithClickOutside', true);
         return (
             <div
                 style={{
@@ -77,6 +78,7 @@ export const toast: Story = {
                             setAnchorToastOpen(false);
                         }}
                         autoCloseDelay={number('autoCloseDelay', 3000)}
+                        closeWithClickOutside={closeWithClickOutside}
                     />
                     <Toast
                         colors={select('colors', ['default', 'inverted'], 'default')}
@@ -108,6 +110,7 @@ export const toast: Story = {
                         position='bottom-start'
                         offset={[0, 16]}
                         block={true}
+                        closeWithClickOutside={closeWithClickOutside}
                     />
                     <Button
                         ref={handleButtonRef}
@@ -155,6 +158,7 @@ export const toast_mobile: Story = {
             setButtonElement(node);
         };
         const containerRef = React.useRef();
+        const closeWithClickOutside = boolean('closeWithClickOutside', true);
         return (
             <div
                 style={{
@@ -193,6 +197,7 @@ export const toast_mobile: Story = {
                             setAnchorToastOpen(false);
                         }}
                         autoCloseDelay={number('autoCloseDelay', 3000)}
+                        closeWithClickOutside={closeWithClickOutside}
                     />
                     <ToastMobile
                         colors={select('colors', ['default', 'inverted'], 'default')}
@@ -224,6 +229,7 @@ export const toast_mobile: Story = {
                         position='bottom-start'
                         offset={[0, 16]}
                         block={true}
+                        closeWithClickOutside={closeWithClickOutside}
                     />
                     <Button
                         ref={handleButtonRef}
@@ -271,6 +277,7 @@ export const toast_desktop: Story = {
             setButtonElement(node);
         };
         const containerRef = React.useRef();
+        const closeWithClickOutside = boolean('closeWithClickOutside', true);
         return (
             <div
                 style={{
@@ -308,6 +315,7 @@ export const toast_desktop: Story = {
                             setAnchorToastOpen(false);
                         }}
                         autoCloseDelay={number('autoCloseDelay', 3000)}
+                        closeWithClickOutside={closeWithClickOutside}
                     />
                     <ToastDesktop
                         colors={select('colors', ['default', 'inverted'], 'default')}
@@ -338,6 +346,7 @@ export const toast_desktop: Story = {
                         position='bottom-start'
                         offset={[0, 16]}
                         block={true}
+                        closeWithClickOutside={closeWithClickOutside}
                     />
                     <Button
                         ref={handleButtonRef}

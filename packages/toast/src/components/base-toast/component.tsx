@@ -61,6 +61,12 @@ export type BaseToastProps = ToastPlateProps &
         zIndex?: number;
 
         /**
+         * Разрешить закрывать toast кликом вне компонента
+         * @default true
+         */
+        closeWithClickOutside?: boolean;
+
+        /**
          * Обработчик закрытия компонента.
          */
         onClose: () => void;
@@ -71,6 +77,8 @@ export type BaseToastProps = ToastPlateProps &
          */
         ToastPlate?: typeof ToastPlateComponent;
     };
+
+const noop = () => {};
 
 export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
     (
@@ -93,6 +101,7 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
             onClose,
             getPortalContainer,
             useAnchorWidth,
+            closeWithClickOutside = true,
             ...restProps
         },
         ref,
@@ -149,7 +158,7 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
             stopTimer();
         }, [onClose, stopTimer]);
 
-        useClickOutside(plateRef, handleClickOutside);
+        useClickOutside(plateRef, closeWithClickOutside ? handleClickOutside : noop);
 
         useEffect(() => () => clearTimeout(timerId.current), []);
 
