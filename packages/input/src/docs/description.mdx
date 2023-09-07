@@ -1,14 +1,46 @@
 ## Размеры
 
-Основным типом инпутов в вебе являются инпуты размера M с внутренним расположением лейбла.
+Основным типом инпутов в десктопном вебе являются инпуты размера M с внутренним расположением лейбла. 
+Для мобильного веба рекомендуемый размер S с внешним расположением лейбла.
 
 ```jsx live
 render(() => {
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Input block={true} label='Текст' size='m' />
+        <div style={{ width: 320 }}>
+            <InputDesktop 
+                placeholder='Введите текст' 
+                block={true} 
+                label='Текст' 
+                size='m' />
             <Gap size='m' />
-            <Input block={true} label='Email' size='m' />
+            <InputDesktop 
+                placeholder='Введите email' 
+                block={true} 
+                label='Email' 
+                size='m' 
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    return (
+        <div>
+            <InputMobile 
+                placeholder='Введите текст'
+                block={true} 
+                label='Текст' 
+                size='s' 
+                labelView='outer' 
+            />
+            <Gap size='l' />
+            <InputMobile 
+                placeholder='Введите email'
+                block={true} 
+                label='Email' 
+                size='s' 
+                labelView='outer' 
+            />
         </div>
     );
 });
@@ -23,18 +55,44 @@ render(() => {
     const [error, setError] = React.useState(false);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <div style={{ height: 80 }}>
-                <Input block={true} label='Текст' size='m' error={error} />
+                <InputDesktop block={true} label='Label' placeholder='Placeholder' size='m' error={error} />
             </div>
             <Gap size='xl' />
-            <Button size='xxs' view='secondary' onClick={() => setError(false)}>
+            <ButtonDesktop size='xxs' view='secondary' onClick={() => setError(false)}>
                 По умолчанию
-            </Button>
+            </ButtonDesktop>
             <Gap size='s' direction='horizontal' />
-            <Button size='xxs' view='secondary' onClick={() => setError('Error message')}>
+            <ButtonDesktop size='xxs' view='secondary' onClick={() => setError('Error message')}>
                 Состояние ошибки
-            </Button>
+            </ButtonDesktop>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [error, setError] = React.useState(false);
+
+    return (
+        <div>
+            <div style={{ height: 96 }}>
+                <InputMobile 
+                    block={true} 
+                    label='Label' 
+                    placeholder='Placeholder' 
+                    size='s' 
+                    labelView='outer' 
+                    error={error} />
+            </div>
+            <Gap size='xl' />
+            <ButtonMobile size='xxs' view='secondary' onClick={() => setError(false)}>
+                По умолчанию
+            </ButtonMobile>
+            <Gap size='s' direction='horizontal' />
+            <ButtonMobile size='xxs' view='secondary' onClick={() => setError('Error message')}>
+                Состояние ошибки
+            </ButtonMobile>
         </div>
     );
 });
@@ -50,30 +108,67 @@ render(() => {
     const [inputProps, setInputProps] = React.useState({});
 
     return (
-        <div style={{ width: '100%' }}>
-            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                <Input block={true} label='Текст' size='m' {...inputProps} />
+        <div>
+            <div style={{ width: 320 }}>
+                <InputDesktop block={true} placeholder='Placeholder' label='Label' size='m' {...inputProps} />
             </div>
             <Gap size='xl' />
 
             <Space direction='horizontal' wrap={true}>
-                <Button size='xxs' view='secondary' onClick={() => setInputProps({})}>
+                <ButtonDesktop size='xxs' view='secondary' onClick={() => setInputProps({})}>
                     По умолчанию
-                </Button>
-                <Button
+                </ButtonDesktop>
+                <ButtonDesktop
                     size='xxs'
                     view='secondary'
                     onClick={() => setInputProps({ disabled: true })}
                 >
                     Заблокирован
-                </Button>
-                <Button
+                </ButtonDesktop>
+                <ButtonDesktop
                     size='xxs'
                     view='secondary'
                     onClick={() => setInputProps({ readOnly: true })}
                 >
                     Только чтение
-                </Button>
+                </ButtonDesktop>
+            </Space>
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [inputProps, setInputProps] = React.useState({});
+
+    return (
+        <div>
+            <InputMobile 
+                block={true} 
+                placeholder='Placeholder' 
+                labelView='outer' 
+                label='Label' 
+                size='s' 
+                {...inputProps} 
+            />
+            <Gap size='xl' />
+            <Space direction='horizontal' wrap={true}>
+                <ButtonMobile size='xxs' view='secondary' onClick={() => setInputProps({})}>
+                    По умолчанию
+                </ButtonMobile>
+                <ButtonMobile
+                    size='xxs'
+                    view='secondary'
+                    onClick={() => setInputProps({ disabled: true })}
+                >
+                    Заблокирован
+                </ButtonMobile>
+                <ButtonMobile
+                    size='xxs'
+                    view='secondary'
+                    onClick={() => setInputProps({ readOnly: true })}
+                >
+                    Только чтение
+                </ButtonMobile>
             </Space>
         </div>
     );
@@ -100,15 +195,16 @@ render(() => {
     `;
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <style>{css}</style>
-            <Input
+            <InputDesktop
                 block={true}
-                placeholder='Инпут с плейсхолдером'
+                label='Инпут с плейсхолдером'
+                placeholder='Placeholder'
                 size='m'
                 hint='Подсказка под полем'
                 rightAddons={
-                    <Tooltip
+                    <TooltipDesktop
                         open={open}
                         targetClassName='target'
                         content={
@@ -126,7 +222,46 @@ render(() => {
                             icon={InformationCircleMIcon}
                             dataTestId='icon'
                         />
-                    </Tooltip>
+                    </TooltipDesktop>
+                }
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    /* Указать для IconButton через className */
+    const css = `
+        button[data-test-id='icon'] {
+            margin-right: var(--gap-s-neg);
+        }
+    `;
+
+    return (
+        <div>
+            <style>{css}</style>
+            <InputMobile
+                block={true}
+                placeholder='Инпут с плейсхолдером'
+                size='s'
+                hint='Подсказка под полем'
+                rightAddons={
+                    <TooltipMobile
+                        open={open}
+                        targetClassName='target'
+                        content={'Сообщение тултипа отображается при клике'}
+                        onOpen={() => setOpen(true)}
+                        onClose={() => setOpen(false)}
+                    >
+                        <IconButton
+                            view='secondary'
+                            size='s'
+                            icon={InformationCircleMIcon}
+                            dataTestId='icon'
+                        />
+                    </TooltipMobile>
                 }
             />
         </div>
@@ -165,14 +300,72 @@ render(() => {
     const hasError = value !== '' && !success;
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <style>{css}</style>
-            <Input
+            <InputDesktop
                 value={value}
                 block={true}
                 onChange={handleChange}
-                placeholder='Введите 5 символов'
+                label='Введите 5 символов'
+                placeholder='Placeholder'
                 size='m'
+                success={success}
+                error={hasError}
+                rightAddons={
+                    hasError ? (
+                        <Badge
+                            view='icon'
+                            size='m'
+                            iconColor='negative'
+                            content={
+                                <ExclamationCircleMIcon
+                                    style={{ color: 'var(--color-light-graphic-negative)' }}
+                                />
+                            }
+                        />
+                    ) : undefined
+                }
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [success, setSuccess] = React.useState(false);
+    const [value, setValue] = React.useState('');
+
+    /* Не показываем вторую иконку ошибки в теме сайта */
+    const css = `
+        :root {
+            --input-error-icon-display: none;
+            --input-error-icon-not-alone-display: none;
+        }
+    `;
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setValue(value);
+
+        if (value.length === 5) {
+            setSuccess(true);
+        } else {
+            setSuccess(false);
+        }
+    };
+
+    const hasError = value !== '' && !success;
+
+    return (
+        <div>
+            <style>{css}</style>
+            <InputMobile
+                value={value}
+                block={true}
+                onChange={handleChange}
+                label='Введите 5 символов'
+                placeholder='Placeholder'
+                labelView='outer'
+                size='s'
                 success={success}
                 error={hasError}
                 rightAddons={
@@ -205,17 +398,36 @@ render(() => {
     const [value, setValue] = React.useState('Value');
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Input
+        <div style={{ width: 320 }}>
+            <InputDesktop
                 value={value}
                 block={true}
                 onChange={(e) => setValue(e.target.value)}
                 label='Label'
+                placeholder='Placeholder'
                 size='m'
                 clear={true}
                 onClear={() => setValue('')}
             />
         </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [value, setValue] = React.useState('Value');
+
+    return (
+        <InputMobile
+            value={value}
+            block={true}
+            onChange={(e) => setValue(e.target.value)}
+            label='Label'
+            placeholder='Placeholder'
+            labelView='outer'
+            size='s'
+            clear={true}
+            onClear={() => setValue('')}
+        />
     );
 });
 ```
@@ -265,13 +477,14 @@ render(() => {
     `;
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <style>{css}</style>
-            <Input
+            <InputDesktop
                 value={valueOne}
                 block={true}
                 onChange={(e) => setValueOne(e.target.value)}
                 label='Label'
+                placeholder='Placeholder'
                 size='m'
                 rightAddons={
                     <IconButton
@@ -284,11 +497,12 @@ render(() => {
                 }
             />
             <Gap size='l' />
-            <Input
+            <InputDesktop
                 value={valueTwo}
                 block={true}
                 onChange={(e) => setValueTwo(e.target.value)}
                 label='Label'
+                placeholder='Placeholder'
                 size='m'
                 rightAddons={
                     <div style={styleWrapperIcons}>
@@ -309,13 +523,113 @@ render(() => {
                     </div>
                 }
             />
-            <Toast
+            <ToastDesktop
                 title={title}
                 open={isVisible}
                 onClose={hideNotification}
                 hasCloser={false}
                 autoCloseDelay={2000}
-                style={{ left: '48%' }}
+                style={{ left: '41%' }}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const [isVisible, setIsVisible] = React.useState(false);
+    const [title, setTitle] = React.useState('');
+    const [valueOne, setValueOne] = React.useState('Value');
+    const [valueTwo, setValueTwo] = React.useState('Value');
+
+    const toggleVisiblity = () => setIsVisible((prev) => !prev);
+
+    const singleIcon = () => {
+        setTitle('Вы восхитительны!');
+        toggleVisiblity();
+    };
+
+    const leftIcon = () => {
+        setTitle('Левая');
+        toggleVisiblity();
+    };
+
+    const rightIcon = () => {
+        setTitle('Правая');
+        toggleVisiblity();
+    };
+
+    const hideNotification = React.useCallback(() => setIsVisible(false), []);
+
+    const styleWrapperIcons = {
+        height: '100%',
+        display: 'flex',
+        gap: 4,
+        marginRight: 'var(--gap-xs-neg)',
+    };
+
+    /* Указать для IconButton через className */
+    const css = `
+        button[data-test-id='icon'] {
+            margin-right: var(--gap-s-neg);
+        }
+    `;
+
+    return (
+        <div>
+            <style>{css}</style>
+            <InputMobile
+                value={valueOne}
+                block={true}
+                onChange={(e) => setValueOne(e.target.value)}
+                label='Label'
+                placeholder='Placeholder'
+                labelView='outer'
+                size='s'
+                rightAddons={
+                    <IconButton
+                        view='secondary'
+                        onClick={singleIcon}
+                        icon={DiamondsMIcon}
+                        size='s'
+                        dataTestId='icon'
+                    />
+                }
+            />
+            <Gap size='l' />
+            <InputMobile
+                value={valueTwo}
+                block={true}
+                onChange={(e) => setValueTwo(e.target.value)}
+                label='Label'
+                placeholder='Placeholder'
+                size='s'
+                labelView='outer'
+                rightAddons={
+                    <div style={styleWrapperIcons}>
+                        <IconButton
+                            view='secondary'
+                            onClick={leftIcon}
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            onClick={rightIcon}
+                            icon={FlowerMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
+                    </div>
+                }
+            />
+            <ToastMobile
+                title={title}
+                open={isVisible}
+                onClose={hideNotification}
+                hasCloser={false}
+                autoCloseDelay={2000}
+                style={{ left: '30%' }}
             />
         </div>
     );

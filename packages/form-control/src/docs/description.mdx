@@ -1,18 +1,32 @@
 ## Размеры
 
-XL (72px), L (64px), M (56px), S (48px).
+Компонент доступен в размерах XL, L, M, S.
 
 ```jsx live
 render(() => {
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <FormControl block={true} label='Label' size='xl' />
+        <div style={{ width: 320 }}>
+            <FormControlDesktop block={true} label='Label' size='xl' />
             <Gap size='m' />
-            <FormControl block={true} label='Label' size='l' />
+            <FormControlDesktop block={true} label='Label' size='l' />
             <Gap size='m' />
-            <FormControl block={true} label='Label' size='m' />
+            <FormControlDesktop block={true} label='Label' size='m' />
             <Gap size='m' />
-            <FormControl block={true} label='Label' size='s' />
+            <FormControlDesktop block={true} label='Label' size='s' />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    return (
+        <div>
+            <FormControlMobile block={true} label='Label' labelView='outer' size='xl' />
+            <Gap size='l' />
+            <FormControlMobile block={true} label='Label' labelView='outer' size='l' />
+            <Gap size='l' />
+            <FormControlMobile block={true} label='Label' labelView='outer' size='m' />
+            <Gap size='l' />
+            <FormControlMobile block={true} label='Label' labelView='outer' size='s' />
         </div>
     );
 });
@@ -25,19 +39,99 @@ render(() => {
 ```jsx live
 render(() => {
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Input block label='Лейбл внутри' size='m' />
-            <Gap size='m' />
-            <Input
+        <div style={{ width: 320 }}>
+            <InputDesktop block label='Лейбл внутри' size='m' />
+            <Gap size='l' />
+            <InputDesktop
                 block
                 placeholder='Placeholder'
                 label='Лейбл снаружи'
                 size='m'
                 labelView='outer'
             />
-            <Gap size='m' />
-            <Input block placeholder='Placeholder' size='m' labelView='outer' />
+            <Gap size='l' />
+            <InputDesktop block placeholder='Placeholder' size='m' labelView='outer' />
         </div>
+    );
+});
+//MOBILE
+render(() => {
+    return (
+        <div>
+            <InputMobile block label='Лейбл внутри' size='s' />
+            <Gap size='l' />
+            <InputMobile
+                block
+                placeholder='Placeholder'
+                label='Лейбл снаружи'
+                size='s'
+                labelView='outer'
+            />
+            <Gap size='l' />
+            <InputMobile block placeholder='Placeholder' size='s' labelView='outer' />
+        </div>
+    );
+});
+```
+
+## Префиксы и суффиксы
+
+Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения. 
+
+```jsx live
+render(() => {
+    const SuffixInputDesktop = withSuffix(InputDesktop);
+
+    return (
+        <div style={{ width: 320 }}>
+            <SuffixInputDesktop
+                value='Value'
+                block={true}
+                label='Label'
+                size='m'
+                suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const SuffixInputMobile = withSuffix(InputMobile);
+
+    return (
+        <SuffixInputMobile
+            value='Value'
+            block={true}
+            label='Label'
+            size='s'
+            labelView='outer'
+            suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
+        />
+    );
+});
+```
+
+## Хинт
+
+Под полем ввода можно разместить подсказку.
+
+```jsx live
+render(() => {
+    return (
+        <div style={{ width: 320 }}>
+            <FormControlDesktop block={true} label='Label' hint='Hint' size='m' />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    return (
+        <FormControlMobile 
+            block={true} 
+            label='Label' 
+            hint='Hint' size='s'
+            labelView='outer' 
+        />
     );
 });
 ```
@@ -49,28 +143,157 @@ render(() => {
 
 ```jsx live
 render(() => {
+    const styleWrapperIcons = {
+        height: '100%',
+        display: 'flex',
+        gap: 4,
+    };
+
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <FormControl block={true} label='Label' size='m' leftAddons={<StarMIcon />} />
-            <Gap size='m' />
-            <FormControl block={true} label='Label' size='m' rightAddons={<StarMIcon />} />
-            <Gap size='m' />
-            <FormControl
+        <div style={{ width: 320 }}>
+            <FormControlDesktop 
+                block={true} 
+                label='Label' 
+                size='m' 
+                leftAddons={
+                    <IconButton
+                        view='secondary'
+                        icon={DiamondsMIcon}
+                        size='xs'
+                        alignIcon='left'
+                    />
+                } 
+            />
+            <Gap size='l' />
+            <FormControlDesktop 
+                block={true} 
+                label='Label' 
+                size='m' 
+                rightAddons={
+                    <IconButton
+                        view='secondary'
+                        icon={DiamondsMIcon}
+                        size='xs'
+                        alignIcon='right'
+                    />
+                } 
+            />
+            <Gap size='l' />
+            <FormControlDesktop
                 block={true}
                 label='Label'
                 size='m'
                 leftAddons={
-                    <div>
-                        <StarMIcon />
-                        <Gap size='xxs' direction='horizontal' />
-                        <StarMIcon />
+                    <div style={{...styleWrapperIcons, marginLeft: 'var(--gap-xs-neg)' }}>
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
                     </div>
                 }
                 rightAddons={
-                    <div>
-                        <StarMIcon />
-                        <Gap size='xxs' direction='horizontal' />
-                        <StarMIcon />
+                    <div style={{...styleWrapperIcons, marginRight: 'var(--gap-xs-neg)' }}>
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
+                    </div>
+                }
+            />
+        </div>
+    );
+});
+//MOBILE
+render(() => {
+    const styleWrapperIcons = {
+        height: '100%',
+        display: 'flex',
+        gap: 4,
+    };
+
+    return (
+        <div>
+            <FormControlMobile 
+                block={true} 
+                label='Label' 
+                size='s'
+                labelView='outer' 
+                leftAddons={
+                    <IconButton
+                        view='secondary'
+                        icon={DiamondsMIcon}
+                        size='xs'
+                        alignIcon='left'
+                    />
+                } 
+            />
+            <Gap size='l' />
+            <FormControlMobile 
+                block={true} 
+                label='Label' 
+                size='s'
+                labelView='outer' 
+                rightAddons={
+                    <IconButton
+                        view='secondary'
+                        icon={DiamondsMIcon}
+                        size='xs'
+                        alignIcon='right'
+                    />
+                } 
+            />
+            <Gap size='l' />
+            <FormControlMobile
+                block={true}
+                label='Label'
+                size='s'
+                labelView='outer'
+                leftAddons={
+                    <div style={{...styleWrapperIcons, marginLeft: 'var(--gap-xs-neg)' }}>
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
+                    </div>
+                }
+                rightAddons={
+                    <div style={{...styleWrapperIcons, marginRight: 'var(--gap-xs-neg)' }}>
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
                     </div>
                 }
             />
@@ -79,38 +302,54 @@ render(() => {
 });
 ```
 
-## Суффиксы
+## BottomAddon
 
-Инпут может содержать предзаполненное значение, располагающееся спереди вводимого пользователем значения.
+При необходимости в BottomAddon может быть передан любой контент, например шкала для слайдера.
 
 ```jsx live
 render(() => {
-    const SuffixInput = withSuffix(Input);
+    const [value, setValue] = React.useState(3);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <SuffixInput
-                value='Value'
-                block={true}
+        <div style={{ width: 320 }}>
+            <SliderInput
+                value={value}
                 label='Label'
                 size='m'
-                suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
+                pips={{
+                    mode: 'values',
+                    values: [1, 10 / 2, 10],
+                }}
+                min={1}
+                max={10}
+                step={1}
+                block={true}
+                onChange={(_, { value }) => setValue(value)}
+                breakpoint={1}
             />
         </div>
     );
 });
-```
-
-## Хинт
-
-Это тоже слот. При необходимости в него может быть передан любой контент, например шкала для слайдера.
-
-```jsx live
+//MOBILE
 render(() => {
+    const [value, setValue] = React.useState(3);
+
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <FormControl block={true} label='Label' hint='Hint' size='m' />
-        </div>
+        <SliderInput
+            value={value}
+            label='Label'
+            size='s'
+            labelView='outer'
+            pips={{
+                mode: 'values',
+                values: [1, 10 / 2, 10],
+            }}
+            min={1}
+            max={10}
+            step={1}
+            block={true}
+            onChange={(_, { value }) => setValue(value)}
+        />
     );
 });
 ```
