@@ -20,5 +20,6 @@ export const SecondaryTabListDesktop = ({
         size={size}
         styles={commonStyles}
         tagSize={size}
+        platform='desktop'
     />
 );

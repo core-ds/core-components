@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 
 import { useTabs } from '../../hooks/use-tabs';
-import { Styles, TabListProps } from '../../typings';
+import { PlatformProps, Styles, TabListProps } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
 import { Title } from '../title';
 
@@ -19,7 +19,8 @@ export const PrimaryTabList = ({
     fullWidthScroll,
     onChange,
     dataTestId,
-}: TabListProps & Styles) => {
+    platform,
+}: TabListProps & Styles & PlatformProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
     const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
@@ -65,6 +66,9 @@ export const PrimaryTabList = ({
             activeChild={focusedTab || selectedTab}
             containerClassName={containerClassName}
             fullWidthScroll={fullWidthScroll}
+            view='primary'
+            size={size}
+            platform={platform}
         >
             {renderContent()}
         </ScrollableContainer>

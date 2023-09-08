@@ -85,6 +85,16 @@ export type TabsProps = {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Форма тега (для view secondary только)
+     */
+    tagShape?: TagProps['shape'];
+
+    /**
+     * Стиль тега (для view secondary только)
+     */
+    tagView?: TagProps['view'];
 };
 
 export type TabProps = {
@@ -163,6 +173,8 @@ export type TabListProps = Pick<
     | 'onChange'
     | 'dataTestId'
     | 'fullWidthScroll'
+    | 'tagShape'
+    | 'tagView'
 > & {
     /**
      * Заголовки табов
@@ -184,4 +196,8 @@ export type UseTabsProps = TabListProps;
 
 export type Styles = {
     styles?: { [key: string]: string };
+};
+
+export type PlatformProps = {
+    platform: 'desktop' | 'mobile';
 };

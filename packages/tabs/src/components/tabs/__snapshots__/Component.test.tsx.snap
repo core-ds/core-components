@@ -189,88 +189,92 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
 <div>
   <div>
     <div
-      class="container"
+      class="scrollableContainerWrapper"
     >
       <div
-        class=""
-        role="tablist"
+        class="container"
       >
-        <button
-          aria-selected="false"
-          class=""
-          id="tab-1"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <span
-            class=""
-          >
-            Таб 1
-          </span>
-          <span>
-            addon
-          </span>
-        </button>
-        <button
-          aria-selected="true"
-          class=""
-          id="tab-2"
-          role="tab"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class=""
-          >
-            Таб 2
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class=""
-          id="tab-3"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <span
-            class=""
-          >
-            Таб 3
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class=""
-          id="tab-4"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <span
-            class=""
-          >
-            Таб 4
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class=""
-          id="tab-5"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <span
-            class=""
-          >
-            Таб 5
-          </span>
-        </button>
         <div
-          style="width: 0px; transform: translateX(0px);"
-        />
+          class=""
+          role="tablist"
+        >
+          <button
+            aria-selected="false"
+            class=""
+            id="tab-1"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class=""
+            >
+              Таб 1
+            </span>
+            <span>
+              addon
+            </span>
+          </button>
+          <button
+            aria-selected="true"
+            class=""
+            id="tab-2"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class=""
+            >
+              Таб 2
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class=""
+            id="tab-3"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class=""
+            >
+              Таб 3
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class=""
+            id="tab-4"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class=""
+            >
+              Таб 4
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class=""
+            id="tab-5"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class=""
+            >
+              Таб 5
+            </span>
+          </button>
+          <div
+            style="width: 0px; transform: translateX(0px);"
+          />
+        </div>
       </div>
     </div>
     <div
@@ -288,72 +292,76 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
 <div>
   <div>
     <div
-      class="container"
+      class="scrollableContainerWrapper"
     >
       <div
-        class=""
-        role="tablist"
+        class="container"
       >
-        <button
-          aria-selected="false"
-          class="component component component xs xs outlined rounded outlined withRightAddons"
-          role="tab"
-          tabindex="-1"
-          type="button"
+        <div
+          class=""
+          role="tablist"
         >
-          <span>
-            Таб 1
-          </span>
-          <span
-            class="addons"
+          <button
+            aria-selected="false"
+            class="component component component xs xs outlined rounded outlined withRightAddons"
+            role="tab"
+            tabindex="-1"
+            type="button"
           >
-            addon
-          </span>
-        </button>
-        <button
-          aria-selected="true"
-          class="component component component xs xs outlined checked rounded outlined"
-          role="tab"
-          tabindex="0"
-          type="button"
-        >
-          <span>
-            Таб 2
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component component xs xs outlined rounded outlined"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <span>
-            Таб 3
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component component xs xs outlined rounded outlined"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <span>
-            Таб 4
-          </span>
-        </button>
-        <button
-          aria-selected="false"
-          class="component component component xs xs outlined rounded outlined"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <span>
-            Таб 5
-          </span>
-        </button>
+            <span>
+              Таб 1
+            </span>
+            <span
+              class="addons"
+            >
+              addon
+            </span>
+          </button>
+          <button
+            aria-selected="true"
+            class="component component component xs xs outlined checked rounded outlined"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span>
+              Таб 2
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="component component component xs xs outlined rounded outlined"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Таб 3
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="component component component xs xs outlined rounded outlined"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Таб 4
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="component component component xs xs outlined rounded outlined"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Таб 5
+            </span>
+          </button>
+        </div>
       </div>
     </div>
     <div

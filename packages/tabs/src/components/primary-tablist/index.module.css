@@ -81,6 +81,10 @@
     transition: transform 0.2s ease, width 0.2s ease;
 }
 
+.option {
+    color: var(--color-light-text-primary);
+}
+
 /* sizes */
 
 .s,
