@@ -1,3 +1,17 @@
+## 42.8.0
+
+<sup><time>11.09.2023</time></sup>
+
+### [#840](https://github.com/core-ds/core-components/pull/840)
+
+#### Что изменилось
+- Добавлен проп onSwipeStart, onSwipeEnd
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
 ## 42.7.0
 
 <sup><time>11.09.2023</time></sup>
