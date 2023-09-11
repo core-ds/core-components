@@ -328,7 +328,12 @@ export type BottomSheetProps = {
     onOffsetChange?: (offset: number, percent: number) => void;
 
     /**
-     * Вызывается для событий touchend and mouseup.
+     * Вызывается в начале свайпа
      */
-    onTouchEnd?: (event: HandledEvents) => void;
+    onSwipeStart?: (event: HandledEvents) => void;
+
+    /**
+     * Вызывается после окончания свайпа
+     */
+    onSwipeEnd?: (event: HandledEvents | null) => void;
 };
