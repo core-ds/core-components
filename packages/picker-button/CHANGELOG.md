@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.1.2
+    -   button@9.0.4
+
 ## 11.1.1
 
 ### Patch Changes

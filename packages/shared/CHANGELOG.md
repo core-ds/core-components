@@ -1,5 +1,13 @@
 # @alfalab/core-components-shared
 
+## 0.4.0
+
+### Minor Changes
+
+### [#837](https://github.com/core-ds/core-components/pull/837)
+
+-   Добавлена функция isNil
+
 ## 0.3.0
 
 ### Minor Changes

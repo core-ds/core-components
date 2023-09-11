@@ -1,5 +1,23 @@
 # Change Log
 
+## 6.8.0
+
+### Minor Changes
+
+### [#839](https://github.com/core-ds/core-components/pull/839)
+
+-   Добавлен проп onTouchEnd
+
+### Patch Changes
+
+### [#837](https://github.com/core-ds/core-components/pull/837)
+
+-   Исправлена ошибка, из-за которой не пересчитывалась высота магнитных зон
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+    -   navigation-bar@0.5.4
+
 ## 6.7.1
 
 ### Patch Changes

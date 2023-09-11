@@ -1,5 +1,12 @@
 # @alfalab/core-components-number-input
 
+## 1.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.2
+
 ## 1.2.1
 
 ### Patch Changes

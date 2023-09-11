@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+    -   button@9.0.4
+
 ## 12.1.1
 
 ### Patch Changes

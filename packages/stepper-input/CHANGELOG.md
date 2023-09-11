@@ -1,5 +1,14 @@
 # @alfalab/core-components-stepper-input
 
+## 1.0.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+    -   icon-button@6.2.4
+    -   number-input@1.2.2
+
 ## 1.0.1
 
 ### Patch Changes
