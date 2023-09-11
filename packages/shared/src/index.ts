@@ -3,3 +3,4 @@ export * from './getDataTestId';
 export * from './createPaddingStyle';
 export * from './easingFns';
 export * from './inputUtils';
+export * from './fnUtils';
