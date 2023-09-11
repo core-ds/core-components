@@ -89,7 +89,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             onClose,
             onBack,
             onMagnetize,
-            onTouchEnd,
+            onSwipeStart,
+            onSwipeEnd,
             disableRestoreFocus,
             disableAutoFocus,
             disableEscapeKeyDown,
@@ -159,6 +160,23 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             onClose,
         };
 
+        const startSwiping = (event: HandledEvents) => {
+            setSwipingInProgress((p) => {
+                if (!p) onSwipeStart?.(event);
+
+                return true;
+            });
+        };
+
+        const stopSwiping = (event: HandledEvents | null) => {
+            setSwipingInProgress((p) => {
+                if (p) onSwipeEnd?.(event);
+
+                return false;
+            });
+            scrollOccurred.current = false;
+        };
+
         const getBackdropOpacity = (offset: number): number => {
             const canClose = magneticAreas[0] === 0;
             const secondArea = magneticAreas[1];
@@ -201,7 +219,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const scrollToArea = (idx: number) => {
-            setSwipingInProgress(false);
+            stopSwiping(null);
             const nextArea = magneticAreas[idx];
 
             if (nextArea === 0) {
@@ -356,14 +374,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 return;
             }
 
-            setSwipingInProgress(true);
+            startSwiping(event);
         };
 
-        const handleTouchEnd: TapCallback = ({ event }) => {
-            onTouchEnd?.(event);
-            setSwipingInProgress(false);
-            scrollOccurred.current = false;
-        };
+        const handleTouchEnd: TapCallback = ({ event }) => stopSwiping(event);
 
         const handleSheetSwiping: SwipeCallback = ({ initial, deltaY, event }) => {
             if (scrollOccurred.current || shouldSkipSwiping(deltaY, initial[1], event)) {
@@ -371,7 +385,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
 
             if (!swipingInProgress) {
-                setSwipingInProgress(true);
+                startSwiping(event);
             }
 
             const offset = getSheetOffset(deltaY);
