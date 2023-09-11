@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.9.0
+
+### Minor Changes
+
+### [#840](https://github.com/core-ds/core-components/pull/840)
+
+-   Добавлен проп onSwipeStart, onSwipeEnd
+
 ## 6.8.0
 
 ### Minor Changes
