@@ -14,7 +14,7 @@ import { HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, HeaderProps } from './components/header/Component';
@@ -30,6 +30,8 @@ import {
 } from './utils';
 
 import styles from './index.module.css';
+
+const { isNil } = fnUtils;
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     (
@@ -98,7 +100,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         },
         ref,
     ) => {
-        const hasInitialIdx = initialActiveAreaIndex !== undefined;
         const fullHeight = use100vh() || 0;
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
@@ -389,12 +390,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const handleExited = (node: HTMLElement) => {
             const idx = initialActiveAreaIndex as number;
-            const nextArea = hasInitialIdx ? magneticAreas[idx] : lastMagneticArea;
+            const nextArea = isNil(idx) ? lastMagneticArea : magneticAreas[idx];
 
             setBackdropOpacity(1);
-            setSheetOffset(
-                hasInitialIdx ? lastMagneticArea - magneticAreas[idx] : magneticAreas[0],
-            );
+            setSheetOffset(isNil(idx) ? magneticAreas[0] : lastMagneticArea - magneticAreas[idx]);
             setActiveArea(nextArea);
             onMagnetizeEnd?.();
             if (transitionProps.onExited) {
@@ -431,19 +430,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         useEffect(() => {
-            // Инициализируем стейт только после того, как была рассчитана высота вьюпорта.
+            // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
             if (!isFirstRender) {
-                setSheetOffset(
-                    hasInitialIdx ? lastMagneticArea - magneticAreas[initialActiveAreaIndex] : 0,
-                );
+                const idx = initialActiveAreaIndex as number;
 
-                setActiveArea(
-                    hasInitialIdx ? magneticAreas[initialActiveAreaIndex] : lastMagneticArea,
-                );
+                setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
+                setActiveArea(isNil(idx) ? lastMagneticArea : magneticAreas[idx]);
             }
-
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [isFirstRender]);
+        }, [initialActiveAreaIndex, isFirstRender, lastMagneticArea, magneticAreas]);
 
         useEffect(() => {
             if (!sheetRef.current) return;
