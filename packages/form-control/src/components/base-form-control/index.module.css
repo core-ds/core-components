@@ -3,6 +3,7 @@
 .component {
     font-family: var(--form-control-font-family);
     width: max-content;
+    max-width: 100%;
 }
 
 .inner {

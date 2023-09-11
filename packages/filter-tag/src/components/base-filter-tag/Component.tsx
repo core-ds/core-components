@@ -104,7 +104,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
             showClear = true,
             className,
             dataTestId,
-            styles={},
+            styles = {},
         },
         ref,
     ) => {
@@ -176,7 +176,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps>(
                         },
                     )}
                 >
-                    <span>{children}</span>
+                    <span className={commonStyles.content}>{children}</span>
                     <span className={commonStyles.chevron}>
                         {size === 'xxs' ? <ChevronDownCompactSIcon /> : <ChevronDownMIcon />}
                     </span>
