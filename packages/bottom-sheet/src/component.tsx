@@ -89,6 +89,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             onClose,
             onBack,
             onMagnetize,
+            onTouchEnd,
             disableRestoreFocus,
             disableAutoFocus,
             disableEscapeKeyDown,
@@ -358,7 +359,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             setSwipingInProgress(true);
         };
 
-        const handleTouchEnd: TapCallback = () => {
+        const handleTouchEnd: TapCallback = ({ event }) => {
+            onTouchEnd?.(event);
             setSwipingInProgress(false);
             scrollOccurred.current = false;
         };
