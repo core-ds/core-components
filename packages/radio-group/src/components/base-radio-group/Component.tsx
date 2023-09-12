@@ -41,6 +41,11 @@ export type BaseRadioGroupProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для списка радио элементов
+     */
+    radioListClassName?: string;
+
+    /**
      * Отображение ошибки
      */
     error?: ReactNode | boolean;
@@ -107,6 +112,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
         {
             children,
             className,
+            radioListClassName,
             direction = 'vertical',
             label,
             error,
@@ -201,7 +207,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
 
                 {children ? (
                     <div
-                        className={cn(commonStyles.radioList, {
+                        className={cn(commonStyles.radioList, radioListClassName, {
                             [styles.radioList]: type === 'radio',
                         })}
                         onBlur={onBlur}
