@@ -1,7 +1,9 @@
-import React, { FC, MouseEvent, useCallback, useLayoutEffect, useRef } from 'react';
+import React, { FC, MouseEvent, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import isSameYear from 'date-fns/isSameYear';
 import isThisYear from 'date-fns/isThisYear';
+
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { SelectButton, SelectButtonProps } from '../select-button';
 
@@ -60,7 +62,7 @@ export const YearsTable: FC<YearsTableProps> = ({
         [onScroll],
     );
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const listNode = ref.current;
         const selector = `.${styles.button}[tabIndex="0"]`;
         const selectedYearNode = listNode && listNode.querySelector<HTMLButtonElement>(selector);
