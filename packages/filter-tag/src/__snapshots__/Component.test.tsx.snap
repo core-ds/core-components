@@ -12,7 +12,9 @@ Object {
           class="valueButton valueButton s s rounded rounded outlined outlined"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Press me
           </span>
           <span
@@ -43,7 +45,9 @@ Object {
         class="valueButton valueButton s s rounded rounded outlined outlined"
         type="button"
       >
-        <span>
+        <span
+          class="content"
+        >
           Press me
         </span>
         <span
@@ -131,7 +135,9 @@ Object {
           class="valueButton valueButton s s rectangular rectangular outlined outlined"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Press me
           </span>
           <span
@@ -162,7 +168,9 @@ Object {
         class="valueButton valueButton s s rectangular rectangular outlined outlined"
         type="button"
       >
-        <span>
+        <span
+          class="content"
+        >
           Press me
         </span>
         <span
@@ -250,7 +258,9 @@ Object {
           class="valueButton valueButton s s rectangular rectangular outlined outlined"
           type="button"
         >
-          <span>
+          <span
+            class="content"
+          >
             Press me
           </span>
           <span
@@ -281,7 +291,9 @@ Object {
         class="valueButton valueButton s s rectangular rectangular outlined outlined"
         type="button"
       >
-        <span>
+        <span
+          class="content"
+        >
           Press me
         </span>
         <span
@@ -369,7 +381,9 @@ Object {
           class="valueButton valueButton s s rounded rounded outlined outlined"
           type="button"
         >
-          <span />
+          <span
+            class="content"
+          />
           <span
             class="chevron"
           >
@@ -398,7 +412,9 @@ Object {
         class="valueButton valueButton s s rounded rounded outlined outlined"
         type="button"
       >
-        <span />
+        <span
+          class="content"
+        />
         <span
           class="chevron"
         >
