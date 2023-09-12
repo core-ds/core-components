@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+### [#836](https://github.com/core-ds/core-components/pull/836)
+
+-   Добавлены контролы в scrollable контейнер десктопных табов
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.1.4
+
 ## 8.0.8
 
 ### Patch Changes

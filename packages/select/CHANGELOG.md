@@ -1,5 +1,17 @@
 # Change Log
 
+## 15.1.4
+
+### Patch Changes
+
+### [#838](https://github.com/core-ds/core-components/pull/838)
+
+-   Задана максимальная ширина в 100%, чтобы они не выходили за границы родителя
+
+-   Обновлены зависимости
+    -   form-control@10.0.1
+    -   input@12.1.3
+
 ## 15.1.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#841](https://github.com/core-ds/core-components/pull/841)
+
+-   Добавлен проп radioListClassName
+
 ## 4.0.1
 
 ### Patch Changes
