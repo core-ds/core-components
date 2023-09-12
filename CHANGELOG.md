@@ -1,3 +1,44 @@
+## 42.9.0
+
+<sup><time>12.09.2023</time></sup>
+
+### [#836](https://github.com/core-ds/core-components/pull/836)
+
+#### Что изменилось
+- Добавлены контролы в scrollable контейнер десктопных табов
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#841](https://github.com/core-ds/core-components/pull/841)
+
+#### Что изменилось
+- Добавлен проп radioListClassName
+
+#### Влияние на компоненты
+- Минорное<br />`radio-group`
+
+
+### [#832](https://github.com/core-ds/core-components/pull/832)
+
+#### Что изменилось
+- Добавлен проп closeWithClickOutside
+
+#### Влияние на компоненты
+- Минорное<br />`toast`
+
+
+### [#838](https://github.com/core-ds/core-components/pull/838)
+
+#### Что изменилось
+- Задана максимальная ширина в 100%, чтобы они не выходили за границы родителя
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `select` `filter-tag`
+
+
+
 ## 42.8.0
 
 <sup><time>11.09.2023</time></sup>
