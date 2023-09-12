@@ -14,9 +14,9 @@
         "mobile.js": 70.21
     },
     "toast": {
-        "desktop.js": 57.73,
-        "index.js": 58.2,
-        "mobile.js": 57.73
+        "desktop.js": 57.76,
+        "index.js": 58.24,
+        "mobile.js": 57.76
     },
     "toast-plate": {
         "desktop.js": 14.66,
@@ -103,7 +103,7 @@
         "shared.js": 162.24
     },
     "select-with-tags": {
-        "index.js": 162.91
+        "index.js": 162.89
     },
     "segmented-control": {
         "index.js": 13.22
@@ -115,9 +115,9 @@
         "index.js": 4.14
     },
     "radio-group": {
-        "desktop.js": 4.28,
-        "index.js": 5.82,
-        "mobile.js": 4.28
+        "desktop.js": 4.3,
+        "index.js": 5.84,
+        "mobile.js": 4.3
     },
     "pure-cell": {
         "index.js": 41.4
@@ -273,14 +273,14 @@
         "index.js": 1.31
     },
     "date-time-input": {
-        "desktop.js": 130,
-        "index.js": 225.35,
-        "mobile.js": 223.91
+        "desktop.js": 129.98,
+        "index.js": 225.33,
+        "mobile.js": 223.89
     },
     "date-range-input": {
-        "desktop.js": 131.62,
-        "index.js": 227,
-        "mobile.js": 225.56
+        "desktop.js": 131.6,
+        "index.js": 226.98,
+        "mobile.js": 225.54
     },
     "date-input": {
         "index.js": 62.08
@@ -294,10 +294,10 @@
         "index.js": 8.91
     },
     "confirmation": {
-        "desktop.js": 28.56,
-        "index.js": 28.9,
-        "mobile.js": 28.67,
-        "shared.js": 27.02
+        "desktop.js": 28.54,
+        "index.js": 28.87,
+        "mobile.js": 28.65,
+        "shared.js": 27
     },
     "confirmation-v1": {
         "index.js": 43.83
@@ -335,21 +335,21 @@
         "index.js": 2.03
     },
     "calendar": {
-        "desktop.js": 62.44,
-        "index.js": 166.25,
-        "mobile.js": 165.45,
+        "desktop.js": 62.42,
+        "index.js": 166.23,
+        "mobile.js": 165.42,
         "shared.js": 46.36
     },
     "calendar-with-skeleton": {
-        "index.js": 63.54
+        "index.js": 63.52
     },
     "calendar-range": {
-        "index.js": 233.72
+        "index.js": 233.7
     },
     "calendar-input": {
-        "desktop.js": 131.28,
-        "index.js": 226.11,
-        "mobile.js": 225.21,
+        "desktop.js": 131.25,
+        "index.js": 226.09,
+        "mobile.js": 225.18,
         "shared.js": 64.72
     },
     "button": {
