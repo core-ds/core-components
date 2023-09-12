@@ -1,0 +1,68 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+    }
+}
+
+.borderVisible:before {
+    background-color: var(--color-light-specialbg-tertiary-transparent);
+}
+
+.primary {
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1px;
+        height: 1px;
+        width: 100%;
+        background-color: var(--primary-tablist-bottom-border-color);
+    }
+
+    &:before {
+        bottom: 2px;
+    }
+
+    .button:first-child {
+        padding-left: var(--gap-xs);
+        margin-right: var(--gap-xs);
+    }
+
+    &.xl .button:first-child {
+        margin-right: var(--gap-2xs);
+    }
+}
+
+.secondary {
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+        bottom: 0;
+    }
+
+    &.xs {
+        width: 76px;
+
+        .button:first-child {
+            margin-right: var(--gap-2xs);
+        }
+    }
+}

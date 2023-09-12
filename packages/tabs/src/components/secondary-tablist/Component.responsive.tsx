@@ -8,7 +8,6 @@ import { SecondaryTabListDesktop } from './Component.desktop';
 import { SecondaryTabListMobile } from './Component.mobile';
 
 export const SecondaryTabListResponsive = ({
-    size,
     defaultMatchMediaValue,
     fullWidthScroll,
     breakpoint = 1024,
@@ -17,7 +16,7 @@ export const SecondaryTabListResponsive = ({
     const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
     return isDesktop ? (
-        <SecondaryTabListDesktop size={size} {...restProps} />
+        <SecondaryTabListDesktop {...restProps} />
     ) : (
         <SecondaryTabListMobile fullWidthScroll={fullWidthScroll} {...restProps} />
     );

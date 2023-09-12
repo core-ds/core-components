@@ -1,12 +1,17 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
+.scrollableContainerWrapper {
+    display: flex;
+}
+
 .container {
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    flex: 1;
 
     /* focus-outline fix */
     margin: var(--gap-2xs-neg) 0 var(--gap-2xs-neg) var(--gap-2xs-neg);
@@ -22,5 +27,6 @@
 }
 
 .fullWidthScroll {
-    margin: 0 var(--gap-m-neg);
+    padding-left: 0;
+    margin: var(--gap-2xs-neg) var(--gap-m-neg);
 }
