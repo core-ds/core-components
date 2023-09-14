@@ -54,7 +54,7 @@ body.sb-show-main.sb-main-padded {
 }
 
 #storybook-docs > .sbdocs-wrapper {
-    padding: var(--gap-5xl) var(--gap-l);
+    padding: var(--gap-3xl) var(--gap-m) var(--gap-7xl);
 }
 
 /* plugins */
@@ -387,7 +387,7 @@ select[name] {
 }
 
 .sbdocs.sbdocs-content {
-    max-width: 1024px;
+    max-width: 768px;
     width: 100%;
 }
 
@@ -497,7 +497,8 @@ button.tabbutton-active {
 }
 
 div.sbdocs table.docblock-argstable {
-    margin: var(--gap-3xl) 0;
+    margin: var(--gap-xl) 0 0;
+    padding-bottom: var(--gap-xl);
 }
 
 .sbdocs > table {
@@ -605,8 +606,25 @@ table.docblock-argstable td {
     --plate-background: url('./images/docs-background.png');
 }
 
+.sbdocs div[class^='plate__component'] {
+    margin: var(--gap-l) 0;
+}
+
+.sbdocs div[class^='plate__component'] + div[data-role='wrapper'] {
+    margin-top: 0;
+}
+
 .sbdocs div[data-role='wrapper'] {
     margin: var(--gap-xl) 0;
+}
+
+.sbdocs div[data-role='wrapper'] + h2,
+.sbdocs div[data-role='wrapper'] + h3 {
+    margin-top: var(--gap-4xl);
+}
+
+.sbdocs div[data-role='wrapper'] + div[class^='plate__component'] {
+    margin-top: 0;
 }
 
 @media (max-width: 599px) {
@@ -616,6 +634,10 @@ table.docblock-argstable td {
 }
 
 @media screen and (min-width: 768px) {
+    #storybook-docs > .sbdocs-wrapper {
+        padding: var(--gap-5xl) var(--gap-l) var(--gap-8xl);
+    }
+
     h1.sbdocs-h1 {
         font-size: 48px;
         line-height: 64px;

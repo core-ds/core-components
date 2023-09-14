@@ -4,19 +4,17 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMI
 
 Компонент просмотра изображений
 
-<div style={{ marginBottom: '16px' }}>
-    <Plate
-        view='common'
-        leftAddons={
-            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-        }
-    >
-        <span>
-            Чтобы скачивание изображений работало корректно, убедитесь, что в ответе от сервера
-            выставлен заголовок <b>content-disposition: attachment</b>
-        </span>
-    </Plate>
-</div>
+<Plate
+    view='common'
+    leftAddons={
+        <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
+    }
+>
+    <span>
+        Чтобы скачивание изображений работало корректно, убедитесь, что в ответе от сервера
+        выставлен заголовок <b>content-disposition: attachment</b>
+    </span>
+</Plate>
 
 ```jsx live
 const Example = () => {
