@@ -1,5 +1,13 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.5.5
+
+### Patch Changes
+
+### [#851](https://github.com/core-ds/core-components/pull/851)
+
+-   Повышена специфичность стилей Closer
+
 ## 0.5.4
 
 ### Patch Changes
