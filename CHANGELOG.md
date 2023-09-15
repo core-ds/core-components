@@ -1,3 +1,17 @@
+## 42.9.1
+
+<sup><time>15.09.2023</time></sup>
+
+### [#851](https://github.com/core-ds/core-components/pull/851)
+
+#### Что изменилось
+- Повышена специфичность стилей Closer
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+
 ## 42.9.0
 
 <sup><time>12.09.2023</time></sup>
