@@ -1,5 +1,13 @@
 # @alfalab/core-components-shared
 
+## 0.5.0
+
+### Minor Changes
+
+### [#825](https://github.com/core-ds/core-components/pull/825)
+
+-   Добавлены утилиты для работы с маской
+
 ## 0.4.0
 
 ### Minor Changes

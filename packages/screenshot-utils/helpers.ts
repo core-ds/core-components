@@ -44,7 +44,7 @@ export const customSnapshotIdentifier = ({
 
 export type MatchHtmlParams = {
     page: Page;
-    context: BrowserContext;
+    context?: BrowserContext;
     css?: string;
     expect: any;
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;

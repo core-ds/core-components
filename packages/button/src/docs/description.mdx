@@ -68,12 +68,22 @@ render(() => {
 Кнопка доступна в размерах XL, L, M, S, XS, XXS.
 
 ```jsx live
-const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+const BIG_SIZES = ['xl', 'l', 'm'];
+const SMALL_SIZES = [ 's', 'xs', 'xxs'];
 
 render(
     <Container>
         <Row>
-            {SIZES.map((size) => (
+            {BIG_SIZES.map((size) => (
+                <Col key={size}>
+                    <ButtonDesktop size={size} view='primary'>
+                        {`${size.toUpperCase()}-size`}
+                    </ButtonDesktop>
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {SMALL_SIZES.map((size) => (
                 <Col key={size}>
                     <ButtonDesktop size={size} view='primary'>
                         {`${size.toUpperCase()}-size`}

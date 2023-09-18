@@ -11,8 +11,10 @@ render(() => {
         setValue(valueString);
     };
 
+    const isMobile = document.body.clientWidth < 600;
+
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: isMobile ? '100%' : 320 }}>
             <StepperInput
                 value={value}
                 onChange={handleChange}
@@ -21,6 +23,11 @@ render(() => {
                 max={10}
                 block={true}
                 disableUserInput={disableUserInput}
+                placeholder='Placeholder'
+                label='Label'
+                labelView={isMobile ? 'outer' : 'inner'}
+                size={isMobile ? 's' : 'm'}
+                breakpoint={600}
             />
 
             <Gap size='l' />

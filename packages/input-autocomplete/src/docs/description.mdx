@@ -69,36 +69,33 @@ render(() => {
     };
 
     return (
-        <div style={{ width: '100%' }}>
-            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                <InputAutocompleteDesktop
-                    size='m'
-                    selected={multiple ? selected : undefined}
-                    block={true}
-                    options={getFilteredOptions()}
-                    label='Инпут с автокомплитом'
-                    placeholder='Начните вводить название'
-                    onChange={handleChange}
-                    onInput={handleInput}
-                    value={value}
-                    Arrow={shownChevron ? Arrow : undefined}
-                    multiple={multiple}
-                    allowUnselect={true}
-                    Option={BaseOption}
-                    showEmptyOptionsList={true}
-                    optionsListProps={{
-                        emptyPlaceholder: (
-                            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <Typography.Text view='component'>
-                                    Ничего не нашлось
-                                </Typography.Text>
-                            </div>
-                        ),
-                    }}
-                />
-            </div>
+        <div style={{ width: 320 }}>
+            <InputAutocompleteDesktop
+                size='m'
+                selected={multiple ? selected : undefined}
+                block={true}
+                options={getFilteredOptions()}
+                label='Инпут с автокомплитом'
+                placeholder='Начните вводить название'
+                onChange={handleChange}
+                onInput={handleInput}
+                value={value}
+                Arrow={shownChevron ? Arrow : undefined}
+                multiple={multiple}
+                allowUnselect={true}
+                Option={BaseOption}
+                showEmptyOptionsList={true}
+                optionsListProps={{
+                    emptyPlaceholder: (
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <Typography.Text view='component'>
+                                Ничего не нашлось
+                            </Typography.Text>
+                        </div>
+                    ),
+                }}
+            />
             <Gap size='xl' />
-
             <Switch
                 checked={shownChevron}
                 label='Шеврон'
@@ -193,15 +190,16 @@ render(() => {
     const Component = showInModal ? InputAutocompleteModalMobile : InputAutocompleteMobile;
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div>
             <Component
-                size='m'
+                size='s'
                 block={true}
                 value={value}
                 Arrow={shownChevron ? Arrow : undefined}
                 filter={filter}
                 options={filteredOptions}
                 label='Инпут с автокомплитом'
+                labelView='outer'
                 placeholder='Начните вводить название'
                 Option={BaseOption}
                 multiple={multiple}
@@ -216,7 +214,6 @@ render(() => {
                 optionsListProps={{ emptyPlaceholder }}
             />
             <Gap size='xl' />
-
             <Switch
                 checked={shownChevron}
                 label='Шеврон'
@@ -333,8 +330,8 @@ render(() => {
                 size='m'
                 options={filteredOptions}
                 selected={[]}
-                label='Счёт'
-                placeholder='Маскированный ввод счёта'
+                label='Маскированный ввод счёта'
+                placeholder='Счёт'
                 onInput={handleInput}
                 onChange={handleChange}
                 value={value}
@@ -433,13 +430,14 @@ render(() => {
 
     return (
         <InputAutocompleteMobile
-            size='m'
+            size='s'
             block={true}
             value={value}
             filter={filter}
             options={filteredOptions}
-            label='Счёт'
-            placeholder='Маскированный ввод счёта'
+            label='Маскированный ввод счёта'
+            labelView='outer'
+            placeholder='Счёт'
             onChange={handleChange}
             onClearFilter={() => setFilter('')}
             bottomSheetProps={{

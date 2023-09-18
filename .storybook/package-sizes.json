@@ -10,8 +10,8 @@
     },
     "tooltip": {
         "desktop.js": 44.35,
-        "index.js": 97.12,
-        "mobile.js": 70.21
+        "index.js": 97.26,
+        "mobile.js": 70.35
     },
     "toast": {
         "desktop.js": 57.76,
@@ -94,12 +94,12 @@
         "shared.js": 39.83
     },
     "shared": {
-        "index.js": 0.68
+        "index.js": 2.18
     },
     "select": {
         "desktop.js": 138.94,
-        "index.js": 204.24,
-        "mobile.js": 173.78,
+        "index.js": 204.38,
+        "mobile.js": 173.92,
         "shared.js": 162.24
     },
     "select-with-tags": {
@@ -141,8 +141,8 @@
     },
     "picker-button": {
         "desktop.js": 159.25,
-        "index.js": 218.28,
-        "mobile.js": 217,
+        "index.js": 218.42,
+        "mobile.js": 217.14,
         "shared.js": 3.01
     },
     "phone-input": {
@@ -208,7 +208,12 @@
         "index.js": 2.11
     },
     "intl-phone-input": {
-        "index.js": 667.25
+        "index.js": 667.26
+    },
+    "international-phone-input": {
+        "desktop.js": 473.43,
+        "index.js": 535.49,
+        "mobile.js": 533.28
     },
     "input": {
         "desktop.js": 16.72,
@@ -216,9 +221,9 @@
         "mobile.js": 16.71
     },
     "input-autocomplete": {
-        "desktop.js": 156.73,
-        "index.js": 217.53,
-        "mobile.js": 177.82
+        "desktop.js": 156.74,
+        "index.js": 217.72,
+        "mobile.js": 178.01
     },
     "indicator": {
         "index.js": 1.99
@@ -287,8 +292,8 @@
     },
     "custom-picker-button": {
         "desktop.js": 160.72,
-        "index.js": 219.91,
-        "mobile.js": 218.46
+        "index.js": 220.05,
+        "mobile.js": 218.6
     },
     "custom-button": {
         "index.js": 8.91
@@ -358,7 +363,7 @@
         "mobile.js": 6.75
     },
     "bottom-sheet": {
-        "index.js": 69.52
+        "index.js": 69.67
     },
     "base-modal": {
         "index.js": 39.98
