@@ -3,7 +3,7 @@
 Компонент умеет принимать только целые и дробные числа с разным знаком.
 Вид разделителя и количество знаков в дробной части можно настраивать.
 
-```jsx live
+```jsx live mobileHeight={500}
 render(() => {
     const [value, setValue] = React.useState('');
 
@@ -31,57 +31,58 @@ render(() => {
         setValue('');
     }, []);
 
+    const isMobile = document.body.clientWidth < 600;
+
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: isMobile ? '100%' : 320 }}>
             <NumberInput
                 value={value}
                 block={true}
                 onChange={handleChange}
-                label='Label'
+                placeholder='Введите число'
+                label='Число'
+                labelView={isMobile ? 'outer' : 'inner'}
                 separator={allowSignsRadioValue === 'comma' ? ',' : '.'}
                 fractionLength={fractionLengthRadioValue === 'limited' ? 2 : undefined}
                 allowSigns={signsRadioValue === 'allowSigns'}
-                size='m'
+                size={isMobile ? 's' : 'm'}
                 clear={true}
                 onClear={() => setValue('')}
+                breakpoint={600}
             />
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label='Отделять дробную часть'
-                    direction='vertical'
-                    name='radioGroupFirst'
-                    onChange={handleAllowSignsRadioChange}
-                    value={allowSignsRadioValue}
-                >
-                    <Radio label='Запятой' value='comma' />
-                    <Radio label='Точкой' value='dot' />
-                </RadioGroup>
-            </div>
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label='Длина дробной части'
-                    direction='vertical'
-                    name='radioGroupSecond'
-                    onChange={handleFractionLengthRadioChange}
-                    value={fractionLengthRadioValue}
-                >
-                    <Radio label='Не ограничена' value='notLimited' />
-                    <Radio label='2 знака' value='limited' />
-                </RadioGroup>
-            </div>
-
-            <div style={{ margin: '40px 0' }}>
-                <RadioGroup
-                    label='Работа со знаками'
-                    direction='vertical'
-                    name='radioGroupThird'
-                    onChange={handleSignsRadioChange}
-                    value={signsRadioValue}
-                >
-                    <Radio label='Разрешить указывать знак' value='allowSigns' />
-                    <Radio label='Не позволять указать знак' value='banSigns' />
-                </RadioGroup>
-            </div>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Отделять дробную часть'
+                direction='vertical'
+                name='radioGroupFirst'
+                onChange={handleAllowSignsRadioChange}
+                value={allowSignsRadioValue}
+            >
+                <Radio label='Запятой' value='comma' />
+                <Radio label='Точкой' value='dot' />
+            </RadioGroup>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Длина дробной части'
+                direction='vertical'
+                name='radioGroupSecond'
+                onChange={handleFractionLengthRadioChange}
+                value={fractionLengthRadioValue}
+            >
+                <Radio label='Не ограничена' value='notLimited' />
+                <Radio label='2 знака' value='limited' />
+            </RadioGroup>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Работа со знаками'
+                direction='vertical'
+                name='radioGroupThird'
+                onChange={handleSignsRadioChange}
+                value={signsRadioValue}
+            >
+                <Radio label='Разрешить указывать знак' value='allowSigns' />
+                <Radio label='Не позволять указать знак' value='banSigns' />
+            </RadioGroup>
         </div>
     );
 });
