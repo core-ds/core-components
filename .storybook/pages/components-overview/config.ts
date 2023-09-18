@@ -16,7 +16,7 @@ export const CONFIG: TConfig = {
         'NumberInput',
         'PasswordInput',
         'PhoneInput',
-        'IntlPhoneInput',
+        'InternationalPhoneInput',
         'MaskedInput',
         'Select',
         'InputAutocomplete',

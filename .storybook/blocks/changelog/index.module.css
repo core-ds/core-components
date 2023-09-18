@@ -3,57 +3,61 @@
 @import '../../../packages/vars/src/index.css';
 
 .changelog {
-    &:not(.root) {
-        & h1:global(.sbdocs):first-child {
-            display: none;
-
-            & + p {
-                display: none;
-            }
-        }
+    & h1 {
+        display: none;
     }
 
-    & h1:global(.sbdocs) {
-        @mixin headline_medium;
-
-        margin: var(--gap-2xl) 0 var(--gap-m);
-        color: var(--color-light-text-primary);
-        border-bottom: 1px solid var(--color-light-border-secondary);
-
-        & a {
-            @mixin headline_medium;
-
-            border: none;
-        }
+    & h2 {
+        @mixin headline-mobile_small;
+        margin: var(--gap-4xl) 0 0;
     }
 
-    & h2:global(.sbdocs) {
-        @mixin headline_xsmall;
+    & h2:first-of-type {
+        margin: var(--gap-xl) 0 0;
+    }
 
-        border: 0;
-        box-shadow: none;
-        padding: 0;
-        margin: 0;
-        margin-bottom: var(--gap-s);
-        padding-bottom: var(--gap-xs);
-        border-bottom: 1px solid var(--color-light-border-secondary);
+    & h2:not(:first-of-type):before {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: var(--color-light-border-secondary);
+        position: relative;
+        bottom: var(--gap-xl);
+    }
 
-        &:after {
-            display: none;
+    & h3,
+    & h4 {
+        @mixin headline-mobile_xsmall;
+        margin: var(--gap-m) 0 0;
+    }
+
+    & ul,
+    & p,
+    & sup {
+        display: block;
+        @mixin paragraph_primary_medium;
+        margin: var(--gap-s) 0 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .changelog {
+        & h2 {
+            @mixin headline_small;
+            margin: var(--gap-5xl) 0 0;
         }
 
-        & a {
+        & h2:first-of-type {
+            margin: var(--gap-2xl) 0 0;
+        }
+
+        & h2:not(:first-of-type):before {
+            bottom: var(--gap-2xl);
+        }
+
+        & h3 {
             @mixin headline_xsmall;
-
-            border: none;
+            margin: var(--gap-m) 0 0;
         }
-
-        & + p {
-            margin-bottom: var(--gap-xl);
-        }
-    }
-
-    & h3:global(.sbdocs) {
-        margin-top: var(--gap-m);
     }
 }

@@ -7,17 +7,21 @@
     display: inline-block;
 }
 
-.text {
-    margin: var(--gap-xl) 0;
+.title {
+    margin-bottom: var(--gap-xl);
 }
 
-.textMobile {
-    margin-top: var(--gap-s);
+.titleMobile {
+    margin-bottom: var(--gap-s);
+}
+
+.text {
+    margin-bottom: var(--gap-xl);
 }
 
 .info {
     display: flex;
-    margin-top: var(--gap-xs);
+    margin-top: var(--gap-s);
 }
 
 .commonLink {

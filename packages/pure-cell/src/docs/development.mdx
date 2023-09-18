@@ -1,4 +1,4 @@
-import { ArgsTable } from '@storybook/addon-docs';
+import { ArgsTabs } from 'storybook/blocks';
 import { Plate } from '@alfalab/core-components/plate';
 import { Badge } from '@alfalab/core-components/badge';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
@@ -15,12 +15,12 @@ import { PureCell } from '@alfalab/core-components/pure-cell';
     border={true}
     leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}
 >
-    Компонент не поддерживает IE
+    <div>Компонент не поддерживает IE</div>
 </Plate>
 
 ## Свойства
 
-<ArgsTable
+<ArgsTabs
     components={{
         PureCell: PureCellTS,
         Addon: PureCellTS.Addon,

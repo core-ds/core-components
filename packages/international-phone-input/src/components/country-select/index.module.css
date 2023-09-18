@@ -1,0 +1,40 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    position: static;
+    display: flex;
+    min-width: initial;
+    height: 100%;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    padding: var(--gap-s);
+}
+
+.flag {
+    flex-shrink: 0;
+    margin-right: var(--gap-xs);
+}
+
+.countryName {
+    margin-right: var(--gap-xs);
+}
+
+.dialCode {
+    color: var(--text-secondary-color);
+}
+
+.flagIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-left: var(--gap-s);
+}
+
+.emptyCountryIcon {
+    color: var(--color-light-graphic-secondary);
+}

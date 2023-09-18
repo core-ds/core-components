@@ -4,22 +4,7 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
-    createPreview,
 } from '../../screenshot-utils';
-
-describe('IntlPhoneInput ', () =>
-    createPreview(
-        {
-            componentName: 'IntlPhoneInput',
-            knobs: {
-                label: 'Телефон',
-                value: '%2b7 123 456-78-90',
-                size: 'm',
-                block: true,
-            },
-        },
-        'padding: 0 270px; transform:scale(2.1)',
-    ));
 
 describe('IntlPhoneInput | interactions tests', () => {
     test('Fill value', async () => {

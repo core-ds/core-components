@@ -3471,6 +3471,16 @@
     globby "^11.0.0"
     read-yaml-file "^1.1.0"
 
+"@maskito/core@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-1.4.0.tgz#cfc2152e36e6be658abdacda7f30bb8992bfe800"
+  integrity sha512-Q5o3vQ4c52VzJf6dvA1RgruMHM3uwPCjw2ghwJDNeU7W9xn/iuI61KN/kyuMeZDicRQwE+ddVokg2jEtYiPfJw==
+
+"@maskito/react@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@maskito/react/-/react-1.4.0.tgz#d2113d66afac8599ddf0f1bbd9d8429780e390a3"
+  integrity sha512-vmdBGAyFiujBXMofWblj0KZiGbPMolB3MAKgzMA//vc53TEVq2efvDsok7toCuKzdOBzSNkEPmnNJo0iWnALHg==
+
 "@mdn/browser-compat-data@^4.1.16":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-4.2.1.tgz#1fead437f3957ceebe2e8c3f46beccdb9bc575b8"
