@@ -1,42 +1,66 @@
 ## Виды кнопок
 
-```jsx live
-<Container>
-    <Row align='middle'>
-        <Col>
-            <ButtonDesktop view='accent'>Accent</ButtonDesktop>
-        </Col>
-        <Col>
-            <ButtonDesktop view='primary'>Primary</ButtonDesktop>
-        </Col>
-        <Col>
-            <ButtonDesktop view='secondary'>Secondary</ButtonDesktop>
-        </Col>
-        <Col>
-            <ButtonDesktop view='tertiary'>Tertiary</ButtonDesktop>
-        </Col>
-        <Col>
-            <ButtonDesktop view='link'>Link</ButtonDesktop>
-        </Col>
-        <Col>
-            <ButtonDesktop view='ghost'>Ghost</ButtonDesktop>
-        </Col>
-    </Row>
-</Container>
+```jsx live mobileHeight={475}
+render(() => {
+    const [disabled, setDisabled] = React.useState(false);
+
+    return (
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <ButtonDesktop disabled={disabled} view='accent'>Accent</ButtonDesktop>
+                </Col>
+                <Col>
+                    <ButtonDesktop disabled={disabled} view='primary'>Primary</ButtonDesktop>
+                </Col>
+                <Col>
+                    <ButtonDesktop disabled={disabled} view='secondary'>Secondary</ButtonDesktop>
+                </Col>
+                <Col>
+                    <ButtonDesktop disabled={disabled} view='tertiary'>Tertiary</ButtonDesktop>
+                </Col>
+                <Col>
+                    <ButtonDesktop disabled={disabled} view='link'>Link</ButtonDesktop>
+                </Col>
+                <Col>
+                    <ButtonDesktop disabled={disabled} view='ghost'>Ghost</ButtonDesktop>
+                </Col>
+            </Row>
+            <Gap size='xl' />
+            <Switch
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+                label='Недоступна'
+            />
+        </Container>
+    );
+});
 //MOBILE
-<Container>
-    <ButtonMobile block={true} view='accent'>Accent</ButtonMobile>
-        <Gap size='m' />
-    <ButtonMobile block={true} view='primary'>Primary</ButtonMobile>
-        <Gap size='m' />
-    <ButtonMobile block={true} view='secondary'>Secondary</ButtonMobile>
-        <Gap size='m' />
-    <ButtonMobile block={true} view='tertiary'>Tertiary</ButtonMobile>
-        <Gap size='m' />
-    <ButtonMobile block={true} view='link'>Link</ButtonMobile>
-        <Gap size='m' />
-    <ButtonMobile block={true} view='ghost'>Ghost</ButtonMobile>
-</Container>
+render(() => {
+    const [disabled, setDisabled] = React.useState(false);
+
+    return (
+        <Container>
+            <ButtonMobile block={true} disabled={disabled} view='accent'>Accent</ButtonMobile>
+                <Gap size='m' />
+            <ButtonMobile block={true} disabled={disabled} view='primary'>Primary</ButtonMobile>
+                <Gap size='m' />
+            <ButtonMobile block={true} disabled={disabled} view='secondary'>Secondary</ButtonMobile>
+                <Gap size='m' />
+            <ButtonMobile block={true} disabled={disabled} view='tertiary'>Tertiary</ButtonMobile>
+                <Gap size='m' />
+            <ButtonMobile block={true} disabled={disabled} view='link'>Link</ButtonMobile>
+                <Gap size='m' />
+            <ButtonMobile block={true} disabled={disabled} view='ghost'>Ghost</ButtonMobile>
+            <Gap size='xl' />
+            <Switch
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+                label='Недоступна'
+            />
+        </Container>
+    );
+});
 ```
 
 ## Размеры
@@ -195,7 +219,7 @@ render(() => {
                 leftAddons={leftAddons && <StarMIcon />}
                 rightAddons={rightAddons && <StarMIcon />}
                 view='primary'
-                block={true}
+                block={label}
             >
                 {label && 'Label'}
             </ButtonMobile>
