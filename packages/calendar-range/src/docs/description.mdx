@@ -1,6 +1,6 @@
-Компонент для ввода даты.
+## Примеры
 
-```jsx live
+```jsx live desktopOnly
 // import { startOfDay, subMonths, addMonths, startOfMonth, startOfDay } from 'date-fns';
 // import { parseDateString } from '@alfalab/core-components/calendar-input';
 
@@ -15,17 +15,7 @@ render(() => {
     const maxDate = addMonths(startOfDay(defaultDate), 3).getTime();
 
     return (
-        <Space size='l'>
-            <RadioGroup
-                label='calendarPosition'
-                direction='horizontal'
-                onChange={(_, { value }) => setCalendarPosition(value)}
-                value={calendarPosition}
-            >
-                <Radio label='static' value='static' />
-                <Radio label='popover' value='popover' />
-            </RadioGroup>
-
+        <Space size={24}>
             <CalendarRange
                 valueFrom={valueFrom.value}
                 valueTo={valueTo.value}
@@ -39,49 +29,24 @@ render(() => {
                     setValueTo({ value: valueTo, date: dateTo });
                 }}
             />
-
-            <span>
-                Values: {valueFrom.value} — {valueTo.value}
-                <br />
-                Dates: {valueFrom.date && formatDate(valueFrom.date)} —{' '}
-                {valueTo.date && formatDate(valueTo.date)}
-            </span>
-
-            <Space direction='horizontal'>
-                <Button
-                    size='xxs'
-                    type='button'
-                    onClick={() => setValueFrom({ value: '', date: null })}
-                >
-                    Сбросить начало
-                </Button>
-                <Button
-                    size='xxs'
-                    type='button'
-                    onClick={() => setValueTo({ value: '', date: null })}
-                >
-                    Сбросить конец
-                </Button>
-
-                <Button
-                    size='xxs'
-                    type='button'
-                    onClick={() =>
-                        setValueFrom({ value: '20.02.2022', date: parseDateString('20.02.2022') })
-                    }
-                >
-                    Начало 20.02.2022
-                </Button>
-                <Button
-                    size='xxs'
-                    type='button'
-                    onClick={() =>
-                        setValueTo({ value: '25.04.2022', date: parseDateString('25.04.2022') })
-                    }
-                >
-                    Конец 25.04.2022
-                </Button>
-            </Space>
+            <>
+                <Typography.Text view='primary-medium' color='secondary'>
+                    Values: {valueFrom.value} — {valueTo.value}
+                </Typography.Text>
+                <Gap size='m'/>
+                <Typography.Text view='primary-medium' color='secondary'>
+                    Dates: {valueFrom.date && formatDate(valueFrom.date)} — {valueTo.date && formatDate(valueTo.date)}
+                </Typography.Text>
+           </>   
+            <RadioGroup
+                label='Конфигурация пикера'
+                direction='vertical'
+                onChange={(_, { value }) => setCalendarPosition(value)}
+                value={calendarPosition}
+            >
+                <Radio label='Доступен сразу' value='static' />
+                <Radio label='Открывается в popover' value='popover' />
+            </RadioGroup>
         </Space>
     );
 });

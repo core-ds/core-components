@@ -1,40 +1,31 @@
-Календарь с возможностью скелетной загрузки
+## Примеры
 
-```jsx live
+```jsx live desktopOnly
 render(() => {
-    const [visible, setVisible] = React.useState(false);
+    const [visible, setVisible] = React.useState(true);
+    
+    const calendarStyles = {
+        border: '1px solid rgba(233, 233, 235, 1)',
+        borderRadius: '8px',
+        boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
+                    0px 12px 16px rgba(0, 0, 0, 0.04),
+                    0px 4px 8px rgba(0, 0, 0, 0.04),
+                    0px 0px 1px rgba(0, 0, 0, 0.04)`,
+    };
+
     return (
-        <>
-            <CalendarWithSkeleton calendarVisible={visible} />
-            <Gap size='l'/>
-            <Button size='xs' onClick={() => setVisible(!visible)}>
-                toggle
-            </Button>
-        </>
+        <div style={{ width: 344 }}>
+            <div style={calendarStyles}>
+                <CalendarWithSkeleton calendarVisible={visible} />
+            </div>
+            <Gap size='xl'/>
+            <Switch
+                block={true}
+                checked={!visible}
+                label='Скелетонизация контента'
+                onChange={() => setVisible(!visible)}
+            />
+        </div>
     );
 });
-```
-
-## Использование с другими компонентами
-
-```jsx live
-const CalendarCustom = React.forwardRef((props, ref) => {
-    return (
-        <CalendarWithSkeleton {...props} ref={ref} />
-    );
-});
-
-render(() => {
-    return <CalendarInput Calendar={CalendarCustom} calendarProps={{ calendarVisible: false }} />;
-});
-```
-
-```jsx live
-<CalendarRange
-    inputFromProps={{
-        Calendar: CalendarWithSkeleton,
-        disabled: true,
-        calendarProps: { calendarVisible: false },
-    }}
-/>
 ```
