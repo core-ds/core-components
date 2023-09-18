@@ -143,6 +143,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
                             dataTestId={dataTestId}
                             inputMode='numeric'
                             pattern='[0-9]*'
+                            breakpoint={1}
                         />
 
                         {brandIcon && <div className={styles.brandLogo}>{brandIcon}</div>}

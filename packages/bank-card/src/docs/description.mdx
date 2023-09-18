@@ -1,20 +1,22 @@
-Компонент в виде карты для ввода номера карты или банковского счета.
+## Примеры
+
+При необходимости можно изменить логотип и цвет карты.
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState('2201382000000013');
 
     const handleChange = (event, payload) => setValue(payload.value);
 
     return (
         <>
             <BankCard value={value} onChange={handleChange} />
-            <Gap size='s' />
-            <Button size='xs' onClick={() => setValue('4111111111111111')}>
+            <Gap size='xl' />
+            <Button size='xxs' onClick={() => setValue('2201382000000013')}>
                 Вставить номер карты
             </Button>
             <Gap size='s' direction='horizontal' />
-            <Button size='xs' onClick={() => setValue('')}>
+            <Button size='xxs' onClick={() => setValue('')}>
                 Очистить
             </Button>
         </>

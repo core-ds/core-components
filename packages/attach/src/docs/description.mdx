@@ -1,5 +1,86 @@
-Компонент прикрепления файлов.
+## Примеры
+
+Для компонента можно настроить текст-плейсхолдер, размер и лейбл кнопки. Рекомендуем прикреплять для тестов тяжелый файл, иначе загрузка будет мгновенной.
 
 ```jsx live
-<Attach />
+render(() => {
+    const [multiple, setMultiple] = React.useState(false);
+    const isMobile = document.body.clientWidth < 600;
+    
+    return (
+        <Space size={24} >
+        <Attach 
+            size='m' 
+            multiple={multiple} 
+            maxFilenameLength={isMobile ? 10 : undefined}
+            buttonProps={{
+                breakpoint: 600,
+                nowrap: true,
+            }}
+        />
+        <Switch
+            block={true}
+            checked={multiple}
+            label='Несколько файлов'
+            onChange={() => setMultiple(!multiple)}
+        />
+        </Space>
+    );
+});
+```
+
+К сожалению, [контролируемое поведение](https://ru.reactjs.org/docs/uncontrolled-components.html#the-file-input-tag) можно только эмулировать.
+
+```jsx live
+render(() => {
+    const [response, setResponse] = React.useState(null);
+    const [files, setFiles] = React.useState([]);
+
+    const handleChange = (event, payload) => {
+        setFiles([...files, ...payload.files]);
+    };
+
+    const handleSubmit = () => {
+        const formData = new FormData();
+
+        files.forEach((file, i) => {
+            formData.append(`file${i}`, file);
+        });
+
+        fetch('https://httpbin.org/post', {
+            method: 'POST',
+            body: formData,
+        })
+            .then((r) => r.json())
+            .then((r) => setResponse(r));
+    };
+
+    const isMobile = document.body.clientWidth < 600;
+
+    return (
+        <Space size={24}>
+            <Attach
+                value={files}
+                onChange={handleChange}
+                multiple={true}
+                name='file'
+                onClear={() => setFiles([])}
+                size='m'
+                maxFilenameLength={isMobile ? 10 : undefined}
+                buttonProps={{
+                    breakpoint: 600,
+                    nowrap: true,
+                }}
+            />
+            <Button size='xxs' type='button' onClick={handleSubmit}>
+                Отправить
+            </Button>
+
+            {response &&
+                Object.entries(response.files).map(([fileName, base64]) => (
+                    <img src={base64} key={fileName} width={100} />
+                ))}
+        </Space>
+    );
+});
 ```
