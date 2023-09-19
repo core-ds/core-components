@@ -1,28 +1,26 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { StarLineMIcon } from '@alfalab/icons-glyph/StarLineMIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 import { ActionButton } from '@alfalab/core-components-action-button';
-
-import { ActionButton as ActionButtonTS } from '../';
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-import defaultColorStyles from '!!raw-loader!../default.module.css';
-import invertedColorStyles from '!!raw-loader!../inverted.module.css';
 
 import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/ActionButton' component={ActionButton} id='ActionButton' />
+const meta: Meta<typeof ActionButton> = {
+    title: 'Components/ActionButton',
+    component: ActionButton,
+    id: 'ActionButton',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof ActionButton>;
 
-<Story name='ActionButton'>
-    {React.createElement(() => {
+export const action_button: Story = {
+    name: 'ActionButton',
+    render: () => {
         const iconsMap = {
             StarLineMIcon: StarLineMIcon,
             DiamondsMIcon: DiamondsMIcon,
@@ -59,30 +57,7 @@ import {
                 </ActionButton>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='ActionButton'
-    version={packageJson.version}
-    package='@alfalab/core-components/action-button'
-/>
-
-```jsx
-import { ActionButton } from '@alfalab/core-components/action-button';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable components={{ ActionButton: ActionButtonTS }} />}
-    cssVars={
-        <CssVars
-            css={`
-                ${defaultColorStyles}${invertedColorStyles}
-            `}
-        />
-    }
-/>
+export default meta;

@@ -1,19 +1,19 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { SliderInput } from '@alfalab/core-components-slider-input';
 
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof SliderInput> = {
+    title: 'Components/SliderInput',
+    component: SliderInput,
+    id: 'SliderInput',
+};
 
-<Meta title='Components/SliderInput' component={SliderInput} id='SliderInput' />
+type Story = StoryObj<typeof SliderInput>;
 
-{/* Canvas */}
-
-<Story name='SliderInput'>
-    {React.createElement(() => {
+export const slider_input: Story = {
+    name: 'SliderInput',
+    render: () => {
         const [value, setValue] = React.useState('50');
         const handleChange = (event, { value }) => setValue(value);
         return (
@@ -40,21 +40,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 readOnly={boolean('readOnly', false)}
             />
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='SliderInput'
-    version={packageJson.version}
-    package='@alfalab/core-components/slider-input'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=565%3A24123'
-    children='Используется для указания значения из заданного диапазона.'
-/>
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    development={<Development />}
-/>
+export default meta;

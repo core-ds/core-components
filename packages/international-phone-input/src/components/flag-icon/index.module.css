@@ -1,0 +1,15 @@
+@import '../../../../themes/src/default.css';
+
+.flagIcon {
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.flagPlaceholder {
+    width: 24px;
+    height: 16px;
+    max-height: 16px;
+    border-radius: var(--border-radius-xs);
+    margin-top: var(--gap-3xs);
+    background-color: var(--color-light-specialbg-tertiary-transparent);
+}

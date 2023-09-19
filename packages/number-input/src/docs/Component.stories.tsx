@@ -1,20 +1,20 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { NumberInput } from '@alfalab/core-components-number-input';
 
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof NumberInput> = {
+    title: 'Components/NumberInput',
+    component: NumberInput,
+    id: 'NumberInput',
+};
 
-<Meta title='Components/NumberInput' component={NumberInput} id='NumberInput' />
+type Story = StoryObj<typeof NumberInput>;
 
-{/* Canvas */}
-
-<Story name='NumberInput'>
-    {React.createElement(() => {
+export const number_input: Story = {
+    name: 'NumberInput',
+    render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div
@@ -53,20 +53,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='NumberInput'
-    version={packageJson.version}
-    package='@alfalab/core-components/number-input'
-    children='Поле для ввода чисел.'
-/>
-
-<Tabs
-    description={<Description />}
-    development={<Development />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-/>
+export default meta;

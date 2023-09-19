@@ -31,14 +31,23 @@ const VARIANTS = {
     },
 };
 render(() => {
+    const [disabled, setDisabled] = React.useState(false);
     const isMobile = document.body.clientWidth < 450;
     return (
-        <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
-            {Object.keys(VARIANTS).map((title) => (
-                <CustomButton {...VARIANTS[title]} block={isMobile} key={title}>
-                    {title}
-                </CustomButton>
-            ))}
+        <div>
+            <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>
+                {Object.keys(VARIANTS).map((title) => (
+                    <CustomButton {...VARIANTS[title]} disabled={disabled} block={isMobile} key={title}>
+                        {title}
+                    </CustomButton>
+                ))}
+            </div>
+            <Gap size='xl' />
+                <Switch
+                    checked={disabled}
+                    onChange={() => setDisabled((prevState) => !prevState)}
+                    label='Недоступна'
+                />
         </div>
     );
 });

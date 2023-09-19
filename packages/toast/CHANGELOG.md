@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.0.5
+
 ## 5.1.0
 
 ### Minor Changes
