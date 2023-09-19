@@ -1,84 +1,227 @@
-Компонент для отображения суммы, согласно гайдлайну:
-https://design.alfabank.ru/patterns/amount
+## Примеры
 
-По умолчанию внешний вид компонента зависит от темизации продукта. Также можно использовать пропсы, чтобы задать внешний вид вручную.
+Компонент состоит из четырёх частей: мажорной, минорной, валютной и дополнительного слота.
 
 ```jsx live
-<Typography.Title font='system'>
-    <Amount value={100000000} minority={100} currency='RUB' view='withZeroMinorPart' />
-</Typography.Title>
+render(() => {
+    const [minor, setMinor] = React.useState(true);
+    const [currency, setCurrency] = React.useState(false);
+    const [rightAddons, setRightAddons] = React.useState(false);
+
+    const handleMinorChange = () => setMinor(!minor);
+    const handleCurrencyChange = () => setCurrency(!currency);
+    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
+    
+    const styleAddons = {
+        borderRadius: '99px',
+        background: 'linear-gradient(264deg, #FF42CA 0%, #FF8A00 100%)',
+        boxSizing: 'border-box',
+        padding: '6px 12px',
+        display: 'inline-flex',
+        verticalAlign: 'bottom',
+        marginLeft: '4px'
+    }
+
+    return (
+        <Container>
+            <Typography.Title font='system' view='medium' weight='regular'>
+                <Amount 
+                    value={123456700} 
+                    minority={100} 
+                    currency={currency && 'RUB'}  
+                    bold='none' 
+                    view={ minor ? 'withZeroMinorPart' : 'default'} 
+                    rightAddons={rightAddons && <span style={styleAddons}>
+                            <Typography.Text view='primary-medium' weight='medium' font='system' color='primary-inverted'>
+                                Custom
+                            </Typography.Text>
+                        </span>}
+                />
+            </Typography.Title>
+            <Gap size='xl'/>
+            <Switch label='Минорная часть' checked={minor} onChange={handleMinorChange} />
+            <Gap size='l'/>
+            <Switch
+                label='Валюта'
+                checked={currency}
+                onChange={handleCurrencyChange}
+            />
+            <Gap size='l'/>
+            <Switch
+                label='Кастомный слот'
+                checked={rightAddons}
+                onChange={handleRightAddonsChange}
+            />
+        </Container>
+    );
+});
 ```
 
-## Контекст использования
+## Мажорная часть
 
--   `view="withZeroMinorPart"`: показывает минорную часть, даже если её значение равно 0
+Для положительных значений можно включить отображение символа «+».
 
 ```jsx live
-<Container>
-    <Row>
-        <Col>
-            <Row>Значение</Row>
-            <Row>1234500</Row>
-            <Row>1234567</Row>
-        </Col>
-        <Col>
-            <Row>view="default"</Row>
-            <Row>
-                <Amount value={1234500} currency='RUR' minority={100} />
-            </Row>
-            <Row>
-                <Amount value={1234567} currency='RUR' minority={100} />
-            </Row>
-        </Col>
-        <Col>
-            <Row>view="withZeroMinorPart"</Row>
-            <Row>
-                <Amount view='withZeroMinorPart' value={1234500} currency='RUR' minority={100} />
-            </Row>
-            <Row>
-                <Amount view='withZeroMinorPart' value={1234567} currency='RUR' minority={100} />
-            </Row>
-        </Col>
-    </Row>
-</Container>
+render(() => {
+    const [plus, setPlus] = React.useState(false);
+
+    const handlePlusChange = () => setPlus(!plus);
+    
+    return (
+        <Container>
+            <Typography.Title font='system' view='medium' weight='regular'>
+                <Amount 
+                    value={123456700} 
+                    minority={100} 
+                    bold='none' 
+                    showPlus={plus}
+                    view='withZeroMinorPart'
+                />
+            </Typography.Title>
+            <Gap size='xl'/>
+            <Switch label='Отображать плюс' checked={plus} onChange={handlePlusChange} />
+        </Container>
+    );
+});
 ```
 
--   Без валюты и с кастомной иконкой валюты
+## Минорная часть
+
+При необходимости можно скрыть незначащую минорную часть.
 
 ```jsx live
-<Typography.Title font='system'>
-    <Amount value={1234599} minority={100} rightAddons={<StarMIcon />} />
-</Typography.Title>
+render(() => {
+    const [minor, setMinor] = React.useState(false);
+
+    const handleMinorChange = () => setMinor(!minor);
+    
+    return (
+        <Container>
+            <Typography.Title font='system' view='medium' weight='regular'>
+                <Amount 
+                    value={123456789} 
+                    minority={100} 
+                    bold='none' 
+                    view='withZeroMinorPart'
+                />
+            </Typography.Title>
+            <Gap size='l'/>
+            <Typography.Title font='system' view='medium' weight='regular'>
+                <Amount 
+                    value={123456700} 
+                    minority={100} 
+                    bold='none' 
+                    view={ minor ? 'default' : 'withZeroMinorPart'}
+                />
+            </Typography.Title>
+            <Gap size='xl'/>
+            <Switch label='Не отображать нулевую минорную часть' checked={minor} onChange={handleMinorChange} />
+        </Container>
+    );
+});
 ```
 
--   Показывать + для положительных значений
+## Валюта
+
+Для валюты можно использовать символ или буквенный код.
 
 ```jsx live
-<Typography.Text font='system' color='positive'>
-    <Amount value={1234599} showPlus={true} minority={100} />
-</Typography.Text>
+    <Container>
+        <Typography.Title font='system' view='medium' weight='regular'>
+            <Amount 
+                value={123400} 
+                minority={100} 
+                currency='RUB'
+                bold='none' 
+            />
+        </Typography.Title>
+        <Gap size='l'/>
+        <Typography.Title font='system' view='medium' weight='regular'>
+            <Amount 
+                value={123400} 
+                minority={100} 
+                currency='RUB'
+                codeFormat='letter'
+                bold='none' 
+            />
+        </Typography.Title>
+    </Container>
 ```
 
--   Внутри заголовка
+## Стиль
+
+Компонент наследует стиль текста родителя и имеет два модификатора.
 
 ```jsx live
-<h3>
-    <Amount value={1234500} currency='RUR' minority={100} />
-</h3>
-```
+render(() => {
+    const [textStyle, setTextStyle] = React.useState('headline');
+    const [bold, setBold] = React.useState('none');
+    const [transparent, setTransparent] = React.useState('none');
 
--   Внутри красного текста
+    const onTextStyleChange = React.useCallback((_, payload) => {
+        setTextStyle(payload.value);
+    }, []);
 
-```jsx live
-<span style={{ color: 'red' }}>
-    <Amount value={1234500} currency='RUR' minority={100} />
-</span>
-```
+    const onBoldChange = React.useCallback((_, payload) => {
+        setBold(payload.value);
+    }, []);
 
--   С буквенным кодом валюты
+    const onTransparentChange = React.useCallback((_, payload) => {
+        setTransparent(payload.value);
+    }, []);
 
-```jsx live
-<span>
-    <Amount value={1234500} currency='RUB' minority={100} codeFormat='letter' />
-</span>
+    const isHeadline = textStyle === 'headline';
+    const Component = isHeadline ? Typography.Title : Typography.Text
+
+    return (
+        <Container>
+            <Component font='system' color={textStyle} view={isHeadline ? 'medium' : 'primary-large'} weight={isHeadline ? 'bold' : 'regular'} >
+                <Amount 
+                    value={123456700} 
+                    minority={100} 
+                    bold={!isHeadline && bold} 
+                    currency='RUB'
+                    view='withZeroMinorPart'
+                    transparentMinor={transparent === 'minor'}
+                />
+            </Component>
+            <Gap size='xl'/>
+            <RadioGroup
+                    label='Стиль текста'
+                    direction='vertical'
+                    name='radioGroup'
+                    onChange={onTextStyleChange}
+                    value={textStyle}
+            >
+                <Radio size='m' label='Заголовок' value='headline' />
+                <Radio size='m' label='Обычный текст' value='defaultText' />
+                <Radio size='m' label='Зелёный текст' value='positive' />
+                <Radio size='m' label='Красный текст' value='accent' />
+            </RadioGroup>
+            <Gap size='xl'/>
+            <RadioGroup
+                label='Модификатор «bold»'
+                direction='vertical'
+                name='radioGroupFirst'
+                onChange={onBoldChange}
+                value={bold}
+            >
+                <Radio size='m' label='Без модификатора' value='none' />
+                <Radio size='m' label='Только для мажорной части' value='major' />
+                <Radio size='m' label='Для всей суммы' value='full' />
+            </RadioGroup>
+            <Gap size='xl'/>
+            <RadioGroup
+                label='Модификатор «transparent»'
+                direction='vertical'
+                name='radioGroupFirst'
+                onChange={onTransparentChange}
+                value={transparent}
+            >
+                <Radio size='m' label='Без модификатора' value='none' />
+                <Radio size='m' label='Только для минорной и валютной части' value='minor' />
+            </RadioGroup>
+        </Container>
+    );
+});
 ```

@@ -1,5 +1,29 @@
 # @alfalab/core-components-pass-code
 
+## 1.2.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.5.0
+    -   button@9.0.5
+
+## 1.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+    -   button@9.0.4
+
+## 1.2.0
+
+### Minor Changes
+
+### [#830](https://github.com/core-ds/core-components/pull/830)
+
+-   Добавлен message prop
+
 ## 1.1.3
 
 ### Patch Changes

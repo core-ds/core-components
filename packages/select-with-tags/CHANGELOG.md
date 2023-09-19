@@ -1,5 +1,41 @@
 # Change Log
 
+## 7.1.11
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.1.6
+
+## 7.1.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.1.5
+
+## 7.1.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@10.0.1
+    -   select@15.1.4
+
+## 7.1.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.1.3
+
+## 7.1.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.1.2
+
 ## 7.1.6
 
 ### Patch Changes

@@ -8,6 +8,7 @@
 .component {
     display: flex;
     width: max-content;
+    max-width: 100%;
     box-sizing: border-box;
 
     &.disabled {
@@ -41,6 +42,11 @@
             min-width: 116px;
         }
     }
+}
+
+.content {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .focused {

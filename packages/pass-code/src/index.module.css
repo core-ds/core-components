@@ -6,11 +6,17 @@
     margin: var(--gap-xs) 0;
 }
 
-.error {
+.message {
     @mixin paragraph_primary_medium;
 
-    display: flex;
-    justify-content: center;
     min-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-light-text-primary);
+}
+
+.error {
     color: var(--color-light-text-negative);
 }

@@ -1,5 +1,11 @@
 Компонент текстового поля для ввода международных номеров телефонов.
 
+### @deprecated
+
+Используйте вместо него [InternationalPhoneInput](/docs/internationalphoneinput--docs).
+
+<br />
+
 **Жирный компонент. Для форматирования номера телефона используется библиотека `libphonenumber-js` весом в 140KB.**
 
 **Библиотека собирается в отдельный чанк. При сборке вашего проекта убедитесь, что у вас она тоже собралась отдельным чанком.**
@@ -24,11 +30,11 @@ render(() => {
     const [value, setValue] = React.useState('+7');
     const [selectedCountry, setSelectedCountry] = React.useState('RU');
 
-    const handleChange = newValue => setValue(newValue);
+    const handleChange = (newValue) => setValue(newValue);
 
-    const handleCountryChange = countryCode => setSelectedCountry(countryCode);
+    const handleCountryChange = (countryCode) => setSelectedCountry(countryCode);
 
-    const filteredOptions = options.filter(option => matchOption(option, value));
+    const filteredOptions = options.filter((option) => matchOption(option, value));
 
     return (
         <div style={{ width: '320px' }}>

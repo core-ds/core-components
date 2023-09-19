@@ -1,12 +1,4 @@
-import React, {
-    FC,
-    useCallback,
-    useContext,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
@@ -15,7 +7,7 @@ import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
 import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
 import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
-import { usePrevious } from '@alfalab/hooks';
+import { useLayoutEffect_SAFE_FOR_SSR, usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../../context';
 import { Header } from '../../header';
@@ -114,7 +106,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         }
     }, [prevState, state, requiredCharAmount]);
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
             setCodeSendHintVisible(true);
 

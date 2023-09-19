@@ -1,5 +1,46 @@
 # Change Log
 
+## 6.9.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.5.0
+    -   navigation-bar@0.5.6
+
+## 6.9.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.5.5
+
+## 6.9.0
+
+### Minor Changes
+
+### [#840](https://github.com/core-ds/core-components/pull/840)
+
+-   Добавлен проп onSwipeStart, onSwipeEnd
+
+## 6.8.0
+
+### Minor Changes
+
+### [#839](https://github.com/core-ds/core-components/pull/839)
+
+-   Добавлен проп onTouchEnd
+
+### Patch Changes
+
+### [#837](https://github.com/core-ds/core-components/pull/837)
+
+-   Исправлена ошибка, из-за которой не пересчитывалась высота магнитных зон
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+    -   navigation-bar@0.5.4
+
 ## 6.7.1
 
 ### Patch Changes

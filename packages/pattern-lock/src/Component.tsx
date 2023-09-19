@@ -26,6 +26,7 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
             showForgotCodeBtn = false,
             onForgotBtnClick,
             extraBounds = DEFAULT_EXTRA_BOUNDS,
+            message,
             ...restProps
         },
         ref,
@@ -75,6 +76,21 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [observeTokens]);
 
+        const renderMessage = () => (
+            <div className={styles.message} data-test-id={getDataTestId(dataTestId, 'message')}>
+                {message}
+            </div>
+        );
+
+        const renderError = () => (
+            <div
+                className={cn(styles.message, styles.error)}
+                data-test-id={getDataTestId(dataTestId, 'error')}
+            >
+                {error}
+            </div>
+        );
+
         return (
             <div
                 className={cn(styles.component, className, { [styles.hidden]: !params })}
@@ -82,7 +98,7 @@ export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
             >
                 <Gap size='xs' />
 
-                <div className={styles.error}>{error}</div>
+                {error ? renderError() : renderMessage()}
 
                 <Gap size='3xl' />
 

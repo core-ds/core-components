@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.0.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.5.0
+
+## 9.0.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+
 ## 9.0.3
 
 ### Patch Changes

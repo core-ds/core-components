@@ -7,7 +7,6 @@ import React, {
     ReactNode,
     useCallback,
     useEffect,
-    useLayoutEffect,
     useMemo,
     useRef,
     useState,
@@ -16,7 +15,7 @@ import cn from 'classnames';
 
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
 import type { FieldProps } from '@alfalab/core-components-select/shared';
-import { useFocus } from '@alfalab/hooks';
+import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { TagComponent } from '../../types';
 import { calculateTotalElementsPerRow } from '../../utils/calculate-collapse-size';
@@ -79,16 +78,16 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
     const [inputFocusVisible] = useFocus(inputRef, 'keyboard');
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         setShowMoreEnabled(isPopoverOpen);
     }, [isPopoverOpen]);
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         setVisibleElements(selectedMultiple.length);
         setShowMoreEnabled(false);
     }, [selectedMultiple]);
 
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         if (collapseTagList && contentWrapperRef.current) {
             const totalVisibleElements = calculateTotalElementsPerRow(
                 contentWrapperRef.current,

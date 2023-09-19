@@ -14,13 +14,16 @@
 .button {
     background: var(--color-light-bg-primary-alpha-40);
     backdrop-filter: blur(10px);
-    border-radius: 50px;
     color: var(--color-light-graphic-primary);
 
     &.mobile {
         background: var(--color-light-specialbg-secondary-transparent);
         color: var(--navigation-bar-closer-mobile-color);
     }
+}
+
+.button.button {
+    border-radius: var(--border-radius-circle);
 }
 
 .sticky {

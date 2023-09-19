@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.4.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.5.0
+    -   button@9.0.5
+
+## 4.4.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+    -   button@9.0.4
+
 ## 4.4.4
 
 ### Patch Changes

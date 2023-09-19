@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-toast",
-    "version": "5.0.3",
+    "version": "5.1.1",
     "description": "Toast component",
     "keywords": [],
     "license": "MIT",
@@ -38,7 +38,7 @@
         "@alfalab/core-components-popover": "^6.1.0",
         "@alfalab/core-components-portal": "^3.2.0",
         "@alfalab/core-components-stack": "^4.1.0",
-        "@alfalab/core-components-toast-plate": "^6.0.3",
+        "@alfalab/core-components-toast-plate": "^6.0.5",
         "@alfalab/core-components-mq": "^4.2.0",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",

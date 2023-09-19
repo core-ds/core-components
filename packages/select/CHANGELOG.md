@@ -1,5 +1,54 @@
 # Change Log
 
+## 15.1.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.5.0
+    -   bottom-sheet@6.9.2
+    -   button@9.0.5
+    -   input@12.1.4
+    -   modal@8.0.7
+
+## 15.1.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.9.1
+    -   modal@8.0.6
+
+## 15.1.4
+
+### Patch Changes
+
+### [#838](https://github.com/core-ds/core-components/pull/838)
+
+-   Задана максимальная ширина в 100%, чтобы они не выходили за границы родителя
+
+-   Обновлены зависимости
+    -   form-control@10.0.1
+    -   input@12.1.3
+
+## 15.1.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.9.0
+
+## 15.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.8.0
+    -   shared@0.4.0
+    -   button@9.0.4
+    -   input@12.1.2
+    -   modal@8.0.5
+
 ## 15.1.1
 
 ### Patch Changes

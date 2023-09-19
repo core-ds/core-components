@@ -1,3 +1,147 @@
+## 42.10.0
+
+<sup><time>15.09.2023</time></sup>
+
+### [#825](https://github.com/core-ds/core-components/pull/825)
+
+#### Что изменилось
+- Добавлен новый компонент InternationalPhoneInput
+
+#### Влияние на компоненты
+- Минорное<br />`international-phone-input`
+
+<br />
+
+#### Что изменилось
+- Некоторые внутренние улучшения
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete`
+
+<br />
+
+#### Что изменилось
+- Добавлены утилиты для работы с маской
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+
+
+## 42.9.1
+
+<sup><time>15.09.2023</time></sup>
+
+### [#851](https://github.com/core-ds/core-components/pull/851)
+
+#### Что изменилось
+- Повышена специфичность стилей Closer
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+
+## 42.9.0
+
+<sup><time>12.09.2023</time></sup>
+
+### [#836](https://github.com/core-ds/core-components/pull/836)
+
+#### Что изменилось
+- Добавлены контролы в scrollable контейнер десктопных табов
+
+#### Влияние на компоненты
+- Минорное<br />`tabs`
+
+
+### [#841](https://github.com/core-ds/core-components/pull/841)
+
+#### Что изменилось
+- Добавлен проп radioListClassName
+
+#### Влияние на компоненты
+- Минорное<br />`radio-group`
+
+
+### [#832](https://github.com/core-ds/core-components/pull/832)
+
+#### Что изменилось
+- Добавлен проп closeWithClickOutside
+
+#### Влияние на компоненты
+- Минорное<br />`toast`
+
+
+### [#838](https://github.com/core-ds/core-components/pull/838)
+
+#### Что изменилось
+- Задана максимальная ширина в 100%, чтобы они не выходили за границы родителя
+
+#### Влияние на компоненты
+- Патчи<br />`form-control` `select` `filter-tag`
+
+
+
+## 42.8.0
+
+<sup><time>11.09.2023</time></sup>
+
+### [#840](https://github.com/core-ds/core-components/pull/840)
+
+#### Что изменилось
+- Добавлен проп onSwipeStart, onSwipeEnd
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
+## 42.7.0
+
+<sup><time>11.09.2023</time></sup>
+
+### [#839](https://github.com/core-ds/core-components/pull/839)
+
+#### Что изменилось
+- Добавлен проп onTouchEnd
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#837](https://github.com/core-ds/core-components/pull/837)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не пересчитывалась высота магнитных зон
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+<br />
+
+#### Что изменилось
+- Добавлена функция isNil
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+
+
+## 42.6.0
+
+<sup><time>06.09.2023</time></sup>
+
+### [#830](https://github.com/core-ds/core-components/pull/830)
+
+#### Что изменилось
+- Добавлен message prop
+
+#### Влияние на компоненты
+- Минорное<br />`pass-code` `pattern-lock`
+
+
+
 ## 42.5.1
 
 <sup><time>05.09.2023</time></sup>

@@ -1,5 +1,49 @@
 # Change Log
 
+## 8.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.5.0
+    -   icon-button@6.2.5
+    -   picker-button@11.1.6
+
+## 8.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.1.5
+
+## 8.1.0
+
+### Minor Changes
+
+### [#836](https://github.com/core-ds/core-components/pull/836)
+
+-   Добавлены контролы в scrollable контейнер десктопных табов
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.1.4
+
+## 8.0.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.1.3
+
+## 8.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.4.0
+    -   picker-button@11.1.2
+
 ## 8.0.6
 
 ### Patch Changes

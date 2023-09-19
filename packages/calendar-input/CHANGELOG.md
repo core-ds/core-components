@@ -1,5 +1,35 @@
 # Change Log
 
+## 9.0.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.7
+    -   date-input@4.3.7
+
+## 9.0.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.6
+
+## 9.0.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   date-input@4.3.6
+
+## 9.0.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.0.5
+    -   date-input@4.3.5
+
 ## 9.0.6
 
 ### Patch Changes

@@ -56,7 +56,7 @@ render(() => {
             />
             <Gap size='xl' />
             {VIEW_TYPES.map((view) => (
-                <>
+                <React.Fragment key={view}>
                     <Typography.TitleResponsive
                         font={selected.key === '1' ? 'system' : 'styrene'}
                         view={view.toLowerCase()}
@@ -66,7 +66,7 @@ render(() => {
                         {view}
                     </Typography.TitleResponsive>
                     <Gap size='m' />
-                </>
+                </React.Fragment>
             ))}
         </div>
     );
@@ -100,7 +100,7 @@ render(() => {
             />
             <Gap size='xl' />
             {VIEW_TYPES.map((view) => (
-                <>
+                <React.Fragment key={view}>
                     <Typography.TitleMobile
                         font={selected.key === '1' ? 'system' : 'styrene'}
                         view={view.toLowerCase()}
@@ -110,7 +110,7 @@ render(() => {
                         {view}
                     </Typography.TitleMobile>
                     <Gap size='m' />
-                </>
+                </React.Fragment>
             ))}
         </div>
     );

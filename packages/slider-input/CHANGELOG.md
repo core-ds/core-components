@@ -1,5 +1,26 @@
 # Change Log
 
+## 7.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.4
+
+## 7.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.3
+
+## 7.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.2
+
 ## 7.2.4
 
 ### Patch Changes

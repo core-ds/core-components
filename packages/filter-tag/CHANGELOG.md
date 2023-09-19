@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+### [#838](https://github.com/core-ds/core-components/pull/838)
+
+-   Задана максимальная ширина в 100%, чтобы они не выходили за границы родителя
+
 ## 3.0.0
 
 ### Major Changes

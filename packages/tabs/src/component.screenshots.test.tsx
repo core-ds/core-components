@@ -63,3 +63,23 @@ describe('Tabs | TabsDesktop', () => {
 
     ['default', 'click', 'site', 'corp'].map(testCase);
 });
+
+describe(
+    'TabsDesktop scrollable',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Tabs',
+            testStory: false,
+            knobs: {
+                TabsComponent: 'TabsDesktop',
+                view: ['primary', 'secondary'],
+                size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                scrollable: true,
+            },
+        }),
+        viewport: {
+            width: 700,
+            height: 150,
+        },
+    }),
+);

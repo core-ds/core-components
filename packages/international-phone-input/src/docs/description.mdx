@@ -1,0 +1,96 @@
+## Примеры
+
+Стандартный вид компонента — поле с пикером страны и предопределённым кодом страны.
+Для упрощения ввода номера можно включить режим автокомплита.
+
+```jsx live mobileHeight={640}
+const OPTIONS = [
+    { key: '+7 921 681-53-98' },
+    { key: '+7 921 681-52-97' },
+    { key: '+7 921 681-52-96' },
+    { key: '+7 921 681-52-95' },
+    { key: '8 921 681-52-94' },
+];
+
+render(() => {
+    const [value, setValue] = React.useState('');
+    const [selectedCountry, setSelectedCountry] = React.useState();
+    const [clearableCountryCode, setClearableCountryCode] = React.useState(false);
+    const [autocomplete, setAutocomplete] = React.useState(false);
+
+    const handleChange = (e, { value: phone }) => {
+        setValue(phone);
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <InternationalPhoneInput
+                label='Номер телефона'
+                placeholder='Введите номер телефона'
+                value={value}
+                onChange={handleChange}
+                onCountryChange={setSelectedCountry}
+                options={autocomplete ? OPTIONS : undefined}
+                block={true}
+                clearableCountryCode={clearableCountryCode}
+            />
+            <Gap size='m' />
+            <Typography.Text color='secondary'>
+                Код выбранной страны: {selectedCountry && selectedCountry.iso2}
+            </Typography.Text>
+            <Gap size='xl' />
+            <Switch
+                checked={clearableCountryCode}
+                label='Разрешить удаление кода страны'
+                onChange={() => setClearableCountryCode((prevState) => !prevState)}
+            />
+            <Gap size='m' />
+            <Switch
+                checked={autocomplete}
+                label='Режим автокомплита'
+                onChange={() => {
+                    setAutocomplete((prevState) => !prevState);
+                }}
+            />
+        </div>
+    );
+});
+```
+
+## Инпут без пикера страны
+
+При необходимости можно отключить возможность явно выбирать код страны через селект. Инпут сам определит страну после ввода её кода.
+
+```jsx live mobileHeight={640}
+render(() => {
+    const [value, setValue] = React.useState('');
+    const [selectedCountry, setSelectedCountry] = React.useState();
+
+    const handleChange = (e, { value: phone }) => {
+        setValue(phone);
+    };
+
+    return (
+        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+            <InternationalPhoneInput
+                label='Номер телефона'
+                placeholder='Введите номер телефона'
+                value={value}
+                onChange={handleChange}
+                onCountryChange={setSelectedCountry}
+                block={true}
+                countrySelectProps={{ hideCountrySelect: true }}
+            />
+            <Gap size='m' />
+            <Typography.Text color='secondary'>
+                Код выбранной страны: {selectedCountry && selectedCountry.iso2}
+            </Typography.Text>
+        </div>
+    );
+});
+```
+
+## Морфология
+
+Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs),
+поэтому наследует все доступные для него настройки.

@@ -32,14 +32,18 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
 
     return (
         <div className={cn('sb-unstyled', styles.component)}>
-            <Title tag='h1' view='xlarge'>
+            <Title
+                tag='h1'
+                view='xlarge'
+                className={cn(styles.title, { [styles.titleMobile]: !isDesktop })}
+            >
                 {name}
             </Title>
             {children && (
                 <Typography.Text
                     tag='p'
                     view='primary-medium'
-                    className={cn(styles.text, { [styles.textMobile]: !isDesktop })}
+                    className={styles.text}
                 >
                     {children}
                 </Typography.Text>

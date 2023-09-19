@@ -10,17 +10,16 @@ import {
 
 import { useTablistTitles } from '../../hooks/use-tablist-titles';
 import { createSyntheticMouseEvent } from '../../synthetic-events';
-import { Styles, TabListProps } from '../../typings';
+import { TabListProps } from '../../typings';
 import { Title } from '../title';
 
-const DEFAULT_STYLES = {};
+import styles from './index.module.css';
 
 export const CollapsiblePrimaryTabList = ({
-    size,
+    size = 'm',
     className,
     containerClassName,
     titles = [],
-    styles = DEFAULT_STYLES,
     selectedId = titles.length ? titles[0].id : undefined,
     collapsedTabsIds,
     fullWidthScroll,
@@ -28,7 +27,7 @@ export const CollapsiblePrimaryTabList = ({
     dataTestId,
     breakpoint = 1024,
     defaultMatchMediaValue,
-}: TabListProps & Styles) => {
+}: TabListProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
     const { containerRef, addonRef, tablistTitles, selectedTab, getTabListItemProps } =
@@ -61,7 +60,7 @@ export const CollapsiblePrimaryTabList = ({
 
                 return options;
             }, []),
-        [tablistTitles, styles],
+        [tablistTitles],
     );
 
     const collapsedAddonsLength = tablistTitles.filter(
@@ -112,7 +111,7 @@ export const CollapsiblePrimaryTabList = ({
                                 <Badge view='count' content={collapsedAddonsLength} />
                             ) : null
                         }
-                        size='l'
+                        size='m'
                         view='ghost'
                         label='Ещё'
                         popoverPosition='bottom-end'

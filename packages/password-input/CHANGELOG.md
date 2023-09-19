@@ -1,5 +1,28 @@
 # Change Log
 
+## 4.2.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.4
+    -   icon-button@6.2.5
+
+## 4.2.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.3
+
+## 4.2.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.1.2
+    -   icon-button@6.2.4
+
 ## 4.2.4
 
 ### Patch Changes

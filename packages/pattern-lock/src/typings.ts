@@ -38,6 +38,11 @@ export type PatternLockProps = {
     error?: ReactNode;
 
     /**
+     * Сообщение над графическим ключом
+     */
+    message?: ReactNode;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования.
      */
     dataTestId?: string;

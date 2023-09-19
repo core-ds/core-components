@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { useTabs } from '../../hooks/use-tabs';
-import { SecondaryTabListProps, Styles } from '../../typings';
+import { PlatformProps, SecondaryTabListProps, Styles } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
 
 export const SecondaryTabList = ({
@@ -18,7 +18,10 @@ export const SecondaryTabList = ({
     onChange,
     dataTestId,
     TagComponent,
-}: SecondaryTabListProps & Styles) => {
+    platform,
+    tagShape,
+    tagView,
+}: SecondaryTabListProps & Styles & PlatformProps) => {
     const { focusedTab, selectedTab, getTabListItemProps } = useTabs({
         titles,
         selectedId,
@@ -42,6 +45,8 @@ export const SecondaryTabList = ({
                     return (
                         <TagComponent
                             {...getTabListItemProps(index)}
+                            shape={tagShape}
+                            view={tagView}
                             key={item.id}
                             className={cn(styles.title, item.toggleClassName)}
                             checked={item.id === selectedId}
@@ -61,6 +66,9 @@ export const SecondaryTabList = ({
             activeChild={focusedTab || selectedTab}
             containerClassName={containerClassName}
             fullWidthScroll={fullWidthScroll}
+            view='secondary'
+            size={size}
+            platform={platform}
         >
             {renderContent()}
         </ScrollableContainer>

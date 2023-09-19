@@ -1,17 +1,23 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import computeScrollIntoView from 'compute-scroll-into-view';
 
-import { TabsProps } from '../../typings';
+import { PlatformProps, TabsProps } from '../../typings';
+import { ScrollControls } from '../scroll-controls';
 
 import styles from './index.module.css';
 
 /**
  * Дополнительная прокрутка при клике на не поместившийся таб
  */
-const ADDITIONAL_SCROLLLEFT_VALUE = 40;
+const ADDITIONAL_SCROLL_LEFT_VALUE = 50;
 
 export type ScrollableContainerProps = {
+    /**
+     * Дополнительный класс враппера контейнера
+     */
+    containerWrapperClassName?: string;
+
     /**
      * Дополнительный класс контейнера
      */
@@ -26,20 +32,48 @@ export type ScrollableContainerProps = {
      * Активный элемент (всегда будет в видимой области)
      */
     activeChild: HTMLElement | null;
+
+    /**
+     * Внешний вид заголовков табов
+     */
+    view: Exclude<TabsProps['view'], undefined>;
+
+    /**
+     *  Размер
+     */
+    size: TabsProps['size'];
+};
+
+const isOverflown = (
+    { clientWidth, scrollWidth }: HTMLDivElement,
+    controlsNode: HTMLDivElement | null,
+) => {
+    const controlsWidth = controlsNode?.offsetWidth || 0;
+
+    return scrollWidth > clientWidth + controlsWidth;
 };
 
 export const ScrollableContainer = ({
+    containerWrapperClassName,
     containerClassName,
     children,
     activeChild,
     fullWidthScroll,
-}: ScrollableContainerProps & Pick<TabsProps, 'fullWidthScroll'>) => {
+    view,
+    size,
+    platform,
+}: ScrollableContainerProps & Pick<TabsProps, 'fullWidthScroll'> & PlatformProps) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const controlsRef = useRef<HTMLDivElement>(null);
+    const [overflown, setOverflown] = useState(false);
+
     useEffect(() => {
         if (activeChild) {
             const actions = computeScrollIntoView(activeChild, {
                 scrollMode: 'if-needed',
                 block: 'nearest',
                 inline: 'nearest',
+                boundary: (parent) => !parent.isSameNode(containerRef.current),
             });
 
             // TODO: animate?
@@ -47,19 +81,54 @@ export const ScrollableContainer = ({
                 // eslint-disable-next-line no-param-reassign
                 el.scrollLeft =
                     el.scrollLeft > left
-                        ? left - ADDITIONAL_SCROLLLEFT_VALUE
-                        : left + ADDITIONAL_SCROLLLEFT_VALUE;
+                        ? left - ADDITIONAL_SCROLL_LEFT_VALUE
+                        : left + ADDITIONAL_SCROLL_LEFT_VALUE;
             });
         }
     }, [activeChild]);
 
+    useEffect(() => {
+        const scrollableNode = containerRef.current;
+        const tabsContainer = scrollableNode?.firstElementChild;
+
+        if (platform === 'desktop' && scrollableNode && tabsContainer && window.ResizeObserver) {
+            const observerCb = () => {
+                if (isOverflown(scrollableNode, controlsRef.current)) {
+                    setOverflown(true);
+                } else {
+                    setOverflown(false);
+                }
+            };
+
+            const observer = new ResizeObserver(observerCb);
+
+            observer.observe(scrollableNode);
+            observer.observe(tabsContainer);
+
+            return () => observer.disconnect();
+        }
+
+        return () => {};
+    }, [platform]);
+
     return (
-        <div
-            className={cn(styles.container, containerClassName, {
-                [styles.fullWidthScroll]: fullWidthScroll,
-            })}
-        >
-            {children}
+        <div className={cn(styles.scrollableContainerWrapper, containerWrapperClassName)}>
+            <div
+                ref={containerRef}
+                className={cn(styles.container, containerClassName, {
+                    [styles.fullWidthScroll]: fullWidthScroll,
+                })}
+            >
+                {children}
+            </div>
+            {overflown && platform === 'desktop' ? (
+                <ScrollControls
+                    ref={controlsRef}
+                    containerRef={containerRef}
+                    view={view}
+                    size={size}
+                />
+            ) : null}
         </div>
     );
 };

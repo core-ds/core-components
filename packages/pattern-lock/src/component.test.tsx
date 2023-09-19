@@ -57,6 +57,15 @@ describe('PatternLock test', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
+        it('should shown message', () => {
+            const message = 'message';
+            const { getByText } = render(<PatternLock message={message} />);
+
+            const messageElement = getByText(message);
+
+            expect(messageElement).toBeInTheDocument();
+        });
+
         it('should shown error message', () => {
             const errorMessage = 'Error message';
             const { getByText } = render(<PatternLock error={errorMessage} />);

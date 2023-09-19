@@ -145,6 +145,24 @@ describe('Toast', () => {
             expect(onClose).toBeCalled();
         });
 
+        it('should not call onClose when click outside', async () => {
+            const onClose = jest.fn();
+            render(
+                <Toast
+                    onClose={onClose}
+                    open={true}
+                    getPortalContainer={getPortalContainer}
+                    closeWithClickOutside={false}
+                />,
+            );
+
+            fireEvent.click(getPortalContainer().firstElementChild as HTMLElement);
+            expect(onClose).not.toBeCalled();
+
+            await userEvent.setup({ delay: null }).click(document.body);
+            expect(onClose).not.toBeCalled();
+        });
+
         it('should call onClose after delay', () => {
             const onClose = jest.fn();
             render(<Toast onClose={onClose} open={true} autoCloseDelay={3000} />);
