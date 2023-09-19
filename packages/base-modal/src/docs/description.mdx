@@ -3,16 +3,16 @@
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const isMobile = document.body.clientWidth < 600;
     const handleModalOpen = () => setOpen(!open);
+    const breakpoint = 600;
 
     return (
         <>
             <Button 
                 size='m' 
                 onClick={handleModalOpen} 
-                block={isMobile} 
-                breakpoint={600}
+                block={isMobile()} 
+                breakpoint={breakpoint}
             >
                 Показать BaseModal
             </Button>

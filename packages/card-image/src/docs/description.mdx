@@ -3,7 +3,7 @@
 ```jsx live
 <CardImage
     cardId='EG'
-    width={document.body.clientWidth < 600 ? 320 : 380}
+    width={isMobile() ? 320 : 380}
     baseUrl='https://online.alfabank.ru/cards-images/cards/'
     className='some name'
     id='some id'

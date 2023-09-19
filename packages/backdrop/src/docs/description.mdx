@@ -5,15 +5,15 @@
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const isMobile = document.body.clientWidth < 600;
+    const breakpoint = 600;
 
     return (
         <div style={{ zIndex: 1, position: 'relative' }}>
             <Button 
                 onClick={() => setOpen(!open)} 
                 size='m' 
-                block={isMobile} 
-                breakpoint={600}
+                block={isMobile()} 
+                breakpoint={breakpoint}
             >
                 {open ? 'Закрыть Backdrop' : 'Показать Backdrop'}
             </Button>

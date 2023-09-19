@@ -5,16 +5,16 @@
 ```jsx live
 render(() => {
     const [multiple, setMultiple] = React.useState(false);
-    const isMobile = document.body.clientWidth < 600;
-    
+    const breakpoint = 600;
+
     return (
         <Space size={24} >
         <Attach 
             size='m' 
             multiple={multiple} 
-            maxFilenameLength={isMobile ? 10 : undefined}
+            maxFilenameLength={isMobile() ? 10 : undefined}
             buttonProps={{
-                breakpoint: 600,
+                breakpoint,
                 nowrap: true,
             }}
         />
@@ -55,7 +55,7 @@ render(() => {
             .then((r) => setResponse(r));
     };
 
-    const isMobile = document.body.clientWidth < 600;
+    const breakpoint = 600;
 
     return (
         <Space size={24}>
@@ -66,9 +66,9 @@ render(() => {
                 name='file'
                 onClear={() => setFiles([])}
                 size='m'
-                maxFilenameLength={isMobile ? 10 : undefined}
+                maxFilenameLength={isMobile() ? 10 : undefined}
                 buttonProps={{
-                    breakpoint: 600,
+                    breakpoint,
                     nowrap: true,
                 }}
             />
