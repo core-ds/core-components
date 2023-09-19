@@ -16,21 +16,21 @@ render(() => {
         setSuffix(payload.value);
     };
 
-    const isMobile = document.body.clientWidth < 600;
+    const breakpoint = 600;
 
     return (
-        <div style={{ width: isMobile ? '100%' : 320 }}>
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
             <AmountInput 
                 value={1234567} 
                 placeholder='Введите сумму'
-                labelView={isMobile ? 'outer': 'inner'}
+                labelView={isMobile() ? 'outer': 'inner'}
                 label='Сумма' 
                 minority={100} 
                 bold={false} 
                 suffix={suffixInput}
                 block={true}
-                size={isMobile ? 's': 'm'}
-                breakpoint={600}
+                size={isMobile() ? 's': 'm'}
+                breakpoint={breakpoint}
             />
             <Gap size='xl'/>
             <RadioGroup
