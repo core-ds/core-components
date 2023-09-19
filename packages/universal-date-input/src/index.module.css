@@ -1,0 +1,43 @@
+@import '../../themes/src/default.css';
+@import '../../calendar/src/vars.css';
+
+:root {
+    --calendar-icon-color: var(--color-light-graphic-primary);
+    --calendar-popover-border-radius: var(--border-radius-m);
+}
+
+.wrapper {
+    display: inline-block;
+    outline: none;
+    position: relative;
+}
+
+.block {
+    width: 100%;
+}
+
+.calendarIcon {
+    width: 24px;
+    height: 100%;
+    display: block;
+    color: var(--calendar-icon-color);
+    margin-right: var(--gap-s-neg);
+    padding-right: var(--gap-s);
+}
+
+.calendarContainer {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: var(--calendar-popover-border-radius);
+    border: 1px solid var(--color-light-border-secondary);
+    width: var(--calendar-width);
+
+    @media (max-width: 374px) {
+        width: 100%;
+        min-width: 288px;
+    }
+}
+
+.blink.blink.blink {
+    background-color: var(--color-light-bg-negative-muted);
+}

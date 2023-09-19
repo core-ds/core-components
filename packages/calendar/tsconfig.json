@@ -15,5 +15,6 @@
         { "path": "../button" },
         { "path": "../icon-button" },
         { "path": "../modal" },
+        { "path": "../mq" }
     ]
 }

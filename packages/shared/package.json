@@ -26,6 +26,6 @@
         "tslib": "^2.4.0"
     },
     "devDependencies": {
-        "@maskito/core": "^1.4.0"
+        "@maskito/core": "^1.7.0"
     }
 }

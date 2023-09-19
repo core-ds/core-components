@@ -10,8 +10,8 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import { startOfMonth } from 'date-fns';
 import dateFnsIsValid from 'date-fns/isValid';
+import startOfMonth from 'date-fns/startOfMonth';
 
 import type { CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
 import type { CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
