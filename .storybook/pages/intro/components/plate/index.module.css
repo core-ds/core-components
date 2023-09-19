@@ -3,7 +3,7 @@
 .plate {
     padding: var(--gap-m) var(--gap-l);
     background-color: var(--color-light-bg-secondary);
-    border-radius: 20px;
+    border-radius: var(--border-radius-xxl);
     color: var(--color-light-text-primary);
     text-decoration: none;
     transition: background-color 0.2s ease;
@@ -36,7 +36,7 @@
 .description {
     @mixin promo-mobile_small;
 
-    margin-top: var(--gap-xs);
+    margin-top: 6px;
 }
 
 @media screen and (min-width: 600px) {
@@ -49,6 +49,6 @@
     }
 
     .description {
-        @mixin promo_small;
+        margin-top: var(--gap-xs);
     }
 }

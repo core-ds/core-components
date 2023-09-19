@@ -1,22 +1,21 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, number } from '@storybook/addon-knobs';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Amount } from '@alfalab/core-components-amount';
 
-import { Amount as AmountTS } from '../component';
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-import styles from '!!raw-loader!../index.module.css';
+const meta: Meta<typeof Amount> = {
+    title: 'Components/Amount',
+    component: Amount,
+    id: 'Amount',
+};
 
-<Meta title='Components/Amount' component={Amount} id='Amount' />
+type Story = StoryObj<typeof Amount>;
 
-{/* Canvas */}
-
-<Story name='Amount'>
-    {React.createElement(() => {
+export const amount: Story = {
+    name: 'Amount',
+    render: () => {
         const currencyCodes = getAllCurrencyCodes();
         const value = number('value', 10099);
         const currency = select('currency', currencyCodes, 'RUR');
@@ -57,25 +56,7 @@ import styles from '!!raw-loader!../index.module.css';
                 </Row>
             </Container>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Amount'
-    version={packageJson.version}
-    package='@alfalab/core-components/amount'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=6362%3A34527'
-/>
-
-```jsx
-import { Amount } from '@alfalab/core-components/amount';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={AmountTS} />}
-    cssVars={<CssVars css={styles} />}
-/>
+export default meta;

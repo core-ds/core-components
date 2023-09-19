@@ -1,6 +1,6 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import { Meta, Story, Markdown } from '@storybook/addon-docs';
 import { select } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ComponentHeader, Tabs, ArgsTabs } from 'storybook/blocks';
 import { CalendarRange } from '@alfalab/core-components-calendar-range';
 
 import { CalendarRange as CalendarRangeTS } from '../Component';
@@ -64,7 +64,7 @@ import { CalendarRange } from '@alfalab/core-components/calendar-range';
     description={<Description />}
     changelog={<Markdown>{Changelog}</Markdown>}
     props={
-        <ArgsTable
+        <ArgsTabs
             components={{
                 CalendarRange: CalendarRangeTS,
                 CalendarRangePopover: CalendarRangePopoverTS,

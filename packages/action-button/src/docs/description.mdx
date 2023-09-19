@@ -1,52 +1,90 @@
 ## Виды кнопок
 
-Primary, secondary
-
 ```jsx live
 render(() => {
+    const [disabled, setDisabled] = React.useState(false);
+
     return (
         <>
-            <ActionButton icon={<StarLineMIcon />} view='primary'>
+            <ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='primary'>
                 Primary
             </ActionButton>
-
-            <ActionButton icon={<StarLineMIcon />} view='secondary'>
+            <Gap direction='horizontal' size='xl' />
+            <ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='secondary'>
                 Secondary
             </ActionButton>
+            <Gap size='xl' />
+            <Switch
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+                label='Недоступна'
+            />
         </>
     );
 });
 ```
 
-## Состояние загрузки
+## Перенос текста внутри кнопки
 
-С помощью свойства loading можно отобразить состояние загрузки. Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+Лейбл кнопки ограничен двумя строками.
+
+```jsx live
+    <ActionButton nowrap={true} icon={<DiamondsMIcon />} view='primary'>
+        Пример переноса текста
+    </ActionButton>
+```
+
+## Обработка событий
+
+С помощью свойства `loading` можно отобразить состояние загрузки.
+Минимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
 
 ```jsx live
 render(() => {
+    const [loading, setLoading] = React.useState({
+        primary: false,
+        secondary: false,
+    });
+
+    const handleClick = (buttonName, timeout) => {
+        setLoading({ ...loading, [buttonName]: true });
+        setTimeout(() => {
+            setLoading({ ...loading, [buttonName]: false });
+        }, timeout);
+    };
+
     return (
         <>
-            <ActionButton icon={<StarLineMIcon />} loading={true}>
-                Loading
+            <ActionButton 
+                icon={<DiamondsMIcon />} 
+                loading={loading.primary}
+                onClick={() => handleClick('primary', 30)}
+            >
+                Быстрый запрос
             </ActionButton>
-
-            <ActionButton icon={<StarLineMIcon />} loading={true} view='secondary'>
-                Loading
+            <Gap direction='horizontal' size='xl' />
+            <ActionButton 
+                icon={<DiamondsMIcon />} 
+                loading={loading.secondary}
+                onClick={() => handleClick('secondary', 1500)}
+                view='secondary'
+            >
+                Долгий запрос
             </ActionButton>
         </>
     );
 });
 ```
 
-## Ссылка
+## Кнопка-ссылка
 
-Любую кнопку можно превратить в ссылку, передав компоненту пропс href.
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
 
 ```jsx live
 render(() => {
     return (
-        <ActionButton icon={<StarLineMIcon />} href='http://www.alfabank.ru'>
-            Ссылка
+        <ActionButton icon={<DiamondsMIcon />} href='http://www.alfabank.ru'>
+            {'Переход  по ссылке'}
         </ActionButton>
     );
 });

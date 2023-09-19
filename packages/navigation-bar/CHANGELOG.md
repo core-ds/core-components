@@ -1,5 +1,22 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.5.6
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.5.0
+    -   button@9.0.5
+    -   icon-button@6.2.5
+
+## 0.5.5
+
+### Patch Changes
+
+### [#851](https://github.com/core-ds/core-components/pull/851)
+
+-   Повышена специфичность стилей Closer
+
 ## 0.5.4
 
 ### Patch Changes

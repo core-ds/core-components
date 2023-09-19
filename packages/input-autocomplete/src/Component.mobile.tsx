@@ -228,23 +228,26 @@ export const InputAutocompleteMobile = React.forwardRef(
 
         return (
             <SelectMobile
+                useWithApplyHook={false}
+                Field={AutocompleteMobileField}
+                {...restProps}
                 ref={mergeRefs([targetRef, ref])}
                 selected={selected || SELECTED}
                 open={Boolean(open || openProp)}
                 onOpen={handleOpen}
-                onChange={handleChange}
                 Arrow={Arrow}
-                Field={AutocompleteMobileField}
-                fieldProps={{ value }}
+                onChange={handleChange}
                 placeholder={placeholder}
                 label={label}
                 size={size}
                 name={name}
                 multiple={multiple}
-                useWithApplyHook={false}
                 bottomSheetProps={getBottomSheetProps()}
-                optionsListProps={{ showFooter: false }}
-                {...restProps}
+                optionsListProps={{
+                    showFooter: false,
+                    ...(restProps.optionsListProps as Record<string, unknown>),
+                }}
+                fieldProps={{ value, ...(restProps.fieldProps as Record<string, unknown>) }}
             />
         );
     },

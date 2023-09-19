@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.0.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.2.5
+
 ## 6.0.4
 
 ### Patch Changes

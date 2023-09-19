@@ -1,6 +1,6 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Arrow, isOptionShape } from '@alfalab/core-components-select/shared';
 import { InputAutocompleteDesktop as InputAutocomplete } from '@alfalab/core-components-input-autocomplete/desktop';
@@ -9,38 +9,38 @@ import {
     InputAutocompleteModalMobile,
 } from '@alfalab/core-components-input-autocomplete/mobile';
 
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-
-export const options = [
-    { key: 'Neptunium' },
-    { key: 'Plutonium' },
-    { key: 'Americium' },
-    { key: 'Curium' },
-    { key: 'Berkelium' },
-    { key: 'Californium' },
-    { key: 'Einsteinium' },
-    { key: 'Fermium' },
-    { key: 'Mendelevium' },
-    { key: 'Nobelium' },
-    { key: 'Lawrencium' },
-    { key: 'Rutherfordium' },
-    { key: 'Dubnium' },
-    { key: 'Seaborgium' },
-    { key: 'Bohrium' },
-];
-
-export const matchOption = (option, inputValue) =>
+const matchOption = (option, inputValue) =>
     option.key.toLowerCase().includes((inputValue || '').toLowerCase());
 
-<Meta title='Components/InputAutocomplete' component={InputAutocomplete} id='InputAutocomplete' />
+const meta: Meta<typeof InputAutocomplete> = {
+    title: 'Components/InputAutocomplete',
+    component: InputAutocomplete,
+    id: 'InputAutocomplete',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof InputAutocomplete>;
 
-<Story name='InputAutocomplete'>
-    {React.createElement(() => {
+export const input_autocomplete: Story = {
+    name: 'InputAutocomplete',
+    render: () => {
+        const options = [
+            { key: 'Neptunium' },
+            { key: 'Plutonium' },
+            { key: 'Americium' },
+            { key: 'Curium' },
+            { key: 'Berkelium' },
+            { key: 'Californium' },
+            { key: 'Einsteinium' },
+            { key: 'Fermium' },
+            { key: 'Mendelevium' },
+            { key: 'Nobelium' },
+            { key: 'Lawrencium' },
+            { key: 'Rutherfordium' },
+            { key: 'Dubnium' },
+            { key: 'Seaborgium' },
+            { key: 'Bohrium' },
+        ];
+
         const [value, setValue] = React.useState('');
         const handleInput = (event) => {
             setValue(event.target.value);
@@ -71,11 +71,12 @@ export const matchOption = (option, inputValue) =>
                 value={value}
             />
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='InputAutocompleteMobile'>
-    {React.createElement(() => {
+export const input_autocomplete_mobile: Story = {
+    name: 'InputAutocompleteMobile',
+    render: () => {
         const options = [
             { key: '1', content: 'Neptunium' },
             { key: '2', content: 'Plutonium' },
@@ -142,11 +143,12 @@ export const matchOption = (option, inputValue) =>
                 }}
             />
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='InputAutocompleteModalMobile'>
-    {React.createElement(() => {
+export const input_autocomplete_modal_mobile: Story = {
+    name: 'InputAutocompleteModalMobile',
+    render: () => {
         const options = [
             { key: '1', content: 'Neptunium' },
             { key: '2', content: 'Plutonium' },
@@ -208,21 +210,7 @@ export const matchOption = (option, inputValue) =>
                 }}
             />
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='InputAutocomplete'
-    version={packageJson.version}
-    package='@alfalab/core-components/input-autocomplete'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=58839%3A63017'
-    children='Дает возможность выбрать значение из списка доступных, либо ввести своё с помощью клавиатуры.'
-/>
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    development={<Development />}
-/>
+export default meta;
