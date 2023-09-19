@@ -4,29 +4,41 @@
 
 ```jsx live
 render(() => {
+    const breakpoint = 600;
+
     return (
         <div style={{ width: 320 }}>
-            <FormControlDesktop block={true} label='Label' size='xl' />
+            <FormControl 
+                block={true} 
+                label='Label' 
+                labelView={isMobile() ? 'outer' : 'inner'} 
+                size='xl' 
+                breakpoint={breakpoint}
+            />
             <Gap size='m' />
-            <FormControlDesktop block={true} label='Label' size='l' />
+            <FormControl 
+                block={true} 
+                label='Label' 
+                labelView={isMobile() ? 'outer' : 'inner'} 
+                size='l' 
+                breakpoint={breakpoint}
+            />
             <Gap size='m' />
-            <FormControlDesktop block={true} label='Label' size='m' />
+            <FormControl 
+                block={true} 
+                label='Label' 
+                labelView={isMobile() ? 'outer' : 'inner'} 
+                size='m' 
+                breakpoint={breakpoint}
+            />
             <Gap size='m' />
-            <FormControlDesktop block={true} label='Label' size='s' />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    return (
-        <div>
-            <FormControlMobile block={true} label='Label' labelView='outer' size='xl' />
-            <Gap size='l' />
-            <FormControlMobile block={true} label='Label' labelView='outer' size='l' />
-            <Gap size='l' />
-            <FormControlMobile block={true} label='Label' labelView='outer' size='m' />
-            <Gap size='l' />
-            <FormControlMobile block={true} label='Label' labelView='outer' size='s' />
+            <FormControl 
+                block={true} 
+                label='Label' 
+                labelView={isMobile() ? 'outer' : 'inner'} 
+                size='s' 
+                breakpoint={breakpoint}
+            />
         </div>
     );
 });
@@ -38,37 +50,33 @@ render(() => {
 
 ```jsx live
 render(() => {
+    const breakpoint = 600;
+
     return (
         <div style={{ width: 320 }}>
-            <InputDesktop block label='Лейбл внутри' size='m' />
+            <Input 
+                block
+                placeholder='Placeholder'
+                label='Лейбл внутри'
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
+            />
             <Gap size='l' />
-            <InputDesktop
+            <Input
                 block
                 placeholder='Placeholder'
                 label='Лейбл снаружи'
-                size='m'
+                size={isMobile() ? 's' : 'm'}
                 labelView='outer'
+                breakpoint={breakpoint}
             />
             <Gap size='l' />
-            <InputDesktop block placeholder='Placeholder' size='m' labelView='outer' />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    return (
-        <div>
-            <InputMobile block label='Лейбл внутри' size='s' />
-            <Gap size='l' />
-            <InputMobile
-                block
-                placeholder='Placeholder'
-                label='Лейбл снаружи'
-                size='s'
-                labelView='outer'
+            <Input 
+                block 
+                placeholder='Placeholder' 
+                size={isMobile() ? 's' : 'm'} 
+                breakpoint={breakpoint} 
             />
-            <Gap size='l' />
-            <InputMobile block placeholder='Placeholder' size='s' labelView='outer' />
         </div>
     );
 });
@@ -80,33 +88,21 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const SuffixInputDesktop = withSuffix(InputDesktop);
+    const SuffixInputComponent = isMobile() ? withSuffix(InputMobile) : withSuffix(InputDesktop);
+    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
-            <SuffixInputDesktop
+            <SuffixInputComponent
                 value='Value'
                 block={true}
                 label='Label'
-                size='m'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
                 suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
+                breakpoint={breakpoint}
             />
         </div>
-    );
-});
-//MOBILE
-render(() => {
-    const SuffixInputMobile = withSuffix(InputMobile);
-
-    return (
-        <SuffixInputMobile
-            value='Value'
-            block={true}
-            label='Label'
-            size='s'
-            labelView='outer'
-            suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
-        />
     );
 });
 ```
@@ -117,21 +113,19 @@ render(() => {
 
 ```jsx live
 render(() => {
+    const breakpoint = 600;
+
     return (
         <div style={{ width: 320 }}>
-            <FormControlDesktop block={true} label='Label' hint='Hint' size='m' />
+            <FormControl 
+                block={true} 
+                label='Label' 
+                hint='Hint' 
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
+            />
         </div>
-    );
-});
-//MOBILE
-render(() => {
-    return (
-        <FormControlMobile 
-            block={true} 
-            label='Label' 
-            hint='Hint' size='s'
-            labelView='outer' 
-        />
     );
 });
 ```
@@ -149,91 +143,16 @@ render(() => {
         gap: 4,
     };
 
-    return (
-        <div style={{ width: 320 }}>
-            <FormControlDesktop 
-                block={true} 
-                label='Label' 
-                size='m' 
-                leftAddons={
-                    <IconButton
-                        view='secondary'
-                        icon={DiamondsMIcon}
-                        size='xs'
-                        alignIcon='left'
-                    />
-                } 
-            />
-            <Gap size='l' />
-            <FormControlDesktop 
-                block={true} 
-                label='Label' 
-                size='m' 
-                rightAddons={
-                    <IconButton
-                        view='secondary'
-                        icon={DiamondsMIcon}
-                        size='xs'
-                        alignIcon='right'
-                    />
-                } 
-            />
-            <Gap size='l' />
-            <FormControlDesktop
-                block={true}
-                label='Label'
-                size='m'
-                leftAddons={
-                    <div style={{...styleWrapperIcons, marginLeft: 'var(--gap-xs-neg)' }}>
-                        <IconButton
-                            view='secondary'
-                            icon={DiamondsMIcon}
-                            size='xs'
-                            alignIcon='right'
-                        />
-                        <IconButton
-                            view='secondary'
-                            icon={DiamondsMIcon}
-                            size='xs'
-                            alignIcon='left'
-                        />
-                    </div>
-                }
-                rightAddons={
-                    <div style={{...styleWrapperIcons, marginRight: 'var(--gap-xs-neg)' }}>
-                        <IconButton
-                            view='secondary'
-                            icon={DiamondsMIcon}
-                            size='xs'
-                            alignIcon='right'
-                        />
-                        <IconButton
-                            view='secondary'
-                            icon={DiamondsMIcon}
-                            size='xs'
-                            alignIcon='left'
-                        />
-                    </div>
-                }
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const styleWrapperIcons = {
-        height: '100%',
-        display: 'flex',
-        gap: 4,
-    };
+    const breakpoint = 600;
 
     return (
-        <div>
-            <FormControlMobile 
+        <div style={{ width: 320 }}>
+            <FormControl 
                 block={true} 
                 label='Label' 
-                size='s'
-                labelView='outer' 
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint} 
                 leftAddons={
                     <IconButton
                         view='secondary'
@@ -244,11 +163,12 @@ render(() => {
                 } 
             />
             <Gap size='l' />
-            <FormControlMobile 
+            <FormControl 
                 block={true} 
                 label='Label' 
-                size='s'
-                labelView='outer' 
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint} 
                 rightAddons={
                     <IconButton
                         view='secondary'
@@ -259,11 +179,12 @@ render(() => {
                 } 
             />
             <Gap size='l' />
-            <FormControlMobile
+            <FormControl
                 block={true}
                 label='Label'
-                size='s'
-                labelView='outer'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
                 leftAddons={
                     <div style={{...styleWrapperIcons, marginLeft: 'var(--gap-xs-neg)' }}>
                         <IconButton
@@ -309,13 +230,15 @@ render(() => {
 ```jsx live
 render(() => {
     const [value, setValue] = React.useState(3);
+    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
             <SliderInput
                 value={value}
                 label='Label'
-                size='m'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
                 pips={{
                     mode: 'values',
                     values: [1, 10 / 2, 10],
@@ -325,31 +248,9 @@ render(() => {
                 step={1}
                 block={true}
                 onChange={(_, { value }) => setValue(value)}
-                breakpoint={1}
+                breakpoint={breakpoint}
             />
         </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [value, setValue] = React.useState(3);
-
-    return (
-        <SliderInput
-            value={value}
-            label='Label'
-            size='s'
-            labelView='outer'
-            pips={{
-                mode: 'values',
-                values: [1, 10 / 2, 10],
-            }}
-            min={1}
-            max={10}
-            step={1}
-            block={true}
-            onChange={(_, { value }) => setValue(value)}
-        />
     );
 });
 ```

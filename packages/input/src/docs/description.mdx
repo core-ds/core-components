@@ -5,41 +5,26 @@
 
 ```jsx live
 render(() => {
+    const breakpoint = 600;
+
     return (
         <div style={{ width: 320 }}>
-            <InputDesktop 
+            <Input 
                 placeholder='Введите текст' 
                 block={true} 
                 label='Текст' 
-                size='m' />
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint} 
+            />
             <Gap size='m' />
-            <InputDesktop 
+            <Input 
                 placeholder='Введите email' 
                 block={true} 
                 label='Email' 
-                size='m' 
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    return (
-        <div>
-            <InputMobile 
-                placeholder='Введите текст'
-                block={true} 
-                label='Текст' 
-                size='s' 
-                labelView='outer' 
-            />
-            <Gap size='l' />
-            <InputMobile 
-                placeholder='Введите email'
-                block={true} 
-                label='Email' 
-                size='s' 
-                labelView='outer' 
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint} 
             />
         </div>
     );
@@ -53,46 +38,28 @@ render(() => {
 ```jsx live
 render(() => {
     const [error, setError] = React.useState(false);
+    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
-            <div style={{ height: 80 }}>
-                <InputDesktop block={true} label='Label' placeholder='Placeholder' size='m' error={error} />
-            </div>
-            <Gap size='xl' />
-            <ButtonDesktop size='xxs' view='secondary' onClick={() => setError(false)}>
-                По умолчанию
-            </ButtonDesktop>
-            <Gap size='s' direction='horizontal' />
-            <ButtonDesktop size='xxs' view='secondary' onClick={() => setError('Error message')}>
-                Состояние ошибки
-            </ButtonDesktop>
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [error, setError] = React.useState(false);
-
-    return (
-        <div>
-            <div style={{ height: 96 }}>
-                <InputMobile 
+            <div style={{ height: isMobile() ? 96 : 80 }}>
+                <Input 
                     block={true} 
                     label='Label' 
                     placeholder='Placeholder' 
-                    size='s' 
-                    labelView='outer' 
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    size={isMobile() ? 's' : 'm'}
+                    breakpoint={breakpoint} 
                     error={error} />
             </div>
             <Gap size='xl' />
-            <ButtonMobile size='xxs' view='secondary' onClick={() => setError(false)}>
+            <Button size='xxs' view='secondary' onClick={() => setError(false)}>
                 По умолчанию
-            </ButtonMobile>
+            </Button>
             <Gap size='s' direction='horizontal' />
-            <ButtonMobile size='xxs' view='secondary' onClick={() => setError('Error message')}>
+            <Button size='xxs' view='secondary' onClick={() => setError('Error message')}>
                 Состояние ошибки
-            </ButtonMobile>
+            </Button>
         </div>
     );
 });
@@ -106,69 +73,41 @@ render(() => {
 ```jsx live
 render(() => {
     const [inputProps, setInputProps] = React.useState({});
+    const breakpoint = 600;
 
     return (
         <div>
             <div style={{ width: 320 }}>
-                <InputDesktop block={true} placeholder='Placeholder' label='Label' size='m' {...inputProps} />
+                <Input 
+                    block={true} 
+                    placeholder='Placeholder' 
+                    label='Label' 
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    size={isMobile() ? 's' : 'm'}
+                    breakpoint={breakpoint}  
+                    {...inputProps} 
+                />
             </div>
             <Gap size='xl' />
 
             <Space direction='horizontal' wrap={true}>
-                <ButtonDesktop size='xxs' view='secondary' onClick={() => setInputProps({})}>
+                <Button size='xxs' view='secondary' onClick={() => setInputProps({})}>
                     По умолчанию
-                </ButtonDesktop>
-                <ButtonDesktop
+                </Button>
+                <Button
                     size='xxs'
                     view='secondary'
                     onClick={() => setInputProps({ disabled: true })}
                 >
                     Заблокирован
-                </ButtonDesktop>
-                <ButtonDesktop
+                </Button>
+                <Button
                     size='xxs'
                     view='secondary'
                     onClick={() => setInputProps({ readOnly: true })}
                 >
                     Только чтение
-                </ButtonDesktop>
-            </Space>
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [inputProps, setInputProps] = React.useState({});
-
-    return (
-        <div>
-            <InputMobile 
-                block={true} 
-                placeholder='Placeholder' 
-                labelView='outer' 
-                label='Label' 
-                size='s' 
-                {...inputProps} 
-            />
-            <Gap size='xl' />
-            <Space direction='horizontal' wrap={true}>
-                <ButtonMobile size='xxs' view='secondary' onClick={() => setInputProps({})}>
-                    По умолчанию
-                </ButtonMobile>
-                <ButtonMobile
-                    size='xxs'
-                    view='secondary'
-                    onClick={() => setInputProps({ disabled: true })}
-                >
-                    Заблокирован
-                </ButtonMobile>
-                <ButtonMobile
-                    size='xxs'
-                    view='secondary'
-                    onClick={() => setInputProps({ readOnly: true })}
-                >
-                    Только чтение
-                </ButtonMobile>
+                </Button>
             </Space>
         </div>
     );
@@ -186,6 +125,7 @@ render(() => {
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
+    const breakpoint = 600;
 
     /* Указать для IconButton через className */
     const css = `
@@ -197,20 +137,21 @@ render(() => {
     return (
         <div style={{ width: 320 }}>
             <style>{css}</style>
-            <InputDesktop
+            <Input
                 block={true}
-                label='Инпут с плейсхолдером'
-                placeholder='Placeholder'
-                size='m'
+                label={!isMobile() && 'Инпут с плейсхолдером'}
+                placeholder={isMobile() ? 'Инпут с плейсхолдером' : 'Placeholder'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
                 hint='Подсказка под полем'
                 rightAddons={
-                    <TooltipDesktop
+                    <Tooltip
                         open={open}
                         targetClassName='target'
                         content={
-                            <span
-                                style={{ whiteSpace: 'pre-wrap' }}
-                            >{`Сообщение тултипа\nотображается при\nнаведении`}</span>
+                            <span style={{ whiteSpace: 'pre-wrap' }} >
+                                {`Сообщение тултипа\nотображается при\n${isMobile() ? 'клике' : 'наведении'}`}
+                            </span>
                         }
                         onOpen={() => setOpen(true)}
                         onClose={() => setOpen(false)}
@@ -222,46 +163,7 @@ render(() => {
                             icon={InformationCircleMIcon}
                             dataTestId='icon'
                         />
-                    </TooltipDesktop>
-                }
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [open, setOpen] = React.useState(false);
-
-    /* Указать для IconButton через className */
-    const css = `
-        button[data-test-id='icon'] {
-            margin-right: var(--gap-s-neg);
-        }
-    `;
-
-    return (
-        <div>
-            <style>{css}</style>
-            <InputMobile
-                block={true}
-                placeholder='Инпут с плейсхолдером'
-                size='s'
-                hint='Подсказка под полем'
-                rightAddons={
-                    <TooltipMobile
-                        open={open}
-                        targetClassName='target'
-                        content={'Сообщение тултипа отображается при клике'}
-                        onOpen={() => setOpen(true)}
-                        onClose={() => setOpen(false)}
-                    >
-                        <IconButton
-                            view='secondary'
-                            size='s'
-                            icon={InformationCircleMIcon}
-                            dataTestId='icon'
-                        />
-                    </TooltipMobile>
+                    </Tooltip>
                 }
             />
         </div>
@@ -298,74 +200,20 @@ render(() => {
     };
 
     const hasError = value !== '' && !success;
+    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
             <style>{css}</style>
-            <InputDesktop
+            <Input
                 value={value}
                 block={true}
                 onChange={handleChange}
                 label='Введите 5 символов'
                 placeholder='Placeholder'
-                size='m'
-                success={success}
-                error={hasError}
-                rightAddons={
-                    hasError ? (
-                        <Badge
-                            view='icon'
-                            size='m'
-                            iconColor='negative'
-                            content={
-                                <ExclamationCircleMIcon
-                                    style={{ color: 'var(--color-light-graphic-negative)' }}
-                                />
-                            }
-                        />
-                    ) : undefined
-                }
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [success, setSuccess] = React.useState(false);
-    const [value, setValue] = React.useState('');
-
-    /* Не показываем вторую иконку ошибки в теме сайта */
-    const css = `
-        :root {
-            --input-error-icon-display: none;
-            --input-error-icon-not-alone-display: none;
-        }
-    `;
-
-    const handleChange = (e) => {
-        const value = e.target.value;
-        setValue(value);
-
-        if (value.length === 5) {
-            setSuccess(true);
-        } else {
-            setSuccess(false);
-        }
-    };
-
-    const hasError = value !== '' && !success;
-
-    return (
-        <div>
-            <style>{css}</style>
-            <InputMobile
-                value={value}
-                block={true}
-                onChange={handleChange}
-                label='Введите 5 символов'
-                placeholder='Placeholder'
-                labelView='outer'
-                size='s'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
                 success={success}
                 error={hasError}
                 rightAddons={
@@ -396,38 +244,23 @@ render(() => {
 ```jsx live
 render(() => {
     const [value, setValue] = React.useState('Value');
+    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
-            <InputDesktop
+            <Input
                 value={value}
                 block={true}
                 onChange={(e) => setValue(e.target.value)}
                 label='Label'
                 placeholder='Placeholder'
-                size='m'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
                 clear={true}
                 onClear={() => setValue('')}
             />
         </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [value, setValue] = React.useState('Value');
-
-    return (
-        <InputMobile
-            value={value}
-            block={true}
-            onChange={(e) => setValue(e.target.value)}
-            label='Label'
-            placeholder='Placeholder'
-            labelView='outer'
-            size='s'
-            clear={true}
-            onClear={() => setValue('')}
-        />
     );
 });
 ```
@@ -476,16 +309,20 @@ render(() => {
         }
     `;
 
+    const breakpoint = 600;
+
     return (
         <div style={{ width: 320 }}>
             <style>{css}</style>
-            <InputDesktop
+            <Input
                 value={valueOne}
                 block={true}
                 onChange={(e) => setValueOne(e.target.value)}
                 label='Label'
                 placeholder='Placeholder'
-                size='m'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
                 rightAddons={
                     <IconButton
                         view='secondary'
@@ -497,13 +334,15 @@ render(() => {
                 }
             />
             <Gap size='l' />
-            <InputDesktop
+            <Input
                 value={valueTwo}
                 block={true}
                 onChange={(e) => setValueTwo(e.target.value)}
                 label='Label'
                 placeholder='Placeholder'
-                size='m'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={breakpoint}
                 rightAddons={
                     <div style={styleWrapperIcons}>
                         <IconButton
@@ -523,113 +362,13 @@ render(() => {
                     </div>
                 }
             />
-            <ToastDesktop
+            <Toast
                 title={title}
                 open={isVisible}
                 onClose={hideNotification}
                 hasCloser={false}
                 autoCloseDelay={2000}
-                style={{ left: '41%' }}
-            />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [isVisible, setIsVisible] = React.useState(false);
-    const [title, setTitle] = React.useState('');
-    const [valueOne, setValueOne] = React.useState('Value');
-    const [valueTwo, setValueTwo] = React.useState('Value');
-
-    const toggleVisiblity = () => setIsVisible((prev) => !prev);
-
-    const singleIcon = () => {
-        setTitle('Вы восхитительны!');
-        toggleVisiblity();
-    };
-
-    const leftIcon = () => {
-        setTitle('Левая');
-        toggleVisiblity();
-    };
-
-    const rightIcon = () => {
-        setTitle('Правая');
-        toggleVisiblity();
-    };
-
-    const hideNotification = React.useCallback(() => setIsVisible(false), []);
-
-    const styleWrapperIcons = {
-        height: '100%',
-        display: 'flex',
-        gap: 4,
-        marginRight: 'var(--gap-xs-neg)',
-    };
-
-    /* Указать для IconButton через className */
-    const css = `
-        button[data-test-id='icon'] {
-            margin-right: var(--gap-s-neg);
-        }
-    `;
-
-    return (
-        <div>
-            <style>{css}</style>
-            <InputMobile
-                value={valueOne}
-                block={true}
-                onChange={(e) => setValueOne(e.target.value)}
-                label='Label'
-                placeholder='Placeholder'
-                labelView='outer'
-                size='s'
-                rightAddons={
-                    <IconButton
-                        view='secondary'
-                        onClick={singleIcon}
-                        icon={DiamondsMIcon}
-                        size='s'
-                        dataTestId='icon'
-                    />
-                }
-            />
-            <Gap size='l' />
-            <InputMobile
-                value={valueTwo}
-                block={true}
-                onChange={(e) => setValueTwo(e.target.value)}
-                label='Label'
-                placeholder='Placeholder'
-                size='s'
-                labelView='outer'
-                rightAddons={
-                    <div style={styleWrapperIcons}>
-                        <IconButton
-                            view='secondary'
-                            onClick={leftIcon}
-                            icon={DiamondsMIcon}
-                            size='xs'
-                            alignIcon='right'
-                        />
-                        <IconButton
-                            view='secondary'
-                            onClick={rightIcon}
-                            icon={FlowerMIcon}
-                            size='xs'
-                            alignIcon='left'
-                        />
-                    </div>
-                }
-            />
-            <ToastMobile
-                title={title}
-                open={isVisible}
-                onClose={hideNotification}
-                hasCloser={false}
-                autoCloseDelay={2000}
-                style={{ left: '30%' }}
+                style={{ left: isMobile() ? '30%' : '41%' }}
             />
         </div>
     );
