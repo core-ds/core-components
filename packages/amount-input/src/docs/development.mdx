@@ -1,8 +1,8 @@
 import { ArgsTable } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
 import { AmountInput } from '../index';
-import inverted from '!!raw-loader!../inverted.module.css';
-import styles from '!!raw-loader!../default.module.css';
+import defaultStyles from '!!raw-loader!../default.module.css';
+import invertedStyles from '!!raw-loader!../inverted.module.css';
 
 ## Подключение
 
@@ -17,4 +17,4 @@ import { AmountInput } from '@alfalab/core-components/amount-input';
 
 ## Переменные
 
-<CssVars css={`${styles}${inverted}`}/>
+<CssVars css={`${defaultStyles}${invertedStyles}`}/>
