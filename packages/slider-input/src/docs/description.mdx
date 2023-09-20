@@ -9,15 +9,13 @@ render(() => {
     const [value1, setValue1] = React.useState(3);
     const [value2, setValue2] = React.useState(5);
 
-    const isMobile = document.body.clientWidth < 600;
-
     return (
-        <div style={{ width: isMobile ? '100%' : 320 }}>
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
             <SliderInput
                 value={value1}
                 label='Label'
-                labelView={isMobile ? 'outer' : 'inner'}
-                size={isMobile ? 's' : 'm'}
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
                 pips={{
                     mode: 'values',
                     values: [min, 10 / 2, 10],
@@ -27,14 +25,14 @@ render(() => {
                 step={1}
                 block={true}
                 onChange={(_, { value }) => setValue1(value)}
-                breakpoint={600}
+                breakpoint={BREAKPOINT}
             />
             <Gap size='xl' />
             <SliderInput
                 value={value2}
                 label='Label'
-                labelView={isMobile ? 'outer' : 'inner'}
-                size={isMobile ? 's' : 'm'}
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
                 pips={{
                     mode: 'values',
                     values: [min, 10, 100],
@@ -49,7 +47,7 @@ render(() => {
                 step={1}
                 block={true}
                 onChange={(_, { value }) => setValue2(value)}
-                breakpoint={600}
+                breakpoint={BREAKPOINT}
             />
         </div>
     );
@@ -80,28 +78,26 @@ const pips = {
     },
 };
 
-const isMobile = document.body.clientWidth < 600;
-
 render(() => {
     const [value, setValue] = React.useState(150000);
     const [props, setProps] = React.useState({});
 
     return (
         <div style={{ width: '100%' }}>
-            <div style={{ width: isMobile ? '100%' : 320 }}>
+            <div style={{ width: isMobile() ? '100%' : 320 }}>
                 <SliderInput
                     value={formatAmountSimple(value)}
                     sliderValue={value}
                     label='Label'
-                    labelView={isMobile ? 'outer' : 'inner'}
-                    size={isMobile ? 's' : 'm'}
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    size={isMobile() ? 's' : 'm'}
                     pips={pips}
                     min={min}
                     max={max}
                     step={1000}
                     block={true}
                     onChange={(_, { value }) => setValue(value)}
-                    breakpoint={600}
+                    breakpoint={BREAKPOINT}
                     {...props}
                 />
             </div>
@@ -169,10 +165,8 @@ render(() => {
         }
     };
 
-    const isMobile = document.body.clientWidth < 600;
-
     return (
-        <div style={{ width: isMobile ? '100%' : 320 }}>
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
             <SliderInput
                 block={true}
                 value={value !== '' ? value * 100 : ''}
@@ -187,9 +181,9 @@ render(() => {
                 step={step}
                 label='Первоначальный взнос'
                 Input={AmountInput}
-                labelView={isMobile ? 'outer' : 'inner'}
-                size={isMobile ? 's' : 'm'}
-                breakpoint={600}
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
             />
         </div>
     );
