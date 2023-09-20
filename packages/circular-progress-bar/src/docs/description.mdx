@@ -1,90 +1,50 @@
-Отображает круговой индикатор прогресса (0-100%).
+## Примеры
 
-## Размеры
+Доступны XXL, XL, L, M, S, XS и произвольный размеры компонента.
 
-Доступны XXL, XL, L, M, S, XS размеры компонента
-
-```jsx live
-<Container>
-    <Row align='middle'>
-        <Col>
-            <CircularProgressBar value={25} size='xxl' />
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='xl' />
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='l' />
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='m' />
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='s' />
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='xs' icon={CheckmarkSIcon} contentColor='tertiary'/>
-        </Col>
-    </Row>
+```jsx live mobileHeight={652}
+<Container align={isMobile() ? 'center' : 'left'}>
+    <Space direction={isMobile() ? 'vertical' : 'horizontal'} align='center' size={24}>
+        <CircularProgressBar value={25} size='xxl' contentColor='primary' />
+        <CircularProgressBar value={25} size='xl' contentColor='primary' />
+        <CircularProgressBar value={25} size='l' contentColor='primary' />
+        <CircularProgressBar value={25} size='m' contentColor='primary' />
+        <CircularProgressBar value={25} size='s' contentColor='primary' />
+        <CircularProgressBar value={25} size='xs' contentColor='primary' />
+    </Space>
 </Container>
 ```
-Альтернативный способ задать размер — указать значение для [height] в px. При явном задании высоты, для значения 164px необходимо указать size xxl размера, а для значения 132px, соответственно, xl и т.д
-
-Доступны следующие значения [height] для компонента:
-* xxl от 144px
-* xl  от 128px до 143px
-* l   от 80px до 127px
-* m   от 64px до 79px
-* s   от 48px до 63px
-* xs  от 24px до 47px  
-
 
 ## Атрибуты
 
 У компонента есть два состояния — в процессе заполнения и полностью заполненный. 
-Управляя атрибутами можно задать направление заполнения, цвет прогрессбара, наличие желоба и контент для обоих состояний.
+Можно задать направление заполнения, цвет прогрессбара, наличие желоба и контент для обоих состояний.
 
 ```jsx live
-<Container>
-    <Row align='middle'>
-        <Col>
-            <CircularProgressBar value={0} size='l' subtitle='Caption' />
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='l' subtitle='Caption'/>
-        </Col>
-        <Col>
-            <CircularProgressBar value={100} size='l' icon={CheckmarkMIcon} contentColor='tertiary' completeIconColor='positive'/>
-        </Col>
-    </Row>
-    <Row align='middle'>
-        <Col>
-            <CircularProgressBar value={0} size='l' icon={CheckmarkMIcon} contentColor='tertiary' stroke={false}/>
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='l' icon={CheckmarkMIcon} contentColor='tertiary' stroke={false} />
-        </Col>
-        <Col>
-            <CircularProgressBar 
-                value={100} 
-                size='l' 
-                icon={CheckmarkMIcon} 
-                contentColor='tertiary'
-                completeIconColor='primary-inverted'
-                fillComplete={true}
-                />
-        </Col>
-    </Row>
-    <Row align='middle'>
-        <Col>
-            <CircularProgressBar value={25} size='l' />
-        </Col>
-        <Col>
-            <CircularProgressBar value={25} size='l' view='negative'/>
-        </Col>
-        <Col>
-            <CircularProgressBar value={100} size='l' view='negative' completeTextColor='negative'/>
-        </Col>
-    </Row>
+<Container align={isMobile() ? 'center' : 'left'} >
+    <Space direction='horizontal'>
+        <CircularProgressBar value={0} title='0%' size='l' subtitle='Caption' contentColor='primary' />
+        <CircularProgressBar value={50} title='50%' size='l' subtitle='Caption' contentColor='primary'/>
+        <CircularProgressBar value={100} size='l' icon={CheckmarkMIcon} contentColor='tertiary' completeIconColor='positive'/>
+    </Space>
+    <Gap size='m'/>
+    <Space direction='horizontal'>
+        <CircularProgressBar value={0} size='l' icon={CheckmarkMIcon} contentColor='tertiary' />
+        <CircularProgressBar value={50} size='l' icon={CheckmarkMIcon} contentColor='tertiary' />
+        <CircularProgressBar 
+            value={100} 
+            size='l' 
+            icon={CheckmarkMIcon} 
+            contentColor='tertiary'
+            completeIconColor='primary-inverted'
+            fillComplete={true}
+            />
+    </Space>
+    <Gap size='m'/>
+    <Space direction='horizontal'>
+        <CircularProgressBar value={0} title='0%' size='l' contentColor='primary' />
+        <CircularProgressBar value={50} title='50%' size='l' view='negative' contentColor='primary'/>
+        <CircularProgressBar value={100} size='l' titleComplete='100%' view='negative' completeTextColor='negative'/>
+    </Space>
 </Container>
 ```

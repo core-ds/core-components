@@ -1,21 +1,21 @@
-import { Plate } from '@alfalab/core-components-plate';
-import { Badge } from '@alfalab/core-components-badge';
-import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
-
-Компонент иконки, которая запрашивается с сервера.
-
-<Plate
-    view='attention'
-    title='Используйте только со своим хранилищем'
-    leftAddons={
-        <Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />
-    }
-    limitContentWidth={false}
->
-    <div>К сожалению, хранилище alfabank.servicecdn.ru — временное и в какой-то момент домен изменится.</div>
-    <div style={{marginTop: 8}}>Рекомендуется использовать своё хранилище (baseUrl).</div>
-</Plate>
+## Примеры
 
 ```jsx live
-<CDNIcon name='glyph_debt_m' />
+<Space direction='horizontal' align='center' size={24}>
+    <CDNIcon 
+        color='var(--color-light-graphic-primary)' 
+        name='glyph_diamonds_xxl' 
+        fallback={<DiamondsXxlIcon />}
+    />
+    <CDNIcon 
+        color='var(--color-light-graphic-secondary)' 
+        name='glyph_diamonds_m' 
+        fallback={<DiamondsMIcon />}
+    />
+    <CDNIcon 
+        color='var(--color-light-graphic-tertiary)' 
+        name='glyph_diamonds_s' 
+        fallback={<DiamondsSIcon />}
+    />
+</Space>
 ```

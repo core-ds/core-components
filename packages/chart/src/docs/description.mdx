@@ -1,845 +1,827 @@
-Компонент для построения графиков основан на библиотеке основаной на D3 с лицензией - MIT https://recharts.org.
-В данный момент компонент поддерживает три типа графиков: `bar`, `line`, `area`.
+## Столбчатая диаграмма
 
-## Данные для отрисовки
-
--   `options.labels` - массив меток `string | number`
--   `options.series` - массив объектов с параметрами грaфиков с обязательным полем `data`
--   `options.series.data` - массив данных, который должен состоять из меток `label: string | number` и значений `value: number`
-
-## Пример объекта с дефолтными значениями
-
-```jsx
-options: {
-    /**
-     * Oбязательное уникальное поле, такие елменты как `legend`
-     * `linearGradient` используют его
-     */
-    id,
-
-    /**
-     * Компонент контейнера, позволяющий адаптировать диаграммы к размеру
-     * родительского контейнера
-     */
-    responsiveContainer?: {
-        /**
-         * Значение для debounce функции при ресайзе
-         */
-        debounce?: 0,
-    },
-
-    /*
-     * Диграмма для построения графиков с разными типами
-     */
-    composeChart: {
-        /*
-        * Отступы графика на момент инициализации компонента
-        */
-        initMargin?: {
-            top?: 5,
-            right?: 5,
-            bottom?: 5,
-            left?: 5,
-        },
-
-        /*
-        * Максимальная ширина графиков типа bar
-        */
-        maxBarSize?,
-
-        /*
-        * Разрыв между двумя категориями столбцов,
-        который может быть процентным или фиксированным значением
-        */
-        barCategoryGap?: '10%',
-
-        /*
-        * Разрыв между двумя столбцами одной категории
-        */
-        barGap?: 4,
-    },
-
-    /**
-     * Отображение линий осей графика
-     */
-    cartesianGrid?: {
-        /**
-         * Отображение горизонтальной сетки
-         */
-        horizontal?: true,
-
-        /**
-         * Отображение вертикальной сетки
-         */
-        vertical?: true,
-
-        /**
-         * Штрихи для осей
-         */
-        strokeDasharray?,
-
-        /**
-         * Цвет разметки сетки
-         */
-        stroke?,
-
-        /**
-         * Цвет заливки графика
-         */
-        fill?,
-    },
-
-    /**
-     * Настройки оси Х
-     */
-    xAxis: {
-        /**
-         * Скрыть ось
-         */
-        hide?: false,
-
-        /**
-         * Отображение линии оси.
-         */
-        axisLine?: true,
-
-        /**
-         * Тип оси.
-         */
-        type: 'category',
-
-        /**
-         * Разрешить значениям оси быть десятичными или нет.
-         */
-        allowDecimals?: true,
-
-        /**
-         * Разрешить или нет на оси дублировать категории,
-         * если "type" оси - "category".
-         */
-        allowDuplicatedCategory?: true,
-
-        /**
-         * Угол наклона значений оси.
-         */
-        angle?: 0,
-
-        /**
-         * Количество делений оси. Не используется,
-         * если "тип" - "категория".
-         */
-        tickCount?: 5,
-
-        /**
-         * Интревал линий деления оси
-         */
-        interval?: 'preserveEnd',
-
-        /**
-         * Минимальный зазор между двумя соседними делениями оси.
-         */
-        minTickGap?: 5,
-
-        /**
-         * Отображение линий деления оси
-         */
-        tickLine?: true,
-
-        /**
-         * Размер линий деления оси
-         */
-        tickSize?: 6,
-
-        /**
-         * Если установлено значение true,
-         * галочки переворачиваются вокруг оси,
-         * отображая метки внутри диаграммы, а не снаружи.
-         */
-
-        mirror?: false,
-
-        /**
-         * Отображение горизонтальной сетки
-         */
-        reversed?: false,
-
-        /**
-         * Реверсировать ось или нет
-         */
-        tickMargin?: 0,
-
-        /**
-         * Функция форматирования значения деления оси.
-         */
-        tickFormatter?,
-
-        /**
-         * Ключ данных, отображаемых на оси.
-         */
-        dataKey,
-
-        /**
-         * Ориентация оси
-         */
-        orientation?: 'bottom',
-
-        /**
-         * Тип деления оси
-         */
-        tickType?,
-    },
-
-    /**
-     * Настройки оси Y
-     */
-    yAxis: {
-        /**
-         * Скрыть ось
-         */
-        hide?: false,
-
-        /**
-         * Отображение линии оси.
-         */
-        axisLine?: true,
-
-        /**
-         * Тип оси.
-         */
-        type: 'number',
-
-        /**
-         * Разрешить значениям оси быть десятичными или нет.
-         */
-        allowDecimals?: true,
-
-        /**
-         * Разрешить или нет на оси дублировать категории,
-         * если "type" оси - "category".
-         */
-        allowDuplicatedCategory?: true,
-
-        /**
-         * Угол наклона значений оси.
-         */
-        angle?: 0,
-
-        /**
-         * Количество делений оси.
-         * Не используется, если "тип" - "категория".
-         */
-        tickCount?: 5,
-
-        /**
-         * Интревал линий деления оси
-         */
-        interval?: 'preserveEnd',
-
-        /**
-         * Минимальный зазор между двумя соседними делениями оси.
-         */
-        minTickGap?: 5,
-
-        /**
-         * Отображение линий деления оси
-         */
-        tickLine?: true,
-
-        /**
-         * Размер линий деления оси
-         */
-        tickSize?: 6,
-
-        /**
-         * Если установлено значение true,
-         * галочки переворачиваются вокруг оси,
-         * отображая метки внутри диаграммы, а не снаружи.
-         */
-        mirror?: false,
-
-        /**
-         * Отображение горизонтальной сетки
-         */
-        reversed?: false,
-
-        /**
-         * Реверсировать ось или нет
-         */
-        tickMargin?: 0,
-
-        /**
-         * Функция форматирования значения деления оси.
-         */
-        tickFormatter?,
-
-        /**
-         * Ключ данных, отображаемых на оси.
-         */
-        orientation?: 'bottom',
-    },
-
-    /**
-     * Всплывающаяся подсказка
-     */
-    tooltip?: {
-        /**
-         * Разделитель между именем и значением
-         */
-        separator?,
-
-        /**
-         * Размер смещения между положением всплывающей
-         * подсказки и активной позицией
-         */
-        offset?: 10,
-
-        /**
-         * Когда элемент полезной нагрузки имеет значение null или undefined,
-         * этот элемент не отображается
-         */
-        filterNull: true,
-
-        /**
-         * Если установлено false, курсор не будет отображаться, когда всплывающая подсказка активна.
-         * Если установлен объект, опция - это конфигурация курсора.
-         * Если установлен элемент React, опция является настраиваемым элементом реакции курсора рисования.
-         */
-        cursor?: {
-            /**
-             * Цвет линии
-             */
-            stroke: cursorStroke,
-
-            /**
-             * Ширина линии
-             */
-            strokeWidth: cursorStrokeWidth,
-        },
-
-        /**
-         * Если это поле установлено, положение всплывающей подсказки
-         * будет фиксированным и больше не будет перемещаться.
-         */
-        position?: {
-            x,
-            y,
-        };
-
-        /**
-         * Если установлено false, анимация всплывающей подсказки будет отключена.
-         */
-        isAnimationActive?: true,
-
-        /**
-         * Указывает, когда должна начинаться анимация,
-         * единица измерения этого параметра - мс.
-         */
-        animationBegin?: 0,
-
-        /**
-         * Определяет продолжительность анимации,
-         * единица измерения этого параметра - мс.
-         */
-        animationDuration?: 1500,
-
-        /**
-         * Тип функции плавности
-         */
-        animationEasing?: 'ease',
-
-        /**
-         * Отображение стрелки тултипа
-         */
-        arrow?: false,
+```jsx live
+render(() => {
+    const cartesianGrid = {
+        vertical: false,
+        horizontal: true,
+        strokeDasharray: 0,
+        stroke: 'var(--color-light-border-primary)',
+        fill: 'var(--color-light-bg-primary)',
     };
-
-    /**
-     * Компонент маштабирования графика
-     */
-    brush?: {
-        /**
-         * Ключ данных
-         */
-        dataKey,
-
-        /**
-         * Ширина ползунков
-         */
-        travellerWidth?: 5,
-
-        /**
-         * Начальный индекс интервала показа
-         */
-        startIndex?,
-
-        /**
-         * Конечный индекс интервала показа
-         */
-        endIndex?,
-
-        /**
-         * Отступ
-         */
-        brushMargin?: 0,
-
-        /**
-         * Высота
-         */
-        height?: 40,
-
-        /**
-         * Форматирование значений
-         */
-        tickFormatter?,
-
-        /**
-         * Всегда показывать значение текущего интервала
-         */
-        alwaysShowText?: false,
-
-        /**
-         * Цвет
-         */
-        stroke?: brushStroke,
-    }
-
-    /**
-     * Компонент подписи графиков
-     */
-    legend?: {
-        /**
-         * Выравнивание элементов легенды в вертикальном направлении
-         */
-        verticalAlign?: 'middle',
-
-        /**
-         * Функция форматирования каждого текста в легенде
-         */
-        formatter?,
-
-        /**
-         * Выравнивание элементов легенды в горизонтальном направлении
-         */
-        align?: 'center',
-
-        /**
-         * Вертикальный отступ
-         */
-        marginTop?: 0,
-
-        /**
-         * Высота иконок
-         */
-        iconHeight?: 16,
-    },
-
-    /**
-     * Mассив меток
-     */
-    labels: Array<string | number>,
-
-    /**
-     * Mассив объектов с параметрами грaфиков с обязательным полем
-     */
-    series: [
-        /*
-         * Пример графика типа bar
-         */
-        {
-            /*
-             * Скрыть график
-             */
-            hide?: false,
-
-            /*
-             * Скрыть график в легенде
-             */
-            hideLegend?: false,
-
-            /*
-             * Скрыть график в тултипe
-             */
-            hideTooltip?: false,
-
-            /*
-             * Z-index графика
-             */
-            zIndex,
-
-            /*
-             * Тип графика
-             */
-            chart: 'bar',
-
-            /**
-             * Радиус закругления углов графика типа bar
-             */
-            radius?: {
-                /**
-                 * Верхний pадиус закругления углов графика типа bar
-                 */
-                top?,
-
-                /**
-                 * Нижний радиус закругления углов графика типа bar
-                 */
-                bottom?,
-            },
-
-            /*
-             * Тип иконки для графика
-             */
-            icon,
-
-            /*
-             * Параметры графика
-             */
-            properties: {
-
-                /*
-                * Название графика (отображается в легендах и тултипе)
-                */
-                name,
-
-                /*
-                * Ключ данных
-                */
-                dataKey,
-
-                /*
-                * Форматирование значения графика для тултипа
-                */
-                formatter?,
-
-                /*
-                * Цвет заливки графика
-                */
-                fill,
-
-                /*
-                * Цвет бордера графика
-                */
-                strokeWidth?,
-            },
-
-            /**
-             * Данные для построения графика
-             */
-            data: [
-                /**
-                 * Метка
-                 */
-                label,
-
-                /**
-                 * Значение
-                 */
-                value
-            ];
+    const legend = {
+        align: 'left',
+        width: 390,
+        marginTop: 10,
+    };
+    const tooltip = {
+        separator: ' ',
+        offset: 20,
+        filterNull: true,
+        cursor: {
+            stroke: 'var(--color-light-border-primary)',
+            strokeWidth: 1,
         },
-
-        /*
-         * Пример графика типа line
-         */
-        {
-            /*
-             * Скрыть график
-             */
-            hide?: false,
-
-            /*
-             * Скрыть график в легенде
-             */
-            hideLegend?: false,
-
-            /*
-             * Скрыть график в тултипe
-             */
-            hideTooltip?: false,
-
-            /*
-             * Z-index графика
-             */
-            zIndex,
-
-            /*
-             * Тип графика
-             */
-            chart: 'line',
-
-            /*
-             * Тип иконки для графика
-             */
-            icon,
-
-            /*
-             * Параметры графика
-             */
-            properties: {
-
-                /*
-                 * Название графика (отображается в легендах и тултипе)
-                 */
-                name,
-
-                /*
-                 * Ключ данных
-                 */
-                dataKey,
-
-                /*
-                 * Цвет линии графика
-                 */
-                stroke?: '#3182bd',
-
-                /*
-                 * Отображение точек на графике
-                 */
-                dot?,
-
-                /*
-                 * Параметры для точек грфика (если dot: true)
-                 */
-                dotSettings: [{
-
-                    /*
-                     * Значение media query
-                     */
-                    media,
-
-                    /*
-                     * Значение маштаба при ховере
-                     */
-                    scale,
-
-                    /*
-                     * Начальный значения маштаба
-                     */
-                    initScale,
-
-                    /*
-                     * Ширина точки
-                     */
-                    width,
-
-                    /*
-                     * Высота точки
-                     */
-                    height,
-                }],
-
-                /*
-                 * Наследование цвета
-                 */
-                inheritStroke?: false,
-
-                /*
-                 * Форматирование значения графика для тултипа
-                 */
-                formatter?,
-
-                /*
-                 * Тип линии
-                 */
-                type? 'linear',
-
-                /*
-                 * Толщина линии
-                 */
-                strokeWidth?: 1,
-
-                /*
-                 * Прерывистость линии
-                 */
-                strokeDasharray?,
+        isAnimationActive: true,
+        animationBegin: 0,
+        animationDuration: 500,
+        animationEasing: 'ease',
+        arrow: true,
+    };
+    const brush = {
+        dataKey: 'label',
+        travellerWidth: 20,
+        height: 20,
+        alwaysShowText: true,
+        stroke: 'var(--color-static-status-blue)',
+    };
+    const barChartFirst = {
+        zIndex: 1,
+        chart: 'bar',
+        properties: {
+            name: 'расход',
+            dataKey: 'uv',
+            formatter: (decimal) => `${decimal * 1000}`,
+            fill: 'var(--color-static-graphic-persimmon)',
+        },
+        data: [
+            {
+                label: 'Январь',
+                value: 80,
             },
+            {
+                label: 'Февраль',
+                value: 140,
+            },
+            {
+                label: 'Март',
+                value: 70,
+            },
+            {
+                label: 'Апрель',
+                value: 210,
+            },
+            {
+                label: 'Май',
+                value: 80,
+            },
+            {
+                label: 'Июнь',
+                value: 20,
+            },
+        ],
+    };
+    const barChartSecond = {
+        zIndex: 10,
+        chart: 'bar',
+        properties: {
+            name: 'приход',
+            dataKey: 'pv',
+            formatter: (decimal) => `${decimal * 1000}`,
+            fill: 'var(--color-static-graphic-green-jungle)',
+        },
+        data: [
+            {
+                label: 'Январь',
+                value: 110,
+            },
+            {
+                label: 'Февраль',
+                value: 190,
+            },
+            {
+                label: 'Март',
+                value: 60,
+            },
+            {
+                label: 'Апрель',
+                value: 230,
+            },
+            {
+                label: 'Май',
+                value: 190,
+            },
+            {
+                label: 'Июнь',
+                value: 30,
+            },
+        ],
+    };
+    const lineChart = {
+        zIndex: 50,
+        chart: 'line',
+        icon: 'circleLine',
+        properties: {
+            name: 'остаток',
+            dataKey: 'cnt',
+            stroke: 'var(--color-static-status-blue)',
+            dot: true,
+            dotSettings: {
+                scale: 1.5,
+                initScale: 1,
+                width: 18,
+                height: 18,
+            },
+            formatter: (decimal) => `${decimal * 1000}`,
+            type: 'monotone',
+            strokeWidth: 2,
+        },
+        data: [
+            {
+                label: 'Январь',
+                value: 60,
+            },
+            {
+                label: 'Февраль',
+                value: 95,
+            },
+            {
+                label: 'Март',
+                value: 20,
+            },
+            {
+                label: 'Апрель',
+                value: 180,
+            },
+            {
+                label: 'Май',
+                value: 70,
+            },
+            {
+                label: 'Июнь',
+                value: 10,
+            },
+        ],
+    };
+    const composeChart = {
+        initMargin: {
+            left: 20,
+        },
+        barSize: 10,
+    };
+    const xAxis = {
+        tickLine: false,
+        axisLine: false,
+        interval: 'preserveStartEnd',
+        tickMargin: 10,
+        dataKey: 'label',
+    };
+    const yAxis = {
+        axisLine: false,
+        type: 'number',
+        tickCount: 6,
+        tickLine: false,
+        tickMargin: 0,
+        tickFormatter: (decimal) => `${decimal}\xa0тыс.`,
+    };
+    const labelsBarChart = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь'];
 
-            /*
-             *  Массив данных для отрисовки
-             */
-            data: [
+    return (
+        <div style={{ display: 'flex' }}>
+            <div style={{ width: '300px', height: '300px' }}>
+                <Chart
+                    id='bar-chart'
+                    composeChart={composeChart}
+                    cartesianGrid={cartesianGrid}
+                    xAxis={xAxis}
+                    yAxis={yAxis}
+                    tooltip={tooltip}
+                    legend={legend}
+                    brush={brush}
+                    labels={labelsBarChart}
+                    series={[barChartFirst, barChartSecond, lineChart]}
+                />
+            </div>
+        </div>
+    );
+});
+```
 
-                /**
-                 * Метка
-                 */
-                label,
+## Гистограмма
 
-                /**
-                 * Значение
-                 */
-                value,
+```jsx live
+render(() => {
+    const composeChart = {
+        barCategoryGap: '5%',
+    };
+    const xAxis = {
+        axisLine: false,
+        type: 'category',
+        interval: 'preserveStartEnd',
+        tickLine: false,
+        tickMargin: 10,
+        dataKey: 'label',
+    };
+    const yAxis = {
+        hide: true,
+    };
+    const labelsBarChart = [
+        'Long label',
+        'Label1',
+        'Label2',
+        'Label3',
+        'Label4',
+        'Label5',
+        'Label6',
+        'Label7',
+    ];
+    const barChart = {
+        chart: 'bar',
+        radius: { top: 10, bottom: 10, } || 0,
+        labelList: {
+            offset: 10,
+        },
+        properties: {
+            name: 'приход',
+            dataKey: 'cm',
+            formatter: (decimal) => `${decimal * 1000}`,
+            fill: 'var(--color-static-graphic-green-jungle)',
+        },
+        data: [
+            {
+                label: 'Long label',
+                value: 5000,
+            },
+            {
+                label: 'Label1',
+                value: 650,
+            },
+            {
+                label: 'Label2',
+                value: 3522,
+            },
+            {
+                label: 'Label3',
+                value: 0,
+            },
+            {
+                label: 'Label4',
+                value: 2000,
+            },
+            {
+                label: 'Label5',
+                value: 1043,
+            },
+            {
+                label: 'Label6',
+                value: 600,
+            },
+            {
+                label: 'Label7',
+                value: 1,
+            },
+        ],
+    };
+        
+    return (
+        <div style={{ display: 'flex' }}>
+           <div style={{ width: '300px', height: '300px' }}>
+                    <Chart
+                        id='bar-chart'
+                        composeChart={composeChart}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        labels={labelsBarChart}
+                        series={[barChart]}
+                    />
+            </div>
+        </div>
+    );
+});
+```
+
+## Линейный график
+
+```jsx live
+render(() => {
+    const formatXAxis = (time) => format(time, 'dd LLL');
+    const cartesianGrid = {
+        stroke: 'var(--color-light-border-primary)',
+        fill: 'var(--color-light-bg-primary)',
+    };
+    const composeChart = {
+        barSize: 24,
+    };
+    const xAxis = {
+        axisLine: false,
+        type: 'category',
+        interval: 'preserveStartEnd',
+        minTickGap: 20,
+        tickLine: false,
+        dataKey: 'label',
+        tickFormatter: formatXAxis,
+        tickType: 'point',
+    };
+    const yAxis = {
+        axisLine: false,
+        type: 'number',
+        tickCount: 6,
+        interval: 'preserveStartEnd',
+        tickLine: false,
+        tickSize: 6,
+    };
+    const legend = {
+        verticalAlign: 'top',
+        width: 390,
+        marginTop: 15,
+        iconHeight: 15,
+    };
+    const tooltip = {
+        separator: ' ',
+        offset: 20,
+        filterNull: true,
+        cursor: {
+            stroke: 'var(--color-light-border-primary)',
+            strokeWidth: 1,
+        },
+        isAnimationActive: true,
+        animationBegin: 0,
+        animationDuration: 500,
+        animationEasing: 'ease',
+        arrow: true,
+        labelFormatter: formatXAxis,
+    };
+    const brush = {
+        dataKey: 'label',
+        travellerWidth: 20,
+        brushMargin: 10,
+        height: 20,
+        stroke: 'var(--color-static-status-blue)',
+        alwaysShowText: true,
+        tickFormatter: formatXAxis,
+    };
+    const labelsLineChart = [
+        1608242400000, 1608328800000, 1608415200000, 1608501600000, 1608588000000,
+        1608674400000, 1608760800000, 1608847200000, 1608933600000, 1609020000000,
+        1609106400000, 1609192800000, 1609279200000, 1609365600000, 1609452000000,
+        1609538400000, 1609624800000, 1609711200000, 1609797600000, 1609884000000,
+        1609970400000, 1610056800000, 1610143200000, 1610229600000, 1610316000000,
+        1610402400000, 1610488800000, 1610575200000, 1610661600000, 1610748000000,
+        1610834400000, 1610920800000, 1611007200000, 1611093600000, 1611180000000,
+        1611266400000, 1611352800000, 1611439200000, 1611525600000, 1611612000000,
+        1611698400000, 1611784800000, 1611871200000, 1611957600000, 1612044000000,
+        1612130400000, 1612216800000, 1612303200000,
+    ];
+    const lineChart = {
+        chart: 'line',
+        icon: 'strokeCircle',
+        properties: {
+            name: 'текущий период',
+            dataKey: 'b',
+            stroke: 'var(--color-static-status-blue)',
+            dot: true,
+            dotSettings: {
+                scale: 1.5,
+                initScale: 0,
+                width: 18,
+                height: 18,
+            },
+            inheritStroke: true,
+            type: 'monotone',
+            strokeWidth: 2,
+            strokeDasharray: '10 10',
+        },
+        data: [
+            {
+                label: 1608242400000,
+                value: 35,
+            },
+            {
+                label: 1608328800000,
+                value: 20,
+            },
+            {
+                label: 1608415200000,
+                value: 34,
+            },
+            {
+                label: 1608501600000,
+                value: 42,
+            },
+            {
+                label: 1608588000000,
+                value: 14,
+            },
+            {
+                label: 1608674400000,
+                value: 37,
+            },
+            {
+                label: 1608760800000,
+                value: 19,
+            },
+            {
+                label: 1608847200000,
+                value: 37,
+            },
+            {
+                label: 1608933600000,
+                value: 22,
+            },
+            {
+                label: 1609020000000,
+                value: 21,
+            },
+            {
+                label: 1609106400000,
+                value: 28,
+            },
+            {
+                label: 1609192800000,
+                value: 26,
+            },
+            {
+                label: 1609279200000,
+                value: 31,
+            },
+            {
+                label: 1609365600000,
+                value: 37,
+            },
+            {
+                label: 1609452000000,
+                value: 40,
+            },
+            {
+                label: 1609538400000,
+                value: 39,
+            },
+            {
+                label: 1609624800000,
+                value: 45,
+            },
+            {
+                label: 1609711200000,
+                value: 40,
+            },
+            {
+                label: 1609797600000,
+                value: 45,
+            },
+            {
+                label: 1609884000000,
+                value: 40,
+            },
+            {
+                label: 1609970400000,
+                value: 45,
+            },
+            {
+                label: 1610056800000,
+                value: 46,
+            },
+            {
+                label: 1610143200000,
+                value: 36,
+            },
+            {
+                label: 1610229600000,
+                value: 50,
+            },
+            {
+                label: 1610316000000,
+                value: 44,
+            },
+            {
+                label: 1610402400000,
+                value: 55,
+            },
+            {
+                label: 1610488800000,
+                value: 59,
+            },
+            {
+                label: 1610575200000,
+                value: 65,
+            },
+            {
+                label: 1610661600000,
+                value: 49,
+            },
+            {
+                label: 1610748000000,
+                value: 51,
+            },
+            {
+                label: 1610834400000,
+                value: 69,
+            },
+            {
+                label: 1610920800000,
+                value: 61,
+            },
+            {
+                label: 1611007200000,
+                value: 63,
+            },
+            {
+                label: 1611093600000,
+                value: 57,
+            },
+            {
+                label: 1611180000000,
+                value: 61,
+            },
+            {
+                label: 1611266400000,
+                value: 43,
+            },
+            {
+                label: 1611352800000,
+                value: 68,
+            },
+            {
+                label: 1611439200000,
+                value: 69,
+            },
+            {
+                label: 1611525600000,
+                value: 69,
+            },
+            {
+                label: 1611612000000,
+                value: 76,
+            },
+            {
+                label: 1611698400000,
+                value: 61,
+            },
+            {
+                label: 1611784800000,
+                value: 84,
+            },
+            {
+                label: 1611871200000,
+                value: 96,
+            },
+            {
+                label: 1611957600000,
+                value: 97,
+            },
+            {
+                label: 1612044000000,
+                value: 72,
+            },
+            {
+                label: 1612130400000,
+                value: 71,
+            },
+            {
+                label: 1612216800000,
+                value: 88,
+            },
+            {
+                label: 1612303200000,
+                value: 87,
+            },
+        ],
+    };
+    const areaChart = {
+        chart: 'area',
+        icon: 'filledCircle',
+        offset: 0.1,
+        gradient: {
+            gid: 'ar-grad',
+            points: [
+                {
+                    offset: 0,
+                    stopColor: 'rgba(0, 112, 224, 0.2)',
+                    stopOpacity: 1,
+                },
+                {
+                    offset: 95,
+                    stopColor: 'rgba(0, 128, 255, 0)',
+                    stopOpacity: 1,
+                },
             ],
         },
-
-        /*
-         * Пример графика типа area
-         */
-        {
-            /*
-             * Скрыть график
-             */
-            hide?: false,
-
-            /*
-             * Скрыть график в легенде
-             */
-            hideLegend?: false,
-
-            /*
-             * Скрыть график в тултипe
-             */
-            hideTooltip?: false,
-
-            /*
-             * Z-index графика
-             */
-            zIndex,
-
-            /*
-             * Тип графика
-             */
-            chart: 'ara',
-
-            /*
-             * Тип иконки для графика
-             */
-            icon,
-
-            /*
-             * Оффсет для градиента (только для типа area)
-             */
-            offset,
-
-            /**
-             * Параметры градиента
-             */
-            gradient: {
-
-                /**
-                 * Индефикатор градиента
-                 */
-                gid,
-
-                /**
-                 * Параметра точек для градиента
-                 */
-                points: [
-
-                    /**
-                     * Отступ
-                     */
-                    offset: number,
-
-                    /**
-                     * Цвет
-                     */
-                    stopColor: string,
-
-                    /**
-                     * Прозрачность
-                     */
-                    stopOpacity: number,
-                ];
-            };
-
-            /*
-             * Параметры графика
-             */
-            properties: {
-
-                /*
-                 * Название графика (отображается в легендах и тултипе)
-                 */
-                name,
-
-                /*
-                 * Ключ данных
-                 */
-                dataKey,
-
-                /*
-                 * Цвет линии графика
-                 */
-                stroke?: '#3182bd',
-
-                /*
-                 * Отображение точек на графике
-                 */
-                dot?,
-
-                /*
-                 * Параметры для точек грфика (если dot: true)
-                 */
-                dotSettings: [{
-
-                    /*
-                     * Значение media query
-                     */
-                    media,
-
-                    /*
-                     * Значение маштаба при ховере
-                     */
-                    scale,
-
-                    /*
-                     * Начальный значения маштаба
-                     */
-                    initScale,
-
-                    /*
-                     * Ширина точки
-                     */
-                    width,
-
-                    /*
-                     * Высота точки
-                     */
-                    height,
-                }],
-
-                /*
-                 * Наследование цвета
-                 */
-                inheritStroke?: false,
-
-                /*
-                 * Форматирование значения графика для тултипа
-                 */
-                formatter?,
-
-                /*
-                 * Тип линии
-                 */
-                type? 'linear',
-
-                /*
-                 * Толщина линии
-                 */
-                strokeWidth?: 1,
-
-                /*
-                 * Прерывистость линии
-                 */
-                strokeDasharray?,
+        properties: {
+            name: 'предыдущий период',
+            dataKey: 'a',
+            type: 'monotone',
+            stroke: 'var(--color-static-status-blue)',
+            dotSettings: {
+                scale: 1.5,
+                initScale: 0,
+                width: 18,
+                height: 18,
             },
-
-            /**
-             * Данные для построения графика
-             */
-            data: [
-
-                /**
-                 * Метка
-                 */
-                label,
-
-                /**
-                 * Значение
-                 */
-                value,
-            ]
+            dot: true,
+            strokeWidth: 2,
         },
-    ],
-};
+        data: [
+            {
+                label: 1608242400000,
+                value: 70,
+            },
+            {
+                label: 1608328800000,
+                value: 40,
+            },
+            {
+                label: 1608415200000,
+                value: 69,
+            },
+            {
+                label: 1608501600000,
+                value: 84,
+            },
+            {
+                label: 1608588000000,
+                value: 29,
+            },
+            {
+                label: 1608674400000,
+                value: 74,
+            },
+            {
+                label: 1608760800000,
+                value: 39,
+            },
+            {
+                label: 1608847200000,
+                value: 74,
+            },
+            {
+                label: 1608933600000,
+                value: 44,
+            },
+            {
+                label: 1609020000000,
+                value: 43,
+            },
+            {
+                label: 1609106400000,
+                value: 57,
+            },
+            {
+                label: 1609192800000,
+                value: 52,
+            },
+            {
+                label: 1609279200000,
+                value: 62,
+            },
+            {
+                label: 1609365600000,
+                value: 74,
+            },
+            {
+                label: 1609452000000,
+                value: 81,
+            },
+            {
+                label: 1609538400000,
+                value: 78,
+            },
+            {
+                label: 1609624800000,
+                value: 91,
+            },
+            {
+                label: 1609711200000,
+                value: 80,
+            },
+            {
+                label: 1609797600000,
+                value: 90,
+            },
+            {
+                label: 1609884000000,
+                value: 80,
+            },
+            {
+                label: 1609970400000,
+                value: 91,
+            },
+            {
+                label: 1610056800000,
+                value: 93,
+            },
+            {
+                label: 1610143200000,
+                value: 72,
+            },
+            {
+                label: 1610229600000,
+                value: 101,
+            },
+            {
+                label: 1610316000000,
+                value: 88,
+            },
+            {
+                label: 1610402400000,
+                value: 110,
+            },
+            {
+                label: 1610488800000,
+                value: 119,
+            },
+            {
+                label: 1610575200000,
+                value: 130,
+            },
+            {
+                label: 1610661600000,
+                value: 98,
+            },
+            {
+                label: 1610748000000,
+                value: 102,
+            },
+            {
+                label: 1610834400000,
+                value: 139,
+            },
+            {
+                label: 1610920800000,
+                value: 123,
+            },
+            {
+                label: 1611007200000,
+                value: 127,
+            },
+            {
+                label: 1611093600000,
+                value: 114,
+            },
+            {
+                label: 1611180000000,
+                value: 123,
+            },
+            {
+                label: 1611266400000,
+                value: 86,
+            },
+            {
+                label: 1611352800000,
+                value: 136,
+            },
+            {
+                label: 1611439200000,
+                value: 139,
+            },
+            {
+                label: 1611525600000,
+                value: 138,
+            },
+            {
+                label: 1611612000000,
+                value: 153,
+            },
+            {
+                label: 1611698400000,
+                value: 122,
+            },
+            {
+                label: 1611784800000,
+                value: 169,
+            },
+            {
+                label: 1611871200000,
+                value: 192,
+            },
+            {
+                label: 1611957600000,
+                value: 195,
+            },
+            {
+                label: 1612044000000,
+                value: 144,
+            },
+            {
+                label: 1612130400000,
+                value: 142,
+            },
+            {
+                label: 1612216800000,
+                value: 176,
+            },
+            {
+                label: 1612303200000,
+                value: 174,
+            },
+        ],
+    };
+    
+    return (
+        <div style={{ display: 'flex' }}>
+            <div style={{ width: '300px', height: '300px' }}>
+                    <Chart
+                        id={'line-chart'}
+                        composeChart={composeChart}
+                        cartesianGrid={cartesianGrid}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        tooltip={tooltip}
+                        legend={legend}
+                        brush={brush}
+                        labels={labelsLineChart}
+                        series={[lineChart, areaChart]}
+                    />
+            </div>
+        </div>
+    );
+});
 ```
