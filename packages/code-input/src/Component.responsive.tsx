@@ -6,7 +6,7 @@ import { CodeInputDesktop } from './Component.desktop';
 import { CodeInputMobile } from './Component.mobile';
 import { BaseCodeInputProps, CustomInputRef } from './typings';
 
-export type CodeInputProps = Omit<BaseCodeInputProps, 'inputClassName'> & {
+export type CodeInputProps = Omit<BaseCodeInputProps, 'stylesInput'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
