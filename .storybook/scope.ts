@@ -36,7 +36,11 @@ const requireComponents = (context: __WebpackModuleApi.RequireContext) =>
         return acc;
     }, {});
 
+const BREAKPOINT = 600;
+
 export default {
+    BREAKPOINT,
+    isMobile: () => document.body.clientWidth < BREAKPOINT,
     ...(componentsContext ? requireComponents(componentsContext) : {}),
     ...requireComponents(glyphContext),
     ...grid,
