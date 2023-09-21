@@ -1,6 +1,8 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
 
+import { getDataTestId } from '@alfalab/core-components-shared';
+
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -116,6 +118,16 @@ export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
     addonsClassName?: string;
 
     /**
+     * Свойства для обертки левых аддонов
+     */
+    leftAddonsProps?: HTMLAttributes<HTMLDivElement>;
+
+    /**
+     * Свойства для обертки правых аддонов
+     */
+    rightAddonsProps?: HTMLAttributes<HTMLDivElement>;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -162,6 +174,8 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
             dataTestId,
             styles,
             colorStyles = { default: {}, inverted: {} },
+            leftAddonsProps,
+            rightAddonsProps,
             ...restProps
         },
         ref,
@@ -222,10 +236,13 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                 >
                     {leftAddons && (
                         <div
+                            {...leftAddonsProps}
+                            data-test-id={getDataTestId(dataTestId, 'left-addons')}
                             className={cn(
                                 commonStyles.addons,
                                 commonStyles.leftAddons,
                                 addonsClassName,
+                                leftAddonsProps?.className,
                             )}
                         >
                             {leftAddons}
@@ -255,10 +272,13 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
 
                     {rightAddons && (
                         <div
+                            {...rightAddonsProps}
+                            data-test-id={getDataTestId(dataTestId, 'right-addons')}
                             className={cn(
                                 commonStyles.addons,
                                 commonStyles.rightAddons,
                                 addonsClassName,
+                                rightAddonsProps?.className,
                             )}
                         >
                             {rightAddons}
@@ -269,6 +289,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
 
                 {errorMessage && (
                     <span
+                        data-test-id={getDataTestId(dataTestId, 'error-message')}
                         className={cn(
                             commonStyles.sub,
                             styles.error,
@@ -282,6 +303,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
 
                 {hint && !errorMessage && (
                     <span
+                        data-test-id={getDataTestId(dataTestId, 'hint')}
                         className={cn(commonStyles.sub, styles.sub, colorCommonStyles[colors].hint)}
                     >
                         {hint}

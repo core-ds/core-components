@@ -36,6 +36,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-mq": "^4.2.0",
+        "@alfalab/core-components-shared": "^0.5.0",
         "classnames": "^2.3.1",
         "tslib": "^2.4.0"
     }

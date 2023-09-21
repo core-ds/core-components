@@ -38,6 +38,7 @@
         "@alfalab/core-components-form-control": "^10.0.1",
         "@alfalab/core-components-input": "^12.1.4",
         "@alfalab/core-components-select": "^15.1.6",
+        "@alfalab/core-components-shared": "^0.5.0",
         "@alfalab/hooks": "^1.13.0",
         "classnames": "^2.3.1",
         "lodash.throttle": "^4.1.1",

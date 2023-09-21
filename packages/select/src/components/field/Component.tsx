@@ -2,6 +2,7 @@ import React, { ElementType, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import type { FormControlProps } from '@alfalab/core-components-form-control';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { FieldProps as BaseFieldProps } from '../../typings';
@@ -63,6 +64,7 @@ export const Field = ({
         >
             {FormControlComponent ? (
                 <FormControlComponent
+                    dataTestId={getDataTestId(dataTestId, 'form-control')}
                     fieldClassName={cn(styles.field, fieldClassName, {
                         [styles.disabled]: disabled,
                         [styles.focusVisible]: focusVisible,
