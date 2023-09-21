@@ -5,16 +5,34 @@
 ```jsx live
 render(() => {
     const [multiple, setMultiple] = React.useState(false);
-    const breakpoint = 600;
+    const [progress, setProgress] = React.useState(0);
 
+    const simulateProgress = () => {
+        const interval = setInterval(() => {
+            setProgress((prevProgress) => {
+                if (prevProgress === 100) {
+                    clearInterval(interval);
+                    return 100;
+                }
+                return prevProgress + 1;
+            });
+        }, 100);
+  };
+  
+    const handleChange = () => {
+        simulateProgress()
+    };
+    
     return (
         <Space size={24} >
         <Attach 
             size='m' 
+            onChange={handleChange}
             multiple={multiple} 
             maxFilenameLength={isMobile() ? 10 : undefined}
+            progressBarPercent={progress === 100 ? null : progress}
             buttonProps={{
-                breakpoint,
+                breakpoint: BREAKPOINT,
                 nowrap: true,
             }}
         />
@@ -55,8 +73,6 @@ render(() => {
             .then((r) => setResponse(r));
     };
 
-    const breakpoint = 600;
-
     return (
         <Space size={24}>
             <Attach
@@ -68,7 +84,7 @@ render(() => {
                 size='m'
                 maxFilenameLength={isMobile() ? 10 : undefined}
                 buttonProps={{
-                    breakpoint,
+                    breakpoint: BREAKPOINT,
                     nowrap: true,
                 }}
             />

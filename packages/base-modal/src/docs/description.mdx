@@ -4,7 +4,6 @@
 render(() => {
     const [open, setOpen] = React.useState(false);
     const handleModalOpen = () => setOpen(!open);
-    const breakpoint = 600;
 
     return (
         <>
@@ -12,7 +11,7 @@ render(() => {
                 size='m' 
                 onClick={handleModalOpen} 
                 block={isMobile()} 
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
             >
                 Показать BaseModal
             </Button>
