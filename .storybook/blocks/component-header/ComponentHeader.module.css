@@ -16,6 +16,7 @@
 }
 
 .text {
+    max-width: 560px;
     margin-bottom: var(--gap-xl);
 }
 
