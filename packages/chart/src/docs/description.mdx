@@ -10,8 +10,6 @@ render(() => {
         fill: 'var(--color-light-bg-primary)',
     };
     const legend = {
-        align: 'left',
-        width: 390,
         marginTop: 10,
     };
     const tooltip = {
@@ -35,6 +33,19 @@ render(() => {
         alwaysShowText: true,
         stroke: 'var(--color-static-status-blue)',
     };
+
+    const chartBar = (includeValue) => {
+        const labels = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь']
+        if (includeValue) {
+            return labels.map((label, idx) => ({
+            label: label,
+            value:  Math.floor(Math.random() * 250) + 10
+            }));
+        } else {
+            return labels;
+        }
+    };
+
     const barChartFirst = {
         zIndex: 1,
         chart: 'bar',
@@ -44,32 +55,7 @@ render(() => {
             formatter: (decimal) => `${decimal * 1000}`,
             fill: 'var(--color-static-graphic-persimmon)',
         },
-        data: [
-            {
-                label: 'Январь',
-                value: 80,
-            },
-            {
-                label: 'Февраль',
-                value: 140,
-            },
-            {
-                label: 'Март',
-                value: 70,
-            },
-            {
-                label: 'Апрель',
-                value: 210,
-            },
-            {
-                label: 'Май',
-                value: 80,
-            },
-            {
-                label: 'Июнь',
-                value: 20,
-            },
-        ],
+        data: chartBar(true),
     };
     const barChartSecond = {
         zIndex: 10,
@@ -80,32 +66,7 @@ render(() => {
             formatter: (decimal) => `${decimal * 1000}`,
             fill: 'var(--color-static-graphic-green-jungle)',
         },
-        data: [
-            {
-                label: 'Январь',
-                value: 110,
-            },
-            {
-                label: 'Февраль',
-                value: 190,
-            },
-            {
-                label: 'Март',
-                value: 60,
-            },
-            {
-                label: 'Апрель',
-                value: 230,
-            },
-            {
-                label: 'Май',
-                value: 190,
-            },
-            {
-                label: 'Июнь',
-                value: 30,
-            },
-        ],
+        data: chartBar(true),
     };
     const lineChart = {
         zIndex: 50,
@@ -126,32 +87,7 @@ render(() => {
             type: 'monotone',
             strokeWidth: 2,
         },
-        data: [
-            {
-                label: 'Январь',
-                value: 60,
-            },
-            {
-                label: 'Февраль',
-                value: 95,
-            },
-            {
-                label: 'Март',
-                value: 20,
-            },
-            {
-                label: 'Апрель',
-                value: 180,
-            },
-            {
-                label: 'Май',
-                value: 70,
-            },
-            {
-                label: 'Июнь',
-                value: 10,
-            },
-        ],
+        data: chartBar(true),
     };
     const composeChart = {
         initMargin: {
@@ -174,11 +110,10 @@ render(() => {
         tickMargin: 0,
         tickFormatter: (decimal) => `${decimal}\xa0тыс.`,
     };
-    const labelsBarChart = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь'];
 
     return (
         <div style={{ display: 'flex' }}>
-            <div style={{ width: '300px', height: '300px' }}>
+            <div style={{ width: '600px', height: '400px' }}>
                 <Chart
                     id='bar-chart'
                     composeChart={composeChart}
@@ -188,7 +123,7 @@ render(() => {
                     tooltip={tooltip}
                     legend={legend}
                     brush={brush}
-                    labels={labelsBarChart}
+                    labels={chartBar(false)}
                     series={[barChartFirst, barChartSecond, lineChart]}
                 />
             </div>
@@ -275,7 +210,7 @@ render(() => {
         
     return (
         <div style={{ display: 'flex' }}>
-           <div style={{ width: '300px', height: '300px' }}>
+           <div style={{ width: '600px', height: '400px' }}>
                     <Chart
                         id='bar-chart'
                         composeChart={composeChart}
@@ -322,9 +257,8 @@ render(() => {
     };
     const legend = {
         verticalAlign: 'top',
-        width: 390,
         marginTop: 15,
-        iconHeight: 15,
+        iconHeight: 20,
     };
     const tooltip = {
         separator: ' ',
@@ -350,18 +284,24 @@ render(() => {
         alwaysShowText: true,
         tickFormatter: formatXAxis,
     };
-    const labelsLineChart = [
-        1608242400000, 1608328800000, 1608415200000, 1608501600000, 1608588000000,
-        1608674400000, 1608760800000, 1608847200000, 1608933600000, 1609020000000,
-        1609106400000, 1609192800000, 1609279200000, 1609365600000, 1609452000000,
-        1609538400000, 1609624800000, 1609711200000, 1609797600000, 1609884000000,
-        1609970400000, 1610056800000, 1610143200000, 1610229600000, 1610316000000,
-        1610402400000, 1610488800000, 1610575200000, 1610661600000, 1610748000000,
-        1610834400000, 1610920800000, 1611007200000, 1611093600000, 1611180000000,
-        1611266400000, 1611352800000, 1611439200000, 1611525600000, 1611612000000,
-        1611698400000, 1611784800000, 1611871200000, 1611957600000, 1612044000000,
-        1612130400000, 1612216800000, 1612303200000,
-    ];
+
+    const chartData = (num, includeValue) => {
+        const labels = Array(20).fill(null).map((_, idx) => {
+            const date = new Date('2020-12-18');
+            date.setDate(date.getDate() + idx);
+            return date.getTime();
+        });
+
+        if (includeValue) {
+            return labels.map((label, idx) => ({
+            label: idx === 0 ? label : labels[idx - 1],
+            value: idx === 0 ? 15 : Math.floor(Math.random() * num) + 10
+            }));
+        } else {
+            return labels;
+        }
+    };
+
     const lineChart = {
         chart: 'line',
         icon: 'strokeCircle',
@@ -381,200 +321,7 @@ render(() => {
             strokeWidth: 2,
             strokeDasharray: '10 10',
         },
-        data: [
-            {
-                label: 1608242400000,
-                value: 35,
-            },
-            {
-                label: 1608328800000,
-                value: 20,
-            },
-            {
-                label: 1608415200000,
-                value: 34,
-            },
-            {
-                label: 1608501600000,
-                value: 42,
-            },
-            {
-                label: 1608588000000,
-                value: 14,
-            },
-            {
-                label: 1608674400000,
-                value: 37,
-            },
-            {
-                label: 1608760800000,
-                value: 19,
-            },
-            {
-                label: 1608847200000,
-                value: 37,
-            },
-            {
-                label: 1608933600000,
-                value: 22,
-            },
-            {
-                label: 1609020000000,
-                value: 21,
-            },
-            {
-                label: 1609106400000,
-                value: 28,
-            },
-            {
-                label: 1609192800000,
-                value: 26,
-            },
-            {
-                label: 1609279200000,
-                value: 31,
-            },
-            {
-                label: 1609365600000,
-                value: 37,
-            },
-            {
-                label: 1609452000000,
-                value: 40,
-            },
-            {
-                label: 1609538400000,
-                value: 39,
-            },
-            {
-                label: 1609624800000,
-                value: 45,
-            },
-            {
-                label: 1609711200000,
-                value: 40,
-            },
-            {
-                label: 1609797600000,
-                value: 45,
-            },
-            {
-                label: 1609884000000,
-                value: 40,
-            },
-            {
-                label: 1609970400000,
-                value: 45,
-            },
-            {
-                label: 1610056800000,
-                value: 46,
-            },
-            {
-                label: 1610143200000,
-                value: 36,
-            },
-            {
-                label: 1610229600000,
-                value: 50,
-            },
-            {
-                label: 1610316000000,
-                value: 44,
-            },
-            {
-                label: 1610402400000,
-                value: 55,
-            },
-            {
-                label: 1610488800000,
-                value: 59,
-            },
-            {
-                label: 1610575200000,
-                value: 65,
-            },
-            {
-                label: 1610661600000,
-                value: 49,
-            },
-            {
-                label: 1610748000000,
-                value: 51,
-            },
-            {
-                label: 1610834400000,
-                value: 69,
-            },
-            {
-                label: 1610920800000,
-                value: 61,
-            },
-            {
-                label: 1611007200000,
-                value: 63,
-            },
-            {
-                label: 1611093600000,
-                value: 57,
-            },
-            {
-                label: 1611180000000,
-                value: 61,
-            },
-            {
-                label: 1611266400000,
-                value: 43,
-            },
-            {
-                label: 1611352800000,
-                value: 68,
-            },
-            {
-                label: 1611439200000,
-                value: 69,
-            },
-            {
-                label: 1611525600000,
-                value: 69,
-            },
-            {
-                label: 1611612000000,
-                value: 76,
-            },
-            {
-                label: 1611698400000,
-                value: 61,
-            },
-            {
-                label: 1611784800000,
-                value: 84,
-            },
-            {
-                label: 1611871200000,
-                value: 96,
-            },
-            {
-                label: 1611957600000,
-                value: 97,
-            },
-            {
-                label: 1612044000000,
-                value: 72,
-            },
-            {
-                label: 1612130400000,
-                value: 71,
-            },
-            {
-                label: 1612216800000,
-                value: 88,
-            },
-            {
-                label: 1612303200000,
-                value: 87,
-            },
-        ],
+        data: chartData(30, true)
     };
     const areaChart = {
         chart: 'area',
@@ -609,205 +356,12 @@ render(() => {
             dot: true,
             strokeWidth: 2,
         },
-        data: [
-            {
-                label: 1608242400000,
-                value: 70,
-            },
-            {
-                label: 1608328800000,
-                value: 40,
-            },
-            {
-                label: 1608415200000,
-                value: 69,
-            },
-            {
-                label: 1608501600000,
-                value: 84,
-            },
-            {
-                label: 1608588000000,
-                value: 29,
-            },
-            {
-                label: 1608674400000,
-                value: 74,
-            },
-            {
-                label: 1608760800000,
-                value: 39,
-            },
-            {
-                label: 1608847200000,
-                value: 74,
-            },
-            {
-                label: 1608933600000,
-                value: 44,
-            },
-            {
-                label: 1609020000000,
-                value: 43,
-            },
-            {
-                label: 1609106400000,
-                value: 57,
-            },
-            {
-                label: 1609192800000,
-                value: 52,
-            },
-            {
-                label: 1609279200000,
-                value: 62,
-            },
-            {
-                label: 1609365600000,
-                value: 74,
-            },
-            {
-                label: 1609452000000,
-                value: 81,
-            },
-            {
-                label: 1609538400000,
-                value: 78,
-            },
-            {
-                label: 1609624800000,
-                value: 91,
-            },
-            {
-                label: 1609711200000,
-                value: 80,
-            },
-            {
-                label: 1609797600000,
-                value: 90,
-            },
-            {
-                label: 1609884000000,
-                value: 80,
-            },
-            {
-                label: 1609970400000,
-                value: 91,
-            },
-            {
-                label: 1610056800000,
-                value: 93,
-            },
-            {
-                label: 1610143200000,
-                value: 72,
-            },
-            {
-                label: 1610229600000,
-                value: 101,
-            },
-            {
-                label: 1610316000000,
-                value: 88,
-            },
-            {
-                label: 1610402400000,
-                value: 110,
-            },
-            {
-                label: 1610488800000,
-                value: 119,
-            },
-            {
-                label: 1610575200000,
-                value: 130,
-            },
-            {
-                label: 1610661600000,
-                value: 98,
-            },
-            {
-                label: 1610748000000,
-                value: 102,
-            },
-            {
-                label: 1610834400000,
-                value: 139,
-            },
-            {
-                label: 1610920800000,
-                value: 123,
-            },
-            {
-                label: 1611007200000,
-                value: 127,
-            },
-            {
-                label: 1611093600000,
-                value: 114,
-            },
-            {
-                label: 1611180000000,
-                value: 123,
-            },
-            {
-                label: 1611266400000,
-                value: 86,
-            },
-            {
-                label: 1611352800000,
-                value: 136,
-            },
-            {
-                label: 1611439200000,
-                value: 139,
-            },
-            {
-                label: 1611525600000,
-                value: 138,
-            },
-            {
-                label: 1611612000000,
-                value: 153,
-            },
-            {
-                label: 1611698400000,
-                value: 122,
-            },
-            {
-                label: 1611784800000,
-                value: 169,
-            },
-            {
-                label: 1611871200000,
-                value: 192,
-            },
-            {
-                label: 1611957600000,
-                value: 195,
-            },
-            {
-                label: 1612044000000,
-                value: 144,
-            },
-            {
-                label: 1612130400000,
-                value: 142,
-            },
-            {
-                label: 1612216800000,
-                value: 176,
-            },
-            {
-                label: 1612303200000,
-                value: 174,
-            },
-        ],
+        data: chartData(50, true)
     };
     
     return (
         <div style={{ display: 'flex' }}>
-            <div style={{ width: '300px', height: '300px' }}>
+            <div style={{ width: '600px', height: '400px' }}>
                     <Chart
                         id={'line-chart'}
                         composeChart={composeChart}
@@ -817,7 +371,7 @@ render(() => {
                         tooltip={tooltip}
                         legend={legend}
                         brush={brush}
-                        labels={labelsLineChart}
+                        labels={chartData(30, false)}
                         series={[lineChart, areaChart]}
                     />
             </div>
