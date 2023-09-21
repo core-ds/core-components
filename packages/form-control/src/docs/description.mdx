@@ -1,21 +1,41 @@
 ## Размеры
 
-XL (72px), L (64px), M (56px), S (48px).
+Компонент доступен в размерах XL, L, M, S.
 
 ```jsx live
-render(() => {
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <FormControl block={true} label='Label' size='xl' />
-            <Gap size='m' />
-            <FormControl block={true} label='Label' size='l' />
-            <Gap size='m' />
-            <FormControl block={true} label='Label' size='m' />
-            <Gap size='m' />
-            <FormControl block={true} label='Label' size='s' />
-        </div>
-    );
-});
+    <div style={{ width: 320 }}>
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='xl' 
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='m' />
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='l' 
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='m' />
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='m' 
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='m' />
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='s' 
+            breakpoint={BREAKPOINT}
+        />
+    </div>
 ```
 
 ## Лейбл
@@ -23,23 +43,72 @@ render(() => {
 Лейбл может быть размещен внутри либо снаружи инпута или отсутствовать.
 
 ```jsx live
+    <div style={{ width: 320 }}>
+        <Input 
+            block
+            placeholder='Placeholder'
+            label='Лейбл внутри'
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='l' />
+        <Input
+            block
+            placeholder='Placeholder'
+            label='Лейбл снаружи'
+            size={isMobile() ? 's' : 'm'}
+            labelView='outer'
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='l' />
+        <Input 
+            block 
+            placeholder='Placeholder' 
+            size={isMobile() ? 's' : 'm'} 
+            breakpoint={BREAKPOINT} 
+        />
+    </div>
+```
+
+## Префиксы и суффиксы
+
+Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения. 
+
+```jsx live
 render(() => {
+    const SuffixInputComponent = isMobile() ? withSuffix(InputMobile) : withSuffix(InputDesktop);
+
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Input block label='Лейбл внутри' size='m' />
-            <Gap size='m' />
-            <Input
-                block
-                placeholder='Placeholder'
-                label='Лейбл снаружи'
-                size='m'
-                labelView='outer'
+        <div style={{ width: 320 }}>
+            <SuffixInputComponent
+                value='Value'
+                block={true}
+                label='Label'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
+                breakpoint={BREAKPOINT}
             />
-            <Gap size='m' />
-            <Input block placeholder='Placeholder' size='m' labelView='outer' />
         </div>
     );
 });
+```
+
+## Хинт
+
+Под полем ввода можно разместить подсказку.
+
+```jsx live
+    <div style={{ width: 320 }}>
+        <FormControl 
+            block={true} 
+            label='Label' 
+            hint='Hint' 
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT}
+        />
+    </div>
 ```
 
 ## Аддоны
@@ -49,28 +118,82 @@ render(() => {
 
 ```jsx live
 render(() => {
+    const styleWrapperIcons = {
+        height: '100%',
+        display: 'flex',
+        gap: 4,
+    };
+
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <FormControl block={true} label='Label' size='m' leftAddons={<StarMIcon />} />
-            <Gap size='m' />
-            <FormControl block={true} label='Label' size='m' rightAddons={<StarMIcon />} />
-            <Gap size='m' />
+        <div style={{ width: 320 }}>
+            <FormControl 
+                block={true} 
+                label='Label' 
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT} 
+                leftAddons={
+                    <IconButton
+                        view='secondary'
+                        icon={DiamondsMIcon}
+                        size='xs'
+                        alignIcon='left'
+                    />
+                } 
+            />
+            <Gap size='l' />
+            <FormControl 
+                block={true} 
+                label='Label' 
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT} 
+                rightAddons={
+                    <IconButton
+                        view='secondary'
+                        icon={DiamondsMIcon}
+                        size='xs'
+                        alignIcon='right'
+                    />
+                } 
+            />
+            <Gap size='l' />
             <FormControl
                 block={true}
                 label='Label'
-                size='m'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
                 leftAddons={
-                    <div>
-                        <StarMIcon />
-                        <Gap size='xxs' direction='horizontal' />
-                        <StarMIcon />
+                    <div style={{...styleWrapperIcons, marginLeft: 'var(--gap-xs-neg)' }}>
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
                     </div>
                 }
                 rightAddons={
-                    <div>
-                        <StarMIcon />
-                        <Gap size='xxs' direction='horizontal' />
-                        <StarMIcon />
+                    <div style={{...styleWrapperIcons, marginRight: 'var(--gap-xs-neg)' }}>
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='right'
+                        />
+                        <IconButton
+                            view='secondary'
+                            icon={DiamondsMIcon}
+                            size='xs'
+                            alignIcon='left'
+                        />
                     </div>
                 }
             />
@@ -79,37 +202,32 @@ render(() => {
 });
 ```
 
-## Суффиксы
+## BottomAddon
 
-Инпут может содержать предзаполненное значение, располагающееся спереди вводимого пользователем значения.
+При необходимости в BottomAddon может быть передан любой контент, например шкала для слайдера.
 
 ```jsx live
 render(() => {
-    const SuffixInput = withSuffix(Input);
+    const [value, setValue] = React.useState(3);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <SuffixInput
-                value='Value'
-                block={true}
+        <div style={{ width: 320 }}>
+            <SliderInput
+                value={value}
                 label='Label'
-                size='m'
-                suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                pips={{
+                    mode: 'values',
+                    values: [1, 10 / 2, 10],
+                }}
+                min={1}
+                max={10}
+                step={1}
+                block={true}
+                onChange={(_, { value }) => setValue(value)}
+                breakpoint={BREAKPOINT}
             />
-        </div>
-    );
-});
-```
-
-## Хинт
-
-Это тоже слот. При необходимости в него может быть передан любой контент, например шкала для слайдера.
-
-```jsx live
-render(() => {
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <FormControl block={true} label='Label' hint='Hint' size='m' />
         </div>
     );
 });
