@@ -31,24 +31,22 @@ render(() => {
         setValue('');
     }, []);
 
-    const isMobile = document.body.clientWidth < 600;
-
     return (
-        <div style={{ width: isMobile ? '100%' : 320 }}>
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
             <NumberInput
                 value={value}
                 block={true}
                 onChange={handleChange}
                 placeholder='Введите число'
                 label='Число'
-                labelView={isMobile ? 'outer' : 'inner'}
+                labelView={isMobile() ? 'outer' : 'inner'}
                 separator={allowSignsRadioValue === 'comma' ? ',' : '.'}
                 fractionLength={fractionLengthRadioValue === 'limited' ? 2 : undefined}
                 allowSigns={signsRadioValue === 'allowSigns'}
-                size={isMobile ? 's' : 'm'}
+                size={isMobile() ? 's' : 'm'}
                 clear={true}
                 onClear={() => setValue('')}
-                breakpoint={600}
+                breakpoint={BREAKPOINT}
             />
             <Gap size='xl' />
             <RadioGroup
