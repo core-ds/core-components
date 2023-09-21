@@ -4,31 +4,25 @@
 Для мобильного веба рекомендуемый размер S с внешним расположением лейбла.
 
 ```jsx live
-render(() => {
-    const breakpoint = 600;
-
-    return (
-        <div style={{ width: 320 }}>
-            <Input 
-                placeholder='Введите текст' 
-                block={true} 
-                label='Текст' 
-                labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint} 
-            />
-            <Gap size='m' />
-            <Input 
-                placeholder='Введите email' 
-                block={true} 
-                label='Email' 
-                labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint} 
-            />
-        </div>
-    );
-});
+    <div style={{ width: 320 }}>
+        <Input 
+            placeholder='Введите текст' 
+            block={true} 
+            label='Текст' 
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT} 
+        />
+        <Gap size='m' />
+        <Input 
+            placeholder='Введите email' 
+            block={true} 
+            label='Email' 
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT} 
+        />
+    </div>
 ```
 
 ## Валидация
@@ -38,7 +32,6 @@ render(() => {
 ```jsx live
 render(() => {
     const [error, setError] = React.useState(false);
-    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
@@ -49,7 +42,7 @@ render(() => {
                     placeholder='Placeholder' 
                     labelView={isMobile() ? 'outer' : 'inner'}
                     size={isMobile() ? 's' : 'm'}
-                    breakpoint={breakpoint} 
+                    breakpoint={BREAKPOINT} 
                     error={error} />
             </div>
             <Gap size='xl' />
@@ -73,7 +66,6 @@ render(() => {
 ```jsx live
 render(() => {
     const [inputProps, setInputProps] = React.useState({});
-    const breakpoint = 600;
 
     return (
         <div>
@@ -84,7 +76,7 @@ render(() => {
                     label='Label' 
                     labelView={isMobile() ? 'outer' : 'inner'}
                     size={isMobile() ? 's' : 'm'}
-                    breakpoint={breakpoint}  
+                    breakpoint={BREAKPOINT}  
                     {...inputProps} 
                 />
             </div>
@@ -125,7 +117,6 @@ render(() => {
 ```jsx live
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const breakpoint = 600;
 
     /* Указать для IconButton через className */
     const css = `
@@ -142,7 +133,7 @@ render(() => {
                 label={!isMobile() && 'Инпут с плейсхолдером'}
                 placeholder={isMobile() ? 'Инпут с плейсхолдером' : 'Placeholder'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
                 hint='Подсказка под полем'
                 rightAddons={
                     <Tooltip
@@ -200,7 +191,6 @@ render(() => {
     };
 
     const hasError = value !== '' && !success;
-    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
@@ -213,7 +203,7 @@ render(() => {
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
                 success={success}
                 error={hasError}
                 rightAddons={
@@ -244,7 +234,6 @@ render(() => {
 ```jsx live
 render(() => {
     const [value, setValue] = React.useState('Value');
-    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
@@ -256,7 +245,7 @@ render(() => {
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
                 clear={true}
                 onClear={() => setValue('')}
             />
@@ -309,8 +298,6 @@ render(() => {
         }
     `;
 
-    const breakpoint = 600;
-
     return (
         <div style={{ width: 320 }}>
             <style>{css}</style>
@@ -322,7 +309,7 @@ render(() => {
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
                 rightAddons={
                     <IconButton
                         view='secondary'
@@ -342,7 +329,7 @@ render(() => {
                 placeholder='Placeholder'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
                 rightAddons={
                     <div style={styleWrapperIcons}>
                         <IconButton

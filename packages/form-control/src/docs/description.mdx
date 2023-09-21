@@ -3,45 +3,39 @@
 Компонент доступен в размерах XL, L, M, S.
 
 ```jsx live
-render(() => {
-    const breakpoint = 600;
-
-    return (
-        <div style={{ width: 320 }}>
-            <FormControl 
-                block={true} 
-                label='Label' 
-                labelView={isMobile() ? 'outer' : 'inner'} 
-                size='xl' 
-                breakpoint={breakpoint}
-            />
-            <Gap size='m' />
-            <FormControl 
-                block={true} 
-                label='Label' 
-                labelView={isMobile() ? 'outer' : 'inner'} 
-                size='l' 
-                breakpoint={breakpoint}
-            />
-            <Gap size='m' />
-            <FormControl 
-                block={true} 
-                label='Label' 
-                labelView={isMobile() ? 'outer' : 'inner'} 
-                size='m' 
-                breakpoint={breakpoint}
-            />
-            <Gap size='m' />
-            <FormControl 
-                block={true} 
-                label='Label' 
-                labelView={isMobile() ? 'outer' : 'inner'} 
-                size='s' 
-                breakpoint={breakpoint}
-            />
-        </div>
-    );
-});
+    <div style={{ width: 320 }}>
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='xl' 
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='m' />
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='l' 
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='m' />
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='m' 
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='m' />
+        <FormControl 
+            block={true} 
+            label='Label' 
+            labelView={isMobile() ? 'outer' : 'inner'} 
+            size='s' 
+            breakpoint={BREAKPOINT}
+        />
+    </div>
 ```
 
 ## Лейбл
@@ -49,37 +43,31 @@ render(() => {
 Лейбл может быть размещен внутри либо снаружи инпута или отсутствовать.
 
 ```jsx live
-render(() => {
-    const breakpoint = 600;
-
-    return (
-        <div style={{ width: 320 }}>
-            <Input 
-                block
-                placeholder='Placeholder'
-                label='Лейбл внутри'
-                size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
-            />
-            <Gap size='l' />
-            <Input
-                block
-                placeholder='Placeholder'
-                label='Лейбл снаружи'
-                size={isMobile() ? 's' : 'm'}
-                labelView='outer'
-                breakpoint={breakpoint}
-            />
-            <Gap size='l' />
-            <Input 
-                block 
-                placeholder='Placeholder' 
-                size={isMobile() ? 's' : 'm'} 
-                breakpoint={breakpoint} 
-            />
-        </div>
-    );
-});
+    <div style={{ width: 320 }}>
+        <Input 
+            block
+            placeholder='Placeholder'
+            label='Лейбл внутри'
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='l' />
+        <Input
+            block
+            placeholder='Placeholder'
+            label='Лейбл снаружи'
+            size={isMobile() ? 's' : 'm'}
+            labelView='outer'
+            breakpoint={BREAKPOINT}
+        />
+        <Gap size='l' />
+        <Input 
+            block 
+            placeholder='Placeholder' 
+            size={isMobile() ? 's' : 'm'} 
+            breakpoint={BREAKPOINT} 
+        />
+    </div>
 ```
 
 ## Префиксы и суффиксы
@@ -89,7 +77,6 @@ render(() => {
 ```jsx live
 render(() => {
     const SuffixInputComponent = isMobile() ? withSuffix(InputMobile) : withSuffix(InputDesktop);
-    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
@@ -100,7 +87,7 @@ render(() => {
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
                 suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
             />
         </div>
     );
@@ -112,22 +99,16 @@ render(() => {
 Под полем ввода можно разместить подсказку.
 
 ```jsx live
-render(() => {
-    const breakpoint = 600;
-
-    return (
-        <div style={{ width: 320 }}>
-            <FormControl 
-                block={true} 
-                label='Label' 
-                hint='Hint' 
-                labelView={isMobile() ? 'outer' : 'inner'}
-                size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
-            />
-        </div>
-    );
-});
+    <div style={{ width: 320 }}>
+        <FormControl 
+            block={true} 
+            label='Label' 
+            hint='Hint' 
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT}
+        />
+    </div>
 ```
 
 ## Аддоны
@@ -143,8 +124,6 @@ render(() => {
         gap: 4,
     };
 
-    const breakpoint = 600;
-
     return (
         <div style={{ width: 320 }}>
             <FormControl 
@@ -152,7 +131,7 @@ render(() => {
                 label='Label' 
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint} 
+                breakpoint={BREAKPOINT} 
                 leftAddons={
                     <IconButton
                         view='secondary'
@@ -168,7 +147,7 @@ render(() => {
                 label='Label' 
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint} 
+                breakpoint={BREAKPOINT} 
                 rightAddons={
                     <IconButton
                         view='secondary'
@@ -184,7 +163,7 @@ render(() => {
                 label='Label'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 size={isMobile() ? 's' : 'm'}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
                 leftAddons={
                     <div style={{...styleWrapperIcons, marginLeft: 'var(--gap-xs-neg)' }}>
                         <IconButton
@@ -230,7 +209,6 @@ render(() => {
 ```jsx live
 render(() => {
     const [value, setValue] = React.useState(3);
-    const breakpoint = 600;
 
     return (
         <div style={{ width: 320 }}>
@@ -248,7 +226,7 @@ render(() => {
                 step={1}
                 block={true}
                 onChange={(_, { value }) => setValue(value)}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
             />
         </div>
     );
