@@ -16,8 +16,6 @@ render(() => {
         setSuffix(payload.value);
     };
 
-    const breakpoint = 600;
-
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
             <AmountInput 
@@ -30,7 +28,7 @@ render(() => {
                 suffix={suffixInput}
                 block={true}
                 size={isMobile() ? 's': 'm'}
-                breakpoint={breakpoint}
+                breakpoint={BREAKPOINT}
             />
             <Gap size='xl'/>
             <RadioGroup
