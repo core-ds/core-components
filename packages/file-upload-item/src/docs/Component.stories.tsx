@@ -1,27 +1,28 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
 
-import { FileUploadItem as FileUploadItemTS } from '../Component';
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/FileUploadItem' component={FileUploadItem} id='FileUploadItem' />
-
-export const WRAPPER_STYLES = {
+const WRAPPER_STYLES = {
     background: 'var(--color-light-bg-primary)',
 };
 
-{/* Canvas */}
+const meta: Meta<typeof FileUploadItem> = {
+    title: 'Components/FileUploadItem',
+    component: FileUploadItem,
+    id: 'FileUploadItem',
+};
 
-<Story name='FileUploadItem'>
-    {React.createElement(() => {
+type Story = StoryObj<typeof FileUploadItem>;
+
+export const file_upload_item: Story = {
+    name: 'FileUploadItem',
+    render: () => {
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
         return isPreview ? (
@@ -69,24 +70,7 @@ export const WRAPPER_STYLES = {
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='FileUploadItem'
-    version={packageJson.version}
-    package='@alfalab/core-components/file-upload-item'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=8957%3A60224'
-/>
-
-```jsx
-import { FileUploadItem } from '@alfalab/core-components/file-upload-item';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={FileUploadItemTS} />}
-/>
+export default meta;

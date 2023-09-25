@@ -1,8 +1,9 @@
-Компонент drag-and-drop контейнер для прикрепления файлов.
+## Примеры
 
-```jsx live
+```jsx live desktopOnly
 render(() => {
     const [filesList, setFilesList] = React.useState([]);
+    const [ downloadStatus, setDownloadStatus] = React.useState('success');
 
     const handleDrop = files => {
         setFilesList(
@@ -11,81 +12,59 @@ render(() => {
                 .filter(Boolean),
         );
     };
-
-    return (
-        <Dropzone
-            error={boolean('error', false)}
-            overlayVisible={boolean('overlayVisible', false)}
-            onDrop={handleDrop}
-        >
-            <div
-                style={{
-                    width: 320,
-                    height: 200,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                {filesList.length > 0 ? (
-                    <ul>
-                        {filesList.map(file => (
-                            <li key={file}>{file}</li>
-                        ))}
-                    </ul>
-                ) : (
-                    <span>children</span>
-                )}
-            </div>
-        </Dropzone>
-    );
-});
-```
-
-
-### Управление оверлеем
-
-По умолчанию оверлей показывается при перетаскивании файлов в дропзону.
-
-В помощью свойства `Overlay` можно отрисовать кастомный оверлей, либо вообще отключить его через `Overlay={null}`
-
-```jsx live
-render(() => {
-    const [filesList, setFilesList] = React.useState([]);
-
-    const handleDrop = files => {
-        setFilesList(
-            Array.from(files)
-                .map(file => file.name)
-                .filter(Boolean),
-        );
+    const onDownloadStatusChange = (_, payload) => {
+        setDownloadStatus(payload.value);
+        setFilesList([])
     };
+    
+    const stylesStatus = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 724,
+        height: 200,
+    }
+
+    const stylesText = {
+        lineHeight: '24px',
+        marginTop: 8,
+    }
+
+    const isError = filesList.length && downloadStatus === 'error';
+
+    const statusDropzone = (text, Icon)=> (
+        <div style={stylesStatus}> 
+            <Icon />
+            <span style={stylesText}>{text}</span>
+        </div>
+    )
 
     return (
-        <Dropzone
-            Overlay={null}
-            onDrop={handleDrop}
-        >
-            <div
-                style={{
-                    width: 320,
-                    height: 200,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
+        <Space size={24}>
+            <Dropzone
+                error={isError}
+                onDrop={handleDrop}
             >
-                {filesList.length > 0 ? (
-                    <ul>
-                        {filesList.map(file => (
-                            <li key={file}>{file}</li>
-                        ))}
-                    </ul>
-                ) : (
-                    <span>Перетащите файлы</span>
-                )}
-            </div>
-        </Dropzone>
+                    {filesList.length > 0 ? (
+                        downloadStatus === 'success' ?
+                        statusDropzone('Успех',CheckmarkMIcon ) :
+                        statusDropzone('Ошибка',CrossMIcon )
+                    ) : (
+                        statusDropzone('Перетащите файлы',ContainerMIcon )
+                    )}
+            </Dropzone>
+            <RadioGroup
+                label='Состояние после загрузки'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onDownloadStatusChange}
+                value={downloadStatus}
+            >
+                <Radio size='m' label='Успех' value='success' />
+                <Radio size='m' label='Ошибка' value='error' />
+            </RadioGroup>
+        </Space>
     );
 });
 ```
