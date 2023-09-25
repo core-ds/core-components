@@ -21,6 +21,7 @@ exports[`withSuffix Snapshots tests should match snapshot 1`] = `
           />
           <div
             class="suffixContainer"
+            translate="no"
           >
             <span
               class="spacer"
