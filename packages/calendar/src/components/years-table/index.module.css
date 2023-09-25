@@ -28,16 +28,9 @@
     & .inner {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
         position: relative;
-
-        /* (width - inner-width) / 2 */
-        left: 32px;
         overflow: hidden;
-
-        @media (max-width: 374px) {
-            left: 16px;
-        }
     }
 
     & .button {
