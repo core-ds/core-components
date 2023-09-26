@@ -81,10 +81,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.110.0.tgz#f99b02416e210f97684e64bddc20fa6ff6250586"
   integrity sha512-rkHyGj/79v/5+dUjn2U6ETV+g+ROl0lFvfZyMo12SDrpoetWgG0OjA7Z7JDSOohJhga0XAvKITSJkX1pRixi8g==
 
-"@alfalab/icons-logotype@^2.19.0":
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.19.0.tgz#7d223c79ea7decc8d6659af87ccc242f7d0a6ad5"
-  integrity sha512-9J5W3JXIZlKhDB1uq4nXkUTAlzubCjHkhjdUrO0Bk9zh7dJF0SgkrRAIkHLf9thGH/hgI/5Tsc0Gjq1cGl+Oew==
+"@alfalab/icons-logotype@^2.19.0", "@alfalab/icons-logotype@^2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.27.0.tgz#74510f49dbf0790b73b26d494cb77fde5b4cf9d0"
+  integrity sha512-n8MAGItrO1C0Z2ZDR8bQzXZQs78lI5f/7jXvzGLOFvNTlO0iRg8Uvx71slAJMJoALH+RQii9DwPrn8PX9hYQ+Q==
 
 "@alfalab/rollup-plugin-postcss@^3.6.1":
   version "3.6.1"
