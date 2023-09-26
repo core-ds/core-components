@@ -41,7 +41,7 @@ render(() => {
     return (
         <div style={{ width: 344 }}>
             <div style={calendarStyles}>
-                <Calendar
+                <CalendarDesktop
                     value={value}
                     responsive={true}
                     onChange={setValue}
@@ -220,7 +220,7 @@ render(() => {
     return (
         <div style={{ width: 344 }}>
             <div style={calendarStyles}>
-                <Calendar
+                <CalendarDesktop
                     responsive={true}
                     selectedFrom={selectedFrom}
                     selectedTo={selectedTo}
@@ -432,7 +432,7 @@ render(() => {
 
     return (
         <div style={{ width: '344px', ...calendarStyles }}>
-            <Calendar
+            <CalendarDesktop
                 defaultMonth={defaultDate.getTime()}
                 value={value}
                 onChange={setValue}
@@ -523,7 +523,7 @@ render(() => {
     return (
         <>
             <div style={{ width: '344px', ...calendarStyles }}>
-                <Calendar
+                <CalendarDesktop
                     responsive={true}
                     selectorView='month-only'
                     value={value}
@@ -635,7 +635,7 @@ render(() => {
 
     return (
         <div style={{ width: '344px', ...calendarStyles }}>
-            <Calendar
+            <CalendarDesktop
                 responsive={true}
                 value={value}
                 selectorView='month-only'
@@ -724,7 +724,7 @@ render(() => {
 
     return (
         <div style={{ width: '344px', ...calendarStyles }}>
-            <Calendar
+            <CalendarDesktop
                 responsive={true}
                 value={value}
                 onChange={setValue}

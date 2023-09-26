@@ -1,0 +1,23 @@
+@import '../../../../themes/src/default.css';
+
+.appear,
+.enter {
+    transform: translateX(100%);
+}
+
+.appearActive,
+.enterActive {
+    transform: translateX(0);
+    transition: transform 280ms ease-in-out;
+    transition-delay: 80ms;
+}
+
+.exit {
+    transform: translateX(0);
+}
+
+.exitActive,
+.exitDone {
+    transform: translateX(100%);
+    transition: transform 280ms ease-in-out;
+}

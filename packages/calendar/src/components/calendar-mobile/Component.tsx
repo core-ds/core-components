@@ -1,4 +1,5 @@
 import React, { forwardRef, useMemo, useState } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
@@ -24,7 +25,9 @@ import {
 } from '../../utils';
 import { DaysTable } from '../days-table';
 
+import backdropTransitionStyles from './backdrop-transitions.module.css';
 import styles from './index.module.css';
+import transitionStyles from './transitions.module.css';
 
 // ResizeObserverPolyfill необходим для корректной работы react-virtuoso.
 if (typeof window !== 'undefined' && !window.ResizeObserver) {
@@ -88,13 +91,13 @@ const CalendarMonthOnlyView = ({
     dayAddons,
     shape = 'rounded',
     scrollableContainer,
+    modalEntered,
 }: CalendarMobileProps & {
     scrollableContainer?: HTMLElement;
+    modalEntered: boolean;
 }) => {
     const initialMonthIndex = useMemo(() => {
-        const currentMonthIndex = new Date().getMonth();
-
-        let monthIndex = currentMonthIndex;
+        let monthIndex = new Date().getMonth();
 
         if (value) monthIndex = getMonth(value);
         if (selectedFrom) monthIndex = getMonth(selectedFrom);
@@ -215,14 +218,13 @@ const CalendarMonthOnlyView = ({
         </div>
     );
 
-    if (!scrollableContainer) return null;
-
     return (
         <Virtuoso
             totalCount={activeMonths.length}
             itemContent={renderMonth}
             initialTopMostItemIndex={{ index: initialMonthIndex, align: 'center' }}
-            increaseViewportBy={1000}
+            // Если сразу поставить 1000, то во время анимации ощущаются подтормаживания
+            increaseViewportBy={modalEntered ? 1000 : 120}
             itemSize={(el) => el.getBoundingClientRect().height + 32}
             customScrollParent={scrollableContainer}
             useWindowScroll={true}
@@ -253,6 +255,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         ref,
     ) => {
         const [modalRef, setModalRef] = useState<HTMLElement>();
+        const [modalEntered, setModalEntered] = useState(open);
         const monthOnlyView = selectorView === 'month-only';
 
         const handleClose = () => {
@@ -263,19 +266,20 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (onChange) onChange();
         };
 
-        const renderDayNames = () => (
-            <table className={styles.dayNames}>
-                <thead>
-                    <tr>
-                        {WEEKDAYS.map((dayName) => (
-                            <th className={styles.dayName} key={dayName}>
-                                {dayName}
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-            </table>
-        );
+        const renderDayNames = () =>
+            monthOnlyView ? (
+                <table className={styles.dayNames}>
+                    <thead>
+                        <tr>
+                            {WEEKDAYS.map((dayName) => (
+                                <th className={styles.dayName} key={dayName}>
+                                    {dayName}
+                                </th>
+                            ))}
+                        </tr>
+                    </thead>
+                </table>
+            ) : null;
 
         const renderContent = () => {
             const commonProps = {
@@ -291,6 +295,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 return (
                     <CalendarMonthOnlyView
                         open={open}
+                        modalEntered={modalEntered}
                         yearsAmount={yearsAmount}
                         scrollableContainer={modalRef}
                         onMonthTitleClick={onMonthTitleClick}
@@ -304,6 +309,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 <CalendarDesktop
                     responsive={true}
                     className={cn(className, styles.calendar)}
+                    headerClassName={styles.header}
+                    contentClassName={styles.content}
                     {...commonProps}
                     {...restProps}
                 />
@@ -352,32 +359,40 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         };
 
         return (
-            <div className={cn(className, styles.component)} ref={ref} data-test-id={dataTestId}>
-                <ModalMobile
-                    open={open}
-                    onClose={handleClose}
-                    ref={(node: HTMLDivElement) => setModalRef(node)}
-                    className={styles.modal}
-                    wrapperClassName={styles.wrapper}
-                >
-                    {hasHeader && (
-                        <ModalMobile.Header
-                            hasCloser={true}
-                            title={title}
-                            sticky={true}
-                            bottomAddons={renderDayNames()}
-                            className={cn({ [styles.withZIndex]: selectorView === 'full' })}
-                        />
-                    )}
-                    <ModalMobile.Content flex={true}>{renderContent()}</ModalMobile.Content>
-                    <ModalMobile.Footer
+            <ModalMobile
+                open={open}
+                onClose={handleClose}
+                ref={mergeRefs([(node: HTMLDivElement) => setModalRef(node), ref])}
+                className={className}
+                wrapperClassName={styles.wrapper}
+                transitionProps={{
+                    timeout: 360,
+                    classNames: transitionStyles,
+                    onEntered: () => setModalEntered(true),
+                    onExited: () => setModalEntered(false),
+                }}
+                backdropProps={{
+                    transitionClassNames: backdropTransitionStyles,
+                    timeout: 360,
+                }}
+            >
+                {hasHeader && (
+                    <ModalMobile.Header
+                        hasCloser={true}
+                        title={title}
                         sticky={true}
+                        bottomAddons={renderDayNames()}
                         className={cn({ [styles.withZIndex]: selectorView === 'full' })}
-                    >
-                        {renderFooter()}
-                    </ModalMobile.Footer>
-                </ModalMobile>
-            </div>
+                    />
+                )}
+                <ModalMobile.Content flex={true}>{renderContent()}</ModalMobile.Content>
+                <ModalMobile.Footer
+                    sticky={true}
+                    className={cn({ [styles.withZIndex]: selectorView === 'full' })}
+                >
+                    {renderFooter()}
+                </ModalMobile.Footer>
+            </ModalMobile>
         );
     },
 );
