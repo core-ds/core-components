@@ -84,34 +84,34 @@
 }
 
 .common {
-    background-color: var(--color-light-specialbg-secondary-transparent);
-    border: var(--plate-border-width) solid var(--color-static-status-grey);
+    background-color: var(--color-light-specialbg-component);
+    border: var(--plate-border-width) solid var(--color-light-graphic-secondary);
     &:before {
-        background-color: var(--color-static-status-grey);
+        background-color: var(--color-light-graphic-secondary);
     }
 }
 
 .negative {
     background-color: var(--color-light-bg-negative-muted);
-    border: var(--plate-border-width) solid var(--color-static-status-red);
+    border: var(--plate-border-width) solid var(--color-light-graphic-negative);
     &:before {
-        background-color: var(--color-static-status-red);
+        background-color: var(--color-light-graphic-negative);
     }
 }
 
 .positive {
     background-color: var(--color-light-bg-positive-muted);
-    border: var(--plate-border-width) solid var(--color-static-status-green);
+    border: var(--plate-border-width) solid var(--color-light-graphic-positive);
     &:before {
-        background-color: var(--color-static-status-green);
+        background-color: var(--color-light-graphic-positive);
     }
 }
 
 .attention {
     background-color: var(--color-light-bg-attention-muted);
-    border: var(--plate-border-width) solid var(--color-static-status-orange);
+    border: var(--plate-border-width) solid var(--color-light-graphic-attention);
     &:before {
-        background-color: var(--color-static-status-orange);
+        background-color: var(--color-light-graphic-attention);
     }
 }
 
