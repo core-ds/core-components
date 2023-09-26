@@ -6,6 +6,7 @@ import {
     FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
 import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
@@ -71,7 +72,7 @@ export const AutocompleteMobileField = ({
                 filled={filled}
                 labelView={labelView}
                 rightAddons={Arrow}
-                data-test-id={dataTestId}
+                dataTestId={getDataTestId(dataTestId, 'form-control')}
                 {...restProps}
                 {...innerProps}
             >

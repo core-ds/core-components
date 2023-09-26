@@ -4,6 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
 
 import { FormControl } from '@alfalab/core-components-form-control';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus, useMedia } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
@@ -218,6 +219,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 rightAddons={rightAddons}
                 bottomAddons={getBottomAddons()}
                 breakpoint={breakpoint}
+                dataTestId={getDataTestId(dataTestId, 'form-control')}
             >
                 <React.Fragment>
                     {hasOverflow && (

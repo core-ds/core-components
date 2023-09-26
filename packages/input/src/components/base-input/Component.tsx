@@ -15,7 +15,7 @@ import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
 import { Button } from '@alfalab/core-components-button';
-import { inputUtils } from '@alfalab/core-components-shared';
+import { getDataTestId, inputUtils } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -426,6 +426,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                 onClick={onClick}
                 onMouseDown={onMouseDown}
                 onMouseUp={onMouseUp}
+                dataTestId={getDataTestId(dataTestId, 'form-control')}
             >
                 <input
                     {...restProps}

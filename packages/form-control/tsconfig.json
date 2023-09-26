@@ -6,8 +6,8 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"],
+            "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../mq" }]
+    "references": [{ "path": "../mq" }, { "path": "../shared" }]
 }
