@@ -214,7 +214,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             setSheetHeight();
 
             if (event.propertyName === 'transform' && event.target === event.currentTarget) {
-                onMagnetizeEnd?.();
+                onMagnetizeEnd?.(getActiveAreaIndex(activeArea));
             }
         };
 
@@ -251,15 +251,22 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     return;
                 }
 
-                const offset = nextArea
+                const nextOffset = nextArea
                     ? lastMagneticArea - nextArea
                     : lastMagneticArea - activeArea;
 
-                setSheetOffset(offset);
+                setSheetOffset(nextOffset);
                 setActiveArea((prevState) => nextArea ?? prevState);
 
                 if (nextArea) {
-                    onMagnetize?.(getActiveAreaIndex(nextArea));
+                    const nextAreaIdx = getActiveAreaIndex(nextArea);
+
+                    onMagnetize?.(nextAreaIdx);
+
+                    if (sheetOffset === nextOffset) {
+                        onMagnetizeEnd?.(nextAreaIdx);
+                        setSheetHeight();
+                    }
                 }
 
                 return;
@@ -268,13 +275,20 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (shouldMagnetizeUpByVelocity) {
                 const nextArea = magneticAreas.find((area) => area > activeArea);
 
-                const offset = nextArea ? lastMagneticArea - nextArea : 0;
+                const nextOffset = nextArea ? lastMagneticArea - nextArea : 0;
 
-                setSheetOffset(offset);
+                setSheetOffset(nextOffset);
                 setActiveArea((prevState) => nextArea ?? prevState);
 
                 if (nextArea) {
-                    onMagnetize?.(getActiveAreaIndex(nextArea));
+                    const nextAreaIdx = getActiveAreaIndex(nextArea);
+
+                    onMagnetize?.(nextAreaIdx);
+
+                    if (sheetOffset === nextOffset) {
+                        onMagnetizeEnd?.(nextAreaIdx);
+                        setSheetHeight();
+                    }
                 }
 
                 return;
@@ -312,10 +326,19 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (nearestArea === 0) {
                 onClose();
             } else {
-                setSheetOffset(lastMagneticArea - nearestArea);
+                const nextOffset = lastMagneticArea - nearestArea;
+                const nextAreaIdx = getActiveAreaIndex(nearestArea);
+
+                setSheetOffset(nextOffset);
                 setActiveArea(nearestArea);
                 setBackdropOpacity(1);
-                onMagnetize?.(getActiveAreaIndex(nearestArea));
+                onMagnetize?.(nextAreaIdx);
+
+                // Если nextOffset == offset, то onTransitionEnd не отработает и onMagnetizeEnd не вызовется
+                if (sheetOffset === nextOffset) {
+                    onMagnetizeEnd?.(nextAreaIdx);
+                    setSheetHeight();
+                }
             }
         };
 
@@ -411,7 +434,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             setBackdropOpacity(1);
             setSheetOffset(isNil(idx) ? magneticAreas[0] : lastMagneticArea - magneticAreas[idx]);
             setActiveArea(nextArea);
-            onMagnetizeEnd?.();
+            onMagnetizeEnd?.(0);
             if (transitionProps.onExited) {
                 transitionProps.onExited(node);
             }
@@ -438,7 +461,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             setSheetHeight();
             // Ready for swiping
             setSwipingInProgress(false);
-            onMagnetizeEnd?.();
+            onMagnetizeEnd?.(getActiveAreaIndex(activeArea));
 
             if (transitionProps.onEntered) {
                 transitionProps.onEntered(node, isAppearing);
