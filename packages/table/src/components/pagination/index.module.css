@@ -29,6 +29,10 @@
     }
 }
 
+.pagination {
+    margin-left: auto;
+}
+
 .menu {
     margin: var(--gap-2xs) 0;
 }
