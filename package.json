@@ -82,7 +82,7 @@
         "react-canvas-pattern-lock": "^1.1.1",
         "react-div-100vh": "^0.7.0",
         "react-focus-lock": "^2.9.3",
-        "react-markdown": "^8.0.7",
+        "react-markdown": "^6.0.3",
         "react-merge-refs": "^1.1.0",
         "react-popper": "^2.3.0",
         "react-swipeable": "^7.0.0",

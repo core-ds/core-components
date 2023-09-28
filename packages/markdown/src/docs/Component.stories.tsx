@@ -1,7 +1,7 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { Story } from '@storybook/addon-docs';
-import { number, radios, text } from '@storybook/addon-knobs';
+import { radios, text } from '@storybook/addon-knobs';
 
 import { Markdown } from '@alfalab/core-components-markdown';
 
@@ -17,24 +17,49 @@ export const markdown: Story = {
     name: 'Markdown',
     render: () => {
         return (
-            <Markdown
-                font={radios('font', ['system', 'styrene'], 'system')}
-                platform={radios('platform', ['desktop', 'mobile'], 'desktop')}
-            >
-                {text(
-                    'children',
+            <Markdown font={radios('font', { system: 'system', styrene: 'styrene' }, 'system')}>
+                {text('children', '') ||
                     `
-# h1
+# Заголовок первого уровня
 
-## h2
+## Заголовок второго уровня
 
-hello
+### Заголовок третьего уровня
 
-1. 123
+Неупорядоченный список:
 
-2. 333
-   `,
-                )}
+-   Элемент списка
+
+-   Элемент списка с абзацами
+
+    Второй абзац в элементе списка
+
+-   Элемент списка с пояснением
+
+    > Текст пояснения к элементу списка
+
+Нумерованный список:
+
+1. Первый нумерованный элемент списка
+
+2. Второй нумерованный элемент списка
+
+3. Третий нумерованный элемент списка
+
+    > Текст пояснения к элементу списка
+
+\`Мелкий текст\`
+
+> Мелкий текст 2
+
+Обычный текст
+
+**Жирный текст**
+
+_Курсивный текст_
+
+Текст с [ссылкой](https://alfabank.ru/get-money/credit-cards/100-days/)
+   `}
             </Markdown>
         );
     },
