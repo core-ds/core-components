@@ -1,5 +1,102 @@
-Компонент прикрепления файлов.
+## Примеры
+
+Для компонента можно настроить текст-плейсхолдер, размер и лейбл кнопки. Рекомендуем прикреплять для тестов тяжелый файл, иначе загрузка будет мгновенной.
 
 ```jsx live
-<Attach />
+render(() => {
+    const [multiple, setMultiple] = React.useState(false);
+    const [progress, setProgress] = React.useState(0);
+
+    const simulateProgress = () => {
+        const interval = setInterval(() => {
+            setProgress((prevProgress) => {
+                if (prevProgress === 100) {
+                    clearInterval(interval);
+                    return 100;
+                }
+                return prevProgress + 1;
+            });
+        }, 100);
+  };
+  
+    const handleChange = () => {
+        simulateProgress()
+    };
+    
+    return (
+        <Space size={24} >
+        <Attach 
+            size='m' 
+            onChange={handleChange}
+            multiple={multiple} 
+            maxFilenameLength={isMobile() ? 10 : undefined}
+            progressBarPercent={progress === 100 ? null : progress}
+            buttonProps={{
+                breakpoint: BREAKPOINT,
+                nowrap: true,
+            }}
+        />
+        <Switch
+            block={true}
+            checked={multiple}
+            label='Несколько файлов'
+            onChange={() => setMultiple(!multiple)}
+        />
+        </Space>
+    );
+});
+```
+
+К сожалению, [контролируемое поведение](https://ru.reactjs.org/docs/uncontrolled-components.html#the-file-input-tag) можно только эмулировать.
+
+```jsx live
+render(() => {
+    const [response, setResponse] = React.useState(null);
+    const [files, setFiles] = React.useState([]);
+
+    const handleChange = (event, payload) => {
+        setFiles([...files, ...payload.files]);
+    };
+
+    const handleSubmit = () => {
+        const formData = new FormData();
+
+        files.forEach((file, i) => {
+            formData.append(`file${i}`, file);
+        });
+
+        fetch('https://httpbin.org/post', {
+            method: 'POST',
+            body: formData,
+        })
+            .then((r) => r.json())
+            .then((r) => setResponse(r));
+    };
+
+    return (
+        <Space size={24}>
+            <Attach
+                value={files}
+                onChange={handleChange}
+                multiple={true}
+                name='file'
+                onClear={() => setFiles([])}
+                size='m'
+                maxFilenameLength={isMobile() ? 10 : undefined}
+                buttonProps={{
+                    breakpoint: BREAKPOINT,
+                    nowrap: true,
+                }}
+            />
+            <Button size='xxs' type='button' onClick={handleSubmit}>
+                Отправить
+            </Button>
+
+            {response &&
+                Object.entries(response.files).map(([fileName, base64]) => (
+                    <img src={base64} key={fileName} width={100} />
+                ))}
+        </Space>
+    );
+});
 ```

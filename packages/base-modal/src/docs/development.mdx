@@ -1,0 +1,37 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { BaseModal } from '../index';
+
+## Подключение
+
+```jsx
+import { BaseModal } from '@alfalab/core-components/base-modal';
+```
+
+## Использование контекста
+
+```tsx
+export type ModalContext = {
+    // Указаывает, используется ли футер
+    hasFooter?: boolean;
+    // Указаывает, используется ли шапка (например, позволяет гибко настраивать отступы)
+    hasHeader?: boolean;
+    // Указаывает наличие скролла
+    hasScroll?: boolean;
+    // Указаывает, что контент прокручен
+    headerHighlighted?: boolean;
+    // Указаывает, что контент прокручен не до конца
+    footerHighlighted?: boolean;
+    // Коллбэк, который должна вызвать кастомная шапка
+    setHasHeader: (exists: boolean) => void;
+    // Коллбэк, который должна вызвать кастомный футер
+    setHasFooter: (exists: boolean) => void;
+    // Позволяет закрыть модальное окно
+    onClose: (event: MouseEvent<HTMLElement>) => void;
+    // Реф, который должен быть установлен контентой области
+    contentRef: Ref<HTMLElement>;
+};
+```
+
+## Свойства
+
+<ArgsTable of={BaseModal} />
