@@ -1,6 +1,6 @@
 {
     "with-suffix": {
-        "index.js": 2.68
+        "index.js": 2.69
     },
     "underlay": {
         "index.js": 3.25
@@ -10,8 +10,8 @@
     },
     "tooltip": {
         "desktop.js": 44.35,
-        "index.js": 97.26,
-        "mobile.js": 70.35
+        "index.js": 97.39,
+        "mobile.js": 70.48
     },
     "toast": {
         "desktop.js": 57.76,
@@ -98,8 +98,8 @@
     },
     "select": {
         "desktop.js": 139.2,
-        "index.js": 204.66,
-        "mobile.js": 174.21,
+        "index.js": 204.79,
+        "mobile.js": 174.34,
         "shared.js": 162.5
     },
     "select-with-tags": {
@@ -141,8 +141,8 @@
     },
     "picker-button": {
         "desktop.js": 159.49,
-        "index.js": 218.7,
-        "mobile.js": 217.43,
+        "index.js": 218.83,
+        "mobile.js": 217.56,
         "shared.js": 3.01
     },
     "phone-input": {
@@ -188,9 +188,9 @@
         "index.js": 26.91
     },
     "markdown": {
-        "desktop.js": 120.42,
-        "index.js": 121.8,
-        "mobile.js": 120.42
+        "desktop.js": 122.07,
+        "index.js": 123.47,
+        "mobile.js": 122.07
     },
     "loader": {
         "index.js": 1.39
@@ -212,8 +212,8 @@
     },
     "international-phone-input": {
         "desktop.js": 473.69,
-        "index.js": 535.79,
-        "mobile.js": 533.58
+        "index.js": 535.92,
+        "mobile.js": 533.71
     },
     "input": {
         "desktop.js": 16.95,
@@ -222,8 +222,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 156.98,
-        "index.js": 218.02,
-        "mobile.js": 178.31
+        "index.js": 218.16,
+        "mobile.js": 178.44
     },
     "indicator": {
         "index.js": 1.99
@@ -292,8 +292,8 @@
     },
     "custom-picker-button": {
         "desktop.js": 160.96,
-        "index.js": 220.34,
-        "mobile.js": 218.88
+        "index.js": 220.47,
+        "mobile.js": 219.02
     },
     "custom-button": {
         "index.js": 8.91
@@ -363,7 +363,7 @@
         "mobile.js": 6.75
     },
     "bottom-sheet": {
-        "index.js": 69.67
+        "index.js": 69.79
     },
     "base-modal": {
         "index.js": 39.98
@@ -384,7 +384,7 @@
         "index.js": 25.87
     },
     "amount-input": {
-        "index.js": 45.24
+        "index.js": 45.25
     },
     "alert": {
         "index.js": 13.99
