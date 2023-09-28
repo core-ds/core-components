@@ -75,6 +75,11 @@ export type DaysTableProps = {
      * Форма ячейки дня
      */
     shape?: 'rounded' | 'rectangular';
+
+    /**
+     * Рендерит компонент, обернутый в Transition
+     */
+    withTransition?: boolean;
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -88,6 +93,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     hasHeader = true,
     responsive,
     shape = 'rounded',
+    withTransition = true,
 }) => {
     const activeMonthRef = useRef(activeMonth);
     const directionRef = useRef<'right' | 'left' | undefined>();
@@ -219,6 +225,8 @@ export const DaysTable: FC<DaysTableProps> = ({
         <tr key={weekIdx}>{week.map(renderDay)}</tr>
     );
 
+    const renderMonth = () => <tbody>{weeks.map(renderWeek)}</tbody>;
+
     return (
         <table
             className={cn(styles.daysTable, directionRef.current && styles[directionRef.current], {
@@ -230,20 +238,24 @@ export const DaysTable: FC<DaysTableProps> = ({
                     <tr>{renderHeader()}</tr>
                 </thead>
             )}
-            <TransitionGroup component={null}>
-                <CSSTransition
-                    key={activeMonth.getTime()}
-                    timeout={300}
-                    classNames={{
-                        enter: styles.daysEnter,
-                        enterActive: styles.daysEnterActive,
-                        exit: styles.daysExit,
-                        exitActive: styles.daysExitActive,
-                    }}
-                >
-                    <tbody>{weeks.map(renderWeek)}</tbody>
-                </CSSTransition>
-            </TransitionGroup>
+            {withTransition ? (
+                <TransitionGroup component={null}>
+                    <CSSTransition
+                        key={activeMonth.getTime()}
+                        timeout={300}
+                        classNames={{
+                            enter: styles.daysEnter,
+                            enterActive: styles.daysEnterActive,
+                            exit: styles.daysExit,
+                            exitActive: styles.daysExitActive,
+                        }}
+                    >
+                        {renderMonth()}
+                    </CSSTransition>
+                </TransitionGroup>
+            ) : (
+                renderMonth()
+            )}
         </table>
     );
 };
