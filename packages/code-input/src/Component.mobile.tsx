@@ -5,7 +5,7 @@ import { BaseCodeInputProps, CustomInputRef } from './typings';
 
 import styles from './mobile.module.css';
 
-export type CodeInputMobileProps = Omit<BaseCodeInputProps, 'inputClassName'>;
+export type CodeInputMobileProps = Omit<BaseCodeInputProps, 'stylesInput'>;
 
 export const CodeInputMobile = forwardRef<CustomInputRef, CodeInputMobileProps>(
     (restProps, ref) => <BaseCodeInput {...restProps} ref={ref} stylesInput={styles} />,
