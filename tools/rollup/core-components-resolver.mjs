@@ -55,3 +55,27 @@ export const coreComponentsResolver = ({ importFrom }) => ({
         return bundles;
     },
 });
+
+/**
+ * Заменяет импорты типов в d.ts с packages/{packageName}/src/* на @alfalab/core-components-{packageName}/*
+ */
+export const packagesTypingResolver = () => ({
+    name: 'packages-typings-resolver',
+    generateBundle: (_, bundles) => {
+        Object.keys(bundles).forEach((bundleName) => {
+            if (bundleName.endsWith('.d.ts')) {
+                let source = bundles[bundleName].source;
+                if (source) {
+                    const re = /import\((['"])packages\/(.+)\/src(\/.*?)?(['"])\)/g;
+
+                    bundles[bundleName].source = source.replaceAll(
+                        re,
+                        'import($1@alfalab/core-components-$2$3$4)',
+                    );
+                }
+            }
+        });
+
+        return bundles;
+    },
+});
