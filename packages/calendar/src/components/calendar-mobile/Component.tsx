@@ -91,10 +91,8 @@ const CalendarMonthOnlyView = ({
     dayAddons,
     shape = 'rounded',
     scrollableContainer,
-    modalEntered,
 }: CalendarMobileProps & {
     scrollableContainer?: HTMLElement;
-    modalEntered: boolean;
 }) => {
     const initialMonthIndex = useMemo(() => {
         let monthIndex = new Date().getMonth();
@@ -223,8 +221,7 @@ const CalendarMonthOnlyView = ({
             totalCount={activeMonths.length}
             itemContent={renderMonth}
             initialTopMostItemIndex={{ index: initialMonthIndex, align: 'center' }}
-            // Если сразу поставить 1000, то во время анимации ощущаются подтормаживания
-            increaseViewportBy={modalEntered ? 1000 : 120}
+            increaseViewportBy={500}
             itemSize={(el) => el.getBoundingClientRect().height + 32}
             customScrollParent={scrollableContainer}
             useWindowScroll={true}
@@ -255,7 +252,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         ref,
     ) => {
         const [modalRef, setModalRef] = useState<HTMLElement>();
-        const [modalEntered, setModalEntered] = useState(open);
         const monthOnlyView = selectorView === 'month-only';
 
         const handleClose = () => {
@@ -295,7 +291,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 return (
                     <CalendarMonthOnlyView
                         open={open}
-                        modalEntered={modalEntered}
                         yearsAmount={yearsAmount}
                         scrollableContainer={modalRef}
                         onMonthTitleClick={onMonthTitleClick}
@@ -368,8 +363,6 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 transitionProps={{
                     timeout: 360,
                     classNames: transitionStyles,
-                    onEntered: () => setModalEntered(true),
-                    onExited: () => setModalEntered(false),
                 }}
                 backdropProps={{
                     transitionClassNames: backdropTransitionStyles,
