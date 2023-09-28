@@ -320,7 +320,7 @@ export type BottomSheetProps = {
     /**
      * Вызывается после окончания анимации притягивания
      */
-    onMagnetizeEnd?: () => void;
+    onMagnetizeEnd?: (index: number) => void;
 
     /**
      * Вызывается при изменении положения шторки
