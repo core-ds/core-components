@@ -1,0 +1,22 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { Plate } from '@alfalab/core-components/plate';
+import { Gallery } from '../index';
+
+## Подключение
+
+```jsx
+import { Gallery } from '@alfalab/core-components/gallery';
+```
+
+## Использование
+
+<Plate
+    view='attention'
+    limitContentWidth={false}
+    title='Чтобы скачивание изображений работало корректно, убедитесь, что в ответе от сервера выставлен заголовок content-disposition: attachment'
+    titleView='light'
+/>
+
+## Свойства
+
+<ArgsTable of={Gallery} />

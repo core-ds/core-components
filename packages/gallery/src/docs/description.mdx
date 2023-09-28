@@ -1,101 +1,73 @@
-import { Plate } from '@alfalab/core-components-plate';
-import { Badge } from '@alfalab/core-components-badge';
-import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
+## Примеры
 
-Компонент просмотра изображений
-
-<Plate
-    view='common'
-    leftAddons={
-        <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-    }
->
-    <span>
-        Чтобы скачивание изображений работало корректно, убедитесь, что в ответе от сервера
-        выставлен заголовок <b>content-disposition: attachment</b>
-    </span>
-</Plate>
-
-```jsx live
-const Example = () => {
+```jsx live mobileHeight={500}
+render(() => {
     const [open, setOpen] = React.useState(false);
+    const [imagesQuantity, setImagesQuantity] = React.useState('some');
 
+    const onImagesQuantityChange = (_, payload) => {
+        setImagesQuantity(payload.value);
+    };
+    
     const images = [
         {
-            name: 'Горизонтальное изображение.jpg',
-            src: 'https://unsplash.com/photos/ywiAen4L4qA/download?force=true'
+            name: 'Вертикальное изображение',
+            src: './images/gallery_1.jpg'
         },
         {
-            name: 'Вертикальное изображение.jpg',
-            src: 'https://unsplash.com/photos/J3WbMATCz8I/download?force=true'
+            name: 'Горизонтальное  изображение',
+            src: './images/gallery_2.jpg'
         },
         {
-            name: 'Маленькое изображение.jpg',
-            src: 'https://picsum.photos/100/100'
+            name: 'Квадратное изображение',
+            src: './images/gallery_3.jpg'
+        },
+        {
+            name: 'Маленькое изображение',
+            src: './images/gallery_4.jpg'
         },
         {
             name: 'Битое изображение.jpg',
             src: 'https://picsum.photos'
         },
-        {
-            name: 'Изображение с прозрачностью.png',
-            src: 'https://clipart-best.com/img/bush/bush-clip-art-22.png'
-        }
     ]
 
     return (
-        <div>
-            <Button view="primary" onClick={() => { setOpen(true) }}>Открыть галерею</Button>
-
+        <div style={{width: 320}}>
+            <Button 
+                view="secondary" 
+                block={true}
+                onClick={() => setOpen(true)}
+                >
+                    Открыть галерею
+            </Button>
             <Gallery
                 open={open}
                 onClose={() => {
                     setOpen(false);
                 }}
-                images={[...images, ...images, ...images, ...images, ...images]}
+                images={imagesQuantity === 'some' ? images : [images[0]]}
             />
+            <Gap size='xl'/>
+            <RadioGroup
+                label='Количество изображений'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onImagesQuantityChange}
+                value={imagesQuantity}
+            >
+                <Radio size='m' label='Несколько' value='some' />
+                <Radio size='m' label='Одно' value='one' />
+            </RadioGroup>
         </div>
-    )
-}
-
-render(<Example />)
+    );
+});
 ```
 
-Галерея с одним изображением:
+## Галерея с предпросмотром
 
-```jsx live
-const Example = () => {
-    const [open, setOpen] = React.useState(false);
-
-    const images = [
-        {
-            name: 'Горизонтальное изображение.jpg',
-            src: 'https://unsplash.com/photos/ywiAen4L4qA/download?force=true'
-        }
-    ]
-
-    return (
-        <div>
-            <Button view="primary" onClick={() => { setOpen(true) }}>Открыть галерею</Button>
-
-            <Gallery
-                open={open}
-                onClose={() => {
-                    setOpen(false);
-                }}
-                images={images}
-            />
-        </div>
-    )
-}
-
-render(<Example />)
-```
-
-Еще одна галерея:
-
-```jsx live
-const Example = () => {
+```jsx live mobileHeight={875}
+render(() => {
     const [open, setOpen] = React.useState(false);
     const [initialSlide, setInitialSlide] = React.useState(0);
 
@@ -111,34 +83,22 @@ const Example = () => {
 
     const images = [
         {
-            src: 'https://lastfm.freetls.fastly.net/i/u/ar0/b2bcf80a513341d0c1ebbe4027c81a69.png'
+            src: './images/gallery_1.jpg'
         },
         {
-            src: 'https://prelestno24.ru/800/600/https/i.pinimg.com/736x/1b/27/5b/1b275b675d3c3abbdfe39e45e08faa2c.jpg'
+            src: './images/gallery_2.jpg'
         },
         {
-            src: 'https://www.shans-na-schastye.ru/wp-content/uploads/2020/12/novyj-god-doma-pochemu-eto-ploxo-scaled.jpeg'
+            src: './images/gallery_3.jpg'
         },
         {
-            src: 'https://demotivation.ru/wp-content/uploads/2020/08/s1200-1-25.jpg'
+            src: './images/gallery_4.jpg'
         },
-        {
-            src: 'https://huntland.ru/wp-content/uploads/2019/01/kavkazskiy_lesnoy_kot_10.jpg'
-        },
-        {
-            src: 'https://krasivosti.pro/uploads/posts/2021-04/1618933529_29-krasivosti_pro-p-sokol-sapsan-v-tundre-ptitsi-krasivo-foto-33.jpg'
-        },
-        {
-            src: 'https://best-top10.ru/wp-content/uploads/2016/12/medved_gizli.jpg'
-        },
-        {
-            src: 'https://s1.1zoom.ru/b5949/146/Sunrises_and_sunsets_Winter_Sweden_Arvika_Snow_Fir_515425_1600x1200.jpg'
-        }
     ]
 
     return (
         <div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '850px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: isMobile() ? 'center' : 'left' }}>
                 {images.map((image, index) => (
                     <div
                         key={image.src}
@@ -164,8 +124,6 @@ const Example = () => {
                 initialSlide={initialSlide}
             />
         </div>
-    )
-}
-
-render(<Example />)
+    );
+});
 ```
