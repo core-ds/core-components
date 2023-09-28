@@ -376,6 +376,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                             rangeComplete={rangeComplete}
                             responsive={responsive}
                             shape={shape}
+                            withTransition={selectorView === 'month-only'}
                         />
                     )}
 

@@ -202,6 +202,7 @@ const CalendarMonthOnlyView = ({
                 <span className={styles.month}> {activeMonths[index].title} </span>
             )}
             <DaysTable
+                withTransition={false}
                 weeks={activeMonths[index].weeks}
                 activeMonth={activeMonth}
                 selectedFrom={selectedFrom}
