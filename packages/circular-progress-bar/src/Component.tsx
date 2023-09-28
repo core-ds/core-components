@@ -121,6 +121,11 @@ export type CircularProgressBarProps = {
      * Цвет заливки внутри круга
      */
     circleColor?: string;
+
+    /**
+     * Цвет желоба
+     */
+    strokeColor?: string;
 };
 
 /**
@@ -148,6 +153,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     children,
     progressStrokeColor,
     circleColor,
+    strokeColor,
 }) => {
     const memorized = useMemo(() => {
         const strokeWidth = STROKE[size];
@@ -275,6 +281,9 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     className={cn(styles.backgroundCircle, styles[size], {
                         [styles.stroke]: !stroke,
                     })}
+                    style={{
+                        ...(strokeColor && stroke && { stroke: strokeColor }),
+                    }}
                     cx={memorized.center}
                     cy={memorized.center}
                     r={memorized.radius}
