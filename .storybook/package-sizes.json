@@ -278,14 +278,14 @@
         "index.js": 1.31
     },
     "date-time-input": {
-        "desktop.js": 130.21,
-        "index.js": 225.72,
-        "mobile.js": 224.28
+        "desktop.js": 130.28,
+        "index.js": 225.8,
+        "mobile.js": 224.37
     },
     "date-range-input": {
-        "desktop.js": 131.82,
-        "index.js": 227.37,
-        "mobile.js": 225.93
+        "desktop.js": 131.89,
+        "index.js": 227.46,
+        "mobile.js": 226.02
     },
     "date-input": {
         "index.js": 62.32
@@ -340,21 +340,21 @@
         "index.js": 2.03
     },
     "calendar": {
-        "desktop.js": 62.41,
-        "index.js": 166.39,
-        "mobile.js": 165.58,
+        "desktop.js": 62.48,
+        "index.js": 166.47,
+        "mobile.js": 165.67,
         "shared.js": 46.36
     },
     "calendar-with-skeleton": {
-        "index.js": 63.51
+        "index.js": 63.58
     },
     "calendar-range": {
-        "index.js": 234.09
+        "index.js": 234.18
     },
     "calendar-input": {
-        "desktop.js": 131.48,
-        "index.js": 226.49,
-        "mobile.js": 225.58,
+        "desktop.js": 131.55,
+        "index.js": 226.57,
+        "mobile.js": 225.66,
         "shared.js": 64.96
     },
     "button": {
