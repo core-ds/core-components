@@ -31,6 +31,11 @@ export type PaginationProps = CorePaginationProps & {
     onPerPageChange?: (perPage: number) => void;
 
     /**
+     * Скрывает переключатель количества строк на страницу
+     */
+    hidePerPageSelect?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -40,6 +45,7 @@ export const Pagination: FC<PaginationProps> = ({
     perPage = 25,
     possiblePerPage = [25, 50, 100],
     onPerPageChange = () => null,
+    hidePerPageSelect = false,
     pagesCount,
     onPageChange = () => null,
     className,
@@ -81,21 +87,25 @@ export const Pagination: FC<PaginationProps> = ({
 
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-            <SelectDesktop
-                options={options}
-                selected={perPage.toString()}
-                onChange={handlePerPageChange}
-                preventFlip={false}
-                size='s'
-                className={styles.select}
-                optionsListClassName={styles.menu}
-                optionClassName={styles.option}
-                Field={CustomSelectField}
-            />
+            {hidePerPageSelect === false && (
+                <SelectDesktop
+                    options={options}
+                    selected={perPage.toString()}
+                    onChange={handlePerPageChange}
+                    preventFlip={false}
+                    size='s'
+                    className={styles.select}
+                    optionsListClassName={styles.menu}
+                    optionClassName={styles.option}
+                    Field={CustomSelectField}
+                />
+            )}
+
             {pagesCount > 1 && (
                 <CorePagination
                     pagesCount={pagesCount}
                     onPageChange={handlePageChange}
+                    className={styles.pagination}
                     {...restPaginationProps}
                 />
             )}
