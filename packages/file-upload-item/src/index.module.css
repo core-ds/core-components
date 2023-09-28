@@ -63,7 +63,7 @@
     display: flex;
     white-space: nowrap;
     margin-right: var(--gap-2xs);
-    margin-left: var(--gap-xl);
+    margin-left: 36px;
     padding: var(--gap-2xs) 0;
 
     & > * {

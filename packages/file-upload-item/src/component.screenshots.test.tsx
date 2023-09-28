@@ -23,7 +23,7 @@ describe('FileUploadItem', () =>
                 uploadStatus: 'SUCCESS',
             },
         },
-        'transform: scale(1.3);width:auto',
+        'transform: scale(1.3);width:auto;marginLeft:12px',
     ));
 
 describe(
