@@ -11,6 +11,7 @@ import json from '@rollup/plugin-json';
 import {
     coreComponentsRootPackageResolver,
     coreComponentsResolver,
+    packagesTypingResolver,
 } from './tools/rollup/core-components-resolver.mjs';
 import ignoreCss from './tools/rollup/ignore-css.mjs';
 import processCss from './tools/rollup/process-css.mjs';
@@ -105,7 +106,7 @@ const es5 = {
             format: 'cjs',
             interop: 'compat',
             dynamicImportInCjs: false,
-            plugins: [addCssImports({ currentPackageDir })],
+            plugins: [addCssImports({ currentPackageDir }), packagesTypingResolver()],
         },
     ],
     plugins: [
@@ -139,6 +140,7 @@ const modern = {
             plugins: [
                 addCssImports({ currentPackageDir }),
                 coreComponentsResolver({ importFrom: 'modern' }),
+                packagesTypingResolver(),
             ],
         },
     ],
@@ -172,7 +174,7 @@ const cssm = {
             format: 'cjs',
             interop: 'compat',
             dynamicImportInCjs: false,
-            plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
+            plugins: [coreComponentsResolver({ importFrom: 'cssm' }), packagesTypingResolver()],
         },
     ],
     plugins: [
@@ -204,6 +206,7 @@ const esm = {
             plugins: [
                 addCssImports({ currentPackageDir }),
                 coreComponentsResolver({ importFrom: 'esm' }),
+                packagesTypingResolver(),
             ],
         },
     ],
