@@ -104,7 +104,10 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                         {...restProps}
                     />
                     <Portal getPortalContainer={getPortalContainer}>
-                        <div className={cn(styles.suffixContainer, suffixContainerClassName)}>
+                        <div
+                            translate='no'
+                            className={cn(styles.suffixContainer, suffixContainerClassName)}
+                        >
                             <span className={styles.spacer}>{visibleValue}</span>
                             {suffix && (
                                 <div

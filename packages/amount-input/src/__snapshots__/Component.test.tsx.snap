@@ -30,6 +30,7 @@ Object {
                 />
                 <div
                   class="suffixContainer suffixContainer"
+                  translate="no"
                 >
                   <span
                     class="spacer"
@@ -78,6 +79,7 @@ Object {
               />
               <div
                 class="suffixContainer suffixContainer"
+                translate="no"
               >
                 <span
                   class="spacer"
@@ -183,6 +185,7 @@ Object {
                 />
                 <div
                   class="suffixContainer suffixContainer"
+                  translate="no"
                 >
                   <span
                     class="spacer"
@@ -230,6 +233,7 @@ Object {
                 />
                 <div
                   class="suffixContainer suffixContainer"
+                  translate="no"
                 >
                   <span
                     class="spacer"
@@ -282,6 +286,7 @@ Object {
               />
               <div
                 class="suffixContainer suffixContainer"
+                translate="no"
               >
                 <span
                   class="spacer"
