@@ -1,5 +1,27 @@
 # Change Log
 
+## 7.0.8
+
+### Patch Changes
+
+### [#877](https://github.com/core-ds/core-components/pull/877)
+
+-   Обертка из CssTransitions больше не используется, если это не нужно
+
+### [#858](https://github.com/core-ds/core-components/pull/858)
+
+-   useMedia заменен на useMatchMedia
+
+### [#866](https://github.com/core-ds/core-components/pull/866)
+
+-   В мобильном календаре с selectorView=full удалена шапка с месяцами
+-   Изменена анимация открытия мобильного календаря
+-   Исправлена ошибка, из-за которой не работал скролл к выбранном году в списке
+
+-   Обновлены зависимости
+    -   icon-button@6.3.0
+    -   modal@8.0.8
+
 ## 7.0.7
 
 ### Patch Changes

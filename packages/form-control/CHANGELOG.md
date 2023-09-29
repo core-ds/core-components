@@ -1,5 +1,14 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+### [#860](https://github.com/core-ds/core-components/pull/860)
+
+-   Добавлены пропcы rightAddonsProps, leftAddonsProps.
+-   dataTestId добавлен к аддонам и сообщению об ошибке
+
 ## 10.0.1
 
 ### Patch Changes

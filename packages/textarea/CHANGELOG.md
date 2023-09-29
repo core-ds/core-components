@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.4.0
+
+### Minor Changes
+
+### [#860](https://github.com/core-ds/core-components/pull/860)
+
+-   dataTestId добавлен к аддонам и сообщению об ошибке у FormControl
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@10.1.0
+
 ## 8.3.2
 
 ### Patch Changes

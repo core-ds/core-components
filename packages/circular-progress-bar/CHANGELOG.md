@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+### [#878](https://github.com/core-ds/core-components/pull/878)
+
+-   Добавлена новая пропса strokeColor
+
 ## 3.2.0
 
 ### Minor Changes

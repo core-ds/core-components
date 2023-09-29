@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.0.7
+
+### Patch Changes
+
+### [#868](https://github.com/core-ds/core-components/pull/868)
+
+-   Исправлены цвета бордера в соответствии с макетом
+
+-   Обновлены зависимости
+    -   icon-button@6.3.0
+
 ## 7.0.6
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+### [#857](https://github.com/core-ds/core-components/pull/857)
+
+-   Убрали свойство stylesInput из общего типа BaseCodeInputProps
+
 ## 3.0.0
 
 ### Major Changes

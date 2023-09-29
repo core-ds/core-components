@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.3.0
+
+### Minor Changes
+
+### [#871](https://github.com/core-ds/core-components/pull/871)
+
+-   Добавлена возможность прокинуть кастомый Component
+
 ## 6.2.5
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # Change Log
 
+## 12.2.0
+
+### Minor Changes
+
+### [#860](https://github.com/core-ds/core-components/pull/860)
+
+-   dataTestId добавлен к аддонам и сообщению об ошибке у FormControl
+
+### [#879](https://github.com/core-ds/core-components/pull/879)
+
+-   Добавлены пропсы rightAddonsProps, leftAddonsProps
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@10.1.0
+
 ## 12.1.4
 
 ### Patch Changes

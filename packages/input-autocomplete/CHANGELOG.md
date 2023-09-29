@@ -1,5 +1,20 @@
 # Change Log
 
+## 10.2.0
+
+### Minor Changes
+
+### [#860](https://github.com/core-ds/core-components/pull/860)
+
+-   dataTestId добавлен к аддонам и сообщению об ошибке у FormControl
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.2.0
+    -   select@15.2.0
+    -   form-control@10.1.0
+
 ## 10.1.6
 
 ### Patch Changes

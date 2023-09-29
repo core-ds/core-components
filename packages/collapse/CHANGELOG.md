@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.3.0
+
+### Minor Changes
+
+### [#862](https://github.com/core-ds/core-components/pull/862)
+
+-   Обновлены пакеты иконок
+
 ## 4.2.1
 
 ### Patch Changes

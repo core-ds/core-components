@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.1.7
+
+### Patch Changes
+
+### [#868](https://github.com/core-ds/core-components/pull/868)
+
+-   Исправлены цвета бордера в соответствии с макетом
+
+-   Обновлены зависимости
+    -   plate@7.0.7
+
 ## 4.1.6
 
 ### Patch Changes

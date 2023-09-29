@@ -1,5 +1,13 @@
 # @alfalab/core-components-markdown
 
+## 1.0.6
+
+### Patch Changes
+
+### [#861](https://github.com/core-ds/core-components/pull/861)
+
+-   Понижена версия зависимости react-markdown
+
 ## 1.0.5
 
 ### Patch Changes

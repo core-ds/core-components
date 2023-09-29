@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.6
+
+### Patch Changes
+
+### [#870](https://github.com/core-ds/core-components/pull/870)
+
+-   Увеличен отступ для даты загрузки
+
+-   Обновлены зависимости
+    -   icon-button@6.3.0
+
 ## 5.2.5
 
 ### Patch Changes
