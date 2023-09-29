@@ -1,3 +1,197 @@
+## 42.11.0
+
+<sup><time>29.09.2023</time></sup>
+
+### [#871](https://github.com/core-ds/core-components/pull/871)
+
+#### Что изменилось
+- Добавлена возможность прокинуть кастомый Component
+
+#### Влияние на компоненты
+- Минорное<br />`icon-button`
+
+
+### [#861](https://github.com/core-ds/core-components/pull/861)
+
+#### Что изменилось
+- Понижена версия зависимости react-markdown
+
+#### Влияние на компоненты
+- Патчи<br />`markdown`
+
+
+### [#869](https://github.com/core-ds/core-components/pull/869)
+
+#### Что изменилось
+- Изменен цвет текста для подсказки, когда файл не загружен и имени файла
+
+#### Влияние на компоненты
+- Патчи<br />`attach`
+
+
+### [#860](https://github.com/core-ds/core-components/pull/860)
+
+#### Что изменилось
+- dataTestId добавлен к аддонам и сообщению об ошибке у FormControl
+
+#### Влияние на компоненты
+- Минорное<br />`input` `input-autocomplete` `select` `textarea`
+
+<br />
+
+#### Что изменилось
+- Добавлены пропcы rightAddonsProps, leftAddonsProps.
+- dataTestId добавлен к аддонам и сообщению об ошибке
+
+#### Влияние на компоненты
+- Минорное<br />`form-control`
+
+
+### [#858](https://github.com/core-ds/core-components/pull/858)
+
+#### Что изменилось
+- Добавлен новый компонент UniversalDateInput
+
+#### Влияние на компоненты
+- Минорное<br />`universal-date-input`
+
+<br />
+
+#### Что изменилось
+- useMedia заменен на useMatchMedia
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#862](https://github.com/core-ds/core-components/pull/862)
+
+#### Что изменилось
+- Обновлены пакеты иконок
+
+#### Влияние на компоненты
+- Минорное<br />`bank-card` `collapse`
+
+
+### [#879](https://github.com/core-ds/core-components/pull/879)
+
+#### Что изменилось
+- Добавлены пропсы rightAddonsProps, leftAddonsProps
+
+#### Влияние на компоненты
+- Минорное<br />`input`
+
+<br />
+
+#### Что изменилось
+- Исправлены случаи некорректного срабатывания onCalendarClose
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input`
+
+
+### [#872](https://github.com/core-ds/core-components/pull/872)
+
+#### Что изменилось
+- Добавлена возможность скрыть селект с выбором кол-ва строк на страницу
+
+#### Влияние на компоненты
+- Минорное<br />`table`
+
+
+### [#870](https://github.com/core-ds/core-components/pull/870)
+
+#### Что изменилось
+- Увеличен отступ для даты загрузки
+
+#### Влияние на компоненты
+- Патчи<br />`file-upload-item`
+
+
+### [#878](https://github.com/core-ds/core-components/pull/878)
+
+#### Что изменилось
+- Добавлена новая пропса strokeColor
+
+#### Влияние на компоненты
+- Минорное<br />`circular-progress-bar`
+
+
+### [#877](https://github.com/core-ds/core-components/pull/877)
+
+#### Что изменилось
+- Обертка из CssTransitions больше не используется, если это не нужно
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+### [#865](https://github.com/core-ds/core-components/pull/865)
+
+#### Что изменилось
+- Добавлен атрибут translate="no". Без этого атрибута компонент ломается при включении перевода страницы
+
+#### Влияние на компоненты
+- Патчи<br />`with-suffix`
+
+
+### [#874](https://github.com/core-ds/core-components/pull/874)
+
+#### Что изменилось
+- Теперь в коллбэке onMagnetizeEnd аргументом передается индекс магнитной зоны
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#864](https://github.com/core-ds/core-components/pull/864)
+
+#### Что изменилось
+- Тип subtitle изменен на ReactNode
+
+#### Влияние на компоненты
+- Патчи<br />`navigation-bar`
+
+
+### [#880](https://github.com/core-ds/core-components/pull/880)
+
+#### Что изменилось
+- Убран "bounce effect" в safari при скролле контента
+
+#### Влияние на компоненты
+- Патчи<br />`base-modal`
+
+
+### [#868](https://github.com/core-ds/core-components/pull/868)
+
+#### Что изменилось
+- Исправлены цвета бордера в соответствии с макетом
+
+#### Влияние на компоненты
+- Патчи<br />`alert` `plate`
+
+
+### [#857](https://github.com/core-ds/core-components/pull/857)
+
+#### Что изменилось
+- Убрали свойство stylesInput из общего типа BaseCodeInputProps
+
+#### Влияние на компоненты
+- Патчи<br />`code-input`
+
+
+### [#866](https://github.com/core-ds/core-components/pull/866)
+
+#### Что изменилось
+- В мобильном календаре с selectorView=full удалена шапка с месяцами
+- Изменена анимация открытия мобильного календаря
+- Исправлена ошибка, из-за которой не работал скролл к выбранном году в списке
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+
+
 ## 42.10.0
 
 <sup><time>15.09.2023</time></sup>
