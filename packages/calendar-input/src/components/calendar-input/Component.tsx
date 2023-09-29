@@ -244,13 +244,19 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const openCalendar = () => {
-            setOpen(true);
-            onCalendarOpen?.();
+            setOpen((prev) => {
+                if (!prev) onCalendarOpen?.();
+
+                return true;
+            });
         };
 
         const closeCalendar = () => {
-            setOpen(false);
-            onCalendarClose?.();
+            setOpen((prev) => {
+                if (prev) onCalendarClose?.();
+
+                return false;
+            });
         };
 
         const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -289,7 +295,10 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             if (view === 'desktop') {
                 const target = (event.relatedTarget || document.activeElement) as HTMLElement;
 
-                if (calendarRef.current && calendarRef.current.contains(target) === false) {
+                if (
+                    inputRef.current !== target &&
+                    calendarRef.current?.contains(target) === false
+                ) {
                     closeCalendar();
                 }
             }
@@ -416,30 +425,34 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                             )}
                         </React.Fragment>
                     }
+                    rightAddonsProps={{ onMouseDown: (e) => e.preventDefault() }}
                     onKeyDown={handleInputKeyDown}
                     onChange={handleInputChange}
                     block={true}
                 />
                 {shouldRenderStatic && renderCalendar()}
 
-                {shouldRenderPopover && (
-                    <Popover
-                        open={open}
-                        useAnchorWidth={useAnchorWidth}
-                        anchorElement={inputWrapperRef.current as HTMLElement}
-                        popperClassName={cn(styles.calendarContainer, {
-                            [styles.calendarResponsive]: calendarResponsive,
-                        })}
-                        className={popoverClassName}
-                        position={popoverPosition}
-                        offset={[0, 4]}
-                        withTransition={false}
-                        preventFlip={preventFlip}
-                        zIndex={zIndexPopover}
-                    >
-                        {renderCalendar()}
-                    </Popover>
-                )}
+                {shouldRenderPopover &&
+                    (view === 'desktop' ? (
+                        <Popover
+                            open={open}
+                            useAnchorWidth={useAnchorWidth}
+                            anchorElement={inputWrapperRef.current as HTMLElement}
+                            popperClassName={cn(styles.calendarContainer, {
+                                [styles.calendarResponsive]: calendarResponsive,
+                            })}
+                            className={popoverClassName}
+                            position={popoverPosition}
+                            offset={[0, 4]}
+                            withTransition={false}
+                            preventFlip={preventFlip}
+                            zIndex={zIndexPopover}
+                        >
+                            {renderCalendar()}
+                        </Popover>
+                    ) : (
+                        renderCalendar()
+                    ))}
             </div>
         );
     },
