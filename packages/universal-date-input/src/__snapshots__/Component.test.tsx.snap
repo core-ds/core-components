@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UniversalDateInput Snapshot tests should match snapshot 1`] = `
+<div>
+  <div
+    class="wrapper"
+    tabindex="-1"
+  >
+    <div
+      class="component component s s block hasRightAddons"
+    >
+      <div
+        class="inner inner inner inner filled"
+      >
+        <div
+          class="inputWrapper"
+        >
+          <div
+            class="input"
+          >
+            <input
+              class="input input input"
+              inputmode="decimal"
+              placeholder="ДД.ММ.ГГГГ"
+              type="text"
+              value="01.01.2020"
+            />
+          </div>
+        </div>
+        <div
+          class="addons rightAddons"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UniversalDateInput Snapshot tests should match snapshot 2`] = `
+<div>
+  <div
+    class="wrapper"
+    tabindex="-1"
+  >
+    <div
+      class="component component s s block hasRightAddons"
+    >
+      <div
+        class="inner inner inner inner filled"
+      >
+        <div
+          class="inputWrapper"
+        >
+          <div
+            class="input"
+          >
+            <input
+              class="input input input"
+              inputmode="decimal"
+              placeholder="ДД.ММ.ГГГГ, ЧЧ:ММ"
+              type="text"
+              value="01.01.2020, 00:00"
+            />
+          </div>
+        </div>
+        <div
+          class="addons rightAddons"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UniversalDateInput Snapshot tests should match snapshot 3`] = `
+<div>
+  <div
+    class="wrapper"
+    tabindex="-1"
+  >
+    <div
+      class="component component s s block hasRightAddons"
+    >
+      <div
+        class="inner inner inner inner filled"
+      >
+        <div
+          class="inputWrapper"
+        >
+          <div
+            class="input"
+          >
+            <input
+              class="input input input"
+              inputmode="decimal"
+              placeholder="ДД.ММ.ГГГГ – ДД.ММ.ГГГГ"
+              type="text"
+              value="01.01.2020 – 02.02.2025"
+            />
+          </div>
+        </div>
+        <div
+          class="addons rightAddons"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UniversalDateInput Snapshot tests should match snapshot 4`] = `
+<div>
+  <div
+    class="component component s s"
+  >
+    <div
+      class="inner inner inner inner filled"
+    >
+      <div
+        class="inputWrapper"
+      >
+        <div
+          class="input"
+        >
+          <input
+            class="input input input"
+            inputmode="decimal"
+            placeholder="ЧЧ:ММ"
+            type="text"
+            value="00:00"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,219 @@
+## Дата
+
+Поле ввода с маской. Для ввода значений без клавиатуры можно использовать календарь.
+При необходимости ввод с клавиатуры можно запретить.
+Если предполагаемая дата находится недалеко от текущей, рекомендуется использовать календарь со слайдером месяцев,
+в других случаях, лучше подойдёт календарь с выбором года и месяца.
+
+```jsx live mobileHeight={720}
+render(() => {
+    const [radioSelected, setRadioSelected] = React.useState('none');
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (_, { value }) => {
+        setValue(value);
+    };
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>
+            <UniversalDateInput
+                breakpoint={BREAKPOINT}
+                block={true}
+                view='date'
+                label='Дата'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size='m'
+                value={value}
+                onChange={handleChange}
+                disableUserInput={disableUserInput}
+                picker={radioSelected !== 'none'}
+                Calendar={Calendar}
+                calendarProps={{
+                    selectorView: radioSelected,
+                }}
+                clear={true}
+                onClear={(e) => {
+                    e.stopPropagation();
+                    setValue('');
+                }}
+            />
+
+            <Gap size='xl' />
+
+            <RadioGroup
+                label='Календарь'
+                direction='vertical'
+                onChange={(_, { value }) => setRadioSelected(value)}
+                value={radioSelected}
+            >
+                <Radio label='Без календаря' value='none' />
+                <Radio label='Со слайдером месяцев' value='month-only' />
+                <Radio label='С выбором года и месяца' value='full' />
+            </RadioGroup>
+
+            <Gap size='xl' />
+
+            <Switch
+                block={true}
+                checked={disableUserInput}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setDisableUserInput(!disableUserInput)}
+            />
+        </div>
+    );
+});
+```
+
+## Диапазон дат
+
+Поле ввода с маской. Для ввода без клавиатуры можно использовать календарь. При необходимости ввод с клавиатуры можно запретить.
+
+```jsx live mobileHeight={720}
+render(() => {
+    const [radioSelected, setRadioSelected] = React.useState('none');
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (_, { value }) => {
+        setValue(value);
+    };
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>
+            <UniversalDateInput
+                breakpoint={BREAKPOINT}
+                block={true}
+                view='date-range'
+                label='Диапазон дат'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                value={value}
+                size='m'
+                disableUserInput={disableUserInput}
+                picker={radioSelected !== 'none'}
+                rangeBehavior={radioSelected}
+                onChange={handleChange}
+                Calendar={Calendar}
+                calendarProps={{
+                    selectorView: 'month-only',
+                }}
+                clear={true}
+                onClear={(e) => {
+                    e.stopPropagation();
+                    setValue('');
+                }}
+            />
+
+            <Gap size='xl' />
+
+            <RadioGroup
+                label='Календарь'
+                direction='vertical'
+                onChange={(_, { value }) => setRadioSelected(value)}
+                value={radioSelected}
+            >
+                <Radio label='Без календаря' value='none' />
+                <Radio label='С механикой уточнения границ' value='clarification' />
+                <Radio label='С механикой сброса границ' value='reset' />
+            </RadioGroup>
+
+            <Gap size='xl' />
+
+            <Switch
+                block={true}
+                checked={disableUserInput}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setDisableUserInput(!disableUserInput)}
+            />
+        </div>
+    );
+});
+```
+
+## Дата и время
+
+```jsx live mobileHeight={720}
+render(() => {
+    const [picker, setPicker] = React.useState(false);
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (_, { value }) => {
+        setValue(value);
+    };
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 'var(--calendar-width)' }}>
+            <UniversalDateInput
+                breakpoint={BREAKPOINT}
+                block={true}
+                view='date-time'
+                label='Дата и время'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size='m'
+                value={value}
+                onChange={handleChange}
+                picker={picker}
+                Calendar={Calendar}
+                calendarProps={{
+                    selectorView: 'month-only',
+                }}
+                clear={true}
+                onClear={(e) => {
+                    e.stopPropagation();
+                    setValue('');
+                }}
+            />
+
+            <Gap size='xl' />
+
+            <Switch
+                block={true}
+                checked={picker}
+                label='Календарь для ввода даты'
+                onChange={() => setPicker(!picker)}
+            />
+        </div>
+    );
+});
+```
+
+## Время
+
+Поле ввода с маской.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (_, { value }) => {
+        setValue(value);
+    };
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <UniversalDateInput
+                value={value}
+                onChange={handleChange}
+                view='time'
+                label='Время'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size='m'
+                breakpoint={BREAKPOINT}
+                block={true}
+                clear={true}
+                onClear={(e) => {
+                    e.stopPropagation();
+                    setValue('');
+                }}
+            />
+        </div>
+    );
+});
+```
+
+## Морфология
+
+Поле ввода является оберткой над [FormControl](?path=/docs/formcontrol--docs),
+поэтому наследует все доступные для него настройки. Пикер это
+[Calendar](?path=/docs/calendar--docs)
+в [Popover](?path=/docs/popover--docs).

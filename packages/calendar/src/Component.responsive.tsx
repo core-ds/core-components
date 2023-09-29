@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { CalendarMobile, CalendarMobileProps } from './components/calendar-mobile';
 import { CalendarDesktop, CalendarDesktopProps } from './Component.desktop';
@@ -14,19 +14,11 @@ export type ResponsiveCalendarProps = CalendarDesktopProps &
         breakpoint?: number;
     };
 
-type CalendarMedia = 'desktop' | 'mobile';
-
 export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarProps>(
     ({ breakpoint = 1024, ...restProps }, ref) => {
-        const [view] = useMedia<CalendarMedia>(
-            [
-                ['mobile', `(max-width: ${breakpoint - 1}px)`],
-                ['desktop', `(min-width: ${breakpoint}px)`],
-            ],
-            'desktop',
-        );
+        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`);
 
-        return view === 'desktop' ? (
+        return isDesktop ? (
             <CalendarDesktop {...restProps} ref={ref} />
         ) : (
             <CalendarMobile {...restProps} ref={ref} />
