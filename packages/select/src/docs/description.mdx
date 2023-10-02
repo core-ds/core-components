@@ -192,48 +192,35 @@ render(() => {
     return (
         <div style={{ width: 320 }}>
             <SelectDesktop
+                showSearch={true}
+                selected={selectedFirst}
+                size='m'
+                options={OPTIONS}
+                placeholder='Выберите элемент'
+                label='Одиночный выбор'
+                Option={BaseOption}
+                block={true}
+                onChange={({ selected }) => {
+                    setSelectedFirst(selected);
+                }}
+            />
+            <Gap size='m'/>
+            <SelectDesktop
                 allowUnselect={true}
                 size='m'
                 placeholder='Выберите элементы'
-                label='Селект с поиском'
+                label='Множественный выбор'
                 Option={BaseOption}
                 multiple={true}
                 block={true}
                 {...useSelectWithApply({
                     showSearch: true,
-                    searchProps: {
-                        componentProps: {
-                            placeholder: 'Поиск по элементам',
-                            leftAddons: <StarMIcon />,
-                        },
-                    },
                     options: OPTIONS,
-                    selected: selectedFirst,
+                    selected: selectedSecond,
                     onChange: ({ selectedMultiple }) => {
-                        setSelectedFirst(selectedMultiple.map((option) => option.key));
+                        setSelectedSecond(selectedMultiple.map((option) => option.key));
                     },
                 })}
-            />
-            <div style={{ height: 'var(--gap-m)' }} />
-            <SelectDesktop
-                showSearch={true}
-                searchProps={{
-                    componentProps: {
-                        placeholder: 'Поиск по элементам',
-                        leftAddons: <StarMIcon />,
-                    },
-                }}
-                selected={selectedSecond}
-                allowUnselect={true}
-                size='m'
-                options={OPTIONS}
-                placeholder='Выберите элементы'
-                label='Селект с поиском'
-                Option={BaseOption}
-                block={true}
-                onChange={({ selected }) => {
-                    setSelectedSecond(selected);
-                }}
             />
         </div>
     );
@@ -257,17 +244,11 @@ render(() => {
         <div style={{ width: '100%' }}>
             <SelectMobile
                 showSearch={true}
-                searchProps={{
-                    componentProps: {
-                        placeholder: 'Поиск по элементам',
-                        leftAddons: <StarMIcon />,
-                    },
-                }}
                 multiple={true}
                 allowUnselect={true}
                 options={OPTIONS}
                 placeholder='Выберите элементы'
-                label='Селект с поиском'
+                label='Множественный выбор'
                 Option={BaseOption}
                 block={true}
                 selected={selected}
