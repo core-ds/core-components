@@ -1,0 +1,23 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { Plate } from '@alfalab/core-components/plate';
+import { Comment } from '../index';
+
+## Подключение
+
+```jsx
+import { Comment } from '@alfalab/core-components/comment';
+```
+
+## Использование
+
+<Plate
+    view='attention'
+    limitContentWidth={false}
+    title='Компонент не поддерживает IE.'
+    titleView='light'
+/>
+
+## Свойства
+
+<ArgsTable of={Comment} />
