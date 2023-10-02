@@ -19,6 +19,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
             class="input"
           >
             <input
+              autocomplete="off"
               class="input input input"
               inputmode="decimal"
               pattern="[0-9\\\\.]*"
@@ -88,6 +89,7 @@ Object {
                 class="input"
               >
                 <input
+                  autocomplete="off"
                   class="input input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\.]*"
@@ -149,6 +151,7 @@ Object {
               class="input"
             >
               <input
+                autocomplete="off"
                 class="input input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\.]*"
@@ -263,6 +266,7 @@ Object {
                 class="input"
               >
                 <input
+                  autocomplete="off"
                   class="input input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\.]*"
@@ -320,6 +324,7 @@ Object {
               class="input"
             >
               <input
+                autocomplete="off"
                 class="input input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\.]*"

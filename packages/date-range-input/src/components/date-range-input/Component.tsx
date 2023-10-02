@@ -458,6 +458,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
             >
                 {InputComponent ? (
                     <InputComponent
+                        autoComplete={picker ? 'off' : undefined}
                         {...restProps}
                         block={block}
                         ref={mergeRefs([ref, inputRef])}

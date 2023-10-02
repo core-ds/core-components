@@ -364,6 +364,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
             >
                 {InputComponent ? (
                     <InputComponent
+                        autoComplete={picker ? 'off' : undefined}
                         {...restProps}
                         block={block}
                         ref={mergeRefs([ref, inputRef])}
