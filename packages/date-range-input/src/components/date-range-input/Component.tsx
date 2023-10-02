@@ -484,24 +484,27 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                         }
                     />
                 ) : null}
-                {picker && (
-                    <Popover
-                        open={open}
-                        useAnchorWidth={useAnchorWidth}
-                        anchorElement={inputRef.current as HTMLElement}
-                        popperClassName={cn(styles.calendarContainer, {
-                            [styles.calendarResponsive]: calendarResponsive,
-                        })}
-                        className={popoverClassName}
-                        position={popoverPosition}
-                        offset={[0, 8]}
-                        withTransition={false}
-                        preventFlip={preventFlip}
-                        zIndex={zIndexPopover}
-                    >
-                        {renderCalendar()}
-                    </Popover>
-                )}
+                {picker &&
+                    (view === 'desktop' ? (
+                        <Popover
+                            open={open}
+                            useAnchorWidth={useAnchorWidth}
+                            anchorElement={inputRef.current as HTMLElement}
+                            popperClassName={cn(styles.calendarContainer, {
+                                [styles.calendarResponsive]: calendarResponsive,
+                            })}
+                            className={popoverClassName}
+                            position={popoverPosition}
+                            offset={[0, 8]}
+                            withTransition={false}
+                            preventFlip={preventFlip}
+                            zIndex={zIndexPopover}
+                        >
+                            {renderCalendar()}
+                        </Popover>
+                    ) : (
+                        renderCalendar()
+                    ))}
             </div>
         );
     },
