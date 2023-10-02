@@ -1,10 +1,10 @@
-import React, { forwardRef, MouseEvent, useCallback, useMemo, useState } from 'react';
+import React, { forwardRef, MouseEvent, SyntheticEvent, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { useDidUpdateEffect } from '@alfalab/hooks';
+import { useDidUpdateEffect, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DaysTable } from './components/days-table';
 import { Header } from './components/header';
@@ -23,6 +23,16 @@ export type CalendarDesktopProps = {
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Дополнительный класс шапки десктопного календаря
+     */
+    headerClassName?: string;
+
+    /**
+     * Дополнительный класс контента десктопного календаря
+     */
+    contentClassName?: string;
 
     /**
      * Вид по умолчанию (выбор дней, месяцев, лет)
@@ -150,6 +160,8 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
     (
         {
             className,
+            headerClassName,
+            contentClassName,
             defaultView = 'days',
             selectorView = 'full',
             value,
@@ -179,6 +191,9 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
     ) => {
         const [view, setView] = useState<View>(defaultView);
         const [scrolled, setScrolled] = useState(false);
+
+        const scrollableNodeRef = useRef<HTMLDivElement>(null);
+        const firstUpdate = useRef(true);
 
         const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
 
@@ -237,50 +252,60 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             onMonthChange,
         });
 
-        const toggleView = useCallback(
-            (newView: View) => {
-                setView(view === newView ? 'days' : newView);
-            },
-            [view],
-        );
+        const toggleView = (newView: View) => {
+            if (scrollableNodeRef.current) scrollableNodeRef.current.scrollTop = 0;
 
-        const handleScroll = useCallback((scrollTop: number) => {
-            setScrolled(scrollTop > 0);
-        }, []);
+            setView(view === newView ? 'days' : newView);
+        };
 
-        const handlePrevArrowClick = useCallback(() => {
+        const handleScroll = (event: SyntheticEvent) =>
+            setScrolled(event.currentTarget.scrollTop > 0);
+
+        const handlePrevArrowClick = () => {
             // TODO: Что должны делать стрелки при view !== days?
             setPrevMonth();
-        }, [setPrevMonth]);
+        };
 
-        const handleNextArrowClick = useCallback(() => {
-            setNextMonth();
-        }, [setNextMonth]);
+        const handleNextArrowClick = () => setNextMonth();
 
-        const handleMonthClick = useCallback(
-            (event: React.MouseEvent<HTMLButtonElement>) => {
-                toggleView('months');
+        const handleMonthClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+            toggleView('months');
 
-                if (onMonthClick) {
-                    onMonthClick(event);
+            if (onMonthClick) {
+                onMonthClick(event);
+            }
+        };
+
+        const handleYearClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+            toggleView('years');
+
+            if (onYearClick) {
+                onYearClick(event);
+            }
+        };
+
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (view === 'years') {
+                const listNode = scrollableNodeRef.current;
+                const selectedYearNode =
+                    listNode?.querySelector<HTMLButtonElement>('button[tabIndex="0"]');
+
+                if (listNode && selectedYearNode) {
+                    const topIndent = listNode.clientHeight / 2 - selectedYearNode.clientHeight / 2;
+
+                    listNode.scrollTop = selectedYearNode.offsetTop - topIndent;
+
+                    setScrolled(listNode.scrollTop > 0);
                 }
-            },
-            [onMonthClick, toggleView],
-        );
+            }
+        }, [view]);
 
-        const handleYearClick = useCallback(
-            (event: React.MouseEvent<HTMLButtonElement>) => {
-                toggleView('years');
-
-                if (onYearClick) {
-                    onYearClick(event);
-                }
-            },
-            [onYearClick, toggleView],
-        );
-
-        useDidUpdateEffect(() => {
-            setView('days');
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (firstUpdate.current) {
+                firstUpdate.current = false;
+            } else {
+                toggleView('days');
+            }
         }, [activeMonth]);
 
         useDidUpdateEffect(() => {
@@ -305,7 +330,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                 data-test-id={dataTestId}
             >
                 {hasHeader && (
-                    <Header view={selectorView} withShadow={scrolled}>
+                    <Header view={selectorView} withShadow={scrolled} className={headerClassName}>
                         {selectorView === 'month-only' ? (
                             <PeriodSlider
                                 className={styles.period}
@@ -331,11 +356,14 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                 )}
 
                 <div
+                    ref={scrollableNodeRef}
                     className={cn(
                         styles.container,
                         { [styles.customScrollbar]: view === 'years' },
                         styles[view],
+                        contentClassName,
                     )}
+                    onScroll={handleScroll}
                 >
                     {view === 'days' && (
                         <DaysTable
@@ -348,6 +376,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                             rangeComplete={rangeComplete}
                             responsive={responsive}
                             shape={shape}
+                            withTransition={selectorView === 'month-only'}
                         />
                     )}
 
@@ -365,7 +394,6 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                             selectedYear={activeMonth}
                             years={years}
                             getYearProps={getYearProps}
-                            onScroll={handleScroll}
                             responsive={responsive}
                         />
                     )}

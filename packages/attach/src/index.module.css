@@ -59,6 +59,11 @@
     display: inline-block;
     margin-left: 0.5em;
     text-align: center;
+    color: var(--color-light-text-secondary);
+}
+
+.abbreviation {
+    text-decoration: none;
 }
 
 .clear {

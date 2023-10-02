@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.4.0
+
+### Minor Changes
+
+### [#872](https://github.com/core-ds/core-components/pull/872)
+
+-   Добавлена возможность скрыть селект с выбором кол-ва строк на страницу
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@15.2.0
+
 ## 2.3.11
 
 ### Patch Changes

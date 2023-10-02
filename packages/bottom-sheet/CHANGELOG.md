@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.10.0
+
+### Minor Changes
+
+### [#874](https://github.com/core-ds/core-components/pull/874)
+
+-   Теперь в коллбэке onMagnetizeEnd аргументом передается индекс магнитной зоны
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.5.7
+    -   base-modal@5.4.1
+
 ## 6.9.2
 
 ### Patch Changes

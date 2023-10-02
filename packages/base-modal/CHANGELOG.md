@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.4.1
+
+### Patch Changes
+
+### [#880](https://github.com/core-ds/core-components/pull/880)
+
+-   Убран "bounce effect" в safari при скролле контента
+
 ## 5.4.0
 
 ### Minor Changes

@@ -401,7 +401,7 @@ describe('Bottom sheet', () => {
             );
 
             await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
-            await waitFor(() => expect(onMagnetizeEnd).toBeCalledTimes(1));
+            await waitFor(() => expect(onMagnetizeEnd).toBeCalledWith(1));
         });
 
         it('should call onMagnetize and onMagnetizeEnd prop with initialAreaIdx after opening', async () => {
@@ -421,7 +421,7 @@ describe('Bottom sheet', () => {
             );
 
             await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
-            await waitFor(() => expect(onMagnetizeEnd).toBeCalledTimes(1));
+            await waitFor(() => expect(onMagnetizeEnd).toBeCalledWith(1));
         });
 
         it('should call onMagnetize and onMagnetizeEnd prop after closing', async () => {
@@ -443,7 +443,7 @@ describe('Bottom sheet', () => {
             fireEvent.mouseUp(getByTestId(dataTestId));
 
             await waitFor(() => expect(onMagnetize).toBeCalledWith(0));
-            await waitFor(() => expect(onMagnetizeEnd).toBeCalledTimes(1));
+            await waitFor(() => expect(onMagnetizeEnd).toBeCalledWith(0));
         });
     });
 });

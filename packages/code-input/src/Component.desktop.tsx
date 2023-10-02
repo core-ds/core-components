@@ -5,7 +5,7 @@ import { BaseCodeInputProps, CustomInputRef } from './typings';
 
 import styles from './desktop.module.css';
 
-export type CodeInputDesktopProps = Omit<BaseCodeInputProps, 'inputClassName'>;
+export type CodeInputDesktopProps = Omit<BaseCodeInputProps, 'stylesInput'>;
 
 export const CodeInputDesktop = forwardRef<CustomInputRef, CodeInputDesktopProps>(
     (restProps, ref) => <BaseCodeInput {...restProps} ref={ref} stylesInput={styles} />,

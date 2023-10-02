@@ -31,6 +31,7 @@ export const circular_progress_bar: Story = {
         );
         const subtitleComplete = text('subtitleComplete', '');
         const progressStrokeColor = text('progressStrokeColor', '');
+        const strokeColor = text('strokeColor', '');
         const circleColor = text('circleColor', '');
         return (
             <>
@@ -38,6 +39,7 @@ export const circular_progress_bar: Story = {
                     value={value}
                     view={view}
                     progressStrokeColor={progressStrokeColor}
+                    strokeColor={strokeColor}
                     circleColor={circleColor}
                     title={title}
                     titleComplete={titleComplete}

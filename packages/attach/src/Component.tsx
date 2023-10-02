@@ -191,7 +191,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             files.length === 1 ? (
                 truncateFilename(files[0].name, maxFilenameLength)
             ) : (
-                <abbr title={files.map((file) => file.name).join()}>
+                <abbr className={styles.abbreviation} title={files.map((file) => file.name).join()}>
                     {files.length} {pluralize(files.length, ...MULTIPLE_TEXTS)}
                 </abbr>
             );

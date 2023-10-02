@@ -27,3 +27,7 @@
 .expandedLabel {
     margin-top: 15px;
 }
+
+.toggleIcon {
+    margin: var(--gap-2xs);
+}

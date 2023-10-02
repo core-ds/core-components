@@ -43,6 +43,7 @@
 
     &.customScrollbar {
         @mixin custom-scrollbar;
+        padding-right: var(--gap-2xs);
 
         display: block;
     }

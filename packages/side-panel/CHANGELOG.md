@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   navigation-bar@0.5.7
+    -   base-modal@5.4.1
+    -   drawer@5.0.3
+
 ## 4.0.7
 
 ### Patch Changes

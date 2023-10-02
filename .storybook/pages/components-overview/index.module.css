@@ -42,4 +42,8 @@
     body {
         @mixin custom-scrollbar;
     }
+
+    .cardContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

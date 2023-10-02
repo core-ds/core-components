@@ -1,9 +1,10 @@
 import React, { forwardRef, useMemo, useState } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { Virtuoso } from 'react-virtuoso';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
-import getMonth from 'date-fns/getMonth';
+import isSameMonth from 'date-fns/isSameMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
@@ -24,7 +25,9 @@ import {
 } from '../../utils';
 import { DaysTable } from '../days-table';
 
+import backdropTransitionStyles from './backdrop-transitions.module.css';
 import styles from './index.module.css';
+import transitionStyles from './transitions.module.css';
 
 // ResizeObserverPolyfill необходим для корректной работы react-virtuoso.
 if (typeof window !== 'undefined' && !window.ResizeObserver) {
@@ -91,16 +94,6 @@ const CalendarMonthOnlyView = ({
 }: CalendarMobileProps & {
     scrollableContainer?: HTMLElement;
 }) => {
-    const initialMonthIndex = useMemo(() => {
-        const currentMonthIndex = new Date().getMonth();
-
-        let monthIndex = currentMonthIndex;
-
-        if (value) monthIndex = getMonth(value);
-        if (selectedFrom) monthIndex = getMonth(selectedFrom);
-
-        return yearsAmount * 12 + monthIndex;
-    }, [selectedFrom, value, yearsAmount]);
     const month = useMemo(
         () => (monthTimestamp ? new Date(monthTimestamp) : undefined),
         [monthTimestamp],
@@ -131,7 +124,7 @@ const CalendarMonthOnlyView = ({
         [defaultMonthTimestamp, maxDateTimestamp, minDateTimestamp, selected],
     );
 
-    const { activeMonth, months, highlighted, getDayProps } = useCalendar({
+    const { activeMonth, highlighted, getDayProps } = useCalendar({
         month,
         defaultMonth,
         view: defaultView,
@@ -156,6 +149,7 @@ const CalendarMonthOnlyView = ({
 
         const date = new Date();
         const currentYear = date.getFullYear();
+        const currYearMonths = generateMonths(date, {});
 
         for (let i = 0; i < yearsAmount; i++) {
             const prevYear = date.setFullYear(currentYear - (i + 1));
@@ -168,7 +162,7 @@ const CalendarMonthOnlyView = ({
             nextMonths.push(...nextYearMonths);
         }
 
-        const generatedMonths = [...prevMonths, ...months, ...nextMonths];
+        const generatedMonths = [...prevMonths, ...currYearMonths, ...nextMonths];
 
         return generatedMonths.map((item) => ({
             ...item,
@@ -183,7 +177,13 @@ const CalendarMonthOnlyView = ({
             }),
             title: `${monthName(item.date)} ${item.date.getFullYear()}`,
         }));
-    }, [events, offDays, holidays, dayAddons, months, yearsAmount, minDate, maxDate, selected]);
+    }, [events, offDays, holidays, dayAddons, yearsAmount, minDate, maxDate, selected]);
+
+    const initialMonthIndex = useMemo(() => {
+        const date = value || selectedFrom || Date.now();
+
+        return activeMonths.findIndex((m) => isSameMonth(date, m.date));
+    }, [activeMonths, selectedFrom, value]);
 
     const renderMonth = (index: number) => (
         <div className={styles.daysTable} id={`month-${index}`}>
@@ -201,6 +201,7 @@ const CalendarMonthOnlyView = ({
                 <span className={styles.month}> {activeMonths[index].title} </span>
             )}
             <DaysTable
+                withTransition={false}
                 weeks={activeMonths[index].weeks}
                 activeMonth={activeMonth}
                 selectedFrom={selectedFrom}
@@ -215,14 +216,12 @@ const CalendarMonthOnlyView = ({
         </div>
     );
 
-    if (!scrollableContainer) return null;
-
     return (
         <Virtuoso
             totalCount={activeMonths.length}
             itemContent={renderMonth}
-            initialTopMostItemIndex={{ index: initialMonthIndex, align: 'center' }}
-            increaseViewportBy={1000}
+            initialTopMostItemIndex={{ index: initialMonthIndex ?? 0, align: 'center' }}
+            increaseViewportBy={500}
             itemSize={(el) => el.getBoundingClientRect().height + 32}
             customScrollParent={scrollableContainer}
             useWindowScroll={true}
@@ -263,19 +262,20 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
             if (onChange) onChange();
         };
 
-        const renderDayNames = () => (
-            <table className={styles.dayNames}>
-                <thead>
-                    <tr>
-                        {WEEKDAYS.map((dayName) => (
-                            <th className={styles.dayName} key={dayName}>
-                                {dayName}
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-            </table>
-        );
+        const renderDayNames = () =>
+            monthOnlyView ? (
+                <table className={styles.dayNames}>
+                    <thead>
+                        <tr>
+                            {WEEKDAYS.map((dayName) => (
+                                <th className={styles.dayName} key={dayName}>
+                                    {dayName}
+                                </th>
+                            ))}
+                        </tr>
+                    </thead>
+                </table>
+            ) : null;
 
         const renderContent = () => {
             const commonProps = {
@@ -304,6 +304,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                 <CalendarDesktop
                     responsive={true}
                     className={cn(className, styles.calendar)}
+                    headerClassName={styles.header}
+                    contentClassName={styles.content}
                     {...commonProps}
                     {...restProps}
                 />
@@ -352,32 +354,38 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         };
 
         return (
-            <div className={cn(className, styles.component)} ref={ref} data-test-id={dataTestId}>
-                <ModalMobile
-                    open={open}
-                    onClose={handleClose}
-                    ref={(node: HTMLDivElement) => setModalRef(node)}
-                    className={styles.modal}
-                    wrapperClassName={styles.wrapper}
-                >
-                    {hasHeader && (
-                        <ModalMobile.Header
-                            hasCloser={true}
-                            title={title}
-                            sticky={true}
-                            bottomAddons={renderDayNames()}
-                            className={cn({ [styles.withZIndex]: selectorView === 'full' })}
-                        />
-                    )}
-                    <ModalMobile.Content flex={true}>{renderContent()}</ModalMobile.Content>
-                    <ModalMobile.Footer
+            <ModalMobile
+                open={open}
+                onClose={handleClose}
+                ref={mergeRefs([(node: HTMLDivElement) => setModalRef(node), ref])}
+                className={className}
+                wrapperClassName={styles.wrapper}
+                transitionProps={{
+                    timeout: 360,
+                    classNames: transitionStyles,
+                }}
+                backdropProps={{
+                    transitionClassNames: backdropTransitionStyles,
+                    timeout: 360,
+                }}
+            >
+                {hasHeader && (
+                    <ModalMobile.Header
+                        hasCloser={true}
+                        title={title}
                         sticky={true}
+                        bottomAddons={renderDayNames()}
                         className={cn({ [styles.withZIndex]: selectorView === 'full' })}
-                    >
-                        {renderFooter()}
-                    </ModalMobile.Footer>
-                </ModalMobile>
-            </div>
+                    />
+                )}
+                <ModalMobile.Content flex={true}>{renderContent()}</ModalMobile.Content>
+                <ModalMobile.Footer
+                    sticky={true}
+                    className={cn({ [styles.withZIndex]: selectorView === 'full' })}
+                >
+                    {renderFooter()}
+                </ModalMobile.Footer>
+            </ModalMobile>
         );
     },
 );

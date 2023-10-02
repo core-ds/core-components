@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.1.8
+
+### Patch Changes
+
+### [#865](https://github.com/core-ds/core-components/pull/865)
+
+-   Добавлен атрибут translate="no". Без этого атрибута компонент ломается при включении перевода страницы
+
+-   Обновлены зависимости
+    -   input@12.2.0
+
 ## 4.1.7
 
 ### Patch Changes

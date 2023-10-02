@@ -16,7 +16,7 @@ export type NavigationBarProps = {
     /**
      * Подзаголовок (доступен только в мобильной версии)
      */
-    subtitle?: string;
+    subtitle?: ReactNode;
 
     /**
      * Размер заголовка (compact доступен только в мобильной версии)

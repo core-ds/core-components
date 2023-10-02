@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.2.6
+
+### Patch Changes
+
+### [#869](https://github.com/core-ds/core-components/pull/869)
+
+-   Изменен цвет текста для подсказки, когда файл не загружен и имени файла
+
 ## 6.2.5
 
 ### Patch Changes

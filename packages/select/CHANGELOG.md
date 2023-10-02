@@ -1,5 +1,22 @@
 # Change Log
 
+## 15.2.0
+
+### Minor Changes
+
+### [#860](https://github.com/core-ds/core-components/pull/860)
+
+-   dataTestId добавлен к аддонам и сообщению об ошибке у FormControl
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.2.0
+    -   bottom-sheet@6.10.0
+    -   base-modal@5.4.1
+    -   form-control@10.1.0
+    -   modal@8.0.8
+
 ## 15.1.6
 
 ### Patch Changes

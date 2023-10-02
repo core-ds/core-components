@@ -20,11 +20,16 @@ export type HeaderProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 };
 
-export const Header: FC<HeaderProps> = ({ view = 'full', withShadow, children }) => (
+export const Header: FC<HeaderProps> = ({ view = 'full', withShadow, children, className }) => (
     <div
-        className={cn(styles.header, {
+        className={cn(styles.header, className, {
             [styles.monthOnly]: view === 'month-only',
             [styles.withShadow]: withShadow,
         })}

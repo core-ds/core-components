@@ -1,0 +1,25 @@
+@import '../../../../themes/src/default.css';
+
+.appear,
+.enter {
+    background-color: transparent;
+}
+
+.appearActive,
+.enterActive,
+.appearDone,
+.enterDone {
+    background-color: var(--color-light-bg-primary-inverted-alpha-10);
+    transition: background-color 80ms linear;
+}
+
+.exit {
+    background-color: var(--color-light-bg-primary-inverted-alpha-10);
+}
+
+.exitActive,
+.exitDone {
+    background-color: transparent;
+    transition: background-color 80ms linear;
+    transition-delay: 280ms;
+}

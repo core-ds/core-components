@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.0.11
+
+### Patch Changes
+
+### [#879](https://github.com/core-ds/core-components/pull/879)
+
+-   Исправлены случаи некорректного срабатывания onCalendarClose
+
+-   Обновлены зависимости
+    -   calendar@7.0.8
+    -   date-input@4.3.8
+
 ## 9.0.10
 
 ### Patch Changes

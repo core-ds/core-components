@@ -1,17 +1,28 @@
 ## Размеры
 
-Основным типом инпутов в вебе являются инпуты размера M с внутренним расположением лейбла.
+Основным типом инпутов в десктопном вебе являются инпуты размера M с внутренним расположением лейбла. 
+Для мобильного веба рекомендуемый размер S с внешним расположением лейбла.
 
 ```jsx live
-render(() => {
-    return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <Input block={true} label='Текст' size='m' />
-            <Gap size='m' />
-            <Input block={true} label='Email' size='m' />
-        </div>
-    );
-});
+    <div style={{ width: 320 }}>
+        <Input 
+            placeholder='Введите текст' 
+            block={true} 
+            label='Текст' 
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT} 
+        />
+        <Gap size='m' />
+        <Input 
+            placeholder='Введите email' 
+            block={true} 
+            label='Email' 
+            labelView={isMobile() ? 'outer' : 'inner'}
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT} 
+        />
+    </div>
 ```
 
 ## Валидация
@@ -23,9 +34,16 @@ render(() => {
     const [error, setError] = React.useState(false);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <div style={{ height: 80 }}>
-                <Input block={true} label='Текст' size='m' error={error} />
+        <div style={{ width: 320 }}>
+            <div style={{ height: isMobile() ? 96 : 80 }}>
+                <Input 
+                    block={true} 
+                    label='Label' 
+                    placeholder='Placeholder' 
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    size={isMobile() ? 's' : 'm'}
+                    breakpoint={BREAKPOINT} 
+                    error={error} />
             </div>
             <Gap size='xl' />
             <Button size='xxs' view='secondary' onClick={() => setError(false)}>
@@ -50,9 +68,17 @@ render(() => {
     const [inputProps, setInputProps] = React.useState({});
 
     return (
-        <div style={{ width: '100%' }}>
-            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-                <Input block={true} label='Текст' size='m' {...inputProps} />
+        <div>
+            <div style={{ width: 320 }}>
+                <Input 
+                    block={true} 
+                    placeholder='Placeholder' 
+                    label='Label' 
+                    labelView={isMobile() ? 'outer' : 'inner'}
+                    size={isMobile() ? 's' : 'm'}
+                    breakpoint={BREAKPOINT}  
+                    {...inputProps} 
+                />
             </div>
             <Gap size='xl' />
 
@@ -100,21 +126,23 @@ render(() => {
     `;
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <style>{css}</style>
             <Input
                 block={true}
-                placeholder='Инпут с плейсхолдером'
-                size='m'
+                label={!isMobile() && 'Инпут с плейсхолдером'}
+                placeholder={isMobile() ? 'Инпут с плейсхолдером' : 'Placeholder'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
                 hint='Подсказка под полем'
                 rightAddons={
                     <Tooltip
                         open={open}
                         targetClassName='target'
                         content={
-                            <span
-                                style={{ whiteSpace: 'pre-wrap' }}
-                            >{`Сообщение тултипа\nотображается при\nнаведении`}</span>
+                            <span style={{ whiteSpace: 'pre-wrap' }} >
+                                {`Сообщение тултипа\nотображается при\n${isMobile() ? 'клике' : 'наведении'}`}
+                            </span>
                         }
                         onOpen={() => setOpen(true)}
                         onClose={() => setOpen(false)}
@@ -165,14 +193,17 @@ render(() => {
     const hasError = value !== '' && !success;
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <style>{css}</style>
             <Input
                 value={value}
                 block={true}
                 onChange={handleChange}
-                placeholder='Введите 5 символов'
-                size='m'
+                label='Введите 5 символов'
+                placeholder='Placeholder'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
                 success={success}
                 error={hasError}
                 rightAddons={
@@ -205,13 +236,16 @@ render(() => {
     const [value, setValue] = React.useState('Value');
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <Input
                 value={value}
                 block={true}
                 onChange={(e) => setValue(e.target.value)}
                 label='Label'
-                size='m'
+                placeholder='Placeholder'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
                 clear={true}
                 onClear={() => setValue('')}
             />
@@ -265,14 +299,17 @@ render(() => {
     `;
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+        <div style={{ width: 320 }}>
             <style>{css}</style>
             <Input
                 value={valueOne}
                 block={true}
                 onChange={(e) => setValueOne(e.target.value)}
                 label='Label'
-                size='m'
+                placeholder='Placeholder'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
                 rightAddons={
                     <IconButton
                         view='secondary'
@@ -289,7 +326,10 @@ render(() => {
                 block={true}
                 onChange={(e) => setValueTwo(e.target.value)}
                 label='Label'
-                size='m'
+                placeholder='Placeholder'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
                 rightAddons={
                     <div style={styleWrapperIcons}>
                         <IconButton
@@ -315,7 +355,7 @@ render(() => {
                 onClose={hideNotification}
                 hasCloser={false}
                 autoCloseDelay={2000}
-                style={{ left: '48%' }}
+                style={{ left: isMobile() ? '30%' : '41%' }}
             />
         </div>
     );

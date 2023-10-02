@@ -42,9 +42,23 @@ describe('Input', () => {
 
     it('should set `data-test-id` atribute to input', () => {
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<Input block={true} dataTestId={dataTestId} />);
+        const errorDti = `${dataTestId}-form-control-error-message`;
+        const leftAddonsDti = `${dataTestId}-form-control-left-addons`;
+        const rightAddonsDti = `${dataTestId}-form-control-right-addons`;
+        const { getByTestId } = render(
+            <Input
+                block={true}
+                dataTestId={dataTestId}
+                error='error message'
+                leftAddons={<span />}
+                rightAddons={<span />}
+            />,
+        );
 
         expect(getByTestId(dataTestId).tagName).toBe('INPUT');
+        expect(getByTestId(errorDti)).toBeTruthy();
+        expect(getByTestId(leftAddonsDti)).toBeTruthy();
+        expect(getByTestId(rightAddonsDti)).toBeTruthy();
     });
 
     it('should set `aria-label` atribute to input', () => {

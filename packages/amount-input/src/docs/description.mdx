@@ -1,74 +1,52 @@
-Компонент текстового поля для ввода денежных значений.
-
-☝️ В приложениях Клика используйте обёртку [newclick-composite-components/amount-input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-amountinput--basic).
-
-```jsx live
-<AmountInput bold={false} />
-```
-
-### Управление суффиксом
+## Примеры
 
 По умолчанию в качестве суффикса отображается символ выбранной валюты.
-Компонент позволяет как скрыть суффикс, так и вывести произвольный текст.
-
-```jsx live
-<Space>
-    <AmountInput value={9999} />
-    <AmountInput value={9999} suffix='' />
-    <AmountInput value={9999} suffix='%' />
-</Space>
-```
-
-### Uncontrolled-way
-
-Можно ничего не передавать в компонент и реагировать на 'onChange'
-
-```jsx live
-<AmountInput />
-```
-
-### Controlled-way
-
-Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState(10000);
-    const [valueString, setValueString] = React.useState('10000');
-    const [suggests] = React.useState([
-        { currency: 'RUR', minorUnits: 100, value: -1000, valueString: '-10' },
-        { currency: 'RUR', minorUnits: 100, value: 0, valueString: '0' },
-        { currency: 'RUR', minorUnits: 100, value: 500, valueString: '5' },
-        { currency: 'RUR', minorUnits: 100, value: 156000, valueString: '1560' },
-        { currency: 'RUR', minorUnits: 100, value: null, valueString: '' },
-    ]);
-    const handleChange = (event, payload) => {
-        setValue(payload.value);
-        setValueString(payload.valueString);
-    };
-    return (
-        <Space>
-            <AmountInput
-                value={value}
-                onChange={handleChange}
-                hint={`value: ${value} | valueString: ${valueString}`}
-                positiveOnly={false}
-            />
+    const [suffix, setSuffix] = React.useState('currency');
 
-            <Space direction='horizontal'>
-                {suggests.map((s, idx) => (
-                    <Button
-                        key={idx}
-                        size='xs'
-                        onClick={() =>
-                            handleChange(null, { value: s.value, valueString: s.valueString })
-                        }
-                    >
-                        Установить {String(s.value)}
-                    </Button>
-                ))}
-            </Space>
-        </Space>
+    const suffixInput = {
+        currency: 'RUR',
+        percent: '%',
+        noSuffix: null,
+    }[suffix];
+
+    const onChangeSuffix = (_, payload) => {
+        setSuffix(payload.value);
+    };
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <AmountInput 
+                value={1234567} 
+                placeholder='Введите сумму'
+                labelView={isMobile() ? 'outer': 'inner'}
+                label='Сумма' 
+                minority={100} 
+                bold={false} 
+                suffix={suffixInput}
+                block={true}
+                size={isMobile() ? 's': 'm'}
+                breakpoint={BREAKPOINT}
+            />
+            <Gap size='xl'/>
+            <RadioGroup
+                label='Суффикс'
+                direction='vertical'
+                name='radioGroup'
+                onChange={onChangeSuffix}
+                value={suffix}
+            >
+                <Radio size='m' label='Валюта' value='currency' />
+                <Radio size='m' label='Процент' value='percent' />
+                <Radio size='m' label='Нет' value='noSuffix' />
+            </RadioGroup>
+        </div>
     );
 });
 ```
+
+## Морфология
+
+Компонент является оберткой над [FormControl](?path=/docs/formcontrol--docs), поэтому наследует все доступные для него настройки.

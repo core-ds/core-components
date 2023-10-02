@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.4.0
+
+### Minor Changes
+
+### [#862](https://github.com/core-ds/core-components/pull/862)
+
+-   Обновлены пакеты иконок
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   masked-input@6.2.8
+
 ## 5.3.7
 
 ### Patch Changes

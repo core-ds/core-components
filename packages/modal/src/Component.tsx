@@ -72,6 +72,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View
                       },
                   }
                 : {
+                      wrapperClassName,
                       ref,
                       transitionProps: {
                           classNames: transitions,

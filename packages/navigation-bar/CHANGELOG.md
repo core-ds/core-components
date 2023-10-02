@@ -1,5 +1,16 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.5.7
+
+### Patch Changes
+
+### [#864](https://github.com/core-ds/core-components/pull/864)
+
+-   Тип subtitle изменен на ReactNode
+
+-   Обновлены зависимости
+    -   icon-button@6.3.0
+
 ## 0.5.6
 
 ### Patch Changes

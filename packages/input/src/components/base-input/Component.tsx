@@ -3,9 +3,11 @@ import React, {
     ChangeEvent,
     ElementType,
     Fragment,
+    HTMLAttributes,
     InputHTMLAttributes,
     MouseEvent,
     ReactNode,
+    RefAttributes,
     useCallback,
     useRef,
     useState,
@@ -15,7 +17,8 @@ import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
 import { Button } from '@alfalab/core-components-button';
-import { inputUtils } from '@alfalab/core-components-shared';
+import { FormControlProps } from '@alfalab/core-components-form-control';
+import { getDataTestId, inputUtils } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -126,6 +129,16 @@ export type BaseInputProps = Omit<
     rightAddons?: React.ReactNode;
 
     /**
+     * Свойства для обертки левых аддонов
+     */
+    leftAddonsProps?: HTMLAttributes<HTMLDivElement>;
+
+    /**
+     * Свойства для обертки правых аддонов
+     */
+    rightAddonsProps?: HTMLAttributes<HTMLDivElement>;
+
+    /**
      * Слот под инпутом
      */
     bottomAddons?: React.ReactNode;
@@ -189,10 +202,11 @@ export type BaseInputProps = Omit<
      * Обработчик MouseUp по полю
      */
     onMouseUp?: (event: MouseEvent<HTMLDivElement>) => void;
+
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Компонент FormControl
      */
-    FormControlComponent?: ElementType;
+    FormControlComponent?: ElementType<FormControlProps & RefAttributes<HTMLDivElement>>;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -231,6 +245,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             inputClassName,
             labelClassName,
             addonsClassName,
+            rightAddonsProps,
+            leftAddonsProps,
             focusedClassName,
             filledClassName,
             label,
@@ -426,6 +442,9 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                 onClick={onClick}
                 onMouseDown={onMouseDown}
                 onMouseUp={onMouseUp}
+                dataTestId={getDataTestId(dataTestId, 'form-control')}
+                rightAddonsProps={rightAddonsProps}
+                leftAddonsProps={leftAddonsProps}
             >
                 <input
                     {...restProps}

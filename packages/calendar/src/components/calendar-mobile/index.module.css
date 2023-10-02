@@ -3,7 +3,7 @@
 @import '../../../../modal/src/vars.css';
 
 .wrapper {
-    background: var(--color-light-bg-primary);
+    overflow-x: hidden;
 }
 
 .withZIndex {
@@ -20,6 +20,7 @@
     background: var(--modal-header-background);
     top: 0;
     height: 32px;
+    padding: 0 6px;
 
     &.withHeader {
         top: 48px;
@@ -56,4 +57,10 @@
     @media (max-width: 374px) {
         height: 36px;
     }
+}
+
+.header.header,
+.content.content {
+    padding-right: 0;
+    padding-left: 0;
 }

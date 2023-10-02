@@ -16,7 +16,8 @@ export type CardImageProps = {
 
     /**
      * Какие слои показывать, через запятую без пробелов
-     * (полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)
+     * (полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,
+     * PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)
      */
     layers?: string;
 
