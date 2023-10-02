@@ -31,6 +31,7 @@ const CSS_TRANSITION_CLASS_NAMES = {
 export type BaseToastProps = ToastPlateProps &
     Pick<
         PopoverProps,
+        | 'fallbackPlacements'
         | 'position'
         | 'offset'
         | 'open'
@@ -102,6 +103,7 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
             getPortalContainer,
             useAnchorWidth,
             closeWithClickOutside = true,
+            fallbackPlacements,
             ...restProps
         },
         ref,
@@ -190,6 +192,7 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
                     getPortalContainer={getPortalContainer}
                     zIndex={zIndex}
                     useAnchorWidth={useAnchorWidth}
+                    fallbackPlacements={fallbackPlacements}
                 >
                     {ToastPlate ? (
                         <ToastPlate {...restProps} style={style} className={className} {...props} />

@@ -30,14 +30,14 @@ export const toast: Story = {
             'left',
             'left-start',
             'left-end',
-        ];
+        ] as const;
         const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
         const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
-        const [buttonElement, setButtonElement] = React.useState(null);
-        const handleButtonRef = (node) => {
+        const [buttonElement, setButtonElement] = React.useState<HTMLButtonElement | null>(null);
+        const handleButtonRef = (node: HTMLButtonElement) => {
             setButtonElement(node);
         };
-        const containerRef = React.useRef();
+        const containerRef = React.useRef(null);
         const isMobile = document.body.clientWidth < 450;
         const closeWithClickOutside = boolean('closeWithClickOutside', true);
         return (
@@ -150,14 +150,14 @@ export const toast_mobile: Story = {
             'left',
             'left-start',
             'left-end',
-        ];
+        ] as const;
         const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
         const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
-        const [buttonElement, setButtonElement] = React.useState(null);
-        const handleButtonRef = (node) => {
+        const [buttonElement, setButtonElement] = React.useState<HTMLButtonElement | null>(null);
+        const handleButtonRef = (node: HTMLButtonElement) => {
             setButtonElement(node);
         };
-        const containerRef = React.useRef();
+        const containerRef = React.useRef(null);
         const closeWithClickOutside = boolean('closeWithClickOutside', true);
         return (
             <div
@@ -269,14 +269,14 @@ export const toast_desktop: Story = {
             'left',
             'left-start',
             'left-end',
-        ];
+        ] as const;
         const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
         const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
-        const [buttonElement, setButtonElement] = React.useState(null);
-        const handleButtonRef = (node) => {
+        const [buttonElement, setButtonElement] = React.useState<HTMLButtonElement | null>(null);
+        const handleButtonRef = (node: HTMLButtonElement) => {
             setButtonElement(node);
         };
-        const containerRef = React.useRef();
+        const containerRef = React.useRef(null);
         const closeWithClickOutside = boolean('closeWithClickOutside', true);
         return (
             <div
