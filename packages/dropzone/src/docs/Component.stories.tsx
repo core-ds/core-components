@@ -1,30 +1,31 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Dropzone } from '@alfalab/core-components-dropzone';
 
-import { Dropzone as DropzoneTS } from '../Component';
-import packageJson from '../../package.json';
-import Changelog from '../../CHANGELOG.md?raw';
-import Description from './description.mdx';
 import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/Dropzone' component={Dropzone} id='Dropzone' />
-
-export const WRAPPER_STYLES = {
+const WRAPPER_STYLES = {
     display: 'inline-block',
     background: 'var(--color-light-bg-primary)',
 };
 
-{/* Canvas */}
+const meta: Meta<typeof Dropzone> = {
+    title: 'Components/Dropzone',
+    component: Dropzone,
+    id: 'Dropzone',
+};
 
-<Story name='Dropzone'>
-    {React.createElement(() => {
+type Story = StoryObj<typeof Dropzone>;
+
+export const dropzone: Story = {
+    name: 'Dropzone',
+    render: () => {
         const [filesList, setFilesList] = React.useState([]);
-        const handleDrop = (files) => {
+        const handleDrop = (files: FileList) => {
             setFilesList(
                 Array.from(files)
                     .map((file) => file.name)
@@ -70,24 +71,7 @@ export const WRAPPER_STYLES = {
                 </div>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Dropzone'
-    version={packageJson.version}
-    package='@alfalab/core-components/dropzone'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=8897%3A54579'
-/>
-
-```jsx
-import { Dropzone } from '@alfalab/core-components/dropzone';
-```
-
-<Tabs
-    description={<Description />}
-    props={<ArgsTable of={DropzoneTS} />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-/>
+export default meta;

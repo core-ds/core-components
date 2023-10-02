@@ -1,6 +1,6 @@
-Компонент загружаемого файла
+## Примеры
 
-```jsx live
+```jsx live mobileHeight={500}
 <>
     <FileUploadItem
         name='Довольно длинное название файла.pdf'
@@ -18,14 +18,21 @@
     <FileUploadItem
         name='С кастомной иконкой.pdf'
         uploadDate='22.01.2018'
-        size={50000000}
+        size={50000}
         showDelete={true}
-        icon={StarLineMIcon}
+        icon={DiamondsMIcon}
+    />
+        <FileUploadItem
+        name='Название файла.pdf'
+        uploadDate='22.01.2018'
+        uploadPercent={23.5678}
+        uploadStatus='UPLOADING'
+        showDelete={true}
     />
     <FileUploadItem
         name='Название файла.txt'
         uploadDate='22.01.2018'
-        size={45000}
+        size={157290000}
         downloadLink='/link'
         uploadStatus='SUCCESS'
         showDelete={true}
@@ -36,21 +43,6 @@
         size={45000}
         uploadStatus='ERROR'
         showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.png'
-        uploadDate='22.01.2018'
-        size={45000}
-        uploadStatus='UPLOADING'
-        uploadPercent={23.5678}
-        showDelete={true}
-    />
-    <FileUploadItem
-        name='Название файла.pdf'
-        uploadDate='22.01.2018'
-        size={''}
-        uploadStatus='LOADING'
-        showDelete={false}
     />
     <FileUploadItem
         name='Название файла.png'
@@ -66,7 +58,7 @@
                 </p>
             </>
         }
-        showDelete={false}
+        showDelete={true}
     />
 </>
 ```
