@@ -18,7 +18,7 @@ import cn from 'classnames';
 import { Badge } from '@alfalab/core-components-badge';
 import { Button } from '@alfalab/core-components-button';
 import { FormControlProps } from '@alfalab/core-components-form-control';
-import { getDataTestId, inputUtils } from '@alfalab/core-components-shared';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
@@ -264,16 +264,16 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             value,
             defaultValue,
             wrapperRef,
-            readOnly,
+            readOnly: readOnlyProp,
             FormControlComponent,
             colorStyles = { default: {}, inverted: {} },
-            onKeyDown,
             disableUserInput,
             ...restProps
         },
         ref,
     ) => {
         const uncontrolled = value === undefined;
+        const readOnly = readOnlyProp || disableUserInput;
 
         const inputRef = useRef<HTMLInputElement>(null);
 
@@ -356,11 +356,6 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             [onAnimationStart],
         );
 
-        const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-            inputUtils.disableUserInput(disableUserInput, e);
-            onKeyDown?.(e);
-        };
-
         const renderRightAddons = () => {
             const addonsVisible = clearButtonVisible || rightAddons || error || success;
 
@@ -429,7 +424,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                 colors={colors}
                 block={block}
                 disabled={disabled}
-                readOnly={readOnly}
+                readOnly={readOnlyProp}
                 filled={filled || autofilled || focused}
                 focused={focused}
                 error={error}
@@ -453,6 +448,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                         colorCommonStyles[colors].input,
                         colorStyles[colors].input,
                         {
+                            [colorCommonStyles[colors].disableUserInput]: disableUserInput,
                             [styles.error]: error,
                             [colorStyles[colors].error]: error,
                             [styles[size]]: hasInnerLabel,
@@ -465,7 +461,6 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
                     onChange={handleInputChange}
-                    onKeyDown={handleKeyDown}
                     onAnimationStart={handleAnimationStart}
                     ref={mergeRefs([ref, inputRef])}
                     type={type}

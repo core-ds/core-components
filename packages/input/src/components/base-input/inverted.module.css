@@ -24,7 +24,7 @@
 
 /* READ-ONLY STATE */
 
-.input:read-only {
+.input:read-only:not(.disableUserInput) {
     color: var(--input-inverted-read-only-color);
 
     &:focus::placeholder {
