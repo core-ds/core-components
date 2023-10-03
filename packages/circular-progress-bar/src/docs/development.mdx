@@ -1,0 +1,31 @@
+import { ArgsTable } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { CircularProgressBar } from '../index';
+import styles from '!!raw-loader!../index.module.css';
+
+## Подключение
+
+```jsx
+import { CircularProgressBar } from '@alfalab/core-components/circular-progress-bar';
+```
+
+## Кастомный размер
+
+Размеру окружности можно задать кастомное значение через значение `height`. 
+Чтобы размер контента соответствовал размеру окружности, компоненту всё равно придётся передать значение для `size`.
+
+Соответствие размера окружности размеру компонента:  
+144px < xxl  
+128px < xl < 143px  
+80px < l < 127px  
+64px < m < 79px  
+48px < s < 63px  
+24px < xs < 47px  
+
+## Свойства
+
+<ArgsTable of={CircularProgressBar} />
+
+## Переменные
+
+<CssVars css={styles} />

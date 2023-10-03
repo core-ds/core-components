@@ -1,845 +1,381 @@
-Компонент для построения графиков основан на библиотеке основаной на D3 с лицензией - MIT https://recharts.org.
-В данный момент компонент поддерживает три типа графиков: `bar`, `line`, `area`.
+## Столбчатая диаграмма
 
-## Данные для отрисовки
-
--   `options.labels` - массив меток `string | number`
--   `options.series` - массив объектов с параметрами грaфиков с обязательным полем `data`
--   `options.series.data` - массив данных, который должен состоять из меток `label: string | number` и значений `value: number`
-
-## Пример объекта с дефолтными значениями
-
-```jsx
-options: {
-    /**
-     * Oбязательное уникальное поле, такие елменты как `legend`
-     * `linearGradient` используют его
-     */
-    id,
-
-    /**
-     * Компонент контейнера, позволяющий адаптировать диаграммы к размеру
-     * родительского контейнера
-     */
-    responsiveContainer?: {
-        /**
-         * Значение для debounce функции при ресайзе
-         */
-        debounce?: 0,
-    },
-
-    /*
-     * Диграмма для построения графиков с разными типами
-     */
-    composeChart: {
-        /*
-        * Отступы графика на момент инициализации компонента
-        */
-        initMargin?: {
-            top?: 5,
-            right?: 5,
-            bottom?: 5,
-            left?: 5,
-        },
-
-        /*
-        * Максимальная ширина графиков типа bar
-        */
-        maxBarSize?,
-
-        /*
-        * Разрыв между двумя категориями столбцов,
-        который может быть процентным или фиксированным значением
-        */
-        barCategoryGap?: '10%',
-
-        /*
-        * Разрыв между двумя столбцами одной категории
-        */
-        barGap?: 4,
-    },
-
-    /**
-     * Отображение линий осей графика
-     */
-    cartesianGrid?: {
-        /**
-         * Отображение горизонтальной сетки
-         */
-        horizontal?: true,
-
-        /**
-         * Отображение вертикальной сетки
-         */
-        vertical?: true,
-
-        /**
-         * Штрихи для осей
-         */
-        strokeDasharray?,
-
-        /**
-         * Цвет разметки сетки
-         */
-        stroke?,
-
-        /**
-         * Цвет заливки графика
-         */
-        fill?,
-    },
-
-    /**
-     * Настройки оси Х
-     */
-    xAxis: {
-        /**
-         * Скрыть ось
-         */
-        hide?: false,
-
-        /**
-         * Отображение линии оси.
-         */
-        axisLine?: true,
-
-        /**
-         * Тип оси.
-         */
-        type: 'category',
-
-        /**
-         * Разрешить значениям оси быть десятичными или нет.
-         */
-        allowDecimals?: true,
-
-        /**
-         * Разрешить или нет на оси дублировать категории,
-         * если "type" оси - "category".
-         */
-        allowDuplicatedCategory?: true,
-
-        /**
-         * Угол наклона значений оси.
-         */
-        angle?: 0,
-
-        /**
-         * Количество делений оси. Не используется,
-         * если "тип" - "категория".
-         */
-        tickCount?: 5,
-
-        /**
-         * Интревал линий деления оси
-         */
-        interval?: 'preserveEnd',
-
-        /**
-         * Минимальный зазор между двумя соседними делениями оси.
-         */
-        minTickGap?: 5,
-
-        /**
-         * Отображение линий деления оси
-         */
-        tickLine?: true,
-
-        /**
-         * Размер линий деления оси
-         */
-        tickSize?: 6,
-
-        /**
-         * Если установлено значение true,
-         * галочки переворачиваются вокруг оси,
-         * отображая метки внутри диаграммы, а не снаружи.
-         */
-
-        mirror?: false,
-
-        /**
-         * Отображение горизонтальной сетки
-         */
-        reversed?: false,
-
-        /**
-         * Реверсировать ось или нет
-         */
-        tickMargin?: 0,
-
-        /**
-         * Функция форматирования значения деления оси.
-         */
-        tickFormatter?,
-
-        /**
-         * Ключ данных, отображаемых на оси.
-         */
-        dataKey,
-
-        /**
-         * Ориентация оси
-         */
-        orientation?: 'bottom',
-
-        /**
-         * Тип деления оси
-         */
-        tickType?,
-    },
-
-    /**
-     * Настройки оси Y
-     */
-    yAxis: {
-        /**
-         * Скрыть ось
-         */
-        hide?: false,
-
-        /**
-         * Отображение линии оси.
-         */
-        axisLine?: true,
-
-        /**
-         * Тип оси.
-         */
-        type: 'number',
-
-        /**
-         * Разрешить значениям оси быть десятичными или нет.
-         */
-        allowDecimals?: true,
-
-        /**
-         * Разрешить или нет на оси дублировать категории,
-         * если "type" оси - "category".
-         */
-        allowDuplicatedCategory?: true,
-
-        /**
-         * Угол наклона значений оси.
-         */
-        angle?: 0,
-
-        /**
-         * Количество делений оси.
-         * Не используется, если "тип" - "категория".
-         */
-        tickCount?: 5,
-
-        /**
-         * Интревал линий деления оси
-         */
-        interval?: 'preserveEnd',
-
-        /**
-         * Минимальный зазор между двумя соседними делениями оси.
-         */
-        minTickGap?: 5,
-
-        /**
-         * Отображение линий деления оси
-         */
-        tickLine?: true,
-
-        /**
-         * Размер линий деления оси
-         */
-        tickSize?: 6,
-
-        /**
-         * Если установлено значение true,
-         * галочки переворачиваются вокруг оси,
-         * отображая метки внутри диаграммы, а не снаружи.
-         */
-        mirror?: false,
-
-        /**
-         * Отображение горизонтальной сетки
-         */
-        reversed?: false,
-
-        /**
-         * Реверсировать ось или нет
-         */
-        tickMargin?: 0,
-
-        /**
-         * Функция форматирования значения деления оси.
-         */
-        tickFormatter?,
-
-        /**
-         * Ключ данных, отображаемых на оси.
-         */
-        orientation?: 'bottom',
-    },
-
-    /**
-     * Всплывающаяся подсказка
-     */
-    tooltip?: {
-        /**
-         * Разделитель между именем и значением
-         */
-        separator?,
-
-        /**
-         * Размер смещения между положением всплывающей
-         * подсказки и активной позицией
-         */
-        offset?: 10,
-
-        /**
-         * Когда элемент полезной нагрузки имеет значение null или undefined,
-         * этот элемент не отображается
-         */
+```jsx live
+render(() => {
+    const cartesianGrid = {
+        vertical: false,
+        horizontal: true,
+        strokeDasharray: 0,
+        stroke: 'var(--color-light-border-primary)',
+        fill: 'var(--color-light-bg-primary)',
+    };
+    const legend = {
+        marginTop: 10,
+    };
+    const tooltip = {
+        separator: ' ',
+        offset: 20,
         filterNull: true,
-
-        /**
-         * Если установлено false, курсор не будет отображаться, когда всплывающая подсказка активна.
-         * Если установлен объект, опция - это конфигурация курсора.
-         * Если установлен элемент React, опция является настраиваемым элементом реакции курсора рисования.
-         */
-        cursor?: {
-            /**
-             * Цвет линии
-             */
-            stroke: cursorStroke,
-
-            /**
-             * Ширина линии
-             */
-            strokeWidth: cursorStrokeWidth,
+        cursor: {
+            stroke: 'var(--color-light-border-primary)',
+            strokeWidth: 1,
         },
-
-        /**
-         * Если это поле установлено, положение всплывающей подсказки
-         * будет фиксированным и больше не будет перемещаться.
-         */
-        position?: {
-            x,
-            y,
-        };
-
-        /**
-         * Если установлено false, анимация всплывающей подсказки будет отключена.
-         */
-        isAnimationActive?: true,
-
-        /**
-         * Указывает, когда должна начинаться анимация,
-         * единица измерения этого параметра - мс.
-         */
-        animationBegin?: 0,
-
-        /**
-         * Определяет продолжительность анимации,
-         * единица измерения этого параметра - мс.
-         */
-        animationDuration?: 1500,
-
-        /**
-         * Тип функции плавности
-         */
-        animationEasing?: 'ease',
-
-        /**
-         * Отображение стрелки тултипа
-         */
-        arrow?: false,
+        isAnimationActive: true,
+        animationBegin: 0,
+        animationDuration: 500,
+        animationEasing: 'ease',
+        arrow: true,
+    };
+    const brush = {
+        dataKey: 'label',
+        travellerWidth: 20,
+        height: 20,
+        alwaysShowText: true,
+        stroke: 'var(--color-static-status-blue)',
     };
 
-    /**
-     * Компонент маштабирования графика
-     */
-    brush?: {
-        /**
-         * Ключ данных
-         */
-        dataKey,
+    const chartBar = (includeValue) => {
+        const labels = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь']
+        if (includeValue) {
+            return labels.map((label, idx) => ({
+            label: label,
+            value:  Math.floor(Math.random() * 250) + 10
+            }));
+        } else {
+            return labels;
+        }
+    };
 
-        /**
-         * Ширина ползунков
-         */
-        travellerWidth?: 5,
-
-        /**
-         * Начальный индекс интервала показа
-         */
-        startIndex?,
-
-        /**
-         * Конечный индекс интервала показа
-         */
-        endIndex?,
-
-        /**
-         * Отступ
-         */
-        brushMargin?: 0,
-
-        /**
-         * Высота
-         */
-        height?: 40,
-
-        /**
-         * Форматирование значений
-         */
-        tickFormatter?,
-
-        /**
-         * Всегда показывать значение текущего интервала
-         */
-        alwaysShowText?: false,
-
-        /**
-         * Цвет
-         */
-        stroke?: brushStroke,
-    }
-
-    /**
-     * Компонент подписи графиков
-     */
-    legend?: {
-        /**
-         * Выравнивание элементов легенды в вертикальном направлении
-         */
-        verticalAlign?: 'middle',
-
-        /**
-         * Функция форматирования каждого текста в легенде
-         */
-        formatter?,
-
-        /**
-         * Выравнивание элементов легенды в горизонтальном направлении
-         */
-        align?: 'center',
-
-        /**
-         * Вертикальный отступ
-         */
-        marginTop?: 0,
-
-        /**
-         * Высота иконок
-         */
-        iconHeight?: 16,
-    },
-
-    /**
-     * Mассив меток
-     */
-    labels: Array<string | number>,
-
-    /**
-     * Mассив объектов с параметрами грaфиков с обязательным полем
-     */
-    series: [
-        /*
-         * Пример графика типа bar
-         */
-        {
-            /*
-             * Скрыть график
-             */
-            hide?: false,
-
-            /*
-             * Скрыть график в легенде
-             */
-            hideLegend?: false,
-
-            /*
-             * Скрыть график в тултипe
-             */
-            hideTooltip?: false,
-
-            /*
-             * Z-index графика
-             */
-            zIndex,
-
-            /*
-             * Тип графика
-             */
-            chart: 'bar',
-
-            /**
-             * Радиус закругления углов графика типа bar
-             */
-            radius?: {
-                /**
-                 * Верхний pадиус закругления углов графика типа bar
-                 */
-                top?,
-
-                /**
-                 * Нижний радиус закругления углов графика типа bar
-                 */
-                bottom?,
-            },
-
-            /*
-             * Тип иконки для графика
-             */
-            icon,
-
-            /*
-             * Параметры графика
-             */
-            properties: {
-
-                /*
-                * Название графика (отображается в легендах и тултипе)
-                */
-                name,
-
-                /*
-                * Ключ данных
-                */
-                dataKey,
-
-                /*
-                * Форматирование значения графика для тултипа
-                */
-                formatter?,
-
-                /*
-                * Цвет заливки графика
-                */
-                fill,
-
-                /*
-                * Цвет бордера графика
-                */
-                strokeWidth?,
-            },
-
-            /**
-             * Данные для построения графика
-             */
-            data: [
-                /**
-                 * Метка
-                 */
-                label,
-
-                /**
-                 * Значение
-                 */
-                value
-            ];
+    const barChartFirst = {
+        zIndex: 1,
+        chart: 'bar',
+        properties: {
+            name: 'расход',
+            dataKey: 'uv',
+            formatter: (decimal) => `${decimal * 1000}`,
+            fill: 'var(--color-static-graphic-persimmon)',
         },
-
-        /*
-         * Пример графика типа line
-         */
-        {
-            /*
-             * Скрыть график
-             */
-            hide?: false,
-
-            /*
-             * Скрыть график в легенде
-             */
-            hideLegend?: false,
-
-            /*
-             * Скрыть график в тултипe
-             */
-            hideTooltip?: false,
-
-            /*
-             * Z-index графика
-             */
-            zIndex,
-
-            /*
-             * Тип графика
-             */
-            chart: 'line',
-
-            /*
-             * Тип иконки для графика
-             */
-            icon,
-
-            /*
-             * Параметры графика
-             */
-            properties: {
-
-                /*
-                 * Название графика (отображается в легендах и тултипе)
-                 */
-                name,
-
-                /*
-                 * Ключ данных
-                 */
-                dataKey,
-
-                /*
-                 * Цвет линии графика
-                 */
-                stroke?: '#3182bd',
-
-                /*
-                 * Отображение точек на графике
-                 */
-                dot?,
-
-                /*
-                 * Параметры для точек грфика (если dot: true)
-                 */
-                dotSettings: [{
-
-                    /*
-                     * Значение media query
-                     */
-                    media,
-
-                    /*
-                     * Значение маштаба при ховере
-                     */
-                    scale,
-
-                    /*
-                     * Начальный значения маштаба
-                     */
-                    initScale,
-
-                    /*
-                     * Ширина точки
-                     */
-                    width,
-
-                    /*
-                     * Высота точки
-                     */
-                    height,
-                }],
-
-                /*
-                 * Наследование цвета
-                 */
-                inheritStroke?: false,
-
-                /*
-                 * Форматирование значения графика для тултипа
-                 */
-                formatter?,
-
-                /*
-                 * Тип линии
-                 */
-                type? 'linear',
-
-                /*
-                 * Толщина линии
-                 */
-                strokeWidth?: 1,
-
-                /*
-                 * Прерывистость линии
-                 */
-                strokeDasharray?,
+        data: chartBar(true),
+    };
+    const barChartSecond = {
+        zIndex: 10,
+        chart: 'bar',
+        properties: {
+            name: 'приход',
+            dataKey: 'pv',
+            formatter: (decimal) => `${decimal * 1000}`,
+            fill: 'var(--color-static-graphic-green-jungle)',
+        },
+        data: chartBar(true),
+    };
+    const lineChart = {
+        zIndex: 50,
+        chart: 'line',
+        icon: 'circleLine',
+        properties: {
+            name: 'остаток',
+            dataKey: 'cnt',
+            stroke: 'var(--color-static-status-blue)',
+            dot: true,
+            dotSettings: {
+                scale: 1.5,
+                initScale: 1,
+                width: 18,
+                height: 18,
             },
+            formatter: (decimal) => `${decimal * 1000}`,
+            type: 'monotone',
+            strokeWidth: 2,
+        },
+        data: chartBar(true),
+    };
+    const composeChart = {
+        initMargin: {
+            left: 20,
+        },
+        barSize: 10,
+    };
+    const xAxis = {
+        tickLine: false,
+        axisLine: false,
+        interval: 'preserveStartEnd',
+        tickMargin: 10,
+        dataKey: 'label',
+    };
+    const yAxis = {
+        axisLine: false,
+        type: 'number',
+        tickCount: 6,
+        tickLine: false,
+        tickMargin: 0,
+        tickFormatter: (decimal) => `${decimal}\xa0тыс.`,
+    };
 
-            /*
-             *  Массив данных для отрисовки
-             */
-            data: [
+    return (
+        <div style={{ display: 'flex' }}>
+            <div style={{ width: '600px', height: '400px' }}>
+                <Chart
+                    id='bar-chart'
+                    composeChart={composeChart}
+                    cartesianGrid={cartesianGrid}
+                    xAxis={xAxis}
+                    yAxis={yAxis}
+                    tooltip={tooltip}
+                    legend={legend}
+                    brush={brush}
+                    labels={chartBar(false)}
+                    series={[barChartFirst, barChartSecond, lineChart]}
+                />
+            </div>
+        </div>
+    );
+});
+```
 
-                /**
-                 * Метка
-                 */
-                label,
+## Гистограмма
 
-                /**
-                 * Значение
-                 */
-                value,
+```jsx live
+render(() => {
+    const composeChart = {
+        barCategoryGap: '5%',
+    };
+    const xAxis = {
+        axisLine: false,
+        type: 'category',
+        interval: 'preserveStartEnd',
+        tickLine: false,
+        tickMargin: 10,
+        dataKey: 'label',
+    };
+    const yAxis = {
+        hide: true,
+    };
+    const labelsBarChart = [
+        'Long label',
+        'Label1',
+        'Label2',
+        'Label3',
+        'Label4',
+        'Label5',
+        'Label6',
+        'Label7',
+    ];
+    const barChart = {
+        chart: 'bar',
+        radius: { top: 10, bottom: 10, } || 0,
+        labelList: {
+            offset: 10,
+        },
+        properties: {
+            name: 'приход',
+            dataKey: 'cm',
+            formatter: (decimal) => `${decimal * 1000}`,
+            fill: 'var(--color-static-graphic-green-jungle)',
+        },
+        data: [
+            {
+                label: 'Long label',
+                value: 5000,
+            },
+            {
+                label: 'Label1',
+                value: 650,
+            },
+            {
+                label: 'Label2',
+                value: 3522,
+            },
+            {
+                label: 'Label3',
+                value: 0,
+            },
+            {
+                label: 'Label4',
+                value: 2000,
+            },
+            {
+                label: 'Label5',
+                value: 1043,
+            },
+            {
+                label: 'Label6',
+                value: 600,
+            },
+            {
+                label: 'Label7',
+                value: 1,
+            },
+        ],
+    };
+        
+    return (
+        <div style={{ display: 'flex' }}>
+           <div style={{ width: '600px', height: '400px' }}>
+                    <Chart
+                        id='bar-chart'
+                        composeChart={composeChart}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        labels={labelsBarChart}
+                        series={[barChart]}
+                    />
+            </div>
+        </div>
+    );
+});
+```
+
+## Линейный график
+
+```jsx live
+render(() => {
+    const formatXAxis = (time) => format(time, 'dd LLL');
+    const cartesianGrid = {
+        stroke: 'var(--color-light-border-primary)',
+        fill: 'var(--color-light-bg-primary)',
+    };
+    const composeChart = {
+        barSize: 24,
+    };
+    const xAxis = {
+        axisLine: false,
+        type: 'category',
+        interval: 'preserveStartEnd',
+        minTickGap: 20,
+        tickLine: false,
+        dataKey: 'label',
+        tickFormatter: formatXAxis,
+        tickType: 'point',
+    };
+    const yAxis = {
+        axisLine: false,
+        type: 'number',
+        tickCount: 6,
+        interval: 'preserveStartEnd',
+        tickLine: false,
+        tickSize: 6,
+    };
+    const legend = {
+        verticalAlign: 'top',
+        marginTop: 15,
+        iconHeight: 20,
+    };
+    const tooltip = {
+        separator: ' ',
+        offset: 20,
+        filterNull: true,
+        cursor: {
+            stroke: 'var(--color-light-border-primary)',
+            strokeWidth: 1,
+        },
+        isAnimationActive: true,
+        animationBegin: 0,
+        animationDuration: 500,
+        animationEasing: 'ease',
+        arrow: true,
+        labelFormatter: formatXAxis,
+    };
+    const brush = {
+        dataKey: 'label',
+        travellerWidth: 20,
+        brushMargin: 10,
+        height: 20,
+        stroke: 'var(--color-static-status-blue)',
+        alwaysShowText: true,
+        tickFormatter: formatXAxis,
+    };
+
+    const chartData = (num, includeValue) => {
+        const labels = Array(20).fill(null).map((_, idx) => {
+            const date = new Date('2020-12-18');
+            date.setDate(date.getDate() + idx);
+            return date.getTime();
+        });
+
+        if (includeValue) {
+            return labels.map((label, idx) => ({
+            label: idx === 0 ? label : labels[idx - 1],
+            value: idx === 0 ? 15 : Math.floor(Math.random() * num) + 10
+            }));
+        } else {
+            return labels;
+        }
+    };
+
+    const lineChart = {
+        chart: 'line',
+        icon: 'strokeCircle',
+        properties: {
+            name: 'текущий период',
+            dataKey: 'b',
+            stroke: 'var(--color-static-status-blue)',
+            dot: true,
+            dotSettings: {
+                scale: 1.5,
+                initScale: 0,
+                width: 18,
+                height: 18,
+            },
+            inheritStroke: true,
+            type: 'monotone',
+            strokeWidth: 2,
+            strokeDasharray: '10 10',
+        },
+        data: chartData(30, true)
+    };
+    const areaChart = {
+        chart: 'area',
+        icon: 'filledCircle',
+        offset: 0.1,
+        gradient: {
+            gid: 'ar-grad',
+            points: [
+                {
+                    offset: 0,
+                    stopColor: 'rgba(0, 112, 224, 0.2)',
+                    stopOpacity: 1,
+                },
+                {
+                    offset: 95,
+                    stopColor: 'rgba(0, 128, 255, 0)',
+                    stopOpacity: 1,
+                },
             ],
         },
-
-        /*
-         * Пример графика типа area
-         */
-        {
-            /*
-             * Скрыть график
-             */
-            hide?: false,
-
-            /*
-             * Скрыть график в легенде
-             */
-            hideLegend?: false,
-
-            /*
-             * Скрыть график в тултипe
-             */
-            hideTooltip?: false,
-
-            /*
-             * Z-index графика
-             */
-            zIndex,
-
-            /*
-             * Тип графика
-             */
-            chart: 'ara',
-
-            /*
-             * Тип иконки для графика
-             */
-            icon,
-
-            /*
-             * Оффсет для градиента (только для типа area)
-             */
-            offset,
-
-            /**
-             * Параметры градиента
-             */
-            gradient: {
-
-                /**
-                 * Индефикатор градиента
-                 */
-                gid,
-
-                /**
-                 * Параметра точек для градиента
-                 */
-                points: [
-
-                    /**
-                     * Отступ
-                     */
-                    offset: number,
-
-                    /**
-                     * Цвет
-                     */
-                    stopColor: string,
-
-                    /**
-                     * Прозрачность
-                     */
-                    stopOpacity: number,
-                ];
-            };
-
-            /*
-             * Параметры графика
-             */
-            properties: {
-
-                /*
-                 * Название графика (отображается в легендах и тултипе)
-                 */
-                name,
-
-                /*
-                 * Ключ данных
-                 */
-                dataKey,
-
-                /*
-                 * Цвет линии графика
-                 */
-                stroke?: '#3182bd',
-
-                /*
-                 * Отображение точек на графике
-                 */
-                dot?,
-
-                /*
-                 * Параметры для точек грфика (если dot: true)
-                 */
-                dotSettings: [{
-
-                    /*
-                     * Значение media query
-                     */
-                    media,
-
-                    /*
-                     * Значение маштаба при ховере
-                     */
-                    scale,
-
-                    /*
-                     * Начальный значения маштаба
-                     */
-                    initScale,
-
-                    /*
-                     * Ширина точки
-                     */
-                    width,
-
-                    /*
-                     * Высота точки
-                     */
-                    height,
-                }],
-
-                /*
-                 * Наследование цвета
-                 */
-                inheritStroke?: false,
-
-                /*
-                 * Форматирование значения графика для тултипа
-                 */
-                formatter?,
-
-                /*
-                 * Тип линии
-                 */
-                type? 'linear',
-
-                /*
-                 * Толщина линии
-                 */
-                strokeWidth?: 1,
-
-                /*
-                 * Прерывистость линии
-                 */
-                strokeDasharray?,
+        properties: {
+            name: 'предыдущий период',
+            dataKey: 'a',
+            type: 'monotone',
+            stroke: 'var(--color-static-status-blue)',
+            dotSettings: {
+                scale: 1.5,
+                initScale: 0,
+                width: 18,
+                height: 18,
             },
-
-            /**
-             * Данные для построения графика
-             */
-            data: [
-
-                /**
-                 * Метка
-                 */
-                label,
-
-                /**
-                 * Значение
-                 */
-                value,
-            ]
+            dot: true,
+            strokeWidth: 2,
         },
-    ],
-};
+        data: chartData(50, true)
+    };
+    
+    return (
+        <div style={{ display: 'flex' }}>
+            <div style={{ width: '600px', height: '400px' }}>
+                    <Chart
+                        id={'line-chart'}
+                        composeChart={composeChart}
+                        cartesianGrid={cartesianGrid}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        tooltip={tooltip}
+                        legend={legend}
+                        brush={brush}
+                        labels={chartData(30, false)}
+                        series={[lineChart, areaChart]}
+                    />
+            </div>
+        </div>
+    );
+});
 ```

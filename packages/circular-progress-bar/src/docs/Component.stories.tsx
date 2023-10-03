@@ -1,43 +1,38 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, number, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
 
-import { CircularProgressBar as CircularProgressBarTS } from '../Component';
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-import styles from '!!raw-loader!../index.module.css';
+const meta: Meta<typeof CircularProgressBar> = {
+    title: 'Components/CircularProgressBar',
+    component: CircularProgressBar,
+    id: 'CircularProgressBar',
+};
 
-<Meta
-    title='Components/CircularProgressBar'
-    component={CircularProgressBar}
-    id='CircularProgressBar'
-/>
+type Story = StoryObj<typeof CircularProgressBar>;
 
-{/* Canvas */}
-
-<Story name='CircularProgressBar'>
-    {React.createElement(() => {
+export const circular_progress_bar: Story = {
+    name: 'CircularProgressBar',
+    render: () => {
         const value = number('value', 50);
-        const view = select('view', ['positive', 'negative']);
+        const view = select('view', ['positive', 'negative'], 'positive');
         const completeTextColor = select(
             'completeTextColor',
             ['primary', 'primary-inverted', 'positive', 'negative', 'secondary'],
             'secondary',
         );
         const title = text('title', 'title');
-        const titleComplete = text('titleComplete');
+        const titleComplete = text('titleComplete', '');
         const subtitle = text('subtitle', 'subtitle');
         const contentColor = select(
             'contentColor',
             ['primary', 'secondary', 'tertiary', 'positive', 'negative'],
             'secondary',
         );
-        const subtitleComplete = text('subtitleComplete');
-        const progressStrokeColor = text('progressStrokeColor');
-        const strokeColor = text('strokeColor');
-        const circleColor = text('circleColor');
+        const subtitleComplete = text('subtitleComplete', '');
+        const progressStrokeColor = text('progressStrokeColor', '');
+        const strokeColor = text('strokeColor', '');
+        const circleColor = text('circleColor', '');
         return (
             <>
                 <CircularProgressBar
@@ -75,25 +70,7 @@ import styles from '!!raw-loader!../index.module.css';
                 </CircularProgressBar>
             </>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='CircularProgressBar'
-    version={packageJson.version}
-    package='@alfalab/core-components/circular-progress-bar'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=58951%3A84594'
-/>
-
-```jsx
-import { CircularProgressBar } from '@alfalab/core-components/circular-progress-bar';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={CircularProgressBarTS} />}
-    cssVars={<CssVars css={styles} />}
-/>
+export default meta;

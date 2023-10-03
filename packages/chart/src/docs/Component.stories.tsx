@@ -1,20 +1,20 @@
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { number, boolean, select, text, object } from '@storybook/addon-knobs';
 import format from 'date-fns/format';
 import { Chart } from '@alfalab/core-components-chart';
 
-import { Chart as ChartTS } from '../Component';
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
-import { number, boolean, select, text, object } from '@storybook/addon-knobs';
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof Chart> = {
+    title: 'Components/Chart',
+    component: Chart,
+    id: 'Chart',
+};
 
-<Meta title='Components/Chart' id='Chart' />
+type Story = StoryObj<typeof Chart>;
 
-{/* Canvas */}
-
-<Story name='Chart.Bar'>
-    {React.createElement(() => {
+export const chart_bar: Story = {
+    name: 'Chart.Bar',
+    render: () => {
         const clearData = (obj) => {
             const copy = JSON.parse(JSON.stringify(obj));
             const labels = ['label', 'label', '...'];
@@ -148,7 +148,6 @@ import Changelog from '../../CHANGELOG.md?raw';
         const lineInheritStroke = boolean('properties.inheritStroke', true, lineId);
         const lineStrokeWidth = number('properties.strokeWidth', 2, {}, lineId);
         const lineStrokeDasharray = text('properties.strokeDasharray', '1 0', lineId);
-        const barHideFirst = boolean('hide', false, barIdFirst);
         const barHideLegendFirst = boolean('hideLegend', false, barIdFirst);
         const barHideTooltipFirst = boolean('hideTooltip', false, barIdFirst);
         const barZIndexFirst = number('zIndex', 1, {}, barIdFirst);
@@ -159,7 +158,6 @@ import Changelog from '../../CHANGELOG.md?raw';
             barIdFirst,
         );
         const barNameFirst = text('properties.name', 'расход', barIdFirst);
-        const barHideSecond = boolean('hide', false, barIdSecond);
         const barHideLegendSecond = boolean('hideLegend', false, barIdSecond);
         const barHideTooltipSecond = boolean('hideTooltip', false, barIdSecond);
         const barZIndexSecond = number('zIndex', 10, {}, barIdSecond);
@@ -424,13 +422,12 @@ import Changelog from '../../CHANGELOG.md?raw';
                 </div>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Canvas */}
-
-<Story name='Chart.Line'>
-    {React.createElement(() => {
+export const chart_line: Story = {
+    name: 'Chart.Line',
+    render: () => {
         const clearData = (obj) => {
             const copy = JSON.parse(JSON.stringify(obj));
             const labels = ['label', 'label', '...'];
@@ -504,7 +501,6 @@ import Changelog from '../../CHANGELOG.md?raw';
         const marginLeft = number('initMargin.left', 20, {}, composeChartId);
         const marginRight = number('initMargin.right', 70, {}, composeChartId);
         const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
-        const barGap = number('barGap', 4, {}, composeChartId);
         const barSize = number('barSize', 24, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
         const xAxisHide = boolean('hide', false, xAxisId);
@@ -553,7 +549,6 @@ import Changelog from '../../CHANGELOG.md?raw';
         const lineHide = boolean('hide', false, lineId);
         const lineHideLegend = boolean('hideLegend', false, lineId);
         const lineHideTooltip = boolean('hideTooltip', false, lineId);
-        const lineZIndex = number('zIndex', 50, {}, lineId);
         const lineIcon = select('icon', iconTypes, 'strokeCircle', lineId);
         const lineName = text('properties.name', 'текущий период', lineId);
         const lineStroke = text('properties.stroke', 'var(--color-static-status-blue)', lineId);
@@ -593,7 +588,6 @@ import Changelog from '../../CHANGELOG.md?raw';
         const areaWidth = number('properties.dotSettings.width', 18, {}, areaId);
         const areaStrokeWidth = number('properties.strokeWidth', 2, {}, areaId);
         const areaDot = boolean('properties.dot', true, areaId);
-        const areaStrokeDasharray = text('properties.strokeDasharray', '10 10', areaId);
         const responsiveContainer = {
             debounce,
         };
@@ -1182,13 +1176,12 @@ import Changelog from '../../CHANGELOG.md?raw';
                 </div>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Canvas */}
-
-<Story name='Chart.Histogram'>
-    {React.createElement(() => {
+export const chart_histogram: Story = {
+    name: 'Chart.Histogram',
+    render: () => {
         const clearData = (obj) => {
             const copy = JSON.parse(JSON.stringify(obj));
             const labels = ['label', 'label', '...'];
@@ -1208,32 +1201,7 @@ import Changelog from '../../CHANGELOG.md?raw';
             bottom: 'bottom',
             top: 'top',
         };
-        const orientationHorizontal = {
-            left: 'left',
-            right: 'right',
-        };
-        const alignHorizontal = {
-            left: 'left',
-            center: 'center',
-            right: 'right',
-        };
-        const alignVertical = {
-            bottom: 'bottom',
-            middle: 'middle',
-            top: 'top',
-        };
-        const linesType = {
-            linear: 'linear',
-            monotone: 'monotone',
-            step: 'step',
-        };
-        const animationType = {
-            ease: 'ease',
-            'ease-in': 'ease-in',
-            'ease-out': 'ease-out',
-            'ease-in-out': 'ease-in-out',
-            linear: 'linear',
-        };
+
         const iconTypes = {
             circleLine: 'circleLine',
             filledCircle: 'filledCircle',
@@ -1264,7 +1232,6 @@ import Changelog from '../../CHANGELOG.md?raw';
         const xAxisMinTickGap = number('minTickGap', 5, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
         const yAxisHide = boolean('hide', true, yAxisId);
-        const barHide = boolean('hide', false, barId);
         const barHideLegend = boolean('hideLegend', false, barId);
         const barHideTooltip = boolean('hideTooltip', false, barId);
         const barZIndex = number('zIndex', 10, {}, barId);
@@ -1408,23 +1375,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 </div>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Chart'
-    version={packageJson.version}
-    package='@alfalab/core-components/chart'
-/>
-
-```jsx
-import { Chart } from '@alfalab/core-components/chart';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={ChartTS} />}
-/>
+export default meta;
