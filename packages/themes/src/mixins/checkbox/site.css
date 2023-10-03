@@ -1,0 +1,10 @@
+@define-mixin checkbox-site {
+    /* checked */
+    --checkbox-checked-bg-color: var(--color-light-graphic-accent);
+    --checkbox-checked-hover-bg-color: var(--color-light-graphic-accent-shade-7);
+    --checkbox-checked-active-bg-color: var(--color-light-graphic-accent-shade-15);
+
+    /* icon */
+    --checkbox-icon-color: var(--color-static-graphic-light);
+    --checkbox-icon-indeterminate-color: var(--color-static-graphic-light);
+}

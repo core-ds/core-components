@@ -8,6 +8,8 @@
 @import './calendar-input/site.css';
 @import './checkbox-group/site.css';
 @import './radio-group/site.css';
+@import './checkbox/site.css';
+@import './radio/site.css';
 
 @define-mixin theme-site {
     @mixin button-site;
@@ -20,4 +22,6 @@
     @mixin calendar-input-site;
     @mixin checkbox-group-site;
     @mixin radio-group-site;
+    @mixin radio-site;
+    @mixin checkbox-site;
 }
