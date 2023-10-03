@@ -1,24 +1,44 @@
-Компонент для создания отступа между блоками.
-
-Можно задавать как вертикальный, так и горизонтальный отступ.
-Размер отступа устанавливается в соответствии с [системой отступов](?path=/docs/tokens-assets-отступы--docs)
+## Примеры
 
 ```jsx live
-<div>
-    <Typography.Text>Просто текст</Typography.Text>
-    <Gap size='s' />
-    <CardImage cardId='EG' />
-    <Gap size='xl' />
-    <Typography.Text>Еще немного текста</Typography.Text>
-</div>
-```
+render(() => {
+    const [direction, setDirection] = React.useState('horizontal');
 
-```jsx live
-<div>
-    <CardImage cardId='EG' />
-    <Gap direction='horizontal' size='l' />
-    <CardImage cardId='EG' />
-    <Gap direction='horizontal' size='l' />
-    <CardImage cardId='EG' />
-</div>
+    const stylesAddon={
+        width: '64px',
+        height: '64px',
+        borderRadius: '8px',
+        backgroundColor: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed rgb(55, 120, 251)',
+        boxSizing: 'border-box',
+    }
+    
+    const stylesWrapper = {
+        display: 'flex',
+        flexDirection: direction === 'vertical' ? 'column' : 'row',
+    }
+
+    return (
+        <div>
+            <div style={stylesWrapper}>
+                <div style={stylesAddon}/>
+                <Gap size='m' direction={direction} />
+                <div style={stylesAddon}/>
+                <Gap size='m' direction={direction} />
+                <div style={stylesAddon}/>
+            </div>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Лейаут'
+                direction='vertical'
+                name='radioGroupFirst'
+                onChange={(_, { value }) => setDirection(value)}
+                value={direction}
+            >
+                <Radio label='Горизонтальный' value='horizontal' />
+                <Radio label='Вертикальный' value='vertical' />
+            </RadioGroup>
+        </div>
+    );
+});
 ```

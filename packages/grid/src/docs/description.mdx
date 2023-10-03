@@ -1,337 +1,438 @@
-Компонент грид, который включает в себя Row и Col.
+## Создание сетки
 
-## Grid.Row
+Сетка имеет резиновую систему разметки, которая масштабируется до 12 столбцов. Столбцы должны быть помещены в строки.
 
-Строка используется для создания сетки. Сетка имеет резиновую систему разметки, которая масштабируется до 12 столбцов.
-
-### Установка горизонтального отступа
-
-```jsx live
+```jsx live mobileHeight={246}
 render(() => {
-    const style = {
-        height: 30,
-        background: '#ff5c5c',
-    };
-    return (
-        <Grid.Row gutter={{ mobile: 0, tablet: 16, desktop: { m: 24 } }}>
-            <Grid.Col>
-                <div style={style} />
-            </Grid.Col>
-            <Grid.Col>
-                <div style={{ ...style, background: '#f04539' }} />
-            </Grid.Col>
-            <Grid.Col>
-                <div style={style} />
-            </Grid.Col>
-        </Grid.Row>
-    );
-});
-```
-
-### Выравнивание
-
-По вертикали
-
-```jsx live
-render(() => {
-    const style = {
-        height: 30,
-        background: '#ff5c5c',
-    };
-    const styleLastDiv = {
-        width: 0,
-        height: 90,
-        padding: 0,
-        marginBottom: 10,
-    };
-    return (
-        <div>
-            <div style={{ background: '#f3f4f5', marginBottom: 10 }}>
-                <Grid.Row align='top'>
-                    <Grid.Col>
-                        <div style={style} />
-                    </Grid.Col>
-                    <Grid.Col>
-                        <div style={{ ...style, background: '#f04539' }} />
-                    </Grid.Col>
-                    <Grid.Col>
-                        <div style={style} />
-                    </Grid.Col>
-                    <div style={styleLastDiv} />
-                </Grid.Row>
-            </div>
-            <div style={{ background: '#f3f4f5', marginBottom: 10 }}>
-                <Grid.Row align='middle'>
-                    <Grid.Col>
-                        <div style={style} />
-                    </Grid.Col>
-                    <Grid.Col>
-                        <div style={{ ...style, background: '#f04539' }} />
-                    </Grid.Col>
-                    <Grid.Col>
-                        <div style={style} />
-                    </Grid.Col>
-                    <div style={styleLastDiv} />
-                </Grid.Row>
-            </div>
-            <div style={{ background: '#f3f4f5' }}>
-                <Grid.Row align='bottom'>
-                    <Grid.Col>
-                        <div style={style} />
-                    </Grid.Col>
-                    <Grid.Col>
-                        <div style={{ ...style, background: '#f04539' }} />
-                    </Grid.Col>
-                    <Grid.Col>
-                        <div style={style} />
-                    </Grid.Col>
-                    <div style={{ ...styleLastDiv, marginBottom: 0 }} />
-                </Grid.Row>
-            </div>
-        </div>
-    );
-});
-```
-
-По горизонтали
-
-```jsx live
-render(() => {
-    const style = {
-        height: 30,
-        background: '#ff5c5c',
-        marginBottom: 10,
-    };
-    return (
-        <div>
-            <Grid.Row justify='left'>
-                <Grid.Col width='4'>
-                    <div style={style} />
-                </Grid.Col>
-                <Grid.Col width='4'>
-                    <div style={{ ...style, background: '#f04539' }} />
-                </Grid.Col>
-            </Grid.Row>
-            <Grid.Row justify='center'>
-                <Grid.Col width='4'>
-                    <div style={style} />
-                </Grid.Col>
-                <Grid.Col width='4'>
-                    <div style={{ ...style, background: '#f04539' }} />
-                </Grid.Col>
-            </Grid.Row>
-            <Grid.Row justify='right'>
-                <Grid.Col width='4'>
-                    <div style={style} />
-                </Grid.Col>
-                <Grid.Col width='4'>
-                    <div style={{ ...style, background: '#f04539' }} />
-                </Grid.Col>
-            </Grid.Row>
-            <Grid.Row justify='around'>
-                <Grid.Col width='4'>
-                    <div style={style} />
-                </Grid.Col>
-                <Grid.Col width='4'>
-                    <div style={{ ...style, background: '#f04539' }} />
-                </Grid.Col>
-            </Grid.Row>
-            <Grid.Row justify='between'>
-                <Grid.Col width='4'>
-                    <div style={{ ...style, marginBottom: 0 }} />
-                </Grid.Col>
-                <Grid.Col width='4'>
-                    <div style={{ ...style, background: '#f04539', marginBottom: 0 }} />
-                </Grid.Col>
-            </Grid.Row>
-        </div>
-    );
-});
-```
-
-## Grid.Col
-
-Колонки используются для создания сетки. Сетка имеет резиновую систему разметки, которая масштабируется до 12 столбцов. Колонки должны быть помещены в строки (компонент Grid.Row).
-
-```jsx live
-render(() => {
-    const style = {
-        height: 30,
-        lineHeight: '30px',
-        color: '#fff',
-        background: '#ff5c5c',
+    const styleCol = {
+        lineHeight: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
         textAlign: 'center',
-        marginTop: 10,
     };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '8px 20px',
+        marginTop: '1px',
+    };
+
+    const styleWrapper = { 
+        background: 'var(--color-light-border-primary)', 
+        margin: 'var(--gap-l-neg)',
+    };
+
     return (
-        <div>
-            <Grid.Row>
-                <Grid.Col width={{ desktop: { m: 12 } }}>
-                    <div style={{ ...style, background: '#f04539', marginTop: 0 }}>12</div>
-                </Grid.Col>
-            </Grid.Row>
-            <Grid.Row>
-                {[1, 2].map(key => (
-                    <Grid.Col width='6' key={key}>
-                        <div style={style}>6</div>
-                    </Grid.Col>
-                ))}
-            </Grid.Row>
-            <Grid.Row>
-                {[1, 2, 3].map(key => (
-                    <Grid.Col width='4' key={key}>
-                        <div style={{ ...style, background: '#f04539' }}>4</div>
-                    </Grid.Col>
-                ))}
-            </Grid.Row>
-            <Grid.Row>
-                {[1, 2, 3, 4].map(key => (
-                    <Grid.Col width='3' key={key}>
-                        <div style={style}>3</div>
-                    </Grid.Col>
-                ))}
-            </Grid.Row>
-            <Grid.Row>
-                {[1, 2, 3, 4, 5, 6].map(key => (
-                    <Grid.Col width='2' key={key}>
-                        <div style={{ ...style, background: '#f04539' }}>2</div>
-                    </Grid.Col>
-                ))}
-            </Grid.Row>
-            <Grid.Row>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(key => (
-                    <Grid.Col width='1' key={key}>
-                        <div style={style}>1</div>
-                    </Grid.Col>
-                ))}
-            </Grid.Row>
+        <div style={styleWrapper}>
+            <div style={styleRow}>
+              <Grid.Row>
+                  <Grid.Col width={{ desktop: { m: 12 } }}>
+                      <div style={{ ...styleCol, marginTop: 0 }}>12</div>
+                  </Grid.Col>
+              </Grid.Row>
+            </div>
+
+            <div style={styleRow}>
+              <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                  {[1, 2].map(key => (
+                      <Grid.Col width='6' key={key}>
+                          <div style={styleCol}>6</div>
+                      </Grid.Col>
+                  ))}
+              </Grid.Row>
+            </div>
+
+            <div style={styleRow}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3].map(key => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>4</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+
+            <div style={styleRow}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3, 4].map(key => (
+                        <Grid.Col width='3' key={key}>
+                            <div style={styleCol}>3</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+
+            <div style={styleRow} >
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3, 4, 5, 6].map(key => (
+                        <Grid.Col width='2' key={key}>
+                            <div style={styleCol}>2</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+
+            <div style={styleRow}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(key => (
+                        <Grid.Col width='1' key={key}>
+                            <div style={styleCol}>1</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
         </div>
     );
 });
 ```
 
-### Адаптивная ширина
+## Работа со строками
 
-Сетку можно настроить для каждой контрольной точки для построения сложного адаптивного интерфейса.
+Элементы внутри строки можно выравнивать по вертикали.
 
-```jsx live
+```jsx live mobileHeight={195}
 render(() => {
-    const style = {
-        height: 30,
-        lineHeight: '30px',
-        color: '#fff',
+    const styleCol = {
+        lineHeight: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
         textAlign: 'center',
-        background: '#ff5c5c',
-        marginBottom: '10px',
     };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '8px 20px',
+        marginTop: '1px',
+    };
+
+    const styleWrapper = { 
+        background: 'var(--color-light-border-primary)', 
+        margin: 'var(--gap-l-neg)',
+    };
+
     return (
-        <div style={{ marginBottom: '-10px' }}>
-            <Grid.Row>
-                <Grid.Col width={{ mobile: 12, tablet: 12, desktop: 4 }}>
-                    <div style={style} />
-                </Grid.Col>
-                <Grid.Col width={{ mobile: 12, tablet: 6, desktop: 4 }}>
-                    <div style={{ ...style, background: '#f04539' }} />
-                </Grid.Col>
-                <Grid.Col width={{ mobile: 12, tablet: 6, desktop: 4 }}>
-                    <div style={style} />
-                </Grid.Col>
-            </Grid.Row>
+        <div style={styleWrapper}>
+            <div style={styleRow}>
+                <Grid.Row align='top' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(3).fill('top').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                    <div style={{...styleCol, height: 48}} />
+                </Grid.Row>
+            </div>
+            <div style={styleRow}>
+                <Grid.Row align='middle' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(3).fill('middle').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                    <div style={{...styleCol, height: 48}} />
+                </Grid.Row>
+            </div>
+            <div style={styleRow}>
+                <Grid.Row align='bottom' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(3).fill('bottom').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                    <div style={{...styleCol, height: 48}} />
+                </Grid.Row>
+            </div>
         </div>
     );
 });
 ```
 
-### Вертикальное выравнивание
+Элементы внутри строки можно выравнивать по горизонтали.
 
-```jsx live
+```jsx live mobileHeight={205}
 render(() => {
-    const style = {
-        height: 30,
-        background: '#ff5c5c',
+    const styleCol = {
+        lineHeight: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
+        textAlign: 'center',
     };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '8px 20px',
+        marginTop: '1px',
+    };
+
+    const styleWrapper = { 
+        background: 'var(--color-light-border-primary)', 
+        margin: 'var(--gap-l-neg)',
+    };
+
     return (
-        <div style={{ background: '#f3f4f5' }}>
-            <Grid.Row>
+        <div style={styleWrapper}>
+            <div style={styleRow}>
+                <Grid.Row justify='left' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('left').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+            <div style={styleRow}>
+                <Grid.Row justify='center' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('center').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+            <div style={styleRow}>
+                <Grid.Row justify='right' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('right').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+            <div style={styleRow}>
+                <Grid.Row justify='around' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('around').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+            <div style={styleRow}>
+                <Grid.Row justify='between' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('between').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+        </div>
+    );
+});
+```
+
+## Работа со столбцами
+
+Внутри каждого столбца можно задать индивидуальное выравнивание.
+
+```jsx live mobileHeight={95}
+render(() => {
+    const styleCol = {
+        lineHeight: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
+        textAlign: 'center',
+    };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '0px 8px',
+        boxSizing: 'border-box',
+        margin: 'var(--gap-l-neg)',
+    };
+    
+    const style = {
+        width: 1,
+        background: 'var(--color-light-border-primary)'
+    };
+
+    return (
+        <div style={styleRow}>
+            <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
                 <Grid.Col align='top'>
-                    <div style={style} />
+                    <div style={{...styleCol, margin: '8px 12px' }}>top</div>
                 </Grid.Col>
+                <div style={style}/>
                 <Grid.Col align='middle'>
-                    <div style={{ ...style, background: '#f04539' }} />
+                    <div style={{...styleCol, margin: '8px 12px' }}> middle </div>
                 </Grid.Col>
+                <div style={style}/>
                 <Grid.Col align='bottom'>
-                    <div style={style} />
+                    <div style={{...styleCol, margin: '8px 12px' }}> bottom </div>
                 </Grid.Col>
-                <div style={{ width: 0, height: 90, padding: 0 }} />
+                <div style={{...styleCol, height: 79, margin: '8px 0px' }} />
             </Grid.Row>
         </div>
     );
 });
 ```
 
-### Изменение порядка элементов
+Столбцам можно задать смещение. В этом примере столбцы имеют одинаковую ширину, но правый имеет дополнительное смещение.
 
-Для быстрого изменения порядка одного элемента возможно использование значений first и last.
-
-```jsx live
+```jsx live mobileHeight={40}
 render(() => {
-    const style = {
-        height: 30,
-        lineHeight: '30px',
-        color: '#fff',
+    const styleCol = {
+        lineHeight: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
         textAlign: 'center',
-        background: '#ff5c5c',
-        marginBottom: '10px',
     };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '8px 20px',
+    };
+
+    const styleWrapper = { 
+        background: 'var(--color-light-border-primary)', 
+        margin: 'var(--gap-l-neg)',
+    };
+
     return (
-        <div style={{ marginBottom: '-10px' }}>
-            <Grid.Row>
-                <Grid.Col order='1'>
-                    <div style={style}>Первый (order=1)</div>
-                </Grid.Col>
-                <Grid.Col order='3'>
-                    <div style={style}>Второй (order=3)</div>
-                </Grid.Col>
-                <Grid.Col order='2'>
-                    <div style={{ ...style, background: '#f04539' }}>Третий (order=2)</div>
-                </Grid.Col>
-            </Grid.Row>
-            <Grid.Row>
-                <Grid.Col order='last'>
-                    <div style={style}>Первый (order=last)</div>
-                </Grid.Col>
-                <Grid.Col>
-                    <div style={style}>Второй</div>
-                </Grid.Col>
-                <Grid.Col>
-                    <div style={{ ...style, background: '#f04539' }}>Третий</div>
-                </Grid.Col>
-            </Grid.Row>
+        <div style={styleWrapper}>
+            <div style={styleRow}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    <Grid.Col width='4'>
+                        <div style={styleCol}>width = 4</div>
+                    </Grid.Col>
+                    <Grid.Col width='4' offset='4'>
+                        <div style={styleCol}>width = 4</div>
+                    </Grid.Col>
+                </Grid.Row>
+            </div>
         </div>
     );
 });
 ```
 
-### Смещение колонок
+## Адаптивная ширина
 
-```jsx live
+Для построения сложного адаптивного интерфейса можно задать сетку для каждого брейкпоинта. 
+В этом примере отступ между колонками равен 16рх на десктопном брейкпоинте и 8рх на мобильном.
+
+```jsx live mobileHeight={40}
 render(() => {
-    const style = {
-        height: 30,
-        lineHeight: '30px',
-        color: '#fff',
+    const styleCol = {
+        height: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
         textAlign: 'center',
-        background: '#ff5c5c',
     };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '8px 20px',
+    };
+
+    const styleWrapper = { 
+        background: 'var(--color-light-border-primary)', 
+        margin: 'var(--gap-l-neg)',
+    };
+
     return (
-        <Grid.Row>
-            <Grid.Col width='4'>
-                <div style={style}>width 4</div>
-            </Grid.Col>
-            <Grid.Col width='4' offset='4'>
-                <div style={{ ...style, background: '#f04539' }}>width 4, offset 4</div>
-            </Grid.Col>
-        </Grid.Row>
+        <div style={styleWrapper}>
+            <div style={styleRow}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3].map(key => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}/>
+                        </Grid.Col>
+                    ))}
+                </Grid.Row>
+            </div>
+        </div>
+    );
+});
+```
+
+## Изменение порядка элементов
+
+Для изменения порядка можно использовать значение order.
+
+```jsx live mobileHeight={40}
+render(() => {
+    const styleCol = {
+        lineHeight: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
+        textAlign: 'center',
+    };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '8px 20px',
+    };
+
+    const styleWrapper = { 
+        background: 'var(--color-light-border-primary)', 
+        margin: 'var(--gap-l-neg)',
+    };
+
+    return (
+        <div style={styleWrapper}>
+            <div style={styleRow}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    <Grid.Col width='4' order='1'>
+                        <div style={styleCol}>order = 1</div>
+                    </Grid.Col>
+                    <Grid.Col width='4' order='3'>
+                        <div style={styleCol}>order = 3</div>
+                    </Grid.Col>
+                    <Grid.Col width='4' order='2'>
+                        <div style={styleCol}>order = 2</div>
+                    </Grid.Col>
+                </Grid.Row>
+            </div>
+        </div>
+    );
+});
+```
+
+Так же порядок можно изменить при помощи значений first и last.
+
+```jsx live mobileHeight={40}
+render(() => {
+    const styleCol = {
+        lineHeight: '24px',
+        color: 'var(--color-light-text-secondary)',
+        background: 'var(--color-light-specialbg-secondary-transparent)',
+        borderRadius: '8px',
+        textAlign: 'center',
+    };
+
+    const styleRow = { 
+        background: 'var(--color-light-bg-primary)', 
+        padding: '8px 20px',
+    };
+
+    const styleWrapper = { 
+        background: 'var(--color-light-border-primary)', 
+        margin: 'var(--gap-l-neg)',
+    };
+
+    return (
+        <div style={styleWrapper}>
+            <div style={styleRow}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    <Grid.Col width='4' order='last'>
+                        <div style={styleCol}>order = last</div>
+                    </Grid.Col>
+                    <Grid.Col width='4' order='2'>
+                        <div style={styleCol}>order = 2</div>
+                    </Grid.Col>
+                    <Grid.Col width='4' order='first'>
+                        <div style={styleCol}>order = first</div>
+                    </Grid.Col>
+                </Grid.Row>
+            </div>
+        </div>
     );
 });
 ```

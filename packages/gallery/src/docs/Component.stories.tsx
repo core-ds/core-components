@@ -1,20 +1,20 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 import { Gallery } from '@alfalab/core-components-gallery';
 
-import { Gallery as GalleryTS } from '../Component';
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof Gallery> = {
+    title: 'Components/Gallery',
+    component: Gallery,
+    id: 'Gallery',
+};
 
-<Meta title='Components/Gallery' component={Gallery} id='Gallery' />
+type Story = StoryObj<typeof Gallery>;
 
-{/* Canvas */}
-
-<Story name='Gallery'>
-    {React.createElement(() => {
+export const gallery: Story = {
+    name: 'Gallery',
+    render: () => {
         const [openMultiple, setOpenMultiple] = React.useState(false);
         const [open, setOpen] = React.useState(false);
         return (
@@ -81,19 +81,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader name='Gallery' version={packageJson.version} />
-
-```jsx
-import { Gallery } from '@alfalab/core-components/gallery';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={GalleryTS} />}
-/>
+export default meta;
