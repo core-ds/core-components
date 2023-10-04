@@ -1,17 +1,10 @@
 @import '../../../../themes/src/default.css';
-
-:root {
-    --bottom-sheet-header-border-bottom: 1px solid var(--color-light-border-secondary);
-    --bottom-sheet-title-font-size: 18px;
-    --bottom-sheet-title-font-weight: 700;
-    --bottom-sheet-title-line-height: 24px;
-    --bottom-sheet-title-font-family: var(--font-family-system);
-}
+@import '../../vars.css';
 
 .headerWrapper {
     padding: var(--gap-s) var(--gap-xs) var(--gap-2xs);
-    border-top-right-radius: var(--border-radius-xl);
-    border-top-left-radius: var(--border-radius-xl);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
     z-index: 1;
 }
 

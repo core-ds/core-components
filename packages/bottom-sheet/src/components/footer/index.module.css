@@ -1,9 +1,5 @@
 @import '../../../../themes/src/default.css';
-
-:root {
-    --bottom-sheet-footer-border-top: 1px solid var(--color-light-border-secondary);
-    --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
-}
+@import '../../vars.css';
 
 .footer {
     padding: var(--gap-m) var(--gap-m);
