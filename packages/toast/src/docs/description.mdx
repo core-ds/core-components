@@ -1,4 +1,4 @@
-Компонент `Toast`. Cообщает пользователю о результате выполнения его команды.
+Компонент `Toast`. Сообщает пользователю о результате выполнения его команды.
 
 `Toast` привязан либо к элементу, который спровоцировал его появление, либо появляется снизу экрана.
 
@@ -14,11 +14,9 @@ render(() => {
 
     const [buttonElement, setButtonElement] = React.useState(null);
 
-    const handleButtonRef = node => {
+    const handleButtonRef = (node) => {
         setButtonElement(node);
     };
-
-    const isMobile = document.body.clientWidth < 450;
 
     return (
         <div
@@ -33,6 +31,7 @@ render(() => {
             }}
         >
             <Toast
+                breakpoint={BREAKPOINT}
                 open={anchorToastOpen}
                 anchorElement={buttonElement}
                 position='top'
@@ -47,19 +46,21 @@ render(() => {
                 autoCloseDelay={1500}
             />
             <Toast
+                breakpoint={BREAKPOINT}
                 open={fixedToastOpen}
                 badge='positive'
                 title='Ваша карта удалена'
                 hasCloser={true}
                 block={true}
-                bottomButtonPosition={isMobile}
+                bottomButtonPosition={isMobile()}
                 onClose={() => {
                     setFixedToastOpen(false);
                 }}
                 autoCloseDelay={3000}
                 actionButton={
                     <Button
-                        size={isMobile ? 'xs' : 's'}
+                        breakpoint={BREAKPOINT}
+                        size={isMobile() ? 'xs' : 's'}
                         view='ghost'
                         colors='inverted'
                         onClick={() => {
@@ -69,9 +70,10 @@ render(() => {
                         Восстановить
                     </Button>
                 }
-                style={{ ...(!isMobile && {maxWidth: 'calc(100vw - 150px)'} )}}
+                style={{ ...(!isMobile() && { maxWidth: 'calc(100vw - 150px)' }) }}
             />
             <Button
+                breakpoint={BREAKPOINT}
                 ref={handleButtonRef}
                 onClick={() => {
                     setAnchorToastOpen(true);
@@ -80,6 +82,7 @@ render(() => {
                 Скопировать
             </Button>
             <Button
+                breakpoint={BREAKPOINT}
                 onClick={() => {
                     setFixedToastOpen(true);
                 }}
@@ -128,6 +131,7 @@ render(() => {
                 }}
             >
                 <Toast
+                    breakpoint={BREAKPOINT}
                     open={anchorToastOpen}
                     anchorElement={containerRef.current}
                     position='bottom-start'
@@ -146,6 +150,7 @@ render(() => {
                     Скопировано
                 </Toast>
                 <Button
+                    breakpoint={BREAKPOINT}
                     onClick={() => {
                         setAnchorToastOpen(true);
                     }}
