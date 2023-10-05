@@ -19,9 +19,9 @@
         "mobile.js": 70.48
     },
     "toast": {
-        "desktop.js": 57.76,
-        "index.js": 58.24,
-        "mobile.js": 57.76
+        "desktop.js": 57.81,
+        "index.js": 58.28,
+        "mobile.js": 57.8
     },
     "toast-plate": {
         "desktop.js": 14.66,
@@ -283,14 +283,14 @@
         "index.js": 1.31
     },
     "date-time-input": {
-        "desktop.js": 130.37,
-        "index.js": 225.84,
-        "mobile.js": 224.4
+        "desktop.js": 130.39,
+        "index.js": 225.86,
+        "mobile.js": 224.42
     },
     "date-range-input": {
-        "desktop.js": 131.97,
-        "index.js": 227.48,
-        "mobile.js": 226.05
+        "desktop.js": 131.99,
+        "index.js": 227.5,
+        "mobile.js": 226.07
     },
     "date-input": {
         "index.js": 62.39
