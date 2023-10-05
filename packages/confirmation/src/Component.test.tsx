@@ -186,7 +186,7 @@ describe('Confirmation', () => {
         });
 
         it('should render passed phone', () => {
-            const phone = '+7 (999) 999 99-99';
+            const phone = '+7 (999) 999 99 99';
 
             const { getByText } = render(<ConfirmationDesktop {...baseProps} phone={phone} />);
 
