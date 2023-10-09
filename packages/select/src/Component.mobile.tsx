@@ -141,6 +141,8 @@ export const SelectMobile = forwardRef(
                 selected={selected}
                 onChange={onChange}
                 OptionsList={OptionsList}
+                showSearch={showSearch}
+                searchProps={searchProps}
                 bottomSheetProps={{
                     bottomAddons: useWithApplyHook && showHeaderWithSelectAll && (
                         <Header {...applyProps.optionsListProps.headerProps} mobile={true} />
