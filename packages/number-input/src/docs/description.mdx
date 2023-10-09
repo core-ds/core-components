@@ -5,31 +5,24 @@
 
 ```jsx live mobileHeight={500}
 render(() => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState(null);
 
-    const [allowSignsRadioValue, setAllowSignsRadioValue] = React.useState('comma');
+    const [separator, setSeparator] = React.useState(',');
     const [fractionLengthRadioValue, setFractionLengthRadioValue] = React.useState('notLimited');
-    const [signsRadioValue, setSignsRadioValue] = React.useState('allowSigns');
 
-    //Используйте для изменения значения инпута valueString
-    const handleChange = (e, paylaod) => {
-        setValue(paylaod.valueString);
+    const handleChange = (_, payload) => {
+        setValue(payload.value);
     };
 
-    const handleAllowSignsRadioChange = React.useCallback((_, payload) => {
-        setAllowSignsRadioValue(payload.value);
-        setValue('');
-    }, []);
+    const handleSeparatorChange = (_, payload) => {
+        setSeparator(payload.value);
+        setValue(null);
+    };
 
-    const handleFractionLengthRadioChange = React.useCallback((_, payload) => {
+    const handleFractionLengthRadioChange = (_, payload) => {
         setFractionLengthRadioValue(payload.value);
-        setValue('');
-    }, []);
-
-    const handleSignsRadioChange = React.useCallback((_, payload) => {
-        setSignsRadioValue(payload.value);
-        setValue('');
-    }, []);
+        setValue(null);
+    };
 
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
@@ -40,12 +33,11 @@ render(() => {
                 placeholder='Введите число'
                 label='Число'
                 labelView={isMobile() ? 'outer' : 'inner'}
-                separator={allowSignsRadioValue === 'comma' ? ',' : '.'}
+                separator={separator}
                 fractionLength={fractionLengthRadioValue === 'limited' ? 2 : undefined}
-                allowSigns={signsRadioValue === 'allowSigns'}
                 size={isMobile() ? 's' : 'm'}
                 clear={true}
-                onClear={() => setValue('')}
+                onClear={() => setValue(null)}
                 breakpoint={BREAKPOINT}
             />
             <Gap size='xl' />
@@ -53,11 +45,11 @@ render(() => {
                 label='Отделять дробную часть'
                 direction='vertical'
                 name='radioGroupFirst'
-                onChange={handleAllowSignsRadioChange}
-                value={allowSignsRadioValue}
+                onChange={handleSeparatorChange}
+                value={separator}
             >
-                <Radio label='Запятой' value='comma' />
-                <Radio label='Точкой' value='dot' />
+                <Radio label='Запятой' value=',' />
+                <Radio label='Точкой' value='.' />
             </RadioGroup>
             <Gap size='xl' />
             <RadioGroup
@@ -70,17 +62,48 @@ render(() => {
                 <Radio label='Не ограничена' value='notLimited' />
                 <Radio label='2 знака' value='limited' />
             </RadioGroup>
+        </div>
+    );
+});
+```
+
+Если знаечния изменяются с фиксированным шагом, можно включить степпер.
+При наличии степпера ввод с клавиатуры можно запретить.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [value, setValue] = React.useState();
+    const [disableUserInput, setDisableUserInput] = React.useState(false);
+
+    const handleChange = (_, payload) => {
+        setValue(payload.value);
+    };
+
+    return (
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <NumberInput
+                value={value}
+                onChange={handleChange}
+                step={1}
+                min={0}
+                max={10}
+                block={true}
+                disableUserInput={disableUserInput}
+                placeholder='Введите число'
+                label='Число'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size={isMobile() ? 's' : 'm'}
+                breakpoint={BREAKPOINT}
+            />
+
             <Gap size='xl' />
-            <RadioGroup
-                label='Работа со знаками'
-                direction='vertical'
-                name='radioGroupThird'
-                onChange={handleSignsRadioChange}
-                value={signsRadioValue}
-            >
-                <Radio label='Разрешить указывать знак' value='allowSigns' />
-                <Radio label='Не позволять указать знак' value='banSigns' />
-            </RadioGroup>
+
+            <Switch
+                block={true}
+                checked={disableUserInput}
+                label='Запретить ввод с клавиатуры'
+                onChange={() => setDisableUserInput(!disableUserInput)}
+            />
         </div>
     );
 });

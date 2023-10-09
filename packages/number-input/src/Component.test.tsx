@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { NumberInput } from '.';
+import { NumberInput, NumberInputProps } from '.';
 
 describe('NumberInput', () => {
     Object.defineProperty(window, 'matchMedia', {
@@ -41,9 +41,41 @@ describe('NumberInput', () => {
 
     it('should set `disabled` atribute', () => {
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<NumberInput disabled={true} dataTestId={dataTestId} />);
+        const incrementButtonId = dataTestId + '-increment-button';
+        const decrementButtonId = dataTestId + '-decrement-button';
+        const { getByTestId } = render(
+            <NumberInput disabled={true} dataTestId={dataTestId} step={1} />,
+        );
 
         expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
+        expect(getByTestId(incrementButtonId)).toHaveAttribute('disabled');
+        expect(getByTestId(decrementButtonId)).toHaveAttribute('disabled');
+
+        expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
+    });
+
+    it('should decrement button disabled', () => {
+        const dataTestId = 'test-id';
+        const decrementButtonId = dataTestId + '-decrement-button';
+        const incrementButtonId = dataTestId + '-increment-button';
+        const { getByTestId } = render(
+            <NumberInput value={10} min={10} dataTestId={dataTestId} step={1} />,
+        );
+
+        expect(getByTestId(decrementButtonId)).toHaveAttribute('disabled');
+        expect(getByTestId(incrementButtonId)).not.toHaveAttribute('disabled');
+    });
+
+    it('should increment button disabled', () => {
+        const dataTestId = 'test-id';
+        const decrementButtonId = dataTestId + '-decrement-button';
+        const incrementButtonId = dataTestId + '-increment-button';
+        const { getByTestId } = render(
+            <NumberInput value={10} max={10} dataTestId={dataTestId} step={1} />,
+        );
+
+        expect(getByTestId(decrementButtonId)).not.toHaveAttribute('disabled');
+        expect(getByTestId(incrementButtonId)).toHaveAttribute('disabled');
     });
 
     it('should render error icon', () => {
@@ -65,41 +97,93 @@ describe('NumberInput', () => {
     });
 
     describe('Controlled-way', () => {
-        it('should set value to input without signs', () => {
+        it('should set value to input without minus sign', () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <NumberInput onChange={cb} allowSigns={false} dataTestId={dataTestId} />,
+                <NumberInput onChange={cb} min={0} dataTestId={dataTestId} />,
             );
 
             const inputNumber = getByTestId(dataTestId) as HTMLInputElement;
 
-            fireEvent.change(inputNumber, { target: { value: '+' } });
+            fireEvent.input(inputNumber, { target: { value: '-' } });
             expect(inputNumber.value).toBe('');
 
-            fireEvent.change(inputNumber, { target: { value: '-' } });
-            expect(inputNumber.value).toBe('');
-
-            fireEvent.change(inputNumber, { target: { value: '123' } });
+            fireEvent.input(inputNumber, { target: { value: '123' } });
             expect(inputNumber.value).toBe('123');
-        });
-
-        it('should set value to input with plus sign', () => {
-            const cb = jest.fn();
-            const dataTestId = 'test-id';
-            const value = '+123';
-            const { getByTestId } = render(<NumberInput onChange={cb} dataTestId={dataTestId} />);
-
-            const inputNumber = getByTestId(dataTestId) as HTMLInputElement;
-
-            fireEvent.change(inputNumber, { target: { value } });
-
-            expect(cb).toBeCalledTimes(1);
-            expect(inputNumber.value).toBe(value);
         });
     });
 
     describe('Callbacks tests', () => {
+        it('should increase value by 3', () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const incrementButtonId = dataTestId + '-increment-button';
+            const { getByTestId } = render(
+                <NumberInput value={10} onChange={cb} dataTestId={dataTestId} step={3} />,
+            );
+
+            fireEvent.click(getByTestId(incrementButtonId));
+
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 13 });
+        });
+
+        it('should decrease value by 3', () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const decrementButtonId = dataTestId + '-decrement-button';
+            const { getByTestId } = render(
+                <NumberInput value={10} onChange={cb} dataTestId={dataTestId} step={3} />,
+            );
+
+            fireEvent.click(getByTestId(decrementButtonId));
+
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 7 });
+        });
+
+        it('should call onChange with valid value if max min is set', () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { rerender, getByTestId } = render(
+                <NumberInput min={10} max={50} onChange={cb} dataTestId={dataTestId} />,
+            );
+
+            fireEvent.input(getByTestId(dataTestId), { target: { value: 1 } });
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 1 });
+
+            rerender(<NumberInput min={-50} max={-10} onChange={cb} dataTestId={dataTestId} />);
+
+            fireEvent.input(getByTestId(dataTestId), { target: { value: -1 } });
+            expect(cb).toBeCalledWith(expect.any(Object), { value: -1 });
+
+            fireEvent.input(getByTestId(dataTestId), { target: { value: 1 } });
+            expect(cb).toBeCalledWith(expect.any(Object), { value: -10 });
+        });
+
+        it('should call onChange with max value if value > max', () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <NumberInput max={99} onChange={cb} dataTestId={dataTestId} />,
+            );
+
+            fireEvent.input(getByTestId(dataTestId), { target: { value: 101 } });
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 99 });
+        });
+
+        it('should call onChange with min value if value < min', () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <NumberInput min={10} onChange={cb} dataTestId={dataTestId} />,
+            );
+
+            fireEvent.input(getByTestId(dataTestId), { target: { value: 5 } });
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 5 });
+            fireEvent.blur(getByTestId(dataTestId));
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 10 });
+        });
+
         it('should call `onChange` prop', () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
@@ -108,7 +192,7 @@ describe('NumberInput', () => {
 
             const inputNumber = getByTestId(dataTestId) as HTMLInputElement;
 
-            fireEvent.change(inputNumber, { target: { value } });
+            fireEvent.input(inputNumber, { target: { value } });
 
             expect(cb).toBeCalledTimes(1);
             expect(inputNumber.value).toBe(value);
@@ -170,7 +254,7 @@ describe('NumberInput', () => {
 
             await userEvent.type(inputNumber, '{backspace}');
 
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 123.3, valueString: '123,3' });
+            expect(cb).toBeCalledWith(expect.any(Object), { value: 123.3 });
         });
     });
 

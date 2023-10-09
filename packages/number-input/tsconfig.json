@@ -12,5 +12,10 @@
             "@alfalab/core-components-button/*": ["../button/src/*"]
         }
     },
-    "references": [{ "path": "../input" }]
+    "references": [
+        { "path": "../input" },
+        { "path": "../mq" },
+        { "path": "../icon-button" },
+        { "path": "../shared" }
+    ]
 }

@@ -1,20 +1,45 @@
-import React, { ChangeEvent, FocusEvent, KeyboardEvent, useRef, useState } from 'react';
+import React, {
+    ChangeEvent,
+    FC,
+    FocusEvent,
+    forwardRef,
+    Ref,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
+import { MaskitoOptions, maskitoTransform } from '@maskito/core';
+import { useMaskito } from '@maskito/react';
+import cn from 'classnames';
 
 import type { InputProps } from '@alfalab/core-components-input';
+import { fnUtils, os } from '@alfalab/core-components-shared';
 
-import { createSeparatorsRegExp, getAllowedValue, SEPARATORS, SIGNS } from '../../utils';
+import {
+    createMaskOptions,
+    MAX_DIGITS,
+    MAX_SAFE_INTEGER,
+    MIN_SAFE_INTEGER,
+    MINUS_SIGN,
+    parseNumber,
+    stringifyNumberWithoutExp,
+} from '../../utils';
+import { Steppers } from '../steppers';
 
-export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
+import styles from './index.module.css';
+
+export interface NumberInputProps
+    extends Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'> {
     /**
      * Значение поля ввода
      */
     value?: string | number | null;
 
     /**
-     * Учитывать знаки '+' и '-'
+     *  Значение по-умолчанию
      */
-    allowSigns?: boolean;
+    defaultValue?: string | number | null;
 
     /**
      * Разделитель ',' или '.'
@@ -23,178 +48,219 @@ export type NumberInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
 
     /**
      * Количество символов после разделителя
+     * Если указан проп step, то всегда 0
      */
     fractionLength?: number;
 
     /**
+     *  Шаг инкремента/декремента. Используйте только целочисленные значения
+     */
+    step?: number;
+
+    /**
+     * Минимальное значение
+     * @default Number.MIN_SAFE_INTEGER
+     */
+    min?: number;
+
+    /**
+     * Максимальное значение
+     * @default Number.MAX_SAFE_INTEGER
+     */
+    max?: number;
+
+    /**
+     * Отображение компонента в мобильном или десктопном виде
+     */
+    view?: 'desktop' | 'mobile';
+
+    /**
      *  Компонент инпута
      */
-    Input: React.FC<InputProps & { ref?: React.Ref<HTMLInputElement> }>;
+    Input: FC<InputProps & { ref?: Ref<HTMLInputElement> }>;
 
     /**
      * Обработчик события изменения значения
      */
-    onChange?: (
-        e: React.ChangeEvent<HTMLInputElement>,
-        payload: {
-            /**
-             * Числовое значение инпута
-             */
-            value: number | null;
-            /**
-             * Строковое значение инпута
-             * Используйте для изменения значения инпута
-             */
-            valueString: string;
-        },
-    ) => void;
-};
+    onChange?: (e: ChangeEvent<HTMLInputElement> | null, payload: { value: number | null }) => void;
+}
 
-export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
+export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     (
         {
             value: propValue,
             onChange,
-            onBlur,
-            allowSigns = true,
             separator = ',',
-            fractionLength,
+            fractionLength = MAX_DIGITS,
             defaultValue,
             Input,
+            min: minProp,
+            max: maxProp,
+            rightAddons,
+            dataTestId,
+            disabled,
+            onBlur,
+            onFocus,
+            view,
+            step: stepProp,
+            size = 's',
+            disableUserInput,
+            clear: clearProp,
             ...restProps
         },
         ref,
     ) => {
-        const uncontrolled = propValue === undefined;
-        const inputRef = useRef<HTMLInputElement>(null);
-        const [value, setValue] = useState<string>(defaultValue || '');
+        const min = Math.max(MIN_SAFE_INTEGER, minProp ?? MIN_SAFE_INTEGER);
+        const max = Math.min(MAX_SAFE_INTEGER, maxProp ?? MAX_SAFE_INTEGER);
+        const withStepper = stepProp !== undefined;
 
-        const getNumberValueFromStr = (valueString: string) => {
-            if (valueString === '') return null;
+        const maskOptions: MaskitoOptions = useMemo(
+            () =>
+                createMaskOptions({
+                    separator,
+                    fractionLength: withStepper ? 0 : fractionLength,
+                    min,
+                    max,
+                }),
+            [separator, fractionLength, min, max, withStepper],
+        );
 
-            if (valueString.includes(',')) {
-                return parseFloat(valueString.replace(',', '.'));
+        const [focused, setFocused] = useState(false);
+        const [value, setValue] = useState(() => {
+            if (defaultValue == null) {
+                return withStepper ? fnUtils.clamp(0, min, max).toString() : '';
             }
 
-            return parseFloat(valueString);
+            return fnUtils
+                .clamp(
+                    parseNumber(maskitoTransform(defaultValue.toString(), maskOptions)),
+                    min,
+                    max,
+                )
+                .toString();
+        });
+
+        const maskRef = useMaskito({ options: maskOptions });
+
+        useEffect(() => {
+            if (propValue !== undefined) {
+                setValue((prev) => {
+                    const parsedNumber = parseNumber(propValue);
+
+                    if (parsedNumber !== parseNumber(prev)) {
+                        return maskitoTransform(
+                            stringifyNumberWithoutExp(parsedNumber),
+                            maskOptions,
+                        );
+                    }
+
+                    return prev;
+                });
+            }
+        }, [maskOptions, propValue, separator]);
+
+        const getMaxLength = (valueString: string) => {
+            const hasSeparator = valueString?.includes(separator);
+            const hasSigns = valueString?.startsWith(MINUS_SIGN);
+
+            return MAX_DIGITS + (hasSeparator ? 1 : 0) + (hasSigns ? 1 : 0);
         };
 
-        const restoreCaret = (target: HTMLInputElement) => {
-            setTimeout(() => {
-                const input = target;
-                const positionCursor = input.selectionStart || 0;
-                const isEndPosition = input.value.length === positionCursor;
+        const getStep = () => Math.round(stepProp ?? 1);
 
-                const enteredSign = SIGNS.some((s) => s === input.value[positionCursor - 1]);
-                const enteredSeparator = SEPARATORS.filter((s) => s !== separator).some(
-                    (s) => s === input.value[positionCursor - 1],
-                );
+        const changeValue = (
+            event: ChangeEvent<HTMLInputElement> | null,
+            newValue: number | null,
+        ) => {
+            const isNaNValue = Number.isNaN(newValue);
+            const valueString = event?.target.value ?? newValue?.toString() ?? '';
 
-                const shouldRestore = enteredSeparator || enteredSign;
+            setValue(valueString);
 
-                if (!isEndPosition && shouldRestore) {
-                    input.selectionStart = positionCursor;
-                    input.selectionEnd = positionCursor;
-                }
-            });
+            if (valueString === '' || !isNaNValue) {
+                onChange?.(event, {
+                    value: isNaNValue ? null : newValue,
+                });
+            }
         };
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-            const input = event.target;
-            const newValue = input.value.replace(createSeparatorsRegExp(), separator);
+            const valueString = event.target.value;
 
-            const allowedValue = getAllowedValue({
-                value: newValue,
-                fractionLength,
-                allowSigns,
-                separator,
-            });
-
-            if (onChange) {
-                onChange(event, {
-                    value: getNumberValueFromStr(allowedValue),
-                    valueString: allowedValue,
-                });
-            }
-
-            if (uncontrolled) {
-                setValue(allowedValue);
-            }
-
-            restoreCaret(input);
+            changeValue(event, parseNumber(valueString));
         };
 
-        const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-            const disallowedSymbols = /[/|?!@#$%^&*()_=A-Za-zА-Яа-яЁё ]/;
-            const oneKeyPress = !event.altKey && !event.metaKey && !event.ctrlKey;
-            const target = event.target as HTMLInputElement;
+        const handleIncrement = () => {
+            const parsed = parseNumber(value);
+            const nextValue = maskitoTransform(
+                (Number.isNaN(parsed) ? min : parsed + getStep()).toString(),
+                maskOptions,
+            );
 
-            // Запрещаем вводить неразрешенные символы за исключением комбинаций клавиш
-            if (oneKeyPress && event.key.length === 1 && disallowedSymbols.test(event.key)) {
-                return event.preventDefault();
-            }
-
-            const val = target.value;
-
-            const hasSeparator = (val.match(createSeparatorsRegExp()) || []).length > 0;
-
-            // Запрещаем вводить второй сепаратор
-            if (hasSeparator && SEPARATORS.some((s) => s === event.key)) {
-                return event.preventDefault();
-            }
-
-            // Запрещаем вводить лишний знак
-            if (
-                (!allowSigns || SIGNS.some((s) => s === val[0])) &&
-                SIGNS.some((s) => s === event.key)
-            ) {
-                return event.preventDefault();
-            }
-
-            const selectionStart = target.selectionStart || 0;
-
-            // Запрещаем вводить цифры в дробную часть, если кол-во цифр больше fractionLength
-            if (
-                hasSeparator &&
-                fractionLength &&
-                event.key.length === 1 &&
-                selectionStart > val.indexOf(separator) &&
-                val.split(separator)[1].length >= fractionLength
-            ) {
-                return event.preventDefault();
-            }
-
-            return undefined;
+            changeValue(null, parseNumber(nextValue));
         };
 
-        const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-            const valueBlur = event.target.value.replace(new RegExp(`\\${separator}$`), '');
+        const handleDecrement = () => {
+            const parsed = parseNumber(value);
+            const nextValue = maskitoTransform(
+                (Number.isNaN(parsed) ? max : parsed - getStep()).toString(),
+                maskOptions,
+            );
 
-            if (onChange) {
-                onChange(event, {
-                    value: getNumberValueFromStr(valueBlur),
-                    valueString: valueBlur,
-                });
-            }
-
-            if (uncontrolled) {
-                setValue(valueBlur);
-            }
-
-            if (onBlur) onBlur(event);
+            changeValue(null, parseNumber(nextValue));
         };
 
-        const visibleValue = uncontrolled ? value : propValue?.toString();
+        const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
+            onFocus?.(e);
+
+            if (!disableUserInput) {
+                setFocused(true);
+            }
+        };
+
+        const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
+            onBlur?.(e);
+            setFocused(false);
+        };
 
         return (
             <Input
-                ref={mergeRefs([ref, inputRef])}
-                value={visibleValue}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                inputMode='decimal'
+                maxLength={getMaxLength(value)}
                 {...restProps}
+                // В iOS в цифровой клавиатуре невозможно ввести минус.
+                inputMode={min < 0 && os.isIOS() ? 'text' : 'decimal'}
+                ref={mergeRefs([ref, maskRef])}
+                value={value}
+                onInput={handleChange}
+                dataTestId={dataTestId}
+                disabled={disabled}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                size={size}
+                disableUserInput={disableUserInput}
+                clear={clearProp && /\d/.test(value)}
+                rightAddons={
+                    withStepper ? (
+                        <React.Fragment>
+                            {rightAddons}
+                            <Steppers
+                                dataTestId={dataTestId}
+                                disabled={disabled}
+                                value={parseNumber(value)}
+                                min={min}
+                                max={max}
+                                className={cn(styles.steppers, styles[size], {
+                                    [styles.steppersFocused]: focused,
+                                    [styles.steppersDisable]: disabled,
+                                })}
+                                onIncrement={handleIncrement}
+                                onDecrement={handleDecrement}
+                            />
+                        </React.Fragment>
+                    ) : (
+                        rightAddons
+                    )
+                }
             />
         );
     },
