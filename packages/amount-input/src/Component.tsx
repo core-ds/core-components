@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
+import React, { FocusEvent, forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
@@ -25,6 +25,13 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     value?: string | number | null;
 
     /**
+     * default - не отображаем копейки, если их значение 0
+     * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
+     * @default default
+     */
+    view?: 'default' | 'withZeroMinorPart';
+
+    /**
      * Валюта
      */
     currency?: CurrencyCodes;
@@ -36,6 +43,7 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
 
     /**
      * Максимальное число знаков до запятой
+     * max 15
      */
     integerLength?: number;
 
@@ -90,8 +98,9 @@ const SuffixInput = withSuffix(Input);
 export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
     (
         {
+            view = 'default',
             value = null,
-            integerLength = 9,
+            integerLength: integerLengthProp = 9,
             minority = 100,
             currency = 'RUR',
             suffix = currency,
@@ -108,37 +117,42 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             clear = false,
             onChange,
             onClear,
+            onBlur,
             breakpoint = 1024,
             ...restProps
         },
         ref,
     ) => {
-        const getFormattedAmount = useCallback(() => {
-            if (value === '' || value === null || value === '-') return '';
+        const integerLength = Math.min(integerLengthProp, 15);
 
-            return formatAmount({
-                value: +value,
-                currency,
-                minority,
-                view: 'default',
-                negativeSymbol: 'hyphen-minus',
-            }).formatted;
-        }, [currency, minority, value]);
+        const getFormattedAmount = useCallback(
+            (val: string | number | null) => {
+                if (val === '' || val === null || val === '-') return '';
 
-        const [inputValue, setInputValue] = useState<string>(getFormattedAmount());
+                return formatAmount({
+                    value: +val,
+                    currency,
+                    minority,
+                    view,
+                    negativeSymbol: 'hyphen-minus',
+                }).formatted;
+            },
+            [currency, minority, view],
+        );
 
+        const [inputValue, setInputValue] = useState<string>(() => getFormattedAmount(value));
+
+        const [majorPart, minorPart] = inputValue.split(',');
         const currencySymbol = getCurrencySymbol(currency);
 
         useEffect(() => {
             const currentAmountValue = getAmountValueFromStr(inputValue, minority);
 
             if (currentAmountValue !== value) {
-                return setInputValue(getFormattedAmount());
+                setInputValue(getFormattedAmount(value));
             }
-
-            return () => undefined;
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [getFormattedAmount]);
+        }, [value, getFormattedAmount]);
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const input = e.target;
@@ -192,12 +206,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 }
 
                 setInputValue(newFormattedValue);
-                if (onChange) {
-                    onChange(e, {
-                        value: getAmountValueFromStr(newFormattedValue, minority),
-                        valueString: newFormattedValue,
-                    });
-                }
+                onChange?.(e, {
+                    value: getAmountValueFromStr(newFormattedValue, minority),
+                    valueString: newFormattedValue,
+                });
             } else {
                 // Не двигаем каретку когда вставляется невалидный символ
                 const caret = (input.selectionStart as number) - 1;
@@ -220,7 +232,25 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             [onClear],
         );
 
-        const [majorPart, minorPart] = inputValue.split(',');
+        const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+            if (view === 'withZeroMinorPart') {
+                const newValue = getAmountValueFromStr(inputValue, minority);
+
+                if (newValue !== null) {
+                    const formatted = getFormattedAmount(newValue);
+
+                    if (formatted !== inputValue) {
+                        setInputValue(formatted);
+                        onChange?.(event, {
+                            value: newValue,
+                            valueString: formatted,
+                        });
+                    }
+                }
+            }
+
+            onBlur?.(event);
+        };
 
         return (
             <div
@@ -252,6 +282,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     inputClassName={styles.input}
                     onChange={handleChange}
                     onClear={handleClear}
+                    onBlur={handleBlur}
                     inputMode='decimal'
                     pattern={`[${positiveOnly ? '' : '-'}0-9\\s\\.,]*`}
                     dataTestId={dataTestId}

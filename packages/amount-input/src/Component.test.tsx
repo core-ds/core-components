@@ -460,6 +460,54 @@ describe('AmountInput', () => {
         expect(input.value).toBe('0,01');
     });
 
+    describe('should fill minor part with view="withZeroMinorPart"', () => {
+        const testCases = [
+            {
+                userInput: '1',
+                value: 100,
+                valueString: '1,00',
+            },
+            {
+                userInput: '0',
+                value: 0,
+                valueString: '0,00',
+            },
+            {
+                userInput: '1,2',
+                value: 120,
+                valueString: '1,20',
+            },
+        ];
+
+        testCases.forEach(({ value, valueString }) => {
+            it(`should contain value=${valueString} if initialValue=${value}`, () => {
+                const input = renderAmountInput(value, undefined, {
+                    view: 'withZeroMinorPart',
+                });
+
+                expect(input.value).toBe(valueString);
+            });
+        });
+
+        testCases.forEach(({ userInput, value, valueString }) => {
+            it(`should emit blur event with value=${value} and valueString=${valueString} when userInput=${userInput}`, () => {
+                const onChange = jest.fn();
+                const input = renderAmountInput(null, undefined, {
+                    onChange,
+                    view: 'withZeroMinorPart',
+                });
+
+                fireEvent.change(input, { target: { value: userInput } });
+                fireEvent.blur(input);
+
+                expect(onChange).toBeCalledWith(expect.anything(), {
+                    value: value,
+                    valueString: valueString,
+                });
+            });
+        });
+    });
+
     describe('should emit value in minority on change event', () => {
         const dataTestId = 'test-id';
 
