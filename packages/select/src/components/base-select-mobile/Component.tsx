@@ -539,8 +539,13 @@ export const BaseSelectMobile = forwardRef(
                         <ModalMobile.Header
                             hasCloser={true}
                             sticky={true}
-                            bottomAddons={renderSearch()}
                             {...modalHeaderProps}
+                            bottomAddons={
+                                <React.Fragment>
+                                    {renderSearch()}
+                                    {modalHeaderProps?.bottomAddons}
+                                </React.Fragment>
+                            }
                         >
                             {label || placeholder}
                         </ModalMobile.Header>
