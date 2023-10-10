@@ -12,6 +12,10 @@ import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/SortableList' component={SortableList} id='SortableList' />
 
@@ -20,24 +24,34 @@ import Changelog from '../../CHANGELOG.md?raw';
 <Story name='SortableList'>
     {React.createElement(() => {
         const [items, setItems] = React.useState(() =>
-            [1, 2, 3, 4, 5, 6].map((item) => ({ id: item })),
+            [1, 2, 3].map((item) => ({ id: item })),
         );
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         const renderItem = (item) => {
             return (
                 <GenericWrapper alignItems='center' padding={{ top: 's', bottom: 's', left: 'm' }}>
-                    <GenericWrapper>
-                        <SuperEllipse size={48}>
-                            <DiamondsMIcon aria-label='diamonds' />
-                        </SuperEllipse>
-                    </GenericWrapper>
-                    <Gap size='m' direction='horizontal' />
+                    {!isPreview && 
+                        <>
+                            <GenericWrapper>
+                                <SuperEllipse size={48}>
+                                    <DiamondsMIcon aria-label='diamonds' />
+                                </SuperEllipse>
+                            </GenericWrapper> 
+                            <Gap size='m' direction='horizontal' />
+                        </>
+                    }
+                    
                     <GenericWrapper>
                         <GenericWrapper column>
-                            <Typography.Text view='component'>{`Элемент списка ${item.id}`}</Typography.Text>
-                            <Gap size='2xs' />
-                            <Typography.Text view='primary-small' color='secondary'>
-                                Перетащи меня
-                            </Typography.Text>
+                            <Typography.Text view='component'>{ isPreview ? 'Draggable item' :`Элемент списка ${item.id}`}</Typography.Text>
+                            {!isPreview && 
+                            <>
+                                <Gap size='2xs' />
+                                <Typography.Text view='primary-small' color='secondary'>
+                                    Перетащи меня
+                                </Typography.Text>
+                            </>}
                         </GenericWrapper>
                     </GenericWrapper>
                 </GenericWrapper>
@@ -49,23 +63,25 @@ import Changelog from '../../CHANGELOG.md?raw';
         const paddingBottom = select('padding.bottom', paddingSizes, undefined);
         const paddingLeft = select('padding.left', paddingSizes, undefined);
         return (
-            <div style={{ maxWidth: 350 }}>
-                <SortableList
-                    items={items}
-                    onDragEnd={(_, newIds) => setItems(newIds)}
-                    padding={{
-                        top: paddingTop,
-                        right: paddingRight,
-                        bottom: paddingBottom,
-                        left: paddingLeft,
-                    }}
-                    borderRadius={select('border-radius', [undefined, 'm', 'l', 'xl'], undefined)}
-                    renderItem={renderItem}
-                    activatorNode={select('activatorNode', ['cell', 'control'], 'cell')}
-                    view={select('view', ['primary', 'secondary'], 'primary')}
-                    controlPadding={select('controlPadding', paddingSizes, 'xs')}
-                    controlPosition={select('controlPosition', ['left', 'right'], 'right')}
-                />
+            <div style={previewStyles}>
+                <div style={{width: 320}}>
+                    <SortableList
+                        items={items}
+                        onDragEnd={(_, newIds) => setItems(newIds)}
+                        padding={{
+                            top: paddingTop,
+                            right: paddingRight,
+                            bottom: paddingBottom,
+                            left: paddingLeft,
+                        }}
+                        borderRadius={select('border-radius', [undefined, 'm', 'l', 'xl'], 'xl')}
+                        renderItem={renderItem}
+                        activatorNode={select('activatorNode', ['cell', 'control'], 'cell')}
+                        view={select('view', ['primary', 'secondary'], 'primary')}
+                        controlPadding={select('controlPadding', paddingSizes, 'xs')}
+                        controlPosition={select('controlPosition', ['left', 'right'], 'right')}
+                    />
+                </div>
             </div>
         );
     })}

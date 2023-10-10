@@ -3,9 +3,20 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 1920, height: 200 };
+
+describe('Collapse ', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Collapse',
+            knobs: {},
+        },
+        'transform:scale(1.3)',
+    ));
 
 describe('Collapse | interactions tests', () => {
     test('Collapse component', async () => {

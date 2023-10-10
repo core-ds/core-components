@@ -14,6 +14,10 @@ import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 import { BACKGROUND, BORDER_COLOR, SHADOW } from '../constants';
 
@@ -89,7 +93,35 @@ export const ChildElement = ({ children }) => {
                 'contentProps',
             )
         };
-        return (
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        const styleGraphics = {
+            width: '288px',
+            height: '100px',
+            borderRadius: '8px',
+            backgroundColor: 'rgba(55, 120, 251, 0.1)',
+            border: '1px dashed rgb(55, 120, 251)',
+            boxSizing: 'border-box',
+        };
+
+        return isPreview ? (
+            <div style={previewStyles}>
+                <Underlay
+                    backgroundColor='primary'
+                    overflow={false}
+                    dimensions={{ height: 132, width: 320 }}
+                    padding={{ top: 'm', right: 'm', bottom: 'm', left: 'm', }}
+                    contentProps={{
+                        axis: 'vertical',
+                        alignment: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <div style={styleGraphics}/>
+                </Underlay>
+            </div>
+        ) :
+        (
             <Underlay
                 borderRadius={borderRadius}
                 borderSize={borderSize}

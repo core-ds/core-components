@@ -77,12 +77,17 @@ import {
                 <Gap direction='horizontal' size='s' />
                 <Badge
                     view='icon'
-                    iconColor='negative'
+                    iconColor='attention'
                     visibleColorOutline='true'
                     content={<AlertCircleMIcon />}
                 />
                 <Gap direction='horizontal' size='s' />
-                <Badge size='m' view='count' content='99+' height={24} />
+                <Badge
+                    view='icon'
+                    iconColor='negative'
+                    visibleColorOutline='true'
+                    content={<AlertCircleMIcon />}
+                />
             </div>
         ) : (
             <div

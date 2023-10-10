@@ -3,11 +3,25 @@ import {
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createPreview,
 } from '../../screenshot-utils';
 
 import { TestIds } from './utils';
 
 const clip = { x: 0, y: 0, width: 1024, height: 768 };
+
+describe('Gallery', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Gallery',
+            knobs: {},
+        },
+        'transform:scale(0.9)',
+        {
+            evaluate: (page) => page.waitForTimeout(500),
+        },
+    ));
 
 describe('Gallery | interactions tests', () => {
     test('With single image', async () => {

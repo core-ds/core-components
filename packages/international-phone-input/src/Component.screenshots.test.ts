@@ -5,6 +5,7 @@ import {
     openBrowserPage,
     closeBrowser,
     matchHtml,
+    createPreview,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -13,6 +14,21 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('InternationalPhoneInput', () =>
+    createPreview(
+        {
+            componentName: 'InternationalPhoneInput',
+            knobs: {
+                value: '+7 999 555 35 35',
+                label: 'Телефон',
+            },
+        },
+        'width:800px;transform:scale(1.6)',
+        {
+            viewport: { width: 1024, height: 600 },
+        },
+    ));
 
 describe(
     'InternationalPhoneInputDesktop',

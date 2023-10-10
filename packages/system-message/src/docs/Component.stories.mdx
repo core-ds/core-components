@@ -77,8 +77,8 @@ import {
                                   borderRadius: 12,
                                   background: 'var(--color-light-bg-primary)',
                                   maxWidth: 500,
-                                  height: 440,
-                                  paddingTop: 48,
+                                  height: 384,
+                                  paddingTop: 40,
                               }
                             : null),
                     }}
@@ -106,7 +106,7 @@ import {
                                 подключение
                             </SystemMessage.Subtitle>
                         )}
-                        {caption && (
+                        {caption && !isPreview && (
                             <SystemMessage.Caption>
                                 Для этого нажмите на кнопочку ниже
                             </SystemMessage.Caption>
@@ -116,13 +116,13 @@ import {
                                 {showPrimaryButton && (
                                     <Button
                                         size={document.body.clientWidth < 371 ? 'm' : 's'}
-                                        view='primary'
+                                        view={isPreview ? 'secondary' :'primary'}
                                         breakpoint={breakpoint}
                                     >
                                         Получить код
                                     </Button>
                                 )}
-                                {showSecondaryButton && (
+                                {showSecondaryButton && !isPreview && (
                                     <Button
                                         size={document.body.clientWidth < 371 ? 'm' : 's'}
                                         breakpoint={breakpoint}
