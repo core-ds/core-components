@@ -18,7 +18,15 @@ import styles from './mobile.module.css';
 
 export type InputAutocompleteMobileProps = Omit<
     BaseSelectProps,
-    'OptionsList' | 'Checkmark' | 'onScroll' | 'nativeSelect' | 'autocomplete' | 'valueRenderer'
+    | 'OptionsList'
+    | 'Checkmark'
+    | 'onScroll'
+    | 'nativeSelect'
+    | 'autocomplete'
+    | 'valueRenderer'
+    | 'searchProps'
+    | 'showSearch'
+    | 'Search'
 > & {
     /**
      * Обработчик выбора

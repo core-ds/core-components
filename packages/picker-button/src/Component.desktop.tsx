@@ -30,6 +30,9 @@ export type PickerButtonDesktopProps = Omit<
     | 'hint'
     | 'allowUnselect'
     | 'options'
+    | 'searchProps'
+    | 'showSearch'
+    | 'Search'
 > &
     Pick<ButtonProps, 'view' | 'loading' | 'leftAddons' | 'rightAddons'> & {
         options: Array<
