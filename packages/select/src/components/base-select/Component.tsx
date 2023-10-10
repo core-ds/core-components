@@ -330,7 +330,7 @@ export const BaseSelect = forwardRef(
                 size: optionsSize,
                 disabled: option.disabled,
                 highlighted: index === highlightedIndex,
-                selected: selectedItems.includes(option),
+                selected: selectedItems.some(({ key }) => key === option.key),
                 dataTestId: getDataTestId(dataTestId, 'option'),
             }),
             [

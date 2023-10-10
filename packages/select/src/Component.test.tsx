@@ -207,6 +207,38 @@ describe('Select', () => {
         expect(getByText(selectedOption.content)).toBeInTheDocument();
     });
 
+    it('should be checked selected shape options', () => {
+        const selectedOption = [{ ...options[1] }];
+        render(
+            <Select
+                {...baseProps}
+                options={options}
+                selected={selectedOption}
+                defaultOpen={true}
+            />,
+        );
+
+        const selectedOptions = document.querySelectorAll('[role=option][class*=selected]');
+
+        expect(selectedOptions.length).toBe(1);
+    });
+
+    it('should be checked selected shape options in SelectMobile', () => {
+        const selectedOption = [{ ...options[1] }, { ...options[2] }];
+        render(
+            <SelectMobile
+                {...baseProps}
+                options={options}
+                selected={selectedOption}
+                defaultOpen={true}
+            />,
+        );
+
+        const selectedOptions = document.querySelectorAll('[role=option][class*=selected]');
+
+        expect(selectedOptions.length).toBe(2);
+    });
+
     describe('Behavior tests', () => {
         const optionContent = options[1].content;
 

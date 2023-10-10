@@ -349,7 +349,7 @@ export const BaseSelectMobile = forwardRef(
         };
 
         const getOptionProps = (option: OptionShape, index: number): OptionProps => {
-            const selectedItem = selectedItems.includes(option);
+            const selectedItem = selectedItems.some(({ key }) => key === option.key);
 
             return {
                 ...(optionProps as object),
