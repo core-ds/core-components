@@ -39,7 +39,8 @@
         "pub:beta-ci": "./bin/publish-beta-ci.sh",
         "generate-changelog": "cross-env GENERATE_CHANGELOG_ONLY=true node ./bin/release.js",
         "analyze-package-sizes": "node bin/analyze-package-sizes.mjs",
-        "fill-exports-field": "node ./bin/fill-exports-field.mjs"
+        "fill-exports-field": "node ./bin/fill-exports-field.mjs",
+        "update-bb-mirror": "git config lfs.allowincompletepush true && git push -f 'https://{userName}@git.moscow.alfaintra.net/scm/ef/core-components.git' master:master"
     },
     "browserslist": {
         "production": [
