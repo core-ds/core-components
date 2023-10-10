@@ -49,7 +49,7 @@
 }
 
 .search {
-    padding: var(--gap-m) var(--gap-xs) var(--gap-s);
+    padding: var(--gap-xs);
 }
 
 /* width: max-content; fix for IE */
