@@ -1,3 +1,196 @@
+## 42.12.0
+
+<sup><time>10.10.2023</time></sup>
+
+### [#888](https://github.com/core-ds/core-components/pull/888)
+
+#### Что изменилось
+- Исправлен отступ в шапке мобильных компонентов с поиском
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete` `select`
+
+
+### [#884](https://github.com/core-ds/core-components/pull/884)
+
+#### Что изменилось
+- Добавлен атрибут autocomplete='off'
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input` `date-range-input` `date-time-input` `universal-date-input`
+
+
+### [#900](https://github.com/core-ds/core-components/pull/900)
+
+#### Что изменилось
+- Исправлен формат номера телефона (удалены скобки и тире)
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation` `international-phone-input` `phone-input`
+
+
+### [#898](https://github.com/core-ds/core-components/pull/898)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой компонент ломался после ресайза
+
+#### Влияние на компоненты
+- Патчи<br />`collapse`
+
+
+### [#887](https://github.com/core-ds/core-components/pull/887)
+
+#### Что изменилось
+- Переработана механика инпута с включенным disableUserInput
+
+#### Влияние на компоненты
+- Патчи<br />`input`
+
+<br />
+
+#### Что изменилось
+- **BREAKING CHANGE:** Удалена функция disableUserInput
+
+#### Влияние на компоненты
+- Минорное<br />`shared`
+
+
+### [#899](https://github.com/core-ds/core-components/pull/899)
+
+#### Что изменилось
+- Из типов удалены применимые только для селекта свойства
+
+#### Влияние на компоненты
+- Патчи<br />`input-autocomplete` `picker-button`
+
+
+### [#886](https://github.com/core-ds/core-components/pull/886)
+
+#### Что изменилось
+- Изменили стили заголовка мобильного компонента
+
+#### Влияние на компоненты
+- Патчи<br />`confirmation`
+
+
+### [#893](https://github.com/core-ds/core-components/pull/893)
+
+#### Что изменилось
+- Исправлены типы
+
+#### Влияние на компоненты
+- Патчи<br />`button`
+
+
+### [#885](https://github.com/core-ds/core-components/pull/885)
+
+#### Что изменилось
+- Исправлен радиус скругления скелетона в click теме
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#892](https://github.com/core-ds/core-components/pull/892)
+
+#### Что изменилось
+- Добавлен проп view: 'default' | 'withZeroMinorPart'
+
+#### Влияние на компоненты
+- Минорное<br />`amount-input`
+
+
+### [#905](https://github.com/core-ds/core-components/pull/905)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой option оставался в hover состоянии в тот момент, когда курсор мыши находился над заголовком или над футером выпадающего списка
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#897](https://github.com/core-ds/core-components/pull/897)
+
+#### Что изменилось
+- fix(select): search in mobile single mode
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#891](https://github.com/core-ds/core-components/pull/891)
+
+#### Что изменилось
+- Добавлена темизация компонентов Checkbox и Radio для site
+
+#### Влияние на компоненты
+- Патчи<br />`themes`
+
+
+### [#895](https://github.com/core-ds/core-components/pull/895)
+
+#### Что изменилось
+- Добавлены css-переменные (--bottom-sheet-top-radius, --bottom-sheet-shadow)
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+### [#890](https://github.com/core-ds/core-components/pull/890)
+
+#### Что изменилось
+- CDNIcon теперь занимает всю ширину и высоту IconView
+
+#### Влияние на компоненты
+- Патчи<br />`cdn-icon` `icon-view`
+
+
+### [#903](https://github.com/core-ds/core-components/pull/903)
+
+#### Что изменилось
+- Исправлен баг с отсутствием поиска у SelectModalMobile
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#882](https://github.com/core-ds/core-components/pull/882)
+
+#### Что изменилось
+- Исправлена анимация открытия мобильного календаря
+
+#### Влияние на компоненты
+- Патчи<br />`date-range-input` `date-time-input`
+
+
+### [#881](https://github.com/core-ds/core-components/pull/881)
+
+#### Что изменилось
+- Исправлен радиус скругления оверлея
+
+#### Влияние на компоненты
+- Патчи<br />`dropzone`
+
+
+### [#902](https://github.com/core-ds/core-components/pull/902)
+
+#### Что изменилось
+- Исправлена ошибка c ResizeObserver в компоненте TabsCollapsible, возникающая в старых браузерах
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+### [#896](https://github.com/core-ds/core-components/pull/896)
+
+#### Что изменилось
+- selected с элементами из options теперь сравнивается по ключу, а не по ссылке
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+
 ## 42.11.0
 
 <sup><time>29.09.2023</time></sup>
