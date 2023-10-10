@@ -104,7 +104,7 @@
     "select": {
         "desktop.js": 139.28,
         "index.js": 204.9,
-        "mobile.js": 174.45,
+        "mobile.js": 174.48,
         "shared.js": 162.59
     },
     "select-with-tags": {
@@ -146,8 +146,8 @@
     },
     "picker-button": {
         "desktop.js": 159.57,
-        "index.js": 218.94,
-        "mobile.js": 217.67,
+        "index.js": 218.97,
+        "mobile.js": 217.7,
         "shared.js": 3.01
     },
     "phone-input": {
@@ -217,8 +217,8 @@
     },
     "international-phone-input": {
         "desktop.js": 474.16,
-        "index.js": 536.41,
-        "mobile.js": 534.2
+        "index.js": 536.44,
+        "mobile.js": 534.22
     },
     "input": {
         "desktop.js": 17.03,
@@ -227,8 +227,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 157.06,
-        "index.js": 218.26,
-        "mobile.js": 178.55
+        "index.js": 218.29,
+        "mobile.js": 178.57
     },
     "indicator": {
         "index.js": 1.99
@@ -297,8 +297,8 @@
     },
     "custom-picker-button": {
         "desktop.js": 161.04,
-        "index.js": 220.58,
-        "mobile.js": 219.13
+        "index.js": 220.61,
+        "mobile.js": 219.15
     },
     "custom-button": {
         "index.js": 8.91
@@ -316,7 +316,7 @@
         "index.js": 5.87
     },
     "collapse": {
-        "index.js": 17
+        "index.js": 17.01
     },
     "code-input": {
         "desktop.js": 4.29,
