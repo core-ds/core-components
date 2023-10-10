@@ -1,18 +1,13 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 import { Select as SelectResponsive } from '@alfalab/core-components-select';
 import { SelectMobile, SelectModalMobile } from '@alfalab/core-components-select/mobile';
 import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
 
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Development from './development.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-
-export const options = [
+const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
     { key: '3', content: 'Americium' },
@@ -32,7 +27,7 @@ export const options = [
     { key: '17', content: 'Berkelium' },
 ];
 
-export const POSITION_OPTIONS = [
+const POSITION_OPTIONS = [
     'top',
     'top-start',
     'top-end',
@@ -47,12 +42,17 @@ export const POSITION_OPTIONS = [
     'left-end',
 ];
 
-<Meta title='Components/Select' component={SelectDesktop} id='Select' />
+const meta: Meta<typeof SelectDesktop> = {
+    title: 'Components/Select',
+    component: SelectDesktop,
+    id: 'Select',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof SelectDesktop>;
 
-<Story name='Select'>
-    {React.createElement(() => {
+export const select: Story = {
+    name: 'Select',
+    render: () => {
         const [selected, setSelected] = React.useState([]);
         const handleChange = ({ selectedMultiple }) => {
             setSelected(selectedMultiple.map((option) => option.key));
@@ -102,11 +102,12 @@ export const POSITION_OPTIONS = [
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='SelectMobile'>
-    {React.createElement(() => {
+export const select_mobile: Story = {
+    name: 'SelectMobile',
+    render: () => {
         const [selected, setSelected] = React.useState([]);
         const handleChange = ({ selectedMultiple }) => {
             setSelected(selectedMultiple.map((option) => option.key));
@@ -150,11 +151,12 @@ export const POSITION_OPTIONS = [
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='SelectResponsive'>
-    {React.createElement(() => {
+export const select_responsive: Story = {
+    name: 'SelectResponsive',
+    render: () => {
         const [selected, setSelected] = React.useState([]);
         const handleChange = ({ selectedMultiple }) => {
             setSelected(selectedMultiple.map((option) => option.key));
@@ -204,11 +206,12 @@ export const POSITION_OPTIONS = [
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-<Story name='SelectModalMobile'>
-    {React.createElement(() => {
+export const select_modal_mobile: Story = {
+    name: 'SelectModalMobile',
+    render: () => {
         const [selected, setSelected] = React.useState([]);
         const handleChange = ({ selectedMultiple }) => {
             setSelected(selectedMultiple.map((option) => option.key));
@@ -250,21 +253,7 @@ export const POSITION_OPTIONS = [
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Select'
-    version={packageJson.version}
-    package='@alfalab/core-components/select'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=184%3A19405'
-    children='Поле ввода с выпадающим списком.'
-/>
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    development={<Development />}
-/>
+export default meta;

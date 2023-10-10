@@ -8,9 +8,9 @@
     --confirmation-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --confirmation-header-mobile-font-size: 18px;
-    --confirmation-header-mobile-line-height: 22px;
-    --confirmation-header-mobile-font-weight: bold;
+    --confirmation-header-mobile-font-size: 20px;
+    --confirmation-header-mobile-line-height: 28px;
+    --confirmation-header-mobile-font-weight: 600;
     --confirmation-header-mobile-font-family: var(--font-family-system);
 
     /* text */

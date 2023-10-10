@@ -1,0 +1,9 @@
+@define-mixin radio-site {
+    /* checked */
+    --radio-checked-bg-color: var(--color-light-graphic-accent);
+    --radio-checked-hover-bg-color: var(--color-light-graphic-accent-shade-7);
+    --radio-checked-active-bg-color: var(--color-light-graphic-accent-shade-15);
+
+    /* icon */
+    --radio-icon-color: var(--color-static-graphic-light);
+}

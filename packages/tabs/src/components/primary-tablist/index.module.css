@@ -45,7 +45,6 @@
     white-space: nowrap;
     box-shadow: none;
     user-select: none;
-    cursor: pointer;
     outline: none;
 
     &:not(.disabled):hover {

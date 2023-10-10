@@ -130,7 +130,10 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
             window.addEventListener('resize', handleResize);
 
-            return () => window.removeEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+                handleResize.cancel();
+            };
         }, [recalculate]);
 
         useEffect(() => {
