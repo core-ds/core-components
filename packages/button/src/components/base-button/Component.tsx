@@ -12,7 +12,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import { BaseButtonProps, ComponentProps } from '../../typings';
+import { CommonButtonProps, ComponentProps, PrivateButtonProps } from '../../typings';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -49,7 +49,10 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     );
 };
 
-export const BaseButton = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, BaseButtonProps>(
+export const BaseButton = React.forwardRef<
+    HTMLAnchorElement | HTMLButtonElement,
+    CommonButtonProps & PrivateButtonProps
+>(
     (
         {
             children,

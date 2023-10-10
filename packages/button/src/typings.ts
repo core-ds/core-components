@@ -93,7 +93,9 @@ export type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+};
 
+export type PrivateButtonProps = {
     /**
      * Основные стили компонента.
      */
@@ -105,16 +107,10 @@ export type ComponentProps = {
     colorStylesMap: StyleColors;
 };
 
-export type AnchorBaseButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-export type NativeBaseButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-export type BaseButtonProps = Partial<AnchorBaseButtonProps | NativeBaseButtonProps>;
+export type CommonButtonProps = ComponentProps &
+    Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
-export type AnchorButtonProps = Omit<BaseButtonProps, 'styles' | 'colorStylesMap'> &
-    AnchorHTMLAttributes<HTMLAnchorElement>;
-export type NativeButtonProps = Omit<BaseButtonProps, 'styles' | 'colorStylesMap'> &
-    ButtonHTMLAttributes<HTMLButtonElement>;
-
-export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps> & {
+export type ButtonProps = CommonButtonProps & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
