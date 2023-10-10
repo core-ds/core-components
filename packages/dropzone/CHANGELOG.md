@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.1
+
+### Patch Changes
+
+### [#881](https://github.com/core-ds/core-components/pull/881)
+
+-   Исправлен радиус скругления оверлея
+
 ## 3.2.0
 
 ### Minor Changes

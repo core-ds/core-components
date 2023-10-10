@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.9
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.6.0
+    -   navigation-bar@0.5.8
+
 ## 4.0.8
 
 ### Patch Changes

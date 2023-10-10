@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.11.1
+
+### Patch Changes
+
+### [#885](https://github.com/core-ds/core-components/pull/885)
+
+-   Исправлен радиус скругления скелетона в click теме
+
+### [#891](https://github.com/core-ds/core-components/pull/891)
+
+-   Добавлена темизация компонентов Checkbox и Radio для site
+
 ## 11.11.0
 
 ### Minor Changes

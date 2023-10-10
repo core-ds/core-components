@@ -1,5 +1,18 @@
 # Change Log
 
+## 12.2.1
+
+### Patch Changes
+
+### [#887](https://github.com/core-ds/core-components/pull/887)
+
+-   Переработана механика инпута с включенным disableUserInput
+
+-   Обновлены зависимости
+    -   button@9.0.6
+    -   shared@0.6.0
+    -   form-control@10.1.1
+
 ## 12.2.0
 
 ### Minor Changes

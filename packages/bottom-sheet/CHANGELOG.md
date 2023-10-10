@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.11.0
+
+### Minor Changes
+
+### [#895](https://github.com/core-ds/core-components/pull/895)
+
+-   Добавлены css-переменные (--bottom-sheet-top-radius, --bottom-sheet-shadow)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.6.0
+    -   navigation-bar@0.5.8
+
 ## 6.10.0
 
 ### Minor Changes

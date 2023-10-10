@@ -1,5 +1,13 @@
 # @alfalab/core-components-shared
 
+## 0.6.0
+
+### Minor Changes
+
+### [#887](https://github.com/core-ds/core-components/pull/887)
+
+-   **BREAKING CHANGE:** Удалена функция disableUserInput
+
 ## 0.5.0
 
 ### Minor Changes

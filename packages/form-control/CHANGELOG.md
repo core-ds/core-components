@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.6.0
+
 ## 10.1.0
 
 ### Minor Changes
