@@ -42,7 +42,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
             <div className={styles.phonesWrap}>
                 <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
                     <Link href='tel:+78002000000' underline={false} className={styles.phoneLink}>
-                        8 800 200-00-00
+                        8 800 200 00 00
                     </Link>
                     <Typography.Text
                         view='primary-medium'
@@ -57,7 +57,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
 
                 <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
                     <Link href='tel:+74957888878' underline={false} className={styles.phoneLink}>
-                        +7 495 78-888-78
+                        +7 495 78 888 78
                     </Link>
                     <Typography.Text
                         view='primary-medium'
