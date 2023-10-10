@@ -7,9 +7,6 @@
     --confirmation-header-font-feature-settings: 'ss01';
 
     /* mobile */
-    --confirmation-header-mobile-font-size: 20px;
-    --confirmation-header-mobile-line-height: 28px;
     --confirmation-header-mobile-font-weight: 500;
     --confirmation-header-mobile-font-family: var(--font-family-styrene);
-    --confirmation-header-font-feature-settings: 'ss01';
 }
