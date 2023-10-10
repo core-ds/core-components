@@ -171,6 +171,7 @@ export const BaseSelect = forwardRef(
             highlightedIndex,
             toggleMenu,
             openMenu,
+            setHighlightedIndex,
         } = useCombobox<OptionShape>({
             id,
             isOpen: openProp,
@@ -540,6 +541,7 @@ export const BaseSelect = forwardRef(
                             >
                                 <OptionsList
                                     {...(optionsListProps as AnyObject)}
+                                    setHighlightedIndex={setHighlightedIndex}
                                     optionsListWidth={optionsListWidth}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}

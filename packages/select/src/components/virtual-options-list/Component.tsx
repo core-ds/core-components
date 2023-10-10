@@ -34,6 +34,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             optionsListWidth,
             onScroll,
             nativeScrollbar: nativeScrollbarProp,
+            setHighlightedIndex,
         },
         ref,
     ) => {
@@ -184,6 +185,8 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             return <div {...contentNodeProps}>{renderList()}</div>;
         };
 
+        const resetHighlightedIndex = () => setHighlightedIndex?.(-1);
+
         if (options.length === 0 && !emptyPlaceholder) {
             return null;
         }
@@ -193,7 +196,14 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 className={cn(styles.virtualOptionsList, styles[size], className)}
                 data-test-id={dataTestId}
             >
-                {header && <div className={styles.virtualOptionsListHeader}>{header}</div>}
+                {header && (
+                    <div
+                        className={styles.virtualOptionsListHeader}
+                        onMouseEnter={resetHighlightedIndex}
+                    >
+                        {header}
+                    </div>
+                )}
 
                 {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
@@ -203,6 +213,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
                 {showFooter && footer && (
                     <div
+                        onMouseEnter={resetHighlightedIndex}
                         className={cn(styles.virtualOptionsListFooter, {
                             [styles.withBorder]:
                                 visibleOptions && flatOptions.length > visibleOptions,

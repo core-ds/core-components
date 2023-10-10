@@ -41,6 +41,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
+            setHighlightedIndex,
         },
         ref,
     ) => {
@@ -120,17 +121,24 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             </div>
         );
 
+        const resetHighlightedIndex = () => setHighlightedIndex?.(-1);
+
         return (
             <div
                 {...(nativeScrollbar && { 'data-test-id': dataTestId })}
                 className={cn(styles.optionsList, styles[size], className)}
             >
-                {header && <div className={styles.optionsListHeader}>{header}</div>}
+                {header && (
+                    <div className={styles.optionsListHeader} onMouseEnter={resetHighlightedIndex}>
+                        {header}
+                    </div>
+                )}
 
                 {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
 
                 {showFooter && footer && (
                     <div
+                        onMouseEnter={resetHighlightedIndex}
                         className={cn(styles.optionsListFooter, {
                             [styles.withBorder]:
                                 visibleOptions && flatOptions.length > visibleOptions,
