@@ -156,6 +156,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
         const inputDisabled = disabled || readOnly;
 
         const commonProps = {
+            autoComplete: picker ? 'off' : undefined,
             disableUserInput,
             autoCorrection,
             disabled,

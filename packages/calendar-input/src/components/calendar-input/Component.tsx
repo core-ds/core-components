@@ -406,6 +406,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 data-test-id={dataTestId}
             >
                 <DateInput
+                    autoComplete='off'
                     {...restProps}
                     ref={mergeRefs([inputRef, ref])}
                     wrapperRef={mergeRefs([wrapperRef, inputWrapperRef])}
