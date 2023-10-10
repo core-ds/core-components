@@ -580,6 +580,11 @@ export type OptionsListProps = {
      * Обработчик отмены изменений
      */
     onClear?: () => void;
+
+    /**
+     * Указать индекс пункта для hover состояния
+     */
+    setHighlightedIndex?: (index: number) => void;
 };
 
 export type OptgroupProps = {
