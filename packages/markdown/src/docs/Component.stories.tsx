@@ -58,6 +58,8 @@ export const markdown: Story = {
 
 _Курсивный текст_
 
+~~Зачеркнутый текст~~
+
 Текст с [ссылкой](https://alfabank.ru/get-money/credit-cards/100-days/)
    `}
             </Markdown>
