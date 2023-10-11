@@ -1,9 +1,5 @@
 @import '../../themes/src/default.css';
-
-:root {
-    --bottom-sheet-in-transition: transform 0.5s cubic-bezier(0.09, 0.91, 0.18, 0.99);
-    --bottom-sheet-out-transition: transform 0.3s ease;
-}
+@import './vars.css';
 
 .modal {
     background-color: transparent;
@@ -17,8 +13,8 @@
 .wrapper {
     transform: translateY(100%);
     pointer-events: none;
-    border-top-right-radius: var(--border-radius-xl);
-    border-top-left-radius: var(--border-radius-xl);
+    border-top-right-radius: var(--bottom-sheet-top-radius);
+    border-top-left-radius: var(--bottom-sheet-top-radius);
     transition: border-radius 0.3s ease;
 }
 
@@ -33,6 +29,7 @@
     border-radius: inherit;
     background-color: var(--color-light-bg-primary);
     pointer-events: all;
+    box-shadow: var(--bottom-sheet-shadow);
 }
 
 .withTransition {

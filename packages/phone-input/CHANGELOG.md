@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.2.10
+
+### Patch Changes
+
+### [#900](https://github.com/core-ds/core-components/pull/900)
+
+-   Исправлен формат номера телефона (удалены скобки и тире)
+
+-   Обновлены зависимости
+    -   masked-input@6.2.9
+
 ## 7.2.9
 
 ### Patch Changes

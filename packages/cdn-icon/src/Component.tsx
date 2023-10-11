@@ -57,10 +57,10 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
         xhr.open('GET', `${baseUrl}/${name}.svg`);
         xhr.send();
         xhr.onload = function onload() {
+            setLoadingStatus(LoadingStatus.SUCCESS);
             const svg = xhr.response;
 
             if (svg.startsWith('<svg')) {
-                setLoadingStatus(LoadingStatus.SUCCESS);
                 setIcon(svg);
             }
         };
@@ -75,7 +75,9 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     return (
         <span
             style={{ color }}
-            className={cn(styles.component, className, { [styles.parentColor]: monoIcon })}
+            className={cn('cc-cdn-icon', styles.component, className, {
+                [styles.parentColor]: monoIcon,
+            })}
             data-test-id={dataTestId}
             {...(loadingStatus === LoadingStatus.FAILURE
                 ? { children: fallback }

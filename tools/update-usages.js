@@ -1,7 +1,8 @@
 const axios = require('axios');
-const fs = require('fs/promises');
+const fs = require('fs');
 const path = require('path');
 const globby = require('globby');
+const os = require('os');
 
 const apiUrl = 'http://design/design-system-usage/api/stats/component-usages';
 
@@ -32,15 +33,15 @@ async function fetchUsages(component) {
 }
 
 async function fetchUsagesForStory(storyPath) {
-    const story = await fs.readFile(storyPath, 'utf-8');
+    const srcPath = storyPath.slice(0, storyPath.toLowerCase().indexOf('/docs/component'));
+    const story = await fs.promises.readFile(storyPath, 'utf-8');
 
     const m = /ComponentHeader\s+name=['"](.*?)['"]/gm.exec(story);
     const name = m?.[1];
 
     if (!name) throw new Error('Invalid story');
 
-    const hasMultipleEntryPoints =
-        story.includes(`${name}Desktop`) || story.includes(`${name}Mobile`);
+    const hasMultipleEntryPoints = fs.existsSync(path.join(srcPath, 'desktop.ts'));
     const components = hasMultipleEntryPoints
         ? [name, `${name}Desktop`, `${name}Mobile`, `${name}Responsive`]
         : [name];
@@ -53,7 +54,7 @@ async function fetchUsagesForStory(storyPath) {
 
     await Promise.all(
         components.map(async (component) => {
-            componentUsages = await fetchUsages(component);
+            const componentUsages = await fetchUsages(component);
 
             usages.projects += componentUsages.projects;
             usages.imports += componentUsages.imports;
@@ -68,7 +69,7 @@ async function fetchUsagesForStory(storyPath) {
 
 async function updateUsages() {
     const files = await globby(
-        [path.join(process.cwd(), 'packages') + `/**/src/docs/*.stories.mdx`],
+        [path.join(process.cwd(), 'packages') + `/**/src/docs/*.{stories,docs}.mdx`],
         {},
     );
 
@@ -87,12 +88,16 @@ async function updateUsages() {
         }
     }
 
-    await fs.writeFile(
+    await fs.promises.writeFile(
         path.join(process.cwd(), '.storybook/usages.json'),
-        JSON.stringify({
-            updatedAt: Date.now(),
-            ...usages,
-        }),
+        JSON.stringify(
+            {
+                updatedAt: Date.now(),
+                ...usages,
+            },
+            undefined,
+            4,
+        ) + os.EOL,
     );
 }
 

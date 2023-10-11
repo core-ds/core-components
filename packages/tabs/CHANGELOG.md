@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.1.4
+
+### Patch Changes
+
+### [#902](https://github.com/core-ds/core-components/pull/902)
+
+-   Исправлена ошибка c ResizeObserver в компоненте TabsCollapsible, возникающая в старых браузерах
+
+-   Обновлены зависимости
+    -   picker-button@11.1.8
+    -   shared@0.6.0
+    -   icon-button@6.3.1
+
 ## 8.1.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.3.1
+
+### Patch Changes
+
+### [#890](https://github.com/core-ds/core-components/pull/890)
+
+-   CDNIcon теперь занимает всю ширину и высоту IconView
+
 ## 3.3.0
 
 ### Minor Changes

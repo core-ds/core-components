@@ -1,5 +1,37 @@
 # Change Log
 
+## 15.2.1
+
+### Patch Changes
+
+### [#888](https://github.com/core-ds/core-components/pull/888)
+
+-   Исправлен отступ в шапке мобильных компонентов с поиском
+
+### [#905](https://github.com/core-ds/core-components/pull/905)
+
+-   Исправлена ошибка, из-за которой option оставался в hover состоянии в тот момент, когда курсор мыши находился над заголовком или над футером выпадающего списка
+
+### [#897](https://github.com/core-ds/core-components/pull/897)
+
+-   fix(select): search in mobile single mode
+
+### [#903](https://github.com/core-ds/core-components/pull/903)
+
+-   Исправлен баг с отсутствием поиска у SelectModalMobile
+
+### [#896](https://github.com/core-ds/core-components/pull/896)
+
+-   selected с элементами из options теперь сравнивается по ключу, а не по ссылке
+
+-   Обновлены зависимости
+    -   input@12.2.1
+    -   button@9.0.6
+    -   shared@0.6.0
+    -   bottom-sheet@6.11.0
+    -   form-control@10.1.1
+    -   modal@8.0.9
+
 ## 15.2.0
 
 ### Minor Changes

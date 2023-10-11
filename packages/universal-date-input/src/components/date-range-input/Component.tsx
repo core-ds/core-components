@@ -191,7 +191,6 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
                 data-test-id={getDataTestId(dataTestId, 'wrapper')}
             >
                 <Input
-                    placeholder={`ДД.ММ.ГГГГ${DATE_RANGE_SEPARATOR}ДД.ММ.ГГГГ`}
                     {...restProps}
                     dataTestId={dataTestId}
                     breakpoint={breakpoint}

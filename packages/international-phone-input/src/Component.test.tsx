@@ -83,7 +83,7 @@ describe('InternationalPhoneInput', () => {
         const input = screen.getByDisplayValue('');
         fireEvent.input(input, { target: { value: '+74957888878' } });
 
-        expect(onChange).toHaveBeenCalledWith(expect.any(Object), { value: '+7 495 788-88-78' });
+        expect(onChange).toHaveBeenCalledWith(expect.any(Object), { value: '+7 495 788 88 78' });
     });
 
     it('should have passed country flag icon', () => {
@@ -306,7 +306,7 @@ describe('InternationalPhoneInput', () => {
 
         await waitFor(async () => {
             expect(onChange).toHaveBeenCalledWith(expect.any(Object), {
-                value: '+7 949 123-45-67',
+                value: '+7 949 123 45 67',
             });
             expect(onCountryChange).toHaveBeenCalledWith(
                 expect.objectContaining({
@@ -321,13 +321,13 @@ describe('InternationalPhoneInput', () => {
         render(
             <InternationalPhoneInputDesktop
                 clearableCountryCode={false}
-                value='+7 928 123-45-67'
+                value='+7 928 123 45 67'
                 onChange={onChange}
                 defaultIso2='ru'
             />,
         );
 
-        const input = screen.getByDisplayValue('+7 928 123-45-67');
+        const input = screen.getByDisplayValue('+7 928 123 45 67');
 
         for (let i = 0; i < 20; i++) {
             await userEvent.type(input, '{backspace}');
@@ -342,7 +342,7 @@ describe('InternationalPhoneInput', () => {
         const { getByTestId } = render(
             <InternationalPhoneInputDesktop
                 dataTestId={testId}
-                value='+7 983 123-45-67'
+                value='+7 983 123 45 67'
                 onChange={onChange}
             />,
         );
@@ -355,7 +355,7 @@ describe('InternationalPhoneInput', () => {
         });
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith(expect.any(Object), { value: '+7 983 123-67' });
+            expect(onChange).toBeCalledWith(expect.any(Object), { value: '+7 983 123 67' });
         });
     });
 
@@ -365,7 +365,7 @@ describe('InternationalPhoneInput', () => {
         const { getByTestId } = render(
             <InternationalPhoneInputDesktop
                 dataTestId={testId}
-                value='+7 983 123-45-67'
+                value='+7 983 123 45 67'
                 onChange={onChange}
             />,
         );

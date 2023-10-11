@@ -63,4 +63,4 @@ jobs:
         issue-number: ${{ steps.find_pr.outputs.pr }}
         body: |
           Собрана новая [демка](${{ steps.demo_build.outputs.storybook_url }}).
-        reaction-type: 'rocket'
+        reactions: 'rocket'

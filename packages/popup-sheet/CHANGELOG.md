@@ -1,5 +1,13 @@
 # @alfalab/core-components-popup-sheet
 
+## 1.0.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.6.0
+    -   navigation-bar@0.5.8
+
 ## 1.0.7
 
 ### Patch Changes

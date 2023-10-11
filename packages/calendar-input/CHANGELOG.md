@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.0.12
+
+### Patch Changes
+
+### [#884](https://github.com/core-ds/core-components/pull/884)
+
+-   Добавлен атрибут autocomplete='off'
+
+-   Обновлены зависимости
+    -   date-input@4.3.9
+    -   calendar@7.0.9
+
 ## 9.0.11
 
 ### Patch Changes

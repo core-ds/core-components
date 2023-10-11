@@ -1,5 +1,22 @@
 # @alfalab/core-components-date-range-input
 
+## 3.0.12
+
+### Patch Changes
+
+### [#884](https://github.com/core-ds/core-components/pull/884)
+
+-   Добавлен атрибут autocomplete='off'
+
+### [#882](https://github.com/core-ds/core-components/pull/882)
+
+-   Исправлена анимация открытия мобильного календаря
+
+-   Обновлены зависимости
+    -   input@12.2.1
+    -   calendar@7.0.9
+    -   icon-button@6.3.1
+
 ## 3.0.11
 
 ### Patch Changes

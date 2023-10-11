@@ -86,7 +86,7 @@ describe('InternationalPhoneInputDesktop | interactions', () => {
             componentName: 'InternationalPhoneInputDesktop',
             knobs: {
                 block: true,
-                options: JSON.stringify([{ key: '8 999 999-99-99' }, { key: '8 888 888-88-88' }]),
+                options: JSON.stringify([{ key: '8 999 999 99 99' }, { key: '8 888 888 88 88' }]),
             },
             wrapperStyles: 'width:320px',
         });
@@ -144,7 +144,7 @@ describe('InternationalPhoneInputMobile | interactions', () => {
             componentName: 'InternationalPhoneInputMobile',
             knobs: {
                 block: true,
-                options: JSON.stringify([{ key: '8 999 999-99-99' }, { key: '8 888 888-88-88' }]),
+                options: JSON.stringify([{ key: '8 999 999 99 99' }, { key: '8 888 888 88 88' }]),
             },
             wrapperStyles: 'width:320px',
         });

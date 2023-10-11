@@ -48,7 +48,7 @@ export const OptionsListWithApply = forwardRef<HTMLDivElement, OptionsListWithAp
                 const selected =
                     option.key === SELECT_ALL_KEY
                         ? selectedDraft.length === flatOptions.length - 1
-                        : selectedDraft.includes(option);
+                        : selectedDraft.some(({ key }) => key === option.key);
 
                 return {
                     ...optionProps,

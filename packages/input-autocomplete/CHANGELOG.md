@@ -1,5 +1,24 @@
 # Change Log
 
+## 10.2.1
+
+### Patch Changes
+
+### [#888](https://github.com/core-ds/core-components/pull/888)
+
+-   Исправлен отступ в шапке мобильных компонентов с поиском
+
+### [#899](https://github.com/core-ds/core-components/pull/899)
+
+-   Из типов удалены применимые только для селекта свойства
+
+-   Обновлены зависимости
+    -   select@15.2.1
+    -   input@12.2.1
+    -   button@9.0.6
+    -   shared@0.6.0
+    -   form-control@10.1.1
+
 ## 10.2.0
 
 ### Minor Changes

@@ -12,7 +12,10 @@ import {
 
 import { AutocompleteField } from './autocomplete-field';
 
-export type InputAutocompleteDesktopProps = Omit<BaseSelectProps, 'Field' | 'nativeSelect'> & {
+export type InputAutocompleteDesktopProps = Omit<
+    BaseSelectProps,
+    'Field' | 'nativeSelect' | 'searchProps' | 'showSearch' | 'Search'
+> & {
     /**
      * Компонент ввода значения
      */

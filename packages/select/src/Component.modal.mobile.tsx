@@ -134,6 +134,8 @@ export const SelectModalMobile = forwardRef(
                 onChange={onChange}
                 OptionsList={OptionsList}
                 optionsListProps={optionsListProps}
+                showSearch={showSearch}
+                searchProps={searchProps}
                 modalHeaderProps={{
                     bottomAddons: useWithApplyHook && showHeaderWithSelectAll && (
                         <Header {...applyProps.optionsListProps.headerProps} mobile={true} />

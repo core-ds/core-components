@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.5.0
+
+### Minor Changes
+
+### [#892](https://github.com/core-ds/core-components/pull/892)
+
+-   Добавлен проп view: 'default' | 'withZeroMinorPart'
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.2.1
+    -   with-suffix@4.1.9
+
 ## 7.4.8
 
 ### Patch Changes

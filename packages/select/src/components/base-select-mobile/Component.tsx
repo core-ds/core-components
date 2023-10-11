@@ -349,7 +349,7 @@ export const BaseSelectMobile = forwardRef(
         };
 
         const getOptionProps = (option: OptionShape, index: number): OptionProps => {
-            const selectedItem = selectedItems.includes(option);
+            const selectedItem = selectedItems.some(({ key }) => key === option.key);
 
             return {
                 ...(optionProps as object),
@@ -539,8 +539,13 @@ export const BaseSelectMobile = forwardRef(
                         <ModalMobile.Header
                             hasCloser={true}
                             sticky={true}
-                            bottomAddons={renderSearch()}
                             {...modalHeaderProps}
+                            bottomAddons={
+                                <React.Fragment>
+                                    {renderSearch()}
+                                    {modalHeaderProps?.bottomAddons}
+                                </React.Fragment>
+                            }
                         >
                             {label || placeholder}
                         </ModalMobile.Header>

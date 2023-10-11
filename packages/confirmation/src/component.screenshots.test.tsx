@@ -43,7 +43,7 @@ describe(
                         state: 'INITIAL',
                         alignContent: ['left', 'center'],
                         requiredCharAmount: [5, 7],
-                        phone: '+7 ··· ··· 07-24',
+                        phone: '+7 ··· ··· 07 24',
                         ConfirmationComponent: 'Confirmation',
                         countdownDuration: 0,
                     },

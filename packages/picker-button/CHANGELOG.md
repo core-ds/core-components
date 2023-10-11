@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.1.8
+
+### Patch Changes
+
+### [#899](https://github.com/core-ds/core-components/pull/899)
+
+-   Из типов удалены применимые только для селекта свойства
+
+-   Обновлены зависимости
+    -   select@15.2.1
+    -   button@9.0.6
+
 ## 11.1.7
 
 ### Patch Changes

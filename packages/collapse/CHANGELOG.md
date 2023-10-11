@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.3.1
+
+### Patch Changes
+
+### [#898](https://github.com/core-ds/core-components/pull/898)
+
+-   Исправлена ошибка, из-за которой компонент ломался после ресайза
+
 ## 4.3.0
 
 ### Minor Changes

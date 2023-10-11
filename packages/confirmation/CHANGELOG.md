@@ -1,5 +1,20 @@
 # Change Log
 
+## 13.1.7
+
+### Patch Changes
+
+### [#900](https://github.com/core-ds/core-components/pull/900)
+
+-   Исправлен формат номера телефона (удалены скобки и тире)
+
+### [#886](https://github.com/core-ds/core-components/pull/886)
+
+-   Изменили стили заголовка мобильного компонента
+
+-   Обновлены зависимости
+    -   button@9.0.6
+
 ## 13.1.6
 
 ### Patch Changes

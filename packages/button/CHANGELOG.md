@@ -1,5 +1,16 @@
 # Change Log
 
+## 9.0.6
+
+### Patch Changes
+
+### [#893](https://github.com/core-ds/core-components/pull/893)
+
+-   Исправлены типы
+
+-   Обновлены зависимости
+    -   shared@0.6.0
+
 ## 9.0.5
 
 ### Patch Changes
