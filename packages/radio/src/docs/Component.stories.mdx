@@ -5,7 +5,6 @@ import { createComponentUrl } from 'storybook/utils/createComponentUrl';
 import { Radio } from '@alfalab/core-components-radio';
 import { Link } from '@alfalab/core-components-link';
 
-import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
@@ -48,9 +47,7 @@ import Changelog from '../../CHANGELOG.md?raw';
 
 <ComponentHeader
     name='Radio'
-    version={packageJson.version}
-    package='@alfalab/core-components/radio'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=87638%3A114227&mode=design&t=95S9JXl5nVy6yP2f-1'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=87638%3A114227&mode=design&t=Itgzojk9BOtPqYkS-1'
 >
     {'Используется только в составе\u00A0'}
     <Link view='default' underline={false} href={createComponentUrl('RadioGroup')}>
