@@ -20,11 +20,13 @@ describe('InternationalPhoneInput', () =>
         {
             componentName: 'InternationalPhoneInput',
             knobs: {
-                value: '+7 999 555 35 35',
                 label: 'Телефон',
+                value: '+7 999 555-35-35',
+                size: 'm',
+                block: true,
             },
         },
-        'width:800px;transform:scale(1.6)',
+        'padding: 0 270px;width:800px;transform:scale(2.1)',
         {
             viewport: { width: 1024, height: 600 },
         },
