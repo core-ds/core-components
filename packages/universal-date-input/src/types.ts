@@ -181,6 +181,7 @@ type PrivateProps =
     | 'withTime'
     | 'open'
     | 'calendarRef'
+    | 'inputWrapperRef'
     | 'wrapperHandlers'
     | 'onPickerClick';
 
