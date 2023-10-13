@@ -13,7 +13,6 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 
 type ComponentHeaderProps = {
     name: string;
-    version?: string;
     design?: string;
     children?: ReactNode;
 };
@@ -40,27 +39,22 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, design, 
                 {name}
             </Title>
             {children && (
-                <Typography.Text
-                    tag='p'
-                    view='primary-medium'
-                    className={styles.text}
-                >
+                <Typography.Text tag='p' view='primary-medium' className={styles.text}>
                     {children}
                 </Typography.Text>
             )}
             <div className={styles.links}>
-                <a
-                    className={cn(styles.design, {
-                        [styles.commonLink]: !design,
-                    })}
-                    href={
-                        design ||
-                        'https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components'
-                    }
-                    target='_blank'
-                >
-                    Figma
-                </a>
+                {design && (
+                    <a
+                        className={cn(styles.design, {
+                            [styles.commonLink]: !design,
+                        })}
+                        href={design}
+                        target='_blank'
+                    >
+                        Figma
+                    </a>
+                )}
                 <a className={styles.github} href={githubLink} target='_blank'>
                     <GithubIcon fill='var(--color-light-graphic-primary)' />
                     Github
