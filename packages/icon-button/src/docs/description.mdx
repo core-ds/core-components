@@ -1,93 +1,50 @@
-Компонент может использоваться самостоятельно или в составе более сложных компонентов:
-[Calendar](?path=/docs/calendar--docs), [FilterTag](?path=/docs/filtertag--docs).
+## Виды кнопок
 
-## Примеры
-
-### Размеры
-
-Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
+Primary, secondary, tertiary, negative.
 
 ```jsx live
 <Container>
     <Row>
+    {['primary', 'secondary','tertiary','negative' ].map(view => (
         <Col>
             <IconButton
-                view='primary'
-                size='s'
-                icon={StarMIcon}
-                style={{
-                    border: '1px solid rgba(0,0,0,0.1) ',
-                    backgroundColor: 'rgba(55, 120, 251, 0.1)',
-                }}
-            />
-        </Col>
-        <Col>
-            <IconButton
-                view='primary'
+                view={view}
                 size='xs'
-                icon={StarMIcon}
-                style={{
-                    border: '1px solid rgba(0,0,0,0.1) ',
-                    backgroundColor: 'rgba(55, 120, 251, 0.1)',
-                }}
+                icon={DiamondsMIcon}
             />
         </Col>
-        <Col>
-            <IconButton
-                view='primary'
-                size='xxs'
-                icon={StarMIcon}
-                style={{
-                    border: '1px solid rgba(0,0,0,0.1) ',
-                    backgroundColor: 'rgba(55, 120, 251, 0.1)',
-                }}
-            />
-        </Col>
+    ))}
     </Row>
 </Container>
 ```
 
-### Вью
+## Размеры
 
-Primary, secondary, tertiary, negative
+Рекомендуется использовать одиниз трёх размеров, в зависимости от контекста.
 
 ```jsx live
 <Container>
     <Row>
+    {['s', 'xs','xss' ].map(size => (
         <Col>
-            <IconButton view='primary' icon={StarMIcon} />
+            <IconButton
+                view='primary'
+                size={size}
+                icon={DiamondsMIcon}
+                style={{
+                    backgroundColor: 'rgba(55, 120, 251, 0.1)',
+                    borderRadius: 0,
+                }}
+            />
         </Col>
-        <Col>
-            <IconButton view='primary' icon={SfFaceIdXxlIcon} />
-        </Col>
-
-        <Col>
-            <IconButton view='secondary' icon={StarMIcon} />
-        </Col>
-        <Col>
-            <IconButton view='secondary' icon={SfFaceIdXxlIcon} />
-        </Col>
-
-        <Col>
-            <IconButton view='tertiary' icon={StarMIcon} />
-        </Col>
-        <Col>
-            <IconButton view='tertiary' icon={SfFaceIdXxlIcon} />
-        </Col>
-
-        <Col>
-            <IconButton view='negative' icon={StarMIcon} />
-        </Col>
-        <Col>
-            <IconButton view='negative' icon={SfFaceIdXxlIcon} />
-        </Col>
+    ))}
     </Row>
 </Container>
 ```
 
-### Состояние загрузки
+## Обработка событий
 
-С помощью свойства loading можно отобразить состояние загрузки. Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+С помощью свойства `loading` можно отобразить состояние загрузки. Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
 
 ```jsx live
 render(() => {
@@ -109,47 +66,23 @@ render(() => {
                 <Col>
                     <IconButton
                         view='primary'
-                        icon={StarMIcon}
+                        size='xs'
+                        icon={DiamondsMIcon}
                         loading={loading.primary}
-                        onClick={() => handleClick('primary', 1500)}
+                        onClick={() => handleClick('primary', 30)}
                     />
                 </Col>
                 <Col>
                     <IconButton
                         view='secondary'
-                        icon={StarMIcon}
+                        size='xs'
+                        icon={DiamondsMIcon}
                         loading={loading.secondary}
                         onClick={() => handleClick('secondary', 1500)}
-                    />
-                </Col>
-                <Col>
-                    <IconButton
-                        view='tertiary'
-                        icon={StarMIcon}
-                        loading={loading.tertiary}
-                        onClick={() => handleClick('tertiary', 1500)}
-                    />
-                </Col>
-                <Col>
-                    <IconButton
-                        view='negative'
-                        icon={StarMIcon}
-                        loading={loading.negative}
-                        onClick={() => handleClick('negative', 1500)}
                     />
                 </Col>
             </Row>
         </Container>
     );
 });
-```
-
-### Ссылка
-
-Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
-
-```jsx live
-<Container>
-    <IconButton view='primary' icon={StarMIcon} href='https://alfabank.ru' target='_blank' />
-</Container>
 ```

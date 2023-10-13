@@ -1,11 +1,8 @@
-В соответствии с дизайн-системой все интерактивные элементы должны иметь определенную обводку при фокусе, но только при переключении с клавиатуры.
-При клике мышки обводки быть не должно.
+## Пример
 
-Для получения такого поведения — можно воспользоваться компонентом `<KeyboardFocusable />` или хуком `@alfalab/hooks/useFocus`.
-
-Стили для фокусной обводки доступны через миксин `focus-outline`.
-
-## Компонент KeyboardFocusable
+Все интерактивные элементы должны иметь определенную обводку при фокусе, полученном при переходе к элементу при помощи клавиатуры. 
+При клике мышкой или тапе обводки быть не должно. 
+В примере ниже кликните на первую кнопку мышкой, а затем нажмите tab, чтобы выбрать правую кнопку.
 
 ```jsx live
 <KeyboardFocusable>
@@ -16,46 +13,16 @@
         };
 
         return (
-            <Button size='xs' ref={ref} style={focused ? focusOutlineStyles : {}}>
-                Выбери меня табом
-            </Button>
+            <Space size={16} direction='horizontal'>
+                <Button size='m'>
+                    Кликни мышкой
+                </Button>
+                <Button size='m' ref={ref} style={focused ? focusOutlineStyles : {}}>
+                    Выбери табом
+                </Button>
+            </Space>
+            
         );
     }}
 </KeyboardFocusable>
-```
-
-```jsx
-// Нативный элемент
-<KeyboardFocusable>
-    {(ref, focused) => <button type='button' ref={ref} className={cn({ [styles.focused]: focused })} />}
-</KeyboardFocusable>
-
-// Компонент, поддерживающий проброс рефа
-<KeyboardFocusable>
-    {(ref, focused) => <ForwardRefComponent ref={ref} className={cn({ [styles.focused]: focused })} />}
-</KeyboardFocusable>
-
-// Если компонент не пробрасывает реф, то можно использовать обертку
-<KeyboardFocusable>
-    {(ref, focused) => (
-        <div ref={ref} className={cn({ [styles.focused]: focused })}>
-            <ComponentWithoutForwardRef />
-        </div>
-    )}
-</KeyboardFocusable>
-```
-
-## Хук @alfalab/hooks/useFocus
-
-```jsx
-// import { useFocus } from '@alfalab/hooks';
-
-const ref = React.useRef<HTMLButtonElement>(null);
-const { focused } = useFocus(ref, 'keyboard');
-
-return (
-    <button ref={ref} className={cn({ [styles.focused]: focused })}>
-        focus me
-    </button>,
-);
 ```

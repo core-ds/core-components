@@ -1,0 +1,19 @@
+import { ArgTypes } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { IconButton } from '../index';
+import defaultStyles from '!!raw-loader!../default.module.css';
+import styles from '!!raw-loader!../index.module.css';
+
+## Подключение
+
+```jsx
+import { IconButton } from '@alfalab/core-components/icon-button';
+```
+
+## Свойства
+
+<ArgTypes of={IconButton} />
+
+## Переменные
+
+<CssVars css={`${styles}${defaultStyles}`}/>

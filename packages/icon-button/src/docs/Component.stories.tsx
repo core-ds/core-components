@@ -1,28 +1,25 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { IconButton } from '@alfalab/core-components-icon-button';
-
-import { IconButton as IconButtonTS } from '../Component';
-import packageJson from '../../package.json';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-import defaultStyles from '!!raw-loader!../default.module.css';
-import styles from '!!raw-loader!../index.module.css';
-
 import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/IconButton' component={IconButton} id='IconButton' />
+const meta: Meta<typeof IconButton> = {
+    title: 'Components/IconButton',
+    component: IconButton,
+    id: 'IconButton',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof IconButton>;
 
-<Story name='IconButton'>
-    {React.createElement(() => {
+export const icon_button: Story = {
+    name: 'IconButton',
+    render: () => {
         const iconsMap = {
             StarMIcon: StarMIcon,
             DiamondsMIcon: DiamondsMIcon,
@@ -60,31 +57,7 @@ import {
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='IconButton'
-    version={packageJson.version}
-    package='@alfalab/core-components/icon-button'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=3419%3A31949'
-/>
-
-```jsx
-import { IconButton } from '@alfalab/core-components/icon-button';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={IconButtonTS} />}
-    cssVars={
-        <CssVars
-            css={`
-                ${styles}${defaultStyles}
-            `}
-        />
-    }
-/>
+export default meta;
