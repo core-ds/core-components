@@ -3,7 +3,6 @@ import { boolean, select } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Typography } from '@alfalab/core-components-typography';
 
-import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
@@ -114,9 +113,6 @@ import { colors } from '../colors';
 
 <ComponentHeader
     name='Typography'
-    version={packageJson.version}
-    package='@alfalab/core-components/typography'
-    design='https://www.figma.com/file/ZZ5kKTQF48ZjafL6utHmIG/Web-Hybrid-Typography?node-id=3511%3A1383'
     children='Подключение и использование шрифтов.'
 />
 
