@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
 import styles from './index.module.css';
 
@@ -10,9 +11,19 @@ export type FooterProps = {
     handleClear?: () => void;
     handleApply?: () => void;
     showClear?: boolean;
+    clearText?: string;
+    applyText?: string;
+    dataTestId?: string;
 };
 
-export const Footer = ({ handleApply, handleClear, showClear }: FooterProps) => {
+export const Footer = ({
+    handleApply,
+    handleClear,
+    showClear,
+    clearText = 'Сбросить',
+    applyText = 'Применить',
+    dataTestId,
+}: FooterProps) => {
     const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
 
     useEffect(() => {
@@ -33,13 +44,20 @@ export const Footer = ({ handleApply, handleClear, showClear }: FooterProps) => 
                     view='secondary'
                     className={styles.button}
                     onClick={handleClear}
+                    dataTestId={getDataTestId(dataTestId, 'clear')}
                 >
-                    Сбросить
+                    {clearText}
                 </ButtonMobile>
             )}
 
-            <ButtonMobile size='m' view='primary' className={styles.button} onClick={handleApply}>
-                Применить
+            <ButtonMobile
+                size='m'
+                view='primary'
+                className={styles.button}
+                onClick={handleApply}
+                dataTestId={getDataTestId(dataTestId, 'apply')}
+            >
+                {applyText}
             </ButtonMobile>
         </div>
     );

@@ -10,3 +10,4 @@ export * from '../components/field';
 export * from '../components/arrow';
 export * from '../components/base-select';
 export * from '../components/optgroup';
+export * from '../components/footer';

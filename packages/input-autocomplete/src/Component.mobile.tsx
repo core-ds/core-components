@@ -1,140 +1,75 @@
-import React, { ChangeEvent, ElementType, RefObject, useMemo, useRef, useState } from 'react';
+import React, { Ref, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
-import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
-import { Input as CoreInput } from '@alfalab/core-components-input';
-import { SelectMobile, SelectMobileProps } from '@alfalab/core-components-select/mobile';
-import type {
-    BaseSelectChangePayload,
-    BaseSelectProps,
+import {
+    SelectMobile,
+    SelectMobileProps,
+    SelectModalMobile,
+} from '@alfalab/core-components-select/mobile';
+import {
+    AnyObject,
     BottomSheetSelectMobileProps,
+    Footer,
+    ModalSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
 import { AutocompleteMobileField } from './autocomplete-mobile-field';
+import { InputAutocompleteMobileProps } from './types';
+import { searchFilterStub } from './utils';
 
 import styles from './mobile.module.css';
-
-export type InputAutocompleteMobileProps = Omit<
-    BaseSelectProps,
-    | 'OptionsList'
-    | 'Checkmark'
-    | 'onScroll'
-    | 'nativeSelect'
-    | 'autocomplete'
-    | 'valueRenderer'
-    | 'searchProps'
-    | 'showSearch'
-    | 'Search'
-> & {
-    /**
-     * Обработчик выбора
-     */
-    onChange: (payload: string | BaseSelectChangePayload) => void;
-
-    /**
-     * Обработчик ввода фильтра.
-     */
-    onFilter: (event: ChangeEvent<HTMLInputElement>) => void;
-
-    /**
-     * Значение поля ввода
-     */
-    value?: string;
-
-    /**
-     * Значение фильтра.
-     */
-    filter?: string;
-
-    /**
-     * Обработчик нажатия на кнопку "Отмена".
-     */
-    onCancel?: () => void;
-
-    /**
-     * Обработчик нажатия на крестик в инпуте фильтра.
-     */
-    onClearFilter?: () => void;
-
-    /**
-     * Дополнительные пропсы компонента BottomSheet
-     */
-    bottomSheetProps?: BottomSheetSelectMobileProps['bottomSheetProps'];
-
-    /**
-     * Дополнительные пропсы на слот под заголовком компонента BottomSheet
-     */
-    bottomSheetHeaderAddonsProps?: Record<string, unknown>;
-
-    /**
-     * Дополнительные пропсы на кнопку "продолжить"
-     */
-    continueButtonProps?: ButtonMobileProps;
-
-    /**
-     * Дополнительные пропсы на кнопку "отмена"
-     */
-    cancelButtonProps?: ButtonMobileProps;
-
-    /**
-     * Кастомный инпут
-     */
-    Input?: ElementType;
-};
-
-const SELECTED: string[] = [];
 
 export const InputAutocompleteMobile = React.forwardRef(
     (
         {
             Input,
-            bottomSheetProps = {},
-            bottomSheetHeaderAddonsProps = {},
-            value = '',
-            filter = '',
+            value,
             name,
             Arrow = null,
             label,
-            placeholder,
+            placeholder = '',
             size = 's',
             open: openProp,
-            onFilter,
-            onChange,
+            onInput,
             onOpen,
-            onCancel,
-            onClearFilter,
-            continueButtonProps,
-            cancelButtonProps,
-            selected,
             multiple,
+            inputProps,
+            isBottomSheet = true,
+            dataTestId,
+            transitionProps,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
     ) => {
         const [open, setOpen] = useState(false);
-        const bottomSheetInputRef = useRef<HTMLInputElement>(null);
+        const frozenValue = useRef<string>('');
+        const searchInputRef = useRef<HTMLInputElement>(null);
         const targetRef = useRef<HTMLDivElement>(null);
 
-        const setBottomSheetVisibility = (isOpen: boolean) => {
+        const restorePrevValue = () => onInput?.(null, { value: frozenValue.current });
+
+        const setModalVisibility = (isOpen: boolean) => {
             if (openProp === undefined) {
                 setOpen(isOpen);
             }
 
-            if (onOpen) {
-                onOpen({ open: isOpen, name });
+            if (isOpen) {
+                frozenValue.current = value || '';
             }
+
+            onOpen?.({ open: isOpen, name });
         };
 
         const handleOpen: SelectMobileProps['onOpen'] = (payload) => {
-            setBottomSheetVisibility(Boolean(payload.open));
+            setModalVisibility(Boolean(payload.open));
         };
 
         const handleOptionsListTouchMove = useMemo(
             () =>
                 throttle(() => {
-                    const input = bottomSheetInputRef.current;
+                    const input = searchInputRef.current;
 
                     if (input && document.activeElement === input) {
                         input.blur();
@@ -143,119 +78,86 @@ export const InputAutocompleteMobile = React.forwardRef(
             [],
         );
 
-        const handleApply = () => {
-            setBottomSheetVisibility(false);
-            onChange(filter);
-        };
-
-        const handleChange: SelectMobileProps['onChange'] = (payload) => {
-            onChange(payload);
-
-            if (multiple) {
-                // После выбора опции возвращаем фокус в поле ввода.
-                bottomSheetInputRef.current?.focus();
-            }
-        };
+        const handleApply = () => setModalVisibility(false);
 
         const handleCancel = () => {
-            setBottomSheetVisibility(false);
-
-            if (onCancel) {
-                onCancel();
-            }
+            setModalVisibility(false);
+            restorePrevValue();
         };
 
-        const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-            const input = bottomSheetInputRef.current;
-
-            // Перед закрытием шторки снимаем фокус с инпута, чтобы предотвратить скачок шторки.
-            if (
-                event.relatedTarget === targetRef.current &&
-                input &&
-                input === document.activeElement
-            ) {
-                input.blur();
-            }
+        const handleExiting = (node: HTMLElement) => {
+            targetRef.current?.focus();
+            transitionProps?.onExiting?.(node);
         };
 
-        const getBottomSheetProps = (): InputAutocompleteMobileProps['bottomSheetProps'] => {
-            const Component = Input || CoreInput;
+        const isOpen = Boolean(open || openProp);
 
-            return {
-                actionButton: (
-                    <div className={styles.footer}>
-                        <ButtonMobile
-                            block={true}
-                            view='secondary'
-                            size='m'
-                            onClick={handleCancel}
-                            {...cancelButtonProps}
-                        >
-                            Отмена
-                        </ButtonMobile>
-                        <ButtonMobile
-                            block={true}
-                            view='primary'
-                            size='m'
-                            onClick={handleApply}
-                            {...continueButtonProps}
-                        >
-                            Продолжить
-                        </ButtonMobile>
-                    </div>
-                ),
-                title: label || placeholder,
-                bottomAddons: (
-                    <Component
-                        block={true}
-                        clear={!!onClearFilter}
-                        onClear={onClearFilter}
-                        value={filter}
-                        onInput={onFilter}
-                        placeholder={placeholder}
-                        onFocus={handleInputFocus}
-                        {...bottomSheetHeaderAddonsProps}
-                        className={cn(
-                            styles.bottomAddonInput,
-                            bottomSheetHeaderAddonsProps.className as string,
-                        )}
-                        ref={mergeRefs([
-                            bottomSheetInputRef,
-                            bottomSheetHeaderAddonsProps.ref as RefObject<HTMLInputElement>,
-                        ])}
-                    />
-                ),
-                initialHeight: 'full',
-                ...bottomSheetProps,
-                containerProps: {
-                    onTouchMove: handleOptionsListTouchMove,
-                    ...bottomSheetProps.containerProps,
-                },
-            };
+        const Component = isBottomSheet ? SelectMobile : SelectModalMobile;
+
+        const componentProps:
+            | ModalSelectMobileProps['modalProps']
+            | BottomSheetSelectMobileProps['bottomSheetProps'] = {
+            title: label || placeholder,
+            onClose: restorePrevValue,
+            transitionProps: {
+                ...transitionProps,
+                onExiting: handleExiting,
+            },
+            [isBottomSheet ? 'containerProps' : 'componentDivProps']: {
+                onTouchMove: handleOptionsListTouchMove,
+            },
         };
 
         return (
-            <SelectMobile
-                useWithApplyHook={false}
+            <Component
                 Field={AutocompleteMobileField}
                 {...restProps}
+                {...(isBottomSheet
+                    ? { bottomSheetProps: componentProps }
+                    : { modalProps: componentProps })}
+                dataTestId={dataTestId}
+                useWithApplyHook={false}
+                showSearch={true}
+                searchProps={{
+                    value,
+                    filterFn: searchFilterStub,
+                    componentProps: {
+                        leftAddons: null,
+                        placeholder,
+                        ...inputProps,
+                        className: cn(styles.input, inputProps?.className),
+                        clear: inputProps?.clear ?? false,
+                        ref: mergeRefs([searchInputRef, inputProps?.ref as Ref<HTMLInputElement>]),
+                        onChange: onInput,
+                    },
+                }}
+                Search={Input}
                 ref={mergeRefs([targetRef, ref])}
-                selected={selected || SELECTED}
-                open={Boolean(open || openProp)}
+                open={isOpen}
                 onOpen={handleOpen}
                 Arrow={Arrow}
-                onChange={handleChange}
                 placeholder={placeholder}
                 label={label}
                 size={size}
                 name={name}
                 multiple={multiple}
-                bottomSheetProps={getBottomSheetProps()}
                 optionsListProps={{
-                    showFooter: false,
-                    ...(restProps.optionsListProps as Record<string, unknown>),
+                    footer: (
+                        <Footer
+                            showClear={true}
+                            handleClear={handleCancel}
+                            handleApply={handleApply}
+                            clearText='Отмена'
+                            applyText='Продолжить'
+                            dataTestId={dataTestId}
+                        />
+                    ),
+                    ...(restProps.optionsListProps as AnyObject),
                 }}
-                fieldProps={{ value, ...(restProps.fieldProps as Record<string, unknown>) }}
+                fieldProps={{
+                    value: isOpen ? frozenValue.current : value,
+                    ...(restProps.fieldProps as AnyObject),
+                }}
             />
         );
     },

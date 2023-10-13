@@ -65,7 +65,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
             aria-labelledby="downshift-:r1:-label"
             class="field inner inner inner inner"
             id="downshift-:r1:-input"
-            tabindex="0"
           >
             <div
               class="inputWrapper"
@@ -178,7 +177,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                       class="bottomAddons"
                     >
                       <div
-                        class="component component bottomAddonInput s s block"
+                        class="component component component input search s s"
                       >
                         <div
                           class="inner inner inner inner"
@@ -191,6 +190,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             >
                               <input
                                 class="input input"
+                                placeholder=""
                                 type="text"
                                 value=""
                               />
@@ -201,7 +201,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     </div>
                   </div>
                   <div
-                    class="content sheetContent"
+                    class="content sheetContent noFooter"
                   >
                     <div
                       aria-labelledby="downshift-:r1:-label"
@@ -212,6 +212,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                       <div
                         class="optionsList s optionsList"
                       >
+                        <div
+                          class="optionsListHeader"
+                        />
                         <div
                           class="component component scrollable scrollbar"
                           data-simplebar="init"
@@ -376,35 +379,36 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             />
                           </div>
                         </div>
+                        <div
+                          class="optionsListFooter"
+                        >
+                          <div
+                            class="footer"
+                            tabindex="0"
+                          >
+                            <button
+                              class="component secondary m m component secondary component secondary button"
+                              type="button"
+                            >
+                              <span
+                                class="text stretchText"
+                              >
+                                Отмена
+                              </span>
+                            </button>
+                            <button
+                              class="component primary m m component primary component primary button"
+                              type="button"
+                            >
+                              <span
+                                class="text stretchText"
+                              >
+                                Продолжить
+                              </span>
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div
-                    class="footer sticky"
-                  >
-                    <div
-                      class="footer"
-                    >
-                      <button
-                        class="component secondary m m component secondary component secondary block"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          Отмена
-                        </span>
-                      </button>
-                      <button
-                        class="component primary m m component primary component primary block"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          Продолжить
-                        </span>
-                      </button>
                     </div>
                   </div>
                 </div>

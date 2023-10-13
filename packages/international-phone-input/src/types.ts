@@ -89,19 +89,18 @@ export type BaseInternationalPhoneInputProps = CommonPhoneInputProps & {
     InputAutocomplete: FC<InputAutocompleteProps>;
     SelectComponent: ElementType;
     view: 'desktop' | 'mobile';
-    countriesData: Country[][];
-} & Omit<InputProps, 'onFocus' | 'onBlur' | 'onScroll'> &
-    Partial<Omit<InputAutocompleteProps, 'onChange' | 'leftAddons' | 'onScroll'>>;
+} & Omit<InputProps, 'onFocus' | 'onBlur' | 'onScroll' | 'onInput' | 'onChange'> &
+    Partial<Omit<InputAutocompleteProps, 'onChange' | 'leftAddons' | 'onScroll' | 'onInput'>>;
 
 export type InternationalPhoneInputDesktopProps = CommonPhoneInputProps &
     (
         | ({ options?: never } & Omit<
               InputDesktopProps,
-              'onFocus' | 'onBlur' | 'clear' | 'onClear' | 'onChange'
+              'onFocus' | 'onBlur' | 'clear' | 'onClear' | 'onChange' | 'onInput'
           >)
         | ({ options: InputAutocompleteDesktopProps['options'] } & Omit<
               InputAutocompleteDesktopProps,
-              'onChange'
+              'onChange' | 'onInput'
           >)
     );
 
@@ -109,11 +108,11 @@ export type InternationalPhoneInputMobileProps = CommonPhoneInputProps &
     (
         | ({ options?: never } & Omit<
               InputMobileProps,
-              'onFocus' | 'onBlur' | 'clear' | 'onClear' | 'onChange'
+              'onFocus' | 'onBlur' | 'clear' | 'onClear' | 'onChange' | 'onInput'
           >)
         | ({ options: InputAutocompleteMobileProps['options'] } & Omit<
               InputAutocompleteMobileProps,
-              'onChange' | 'onFilter' | 'filter' | 'onClearFilter'
+              'onChange' | 'onInput'
           >)
     );
 

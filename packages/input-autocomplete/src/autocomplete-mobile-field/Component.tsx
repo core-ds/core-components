@@ -53,6 +53,8 @@ export const AutocompleteMobileField = ({
     const filled = Boolean(value);
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
 
+    const { tabIndex, ...restInnerProps } = innerProps;
+
     return (
         <div
             className={styles.component}
@@ -73,8 +75,10 @@ export const AutocompleteMobileField = ({
                 labelView={labelView}
                 rightAddons={Arrow}
                 dataTestId={getDataTestId(dataTestId, 'form-control')}
+                // downshift устанавливает фокус на таргет поле после выбора опции, не даем ему это сделать пока открыт список, иначе поле поиска будет терять фокус
+                tabIndex={open ? undefined : tabIndex}
                 {...restProps}
-                {...innerProps}
+                {...restInnerProps}
             >
                 <div className={styles.contentWrapper}>
                     {showPlaceholder && <span className={styles.placeholder}>{placeholder}</span>}

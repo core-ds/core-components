@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
@@ -267,9 +267,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         };
 
-        const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-            setCountryByDialCodeWithLengthCheck(event.target.value);
-            changePhone(addCountryCode(event.target.value));
+        const handleInputChange: InputAutocompleteDesktopProps['onInput'] = (_, payload) => {
+            setCountryByDialCodeWithLengthCheck(payload.value);
+            changePhone(addCountryCode(payload.value));
         };
 
         const handleSelectChange: Required<SelectProps>['onChange'] = ({ selected }) => {

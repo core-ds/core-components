@@ -19,6 +19,7 @@
         { "path": "../input" },
         { "path": "../button" },
         { "path": "../form-control" },
-        { "path": "../bottom-sheet" }
+        { "path": "../bottom-sheet" },
+        { "path": "../mq" }
     ]
 }

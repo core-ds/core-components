@@ -3,35 +3,36 @@
 Добавляйте шеврон, если пользователю будет удобней выбирать значение, просматривая список, не вводя первые символы.
 Если список длинный и вы предполагаете, что пользователь будет вводить значение с клавиатуры, шеврон можно скрыть.
 
-```jsx live
+```jsx live mobileHeight={640}
+const options = [
+    { key: 'Neptunium' },
+    { key: 'Plutonium' },
+    { key: 'Americium' },
+    { key: 'Curium' },
+    { key: 'Berkelium' },
+    { key: 'Californium' },
+    { key: 'Einsteinium' },
+    { key: 'Fermium' },
+    { key: 'Mendelevium' },
+    { key: 'Nobelium' },
+    { key: 'Lawrencium' },
+    { key: 'Rutherfordium' },
+    { key: 'Dubnium' },
+    { key: 'Seaborgium' },
+    { key: 'Bohrium' },
+];
+
 render(() => {
     const [shownChevron, setShownChevron] = React.useState(false);
     const [multiple, setMultiple] = React.useState(false);
+    const [showInModal, setShowInModal] = React.useState(false);
     const [value, setValue] = React.useState('');
-
-    const options = [
-        { key: 'Neptunium' },
-        { key: 'Plutonium' },
-        { key: 'Americium' },
-        { key: 'Curium' },
-        { key: 'Berkelium' },
-        { key: 'Californium' },
-        { key: 'Einsteinium' },
-        { key: 'Fermium' },
-        { key: 'Mendelevium' },
-        { key: 'Nobelium' },
-        { key: 'Lawrencium' },
-        { key: 'Rutherfordium' },
-        { key: 'Dubnium' },
-        { key: 'Seaborgium' },
-        { key: 'Bohrium' },
-    ];
 
     const matchOption = (option, inputValue) =>
         option.key.toLowerCase().includes((inputValue || '').toLowerCase());
 
-    const handleInput = (event) => {
-        setValue(event.target.value);
+    const handleInput = (_, { value }) => {
+        setValue(value);
     };
 
     const handleChange = ({ selected, selectedMultiple }) => {
@@ -51,7 +52,9 @@ render(() => {
 
     const selectedOptions = options.filter((option) => inputValues.includes(option.key.trim()));
 
-    const selected = selectedOptions.map((option) => option.key);
+    const selected = multiple
+        ? selectedOptions.map((option) => option.key)
+        : options.find((o) => o.key === inputValues[0]) || [];
 
     const getFilteredOptions = () => {
         if (multiple) {
@@ -65,14 +68,17 @@ render(() => {
                   });
         }
 
-        return options.filter((option) => matchOption(option, value));
+        return options.some(({ key }) => key === value)
+            ? options
+            : options.filter((option) => matchOption(option, value));
     };
 
     return (
         <div style={{ width: 320 }}>
-            <InputAutocompleteDesktop
+            <InputAutocomplete
+                breakpoint={BREAKPOINT}
                 size='m'
-                selected={multiple ? selected : undefined}
+                selected={selected}
                 block={true}
                 options={getFilteredOptions()}
                 label='Инпут с автокомплитом'
@@ -85,12 +91,14 @@ render(() => {
                 allowUnselect={true}
                 Option={BaseOption}
                 showEmptyOptionsList={true}
+                isBottomSheet={!showInModal}
+                inputProps={{
+                    onClear: () => setValue(''),
+                }}
                 optionsListProps={{
                     emptyPlaceholder: (
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <Typography.Text view='component'>
-                                Ничего не нашлось
-                            </Typography.Text>
+                            <Typography.Text view='component'>Ничего не нашлось</Typography.Text>
                         </div>
                     ),
                 }}
@@ -110,130 +118,16 @@ render(() => {
                     setValue('');
                 }}
             />
-        </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [shownChevron, setShownChevron] = React.useState(false);
-    const [showInModal, setShowInModal] = React.useState(false);
-    const [multiple, setMultiple] = React.useState(false);
-    const [value, setValue] = React.useState('');
-    const [filter, setFilter] = React.useState('');
-
-    const options = [
-        { key: 'Neptunium' },
-        { key: 'Plutonium' },
-        { key: 'Americium' },
-        { key: 'Curium' },
-        { key: 'Berkelium' },
-        { key: 'Californium' },
-        { key: 'Einsteinium' },
-        { key: 'Fermium' },
-        { key: 'Mendelevium' },
-        { key: 'Nobelium' },
-        { key: 'Lawrencium' },
-        { key: 'Rutherfordium' },
-        { key: 'Dubnium' },
-        { key: 'Seaborgium' },
-        { key: 'Bohrium' },
-    ];
-
-    const matchOption = (option, inputValue) =>
-        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
-
-    const handleFilter = (event) => {
-        setFilter(event.target.value);
-    };
-
-    const filterValues = filter
-        .split(',')
-        .map((v) => v.trim())
-        .filter((v) => v);
-
-    const selectedOptions = options.filter((option) => filterValues.includes(option.key.trim()));
-
-    const selected = selectedOptions.map((option) => option.key);
-
-    const handleChange = (payload) => {
-        let newValue = '';
-
-        if (payload && payload.selectedMultiple) {
-            newValue = payload.selectedMultiple.length
-                ? payload.selectedMultiple.map((option) => option.key).join(', ') +
-                  `${multiple ? `,` : ''}`
-                : '';
-        } else {
-            newValue = payload || '';
-        }
-
-        setValue(newValue);
-        setFilter(newValue);
-    };
-
-    const filteredOptions =
-        filterValues.length === selected.length
-            ? options
-            : options.filter((option) => {
-                  return (
-                      selectedOptions.includes(option) ||
-                      matchOption(option, filterValues[filterValues.length - 1])
-                  );
-              });
-
-    const emptyPlaceholder = (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Typography.Text view='component'>Ничего не нашлось</Typography.Text>
-        </div>
-    );
-
-    const Component = showInModal ? InputAutocompleteModalMobile : InputAutocompleteMobile;
-
-    return (
-        <div>
-            <Component
-                size='s'
-                block={true}
-                value={value}
-                Arrow={shownChevron ? Arrow : undefined}
-                filter={filter}
-                options={filteredOptions}
-                label='Инпут с автокомплитом'
-                labelView='outer'
-                placeholder='Начните вводить название'
-                Option={BaseOption}
-                multiple={multiple}
-                selected={selected}
-                closeOnSelect={!multiple}
-                allowUnselect={true}
-                onChange={handleChange}
-                onFilter={handleFilter}
-                onClearFilter={() => setFilter('')}
-                onCancel={() => setFilter(value)}
-                showEmptyOptionsList={true}
-                optionsListProps={{ emptyPlaceholder }}
-            />
-            <Gap size='xl' />
-            <Switch
-                checked={shownChevron}
-                label='Шеврон'
-                onChange={() => setShownChevron((prevState) => !prevState)}
-            />
-            <Gap size='m' />
-            <Switch
-                checked={multiple}
-                label='Мультивыбор'
-                onChange={() => {
-                    setMultiple((prevState) => !prevState);
-                    setValue('');
-                }}
-            />
-            <Gap size='m' />
-            <Switch
-                checked={showInModal}
-                label='Открывать в модалке'
-                onChange={() => setShowInModal((prevState) => !prevState)}
-            />
+            {isMobile() && (
+                <>
+                    <Gap size='m' />
+                    <Switch
+                        checked={showInModal}
+                        label='Открывать в модалке'
+                        onChange={() => setShowInModal((prevState) => !prevState)}
+                    />
+                </>
+            )}
         </div>
     );
 });
@@ -308,8 +202,8 @@ render(() => {
     const [value, setValue] = React.useState('');
     const inputRef = React.useRef();
 
-    const handleInput = (event) => {
-        setValue(event.target.value);
+    const handleInput = (_, { value }) => {
+        setValue(value);
     };
 
     const handleChange = ({ selected }) => {
@@ -325,8 +219,9 @@ render(() => {
     const filteredOptions = cards.filter((option) => matchOption(option, value));
 
     return (
-        <div style={{ width: 320 }}>
-            <InputAutocompleteDesktop
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <InputAutocomplete
+                breakpoint={BREAKPOINT}
                 size='m'
                 options={filteredOptions}
                 selected={[]}
@@ -341,114 +236,11 @@ render(() => {
                 inputProps={{
                     ref: inputRef,
                     mask,
+                    clear: isMobile(),
+                    onClear: () => setValue(''),
                 }}
             />
         </div>
-    );
-});
-//MOBILE
-render(() => {
-    const [value, setValue] = React.useState('');
-    const [filter, setFilter] = React.useState('');
-
-    const matchOption = (option, inputValue) =>
-        option.content.toLowerCase().includes((inputValue || '').toLowerCase());
-
-    const mask = [
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-    ];
-
-    const cards = [
-        {
-            key: 'Карта 1',
-            content: '4035 5010 0000 0008',
-        },
-        {
-            key: 'Карта 2',
-            content: '4360 0000 0100 0005',
-        },
-        {
-            key: 'Карта 3',
-            content: '8171 9999 2766 0000',
-        },
-        {
-            key: 'Карта 4',
-            content: '5204 2477 5000 1471',
-        },
-        {
-            key: 'Карта 5',
-            content: '4111 1111 1111 1111',
-        },
-    ];
-
-    const CardOption = (props) => (
-        <BaseOption {...props}>
-            <div style={{ padding: 'var(--gap-s) var(--gap-m)' }}>
-                <Typography.Text view='component'>{props.option.content}</Typography.Text>
-                <Gap size='2xs' />
-                <Typography.Text view='primary-small' color='secondary'>
-                    {props.option.key}
-                </Typography.Text>
-            </div>
-        </BaseOption>
-    );
-
-    const handleFilter = (event) => {
-        setFilter(event.target.value);
-    };
-
-    const handleChange = (payload) => {
-        const newValue = payload
-            ? isOptionShape(payload.selected)
-                ? payload.selected.content
-                : payload
-            : '';
-
-        setValue(newValue);
-        setFilter(newValue);
-    };
-
-    const filteredOptions = cards.filter((option) => matchOption(option, filter));
-
-    return (
-        <InputAutocompleteMobile
-            size='s'
-            block={true}
-            value={value}
-            filter={filter}
-            options={filteredOptions}
-            label='Маскированный ввод счёта'
-            labelView='outer'
-            placeholder='Счёт'
-            onChange={handleChange}
-            onClearFilter={() => setFilter('')}
-            bottomSheetProps={{
-                transitionProps: {
-                    onEnter: () => setFilter(value),
-                },
-            }}
-            Option={CardOption}
-            Input={MaskedInput}
-            bottomSheetHeaderAddonsProps={{ mask, onChange: handleFilter }}
-        />
     );
 });
 ```

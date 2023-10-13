@@ -160,13 +160,11 @@ export const BaseSelect = forwardRef(
                 : [searchState, setSearchState];
 
         const accessor = searchProps.accessor || defaultAccessor;
+        const filterFn = searchProps.filterFn || defaultFilterFn;
 
         const { filteredOptions, flatOptions, selectedOptions } = useMemo(
-            () =>
-                processOptions(options, selected, (option) =>
-                    defaultFilterFn(accessor(option), search),
-                ),
-            [accessor, options, search, selected],
+            () => processOptions(options, selected, (option) => filterFn(accessor(option), search)),
+            [filterFn, accessor, options, search, selected],
         );
 
         const scrollIntoView = (node: HTMLElement) => {
@@ -265,7 +263,7 @@ export const BaseSelect = forwardRef(
                 }
 
                 if (showSearch) {
-                    if (changes.isOpen) {
+                    if (changes.isOpen && view === 'desktop') {
                         setTimeout(() => {
                             searchRef.current?.focus();
                         }, 0);
@@ -347,6 +345,16 @@ export const BaseSelect = forwardRef(
         const menuProps = getMenuProps({ ref: listRef }, { suppressRefError: true });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
+        const handleEntered = (node: HTMLElement, isAppearing: boolean) => {
+            if (showSearch) searchRef.current?.focus();
+
+            if (isBottomSheet) {
+                bottomSheetProps?.transitionProps?.onEntered?.(node, isAppearing);
+            } else {
+                modalProps?.transitionProps?.onEntered?.(node, isAppearing);
+            }
+        };
+
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (onFocus) onFocus(event);
 
@@ -420,8 +428,6 @@ export const BaseSelect = forwardRef(
             },
             [flatOptions, setSelectedItems],
         );
-
-        const handleClose = () => closeMenu();
 
         const getOptionProps = (option: OptionShape, index: number) => ({
             ...(optionProps as object),
@@ -540,7 +546,7 @@ export const BaseSelect = forwardRef(
                         [styles.search]: view === 'desktop',
                         [mobileStyles.search]: view === 'mobile',
                     })}
-                    ref={searchRef}
+                    ref={mergeRefs([searchRef, searchProps?.componentProps?.ref || null])}
                 />
             );
         };
@@ -548,16 +554,16 @@ export const BaseSelect = forwardRef(
         const { header, emptyPlaceholder } = optionsListProps as OptionsListProps;
 
         const renderOptionsListHeader = () => {
-            if (!showSearch && !header) {
-                return null;
+            if (header || (view === 'desktop' && showSearch)) {
+                return (
+                    <React.Fragment>
+                        {header}
+                        {view === 'desktop' && renderSearch()}
+                    </React.Fragment>
+                );
             }
 
-            return (
-                <React.Fragment>
-                    {header}
-                    {view === 'desktop' && renderSearch()}
-                </React.Fragment>
-            );
+            return null;
         };
 
         const renderEmptyPlaceholder = () => {
@@ -643,8 +649,8 @@ export const BaseSelect = forwardRef(
             if (!nativeSelect && BottomSheet) {
                 return (
                     <BottomSheet
+                        dataTestId={getDataTestId(dataTestId, 'bottom-sheet')}
                         open={open}
-                        onClose={handleClose}
                         className={mobileStyles.sheet}
                         contentClassName={mobileStyles.sheetContent}
                         containerClassName={mobileStyles.sheetContainer}
@@ -653,9 +659,17 @@ export const BaseSelect = forwardRef(
                         stickyHeader={true}
                         hasCloser={true}
                         swipeable={swipeable}
-                        scrollableContainerRef={scrollableContainerRef}
                         initialHeight={showSearch ? 'full' : 'default'}
                         {...bottomSheetProps}
+                        scrollableContainerRef={scrollableContainerRef}
+                        onClose={() => {
+                            closeMenu();
+                            bottomSheetProps?.onClose?.();
+                        }}
+                        transitionProps={{
+                            ...bottomSheetProps?.transitionProps,
+                            onEntered: handleEntered,
+                        }}
                         bottomAddons={
                             <React.Fragment>
                                 {renderSearch()}
@@ -683,7 +697,7 @@ export const BaseSelect = forwardRef(
                         hasCloser={true}
                         {...modalProps}
                         onClose={(...args) => {
-                            handleClose();
+                            closeMenu();
                             modalProps?.onClose?.(...args);
                         }}
                         contentClassName={cn(
@@ -697,6 +711,10 @@ export const BaseSelect = forwardRef(
                         wrapperProps={{
                             ...modalProps?.wrapperProps,
                             onScroll,
+                        }}
+                        transitionProps={{
+                            ...modalProps?.transitionProps,
+                            onEntered: handleEntered,
                         }}
                     >
                         <ModalMobile.Header

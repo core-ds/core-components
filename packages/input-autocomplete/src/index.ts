@@ -1,4 +1,2 @@
-export {
-    InputAutocompleteResponsive as InputAutocomplete,
-    InputAutocompleteResponsiveProps as InputAutocompleteProps,
-} from './Component.responsive';
+export { InputAutocomplete } from './Component.responsive';
+export type { InputAutocompleteProps } from './types';
