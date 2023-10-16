@@ -1,8 +1,22 @@
+
+import { Plate } from '@alfalab/core-components/plate';
+import { Link } from '@alfalab/core-components/link';
+
+<Plate
+    view='attention'
+    limitContentWidth={false}
+    title={
+        <>
+            Компонент больше не поддерживается, переходите на новый компонент {''}
+             <Link href='https://core-ds.github.io/core-components/master/?path=/docs/internationalphoneinput--docs'>
+                 InternationalPhoneInput.
+            </Link>
+        </>
+    }
+    titleView='light'
+/>
+
 Компонент текстового поля для ввода международных номеров телефонов.
-
-### @deprecated
-
-Используйте вместо него [InternationalPhoneInput](/docs/internationalphoneinput--docs).
 
 <br />
 

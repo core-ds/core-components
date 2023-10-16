@@ -20,6 +20,7 @@ describe('AmountInput ', () =>
                 label: 'Сумма',
                 value: 123400,
                 size: 'm',
+                bold: false,
                 block: true,
             },
         },

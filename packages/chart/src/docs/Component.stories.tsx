@@ -3,6 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { number, boolean, select, text, object } from '@storybook/addon-knobs';
 import format from 'date-fns/format';
 import { Chart } from '@alfalab/core-components-chart';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Chart> = {
     title: 'Components/Chart',
@@ -168,6 +172,8 @@ export const chart_bar: Story = {
             barIdSecond,
         );
         const barNameSecond = text('properties.name', 'приход', barIdSecond);
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         const responsiveContainer = {
             debounce,
         };
@@ -176,7 +182,7 @@ export const chart_bar: Story = {
             horizontal,
             strokeDasharray,
             stroke,
-            fill,
+            fill: isPreview ? 'var(--color-light-bg-secondary)' : fill,
         };
         const composeChart = {
             initMargin: {
@@ -400,9 +406,20 @@ export const chart_bar: Story = {
             labels: labelsBarChart,
             series: [barChartFirst, barChartSecond, lineChart],
         };
+        const styleWrapperChart = {
+            marginBottom: '20px',
+            top: 25,
+            width: '1050px',
+            height: '600px',
+        };
         return (
-            <div style={{ display: 'flex' }}>
-                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
+            <div style={{ display: 'flex', ...previewStyles }}>
+                <div
+                    style={{
+                        ...styleWrapperChart,
+                        ...(isPreview && { width: '644px', height: '407px' }),
+                    }}
+                >
                     <Chart
                         id='bar-chart'
                         composeChart={composeChart}
@@ -411,15 +428,17 @@ export const chart_bar: Story = {
                         xAxis={xAxis}
                         yAxis={yAxis}
                         tooltip={tooltip}
-                        legend={legend}
-                        brush={brush}
+                        legend={!isPreview && legend}
+                        brush={!isPreview && brush}
                         labels={labelsBarChart}
                         series={[barChartFirst, barChartSecond, lineChart]}
                     />
                 </div>
-                <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
-                    <pre>{JSON.stringify(clearData(barChartOptions), null, 2)}</pre>
-                </div>
+                {!isPreview && (
+                    <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
+                        <pre>{JSON.stringify(clearData(barChartOptions), null, 2)}</pre>
+                    </div>
+                )}
             </div>
         );
     },

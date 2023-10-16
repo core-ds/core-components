@@ -3,6 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { Gallery } from '@alfalab/core-components-gallery';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Gallery> = {
     title: 'Components/Gallery',
@@ -17,7 +21,37 @@ export const gallery: Story = {
     render: () => {
         const [openMultiple, setOpenMultiple] = React.useState(false);
         const [open, setOpen] = React.useState(false);
-        return (
+
+        const images = [
+            {
+                src: './images/gallery_1.jpg',
+            },
+            {
+                src: './images/gallery_2.jpg',
+            },
+            {
+                src: './images/gallery_3.jpg',
+            },
+        ];
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        return isPreview ? (
+            <div style={previewStyles}>
+                {images.map((image, index) => (
+                    <div
+                        key={image.src}
+                        style={{
+                            width: '190px',
+                            height: '190px',
+                            backgroundSize: 'cover',
+                            backgroundImage: `url(${image.src})`,
+                            marginRight: index !== 2 && '8px',
+                            borderRadius: '12px',
+                        }}
+                    />
+                ))}
+            </div>
+        ) : (
             <div style={{ width: '100%', height: 'calc(100vh - 50px)' }}>
                 <div style={{ margin: '24px' }}>
                     <Button
