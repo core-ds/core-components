@@ -1,32 +1,31 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-
-import { BottomSheet as BottomSheetTS } from '../component';
-import packageJson from '../../package.json';
-import Changelog from '../../CHANGELOG.md?raw';
-import Description from './description.mdx';
-import vars from '!!raw-loader!../index.module.css';
 import {
     getQueryParam,
     stylesStringToObj,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-export const shortText =
+const meta: Meta<typeof BottomSheet> = {
+    title: 'Components/BottomSheet',
+    component: BottomSheet,
+    id: 'BottomSheet',
+};
+
+type Story = StoryObj<typeof BottomSheet>;
+
+const BACKGROUND = ['primary', 'secondary', undefined];
+
+const shortText =
     'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через 60 секунд после после оформления.';
 
-export const longText = Array(10).fill(shortText).join('\n\n');
+const longText = Array(10).fill(shortText).join('\n\n');
 
-<Meta title='Components/BottomSheet' component={BottomSheet} id='BottomSheet' />
-
-export const BACKGROUND = ['primary', 'secondary', undefined];
-
-{/* Canvas */}
-
-<Story name='BottomSheet'>
-    {React.createElement(() => {
+export const bottom_sheet: Story = {
+    name: 'BottomSheet',
+    render: () => {
         const [open, setOpen] = React.useState(false);
         const handleClose = React.useCallback(() => {
             setOpen(false);
@@ -101,25 +100,7 @@ export const BACKGROUND = ['primary', 'secondary', undefined];
                 </BottomSheet>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='BottomSheet'
-    version={packageJson.version}
-    package={packageJson.name}
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=317%3A39840'
-/>
-
-```jsx
-import { BottomSheet } from '@alfalab/core-components/bottom-sheet';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={BottomSheetTS} />}
-    cssVars={<CssVars css={vars} />}
-/>
+export default meta;

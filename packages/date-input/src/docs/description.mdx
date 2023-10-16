@@ -1,3 +1,20 @@
+import { Plate } from '@alfalab/core-components/plate';
+import { Link } from '@alfalab/core-components/link';
+
+<Plate
+    view='attention'
+    limitContentWidth={false}
+    title={
+        <>
+            Компонент больше не поддерживается, переходите на новый компонент {''}
+            <Link href='https://core-ds.github.io/core-components/master/?path=/docs/universaldateinput--docs'>
+                UniversalDateInput.
+            </Link>
+        </>
+    }
+    titleView='light'
+/>
+
 ## Стандартный вид компонента
 
 Поле ввода с маской ДД.ММ.ГГГГ.

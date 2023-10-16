@@ -1,10 +1,25 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createPreview,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
     beforeAll,
     afterAll,
     expect,
+});
+
+describe('Underlay', () => {
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Underlay',
+            knobs: {},
+        },
+        'transform:scale(1.6)',
+    );
 });
 
 describe(

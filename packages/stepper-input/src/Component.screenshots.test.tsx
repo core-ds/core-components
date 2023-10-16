@@ -15,6 +15,7 @@ describe('StepperInput ', () => {
             componentName: 'StepperInputDesktop',
             knobs: {
                 value: 1,
+                label: 'Число',
                 block: true,
             },
         },

@@ -3,7 +3,6 @@ import { text, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
-import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
@@ -39,8 +38,7 @@ import Changelog from '../../CHANGELOG.md?raw';
 
 <ComponentHeader
     name='Skeleton'
-    version={packageJson.version}
-    package='@alfalab/core-components/skeleton'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=102493%3A121549&mode=design&t=Itgzojk9BOtPqYkS-1'
     children='Используется как индикатор загрузки контента.'
 />
 

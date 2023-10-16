@@ -5,9 +5,12 @@ import { Input } from '@alfalab/core-components-input';
 import { Space } from '@alfalab/core-components-space';
 
 import { Space as SpaceTS } from '../Component';
-import packageJson from '../../package.json';
 import Changelog from '../../CHANGELOG.md?raw';
 import Description from './description.mdx';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 export const DIRECTIONS = ['horizontal', 'vertical'];
 export const ALIGNES = ['start', 'end', 'center'];
@@ -18,29 +21,64 @@ export const SIZES = ['s', 'm', 'l', 8, 72];
 {/* Canvas */}
 
 <Story name='Space'>
-    <Space
-        align='start'
-        direction={select('direction', DIRECTIONS, 'horizontal')}
-        size={select('size', SIZES, 'm')}
-        align={select('align', ALIGNES, 'start')}
-        wrap={boolean('wrap')}
-        divider={text('divider')}
-        fullWidth={boolean('fullWidth')}
-        dataTestId={text('dataTestId', 'testIdSpace')}
-    >
-        <Input placeholder='Над вишней в цвету' />
-        <Input placeholder='Спряталась за облака' />
-        <Input placeholder='Скромница луна.' />
-        <Input placeholder='(с) Мацуо Басе' />
-    </Space>
+    {React.createElement(() => {
+        const stylesAddon = {
+            width: '80px',
+            height: '80px',
+            borderRadius: '8px',
+            backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
+        };
+        const stylesGap = {
+            display: 'flex',
+            justifyContent: 'center',
+            width: '28px',
+            lineHeight: '24px',
+            margin: '0 8px',
+            borderRadius: '4px',
+            backgroundColor: 'var(--color-light-graphic-link)',
+            color: 'var(--color-light-text-primary-inverted)',
+        };
+        const stylesWrapper = {
+            display: 'flex',
+            alignItems: 'center',
+        };
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        return isPreview ? (
+            <div style={previewStyles}>
+                <div style={stylesWrapper}>
+                    {[1, 2, 3].map(item => (
+                        <>
+                            <div style={stylesAddon} />
+                            {item !== 3 && <div style={stylesGap}>24</div>}
+                        </>
+                    ))}
+                </div>
+            </div>
+        ) : (
+            <Space
+                align='start'
+                direction={select('direction', DIRECTIONS, 'horizontal')}
+                size={select('size', SIZES, 'm')}
+                align={select('align', ALIGNES, 'start')}
+                wrap={boolean('wrap')}
+                divider={text('divider')}
+                fullWidth={boolean('fullWidth')}
+                dataTestId={text('dataTestId', 'testIdSpace')}
+            >
+                <Input placeholder='Над вишней в цвету' />
+                <Input placeholder='Спряталась за облака' />
+                <Input placeholder='Скромница луна.' />
+                <Input placeholder='(с) Мацуо Басе' />
+            </Space>
+        );
+    })}
 </Story>
 
 {/* Docs */}
 
 <ComponentHeader
     name='Space'
-    version={packageJson.version}
-    package='@alfalab/core-components/space'
 />
 
 ```jsx

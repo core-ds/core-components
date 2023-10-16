@@ -10,10 +10,13 @@ import { ExclamationMIcon } from '@alfalab/icons-glyph/ExclamationMIcon';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { CheckmarkHeavyMIcon } from '@alfalab/icons-glyph/CheckmarkHeavyMIcon';
 
-import packageJson from '../../package.json';
 import Description from './description.mdx';
 import Development from './development.mdx';
 import Changelog from '../../CHANGELOG.md?raw';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 import { BACKGROUND, BORDER_COLOR, SHADOW } from '../constants';
 
@@ -89,7 +92,35 @@ export const ChildElement = ({ children }) => {
                 'contentProps',
             )
         };
-        return (
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        const styleGraphics = {
+            width: '288px',
+            height: '100px',
+            borderRadius: '8px',
+            backgroundColor: 'rgba(55, 120, 251, 0.1)',
+            border: '1px dashed rgb(55, 120, 251)',
+            boxSizing: 'border-box',
+        };
+
+        return isPreview ? (
+            <div style={previewStyles}>
+                <Underlay
+                    backgroundColor='primary'
+                    overflow={false}
+                    dimensions={{ height: 132, width: 320 }}
+                    padding={{ top: 'm', right: 'm', bottom: 'm', left: 'm', }}
+                    contentProps={{
+                        axis: 'vertical',
+                        alignment: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <div style={styleGraphics}/>
+                </Underlay>
+            </div>
+        ) :
+        (
             <Underlay
                 borderRadius={borderRadius}
                 borderSize={borderSize}
@@ -128,9 +159,7 @@ export const ChildElement = ({ children }) => {
 
 <ComponentHeader
     name='Underlay'
-    version={packageJson.version}
-    package='@alfalab/core-components/underlay'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?node-id=317%3A37759'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=100050%3A117140&mode=design&t=Itgzojk9BOtPqYkS-1'
     children='Подложка под любой вид контента.'
 />
 

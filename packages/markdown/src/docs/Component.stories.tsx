@@ -2,8 +2,13 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { Story } from '@storybook/addon-docs';
 import { radios, text } from '@storybook/addon-knobs';
-
 import { Markdown } from '@alfalab/core-components-markdown';
+import { Typography } from '@alfalab/core-components-typography';
+import { Gap } from '@alfalab/core-components-gap';
+import {
+    stylesStringToObj,
+    getQueryParam,
+} from '../../../screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof Markdown> = {
     title: 'Components/Markdown',
@@ -16,7 +21,22 @@ type Story = StoryObj<typeof Markdown>;
 export const markdown: Story = {
     name: 'Markdown',
     render: () => {
-        return (
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
+        return isPreview ? (
+            <div style={previewStyles}>
+                <div style={{ width: 250 }}>
+                    <Typography.Title view='xsmall' tag='div' font='system'>
+                        ### Markdown
+                    </Typography.Title>
+                    <Gap size='m' />
+                    <Typography.Text view='primary-medium'>
+                        Облегчённый язык разметки, созданный с целью обозначения форматирования
+                        в простом тексте.
+                    </Typography.Text>
+                </div>
+            </div>
+        ) : (
             <Markdown font={radios('font', { system: 'system', styrene: 'styrene' }, 'system')}>
                 {text('children', '') ||
                     `
@@ -57,6 +77,8 @@ export const markdown: Story = {
 **Жирный текст**
 
 _Курсивный текст_
+
+~~Зачеркнутый текст~~
 
 Текст с [ссылкой](https://alfabank.ru/get-money/credit-cards/100-days/)
    `}

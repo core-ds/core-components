@@ -1,4 +1,4 @@
-import { generateTestCases, setupScreenshotTesting } from '../../screenshot-utils';
+import { generateTestCases, setupScreenshotTesting, createPreview } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -6,6 +6,16 @@ const screenshotTesting = setupScreenshotTesting({
     afterAll,
     expect,
 });
+
+describe('Markdown ', () =>
+    createPreview(
+        {
+            testStory: false,
+            componentName: 'Markdown',
+            knobs: {},
+        },
+        'transform:scale(1.9)',
+    ));
 
 describe(
     'Markdown',
