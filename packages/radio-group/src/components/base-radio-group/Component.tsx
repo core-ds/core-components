@@ -154,7 +154,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                 ...child.props,
                 checked: isChecked(childValue),
                 name,
-                className: cn(childClassName, commonStyles.radio),
+                className: cn(childClassName, commonStyles[`${direction}Radio`]),
             });
         };
 
@@ -171,7 +171,12 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
             });
 
             return (
-                <label className={cn(commonStyles.radio, commonStyles.tagLabel)}>
+                <label
+                    className={cn(
+                        commonStyles[`${direction}Radio`],
+                        commonStyles[`${direction}TagLabel`],
+                    )}
+                >
                     <input
                         type='radio'
                         autoComplete='off'
@@ -194,7 +199,6 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                 className={cn(
                     commonStyles.component,
                     commonStyles[type],
-                    commonStyles[direction],
                     { [commonStyles.error]: error },
                     className,
                 )}
@@ -207,9 +211,12 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
 
                 {children ? (
                     <div
-                        className={cn(commonStyles.radioList, radioListClassName, {
-                            [styles.radioList]: type === 'radio',
-                        })}
+                        className={cn(
+                            commonStyles.radioList,
+                            commonStyles[`${direction}RadioList`],
+                            radioListClassName,
+                            { [styles.radioList]: type === 'radio' },
+                        )}
                         onBlur={onBlur}
                         onFocus={onFocus}
                     >
