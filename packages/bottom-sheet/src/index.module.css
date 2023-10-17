@@ -71,6 +71,7 @@
     padding: 0 var(--gap-m);
     color: var(--color-light-text-primary);
     background-color: inherit;
+    border-radius: inherit;
 }
 
 .noHeader {
