@@ -1,7 +1,10 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { RadioGroupDesktop as RadioGroup, RadioGroupDesktopProps as RadioGroupProps } from './desktop';
+import {
+    RadioGroupDesktop as RadioGroup,
+    RadioGroupDesktopProps as RadioGroupProps,
+} from './desktop';
 import { Radio } from '../../radio/src';
 import { Tag } from '../../tag/src';
 
@@ -87,10 +90,13 @@ describe('RadioGroup', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set `vertical` class', () => {
-            const { container } = render(<Group direction='vertical' />);
+        it('should set `verticalRadioList` class', () => {
+            const dti = 'radio-group';
+            const { getByTestId } = render(
+                <Group direction='vertical' dataTestId={dti} label={undefined} />,
+            );
 
-            expect(container.firstElementChild).toHaveClass('vertical');
+            expect(getByTestId(dti).firstElementChild).toHaveClass('verticalRadioList');
         });
 
         it('should set `error` class', () => {
