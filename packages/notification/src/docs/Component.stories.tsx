@@ -1,20 +1,20 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 import { Notification } from '@alfalab/core-components-notification';
 
-import { Notification as NotificationTS } from '../Component';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-import styles from '!!raw-loader!../index.module.css';
+const meta: Meta<typeof Notification> = {
+    title: 'Components/Notification',
+    component: Notification,
+    id: 'Notification',
+};
 
-<Meta title='Components/Notification' component={Notification} id='Notification' />
+type Story = StoryObj<typeof Notification>;
 
-{/* Canvas */}
-
-<Story name='Notification'>
-    {React.createElement(() => {
+export const notification: Story = {
+    name: 'Notification',
+    render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div
@@ -55,23 +55,7 @@ import styles from '!!raw-loader!../index.module.css';
                 </Notification>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Notification'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=96729%3A114824&mode=design&t=Itgzojk9BOtPqYkS-1'
-/>
-
-```jsx
-import { Notification } from '@alfalab/core-components/notification';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={NotificationTS} />}
-    cssVars={<CssVars css={styles} />}
-/>
+export default meta;
