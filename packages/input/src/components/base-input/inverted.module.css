@@ -19,7 +19,15 @@
 }
 
 .clearIcon {
-    color: var(--color-light-graphic-primary-inverted);
+    color: var(--color-light-neutral-translucent-500-inverted);
+
+    &:hover {
+        color: var(--color-light-neutral-translucent-500-inverted-hover);
+    }
+
+    &:active {
+        color: var(--color-light-neutral-translucent-500-inverted-press);
+    }
 }
 
 /* READ-ONLY STATE */

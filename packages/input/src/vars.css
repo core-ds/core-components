@@ -5,20 +5,20 @@
     --input-placeholder-color: var(--color-light-text-secondary);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
     --input-with-label-placeholder-color: var(--color-light-text-tertiary);
-    --input-caret-color: var(--input-color);
+    --input-caret-color: var(--color-light-neutral-1500);
     --input-inverted-color: var(--color-light-text-primary-inverted);
     --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
     --input-inverted-with-label-placeholder-color: var(--color-light-text-tertiary-inverted);
-    --input-inverted-caret-color: var(--input-inverted-color);
+    --input-inverted-caret-color: var(--color-light-neutral-1500-inverted);
 
     /* disabled */
-    --input-disabled-color: var(--color-light-text-secondary);
-    --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
+    --input-disabled-color: var(--color-light-text-tertiary);
+    --input-inverted-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* read-only */
-    --input-read-only-color: var(--color-light-text-secondary);
-    --input-inverted-read-only-color: var(--color-light-text-secondary-inverted);
+    --input-read-only-color: var(--color-light-text-tertiary);
+    --input-inverted-read-only-color: var(--color-light-text-tertiary-inverted);
 
     /* error */
     --input-error-color: var(--color-light-text-primary);

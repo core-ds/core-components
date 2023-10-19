@@ -2,7 +2,7 @@
 @import '../../calendar/src/vars.css';
 
 :root {
-    --calendar-icon-color: var(--color-light-graphic-primary);
+    --calendar-icon-color: var(--color-light-neutral-translucent-700);
     --calendar-popover-border-radius: var(--border-radius-m);
 }
 
@@ -29,7 +29,7 @@
     display: inline-block;
     box-sizing: border-box;
     border-radius: var(--calendar-popover-border-radius);
-    border: 1px solid var(--color-light-border-secondary);
+    border: 1px solid var(--color-light-neutral-300);
     width: var(--calendar-width);
 
     @media (max-width: 374px) {

@@ -23,7 +23,7 @@
 }
 
 .dialCode {
-    color: var(--text-secondary-color);
+    color: var(--color-light-text-secondary);
 }
 
 .flagIconWrapper {
@@ -36,5 +36,5 @@
 }
 
 .emptyCountryIcon {
-    color: var(--color-light-graphic-secondary);
+    color: var(--color-light-neutral-translucent-700);
 }

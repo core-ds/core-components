@@ -1,11 +1,12 @@
 @import '../../../../themes/src/default.css';
 
 .steppers {
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-neutral-0);
 }
 
-.steppersFocused {
-    background-color: var(--color-light-specialbg-secondary-transparent);
+.steppersFocused,
+.steppersDisable {
+    background-color: var(--color-light-neutral-translucent-200);
 }
 
 .s {

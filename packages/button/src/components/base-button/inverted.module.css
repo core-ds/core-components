@@ -16,7 +16,7 @@
     }
 
     & > .loader {
-        color: var(--button-spinner-static-color);
+        color: var(--button-spinner-inverted-static-color);
     }
 }
 

@@ -12,14 +12,35 @@
     color: var(--form-control-hint-color);
 }
 
-/* DISABLED STATE */
-
-.disabled {
-    color: var(--form-control-disabled-color);
+/* Нижняя граница */
+.inner:before {
+    border-bottom: var(--form-control-border-bottom);
 }
 
-.disabled.filled .label {
+/* DISABLED STATE */
+
+.inner.disabled {
+    color: var(--form-control-disabled-color);
+    background-color: var(--form-control-disabled-bg-color);
+    box-shadow: var(--form-control-disabled-shadow);
+}
+
+.disabled:before {
+    border-bottom: var(--form-control-disabled-border-bottom);
+}
+
+.disabled .label {
     color: var(--form-control-disabled-filled-label-color);
+}
+
+.disabled.hasError {
+    background-color: var(--form-control-disabled-bg-color);
+}
+
+/* HOVER STATE */
+
+.inner:not(.disabled):hover {
+    background-color: var(--form-control-hover-bg-color);
 }
 
 /* FOCUS STATE */
@@ -28,10 +49,29 @@
     border-bottom: var(--form-control-focus-border-bottom);
 }
 
+.focused.inner,
+.focused.inner:hover {
+    background-color: var(--form-control-focus-bg-color);
+    box-shadow: var(--form-control-focus-shadow);
+
+    &.hasError {
+        box-shadow: var(--form-control-focus-error-shadow);
+    }
+}
+
 /* ERROR STATE */
 
 .error {
     color: var(--form-control-error-color);
+}
+
+.hasError {
+    box-shadow: var(--form-control-error-shadow);
+    background-color: var(--form-control-error-bg-color);
+}
+
+.hasError:before {
+    border-bottom: var(--form-control-error-border-bottom);
 }
 
 .hasError .label {
