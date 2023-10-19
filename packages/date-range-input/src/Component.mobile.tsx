@@ -17,6 +17,10 @@ export type DateRangeInputMobileProps = Omit<
 > &
     ConditionalProps;
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const DateRangeInputMobile = forwardRef<HTMLInputElement, DateRangeInputMobileProps>(
     (props, ref) => (
         <DateRangeInput

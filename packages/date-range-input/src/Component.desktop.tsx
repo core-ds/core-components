@@ -17,6 +17,10 @@ export type DateRangeInputDesktopProps = Omit<
 > &
     ConditionalProps;
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const DateRangeInputDesktop = forwardRef<HTMLInputElement, DateRangeInputDesktopProps>(
     (props, ref) => (
         <DateRangeInput

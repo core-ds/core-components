@@ -100,6 +100,10 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteDesktopProps, 'o
         clear?: boolean;
     };
 
+/**
+ * @deprecated
+ * use InternationalPhoneInput instead
+ */
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
     (
         {
