@@ -323,7 +323,15 @@ export const BaseSelectMobile = forwardRef(
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
-            if (autocomplete && !open && (event.key.length === 1 || event.key === 'Backspace')) {
+
+            // https://caniuse.com/?search=KeyboardEvent.key
+            const isKeyUnsupported = event.key === 'Unidentified';
+
+            if (
+                autocomplete &&
+                !open &&
+                (isKeyUnsupported || event.key.length === 1 || event.key === 'Backspace')
+            ) {
                 // Для автокомплита - открываем меню при начале ввода
                 openMenu();
             }
