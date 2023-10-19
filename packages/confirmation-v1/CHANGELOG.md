@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.4.7
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.1.1
+
 ## 1.4.6
 
 ### Patch Changes

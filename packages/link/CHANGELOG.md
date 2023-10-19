@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.1.1
+
+### Patch Changes
+
+### [#920](https://github.com/core-ds/core-components/pull/920)
+
+-   Исправлен отступ у слота слева
+
 ## 5.1.0
 
 ### Minor Changes

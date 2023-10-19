@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.11.1
+
+### Patch Changes
+
+### [#925](https://github.com/core-ds/core-components/pull/925)
+
+-   Добавлен border-radius контенту шторки для фикса черных углов в safari
+
 ## 6.11.0
 
 ### Minor Changes

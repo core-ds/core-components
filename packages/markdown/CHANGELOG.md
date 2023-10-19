@@ -1,5 +1,18 @@
 # @alfalab/core-components-markdown
 
+## 1.1.0
+
+### Minor Changes
+
+### [#911](https://github.com/core-ds/core-components/pull/911)
+
+-   Добавлено распознавание gfm strikethrough синтаксиса (~~strikethrough~~)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.1.1
+
 ## 1.0.7
 
 ### Patch Changes
