@@ -120,7 +120,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
-        const [activeArea, setActiveArea] = useState(0);
+        const [activeAreaIdx, setActiveAreaIdx] = useState(-1);
 
         const [swipingInProgress, setSwipingInProgress] = useState<boolean | null>(null);
         const scrollOccurred = useRef<boolean>(false);
@@ -130,8 +130,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const sheetRef = useRef<HTMLDivElement>(null);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
 
+        const activeArea = magneticAreas[activeAreaIdx];
         const emptyHeader = !hasCloser && !leftAddons && !title && !hasBacker && !rightAddons;
-
         const titleIsReactElement = React.isValidElement(title);
 
         const headerProps: HeaderProps = {
@@ -202,7 +202,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             return Math.max(0, Math.round(offset));
         };
 
-        const getActiveAreaIndex = (area: number) => magneticAreas.findIndex((a) => a === area);
+        const getActiveAreaIndex = (area?: number) => magneticAreas.findIndex((a) => a === area);
 
         const setSheetHeight = () => {
             if (sheetRef.current) {
@@ -221,6 +221,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollToArea = (idx: number) => {
             stopSwiping(null);
             const nextArea = magneticAreas[idx];
+            const nextAreaIdx = getActiveAreaIndex(nextArea);
 
             if (nextArea === 0) {
                 onClose();
@@ -228,16 +229,31 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 return;
             }
 
-            if (nextArea) {
-                setActiveArea(nextArea);
+            if (nextAreaIdx !== -1) {
+                setActiveAreaIdx(nextAreaIdx);
                 setSheetOffset(lastMagneticArea - nextArea);
-                onMagnetize?.(getActiveAreaIndex(nextArea));
+                onMagnetize?.(nextAreaIdx);
             }
         };
 
         const magnetize = (velocity: number, deltaY: number) => {
             const shouldMagnetizeDownByVelocity = deltaY >= 0 && velocity >= SWIPE_VELOCITY;
             const shouldMagnetizeUpByVelocity = deltaY < 0 && velocity >= SWIPE_VELOCITY;
+
+            const updatePosition = (nextOffset: number, nextAreaIdx: number) => {
+                setSheetOffset(nextOffset);
+                setActiveAreaIdx((prevState) => (nextAreaIdx === -1 ? prevState : nextAreaIdx));
+
+                if (nextAreaIdx !== -1) {
+                    onMagnetize?.(nextAreaIdx);
+
+                    // Если nextOffset == offset, то onTransitionEnd не отработает и onMagnetizeEnd не вызовется
+                    if (sheetOffset === nextOffset) {
+                        onMagnetizeEnd?.(nextAreaIdx);
+                        setSheetHeight();
+                    }
+                }
+            };
 
             if (shouldMagnetizeDownByVelocity) {
                 const nextArea = magneticAreas
@@ -254,42 +270,19 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 const nextOffset = nextArea
                     ? lastMagneticArea - nextArea
                     : lastMagneticArea - activeArea;
+                const nextAreaIdx = getActiveAreaIndex(nextArea);
 
-                setSheetOffset(nextOffset);
-                setActiveArea((prevState) => nextArea ?? prevState);
-
-                if (nextArea) {
-                    const nextAreaIdx = getActiveAreaIndex(nextArea);
-
-                    onMagnetize?.(nextAreaIdx);
-
-                    if (sheetOffset === nextOffset) {
-                        onMagnetizeEnd?.(nextAreaIdx);
-                        setSheetHeight();
-                    }
-                }
+                updatePosition(nextOffset, nextAreaIdx);
 
                 return;
             }
 
             if (shouldMagnetizeUpByVelocity) {
                 const nextArea = magneticAreas.find((area) => area > activeArea);
-
+                const nextAreaIdx = getActiveAreaIndex(nextArea);
                 const nextOffset = nextArea ? lastMagneticArea - nextArea : 0;
 
-                setSheetOffset(nextOffset);
-                setActiveArea((prevState) => nextArea ?? prevState);
-
-                if (nextArea) {
-                    const nextAreaIdx = getActiveAreaIndex(nextArea);
-
-                    onMagnetize?.(nextAreaIdx);
-
-                    if (sheetOffset === nextOffset) {
-                        onMagnetizeEnd?.(nextAreaIdx);
-                        setSheetHeight();
-                    }
-                }
+                updatePosition(nextOffset, nextAreaIdx);
 
                 return;
             }
@@ -329,16 +322,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 const nextOffset = lastMagneticArea - nearestArea;
                 const nextAreaIdx = getActiveAreaIndex(nearestArea);
 
-                setSheetOffset(nextOffset);
-                setActiveArea(nearestArea);
                 setBackdropOpacity(1);
-                onMagnetize?.(nextAreaIdx);
-
-                // Если nextOffset == offset, то onTransitionEnd не отработает и onMagnetizeEnd не вызовется
-                if (sheetOffset === nextOffset) {
-                    onMagnetizeEnd?.(nextAreaIdx);
-                    setSheetHeight();
-                }
+                updatePosition(nextOffset, nextAreaIdx);
             }
         };
 
@@ -347,13 +332,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
          * Если шапка внутри шторки зафиксирована - то шторка должна свайпаться только в области шапки
          */
         const shouldSkipSwiping = (deltaY: number, startY: number, event: HandledEvents) => {
-            if (!swipeable) return true;
+            if (scrollLockedProp || swipingInProgress) return false;
 
             if (!swipeableContent && contentRef.current?.contains(event.target as HTMLElement)) {
                 return true;
             }
-
-            if (scrollLockedProp || swipingInProgress) return false;
 
             const scrollableNode = scrollableContainer.current;
             // Точка верхней границы (y координата)
@@ -424,16 +407,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             onSwiped: handleSheetSwipe,
             onTouchEndOrOnMouseUp: handleTouchEnd,
             trackMouse: swipeable,
+            trackTouch: swipeable,
             delta: swipeThreshold,
         });
 
         const handleExited = (node: HTMLElement) => {
             const idx = initialActiveAreaIndex as number;
-            const nextArea = isNil(idx) ? lastMagneticArea : magneticAreas[idx];
 
             setBackdropOpacity(1);
             setSheetOffset(isNil(idx) ? magneticAreas[0] : lastMagneticArea - magneticAreas[idx]);
-            setActiveArea(nextArea);
+            setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
             onMagnetizeEnd?.(0);
             if (transitionProps.onExited) {
                 transitionProps.onExited(node);
@@ -441,7 +424,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
-            onMagnetize?.(initialActiveAreaIndex || magneticAreas.length - 1);
+            onMagnetize?.(initialActiveAreaIndex ?? magneticAreas.length - 1);
 
             if (transitionProps.onEnter) {
                 transitionProps.onEnter(node, isAppearing);
@@ -469,14 +452,19 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         useEffect(() => {
-            // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
             if (!isFirstRender) {
-                const idx = initialActiveAreaIndex as number;
+                // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
+                if (activeAreaIdx === -1) {
+                    const idx = initialActiveAreaIndex as number;
 
-                setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
-                setActiveArea(isNil(idx) ? lastMagneticArea : magneticAreas[idx]);
+                    setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
+                    setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
+                } else {
+                    setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
+                }
             }
-        }, [initialActiveAreaIndex, isFirstRender, lastMagneticArea, magneticAreas]);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [isFirstRender, magneticAreas, lastMagneticArea]);
 
         useEffect(() => {
             if (!sheetRef.current) return;
