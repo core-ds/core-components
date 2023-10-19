@@ -1,4 +1,12 @@
-import React, { ChangeEvent, ElementType, RefObject, useMemo, useRef, useState } from 'react';
+import React, {
+    ChangeEvent,
+    ElementType,
+    RefObject,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
@@ -116,6 +124,14 @@ export const InputAutocompleteMobile = React.forwardRef(
         const [open, setOpen] = useState(false);
         const bottomSheetInputRef = useRef<HTMLInputElement>(null);
         const targetRef = useRef<HTMLDivElement>(null);
+
+        useEffect(() => {
+            if (open) {
+                setTimeout(() => {
+                    bottomSheetInputRef.current?.focus();
+                }, 0);
+            }
+        }, [open]);
 
         const setBottomSheetVisibility = (isOpen: boolean) => {
             if (openProp === undefined) {
