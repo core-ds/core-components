@@ -1,3 +1,53 @@
+## 42.13.0
+
+<sup><time>19.10.2023</time></sup>
+
+### [#919](https://github.com/core-ds/core-components/pull/919)
+
+#### Что изменилось
+- Уменьшена специфичность стилей
+
+#### Влияние на компоненты
+- Патчи<br />`radio-group`
+
+
+### [#920](https://github.com/core-ds/core-components/pull/920)
+
+#### Что изменилось
+- Исправлен отступ у слота слева
+
+#### Влияние на компоненты
+- Патчи<br />`link`
+
+
+### [#923](https://github.com/core-ds/core-components/pull/923)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой выпадающий список не открывался после ввода символов на Android девайсах
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#911](https://github.com/core-ds/core-components/pull/911)
+
+#### Что изменилось
+- Добавлено распознавание gfm strikethrough синтаксиса (~~strikethrough~~)
+
+#### Влияние на компоненты
+- Минорное<br />`markdown`
+
+
+### [#925](https://github.com/core-ds/core-components/pull/925)
+
+#### Что изменилось
+- Добавлен border-radius контенту шторки для фикса черных углов в safari
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+
 ## 42.12.0
 
 <sup><time>10.10.2023</time></sup>
