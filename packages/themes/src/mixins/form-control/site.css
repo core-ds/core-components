@@ -55,8 +55,6 @@
     --form-control-inverted-mobile-bg-color: var(--color-light-specialbg-component-inverted);
 
     /* error mobile */
-    --form-control-error-mobile-disabled-shadow: var(--form-control-focus-error-shadow);
-    --form-control-inverted-error-mobile-disabled-shadow: var(
-        --form-control-inverted-focus-error-shadow
-    );
+    --form-control-error-mobile-disabled-shadow: var(--form-control-error-shadow);
+    --form-control-inverted-error-mobile-disabled-shadow: var(--form-control-inverted-error-shadow);
 }

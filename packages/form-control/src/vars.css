@@ -98,10 +98,8 @@
     --form-control-inverted-mobile-bg-color: var(--color-light-neutral-translucent-100-inverted);
 
     /* error mobile */
-    --form-control-error-mobile-disabled-shadow: var(--form-control-error-mobile-shadow);
-    --form-control-inverted-error-mobile-disabled-shadow: var(
-        --form-control-inverted-error-mobile-shadow
-    );
+    --form-control-error-mobile-disabled-shadow: var(--form-control-error-shadow);
+    --form-control-inverted-error-mobile-disabled-shadow: var(--form-control-inverted-error-shadow);
 }
 
 @define-mixin form-control-sub {
