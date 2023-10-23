@@ -1,17 +1,17 @@
 import React, { forwardRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonProps } from '@alfalab/core-components-button';
-import type { AdditionalMobileProps } from '@alfalab/core-components-select/shared';
+import type {
+    AdditionalMobileProps,
+    BottomSheetSelectMobileProps,
+} from '@alfalab/core-components-select/shared';
 import { useMedia } from '@alfalab/hooks';
 
 import { PickerButtonDesktop, PickerButtonDesktopProps } from './desktop';
 import { PickerButtonMobile } from './mobile';
 
-export type PickerButtonMatchMedia = 'desktop' | 'mobile';
-
 export type PickerButtonResponsiveProps = PickerButtonDesktopProps &
-    AdditionalMobileProps & {
+    AdditionalMobileProps &
+    BottomSheetSelectMobileProps & {
         /**
          * Контрольная точка, с нее начинается desktop версия
          * @default 1024

@@ -1,13 +1,6 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
-.component {
-    width: max-content;
-    position: relative;
-    outline: 0;
-    max-width: 100%;
-}
-
 .sheet {
     overflow: hidden;
 }
@@ -26,10 +19,6 @@
     padding: 0;
 }
 
-.block {
-    width: 100%;
-}
-
 .optionsListWrapper {
     flex: 1;
 }
@@ -42,10 +31,6 @@
 
 .scrollbar {
     flex: 1;
-}
-
-.emptySearchPlaceholder {
-    text-align: center;
 }
 
 .search {

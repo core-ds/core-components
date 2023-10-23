@@ -13,5 +13,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../select" }, { "path": "../button" }]
+    "references": [{ "path": "../select" }, { "path": "../button" }, { "path": "../popover" }]
 }

@@ -18,7 +18,7 @@
     position: relative;
 }
 
-.optionsList {
+.optionsListWrapper {
     position: relative;
     padding-top: var(--select-options-list-top-padding);
     padding-bottom: var(--select-options-list-bottom-padding);

@@ -1,5 +1,6 @@
 import React, { ChangeEvent, forwardRef, useCallback, useRef, useState } from 'react';
 
+import { Popover } from '@alfalab/core-components-popover';
 import {
     Arrow as DefaultArrow,
     BaseSelect,
@@ -117,6 +118,8 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         return (
             <BaseSelect
                 {...restProps}
+                view='desktop'
+                Popover={Popover}
                 ref={ref}
                 Option={Option}
                 Field={TagList}

@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FC, forwardRef, RefAttributes } from 'react';
 
 import { InputProps } from '@alfalab/core-components-input';
+import { Popover } from '@alfalab/core-components-popover';
 import {
     AnyObject,
     BaseSelect,
@@ -71,6 +72,8 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
         ref,
     ) => (
         <BaseSelect
+            view='desktop'
+            Popover={Popover}
             ref={ref}
             autocomplete={true}
             options={options}

@@ -7,9 +7,9 @@ import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button
 import { Input as CoreInput } from '@alfalab/core-components-input';
 import { SelectMobile, SelectMobileProps } from '@alfalab/core-components-select/mobile';
 import type {
-    AdditionalMobileProps,
     BaseSelectChangePayload,
     BaseSelectProps,
+    BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
 import { AutocompleteMobileField } from './autocomplete-mobile-field';
@@ -61,7 +61,7 @@ export type InputAutocompleteMobileProps = Omit<
     /**
      * Дополнительные пропсы компонента BottomSheet
      */
-    bottomSheetProps?: AdditionalMobileProps['bottomSheetProps'];
+    bottomSheetProps?: BottomSheetSelectMobileProps['bottomSheetProps'];
 
     /**
      * Дополнительные пропсы на слот под заголовком компонента BottomSheet

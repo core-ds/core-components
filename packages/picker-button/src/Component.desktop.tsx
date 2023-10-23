@@ -2,6 +2,7 @@ import React, { FC, forwardRef, SVGProps } from 'react';
 import cn from 'classnames';
 
 import type { ButtonProps } from '@alfalab/core-components-button';
+import { Popover } from '@alfalab/core-components-popover';
 import {
     BaseSelect,
     BaseSelectProps,
@@ -101,6 +102,8 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
         return (
             <BaseSelect
                 {...restProps}
+                Popover={Popover}
+                view='desktop'
                 optionProps={{ Checkmark: null }}
                 ref={ref}
                 Option={Option}

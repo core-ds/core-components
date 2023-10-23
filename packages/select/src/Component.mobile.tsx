@@ -1,62 +1,26 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 
-import { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
+import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
 
 import { Arrow as DefaultArrow } from './components/arrow';
-import { BaseSelectMobile } from './components/base-select-mobile';
-import { Footer } from './components/base-select-mobile/footer';
+import { BaseSelect } from './components/base-select';
 import { Field as DefaultField } from './components/field';
+import { Footer } from './components/footer';
 import { Optgroup as DefaultOptgroup } from './components/optgroup';
 import { Option as DefaultOption } from './components/option';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { Search as DefaultSearch } from './components/search';
 import { VirtualOptionsList as DefaultVirtualOptionsList } from './components/virtual-options-list';
-import { useSelectWithApply, UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
+import { useSelectWithApply } from './presets/useSelectWithApply/hook';
 import { Header } from './presets/useSelectWithApply/options-list-with-apply/header/Component';
-import { AnyObject, BaseSelectProps } from './typings';
-
-export type AdditionalMobileProps = {
-    /**
-     * Футер
-     * @deprecated Используйте bottomSheetProps.actionButton
-     */
-    footer?: ReactNode;
-
-    /**
-     * Будет ли свайпаться шторка
-     * @deprecated Используйте bottomSheetProps.swipeable
-     */
-    swipeable?: boolean;
-
-    /**
-     * Дополнительные пропсы шторки
-     */
-    bottomSheetProps?: Partial<BottomSheetProps>;
-
-    /**
-     * Показывать кнопку очистки
-     */
-    showClear?: UseSelectWithApplyProps['showClear'];
-
-    /**
-     * Показывать пункт "Выбрать все"
-     */
-    showSelectAll?: UseSelectWithApplyProps['showSelectAll'];
-
-    /**
-     * Показывать пункт "Выбрать все" в заголовке списка
-     */
-    showHeaderWithSelectAll?: UseSelectWithApplyProps['showHeaderWithSelectAll'];
-
-    /**
-     * Использовать ли хук useSelectWithApply
-     */
-    useWithApplyHook?: boolean;
-};
-
-export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark' | 'onScroll'> &
-    AdditionalMobileProps;
+import {
+    AnyObject,
+    BottomSheetSelectMobileProps,
+    ModalSelectMobileProps,
+    SelectMobileProps,
+} from './typings';
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
@@ -82,12 +46,12 @@ export const SelectMobile = forwardRef(
             Option = DefaultOption,
             Search = DefaultSearch,
             selected,
+            isBottomSheet = true,
             options,
             OptionsList = options.length > VIRTUAL_OPTIONS_LIST_THRESHOLD
                 ? DefaultVirtualOptionsList
                 : DefaultOptionsList,
             onChange,
-            bottomSheetProps,
             showClear = true,
             showSelectAll,
             showHeaderWithSelectAll,
@@ -98,6 +62,9 @@ export const SelectMobile = forwardRef(
         }: SelectMobileProps,
         ref,
     ) => {
+        const typedRestBottomSheetProps = restProps as BottomSheetSelectMobileProps;
+        const typedRestModalProps = restProps as ModalSelectMobileProps;
+
         const applyProps = useSelectWithApply({
             optionsListProps: {
                 ...(optionsListProps as AnyObject),
@@ -113,9 +80,14 @@ export const SelectMobile = forwardRef(
             showSelectAll,
         });
 
+        const bottomAddons = useWithApplyHook && showHeaderWithSelectAll && (
+            <Header {...applyProps.optionsListProps.headerProps} mobile={true} />
+        );
+
         return (
-            <BaseSelectMobile
+            <BaseSelect
                 ref={ref}
+                view='mobile'
                 autocomplete={autocomplete}
                 multiple={multiple}
                 allowUnselect={allowUnselect}
@@ -136,19 +108,28 @@ export const SelectMobile = forwardRef(
                 Optgroup={Optgroup}
                 Option={Option}
                 Search={Search}
-                isBottomSheet={true}
+                isBottomSheet={isBottomSheet}
                 options={options}
                 selected={selected}
                 onChange={onChange}
                 OptionsList={OptionsList}
                 showSearch={showSearch}
                 searchProps={searchProps}
-                bottomSheetProps={{
-                    bottomAddons: useWithApplyHook && showHeaderWithSelectAll && (
-                        <Header {...applyProps.optionsListProps.headerProps} mobile={true} />
-                    ),
-                    ...bottomSheetProps,
-                }}
+                BottomSheet={BottomSheet}
+                ModalMobile={ModalMobile}
+                {...(isBottomSheet
+                    ? {
+                          bottomSheetProps: {
+                              bottomAddons,
+                              ...typedRestBottomSheetProps.bottomSheetProps,
+                          },
+                      }
+                    : {
+                          modalHeaderProps: {
+                              bottomAddons,
+                              ...typedRestModalProps.modalHeaderProps,
+                          },
+                      })}
                 optionsListProps={optionsListProps}
                 {...restProps}
                 {...(useWithApplyHook && applyProps)}

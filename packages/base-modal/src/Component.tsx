@@ -119,6 +119,11 @@ export type BaseModalProps = {
     contentClassName?: string;
 
     /**
+     * Дополнительные пропсы на dialog wrapper
+     */
+    wrapperProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+    /**
      * Дополнительные пропсы на обертку контента
      */
     contentProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
@@ -250,6 +255,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             keepMounted = false,
             className,
             contentClassName,
+            wrapperProps,
             contentProps,
             componentDivProps,
             wrapperClassName,
@@ -539,11 +545,21 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 />
                             )}
                             <div
+                                {...wrapperProps}
                                 role='dialog'
-                                className={cn(styles.wrapper, wrapperClassName, {
-                                    [styles.hidden]: !open && isExited,
-                                })}
-                                ref={mergeRefs([ref, wrapperRef])}
+                                className={cn(
+                                    styles.wrapper,
+                                    wrapperClassName,
+                                    wrapperProps?.className,
+                                    {
+                                        [styles.hidden]: !open && isExited,
+                                    },
+                                )}
+                                ref={mergeRefs([
+                                    ref,
+                                    wrapperRef,
+                                    wrapperProps?.ref as Ref<HTMLDivElement>,
+                                ])}
                                 onKeyDown={handleKeyDown}
                                 onMouseDown={handleBackdropMouseDown}
                                 onMouseUp={handleBackdropMouseUp}

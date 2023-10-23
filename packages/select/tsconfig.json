@@ -23,6 +23,7 @@
         { "path": "../bottom-sheet" },
         { "path": "../base-modal" },
         { "path": "../modal" },
+        { "path": "../mq" },
         { "path": "../scrollbar" },
         { "path": "../badge" },
         { "path": "../shared" }

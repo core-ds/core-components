@@ -6,7 +6,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="downshift-1-menu"
       class="component"
       role="combobox"
       tabindex="-1"
@@ -18,10 +17,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
           class="component component s s block"
         >
           <div
-            aria-controls="downshift-1-menu"
-            aria-labelledby="downshift-1-label"
+            aria-controls="downshift-:r0:-menu"
+            aria-labelledby="downshift-:r0:-label"
             class="field inner inner inner inner"
-            id="downshift-0-input"
+            id="downshift-:r0:-input"
             tabindex="0"
           >
             <div
@@ -51,7 +50,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
     <div
       aria-expanded="true"
       aria-haspopup="listbox"
-      aria-owns="downshift-3-menu"
       class="component"
       role="combobox"
       tabindex="-1"
@@ -63,10 +61,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
           class="component component s s block"
         >
           <div
-            aria-controls="downshift-3-menu"
-            aria-labelledby="downshift-3-label"
+            aria-controls="downshift-:r1:-menu"
+            aria-labelledby="downshift-:r1:-label"
             class="field inner inner inner inner"
-            id="downshift-2-input"
+            id="downshift-:r1:-input"
             tabindex="0"
           >
             <div
@@ -206,9 +204,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     class="content sheetContent"
                   >
                     <div
-                      aria-labelledby="downshift-3-label"
+                      aria-labelledby="downshift-:r1:-label"
                       class="optionsListWrapper"
-                      id="downshift-3-menu"
+                      id="downshift-:r1:-menu"
                       role="listbox"
                     >
                       <div
@@ -249,9 +247,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                     style=""
                                   >
                                     <div
+                                      aria-disabled="false"
                                       aria-selected="false"
                                       class="option m option"
-                                      id="downshift-3-item-0"
+                                      id="downshift-:r1:-item-0"
                                       role="option"
                                     >
                                       <div
@@ -299,9 +298,10 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                       </div>
                                     </div>
                                     <div
+                                      aria-disabled="false"
                                       aria-selected="false"
                                       class="option m option"
-                                      id="downshift-3-item-1"
+                                      id="downshift-:r1:-item-1"
                                       role="option"
                                     >
                                       <div

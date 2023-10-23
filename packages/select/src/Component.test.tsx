@@ -443,18 +443,6 @@ describe('Select', () => {
                 fireEvent.keyDown(input, { key: 'Escape', code: 'Escape' });
                 expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
             });
-
-            it('should close list on press enter', async () => {
-                const { queryByRole } = render(
-                    <Select {...baseProps} options={options} defaultOpen={true} />,
-                );
-
-                await waitFor(() => expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument());
-
-                const input = document.querySelector('.field') as HTMLElement;
-                fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
-                expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
-            });
         });
 
         describe('tests with autocomplete', () => {
@@ -703,7 +691,6 @@ describe('Select', () => {
                     onBlur={onBlur}
                 />,
             );
-            fireEvent.focus(document.querySelector('.field') as HTMLElement);
             fireEvent.blur(document.querySelector('.field') as HTMLElement);
             expect(onFocus).toBeCalledTimes(1);
             expect(onBlur).toBeCalledTimes(1);
@@ -737,7 +724,7 @@ describe('Select', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
-        it.skip('should call onScroll', async () => {
+        it('should call onScroll', () => {
             const onScroll = jest.fn();
 
             const { getByTestId } = render(
@@ -809,6 +796,23 @@ describe('Select', () => {
             fireEvent.blur(document.querySelector('.field') as HTMLElement);
             expect(onFocus).toBeCalledTimes(1);
             expect(onBlur).toBeCalledTimes(1);
+        });
+
+        it('should call onScroll', () => {
+            const onScroll = jest.fn();
+
+            render(
+                <SelectMobile
+                    {...baseProps}
+                    dataTestId='test-id'
+                    options={options}
+                    onScroll={onScroll}
+                    defaultOpen={true}
+                />,
+            );
+
+            fireEvent.scroll(document.querySelector('.sheetContainer') as HTMLElement);
+            expect(onScroll).toBeCalledTimes(1);
         });
     });
 
