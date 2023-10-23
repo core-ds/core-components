@@ -498,7 +498,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             sheetOffset ? { transform: `translateY(${sheetOffset}px)` } : {};
 
         const getHeightStyles = (): CSSProperties => ({
-            height: !isFirstRender && initialHeight === 'full' ? `${lastMagneticArea}px` : 'unset',
+            height:
+                !isFirstRender && (initialHeight === 'full' || magneticAreasProp)
+                    ? `${lastMagneticArea}px`
+                    : 'unset',
             maxHeight: isFirstRender ? 0 : `${lastMagneticArea}px`,
         });
 
