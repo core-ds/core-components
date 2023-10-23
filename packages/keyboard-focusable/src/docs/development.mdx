@@ -1,0 +1,35 @@
+import { ArgTypes } from '@storybook/addon-docs';
+import { KeyboardFocusable } from '../index';
+
+## Подключение
+
+```jsx
+import { KeyboardFocusable } from '@alfalab/core-components/keyboard-focusable';
+```
+
+Для получения нужного поведения можно воспользоваться компонентом `<KeyboardFocusable />` или хуком `@alfalab/hooks/useFocus`. 
+Стили для фокусной обводки доступны через миксин `focus-outline`.
+
+```jsx
+// Нативный элемент
+<KeyboardFocusable>
+    {(ref, focused) => <button type='button' ref={ref} className={cn({ [styles.focused]: focused })} />}
+</KeyboardFocusable>
+
+// Компонент, поддерживающий проброс рефа
+<KeyboardFocusable>
+    {(ref, focused) => <ForwardRefComponent ref={ref} className={cn({ [styles.focused]: focused })} />}
+</KeyboardFocusable>
+
+// Если компонент не пробрасывает реф, то можно использовать обертку
+<KeyboardFocusable>
+    {(ref, focused) => (
+        <div ref={ref} className={cn({ [styles.focused]: focused })}>
+            <ComponentWithoutForwardRef />
+        </div>
+    )}
+</KeyboardFocusable>
+```
+## Свойства
+
+<ArgTypes of={KeyboardFocusable} />
