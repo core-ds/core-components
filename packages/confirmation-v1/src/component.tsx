@@ -203,8 +203,8 @@ export type ConfirmationV1Props = {
 
 /**
  * @deprecated
+ * use Confirmation instead
  */
-
 export const ConfirmationV1 = forwardRef<HTMLDivElement, ConfirmationV1Props>(
     (
         {

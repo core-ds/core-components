@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component radio vertical"
+        class="component radio"
       >
         <span
           class="label label"
@@ -14,10 +14,10 @@ Object {
           Заголовок группы
         </span>
         <div
-          class="radioList radioList"
+          class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start my-radio radio"
+            class="container s start my-radio verticalRadio"
           >
             <input
               type="radio"
@@ -37,7 +37,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start my-second-radio radio"
+            class="container s start my-second-radio verticalRadio"
           >
             <input
               type="radio"
@@ -57,7 +57,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start radio"
+            class="container s start verticalRadio"
           >
             <input
               type="radio"
@@ -82,7 +82,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component radio vertical"
+      class="component radio"
     >
       <span
         class="label label"
@@ -90,10 +90,10 @@ Object {
         Заголовок группы
       </span>
       <div
-        class="radioList radioList"
+        class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start my-radio radio"
+          class="container s start my-radio verticalRadio"
         >
           <input
             type="radio"
@@ -113,7 +113,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start my-second-radio radio"
+          class="container s start my-second-radio verticalRadio"
         >
           <input
             type="radio"
@@ -133,7 +133,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start radio"
+          class="container s start verticalRadio"
         >
           <input
             type="radio"
@@ -215,7 +215,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component radio vertical error"
+        class="component radio error"
       >
         <span
           class="label label"
@@ -223,10 +223,10 @@ Object {
           Заголовок группы
         </span>
         <div
-          class="radioList radioList"
+          class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start my-radio radio"
+            class="container s start my-radio verticalRadio"
           >
             <input
               type="radio"
@@ -246,7 +246,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start my-second-radio radio"
+            class="container s start my-second-radio verticalRadio"
           >
             <input
               type="radio"
@@ -266,7 +266,7 @@ Object {
             </span>
           </label>
           <label
-            class="container s start radio"
+            class="container s start verticalRadio"
           >
             <input
               type="radio"
@@ -297,7 +297,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component radio vertical error"
+      class="component radio error"
     >
       <span
         class="label label"
@@ -305,10 +305,10 @@ Object {
         Заголовок группы
       </span>
       <div
-        class="radioList radioList"
+        class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start my-radio radio"
+          class="container s start my-radio verticalRadio"
         >
           <input
             type="radio"
@@ -328,7 +328,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start my-second-radio radio"
+          class="container s start my-second-radio verticalRadio"
         >
           <input
             type="radio"
@@ -348,7 +348,7 @@ Object {
           </span>
         </label>
         <label
-          class="container s start radio"
+          class="container s start verticalRadio"
         >
           <input
             type="radio"
@@ -436,7 +436,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component radio vertical"
+        class="component radio"
       >
         <span
           class="label label"
@@ -444,10 +444,10 @@ Object {
           Заголовок группы
         </span>
         <div
-          class="radioList radioList"
+          class="radioList verticalRadioList radioList"
         >
           <label
-            class="container s start radio-group radio"
+            class="container s start radio-group verticalRadio"
           >
             <input
               type="radio"
@@ -472,7 +472,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component radio vertical"
+      class="component radio"
     >
       <span
         class="label label"
@@ -480,10 +480,10 @@ Object {
         Заголовок группы
       </span>
       <div
-        class="radioList radioList"
+        class="radioList verticalRadioList radioList"
       >
         <label
-          class="container s start radio-group radio"
+          class="container s start radio-group verticalRadio"
         >
           <input
             type="radio"
@@ -565,7 +565,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component tag vertical"
+        class="component tag"
       >
         <span
           class="label label"
@@ -573,10 +573,10 @@ Object {
           Заголовок группы
         </span>
         <div
-          class="radioList"
+          class="radioList verticalRadioList"
         >
           <label
-            class="radio tagLabel"
+            class="verticalRadio verticalTagLabel"
           >
             <input
               autocomplete="off"
@@ -596,7 +596,7 @@ Object {
             </button>
           </label>
           <label
-            class="radio tagLabel"
+            class="verticalRadio verticalTagLabel"
           >
             <input
               autocomplete="off"
@@ -616,7 +616,7 @@ Object {
             </button>
           </label>
           <label
-            class="radio tagLabel"
+            class="verticalRadio verticalTagLabel"
           >
             <input
               autocomplete="off"
@@ -641,7 +641,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component tag vertical"
+      class="component tag"
     >
       <span
         class="label label"
@@ -649,10 +649,10 @@ Object {
         Заголовок группы
       </span>
       <div
-        class="radioList"
+        class="radioList verticalRadioList"
       >
         <label
-          class="radio tagLabel"
+          class="verticalRadio verticalTagLabel"
         >
           <input
             autocomplete="off"
@@ -672,7 +672,7 @@ Object {
           </button>
         </label>
         <label
-          class="radio tagLabel"
+          class="verticalRadio verticalTagLabel"
         >
           <input
             autocomplete="off"
@@ -692,7 +692,7 @@ Object {
           </button>
         </label>
         <label
-          class="radio tagLabel"
+          class="verticalRadio verticalTagLabel"
         >
           <input
             autocomplete="off"
@@ -774,7 +774,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component radio vertical"
+        class="component radio"
       >
         <span
           class="label label"
@@ -782,14 +782,14 @@ Object {
           Заголовок группы
         </span>
         <div
-          class="radioList radioList"
+          class="radioList verticalRadioList radioList"
         />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="component radio vertical"
+      class="component radio"
     >
       <span
         class="label label"
@@ -797,7 +797,7 @@ Object {
         Заголовок группы
       </span>
       <div
-        class="radioList radioList"
+        class="radioList verticalRadioList radioList"
       />
     </div>
   </div>,

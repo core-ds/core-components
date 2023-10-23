@@ -18,6 +18,10 @@ export type CalendarInputResponsiveProps = Omit<CalendarInputProps, 'view'> & {
 
 export type CalendarInputMedia = 'desktop' | 'mobile';
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const CalendarInputResponsive = forwardRef<HTMLInputElement, CalendarInputResponsiveProps>(
     ({ breakpoint = 1024, ...restProps }, ref) => {
         const [view] = useMedia<CalendarInputMedia>(

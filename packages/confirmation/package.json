@@ -1,35 +1,11 @@
 {
     "name": "@alfalab/core-components-confirmation",
-    "version": "13.1.7",
+    "version": "13.1.8",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "exports": {
-        ".": {
-            "import": "./esm/index.js",
-            "require": "./index.js"
-        },
-        "./mobile": {
-            "import": "./esm/mobile.js",
-            "require": "./mobile.js"
-        },
-        "./desktop": {
-            "import": "./esm/desktop.js",
-            "require": "./desktop.js"
-        },
-        "./shared": {
-            "import": "./esm/shared.js",
-            "require": "./shared.js"
-        },
-        "./esm": "./esm/index.js",
-        "./cssm": "./cssm/index.js",
-        "./modern": "./modern/index.js",
-        "./esm/*": "./esm/*",
-        "./cssm/*": "./cssm/*",
-        "./modern/*": "./modern/*"
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -37,7 +13,7 @@
     "dependencies": {
         "@alfalab/core-components-button": "^9.0.6",
         "@alfalab/core-components-code-input": "^3.0.1",
-        "@alfalab/core-components-link": "^5.1.0",
+        "@alfalab/core-components-link": "^5.1.1",
         "@alfalab/core-components-spinner": "^3.1.0",
         "@alfalab/core-components-typography": "^4.1.0",
         "@alfalab/core-components-mq": "^4.2.0",

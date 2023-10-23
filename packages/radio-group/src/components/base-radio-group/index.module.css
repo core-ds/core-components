@@ -18,12 +18,17 @@
     display: flex;
 }
 
-.vertical .radioList {
+.verticalRadioList {
     flex-direction: column;
     align-items: flex-start;
 }
 
-.vertical .radio {
+.horizontalRadioList {
+    flex-wrap: wrap;
+    margin-bottom: var(--gap-xs-neg);
+}
+
+.verticalRadio {
     margin-bottom: var(--gap-m);
 
     &:last-child {
@@ -31,22 +36,17 @@
     }
 }
 
-.horizontal .radioList {
-    flex-wrap: wrap;
-    margin-bottom: var(--gap-xs-neg);
-}
-
-.horizontal .radio {
+.horizontalRadio {
     margin-right: var(--gap-xl);
     margin-bottom: var(--gap-xs);
 }
 
-.horizontal .tagLabel {
+.horizontalTagLabel {
     margin-right: var(--gap-xs);
 }
 
-.horizontal .radio:last-child,
-.horizontal .tagLabel:last-child {
+.horizontalRadio:last-child,
+.horizontalTagLabel:last-child {
     margin-right: 0;
 }
 

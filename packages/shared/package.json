@@ -6,15 +6,6 @@
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "exports": {
-        ".": {
-            "import": "./esm/index.js",
-            "require": "./index.js"
-        },
-        "./esm": "./esm/index.js",
-        "./modern": "./modern/index.js",
-        "./cssm": "./cssm/index.js"
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"

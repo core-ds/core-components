@@ -41,7 +41,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const listRef = useRef<HTMLDivElement>(null);
         const parentRef = useRef<HTMLDivElement>(null);
         const scrollbarRef = useRef<HTMLDivElement>(null);
-        const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState(0);
+        const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState('');
         const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
         let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
@@ -97,11 +97,15 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 /**
                  * react-virtual может несколько раз отрендерить список с одним элементом,
                  * поэтому нужно еще раз пересчитать высоту, когда список ВИДИМЫХ пунктов будет отрендерен полностью
-                 * Также, высоту нужно пересчитывать при изменении ОБЩЕГО кол-ва пунктов меню
+                 * Также, высоту нужно пересчитывать при изменении пунктов меню
                  */
-                rowVirtualizer.virtualItems.length > 1 ? flatOptions.length : 1,
+                rowVirtualizer.virtualItems
+                    .slice(0, Math.min(rowVirtualizer.virtualItems.length, visibleOptions + 1))
+                    .map((item) => flatOptions[item.index].key)
+                    .join('_'),
             );
-        }, [rowVirtualizer.virtualItems.length, flatOptions.length]);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [rowVirtualizer.virtualItems.length, flatOptions]);
 
         useVisibleOptions({
             visibleOptions,

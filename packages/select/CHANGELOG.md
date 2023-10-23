@@ -1,5 +1,16 @@
 # Change Log
 
+## 15.2.2
+
+### Patch Changes
+
+### [#923](https://github.com/core-ds/core-components/pull/923)
+
+-   Исправлена ошибка, из-за которой выпадающий список не открывался после ввода символов на Android девайсах
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.11.1
+
 ## 15.2.1
 
 ### Patch Changes

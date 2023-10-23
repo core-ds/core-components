@@ -9,6 +9,10 @@ import { DateTimeInput, DateTimeInputProps } from './components/date-time-input/
 
 export type DateTimeInputDesktopProps = Omit<DateTimeInputProps, 'view' | 'InputComponent'>;
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const DateTimeInputDesktop = forwardRef<HTMLInputElement, DateTimeInputDesktopProps>(
     (props, ref) => (
         <DateTimeInput

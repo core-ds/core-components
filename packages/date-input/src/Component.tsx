@@ -46,6 +46,10 @@ export type DateInputProps = Omit<InputProps, 'onChange'> & {
     ) => void;
 };
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     (
         {

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
+import { fnUtils } from '@alfalab/core-components-shared';
 
 import { useTabs } from '../../hooks/use-tabs';
 import { PlatformProps, Styles, TabListProps } from '../../typings';
@@ -30,10 +32,23 @@ export const PrimaryTabList = ({
     });
 
     useEffect(() => {
-        if (selectedTab && lineRef.current) {
-            lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
-            lineRef.current.style.transform = `translateX(${selectedTab.offsetLeft}px)`;
+        if (selectedTab) {
+            const updateLineWidth = () => {
+                if (lineRef.current) {
+                    lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
+                    lineRef.current.style.transform = `translateX(${selectedTab.offsetLeft}px)`;
+                }
+            };
+
+            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
+            const observer = new ResizeObserver(updateLineWidth);
+
+            observer.observe(selectedTab);
+
+            return () => observer.disconnect();
         }
+
+        return fnUtils.noop;
     }, [selectedTab]);
 
     const renderContent = () => (

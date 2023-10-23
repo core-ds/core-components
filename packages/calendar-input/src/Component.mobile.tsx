@@ -8,6 +8,10 @@ import { CalendarInput, CalendarInputProps } from './components/calendar-input/C
 
 export type CalendarInputMobileProps = Omit<CalendarInputProps, 'view'>;
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const CalendarInputMobile = forwardRef<HTMLInputElement, CalendarInputMobileProps>(
     (props, ref) => <CalendarInput Calendar={CalendarMobile} view='mobile' {...props} ref={ref} />,
 );

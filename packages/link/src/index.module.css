@@ -52,7 +52,7 @@
 }
 
 .addons:first-child {
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-2xs);
 }
 
 .addons:last-child {
