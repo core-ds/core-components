@@ -5,9 +5,6 @@ import {
     rmCommentsFromCss,
 } from '../utils';
 
-import indigoColors from '!css-loader!!postcss-loader!../../../packages/vars/src/colors-indigo.css';
-import indigoShadows from '!css-loader!!postcss-loader!../../../packages/vars/src/shadows-indigo.css';
-
 import click from '!css-loader!!postcss-loader!./themes/click.css';
 import mobile from '!css-loader!!postcss-loader!./themes/mobile.css';
 import corp from '!css-loader!!postcss-loader!./themes/corp.css';
@@ -40,15 +37,7 @@ export function setThemeStylesInMobileFrame(theme) {
 }
 
 export function getThemeStyles(selectedTheme) {
-    const indigoThemes = ['site'];
-    const indigoVars = [indigoColors, indigoShadows].join('\n');
-
-    const css = [
-        themes[selectedTheme],
-        indigoThemes.some((theme) => theme === selectedTheme) ? indigoVars : '',
-    ].join('\n');
-
-    return rmCommentsFromCss(css);
+    return rmCommentsFromCss(themes[selectedTheme]);
 }
 
 export function setThemeStyles(theme, doc) {
