@@ -22,6 +22,10 @@ export type DateRangeInputResponsiveProps = Omit<
 
 export type DateRangeInputMedia = 'desktop' | 'mobile';
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const DateRangeInputResponsive = forwardRef<HTMLInputElement, DateRangeInputResponsiveProps>(
     ({ breakpoint = 1024, ...restProps }, ref) => {
         const [view] = useMedia<DateRangeInputMedia>(

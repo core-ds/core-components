@@ -24,6 +24,10 @@ export type TimeInputProps = Omit<InputProps, 'onChange'> & {
     ) => void;
 };
 
+/**
+ * @deprecated
+ * use UniversalDateInput instead
+ */
 export const TimeInput = React.forwardRef<HTMLInputElement, TimeInputProps>(
     (
         { defaultValue = '', value: propValue, onChange, onComplete, className, ...restProps },
