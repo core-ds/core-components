@@ -548,6 +548,7 @@ export const BaseSelectMobile = forwardRef(
                             hasCloser={true}
                             sticky={true}
                             {...modalHeaderProps}
+                            title={undefined}
                             bottomAddons={
                                 <React.Fragment>
                                     {renderSearch()}
@@ -555,7 +556,7 @@ export const BaseSelectMobile = forwardRef(
                                 </React.Fragment>
                             }
                         >
-                            {label || placeholder}
+                            {modalHeaderProps?.title || label || placeholder}
                         </ModalMobile.Header>
 
                         <ModalMobile.Content flex={true} className={styles.modalContent}>
