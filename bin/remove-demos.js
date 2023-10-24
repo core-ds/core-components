@@ -15,6 +15,8 @@ const defaultConfig = {
     excluded_directories: ['node_modules'],
 };
 
+const isMajorArchiveBranch = (branchName) => /^v\d+\.\d+\.\d+$/.test(branchName);
+
 shell.exec(`git config user.name "${defaultConfig.gitUsername}"`, execOptions);
 shell.exec(`git config user.email "${defaultConfig.gitEmail}"`, execOptions);
 
@@ -52,7 +54,8 @@ if (currentBranch === defaultConfig.targetBranch) {
     const shouldRemove = directories.filter(
         (directory) =>
             !defaultConfig.excluded_directories.includes(directory) &&
-            !branchesList.some((branchName) => directory.indexOf(branchName) === 0),
+            !branchesList.some((branchName) => directory.indexOf(branchName) === 0) &&
+            !isMajorArchiveBranch(directory),
     );
 
     console.log('=> should remove', shouldRemove);

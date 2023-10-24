@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.12.0
+
+### Minor Changes
+
+### [#926](https://github.com/core-ds/core-components/pull/926)
+
+-   Тема site переведена на bluetint палитру
+
 ## 11.11.1
 
 ### Patch Changes

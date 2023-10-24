@@ -1,5 +1,20 @@
 # Change Log
 
+## 15.2.3
+
+### Patch Changes
+
+### [#915](https://github.com/core-ds/core-components/pull/915)
+
+-   Исправлен баг с пересчетом высоты в VirtualOptionsList
+
+### [#930](https://github.com/core-ds/core-components/pull/930)
+
+-   Исправлена ошибка, из-за которой передача modalHeaderProps.title не давала результата
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.11.2
+
 ## 15.2.2
 
 ### Patch Changes

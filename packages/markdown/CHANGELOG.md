@@ -1,5 +1,13 @@
 # @alfalab/core-components-markdown
 
+## 1.1.1
+
+### Patch Changes
+
+### [#937](https://github.com/core-ds/core-components/pull/937)
+
+-   Версия react-markdown снижена до 6.0.2. 6.0.3 сломана
+
 ## 1.1.0
 
 ### Minor Changes

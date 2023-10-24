@@ -17765,7 +17765,7 @@ prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
-property-information@^5.3.0:
+property-information@^5.0.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/property-information/-/property-information-5.6.0.tgz#61675545fb23002f245c6540ec46077d4da3ed69"
   integrity sha512-YUHSPk+A30YPv+0Qf8i9Mbfe/C0hdPXk1s1jPVToV8pk8BQtpw10ct89Eo7OWkutrwqvT0eicAxlOg3dOAu8JA==
@@ -18143,16 +18143,16 @@ react-live@^2.4.1:
     react-simple-code-editor "^0.11.0"
     unescape "^1.0.1"
 
-react-markdown@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-6.0.3.tgz#625ec767fa321d91801129387e7d31ee0cb99254"
-  integrity sha512-kQbpWiMoBHnj9myLlmZG9T1JdoT/OEyHK7hqM6CqFT14MAkgWiWBUYijLyBmxbntaN6dCDicPcUhWhci1QYodg==
+react-markdown@6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-6.0.2.tgz#d89be45c278b1e5f0196f851fffb11e30c69f027"
+  integrity sha512-Et2AjXAsbmPP1nLQQRqmVgcqzfwcz8uQJ8VAdADs8Nk/aaUA0YeU9RDLuCtD+GwajCnm/+Iiu2KPmXzmD/M3vA==
   dependencies:
     "@types/hast" "^2.0.0"
     "@types/unist" "^2.0.3"
     comma-separated-tokens "^1.0.0"
     prop-types "^15.7.2"
-    property-information "^5.3.0"
+    property-information "^5.0.0"
     react-is "^17.0.0"
     remark-parse "^9.0.0"
     remark-rehype "^8.0.0"
@@ -21009,10 +21009,10 @@ ui-primitives@^11.17.0:
   resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-11.17.0.tgz#2d52b40716790b52649cde599e27fc976440d774"
   integrity sha512-N5gIHEn0c4KG0npONa069TW2IS1AreGfR9evRi+jRGHYywZDBdQbuVoccwsKU0HlvW7TAZ3myx5SUF0kynlycg==
 
-ui-primitives@^13.3.0:
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-13.3.0.tgz#ca70bee7781723d9f6767ae1e513640b17189fbd"
-  integrity sha512-PY5ML9DsTn8EHCYJMkXsRQ7J6AANVvYxFUMwsp6yWvQcTv8DhHtWIOGBi7jAYJoLCoRW97B006nESSJkfzroTQ==
+ui-primitives@^13.6.0:
+  version "13.6.0"
+  resolved "https://registry.yarnpkg.com/ui-primitives/-/ui-primitives-13.6.0.tgz#3fd6b013321fa8d6ce264a566ed2abf96fa6b21c"
+  integrity sha512-msXDPV+5yR5PRNm/z4Y4Gum5Vq9oMfJXAkHxQ+5oCtOgD9+5kxqLnAv6PGDc4pOnVbVSuEvg1EkmoUdeb0QYmg==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

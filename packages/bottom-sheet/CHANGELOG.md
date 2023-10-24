@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.11.2
+
+### Patch Changes
+
+### [#927](https://github.com/core-ds/core-components/pull/927)
+
+-   Исправлены проблемы со скроллом, когда при открытой шторке контент внутри document.body скроллится
+
+### [#921](https://github.com/core-ds/core-components/pull/921)
+
+-   initialHeight всегда выставляется в full, если переданы магнитные зоны
+
 ## 6.11.1
 
 ### Patch Changes

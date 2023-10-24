@@ -1,3 +1,76 @@
+## 42.14.1
+
+<sup><time>24.10.2023</time></sup>
+
+### [#937](https://github.com/core-ds/core-components/pull/937)
+
+#### Что изменилось
+- Версия react-markdown снижена до 6.0.2. 6.0.3 сломана
+
+#### Влияние на компоненты
+- Патчи<br />`markdown`
+
+
+
+## 42.14.0
+
+<sup><time>23.10.2023</time></sup>
+
+### [#927](https://github.com/core-ds/core-components/pull/927)
+
+#### Что изменилось
+- Исправлены проблемы со скроллом, когда при открытой шторке контент внутри document.body скроллится
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#915](https://github.com/core-ds/core-components/pull/915)
+
+#### Что изменилось
+- Исправлен баг с пересчетом высоты в VirtualOptionsList
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#926](https://github.com/core-ds/core-components/pull/926)
+
+#### Что изменилось
+- Тема site переведена на bluetint палитру
+
+#### Влияние на компоненты
+- Минорное<br />`vars` `themes`
+
+
+### [#921](https://github.com/core-ds/core-components/pull/921)
+
+#### Что изменилось
+- initialHeight всегда выставляется в full, если переданы магнитные зоны
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#930](https://github.com/core-ds/core-components/pull/930)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой передача modalHeaderProps.title не давала результата
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#934](https://github.com/core-ds/core-components/pull/934)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой при увеличении ширины выбранного таба не увеличивалась ширина красной линии под ним
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+
 ## 42.13.0
 
 <sup><time>19.10.2023</time></sup>
