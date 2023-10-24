@@ -221,6 +221,33 @@ async function releaseRoot() {
     logger.log('=> Commit changed files');
     shell.exec('git commit -n -m "chore: publish root package [skip ci]"', execOptions);
 
+    const nextReleaseTag = `v${nextVersion}`;
+    logger.log(`=> Create tag ${nextReleaseTag}`);
+    await git.tag(nextReleaseTag, cwd);
+
+    logger.log('=> Push changes');
+    const pushResult = shell.exec(
+        `git push "https://${config.gitUsername}:${process.env.GITHUB_TOKEN}@github.com/core-ds/core-components.git"`,
+        execOptions,
+    );
+
+    if (pushResult.code !== 0) {
+        logger.error(pushResult.stderr);
+
+        throw new Error('Failed to push changes');
+    }
+
+    shell.exec('git push --follow-tags', execOptions);
+
+    logger.log('=> Create github release');
+    shell.exec(
+        `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
+            notes.replace('<br />', '\n'),
+        )}" --target master`,
+        execOptions,
+    );
+
+    logger.log('=> Publish root package');
     // копирую package.json в сборку корневого пакета
     shell.exec('cp package.json dist/package.json', execOptions);
 
@@ -229,8 +256,6 @@ async function releaseRoot() {
         'yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"',
         execOptions,
     );
-
-    logger.log('=> Publish root package');
     shell.cd('dist');
     const publishRet = shell.exec(`npm publish --userconfig "${path.join(cwd, '.npmrc')}"`, {
         ...execOptions,
@@ -239,31 +264,10 @@ async function releaseRoot() {
     shell.cd('..');
 
     if (publishRet.stdout.indexOf(`+ @alfalab/core-components@${nextVersion}`) !== -1) {
-        const nextReleaseTag = `v${nextVersion}`;
-        logger.log(`=> Create tag ${nextReleaseTag}`);
-        await git.tag(nextReleaseTag, cwd);
-
-        logger.log('=> Push changes');
-        shell.exec(
-            `git push "https://${config.gitUsername}:${process.env.GITHUB_TOKEN}@github.com/core-ds/core-components.git"`,
-            execOptions,
-        );
-        shell.exec('git push --follow-tags', execOptions);
-
-        logger.log('=> Create github release');
-        shell.exec(
-            `gh release create ${nextReleaseTag} --title "${nextReleaseTag}" --notes "${escapeShellChars(
-                notes.replace('<br />', '\n'),
-            )}" --target master`,
-            execOptions,
-        );
-
         return true;
-    } else {
-        logger.error(publishRet.stderr);
     }
 
-    return false;
+    throw new Error('Failed to publish root package, please revert the last commit');
 }
 
 async function releasePackages() {

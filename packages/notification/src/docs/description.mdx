@@ -1,4 +1,4 @@
-Компонент нотификации.
+## Пример
 
 ```jsx live
 render(() => {
@@ -11,15 +11,15 @@ render(() => {
         <div>
             <Notification
                 badge='positive'
-                title='Компонент нотификации'
+                title='Пример уведомления'
                 visible={isVisible}
                 offset={180}
                 onClose={hideNotification}
                 onCloseTimeout={hideNotification}
             >
-                Самая обыкновенная нотификация
+                Описание уведомления
             </Notification>
-            <Button onClick={toggleVisibility}>Тогглер</Button>
+            <Button onClick={toggleVisibility}>Показать уведомление</Button>
         </div>
     );
 });

@@ -1,23 +1,20 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@alfalab/core-components-button';
 import { Notification } from '@alfalab/core-components-notification';
 import { NotificationManager } from '@alfalab/core-components-notification-manager';
 
-import { NotificationManager as NotificationManagerTS } from '../component';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof NotificationManager> = {
+    title: 'Components/NotificationManager',
+    component: NotificationManager,
+    id: 'NotificationManager',
+};
 
-<Meta
-    title='Components/NotificationManager'
-    component={NotificationManager}
-    id='NotificationManager'
-/>
+type Story = StoryObj<typeof NotificationManager>;
 
-{/* Canvas */}
-
-<Story name='NotificationManager'>
-    {React.createElement(() => {
+export const notification_manager: Story = {
+    name: 'NotificationManager',
+    render: () => {
         const [notifications, setNotifications] = React.useState([]);
         const [count, setCount] = React.useState(0);
         const addNotification = () => {
@@ -52,21 +49,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 />
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='NotificationManager'
-/>
-
-```jsx
-import { NotificationManager } from '@alfalab/core-components/notification-manager';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={NotificationManagerTS} />}
-/>
+export default meta;

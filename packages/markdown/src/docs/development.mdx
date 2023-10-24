@@ -1,5 +1,7 @@
-import { ArgsTable } from '@storybook/addon-docs';
-import { Markdown as MarkdownTS } from '../Component';
+import { ArgsTabs } from 'storybook/blocks';
+import { Markdown } from '../index';
+import { MarkdownDesktop } from '../desktop';
+import { MarkdownMobile } from '../mobile';
 
 ## Подключение
 
@@ -25,4 +27,4 @@ import { MarkdownDesktop } from '@alfalab/core-components/markdown/desktop';
 { h1: (props) => (<div>{props.children}</div>)}
 ```
 
-<ArgsTable of={MarkdownTS} />
+<ArgsTabs components={{MarkdownDesktop, MarkdownMobile, Markdown}} />

@@ -24,6 +24,8 @@ const execOptions = {
     fatal: true,
 };
 
+const isMajorArchiveBranch = (branchName) => /^v\d+\.\d+\.\d+$/.test(branchName);
+
 const lastCommitHash = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
 /** Current git branch */
 const sourceBranch =
@@ -33,7 +35,9 @@ const sourceBranch =
 console.log(`Source branch = ${sourceBranch}`);
 
 /** Temporary dir for builded file = branch name + last git commit hash */
-const tempOutputDir = sourceBranch.replace(/[^a-zA-Z0-9]/g, '_') + '_' + lastCommitHash;
+const tempOutputDir = isMajorArchiveBranch(sourceBranch)
+    ? sourceBranch
+    : sourceBranch.replace(/[^a-zA-Z0-9]/g, '_') + '_' + lastCommitHash;
 /** Try to get affected component name from last commit message **/
 
 console.log(`pr head sha = ${process.env.PR_LAST_COMMIT_SHA}`);
