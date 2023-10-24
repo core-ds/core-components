@@ -122,6 +122,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                 {
                     [styles.focused]: focused,
                     [styles.disabled]: disabled,
+                    [colorStyles[colors].disabled]: disabled,
                     [styles.loading]: showLoader,
                 },
                 className,

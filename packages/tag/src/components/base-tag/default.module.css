@@ -36,10 +36,25 @@
 
     &.checked {
         color: var(--tag-text-color-checked);
+        border-color: var(--tag-border-color-checked);
+        background-color: var(--tag-background-color-checked);
 
         &:disabled {
             border-color: var(--tag-border-color-checked-disabled);
             color: var(--tag-text-color-checked-disabled);
+            background-color: var(--tag-background-color-checked-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-background-color-checked-hover);
+                border-color: var(--tag-background-color-checked-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-background-color-checked-active);
+            border-color: var(--tag-background-color-checked-active);
         }
     }
 }

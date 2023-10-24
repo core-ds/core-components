@@ -192,7 +192,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               class="input"
                             >
                               <input
-                                class="input input input"
+                                class="input input"
                                 type="text"
                                 value=""
                               />

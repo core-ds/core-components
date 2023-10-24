@@ -15,22 +15,6 @@
             border-radius: var(--tag-rectangular-s-border-radius);
         }
     }
-
-    &.checked {
-        &:not(.disabled) {
-            background-color: var(--tag-background-color-checked);
-        }
-
-        @media (hover: hover) {
-            &:not(.disabled):hover {
-                background-color: var(--tag-background-color-checked-hover);
-            }
-        }
-
-        &:not(.disabled):active {
-            background-color: var(--tag-background-color-checked-active);
-        }
-    }
 }
 
 .valueButton {
@@ -67,8 +51,6 @@
     }
 
     &.checked {
-        background-color: var(--tag-background-color-checked);
-
         &.rectangular {
             &.xxs {
                 border-radius: var(--tag-rectangular-xxs-border-radius) 0 0
@@ -100,26 +82,10 @@
                 }
             }
         }
-
-        @media (hover: hover) {
-            &:not(:disabled):hover {
-                background-color: var(--tag-background-color-checked-hover);
-            }
-        }
-
-        &:not(:disabled):active {
-            background-color: var(--tag-background-color-checked-active);
-        }
-
-        &:disabled {
-            background-color: var(--tag-background-color-checked-disabled);
-        }
     }
 }
 
 .clear {
-    background-color: var(--tag-background-color-checked);
-
     &.rectangular {
         &.xxs {
             border-radius: 0 var(--tag-rectangular-xxs-border-radius)
@@ -135,15 +101,5 @@
             border-radius: 0 var(--tag-rectangular-s-border-radius)
                 var(--tag-rectangular-s-border-radius) 0;
         }
-    }
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--tag-background-color-checked-hover);
-        }
-    }
-
-    &:active {
-        background-color: var(--tag-background-color-checked-active);
     }
 }

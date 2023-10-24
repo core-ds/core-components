@@ -26,10 +26,10 @@
     --icon-button-tertiary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* negative */
-    --icon-button-negative-base-color: var(--color-light-graphic-negative);
-    --icon-button-negative-hover-color: var(--color-light-graphic-negative-shade-7);
-    --icon-button-negative-active-color: var(--color-light-graphic-negative-shade-15);
-    --icon-button-negative-disabled-color: var(--color-light-graphic-negative-alpha-30);
+    --icon-button-negative-base-color: var(--color-light-status-negative);
+    --icon-button-negative-hover-color: var(--color-light-status-negative-hover);
+    --icon-button-negative-active-color: var(--color-light-status-negative-press);
+    --icon-button-negative-disabled-color: var(--color-light-neutral-translucent-300);
 }
 
 :global(.cc-icon-button) {

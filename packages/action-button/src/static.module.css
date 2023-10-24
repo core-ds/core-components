@@ -2,18 +2,23 @@
 
 :root {
     /* primary */
-    --action-button-static-primary-base-color: var(--color-static-text-primary-dark);
-    --action-button-static-primary-base-icon-color: var(--color-static-graphic-light);
-    --action-button-static-primary-base-bg-color: var(--color-static-bg-primary-dark);
+    --action-button-static-primary-base-color: var(--color-static-text-primary);
+    --action-button-static-primary-base-icon-color: var(--color-static-neutral-1500-inverted);
+    --action-button-static-primary-base-bg-color: var(--color-static-accent-secondary);
 
     /* secondary */
-    --action-button-static-secondary-base-color: var(--color-static-text-primary-dark);
-    --action-button-static-secondary-base-icon-color: var(--color-static-graphic-dark);
-    --action-button-static-secondary-base-bg-color: var(--color-static-bg-secondary-light);
+    --action-button-static-secondary-base-color: var(--color-static-text-primary);
+    --action-button-static-secondary-base-icon-color: var(--color-static-neutral-1500);
+    --action-button-static-secondary-base-bg-color: var(--color-static-neutral-100);
 
     /* spinner */
-    --action-button-spinner-static-primary-color: var(--color-static-graphic-light);
-    --action-button-spinner-static-secondary-color: var(--color-static-graphic-dark);
+    --action-button-spinner-static-primary-color: var(--color-static-neutral-1500-inverted);
+    --action-button-spinner-static-secondary-color: var(--color-static-neutral-1500);
+
+    /* disabled */
+    --action-button-static-disabled-color: var(--color-static-text-tertiary);
+    --action-button-static-disabled-icon-color: var(--color-static-neutral-500);
+    --action-button-static-disabled-bg-color: var(--color-static-neutral-100);
 }
 
 .primary {
@@ -39,5 +44,14 @@
 
     & .loader {
         color: var(--action-button-spinner-static-secondary-color);
+    }
+}
+
+.disabled {
+    color: var(--action-button-static-disabled-color);
+
+    & .iconWrapper {
+        color: var(--action-button-static-disabled-icon-color);
+        background-color: var(--action-button-static-disabled-bg-color);
     }
 }

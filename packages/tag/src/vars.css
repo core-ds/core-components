@@ -2,11 +2,11 @@
 
 :root {
     /* border */
-    --tag-border-color: var(--color-light-neutral-1500);
+    --tag-border-color: var(--color-light-neutral-translucent-500);
     --tag-filled-border-color: transparent;
-    --tag-border-color-hover: var(--color-light-neutral-1500);
-    --tag-border-color-active: var(--color-light-neutral-1500);
-    --tag-border-color-checked: var(--color-light-neutral-1500);
+    --tag-border-color-hover: var(--color-light-neutral-translucent-500);
+    --tag-border-color-active: var(--color-light-neutral-translucent-500);
+    --tag-border-color-checked: var(--color-light-accent-secondary);
     --tag-border-color-disabled: var(--color-light-neutral-translucent-500);
     --tag-border-color-checked-disabled: transparent;
     --tag-border-width: 1px;
@@ -46,11 +46,11 @@
     /* inverted */
 
     /* border */
-    --tag-inverted-border-color: var(--color-light-neutral-1500-inverted);
+    --tag-inverted-border-color: var(--color-light-neutral-translucent-500-inverted);
     --tag-inverted-filled-border-color: transparent;
-    --tag-inverted-border-color-hover: var(--color-light-neutral-1500-inverted);
-    --tag-inverted-border-color-active: var(--color-light-neutral-1500-inverted);
-    --tag-inverted-border-color-checked: var(--color-light-neutral-1500-inverted);
+    --tag-inverted-border-color-hover: var(--color-light-neutral-translucent-500-inverted);
+    --tag-inverted-border-color-active: var(--color-light-neutral-translucent-500-inverted);
+    --tag-inverted-border-color-checked: var(--color-light-accent-secondary-inverted);
     --tag-inverted-border-color-disabled: var(--color-light-neutral-translucent-500-inverted);
     --tag-inverted-border-color-checked-disabled: transparent;
 
@@ -103,11 +103,6 @@
     --tag-filled-mobile-background-color-hover: var(--color-light-neutral-translucent-100);
     --tag-filled-mobile-background-color-active: var(--color-light-neutral-translucent-100-press);
     --tag-filled-mobile-background-color-disabled: var(--color-light-neutral-translucent-100);
-    --tag-mobile-background-color-checked: var(--color-light-accent-secondary);
-    --tag-mobile-background-color-checked-hover: var(--color-light-accent-secondary);
-    --tag-mobile-background-color-checked-active: var(--color-light-accent-secondary-press);
-    --tag-mobile-background-color-checked-disabled: var(--color-light-neutral-translucent-100);
-    --tag-mobile-border-color-checked: transparent;
 
     /* mobile inverted */
     --tag-inverted-filled-mobile-background-color: var(
@@ -120,17 +115,6 @@
         --color-light-neutral-translucent-100-inverted-press
     );
     --tag-inverted-filled-mobile-background-color-disabled: var(
-        --color-light-neutral-translucent-100-inverted
-    );
-    --tag-inverted-mobile-border-color-checked: transparent;
-    --tag-inverted-mobile-background-color-checked: var(--color-light-accent-secondary-inverted);
-    --tag-inverted-mobile-background-color-checked-hover: var(
-        --color-light-accent-secondary-inverted
-    );
-    --tag-inverted-mobile-background-color-checked-active: var(
-        --color-light-accent-secondary-inverted-press
-    );
-    --tag-inverted-mobile-background-color-checked-disabled: var(
         --color-light-neutral-translucent-100-inverted
     );
 }

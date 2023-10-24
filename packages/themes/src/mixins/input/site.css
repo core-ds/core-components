@@ -5,8 +5,4 @@
     --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
     --input-read-only-color: var(--color-light-text-secondary);
     --input-inverted-read-only-color: var(--color-light-text-secondary-inverted);
-
-    /* mobile */
-    --input-error-mobile-color: var(--color-light-text-primary);
-    --input-inverted-error-mobile-color: var(--color-light-text-primary-inverted);
 }

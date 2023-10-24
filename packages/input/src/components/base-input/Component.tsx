@@ -33,15 +33,6 @@ const colorCommonStyles = {
     inverted: invertedColors,
 };
 
-export type StyleColors = {
-    default: {
-        [key: string]: string;
-    };
-    inverted: {
-        [key: string]: string;
-    };
-};
-
 export type BaseInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
     | 'size'
@@ -214,11 +205,6 @@ export type BaseInputProps = Omit<
     dataTestId?: string;
 
     /**
-     * Стили компонента для default и inverted режима.
-     */
-    colorStyles?: StyleColors;
-
-    /**
      * Запрещает ввод с клавиатуры
      */
     disableUserInput?: boolean;
@@ -266,7 +252,6 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             wrapperRef,
             readOnly: readOnlyProp,
             FormControlComponent,
-            colorStyles = { default: {}, inverted: {} },
             disableUserInput,
             ...restProps
         },
@@ -446,11 +431,9 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     className={cn(
                         styles.input,
                         colorCommonStyles[colors].input,
-                        colorStyles[colors].input,
                         {
                             [colorCommonStyles[colors].disableUserInput]: disableUserInput,
-                            [styles.error]: error,
-                            [colorStyles[colors].error]: error,
+                            [colorCommonStyles[colors].error]: error,
                             [styles[size]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,

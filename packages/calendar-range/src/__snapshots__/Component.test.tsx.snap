@@ -19,7 +19,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               class="input"
             >
               <input
-                class="input input input"
+                class="input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\.]*"
                 placeholder="ДД.ММ.ГГГГ"
@@ -932,7 +932,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               class="input"
             >
               <input
-                class="input input input"
+                class="input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\.]*"
                 placeholder="ДД.ММ.ГГГГ"

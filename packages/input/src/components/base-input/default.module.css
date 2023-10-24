@@ -52,3 +52,9 @@
 .input:focus::placeholder {
     color: var(--input-focus-placeholder-color);
 }
+
+/* ERROR STATE */
+.error {
+    color: var(--input-error-color);
+    caret-color: var(--input-error-color);
+}

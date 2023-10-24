@@ -21,7 +21,7 @@ Object {
                 class="input"
               >
                 <input
-                  class="input input input input"
+                  class="input input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
@@ -70,7 +70,7 @@ Object {
               class="input"
             >
               <input
-                class="input input input input"
+                class="input input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 ₽"
@@ -176,7 +176,7 @@ Object {
                 class="input"
               >
                 <input
-                  class="input input input input"
+                  class="input input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
@@ -224,7 +224,7 @@ Object {
                 class="input"
               >
                 <input
-                  class="input input input input"
+                  class="input input input"
                   inputmode="decimal"
                   pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 $"
@@ -277,7 +277,7 @@ Object {
               class="input"
             >
               <input
-                class="input input input input"
+                class="input input input"
                 inputmode="decimal"
                 pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 $"

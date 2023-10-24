@@ -50,10 +50,12 @@
     );
 
     /* negative */
-    --icon-button-inverted-negative-base-color: var(--color-light-graphic-negative);
-    --icon-button-inverted-negative-hover-color: var(--color-light-graphic-negative-shade-7);
-    --icon-button-inverted-negative-active-color: var(--color-light-graphic-negative-shade-15);
-    --icon-button-inverted-negative-disabled-color: var(--color-light-graphic-negative-alpha-30);
+    --icon-button-inverted-negative-base-color: var(--color-light-status-negative-inverted);
+    --icon-button-inverted-negative-hover-color: var(--color-light-status-negative-inverted-hover);
+    --icon-button-inverted-negative-active-color: var(--color-light-status-negative-inverted-press);
+    --icon-button-inverted-negative-disabled-color: var(
+        --color-light-neutral-translucent-300-inverted
+    );
 }
 
 :global(.cc-icon-button) {

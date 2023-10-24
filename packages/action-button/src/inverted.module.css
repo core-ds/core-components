@@ -22,6 +22,11 @@
     /* spinner */
     --action-button-spinner-inverted-default-color: var(--color-light-neutral-1500);
     --action-button-spinner-inverted-primary-color: var(--color-light-neutral-1500-inverted);
+
+    /* disabled */
+    --action-button-inverted-disabled-color: var(--color-light-text-tertiary-inverted);
+    --action-button-inverted-disabled-icon-color: var(--color-light-neutral-500-inverted);
+    --action-button-inverted-disabled-bg-color: var(--color-light-neutral-100-inverted);
 }
 
 .primary {
@@ -63,5 +68,14 @@
 
     & .loader {
         color: var(--action-button-spinner-inverted-default-color);
+    }
+}
+
+.disabled {
+    color: var(--action-button-inverted-disabled-color);
+
+    & .iconWrapper {
+        color: var(--action-button-inverted-disabled-icon-color);
+        background-color: var(--action-button-inverted-disabled-bg-color);
     }
 }

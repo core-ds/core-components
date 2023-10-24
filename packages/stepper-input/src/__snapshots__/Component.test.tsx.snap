@@ -18,7 +18,7 @@ Object {
               class="input"
             >
               <input
-                class="input input input"
+                class="input input"
                 inputmode="decimal"
                 type="text"
                 value="10"
@@ -108,7 +108,7 @@ Object {
             class="input"
           >
             <input
-              class="input input input"
+              class="input input"
               inputmode="decimal"
               type="text"
               value="10"
