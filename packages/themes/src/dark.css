@@ -238,9 +238,21 @@
         --color-dark-specialbg-tertiary-transparent-inverted
     );
     --color-light-status-attention: var(--color-dark-status-attention);
+    --color-light-status-attention-hover: var(--color-dark-status-attention-hover);
     --color-light-status-attention-inverted: var(--color-dark-status-attention-inverted);
+    --color-light-status-attention-inverted-hover: var(
+        --color-dark-status-attention-inverted-hover
+    );
+    --color-light-status-attention-inverted-press: var(
+        --color-dark-status-attention-inverted-press
+    );
+    --color-light-status-attention-press: var(--color-dark-status-attention-press);
     --color-light-status-info: var(--color-dark-status-info);
+    --color-light-status-info-hover: var(--color-dark-status-info-hover);
     --color-light-status-info-inverted: var(--color-dark-status-info-inverted);
+    --color-light-status-info-inverted-hover: var(--color-dark-status-info-inverted-hover);
+    --color-light-status-info-inverted-press: var(--color-dark-status-info-inverted-press);
+    --color-light-status-info-press: var(--color-dark-status-info-press);
     --color-light-status-muted-alt-attention: var(--color-dark-status-muted-alt-attention);
     --color-light-status-muted-alt-attention-hover: var(
         --color-dark-status-muted-alt-attention-hover
@@ -342,9 +354,17 @@
     );
     --color-light-status-muted-positive-press: var(--color-dark-status-muted-positive-press);
     --color-light-status-negative: var(--color-dark-status-negative);
+    --color-light-status-negative-hover: var(--color-dark-status-negative-hover);
     --color-light-status-negative-inverted: var(--color-dark-status-negative-inverted);
+    --color-light-status-negative-inverted-hover: var(--color-dark-status-negative-inverted-hover);
+    --color-light-status-negative-inverted-press: var(--color-dark-status-negative-inverted-press);
+    --color-light-status-negative-press: var(--color-dark-status-negative-press);
     --color-light-status-positive: var(--color-dark-status-positive);
+    --color-light-status-positive-hover: var(--color-dark-status-positive-hover);
     --color-light-status-positive-inverted: var(--color-dark-status-positive-inverted);
+    --color-light-status-positive-inverted-hover: var(--color-dark-status-positive-inverted-hover);
+    --color-light-status-positive-inverted-press: var(--color-dark-status-positive-inverted-press);
+    --color-light-status-positive-press: var(--color-dark-status-positive-press);
     --color-light-text-accent: var(--color-dark-text-accent);
     --color-light-text-attention: var(--color-dark-text-attention);
     --color-light-text-attention-hover: var(--color-dark-text-attention-hover);
