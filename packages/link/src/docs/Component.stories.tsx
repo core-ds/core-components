@@ -1,27 +1,23 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { StarSIcon } from '@alfalab/icons-glyph/StarSIcon';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
-
 import { Typography } from '@alfalab/core-components-typography';
 import { Link } from '@alfalab/core-components-link';
 
-import { Link as LinkTS } from '../Component';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
-import styles from '!!raw-loader!../index.module.css';
-import defaultStyles from '!!raw-loader!../default.module.css';
-import invertedStyles from '!!raw-loader!../inverted.module.css';
+const meta: Meta<typeof Link> = {
+    title: 'Components/Link',
+    component: Link,
+    id: 'Link',
+};
 
-export const VIEWS = ['primary', 'secondary', 'default'];
+type Story = StoryObj<typeof Link>;
 
-<Meta title='Components/Link' component={Link} id='Link' />
+const VIEWS = ['primary', 'secondary', 'default'];
 
-{/* Canvas */}
-
-<Story name='Link'>
-    {React.createElement(() => {
+export const link: Story = {
+    name: 'Link',
+    render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div
@@ -53,30 +49,7 @@ export const VIEWS = ['primary', 'secondary', 'default'];
                 </Typography.Text>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Link'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=89579%3A124721&mode=design&t=Itgzojk9BOtPqYkS-1'
-    children='Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу или вызова нового информационного слоя.'
-/>
-
-```jsx
-import { Link } from '@alfalab/core-components/link';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={LinkTS} />}
-    cssVars={
-        <CssVars
-            css={`
-                ${styles}${defaultStyles}${invertedStyles}
-            `}
-        />
-    }
-/>
+export default meta;

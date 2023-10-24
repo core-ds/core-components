@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "42.12.0",
+    "version": "42.14.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -85,7 +85,7 @@
         "react-canvas-pattern-lock": "^1.1.1",
         "react-div-100vh": "^0.7.0",
         "react-focus-lock": "^2.9.3",
-        "react-markdown": "^6.0.3",
+        "react-markdown": "6.0.2",
         "react-merge-refs": "^1.1.0",
         "react-popper": "^2.3.0",
         "react-swipeable": "^7.0.0",

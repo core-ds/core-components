@@ -1,31 +1,11 @@
 {
     "name": "@alfalab/core-components-tooltip",
-    "version": "7.1.8",
+    "version": "7.1.10",
     "description": "Tooltip component",
     "keywords": [],
     "license": "MIT",
     "main": "index.js",
     "module": "./esm/index.js",
-    "exports": {
-        ".": {
-            "import": "./esm/index.js",
-            "require": "./index.js"
-        },
-        "./mobile": {
-            "import": "./esm/mobile.js",
-            "require": "./mobile.js"
-        },
-        "./desktop": {
-            "import": "./esm/desktop.js",
-            "require": "./desktop.js"
-        },
-        "./esm": "./esm/index.js",
-        "./cssm": "./cssm/index.js",
-        "./modern": "./modern/index.js",
-        "./esm/*": "./esm/*",
-        "./cssm/*": "./cssm/*",
-        "./modern/*": "./modern/*"
-    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -35,7 +15,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-bottom-sheet": "^6.11.0",
+        "@alfalab/core-components-bottom-sheet": "^6.11.2",
         "@alfalab/core-components-button": "^9.0.6",
         "@alfalab/core-components-popover": "^6.1.0",
         "@alfalab/core-components-mq": "^4.2.0",

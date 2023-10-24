@@ -87,7 +87,6 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <div
           class="line"
-          style="width: 0px; transform: translateX(0px);"
         />
       </div>
     </div>
@@ -271,9 +270,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
               Таб 5
             </span>
           </button>
-          <div
-            style="width: 0px; transform: translateX(0px);"
-          />
+          <div />
         </div>
       </div>
     </div>
@@ -462,7 +459,6 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <div
           class="line"
-          style="width: 0px; transform: translateX(0px);"
         />
       </div>
     </div>

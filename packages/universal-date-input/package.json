@@ -10,26 +10,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "exports": {
-        ".": {
-            "import": "./esm/index.js",
-            "require": "./index.js"
-        },
-        "./mobile": {
-            "import": "./esm/mobile.js",
-            "require": "./mobile.js"
-        },
-        "./desktop": {
-            "import": "./esm/desktop.js",
-            "require": "./desktop.js"
-        },
-        "./esm": "./esm/index.js",
-        "./cssm": "./cssm/index.js",
-        "./modern": "./modern/index.js",
-        "./esm/*": "./esm/*",
-        "./cssm/*": "./cssm/*",
-        "./modern/*": "./modern/*"
-    },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },

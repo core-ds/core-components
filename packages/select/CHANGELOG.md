@@ -1,5 +1,31 @@
 # Change Log
 
+## 15.2.3
+
+### Patch Changes
+
+### [#915](https://github.com/core-ds/core-components/pull/915)
+
+-   Исправлен баг с пересчетом высоты в VirtualOptionsList
+
+### [#930](https://github.com/core-ds/core-components/pull/930)
+
+-   Исправлена ошибка, из-за которой передача modalHeaderProps.title не давала результата
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.11.2
+
+## 15.2.2
+
+### Patch Changes
+
+### [#923](https://github.com/core-ds/core-components/pull/923)
+
+-   Исправлена ошибка, из-за которой выпадающий список не открывался после ввода символов на Android девайсах
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.11.1
+
 ## 15.2.1
 
 ### Patch Changes

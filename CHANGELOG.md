@@ -1,3 +1,112 @@
+## 42.14.0
+
+<sup><time>23.10.2023</time></sup>
+
+### [#927](https://github.com/core-ds/core-components/pull/927)
+
+#### Что изменилось
+- Исправлены проблемы со скроллом, когда при открытой шторке контент внутри document.body скроллится
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#915](https://github.com/core-ds/core-components/pull/915)
+
+#### Что изменилось
+- Исправлен баг с пересчетом высоты в VirtualOptionsList
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#926](https://github.com/core-ds/core-components/pull/926)
+
+#### Что изменилось
+- Тема site переведена на bluetint палитру
+
+#### Влияние на компоненты
+- Минорное<br />`vars` `themes`
+
+
+### [#921](https://github.com/core-ds/core-components/pull/921)
+
+#### Что изменилось
+- initialHeight всегда выставляется в full, если переданы магнитные зоны
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#930](https://github.com/core-ds/core-components/pull/930)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой передача modalHeaderProps.title не давала результата
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#934](https://github.com/core-ds/core-components/pull/934)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой при увеличении ширины выбранного таба не увеличивалась ширина красной линии под ним
+
+#### Влияние на компоненты
+- Патчи<br />`tabs`
+
+
+
+## 42.13.0
+
+<sup><time>19.10.2023</time></sup>
+
+### [#919](https://github.com/core-ds/core-components/pull/919)
+
+#### Что изменилось
+- Уменьшена специфичность стилей
+
+#### Влияние на компоненты
+- Патчи<br />`radio-group`
+
+
+### [#920](https://github.com/core-ds/core-components/pull/920)
+
+#### Что изменилось
+- Исправлен отступ у слота слева
+
+#### Влияние на компоненты
+- Патчи<br />`link`
+
+
+### [#923](https://github.com/core-ds/core-components/pull/923)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой выпадающий список не открывался после ввода символов на Android девайсах
+
+#### Влияние на компоненты
+- Патчи<br />`select`
+
+
+### [#911](https://github.com/core-ds/core-components/pull/911)
+
+#### Что изменилось
+- Добавлено распознавание gfm strikethrough синтаксиса (~~strikethrough~~)
+
+#### Влияние на компоненты
+- Минорное<br />`markdown`
+
+
+### [#925](https://github.com/core-ds/core-components/pull/925)
+
+#### Что изменилось
+- Добавлен border-radius контенту шторки для фикса черных углов в safari
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+
 ## 42.12.0
 
 <sup><time>10.10.2023</time></sup>

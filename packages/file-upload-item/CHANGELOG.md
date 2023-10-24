@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.2.8
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.1.1
+
 ## 5.2.7
 
 ### Patch Changes

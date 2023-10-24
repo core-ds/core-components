@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.6.0
+
+### Minor Changes
+
+### [#926](https://github.com/core-ds/core-components/pull/926)
+
+-   Тема site переведена на bluetint палитру
+
 ## 9.5.0
 
 ### Minor Changes

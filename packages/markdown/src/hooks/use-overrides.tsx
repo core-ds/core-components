@@ -64,7 +64,12 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                 </Typography.Text>
             ),
             a: (props) => (
-                <Link className='a' target='_blank' rel='noopener noreferrer' href={props.href}>
+                <Link
+                    className='a'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={props.href as string}
+                >
                     {props.children}
                 </Link>
             ),
@@ -80,7 +85,11 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
             ),
             img: (props) => (
                 <div className={cn(styles.imageContainer, 'img')}>
-                    <img alt={props.alt} src={props.src} className={styles.image} />
+                    <img
+                        alt={props.alt as string}
+                        src={props.src as string}
+                        className={styles.image}
+                    />
                 </div>
             ),
             ul: (props) => (

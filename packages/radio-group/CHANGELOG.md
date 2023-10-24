@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+### [#919](https://github.com/core-ds/core-components/pull/919)
+
+-   Уменьшена специфичность стилей
+
 ## 4.1.0
 
 ### Minor Changes

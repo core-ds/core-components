@@ -1,0 +1,24 @@
+import { ArgTypes } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { Link } from '../index';
+import styles from '!!raw-loader!../index.module.css';
+import defaultStyles from '!!raw-loader!../default.module.css';
+import invertedStyles from '!!raw-loader!../inverted.module.css';
+
+## Подключение
+
+```jsx
+import { Link } from '@alfalab/core-components/link';
+```
+
+## Свойства
+
+<ArgTypes of={Link} />
+
+## Переменные
+
+<CssVars
+    css={`
+        ${styles}${defaultStyles}${invertedStyles}
+    `}
+/>
