@@ -18,6 +18,7 @@ import processCss from './tools/rollup/process-css.mjs';
 import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver.mjs';
 import createPackageJson from './tools/rollup/create-package-json.mjs';
 import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator.mjs';
+import externalsWithEntryPoints from './tools/rollup/external-with-entry-points.mjs';
 
 const require = createRequire(import.meta.url);
 
@@ -41,7 +42,10 @@ const baseConfig = {
         '!src/**/*.d.ts',
     ],
     plugins: [wildcardExternal(['@alfalab/core-components-*/**'])],
-    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+    external: [
+        ...externalsWithEntryPoints(Object.keys(pkg.dependencies || {})),
+        ...Object.keys(pkg.peerDependencies || {}),
+    ],
 };
 
 const multiInputPlugin = multiInput.default();

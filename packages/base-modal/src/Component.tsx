@@ -22,10 +22,10 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
+import { browser } from '@alfalab/core-components-shared';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import {
-    getScrollbarSize,
     handleContainer,
     hasScrollbar,
     isScrolledToBottom,
@@ -365,7 +365,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
             if (event.clientX && clientWidth) {
                 // Устанавливаем смещение для абсолютно спозиционированного скроллбара в OSX в 17px.
-                const offset = getScrollbarSize() === 0 ? 17 : 0;
+                const offset = browser.getScrollbarSize() === 0 ? 17 : 0;
 
                 clickedOnScrollbar = event.clientX + offset > clientWidth;
             }
