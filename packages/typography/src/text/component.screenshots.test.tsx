@@ -36,7 +36,13 @@ describe(
                     subComponentName: 'Text',
                     knobs: {
                         children: 'Съешь ещё этих мягких французских булок, да выпей чаю',
-                        view: ['secondary-medium', 'secondary-small', 'component', 'caps'],
+                        view: [
+                            'secondary-medium',
+                            'secondary-small',
+                            'component-primary',
+                            'caps',
+                            'component-secondary',
+                        ],
                         weight: ['regular', 'medium', 'bold'],
                     },
                     size: { width: 250, height: 100 },

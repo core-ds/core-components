@@ -42,6 +42,14 @@
     @mixin paragraph_component;
 }
 
+.component-primary {
+    @mixin paragraph_component_primary;
+}
+
+.component-secondary {
+    @mixin paragraph_component_secondary;
+}
+
 .caps {
     @mixin paragraph_caps;
 }
