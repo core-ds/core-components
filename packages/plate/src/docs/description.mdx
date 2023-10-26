@@ -1,159 +1,241 @@
-Компонент может использоваться самостоятельно или в составе более сложных компонентов
-
 ## Архитектура
 
-Компонент состоит из слотов. Часто используемые конфигурации слотов могут быть сохранены как пресеты.
+Компонент состоит из кастомизируемых слотов.
 
 ## Примеры
 
-### Скругление и обводка
-
 Для плашки можно включить скругление и обводку. Наличие скругления влияет на формат обводки.
 
-```jsx live mobileHeight={510}
+```jsx live
 render(() => {
-    const isMobile = document.body.clientWidth < 450;
+    const [border, setBorder] = React.useState(true);
+    const [rounded, setRounded] = React.useState(true);
     return (
-        <Space fullWidth>
+        <div style={{ height: isMobile() ? 110 : 150 }}>
             <Plate
                 view='positive'
-                title='Компонент плашки'
-                border={false}
-                subAddons={!isMobile && [<Button>Подробнее</Button>]}
-                buttons={isMobile && [<Button>Подробнее</Button>]}
-                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+                title='Пример уведомления'
+                border={border}
+                rounded={rounded}
+                subAddons={!isMobile() && [<Button>Подробнее</Button>]}
+                buttons={isMobile() && [<Button>Подробнее</Button>]}
+                leftAddons={
+                    <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />
+                }
+                breakpoint={BREAKPOINT}
             />
-            <Plate
-                view='positive'
-                title='Компонент плашки'
-                subAddons={!isMobile && [<Button>Подробнее</Button>]}
-                buttons={isMobile && [<Button>Подробнее</Button>]}
-                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+            <Gap size='xl' />
+            <Switch
+                block={true}
+                checked={rounded}
+                label='Скругление'
+                onChange={() => setRounded(!rounded)}
             />
-            <Plate
-                view='positive'
-                title='Компонент плашки'
-                rounded={false}
-                border={false}
-                subAddons={!isMobile && [<Button>Подробнее</Button>]}
-                buttons={isMobile && [<Button>Подробнее</Button>]}
-                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+            <Gap size='m' />
+            <Switch
+                block={true}
+                checked={border}
+                label='Обводка'
+                onChange={() => setBorder(!border)}
             />
-            <Plate
-                view='positive'
-                title='Компонент плашки'
-                rounded={false}
-                subAddons={!isMobile && [<Button>Подробнее</Button>]}
-                buttons={isMobile && [<Button>Подробнее</Button>]}
-                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-            />
-        </Space>
+        </div>
     );
 });
 ```
 
-### Фон
+Компоненту можно задавать различный цвет фона, добавлять тень или фоновое изображение.
 
-Компоненту может быть задан произвольный фон с использованием токенов из набора bg или передано фоновое изображение. При необходимости для плашки может быть включена тень.
-
-```jsx live mobileHeight={560}
+```jsx live mobileHeight={490}
 render(() => {
-    const isMobile = document.body.clientWidth < 450;
+    const css = `
+        :root {
+            --plate-background: rgba(207, 112, 255, 0.1);
+            --plate-border-color: rgba(207, 112, 255);
+        }
+    `;
     return (
-        <Space fullWidth>
+        <Container>
+            <style>{css}</style>
             <Plate
                 view='positive'
-                hasCloser
-                title='Компонент плашки'
-                subAddons={!isMobile && [<Button>Подробнее</Button>, <Button>Хорошо</Button>]}
-                buttons={isMobile && [<Button>Подробнее</Button>, <Button>Хорошо</Button>]}
-                leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
+                title='Пример уведомления'
+                leftAddons={
+                    <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />
+                }
+                breakpoint={BREAKPOINT}
             />
-
+            <Gap size='l' />
             <Plate
                 view='negative'
-                hasCloser
-                title='Компонент плашки'
-                subAddons={!isMobile && [<Button>Хорошо</Button>]}
-                buttons={isMobile && [<Button>Хорошо</Button>]}
-                leftAddons={<Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />}
+                title='Пример уведомления'
+                leftAddons={
+                    <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />
+                }
+                breakpoint={BREAKPOINT}
             />
-
+            <Gap size='l' />
             <Plate
                 view='attention'
-                hasCloser
-                title='Компонент плашки'
-                leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}
+                title='Пример уведомления'
+                leftAddons={
+                    <Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />
+                }
+                breakpoint={BREAKPOINT}
             />
+            <Gap size='l' />
             <Plate
                 view='common'
-                hasCloser
-                title='Компонент плашки'
+                title='Пример уведомления'
                 leftAddons={
                     <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
                 }
+                breakpoint={BREAKPOINT}
             />
+            <Gap size='l' />
             <Plate
                 view='custom'
-                hasCloser
-                title='Компонент плашки'
-                leftAddons={
-                    <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-                }
+                border={true}
+                title='Пример уведомления'
+                leftAddons={<DiamondsMIcon color='#CF70FF' />}
+                breakpoint={BREAKPOINT}
             />
+            <Gap size='l' />
             <Plate
                 view='custom'
-                hasCloser
-                title='Компонент плашки'
+                title='Пример уведомления'
                 className='plateGlobal'
-                leftAddons={
-                    <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
-                }
+                leftAddons={<DiamondsMIcon />}
+                breakpoint={BREAKPOINT}
             />
-        </Space>
+        </Container>
     );
 });
 ```
 
-### Механики
-
-Классическая
-
-```jsx live
-<Plate
-    view='positive'
-    hasCloser
-    title='Компонент плашки'
-    leftAddons={<Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon />} />}
-    buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
->
-    Самая обыкновенная плашка
-</Plate>
-```
-
-Collapsed / Expanded
+Ниже представлены различные механики и способы расположения контента.
 
 ```jsx live
 render(() => {
     const [folded, setFolded] = React.useState(true);
+    const [value, setValue] = React.useState({
+        badge: 'yes',
+        title: 'bold',
+        subTitle: 'no',
+        button: 'no',
+        width: 'limit',
+        mechanics: 'no',
+    });
+
+    const onChange = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.value });
+    };
 
     return (
-        <Space fullWidth>
+        <Container>
             <Plate
-                view='negative'
-                hasCloser
-                title='Компонент плашки'
-                foldable
+                view='positive'
+                hasCloser={value.mechanics === 'close'}
+                title='Фёдор Михайлович Достоевский'
+                limitContentWidth={value.width === 'limit'}
+                rowLimit={value.subTitle === 'limit' && 3}
+                titleView={value.title}
+                foldable={value.mechanics === 'folded'}
                 folded={folded}
                 onToggle={() => setFolded(!folded)}
                 leftAddons={
-                    <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon />} />
+                    value.badge === 'yes' && (
+                        <Badge
+                            view='icon'
+                            iconColor='positive'
+                            content={<CheckmarkOnCircleMIcon />}
+                        />
+                    )
                 }
-                buttons={[<Button>Хорошо</Button>, <Button>Подробнее</Button>]}
+                subAddons={
+                    value.button === 'right' && [<Button>Отлично</Button>, <Button>Хорошо</Button>]
+                }
+                buttons={
+                    value.button === 'bottom' && [<Button>Хорошо</Button>, <Button>Отлично</Button>]
+                }
+                breakpoint={BREAKPOINT}
             >
-                Самая обыкновенная плашка
+                После смерти Достоевский был признан классиком русской литературы и одним из лучших
+                романистов мирового значения, считается первым представителем персонализма в России.
+                Творчество русского писателя оказало воздействие на мировую литературу, в частности
+                на творчество ряда лауреатов Нобелевской премии по литературе, философов Фридриха
+                Ницше и Жана-Поля Сартра, а также на становление различных психологических учений и
+                экзистенциализма, его новелла 1864 года «Записки из подполья» считается одним из
+                первых произведений экзистенциалистской литературы.}
             </Plate>
-        </Space>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Бейдж'
+                direction='vertical'
+                name='badge'
+                onChange={onChange}
+                value={value.badge}
+            >
+                <Radio size='m' label='Нет' value='no' />
+                <Radio size='m' label='Есть' value='yes' />
+            </RadioGroup>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Заголовок'
+                direction='vertical'
+                name='title'
+                onChange={onChange}
+                value={value.title}
+            >
+                <Radio size='m' label='Обычный' value='bold' />
+                <Radio size='m' label='Облегчённый' value='light' />
+            </RadioGroup>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Вспомогательный текст'
+                direction='vertical'
+                name='subTitle'
+                onChange={onChange}
+                value={value.subTitle}
+            >
+                <Radio size='m' label='Без ограничения по высоте' value='no' />
+                <Radio size='m' label='Ограничен тремя строками' value='limit' />
+            </RadioGroup>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Кнопки'
+                direction='vertical'
+                name='button'
+                onChange={onChange}
+                value={value.button}
+            >
+                <Radio size='m' label='Нет' value='no' />
+                <Radio size='m' label='Справа от заголовка' value='right' />
+                <Radio size='m' label='Под контентом' value='bottom' />
+            </RadioGroup>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Ограничение ширины контентной части'
+                direction='vertical'
+                name='width'
+                onChange={onChange}
+                value={value.width}
+            >
+                <Radio size='m' label='С ограничением' value='limit' />
+                <Radio size='m' label='Без ограничения' value='no' />
+            </RadioGroup>
+            <Gap size='xl' />
+            <RadioGroup
+                label='Механика'
+                direction='vertical'
+                name='mechanics'
+                onChange={onChange}
+                value={value.mechanics}
+            >
+                <Radio size='m' label='Нет' value='no' />
+                <Radio size='m' label='Скрыть контент' value='folded' />
+                <Radio size='m' label='Убрать уведомление' value='close' />
+            </RadioGroup>
+        </Container>
     );
 });
 ```
