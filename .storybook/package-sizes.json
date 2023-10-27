@@ -3,9 +3,9 @@
         "index.js": 2.69
     },
     "universal-date-input": {
-        "desktop.js": 127.86,
-        "index.js": 127.96,
-        "mobile.js": 127.86
+        "desktop.js": 128.04,
+        "index.js": 128.15,
+        "mobile.js": 128.04
     },
     "underlay": {
         "index.js": 3.25
@@ -81,7 +81,7 @@
         "index.js": 2.36
     },
     "sortable-list": {
-        "index.js": 52.31
+        "index.js": 52.95
     },
     "slider": {
         "index.js": 29.1
@@ -354,12 +354,12 @@
         "index.js": 63.58
     },
     "calendar-range": {
-        "index.js": 234.1
+        "index.js": 234.18
     },
     "calendar-input": {
-        "desktop.js": 131.53,
-        "index.js": 226.5,
-        "mobile.js": 225.59,
+        "desktop.js": 131.61,
+        "index.js": 226.58,
+        "mobile.js": 225.67,
         "shared.js": 64.83
     },
     "button": {
