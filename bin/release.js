@@ -30,6 +30,9 @@ const REL_TYPE_TO_RU = {
 
 const NEW_COMPONENT_PHRASE = 'новый компонент';
 
+let nextReleaseType = 'none';
+const currentPackageVersion = getRootPkg().version;
+
 function escapeShellChars(str) {
     return str.replace(/["`$]/g, '\\$&');
 }
@@ -39,6 +42,17 @@ function setupGit() {
     shell.exec(`git config user.email "${config.gitEmail}"`, execOptions);
     shell.exec('git config lfs.allowincompletepush true', execOptions);
     shell.exec('git config commit.gpgsign false', execOptions);
+}
+
+function startCreatingArchiveDemo() {
+    logger.log('=> Start creating archive demo');
+
+    shell.exec(
+        `curl -X POST https://api.github.com/repos/core-ds/core-components/dispatches \\
+          -H 'Accept: application/vnd.github.everest-preview+json' \\
+          -u '${config.gitUsername}:${process.env.GITHUB_TOKEN}' \\
+          --data '{"event_type": "create_archive_demo", "client_payload": {"tag": "v${currentPackageVersion}"}}'`,
+    );
 }
 
 async function getChangesets() {
@@ -179,7 +193,7 @@ function generateChanges(groupedCs, nextVersion) {
 async function updateChangelogAndPackageJson(changesets) {
     const groupedCs = groupByPullRequest(changesets);
 
-    const nextReleaseType = (() => {
+    nextReleaseType = (() => {
         if (hasReleaseType(groupedCs, 'major')) return 'major';
         if (hasReleaseType(groupedCs, 'minor')) return 'minor';
         if (hasReleaseType(groupedCs, 'patch')) return 'patch';
@@ -307,6 +321,10 @@ async function releasePackages() {
         if (released) {
             logger.log('\n\nRelease packages');
             await releasePackages();
+
+            if (nextReleaseType === 'major') {
+                startCreatingArchiveDemo();
+            }
         } else {
             logger.info('no new version is released');
         }
