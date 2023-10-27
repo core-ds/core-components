@@ -10,7 +10,7 @@ if (process.env.BUILD_STORYBOOK_FROM_DIST === 'true') {
         componentsContext = require.context(
             '../dist',
             true,
-            /^\.\/(.*)\/modern\/(index|desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible).js$/,
+            /^\.\/(.*)\/modern\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).js$/,
         );
     } catch (e) {
         console.error('Отсутствует директория dist (.storybook/scope.ts)');
@@ -19,7 +19,7 @@ if (process.env.BUILD_STORYBOOK_FROM_DIST === 'true') {
     componentsContext = require.context(
         '../packages',
         true,
-        /^\.\/(.*)\/src\/(index|desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible).ts$/,
+        /^\.\/(.*)\/src\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).ts$/,
     );
 }
 

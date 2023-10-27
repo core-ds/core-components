@@ -121,7 +121,7 @@ const es5 = {
         json(),
         postcssPlugin,
         assetsCopyPlugin('dist'),
-        copy({ targets: [{ src: ['package.json'], dest: 'dist' }] }),
+        copy({ flatten: false, targets: [{ src: ['**/package.json'], dest: 'dist' }] }),
         sourceCopyPlugin,
         compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
