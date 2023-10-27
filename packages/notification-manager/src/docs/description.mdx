@@ -16,7 +16,7 @@ render(() => {
         } else if (num % 3 === 0) {
             return 'negative';
         }
-    }
+    };
 
     const addNotification = () => {
         const newNotification = (
@@ -26,23 +26,23 @@ render(() => {
                 autoCloseDelay={3000}
                 id={count.toString()}
                 key={count.toString()}
-                zIndex={1000 + count }
+                zIndex={1000 + count}
             >
                 Описание уведомления
             </Notification>
         );
-        notifications.push(newNotification);
-        setNotifications([...notifications]);
-        setCount(val => val + 1);
+
+        setNotifications([...notifications, newNotification]);
+        setCount((val) => val + 1);
     };
 
-    const removeNotification = React.useCallback(id => {
+    const removeNotification = React.useCallback((id) => {
         /**
          * Обратите внимание, что актуальный массив нотификаций
          * нужно брать из аргументов функции обновления состояния.
          */
-        setNotifications(actualNotifications =>
-            actualNotifications.filter(notification => notification.props.id !== id),
+        setNotifications((actualNotifications) =>
+            actualNotifications.filter((notification) => notification.props.id !== id),
         );
     }, []);
 
