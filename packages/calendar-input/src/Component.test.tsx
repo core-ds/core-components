@@ -18,7 +18,7 @@ describe('CalendarInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     const getSelectedDay = () =>
         document.querySelector('td[aria-selected="true"]') as HTMLButtonElement;
 
@@ -78,10 +78,10 @@ describe('CalendarInput', () => {
 
     describe('Open/Close behavior', () => {
         it('should open calendar on click', async () => {
-            const { container } = render(
+            const { getByRole } = render(
                 <CalendarInput calendarProps={{ className: 'calendar' }} />,
             );
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.click(component);
@@ -90,10 +90,10 @@ describe('CalendarInput', () => {
         });
 
         it('should open calendar on focus', async () => {
-            const { container } = render(
+            const { getByRole } = render(
                 <CalendarInput calendarProps={{ className: 'calendar' }} />,
             );
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.focus(component);
@@ -102,10 +102,10 @@ describe('CalendarInput', () => {
         });
 
         it('should close calendar on blur', async () => {
-            const { container } = render(
+            const { getByRole } = render(
                 <CalendarInput calendarProps={{ className: 'calendar' }} />,
             );
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.focus(component);
@@ -119,10 +119,10 @@ describe('CalendarInput', () => {
         });
 
         it('should close calendar on escape', async () => {
-            const { container } = render(
+            const { getByRole } = render(
                 <CalendarInput calendarProps={{ className: 'calendar' }} />,
             );
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.focus(component);
@@ -138,13 +138,13 @@ describe('CalendarInput', () => {
 
         it('should call "onCalendarOpen" callback', async () => {
             const onCalendarOpen = jest.fn();
-            const { container } = render(
+            const { getByRole } = render(
                 <CalendarInput
                     calendarProps={{ className: 'calendar' }}
                     onCalendarOpen={onCalendarOpen}
                 />,
             );
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.focus(component);
@@ -157,13 +157,13 @@ describe('CalendarInput', () => {
 
         it('should call "onCalendarClose" callback', async () => {
             const onCalendarClose = jest.fn();
-            const { container } = render(
+            const { getByRole } = render(
                 <CalendarInput
                     calendarProps={{ className: 'calendar' }}
                     onCalendarClose={onCalendarClose}
                 />,
             );
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.focus(component);
@@ -176,20 +176,14 @@ describe('CalendarInput', () => {
         });
 
         it('should toggle calendar on enter if input focused', async () => {
-            const { container, queryByRole } = render(
+            const { queryByRole } = render(
                 <CalendarInput calendarProps={{ className: 'calendar' }} />,
             );
-            const component = container.firstElementChild as HTMLDivElement;
+
             const input = queryByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
-                fireEvent.focus(component);
-                expect(document.querySelector('.calendar')).toBeInTheDocument();
-            });
-
-            fireEvent.keyDown(component, { key: 'Enter' });
-
-            await waitFor(() => {
+                input.focus();
                 expect(document.querySelector('.calendar')).toBeInTheDocument();
             });
 
@@ -223,9 +217,9 @@ describe('CalendarInput', () => {
         it('should set value to calendar', async () => {
             const value = '01.01.2020';
             const value2 = '02.01.2020';
-            const { container, rerender } = render(<CalendarInput value={value} />);
+            const { getByRole, rerender } = render(<CalendarInput value={value} />);
 
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.click(component);
@@ -296,9 +290,9 @@ describe('CalendarInput', () => {
 
         it('should set default value to calendar', async () => {
             const value = '01.01.2020';
-            const { container } = render(<CalendarInput defaultValue={value} />);
+            const { getByRole } = render(<CalendarInput defaultValue={value} />);
 
-            const component = container.firstElementChild as HTMLDivElement;
+            const component = getByRole('textbox') as HTMLInputElement;
 
             await waitFor(() => {
                 fireEvent.click(component);

@@ -33,6 +33,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
             autoCorrection,
             open,
             value: valueProp,
+            inputWrapperRef: inputWrapperRefProp = null,
             defaultValue,
             minDate = DEFAULT_MIN_DATE,
             maxDate = DEFAULT_MAX_DATE,
@@ -178,7 +179,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                     {...restProps}
                     breakpoint={breakpoint}
                     dataTestId={dataTestId}
-                    wrapperRef={inputWrapperRef}
+                    wrapperRef={mergeRefs([inputWrapperRef, inputWrapperRefProp])}
                     ref={mergeRefs([ref, inputRef])}
                     value={inputValue}
                     inputMode='decimal'

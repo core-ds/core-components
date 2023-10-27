@@ -28,7 +28,7 @@ export type DateSegments<T = string> = {
     minutes: T;
 };
 
-export interface BaseUniversalDateInputProps extends Omit<InputProps, 'onChange'> {
+export interface BaseUniversalDateInputProps extends Omit<InputProps, 'onChange' | 'wrapperRef'> {
     /**
      * Автоматическое исправление ввода
      *  @default true
@@ -81,6 +81,11 @@ export interface BaseUniversalDateInputProps extends Omit<InputProps, 'onChange'
      * Пропсы поповера
      */
     popoverProps?: PopoverProps;
+
+    /**
+     * Ref для обертки input
+     */
+    inputWrapperRef?: React.Ref<HTMLDivElement> | null;
 
     /**
      *  Обработчик открытия календаря
@@ -176,6 +181,7 @@ type PrivateProps =
     | 'withTime'
     | 'open'
     | 'calendarRef'
+    | 'inputWrapperRef'
     | 'wrapperHandlers'
     | 'onPickerClick';
 
