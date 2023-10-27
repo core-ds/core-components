@@ -1,3 +1,108 @@
+## 42.15.0
+
+<sup><time>27.10.2023</time></sup>
+
+### [#947](https://github.com/core-ds/core-components/pull/947)
+
+#### Что изменилось
+- DragOverlay теперь рендерится через портал
+- Добавлены пропы portalProps и dragOverlayProps
+
+#### Влияние на компоненты
+- Минорное<br />`sortable-list`
+
+
+### [#941](https://github.com/core-ds/core-components/pull/941)
+
+#### Что изменилось
+- Исправлен радиус прогресса
+
+#### Влияние на компоненты
+- Патчи<br />`slider`
+
+
+### [#942](https://github.com/core-ds/core-components/pull/942)
+
+#### Что изменилось
+- Исправлен кастомный горизонтальный скроллбар
+
+#### Влияние на компоненты
+- Патчи<br />`vars`
+
+
+### [#940](https://github.com/core-ds/core-components/pull/940)
+
+#### Что изменилось
+- Немного увеличена высота мобильного календаря
+- Кнопки с годами теперь выровнены по левому краю, а не по центру
+
+#### Влияние на компоненты
+- Патчи<br />`calendar`
+
+<br />
+
+#### Что изменилось
+- getScrollbarSize перенесена в shared
+
+#### Влияние на компоненты
+- Минорное<br />`base-modal` `modal` `shared`
+
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+#### Что изменилось
+- Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+#### Влияние на компоненты
+- Минорное<br />`button` `calendar` `calendar-input` `checkbox-group` `code-input`<br /> `confirmation` `custom-picker-button` `date-range-input` `date-time-input` `filter-tag`<br /> `form-control` `icon-view` `input` `input-autocomplete` `international-phone-input`<br /> `markdown` `modal` `number-input` `picker-button` `plate`<br /> `radio-group` `select` `side-panel` `stepper-input` `system-message`<br /> `tabs` `tag` `toast` `toast-plate` `tooltip`<br /> `universal-date-input`
+
+
+### [#948](https://github.com/core-ds/core-components/pull/948)
+
+#### Что изменилось
+- Исправлена анимация появления нотификации
+
+#### Влияние на компоненты
+- Патчи<br />`notification-manager`
+
+
+### [#910](https://github.com/core-ds/core-components/pull/910)
+
+#### Что изменилось
+- Предотвращает открытие календаря при взаимодействии с элементами вне поля
+
+#### Влияние на компоненты
+- Патчи<br />`calendar-input`
+
+
+### [#936](https://github.com/core-ds/core-components/pull/936)
+
+#### Что изменилось
+- Исправлена проблема с пагинацией при горизонтальной прокрутке
+
+#### Влияние на компоненты
+- Патчи<br />`table`
+
+
+### [#943](https://github.com/core-ds/core-components/pull/943)
+
+#### Что изменилось
+- Исправлен баг с некорректным расчетом видимых тэгов
+
+#### Влияние на компоненты
+- Патчи<br />`select-with-tags`
+
+
+### [#939](https://github.com/core-ds/core-components/pull/939)
+
+#### Что изменилось
+- Добавлен новый пропс titleProps в компонент PureCell.AmountTitle
+
+#### Влияние на компоненты
+- Патчи<br />`pure-cell`
+
+
+
 ## 42.14.1
 
 <sup><time>24.10.2023</time></sup>
