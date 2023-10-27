@@ -1,0 +1,39 @@
+name: Archive Demo Build
+
+on:
+  repository_dispatch:
+    types: [create_archive_demo]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Версия core-components в виде vx.x.x, например v42.0.0'
+        required: true
+        default: ''
+        type: string
+
+jobs:
+  build:
+    name: Demo build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.version || github.event.client_payload.tag }}
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Set branch name
+        run: |
+            echo "BRANCH_NAME=${{ github.event.inputs.version || github.event.client_payload.tag }}" >> $GITHUB_ENV
+
+      - name: Run build
+        id: demo_build
+        run: node ./bin/demo-build.js
+
+      - name: Publish storybook
+        run: |
+          cd ./storybook-demo
+          git push -q -f "https://core-ds-bot:${{ secrets.BOT_AUTH_TOKEN }}@github.com/core-ds/core-components.git" master:gh-pages

@@ -13,9 +13,8 @@ const defaultConfig = {
     gitRemote: 'origin',
     targetBranch: 'gh-pages',
     excluded_directories: ['node_modules'],
+    maxArchiveVersions: 10,
 };
-
-const isMajorArchiveBranch = (branchName) => /^v\d+\.\d+\.\d+$/.test(branchName);
 
 shell.exec(`git config user.name "${defaultConfig.gitUsername}"`, execOptions);
 shell.exec(`git config user.email "${defaultConfig.gitEmail}"`, execOptions);
@@ -58,6 +57,14 @@ if (currentBranch === defaultConfig.targetBranch) {
             !isMajorArchiveBranch(directory),
     );
 
+    const archiveVersions = directories.filter((d) => isMajorArchiveBranch(d)).sort();
+    const archiveForRemove = archiveVersions.slice(
+        0,
+        Math.max(archiveVersions.length - defaultConfig.maxArchiveVersions, 0),
+    );
+
+    shouldRemove.push(...archiveForRemove);
+
     console.log('=> should remove', shouldRemove);
 
     /** Trying to delete directories */
@@ -78,4 +85,8 @@ if (currentBranch === defaultConfig.targetBranch) {
     );
 } else {
     console.log(`Failed to switch to ${defaultConfig.targetBranch}`);
+}
+
+function isMajorArchiveBranch(branchName) {
+    return /^v\d+\.\d+\.\d+$/.test(branchName);
 }

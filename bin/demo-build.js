@@ -7,6 +7,7 @@
 /* eslint-disable no-console */
 const shell = require('shelljs');
 const parseGitUrl = require('git-url-parse');
+const fs = require('fs');
 
 /** Config for github */
 const defaultConfig = {
@@ -24,11 +25,10 @@ const execOptions = {
     fatal: true,
 };
 
-const isMajorArchiveBranch = (branchName) => /^v\d+\.\d+\.\d+$/.test(branchName);
-
 const lastCommitHash = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
 /** Current git branch */
 const sourceBranch =
+    process.env.BRANCH_NAME ||
     process.env.GITHUB_HEAD_REF ||
     process.env.GITHUB_REF_NAME ||
     shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
@@ -103,6 +103,7 @@ shell.cp('-rf', `../${tempOutputDir}`, `./`);
 if (sourceBranch === 'master') {
     shell.rm('-rf', `./master`);
     shell.mv('-f', `./${tempOutputDir}`, `./master`);
+    saveArchiveVersionsJson();
 }
 
 // The first and only commit to this new Git repo contains all the
@@ -142,4 +143,19 @@ function parseScopeFromCommit(message) {
     if (matches && ['themes', 'vars'].includes(matches[1]) === false) {
         return matches[1];
     }
+}
+
+function isMajorArchiveBranch(branchName) {
+    return /^v\d+\.\d+\.\d+$/.test(branchName);
+}
+
+function saveArchiveVersionsJson() {
+    const directories = shell
+        .exec(`ls -d */`, execOptions)
+        .stdout.trim()
+        .replace(/\//g, '')
+        .split('\n');
+
+    const archiveList = directories.filter((directory) => isMajorArchiveBranch(directory));
+    fs.writeFileSync('./master/archive-versions.json', JSON.stringify(archiveList));
 }
