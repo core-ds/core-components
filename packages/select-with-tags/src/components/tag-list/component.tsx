@@ -82,7 +82,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         setShowMoreEnabled(isPopoverOpen);
     }, [isPopoverOpen]);
 
-    useLayoutEffect_SAFE_FOR_SSR(() => {
+    useEffect(() => {
         setVisibleElements(selectedMultiple.length);
         setShowMoreEnabled(false);
     }, [selectedMultiple]);
