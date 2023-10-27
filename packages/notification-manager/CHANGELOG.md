@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.3.9
+
+### Patch Changes
+
+### [#948](https://github.com/core-ds/core-components/pull/948)
+
+-   Исправлена анимация появления нотификации
+
+-   Обновлены зависимости
+    -   notification@6.2.9
+
 ## 5.3.8
 
 ### Patch Changes

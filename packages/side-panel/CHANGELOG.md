@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.5.0
+    -   shared@0.7.0
+    -   navigation-bar@0.5.9
+    -   drawer@5.0.4
+
 ## 4.0.9
 
 ### Patch Changes

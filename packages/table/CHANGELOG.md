@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.4.4
+
+### Patch Changes
+
+### [#936](https://github.com/core-ds/core-components/pull/936)
+
+-   Исправлена проблема с пагинацией при горизонтальной прокрутке
+
+-   Обновлены зависимости
+    -   button@9.1.0
+    -   select@15.3.0
+    -   pagination@2.1.3
+
 ## 2.4.3
 
 ### Patch Changes

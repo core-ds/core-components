@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.6.1
+
+### Patch Changes
+
+### [#942](https://github.com/core-ds/core-components/pull/942)
+
+-   Исправлен кастомный горизонтальный скроллбар
+
 ## 9.6.0
 
 ### Minor Changes

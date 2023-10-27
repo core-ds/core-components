@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.5.0
+
+### Minor Changes
+
+### [#940](https://github.com/core-ds/core-components/pull/940)
+
+-   getScrollbarSize перенесена в shared
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.7.0
+
 ## 5.4.1
 
 ### Patch Changes

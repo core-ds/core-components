@@ -1,5 +1,21 @@
 # @alfalab/core-components-international-phone-input
 
+## 1.1.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.3.0
+    -   input-autocomplete@10.3.0
+    -   select@15.3.0
+    -   shared@0.7.0
+
 ## 1.0.4
 
 ### Patch Changes

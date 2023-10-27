@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@9.1.0
+    -   bottom-sheet@6.11.3
+
 ## 7.1.10
 
 ### Patch Changes

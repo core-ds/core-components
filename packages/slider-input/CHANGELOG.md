@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.2.10
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   slider@4.3.1
+    -   input@12.3.0
+
 ## 7.2.9
 
 ### Patch Changes

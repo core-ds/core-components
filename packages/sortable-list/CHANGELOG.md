@@ -1,5 +1,19 @@
 # @alfalab/core-components-sortable-list
 
+## 1.2.0
+
+### Minor Changes
+
+### [#947](https://github.com/core-ds/core-components/pull/947)
+
+-   DragOverlay теперь рендерится через портал
+-   Добавлены пропы portalProps и dragOverlayProps
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.7.0
+
 ## 1.1.5
 
 ### Patch Changes

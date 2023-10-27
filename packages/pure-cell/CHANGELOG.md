@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.4.8
+
+### Patch Changes
+
+### [#939](https://github.com/core-ds/core-components/pull/939)
+
+-   Добавлен новый пропс titleProps в компонент PureCell.AmountTitle
+
+-   Обновлены зависимости
+    -   button@9.1.0
+    -   shared@0.7.0
+
 ## 4.4.7
 
 ### Patch Changes
