@@ -27,6 +27,9 @@ const execOptions = {
 
 const lastCommitHash = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
 /** Current git branch */
+console.log('BRANCH_NAME = ' + process.env.BRANCH_NAME);
+console.log('env', process.env);
+
 const sourceBranch =
     process.env.BRANCH_NAME ||
     process.env.GITHUB_HEAD_REF ||

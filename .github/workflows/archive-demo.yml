@@ -22,12 +22,16 @@ jobs:
         with:
           ref: ${{ github.event.inputs.version || github.event.client_payload.tag }}
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Install dependencies
         run: yarn
 
       - name: Set branch name
         run: |
-            echo "BRANCH_NAME=${{ github.event.inputs.version || github.event.client_payload.tag }}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${{ github.event.inputs.version || github.event.client_payload.tag }}" >> $GITHUB_ENV
 
       - name: Run build
         id: demo_build
