@@ -105,6 +105,7 @@ export const parameters = {
                 'Components overview',
                 'Icons overview',
                 'Changelog',
+                'Museum',
                 'Sandbox',
                 'Components',
                 'Deprecated components',
