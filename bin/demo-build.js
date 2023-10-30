@@ -156,6 +156,6 @@ function saveArchiveVersionsJson() {
         .replace(/\//g, '')
         .split('\n');
 
-    const archiveList = directories.filter((directory) => isMajorArchiveBranch(directory));
+    const archiveList = directories.filter((directory) => isMajorArchiveBranch(directory)).sort();
     fs.writeFileSync('./master/archive-versions.json', JSON.stringify(archiveList));
 }
