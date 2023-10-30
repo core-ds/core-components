@@ -4,9 +4,10 @@ import { addons } from '@storybook/manager-api';
 import { setThemeStylesInIframeHtmlPage, themeChangeListen } from './addons/theme-switcher/utils';
 import { modeChangeListen, setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
 import { ModeChecker } from './components/mode-checker';
-import { rmCommentsFromCss, setGuidelinesStyles } from './addons/utils';
+import { rmCommentsFromCss, setGuidelinesStyles, setScrollbarStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
 import guidelinesStyles from '!css-loader!!postcss-loader!./public/guidelines.css';
+import scrollbarStyles from '!css-loader!!postcss-loader!./scrollbar.css';
 import './blocks/code-editor/github-light-theme.css';
 
 import alfaTheme from './theme';
@@ -16,6 +17,7 @@ setThemeStylesInIframeHtmlPage();
 setModeVarsInIframeHtmlPage();
 modeChangeListen();
 themeChangeListen();
+setScrollbarStyles(scrollbarStyles.toString());
 
 if (window.location.href.includes('guidelines')) {
     setGuidelinesStyles(rmCommentsFromCss(guidelinesStyles.toString()));

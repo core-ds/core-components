@@ -1,4 +1,5 @@
 import { setMetricConfig, setManagerObserveConnection } from '../metrics';
+import { browser } from '@alfalab/core-components-shared';
 
 export const MODE_COLORS_TAG_ID = 'mode-colors';
 
@@ -29,6 +30,12 @@ export function getOrCreateStyleTag(id, beforeId, doc = getStoryDoc()) {
 
 export function setGuidelinesStyles(styles) {
     getOrCreateStyleTag('guidelines', null, document).innerHTML = styles;
+}
+
+export function setScrollbarStyles(styles) {
+    if (browser.getScrollbarSize() > 0 && !('safari' in window)) {
+        getOrCreateStyleTag('scrollbar', null, document).innerHTML = styles;
+    }
 }
 
 export const extractMixinContent = (css) => css.trim().split('\n').slice(1, -1).join('\n');
