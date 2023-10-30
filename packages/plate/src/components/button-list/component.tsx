@@ -36,7 +36,7 @@ export const ButtonList: FC<ButtonListProps> = ({
                               // eslint-disable-next-line react/no-array-index-key
                               key: index,
                               size: 'xxs',
-                              view: index === 0 ? 'secondary' : 'link',
+                              view: button.props.view || (index === 0 ? 'secondary' : 'link'),
                               className: cn(button.props.className, buttonClassName),
                           })
                         : null,

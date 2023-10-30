@@ -79,7 +79,7 @@ export const plate: Story = {
                     leftAddons={boolean('leftAddons', true) ? VIEWS_MAP[view].addon : null}
                     buttons={
                         boolean('buttons', false)
-                            ? [<Button view='primary'>Кнопка</Button>, <Button>Кнопка</Button>]
+                            ? [<Button>Кнопка</Button>, <Button>Кнопка</Button>]
                             : null
                     }
                     subAddons={
@@ -158,7 +158,7 @@ export const plate_mobile: Story = {
                     leftAddons={boolean('leftAddons', true) ? VIEWS_MAP[view].addon : null}
                     buttons={
                         boolean('buttons', false)
-                            ? [<Button view='primary'>Кнопка</Button>, <Button>Кнопка</Button>]
+                            ? [<Button>Кнопка</Button>, <Button>Кнопка</Button>]
                             : null
                     }
                     subAddons={
@@ -238,7 +238,7 @@ export const plate_desktop: Story = {
                     leftAddons={boolean('leftAddons', true) ? VIEWS_MAP[view].addon : null}
                     buttons={
                         boolean('buttons', false)
-                            ? [<Button view='primary'>Кнопка</Button>, <Button>Кнопка</Button>]
+                            ? [<Button>Кнопка</Button>, <Button>Кнопка</Button>]
                             : null
                     }
                     subAddons={
