@@ -149,6 +149,11 @@
     align-self: flex-start;
 }
 
+.rowReverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .bold,
 .light {
     word-break: break-word;
@@ -225,7 +230,13 @@
     display: flex;
 }
 
-.button {
+.subAddons .button {
+    &:not(:first-child) {
+        margin-right: var(--gap-xs);
+    }
+}
+
+.containerButton .button {
     &:not(:last-child) {
         margin-right: var(--gap-xs);
     }
