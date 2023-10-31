@@ -1,34 +1,27 @@
-Статус исполнения/подключения или маркетингового выделения
-
-### Статус исполнения/подключения
-
-`view="soft"`
-
-Применяется в таблицах и др. компонентах, отображает статус исполнения или подключения чего-либо.
-(Исполнено, Отменено, На подпись и т.д)
+## Примеры
 
 ```jsx live
-<Space direction='horizontal'>
-    {colors.map(color => (
-        <Status view='soft' color={color} key={color}>
-            Label
-        </Status>
-    ))}
-</Space>
-```
-
-### Статус лейбл
-
-`view="contrast"`
-
-Применяется для отображения маркетингового статуса продукта/услуги (Акция, Скидка, Новинка и т.д)
-
-```jsx live
-<Space direction='horizontal'>
-    {colors.map(color => (
-        <Status view='contrast' color={color} key={color}>
-            Label
-        </Status>
-    ))}
-</Space>
+<Container>
+    <div>
+        {colors.map((color) => (
+            <>
+                <Status view='contrast' color={color} key={color}>
+                    Label
+                </Status>
+                <Gap size='l' direction='horizontal' />
+            </>
+        ))}
+    </div>
+    <Gap size='l' />
+    <div>
+        {colors.map((color) => (
+            <>
+                <Status view='soft' color={color} key={color}>
+                    Label
+                </Status>
+                <Gap size='l' direction='horizontal' />
+            </>
+        ))}
+    </div>
+</Container>
 ```

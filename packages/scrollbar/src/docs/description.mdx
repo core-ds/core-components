@@ -1,47 +1,46 @@
-Компонент скроллбара.
-
-Рекомендуется использовать только внутри компонентов, а не для всей страницы целиком.
-
-### Вертикальный скролл
+## Примеры
 
 ```jsx live
 render(() => {
     const getChildStyle = (bgColor) => ({
-      height: 80,
-      textAlign: 'center',
-      lineHeight: '80px',
-      fontSize: 40,
-      fontWeight: 700,
-      color: 'var(--color-light-text-tertiary)',
-      background: `var(${bgColor})`
+        height: 80,
+        textAlign: 'center',
+        lineHeight: '80px',
+        fontSize: 40,
+        fontWeight: 700,
+        color: 'var(--color-light-text-tertiary)',
+        background: `var(${bgColor})`,
     });
     return (
-        <div style={{height: 200}}>
-              <Scrollbar style={{height: '100%'}} autoHide={false}>
-                    {new Array(51).fill(null).map((_, idx) => {
-                        const style = getChildStyle(idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary');
-                        return (<div key={idx} style={style}>{idx}</div>);
-                    })}
-              </Scrollbar>
+        <div style={{ height: 240, margin: 'var(--gap-l-neg)' }}>
+            <Scrollbar style={{ height: '100%' }} autoHide={false}>
+                {new Array(51).fill(null).map((_, idx) => {
+                    const style = getChildStyle(
+                        idx % 2 === 0 ? '--color-light-bg-tertiary' : '--color-light-bg-secondary',
+                    );
+                    return (
+                        <div key={idx} style={style}>
+                            {idx + 1}
+                        </div>
+                    );
+                })}
+            </Scrollbar>
         </div>
     );
-})
+});
 ```
-
-### Горизонтальный скролл
 
 ```jsx live
 render(() => {
     const scrollbarStyle = {
-        width: '100%',
-        margin: '10px 0px',
         whiteSpace: 'nowrap',
         overflow: 'auto',
+        margin: 'var(--gap-l-neg)',
     };
     const getChildStyle = (bgColor) => ({
         display: 'inline-block',
         width: 80,
-        height: 200,
+        height: 240,
         textAlign: 'center',
         lineHeight: '200px',
         fontSize: 40,
@@ -57,7 +56,7 @@ render(() => {
                 );
                 return (
                     <div key={idx} style={style}>
-                        {idx}
+                        {idx + 1}
                     </div>
                 );
             })}

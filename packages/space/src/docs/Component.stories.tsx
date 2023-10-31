@@ -1,27 +1,29 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Input } from '@alfalab/core-components-input';
 import { Space } from '@alfalab/core-components-space';
 
-import { Space as SpaceTS } from '../Component';
-import Changelog from '../../CHANGELOG.md?raw';
-import Description from './description.mdx';
 import {
     stylesStringToObj,
     getQueryParam,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-export const DIRECTIONS = ['horizontal', 'vertical'];
-export const ALIGNES = ['start', 'end', 'center'];
-export const SIZES = ['s', 'm', 'l', 8, 72];
+const DIRECTIONS = ['horizontal', 'vertical'];
+const ALIGNES = ['start', 'end', 'center'];
+const SIZES = ['s', 'm', 'l', 8, 72];
 
-<Meta title='Components/Space' component={Space} id='Space' />
+const meta: Meta<typeof Space> = {
+    title: 'Components/Space',
+    component: Space,
+    id: 'Space',
+};
 
-{/* Canvas */}
+type Story = StoryObj<typeof Space>;
 
-<Story name='Space'>
-    {React.createElement(() => {
+export const space: Story = {
+    name: 'Space',
+    render: () => {
         const stylesAddon = {
             width: '80px',
             height: '80px',
@@ -47,7 +49,7 @@ export const SIZES = ['s', 'm', 'l', 8, 72];
         return isPreview ? (
             <div style={previewStyles}>
                 <div style={stylesWrapper}>
-                    {[1, 2, 3].map(item => (
+                    {[1, 2, 3].map((item) => (
                         <>
                             <div style={stylesAddon} />
                             {item !== 3 && <div style={stylesGap}>24</div>}
@@ -57,13 +59,12 @@ export const SIZES = ['s', 'm', 'l', 8, 72];
             </div>
         ) : (
             <Space
-                align='start'
                 direction={select('direction', DIRECTIONS, 'horizontal')}
                 size={select('size', SIZES, 'm')}
                 align={select('align', ALIGNES, 'start')}
-                wrap={boolean('wrap')}
-                divider={text('divider')}
-                fullWidth={boolean('fullWidth')}
+                wrap={boolean('wrap', false)}
+                divider={text('divider', '')}
+                fullWidth={boolean('fullWidth', false)}
                 dataTestId={text('dataTestId', 'testIdSpace')}
             >
                 <Input placeholder='Над вишней в цвету' />
@@ -72,21 +73,7 @@ export const SIZES = ['s', 'm', 'l', 8, 72];
                 <Input placeholder='(с) Мацуо Басе' />
             </Space>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Space'
-/>
-
-```jsx
-import { Space } from '@alfalab/core-components/space';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={SpaceTS} />}
-/>
+export default meta;

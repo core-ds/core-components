@@ -1,0 +1,34 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+import { Link } from '@alfalab/core-components-link';
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+
+<Meta of={Stories} />
+
+<ComponentHeader
+    name='Stack'
+    children={
+        <>
+            Используется для управления{' '}
+            <Link
+                view='default'
+                rel='noopener'
+                target='_blank'
+                href='https://developer.mozilla.org/ru/docs/Web/CSS/z-index'
+                underline={false}
+            >
+                порядком наложения.
+            </Link>
+        </>
+    }
+/>
+
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>
