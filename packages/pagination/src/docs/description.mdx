@@ -1,6 +1,31 @@
-Компонент пагинации
+## Примеры
 
-#### view=default
+Пагинация с возможностью быстрого доступа к крайним страницам.
+
+```jsx live
+render(() => {
+    const DATA_SIZE = isMobile() ? 5 : 20;
+    const PER_PAGE = 1;
+
+    const [page, setPage] = React.useState(0);
+
+    const handlePageChange = pageIndex => setPage(pageIndex);
+
+    const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
+
+    return (
+        <Container align='center'>
+            <Pagination
+                currentPageIndex={page}
+                pagesCount={pagesCount}
+                onPageChange={handlePageChange}
+            />
+        </Container>
+    );
+});
+```
+
+Пагинация с постраничным переключением.
 
 ```jsx live
 render(() => {
@@ -14,35 +39,14 @@ render(() => {
     const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
 
     return (
-        <Pagination
-            currentPageIndex={page}
-            pagesCount={pagesCount}
-            onPageChange={handlePageChange}
-        />
-    );
-});
-```
-
-#### view=per-page
-
-```jsx live
-render(() => {
-    const DATA_SIZE = 15;
-    const PER_PAGE = 1;
-
-    const [page, setPage] = React.useState(0);
-
-    const handlePageChange = pageIndex => setPage(pageIndex);
-
-    const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
-
-    return (
-        <Pagination
-            currentPageIndex={page}
-            pagesCount={pagesCount}
-            onPageChange={handlePageChange}
-            view='per-page'
-        />
+        <Container align='center'>
+            <Pagination
+                currentPageIndex={page}
+                pagesCount={pagesCount}
+                onPageChange={handlePageChange}
+                view='per-page'
+            />
+        </Container>
     );
 });
 ```

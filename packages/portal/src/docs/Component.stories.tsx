@@ -1,28 +1,29 @@
-import { Meta, ArgsTable, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '@alfalab/core-components-button';
 import { Space } from '@alfalab/core-components-space';
 import { Portal } from '@alfalab/core-components-portal';
 
-import { Portal as PortalTS } from '../Component';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof Portal> = {
+    title: 'Components/Portal',
+    component: Portal,
+    id: 'Portal',
+};
 
-<Meta title='Components/Portal' component={Portal} id='Portal' />
+type Story = StoryObj<typeof Portal>;
 
-{/* Canvas */}
-
-<Story name='Portal'>
-    {React.createElement(() => {
+export const portal: Story = {
+    name: 'Portal',
+    render: () => {
         const [show, setShow] = React.useState(false);
         const handleClick = () => setShow(!show);
         const styles = {
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
+            width: 240,
             height: 60,
             border: '1px solid var(--color-light-border-secondary)',
             padding: 'var(--gap-m)',
@@ -41,26 +42,11 @@ import Changelog from '../../CHANGELOG.md?raw';
                         </Portal>
                     )}
                 </div>
-                <div id='portal-container' style={styles}>
-                    <div>Контейнер для контента портала</div>
-                </div>
+                <div>Контейнер для контента портала</div>
+                <div id='portal-container' style={styles} />
             </Space>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Portal'
-/>
-
-```jsx
-import { Portal } from '@alfalab/core-components/portal';
-```
-
-<Tabs
-    description={<Description />}
-    props={<ArgsTable of={PortalTS} />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-/>
+export default meta;
