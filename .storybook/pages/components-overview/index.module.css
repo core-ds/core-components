@@ -39,6 +39,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+    html:has(div[id='components-overview']) {
+        scrollbar-gutter: stable both-edges;
+    }
+
     .cardContainer {
         grid-template-columns: repeat(4, 1fr);
     }
