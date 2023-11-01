@@ -1,5 +1,19 @@
 # Change Log
 
+## 13.2.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@9.1.0
+    -   code-input@3.1.0
+
 ## 13.1.8
 
 ### Patch Changes

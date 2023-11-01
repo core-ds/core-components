@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.5.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input-autocomplete@10.3.0
+    -   select@15.3.0
+
 ## 9.5.15
 
 ### Patch Changes

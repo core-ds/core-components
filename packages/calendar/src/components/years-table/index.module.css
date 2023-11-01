@@ -3,8 +3,6 @@
 
 :global(.cc-calendar) {
     & .yearsTable {
-        overflow: auto;
-        overflow-x: hidden;
         width: 100%;
 
         @media (max-width: 374px) {
@@ -12,29 +10,49 @@
         }
 
         &.responsive {
-            justify-content: space-between;
-
             & .inner {
-                left: auto;
+                width: 100%;
             }
 
             & .button {
-                width: 33%;
-                margin-right: 0;
+                width: calc(33.333% - var(--gap-2xs) / 1.5);
+            }
+        }
+
+        &:not(.responsive) {
+            & .inner {
+                width: var(--calendar-inner-width);
+                margin: 0 auto;
+
+                @media (max-width: 374px) {
+                    width: var(--calendar-mobile-inner-width);
+                }
+            }
+
+            & .button {
+                width: var(--calendar-select-button-width);
+
+                @media (max-width: 374px) {
+                    width: var(--calendar-mobile-select-button-width);
+
+                    &:nth-child(3n) {
+                        margin-right: var(--gap-2xs);
+                    }
+
+                    &:nth-child(2n) {
+                        margin-right: 0;
+                    }
+                }
             }
         }
     }
 
     & .inner {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         position: relative;
         overflow: hidden;
     }
 
     & .button {
-        width: var(--calendar-select-button-width);
         margin-right: var(--gap-2xs);
         margin-bottom: var(--gap-xs);
 
@@ -43,16 +61,6 @@
         }
 
         @media (max-width: 374px) {
-            width: var(--calendar-mobile-select-button-width);
-
-            &:nth-child(3n) {
-                margin-right: var(--gap-2xs);
-            }
-
-            &:nth-child(2n) {
-                margin-right: 0;
-            }
-
             height: 36px;
         }
     }

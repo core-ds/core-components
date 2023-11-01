@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
 ## 3.3.1
 
 ### Patch Changes

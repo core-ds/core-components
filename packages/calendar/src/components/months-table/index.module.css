@@ -6,7 +6,6 @@
         display: flex;
         flex-wrap: wrap;
         width: var(--calendar-inner-width);
-        justify-content: flex-start;
 
         @media (max-width: 374px) {
             width: var(--calendar-mobile-inner-width);
@@ -15,17 +14,34 @@
 
         &.responsive {
             width: 100%;
-            justify-content: space-between;
 
             & .button {
-                width: 33%;
-                margin-right: 0;
+                width: calc(33.333% - var(--gap-2xs) / 1.5);
+            }
+        }
+
+        &:not(.responsive) {
+            & .button {
+                width: var(--calendar-select-button-width);
+
+                @media (max-width: 374px) {
+                    width: var(--calendar-mobile-select-button-width);
+
+                    &:nth-child(3n) {
+                        margin-right: var(--gap-2xs);
+                    }
+
+                    &:nth-child(2n) {
+                        margin-right: 0;
+                    }
+
+                    height: 36px;
+                }
             }
         }
     }
 
     & .button {
-        width: var(--calendar-select-button-width);
         margin-right: var(--gap-2xs);
         margin-bottom: var(--gap-xs);
 
@@ -34,16 +50,6 @@
         }
 
         @media (max-width: 374px) {
-            width: var(--calendar-mobile-select-button-width);
-
-            &:nth-child(3n) {
-                margin-right: var(--gap-2xs);
-            }
-
-            &:nth-child(2n) {
-                margin-right: 0;
-            }
-
             height: 36px;
         }
     }

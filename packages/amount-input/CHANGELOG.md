@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.5.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@12.3.0
+    -   with-suffix@4.1.10
+
 ## 7.5.0
 
 ### Minor Changes

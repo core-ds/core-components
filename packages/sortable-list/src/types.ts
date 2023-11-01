@@ -1,5 +1,7 @@
 import React from 'react';
-import { Announcements, DragEndEvent, DragStartEvent, UniqueIdentifier } from '@dnd-kit/core';
+import type { Announcements, DragEndEvent, DragStartEvent, UniqueIdentifier } from '@dnd-kit/core';
+
+import type { PortalProps } from '@alfalab/core-components-portal';
 
 type View = 'primary' | 'secondary';
 type ActivatorNode = 'cell' | 'control';
@@ -44,6 +46,20 @@ export type SortableListProps = {
      * Дополнительный класс на элемент списка
      */
     itemClassName?: string;
+
+    /**
+     * Пропсы портала, в котором отображается draggable элемент
+     */
+    portalProps?: PortalProps;
+
+    /**
+     * Пропсы DragOverlay элемента
+     */
+    dragOverlayProps?: {
+        className?: string;
+        style?: React.CSSProperties;
+        zIndex?: number;
+    };
 
     /**
      * Отступ контрола от края

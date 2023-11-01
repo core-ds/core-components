@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.3.1
+
+### Patch Changes
+
+### [#941](https://github.com/core-ds/core-components/pull/941)
+
+-   Исправлен радиус прогресса
+
 ## 4.3.0
 
 ### Minor Changes

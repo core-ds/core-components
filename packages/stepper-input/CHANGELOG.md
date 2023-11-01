@@ -1,5 +1,20 @@
 # @alfalab/core-components-stepper-input
 
+## 1.1.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   number-input@1.3.0
+    -   shared@0.7.0
+    -   icon-button@6.3.2
+
 ## 1.0.6
 
 ### Patch Changes

@@ -48,7 +48,7 @@
         background: var(--slider-progress-background);
         transition: background 0.15s;
         z-index: 1;
-        overflow: visible;
+        overflow: hidden;
     }
 
     & :global(.noUi-connect) {

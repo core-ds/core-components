@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Color, Typography } from '@alfalab/core-components-typography';
+import { Color, TitleProps, Typography } from '@alfalab/core-components-typography';
 
 import { AmountProps as AmountType } from '../typesProps';
 
@@ -12,8 +12,14 @@ import styles from './index.module.css';
 type Props = {
     /**
      * Цвет денежного значения
+     * @deprecated Используйте titleProps.color
      */
     color?: Color;
+
+    /**
+     * Пропсы, которые будут прокинуты в компонент типографики
+     */
+    titleProps?: TitleProps;
 } & AmountType;
 
 export const AmountTitle: React.FC<Props> = ({
@@ -22,21 +28,29 @@ export const AmountTitle: React.FC<Props> = ({
     className,
     color = 'primary',
     dataTestId,
+    titleProps = {},
     ...restProps
-}) => (
-    <Typography.Title
-        tag='h4'
-        view='small'
-        dataTestId={getDataTestId(dataTestId, 'amount-title')}
-        className={styles.component}
-        color={color}
-    >
-        <CoreAmount
-            minority={minority || minorUnits}
-            className={cn(styles.weight, className)}
-            dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
-            {...restProps}
-            bold='none'
-        />
-    </Typography.Title>
-);
+}) => {
+    const titleDefaultProps = {
+        tag: 'h4',
+        view: 'small',
+        color,
+        ...titleProps,
+    } as Omit<TitleProps, 'className' | 'dataTestId'>;
+
+    return (
+        <Typography.Title
+            {...titleDefaultProps}
+            dataTestId={getDataTestId(dataTestId, 'amount-title')}
+            className={cn(styles.component, titleProps.className)}
+        >
+            <CoreAmount
+                minority={minority || minorUnits}
+                className={cn(styles.weight, className)}
+                dataTestId={getDataTestId(dataTestId, 'core-amount-title')}
+                {...restProps}
+                bold='none'
+            />
+        </Typography.Title>
+    );
+};

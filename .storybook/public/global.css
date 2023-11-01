@@ -610,6 +610,10 @@ table.docblock-argstable td {
     margin: var(--gap-l) 0;
 }
 
+div[data-role='preview'] div[class^='plate__component'] {
+    margin: 0;
+}
+
 .sbdocs div[class^='plate__component'] + div[data-role='wrapper'] {
     margin-top: 0;
 }

@@ -1,5 +1,26 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+### [#940](https://github.com/core-ds/core-components/pull/940)
+
+-   Немного увеличена высота мобильного календаря
+-   Кнопки с годами теперь выровнены по левому краю, а не по центру
+
+-   Обновлены зависимости
+    -   button@9.1.0
+    -   modal@8.1.0
+    -   shared@0.7.0
+    -   icon-button@6.3.2
+
 ## 7.0.9
 
 ### Patch Changes

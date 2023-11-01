@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   toast-plate@6.1.0
+
 ## 5.1.3
 
 ### Patch Changes

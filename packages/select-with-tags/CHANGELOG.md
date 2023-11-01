@@ -1,5 +1,18 @@
 # Change Log
 
+## 7.1.16
+
+### Patch Changes
+
+### [#943](https://github.com/core-ds/core-components/pull/943)
+
+-   Исправлен баг с некорректным расчетом видимых тэгов
+
+-   Обновлены зависимости
+    -   form-control@10.2.0
+    -   select@15.3.0
+    -   tag@6.1.0
+
 ## 7.1.15
 
 ### Patch Changes
