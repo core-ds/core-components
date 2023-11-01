@@ -36,6 +36,16 @@ export type GalleryProps = {
      * Обработчик закрытия
      */
     onClose: () => void;
+
+    /**
+     * Индекс текущего изображения
+     */
+    slideIndex?: number;
+
+    /**
+     * Обработчик изменения текущего изображения
+     */
+    onSlideIndexChange?: (index: number) => void;
 };
 
 const Backdrop = () => null;
@@ -43,11 +53,18 @@ const Backdrop = () => null;
 export const Gallery: FC<GalleryProps> = ({
     open,
     images,
+    slideIndex,
     initialSlide = 0,
     loop = true,
     onClose,
+    onSlideIndexChange,
 }) => {
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(initialSlide);
+    const currentSlideIndexState = useState(initialSlide);
+    const uncontrolled = slideIndex === undefined;
+    const [currentSlideIndex, setCurrentSlideIndex] = uncontrolled
+        ? currentSlideIndexState
+        : [slideIndex, onSlideIndexChange];
+
     const [swiper, setSwiper] = useState<SwiperCore>();
     const [imagesMeta, setImagesMeta] = useState<ImageMeta[]>([]);
     const [fullScreen, setFullScreen] = useState(false);
@@ -55,14 +72,14 @@ export const Gallery: FC<GalleryProps> = ({
     const slideTo = useCallback(
         (index: number) => {
             if (images[index]) {
-                setCurrentSlideIndex(index);
+                setCurrentSlideIndex?.(index);
 
                 if (swiper) {
                     swiper.slideTo(index);
                 }
             }
         },
-        [images, swiper],
+        [images, setCurrentSlideIndex, swiper],
     );
 
     const slideNext = useCallback(() => {
@@ -101,9 +118,12 @@ export const Gallery: FC<GalleryProps> = ({
     const handleClose = useCallback(() => {
         onClose();
 
-        setCurrentSlideIndex(initialSlide);
+        if (uncontrolled) {
+            setCurrentSlideIndex?.(initialSlide);
+        }
+
         setFullScreen(false);
-    }, [initialSlide, onClose]);
+    }, [initialSlide, onClose, setCurrentSlideIndex, uncontrolled]);
 
     const handleEscapeKeyDown = () => {
         if (fullScreen) {
@@ -132,6 +152,12 @@ export const Gallery: FC<GalleryProps> = ({
     );
 
     useEffect(() => {
+        if (!uncontrolled && !swiper?.destroyed) {
+            swiper?.slideTo(currentSlideIndex);
+        }
+    }, [uncontrolled, currentSlideIndex, swiper]);
+
+    useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
 
         return () => {
@@ -150,7 +176,7 @@ export const Gallery: FC<GalleryProps> = ({
         images,
         imagesMeta,
         fullScreen,
-        initialSlide,
+        initialSlide: uncontrolled ? initialSlide : currentSlideIndex,
         setFullScreen,
         setImageMeta,
         slideNext,

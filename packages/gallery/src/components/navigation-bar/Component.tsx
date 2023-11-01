@@ -17,7 +17,7 @@ export const NavigationBar: FC = () => {
     const swiper = getSwiper();
 
     const handlePreviewSelect = (index: number) => {
-        setCurrentSlideIndex(index);
+        setCurrentSlideIndex?.(index);
 
         if (swiper) {
             swiper.slideTo(index);

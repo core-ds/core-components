@@ -8,38 +8,34 @@ render(() => {
     const onImagesQuantityChange = (_, payload) => {
         setImagesQuantity(payload.value);
     };
-    
+
     const images = [
         {
             name: 'Вертикальное изображение',
-            src: './images/gallery_1.jpg'
+            src: './images/gallery_1.jpg',
         },
         {
             name: 'Горизонтальное  изображение',
-            src: './images/gallery_2.jpg'
+            src: './images/gallery_2.jpg',
         },
         {
             name: 'Квадратное изображение',
-            src: './images/gallery_3.jpg'
+            src: './images/gallery_3.jpg',
         },
         {
             name: 'Маленькое изображение',
-            src: './images/gallery_4.jpg'
+            src: './images/gallery_4.jpg',
         },
         {
             name: 'Битое изображение.jpg',
-            src: 'https://picsum.photos'
+            src: 'https://picsum.photos',
         },
-    ]
+    ];
 
     return (
-        <div style={{width: 320}}>
-            <Button 
-                view="secondary" 
-                block={true}
-                onClick={() => setOpen(true)}
-                >
-                    Открыть галерею
+        <div style={{ width: 320 }}>
+            <Button view='secondary' block={true} onClick={() => setOpen(true)}>
+                Открыть галерею
             </Button>
             <Gallery
                 open={open}
@@ -48,7 +44,7 @@ render(() => {
                 }}
                 images={imagesQuantity === 'some' ? images : [images[0]]}
             />
-            <Gap size='xl'/>
+            <Gap size='xl' />
             <RadioGroup
                 label='Количество изображений'
                 direction='vertical'
@@ -69,36 +65,39 @@ render(() => {
 ```jsx live mobileHeight={875}
 render(() => {
     const [open, setOpen] = React.useState(false);
-    const [initialSlide, setInitialSlide] = React.useState(0);
+    const [slideIndex, setSlideIndex] = React.useState(0);
 
     const openGallery = (slideIndex) => {
-        setInitialSlide(slideIndex);
+        setSlideIndex(slideIndex);
         setOpen(true);
-    }
+    };
 
-    const closeGallery = () => {
-        setInitialSlide(0);
-        setOpen(false);
-    }
+    const closeGallery = () => setOpen(false);
 
     const images = [
         {
-            src: './images/gallery_1.jpg'
+            src: './images/gallery_1.jpg',
         },
         {
-            src: './images/gallery_2.jpg'
+            src: './images/gallery_2.jpg',
         },
         {
-            src: './images/gallery_3.jpg'
+            src: './images/gallery_3.jpg',
         },
         {
-            src: './images/gallery_4.jpg'
+            src: './images/gallery_4.jpg',
         },
-    ]
+    ];
 
     return (
         <div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: isMobile() ? 'center' : 'left' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: isMobile() ? 'center' : 'left',
+                }}
+            >
                 {images.map((image, index) => (
                     <div
                         key={image.src}
@@ -111,7 +110,7 @@ render(() => {
                             cursor: 'pointer',
                             backgroundSize: 'cover',
                             backgroundImage: `url(${image.src})`,
-                            margin: '4px'
+                            margin: '4px',
                         }}
                     />
                 ))}
@@ -121,7 +120,8 @@ render(() => {
                 open={open}
                 onClose={closeGallery}
                 images={images}
-                initialSlide={initialSlide}
+                slideIndex={slideIndex}
+                onSlideIndexChange={setSlideIndex}
             />
         </div>
     );

@@ -18,7 +18,7 @@ export type GalleryContext = {
     getSwiper: () => SwiperCore | undefined;
     setSwiper: (swiper: SwiperCore) => void;
     onClose: () => void;
-    setCurrentSlideIndex: (index: number) => void;
+    setCurrentSlideIndex?: (index: number) => void;
     getCurrentImage: () => GalleryImage | undefined;
     getCurrentImageMeta: () => ImageMeta | undefined;
 };
