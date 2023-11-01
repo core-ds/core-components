@@ -8,6 +8,7 @@ import { SandboxIcon } from './components/icons/SandboxIcon.jsx';
 import { OverviewIcon } from './components/icons/OverviewIcon.jsx';
 import { ComponentsOverviewIcon } from './components/icons/ComponentsOverviewIcon.jsx';
 import { DiamondsBlankIcon } from './components/icons/DiamondsBlankIcon.jsx';
+import { MuseumIcon } from './components/icons/MuseumIcon.jsx';
 
 const renderIcon = (item) => {
     const { type, name, parent, depth } = item;
@@ -25,6 +26,9 @@ const renderIcon = (item) => {
             }
             if (name === 'Components overview') {
                 return <ComponentsOverviewIcon />;
+            }
+            if (name === 'Museum') {
+                return <MuseumIcon />;
             }
 
             return (

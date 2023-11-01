@@ -1,5 +1,23 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### [#940](https://github.com/core-ds/core-components/pull/940)
+
+-   getScrollbarSize перенесена в shared
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   base-modal@5.5.0
+    -   navigation-bar@0.5.9
+
 ## 8.0.9
 
 ### Patch Changes

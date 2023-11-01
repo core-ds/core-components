@@ -1,4 +1,5 @@
 import { getModalStore, SavedStyle } from '@alfalab/core-components-global-store';
+import { browser } from '@alfalab/core-components-shared';
 
 export function isScrolledToTop(target: HTMLElement) {
     return target.scrollTop <= 0;
@@ -11,31 +12,6 @@ export function isScrolledToBottom(target: HTMLElement) {
 export function hasScrollbar(target: HTMLElement) {
     return target.scrollHeight > target.clientHeight;
 }
-
-export const getScrollbarSize = (() => {
-    let cachedSize: number;
-
-    return () => {
-        if (cachedSize !== undefined) return cachedSize;
-
-        const scrollDiv = document.createElement('div');
-
-        scrollDiv.style.width = '99px';
-        scrollDiv.style.height = '99px';
-        scrollDiv.style.position = 'absolute';
-        scrollDiv.style.top = '-9999px';
-        scrollDiv.style.overflow = 'scroll';
-
-        document.body.appendChild(scrollDiv);
-        const scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-
-        document.body.removeChild(scrollDiv);
-
-        cachedSize = scrollbarSize;
-
-        return scrollbarSize;
-    };
-})();
 
 const isOverflowing = (container: Element) => {
     if (document.body === container) {
@@ -88,7 +64,7 @@ export const handleContainer = (container?: HTMLElement) => {
 
     if (isOverflowing(container)) {
         // Вычисляет размер до применения `overflow hidden` для избежания скачков
-        const scrollbarSize = getScrollbarSize();
+        const scrollbarSize = browser.getScrollbarSize();
 
         containerStyles.push({
             value: container.style.paddingRight,

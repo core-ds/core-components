@@ -1,5 +1,20 @@
 # @alfalab/core-components-date-time-input
 
+## 4.1.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.1.0
+    -   input@12.3.0
+    -   icon-button@6.3.2
+
 ## 4.0.12
 
 ### Patch Changes

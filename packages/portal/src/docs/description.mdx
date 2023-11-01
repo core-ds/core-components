@@ -1,4 +1,4 @@
-Порталы позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента.
+## Примеры
 
 ```jsx live
 render(() => {
@@ -11,14 +11,22 @@ render(() => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        height: 60,
+        justifyContent: 'center',
+        width: 240,
+        height: 95,
         border: '1px solid var(--color-light-border-secondary)',
-        padding: 'var(--gap-m)',
+        borderRadius: 8,
+        marginTop: 6,
     };
 
+    const styleText = {
+        color: 'var(--color-light-text-secondary)',
+        fontSize: '14px',
+        lineHeight: '18px',
+    }
+
     return (
-        <Space>
+        <Container>
             <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
             <div>
                 {show && (
@@ -27,11 +35,10 @@ render(() => {
                     </Portal>
                 )}
             </div>
-
-            <div ref={containerRef} style={styles}>
-                <div>Контейнер для контента портала</div>
-            </div>
-        </Space>
+            <Gap size='xl'/>
+            <div style={styleText}>Контейнер для контента портала</div>
+            <div ref={containerRef} style={styles}/>
+        </Container>
     );
 });
 ```

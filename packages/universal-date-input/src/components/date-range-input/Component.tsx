@@ -41,6 +41,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
             onCalendarClose,
             value: valueProp,
             defaultValue,
+            inputWrapperRef: inputWrapperRefProp = null,
             onComplete,
             onChange,
             onBlur,
@@ -194,7 +195,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
                     {...restProps}
                     dataTestId={dataTestId}
                     breakpoint={breakpoint}
-                    wrapperRef={inputWrapperRef}
+                    wrapperRef={mergeRefs([inputWrapperRef, inputWrapperRefProp])}
                     ref={mergeRefs([ref, inputRef])}
                     value={inputValue}
                     inputMode='decimal'

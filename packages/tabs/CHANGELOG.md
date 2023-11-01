@@ -1,5 +1,21 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.2.0
+    -   tag@6.1.0
+    -   shared@0.7.0
+    -   icon-button@6.3.2
+
 ## 8.1.6
 
 ### Patch Changes

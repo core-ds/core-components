@@ -16,6 +16,7 @@ import {
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import cn from 'classnames';
 
+import { Portal } from '@alfalab/core-components-portal';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SortableItem } from './components/item/Components';
@@ -70,6 +71,8 @@ export const SortableList = forwardRef<HTMLDivElement, SortableListProps>(
             screenReaderInstructions = DEFAULT_INSTRUCTION,
             onDragStart,
             onDragEnd,
+            portalProps,
+            dragOverlayProps,
         },
         ref,
     ) => {
@@ -187,7 +190,11 @@ export const SortableList = forwardRef<HTMLDivElement, SortableListProps>(
                     </div>
                 </SortableContext>
 
-                <DragOverlay>{activeId ? renderDragOverlay() : null}</DragOverlay>
+                <Portal immediateMount={true} {...portalProps}>
+                    <DragOverlay {...dragOverlayProps}>
+                        {activeId ? renderDragOverlay() : null}
+                    </DragOverlay>
+                </Portal>
             </DndContext>
         );
     },

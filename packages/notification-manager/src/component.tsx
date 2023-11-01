@@ -47,8 +47,11 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
 const CSS_TRANSITION_CLASS_NAMES = {
     enter: styles.enter,
     enterActive: styles.enterActive,
-    exit: styles.exit,
-    exitActive: styles.exitActive,
+};
+
+const TIMEOUT = {
+    exit: 0,
+    enter: 400,
 };
 
 export const NotificationManager = forwardRef<HTMLDivElement, NotificationManagerProps>(
@@ -82,7 +85,7 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                             {notifications.map((element) => (
                                 <CSSTransition
                                     key={element.props.id}
-                                    timeout={400}
+                                    timeout={TIMEOUT}
                                     classNames={CSS_TRANSITION_CLASS_NAMES}
                                     unmountOnExit={true}
                                 >

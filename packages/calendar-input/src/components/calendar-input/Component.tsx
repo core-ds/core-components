@@ -273,7 +273,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             }
         };
 
-        const handleClick = () => {
+        const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+            if (!inputWrapperRef.current?.contains(event.target as HTMLElement)) return;
+
             if (!open) openCalendar();
 
             if (view === 'desktop' && inputRef.current) {
@@ -283,6 +285,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
             if (view === 'desktop') {
+                if (!inputWrapperRef.current?.contains(event.target)) return;
+
                 openCalendar();
 
                 if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {

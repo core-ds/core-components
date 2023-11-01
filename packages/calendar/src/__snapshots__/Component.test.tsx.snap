@@ -1218,7 +1218,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
       </div>
     </div>
     <div
-      class="container customScrollbar years"
+      class="container nativeScrollbar years"
     >
       <div
         class="yearsTable"

@@ -1,18 +1,23 @@
-Компонент ввода пароля
-
-### Управление видимостью пароля
+## Пример
 
 ```jsx live
 render(() => {
     const [passwordVisible, setPasswordVisible] = React.useState(false);
 
     return (
-        <PasswordInput
-            passwordVisible={passwordVisible}
-            onPasswordVisibleChange={visible => {
-                setPasswordVisible(visible);
-            }}
-        />
+        <div style={{ width: isMobile() ? '100%' : 320 }}>
+            <PasswordInput
+                passwordVisible={passwordVisible}
+                onPasswordVisibleChange={(visible) => {
+                    setPasswordVisible(visible);
+                }}
+                label='Пароль'
+                labelView={isMobile() ? 'outer' : 'inner'}
+                size='m'
+                breakpoint={BREAKPOINT}
+                block={true}
+            />
+        </div>
     );
 });
 ```

@@ -1,5 +1,14 @@
 # Change Log
 
+## 5.3.16
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tooltip@7.2.0
+    -   base-modal@5.5.0
+    -   icon-button@6.3.2
+
 ## 5.3.15
 
 ### Patch Changes

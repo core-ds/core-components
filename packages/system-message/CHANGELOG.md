@@ -1,5 +1,18 @@
 # @alfalab/core-components-system-message
 
+## 2.2.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.7.0
+
 ## 2.1.4
 
 ### Patch Changes

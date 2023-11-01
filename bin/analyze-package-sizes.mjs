@@ -2,7 +2,6 @@ import * as esbuild from 'esbuild';
 import globby from 'globby';
 import shell from 'shelljs';
 import fs from 'node:fs';
-import { ENTRY_POINTS } from '../entry-points.mjs';
 
 const packages = shell.exec(
     `lerna list \\
@@ -19,10 +18,23 @@ const packageList = packages
     .filter(Boolean)
     .map((pkg) => pkg.replace('@alfalab/core-components-', ''));
 
+const ENTRY_POINTS = [
+    'desktop',
+    'mobile',
+    'responsive',
+    'circle',
+    'super-ellipse',
+    'rectangle',
+    'no-shape',
+    'shared',
+    'collapsible',
+];
+
 async function calculateBundleSize(packageName) {
-    const entryPoints = await globby(
-        `./packages/${packageName}/src/{${ENTRY_POINTS.join(',')}}.ts`,
-    );
+    const entryPoints = await globby([
+        `./packages/${packageName}/src/{${ENTRY_POINTS.join(',')}}/index.ts`,
+        `./packages/${packageName}/src/index.ts`,
+    ]);
 
     const result = await esbuild.build({
         entryPoints,
@@ -48,7 +60,15 @@ async function calculateBundleSize(packageName) {
     // }
 
     return Object.keys(result.metafile.outputs).reduce((acc, path) => {
-        acc[path.split('/').pop()] = +(result.metafile.outputs[path].bytes / 1024).toFixed(2);
+        const pathParts = path.split('/');
+        const entry =
+            pathParts.slice(-2)[0] === packageName
+                ? pathParts.slice(-1)[0]
+                : pathParts.slice(-2)[0];
+
+        acc[entry.endsWith('.js') ? entry : entry + '.js'] = +(
+            result.metafile.outputs[path].bytes / 1024
+        ).toFixed(2);
 
         return acc;
     }, {});

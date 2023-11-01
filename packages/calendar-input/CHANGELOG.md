@@ -1,5 +1,23 @@
 # Change Log
 
+## 9.1.0
+
+### Minor Changes
+
+### [#944](https://github.com/core-ds/core-components/pull/944)
+
+-   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+
+### Patch Changes
+
+### [#910](https://github.com/core-ds/core-components/pull/910)
+
+-   Предотвращает открытие календаря при взаимодействии с элементами вне поля
+
+-   Обновлены зависимости
+    -   calendar@7.1.0
+    -   date-input@4.3.10
+
 ## 9.0.12
 
 ### Patch Changes

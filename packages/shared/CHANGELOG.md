@@ -1,5 +1,13 @@
 # @alfalab/core-components-shared
 
+## 0.7.0
+
+### Minor Changes
+
+### [#940](https://github.com/core-ds/core-components/pull/940)
+
+-   getScrollbarSize перенесена в shared
+
 ## 0.6.0
 
 ### Minor Changes

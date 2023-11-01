@@ -2,6 +2,7 @@ import React, {
     FocusEvent,
     forwardRef,
     KeyboardEvent,
+    MouseEvent,
     useEffect,
     useMemo,
     useRef,
@@ -52,6 +53,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
 
         const inputRef = useRef<HTMLInputElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
+        const inputWrapperRef = useRef<HTMLDivElement>(null);
 
         const maskOptions = useMemo(
             () =>
@@ -119,7 +121,9 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             onKeyDown?.(event);
         };
 
-        const handleClick = () => {
+        const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+            if (!inputWrapperRef.current?.contains(event.target as HTMLElement)) return;
+
             if (platform === 'desktop') {
                 if (!open) openCalendar();
                 inputRef.current?.focus();
@@ -136,7 +140,9 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
             }
         };
 
-        const handleFocus = () => {
+        const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
+            if (!inputWrapperRef.current?.contains(event.target as HTMLElement)) return;
+
             if (platform === 'desktop') openCalendar();
         };
 
@@ -192,6 +198,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
                         withTime={view === 'date-time'}
                         open={open}
                         calendarRef={calendarRef}
+                        inputWrapperRef={inputWrapperRef}
                         ref={mergeRefs([ref, maskRef, inputRef])}
                     />
                 );
@@ -205,6 +212,7 @@ export const BaseUniversalDateInput = forwardRef<HTMLInputElement, BaseUniversal
                         {...pickerProps}
                         open={open}
                         calendarRef={calendarRef}
+                        inputWrapperRef={inputWrapperRef}
                         ref={mergeRefs([ref, maskRef, inputRef])}
                     />
                 );

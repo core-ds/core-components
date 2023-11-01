@@ -4,6 +4,7 @@ import endOfDay from 'date-fns/endOfDay';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
 
+import { hooks } from '@alfalab/core-components-shared';
 import { useDidUpdateEffect, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DaysTable } from './components/days-table';
@@ -17,6 +18,8 @@ import { useCalendar } from './useCalendar';
 import { limitDate } from './utils';
 
 import styles from './desktop.module.css';
+
+const { useCustomWebkitScrollbar } = hooks;
 
 export type CalendarDesktopProps = {
     /**
@@ -320,6 +323,8 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             }
         }, [value]);
 
+        const shouldUseCustomScrollbar = useCustomWebkitScrollbar();
+
         return (
             <div
                 {...getRootProps({ ref })}
@@ -359,7 +364,10 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                     ref={scrollableNodeRef}
                     className={cn(
                         styles.container,
-                        { [styles.customScrollbar]: view === 'years' },
+                        {
+                            [styles.customScrollbar]: view === 'years' && shouldUseCustomScrollbar,
+                            [styles.nativeScrollbar]: view === 'years' && !shouldUseCustomScrollbar,
+                        },
                         styles[view],
                         contentClassName,
                     )}
