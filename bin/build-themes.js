@@ -32,7 +32,13 @@ const processComponentTheme = (cssFile) => {
 };
 
 const processRootTheme = (cssFile) => {
-    const ignorePattern = ['**/colors-x5.css'];
+    const ignorePattern = [
+        '**/colors-x5.css',
+        '**/colors-decorative.css',
+        '**/colors-pfm.css',
+        '**/colors-qualitative.css',
+        '**/colors-sequential.css',
+    ];
     const getImports = () => {
         if (cssFile.includes('dark.css')) return [];
 
