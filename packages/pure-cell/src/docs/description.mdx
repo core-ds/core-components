@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'storybook/blocks';
 
 ## Лейаут
 
-Компонент представляет из себя структуру с двумя вертикально или горизонтально расположенными слотами: Graphic и Content. 
+Компонент представляет из себя структуру с двумя вертикально или горизонтально расположенными слотами: Graphic и Content.
 Горизонтальные и вертикальные отступы могут принимать предустановленные значения.
 
 ```jsx live desktopOnly
@@ -20,7 +20,7 @@ render(() => {
         backgroundColor: 'rgba(55, 120, 251, 0.1)',
         border: '1px dashed rgb(55, 120, 251)',
         boxSizing: 'border-box',
-    }
+    };
 
     const styleFooter = {
         width: '263px',
@@ -29,7 +29,7 @@ render(() => {
         backgroundColor: 'rgba(55, 120, 251, 0.1)',
         border: '1px dashed rgb(55, 120, 251)',
         boxSizing: 'border-box',
-    }
+    };
 
     const styleContent = {
         width: '207px',
@@ -38,7 +38,7 @@ render(() => {
         backgroundColor: 'rgba(55, 120, 251, 0.1)',
         border: '1px dashed rgb(55, 120, 251)',
         boxSizing: 'border-box',
-    }
+    };
 
     const styleGraphics = {
         width: '64px',
@@ -47,15 +47,23 @@ render(() => {
         backgroundColor: 'rgba(55, 120, 251, 0.1)',
         border: '1px dashed rgb(55, 120, 251)',
         boxSizing: 'border-box',
-    }
+    };
 
     return (
         <Space size={20}>
-            <div style={{ width: '340px', backgroundColor: 'rgba(55, 120, 251, 0.1)', padding: '12px 16px' }}>
-                <PureCell  padding='default' direction={graphics !== 'top' ? 'horizontal' : 'vertical' }>
-                   { graphics !== 'right'  && <PureCell.Graphics verticalAlign='center'>
-                        <div style={styleGraphics} />
-                    </PureCell.Graphics> }
+            <div
+                style={{
+                    width: '340px',
+                    backgroundColor: 'rgba(55, 120, 251, 0.1)',
+                    padding: '12px 16px',
+                }}
+            >
+                <PureCell direction={graphics !== 'top' ? 'horizontal' : 'vertical'}>
+                    {graphics !== 'right' && (
+                        <PureCell.Graphics verticalAlign='center'>
+                            <div style={styleGraphics} />
+                        </PureCell.Graphics>
+                    )}
                     <PureCell.Content>
                         <PureCell.Main>
                             <div style={styleContent} />
@@ -68,12 +76,14 @@ render(() => {
                             <div style={styleFooter} />
                         </PureCell.Footer>
                     </PureCell.Content>
-                    { graphics === 'right' && <PureCell.Graphics>
-                        <div style={styleGraphics} />
-                    </PureCell.Graphics> }
+                    {graphics === 'right' && (
+                        <PureCell.Graphics>
+                            <div style={styleGraphics} />
+                        </PureCell.Graphics>
+                    )}
                 </PureCell>
             </div>
-            
+
             <RadioGroup
                 direction='vertical'
                 name='radioGroup'
@@ -94,24 +104,29 @@ render(() => {
 На базе компонента могут быть собраны готовые для использования в продукте пресеты ячеек.
 
 ```jsx live desktopOnly
-render(() =>  (
+render(() => (
     <div style={{ width: '370px' }}>
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <PureCell direction='horizontal' verticalPadding='default'>
             <PureCell.Graphics>
-                <SuperEllipse
-                    size='48'
-                    backgroundColor='rgba(229, 159, 114, 1)'
-                >
-                    <HeartMIcon fill='#fff'/>
+                <SuperEllipse size='48' backgroundColor='rgba(229, 159, 114, 1)'>
+                    <HeartMIcon fill='#fff' />
                 </SuperEllipse>
             </PureCell.Graphics>
             <PureCell.Content>
-                <PureCell.Main >
+                <PureCell.Main>
                     <PureCell.Text
                         titleColor='primary'
                         valueColor='secondary'
                         view='component'
-                        value={ <Amount value={100099} minority={100} transparentMinor={true} bold='full' currency="RUB"/> }
+                        value={
+                            <Amount
+                                value={100099}
+                                minority={100}
+                                transparentMinor={true}
+                                bold='full'
+                                currency='RUB'
+                            />
+                        }
                     >
                         Title
                     </PureCell.Text>
@@ -127,22 +142,15 @@ render(() =>  (
             </PureCell.Content>
         </PureCell>
 
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <PureCell direction='horizontal' verticalPadding='default'>
             <PureCell.Graphics>
-                <SuperEllipse
-                    size='48'
-                    backgroundColor='rgba(229, 159, 114, 1)'
-                >
-                    <HeartMIcon fill='#fff'/>
+                <SuperEllipse size='48' backgroundColor='rgba(229, 159, 114, 1)'>
+                    <HeartMIcon fill='#fff' />
                 </SuperEllipse>
             </PureCell.Graphics>
             <PureCell.Content>
-                <PureCell.Main >
-                    <PureCell.Text
-                        titleColor='primary'
-                        valueColor='secondary'
-                        view='component'
-                    >
+                <PureCell.Main>
+                    <PureCell.Text titleColor='primary' valueColor='secondary' view='component'>
                         Title
                     </PureCell.Text>
                     <PureCell.Text
@@ -159,23 +167,26 @@ render(() =>  (
             </PureCell.Addon>
         </PureCell>
 
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <PureCell direction='horizontal' verticalPadding='default'>
             <PureCell.Graphics>
-                <SuperEllipse
-                    size='48'
-                    backgroundColor='rgba(138, 138, 142, 1)'
-                >
-                    <ArrowDownLineDownMIcon fill='#fff'/>
+                <SuperEllipse size='48' backgroundColor='rgba(138, 138, 142, 1)'>
+                    <ArrowDownLineDownMIcon fill='#fff' />
                 </SuperEllipse>
             </PureCell.Graphics>
             <PureCell.Content>
-                <PureCell.Main >
+                <PureCell.Main>
                     <PureCell.Text
                         titleColor='primary'
                         view='component'
-                        value={ 
+                        value={
                             <Typography.Text view='component' font='system' color='positive'>
-                                <Amount value={18777} showPlus={true} currency="RUB" minority={1} bold='none'/>
+                                <Amount
+                                    value={18777}
+                                    showPlus={true}
+                                    currency='RUB'
+                                    minority={1}
+                                    bold='none'
+                                />
                             </Typography.Text>
                         }
                     >
@@ -195,7 +206,7 @@ render(() =>  (
             </PureCell.Content>
         </PureCell>
 
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <PureCell direction='horizontal' verticalPadding='default'>
             <PureCell.Content>
                 <PureCell.Main>
                     <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -206,7 +217,7 @@ render(() =>  (
                         minorUnits={100}
                         currency='RUR'
                         color='primary'
-                        view={ 'withZeroMinorPart' }
+                        view={'withZeroMinorPart'}
                         transparentMinor={true}
                         textView='primary-medium'
                     />
@@ -220,7 +231,7 @@ render(() =>  (
             </PureCell.Content>
         </PureCell>
         <div style={{ width: 240 }}>
-            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Main>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -231,7 +242,7 @@ render(() =>  (
                             minorUnits={100}
                             currency='RUR'
                             color='primary'
-                            view={ 'withZeroMinorPart' }
+                            view={'withZeroMinorPart'}
                             transparentMinor={true}
                             textView='primary-medium'
                         />
@@ -247,7 +258,7 @@ render(() =>  (
         </div>
 
         <div style={{ width: 80 }}>
-            <PureCell padding='default' direction='vertical' verticalPadding='default'>
+            <PureCell direction='vertical' verticalPadding='default'>
                 <PureCell.Graphics verticalAlign='center'>
                     <SuperEllipse size='48'>
                         <AddMIcon />
@@ -260,24 +271,24 @@ render(() =>  (
                         </PureCell.Text>
                     </PureCell.Main>
                 </PureCell.Content>
-            </PureCell></div>
+            </PureCell>
         </div>
+    </div>
 ));
 ```
 
 ## .Content
 
-Компонент является внутренней структурой PureCell. Состоит из слотов main (зеленый), addon (фиолетовый) и footer (желтый). 
-Каждый из слотов является опциональным. 
+Компонент является внутренней структурой PureCell. Состоит из слотов main (зеленый), addon (фиолетовый) и footer (желтый).
+Каждый из слотов является опциональным.
 Отступы до аддона и футера могут иметь дефолтное значение или отсутствовать.
 
 ```jsx live desktopOnly
 render(() => {
-
     const styleWrapper = {
-        display: 'flex', 
-        justifyContent: 'space-between'
-    }
+        display: 'flex',
+        justifyContent: 'space-between',
+    };
     const styleFooter = {
         width: '263px',
         height: '16px',
@@ -285,7 +296,7 @@ render(() => {
         backgroundColor: 'rgba(255, 168, 0, 0.1)',
         border: '1px dashed rgba(255, 168, 0, 1)',
         boxSizing: 'border-box',
-    }
+    };
 
     const styleContent = {
         width: '263px',
@@ -294,7 +305,7 @@ render(() => {
         backgroundColor: 'rgba(0, 255, 85, 0.1)',
         border: '1px dashed rgba(0, 255, 85, 1)',
         boxSizing: 'border-box',
-    }
+    };
 
     const styleAddon = {
         width: '40px',
@@ -303,22 +314,22 @@ render(() => {
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         border: '1px dashed rgba(0, 0, 255, 1)',
         boxSizing: 'border-box',
-    }
+    };
 
     return (
         <Space size={33}>
             <div style={{ width: 263 }}>
-                <PureCell  padding='default' direction='horizontal'>
+                <PureCell direction='horizontal'>
                     <PureCell.Content>
                         <PureCell.Main>
                             <div style={styleWrapper}>
-                                <div style={{...styleContent, width: '131px'}} />
-                                <div style={{...styleContent, width: '60px'}} />
+                                <div style={{ ...styleContent, width: '131px' }} />
+                                <div style={{ ...styleContent, width: '60px' }} />
                             </div>
-                            
-                            <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <div style={{...styleContent, width: '131px'}} />
-                                <div style={{...styleContent, width: '60px'}} />
+
+                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <div style={{ ...styleContent, width: '131px' }} />
+                                <div style={{ ...styleContent, width: '60px' }} />
                             </div>
                         </PureCell.Main>
                         <PureCell.Addon>
@@ -332,7 +343,7 @@ render(() => {
             </div>
 
             <div style={{ width: 263 }}>
-                <PureCell  padding='default' direction='horizontal'>
+                <PureCell direction='horizontal'>
                     <PureCell.Content>
                         <PureCell.Main>
                             <div style={styleContent} />
@@ -346,14 +357,14 @@ render(() => {
             </div>
 
             <div style={{ width: 263 }}>
-                <PureCell  padding='default' direction='horizontal'>
+                <PureCell direction='horizontal'>
                     <PureCell.Content>
                         <PureCell.Main>
                             <div style={styleWrapper}>
-                                <div style={{...styleContent, width: '131px'}} />
-                                <div style={{...styleContent, width: '60px'}} />
+                                <div style={{ ...styleContent, width: '131px' }} />
+                                <div style={{ ...styleContent, width: '60px' }} />
                             </div>
-                            <div style={{...styleContent, width: '207px'}} />
+                            <div style={{ ...styleContent, width: '207px' }} />
                         </PureCell.Main>
                         <PureCell.Addon>
                             <div style={styleAddon} />
@@ -368,143 +379,133 @@ render(() => {
 
 ## Примеры контента для слотов .Content
 
-Слоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку. 
-Контент основных слотов может занимать одну, две или несколько строк. 
+Слоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку.
+Контент основных слотов может занимать одну, две или несколько строк.
 Контент правой части не может быть многострочным.
 
 ## .Main
 
 ```jsx live desktopOnly
-render(() =>  {
-        const styleContent = {
+render(() => {
+    const styleContent = {
         width: '159px',
         height: '20px',
         borderRadius: '8px',
         backgroundColor: 'rgba(0, 255, 85, 0.1)',
         border: '1px dashed rgba(0, 255, 85, 1)',
         boxSizing: 'border-box',
-    }
+    };
 
     return (
-    <div style={{ width: '320px' }}>
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
-                        Пример отсечения контента в одну строку
-                    </PureCell.Text>
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
-
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text rowLimit={2} titleColor='primary' view='component'>
-                        Пример отсечения текста в несколько строк.
-                        Пример отсечения текста в несколько строк
-                    </PureCell.Text>
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
-
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text 
-                        titleColor='primary' 
-                        view='component' 
-                        value='SubtitleRight' 
-                        valueColor='secondary' 
-                    >
-                        Поведение правой части при многострочной левой
-                    </PureCell.Text>
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
-
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Text 
-                        titleColor='secondary' 
-                        view='component'  
-                    >
-                        Text
-                    </PureCell.Text>
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
-
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.Amount
-                        value={100000099}
-                        minorUnits={100}
-                        currency='RUR'
-                        color='primary'
-                        view='withZeroMinorPart'
-                        transparentMinor={true}
-                    />
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
-
-        <PureCell padding='default' direction='horizontal' verticalPadding='default'>
-            <PureCell.Content>
-                <PureCell.Main>
-                    <PureCell.AmountTitle
-                        value={100000099}
-                        minorUnits={100}
-                        currency='RUR'
-                        titleProps={{color: 'primary'}}
-                        view='withZeroMinorPart'
-                        transparentMinor={true}
-                    />
-                </PureCell.Main>
-            </PureCell.Content>
-        </PureCell>
-        <div style={{width: 207}}>
-            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <div style={{ width: '320px' }}>
+            <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text 
-                            view='component' 
-                            value='Text' 
-                            valueColor='secondary' 
-                        >
-                            <div style={styleContent}></div>
+                        <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
+                            Пример отсечения контента в одну строку
                         </PureCell.Text>
                     </PureCell.Main>
                 </PureCell.Content>
             </PureCell>
 
-            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+            <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text 
-                            view='component' 
-                            value='Text' 
-                            valueColor='primary' 
-                        >
-                            <div style={styleContent}></div>
+                        <PureCell.Text rowLimit={2} titleColor='primary' view='component'>
+                            Пример отсечения текста в несколько строк. Пример отсечения текста в
+                            несколько строк
                         </PureCell.Text>
                     </PureCell.Main>
                 </PureCell.Content>
             </PureCell>
+
+            <PureCell direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text
+                            titleColor='primary'
+                            view='component'
+                            value='SubtitleRight'
+                            valueColor='secondary'
+                        >
+                            Поведение правой части при многострочной левой
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+
+            <PureCell direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Text titleColor='secondary' view='component'>
+                            Text
+                        </PureCell.Text>
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+
+            <PureCell direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.Amount
+                            value={100000099}
+                            minorUnits={100}
+                            currency='RUR'
+                            color='primary'
+                            view='withZeroMinorPart'
+                            transparentMinor={true}
+                        />
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+
+            <PureCell direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Main>
+                        <PureCell.AmountTitle
+                            value={100000099}
+                            minorUnits={100}
+                            currency='RUR'
+                            titleProps={{ color: 'primary' }}
+                            view='withZeroMinorPart'
+                            transparentMinor={true}
+                        />
+                    </PureCell.Main>
+                </PureCell.Content>
+            </PureCell>
+            <div style={{ width: 207 }}>
+                <PureCell direction='horizontal' verticalPadding='default'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text view='component' value='Text' valueColor='secondary'>
+                                <div style={styleContent}></div>
+                            </PureCell.Text>
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+
+                <PureCell direction='horizontal' verticalPadding='default'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text view='component' value='Text' valueColor='primary'>
+                                <div style={styleContent}></div>
+                            </PureCell.Text>
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            </div>
         </div>
-    </div>
-)});
+    );
+});
 ```
 
 ## .Addon
 
 ```jsx live desktopOnly
-render(() =>  (
+render(() => (
     <Container>
-        <div style={{width: 80}}>
-            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <div style={{ width: 80 }}>
+            <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Addon addonPadding='none'>
                         <PureCell.Amount
@@ -512,24 +513,21 @@ render(() =>  (
                             minorUnits={100}
                             currency='RUR'
                             color='primary'
-                            view={ 'withZeroMinorPart' }
+                            view={'withZeroMinorPart'}
                             transparentMinor={true}
                         />
-                        <PureCell.Text 
-                            titleColor='secondary' 
-                            view='component'  
-                        >
+                        <PureCell.Text titleColor='secondary' view='component'>
                             Text
                         </PureCell.Text>
                     </PureCell.Addon>
                 </PureCell.Content>
             </PureCell>
         </div>
-        <div style={{width: 110}}>
-            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <div style={{ width: 110 }}>
+            <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Addon addonPadding='none'>
-                        <div style={{display: 'flex', gap: '6px'}}>
+                        <div style={{ display: 'flex', gap: '6px' }}>
                             <PureCell.Amount
                                 value={100099}
                                 minorUnits={100}
@@ -540,7 +538,7 @@ render(() =>  (
                             />
                             <Badge view='icon' iconColor='secondary' content={<ClockMIcon />} />
                         </div>
-                        <div style={{display: 'flex', gap: '6px'}}>
+                        <div style={{ display: 'flex', gap: '6px' }}>
                             <PureCell.Amount
                                 value={100}
                                 minorUnits={1}
@@ -548,34 +546,31 @@ render(() =>  (
                                 showPlus={true}
                                 transparentMinor={true}
                             />
-                            <AirplaneSIcon fill='#EF3124'/>
-                        </div>
-                        
-                    </PureCell.Addon>
-                </PureCell.Content>
-            </PureCell>
-        </div>
-
-        <div style={{width: 64}}>
-            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
-                <PureCell.Content>
-                    <PureCell.Addon addonPadding='none'>
-                        <div style={{display: 'flex', gap: '16px'}}>
-                            <StarMIcon/>
-                            <StarMIcon/>
+                            <AirplaneSIcon fill='#EF3124' />
                         </div>
                     </PureCell.Addon>
                 </PureCell.Content>
             </PureCell>
         </div>
 
-        <div style={{width: 110}}>
-            <PureCell padding='default' direction='horizontal' verticalPadding='default'>
+        <div style={{ width: 64 }}>
+            <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Addon addonPadding='none'>
-                        <Button size='xxs'>
-                            Button Text
-                        </Button>
+                        <div style={{ display: 'flex', gap: '16px' }}>
+                            <StarMIcon />
+                            <StarMIcon />
+                        </div>
+                    </PureCell.Addon>
+                </PureCell.Content>
+            </PureCell>
+        </div>
+
+        <div style={{ width: 110 }}>
+            <PureCell direction='horizontal' verticalPadding='default'>
+                <PureCell.Content>
+                    <PureCell.Addon addonPadding='none'>
+                        <Button size='xxs'>Button Text</Button>
                     </PureCell.Addon>
                 </PureCell.Content>
             </PureCell>
@@ -587,31 +582,26 @@ render(() =>  (
 ## .Footer
 
 ```jsx live desktopOnly
-render(() =>  (
+render(() => (
     <Space size={25}>
-        <PureCell padding='default' direction='horizontal' >
+        <PureCell direction='horizontal'>
             <PureCell.Content>
                 <PureCell.Footer>
-                    <PureCell.FooterButton>
-                        Button Text
-                    </PureCell.FooterButton>
+                    <PureCell.FooterButton>Button Text</PureCell.FooterButton>
                 </PureCell.Footer>
             </PureCell.Content>
         </PureCell>
 
-        <PureCell padding='default' direction='horizontal' >
+        <PureCell direction='horizontal'>
             <PureCell.Content>
                 <PureCell.Footer>
                     <Typography.Text color='secondary' view='primary-small'>
                         Neutral Status
                     </Typography.Text>
-                    <PureCell.FooterButton>
-                        Button Text
-                    </PureCell.FooterButton>
+                    <PureCell.FooterButton>Button Text</PureCell.FooterButton>
                 </PureCell.Footer>
             </PureCell.Content>
         </PureCell>
-    
     </Space>
 ));
 ```
