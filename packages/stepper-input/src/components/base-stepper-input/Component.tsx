@@ -211,6 +211,7 @@ export const BaseStepperInput = forwardRef<HTMLInputElement, BaseStepperInputPro
                         max={max}
                         className={cn(styles.steppers, styles[size], {
                             [styles.steppersFocused]: focused && view === 'desktop',
+                            [styles.steppersDisable]: disabled,
                         })}
                         onIncrement={handleIncrement}
                         onDecrement={handleDecrement}

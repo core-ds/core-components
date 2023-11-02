@@ -36,10 +36,25 @@
 
     &.checked {
         color: var(--tag-inverted-text-color-checked);
+        border-color: var(--tag-inverted-border-color-checked);
+        background-color: var(--tag-inverted-background-color-checked);
 
         &:disabled {
             border-color: var(--tag-inverted-border-color-checked-disabled);
             color: var(--tag-inverted-text-color-checked-disabled);
+            background-color: var(--tag-inverted-background-color-checked-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-inverted-background-color-checked-hover);
+                border-color: var(--tag-inverted-background-color-checked-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-inverted-background-color-checked-active);
+            border-color: var(--tag-inverted-background-color-checked-active);
         }
     }
 }

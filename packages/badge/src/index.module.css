@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --badge-icon-bg-color: var(--color-light-bg-primary);
+    --badge-icon-bg-color: var(--color-light-neutral-1500-inverted);
 }
 
 .wrapper {
@@ -117,21 +117,21 @@
     max-height: 30px;
     min-width: 0;
     padding: 0;
-    color: var(--color-light-graphic-positive);
+    color: var(--color-light-status-positive);
 
     &.positive {
-        color: var(--color-light-graphic-positive);
-        background-color: var(--color-light-graphic-positive);
+        color: var(--color-light-status-positive);
+        background-color: var(--color-light-status-positive);
     }
 
     &.attention {
-        color: var(--color-light-graphic-attention);
-        background-color: var(--color-light-graphic-attention);
+        color: var(--color-light-status-attention);
+        background-color: var(--color-light-status-attention);
     }
 
     &.negative {
-        color: var(--color-light-graphic-negative);
-        background-color: var(--color-light-graphic-negative);
+        color: var(--color-light-status-negative);
+        background-color: var(--color-light-status-negative);
     }
 
     &.link {
@@ -145,8 +145,8 @@
     }
 
     &.secondary {
-        color: var(--color-light-graphic-secondary);
-        background-color: var(--color-light-graphic-secondary);
+        color: var(--color-light-neutral-700);
+        background-color: var(--color-light-neutral-700);
     }
 
     &.primary {
@@ -172,11 +172,11 @@
 }
 
 .graphic-static-light.icon:before {
-    background-color: var(--color-static-graphic-light);
+    background-color: var(--color-static-neutral-1500-inverted);
 }
 
 .graphic-primary.icon:before {
-    background-color: var(--color-light-graphic-primary);
+    background-color: var(--color-light-neutral-1500);
 }
 
 .outline {
@@ -187,15 +187,15 @@
     background-color: var(--color-light-bg-accent);
 
     &.attention {
-        background-color: var(--color-light-graphic-attention);
+        background-color: var(--color-light-status-attention);
     }
 
     &.positive {
-        background-color: var(--color-light-graphic-positive);
+        background-color: var(--color-light-status-positive);
     }
 
     &.negative {
-        background-color: var(--color-light-graphic-negative);
+        background-color: var(--color-light-status-negative);
     }
 
     &.link {
@@ -207,7 +207,7 @@
     }
 
     &.secondary {
-        background-color: var(--color-light-graphic-secondary);
+        background-color: var(--color-light-neutral-700);
     }
 
     &.primary {

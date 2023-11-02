@@ -1,6 +1,0 @@
-@define-mixin select-mobile {
-    --select-options-list-border-radius: 10px;
-
-    /* select mobile footer */
-    --select-mobile-footer-border-top: 1px solid var(--color-light-border-primary);
-}

@@ -13,8 +13,8 @@
     --slider-input-progress-margin-horizontal: var(--gap-s);
     --slider-input-xl-progress-margin-horizontal: var(--gap-m);
     --slider-input-progress-border-radius: var(--border-radius-s);
-    --slider-input-progress-bg-color: var(--color-light-graphic-secondary);
-    --slider-input-progress-hover-bg-color: var(--color-light-graphic-secondary);
+    --slider-input-progress-bg-color: var(--color-light-neutral-700);
+    --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
     --slider-input-origin-width: calc(100% - 16px);
     --slider-input-origin-right: 8px;
 }

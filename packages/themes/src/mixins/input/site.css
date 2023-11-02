@@ -1,8 +1,8 @@
 @define-mixin input-site {
     --input-error-icon-display: block;
     --input-error-icon-not-alone-display: block;
-
-    /* mobile */
-    --input-error-mobile-color: var(--color-light-text-primary);
-    --input-inverted-error-mobile-color: var(--color-light-text-primary-inverted);
+    --input-disabled-color: var(--color-light-text-secondary);
+    --input-inverted-disabled-color: var(--color-light-text-secondary-inverted);
+    --input-read-only-color: var(--color-light-text-secondary);
+    --input-inverted-read-only-color: var(--color-light-text-secondary-inverted);
 }

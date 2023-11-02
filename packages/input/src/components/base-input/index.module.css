@@ -48,16 +48,7 @@
 
 .clearIcon {
     display: block;
-    opacity: 0.3;
     transition: opacity 0.2s ease;
-
-    &:hover {
-        opacity: 0.6;
-    }
-
-    &:active {
-        opacity: 1;
-    }
 }
 
 .errorIcon {
@@ -77,7 +68,7 @@ button[class*='eye'] + .errorIcon {
 }
 
 .errorColorIcon {
-    color: var(--color-light-graphic-negative);
+    color: var(--color-light-status-negative);
 }
 
 .clearButton + * {
@@ -101,7 +92,7 @@ button[class*='eye'] + .successIcon {
 }
 
 .successColorIcon {
-    color: var(--color-light-graphic-positive);
+    color: var(--color-light-status-positive);
 }
 
 /* DISABLED STATE */

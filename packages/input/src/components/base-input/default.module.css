@@ -19,7 +19,15 @@
 }
 
 .clearIcon {
-    color: var(--color-light-graphic-primary);
+    color: var(--color-light-neutral-translucent-500);
+
+    &:hover {
+        color: var(--color-light-neutral-translucent-500-hover);
+    }
+
+    &:active {
+        color: var(--color-light-neutral-translucent-500-press);
+    }
 }
 
 /* READ-ONLY STATE */
@@ -43,4 +51,10 @@
 
 .input:focus::placeholder {
     color: var(--input-focus-placeholder-color);
+}
+
+/* ERROR STATE */
+.error {
+    color: var(--input-error-color);
+    caret-color: var(--input-error-color);
 }

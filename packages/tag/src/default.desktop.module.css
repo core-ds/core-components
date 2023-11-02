@@ -1,41 +1,20 @@
 @import './vars.css';
 
-.component {
-    &.filled {
-        background-color: var(--tag-filled-background-color);
+.filled {
+    background-color: var(--tag-filled-background-color);
 
-        &:disabled {
-            background-color: var(--tag-filled-background-color-disabled);
-        }
+    &:disabled {
+        background-color: var(--tag-filled-background-color-disabled);
+        border-color: var(--tag-filled-border-color);
+    }
 
-        @media (hover: hover) {
-            &:hover:not(:disabled) {
-                background-color: var(--tag-filled-background-color-hover);
-            }
-        }
-
-        &:active:not(:disabled) {
-            background-color: var(--tag-filled-background-color-active);
+    @media (hover: hover) {
+        &:hover:not(:disabled) {
+            background-color: var(--tag-filled-background-color-hover);
         }
     }
 
-    &.checked {
-        border-color: var(--tag-border-color-checked);
-        background-color: var(--tag-background-color-checked);
-
-        &:disabled {
-            background-color: var(--tag-background-color-checked-disabled);
-
-        }
-
-        @media (hover: hover) {
-            &:hover:not(:disabled) {
-                background-color: var(--tag-background-color-checked-hover);
-            }
-        }
-
-        &:active:not(:disabled) {
-            background-color: var(--tag-background-color-checked-active);
-        }
+    &:active:not(:disabled) {
+        background-color: var(--tag-filled-background-color-active);
     }
 }

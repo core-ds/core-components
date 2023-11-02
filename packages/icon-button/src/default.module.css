@@ -2,16 +2,16 @@
 
 :root {
     /* primary */
-    --icon-button-primary-base-color: var(--color-light-graphic-primary);
-    --icon-button-primary-hover-color: var(--color-light-graphic-primary-tint-20);
-    --icon-button-primary-active-color: var(--color-light-graphic-primary-tint-30);
-    --icon-button-primary-disabled-color: var(--color-light-graphic-primary-alpha-30);
+    --icon-button-primary-base-color: var(--color-light-neutral-1500);
+    --icon-button-primary-hover-color: var(--color-light-neutral-1500-hover);
+    --icon-button-primary-active-color: var(--color-light-neutral-1500-press);
+    --icon-button-primary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* secondary */
-    --icon-button-secondary-base-color: var(--color-light-graphic-secondary);
-    --icon-button-secondary-hover-color: var(--color-light-graphic-secondary-shade-30);
-    --icon-button-secondary-active-color: var(--color-light-graphic-secondary-shade-50);
-    --icon-button-secondary-disabled-color: var(--color-light-graphic-secondary-alpha-30);
+    --icon-button-secondary-base-color: var(--color-light-neutral-translucent-700);
+    --icon-button-secondary-hover-color: var(--color-light-neutral-translucent-700-hover);
+    --icon-button-secondary-active-color: var(--color-light-neutral-translucent-700-press);
+    --icon-button-secondary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* transparent */
     --icon-button-transparent-base-color: var(--color-light-graphic-primary-alpha-30);
@@ -20,16 +20,16 @@
     --icon-button-transparent-disabled-color: var(--color-light-graphic-primary-alpha-40);
 
     /* tertiary */
-    --icon-button-tertiary-base-color: var(--color-light-graphic-tertiary);
-    --icon-button-tertiary-hover-color: var(--color-light-graphic-tertiary-shade-7);
-    --icon-button-tertiary-active-color: var(--color-light-graphic-tertiary-shade-15);
-    --icon-button-tertiary-disabled-color: var(--color-light-graphic-tertiary-alpha-30);
+    --icon-button-tertiary-base-color: var(--color-light-neutral-translucent-500);
+    --icon-button-tertiary-hover-color: var(--color-light-neutral-translucent-500-hover);
+    --icon-button-tertiary-active-color: var(--color-light-neutral-translucent-500-press);
+    --icon-button-tertiary-disabled-color: var(--color-light-neutral-translucent-300);
 
     /* negative */
-    --icon-button-negative-base-color: var(--color-light-graphic-negative);
-    --icon-button-negative-hover-color: var(--color-light-graphic-negative-shade-7);
-    --icon-button-negative-active-color: var(--color-light-graphic-negative-shade-15);
-    --icon-button-negative-disabled-color: var(--color-light-graphic-negative-alpha-30);
+    --icon-button-negative-base-color: var(--color-light-status-negative);
+    --icon-button-negative-hover-color: var(--color-light-status-negative-hover);
+    --icon-button-negative-active-color: var(--color-light-status-negative-press);
+    --icon-button-negative-disabled-color: var(--color-light-neutral-translucent-300);
 }
 
 :global(.cc-icon-button) {

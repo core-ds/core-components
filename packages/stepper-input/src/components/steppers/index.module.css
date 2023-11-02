@@ -12,7 +12,7 @@
 .separator {
     height: 18px;
     width: 1px;
-    background-color: var(--color-light-specialbg-tertiary-transparent);
+    background-color: var(--color-light-neutral-translucent-300);
 }
 
 .button {

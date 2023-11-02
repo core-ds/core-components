@@ -3,21 +3,26 @@
 :root {
     /* primary */
     --action-button-primary-base-color: var(--color-light-text-primary);
-    --action-button-primary-base-icon-color: var(--color-light-graphic-primary-inverted);
-    --action-button-primary-base-bg-color: var(--color-light-bg-primary-inverted);
-    --action-button-primary-hover-color: var(--color-light-bg-primary-inverted-tint-15);
-    --action-button-primary-active-color: var(--color-light-bg-primary-inverted-tint-20);
+    --action-button-primary-base-icon-color: var(--color-light-neutral-1500-inverted);
+    --action-button-primary-base-bg-color: var(--color-light-accent-secondary);
+    --action-button-primary-hover-color: var(--color-light-accent-secondary-hover);
+    --action-button-primary-active-color: var(--color-light-accent-secondary-press);
 
     /* secondary */
     --action-button-secondary-base-color: var(--color-light-text-primary);
-    --action-button-secondary-base-icon-color: var(--color-light-graphic-primary);
-    --action-button-secondary-base-bg-color: var(--color-light-bg-secondary);
-    --action-button-secondary-hover-color: var(--color-light-bg-secondary-shade-7);
-    --action-button-secondary-active-color: var(--color-light-bg-secondary-shade-15);
+    --action-button-secondary-base-icon-color: var(--color-light-neutral-1500);
+    --action-button-secondary-base-bg-color: var(--color-light-neutral-100);
+    --action-button-secondary-hover-color: var(--color-light-neutral-100-hover);
+    --action-button-secondary-active-color: var(--color-light-neutral-100-press);
 
     /* spinner */
-    --action-button-spinner-primary-color: var(--color-light-graphic-primary-inverted);
-    --action-button-spinner-default-color: var(--color-light-graphic-primary);
+    --action-button-spinner-primary-color: var(--color-light-neutral-1500-inverted);
+    --action-button-spinner-default-color: var(--color-light-neutral-1500);
+
+    /* disabled */
+    --action-button-disabled-color: var(--color-light-text-tertiary);
+    --action-button-disabled-icon-color: var(--color-light-neutral-500);
+    --action-button-disabled-bg-color: var(--color-light-neutral-100);
 }
 
 .primary {
@@ -59,5 +64,14 @@
 
     & .loader {
         color: var(--action-button-spinner-default-color);
+    }
+}
+
+.disabled {
+    color: var(--action-button-disabled-color);
+
+    & .iconWrapper {
+        color: var(--action-button-disabled-icon-color);
+        background-color: var(--action-button-disabled-bg-color);
     }
 }

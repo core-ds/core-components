@@ -1,7 +1,0 @@
-@import './vars.css';
-
-/* ERROR STATE */
-.error {
-    color: var(--input-error-color);
-    caret-color: var(--input-error-color);
-}

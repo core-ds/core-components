@@ -1,5 +1,0 @@
-@define-mixin input-mobile {
-    /* theme */
-    --input-error-color: var(--color-light-text-negative);
-    --input-inverted-error-color: var(--color-light-text-accent);
-}

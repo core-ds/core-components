@@ -1,68 +1,37 @@
 @define-mixin button-corp {
     /* primary */
-    --button-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-primary-hover-bg-color: var(--color-light-bg-accent-shade-7);
-    --button-primary-active-bg-color: var(--color-light-bg-accent-shade-15);
-    --button-primary-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
-    --button-primary-color: var(--color-static-text-primary-light);
-    --button-primary-disabled-color: var(--color-light-text-tertiary);
+    --button-primary-base-bg-color: var(--color-light-accent-primary);
+    --button-primary-hover-bg-color: var(--color-light-accent-primary-hover);
+    --button-primary-active-bg-color: var(--color-light-accent-primary-press);
+    --button-primary-disabled-bg-color: var(--color-light-neutral-translucent-100);
+    --button-primary-color: var(--color-static-text-primary-inverted);
 
     /* primary-inverted */
-    --button-inverted-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-inverted-primary-hover-bg-color: var(--color-light-bg-accent-tint-15);
-    --button-inverted-primary-active-bg-color: var(--color-light-bg-accent-tint-20);
+    --button-inverted-primary-base-bg-color: var(--color-light-accent-primary-inverted);
+    --button-inverted-primary-hover-bg-color: var(--color-light-accent-primary-inverted-hover);
+    --button-inverted-primary-active-bg-color: var(--color-light-accent-primary-inverted-press);
     --button-inverted-primary-disabled-bg-color: var(
-        --color-light-specialbg-secondary-transparent-inverted
+        --color-light-neutral-translucent-100-inverted
     );
-    --button-inverted-primary-disabled-color: var(--color-light-text-tertiary-inverted);
-    --button-inverted-primary-color: var(--color-static-text-primary-light);
+    --button-inverted-primary-color: var(--color-static-text-primary-inverted);
 
     /* accent */
-    --button-accent-base-bg-color: var(--color-light-bg-secondary-inverted);
-    --button-accent-hover-bg-color: var(--color-light-bg-secondary-inverted-tint-15);
-    --button-accent-active-bg-color: var(--color-light-bg-secondary-inverted-tint-20);
-    --button-accent-disabled-bg-color: var(--color-light-specialbg-secondary-transparent);
+    --button-accent-base-bg-color: var(--color-light-accent-secondary);
+    --button-accent-hover-bg-color: var(--color-light-accent-secondary-hover);
+    --button-accent-active-bg-color: var(--color-light-accent-secondary-press);
+    --button-accent-disabled-bg-color: var(--color-light-neutral-translucent-100);
     --button-accent-color: var(--color-light-text-primary-inverted);
-    --button-accent-disabled-color: var(--color-light-text-tertiary);
 
     /* accent-inverted */
-    --button-inverted-accent-base-bg-color: var(--color-light-bg-secondary);
-    --button-inverted-accent-hover-bg-color: var(--color-light-bg-secondary-shade-7);
-    --button-inverted-accent-active-bg-color: var(--color-light-bg-secondary-shade-15);
-    --button-inverted-accent-disabled-bg-color: var(
-        --color-light-specialbg-secondary-transparent-inverted
-    );
-    --button-inverted-accent-disabled-color: var(--color-light-text-tertiary-inverted);
+    --button-inverted-accent-base-bg-color: var(--color-light-accent-secondary-inverted);
+    --button-inverted-accent-hover-bg-color: var(--color-light-accent-secondary-inverted-hover);
+    --button-inverted-accent-active-bg-color: var(--color-light-accent-secondary-inverted-press);
+    --button-inverted-accent-disabled-bg-color: var(--color-light-neutral-translucent-100-inverted);
     --button-inverted-accent-color: var(--color-light-text-primary);
 
-    /* inverted-secondary */
-
-    /* TODO colod-mod */
-    --button-inverted-secondary-base-bg-color: transparent;
-    --button-inverted-secondary-hover-bg-color: var(--color-light-bg-primary-alpha-15);
-    --button-inverted-secondary-active-bg-color: var(--color-light-bg-primary-alpha-20);
-    --button-inverted-secondary-disabled-bg-color: transparent;
-    --button-inverted-secondary-base-border-color: var(--color-light-border-underline);
-    --button-inverted-secondary-disabled-border-color: var(--color-light-border-underline-alpha-30);
-    --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
-    --button-inverted-secondary-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
-
-    /* inverted-tertiary */
-    --button-inverted-tertiary-base-bg-color: var(--color-light-specialbg-component-inverted);
-    --button-inverted-tertiary-hover-bg-color: var(
-        --color-light-specialbg-component-inverted-tint-15
-    );
-    --button-inverted-tertiary-active-bg-color: var(
-        --color-light-specialbg-component-inverted-tint-20
-    );
-    --button-inverted-tertiary-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
-    --button-inverted-tertiary-base-border-color: transparent;
-    --button-inverted-tertiary-hover-border-color: transparent;
-    --button-inverted-tertiary-disabled-border-color: transparent;
-    --button-inverted-tertiary-color: var(--color-light-text-primary-inverted);
-    --button-inverted-tertiary-disabled-color: var(--color-light-text-primary-inverted-alpha-30);
-
     /* spinner */
-    --button-spinner-primary-color: var(--color-static-graphic-light);
-    --button-spinner-inverted-primary-color: var(--color-static-graphic-light);
+    --button-spinner-static-color: var(--color-light-neutral-1500-inverted);
+    --button-spinner-inverted-static-color: var(--color-light-neutral-1500);
+    --button-spinner-primary-color: var(--color-static-neutral-1500-inverted);
+    --button-spinner-inverted-primary-color: var(--color-static-neutral-1500-inverted);
 }

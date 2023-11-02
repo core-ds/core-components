@@ -30,6 +30,10 @@
     }
 
     &.checked {
+        &:not(.disabled) {
+            background-color: var(--tag-background-color-checked);
+        }
+
         &:not(.disabled).xxs {
             min-width: 84px;
         }
@@ -40,6 +44,16 @@
 
         &:not(.disabled).s {
             min-width: 116px;
+        }
+
+        @media (hover: hover) {
+            &:not(.disabled):hover {
+                background-color: var(--tag-background-color-checked-hover);
+            }
+        }
+
+        &:not(.disabled):active {
+            background-color: var(--tag-background-color-checked-active);
         }
     }
 }
@@ -59,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-light-graphic-primary);
+    color: var(--color-light-neutral-1500);
 }
 
 .valueButton {
@@ -83,7 +97,7 @@
         cursor: var(--disabled-cursor);
 
         & > .chevron {
-            color: var(--color-light-graphic-primary-alpha-30);
+            color: var(--color-light-graphic-tertiary);
         }
     }
 
@@ -202,9 +216,10 @@
     &.checked {
         border-width: 0;
         color: var(--tag-text-color-checked);
+        background-color: var(--tag-background-color-checked);
 
         & > .chevron {
-            color: var(--color-light-graphic-primary-inverted);
+            color: var(--color-light-neutral-1500-inverted);
         }
 
         &.rounded {
@@ -235,6 +250,16 @@
         }
 
         @media (hover: hover) {
+            &:not(:disabled):hover {
+                background-color: var(--tag-background-color-checked-hover);
+            }
+        }
+
+        &:not(:disabled):active {
+            background-color: var(--tag-background-color-checked-active);
+        }
+
+        @media (hover: hover) {
             &:not(:disabled):hover + .clear:before {
                 background-color: var(--filter-tag-separator-background-color-hover);
             }
@@ -246,6 +271,11 @@
 
         &:disabled {
             color: var(--tag-text-color-checked-disabled);
+            background-color: var(--tag-background-color-checked-disabled);
+
+            & > .chevron {
+                color: var(--color-light-graphic-tertiary);
+            }
         }
     }
 }
@@ -255,7 +285,8 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: var(--color-light-graphic-tertiary);
+    color: var(--color-light-neutral-translucent-700-inverted);
+    background-color: var(--tag-background-color-checked);
 
     &.rounded {
         &.xxs {
@@ -280,7 +311,7 @@
         top: 50%;
         transform: translateY(-50%);
         display: block;
-        background-color: var(--color-light-border-underline-inverted);
+        background-color: var(--color-light-neutral-translucent-500-inverted);
         width: 1px;
         transition: background-color 0.2s ease;
     }
@@ -297,12 +328,14 @@
 
     @media (hover: hover) {
         &:hover {
-            color: var(--color-light-graphic-primary-inverted);
+            color: var(--color-light-neutral-translucent-700-inverted-hover);
+            background-color: var(--tag-background-color-checked-hover);
         }
     }
 
     &:active {
-        color: var(--color-light-graphic-primary-inverted);
+        color: var(--color-light-neutral-translucent-700-inverted-press);
+        background-color: var(--tag-background-color-checked-active);
     }
 
     &.s {
