@@ -3,8 +3,9 @@ import mergeRefs from 'react-merge-refs';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
+import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { useMedia } from '@alfalab/hooks';
+import { isClient } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
@@ -44,7 +45,10 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState('');
         const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
-        let [nativeScrollbar] = useMedia<boolean>([[true, '(max-width: 1023px)']], false);
+        const query = '(max-width: 1023px)';
+        let [nativeScrollbar] = useMatchMedia(query, () =>
+            isClient() ? window.matchMedia(query).matches : true,
+        );
 
         const rowVirtualizer = useVirtual({
             size: flatOptions.length,

@@ -1,9 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import React, {
+    FC,
     FocusEvent,
     forwardRef,
+    ForwardRefExoticComponent,
     KeyboardEvent,
     MouseEvent,
+    RefAttributes,
     useCallback,
     useEffect,
     useMemo,
@@ -12,6 +15,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
+import { compute } from 'compute-scroll-into-view';
 import {
     useCombobox,
     useMultipleSelection,
@@ -19,13 +23,23 @@ import {
     UseMultipleSelectionState,
 } from 'downshift';
 
-import { Popover } from '@alfalab/core-components-popover';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import type { ModalMobileProps } from '@alfalab/core-components-modal/mobile';
+import type {
+    ModalContentProps,
+    ModalFooterProps,
+    ModalHeaderProps,
+} from '@alfalab/core-components-modal/shared';
+import type { PopoverProps } from '@alfalab/core-components-popover';
+import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import {
+import type {
+    AdditionalMobileProps,
     AnyObject,
     BaseSelectProps,
+    BottomSheetSelectMobileProps,
+    ModalSelectMobileProps,
     OptionShape,
     OptionsListProps,
     SearchProps,
@@ -34,6 +48,30 @@ import { defaultAccessor, defaultFilterFn, processOptions } from '../../utils';
 import { NativeSelect } from '../native-select';
 
 import styles from './index.module.css';
+import mobileStyles from './mobile.module.css';
+
+type ComponentProps = BaseSelectProps &
+    AdditionalMobileProps &
+    BottomSheetSelectMobileProps &
+    ModalSelectMobileProps & {
+        isBottomSheet?: boolean;
+        view: 'desktop' | 'mobile';
+        Popover?: ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>;
+        BottomSheet?: React.ForwardRefExoticComponent<
+            BottomSheetProps & React.RefAttributes<HTMLDivElement>
+        >;
+        ModalMobile?: ForwardRefExoticComponent<
+            ModalMobileProps & RefAttributes<HTMLDivElement>
+        > & {
+            Header: FC<ModalHeaderProps>;
+            Footer: FC<ModalFooterProps>;
+            Content: FC<ModalContentProps>;
+        };
+    };
+
+const itemToString = (option: OptionShape | null) => (option ? option.key : '');
+
+const isItemDisabled = (option: OptionShape | null) => Boolean(option?.disabled);
 
 export const BaseSelect = forwardRef(
     // TODO: 😭
@@ -43,6 +81,7 @@ export const BaseSelect = forwardRef(
             dataTestId,
             className,
             fieldClassName,
+            optionGroupClassName,
             optionsListClassName,
             optionClassName,
             popperClassName,
@@ -91,14 +130,27 @@ export const BaseSelect = forwardRef(
             zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
-        }: BaseSelectProps,
+            view,
+            isBottomSheet = true,
+            footer,
+            swipeable,
+            modalProps,
+            modalFooterProps,
+            modalHeaderProps,
+            bottomSheetProps,
+            Popover,
+            ModalMobile,
+            BottomSheet,
+        }: ComponentProps,
         ref,
     ) => {
-        const rootRef = useRef<HTMLLabelElement>(null);
+        const rootRef = useRef<HTMLDivElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
         const searchRef = useRef<HTMLInputElement>(null);
+        const alreadyClickedRef = useRef<boolean>(false);
+        const scrollableContainerRef = useRef<HTMLDivElement>(null);
 
         const [searchState, setSearchState] = React.useState('');
 
@@ -106,8 +158,6 @@ export const BaseSelect = forwardRef(
             typeof searchProps?.value === 'string'
                 ? [searchProps.value, searchProps.onChange]
                 : [searchState, setSearchState];
-
-        const itemToString = (option: OptionShape) => (option ? option.key : '');
 
         const accessor = searchProps.accessor || defaultAccessor;
 
@@ -118,6 +168,24 @@ export const BaseSelect = forwardRef(
                 ),
             [accessor, options, search, selected],
         );
+
+        const scrollIntoView = (node: HTMLElement) => {
+            if (!node || view === 'mobile') return;
+
+            requestAnimationFrame(() => {
+                const actions = compute(node, {
+                    boundary: listRef.current,
+                    block: 'nearest',
+                    scrollMode: 'if-needed',
+                });
+
+                actions.forEach((action) => {
+                    const { el, top } = action;
+
+                    el.scrollTop = top;
+                });
+            });
+        };
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
@@ -166,19 +234,20 @@ export const BaseSelect = forwardRef(
             getMenuProps,
             getInputProps,
             getItemProps,
-            getComboboxProps,
             getLabelProps,
             highlightedIndex,
             toggleMenu,
             openMenu,
+            closeMenu,
             setHighlightedIndex,
         } = useCombobox<OptionShape>({
             id,
             isOpen: openProp,
-            circularNavigation,
             items: flatOptions,
             itemToString,
+            isItemDisabled,
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
+            scrollIntoView,
             onIsOpenChange: (changes) => {
                 if (onOpen) {
                     /**
@@ -205,16 +274,44 @@ export const BaseSelect = forwardRef(
                     }
                 }
             },
+            // eslint-disable-next-line complexity
             stateReducer: (state, actionAndChanges) => {
                 const { type, changes } = actionAndChanges;
                 const { selectedItem } = changes;
 
                 switch (type) {
+                    case useCombobox.stateChangeTypes.InputBlur:
+                        if (view === 'mobile') {
+                            return state;
+                        }
+
+                        return changes;
+                    case useCombobox.stateChangeTypes.InputKeyDownArrowDown:
+                        if (!circularNavigation && state.highlightedIndex === options.length - 1) {
+                            return { ...changes, highlightedIndex: state.highlightedIndex };
+                        }
+
+                        return changes;
+                    case useCombobox.stateChangeTypes.InputKeyDownArrowUp:
+                        if (!circularNavigation && state.highlightedIndex === 0) {
+                            return { ...changes, highlightedIndex: state.highlightedIndex };
+                        }
+
+                        return changes;
+
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
                     case useCombobox.stateChangeTypes.ItemClick:
-                        initiatorRef.current = selectedItem;
+                        initiatorRef.current = selectedItem || null;
 
-                        if (selectedItem && !selectedItem.disabled) {
+                        if (selectedItem && !selectedItem.disabled && !alreadyClickedRef.current) {
+                            // TODO!!! Проблема downshift + React 18. ItemClick срабатывает дважды. См https://github.com/downshift-js/downshift/issues/1384
+                            if (view === 'mobile' && React.version.indexOf('18') === 0) {
+                                alreadyClickedRef.current = true;
+                                setTimeout(() => {
+                                    alreadyClickedRef.current = false;
+                                });
+                            }
+
                             const alreadySelected = selectedItems.includes(selectedItem);
                             const allowRemove =
                                 allowUnselect || (multiple && selectedItems.length > 1);
@@ -234,7 +331,7 @@ export const BaseSelect = forwardRef(
 
                         return {
                             ...changes,
-                            isOpen: !closeOnSelect,
+                            isOpen: !closeOnSelect || (view === 'mobile' && multiple),
                             // при closeOnSelect === false - сохраняем подсвеченный индекс
                             highlightedIndex:
                                 state.isOpen && !closeOnSelect
@@ -247,10 +344,7 @@ export const BaseSelect = forwardRef(
             },
         });
 
-        const menuProps = (getMenuProps as (options: object, additional: object) => AnyObject)(
-            { ref: listRef },
-            { suppressRefError: true },
-        );
+        const menuProps = getMenuProps({ ref: listRef }, { suppressRefError: true });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
@@ -262,19 +356,23 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
-            const isNextFocusInsideList = listRef.current?.contains(
-                (event.relatedTarget || document.activeElement) as HTMLElement,
-            );
+            if (view === 'desktop') {
+                const isNextFocusInsideList = listRef.current?.contains(
+                    (event.relatedTarget || document.activeElement) as HTMLElement,
+                );
 
-            if (!isNextFocusInsideList) {
-                if (onBlur) onBlur(event);
+                if (!isNextFocusInsideList) {
+                    if (onBlur) onBlur(event);
 
-                inputProps.onBlur(event);
+                    inputProps.onBlur?.(event);
+                }
             }
+
+            if (view === 'mobile' && !open && onBlur) onBlur(event);
         };
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
-            inputProps.onKeyDown(event);
+            inputProps.onKeyDown?.(event);
 
             // https://caniuse.com/?search=KeyboardEvent.key
             const isKeyUnsupported = event.key === 'Unidentified';
@@ -323,36 +421,28 @@ export const BaseSelect = forwardRef(
             [flatOptions, setSelectedItems],
         );
 
-        const getOptionProps = useCallback(
-            (option: OptionShape, index: number) => ({
-                ...(optionProps as object),
-                className: optionClassName,
-                innerProps: getItemProps({
-                    index,
-                    item: option,
-                    disabled: option.disabled,
-                    onMouseDown: (event: MouseEvent) => event.preventDefault(),
-                }),
-                multiple,
-                index,
-                option,
-                size: optionsSize,
-                disabled: option.disabled,
-                highlighted: index === highlightedIndex,
-                selected: selectedItems.some(({ key }) => key === option.key),
-                dataTestId: getDataTestId(dataTestId, 'option'),
+        const handleClose = () => closeMenu();
+
+        const getOptionProps = (option: OptionShape, index: number) => ({
+            ...(optionProps as object),
+            mobile: view === 'mobile',
+            className: cn(optionClassName, {
+                [mobileStyles.option]: view === 'mobile',
             }),
-            [
-                dataTestId,
-                getItemProps,
-                highlightedIndex,
-                multiple,
-                optionClassName,
-                optionProps,
-                optionsSize,
-                selectedItems,
-            ],
-        );
+            innerProps: getItemProps({
+                index,
+                item: option,
+                onMouseDown: (event: MouseEvent) => event.preventDefault(),
+            }),
+            multiple,
+            index,
+            option,
+            size: optionsSize,
+            disabled: option.disabled,
+            highlighted: index === highlightedIndex,
+            selected: selectedItems.some(({ key }) => key === option.key),
+            dataTestId: getDataTestId(dataTestId, 'option'),
+        });
 
         useEffect(() => {
             if (defaultOpen) openMenu();
@@ -366,7 +456,7 @@ export const BaseSelect = forwardRef(
         }, []);
 
         const calcOptionsListWidth = useCallback(() => {
-            if (listRef.current) {
+            if (view === 'desktop' && listRef.current) {
                 const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
 
                 const optionsListMinWidth = rootRef.current
@@ -376,20 +466,24 @@ export const BaseSelect = forwardRef(
                 listRef.current.setAttribute('style', '');
                 listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
             }
-        }, [optionsListWidth]);
+        }, [view, optionsListWidth]);
 
         useEffect(() => {
-            const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-            const observer = new ResizeObserver(calcOptionsListWidth);
+            if (view === 'desktop') {
+                const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
+                const observer = new ResizeObserver(calcOptionsListWidth);
 
-            if (rootRef.current) {
-                observer.observe(rootRef.current);
+                if (rootRef.current) {
+                    observer.observe(rootRef.current);
+                }
+
+                return () => {
+                    observer.disconnect();
+                };
             }
 
-            return () => {
-                observer.disconnect();
-            };
-        }, [calcOptionsListWidth, open, optionsListWidth]);
+            return fnUtils.noop;
+        }, [view, calcOptionsListWidth, open, optionsListWidth]);
 
         useLayoutEffect_SAFE_FOR_SSR(calcOptionsListWidth, [
             open,
@@ -398,22 +492,19 @@ export const BaseSelect = forwardRef(
             selectedItems,
         ]);
 
-        const renderValue = useCallback(
-            () =>
-                selectedItems.map((option) => (
-                    <input type='hidden' name={name} value={option.key} key={option.key} />
-                )),
-            [selectedItems, name],
-        );
+        const renderValue = () =>
+            selectedItems.map((option) => (
+                <input type='hidden' name={name} value={option.key} key={option.key} />
+            ));
 
-        const renderNativeSelect = useCallback(() => {
+        const renderNativeSelect = () => {
             const value = multiple
                 ? selectedItems.map((option) => option.key)
                 : (selectedItems[0] || {}).key;
 
             return (
                 <NativeSelect
-                    {...menuProps}
+                    {...(menuProps as AnyObject)}
                     className={styles.nativeSelect}
                     disabled={disabled}
                     multiple={multiple}
@@ -423,22 +514,10 @@ export const BaseSelect = forwardRef(
                     options={filteredOptions}
                 />
             );
-        }, [
-            multiple,
-            selectedItems,
-            disabled,
-            name,
-            handleNativeSelectChange,
-            filteredOptions,
-            menuProps,
-        ]);
+        };
 
-        const { header, emptyPlaceholder } = optionsListProps as OptionsListProps;
-
-        const renderOptionsListHeader = () => {
-            if (!showSearch && !header) {
-                return null;
-            }
+        const renderSearch = () => {
+            if (!showSearch) return null;
 
             const handleClear: SearchProps['onClear'] = (event) => {
                 setSearch?.('');
@@ -451,26 +530,37 @@ export const BaseSelect = forwardRef(
             };
 
             return (
+                <Search
+                    {...searchProps?.componentProps}
+                    value={search}
+                    onChange={handleChange}
+                    dataTestId={getDataTestId(dataTestId, 'search')}
+                    onClear={handleClear}
+                    className={cn(searchProps?.componentProps?.className, {
+                        [styles.search]: view === 'desktop',
+                        [mobileStyles.search]: view === 'mobile',
+                    })}
+                    ref={searchRef}
+                />
+            );
+        };
+
+        const { header, emptyPlaceholder } = optionsListProps as OptionsListProps;
+
+        const renderOptionsListHeader = () => {
+            if (!showSearch && !header) {
+                return null;
+            }
+
+            return (
                 <React.Fragment>
                     {header}
-                    {showSearch && (
-                        <Search
-                            {...searchProps?.componentProps}
-                            value={search}
-                            onChange={handleChange}
-                            dataTestId={getDataTestId(dataTestId, 'search')}
-                            onClear={handleClear}
-                            className={cn(styles.search, searchProps?.componentProps?.className)}
-                            ref={searchRef}
-                        />
-                    )}
+                    {view === 'desktop' && renderSearch()}
                 </React.Fragment>
             );
         };
 
-        const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList || showSearch;
-
-        const renderEmptyPlaceholder = useCallback(() => {
+        const renderEmptyPlaceholder = () => {
             if (emptyPlaceholder) {
                 return emptyPlaceholder;
             }
@@ -480,15 +570,170 @@ export const BaseSelect = forwardRef(
             }
 
             return undefined;
-        }, [emptyPlaceholder, showSearch]);
+        };
+
+        const renderOptionsList = () => {
+            if (flatOptions.length === 0 && !showEmptyOptionsList && !showSearch) return null;
+
+            const listProps = optionsListProps as OptionsListProps & RefAttributes<HTMLDivElement>;
+
+            return (
+                <div
+                    {...menuProps}
+                    className={cn(
+                        optionsListClassName,
+                        view === 'mobile' && mobileStyles.optionsListWrapper,
+                        view === 'desktop' && styles.optionsListWrapper,
+                    )}
+                >
+                    <OptionsList
+                        {...listProps}
+                        ref={view === 'desktop' ? listProps.ref : scrollableContainerRef}
+                        setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
+                        className={cn({ [mobileStyles.optionsList]: view === 'mobile' })}
+                        scrollbarClassName={cn({ [mobileStyles.scrollbar]: view === 'mobile' })}
+                        optionsListWidth={optionsListWidth}
+                        flatOptions={flatOptions}
+                        highlightedIndex={highlightedIndex}
+                        open={open}
+                        size={size}
+                        options={filteredOptions}
+                        Optgroup={Optgroup}
+                        Option={Option}
+                        selectedItems={selectedItems}
+                        setSelectedItems={setSelectedItems}
+                        toggleMenu={toggleMenu}
+                        getOptionProps={getOptionProps}
+                        visibleOptions={view === 'desktop' ? visibleOptions : 0}
+                        dataTestId={getDataTestId(dataTestId, 'options-list')}
+                        header={renderOptionsListHeader()}
+                        optionGroupClassName={cn(optionGroupClassName, {
+                            [mobileStyles.optionGroup]: view === 'mobile',
+                        })}
+                        emptyPlaceholder={renderEmptyPlaceholder()}
+                        onScroll={onScroll}
+                    />
+                    {view === 'desktop' && <div className={styles.optionsListBorder} />}
+                </div>
+            );
+        };
+
+        const renderInPopover = () => {
+            if (!nativeSelect && Popover) {
+                return (
+                    <Popover
+                        open={open}
+                        withTransition={false}
+                        anchorElement={fieldRef.current as HTMLElement}
+                        position={popoverPosition}
+                        preventFlip={preventFlip}
+                        popperClassName={cn(styles.popoverInner, popperClassName)}
+                        update={updatePopover}
+                        zIndex={zIndexPopover}
+                    >
+                        {renderOptionsList()}
+                    </Popover>
+                );
+            }
+
+            return null;
+        };
+
+        const renderInBottomSheet = () => {
+            if (!nativeSelect && BottomSheet) {
+                return (
+                    <BottomSheet
+                        open={open}
+                        onClose={handleClose}
+                        className={mobileStyles.sheet}
+                        contentClassName={mobileStyles.sheetContent}
+                        containerClassName={mobileStyles.sheetContainer}
+                        title={label || placeholder}
+                        actionButton={footer}
+                        stickyHeader={true}
+                        hasCloser={true}
+                        swipeable={swipeable}
+                        scrollableContainerRef={scrollableContainerRef}
+                        initialHeight={showSearch ? 'full' : 'default'}
+                        {...bottomSheetProps}
+                        bottomAddons={
+                            <React.Fragment>
+                                {renderSearch()}
+                                {bottomSheetProps?.bottomAddons}
+                            </React.Fragment>
+                        }
+                        containerProps={{
+                            ...bottomSheetProps?.containerProps,
+                            onScroll,
+                        }}
+                    >
+                        {renderOptionsList()}
+                    </BottomSheet>
+                );
+            }
+
+            return null;
+        };
+
+        const renderInModalMobile = () => {
+            if (!nativeSelect && ModalMobile) {
+                return (
+                    <ModalMobile
+                        open={open}
+                        hasCloser={true}
+                        {...modalProps}
+                        onClose={(...args) => {
+                            handleClose();
+                            modalProps?.onClose?.(...args);
+                        }}
+                        contentClassName={cn(
+                            mobileStyles.sheetContent,
+                            modalProps?.contentClassName,
+                        )}
+                        ref={mergeRefs([
+                            scrollableContainerRef,
+                            modalProps?.ref as React.Ref<HTMLDivElement>,
+                        ])}
+                        wrapperProps={{
+                            ...modalProps?.wrapperProps,
+                            onScroll,
+                        }}
+                    >
+                        <ModalMobile.Header
+                            hasCloser={true}
+                            sticky={true}
+                            {...modalHeaderProps}
+                            title={undefined}
+                            bottomAddons={
+                                <React.Fragment>
+                                    {renderSearch()}
+                                    {modalHeaderProps?.bottomAddons}
+                                </React.Fragment>
+                            }
+                        >
+                            {modalHeaderProps?.title || label || placeholder}
+                        </ModalMobile.Header>
+
+                        <ModalMobile.Content flex={true} className={mobileStyles.modalContent}>
+                            {renderOptionsList()}
+                        </ModalMobile.Content>
+
+                        {modalFooterProps?.children && <ModalMobile.Footer {...modalFooterProps} />}
+                    </ModalMobile>
+                );
+            }
+
+            return null;
+        };
 
         return (
             <div
-                {...getComboboxProps({
-                    ref: rootRef,
-                    ...(disabled && { 'aria-disabled': true }),
-                    className: cn(styles.component, { [styles.block]: block }, className),
-                })}
+                {...(disabled && { 'aria-disabled': true })}
+                aria-expanded={inputProps['aria-expanded']}
+                aria-haspopup='listbox'
+                role={inputProps.role}
+                className={cn(styles.component, { [styles.block]: block }, className)}
+                ref={rootRef}
                 onKeyDown={disabled ? undefined : handleFieldKeyDown}
                 tabIndex={-1}
                 data-test-id={getDataTestId(dataTestId)}
@@ -517,7 +762,7 @@ export const BaseSelect = forwardRef(
                         onFocus: disabled ? undefined : handleFieldFocus,
                         onClick: disabled ? undefined : handleFieldClick,
                         tabIndex: disabled ? undefined : nativeSelect ? -1 : 0,
-                        ref: mergeRefs([inputProps.ref]),
+                        ref: inputProps.ref,
                         id: inputProps.id,
                         'aria-labelledby': inputProps['aria-labelledby'],
                         'aria-controls': inputProps['aria-controls'],
@@ -531,48 +776,9 @@ export const BaseSelect = forwardRef(
 
                 {name && !nativeSelect && renderValue()}
 
-                {!nativeSelect && (
-                    <Popover
-                        open={open}
-                        withTransition={false}
-                        anchorElement={fieldRef.current as HTMLElement}
-                        position={popoverPosition}
-                        preventFlip={preventFlip}
-                        popperClassName={cn(styles.popoverInner, popperClassName)}
-                        update={updatePopover}
-                        zIndex={zIndexPopover}
-                    >
-                        {needRenderOptionsList && (
-                            <div
-                                {...menuProps}
-                                className={cn(optionsListClassName, styles.optionsList)}
-                            >
-                                <OptionsList
-                                    {...(optionsListProps as AnyObject)}
-                                    setHighlightedIndex={setHighlightedIndex}
-                                    optionsListWidth={optionsListWidth}
-                                    flatOptions={flatOptions}
-                                    highlightedIndex={highlightedIndex}
-                                    open={open}
-                                    size={size}
-                                    options={filteredOptions}
-                                    Optgroup={Optgroup}
-                                    Option={Option}
-                                    selectedItems={selectedItems}
-                                    setSelectedItems={setSelectedItems}
-                                    toggleMenu={toggleMenu}
-                                    getOptionProps={getOptionProps}
-                                    visibleOptions={visibleOptions}
-                                    onScroll={onScroll}
-                                    dataTestId={getDataTestId(dataTestId, 'options-list')}
-                                    header={renderOptionsListHeader()}
-                                    emptyPlaceholder={renderEmptyPlaceholder()}
-                                />
-                                <div className={styles.optionsListBorder} />
-                            </div>
-                        )}
-                    </Popover>
-                )}
+                {view === 'desktop' && renderInPopover()}
+                {view === 'mobile' && isBottomSheet && renderInBottomSheet()}
+                {view === 'mobile' && !isBottomSheet && renderInModalMobile()}
             </div>
         );
     },

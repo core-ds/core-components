@@ -17,6 +17,7 @@
         "@alfalab/core-components-button": "^9.1.0",
         "@alfalab/core-components-form-control": "^10.2.0",
         "@alfalab/core-components-input": "^12.3.0",
+        "@alfalab/core-components-popover": "^6.1.0",
         "@alfalab/core-components-select": "^15.3.0",
         "@alfalab/core-components-shared": "^0.7.0",
         "@alfalab/hooks": "^1.13.0",

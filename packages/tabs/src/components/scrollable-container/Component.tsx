@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import computeScrollIntoView from 'compute-scroll-into-view';
+import { compute } from 'compute-scroll-into-view';
 
 import { PlatformProps, TabsProps } from '../../typings';
 import { ScrollControls } from '../scroll-controls';
@@ -69,7 +69,7 @@ export const ScrollableContainer = ({
 
     useEffect(() => {
         if (activeChild) {
-            const actions = computeScrollIntoView(activeChild, {
+            const actions = compute(activeChild, {
                 scrollMode: 'if-needed',
                 block: 'nearest',
                 inline: 'nearest',

@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import { SelectMobile } from '@alfalab/core-components-select/mobile';
 import {
     AdditionalMobileProps,
+    BottomSheetSelectMobileProps,
     Optgroup as DefaultOptgroup,
 } from '@alfalab/core-components-select/shared';
 
@@ -14,7 +15,8 @@ export type PickerButtonMobileProps = Omit<
     PickerButtonDesktopProps,
     'OptionsList' | 'Checkmark' | 'onScroll'
 > &
-    AdditionalMobileProps & {
+    AdditionalMobileProps &
+    BottomSheetSelectMobileProps & {
         /**
          * Контрольная точка для кнопки, с нее начинается desktop версия
          * @default 1024

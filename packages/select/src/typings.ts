@@ -1,4 +1,4 @@
-import {
+import type {
     AriaAttributes,
     FC,
     FocusEvent,
@@ -9,8 +9,14 @@ import {
     SVGProps,
 } from 'react';
 
-import { InputProps } from '@alfalab/core-components-input';
-import { PopoverProps } from '@alfalab/core-components-popover';
+import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import type { FormControlProps } from '@alfalab/core-components-form-control';
+import type { InputProps } from '@alfalab/core-components-input';
+import type { ModalProps } from '@alfalab/core-components-modal';
+import type { ModalFooterProps, ModalHeaderProps } from '@alfalab/core-components-modal/shared';
+import type { PopoverProps } from '@alfalab/core-components-popover';
+
+import type { UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
 
 // eslint-disable-next-line
 export type AnyObject = Record<string, any>;
@@ -665,10 +671,10 @@ export type OptionProps = {
      */
     innerProps: {
         id: string;
-        onClick: (event: MouseEvent<HTMLDivElement>) => void;
-        onMouseDown: (event: MouseEvent<HTMLDivElement>) => void;
-        onMouseMove: (event: MouseEvent<HTMLDivElement>) => void;
-        role: string;
+        onClick?: (event: MouseEvent<HTMLDivElement>) => void;
+        onMouseDown?: (event: MouseEvent<HTMLDivElement>) => void;
+        onMouseMove?: (event: MouseEvent<HTMLDivElement>) => void;
+        role?: string;
     } & RefAttributes<HTMLDivElement> &
         AriaAttributes;
 
@@ -721,3 +727,97 @@ export type CheckmarkProps = {
 };
 
 export type SearchProps = InputProps;
+
+export type SelectFieldProps = Omit<FormControlProps, 'size'> & Record<string, unknown>;
+
+export type AdditionalMobileProps = {
+    /**
+     * Показывать кнопку 'Сбросить' в футере мобильного компонента
+     */
+    showClear?: UseSelectWithApplyProps['showClear'];
+
+    /**
+     * Показывать пункт "Выбрать все"
+     */
+    showSelectAll?: UseSelectWithApplyProps['showSelectAll'];
+
+    /**
+     * Показывать пункт "Выбрать все" в заголовке списка у мобильного компонента
+     */
+    showHeaderWithSelectAll?: UseSelectWithApplyProps['showHeaderWithSelectAll'];
+
+    /**
+     * Использовать ли хук useSelectWithApply в мобильном компоненте
+     */
+    useWithApplyHook?: boolean;
+};
+
+export type BottomSheetSelectMobileProps = {
+    /**
+     * Футер
+     * @deprecated Используйте bottomSheetProps.actionButton
+     */
+    footer?: ReactNode;
+
+    /**
+     * Будет ли свайпаться шторка
+     * @deprecated Используйте bottomSheetProps.swipeable
+     */
+    swipeable?: boolean;
+
+    /**
+     * Дополнительные пропсы шторки
+     */
+    bottomSheetProps?: Partial<BottomSheetProps>;
+};
+
+export type ModalSelectMobileProps = {
+    /**
+     *  Дополнительные пропсы шапки модалки
+     */
+    modalHeaderProps?: Partial<ModalHeaderProps>;
+
+    /**
+     *  Дополнительные пропсы модалки
+     */
+    modalProps?: Partial<ModalProps & RefAttributes<HTMLDivElement>>;
+
+    /**
+     *  Дополнительные пропсы футера модалки
+     */
+    modalFooterProps?: Partial<ModalFooterProps>;
+};
+
+type ConditionalMobileProps =
+    | ({ isBottomSheet?: true } & BottomSheetSelectMobileProps)
+    | ({ isBottomSheet: false } & ModalSelectMobileProps);
+
+export type SelectModalMobileProps = Omit<BaseSelectProps, 'Checkmark'> &
+    AdditionalMobileProps &
+    ModalSelectMobileProps;
+
+export type SelectMobileProps = Omit<BaseSelectProps, 'Checkmark'> &
+    AdditionalMobileProps &
+    ConditionalMobileProps;
+
+export type SelectDesktopProps = Omit<BaseSelectProps, 'fieldProps'> & {
+    /**
+     * Пропсы, которые будут прокинуты в компонент поля
+     */
+    fieldProps?: SelectFieldProps;
+};
+
+export type SelectProps = BaseSelectProps &
+    AdditionalMobileProps &
+    ConditionalMobileProps & {
+        /**
+         * Контрольная точка, с нее начинается desktop версия
+         * @default 1024
+         */
+        breakpoint?: number;
+
+        /**
+         * Значение по-умолчанию для хука useMatchMedia
+         */
+        defaultMatchMediaValue?: boolean | (() => boolean);
+    };

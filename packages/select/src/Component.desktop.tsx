@@ -1,9 +1,7 @@
 import React, { forwardRef } from 'react';
 
-import {
-    FormControlDesktop,
-    FormControlDesktopProps,
-} from '@alfalab/core-components-form-control/desktop';
+import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
+import { Popover } from '@alfalab/core-components-popover';
 
 import { Arrow as DefaultArrow } from './components/arrow';
 import { BaseSelect } from './components/base-select';
@@ -12,16 +10,7 @@ import { Optgroup as DefaultOptgroup } from './components/optgroup';
 import { Option as DefaultOption } from './components/option';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { Search as DefaultSearch } from './components/search';
-import { BaseSelectProps } from './typings';
-
-export type SelectFieldProps = Omit<FormControlDesktopProps, 'size'> & Record<string, unknown>;
-
-export type SelectDesktopProps = Omit<BaseSelectProps, 'fieldProps'> & {
-    /**
-     * Пропсы, которые будут прокинуты в компонент поля
-     */
-    fieldProps?: SelectFieldProps;
-};
+import { SelectDesktopProps } from './typings';
 
 export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
     (
@@ -39,6 +28,7 @@ export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
     ) => (
         <BaseSelect
             ref={ref}
+            view='desktop'
             Option={Option}
             Field={Field}
             fieldProps={{
@@ -49,6 +39,7 @@ export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
             Optgroup={Optgroup}
             OptionsList={OptionsList}
             Arrow={Arrow}
+            Popover={Popover}
             {...restProps}
         />
     ),

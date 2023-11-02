@@ -1,5 +1,12 @@
-export * from '../components';
 export * from '../presets';
 export * from '../typings';
 export * from '../utils';
-export type { AdditionalMobileProps } from '../Component.mobile';
+
+export * from '../components/option';
+export * from '../components/base-option';
+export * from '../components/options-list';
+export * from '../components/virtual-options-list';
+export * from '../components/field';
+export * from '../components/arrow';
+export * from '../components/base-select';
+export * from '../components/optgroup';
