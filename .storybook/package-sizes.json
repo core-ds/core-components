@@ -60,11 +60,6 @@
     "steps": {
         "index.js": 8.93
     },
-    "stepper-input": {
-        "desktop.js": 23.12,
-        "mobile.js": 23.11,
-        "index.js": 23.79
-    },
     "stepped-progress-bar": {
         "index.js": 6.53
     },
@@ -99,7 +94,7 @@
         "index.js": 63.76
     },
     "shared": {
-        "index.js": 4.04
+        "index.js": 4.32
     },
     "select": {
         "desktop.js": 141.87,
@@ -166,9 +161,9 @@
         "index.js": 7.94
     },
     "number-input": {
-        "desktop.js": 18.87,
-        "mobile.js": 18.86,
-        "index.js": 19.43
+        "desktop.js": 34.21,
+        "mobile.js": 34.2,
+        "index.js": 34.9
     },
     "notification": {
         "index.js": 21.65
@@ -235,8 +230,8 @@
     },
     "icon-view": {
         "circle.js": 27.51,
-        "rectangle.js": 16.16,
         "no-shape.js": 5.1,
+        "rectangle.js": 16.16,
         "super-ellipse.js": 53.29
     },
     "icon-button": {
@@ -301,7 +296,7 @@
         "index.js": 216.57
     },
     "custom-button": {
-        "index.js": 9.29
+        "index.js": 9.3
     },
     "confirmation": {
         "desktop.js": 28.96,
