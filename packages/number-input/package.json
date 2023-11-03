@@ -15,6 +15,13 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^12.3.0",
+        "@alfalab/core-components-mq": "^4.2.0",
+        "@alfalab/core-components-icon-button": "^6.3.2",
+        "@alfalab/core-components-shared": "^0.7.0",
+        "@alfalab/icons-glyph": "^2.108.0",
+        "@maskito/core": "^1.7.0",
+        "@maskito/react": "^1.7.0",
+        "classnames": "^2.3.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     }
