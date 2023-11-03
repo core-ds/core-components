@@ -40,14 +40,14 @@
         "index.js": 6.26
     },
     "tabs": {
-        "collapsible.js": 161.31,
+        "collapsible.js": 183.54,
         "desktop.js": 33.13,
         "mobile.js": 33.29,
         "shared.js": 28.12,
         "index.js": 34.4
     },
     "table": {
-        "index.js": 152.54
+        "index.js": 152.88
     },
     "system-message": {
         "desktop.js": 4.61,
@@ -102,13 +102,13 @@
         "index.js": 4.04
     },
     "select": {
-        "desktop.js": 141.53,
-        "mobile.js": 176.39,
-        "shared.js": 124.46,
-        "index.js": 201.21
+        "desktop.js": 141.87,
+        "mobile.js": 176.89,
+        "shared.js": 155.54,
+        "index.js": 201.72
     },
     "select-with-tags": {
-        "index.js": 159.94
+        "index.js": 182.45
     },
     "segmented-control": {
         "index.js": 13.22
@@ -145,10 +145,10 @@
         "index.js": 14.11
     },
     "picker-button": {
-        "desktop.js": 154.23,
-        "mobile.js": 188.72,
+        "desktop.js": 176.47,
+        "mobile.js": 189.23,
         "shared.js": 3.01,
-        "index.js": 214.95
+        "index.js": 215.46
     },
     "phone-input": {
         "index.js": 28.39
@@ -213,12 +213,12 @@
         "index.js": 2.11
     },
     "intl-phone-input": {
-        "index.js": 670.09
+        "index.js": 692.34
     },
     "international-phone-input": {
-        "desktop.js": 476.4,
-        "mobile.js": 505.24,
-        "index.js": 531.87
+        "desktop.js": 498.47,
+        "mobile.js": 503.4,
+        "index.js": 529.71
     },
     "input": {
         "desktop.js": 16.98,
@@ -226,9 +226,9 @@
         "index.js": 17.54
     },
     "input-autocomplete": {
-        "desktop.js": 157.99,
-        "mobile.js": 180.49,
-        "index.js": 214.27
+        "desktop.js": 180.23,
+        "mobile.js": 188.4,
+        "index.js": 214.08
     },
     "indicator": {
         "index.js": 1.99
@@ -290,15 +290,15 @@
     "date-range-input": {
         "desktop.js": 132.32,
         "mobile.js": 226.15,
-        "index.js": 227.45
+        "index.js": 227.46
     },
     "date-input": {
         "index.js": 62.22
     },
     "custom-picker-button": {
-        "desktop.js": 155.69,
-        "mobile.js": 190.18,
-        "index.js": 216.03
+        "desktop.js": 177.93,
+        "mobile.js": 190.68,
+        "index.js": 216.54
     },
     "custom-button": {
         "index.js": 9.29
