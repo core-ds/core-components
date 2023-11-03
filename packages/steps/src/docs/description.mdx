@@ -1,45 +1,43 @@
 ## Примеры
 
-### Горизонтальный
+Горизонтальный.
 
-```jsx live
+```jsx live desktopOnly
 render(() => {
     const [ordered, setOrdered] = React.useState(true);
     const [error, setError] = React.useState(false);
     const [step, setStep] = React.useState(2);
 
-    const handleReset = () => setStep(1);
-
     const handleStepsChange = (stepNumber) => setStep(stepNumber);
 
-    const handleOrderChange = () => setOrdered(prev => !prev);
+    const handleOrderChange = () => setOrdered((prev) => !prev);
 
     const handleErrorChange = () => {
-        setError(prev => {
+        setError((prev) => {
             if (!prev && step > 3) {
                 setStep(3);
             }
 
             return !prev;
         });
-    }
+    };
 
     const handleStepDisable = (stepNumber) => {
         if (error) {
             return stepNumber === 4 || stepNumber === 5;
         }
-        
+
         return stepNumber === 4;
-    }
+    };
 
     const handleStepError = (stepNumber) => {
         if (error) {
             return stepNumber === 3;
         }
-    }
+    };
 
     return (
-        <div>
+        <Space size={24}>
             <Steps
                 activeStep={step}
                 defaultActiveStep={2}
@@ -48,33 +46,30 @@ render(() => {
                 checkIsStepDisabled={handleStepDisable}
                 checkIsStepError={handleStepError}
             >
-                <div>Шаг 1</div>
-                <div>Шаг 2</div>
-                <div>Шаг 3</div>
-                <div>Шаг 4</div>
-                <div>Шаг 5</div>
+                {[1, 2, 3, 4, 5].map((item, key) => (
+                    <div key={key}>Шаг {item}</div>
+                ))}
             </Steps>
-            <div style={{ margin: '20px 0' }}>Выбран шаг {step}</div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Switch checked={ordered} onChange={handleOrderChange} />
-                <span style={{ marginLeft: 12 }}>Номера шагов</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: 14 }}>
-                <Switch checked={error} onChange={handleErrorChange} />
-                <span style={{ marginLeft: 12 }}>Показать некорректно заполненный шаг</span>
-            </div>
-            <Button style={{ marginTop: 14 }} view='secondary' onClick={handleReset} size='xxs'>
-                Сбросить
-            </Button>
-        </div>
+            <Typography.Text view='component-secondary' color='secondary'>
+                Выбран шаг {step}
+            </Typography.Text>
+            <>
+                <Switch checked={ordered} onChange={handleOrderChange} label='Номера шагов' />
+                <Gap size='m' />
+                <Switch
+                    checked={error}
+                    onChange={handleErrorChange}
+                    label='Есть некорректно заполненный шаг'
+                />
+            </>
+        </Space>
     );
 });
 ```
 
+Вертикальный.
 
-### Вертикальный
-
-```jsx live
+```jsx live mobileHeight={560}
 render(() => {
     const [ordered, setOrdered] = React.useState(true);
     const [error, setError] = React.useState(false);
@@ -84,34 +79,34 @@ render(() => {
 
     const handleStepsChange = (stepNumber) => setStep(stepNumber);
 
-    const handleOrderChange = () => setOrdered(prev => !prev);
+    const handleOrderChange = () => setOrdered((prev) => !prev);
 
     const handleErrorChange = () => {
-        setError(prev => {
+        setError((prev) => {
             if (!prev && step > 3) {
                 setStep(3);
             }
 
             return !prev;
         });
-    }
+    };
 
     const handleStepDisable = (stepNumber) => {
         if (error) {
             return stepNumber === 4 || stepNumber === 5;
         }
-        
+
         return stepNumber === 4;
-    }
+    };
 
     const handleStepError = (stepNumber) => {
         if (error) {
             return stepNumber === 3;
         }
-    }
+    };
 
     return (
-        <div style={{ display: 'flex', gap: 250 }}>
+        <Space size={24}>
             <Steps
                 activeStep={step}
                 defaultActiveStep={2}
@@ -122,153 +117,118 @@ render(() => {
                 checkIsStepDisabled={handleStepDisable}
                 checkIsStepError={handleStepError}
             >
-                <PureCell verticalPadding='none' horizontalPadding='none'>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text
-                                titleColor="primary"
-                                view="component"
-                            >
-                                Шаг 1
-                            </PureCell.Text>
-                            <PureCell.Category categoryName="Subtitle" />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-
-                <PureCell verticalPadding='none' horizontalPadding='none'>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text
-                                titleColor="primary"
-                                view="component"
-                            >
-                                Шаг 2
-                            </PureCell.Text>
-                            <PureCell.Category categoryName="Subtitle" />
-                        </PureCell.Main>
-                        <PureCell.Footer>
-                            <div style={{ display: "flex", gap: 12 }}>
-                                <PureCell.FooterButton view="primary">
-                                    Primary
-                                </PureCell.FooterButton>
-                                <PureCell.FooterButton view="secondary">
-                                    Secondary
-                                </PureCell.FooterButton>
-                            </div>
-                        </PureCell.Footer>
-                    </PureCell.Content>
-                </PureCell>
-
-                <PureCell verticalPadding='none' horizontalPadding='none'>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text
-                                titleColor="primary"
-                                view="component"
-                            >
-                                Шаг 3
-                            </PureCell.Text>
-                            <PureCell.Category categoryName="Subtitle" />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-
-                <PureCell verticalPadding='none' horizontalPadding='none'>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text
-                                titleColor="primary"
-                                view="component"
-                            >
-                                Шаг 4
-                            </PureCell.Text>
-                            <PureCell.Category categoryName="Subtitle" />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-                
-                <div>Шаг 5</div>
+                {[1, 2, 3, 4, 5].map((item, key) => (
+                    <PureCell key={key} verticalPadding='none' horizontalPadding='none'>
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <PureCell.Text titleColor='primary' view='component'>
+                                    Шаг {item}
+                                </PureCell.Text>
+                                <PureCell.Category categoryName='Subtitle' />
+                            </PureCell.Main>
+                            {item === 2 && (
+                                <PureCell.Footer>
+                                    <div style={{ display: 'flex', gap: 12 }}>
+                                        <PureCell.FooterButton view='primary'>
+                                            Label
+                                        </PureCell.FooterButton>
+                                        <PureCell.FooterButton view='secondary'>
+                                            Label
+                                        </PureCell.FooterButton>
+                                    </div>
+                                </PureCell.Footer>
+                            )}
+                        </PureCell.Content>
+                    </PureCell>
+                ))}
             </Steps>
-            <div>
-                <div style={{ marginBottom: 20 }}>Выбран шаг {step}</div>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                    <Switch checked={ordered} onChange={handleOrderChange} />
-                    <span style={{ marginLeft: 12 }}>Номера шагов</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', marginTop: 14 }}>
-                    <Switch checked={error} onChange={handleErrorChange} />
-                    <span style={{ marginLeft: 12 }}>Показать некорректно заполненный шаг</span>
-                </div>
-                <Button
-                    style={{ marginTop: 14 }}
-                    view="secondary"
-                    onClick={handleReset}
-                    size="xxs"
-                >
-                    Сбросить
-                </Button>
-            </div>
-        </div>
+            <Typography.Text view='component-secondary' color='secondary'>
+                Выбран шаг {step}
+            </Typography.Text>
+            <>
+                <Switch checked={ordered} onChange={handleOrderChange} label='Номера шагов' />
+                <Gap size='m' />
+                <Switch
+                    checked={error}
+                    onChange={handleErrorChange}
+                    label='Есть некорректно заполненный шаг'
+                />
+            </>
+        </Space>
     );
 });
 ```
 
-
-### Виды индикаторов
+Виды индикаторов.
 
 ```jsx live
-render(
-    <div style={{ color: '#546272' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
-            <Badge
-                size='l'
-                view='icon'
-                iconColor='positive'
-                content={<CheckmarkCircleMIcon />}
-            />
-            <Typography.Text view='primary-small'>Completed</Typography.Text>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
-            <Badge
-                size='l'
-                view='icon'
-                iconColor='positive'
-                content={<CheckmarkCircleMIcon />}
-            />
-            <Typography.Text view='primary-small'>Positive</Typography.Text>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
-            <Badge
-                size='l'
-                view='icon'
-                iconColor='negative'
-                content={<ExclamationCircleMIcon />}
-            />
-            <Typography.Text view='primary-small'>Negative</Typography.Text>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
-            <Badge
-                size='l'
-                view='icon'
-                iconColor='attention'
-                content={<ExclamationCircleMIcon />}
-            />
-            <Typography.Text view='primary-small'>Warning</Typography.Text>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: 20 }}>
-            <Badge
-                size='l'
-                view='icon'
-                iconColor='secondary'
-                content={<ClockMIcon />}
-            />
-            <Typography.Text view='primary-small'>Waiting</Typography.Text>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{ width: 24, height: 24, background: 'rgba(55, 120, 251, 0.1)', border: '1px solid #3778FB', borderRadius: 4, margin: '0 6px' }} />
-            <Typography.Text view='primary-small'>Custom</Typography.Text>
-        </div>
-    </div>
-)
+render(() => {
+    const styles = {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+    };
+
+    const stylesCustom = {
+        width: 24,
+        height: 24,
+        background: 'rgba(55, 120, 251, 0.1)',
+        border: '1px dashed #3778FB',
+        borderRadius: 8,
+        boxSizing: 'border-box',
+    };
+
+    const viewIndicators = [
+        {
+            view: 'positive',
+            content: 'Completed',
+            icon: <CheckmarkCircleMIcon />,
+        },
+        {
+            view: 'positive',
+            content: 'Positive',
+            icon: <CheckmarkCircleMIcon />,
+        },
+        {
+            view: 'negative',
+            content: 'Negative',
+            icon: <ExclamationCircleMIcon />,
+        },
+        {
+            view: 'attention',
+            content: 'Warning',
+            icon: <ExclamationCircleMIcon />,
+        },
+        {
+            view: 'secondary',
+            content: 'Warning',
+            icon: <ClockMIcon />,
+        },
+        {
+            content: 'Custom',
+        },
+    ];
+    return (
+        <Space size={20}>
+            {viewIndicators.map((indicator, key) => (
+                <div key={key} style={styles}>
+                    {key === 5 ? (
+                        <div style={stylesCustom} />
+                    ) : (
+                        <Badge
+                            size='m'
+                            view='icon'
+                            iconColor={indicator.view}
+                            content={indicator.icon}
+                            visibleColorOutline='true'
+                        />
+                    )}
+                    <Typography.Text color='secondary' view='primary-small'>
+                        {indicator.content}
+                    </Typography.Text>
+                </div>
+            ))}
+        </Space>
+    );
+});
 ```

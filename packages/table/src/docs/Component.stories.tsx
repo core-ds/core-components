@@ -1,23 +1,24 @@
-import { Meta, Story, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
-import { ArgsTabs, ComponentHeader, Tabs } from 'storybook/blocks';
-
 import { Amount } from '@alfalab/core-components-amount';
 import { Space } from '@alfalab/core-components-space';
 import { Typography } from '@alfalab/core-components-typography';
 import { Table } from '@alfalab/core-components-table';
-
-import { Table as TableTS } from '../component';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
 import {
     stylesStringToObj,
     getQueryParam,
 } from '../../../screenshot-utils/screenshots-story/utils';
 
-<Meta title='Components/Table' component={Table} id='Table' />
+const meta: Meta<typeof Table> = {
+    title: 'Components/Table',
+    component: Table,
+    id: 'Table',
+};
 
-export const DATA = [
+type Story = StoryObj<typeof Table>;
+
+const DATA = [
     {
         id: 28,
         date: '30.06.2022',
@@ -41,15 +42,14 @@ export const DATA = [
     },
 ];
 
-{/* Canvas */}
-
-<Story name='Table'>
-    {React.createElement(() => {
+export const table: Story = {
+    name: 'Table',
+    render: () => {
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         return (
             <div style={{ backgroundColor: previewStyles.backgroundColor }}>
                 <div style={previewStyles}>
-                    <Table compactHorizontal={boolean('compact horizontal')}>
+                    <Table compactHorizontal={boolean('compact horizontal', false)}>
                         <Table.THead>
                             <Table.THeadCell width='122px' id='date' title='Дата'>
                                 Дата
@@ -96,34 +96,7 @@ export const DATA = [
                 </div>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Table'
-/>
-
-```jsx
-import { Table } from '@alfalab/core-components/table';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={
-        <ArgsTabs
-            components={{
-                Table: TableTS,
-                Wrapper: TableTS.Wrapper,
-                Pagination: TableTS.Pagination,
-                TCell: TableTS.TCell,
-                THead: TableTS.THead,
-                THeadCell: TableTS.THeadCell,
-                TSortableHeadCell: TableTS.TSortableHeadCell,
-                TRow: TableTS.TRow,
-            }}
-        />
-    }
-/>
+export default meta;
