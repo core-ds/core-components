@@ -5,7 +5,6 @@
 "@alfalab/core-components-international-phone-input": minor
 "@alfalab/core-components-picker-button": minor
 "@alfalab/core-components-spinner": minor
-"@alfalab/core-components-stepper-input": minor
 "@alfalab/core-components-universal-date-input": minor
 ---
 
