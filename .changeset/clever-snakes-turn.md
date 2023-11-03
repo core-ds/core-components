@@ -12,11 +12,11 @@
 а при вводе значения в инпут будет вызываться коллбэк onInput. При нажатии кнопок "Отмена" и "Продолжить" также будет вызываться onInput.
 После апдейта нужно заменить
 ```jsx
-<InputAutocompeteMobile onFilter={onFilter} filter={filter} value={value} />
+<InputAutocompleteMobile onFilter={onFilter} filter={filter} value={value} />
 ```
 на
 ```jsx
-<InputAutocompeteMobile onInput={onFilter} value={value} />
+<InputAutocompleteMobile onInput={onFilter} value={value} />
 ```
 
 Примеры можете посмотреть в нашем [сторибуке](https://core-ds.github.io/core-components/master/?path=/docs/inputautocomplete--docs)
