@@ -32,6 +32,9 @@ const sourceBranch =
     process.env.GITHUB_HEAD_REF ||
     process.env.GITHUB_REF_NAME ||
     shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
+
+console.log('BRANCH_NAME', process.env.BRANCH_NAME);
+
 console.log(`Source branch = ${sourceBranch}`);
 
 /** Temporary dir for builded file = branch name + last git commit hash */
