@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.1.17
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   select@16.0.0
+    -   form-control@11.0.0
+    -   tag@7.0.0
+
 ## 7.1.16
 
 ### Patch Changes

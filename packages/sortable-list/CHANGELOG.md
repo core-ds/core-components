@@ -1,5 +1,12 @@
 # @alfalab/core-components-sortable-list
 
+## 1.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.8.0
+
 ## 1.2.0
 
 ### Minor Changes

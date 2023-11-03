@@ -1,5 +1,14 @@
 # Change Log
 
+## 13.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   typography@4.2.0
+    -   button@10.0.0
+    -   spinner@3.2.0
+
 ## 13.2.0
 
 ### Minor Changes

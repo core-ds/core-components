@@ -1,5 +1,22 @@
 # Change Log
 
+## 13.0.0
+
+### Major Changes
+
+### [#931](https://github.com/core-ds/core-components/pull/931)
+
+-   В компонентах FormControl и Input цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+-   Удалены некоторые css переменные для мобильных компонентов и темизация для intranet и mobile
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.0
+    -   form-control@11.0.0
+    -   badge@5.3.0
+    -   shared@0.8.0
+
 ## 12.3.0
 
 ### Minor Changes

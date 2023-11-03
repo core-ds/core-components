@@ -1,5 +1,22 @@
 # Change Log
 
+## 8.3.0
+
+### Minor Changes
+
+### [#933](https://github.com/core-ds/core-components/pull/933)
+
+-   Обновлена версия compute-scroll-into-view
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@7.0.0
+    -   badge@5.3.0
+    -   icon-button@6.4.0
+    -   picker-button@11.3.0
+    -   shared@0.8.0
+
 ## 8.2.0
 
 ### Minor Changes

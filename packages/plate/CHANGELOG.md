@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.1.1
+
+### Patch Changes
+
+### [#953](https://github.com/core-ds/core-components/pull/953)
+
+-   Изменен порядок кнопок в subAddons
+
+-   Обновлены зависимости
+    -   button@10.0.0
+    -   icon-button@6.4.0
+
 ## 7.1.0
 
 ### Minor Changes

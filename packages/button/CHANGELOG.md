@@ -1,5 +1,20 @@
 # Change Log
 
+## 10.0.0
+
+### Major Changes
+
+### [#931](https://github.com/core-ds/core-components/pull/931)
+
+-   В компоненте Button цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+-   Удалена темизация для intranet, click, mobil
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   spinner@3.2.0
+    -   shared@0.8.0
+
 ## 9.1.0
 
 ### Minor Changes

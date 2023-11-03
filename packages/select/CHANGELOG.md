@@ -1,5 +1,39 @@
 # Change Log
 
+## 16.0.0
+
+### Major Changes
+
+### [#931](https://github.com/core-ds/core-components/pull/931)
+
+-   В компонентах Select и SliderInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+-   Удалена темизация для intranet и mobile
+
+### Minor Changes
+
+### [#918](https://github.com/core-ds/core-components/pull/918)
+
+-   В searchProps добавлена возможность прокинуть кастомную функцию фильтрации
+-   Фокус в поле поиска устанавливается после вызова transitionProps.onEntered, а не по таймауту как раньше
+
+### [#933](https://github.com/core-ds/core-components/pull/933)
+
+-   Обновлена зависимость downshift
+-   Переключаться между modal и bottom-sheet в SelectMobile можно с помощью пропа isBottomSheet
+-   Исправлена ошибка, из-за которой не работал onScroll в SelectMobile
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.0
+    -   form-control@11.0.0
+    -   input@13.0.0
+    -   base-modal@5.6.0
+    -   badge@5.3.0
+    -   shared@0.8.0
+    -   bottom-sheet@6.11.4
+    -   modal@8.1.1
+
 ## 15.3.0
 
 ### Minor Changes

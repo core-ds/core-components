@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.6.0
+
+### Minor Changes
+
+### [#933](https://github.com/core-ds/core-components/pull/933)
+
+-   Добавлен проп wrapperProps
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   shared@0.8.0
+
 ## 5.5.0
 
 ### Minor Changes
