@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useEffect, useMemo, useRef } from 'react';
+import React, { ChangeEvent, forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
@@ -8,7 +8,14 @@ import { BaseOption } from '@alfalab/core-components-select/shared';
 import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
 
 import type { BaseInternationalPhoneInputProps, Country } from '../../types';
-import { createMaskOptions, getPhoneData } from '../../utils';
+import {
+    createMaskOptions,
+    filterPhones,
+    findCountry,
+    getClear,
+    getPhoneData,
+    initCountries,
+} from '../../utils';
 import { CountrySelect } from '../country-select';
 
 import styles from './index.module.css';
@@ -21,7 +28,8 @@ export const BaseInternationalPhoneInput = forwardRef<
         {
             clearableCountryCode,
             value,
-            country,
+            country: countryProp,
+            filterFn,
             onChange,
             onCountryChange,
             countrySelectProps,
@@ -34,15 +42,25 @@ export const BaseInternationalPhoneInput = forwardRef<
             InputAutocomplete,
             SelectComponent,
             view,
-            bottomSheetHeaderAddonsProps,
-            countriesData,
-            clear,
+            clear: clearProp,
             ...restProps
         },
         ref,
     ) => {
+        const countriesData = useMemo(() => initCountries(countries), [countries]);
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
+
+        const [selectedCountry, setSelectedCountry] = useState<Country | undefined>(() =>
+            findCountry(countriesData, value, defaultIso2, countryProp),
+        );
+        const filteredOptions = filterPhones(value, options, filterFn);
+        const country = countryProp ?? selectedCountry;
+
+        const handleCountryChange = (nextCountry?: Country) => {
+            if (countryProp === undefined) setSelectedCountry(nextCountry);
+            onCountryChange?.(nextCountry);
+        };
 
         const maskOptions = useMemo(
             () => createMaskOptions(country, clearableCountryCode),
@@ -59,7 +77,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             const { nextCountry, nextPhone } = getPhoneData(phone, countriesData, defaultIso2);
 
             if (nextCountry !== country) {
-                onCountryChange?.(nextCountry);
+                handleCountryChange?.(nextCountry);
             }
             changeNumber(e, nextPhone);
         };
@@ -67,7 +85,7 @@ export const BaseInternationalPhoneInput = forwardRef<
         const handleSelectCountry = ({ selected }: BaseSelectChangePayload) => {
             const nextCountry = selected?.value as Country;
 
-            onCountryChange?.(nextCountry);
+            handleCountryChange?.(nextCountry);
 
             if (nextCountry) {
                 changeNumber(null, `+${nextCountry.dialCode}`);
@@ -109,15 +127,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [value, maskOptions]);
 
-        const inputProps = {
-            className: styles.component,
-            ref: mergeRefs([maskRef, ref, inputRef]),
-            wrapperRef: inputWrapperRef,
-            addonsClassName: styles.addons,
-            type: 'tel',
-        } as const;
-
-        const renderCountrySelect = () => (
+        const renderCountrySelect = (compact = false) => (
             <CountrySelect
                 {...countrySelectProps}
                 view={view}
@@ -125,10 +135,19 @@ export const BaseInternationalPhoneInput = forwardRef<
                 disabled={disabled || countrySelectProps?.disabled}
                 onChange={handleSelectCountry}
                 country={country}
-                countries={countriesData}
+                countries={compact ? [] : countriesData}
                 fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
             />
         );
+
+        const inputProps = {
+            className: styles.component,
+            ref: mergeRefs([maskRef, ref, inputRef]),
+            wrapperRef: inputWrapperRef,
+            addonsClassName: styles.addons,
+            type: 'tel',
+            clear: getClear(clearProp, clearableCountryCode, value, country?.countryCode),
+        } as const;
 
         return Array.isArray(options) ? (
             <InputAutocomplete
@@ -137,32 +156,27 @@ export const BaseInternationalPhoneInput = forwardRef<
                 size={size}
                 {...(restProps as InputAutocompleteProps)}
                 disabled={disabled}
-                options={options}
+                options={filteredOptions}
                 value={value}
                 onChange={handleOptionSelect}
-                bottomSheetHeaderAddonsProps={{
-                    ...bottomSheetHeaderAddonsProps,
-                    ...inputProps,
-                }}
+                onInput={(event, { value: phone }) => updatePhoneData(phone, event)}
                 inputProps={{
                     ...inputProps,
-                    clear,
                     onClear: handleClear,
-                    leftAddons: renderCountrySelect(),
                     onInput: handleInput,
+                    leftAddons: renderCountrySelect(view === 'mobile'),
                 }}
                 fieldProps={{
                     className: inputProps.className,
                     addonsClassName: inputProps.addonsClassName,
-                    leftAddons: renderCountrySelect(),
+                    ...(view === 'mobile' ? { leftAddons: renderCountrySelect() } : null),
                 }}
             />
         ) : (
             <Input
                 {...restProps}
                 {...inputProps}
-                onClear={clear ? handleClear : undefined}
-                clear={clear}
+                onClear={inputProps.clear ? handleClear : undefined}
                 leftAddons={renderCountrySelect()}
                 size={size}
                 onInput={handleInput}

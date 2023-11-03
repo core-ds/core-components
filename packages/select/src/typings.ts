@@ -290,7 +290,7 @@ export type BaseSelectProps = {
     /**
      * Компонент поиска
      */
-    Search?: FC<SearchProps & RefAttributes<HTMLInputElement>>;
+    Search?: FC<SearchProps>;
 
     /**
      * Настройки поиска
@@ -298,6 +298,7 @@ export type BaseSelectProps = {
     searchProps?: {
         componentProps?: SearchProps;
         accessor?: (option: OptionShape) => string;
+        filterFn?: (optionText: string, search: string) => boolean;
         value?: string;
         onChange?: (value: string) => void;
     };
@@ -726,7 +727,7 @@ export type CheckmarkProps = {
     icon?: FC<SVGProps<SVGSVGElement>>;
 };
 
-export type SearchProps = InputProps;
+export type SearchProps = InputProps & RefAttributes<HTMLInputElement>;
 
 export type SelectFieldProps = Omit<FormControlProps, 'size'> & Record<string, unknown>;
 

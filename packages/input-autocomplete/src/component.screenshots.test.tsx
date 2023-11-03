@@ -28,6 +28,7 @@ describe('InputAutocomplete | interactions tests', () => {
     test('Fill value', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'InputAutocomplete',
+            subComponentName: 'InputAutocompleteDesktop',
             testStory: false,
             knobs: {
                 block: true,
@@ -90,7 +91,7 @@ describe('InputAutocompleteMobile | interactions tests', () => {
 
             await page.fill('input', 'D');
 
-            await page.click('button[data-test-id="continue"]');
+            await page.click('button[data-test-id="InputAutocomplete-apply"]');
 
             await matchHtml({ context, page, expect, matchImageSnapshotOptions });
         } catch (error) {
@@ -144,7 +145,7 @@ describe('InputAutocompleteModalMobile | interactions', () => {
                 },
             });
 
-            await page.click('button[data-test-id="continue"]');
+            await page.click('button[data-test-id="InputAutocomplete-apply"]');
 
             await matchHtml({
                 context,

@@ -73,18 +73,24 @@ export function useSelectWithApply({
     showSearch,
     searchProps = {},
 }: UseSelectWithApplyProps) {
-    const [search, setSearch] = useState('');
+    const [searchState, setSearchState] = useState('');
+
+    const [search, setSearch] =
+        typeof searchProps?.value === 'string'
+            ? [searchProps.value, searchProps.onChange]
+            : [searchState, setSearchState];
 
     const accessor = searchProps.accessor || defaultAccessor;
+    const filterFn = searchProps.filterFn || defaultFilterFn;
 
     const { flatOptions, selectedOptions } = useMemo(
         () =>
             processOptions(
                 options,
                 selected,
-                showSearch ? (option) => defaultFilterFn(accessor(option), search) : undefined,
+                showSearch ? (option) => filterFn(accessor(option), search) : undefined,
             ),
-        [accessor, options, search, selected, showSearch],
+        [filterFn, accessor, options, search, selected, showSearch],
     );
 
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);

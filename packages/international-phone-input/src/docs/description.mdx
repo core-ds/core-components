@@ -25,6 +25,7 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <InternationalPhoneInput
+                breakpoint={BREAKPOINT}
                 label='Номер телефона'
                 placeholder='Введите номер телефона'
                 value={value}
@@ -73,6 +74,7 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <InternationalPhoneInput
+                breakpoint={BREAKPOINT}
                 label='Номер телефона'
                 placeholder='Введите номер телефона'
                 value={value}

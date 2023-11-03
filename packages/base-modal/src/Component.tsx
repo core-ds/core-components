@@ -333,7 +333,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             if (hasHeader) {
                 setHeaderHighlighted(
                     !isScrolledToTop(scrollableNodeRef.current) &&
-                        componentNodeRef.current.getBoundingClientRect().top - headerOffset <= 0,
+                        componentNodeRef.current.getBoundingClientRect().top - headerOffset <= 1,
                 );
             }
 
@@ -341,7 +341,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 setFooterHighlighted(
                     !isScrolledToBottom(scrollableNodeRef.current) &&
                         componentNodeRef.current.getBoundingClientRect().bottom >=
-                            window.innerHeight,
+                            window.innerHeight - 1,
                 );
             }
         }, [hasFooter, hasHeader, headerOffset]);

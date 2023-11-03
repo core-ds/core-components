@@ -1,14 +1,5 @@
 @import '../../themes/src/default.css';
 
-.bottomAddonInput {
-    padding: var(--gap-xs);
-    box-sizing: border-box;
-}
-
-.footer {
-    display: flex;
-
-    & > button + button {
-        margin-left: var(--gap-m);
-    }
+.input {
+    width: auto;
 }

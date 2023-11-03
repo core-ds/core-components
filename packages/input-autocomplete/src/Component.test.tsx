@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event';
 import { InputAutocompleteMobile, InputAutocompleteMobileProps } from './mobile';
 
 const dataTestId = 'test-id';
@@ -10,28 +10,34 @@ const options = [
     { key: '2', content: 'Plutonium' },
 ];
 
+const noop = () => {};
+
 const InputAutocompleteMobileWrapper = (props: Partial<InputAutocompleteMobileProps>) => {
+    const [value, setValue] = useState('');
     const [open, setOpen] = useState(props.open === undefined ? true : props.open);
 
     const handleOpen: InputAutocompleteMobileProps['onOpen'] = ({ open: isOpen }) => {
         setOpen(Boolean(isOpen));
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const noop = () => {};
+    const handleInput: InputAutocompleteMobileProps['onInput'] = (event, payload) => {
+        setValue(payload.value);
+        props?.onInput?.(event, payload);
+    };
+
     return (
         <InputAutocompleteMobile
             open={open}
             onOpen={handleOpen}
             options={options}
-            bottomSheetProps={{
-                ...props.bottomSheetProps,
-            }}
-            value=''
-            filter=''
+            value={value}
             onChange={noop}
-            onFilter={noop}
             {...props}
+            onInput={handleInput}
+            transitionProps={{
+                timeout: 0,
+                ...props.transitionProps,
+            }}
         />
     );
 };
@@ -94,19 +100,14 @@ describe('InputAutocompleteMobile', () => {
 
     describe('Interactions tests', () => {
         it('should close on cancel button click', async () => {
-            const closeButtonId = 'close-id';
+            const closeButtonId = dataTestId + '-clear';
             const handleEnter = jest.fn();
 
             const { getByTestId, getByRole, queryByTestId } = render(
                 <InputAutocompleteMobileWrapper
                     dataTestId={dataTestId}
-                    cancelButtonProps={{
-                        dataTestId: closeButtonId,
-                    }}
-                    bottomSheetProps={{
-                        transitionProps: {
-                            onEnter: handleEnter,
-                        },
+                    transitionProps={{
+                        onEnter: handleEnter,
                     }}
                 />,
             );
@@ -121,24 +122,17 @@ describe('InputAutocompleteMobile', () => {
         });
 
         it('should close on continue button click', async () => {
-            const continueButtonId = 'continue-id';
+            const continueButtonId = dataTestId + '-apply';
             const handleChange = jest.fn();
 
             const { getByTestId, getByRole, queryByTestId } = render(
-                <InputAutocompleteMobileWrapper
-                    dataTestId={dataTestId}
-                    continueButtonProps={{
-                        dataTestId: continueButtonId,
-                    }}
-                    onChange={handleChange}
-                />,
+                <InputAutocompleteMobileWrapper dataTestId={dataTestId} onChange={handleChange} />,
             );
 
             fireEvent.click(getByTestId(continueButtonId));
 
             await waitForElementToBeRemoved(() => getByRole('dialog'));
 
-            expect(handleChange).toBeCalledTimes(1);
             expect(queryByTestId(continueButtonId)).not.toBeInTheDocument();
         });
     });
@@ -149,49 +143,67 @@ describe('InputAutocompleteMobile', () => {
             const { findByText } = render(<InputAutocompleteMobileWrapper onChange={cb} />);
 
             const option = await findByText(options[0].content);
-            await fireEvent.click(option);
+            fireEvent.click(option);
             expect(cb).toBeCalledTimes(1);
         });
 
-        it('should call onFilter', async () => {
-            const cb = jest.fn();
-            render(<InputAutocompleteMobileWrapper onFilter={cb} />);
-
-            const input = document.querySelector('input') as HTMLInputElement;
-
-            fireEvent.input(input, { target: { value: 'D' } });
-
-            expect(cb).toBeCalledTimes(1);
-        });
-
-        it('should call onClearFilter', async () => {
-            const cb = jest.fn();
-            render(<InputAutocompleteMobileWrapper onClearFilter={cb} filter='123' />);
-
-            const clearButton = document.querySelector('button[aria-label="Очистить"]') as Element;
-
-            fireEvent.click(clearButton);
-
-            expect(cb).toBeCalledTimes(1);
-        });
-
-        it('should call onCancel', async () => {
-            const closeButtonId = 'close-id';
-            const cb = jest.fn();
-            const { getByTestId } = render(
-                <InputAutocompleteMobileWrapper
-                    onCancel={cb}
-                    cancelButtonProps={{ dataTestId: closeButtonId }}
-                />,
+        it('should call onBlur', async () => {
+            const onBlur = jest.fn();
+            const onExited = jest.fn();
+            const { findByText } = render(
+                <InputAutocompleteMobileWrapper onBlur={onBlur} transitionProps={{ onExited }} />,
             );
 
-            const closeButton = getByTestId(closeButtonId);
+            const option = await findByText(options[0].content);
 
-            await act(async () => {
-                await fireEvent.click(closeButton);
-            });
+            fireEvent.click(option);
+            await waitFor(() => expect(onExited).toBeCalled());
+            await userEvent.tab();
+
+            expect(onBlur).toBeCalled();
+        });
+
+        it('should restore prev value when click cancel ', async () => {
+            const cb = jest.fn();
+            const { queryByRole, getByTestId } = render(
+                <InputAutocompleteMobileWrapper onInput={cb} dataTestId={dataTestId} />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            fireEvent.change(input, { target: { value: '123' } });
+            fireEvent.click(getByTestId(dataTestId + '-clear'));
+
+            expect(cb).toHaveBeenNthCalledWith(2, expect.any(Object), { value: '' });
+        });
+
+        it('should restore prev value when click close button ', () => {
+            const cb = jest.fn();
+            const { queryByRole, getByTestId } = render(
+                <InputAutocompleteMobileWrapper onInput={cb} dataTestId={dataTestId} />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            fireEvent.change(input, { target: { value: '123' } });
+            fireEvent.click(getByTestId(dataTestId + '-bottom-sheet-header-closer'));
+
+            expect(cb).toHaveBeenNthCalledWith(2, expect.any(Object), { value: '' });
+        });
+
+        it('should apply new value when click continue ', () => {
+            const cb = jest.fn();
+            const { queryByRole, getByTestId } = render(
+                <InputAutocompleteMobileWrapper onInput={cb} dataTestId={dataTestId} />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            fireEvent.change(input, { target: { value: '123' } });
+            fireEvent.click(getByTestId(dataTestId + '-apply'));
 
             expect(cb).toBeCalledTimes(1);
+            expect(cb).toBeCalledWith(expect.any(Object), { value: '123' });
         });
     });
 

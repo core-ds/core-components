@@ -188,12 +188,14 @@ function defaultFilterFn(value = '', option: OptionShape) {
     return clearMask(option.key).includes(clearMask(value));
 }
 
+const EMPTY_OPTIONS: OptionShape[] = [];
+
 export const filterPhones = (
     value = '',
     options?: InputAutocompleteDesktopProps['options'],
     filterFn = defaultFilterFn,
 ) => {
-    if (!options || options.length === 0) return options;
+    if (!options || options.length === 0) return EMPTY_OPTIONS;
 
     const filteredOptions: InputAutocompleteDesktopProps['options'] = [];
 
@@ -236,7 +238,7 @@ export function getClear(
     value = '',
     countryCode = '',
 ) {
-    if (!clear) return clear;
+    if (!clear) return false;
 
     const trimmedValue = value.trim();
 
