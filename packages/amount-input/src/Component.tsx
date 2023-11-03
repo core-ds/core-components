@@ -119,6 +119,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onClear,
             onBlur,
             breakpoint = 1024,
+            onKeyDown,
             ...restProps
         },
         ref,
@@ -156,7 +157,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const input = e.target;
-            let enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
+            let enteredValue = input.value
+                .replace(/\s/g, '')
+                .replace('.', ',')
+                .replace(/[^0-9,-]/g, '');
 
             if (integersOnly) {
                 [enteredValue] = enteredValue.split(',');
@@ -221,6 +225,17 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             }
         };
 
+        const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+            const isModifierKeys = event.ctrlKey || event.altKey || event.metaKey || event.shiftKey;
+
+            // Не двигаем каретку когда вводится невалидный символ
+            if (!isModifierKeys && event.key.length === 1 && /[^0-9,.-]/.test(event.key)) {
+                event.preventDefault();
+            }
+
+            onKeyDown?.(event);
+        };
+
         const handleClear = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
                 setInputValue('');
@@ -283,6 +298,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onChange={handleChange}
                     onClear={handleClear}
                     onBlur={handleBlur}
+                    onKeyDown={handleKeyDown}
                     inputMode='decimal'
                     pattern={`[${positiveOnly ? '' : '-'}0-9\\s\\.,]*`}
                     dataTestId={dataTestId}

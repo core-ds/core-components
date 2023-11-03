@@ -261,16 +261,16 @@ describe('AmountInput', () => {
         expect(input.value).toBe('-0,');
     });
 
-    it('should prevent input of incorrect values', () => {
+    it('should prevent input of incorrect values', async () => {
         const input = renderAmountInput(1234567);
 
-        fireEvent.change(input, { target: { value: 'f' } });
+        await userEvent.type(input, 'f');
         expect(input.value).toBe(`12${MMSP}345,67`);
 
-        fireEvent.change(input, { target: { value: '!' } });
+        await userEvent.type(input, '!', { initialSelectionStart: 4, initialSelectionEnd: 4 });
         expect(input.value).toBe(`12${MMSP}345,67`);
 
-        fireEvent.change(input, { target: { value: 'e' } });
+        await userEvent.type(input, 'e', { initialSelectionStart: 0, initialSelectionEnd: 4 });
         expect(input.value).toBe(`12${MMSP}345,67`);
     });
 
@@ -347,6 +347,14 @@ describe('AmountInput', () => {
 
         await userEvent.click(input);
         await userEvent.paste('1 23');
+        expect(input.value).toBe('123');
+    });
+
+    it('should allow to paste value with invalid chars', async () => {
+        const input = renderAmountInput(null);
+
+        await userEvent.click(input);
+        await userEvent.paste('1 23₽');
         expect(input.value).toBe('123');
     });
 
