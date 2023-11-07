@@ -1,4 +1,21 @@
-Компонент Loader
+import { Plate } from '@alfalab/core-components/plate';
+import { Link } from '@alfalab/core-components/link';
+
+<Plate
+    view='attention'
+    titleView='light'
+    limitContentWidth={false}
+    title={
+        <>
+            Компонент больше не поддерживается, переходите на новый компонент{' '}
+            <Link href='https://core-ds.github.io/core-components/master/?path=/docs/spinner--docs'>
+                Spinner.
+            </Link>
+        </>
+    }
+/>
+
+## Пример
 
 ```jsx live
 <Loader />

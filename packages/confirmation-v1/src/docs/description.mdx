@@ -1,8 +1,21 @@
-### @deprecated
+import { Plate } from '@alfalab/core-components/plate';
+import { Link } from '@alfalab/core-components/link';
 
-Компонент Confirmation версии 9.0.7 - больше не поддерживается, переходите на актуальную версию [Confirmation](?path=/docs/confirmation--docs)
+<Plate
+    view='attention'
+    titleView='light'
+    limitContentWidth={false}
+    title={
+        <>
+            Компонент больше не поддерживается, переходите на новый компонент{' '}
+            <Link href='https://core-ds.github.io/core-components/master/?path=/docs/confirmation--docs'>
+                Confirmation.
+            </Link>
+        </>
+    }
+/>
 
-[Инструкция по обновлению](?path=/docs/for-users-обновление-confirmation--docs)
+## Пример
 
 ```jsx live
 render(() => {
