@@ -152,6 +152,7 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
                 commonStyles[size],
                 styles[size],
                 colorCommonStyles[colors][view],
+                commonStyles[view],
                 {
                     [commonStyles.checked]: checked,
                     [commonStyles[shapeClassName]]: Boolean(commonStyles[shapeClassName]),

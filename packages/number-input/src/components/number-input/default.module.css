@@ -1,0 +1,10 @@
+@import '../../../../themes/src/default.css';
+
+.steppers {
+    background-color: var(--color-light-neutral-1500-inverted);
+}
+
+.steppersFocused,
+.steppersDisabled {
+    background-color: var(--color-light-neutral-translucent-200);
+}
