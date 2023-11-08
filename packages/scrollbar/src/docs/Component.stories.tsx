@@ -1,19 +1,19 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select, number } from '@storybook/addon-knobs';
-import { ComponentHeader, CssVars, Tabs } from 'storybook/blocks';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
-import { Scrollbar as ScrollbarTS } from '../Component';
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
-import colorsStyles from '!!raw-loader!../default.module.css';
+const meta: Meta<typeof Scrollbar> = {
+    title: 'Components/Scrollbar',
+    component: Scrollbar,
+    id: 'Scrollbar',
+};
 
-<Meta title='Components/Scrollbar' component={Scrollbar} id='Scrollbar' />
+type Story = StoryObj<typeof Scrollbar>;
 
-{/* Canvas */}
-
-<Story name='Scrollbar'>
-    {React.createElement(() => {
+export const scrollbar: Story = {
+    name: 'Scrollbar',
+    render: () => {
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const colors = select('colors', ['default', 'inverted'], 'default');
         const autoHide = boolean('autoHide', false);
@@ -21,7 +21,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
         const clickOnTrack = boolean('clickOnTrack', true);
         const getChildVerticalStyle = (bgColor, color) => ({
             height: 80,
-            textAlign: 'center',
+            textAlign: 'center' as const,
             lineHeight: '80px',
             fontSize: 40,
             fontWeight: 700,
@@ -32,7 +32,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
             display: 'inline-block',
             height: 200,
             width: 80,
-            textAlign: 'center',
+            textAlign: 'center' as const,
             lineHeight: '80px',
             fontSize: 40,
             fontWeight: 700,
@@ -107,28 +107,7 @@ import colorsStyles from '!!raw-loader!../default.module.css';
                 )}
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='Scrollbar'
-    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=101197%3A116500&mode=design&t=Itgzojk9BOtPqYkS-1'
-/>
-
-```jsx
-import { Scrollbar } from '@alfalab/core-components/scrollbar';
-```
-
-<Tabs
-    description={<Description />}
-    props={<ArgsTable of={ScrollbarTS} />}
-    cssVars={
-        <CssVars
-            css={`
-                ${styles}${colorsStyles}
-            `}
-        />
-    }
-/>
+export default meta;
