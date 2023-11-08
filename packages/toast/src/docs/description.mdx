@@ -1,9 +1,6 @@
-Компонент `Toast`. Сообщает пользователю о результате выполнения его команды.
+## Примеры
 
-`Toast` привязан либо к элементу, который спровоцировал его появление, либо появляется снизу экрана.
-
-Если передать ссылку на якорный элемент в пропсе `anchorElement`, то тост появится около якорного элемента.
-
+Если передать ссылку на якорный элемент в пропсе `anchorElement`, то тост появится около якорного элемента.  
 Если `anchorElement` не передавать, то тост появится снизу экрана.
 
 ```jsx live
@@ -19,25 +16,14 @@ render(() => {
     };
 
     return (
-        <div
-            style={{
-                width: '100%',
-                height: '50vh',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
-                paddingTop: '200px',
-                boxSizing: 'border-box',
-            }}
-        >
+        <Space direction='horizontal' size={24}>
             <Toast
                 breakpoint={BREAKPOINT}
                 open={anchorToastOpen}
                 anchorElement={buttonElement}
-                position='top'
-                offset={[0, 8]}
-                badge='positive'
-                title='Скопировано'
+                position='right'
+                offset={[0, 24]}
+                title='Пример уведомления'
                 hasCloser={false}
                 block={false}
                 onClose={() => {
@@ -49,9 +35,8 @@ render(() => {
                 breakpoint={BREAKPOINT}
                 open={fixedToastOpen}
                 badge='positive'
-                title='Ваша карта удалена'
+                title='Пример уведомления с кнопкой и крестиком'
                 hasCloser={true}
-                block={true}
                 bottomButtonPosition={isMobile()}
                 onClose={() => {
                     setFixedToastOpen(false);
@@ -67,39 +52,34 @@ render(() => {
                             setFixedToastOpen(false);
                         }}
                     >
-                        Восстановить
+                        Отменить
                     </Button>
                 }
-                style={{ ...(!isMobile() && { maxWidth: 'calc(100vw - 150px)' }) }}
+                style={{ left: !isMobile() && '20%' }}
             />
             <Button
+                breakpoint={BREAKPOINT}
+                onClick={() => {
+                    setFixedToastOpen(true);
+                }}
+            >
+                Показать снизу
+            </Button>
+            {!isMobile() && <Button
                 breakpoint={BREAKPOINT}
                 ref={handleButtonRef}
                 onClick={() => {
                     setAnchorToastOpen(true);
                 }}
             >
-                Скопировать
-            </Button>
-            <Button
-                breakpoint={BREAKPOINT}
-                onClick={() => {
-                    setFixedToastOpen(true);
-                }}
-                style={{ marginLeft: '20px' }}
-            >
-                Удалить
-            </Button>
-        </div>
+                Показать рядом
+            </Button>}
+        </Space>
     );
 });
 ```
 
-В качестве плашки можно использовать любой компонент.
-
-#### Нужно обернуть компонент в forwardRef и прокинуть в него ref и пропсы.
-
-Например, компонент `Plate`:
+В качестве плашки можно использовать любой компонент. Например, [Plate](?path=/docs/plate--docs).
 
 ```jsx live
 render(() => {
@@ -112,52 +92,49 @@ render(() => {
     }, []);
 
     return (
-        <div
-            style={{
-                width: '100%',
-                height: '50vh',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
-                boxSizing: 'border-box',
-            }}
-        >
-            <div
-                id='toast-container'
-                style={{
-                    position: 'relative',
-                    padding: '100px',
-                    border: '1px dashed black',
+        <div id='toast-container'>
+            <Toast
+                breakpoint={BREAKPOINT}
+                open={anchorToastOpen}
+                anchorElement={containerRef.current}
+                position='bottom-start'
+                offset={[0, 8]}
+                onClose={() => {
+                    setAnchorToastOpen(false);
+                }}
+                autoCloseDelay={3000}
+                getPortalContainer={() => containerRef.current}
+                hasCloser={true}
+                ToastPlate={React.forwardRef((props, ref) => {
+                    return (
+                        <Plate
+                            {...props}
+                            ref={ref}
+                            view='positive'
+                            title='Пример уведомления'
+                            border={true}
+                            rounded={true}
+                            leftAddons={
+                                <Badge
+                                    view='icon'
+                                    iconColor='positive'
+                                    content={<CheckmarkOnCircleMIcon />}
+                                />
+                            }
+                            breakpoint={BREAKPOINT}
+                            open={true}
+                        />
+                    );
+                })}
+            />
+            <Button
+                breakpoint={BREAKPOINT}
+                onClick={() => {
+                    setAnchorToastOpen(true);
                 }}
             >
-                <Toast
-                    breakpoint={BREAKPOINT}
-                    open={anchorToastOpen}
-                    anchorElement={containerRef.current}
-                    position='bottom-start'
-                    offset={[0, 8]}
-                    onClose={() => {
-                        setAnchorToastOpen(false);
-                    }}
-                    autoCloseDelay={3000}
-                    getPortalContainer={() => containerRef.current}
-                    block={true}
-                    hasCloser={true}
-                    ToastPlate={React.forwardRef((props, ref) => {
-                        return <Plate {...props} ref={ref} view='positive' open={true} />;
-                    })}
-                >
-                    Скопировано
-                </Toast>
-                <Button
-                    breakpoint={BREAKPOINT}
-                    onClick={() => {
-                        setAnchorToastOpen(true);
-                    }}
-                >
-                    Скопировать
-                </Button>
-            </div>
+                Показать plate
+            </Button>
         </div>
     );
 });

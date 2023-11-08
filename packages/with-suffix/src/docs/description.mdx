@@ -1,9 +1,20 @@
-HOC, позволяющий закрепить определенный текст после значения инпута.
+## Пример
 
-Добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`
+HOC добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`.
 
 ```jsx live
 const SuffixInput = withSuffix(Input);
 
-render(<SuffixInput suffix={<b> мес</b>} />);
+render(
+    <div style={{ width: 320 }}>
+        <SuffixInput 
+            block={true}
+            placeholder='Введите число'
+            label='Количество месяцев'
+            labelView={isMobile() ? 'outer' : 'inner'}
+            suffix={<Typography.Text view='component-primary' color='secondary'> мес</Typography.Text> }
+            size={isMobile() ? 's' : 'm'}
+            breakpoint={BREAKPOINT}/>
+    </div>
+);
 ```
