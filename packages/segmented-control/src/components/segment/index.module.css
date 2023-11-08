@@ -22,7 +22,7 @@
     &:not(:first-child):before {
         content: '';
         position: absolute;
-        background-color: var(--color-light-border-primary);
+        background-color: var(--color-light-neutral-translucent-300);
         transition: opacity 0.2s ease;
         width: 1px;
         top: 8px;

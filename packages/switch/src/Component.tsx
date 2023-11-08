@@ -53,6 +53,8 @@ export type SwitchProps = Omit<
     disabled?: boolean;
 
     /**
+     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
+     * Используйте props disabled
      * Управление состоянием активен / неактивен
      */
     inactive?: boolean;
@@ -109,8 +111,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
                 className={cn(styles.component, styles[align], className, {
-                    [styles.disabled]: disabled,
-                    [styles.inactive]: inactive,
+                    [styles.disabled]: disabled || inactive,
                     [styles.checked]: checked,
                     [styles.reversed]: reversed,
                     [styles.focused]: focused,
