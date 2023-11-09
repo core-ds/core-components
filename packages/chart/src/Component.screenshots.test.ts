@@ -10,6 +10,6 @@ describe('Chart ', () =>
         },
         'transform:scale(0.9)',
         {
-            evaluate: (page) => page.waitForTimeout(1500),
+            evaluate: (page) => page.waitForTimeout(2000),
         },
     ));
