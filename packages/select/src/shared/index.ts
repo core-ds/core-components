@@ -11,3 +11,4 @@ export * from '../components/arrow';
 export * from '../components/base-select';
 export * from '../components/optgroup';
 export * from '../components/footer';
+export * from '../components/search';

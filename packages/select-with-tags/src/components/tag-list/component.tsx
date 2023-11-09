@@ -1,23 +1,26 @@
 import React, {
     ChangeEvent,
     FC,
+    ForwardRefExoticComponent,
     KeyboardEventHandler,
     MouseEventHandler,
-    MutableRefObject,
     ReactNode,
+    RefAttributes,
+    RefObject,
     useCallback,
     useEffect,
     useMemo,
     useRef,
     useState,
 } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
+import type { FormControlProps } from '@alfalab/core-components-form-control';
 import type { FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { TagComponent } from '../../types';
+import type { TagComponent } from '../../types';
 import { calculateTotalElementsPerRow } from '../../utils/calculate-collapse-size';
 import { Tag as DefaultTag } from '../tag';
 
@@ -27,18 +30,21 @@ type TagListOwnProps = {
     value?: string;
     handleDeleteTag?: (key: string) => void;
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
-    inputRef?: MutableRefObject<HTMLInputElement>;
+    inputRef?: RefObject<HTMLInputElement>;
     autocomplete?: boolean;
-    isPopoverOpen?: boolean;
+    isOpen?: boolean;
     collapseTagList?: boolean;
     moveInputToNewLine?: boolean;
     transformCollapsedTagText?: (collapsedCount: number) => string;
     transformTagText?: (tagText?: ReactNode) => ReactNode;
     Tag?: TagComponent;
     handleUpdatePopover?: () => void;
+    FormControlComponent: ForwardRefExoticComponent<
+        FormControlProps & RefAttributes<HTMLDivElement>
+    >;
 };
 
-export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
+export const TagList: FC<Partial<FieldProps> & FormControlProps & TagListOwnProps> = ({
     size = 'xl',
     open,
     disabled,
@@ -58,12 +64,14 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     moveInputToNewLine,
     transformCollapsedTagText,
     transformTagText,
-    isPopoverOpen,
+    isOpen,
     handleUpdatePopover,
     Tag = DefaultTag,
     setSelectedItems,
     toggleMenu,
     labelView,
+    inputRef: inputRefProp = null,
+    FormControlComponent,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
@@ -79,13 +87,12 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const [inputFocusVisible] = useFocus(inputRef, 'keyboard');
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        setShowMoreEnabled(isPopoverOpen);
-    }, [isPopoverOpen]);
+        setShowMoreEnabled(isOpen);
+    }, [isOpen]);
 
     useEffect(() => {
         setVisibleElements(selectedMultiple.length);
-        setShowMoreEnabled(false);
-    }, [selectedMultiple]);
+    }, [selectedMultiple.length]);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         if (collapseTagList && contentWrapperRef.current) {
@@ -96,6 +103,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
 
             setVisibleElements(totalVisibleElements);
         }
+        handleUpdatePopover?.();
     }, [collapseTagList, visibleElements, autocomplete]);
 
     const handleFocus = useCallback(() => setFocused(true), []);
@@ -110,7 +118,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         event.preventDefault();
     }, []);
 
-    const { onClick, ...restInnerProps } = innerProps;
+    const { onClick, ...restInnerProps } = (innerProps || {}) as FieldProps['innerProps'];
 
     const handleClick = useCallback<MouseEventHandler<HTMLDivElement>>(
         (event) => {
@@ -178,20 +186,11 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
             return transformCollapsedTagText(selectedMultiple.length - visibleElements);
         }
 
-        return `+${selectedMultiple.length - visibleElements}`;
+        return `Ещё ${selectedMultiple.length - visibleElements}`;
     }, [transformCollapsedTagText, isShowMoreEnabled, selectedMultiple.length, visibleElements]);
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
     const hasInnerLabel = Boolean(label) && labelView !== 'outer';
-
-    /**
-     * Флаг который позволит добавлять класс с вертикальными
-     * отступами если элементы не помещаются в один ряд,
-     * для того чтобы не менялась высота инпута
-     */
-    const shouldAddVerticalMargin = Boolean(
-        (!collapseTagList || isShowMoreEnabled) && !hasInnerLabel,
-    );
 
     return (
         <div
@@ -200,11 +199,12 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
             onBlur={handleBlur}
             className={cn(className, styles.component, styles[size])}
         >
-            <FormControl
+            <FormControlComponent
                 {...restProps}
-                ref={innerProps.ref}
+                ref={innerProps?.ref}
                 fieldClassName={cn(fieldClassName, styles.field, {
                     [styles.focusVisible]: focusVisible,
+                    [styles.disabled]: disabled,
                 })}
                 block={true}
                 size={size}
@@ -223,13 +223,14 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     className={cn(styles.contentWrapper, {
                         [styles.hasInnerLabel]: hasInnerLabel,
                         [styles.hasTags]: selectedMultiple.length > 0,
-                        [styles.contentWrapperVertical]: shouldAddVerticalMargin,
                     })}
                     ref={contentWrapperRef}
                 >
                     {selectedMultiple.map((option, index) =>
-                        isShowMoreEnabled || index + 1 <= visibleElements ? (
+                        (collapseTagList && isShowMoreEnabled) || index + 1 <= visibleElements ? (
                             <Tag
+                                checked={true}
+                                disabled={disabled}
                                 option={{
                                     ...option,
                                     content: transformTagText
@@ -237,14 +238,16 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                                         : option.content,
                                 }}
                                 key={option.key}
-                                handleDeleteTag={handleDeleteTag}
+                                handleDeleteTag={disabled ? undefined : handleDeleteTag}
                             />
                         ) : null,
                     )}
-                    {visibleElements < selectedMultiple.length && (
+                    {collapseTagList && visibleElements < selectedMultiple.length && (
                         <Tag
+                            disabled={disabled}
                             data-collapse='collapse-last-tag-element'
                             onClick={toggleShowMoreLessButton}
+                            view='filled'
                             option={{
                                 key: 'collapse',
                                 content: collapseTagTitle,
@@ -256,12 +259,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                         <input
                             {...restInnerProps}
                             autoComplete='off'
-                            ref={inputRef}
+                            ref={mergeRefs([inputRef, inputRefProp])}
                             value={value}
                             onChange={onInput}
                             className={cn(styles.input, {
                                 [styles.focusVisible]: inputFocusVisible,
                                 [styles.block]: inputOnNewLine,
+                                [styles.hidden]: !isOpen && selectedMultiple.length > 0,
                             })}
                             disabled={disabled}
                             onKeyDown={handleKeyDown}
@@ -273,7 +277,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                         <span className={styles.placeholder}>{placeholder}</span>
                     )}
                 </div>
-            </FormControl>
+            </FormControlComponent>
         </div>
     );
 };
