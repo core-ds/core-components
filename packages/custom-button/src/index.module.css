@@ -9,19 +9,19 @@
     }
 
     &.white * {
-        color: var(--color-light-graphic-primary-inverted);
+        color: var(--color-light-text-primary-inverted);
     }
 
     &.black * {
-        color: var(--color-light-graphic-primary);
+        color: var(--color-light-text-primary);
     }
 
     &.static-white * {
-        color: var(--color-static-graphic-light);
+        color: var(--color-static-text-primary-inverted);
     }
 
     &.static-black * {
-        color: var(--color-static-graphic-dark);
+        color: var(--color-static-text-primary);
     }
 
     & span {
@@ -93,10 +93,10 @@
     }
 
     &.white * {
-        color: var(--color-static-text-primary-light);
+        color: var(--color-static-text-primary-inverted);
     }
 
     &.black * {
-        color: var(--color-static-text-primary-dark);
+        color: var(--color-static-text-primary);
     }
 }

@@ -3,22 +3,18 @@
 :root {
     /* primary */
     --link-inverted-primary-color: var(--color-light-text-primary-inverted);
-    --link-inverted-primary-hover-color: color-mod(var(--link-inverted-primary-color) shade(20%));
-    --link-inverted-primary-active-color: color-mod(var(--link-inverted-primary-color) shade(40%));
+    --link-inverted-primary-hover-color: var(--color-light-text-primary-inverted-hover);
+    --link-inverted-primary-active-color: var(--color-light-text-primary-inverted-press);
 
     /* secondary */
     --link-inverted-secondary-color: var(--color-light-text-secondary-inverted);
-    --link-inverted-secondary-hover-color: color-mod(
-        var(--link-inverted-secondary-color) shade(20%)
-    );
-    --link-inverted-secondary-active-color: color-mod(
-        var(--link-inverted-secondary-color) shade(40%)
-    );
+    --link-inverted-secondary-hover-color: var(--color-light-text-secondary-inverted-hover);
+    --link-inverted-secondary-active-color: var(--color-light-text-secondary-inverted-press);
 
     /* default */
-    --link-inverted-default-color: var(--color-light-text-link);
-    --link-inverted-default-hover-color: color-mod(var(--link-inverted-default-color) shade(20%));
-    --link-inverted-default-active-color: color-mod(var(--link-inverted-default-color) shade(40%));
+    --link-inverted-default-color: var(--color-light-text-info-inverted);
+    --link-inverted-default-hover-color: var(--color-light-text-info-inverted-hover);
+    --link-inverted-default-active-color: var(--color-light-text-info-inverted-press);
 }
 
 .primary {
