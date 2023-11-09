@@ -1,5 +1,17 @@
 # @alfalab/core-components-number-input
 
+## 2.0.1
+
+### Patch Changes
+
+### [#961](https://github.com/core-ds/core-components/pull/961)
+
+-   Заменены токены для stepper
+
+-   Обновлены зависимости
+    -   icon-button@6.4.1
+    -   input@13.0.1
+
 ## 2.0.0
 
 ### Major Changes

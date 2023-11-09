@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.0.1
+
+### Patch Changes
+
+### [#961](https://github.com/core-ds/core-components/pull/961)
+
+-   Добавлен блюр к полупрозрачным кнопкам
+
 ## 10.0.0
 
 ### Major Changes

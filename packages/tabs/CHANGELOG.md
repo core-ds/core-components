@@ -1,5 +1,14 @@
 # Change Log
 
+## 8.3.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@7.0.1
+    -   icon-button@6.4.1
+    -   picker-button@11.3.1
+
 ## 8.3.0
 
 ### Minor Changes

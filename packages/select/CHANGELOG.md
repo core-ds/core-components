@@ -1,5 +1,16 @@
 # Change Log
 
+## 16.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.1
+    -   checkbox@3.3.0
+    -   input@13.0.1
+    -   bottom-sheet@6.11.5
+    -   modal@8.1.2
+
 ## 16.0.0
 
 ### Major Changes

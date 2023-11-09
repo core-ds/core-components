@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.4.0
+
+### Minor Changes
+
+### [#957](https://github.com/core-ds/core-components/pull/957)
+
+-   Добавлены две новые пропсы slideIndex - индекс текущего изображения и onSlideIndexChange - обработчик изменения текущего изображения
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.4.1
+    -   tooltip@7.2.2
+
 ## 5.3.17
 
 ### Patch Changes

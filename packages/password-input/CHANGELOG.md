@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   icon-button@6.4.1
+    -   input@13.0.1
+
 ## 4.2.11
 
 ### Patch Changes
