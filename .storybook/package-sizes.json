@@ -36,18 +36,18 @@
     },
     "tag": {
         "desktop.js": 4.58,
-        "mobile.js": 4.57,
+        "mobile.js": 4.58,
         "index.js": 6.26
     },
     "tabs": {
         "collapsible.js": 183.58,
-        "desktop.js": 33.13,
+        "desktop.js": 33.14,
         "mobile.js": 33.29,
         "shared.js": 28.12,
         "index.js": 34.4
     },
     "table": {
-        "index.js": 152.92
+        "index.js": 152.93
     },
     "system-message": {
         "desktop.js": 4.61,
@@ -103,7 +103,7 @@
         "index.js": 201.79
     },
     "select-with-tags": {
-        "index.js": 182.49
+        "index.js": 182.5
     },
     "segmented-control": {
         "index.js": 13.22
@@ -161,9 +161,9 @@
         "index.js": 7.94
     },
     "number-input": {
-        "desktop.js": 34.21,
-        "mobile.js": 34.2,
-        "index.js": 34.9
+        "desktop.js": 34.51,
+        "mobile.js": 34.51,
+        "index.js": 35.21
     },
     "notification": {
         "index.js": 21.65
@@ -253,7 +253,7 @@
         "index.js": 1.36
     },
     "gallery": {
-        "index.js": 193.52
+        "index.js": 193.64
     },
     "form-control": {
         "desktop.js": 3.82,
