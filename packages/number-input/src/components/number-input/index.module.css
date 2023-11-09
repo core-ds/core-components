@@ -1,14 +1,5 @@
 @import '../../../../themes/src/default.css';
 
-.steppers {
-    background-color: var(--color-light-neutral-0);
-}
-
-.steppersFocused,
-.steppersDisable {
-    background-color: var(--color-light-neutral-translucent-200);
-}
-
 .s {
     margin-right: var(--gap-xs-neg);
 }

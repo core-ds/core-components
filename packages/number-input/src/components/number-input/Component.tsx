@@ -27,7 +27,14 @@ import {
 } from '../../utils';
 import { Steppers } from '../steppers';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export interface NumberInputProps
     extends Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'> {
@@ -106,6 +113,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             size = 's',
             disableUserInput,
             clear: clearProp,
+            colors = 'default',
             ...restProps
         },
         ref,
@@ -233,6 +241,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                 value={value}
                 onInput={handleChange}
                 dataTestId={dataTestId}
+                colors={colors}
                 disabled={disabled}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
@@ -244,14 +253,15 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                         <React.Fragment>
                             {rightAddons}
                             <Steppers
+                                colors={colors}
                                 dataTestId={dataTestId}
                                 disabled={disabled}
                                 value={parseNumber(value)}
                                 min={min}
                                 max={max}
-                                className={cn(styles.steppers, styles[size], {
-                                    [styles.steppersFocused]: focused,
-                                    [styles.steppersDisable]: disabled,
+                                className={cn(colorStyles[colors].steppers, styles[size], {
+                                    [colorStyles[colors].steppersFocused]: focused,
+                                    [colorStyles[colors].steppersDisabled]: disabled,
                                 })}
                                 onIncrement={handleIncrement}
                                 onDecrement={handleDecrement}

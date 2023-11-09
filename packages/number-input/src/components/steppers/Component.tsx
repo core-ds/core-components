@@ -6,7 +6,9 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { MinusMIcon } from '@alfalab/icons-glyph/MinusMIcon';
 import { PlusMediumMIcon } from '@alfalab/icons-glyph/PlusMediumMIcon';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
 
 export type SteppersProps = {
     value: number;
@@ -17,6 +19,12 @@ export type SteppersProps = {
     onIncrement: () => void;
     onDecrement: () => void;
     dataTestId?: string;
+    colors: 'default' | 'inverted';
+};
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
 };
 
 function preventDefault(e: React.MouseEvent<HTMLElement>) {
@@ -32,6 +40,7 @@ export const Steppers: React.FC<SteppersProps> = ({
     max,
     disabled,
     dataTestId,
+    colors,
 }) => {
     const decButtonDisabled = disabled || value <= min;
     const incButtonDisabled = disabled || value >= max;
@@ -39,6 +48,7 @@ export const Steppers: React.FC<SteppersProps> = ({
     return (
         <div className={cn(styles.component, className)}>
             <IconButton
+                colors={colors}
                 disabled={decButtonDisabled}
                 className={styles.button}
                 icon={<MinusMIcon />}
@@ -48,8 +58,9 @@ export const Steppers: React.FC<SteppersProps> = ({
                 dataTestId={getDataTestId(dataTestId, 'decrement-button')}
                 view='secondary'
             />
-            <div className={styles.separator} />
+            <div className={cn(styles.separator, colorStyles[colors].separator)} />
             <IconButton
+                colors={colors}
                 disabled={incButtonDisabled}
                 className={styles.button}
                 icon={<PlusMediumMIcon />}

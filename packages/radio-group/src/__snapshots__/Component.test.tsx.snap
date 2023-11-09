@@ -585,7 +585,7 @@ Object {
               value="one"
             />
             <button
-              class="component component component s s outlined rounded outlined my-tag"
+              class="component component component s s outlined outlined rounded outlined my-tag"
               tabindex="-1"
               type="button"
               value="one"
@@ -605,7 +605,7 @@ Object {
               value="two"
             />
             <button
-              class="component component component s s outlined rounded outlined"
+              class="component component component s s outlined outlined rounded outlined"
               tabindex="-1"
               type="button"
               value="two"
@@ -625,7 +625,7 @@ Object {
               value="three"
             />
             <button
-              class="component component component s s outlined rounded outlined"
+              class="component component component s s outlined outlined rounded outlined"
               tabindex="-1"
               type="button"
               value="three"
@@ -661,7 +661,7 @@ Object {
             value="one"
           />
           <button
-            class="component component component s s outlined rounded outlined my-tag"
+            class="component component component s s outlined outlined rounded outlined my-tag"
             tabindex="-1"
             type="button"
             value="one"
@@ -681,7 +681,7 @@ Object {
             value="two"
           />
           <button
-            class="component component component s s outlined rounded outlined"
+            class="component component component s s outlined outlined rounded outlined"
             tabindex="-1"
             type="button"
             value="two"
@@ -701,7 +701,7 @@ Object {
             value="three"
           />
           <button
-            class="component component component s s outlined rounded outlined"
+            class="component component component s s outlined outlined rounded outlined"
             tabindex="-1"
             type="button"
             value="three"

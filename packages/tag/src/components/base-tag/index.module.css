@@ -222,3 +222,8 @@
         border-radius: var(--tag-border-radius);
     }
 }
+
+.outlined.checked[disabled],
+.filled {
+    backdrop-filter: blur(80px);
+}

@@ -1,0 +1,5 @@
+@import '../../../../themes/src/default.css';
+
+.separator {
+    background-color: var(--color-light-neutral-translucent-300);
+}
