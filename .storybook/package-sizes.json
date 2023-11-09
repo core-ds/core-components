@@ -40,14 +40,14 @@
         "index.js": 6.26
     },
     "tabs": {
-        "collapsible.js": 183.54,
+        "collapsible.js": 183.58,
         "desktop.js": 33.13,
         "mobile.js": 33.29,
         "shared.js": 28.12,
         "index.js": 34.4
     },
     "table": {
-        "index.js": 152.88
+        "index.js": 152.92
     },
     "system-message": {
         "desktop.js": 4.61,
@@ -97,13 +97,13 @@
         "index.js": 4.32
     },
     "select": {
-        "desktop.js": 141.87,
-        "mobile.js": 176.92,
-        "shared.js": 155.54,
-        "index.js": 201.75
+        "desktop.js": 141.91,
+        "mobile.js": 176.96,
+        "shared.js": 155.57,
+        "index.js": 201.79
     },
     "select-with-tags": {
-        "index.js": 182.45
+        "index.js": 182.49
     },
     "segmented-control": {
         "index.js": 13.22
@@ -112,7 +112,7 @@
         "index.js": 36.67
     },
     "radio": {
-        "index.js": 4.14
+        "index.js": 4.18
     },
     "radio-group": {
         "desktop.js": 4.34,
@@ -140,10 +140,10 @@
         "index.js": 14.14
     },
     "picker-button": {
-        "desktop.js": 176.47,
-        "mobile.js": 189.26,
+        "desktop.js": 176.5,
+        "mobile.js": 189.3,
         "shared.js": 3.01,
-        "index.js": 215.49
+        "index.js": 215.53
     },
     "phone-input": {
         "index.js": 28.39
@@ -208,12 +208,12 @@
         "index.js": 2.11
     },
     "intl-phone-input": {
-        "index.js": 692.34
+        "index.js": 692.38
     },
     "international-phone-input": {
-        "desktop.js": 498.47,
-        "mobile.js": 503.43,
-        "index.js": 529.74
+        "desktop.js": 498.5,
+        "mobile.js": 503.47,
+        "index.js": 529.78
     },
     "input": {
         "desktop.js": 16.98,
@@ -221,9 +221,9 @@
         "index.js": 17.54
     },
     "input-autocomplete": {
-        "desktop.js": 180.23,
-        "mobile.js": 188.43,
-        "index.js": 214.11
+        "desktop.js": 180.27,
+        "mobile.js": 188.46,
+        "index.js": 214.14
     },
     "indicator": {
         "index.js": 1.99
@@ -291,9 +291,9 @@
         "index.js": 62.22
     },
     "custom-picker-button": {
-        "desktop.js": 177.93,
-        "mobile.js": 190.72,
-        "index.js": 216.57
+        "desktop.js": 177.97,
+        "mobile.js": 190.75,
+        "index.js": 216.61
     },
     "custom-button": {
         "index.js": 9.3
@@ -323,7 +323,7 @@
         "index.js": 8.27
     },
     "checkbox": {
-        "index.js": 5.45
+        "index.js": 5.49
     },
     "checkbox-group": {
         "desktop.js": 2.57,
