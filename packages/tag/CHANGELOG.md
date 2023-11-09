@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+### [#961](https://github.com/core-ds/core-components/pull/961)
+
+-   Добавлен блюр к полупрозрачным кнопкам
+
+## 7.0.0
+
+### Major Changes
+
+### [#931](https://github.com/core-ds/core-components/pull/931)
+
+-   В компоненте Tag цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+-   Удалены некоторые css переменные для мобильного компонента и темизация для intranet, click, mobile
+
 ## 6.1.0
 
 ### Minor Changes

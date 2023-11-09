@@ -55,7 +55,7 @@ export const ImageViewer: FC = () => {
     const swiper = getSwiper();
 
     const handleSlideChange = useCallback(() => {
-        setCurrentSlideIndex(swiper?.activeIndex ?? initialSlide);
+        setCurrentSlideIndex?.(swiper?.activeIndex ?? initialSlide);
     }, [setCurrentSlideIndex, swiper, initialSlide]);
 
     const handlePrevClick = () => {

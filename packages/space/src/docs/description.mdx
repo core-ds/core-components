@@ -1,115 +1,113 @@
-Компонент для установки расстояния между компонентами.
+## Примеры
 
-### Примеры
-
-Просто карточки.
+Фиксированное расстояние между блоками.
 
 ```jsx live
-<Space>
-    <CardImage cardId='EG' />
-    <CardImage cardId='GQ' />
-    <CardImage cardId='SU' />
-</Space>
+render(() => {
+    const styleBlock = {
+        width: '64px',
+        height: '64px',
+        borderRadius: '8px',
+        backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
+    };
+    return (
+        <Space direction='horizontal' align={isMobile() ? 'center' : 'start'}>
+            {new Array(3).fill(null).map((_, idx) => (
+                <div key={idx} style={styleBlock} />
+            ))}
+        </Space>
+    );
+});
 ```
 
-Пользовательское расстояние между карточками.
+Использование разделителя между блоками.
 
 ```jsx live
-<Space direction='horizontal' size={32}>
-    <CardImage cardId='EG' />
-    <CardImage cardId='GQ' />
-    <CardImage cardId='SU' />
-</Space>
+render(() => {
+    const styleBlock = {
+        width: '64px',
+        height: '64px',
+        borderRadius: '8px',
+        backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
+    };
+    return (
+        <Space divider={<Divider />} align={isMobile() ? 'center' : 'start'}>
+            {new Array(4).fill(null).map((_, idx) => (
+                <div key={idx} style={styleBlock} />
+            ))}
+        </Space>
+    );
+});
 ```
 
-Пользовательское расстояние между карточками в виде массива [64, 32].
+Автоперенос строки с заданными вертикальными и горизонтальными расстояниями между блоками.
 
 ```jsx live
-<div style={{ width: '700px' }}>
-    <Space direction='horizontal' size={[64, 32]} wrap>
-        <CardImage cardId='EG' />
-        <CardImage cardId='GQ' />
-        <CardImage cardId='SU' />
-    </Space>
-</div>
+render(() => {
+    const styleBlock = {
+        width: '64px',
+        height: '64px',
+        borderRadius: '8px',
+        backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
+    };
+    return (
+        <Space direction='horizontal' size={[16, 20]} wrap>
+            {new Array(20).fill(null).map((_, idx) => (
+                <div key={idx} style={styleBlock} />
+            ))}
+        </Space>
+    );
+});
 ```
 
-С адаптивом.
+Пример блоков с FullWidth.
 
 ```jsx live
-<Space direction='horizontal' size={32} wrap>
-    <CardImage cardId='EG' />
-    <CardImage cardId='GQ' />
-    <CardImage cardId='SU' />
-</Space>
+render(() => {
+    const styleBlock = {
+        width: '100%',
+        height: '32px',
+        borderRadius: '8px',
+        backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
+    };
+    return (
+        <Space direction='horizontal' size={12} fullWidth>
+            {new Array(5).fill(null).map((_, idx) => (
+                <div key={idx} style={styleBlock} />
+            ))}
+        </Space>
+    );
+});
 ```
 
-С разделителем.
+Пример блоков с выравниванием.
 
 ```jsx live
-<Space direction='vertical' divider={<Divider />} size='l'>
-    <CardImage cardId='EG' />
-    <CardImage cardId='GQ' />
-    <CardImage cardId='SU' />
-</Space>
-```
-
-Группа для полей ввода. Каждое поле ввода с аттрибутом block. Space c fullWidth.
-
-```jsx live
-<Space direction='horizontal' fullWidth>
-    <Input block placeholder='Над вишней в цвету' />
-    <Input block placeholder='Спряталась за облака' />
-    <Input block placeholder='Скромница луна.' />
-    <Input block placeholder='(с) Мацуо Басе' />
-</Space>
-```
-
-Автоматический перенос строки.
-
-```jsx live
-<Space direction='horizontal' wrap>
-    <Button>Над вишней в цвету</Button>
-    <Button>Спряталась за облака</Button>
-    <Button>Скромница луна.</Button>
-    <Button>(с) Мацуо Басе</Button>
-    <Button>Над вишней в цвету</Button>
-    <Button>Спряталась за облака</Button>
-    <Button>Скромница луна.</Button>
-    <Button>(с) Мацуо Басе</Button>
-    <Button>Над вишней в цвету</Button>
-    <Button>Спряталась за облака</Button>
-</Space>
-```
-
-Выравнивание.
-
-```jsx live
-<Space direction='horizontal'>
-    <Space align='center'>
-        <Button>Над вишней в цвету</Button>
-        <Button>Спряталась за облака</Button>
-        <CardImage cardId='SU' />
-    </Space>
-    <Space align='end'>
-        <Button>Над вишней в цвету</Button>
-        <Button>Спряталась за облака</Button>
-        <CardImage cardId='SU' />
-    </Space>
-</Space>
-```
-
-```jsx live
-<Space direction='vertical'>
-    <Space direction='horizontal' align='start'>
-        <Button>Над вишней в цвету</Button>
-        <Button>Спряталась за облака</Button>
-        <CardImage cardId='SU' />
-    </Space>
-    <Space direction='horizontal' align='end'>
-        <Button>Над вишней в цвету</Button>
-        <Button>Спряталась за облака</Button>
-        <CardImage cardId='SU' />
-    </Space>
-</Space>
+render(() => {
+    const styleBlock = {
+        width: '96px',
+        height: '32px',
+        borderRadius: '8px',
+        backgroundColor: 'var(--color-light-specialbg-secondary-transparent)',
+    };
+    return (
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Space align='start' size={8}>
+                <div style={styleBlock} />
+                <div style={{ ...styleBlock, width: '144px' }} />
+                <div style={{ ...styleBlock, width: '176px' }} />
+            </Space>
+            <Space align='center' size={8}>
+                <div style={styleBlock} />
+                <div style={{ ...styleBlock, width: '144px' }} />
+                <div style={{ ...styleBlock, width: '176px' }} />
+            </Space>
+            <Space align='end' size={8}>
+                <div style={styleBlock} />
+                <div style={{ ...styleBlock, width: '144px' }} />
+                <div style={{ ...styleBlock, width: '176px' }} />
+            </Space>
+        </div>
+    );
+});
 ```

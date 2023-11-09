@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.4.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.1
+
+## 6.4.0
+
+### Minor Changes
+
+### [#931](https://github.com/core-ds/core-components/pull/931)
+
+-   В компонентах ActionButton, Badge, IconButton, InternationalPhoneInput, PickerButton, Spinner, StepperInput, UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.0
+
 ## 6.3.2
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+### [#946](https://github.com/core-ds/core-components/pull/946)
+
+-   Добавлены новые стили (component-secondary и component-primary) для view компонента Typography.Text
+-   Стиль component-primary дублирует стиль component (view=component deprecated)
+
 ## 4.1.0
 
 ### Minor Changes

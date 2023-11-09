@@ -20,9 +20,14 @@
     box-shadow: none;
     user-select: none;
     cursor: pointer;
-    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease, transform 0.12s ease;
+    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
-    will-change: transform;
+}
+
+.secondary,
+.accent[disabled],
+.primary[disabled] {
+    backdrop-filter: blur(80px);
 }
 
 .focused {

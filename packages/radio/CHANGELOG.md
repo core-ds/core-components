@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+### [#958](https://github.com/core-ds/core-components/pull/958)
+
+-   Добавлен проп labelProps
+
 ## 3.1.0
 
 ### Minor Changes

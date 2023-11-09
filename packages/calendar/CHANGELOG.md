@@ -1,5 +1,24 @@
 # Change Log
 
+## 7.1.2
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.1
+    -   icon-button@6.4.1
+    -   modal@8.1.2
+
+## 7.1.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.0
+    -   icon-button@6.4.0
+    -   shared@0.8.0
+    -   modal@8.1.1
+
 ## 7.1.0
 
 ### Minor Changes

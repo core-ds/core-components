@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.1.5
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@7.0.1
+
+## 2.1.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   tag@7.0.0
+
 ## 2.1.3
 
 ### Patch Changes

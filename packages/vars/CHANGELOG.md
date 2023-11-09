@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.7.0
+
+### Minor Changes
+
+### [#914](https://github.com/core-ds/core-components/pull/914)
+
+-   Обновлены цвета, добавлены новые цветовые группы: decorative, pfm, qualitative, sequential
+
 ## 9.6.1
 
 ### Patch Changes

@@ -1,5 +1,28 @@
 # Change Log
 
+## 10.0.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.1.2
+    -   date-input@4.3.12
+
+## 10.0.0
+
+### Major Changes
+
+### [#931](https://github.com/core-ds/core-components/pull/931)
+
+-   В компоненте CalendarInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+-   Удалена темизация для intranet и mobile
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   calendar@7.1.1
+    -   date-input@4.3.11
+
 ## 9.1.0
 
 ### Minor Changes

@@ -1,5 +1,25 @@
 # Change Log
 
+## 7.5.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@13.0.1
+    -   with-suffix@4.1.12
+
+## 7.5.2
+
+### Patch Changes
+
+### [#955](https://github.com/core-ds/core-components/pull/955)
+
+-   Разрешена вставка значений, содержащих нецифровые символы (123₽ -> 123)
+
+-   Обновлены зависимости
+    -   input@13.0.0
+    -   with-suffix@4.1.11
+
 ## 7.5.1
 
 ### Patch Changes

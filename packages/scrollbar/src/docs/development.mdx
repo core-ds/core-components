@@ -1,0 +1,24 @@
+import { ArgTypes } from '@storybook/addon-docs';
+import { CssVars } from 'storybook/blocks';
+import { Scrollbar } from '../index';
+import styles from '!!raw-loader!../index.module.css';
+import colorsStyles from '!!raw-loader!../default.module.css';
+import invertedStyles from '!!raw-loader!../inverted.module.css';
+
+## Подключение
+
+```jsx
+import { Scrollbar } from '@alfalab/core-components/scrollbar';
+```
+
+## Свойства
+
+<ArgTypes of={Scrollbar} />
+
+## Переменные
+
+<CssVars
+    css={`
+        ${styles}${colorsStyles}${invertedStyles}
+    `}
+/>

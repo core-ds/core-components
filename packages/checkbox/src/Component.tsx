@@ -1,4 +1,13 @@
-import React, { ChangeEvent, forwardRef, InputHTMLAttributes, ReactNode, useRef } from 'react';
+import React, {
+    ChangeEvent,
+    DetailedHTMLProps,
+    forwardRef,
+    InputHTMLAttributes,
+    LabelHTMLAttributes,
+    ReactNode,
+    Ref,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -99,6 +108,11 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * @default false
      */
     hiddenInput?: boolean;
+
+    /**
+     * Пропсы для label
+     */
+    labelProps?: DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
 };
 
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
@@ -121,6 +135,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             dataTestId,
             indeterminate = false,
             hiddenInput = false,
+            labelProps,
             error,
             ...restProps
         },
@@ -139,16 +154,23 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
-                className={cn(styles.component, styles[size], styles[align], className, {
-                    [styles.disabled]: disabled || inactive,
-                    [styles.checked]: checked,
-                    [styles.indeterminate]: indeterminate,
-                    [styles.focused]: focused,
-                    [styles.block]: block,
-                })}
-                ref={mergeRefs([labelRef, ref])}
+                {...labelProps}
+                className={cn(
+                    styles.component,
+                    styles[size],
+                    styles[align],
+                    className,
+                    labelProps?.className,
+                    {
+                        [styles.disabled]: disabled || inactive,
+                        [styles.checked]: checked,
+                        [styles.indeterminate]: indeterminate,
+                        [styles.focused]: focused,
+                        [styles.block]: block,
+                    },
+                )}
+                ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}
             >
                 {!hiddenInput && (
                     <input

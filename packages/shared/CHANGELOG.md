@@ -1,5 +1,13 @@
 # @alfalab/core-components-shared
 
+## 0.8.0
+
+### Minor Changes
+
+### [#901](https://github.com/core-ds/core-components/pull/901)
+
+-   Добавлена isIOS функция
+
 ## 0.7.0
 
 ### Minor Changes

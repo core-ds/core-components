@@ -1,4 +1,13 @@
-import React, { ChangeEvent, forwardRef, InputHTMLAttributes, ReactNode, useRef } from 'react';
+import React, {
+    ChangeEvent,
+    DetailedHTMLProps,
+    forwardRef,
+    InputHTMLAttributes,
+    LabelHTMLAttributes,
+    ReactNode,
+    Ref,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -86,6 +95,11 @@ export type RadioProps = Omit<
     block?: boolean;
 
     /**
+     * Пропсы для label
+     */
+    labelProps?: DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+
+    /**
      * Обработчик на выбор элемента
      */
     onChange?: (
@@ -115,6 +129,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             align = 'start',
             addons,
             block,
+            labelProps,
             ...restProps
         },
         ref,
@@ -130,15 +145,22 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         };
 
         return (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
-                className={cn(styles.container, styles[size], styles[align], className, {
-                    [styles.disabled]: disabled || inactive,
-                    [styles.checked]: checked,
-                    [styles.focused]: focused,
-                    [styles.block]: block,
-                })}
-                ref={mergeRefs([labelRef, ref])}
+                {...labelProps}
+                className={cn(
+                    styles.container,
+                    styles[size],
+                    styles[align],
+                    className,
+                    labelProps?.className,
+                    {
+                        [styles.disabled]: disabled || inactive,
+                        [styles.checked]: checked,
+                        [styles.focused]: focused,
+                        [styles.block]: block,
+                    },
+                )}
+                ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}
             >
                 <input
                     type='radio'
