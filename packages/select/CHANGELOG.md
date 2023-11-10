@@ -1,5 +1,13 @@
 # Change Log
 
+## 16.0.2
+
+### Patch Changes
+
+### [#968](https://github.com/core-ds/core-components/pull/968)
+
+-   Исправлена ошибка, из-за которой выпадающий список не открывался, если выбранный элемент имел установленный tabIndex
+
 ## 16.0.1
 
 ### Patch Changes

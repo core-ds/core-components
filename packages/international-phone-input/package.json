@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-international-phone-input",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,9 +14,9 @@
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input-autocomplete": "11.0.1",
+        "@alfalab/core-components-input-autocomplete": "11.0.2",
         "@alfalab/core-components-input": "^13.0.1",
-        "@alfalab/core-components-select": "^16.0.1",
+        "@alfalab/core-components-select": "^16.0.2",
         "@alfalab/core-components-shared": "^0.8.0",
         "@alfalab/core-components-mq": "^4.2.0",
         "@alfalab/hooks": "^1.13.0",
