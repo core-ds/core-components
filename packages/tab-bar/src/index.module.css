@@ -1,0 +1,16 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    justify-content: center;
+    height: 64px;
+    max-height: 64px;
+    background-color: var(--color-light-base-bg-primary);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+.border {
+    box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
+}

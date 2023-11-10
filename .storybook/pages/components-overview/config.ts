@@ -33,11 +33,7 @@ export const CONFIG: TConfig = {
         'FilterTag',
         'Slider',
     ],
-    'Ввод даты и времени': [
-        'UniversalDateInput',
-        'Calendar',
-        'CalendarRange',
-    ],
+    'Ввод даты и времени': ['UniversalDateInput', 'Calendar', 'CalendarRange'],
     'Загрузка файлов': ['Dropzone', 'FileUploadItem', 'Attach'],
     'Модальные сущности': ['Modal', 'SidePanel', 'BottomSheet', 'PopupSheet', 'Popover', 'Tooltip'],
     'Индикаторы прогресса': [
@@ -51,7 +47,7 @@ export const CONFIG: TConfig = {
     Уведомления: ['Notification', 'Toast', 'Plate', 'SystemMessage'],
     Аутентификация: ['PassCode', 'PatternLock', 'Confirmation'],
     Ячейки: ['GenericWrapper', 'PureCell', 'Underlay', 'SortableList'],
-    Навигация: ['Tabs', 'Pagination'],
+    Навигация: ['Tabs', 'Pagination', 'TabBar'],
     Индикаторы: ['Badge', 'Indicator', 'Status'],
     Текст: ['Typography', 'List', 'Markdown'],
     'Отображение данных': [

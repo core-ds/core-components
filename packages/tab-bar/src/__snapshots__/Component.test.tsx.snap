@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagBar snapshot test should match snapshot 1`] = `
+<div>
+  <nav
+    class="component"
+    data-test-id="tab-bar"
+  >
+    <button
+      class="component selected"
+      data-test-id="tab-bar-tab"
+      id="1"
+      tabindex="0"
+      type="button"
+    >
+      <div
+        class="icon"
+      >
+        icon1
+      </div>
+      <span
+        class="label labelSelected secondary-small medium"
+      >
+        TabName1
+      </span>
+    </button>
+    <button
+      class="component"
+      data-test-id="tab-bar-tab"
+      id="2"
+      tabindex="0"
+      type="button"
+    >
+      <div
+        class="icon"
+      >
+        icon2
+      </div>
+      <span
+        class="label secondary-small medium"
+      >
+        TabName2
+      </span>
+    </button>
+  </nav>
+</div>
+`;
