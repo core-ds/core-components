@@ -7,10 +7,18 @@ render(() => {
     const [minor, setMinor] = React.useState(true);
     const [currency, setCurrency] = React.useState(false);
     const [rightAddons, setRightAddons] = React.useState(false);
+    const [rightAddonsWithIcon, setRightAddonsWithIcon] = React.useState(false);
 
     const handleMinorChange = () => setMinor(!minor);
     const handleCurrencyChange = () => setCurrency(!currency);
-    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
+    const handleRightAddonsChange = () => {
+        setRightAddons(!rightAddons)
+        setRightAddonsWithIcon(false)
+    };
+    const handleRightAddonsWithIconChange = () => {
+        setRightAddonsWithIcon(!rightAddonsWithIcon)
+        setRightAddons(false)
+    };
     
     const styleAddons = {
         borderRadius: '99px',
@@ -22,6 +30,23 @@ render(() => {
         marginLeft: '4px'
     }
 
+    const rightAddonsContent = rightAddons && ( 
+        <span style={styleAddons}>
+            <Typography.Text view='primary-medium' weight='medium' font='system' color='primary-inverted'>
+                Custom
+            </Typography.Text>
+        </span>
+    )
+
+    const rightAddonsWithIconContent = rightAddonsWithIcon && ( 
+        <span style={{ marginLeft: '5px', display: "inline-flex" }}>
+            <CDNIcon 
+                color='var(--color-dark-accent-primary)' 
+                name='glyph_diamonds_s'
+            />
+        </span>
+    )
+
     return (
         <Container>
             <Typography.Title font='system' view='medium' weight='regular'>
@@ -31,11 +56,7 @@ render(() => {
                     currency={currency && 'RUB'}  
                     bold='none' 
                     view={ minor ? 'withZeroMinorPart' : 'default'} 
-                    rightAddons={rightAddons && <span style={styleAddons}>
-                            <Typography.Text view='primary-medium' weight='medium' font='system' color='primary-inverted'>
-                                Custom
-                            </Typography.Text>
-                        </span>}
+                    rightAddons={rightAddonsContent || rightAddonsWithIconContent}
                 />
             </Typography.Title>
             <Gap size='xl'/>
@@ -51,6 +72,12 @@ render(() => {
                 label='Кастомный слот'
                 checked={rightAddons}
                 onChange={handleRightAddonsChange}
+            />
+            <Gap size='l'/>
+            <Switch
+                label='Кастомный слот с иконкой'
+                checked={rightAddonsWithIcon}
+                onChange={handleRightAddonsWithIconChange}
             />
         </Container>
     );
