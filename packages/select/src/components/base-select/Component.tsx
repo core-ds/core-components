@@ -365,11 +365,15 @@ export const BaseSelect = forwardRef(
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (view === 'desktop') {
+                const isNextFocusInsideField = fieldRef.current?.contains(
+                    (event.relatedTarget || document.activeElement) as HTMLElement,
+                );
+
                 const isNextFocusInsideList = listRef.current?.contains(
                     (event.relatedTarget || document.activeElement) as HTMLElement,
                 );
 
-                if (!isNextFocusInsideList) {
+                if (!isNextFocusInsideField && !isNextFocusInsideList) {
                     if (onBlur) onBlur(event);
 
                     inputProps.onBlur?.(event);
