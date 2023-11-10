@@ -45,6 +45,15 @@ const options = [
     { key: '8', content: 'Fermium' },
 ];
 
+const focusableOptions = options.map((o) => ({
+    ...o,
+    content: (
+        <div tabIndex={0} data-test-id={`focusable-${o.key}`}>
+            {o.content}
+        </div>
+    ),
+}));
+
 describe('Select', () => {
     const PLACEHOLDER = 'placeholder';
     const LABEL_TEXT = 'label text';
@@ -643,7 +652,7 @@ describe('Select', () => {
         it('should show checkmark by default', async () => {
             render(<Select {...baseProps} options={options} dataTestId='select' />);
 
-            userEvent.click(await screen.findByTestId('select-field'));
+            await userEvent.click(await screen.findByTestId('select-field'));
 
             expect(
                 (await screen.findByTestId('select-options-list')).getElementsByClassName(
@@ -668,7 +677,7 @@ describe('Select', () => {
                 <Select {...baseProps} options={optionsWithHidedCheckMark} dataTestId='select' />,
             );
 
-            userEvent.click(await screen.findByTestId('select-field'));
+            await userEvent.click(await screen.findByTestId('select-field'));
 
             expect(
                 (await screen.findByTestId('select-options-list')).getElementsByClassName(
@@ -683,17 +692,36 @@ describe('Select', () => {
             const onFocus = jest.fn();
             const onBlur = jest.fn();
             render(
+                <>
+                    <Select
+                        {...baseProps}
+                        options={options}
+                        onFocus={onFocus}
+                        defaultOpen={true}
+                        onBlur={onBlur}
+                    />
+                    <input />
+                </>,
+            );
+            expect(onFocus).toBeCalledTimes(1);
+
+            await userEvent.tab();
+            expect(onBlur).toBeCalledTimes(1);
+        });
+
+        it('should not call onBlur when focusing inner focusable element', async () => {
+            const onBlur = jest.fn();
+            const { getByTestId } = render(
                 <Select
                     {...baseProps}
-                    options={options}
-                    onFocus={onFocus}
-                    defaultOpen={true}
+                    selected={focusableOptions[0].key}
+                    options={focusableOptions}
                     onBlur={onBlur}
                 />,
             );
-            fireEvent.blur(document.querySelector('.field') as HTMLElement);
-            expect(onFocus).toBeCalledTimes(1);
-            expect(onBlur).toBeCalledTimes(1);
+
+            await userEvent.click(getByTestId('focusable-1'));
+            expect(onBlur).not.toBeCalled();
         });
 
         it('should call onOpen', () => {
@@ -717,10 +745,10 @@ describe('Select', () => {
 
             const input = container.querySelector('.input') as HTMLInputElement;
 
-            await fireEvent.click(input);
+            fireEvent.click(input);
 
             const option = await findByText(options[0].content);
-            await fireEvent.click(option);
+            fireEvent.click(option);
             expect(cb).toBeCalledTimes(1);
         });
 
