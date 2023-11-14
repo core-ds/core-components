@@ -36,6 +36,11 @@ export type ModalResponsiveProps = ModalDesktopProps & {
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export type View = 'desktop' | 'mobile';
