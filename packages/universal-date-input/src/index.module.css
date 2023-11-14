@@ -21,8 +21,6 @@
     height: 100%;
     display: block;
     color: var(--calendar-icon-color);
-    margin-right: var(--gap-s-neg);
-    padding-right: var(--gap-s);
 }
 
 .calendarContainer {
