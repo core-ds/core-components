@@ -1,5 +1,13 @@
 # @alfalab/core-components-universal-date-input
 
+## 1.2.2
+
+### Patch Changes
+
+### [#970](https://github.com/core-ds/core-components/pull/970)
+
+-   Исправлен размер иконки календаря
+
 ## 1.2.1
 
 ### Patch Changes
