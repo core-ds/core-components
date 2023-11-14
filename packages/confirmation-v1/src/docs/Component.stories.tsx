@@ -1,20 +1,20 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { select, number } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { ConfirmationV1 } from '@alfalab/core-components-confirmation-v1';
 import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 
-import { ConfirmationV1 as ConfirmationV1TS } from '../component';
-import Changelog from '../../CHANGELOG.md?raw';
-import Description from './description.mdx';
-import vars from '!!raw-loader!../vars.css';
+const meta: Meta<typeof ConfirmationV1> = {
+    title: 'Deprecated components/ConfirmationV1',
+    component: ConfirmationV1,
+    id: 'ConfirmationV1',
+};
 
-<Meta title='Deprecated components/ConfirmationV1' component={ConfirmationV1} id='ConfirmationV1' />
+type Story = StoryObj<typeof ConfirmationV1>;
 
-{/* Canvas */}
-
-<Story name='ConfirmationV1'>
-    {React.createElement(() => {
+export const confirmation_v1: Story = {
+    name: 'ConfirmationV1',
+    render: () => {
         const [variant, setVariant] = React.useState({
             key: 'success',
             content: 'Успешный сценарий',
@@ -171,22 +171,7 @@ import vars from '!!raw-loader!../vars.css';
                 </div>
             </div>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='ConfirmationV1'
-/>
-
-```jsx
-import { ConfirmationV1 } from '@alfalab/core-components/confirmation-v1';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={ConfirmationV1TS} />}
-    cssVars={<CssVars css={vars} />}
-/>
+export default meta;

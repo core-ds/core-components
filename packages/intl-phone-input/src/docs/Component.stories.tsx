@@ -1,18 +1,19 @@
-import { Meta, Story, ArgsTable, Markdown } from '@storybook/addon-docs';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
 
-import { IntlPhoneInput as IntlPhoneInputTS } from '../component';
-import Description from './description.mdx';
-import Changelog from '../../CHANGELOG.md?raw';
+const meta: Meta<typeof IntlPhoneInput> = {
+    title: 'Deprecated components/IntlPhoneInput',
+    component: IntlPhoneInput,
+    id: 'IntlPhoneInput',
+};
 
-<Meta title='Deprecated components/IntlPhoneInput' component={IntlPhoneInput} id='IntlPhoneInput' />
+type Story = StoryObj<typeof IntlPhoneInput>;
 
-{/* Canvas */}
-
-<Story name='IntlPhoneInput'>
-    {React.createElement(() => {
+export const intl_phone_input: Story = {
+    name: 'IntlPhoneInput',
+    render: () => {
         const [value, setValue] = React.useState('+79647820725');
         const [selectedCountry, setSelectedCountry] = React.useState('RU');
         const handleChange = React.useCallback(
@@ -30,9 +31,12 @@ import Changelog from '../../CHANGELOG.md?raw';
         const clear = boolean('clear', false);
         const label = text('label', 'Номер телефона');
         const clearableCountryCode = boolean('clearableCountryCode', true);
-        const handleCountryChange = React.useCallback((countryCode) => {
-            setSelectedCountry(countryCode);
-        });
+        const handleCountryChange = React.useCallback(
+            (countryCode) => {
+                setSelectedCountry(countryCode);
+            },
+            [setSelectedCountry],
+        );
         return (
             <>
                 <IntlPhoneInput
@@ -55,21 +59,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 Код выбранной страны: <strong>{selectedCountry}</strong>
             </>
         );
-    })}
-</Story>
+    },
+};
 
-{/* Docs */}
-
-<ComponentHeader
-    name='IntlPhoneInput'
-/>
-
-```jsx
-import { IntlPhoneInput } from '@alfalab/core-components/intl-phone-input';
-```
-
-<Tabs
-    description={<Description />}
-    changelog={<Markdown>{Changelog}</Markdown>}
-    props={<ArgsTable of={IntlPhoneInputTS} />}
-/>
+export default meta;

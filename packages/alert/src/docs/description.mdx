@@ -1,4 +1,23 @@
-Информирует пользователя о чем-либо. Может использоваться как сообщение, комментарий или предупреждение от системы.
+import { Plate } from '@alfalab/core-components/plate';
+import { Link } from '@alfalab/core-components/link';
+
+<Plate
+    view='attention'
+    titleView='light'
+    limitContentWidth={false}
+    title={
+        <>
+            Компонент больше не поддерживается, переходите на новый компонент{' '}
+            <Link href='https://core-ds.github.io/core-components/master/?path=/docs/plate--docs'>
+                Plate.
+            </Link>
+        </>
+    }
+/>
+
+## Пример
+
+Компонент с серой подложкой используется для «бесконечных списков». Например, для истории операций или списка писем.
 
 ```jsx live
 <Alert>Вам одобрено. Согласитесь на предложение</Alert>
