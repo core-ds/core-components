@@ -1,3 +1,17 @@
+## 43.1.2
+
+<sup><time>14.11.2023</time></sup>
+
+### [#970](https://github.com/core-ds/core-components/pull/970)
+
+#### Что изменилось
+- Исправлен размер иконки календаря
+
+#### Влияние на компоненты
+- Патчи<br />`universal-date-input`
+
+
+
 ## 43.1.1
 
 <sup><time>10.11.2023</time></sup>
