@@ -32,6 +32,8 @@ html body {
     height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--color-light-text-primary);
+    background-color: var(--color-light-bg-primary);
 }
 
 body:not(.sb-show-main) {
