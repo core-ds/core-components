@@ -314,12 +314,12 @@ export type BaseSelectProps = {
     onOpen?: (payload: { open?: boolean; name?: string }) => void;
 
     /**
-     * Обработчик фокуса поля
+     * Обработчик блюра поля
      */
     onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 
     /**
-     * Обработчик блюра поля
+     * Обработчик фокуса поля
      */
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 
