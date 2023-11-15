@@ -2,13 +2,13 @@
 
 :root {
     /* stroke */
-    --circular-progress-bar-stroke-color: var(--color-light-border-primary);
+    --circular-progress-bar-stroke-color: var(--color-light-neutral-translucent-300);
 
     /* positive */
-    --circular-progress-bar-positive-color: var(--color-light-graphic-positive);
+    --circular-progress-bar-positive-color: var(--color-light-status-positive);
 
     /* negative */
-    --circular-progress-bar-negative-color: var(--color-light-graphic-negative);
+    --circular-progress-bar-negative-color: var(--color-light-status-negative);
 
     /* theme */
     --circular-progress-bar-font-family: var(--font-family-system);
@@ -209,27 +209,27 @@
     }
 
     &.icon-tertiary {
-        color: var(--color-light-graphic-tertiary);
+        color: var(--color-light-neutral-500);
     }
 
     &.icon-positive {
-        color: var(--color-light-graphic-positive);
+        color: var(--color-light-status-positive);
     }
 
     &.icon-negative {
-        color: var(--color-light-graphic-negative);
+        color: var(--color-light-status-negative);
     }
 
     &.icon-primary-inverted {
-        color: var(--color-light-graphic-primary-inverted);
+        color: var(--color-light-neutral-1500-inverted);
     }
 
     &.icon-primary {
-        color: var(--color-light-graphic-primary);
+        color: var(--color-light-neutral-1500);
     }
 
     &.icon-secondary {
-        color: var(--color-light-graphic-secondary);
+        color: var(--color-light-neutral-700);
     }
 }
 

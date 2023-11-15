@@ -40,17 +40,17 @@
     overflow: hidden;
 
     &.background-accent {
-        background-color: var(--color-light-bg-accent);
-        color: var(--color-static-text-primary-light);
+        background-color: var(--color-light-accent-primary);
+        color: var(--color-static-text-primary-inverted);
     }
 
     &.background-specialbg-secondary-transparent {
-        background-color: var(--color-light-specialbg-secondary-transparent);
+        background-color: var(--color-light-neutral-translucent-200);
         color: var(--color-light-text-primary);
     }
 
     &.background-primary {
-        background-color: var(--color-light-bg-primary);
+        background-color: var(--color-light-neutral-0);
         color: var(--color-light-text-primary);
     }
 }
@@ -135,13 +135,13 @@
     }
 
     &.link {
-        color: var(--color-light-graphic-link);
-        background-color: var(--color-light-graphic-link);
+        color: var(--color-light-status-info);
+        background-color: var(--color-light-status-info);
     }
 
     &.tertiary {
-        color: var(--color-light-graphic-tertiary);
-        background-color: var(--color-light-graphic-tertiary);
+        color: var(--color-light-neutral-500);
+        background-color: var(--color-light-neutral-500);
     }
 
     &.secondary {
@@ -150,8 +150,8 @@
     }
 
     &.primary {
-        color: var(--color-light-graphic-primary);
-        background-color: var(--color-light-graphic-primary);
+        color: var(--color-light-neutral-1500);
+        background-color: var(--color-light-neutral-1500);
     }
 }
 
@@ -184,7 +184,7 @@
 }
 
 .outlineColor {
-    background-color: var(--color-light-bg-accent);
+    background-color: var(--color-light-accent-primary);
 
     &.attention {
         background-color: var(--color-light-status-attention);
@@ -199,11 +199,11 @@
     }
 
     &.link {
-        background-color: var(--color-light-graphic-link);
+        background-color: var(--color-light-status-info);
     }
 
     &.tertiary {
-        background-color: var(--color-light-graphic-tertiary);
+        background-color: var(--color-light-neutral-500);
     }
 
     &.secondary {
@@ -211,7 +211,7 @@
     }
 
     &.primary {
-        background-color: var(--color-light-graphic-primary);
+        background-color: var(--color-light-neutral-1500);
     }
 }
 

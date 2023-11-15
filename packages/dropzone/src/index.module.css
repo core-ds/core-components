@@ -10,7 +10,7 @@
     position: relative;
     transition: border-color 0.2s ease, background-color 0.2s ease;
     border-radius: var(--dropzone-border-radius);
-    border: 1px dashed var(--color-light-border-underline-inverted);
+    border: 1px dashed var(--color-light-neutral-1500);
 }
 
 .disabled {
@@ -30,5 +30,5 @@
 }
 
 .error {
-    border-color: var(--color-light-border-accent);
+    border-color: var(--color-light-status-negative);
 }

@@ -1,4 +1,4 @@
-@import '../../../../themes/src/default.css';
+@import '../../../../progress-bar/src/vars.css';
 
 .bar {
     width: 100%;
@@ -13,6 +13,6 @@
 
 @each $background in positive, attention, negative, link, tertiary, secondary, primary, accent {
     .bar.$(background) {
-        background: var(--color-light-graphic-$(background));
+        background: var(--progressbar-$(background)-color);
     }
 }

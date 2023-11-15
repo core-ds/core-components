@@ -1,8 +1,8 @@
 @import '../../../../themes/src/default.css';
 
 :root {
-    --icon-view-color: var(--color-light-graphic-secondary);
-    --icon-view-bg-color: var(--color-light-bg-secondary);
+    --icon-view-color: var(--color-light-neutral-translucent-700);
+    --icon-view-bg-color: var(--color-light-neutral-100);
 }
 
 .componentWrapper {
@@ -25,7 +25,7 @@
 }
 
 .border {
-    stroke: var(--color-light-specialbg-component);
+    stroke: var(--color-light-neutral-translucent-200);
     stroke-width: 1px;
     fill: transparent;
 }
