@@ -11,7 +11,7 @@
 
 .inner {
     position: relative;
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-modal-bg-primary);
     box-shadow: var(--shadow-m);
     border: 1px solid var(--popover-border-color);
     box-sizing: border-box;
@@ -34,7 +34,7 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-modal-bg-primary);
     border: 1px solid var(--popover-border-color);
     box-sizing: border-box;
     transform: rotate(45deg);

@@ -15,7 +15,7 @@ describe('IconView', () => {
             testStory: false,
             knobs: {
                 size: '80',
-                backgroundColor: 'var(--color-light-bg-primary)',
+                backgroundColor: 'var(--color-light-modal-bg-primary)',
                 border: true,
             },
         },

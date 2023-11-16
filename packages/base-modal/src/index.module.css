@@ -3,7 +3,7 @@
 .component {
     position: relative;
     box-sizing: border-box;
-    background: var(--color-light-bg-primary);
+    background: var(--color-light-modal-bg-primary);
     margin: auto;
     flex-shrink: 0;
 }

@@ -3,8 +3,8 @@
 :root {
     --modal-border-radius: var(--border-radius-l);
     --modal-vertical-padding: var(--gap-3xl);
-    --modal-header-background: var(--color-light-bg-primary);
-    --modal-footer-background: var(--color-light-bg-primary);
+    --modal-header-background: var(--color-light-modal-bg-primary);
+    --modal-footer-background: var(--color-light-modal-bg-primary);
     --modal-footer-default-gap: var(--gap-m);
 
     /* sizes */
@@ -20,10 +20,10 @@
     --modal-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
 
     /* scroll */
-    --modal-header-highlight-background: var(--color-light-bg-primary);
-    --modal-footer-highlight-background: var(--color-light-bg-primary);
-    --modal-header-highlight-box-shadow: 0 1px 0 0 var(--color-light-border-secondary);
-    --modal-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-border-secondary);
+    --modal-header-highlight-background: var(--color-light-modal-bg-primary);
+    --modal-footer-highlight-background: var(--color-light-modal-bg-primary);
+    --modal-header-highlight-box-shadow: 0 1px 0 0 var(--color-light-neutral-300);
+    --modal-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
 
     /* desktop */
     --modal-s-header-desktop-content-paddings: var(--gap-s);

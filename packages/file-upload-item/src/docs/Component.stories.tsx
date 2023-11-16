@@ -9,7 +9,7 @@ import {
 } from '../../../screenshot-utils/screenshots-story/utils';
 
 const WRAPPER_STYLES = {
-    background: 'var(--color-light-bg-primary)',
+    background: 'var(--color-light-modal-bg-primary)',
 };
 
 const meta: Meta<typeof FileUploadItem> = {

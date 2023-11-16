@@ -1,8 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --tooltip-border-color: var(--color-light-border-primary);
-    --tooltip-hint-bg-color: var(--color-light-bg-primary-inverted);
+    --tooltip-border-color: var(--color-light-neutral-300);
+    --tooltip-hint-bg-color: var(--color-light-modal-bg-primary-inverted);
     --tooltip-hint-text-color: var(--color-light-text-primary-inverted);
     --tooltip-hint-box-shadow: var(--shadow-m-hard);
 }
@@ -19,9 +19,9 @@
 }
 
 .tooltip {
-    border: 1px solid var(--color-light-border-secondary);
+    border: 1px solid var(--tooltip-border-color);
 
     & .arrow:after {
-        border-color: var(--color-light-border-secondary);
+        border-color: var(--tooltip-border-color);
     }
 }

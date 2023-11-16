@@ -1,11 +1,11 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --tooltip-hint-inverted-bg-color: var(--color-light-bg-primary);
+    --tooltip-hint-inverted-bg-color: var(--color-light-modal-bg-primary);
     --tooltip-hint-inverted-text-color: var(--color-light-text-primary);
     --tooltip-hint-inverted-box-shadow: var(--shadow-m);
     --tooltip-inverted-text-color: var(--color-light-text-primary-inverted);
-    --tooltip-inverted-bg-color: var(--color-light-bg-primary-inverted);
+    --tooltip-inverted-bg-color: var(--color-light-modal-bg-primary-inverted);
     --tooltip-inverted-box-shadow: var(--shadow-m-hard);
 }
 

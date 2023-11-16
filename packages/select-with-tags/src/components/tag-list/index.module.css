@@ -79,8 +79,9 @@
     font-family: var(--font-family);
     color: var(--color-light-text-primary);
 
-    &:disabled {
-        color: var(--color-light-text-secondary);
+    &:disabled,
+    &:disabled::placeholder {
+        color: var(--color-light-text-tertiary);
     }
 
     &::placeholder {
@@ -105,7 +106,7 @@
     align-items: center;
     min-height: 28px;
     padding-left: var(--gap-2xs);
-    color: var(--color-light-text-tertiary);
+    color: var(--color-light-text-secondary);
     pointer-events: none;
 }
 

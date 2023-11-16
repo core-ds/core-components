@@ -3,8 +3,8 @@
 :root {
     --side-panel-border-radius: var(--border-radius-l);
     --side-panel-vertical-padding: var(--gap-3xl);
-    --side-panel-header-background: var(--color-light-bg-primary);
-    --side-panel-footer-background: var(--color-light-bg-primary);
+    --side-panel-header-background: var(--color-light-modal-bg-primary);
+    --side-panel-footer-background: var(--color-light-modal-bg-primary);
     --side-panel-footer-default-gap: var(--gap-m);
 
     /* sizes */
@@ -16,10 +16,10 @@
     --side-panel-s-footer-paddings: var(--gap-xl) var(--gap-3xl) var(--gap-3xl);
 
     /* scroll */
-    --side-panel-header-highlight-background: var(--color-light-bg-primary);
-    --side-panel-footer-highlight-background: var(--color-light-bg-primary);
-    --side-panel-header-highlight-box-shadow: 0 1px 0 0 var(--color-light-border-secondary);
-    --side-panel-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-border-secondary);
+    --side-panel-header-highlight-background: var(--color-light-modal-bg-primary);
+    --side-panel-footer-highlight-background: var(--color-light-modal-bg-primary);
+    --side-panel-header-highlight-box-shadow: 0 1px 0 0 var(--color-light-neutral-300);
+    --side-panel-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
 
     /* desktop */
     --side-panel-s-header-desktop-content-paddings: 6px var(--gap-s) var(--gap-m);
