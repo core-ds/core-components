@@ -102,6 +102,7 @@ export const parameters = {
                 'Quick start',
                 'Components overview',
                 'Icons overview',
+                'Token converter',
                 'Changelog',
                 'Museum',
                 'Sandbox',
