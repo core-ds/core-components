@@ -1,6 +1,7 @@
 import React, { FC, useState, ReactNode } from 'react';
 import { Tabs, Tab, TabsProps } from '@alfalab/core-components-tabs';
 import { ArgTypes } from '@storybook/addon-docs';
+import cn from 'classnames';
 
 import styles from './index.module.css';
 
@@ -19,10 +20,9 @@ export const ArgsTabs: FC<Props> = ({ components }) => {
 
     return (
         <Tabs
-            className='sb-unstyled'
+            className={cn(styles.tabsTypes, 'sb-unstyled')}
             selectedId={selected}
             onChange={handleChange}
-            containerClassName={styles.tabsTypes}
             view='secondary'
             size='xxs'
             scrollable={true}
