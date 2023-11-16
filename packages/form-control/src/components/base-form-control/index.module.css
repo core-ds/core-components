@@ -216,17 +216,3 @@
 .xl .hiddenLabel {
     padding: var(--form-control-xl-paddings);
 }
-
-/* min-height and width: max-content; fix for IE */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .component {
-        display: inline-block;
-    }
-
-    .inner:after {
-        min-height: inherit;
-        font-size: 0;
-        content: '';
-    }
-}

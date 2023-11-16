@@ -118,14 +118,6 @@ button[class*='eye'] + .successIcon {
     opacity: 0;
 }
 
-/* IE hide clear */
-
-.input::-ms-clear {
-    display: none;
-    width: 0;
-    height: 0;
-}
-
 /* Убирает синюю заливку при автокомплите */
 
 .input {

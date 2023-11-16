@@ -1,5 +1,5 @@
 export type Question = {
-    name: 'product' | 'keepCssVars' | 'darkMode' | 'aruiScripts' | 'ie';
+    name: 'product' | 'keepCssVars' | 'darkMode' | 'aruiScripts';
     title: string;
     variants: Array<{ label: string; value: string }>;
 };
