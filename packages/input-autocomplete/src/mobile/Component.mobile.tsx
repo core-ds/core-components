@@ -85,6 +85,8 @@ export const InputAutocompleteMobile = React.forwardRef(
             restorePrevValue();
         };
 
+        const handleClear = () => onInput?.(null, { value: '' });
+
         const handleExiting = (node: HTMLElement) => {
             targetRef.current?.focus();
             transitionProps?.onExiting?.(node);
@@ -108,6 +110,8 @@ export const InputAutocompleteMobile = React.forwardRef(
             },
         };
 
+        const clear = inputProps?.clear ?? false;
+
         return (
             <Component
                 Field={AutocompleteMobileField}
@@ -126,7 +130,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                         placeholder,
                         ...inputProps,
                         className: cn(styles.input, inputProps?.className),
-                        clear: inputProps?.clear ?? false,
+                        clear,
                         ref: mergeRefs([searchInputRef, inputProps?.ref as Ref<HTMLInputElement>]),
                         onChange: onInput,
                     },
@@ -156,6 +160,8 @@ export const InputAutocompleteMobile = React.forwardRef(
                 }}
                 fieldProps={{
                     value: isOpen ? frozenValue.current : value,
+                    clear,
+                    onClear: clear ? handleClear : undefined,
                     ...(restProps.fieldProps as AnyObject),
                 }}
             />

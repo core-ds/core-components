@@ -46,11 +46,6 @@
     width: 100%;
 }
 
-.clearIcon {
-    display: block;
-    transition: opacity 0.2s ease;
-}
-
 .errorIcon {
     display: var(--input-error-icon-display);
 
@@ -69,14 +64,6 @@ button[class*='eye'] + .errorIcon {
 
 .errorColorIcon {
     color: var(--color-light-status-negative);
-}
-
-.clearButton + * {
-    margin-left: var(--gap-2xs);
-}
-
-.clearButton + .errorIcon {
-    display: var(--input-error-icon-display);
 }
 
 .successIcon {
