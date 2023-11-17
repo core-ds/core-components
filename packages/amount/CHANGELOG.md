@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.3.1
+
+### Patch Changes
+
+### [#967](https://github.com/core-ds/core-components/pull/967)
+
+-   Добавлено центрирование контента передаваемого в пропсе rightAddons.
+
 ## 3.3.0
 
 ### Minor Changes
