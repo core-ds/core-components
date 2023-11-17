@@ -30,3 +30,8 @@
     opacity: var(--amount-minor-part-opacity);
     font-weight: var(--amount-minor-part-font-weight);
 }
+
+.minorPartAndCurrency {
+    display: inline-flex;
+    align-items: center;
+}
