@@ -12,7 +12,7 @@
 
     /* custom view */
     --plate-background: transparent;
-    --plate-border-color: var(--color-static-status-grey);
+    --plate-border-color: var(--color-light-neutral-translucent-700);
     --plate-box-shadow: var(--shadow-s);
 }
 
@@ -84,34 +84,34 @@
 }
 
 .common {
-    background-color: var(--color-light-specialbg-component);
-    border: var(--plate-border-width) solid var(--color-light-graphic-secondary);
+    background-color: var(--color-light-neutral-translucent-200);
+    border: var(--plate-border-width) solid var(--color-light-neutral-translucent-700);
     &:before {
-        background-color: var(--color-light-graphic-secondary);
+        background-color: var(--color-light-neutral-translucent-700);
     }
 }
 
 .negative {
-    background-color: var(--color-light-bg-negative-muted);
-    border: var(--plate-border-width) solid var(--color-light-graphic-negative);
+    background-color: var(--color-light-status-muted-negative);
+    border: var(--plate-border-width) solid var(--color-light-status-negative);
     &:before {
-        background-color: var(--color-light-graphic-negative);
+        background-color: var(--color-light-status-negative);
     }
 }
 
 .positive {
-    background-color: var(--color-light-bg-positive-muted);
-    border: var(--plate-border-width) solid var(--color-light-graphic-positive);
+    background-color: var(--color-light-status-muted-positive);
+    border: var(--plate-border-width) solid var(--color-light-status-positive);
     &:before {
-        background-color: var(--color-light-graphic-positive);
+        background-color: var(--color-light-status-positive);
     }
 }
 
 .attention {
-    background-color: var(--color-light-bg-attention-muted);
-    border: var(--plate-border-width) solid var(--color-light-graphic-attention);
+    background-color: var(--color-light-status-muted-attention);
+    border: var(--plate-border-width) solid var(--color-light-status-attention);
     &:before {
-        background-color: var(--color-light-graphic-attention);
+        background-color: var(--color-light-status-attention);
     }
 }
 

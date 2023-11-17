@@ -951,6 +951,7 @@
     --color-dark-graphic-tertiary-inverted-alpha-30: rgba(182, 188, 195, 0.3);
     --color-dark-graphic-tertiary-inverted-shade-15: rgb(155, 160, 166);
     --color-dark-graphic-tertiary-inverted-shade-20: rgb(146, 150, 156);
+    --color-dark-neutral-700-alpha-15: rgba(137, 137, 145, 0.15);
     --color-dark-specialbg-component-tint-7: rgba(255, 255, 255, 0.2095);
     --color-dark-specialbg-component-tint-10: rgba(255, 255, 255, 0.235);
     --color-dark-specialbg-component-tint-15: rgba(255, 255, 255, 0.2775);
@@ -970,6 +971,7 @@
     --color-dark-specialbg-tertiary-transparent-tint-15: rgba(255, 255, 255, 0.32);
     --color-dark-specialbg-tertiary-transparent-inverted-shade-15: rgba(9, 26, 45, 0.235);
     --color-dark-specialbg-tertiary-transparent-inverted-shade-20: rgba(9, 25, 42, 0.28);
+    --color-dark-status-info-alpha-15: rgba(49, 147, 252, 0.15);
     --color-dark-text-link-shade-30: rgb(0, 85, 179);
     --color-dark-text-link-shade-50: rgb(0, 61, 128);
     --color-dark-text-link-tint-20: rgb(51, 149, 255);
@@ -1111,6 +1113,7 @@
     --color-light-graphic-tertiary-inverted-alpha-30: rgba(109, 121, 134, 0.3);
     --color-light-graphic-tertiary-inverted-tint-15: rgb(131, 141, 152);
     --color-light-graphic-tertiary-inverted-tint-20: rgb(138, 148, 158);
+    --color-light-neutral-700-alpha-15: rgba(137, 137, 145, 0.15);
     --color-light-specialbg-component-shade-7: rgba(10, 29, 49, 0.1351);
     --color-light-specialbg-component-shade-10: rgba(10, 28, 48, 0.163);
     --color-light-specialbg-component-shade-15: rgba(9, 26, 45, 0.2095);
@@ -1130,6 +1133,7 @@
     --color-light-specialbg-tertiary-transparent-shade-15: rgba(9, 26, 45, 0.235);
     --color-light-specialbg-tertiary-transparent-inverted-tint-15: rgba(255, 255, 255, 0.32);
     --color-light-specialbg-tertiary-transparent-inverted-tint-20: rgba(255, 255, 255, 0.36);
+    --color-light-status-info-alpha-15: rgba(34, 136, 250, 0.15);
     --color-light-text-link-tint-30: rgb(77, 162, 255);
     --color-light-text-link-tint-50: rgb(128, 189, 255);
     --color-light-text-link-shade-20: rgb(0, 98, 204);
