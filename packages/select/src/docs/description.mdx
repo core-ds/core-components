@@ -204,7 +204,7 @@ render(() => {
                     setSelectedFirst(selected);
                 }}
             />
-            <Gap size='m'/>
+            <Gap size='m' />
             <SelectDesktop
                 allowUnselect={true}
                 size='m'
@@ -349,7 +349,7 @@ const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {
     return (
         <GenericWrapper alignItems='center' padding={padding}>
             <GenericWrapper column>
-                <Typography.Text view='component'>
+                <Typography.Text view='component-primary'>
                     <Amount
                         value={amount}
                         minority={100}
@@ -372,7 +372,7 @@ const renderOption = ({ amount, padding, text }) => (
             <Typography.Text color='secondary' view='primary-small'>
                 {text}
             </Typography.Text>
-            <Typography.Text view='component'>
+            <Typography.Text view='component-primary'>
                 <Amount
                     value={amount}
                     minority={100}
@@ -474,7 +474,7 @@ const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {
     return (
         <GenericWrapper alignItems='center' padding={padding}>
             <GenericWrapper column>
-                <Typography.Text view='component'>
+                <Typography.Text view='component-primary'>
                     <Amount
                         value={amount}
                         minority={100}
@@ -497,7 +497,7 @@ const renderOption = ({ amount, padding, text }) => (
             <Typography.Text color='secondary' view='primary-small'>
                 {text}
             </Typography.Text>
-            <Typography.Text view='component'>
+            <Typography.Text view='component-primary'>
                 <Amount
                     value={amount}
                     minority={100}
