@@ -179,6 +179,11 @@ export type BottomSheetProps = {
     hasBacker?: boolean;
 
     /**
+     * Дополнительные пропсы для кнопки "Назад"
+     */
+    backButtonProps?: NavigationBarProps['backButtonProps'];
+
+    /**
      * Выравнивание заголовка
      */
     titleAlign?: BottomSheetTitleAlign;
