@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { BaseFormControlProps } from './components/base-form-control';
-import { FormControlDesktop } from './Component.desktop';
-import { FormControlMobile } from './Component.mobile';
+import { FormControlDesktop } from './desktop';
+import { FormControlMobile } from './mobile';
 
 export type FormControlProps = Omit<BaseFormControlProps, 'styles' | 'colorStyles'> & {
     /**

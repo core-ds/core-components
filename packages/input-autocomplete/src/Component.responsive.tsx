@@ -6,8 +6,8 @@ import { ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 import type { BaseSelectProps } from '@alfalab/core-components-select/shared';
 import { useMedia } from '@alfalab/hooks';
 
-import { InputAutocompleteDesktop, InputAutocompleteDesktopProps } from './Component.desktop';
-import { InputAutocompleteMobile, InputAutocompleteMobileProps } from './Component.mobile';
+import { InputAutocompleteDesktop, InputAutocompleteDesktopProps } from './desktop';
+import { InputAutocompleteMobile, InputAutocompleteMobileProps } from './mobile';
 
 export type InputAutocompleteResponsiveProps = InputAutocompleteDesktopProps &
     InputAutocompleteMobileProps & {

@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
 import type { FieldProps } from '@alfalab/core-components-select/shared';
 
-import { InputAutocompleteDesktopProps } from '../Component.desktop';
+import { InputAutocompleteDesktopProps } from '../desktop';
 
 import styles from './index.module.css';
 

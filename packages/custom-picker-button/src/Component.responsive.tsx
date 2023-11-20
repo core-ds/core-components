@@ -7,8 +7,8 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 import type { PickerButtonDesktopProps } from '@alfalab/core-components-picker-button/desktop';
 import type { AdditionalMobileProps } from '@alfalab/core-components-select/shared';
 
-import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './Component.desktop';
-import { CustomPickerButtonMobile } from './Component.mobile';
+import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './desktop';
+import { CustomPickerButtonMobile } from './mobile';
 
 export type PickerButtonMatchMedia = 'desktop' | 'mobile';
 

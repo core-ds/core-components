@@ -6,8 +6,7 @@ import {
     InputAutocompleteDesktop,
     InputAutocompleteDesktopProps,
 } from '@alfalab/core-components-input-autocomplete/desktop';
-import type { SelectProps } from '@alfalab/core-components-select';
-import type { OptionShape } from '@alfalab/core-components-select/shared';
+import type { BaseSelectProps, OptionShape } from '@alfalab/core-components-select/shared';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
 
@@ -32,7 +31,7 @@ const DEFAULT_MAX_PHONE_LEN_BY_COUNTRY: MaxPhoneLenByCountry = { RU: 11 };
 type MaxPhoneLenByCountry = Record<string, number>;
 
 export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteDesktopProps, 'onChange'>> &
-    Pick<SelectProps, 'preventFlip'> & {
+    Pick<BaseSelectProps, 'preventFlip'> & {
         /**
          * Значение
          */
@@ -272,7 +271,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             changePhone(addCountryCode(event.target.value));
         };
 
-        const handleSelectChange: Required<SelectProps>['onChange'] = ({ selected }) => {
+        const handleSelectChange: Required<BaseSelectProps>['onChange'] = ({ selected }) => {
             if (selected) {
                 const country = setCountryByIso2(selected.value);
                 const inputValue = `+${country.dialCode}`;

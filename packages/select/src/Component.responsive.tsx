@@ -2,9 +2,10 @@ import React, { forwardRef } from 'react';
 
 import { useMedia } from '@alfalab/hooks';
 
-import { SelectDesktop, SelectFieldProps } from './Component.desktop';
-import { AdditionalMobileProps, SelectMobile } from './Component.mobile';
-import type { BaseSelectProps } from './typings';
+import { SelectDesktop, SelectDesktopProps } from './desktop';
+import { SelectMobile } from './mobile';
+import { AdditionalMobileProps } from './shared';
+import { BaseSelectProps } from './typings';
 
 export type SelectResponsiveProps = BaseSelectProps &
     AdditionalMobileProps & {
@@ -43,7 +44,7 @@ export const SelectResponsive = forwardRef<HTMLDivElement, SelectResponsiveProps
                 onScroll={onScroll}
                 {...restProps}
                 ref={ref}
-                fieldProps={fieldProps as SelectFieldProps}
+                fieldProps={fieldProps as SelectDesktopProps['fieldProps']}
             />
         ) : (
             <SelectMobile

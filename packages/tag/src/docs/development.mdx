@@ -1,6 +1,6 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { TagDesktop } from '../Component.desktop';
-import { TagMobile } from '../Component.mobile';
+import { TagDesktop } from '../desktop';
+import { TagMobile } from '../mobile';
 import { Tag } from '../Component.responsive';
 import styles from '!!raw-loader!../vars.css';
 
@@ -11,11 +11,12 @@ import { Tag } from '@alfalab/core-components/tag';
 import { TagDesktop } from '@alfalab/core-components/tag/desktop';
 import { TagMobile } from '@alfalab/core-components/tag/mobile';
 ```
-Из индекса импортируется responsive версия компонента. 
+
+Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
-<ArgsTabs components={{TagDesktop, TagMobile, Tag}} />
+<ArgsTabs components={{ TagDesktop, TagMobile, Tag }} />
 
 ## Переменные
 

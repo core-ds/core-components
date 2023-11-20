@@ -1,0 +1,44 @@
+@import '../vars.css';
+
+.secondary {
+    background-color: var(--button-inverted-secondary-base-bg-color);
+
+    &:hover {
+        background-color: var(--button-inverted-secondary-hover-bg-color);
+    }
+
+    &:active {
+        background-color: var(--button-inverted-secondary-active-bg-color);
+    }
+}
+
+.ghost {
+    &:active {
+        color: var(--button-inverted-ghost-active-color);
+    }
+}
+
+.component[disabled] {
+    &.primary {
+        color: var(--button-inverted-primary-disabled-color);
+        background-color: var(--button-inverted-primary-disabled-bg-color);
+    }
+
+    &.secondary {
+        color: var(--button-inverted-secondary-disabled-color);
+        background-color: var(--button-inverted-secondary-disabled-bg-color);
+    }
+
+    &.tertiary {
+        color: var(--button-inverted-tertiary-disabled-color);
+        border-color: var(--button-inverted-tertiary-disabled-border-color);
+    }
+
+    &.link {
+        color: var(--button-inverted-link-disabled-color);
+    }
+
+    &.ghost {
+        color: var(--button-inverted-ghost-disabled-color);
+    }
+}

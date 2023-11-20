@@ -5,8 +5,8 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
-import { SidePanelMobile } from '@alfalab/core-components-side-panel/Component.mobile';
-import { SidePanelDesktop } from '@alfalab/core-components-side-panel/Component.desktop';
+import { SidePanelMobile } from '@alfalab/core-components-side-panel/mobile';
+import { SidePanelDesktop } from '@alfalab/core-components-side-panel/desktop';
 import { SidePanelResponsive } from '@alfalab/core-components-side-panel/Component.responsive';
 
 import Description from './description.mdx';
@@ -30,19 +30,25 @@ export const Text = () => (
 
 export const Footer = ({ isPreview, isMobile }) => (
     <>
-    {!isMobile ? 
-        (<><ButtonDesktop size='s' view='primary'>
-            {isPreview ? 'Кнопка' : 'Сохранить'}
-        </ButtonDesktop>
-        <ButtonDesktop size='s' view='secondary'>
-            {isPreview ? 'Кнопка' : 'Отмена'}
-        </ButtonDesktop></>) :
-        (<><ButtonMobile size='m' view='secondary'>
-            {isPreview ? 'Кнопка' : 'Отмена'}
-        </ButtonMobile>
-         <ButtonMobile size='m' view='primary'>
-            {isPreview ? 'Кнопка' : 'Сохранить'}
-        </ButtonMobile></>)}
+        {!isMobile ? (
+            <>
+                <ButtonDesktop size='s' view='primary'>
+                    {isPreview ? 'Кнопка' : 'Сохранить'}
+                </ButtonDesktop>
+                <ButtonDesktop size='s' view='secondary'>
+                    {isPreview ? 'Кнопка' : 'Отмена'}
+                </ButtonDesktop>
+            </>
+        ) : (
+            <>
+                <ButtonMobile size='m' view='secondary'>
+                    {isPreview ? 'Кнопка' : 'Отмена'}
+                </ButtonMobile>
+                <ButtonMobile size='m' view='primary'>
+                    {isPreview ? 'Кнопка' : 'Сохранить'}
+                </ButtonMobile>
+            </>
+        )}
     </>
 );
 
@@ -133,7 +139,10 @@ export let SidePanelComponent = SidePanelDesktop;
                     </SidePanelComponent.Content>
                     {stickyFooter && (
                         <SidePanelComponent.Footer sticky={stickyFooter} layout={footerLayout}>
-                            <Footer isPreview={isPreview} isMobile={SidePanelComponent===SidePanelMobile}/>
+                            <Footer
+                                isPreview={isPreview}
+                                isMobile={SidePanelComponent === SidePanelMobile}
+                            />
                         </SidePanelComponent.Footer>
                     )}
                 </SidePanelComponent>

@@ -6,8 +6,8 @@ import { useMatchMedia } from '@alfalab/core-components-mq';
 import { isClient } from '@alfalab/core-components-shared';
 
 import { Header } from './components/header/Component';
-import { SidePanelDesktop } from './Component.desktop';
-import { SidePanelMobile } from './Component.mobile';
+import { SidePanelDesktop } from './desktop';
+import { SidePanelMobile } from './mobile';
 import { ResponsiveContext } from './ResponsiveContext';
 import { TResponsiveModalContext } from './typings';
 

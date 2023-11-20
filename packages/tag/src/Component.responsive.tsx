@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { BaseTagProps } from './components/base-tag';
-import { TagDesktop } from './Component.desktop';
-import { TagMobile } from './Component.mobile';
+import { TagDesktop } from './desktop';
+import { TagMobile } from './mobile';
 
 export type TagProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'> & {
     /**

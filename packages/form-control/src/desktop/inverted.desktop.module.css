@@ -1,0 +1,53 @@
+@import '../vars.css';
+
+.inner {
+    background-color: var(--form-control-inverted-bg-color);
+}
+
+/* Нижняя граница */
+.inner:before {
+    border-bottom: var(--form-control-inverted-border-bottom);
+}
+
+/* DISABLED STATE */
+
+.disabled {
+    background-color: var(--form-control-inverted-disabled-bg-color);
+    box-shadow: var(--form-control-inverted-disabled-shadow);
+}
+
+.disabled:before {
+    border-bottom: var(--form-control-inverted-disabled-border-bottom);
+}
+
+.disabled.hasError {
+    box-shadow: var(--form-control-inverted-error-disabled-shadow);
+    background-color: var(--form-control-inverted-disabled-bg-color);
+}
+
+/* HOVER STATE */
+
+.inner:not(.disabled):hover {
+    background-color: var(--form-control-inverted-hover-bg-color);
+}
+
+/* FOCUS STATE */
+
+.focused.inner,
+.focused.inner:hover {
+    background-color: var(--form-control-inverted-focus-bg-color);
+    box-shadow: var(--form-control-inverted-focus-shadow);
+
+    &.hasError {
+        box-shadow: var(--form-control-inverted-focus-error-shadow);
+    }
+}
+
+.hasError {
+    box-shadow: var(--form-control-inverted-error-shadow);
+    background-color: var(--form-control-inverted-error-bg-color);
+}
+
+.hasError:before {
+    border-bottom: var(--form-control-inverted-error-border-bottom);
+}

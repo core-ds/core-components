@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { BaseCheckboxGroupProps } from './components/base-checkbox-group';
-import { CheckboxGroupDesktop } from './Component.desktop';
-import { CheckboxGroupMobile } from './Component.mobile';
+import { CheckboxGroupDesktop } from './desktop';
+import { CheckboxGroupMobile } from './mobile';
 
 export type CheckboxGroupProps = Omit<BaseCheckboxGroupProps, 'styles'> & {
     /**
