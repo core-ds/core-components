@@ -5,10 +5,10 @@ import { InputProps } from '@alfalab/core-components-input';
 import { useMedia } from '@alfalab/hooks';
 
 import { DateTimeInputProps } from './components/date-time-input/Component';
-import { DateTimeInputDesktop } from './Component.desktop';
-import { DateTimeInputMobile } from './Component.mobile';
+import { DateTimeInputDesktop } from './desktop';
+import { DateTimeInputMobile } from './mobile';
 
-export type DateTimeInputResponsiveProps = Omit<DateTimeInputProps, 'view'| 'InputComponent'> & {
+export type DateTimeInputResponsiveProps = Omit<DateTimeInputProps, 'view' | 'InputComponent'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

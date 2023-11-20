@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { InputAutocompleteDesktop } from './Component.desktop';
-import { InputAutocompleteMobile } from './Component.mobile';
+import { InputAutocompleteDesktop } from './desktop';
+import { InputAutocompleteMobile } from './mobile';
 import { InputAutocompleteProps } from './types';
 
 export const InputAutocomplete = forwardRef<

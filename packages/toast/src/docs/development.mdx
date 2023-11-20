@@ -1,6 +1,6 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { ToastDesktop } from '../Component.desktop';
-import { ToastMobile } from '../Component.mobile';
+import { ToastDesktop } from '../desktop';
+import { ToastMobile } from '../mobile';
 import { Toast } from '../Component.responsive';
 import styles from '!!raw-loader!../components/base-toast/index.module.css';
 
@@ -11,11 +11,12 @@ import { Toast } from '@alfalab/core-components/toast';
 import { ToastMobile } from '@alfalab/core-components/toast/mobile';
 import { ToastDesktop } from '@alfalab/core-components/toast/desktop';
 ```
-Из индекса импортируется responsive версия компонента. 
+
+Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
-<ArgsTabs components={{ToastDesktop, ToastMobile, Toast}} />
+<ArgsTabs components={{ ToastDesktop, ToastMobile, Toast }} />
 
 ## Переменные
 

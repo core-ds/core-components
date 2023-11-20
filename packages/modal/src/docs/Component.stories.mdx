@@ -5,8 +5,8 @@ import { Button } from '@alfalab/core-components-button';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
-import { ModalMobile } from '@alfalab/core-components-modal/Component.mobile';
-import { ModalDesktop } from '@alfalab/core-components-modal/Component.desktop';
+import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { ModalDesktop } from '@alfalab/core-components-modal/desktop';
 import { ModalResponsive } from '@alfalab/core-components-modal/Component.responsive';
 
 import Description from './description.mdx';
@@ -30,19 +30,25 @@ export const Text = () => (
 
 export const Footer = ({ isPreview, isMobile }) => (
     <>
-    {!isMobile ? 
-        (<><ButtonDesktop size='s' view='primary'>
-            {isPreview ? 'Кнопка' : 'Сохранить'}
-        </ButtonDesktop>
-        <ButtonDesktop size='s' view='secondary'>
-            {isPreview ? 'Кнопка' : 'Отмена'}
-        </ButtonDesktop></>) :
-        (<><ButtonMobile size='m' view='secondary'>
-            {isPreview ? 'Кнопка' : 'Отмена'}
-        </ButtonMobile>
-         <ButtonMobile size='m' view='primary'>
-            {isPreview ? 'Кнопка' : 'Сохранить'}
-        </ButtonMobile></>)}
+        {!isMobile ? (
+            <>
+                <ButtonDesktop size='s' view='primary'>
+                    {isPreview ? 'Кнопка' : 'Сохранить'}
+                </ButtonDesktop>
+                <ButtonDesktop size='s' view='secondary'>
+                    {isPreview ? 'Кнопка' : 'Отмена'}
+                </ButtonDesktop>
+            </>
+        ) : (
+            <>
+                <ButtonMobile size='m' view='secondary'>
+                    {isPreview ? 'Кнопка' : 'Отмена'}
+                </ButtonMobile>
+                <ButtonMobile size='m' view='primary'>
+                    {isPreview ? 'Кнопка' : 'Сохранить'}
+                </ButtonMobile>
+            </>
+        )}
     </>
 );
 
@@ -139,7 +145,10 @@ export const ModalComponent = ModalDesktop;
                             layout={footerLayout}
                             gap={footerGap}
                         >
-                            <Footer isPreview={isPreview} isMobile={ModalComponent === ModalMobile} />
+                            <Footer
+                                isPreview={isPreview}
+                                isMobile={ModalComponent === ModalMobile}
+                            />
                         </ModalComponent.Footer>
                     )}
                 </ModalComponent>

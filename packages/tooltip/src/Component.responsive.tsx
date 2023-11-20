@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { TooltipMobile } from './Component.mobile';
 import { TooltipDesktop } from './desktop';
+import { TooltipMobile } from './mobile';
 import { TooltipResponsiveProps } from './types';
 
 export const TooltipResponsive: FC<TooltipResponsiveProps> = ({

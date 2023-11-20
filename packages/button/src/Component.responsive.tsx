@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { ButtonDesktop } from './Component.desktop';
-import { ButtonMobile } from './Component.mobile';
+import { ButtonDesktop } from './desktop';
+import { ButtonMobile } from './mobile';
 import { ButtonProps } from './typings';
 
 export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(

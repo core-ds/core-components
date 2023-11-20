@@ -92,10 +92,11 @@ run()
                 console.log('\n');
             });
 
-            process.exit(1);
+            // TODO нужен process.exit(1). Сейчас depcheck не проверяет /mobile, /desktop, так как там есть package.json. https://github.com/depcheck/depcheck/issues/704
+        } else {
+            console.log('No unused dependencies found.');
         }
 
-        console.log('No unused dependencies found.');
         process.exit(0);
     })
     .catch((e) => {

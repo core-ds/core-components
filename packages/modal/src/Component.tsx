@@ -7,8 +7,8 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { ResponsiveContext } from './ResponsiveContext';
 import { ModalDesktopProps, View } from './typings';
 
-import desktopStyles from './desktop.module.css';
-import mobileStyles from './mobile.module.css';
+import desktopStyles from './desktop/desktop.module.css';
+import mobileStyles from './mobile/mobile.module.css';
 import transitions from './transitions.module.css';
 
 export const Modal = forwardRef<HTMLDivElement, ModalDesktopProps & { view: View }>(
