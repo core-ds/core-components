@@ -68,15 +68,22 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
-        const [textareaNode, setTextareaNode] = useState<HTMLTextAreaElement | null>(null);
-        const textareaRef = useMemo(() => ({ current: textareaNode }), [textareaNode]);
+        const textareaRef = useRef<HTMLTextAreaElement>(null);
         const pseudoTextareaRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
         const [scrollPosition, setScrollPosition] = useState(0);
 
-        const [focusVisible] = useFocus(textareaRef, 'keyboard');
+        const [focusVisible] = useFocus(
+            /*
+             * При первом рендере textareaRef.current === null, то нужно пересоздать реф для корректной работы хука
+             * TODO: исправить хук useFocus, чтобы он поддерживал изменение ноды
+             */
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            useMemo(() => ({ current: textareaRef.current }), [textareaRef.current]),
+            'keyboard',
+        );
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
@@ -95,10 +102,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize && maxHeight && textareaNode && textareaNode.style) {
-                textareaNode.style.maxHeight = `${maxHeight}px`;
+            if (autosize && maxHeight && textareaRef.current && textareaRef.current.style) {
+                textareaRef.current.style.maxHeight = `${maxHeight}px`;
             }
-        }, [autosize, maxHeight, textareaNode]);
+        }, [autosize, maxHeight]);
 
         const handleTextareaFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
             setFocused(true);
@@ -171,7 +178,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onChange: handleTextareaChange,
             value: uncontrolled ? stateValue : value,
             rows,
-            ref: mergeRefs([ref, setTextareaNode]),
+            ref: mergeRefs([ref, textareaRef]),
             'data-test-id': dataTestId,
             onScroll: handleTeaxtareaScroll,
         };
