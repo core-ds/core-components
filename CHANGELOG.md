@@ -1,3 +1,44 @@
+## 43.2.0
+
+<sup><time>20.11.2023</time></sup>
+
+### [#988](https://github.com/core-ds/core-components/pull/988)
+
+#### Что изменилось
+- Повышена специфичность стилей, конфликтующих с base-modal
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+#### Что изменилось
+- Немного изменена структура файлов в пакетах для корректной сборки в vite
+
+#### Влияние на компоненты
+- Патчи<br />`button` `calendar` `calendar-input` `checkbox-group` `code-input`<br /> `confirmation` `custom-picker-button` `date-range-input` `date-time-input` `filter-tag`<br /> `form-control` `input` `input-autocomplete` `international-phone-input` `modal`<br /> `number-input` `picker-button` `plate` `radio-group` `select`<br /> `side-panel` `system-message` `tag` `toast` `toast-plate`<br /> `tooltip` `universal-date-input`
+
+
+### [#981](https://github.com/core-ds/core-components/pull/981)
+
+#### Что изменилось
+- Добавлен новый проп backButtonProps
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet` `navigation-bar`
+
+
+### [#985](https://github.com/core-ds/core-components/pull/985)
+
+#### Что изменилось
+- Цвет подложки в активном состоянии для компонента FormControl изменен с neutral/0 и neutral_inverted/0 на neutral-translucent/0 и neutral-translucent_inverted/0
+
+#### Влияние на компоненты
+- Минорное<br />`form-control`
+
+
+
 ## 43.1.3
 
 <sup><time>17.11.2023</time></sup>
