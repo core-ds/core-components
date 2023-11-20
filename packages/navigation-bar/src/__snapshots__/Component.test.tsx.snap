@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="header"
+      data-test-id="navigation-bar-dti"
+    >
+      <div
+        class="mainLine"
+      >
+        <div
+          class="addonsWrapper"
+        >
+          <div
+            class="addon"
+          >
+            <button
+              aria-label="назад"
+              class="component ghost s s component ghost component ghost component"
+              data-test-id="navigation-bar-dti-back-button"
+              type="button"
+            >
+              <span
+                class="text stretchText"
+              >
+                <div
+                  class="flex"
+                >
+                  <div
+                    class="iconWrapper"
+                  >
+                    <svg
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M1 12l8.25-9 2.25 2.25-5.25 5.25H23v3H6.25l5.25 5.25L9.25 21 1 12z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text primary-large medium"
+                    style="opacity: 1;"
+                  >
+                    Назад
+                  </span>
+                </div>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="addonsWrapper rightAddons"
+        >
+          <div
+            class="addon closer"
+          >
+            <div
+              class="closer"
+            >
+              <button
+                aria-label="закрыть"
+                class="component ghost s s component ghost component ghost cc-icon-button button primary component"
+                data-test-id="navigation-bar-dti-closer"
+                type="button"
+              >
+                <span
+                  class="text stretchText"
+                >
+                  <span
+                    class="iconWrapper s center"
+                  >
+                    <svg
+                      class="icon"
+                      fill="currentColor"
+                      focusable="false"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M10 12L3 5.5 5.25 3 12 9.5 18.75 3 21 5.5 14 12l7 6.5-2.25 2.5L12 14.5 5.25 21 3 18.5l7-6.5z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content contentOnBotDesktop left trim"
+        style="visibility: visible;"
+      >
+        <div
+          class="title"
+          data-test-id="navigation-bar-dti-title"
+        >
+          some title
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

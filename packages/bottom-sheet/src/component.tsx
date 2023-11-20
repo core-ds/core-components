@@ -99,6 +99,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             onOffsetChange,
             swipeableMarker,
             swipeableMarkerClassName,
+            backButtonProps,
         },
         ref,
     ) => {
@@ -158,6 +159,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleSize,
             subtitle,
             onClose,
+            backButtonProps,
         };
 
         const startSwiping = (event: HandledEvents) => {

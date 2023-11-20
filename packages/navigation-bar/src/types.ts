@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 
+import { BackArrowAddonProps } from './components/back-arrow-addon';
 import type { CloserProps } from './components/closer';
 
 export type NavigationBarProps = {
@@ -62,6 +63,11 @@ export type NavigationBarProps = {
      * Дополнительный класс для правого аддона
      */
     backButtonClassName?: string;
+
+    /**
+     * Дополнительные пропсы для кнопки "Назад"
+     */
+    backButtonProps?: Omit<BackArrowAddonProps, 'view' | 'textOpacity' | 'onClick'>;
 
     /**
      * Дополнительный класс
