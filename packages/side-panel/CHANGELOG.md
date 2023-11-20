@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.1.3
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
+-   Обновлены зависимости
+    -   navigation-bar@0.6.0
+
 ## 4.1.2
 
 ### Patch Changes

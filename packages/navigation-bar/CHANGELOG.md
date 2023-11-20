@@ -1,5 +1,19 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.6.0
+
+### Minor Changes
+
+### [#981](https://github.com/core-ds/core-components/pull/981)
+
+-   Добавлен новый проп backButtonProps
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@10.0.2
+    -   icon-button@6.4.2
+
 ## 0.5.11
 
 ### Patch Changes

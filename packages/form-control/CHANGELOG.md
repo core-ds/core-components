@@ -1,5 +1,19 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+### [#985](https://github.com/core-ds/core-components/pull/985)
+
+-   Цвет подложки в активном состоянии для компонента FormControl изменен с neutral/0 и neutral_inverted/0 на neutral-translucent/0 и neutral-translucent_inverted/0
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
 ## 11.0.0
 
 ### Major Changes
