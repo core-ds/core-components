@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { BaseToastPlateProps } from './components/base-toast-plate';
-import { ToastPlateDesktop } from './Component.desktop';
-import { ToastPlateMobile } from './Component.mobile';
+import { ToastPlateDesktop } from './desktop';
+import { ToastPlateMobile } from './mobile';
 
 export type ToastPlateProps = Omit<BaseToastPlateProps, 'styles'> & {
     /**

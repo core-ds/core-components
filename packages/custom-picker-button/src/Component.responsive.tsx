@@ -6,8 +6,8 @@ import type {
     BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
-import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './Component.desktop';
-import { CustomPickerButtonMobile } from './Component.mobile';
+import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './desktop';
+import { CustomPickerButtonMobile } from './mobile';
 
 export type CustomPickerButtonResponsiveProps = CustomPickerButtonDesktopProps &
     AdditionalMobileProps &

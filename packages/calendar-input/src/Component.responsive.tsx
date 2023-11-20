@@ -5,8 +5,8 @@ import { DateInputProps } from '@alfalab/core-components-date-input';
 import { useMedia } from '@alfalab/hooks';
 
 import { CalendarInputProps } from './components/calendar-input/Component';
-import { CalendarInputDesktop } from './Component.desktop';
-import { CalendarInputMobile } from './Component.mobile';
+import { CalendarInputDesktop } from './desktop';
+import { CalendarInputMobile } from './mobile';
 
 export type CalendarInputResponsiveProps = Omit<CalendarInputProps, 'view'> & {
     /**

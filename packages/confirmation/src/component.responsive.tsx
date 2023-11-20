@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { ConfirmationDesktop } from './component.desktop';
-import { ConfirmationMobile } from './component.mobile';
+import { ConfirmationDesktop } from './desktop';
+import { ConfirmationMobile } from './mobile';
 import { ConfirmationProps } from './types';
 
 export type ResponsiveConfirmationProps = Omit<

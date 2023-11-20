@@ -1,2 +1,2 @@
-export { TooltipMobile } from '../Component.mobile';
+export { TooltipMobile } from './Component.mobile';
 export { TooltipMobileProps } from '../types';
