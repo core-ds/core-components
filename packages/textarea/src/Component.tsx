@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
@@ -68,7 +68,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
 
-        const textareaRef = useRef<HTMLTextAreaElement>(null);
+        const [textareaNode, setTextareaNode] = useState<HTMLTextAreaElement | null>(null);
+        const textareaRef = useMemo(() => ({ current: textareaNode }), [textareaNode]);
         const pseudoTextareaRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
@@ -94,10 +95,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize && maxHeight && textareaRef.current && textareaRef.current.style) {
-                textareaRef.current.style.maxHeight = `${maxHeight}px`;
+            if (autosize && maxHeight && textareaNode && textareaNode.style) {
+                textareaNode.style.maxHeight = `${maxHeight}px`;
             }
-        }, [autosize, maxHeight]);
+        }, [autosize, maxHeight, textareaNode]);
 
         const handleTextareaFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
             setFocused(true);
@@ -170,7 +171,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onChange: handleTextareaChange,
             value: uncontrolled ? stateValue : value,
             rows,
-            ref: mergeRefs([ref, textareaRef]),
+            ref: mergeRefs([ref, setTextareaNode]),
             'data-test-id': dataTestId,
             onScroll: handleTeaxtareaScroll,
         };
