@@ -1,9 +1,9 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --scrollbar-inverted-background-color: var(--color-light-graphic-primary-inverted-alpha-30);
+    --scrollbar-inverted-background-color: var(--color-light-neutral-translucent-500-inverted);
     --scrollbar-inverted-background-color-active: var(
-        --color-light-graphic-primary-inverted-alpha-60
+        --color-light-neutral-translucent-500-inverted-press
     );
 }
 

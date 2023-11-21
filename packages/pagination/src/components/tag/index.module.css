@@ -16,17 +16,17 @@ button.tag.tag {
     }
 
     &:hover:not(:disabled) {
-        background-color: var(--color-light-bg-tertiary);
+        background-color: var(--color-light-transparent-default-hover);
         color: var(--color-light-text-primary);
     }
 
     &:active:not(:disabled) {
-        background-color: var(--color-light-bg-quaternary);
+        background-color: var(--color-light-transparent-default-press);
     }
 
     &.checked {
         cursor: default;
-        background-color: var(--color-light-bg-secondary-inverted);
+        background-color: var(--color-light-accent-secondary);
         color: var(--color-light-text-primary-inverted);
     }
 

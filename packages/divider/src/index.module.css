@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --divider-color: var(--color-light-border-primary);
+    --divider-color: var(--color-light-neutral-400);
 }
 
 .component {

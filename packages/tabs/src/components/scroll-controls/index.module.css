@@ -19,7 +19,7 @@
 }
 
 .borderVisible:before {
-    background-color: var(--color-light-specialbg-tertiary-transparent);
+    background-color: var(--color-light-neutral-translucent-300);
 }
 
 .primary {

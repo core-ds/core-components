@@ -1,8 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --scrollbar-background-color: var(--color-light-graphic-primary-alpha-30);
-    --scrollbar-background-color-active: var(--color-light-graphic-primary-alpha-60);
+    --scrollbar-background-color: var(--color-light-neutral-translucent-500);
+    --scrollbar-background-color-active: var(--color-light-neutral-translucent-500-press);
 }
 
 .component {
