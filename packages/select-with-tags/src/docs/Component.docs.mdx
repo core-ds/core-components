@@ -1,0 +1,21 @@
+import { Meta, Markdown } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import * as Stories from './Component.stories';
+
+import Description from './description.mdx';
+import Development from './development.mdx';
+import Changelog from '../../CHANGELOG.md?raw';
+
+<Meta of={Stories} />
+
+<ComponentHeader
+    name='SelectWithTags'
+    design='https://www.figma.com/file/cdNnkh2QdxuvYLrBm4cubM/Web-%3A%3A-Core-Default-Components?type=design&node-id=115994-148548&mode=design&t=gioRxbvujL0JXQuF-0'
+    children='Используется для разделения сложной формы или анкеты на последовательные шаги.'
+/>
+
+<Tabs
+    description={<Description />}
+    changelog={<Markdown>{Changelog}</Markdown>}
+    development={<Development />}
+/>

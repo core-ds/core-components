@@ -19,6 +19,7 @@ import maxSize from 'popper-max-size-modifier';
 
 import { Portal } from '@alfalab/core-components-portal';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -118,7 +119,7 @@ export type PopoverProps = {
     /**
      * Хранит функцию, с помощью которой можно обновить положение компонента
      */
-    update?: MutableRefObject<() => void>;
+    update?: MutableRefObject<(() => void) | undefined>;
 
     /**
      * Дополнительный класс
@@ -266,7 +267,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             updatePopperRef.current = updatePopper;
         }
 
-        useEffect(() => {
+        useLayoutEffect_SAFE_FOR_SSR(() => {
             setReferenceElement(anchorElement);
         }, [anchorElement]);
 
@@ -277,7 +278,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         }, [updatePopper, arrowElement, children]);
 
         useEffect(() => {
-            if (update && !update.current && updatePopper) {
+            if (update && updatePopper) {
                 // eslint-disable-next-line no-param-reassign
                 update.current = updatePopper;
             }
