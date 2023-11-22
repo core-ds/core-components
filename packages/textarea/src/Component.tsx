@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import TextareaAutosize from 'react-textarea-autosize';
 import cn from 'classnames';
@@ -75,7 +75,15 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const [stateValue, setStateValue] = useState(defaultValue || '');
         const [scrollPosition, setScrollPosition] = useState(0);
 
-        const [focusVisible] = useFocus(textareaRef, 'keyboard');
+        const [focusVisible] = useFocus(
+            /*
+             * При первом рендере textareaRef.current === null, то нужно пересоздать реф для корректной работы хука
+             * TODO: исправить хук useFocus, чтобы он поддерживал изменение ноды
+             */
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            useMemo(() => ({ current: textareaRef.current }), [textareaRef.current]),
+            'keyboard',
+        );
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const hasInnerLabel = label && labelView === 'inner';
