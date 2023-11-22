@@ -1,27 +1,19 @@
 import React, { forwardRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { useMedia } from '@alfalab/hooks';
+import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { Content } from './components/content/Component';
 import { Footer } from './components/footer/Component';
 import { Header } from './components/header/Component';
 import { Modal } from './Component';
-import type { ModalResponsiveProps, View } from './typings';
+import type { ModalResponsiveProps } from './typings';
 
 const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps>(
-    ({ children, breakpoint = 1024, ...restProps }, ref) => {
-        const [view] = useMedia<View>(
-            [
-                ['mobile', `(max-width: ${breakpoint - 1}px)`],
-                ['desktop', `(min-width: ${breakpoint}px)`],
-            ],
-            'desktop',
-        );
+    ({ children, breakpoint = 1024, defaultMatchMediaValue = true, ...restProps }, ref) => {
+        const [isDesktop] = useMatchMedia(`(min-width: ${breakpoint}px)`, defaultMatchMediaValue);
 
         return (
-            <Modal ref={ref} {...restProps} view={view}>
+            <Modal ref={ref} {...restProps} view={isDesktop ? 'desktop' : 'mobile'}>
                 {children}
             </Modal>
         );
