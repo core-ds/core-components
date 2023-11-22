@@ -7,7 +7,7 @@
 
 .error {
     padding-left: var(--gap-s);
-    border-left: 1px solid var(--radio-group-error-color);
+    border-left: 1px solid var(--color-light-status-negative);
 
     &.tag {
         padding-left: var(--gap-xs);

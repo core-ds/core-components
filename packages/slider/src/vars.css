@@ -1,11 +1,11 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --slider-progress-color: var(--color-red-dark);
-    --slider-progress-hover-color: var(--color-red-dark);
-    --slider-thumb-color: var(--color-light-graphic-accent);
-    --slider-thumb-hover-color: var(--color-light-graphic-accent-shade-7);
-    --slider-thumb-active-color: var(--color-light-graphic-accent-shade-15);
+    --slider-progress-color: var(--color-light-accent-primary);
+    --slider-progress-hover-color: var(--color-light-accent-primary);
+    --slider-thumb-color: var(--color-light-accent-primary);
+    --slider-thumb-hover-color: var(--color-light-accent-primary-hover);
+    --slider-thumb-active-color: var(--color-light-accent-primary-press);
     --slider-thumb-size: 20px;
     --slider-thumb-half-size: calc(var(--slider-thumb-size) / 2);
     --slider-thumb-border: 2px solid transparent;
@@ -14,8 +14,8 @@
     --slider-progress-m-height: 4px;
     --slider-progress-s-border-radius: 0;
     --slider-progress-m-border-radius: var(--border-radius-s);
-    --slider-progress-background: var(--color-light-bg-quaternary);
-    --slider-progress-hover-background: var(--color-light-bg-quaternary);
+    --slider-progress-background: var(--color-light-neutral-translucent-300);
+    --slider-progress-hover-background: var(--color-light-neutral-translucent-300);
     --slider-clickable-area-size: 16px;
     --slider-clickable-area-half-size: calc(var(--slider-clickable-area-size) / 2);
 

@@ -3,20 +3,26 @@
 :root {
     --switch-label-color: var(--color-light-text-primary);
     --switch-hint-color: var(--color-light-text-secondary);
-    --switch-bg-color: var(--color-light-graphic-secondary);
-    --switch-border-color: var(--color-light-graphic-secondary);
+    --switch-bg-color: var(--color-light-neutral-translucent-700);
+    --switch-border-color: transparent;
+
+    /* hover */
+    --switch-hover-bg-color: var(--color-light-neutral-translucent-700-hover);
 
     /* checked */
-    --switch-checked-bg-color: var(--color-light-graphic-positive);
-    --switch-checked-border-color: transparent;
+    --switch-checked-bg-color: var(--color-light-status-positive);
+    --switch-checked-hover-bg-color: var(--color-light-status-positive-hover);
 
     /* disabled */
     --switch-disabled-color: var(--color-light-text-secondary);
-    --switch-disabled-bg-color: var(--color-light-graphic-quaternary);
-    --switch-disabled-border-color: var(--color-light-graphic-quaternary);
+    --switch-disabled-bg-color: var(--color-light-neutral-translucent-700);
 
-    /* inactive */
-    --switch-inactive-color: var(--color-light-border-underline);
+    /* disabled checked */
+    --switch-disabled-checked-bg-color: var(--color-light-neutral-translucent-200);
+
+    /* icon */
+    --switch-icon-color: var(--color-static-neutral-1500-inverted);
+    --switch-icon-disabled-checked-color: var(--color-light-neutral-translucent-500);
 }
 
 .component {
@@ -63,6 +69,10 @@
     border: 2px solid var(--switch-border-color);
     transition: background-color 0.2s ease, border-color 0.2s ease;
     box-sizing: border-box;
+
+    &:hover {
+        background-color: var(--switch-hover-bg-color);
+    }
 }
 
 .switch:before {
@@ -74,7 +84,7 @@
     width: 16px;
     height: 16px;
     border-radius: var(--border-radius-circle);
-    background-color: var(--color-static-graphic-light);
+    background-color: var(--switch-icon-color);
     box-sizing: border-box;
     transition: transform 0.2s ease;
 }
@@ -122,7 +132,10 @@
 
 .checked .switch {
     background-color: var(--switch-checked-bg-color);
-    border-color: var(--switch-checked-border-color);
+
+    &:hover {
+        background-color: var(--switch-checked-hover-bg-color);
+    }
 }
 
 .checked .switch:before {
@@ -138,7 +151,14 @@
 
 .disabled .switch {
     background-color: var(--switch-disabled-bg-color);
-    border-color: var(--switch-disabled-border-color);
+}
+
+.disabled.checked .switch {
+    background-color: var(--switch-disabled-checked-bg-color);
+
+    &:before {
+        background-color: var(--switch-icon-disabled-checked-color);
+    }
 }
 
 .disabled .label {
@@ -147,21 +167,6 @@
 
 .disabled .hint {
     color: var(--switch-disabled-color);
-}
-
-/* Inactive */
-
-.inactive {
-    cursor: var(--disabled-cursor);
-}
-
-.inactive .switch {
-    background-color: var(--switch-disabled-bg-color);
-    border-color: var(--switch-disabled-border-color);
-
-    &:before {
-        background-color: var(--switch-inactive-color);
-    }
 }
 
 /* Focused state */

@@ -10,6 +10,7 @@
 @import './radio-group/site.css';
 @import './checkbox/site.css';
 @import './radio/site.css';
+@import './switch/site.css';
 
 @define-mixin theme-site {
     @mixin button-site;
@@ -24,4 +25,5 @@
     @mixin radio-group-site;
     @mixin radio-site;
     @mixin checkbox-site;
+    @mixin switch-site;
 }
