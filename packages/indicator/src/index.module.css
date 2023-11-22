@@ -8,34 +8,34 @@
     box-sizing: content-box;
     flex-shrink: 0;
     border-radius: var(--border-radius-pill);
-    color: var(--color-static-text-primary-light);
-    background-color: var(--color-light-bg-accent);
+    color: var(--color-static-text-primary-inverted);
+    background-color: var(--color-light-accent-primary);
 }
 
 .red {
-    background-color: var(--color-light-bg-accent);
-    color: var(--color-static-text-primary-light);
+    background-color: var(--color-light-accent-primary);
+    color: var(--color-static-text-primary-inverted);
 
     &.border {
-        outline: 2px solid var(--color-light-border-key-inverted);
+        outline: 2px solid var(--color-light-neutral-1500-inverted);
     }
 }
 
 .white {
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-neutral-0);
     color: var(--color-light-text-primary);
 
     &.border {
-        outline: 2px solid var(--color-light-border-key-inverted);
+        outline: 2px solid var(--color-light-neutral-1500-inverted);
     }
 }
 
 .grey {
-    background-color: var(--color-light-specialbg-secondary-transparent);
+    background-color: var(--color-light-neutral-translucent-200);
     color: var(--color-light-text-primary);
 
     &.border {
-        outline: 2px solid var(--color-light-border-key-inverted);
+        outline: 2px solid var(--color-light-neutral-1500-inverted);
     }
 }
 

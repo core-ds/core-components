@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../vars/src/colors-decorative.css';
 
 .component {
     @mixin accent_secondary_small;
@@ -21,38 +22,38 @@
 
 .soft {
     &.green {
-        background: var(--color-static-status-green-alpha-10);
-        color: var(--color-static-status-green);
+        background: var(--color-light-decorative-muted-alt-green);
+        color: var(--color-light-decorative-text-green);
     }
 
     &.orange {
-        background: var(--color-static-status-orange-alpha-10);
-        color: var(--color-static-status-orange);
+        background: var(--color-light-decorative-muted-alt-orange);
+        color: var(--color-light-decorative-text-orange);
     }
 
     &.red {
-        background: var(--color-static-status-red-alpha-10);
-        color: var(--color-static-status-red);
+        background: var(--color-light-decorative-muted-alt-red);
+        color: var(--color-light-decorative-text-red);
     }
 
     &.blue {
-        background: var(--color-static-status-blue-alpha-10);
-        color: var(--color-static-status-blue);
+        background: var(--color-light-decorative-muted-alt-blue);
+        color: var(--color-light-decorative-text-blue);
     }
 
     &.grey {
-        background: var(--color-static-status-grey-alpha-10);
-        color: var(--color-static-status-grey);
+        background: var(--color-light-neutral-translucent-300);
+        color: var(--color-light-text-secondary);
     }
 
     &.teal {
-        background: var(--color-static-status-teal-alpha-10);
-        color: var(--color-static-status-teal);
+        background: var(--color-light-decorative-muted-alt-teal);
+        color: var(--color-light-decorative-text-teal);
     }
 
     &.purple {
-        background: var(--color-static-status-purple-alpha-10);
-        color: var(--color-static-status-purple);
+        background: var(--color-light-decorative-muted-alt-indigo);
+        color: var(--color-light-decorative-text-indigo);
     }
 }
 
@@ -60,30 +61,30 @@
     color: var(--color-light-text-primary-inverted);
 
     &.green {
-        background: var(--color-static-status-green);
+        background: var(--color-light-decorative-green);
     }
 
     &.orange {
-        background: var(--color-static-status-orange);
+        background: var(--color-light-decorative-orange);
     }
 
     &.red {
-        background: var(--color-static-status-red);
+        background: var(--color-light-decorative-red);
     }
 
     &.blue {
-        background: var(--color-static-status-blue);
+        background: var(--color-light-decorative-blue);
     }
 
     &.grey {
-        background: var(--color-static-status-grey);
+        background: var(--color-light-neutral-700);
     }
 
     &.teal {
-        background: var(--color-static-status-teal);
+        background: var(--color-light-decorative-teal);
     }
 
     &.purple {
-        background: var(--color-static-status-purple);
+        background: var(--color-light-decorative-indigo);
     }
 }
