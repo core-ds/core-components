@@ -151,6 +151,7 @@ export const BaseSelect = forwardRef(
         const searchRef = useRef<HTMLInputElement>(null);
         const alreadyClickedRef = useRef<boolean>(false);
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
+        const onOpenRef = useRef(onOpen);
 
         const [searchState, setSearchState] = React.useState('');
 
@@ -219,6 +220,8 @@ export const BaseSelect = forwardRef(
             useMultipleSelectionProps.selectedItems = selectedOptions;
         }
 
+        onOpenRef.current = onOpen;
+
         const {
             selectedItems,
             addSelectedItem,
@@ -247,7 +250,7 @@ export const BaseSelect = forwardRef(
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
             scrollIntoView,
             onIsOpenChange: (changes) => {
-                if (onOpen) {
+                if (onOpenRef.current) {
                     /**
                      *  Вызываем обработчик асинхронно.
                      *
@@ -255,7 +258,7 @@ export const BaseSelect = forwardRef(
                      * А затем сработает onClick кнопки открытия\закрытия с open=false и в итоге селект откроется снова.
                      */
                     setTimeout(() => {
-                        onOpen({
+                        onOpenRef.current?.({
                             open: changes.isOpen,
                             name,
                         });

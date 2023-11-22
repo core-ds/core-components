@@ -5,6 +5,7 @@ import {
     FormControlMobile,
     FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
+import { ClearButton } from '@alfalab/core-components-input/shared';
 import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
@@ -42,6 +43,13 @@ export const AutocompleteMobileField = ({
     setSelectedItems,
     selectedMultiple,
     FormControlComponent,
+    rightAddons,
+    error,
+    readOnly,
+    clear,
+    onClear,
+    onInput,
+    colors = 'default',
     ...restProps
 }: AutocompleteMobileFieldProps & FieldProps) => {
     const [focused, setFocused] = useState(false);
@@ -52,6 +60,7 @@ export const AutocompleteMobileField = ({
 
     const filled = Boolean(value);
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
+    const clearButtonVisible = clear && filled && !disabled && !readOnly;
 
     const { tabIndex, ...restInnerProps } = innerProps;
 
@@ -73,12 +82,29 @@ export const AutocompleteMobileField = ({
                 disabled={disabled}
                 filled={filled}
                 labelView={labelView}
-                rightAddons={Arrow}
                 dataTestId={getDataTestId(dataTestId, 'form-control')}
                 // downshift устанавливает фокус на таргет поле после выбора опции, не даем ему это сделать пока открыт список, иначе поле поиска будет терять фокус
                 tabIndex={open ? undefined : tabIndex}
                 {...restProps}
                 {...restInnerProps}
+                readOnly={readOnly}
+                colors={colors}
+                error={error}
+                rightAddons={
+                    (Arrow || rightAddons || clearButtonVisible) && (
+                        <React.Fragment>
+                            {clearButtonVisible && (
+                                <ClearButton
+                                    onClick={onClear}
+                                    disabled={disabled}
+                                    colors={colors}
+                                />
+                            )}
+                            {rightAddons}
+                            {Arrow}
+                        </React.Fragment>
+                    )
+                }
             >
                 <div className={styles.contentWrapper}>
                     {showPlaceholder && <span className={styles.placeholder}>{placeholder}</span>}
