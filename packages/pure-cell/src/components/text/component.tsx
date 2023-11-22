@@ -22,7 +22,7 @@ type Props = {
     /**
      * Размер текста
      */
-    view: 'primary-large' | 'primary-medium' | 'primary-small' | 'component';
+    view?: 'primary-large' | 'primary-medium' | 'primary-small' | 'component' | 'component-primary';
 
     /**
      * Толщина title
@@ -54,7 +54,7 @@ export const Text: React.FC<Props> = ({
     children,
     value,
     rowLimit,
-    view = 'component',
+    view = 'component-primary',
     titleWeight,
     titleColor,
     valueColor,

@@ -98,7 +98,9 @@ render(() => {
                 optionsListProps={{
                     emptyPlaceholder: (
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <Typography.Text view='component'>Ничего не нашлось</Typography.Text>
+                            <Typography.Text view='component-primary'>
+                                Ничего не нашлось
+                            </Typography.Text>
                         </div>
                     ),
                 }}
@@ -190,7 +192,7 @@ render(() => {
     const CardOption = (props) => (
         <BaseOption {...props}>
             <div style={{ padding: 'var(--gap-s)' }}>
-                <Typography.Text view='component'>{props.option.content}</Typography.Text>
+                <Typography.Text view='component-primary'>{props.option.content}</Typography.Text>
                 <Gap size='2xs' />
                 <Typography.Text view='primary-small' color='secondary'>
                     {props.option.key}
