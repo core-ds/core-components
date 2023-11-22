@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { InputDesktop as Input } from './desktop';
@@ -310,6 +310,25 @@ describe('Input', () => {
             );
 
             expect(queryByLabelText(label)).not.toBeInTheDocument();
+        });
+
+        it('should show clear button if value updated via ref', async () => {
+            const dataTestId = 'test-id';
+            const newValue = '12346';
+            const label = 'Очистить';
+            const { getByTestId, queryByLabelText } = render(
+                <Input clear dataTestId={dataTestId} />,
+            );
+
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            expect(queryByLabelText(label)).not.toBeInTheDocument();
+
+            act(() => {
+                input.value = newValue;
+            });
+
+            expect(queryByLabelText(label)).toBeInTheDocument();
         });
     });
 

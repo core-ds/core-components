@@ -8,7 +8,6 @@ import React, {
     MouseEvent,
     ReactNode,
     RefAttributes,
-    useCallback,
     useRef,
     useState,
 } from 'react';
@@ -261,6 +260,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         const readOnly = readOnlyProp || disableUserInput;
 
         const inputRef = useRef<HTMLInputElement>(null);
+        const prevInputRef = useRef<HTMLInputElement | null>(null);
 
         const [focusVisible] = useFocus(inputRef, 'keyboard');
 
@@ -274,72 +274,84 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         const clearButtonVisible = clear && filled && !disabled && !readOnly;
         const hasInnerLabel = label && labelView === 'inner';
 
-        const handleInputFocus = useCallback(
-            (event: React.FocusEvent<HTMLInputElement>) => {
-                if (!readOnly) {
-                    setFocused(true);
+        const updateInnerState = (val = '') => {
+            if (inputRef.current) inputRef.current.value = val;
+            setStateValue(val);
+        };
+
+        const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+            if (!readOnly) {
+                setFocused(true);
+            }
+
+            if (onFocus) {
+                onFocus(event);
+            }
+        };
+
+        const handleInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+            setFocused(false);
+
+            if (onBlur) {
+                onBlur(event);
+            }
+        };
+
+        const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            if (onChange) {
+                onChange(event, { value: event.target.value });
+            }
+
+            if (uncontrolled) {
+                updateInnerState(event.target.value);
+            }
+        };
+
+        const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
+            if (!clearButtonVisible) return;
+
+            if (uncontrolled) {
+                updateInnerState('');
+            }
+
+            if (onClear) {
+                onClear(event);
+            }
+
+            if (inputRef.current && !focused) {
+                inputRef.current.focus();
+            }
+        };
+
+        const handleAnimationStart = (event: AnimationEvent<HTMLInputElement>) => {
+            if (onAnimationStart) {
+                onAnimationStart(event);
+            }
+
+            setAutofilled(event.animationName.includes('start'));
+        };
+
+        function descriptorUpdate() {
+            if (inputRef.current && !inputRef.current.isSameNode(prevInputRef.current)) {
+                prevInputRef.current = inputRef.current;
+                const descriptor = Object.getOwnPropertyDescriptor(inputRef.current, 'value');
+
+                if (descriptor) {
+                    Object.defineProperty(inputRef.current, 'value', {
+                        get() {
+                            return descriptor.get?.call(this);
+                        },
+                        set(val: string) {
+                            descriptor.set?.call(this, val);
+
+                            if (uncontrolled) {
+                                setStateValue(val);
+                            }
+                        },
+                    });
                 }
-
-                if (onFocus) {
-                    onFocus(event);
-                }
-            },
-            [onFocus, readOnly],
-        );
-
-        const handleInputBlur = useCallback(
-            (event: React.FocusEvent<HTMLInputElement>) => {
-                setFocused(false);
-
-                if (onBlur) {
-                    onBlur(event);
-                }
-            },
-            [onBlur],
-        );
-
-        const handleInputChange = useCallback(
-            (event: React.ChangeEvent<HTMLInputElement>) => {
-                if (onChange) {
-                    onChange(event, { value: event.target.value });
-                }
-
-                if (uncontrolled) {
-                    setStateValue(event.target.value);
-                }
-            },
-            [onChange, uncontrolled],
-        );
-
-        const handleClear = useCallback(
-            (event: MouseEvent<HTMLButtonElement>) => {
-                if (!clearButtonVisible) return;
-
-                if (uncontrolled) {
-                    setStateValue('');
-                }
-
-                if (onClear) {
-                    onClear(event);
-                }
-
-                if (inputRef.current && !focused) {
-                    inputRef.current.focus();
-                }
-            },
-            [clearButtonVisible, focused, onClear, uncontrolled],
-        );
-
-        const handleAnimationStart = useCallback(
-            (event: AnimationEvent<HTMLInputElement>) => {
-                if (onAnimationStart) {
-                    onAnimationStart(event);
-                }
-
-                setAutofilled(event.animationName.includes('start'));
-            },
-            [onAnimationStart],
-        );
+            }
+        }
 
         const renderRightAddons = () => {
             const addonsVisible = clearButtonVisible || rightAddons || error || success;
@@ -440,14 +452,15 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                         },
                         inputClassName,
                     )}
+                    defaultValue={defaultValue}
                     disabled={disabled}
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
                     onChange={handleInputChange}
                     onAnimationStart={handleAnimationStart}
-                    ref={mergeRefs([ref, inputRef])}
+                    ref={mergeRefs([inputRef, descriptorUpdate, ref])} // Порядок важен.
                     type={type}
-                    value={uncontrolled ? stateValue : value}
+                    value={value}
                     readOnly={readOnly}
                     data-test-id={dataTestId}
                     aria-label={typeof label === 'string' ? label : undefined}
