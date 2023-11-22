@@ -40,7 +40,7 @@ export const MonthsTable: FC<MonthsTableProps> = ({
     const view = useCallback(
         (month: Month): SelectButtonProps['view'] => {
             if (selectedMonth && isSameMonth(selectedMonth, month.date)) return 'selected';
-            if (isThisMonth(month.date)) return 'outlined';
+            if (isThisMonth(month.date)) return 'current';
 
             return 'default';
         },

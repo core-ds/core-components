@@ -2,6 +2,6 @@
 
 .circle {
     fill: transparent;
-    stroke: var(--color-light-graphic-tertiary);
+    stroke: var(--color-light-neutral-500);
     stroke-width: 2px;
 }
