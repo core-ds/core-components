@@ -574,6 +574,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     appear={true}
                                     timeout={200}
                                     classNames={styles}
+                                    nodeRef={componentNodeRef}
                                     {...transitionProps}
                                     in={open}
                                     onEntered={handleEntered}
