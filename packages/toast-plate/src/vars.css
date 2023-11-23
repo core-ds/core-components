@@ -2,7 +2,7 @@
 
 :root {
     /* default */
-    --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
+    --toast-plate-bg-color: var(--color-light-modal-bg-primary-inverted);
     --toast-plate-color: var(--color-light-text-primary-inverted);
     --toast-plate-border-radius: var(--border-radius-l);
     --toast-plate-title-font-weight: 700;
@@ -16,5 +16,5 @@
 
     /* inverted */
     --toast-plate-inverted-color: var(--color-light-text-primary);
-    --toast-plate-inverted-bg-color: var(--color-light-bg-primary);
+    --toast-plate-inverted-bg-color: var(--color-light-modal-bg-primary);
 }
