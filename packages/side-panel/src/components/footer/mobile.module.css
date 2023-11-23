@@ -7,19 +7,3 @@
 .sticky {
     bottom: 0;
 }
-
-.column {
-    flex-direction: column-reverse;
-
-    & > * {
-        margin-bottom: 0;
-    }
-
-    & > *:last-child {
-        margin-bottom: var(--side-panel-footer-default-gap);
-    }
-
-    & > *:only-child {
-        margin-bottom: 0;
-    }
-}

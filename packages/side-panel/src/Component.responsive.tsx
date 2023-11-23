@@ -5,6 +5,7 @@ import { DrawerProps } from '@alfalab/core-components-drawer';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 import { isClient } from '@alfalab/core-components-shared';
 
+import { Controls } from './components/controls';
 import { Header } from './components/header/Component';
 import { SidePanelDesktop } from './desktop';
 import { SidePanelMobile } from './mobile';
@@ -78,6 +79,7 @@ const SidePanelResponsiveComponent = forwardRef<HTMLDivElement, SidePanelRespons
 
 export const SidePanelResponsive = Object.assign(SidePanelResponsiveComponent, {
     Header,
+    Controls,
     Content: createResponsive(SidePanelDesktop.Content, SidePanelMobile.Content),
     Footer: createResponsive(SidePanelDesktop.Footer, SidePanelMobile.Footer),
 });

@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content/Component.mobile';
+import { Controls, ControlsProps } from '../components/controls';
 import { FooterMobile } from '../components/footer/Component.mobile';
 import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
@@ -54,4 +55,5 @@ export const SidePanelMobile = Object.assign(SidePanelMobileComponent, {
     Content: ContentMobile,
     Header,
     Footer: FooterMobile,
+    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });

@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { Content } from './components/content/Component';
+import { Controls } from './components/controls';
 import { Footer } from './components/footer/Component';
 import { Header } from './components/header/Component';
 import { Modal } from './Component';
@@ -24,4 +25,5 @@ export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
     Header,
     Content,
     Footer,
+    Controls,
 });

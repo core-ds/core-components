@@ -59,7 +59,6 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky, layout = 
                     [desktopStyles[size]]: view === 'desktop',
                     [mobileStyles.footer]: view === 'mobile',
                     [mobileStyles.sticky]: view === 'mobile' && sticky,
-                    [layoutStyles[`${layout}-mobile`]]: view === 'mobile',
                 },
             )}
         >

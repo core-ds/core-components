@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { Modal } from '../Component';
 import { Content } from '../components/content/Component';
+import { Controls, ControlsProps } from '../components/controls';
 import { Footer } from '../components/footer/Component';
 import { Header } from '../components/header/Component';
 import type { ModalMobileProps } from '../typings';
@@ -14,4 +15,5 @@ export const ModalMobile = Object.assign(ModalMobileComponent, {
     Content,
     Header,
     Footer,
+    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });

@@ -356,16 +356,22 @@ render(() => {
                 </SidePanelDesktop.Content>
                 {showFooter && (
                     <SidePanelDesktop.Footer sticky={footerSettings.sticky}>
-                        {footerSettings.hasPrimaryButton && (
-                            <Button view='primary' size='s' onClick={handleClose}>
-                                Primary
-                            </Button>
-                        )}
-                        {footerSettings.hasSecondaryButton && (
-                            <Button view='secondary' size='s' onClick={handleClose}>
-                                Secondary
-                            </Button>
-                        )}
+                        <SidePanelDesktop.Controls
+                            primary={
+                                footerSettings.hasPrimaryButton ? (
+                                    <Button view='primary' size='s' onClick={handleClose}>
+                                        Primary
+                                    </Button>
+                                ) : null
+                            }
+                            secondary={
+                                footerSettings.hasSecondaryButton ? (
+                                    <Button view='secondary' size='s' onClick={handleClose}>
+                                        Secondary
+                                    </Button>
+                                ) : null
+                            }
+                        />
                     </SidePanelDesktop.Footer>
                 )}
             </SidePanelDesktop>
@@ -699,20 +705,34 @@ render(() => {
                     <Text onClose={handleClose} />
                 </SidePanelMobile.Content>
                 {showFooter && (
-                    <SidePanelMobile.Footer
-                        sticky={footerSettings.sticky}
-                        layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
-                    >
-                        {footerSettings.hasSecondaryButton && (
-                            <ButtonMobile view='secondary' size='m' onClick={handleClose} block={true}>
-                                Secondary
-                            </ButtonMobile>
-                        )}
-                        {footerSettings.hasPrimaryButton && (
-                            <ButtonMobile view='primary' size='m' onClick={handleClose} block={true}>
-                                Primary
-                            </ButtonMobile>
-                        )}
+                    <SidePanelMobile.Footer sticky={footerSettings.sticky}>
+                        <SidePanelMobile.Controls
+                            layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
+                            primary={
+                                footerSettings.hasPrimaryButton ? (
+                                    <ButtonMobile
+                                        view='primary'
+                                        size='m'
+                                        onClick={handleClose}
+                                        block={true}
+                                    >
+                                        Primary
+                                    </ButtonMobile>
+                                ) : null
+                            }
+                            secondary={
+                                footerSettings.hasSecondaryButton ? (
+                                    <ButtonMobile
+                                        view='secondary'
+                                        size='m'
+                                        onClick={handleClose}
+                                        block={true}
+                                    >
+                                        Secondary
+                                    </ButtonMobile>
+                                ) : null
+                            }
+                        />
                     </SidePanelMobile.Footer>
                 )}
             </SidePanelMobile>
