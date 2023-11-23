@@ -278,13 +278,3 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-/* IE min-height fix */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .component:after {
-        min-height: inherit;
-        font-size: 0;
-        content: '';
-    }
-}

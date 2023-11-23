@@ -45,9 +45,9 @@
     "browserslist": {
         "production": [
             "last 2 versions",
-            "ie >= 11",
-            "Android >= 5",
-            "iOS >= 9"
+            "not dead",
+            "Android >= 6",
+            "iOS >= 14"
         ],
         "development": [
             "last 1 chrome version",

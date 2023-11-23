@@ -14,10 +14,6 @@
     }
 }
 
-.input::-ms-reveal {
-    display: none;
-}
-
 .addons {
     padding-right: 0;
 }

@@ -1,4 +1,4 @@
-import { Answer, Question } from './types';
+import { Question } from './types';
 
 export const config: Question[] = [
     {
@@ -42,20 +42,6 @@ export const config: Question[] = [
         ],
     },
     {
-        name: 'ie',
-        title: 'IE11',
-        variants: [
-            {
-                label: 'Поддерживаем',
-                value: 'yes',
-            },
-            {
-                label: 'Можем дропнуть',
-                value: 'no',
-            },
-        ],
-    },
-    {
         name: 'darkMode',
         title: 'Темный режим',
         variants: [
@@ -93,34 +79,29 @@ export const defaultByProduct: {
         keepCssVars: 'yes',
         darkMode: 'no',
         aruiScripts: 'yes',
-        ie: 'no',
     },
     click: {
         product: 'click',
         keepCssVars: 'yes',
         darkMode: 'no',
         aruiScripts: 'yes',
-        ie: 'no',
     },
     mobile: {
         product: 'mobile',
         keepCssVars: 'yes',
         darkMode: 'yes',
         aruiScripts: 'yes',
-        ie: 'no',
     },
     site: {
         product: 'site',
         keepCssVars: 'no',
         darkMode: 'no',
         aruiScripts: 'yes',
-        ie: 'yes',
     },
     corp: {
         product: 'corp',
         keepCssVars: 'no',
         darkMode: 'no',
         aruiScripts: 'yes',
-        ie: 'yes',
     },
 };

@@ -57,7 +57,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
     children?: React.ReactNode;
 
     /**
-     * Количество строк (не поддерживает IE)
+     * Количество строк
      */
     rowLimit?: 1 | 2 | 3;
 
