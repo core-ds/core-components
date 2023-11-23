@@ -222,8 +222,8 @@
     },
     "input": {
         "desktop.js": 17.28,
-        "mobile.js": 17.27,
         "shared.js": 10.45,
+        "mobile.js": 17.27,
         "index.js": 17.84
     },
     "input-autocomplete": {

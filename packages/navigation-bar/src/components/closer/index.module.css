@@ -14,10 +14,10 @@
 .button {
     background: var(--color-light-bg-primary-alpha-40);
     backdrop-filter: blur(10px);
-    color: var(--color-light-graphic-primary);
+    color: var(--color-light-neutral-1500);
 
     &.mobile {
-        background: var(--color-light-specialbg-secondary-transparent);
+        background: var(--color-light-neutral-translucent-100);
         color: var(--navigation-bar-closer-mobile-color);
     }
 }

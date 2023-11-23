@@ -6,7 +6,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: var(--gap-m) var(--gap-m);
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-modal-bg-primary);
 
     & .button:first-of-type {
         margin-right: var(--gap-m);
@@ -18,6 +18,6 @@
 }
 
 .highlighted {
-    border-top: 1px solid var(--color-light-border-primary);
-    background-color: var(--color-light-bg-primary);
+    border-top: 1px solid var(--color-light-neutral-300);
+    background-color: var(--color-light-modal-bg-primary);
 }

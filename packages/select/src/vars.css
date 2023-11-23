@@ -20,11 +20,11 @@
     --select-option-right-padding: var(--gap-s);
     --select-option-l-left-padding: var(--gap-m);
     --select-option-l-right-padding: var(--gap-m);
-    --select-option-background: var(--color-light-bg-primary);
-    --select-option-selected-background: var(--color-light-bg-primary);
-    --select-option-hover-background: var(--color-light-bg-secondary);
-    --select-option-active-background: var(--color-light-bg-tertiary);
-    --select-option-disabled-background: var(--color-light-bg-primary);
+    --select-option-background: var(--color-light-modal-bg-primary);
+    --select-option-selected-background: var(--color-light-modal-bg-primary);
+    --select-option-hover-background: var(--color-light-transparent-default-hover);
+    --select-option-active-background: var(--color-light-transparent-default-press);
+    --select-option-disabled-background: var(--color-light-modal-bg-primary);
     --select-option-color: var(--color-light-text-primary);
     --select-option-selected-color: var(--color-light-text-primary);
     --select-option-hover-color: var(--color-light-text-primary);
@@ -41,7 +41,7 @@
     --select-checkmark-before-display-multiple: block;
     --select-checkmark-after-display-single: none;
     --select-checkmark-unselected-opacity: 0;
-    --select-checkmark-background: var(--color-light-graphic-primary);
+    --select-checkmark-background: var(--color-light-neutral-1500);
     --select-checkmark-border-radius: var(--border-radius-circle);
     --select-mobile-checkmark-display-icon: block;
     --select-mobile-checkmark-display-badge: none;
@@ -49,7 +49,7 @@
     /* optgroup */
 
     --select-optgroup-color: var(--color-light-text-secondary);
-    --select-optgroup-background: var(--color-light-bg-primary);
+    --select-optgroup-background: var(--color-light-modal-bg-primary);
     --select-optgroup-left-padding: var(--gap-s);
     --select-optgroup-right-padding: var(--gap-s);
     --select-optgroup-l-left-padding: var(--gap-m);

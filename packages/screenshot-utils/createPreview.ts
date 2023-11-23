@@ -22,7 +22,7 @@ function runTest(
         const pageUrl = createStorybookUrl({
             darkMode,
             wrapperStyles:
-                `boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: ${viewport.width}px; height: ${viewport.height}px; backgroundColor: var(--color-light-bg-secondary)`.concat(
+                `boxSizing:border-box; display: flex; alignItems: center; justifyContent: center; width: ${viewport.width}px; height: ${viewport.height}px; backgroundColor: var(--color-light-base-bg-alt-primary)`.concat(
                     wrapperStyles ? `;${wrapperStyles}` : '',
                 ),
             ...restUrlParams,

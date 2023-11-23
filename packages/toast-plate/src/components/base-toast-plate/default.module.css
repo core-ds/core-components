@@ -8,6 +8,6 @@
 
 .closeButtonWrapper {
     &:before {
-        background-color: var(--color-light-border-secondary-inverted);
+        background-color: var(--color-light-neutral-300-inverted);
     }
 }

@@ -10,7 +10,7 @@ import {
 
 const WRAPPER_STYLES = {
     display: 'inline-block',
-    background: 'var(--color-light-bg-primary)',
+    background: 'var(--color-light-modal-bg-primary)',
 };
 
 const meta: Meta<typeof Dropzone> = {

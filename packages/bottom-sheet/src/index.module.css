@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     border-radius: inherit;
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-modal-bg-primary);
     pointer-events: all;
     box-shadow: var(--bottom-sheet-shadow);
 }
@@ -65,7 +65,7 @@
 .defaultMarker {
     height: 4px;
     border-radius: var(--border-radius-xxl);
-    background-color: var(--color-light-graphic-quaternary);
+    background-color: var(--color-light-neutral-translucent-300);
 }
 
 .content {

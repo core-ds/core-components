@@ -8,18 +8,18 @@
 
     & svg > path {
         transition: fill 0.2s ease;
-        fill: var(--color-light-graphic-primary);
+        fill: var(--color-light-neutral-1500);
     }
 
     &:hover {
         & svg > path {
-            fill: var(--color-light-graphic-primary-tint-20);
+            fill: var(--color-light-neutral-1500-hover);
         }
     }
 
     &:active {
         & svg > path {
-            fill: var(--color-light-graphic-primary-tint-30);
+            fill: var(--color-light-neutral-1500-press);
         }
     }
 }
@@ -52,7 +52,7 @@
 .mobileWrapper {
     width: 32px;
     height: 32px;
-    background: var(--color-light-specialbg-secondary-transparent);
+    background: var(--color-light-neutral-translucent-100);
     backdrop-filter: blur(10px);
     margin: 0;
 
@@ -61,6 +61,6 @@
     }
 
     & svg > path {
-        fill: var(--color-light-graphic-secondary);
+        fill: var(--color-light-neutral-translucent-700);
     }
 }

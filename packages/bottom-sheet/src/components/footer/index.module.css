@@ -3,7 +3,7 @@
 
 .footer {
     padding: var(--gap-m) var(--gap-m);
-    background-color: var(--color-light-bg-primary);
+    background-color: var(--color-light-modal-bg-primary);
 }
 
 .sticky {
