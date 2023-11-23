@@ -7,7 +7,7 @@ import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
 import { FooterDesktop } from '../components/footer/Component.desktop';
-import { Header } from '../components/header/Component';
+import { Header, HeaderProps } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
 import { TResponsiveModalContext } from '../typings';
 
@@ -100,6 +100,6 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
 
 export const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {
     Content: ContentDesktop,
-    Header,
+    Header: Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>,
     Footer: FooterDesktop,
 });

@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { Modal } from '../Component';
 import { Content } from '../components/content/Component';
 import { Footer } from '../components/footer/Component';
-import { Header } from '../components/header/Component';
+import { Header, HeaderProps } from '../components/header/Component';
 import type { ModalDesktopProps } from '../typings';
 
 const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>((props, ref) => (
@@ -12,6 +12,6 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>((pro
 
 export const ModalDesktop = Object.assign(ModalDesktopComponent, {
     Content,
-    Header,
+    Header: Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>,
     Footer,
 });

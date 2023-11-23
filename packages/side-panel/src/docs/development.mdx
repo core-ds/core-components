@@ -2,9 +2,6 @@ import { ArgsTabs, CssVars } from 'storybook/blocks';
 import { SidePanelMobile } from '../mobile';
 import { SidePanelDesktop } from '../desktop';
 import { SidePanel } from '..';
-import { Header } from '../components/header/Component';
-import { ContentDesktop } from '../components/content/Component.desktop';
-import { FooterDesktop } from '../components/footer/Component.desktop';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
@@ -25,8 +22,9 @@ import { SidePanelMobile } from '@alfalab/core-components/side-panel/mobile';
         SidePanelMobile,
         SidePanelResponsive: SidePanel,
         'SidePanel.Header': Header,
-        'SidePanel.Content': ContentDesktop,
-        'SidePanel.Footer': FooterDesktop,
+        'SidePanel.Content': SidePanel.Content,
+        'SidePanel.Footer': SidePanel.Footer,
+        'SidePanel.Controls': SidePanel.Controls,
     }}
 />
 
