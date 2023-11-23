@@ -96,13 +96,3 @@
     padding-top: var(--gap-s);
     padding-bottom: var(--gap-s);
 }
-
-/* IE min-height fix */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .option:after {
-        min-height: inherit;
-        font-size: 0;
-        content: '';
-    }
-}

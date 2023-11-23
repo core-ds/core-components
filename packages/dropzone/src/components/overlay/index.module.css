@@ -13,7 +13,7 @@
     justify-content: center;
 
     border-radius: var(--border-radius-l);
-    background: var(--color-light-bg-secondary);
+    background: var(--color-light-neutral-translucent-100);
 
     opacity: 0;
     transition: opacity 0.2s ease;

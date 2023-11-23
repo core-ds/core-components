@@ -1,0 +1,105 @@
+@import '../../../themes/src/default.css';
+@import '../../../tag/src/vars.css';
+
+.component {
+    &.rectangular {
+        &.xxs {
+            border-radius: var(--tag-rectangular-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rectangular-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rectangular-s-border-radius);
+        }
+    }
+}
+
+.valueButton {
+    &.rectangular {
+        &.xxs {
+            border-radius: var(--tag-rectangular-xxs-border-radius);
+        }
+
+        &.xs {
+            border-radius: var(--tag-rectangular-xs-border-radius);
+        }
+
+        &.s {
+            border-radius: var(--tag-rectangular-s-border-radius);
+        }
+    }
+
+    &.filled {
+        background-color: var(--tag-filled-background-color);
+
+        &:disabled {
+            background-color: var(--tag-filled-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                background-color: var(--tag-filled-background-color-hover);
+            }
+        }
+
+        &:not(:disabled):active {
+            background-color: var(--tag-filled-background-color-active);
+        }
+    }
+
+    &.checked {
+        &.rectangular {
+            &.xxs {
+                border-radius: var(--tag-rectangular-xxs-border-radius) 0 0
+                    var(--tag-rectangular-xxs-border-radius);
+            }
+
+            &.xs {
+                border-radius: var(--tag-rectangular-xs-border-radius) 0 0
+                    var(--tag-rectangular-xs-border-radius);
+            }
+
+            &.s {
+                border-radius: var(--tag-rectangular-s-border-radius) 0 0
+                    var(--tag-rectangular-s-border-radius);
+            }
+
+            &:disabled,
+            &.close {
+                &.xxs {
+                    border-radius: var(--tag-rectangular-xxs-border-radius);
+                }
+
+                &.xs {
+                    border-radius: var(--tag-rectangular-xs-border-radius);
+                }
+
+                &.s {
+                    border-radius: var(--tag-rectangular-s-border-radius);
+                }
+            }
+        }
+    }
+}
+
+.clear {
+    &.rectangular {
+        &.xxs {
+            border-radius: 0 var(--tag-rectangular-xxs-border-radius)
+                var(--tag-rectangular-xxs-border-radius) 0;
+        }
+
+        &.xs {
+            border-radius: 0 var(--tag-rectangular-xs-border-radius)
+                var(--tag-rectangular-xs-border-radius) 0;
+        }
+
+        &.s {
+            border-radius: 0 var(--tag-rectangular-s-border-radius)
+                var(--tag-rectangular-s-border-radius) 0;
+        }
+    }
+}

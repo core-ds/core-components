@@ -1,5 +1,22 @@
 # Change Log
 
+## 6.12.0
+
+### Minor Changes
+
+### [#981](https://github.com/core-ds/core-components/pull/981)
+
+-   Добавлен новый проп backButtonProps
+
+### Patch Changes
+
+### [#988](https://github.com/core-ds/core-components/pull/988)
+
+-   Повышена специфичность стилей, конфликтующих с base-modal
+
+-   Обновлены зависимости
+    -   navigation-bar@0.6.0
+
 ## 6.11.5
 
 ### Patch Changes

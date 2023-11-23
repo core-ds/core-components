@@ -14,7 +14,7 @@ export type SelectButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * Вид кнопки
      */
-    view?: 'default' | 'filled' | 'outlined' | 'selected';
+    view?: 'default' | 'filled' | 'current' | 'selected';
 };
 
 export const SelectButton = forwardRef<HTMLButtonElement, SelectButtonProps>(

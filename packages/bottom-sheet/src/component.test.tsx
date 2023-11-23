@@ -216,6 +216,24 @@ describe('Bottom sheet', () => {
 
             expect(container).toHaveClass('hiddenScrollbar');
         });
+
+        it('should set back button props', () => {
+            const backButtonProps = {
+                className: 'back-button',
+                'data-test-id': 'back-button-id',
+                text: 'Back',
+            };
+
+            const { getByTestId, getByText } = render(
+                <BottomSheetWrapper backButtonProps={backButtonProps} hasBacker={true} />,
+            );
+
+            expect(getByTestId(backButtonProps['data-test-id'])).toBeInTheDocument();
+            expect(getByText(backButtonProps.text)).toBeInTheDocument();
+            expect(getByTestId(backButtonProps['data-test-id'])).toHaveClass(
+                backButtonProps.className,
+            );
+        });
     });
 
     describe('Interactions tests', () => {

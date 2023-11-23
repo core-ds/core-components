@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { BaseRadioGroupProps } from './components/base-radio-group';
-import { RadioGroupDesktop } from './Component.desktop';
-import { RadioGroupMobile } from './Component.mobile';
+import { RadioGroupDesktop } from './desktop';
+import { RadioGroupMobile } from './mobile';
 
 export type RadioGroupProps = Omit<BaseRadioGroupProps, 'styles'> & {
     /**

@@ -591,6 +591,7 @@
     --color-light-graphic-tertiary-inverted-tint-20: var(
         --color-dark-graphic-tertiary-inverted-shade-20
     );
+    --color-light-neutral-700-alpha-15: var(--color-dark-neutral-700-alpha-15);
     --color-light-specialbg-component-shade-7: var(--color-dark-specialbg-component-tint-7);
     --color-light-specialbg-component-shade-10: var(--color-dark-specialbg-component-tint-10);
     --color-light-specialbg-component-shade-15: var(--color-dark-specialbg-component-tint-15);
@@ -632,6 +633,7 @@
     --color-light-specialbg-tertiary-transparent-inverted-tint-20: var(
         --color-dark-specialbg-tertiary-transparent-inverted-shade-20
     );
+    --color-light-status-info-alpha-15: var(--color-dark-status-info-alpha-15);
     --color-light-text-link-tint-30: var(--color-dark-text-link-shade-30);
     --color-light-text-link-tint-50: var(--color-dark-text-link-shade-50);
     --color-light-text-link-shade-20: var(--color-dark-text-link-tint-20);

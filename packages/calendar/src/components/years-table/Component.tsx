@@ -37,7 +37,7 @@ export const YearsTable: FC<YearsTableProps> = ({
 }) => {
     const view = (year: Date): SelectButtonProps['view'] => {
         if (selectedYear && isSameYear(selectedYear, year)) return 'selected';
-        if (isThisYear(year)) return 'outlined';
+        if (isThisYear(year)) return 'current';
 
         return 'default';
     };

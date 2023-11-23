@@ -1,0 +1,83 @@
+@import '../../../themes/src/default.css';
+@import '../vars.css';
+
+.component {
+    width: var(--calendar-width);
+    height: var(--calendar-height);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    outline: none;
+
+    @media (max-width: 374px) {
+        align-items: center;
+        width: 100%;
+    }
+
+    &.responsive {
+        width: 100%;
+
+        & .period {
+            width: 100%;
+        }
+
+        & .monthYear {
+            width: 100%;
+        }
+
+        & .container {
+            width: 100%;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--gap-m) var(--gap-m);
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow: hidden;
+
+    &.customScrollbar {
+        @mixin custom-scrollbar;
+
+        display: block;
+        padding-right: var(--gap-2xs);
+        overflow: hidden auto;
+        scrollbar-gutter: stable;
+    }
+
+    &.nativeScrollbar {
+        overflow: hidden auto;
+    }
+
+    @media (max-width: 374px) {
+        width: 288px;
+    }
+}
+
+.sixWeeks {
+    height: 388px;
+}
+
+.period {
+    width: var(--calendar-inner-width);
+
+    @media (max-width: 374px) {
+        justify-content: space-between;
+        width: var(--calendar-mobile-inner-width);
+        margin: 0 auto;
+    }
+}
+
+.monthYear {
+    width: var(--calendar-inner-width);
+
+    @media (max-width: 374px) {
+        justify-content: space-between;
+        width: var(--calendar-mobile-inner-width);
+        margin: 0 auto;
+    }
+}

@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { SelectDesktop } from './Component.desktop';
-import { SelectMobile } from './Component.mobile';
+import { SelectDesktop } from './desktop';
+import { SelectMobile } from './mobile';
 import type { SelectFieldProps, SelectProps } from './typings';
 
 export const SelectResponsive = forwardRef<HTMLDivElement, SelectProps>(

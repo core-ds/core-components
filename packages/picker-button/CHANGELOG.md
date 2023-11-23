@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.3.3
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
+-   Обновлены зависимости
+    -   button@10.0.2
+    -   select@16.0.3
+
 ## 11.3.2
 
 ### Patch Changes

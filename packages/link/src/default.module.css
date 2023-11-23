@@ -3,18 +3,18 @@
 :root {
     /* primary */
     --link-primary-color: var(--color-light-text-primary);
-    --link-primary-hover-color: var(--color-light-text-primary-shade-20);
-    --link-primary-active-color: var(--color-light-text-primary-shade-40);
+    --link-primary-hover-color: var(--color-light-text-primary-hover);
+    --link-primary-active-color: var(--color-light-text-primary-press);
 
     /* secondary */
     --link-secondary-color: var(--color-light-text-secondary);
-    --link-secondary-hover-color: var(--color-light-text-secondary-shade-20);
-    --link-secondary-active-color: var(--color-light-text-secondary-shade-40);
+    --link-secondary-hover-color: var(--color-light-text-secondary-hover);
+    --link-secondary-active-color: var(--color-light-text-secondary-press);
 
     /* default */
-    --link-default-color: var(--color-light-text-link);
-    --link-default-hover-color: var(--color-light-text-link-shade-20);
-    --link-default-active-color: var(--color-light-text-link-shade-40);
+    --link-default-color: var(--color-light-text-info);
+    --link-default-hover-color: var(--color-light-text-info-hover);
+    --link-default-active-color: var(--color-light-text-info-press);
 }
 
 .primary {

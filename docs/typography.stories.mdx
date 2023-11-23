@@ -10,7 +10,7 @@ import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
     id='Guidelines/Typography'
 />
 
-## Типографика
+# Типографика
 
 Актуальный набор текстовых стилей доступен в двух вариантах:
 
@@ -19,7 +19,12 @@ import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
     [Typography.Text](/docs/typography--typography-text)
 -   Миксины в [core-components/vars/typography.css](https://github.com/core-ds/core-components/blob/master/packages/vars/src/typography.css)
 
-### Использование типографики
+Большинство кейсов, в которых нужно задать текстовый стиль, покрывает использование компонентов типографики и, если есть возможность использовать компонент, то используйте именно его.
+Миксины - это гораздо более гибкий вариант. Он подойдет в случаях,
+когда использование компонента типографики невозможно, например, если нужно переопределить текстовый стиль компонентам `input` или `textarea`,
+либо любому другому html-тегу, который невозможно выбрать в компоненте типографики, например, `li`, `label` и др.
+
+## Использование типографики
 
 При выделении любого текстового элемента в Figma, в правом сайдбаре можно увидеть название стиля:
 
@@ -47,13 +52,13 @@ import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 
 > Если в Figma не видно название стиля или для него не оказалось компонента или миксина, спросите у дизайнера почему :)
 
-### Шрифты
+## Шрифты
 
 Стандартный набор шрифтовых гарнитур для всех компонентов:
 
 `--font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif;`
 
-### Styrene
+## Styrene
 
 Если в вашем продукте используется шрифт Styrene, его необходимо подключить:
 

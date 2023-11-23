@@ -74,10 +74,25 @@ export type SelectWithTagsProps = Omit<
      * Трансформировать текст компонента Тэг
      */
     transformTagText?: (tagText?: ReactNode) => ReactNode;
-    
+
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
      */
     breakpoint?: number;
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
 };
+
+export type SelectWithTagsDesktopProps = Omit<
+    SelectWithTagsProps,
+    'breakpoint' | 'defaultMatchMediaValue'
+>;
+
+export type SelectWithTagsMobileProps = Omit<
+    SelectWithTagsProps,
+    'breakpoint' | 'defaultMatchMediaValue'
+>;

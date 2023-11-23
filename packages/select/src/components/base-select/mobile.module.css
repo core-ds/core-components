@@ -37,14 +37,6 @@
     padding: var(--gap-xs);
 }
 
-/* width: max-content; fix for IE */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .component {
-        float: left;
-        clear: left;
-    }
-}
-
 .option {
     padding: var(--gap-2xs) var(--gap-l) var(--gap-2xs) var(--gap-m);
 

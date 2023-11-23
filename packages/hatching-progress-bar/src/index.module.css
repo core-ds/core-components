@@ -1,8 +1,7 @@
-@import '../../vars/src/colors-indigo.css';
-@import '../../themes/src/default.css';
+@import '../../progress-bar/src/vars.css';
 
 .container {
-    background: var(--color-light-bg-primary-inverted-alpha-10);
+    background: var(--color-light-neutral-translucent-300);
     display: flex;
     overflow: hidden;
     border-radius: var(--border-radius-m);
@@ -20,8 +19,8 @@
     transition: transform 0.4s ease;
     background: repeating-linear-gradient(
         -45deg,
-        var(--color-light-graphic-tertiary) 6px 10px,
-        var(--color-light-specialbg-nulled) 10px 18px
+        var(--color-light-neutral-translucent-300) 6px 10px,
+        var(--color-light-transparent-default) 10px 18px
     );
 }
 
@@ -33,34 +32,8 @@
     z-index: 1;
 }
 
-.positive {
-    background: var(--color-light-graphic-positive);
-}
-
-.attention {
-    background: var(--color-light-graphic-attention);
-}
-
-.negative {
-    background: var(--color-light-graphic-negative);
-}
-
-.link {
-    background: var(--color-light-graphic-link);
-}
-
-.tertiary {
-    background: var(--color-light-graphic-tertiary);
-}
-
-.secondary {
-    background: var(--color-light-graphic-secondary);
-}
-
-.primary {
-    background: var(--color-light-graphic-primary);
-}
-
-.accent {
-    background: var(--color-light-graphic-accent);
+@each $background in positive, attention, negative, link, tertiary, secondary, primary, accent {
+    .$(background) {
+        background: var(--progressbar-$(background)-color);
+    }
 }

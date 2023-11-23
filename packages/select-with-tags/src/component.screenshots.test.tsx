@@ -5,41 +5,92 @@ import {
     openBrowserPage,
 } from '../../screenshot-utils';
 
-describe('SelectWithTags | interactions tests', () => {
-    jest.setTimeout(120000);
+const ENTRY_TO_COMPONENT_NAME = {
+    desktop: 'SelectWithTagsDesktop',
+    mobile: 'SelectWithTagsMobile',
+} as const;
 
-    ['default', 'click'].map(async (theme: string) =>
-        test(`${theme} — main scenario`, async () => {
+const ENTRIES = ['desktop', 'mobile'] as const;
+
+const viewport = { width: 450, height: 900 };
+const screenshotOpts = {
+    clip: {
+        x: 0,
+        y: 0,
+        width: viewport.width,
+        height: viewport.height,
+    },
+    fullPage: false,
+    omitBackground: false,
+};
+
+describe('SelectWithTags', () => {
+    test('hover & pressed', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'SelectWithTags',
+            subComponentName: 'SelectWithTagsDesktop',
+            testStory: false,
+            knobs: {},
+        });
+
+        const { browser, context, page } = await openBrowserPage(pageUrl);
+
+        try {
+            await page.click('[role="combobox"]');
+
+            await page.click('[role="option"]:nth-child(4)', { delay: 100 });
+            await page.click('[role="option"]:nth-child(5)', { delay: 100 });
+            await page.click('[role="option"]:nth-child(6)', { delay: 100 });
+
+            await matchHtml({
+                page,
+                expect,
+                viewport,
+                screenshotOpts,
+                evaluate: (remotePage) =>
+                    remotePage
+                        .hover('[class*=tagCross]')
+                        .then(() => remotePage.mouse.down())
+                        .then(() => remotePage.waitForTimeout(300)),
+            });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error((error as Error).message);
+
+            throw error;
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+
+    ENTRIES.forEach((entry) => {
+        test(`main scenario ${entry}`, async () => {
             const pageUrl = createStorybookUrl({
                 componentName: 'SelectWithTags',
+                subComponentName: ENTRY_TO_COMPONENT_NAME[entry],
                 testStory: false,
                 knobs: {},
             });
 
-            const { browser, context, page } = await openBrowserPage(`${pageUrl}&theme=${theme}`);
+            const { browser, context, page } = await openBrowserPage(pageUrl);
 
-            const viewport = { width: 420, height: 768 };
-
-            await page.setViewportSize(viewport);
-
-            const match = async () =>
+            const match = () =>
                 matchHtml({
-                    context,
                     page,
                     expect,
                     viewport,
-                    matchImageSnapshotOptions: {
-                        failureThresholdType: 'percent',
-                        failureThreshold: 1,
-                    },
+                    screenshotOpts,
                 });
 
             try {
                 await page.click('[role="combobox"]');
 
-                await page.click('[role="option"]:nth-child(1)');
-                await page.click('[role="option"]:nth-child(2)');
-                await page.click('[role="option"]:nth-child(3)');
+                await page.waitForTimeout(500);
+
+                await page.click('[role="option"]:nth-child(1)', { delay: 100 });
+
+                await page.click('[role="option"]:nth-child(2)', { delay: 100 });
+                await page.click('[role="option"]:nth-child(3)', { delay: 100 });
 
                 await page.fill('input', 'sadsadad');
 
@@ -49,13 +100,17 @@ describe('SelectWithTags | interactions tests', () => {
 
                 await match();
 
-                await page.click('[role="option"]:nth-child(1)');
+                await page.click('[role="option"]:nth-child(1)', { delay: 100 });
 
                 await match();
 
-                await page.click('[role="option"]:nth-child(4)');
+                await page.click('[role="option"]:nth-child(4)', { delay: 100 });
 
                 await match();
+
+                if (entry === 'mobile') {
+                    await page.getByText('Применить').click();
+                }
 
                 await page.click('[data-collapse]');
 
@@ -70,93 +125,45 @@ describe('SelectWithTags | interactions tests', () => {
             } finally {
                 await closeBrowser({ browser, context, page });
             }
-        }),
-    );
-
-    test.skip('hover & pressed', async () => {
-        const pageUrl = createStorybookUrl({
-            componentName: 'SelectWithTags',
-            testStory: false,
-            knobs: {},
         });
 
-        const { browser, context, page } = await openBrowserPage(pageUrl);
-
-        const viewport = { width: 420, height: 768 };
-
-        await page.setViewportSize(viewport);
-
-        try {
-            await page.click('[role="combobox"]');
-
-            await page.click('[role="option"]:nth-child(4)');
-            await page.click('[role="option"]:nth-child(5)');
-            await page.click('[role="option"]:nth-child(6)');
-
-            // Ждем пока исчезнет скролл.
-            await page.waitForTimeout(1000);
-
-            await matchHtml({
-                context,
-                page,
-                expect,
-                viewport,
-                evaluate: (remotePage) =>
-                    remotePage
-                        .hover('[class*=tagCross]')
-                        .then(() => remotePage.mouse.down())
-                        .then(() => remotePage.waitForTimeout(500)),
-            });
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error((error as Error).message);
-
-            throw error;
-        } finally {
-            await closeBrowser({ browser, context, page });
-        }
-    });
-
-    test('collapseTagList', async () => {
-        const pageUrl = createStorybookUrl({
-            componentName: 'SelectWithTags',
-            testStory: false,
-            knobs: {
-                collapseTagList: false,
-            },
-        });
-
-        const { browser, context, page } = await openBrowserPage(pageUrl);
-
-        const viewport = { width: 420, height: 768 };
-
-        await page.setViewportSize(viewport);
-
-        const match = async () =>
-            matchHtml({
-                context,
-                page,
-                expect,
-                viewport,
-                matchImageSnapshotOptions: {
-                    failureThresholdType: 'percent',
-                    failureThreshold: 1,
+        test(`collapseTagList ${entry}`, async () => {
+            const pageUrl = createStorybookUrl({
+                componentName: 'SelectWithTags',
+                subComponentName: ENTRY_TO_COMPONENT_NAME[entry],
+                testStory: false,
+                knobs: {
+                    collapseTagList: false,
                 },
             });
 
-        try {
-            await page.click('[role="combobox"]');
+            const { browser, context, page } = await openBrowserPage(pageUrl);
 
-            await page.click('[role="option"]:nth-child(5)');
-            await page.click('[role="option"]:nth-child(6)');
-            await page.click('[role="option"]:nth-child(7)');
+            const match = () =>
+                matchHtml({
+                    page,
+                    expect,
+                    viewport,
+                    screenshotOpts,
+                    evaluate: (p) => p.hover('[role="option"]:nth-child(1)'),
+                });
 
-            await match();
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error((error as Error).message);
-        } finally {
-            await closeBrowser({ browser, context, page });
-        }
+            try {
+                await page.click('[role="combobox"]');
+
+                await page.waitForTimeout(500);
+
+                await page.click('[role="option"]:nth-child(5)', { delay: 100 });
+                await page.click('[role="option"]:nth-child(6)', { delay: 100 });
+                await page.click('[role="option"]:nth-child(7)', { delay: 100 });
+
+                await match();
+            } catch (error) {
+                // eslint-disable-next-line no-console
+                console.error((error as Error).message);
+            } finally {
+                await closeBrowser({ browser, context, page });
+            }
+        });
     });
 });

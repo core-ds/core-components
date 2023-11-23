@@ -1,0 +1,15 @@
+@import '../vars.css';
+
+.checkboxList {
+    padding-left: var(--checkbox-group-mobile-list-padding-left);
+}
+
+.label {
+    @mixin paragraph_component_secondary;
+    color: var(--checkbox-group-mobile-label-color);
+    padding-left: var(--checkbox-group-mobile-sub-padding-left);
+}
+
+.sub {
+    padding-left: var(--checkbox-group-mobile-sub-padding-left);
+}

@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { CalendarMobile, CalendarMobileProps } from './components/calendar-mobile';
-import { CalendarDesktop, CalendarDesktopProps } from './Component.desktop';
+import { CalendarDesktop, CalendarDesktopProps } from './desktop';
 
 export type ResponsiveCalendarProps = CalendarDesktopProps &
     CalendarMobileProps & {

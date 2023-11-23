@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { List } from '@alfalab/core-components-list';
-import { Alert } from '@alfalab/core-components-alert';
 
 import { Typography } from '@alfalab/core-components-typography';
 
@@ -10,17 +9,6 @@ import { cssImportsExample, darkModeExample } from './utils';
 import { Answers } from '.storybook/theming-wizard/types';
 
 export const KeepCssVars = ({ answers }: { answers: Answers }) => {
-    if (answers.keepCssVars === 'yes' && answers.ie === 'yes') {
-        return (
-            <Alert view='negative'>
-                <Typography.Text>
-                    К сожалению, IE11 не поддерживает css-переменные, поэтому переменные придется
-                    выпиливать.
-                </Typography.Text>
-            </Alert>
-        );
-    }
-
     const steps = [];
 
     steps.push(

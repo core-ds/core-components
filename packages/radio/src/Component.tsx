@@ -53,6 +53,8 @@ export type RadioProps = Omit<
     disabled?: boolean;
 
     /**
+     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
+     * Используйте props disabled
      * Управление состоянием активен / неактивен
      */
     inactive?: boolean;
@@ -152,8 +154,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     className,
                     labelProps?.className,
                     {
-                        [styles.disabled]: disabled,
-                        [styles.inactive]: inactive,
+                        [styles.disabled]: disabled || inactive,
                         [styles.checked]: checked,
                         [styles.focused]: focused,
                         [styles.block]: block,

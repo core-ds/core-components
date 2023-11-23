@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
 ## 4.1.0
 
 ### Minor Changes

@@ -83,3 +83,20 @@
         }
     }
 }
+
+@define-mixin button-reset {
+    box-sizing: border-box;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    border: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    min-width: 0;
+    cursor: pointer;
+}

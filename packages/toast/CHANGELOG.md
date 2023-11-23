@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.2.3
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
+-   Обновлены зависимости
+    -   toast-plate@6.1.3
+
 ## 5.2.2
 
 ### Patch Changes

@@ -176,7 +176,7 @@
         background: linear-gradient(
             270deg,
             var(--calendar-range-background) 0%,
-            var(--color-light-specialbg-nulled) 100%
+            var(--color-light-transparent-default) 100%
         );
     }
 
@@ -196,7 +196,7 @@
         left: 100%;
         background: linear-gradient(
             270deg,
-            var(--color-light-specialbg-nulled) 0%,
+            var(--color-light-transparent-default) 0%,
             var(--calendar-range-background) 100%
         );
     }
@@ -241,7 +241,7 @@
         background: linear-gradient(
             270deg,
             var(--calendar-range-complete-background) 0%,
-            var(--color-light-specialbg-nulled) 100%
+            var(--color-light-transparent-default) 100%
         );
     }
 }
@@ -250,7 +250,7 @@
     &:after {
         background: linear-gradient(
             270deg,
-            var(--color-light-specialbg-nulled) 0%,
+            var(--color-light-transparent-default) 0%,
             var(--calendar-range-complete-background) 100%
         );
     }

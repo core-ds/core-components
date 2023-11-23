@@ -6,7 +6,7 @@ import { Meta, Markdown } from '@storybook/addon-docs';
     id='Instructions/Breakpoints'
 />
 
-## Брейкпоинты
+# Брейкпоинты
 
 Контрольные точки для медиа запросов задаются в [mq.json](https://github.com/core-ds/core-components/blob/master/packages/mq/src/mq.json).
 
@@ -28,7 +28,7 @@ import { Meta, Markdown } from '@storybook/addon-docs';
 | --desktop    | 1024px to 100%  |`}
 </Markdown>
 
-### Пример использования в CSS
+## Пример использования в CSS
 
 Требования: версия `arui-scripts` выше `10.2.0`
 
@@ -42,9 +42,9 @@ import { Meta, Markdown } from '@storybook/addon-docs';
 }
 ```
 
-### Пример использования в JS
+## Пример использования в JS
 
-При особой необходимости, для рендеринга по условию в шаблонах используйте компонент [Mq](?path=/docs/mq--docs), который основан на `window.matchMedia API`:
+При необходимости рендеринга по условию, используйте компонент [Mq](?path=/docs/mq--docs), который основан на `window.matchMedia API`:
 
 ```jsx
 import { Mq, useMatchMedia } from '@alfalab/core-components/mq';
@@ -60,4 +60,16 @@ const Component = () => {
     const [matches] = useMatchMedia(query);
     return `Matches ${query}: ${matches}`;
 };
+```
+
+## Пример изменения breakpoint в core компонентах
+
+По-умолчанию в `core-components` респонсивные компоненты переключаются на десктопный вид, если ширина вьюпорта превышает 1024px.
+Для переопределения этого поведения все респонсивные компоненты имеют проп `breakpoint`.
+
+```jsx
+    <Select
+        // Селект переключится в десктопный вид, если ширина вьюпорта >= 768
+        breakpoint={768}
+        ...
 ```

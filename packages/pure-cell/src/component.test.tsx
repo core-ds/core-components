@@ -13,7 +13,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -37,7 +37,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -61,7 +61,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -83,7 +83,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -105,7 +105,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -127,7 +127,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -149,7 +149,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -173,7 +173,7 @@ describe('PureCell', () => {
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             Title
                         </PureCell.Text>
                         <PureCell.Text titleColor='secondary' view='primary-small'>
@@ -199,7 +199,7 @@ describe('PureCell', () => {
                 <PureCell>
                     <PureCell.Text
                         titleColor='primary'
-                        view='component'
+                        view='component-primary'
                         dataTestId={pureCellTextDti}
                     >
                         <a data-test-id={linkDti}>Text</a>
@@ -210,7 +210,7 @@ describe('PureCell', () => {
             const link = getByTestId(linkDti);
             const textTypography = getByTestId(`${pureCellTextDti}-text_content`);
 
-            expect(textTypography).toHaveClass('component primary');
+            expect(textTypography).toHaveClass('component-primary primary');
             expect(link.parentElement).toBe(textTypography);
         });
 
@@ -222,7 +222,7 @@ describe('PureCell', () => {
                 <PureCell>
                     <PureCell.Text
                         titleColor='primary'
-                        view='component'
+                        view='component-primary'
                         valueColor='link'
                         dataTestId={pureCellTextDti}
                         value={<a data-test-id={linkDti}>Text</a>}
@@ -235,7 +235,7 @@ describe('PureCell', () => {
             const link = getByTestId(linkDti);
             const valueTypography = getByTestId(`${pureCellTextDti}-text_value`);
 
-            expect(valueTypography).toHaveClass('component link');
+            expect(valueTypography).toHaveClass('component-primary link');
             expect(link.parentElement).toBe(valueTypography);
         });
     });

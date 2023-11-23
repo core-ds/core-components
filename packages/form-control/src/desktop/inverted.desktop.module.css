@@ -1,0 +1,11 @@
+@import '../vars.css';
+
+.inner {
+    background-color: var(--form-control-inverted-bg-color);
+}
+
+/* DISABLED STATE */
+
+.disabled.hasError {
+    box-shadow: var(--form-control-inverted-error-disabled-shadow);
+}

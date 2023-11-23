@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.2.3
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.12.0
+    -   button@10.0.2
+
 ## 7.2.2
 
 ### Patch Changes

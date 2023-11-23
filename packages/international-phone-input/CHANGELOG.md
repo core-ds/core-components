@@ -1,5 +1,18 @@
 # @alfalab/core-components-international-phone-input
 
+## 1.2.3
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
+-   Обновлены зависимости
+    -   input@13.0.2
+    -   input-autocomplete@11.0.3
+    -   select@16.0.3
+
 ## 1.2.2
 
 ### Patch Changes

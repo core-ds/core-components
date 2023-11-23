@@ -7,7 +7,7 @@
     width: 100%;
     padding: var(--gap-xs);
     color: var(--color-light-text-secondary);
-    box-shadow: 0 -1px 0 0 var(--color-light-border-primary) inset;
+    box-shadow: 0 -1px 0 0 var(--color-light-neutral-300) inset;
     box-sizing: border-box;
 
     & svg {
@@ -34,17 +34,17 @@
 .icon {
     display: block;
     flex-shrink: 0;
-    color: var(--color-light-text-primary);
+    color: var(--color-light-neutral-1500);
 }
 
 .errorIcon {
     flex-shrink: 0;
-    color: var(--color-light-graphic-negative);
+    color: var(--color-light-status-negative);
 }
 
 .successIcon {
     flex-shrink: 0;
-    color: var(--color-light-graphic-positive);
+    color: var(--color-light-status-positive);
 }
 
 .name {
@@ -88,7 +88,7 @@
 
 .errorWrapper {
     margin-top: var(--gap-s);
-    color: var(--color-light-text-accent);
+    color: var(--color-light-text-negative);
 
     @media (--small-only) {
         flex: 1 0 100%;

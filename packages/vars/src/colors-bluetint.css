@@ -953,6 +953,7 @@
     --color-dark-graphic-tertiary-inverted-alpha-30: rgba(184, 185, 192, 0.3);
     --color-dark-graphic-tertiary-inverted-shade-15: rgb(156, 157, 163);
     --color-dark-graphic-tertiary-inverted-shade-20: rgb(147, 148, 154);
+    --color-dark-neutral-700-alpha-15: rgba(137, 137, 145, 0.15);
     --color-dark-specialbg-component-tint-7: rgba(255, 255, 255, 0.163);
     --color-dark-specialbg-component-tint-10: rgba(255, 255, 255, 0.19);
     --color-dark-specialbg-component-tint-15: rgba(255, 255, 255, 0.235);
@@ -972,6 +973,7 @@
     --color-dark-specialbg-tertiary-transparent-tint-15: rgba(227, 227, 242, 0.252);
     --color-dark-specialbg-tertiary-transparent-inverted-shade-15: rgba(26, 37, 58, 0.218);
     --color-dark-specialbg-tertiary-transparent-inverted-shade-20: rgba(24, 34, 54, 0.264);
+    --color-dark-status-info-alpha-15: rgba(49, 147, 252, 0.15);
     --color-dark-text-link-shade-30: rgb(52, 110, 176);
     --color-dark-text-link-shade-50: rgb(37, 79, 126);
     --color-dark-text-link-tint-20: rgb(110, 177, 253);
@@ -1113,6 +1115,7 @@
     --color-light-graphic-tertiary-inverted-alpha-30: rgba(73, 73, 79, 0.3);
     --color-light-graphic-tertiary-inverted-tint-15: rgb(100, 100, 105);
     --color-light-graphic-tertiary-inverted-tint-20: rgb(109, 109, 114);
+    --color-light-neutral-700-alpha-15: rgba(137, 137, 145, 0.15);
     --color-light-specialbg-component-shade-7: rgba(10, 29, 49, 0.1351);
     --color-light-specialbg-component-shade-10: rgba(10, 28, 48, 0.163);
     --color-light-specialbg-component-shade-15: rgba(9, 26, 45, 0.2095);
@@ -1132,6 +1135,7 @@
     --color-light-specialbg-tertiary-transparent-shade-15: rgba(26, 37, 58, 0.218);
     --color-light-specialbg-tertiary-transparent-inverted-tint-15: rgba(227, 227, 242, 0.252);
     --color-light-specialbg-tertiary-transparent-inverted-tint-20: rgba(229, 229, 243, 0.296);
+    --color-light-status-info-alpha-15: rgba(34, 136, 250, 0.15);
     --color-light-text-link-tint-30: rgb(106, 160, 244);
     --color-light-text-link-tint-50: rgb(149, 187, 247);
     --color-light-text-link-shade-20: rgb(34, 95, 191);

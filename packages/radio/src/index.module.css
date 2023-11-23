@@ -5,36 +5,33 @@
     --radio-label-color: var(--color-light-text-primary);
 
     /* unchecked */
-    --radio-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-border-color: var(--color-light-graphic-secondary);
-    --radio-hover-bg-color: var(--color-light-graphic-primary-inverted-shade-7);
-    --radio-hover-border-color: var(--color-light-graphic-secondary);
-    --radio-active-bg-color: var(--color-light-graphic-primary-inverted-shade-15);
-    --radio-active-border-color: var(--color-light-graphic-secondary);
+    --radio-bg-color: var(--color-light-neutral-0);
+    --radio-border-color: var(--color-light-neutral-translucent-700);
+    --radio-hover-bg-color: var(--color-light-neutral-0-hover);
+    --radio-hover-border-color: var(--color-light-neutral-translucent-700);
+    --radio-active-bg-color: var(--color-light-neutral-0-press);
+    --radio-active-border-color: var(--color-light-neutral-translucent-700);
 
     /* checked */
-    --radio-checked-bg-color: var(--color-light-graphic-primary);
+    --radio-checked-bg-color: var(--color-light-accent-secondary);
     --radio-checked-border-color: transparent;
-    --radio-checked-hover-bg-color: var(--color-light-graphic-primary-tint-15);
+    --radio-checked-hover-bg-color: var(--color-light-accent-secondary-hover);
     --radio-checked-hover-border-color: transparent;
-    --radio-checked-active-bg-color: var(--color-light-graphic-primary-tint-20);
+    --radio-checked-active-bg-color: var(--color-light-accent-secondary-press);
     --radio-checked-active-border-color: transparent;
 
     /* disabled */
     --radio-disabled-color: var(--color-light-text-secondary);
-    --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-disabled-border-color: var(--color-light-graphic-quaternary);
-
-    /* inactive */
-    --radio-inactive-border-color: var(--color-light-border-underline);
-    --radio-checked-inactive-color: var(--color-light-graphic-tertiary);
+    --radio-disabled-bg-color: var(--color-light-neutral-0);
+    --radio-disabled-border-color: var(--color-light-neutral-translucent-300);
 
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: var(--color-light-bg-quaternary);
+    --radio-checked-disabled-bg-color: var(--color-light-neutral-translucent-200);
     --radio-checked-disabled-border-color: transparent;
 
     /* icon */
-    --radio-icon-color: var(--color-light-graphic-primary-inverted);
+    --radio-icon-color: var(--color-light-neutral-1500-inverted);
+    --radio-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
 .container {
@@ -42,7 +39,7 @@
     align-items: flex-start;
     cursor: pointer;
 
-    &:not(.checked):not(.disabled):not(.inactive) {
+    &:not(.checked):not(.disabled) {
         & .circle {
             background-color: var(--radio-bg-color);
             border: 1.5px solid var(--radio-border-color);
@@ -74,18 +71,9 @@
         & .hint {
             color: var(--radio-disabled-color);
         }
-    }
-
-    &.inactive {
-        cursor: var(--disabled-cursor);
-
-        & .circle {
-            background-color: var(--radio-checked-disabled-bg-color);
-            border: 1px solid var(--radio-inactive-border-color);
-        }
 
         &.checked .circle:before {
-            background-color: var(--radio-checked-inactive-color);
+            background-color: var(--radio-icon-disabled-color);
         }
     }
 
@@ -115,8 +103,7 @@
         @mixin focus-outline;
     }
 
-    &.disabled.checked .circle,
-    &.inactive.checked .circle {
+    &.disabled.checked .circle {
         background-color: var(--radio-checked-disabled-bg-color);
         border-color: var(--radio-checked-disabled-border-color);
     }
