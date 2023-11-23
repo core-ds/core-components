@@ -18,18 +18,6 @@
     color: var(--input-with-label-placeholder-color);
 }
 
-.clearIcon {
-    color: var(--color-light-neutral-translucent-500);
-
-    &:hover {
-        color: var(--color-light-neutral-translucent-500-hover);
-    }
-
-    &:active {
-        color: var(--color-light-neutral-translucent-500-press);
-    }
-}
-
 /* READ-ONLY STATE */
 
 .input:read-only:not(.disableUserInput) {

@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from 'react';
+import React, { MouseEvent, ReactNode, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionClassNames } from 'react-transition-group/CSSTransition';
 import { TransitionProps } from 'react-transition-group/Transition';
@@ -55,22 +55,28 @@ export const Backdrop: React.FC<BackdropProps> = ({
     dataTestId,
     transitionClassNames = styles,
     ...restProps
-}) => (
-    <CSSTransition
-        timeout={timeout}
-        unmountOnExit={true}
-        classNames={transitionClassNames}
-        in={!invisible && open}
-        appear={true}
-        {...restProps}
-    >
-        <div
-            aria-hidden={true}
-            onClick={onClose}
-            data-test-id={dataTestId}
-            className={cn(styles.backdrop, className)}
+}) => {
+    const nodeRef = useRef(null);
+
+    return (
+        <CSSTransition
+            timeout={timeout}
+            unmountOnExit={true}
+            classNames={transitionClassNames}
+            in={!invisible && open}
+            appear={true}
+            {...restProps}
+            nodeRef={nodeRef}
         >
-            {children}
-        </div>
-    </CSSTransition>
-);
+            <div
+                ref={nodeRef}
+                aria-hidden={true}
+                onClick={onClose}
+                data-test-id={dataTestId}
+                className={cn(styles.backdrop, className)}
+            >
+                {children}
+            </div>
+        </CSSTransition>
+    );
+};

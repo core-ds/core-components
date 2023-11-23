@@ -16,7 +16,7 @@
         var(--calendar-inner-third-part-width) - var(--calendar-select-button-gap)
     );
     --calendar-select-button-today-border-color: var(--color-light-border-key);
-    --calendar-select-button-selected-background: var(--color-light-bg-primary-inverted);
+    --calendar-select-button-selected-background: var(--color-light-accent-secondary);
 
     /* Шапка */
     --calendar-month-only-header-font-family: var(--font-family-system);
@@ -28,30 +28,30 @@
     --calendar-day-border-radius: var(--border-radius-pill);
 
     /* today */
-    --calendar-today-color: var(--color-light-text-link);
+    --calendar-today-color: var(--color-light-text-info);
 
     /* highlighted */
     --calendar-highlighted-color: var(--color-light-text-primary);
-    --calendar-highlighted-background: var(--color-light-graphic-quaternary);
+    --calendar-highlighted-background: var(--color-light-transparent-default-hover);
 
     /* holidays */
-    --calendar-holiday-color: var(--color-light-text-accent);
+    --calendar-holiday-color: var(--color-light-text-negative);
 
     /* range */
     --calendar-range-color: var(--color-light-text-primary);
-    --calendar-range-background: var(--color-light-specialbg-component);
-    --calendar-range-complete-background: var(--color-light-graphic-link-alpha-15);
+    --calendar-range-background: var(--color-light-neutral-700-alpha-15);
+    --calendar-range-complete-background: var(--color-light-status-info-alpha-15);
 
     /* selected */
     --calendar-selected-color: var(--color-light-text-primary-inverted);
-    --calendar-selected-background: var(--color-light-graphic-primary);
-    --calendar-selected-hover-background: var(--color-light-graphic-primary-tint-15);
+    --calendar-selected-background: var(--color-light-accent-secondary);
+    --calendar-selected-hover-background: var(--color-light-accent-secondary-hover);
 
     /* disabled */
     --calendar-disabled-color: var(--color-light-text-tertiary);
     --calendar-disabled-background: transparent;
 
     /* marker */
-    --calendar-marker-background: var(--color-light-graphic-primary);
-    --calendar-marker-selected-background: var(--color-light-graphic-primary-inverted);
+    --calendar-marker-background: var(--color-light-neutral-1500);
+    --calendar-marker-selected-background: var(--color-light-neutral-1500-inverted);
 }

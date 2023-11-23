@@ -1,8 +1,8 @@
 @import '../../../../themes/src/default.css';
 
 :root {
-    --icon-view-color: var(--color-light-graphic-secondary);
-    --icon-view-bg-color: var(--color-light-bg-secondary);
+    --icon-view-color: var(--color-light-neutral-translucent-700);
+    --icon-view-bg-color: var(--color-light-neutral-100);
 }
 
 .componentWrapper {
@@ -18,6 +18,10 @@
     width: 100%;
     height: 100%;
     color: var(--icon-view-color);
+
+    & > svg {
+        vertical-align: top;
+    }
 }
 
 .bg {
@@ -25,7 +29,7 @@
 }
 
 .border {
-    stroke: var(--color-light-specialbg-component);
+    stroke: var(--color-light-neutral-translucent-200);
     stroke-width: 1px;
     fill: transparent;
 }

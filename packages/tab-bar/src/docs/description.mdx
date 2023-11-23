@@ -1,0 +1,227 @@
+## Примеры
+
+Компонент может отобразить от двух до пяти табов.
+
+```jsx live mobileOnly mobileHeight={145}
+render(() => {
+    const [border, setBorder] = React.useState(false);
+    const [selectedId, setSelectedId] = React.useState('1');
+
+    return (
+        <div
+            style={{
+                minHeight: 105,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+            }}
+        >
+            <Switch label='Бордер' checked={border} onChange={() => setBorder((p) => !p)} />
+
+            <div style={{ margin: '0 -20px -20px' }}>
+                <TabBar selectedId={selectedId} onChange={setSelectedId} border={border}>
+                    <TabBar.Tab id='1' label='TabName1' icon={<DiamondsMIcon />} />
+                    <TabBar.Tab id='2' label='TabName2' icon={<DiamondsMIcon />} />
+                </TabBar>
+            </div>
+        </div>
+    );
+});
+```
+
+Каждый таб может иметь индикатор.
+
+```jsx live mobileOnly mobileHeight={395}
+const INDICATOR_OPTIONS = [
+    { showIndicator: false, label: 'Без индикатора' },
+    { showIndicator: true, label: 'Индикатор без значения' },
+    {
+        showIndicator: true,
+        indicatorProps: { content: 7 },
+        label: '7 уведомлений',
+    },
+    {
+        showIndicator: true,
+        indicatorProps: { content: 100 },
+        label: '99+ уведомлений',
+    },
+];
+
+render(() => {
+    const [selectedId, setSelectedId] = React.useState('Tab1');
+    const [optionId, setOptionId] = React.useState('0');
+    const [textOverflow, setTextOverflow] = React.useState(false);
+
+    return (
+        <div
+            style={{
+                minHeight: 355,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+            }}
+        >
+            <div>
+                <Typography.Text tag='p' style={{ textAlign: 'center' }}>
+                    {selectedId}
+                </Typography.Text>
+
+                <Gap size='xl' />
+
+                <Switch
+                    label='Длинное название таба'
+                    checked={textOverflow}
+                    onChange={() => setTextOverflow((p) => !p)}
+                />
+
+                <Gap size='xl' />
+
+                <RadioGroup
+                    onChange={(_, { value }) => setOptionId(value)}
+                    value={optionId}
+                    label='Индикатор'
+                >
+                    {INDICATOR_OPTIONS.map((option, idx) => (
+                        <Radio size='m' value={String(idx)} label={option.label} key={idx} />
+                    ))}
+                </RadioGroup>
+            </div>
+
+            <div style={{ margin: '0 -20px -20px' }}>
+                <TabBar selectedId={selectedId} onChange={setSelectedId} border={true}>
+                    {Array(5)
+                        .fill(null)
+                        .map((_, idx) => {
+                            return (
+                                <TabBar.Tab
+                                    {...(idx === 0 ? INDICATOR_OPTIONS[Number(optionId)] : null)}
+                                    key={idx}
+                                    id={`Tab${idx + 1}`}
+                                    icon={<DiamondsMIcon />}
+                                    label={`TabName${idx + 1}`}
+                                    {...(idx === 0 && textOverflow
+                                        ? { label: 'LongTabName1' }
+                                        : null)}
+                                />
+                            );
+                        })}
+                </TabBar>
+            </div>
+        </div>
+    );
+});
+```
+
+Пример, демонстрирующий возможность использования кастомной анимации при переключении табов.
+
+```jsx live mobileOnly mobileHeight={64}
+const ANIMATION_EXAMPLES = {
+    SCALE: 'scale',
+    ROTATE: 'rotate',
+};
+
+const AnimatedIcon = ({ Icon, animationClassName, selected }) => {
+    const [className, setClassName] = React.useState();
+    const didMountRef = React.useRef(false);
+
+    React.useEffect(() => {
+        if (didMountRef.current) {
+            if (selected) {
+                setClassName(animationClassName);
+            } else {
+                setClassName(undefined);
+            }
+        } else {
+            didMountRef.current = true;
+        }
+    }, [selected]);
+
+    return <Icon className={className} />;
+};
+
+render(() => {
+    const [selectedId, setSelectedId] = React.useState('1');
+
+    return (
+        <div style={{ margin: '-20px' }}>
+            <style>
+                {`
+                .tab {
+                    transition: color 100ms ease-in-out;
+                }
+
+                .icon {
+                    transition: transform 100ms ease-in-out;
+                }
+
+                .tab:not(.selected):active .icon {
+                    transform: scale(0.8);
+                }
+
+                .scale {
+                    animation: scale_animation 300ms ease-in-out;
+                }
+
+                .rotate {
+                    animation: rotate_animation 600ms ease-in-out;
+                }
+
+                @keyframes scale_animation {
+                    0% {
+                        transform: scale(1);
+                    }
+                    50% {
+                        transform: scale(1.2);
+                    }
+                    100% {
+                        transform: scale(1);
+                    }
+
+                }
+
+                @keyframes rotate_animation {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+
+                }
+            `}
+            </style>
+
+            <TabBar
+                selectedId={selectedId}
+                onChange={setSelectedId}
+                tabClassNames={{
+                    className: 'tab',
+                    iconClassName: 'icon',
+                    selectedClassName: 'selected',
+                }}
+            >
+                <TabBar.Tab
+                    id='1'
+                    label='TabName1'
+                    icon={
+                        <AnimatedIcon
+                            Icon={DiamondsMIcon}
+                            animationClassName={ANIMATION_EXAMPLES.SCALE}
+                        />
+                    }
+                />
+                <TabBar.Tab
+                    id='2'
+                    label='TabName2'
+                    icon={
+                        <AnimatedIcon
+                            Icon={DiamondsMIcon}
+                            animationClassName={ANIMATION_EXAMPLES.ROTATE}
+                        />
+                    }
+                />
+            </TabBar>
+        </div>
+    );
+});
+```

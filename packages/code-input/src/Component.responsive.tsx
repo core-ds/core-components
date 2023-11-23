@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import { CodeInputDesktop } from './Component.desktop';
-import { CodeInputMobile } from './Component.mobile';
+import { CodeInputDesktop } from './desktop';
+import { CodeInputMobile } from './mobile';
 import { BaseCodeInputProps, CustomInputRef } from './typings';
 
 export type CodeInputProps = Omit<BaseCodeInputProps, 'stylesInput'> & {

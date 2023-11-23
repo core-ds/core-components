@@ -30,21 +30,21 @@ import {
         const renderItem = (item) => {
             return (
                 <GenericWrapper alignItems='center' padding={{ top: 's', bottom: 's', left: 'm' }}>
-                    {!isPreview && 
+                    {!isPreview &&
                         <>
                             <GenericWrapper>
                                 <SuperEllipse size={48}>
                                     <DiamondsMIcon aria-label='diamonds' />
                                 </SuperEllipse>
-                            </GenericWrapper> 
+                            </GenericWrapper>
                             <Gap size='m' direction='horizontal' />
                         </>
                     }
-                    
+
                     <GenericWrapper>
                         <GenericWrapper column>
-                            <Typography.Text view='component'>{ isPreview ? 'Draggable item' :`Элемент списка ${item.id}`}</Typography.Text>
-                            {!isPreview && 
+                            <Typography.Text view='component-primary'>{ isPreview ? 'Draggable item' :`Элемент списка ${item.id}`}</Typography.Text>
+                            {!isPreview &&
                             <>
                                 <Gap size='2xs' />
                                 <Typography.Text view='primary-small' color='secondary'>
@@ -84,6 +84,7 @@ import {
             </div>
         );
     })}
+
 </Story>
 
 {/* Docs */}

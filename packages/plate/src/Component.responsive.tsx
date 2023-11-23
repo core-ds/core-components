@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { BasePlateProps } from './components/base-plate';
-import { PlateDesktop } from './Component.desktop';
-import { PlateMobile } from './Component.mobile';
+import { PlateDesktop } from './desktop';
+import { PlateMobile } from './mobile';
 
 export type PlateProps = Omit<BasePlateProps, 'styles'> & {
     /**

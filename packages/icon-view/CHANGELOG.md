@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.4.1
+
+### Patch Changes
+
+### [#975](https://github.com/core-ds/core-components/pull/975)
+
+-   Добавлено вертикальное выравнивание к svg
+
 ## 3.4.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.4.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   form-control@11.1.0
+
 ## 8.4.3
 
 ### Patch Changes

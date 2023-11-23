@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import { BaseFilterTagProps } from './components/base-filter-tag';
-import { FilterTagDesktop } from './Component.desktop';
-import { FilterTagMobile } from './Component.mobile';
+import { FilterTagDesktop } from './desktop';
+import { FilterTagMobile } from './mobile';
 
 export type FilterTagProps = Omit<BaseFilterTagProps, 'styles'> & {
     /**

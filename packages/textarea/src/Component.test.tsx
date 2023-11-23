@@ -173,6 +173,17 @@ describe('Textarea', () => {
 
             expect(screen.getByRole('textbox')).toHaveStyle('max-height: 100px');
         });
+
+        it('should set `focusVisible` class when textarea focused', async () => {
+            const { container } = render(<Textarea />);
+
+            await userEvent.tab();
+
+            const inner = container.firstElementChild as HTMLElement;
+            const inputWrapper = inner.firstElementChild as HTMLElement;
+
+            expect(inputWrapper).toHaveClass('focusVisible');
+        });
     });
 
     describe('Callbacks tests', () => {

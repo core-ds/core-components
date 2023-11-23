@@ -70,12 +70,3 @@
         margin-bottom: var(--gap-s);
     }
 }
-
-/* width: max-content; fix for IE */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .component {
-        float: left;
-        clear: left;
-    }
-}

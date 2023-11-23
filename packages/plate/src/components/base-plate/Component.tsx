@@ -141,7 +141,7 @@ export type BasePlateProps = {
     dataTestId?: string;
 
     /**
-     * Количество строк (не поддерживает IE)
+     * Количество строк
      */
     rowLimit?: 1 | 2 | 3;
 

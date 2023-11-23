@@ -1,7 +1,7 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
 import { Input } from '../Component.responsive';
-import { InputDesktop} from '../Component.desktop';
-import { InputMobile } from '../Component.mobile';
+import { InputDesktop } from '../desktop';
+import { InputMobile } from '../mobile';
 import vars from '!!raw-loader!../vars.css';
 
 ## Подключение
@@ -11,11 +11,12 @@ import { Input } from '@alfalab/core-components/input';
 import { InputDesktop } from '@alfalab/core-components/input/desktop';
 import { InputMobile } from '@alfalab/core-components/input/mobile';
 ```
-Из индекса импортируется responsive версия компонента. 
+
+Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
-<ArgsTabs components={{InputDesktop, InputMobile, Input}} />
+<ArgsTabs components={{ InputDesktop, InputMobile, Input }} />
 
 ## Переменные
 

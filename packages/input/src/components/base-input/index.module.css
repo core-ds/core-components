@@ -46,11 +46,6 @@
     width: 100%;
 }
 
-.clearIcon {
-    display: block;
-    transition: opacity 0.2s ease;
-}
-
 .errorIcon {
     display: var(--input-error-icon-display);
 
@@ -69,14 +64,6 @@ button[class*='eye'] + .errorIcon {
 
 .errorColorIcon {
     color: var(--color-light-status-negative);
-}
-
-.clearButton + * {
-    margin-left: var(--gap-2xs);
-}
-
-.clearButton + .errorIcon {
-    display: var(--input-error-icon-display);
 }
 
 .successIcon {
@@ -116,14 +103,6 @@ button[class*='eye'] + .successIcon {
 
 .hasInnerLabel:read-only:focus::placeholder {
     opacity: 0;
-}
-
-/* IE hide clear */
-
-.input::-ms-clear {
-    display: none;
-    width: 0;
-    height: 0;
 }
 
 /* Убирает синюю заливку при автокомплите */

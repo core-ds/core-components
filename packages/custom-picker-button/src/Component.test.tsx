@@ -2,8 +2,8 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
 import { CustomPickerButton } from './index';
-import { CustomPickerButtonDesktop } from './Component.desktop';
-import { CustomPickerButtonMobile } from './Component.mobile';
+import { CustomPickerButtonDesktop } from './desktop';
+import { CustomPickerButtonMobile } from './mobile';
 
 const testId = 'custom-picker-button-test-id';
 const className = 'customPickerButtonClassName';

@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.0.2
+
+### Patch Changes
+
+### [#987](https://github.com/core-ds/core-components/pull/987)
+
+-   Немного изменена структура файлов в пакетах для корректной сборки в vite
+
+-   Обновлены зависимости
+    -   calendar@7.1.3
+    -   date-input@4.3.13
+
 ## 10.0.1
 
 ### Patch Changes

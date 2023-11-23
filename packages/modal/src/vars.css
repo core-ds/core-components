@@ -27,7 +27,7 @@
 
     /* desktop */
     --modal-s-header-desktop-content-paddings: var(--gap-s);
-    --modal-s-header-desktop-font-size: 20px;
+    --modal-s-header-desktop-font-size: 22px;
     --modal-s-header-desktop-line-height: 26px;
     --modal-l-header-desktop-content-paddings: 6px var(--gap-s) var(--gap-m);
     --modal-l-header-desktop-font-size: 30px;

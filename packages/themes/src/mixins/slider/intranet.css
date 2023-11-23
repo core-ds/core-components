@@ -1,6 +1,4 @@
 @define-mixin slider-intranet {
-    --slider-progress-background: var(--color-light-graphic-quaternary);
-    --slider-progress-hover-background: var(--color-light-graphic-quaternary);
     --slider-origin-width: calc(100% - 16px);
     --slider-origin-right: 8px;
 }

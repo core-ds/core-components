@@ -1,7 +1,7 @@
-import { ArgsTabs, CssVars } from 'storybook/blocks'
+import { ArgsTabs, CssVars } from 'storybook/blocks';
 import { CheckboxGroup } from '../Component.responsive';
-import { CheckboxGroupMobile } from '../Component.mobile';
-import { CheckboxGroupDesktop } from '../Component.desktop';
+import { CheckboxGroupMobile } from '../mobile';
+import { CheckboxGroupDesktop } from '../desktop';
 import styles from '!!raw-loader!../vars.css';
 
 ## Подключение
@@ -11,12 +11,13 @@ import { CheckboxGroup } from '@alfalab/core-components/checkbox-group';
 import { CheckboxGroupMobile } from '@alfalab/core-components/checkbox-group/mobile';
 import { CheckboxGroupDesktop } from '@alfalab/core-components/checkbox-group/desktop';
 ```
+
 Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
-<ArgsTabs components={{CheckboxGroupDesktop, CheckboxGroupMobile, CheckboxGroup}} />
+<ArgsTabs components={{ CheckboxGroupDesktop, CheckboxGroupMobile, CheckboxGroup }} />
 
 ## Переменные
 
-<CssVars css={styles}/>
+<CssVars css={styles} />

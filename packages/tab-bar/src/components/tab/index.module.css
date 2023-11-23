@@ -1,0 +1,45 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    @mixin button-reset;
+
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    flex: 1 0 0;
+    align-items: center;
+    padding: var(--gap-xs) 0;
+    color: var(--color-light-neutral-translucent-700);
+}
+
+.selected {
+    color: var(--color-light-accent-primary);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.label {
+    @mixin row_limit 1;
+    word-break: break-all;
+    flex-shrink: 0;
+
+    color: var(--color-light-text-secondary);
+}
+
+.labelSelected {
+    color: inherit;
+}
+
+.indicator {
+    position: absolute;
+    top: var(--gap-2xs);
+    left: calc(50% + var(--gap-2xs));
+    height: 16px;
+    min-width: 16px;
+}

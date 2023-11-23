@@ -16,13 +16,13 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
-import { Button } from '@alfalab/core-components-button';
 import { FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
-import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
+
+import { ClearButton } from '../clear-button';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -210,8 +210,6 @@ export type BaseInputProps = Omit<
     disableUserInput?: boolean;
 };
 
-const preventDefault = (e: React.UIEvent<HTMLElement>) => e.preventDefault();
-
 export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
     (
         {
@@ -348,27 +346,15 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                 addonsVisible && (
                     <Fragment>
                         {clearButtonVisible && (
-                            <Button
-                                type='button'
-                                view='ghost'
-                                disabled={disabled}
-                                aria-label='Очистить'
-                                className={styles.clearButton}
+                            <ClearButton
                                 onClick={handleClear}
-                                tabIndex={-1}
-                                onMouseDown={preventDefault}
-                            >
-                                <CrossCircleMIcon
-                                    className={cn(
-                                        styles.clearIcon,
-                                        colorCommonStyles[colors].clearIcon,
-                                    )}
-                                />
-                            </Button>
+                                disabled={disabled}
+                                colors={colors}
+                            />
                         )}
                         {rightAddons}
                         {error && (
-                            <div className={styles.errorIcon}>
+                            <div className={styles.errorIcon} data-addon='error-icon'>
                                 <Badge
                                     view='icon'
                                     size='m'

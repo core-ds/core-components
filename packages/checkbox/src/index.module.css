@@ -6,37 +6,34 @@
     --checkbox-error-color: var(--color-light-text-negative);
 
     /* unchecked */
-    --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
-    --checkbox-border-color: var(--color-light-graphic-secondary);
-    --checkbox-hover-bg-color: var(--color-light-graphic-primary-inverted-shade-7);
-    --checkbox-hover-border-color: var(--color-light-graphic-secondary);
-    --checkbox-active-bg-color: var(--color-light-graphic-primary-inverted-shade-15);
-    --checkbox-active-border-color: var(--color-light-graphic-secondary);
+    --checkbox-bg-color: var(--color-light-neutral-0);
+    --checkbox-border-color: var(--color-light-neutral-translucent-700);
+    --checkbox-hover-bg-color: var(--color-light-neutral-0-hover);
+    --checkbox-hover-border-color: var(--color-light-neutral-translucent-700);
+    --checkbox-active-bg-color: var(--color-light-neutral-0-press);
+    --checkbox-active-border-color: var(--color-light-neutral-translucent-700);
 
     /* checked */
-    --checkbox-checked-bg-color: var(--color-light-graphic-primary);
+    --checkbox-checked-bg-color: var(--color-light-accent-secondary);
     --checkbox-checked-border-color: transparent;
-    --checkbox-checked-hover-bg-color: var(--color-light-graphic-primary-tint-15);
+    --checkbox-checked-hover-bg-color: var(--color-light-accent-secondary-hover);
     --checkbox-checked-hover-border-color: transparent;
-    --checkbox-checked-active-bg-color: var(--color-light-graphic-primary-tint-20);
+    --checkbox-checked-active-bg-color: var(--color-light-accent-secondary-press);
     --checkbox-checked-active-border-color: transparent;
 
     /* disabled */
     --checkbox-disabled-color: var(--color-light-text-secondary);
-    --checkbox-disabled-bg-color: var(--color-light-graphic-primary-inverted);
-    --checkbox-disabled-border-color: var(--color-light-graphic-quaternary);
-
-    /* inactive */
-    --checkbox-inactive-border-color: var(--color-light-border-underline);
-    --checkbox-checked-inactive-color: var(--color-light-graphic-tertiary);
+    --checkbox-disabled-bg-color: var(--color-light-neutral-0);
+    --checkbox-disabled-border-color: var(--color-light-neutral-translucent-300);
 
     /* disabled and checked */
-    --checkbox-checked-disabled-bg-color: var(--color-light-bg-quaternary);
+    --checkbox-checked-disabled-bg-color: var(--color-light-neutral-translucent-200);
     --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
-    --checkbox-icon-color: var(--color-light-graphic-primary-inverted);
-    --checkbox-icon-indeterminate-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-icon-color: var(--color-light-neutral-1500-inverted);
+    --checkbox-icon-indeterminate-color: var(--color-light-neutral-1500-inverted);
+    --checkbox-icon-disabled-color: var(--color-light-neutral-translucent-500);
 }
 
 .component {
@@ -92,12 +89,12 @@
     margin: var(--gap-2xs) var(--gap-3xs);
 }
 
-.component:hover:not(.disabled):not(.inactive) .box {
+.component:hover:not(.disabled) .box {
     background-color: var(--checkbox-hover-bg-color);
     border-color: var(--checkbox-hover-border-color);
 }
 
-.component:active:not(.disabled):not(.inactive) .box {
+.component:active:not(.disabled) .box {
     background-color: var(--checkbox-active-bg-color);
     border-color: var(--checkbox-active-border-color);
 }
@@ -107,12 +104,12 @@
     border-color: var(--checkbox-checked-border-color);
 }
 
-.checked:hover:not(.disabled):not(.inactive) .box {
+.checked:hover:not(.disabled) .box {
     background-color: var(--checkbox-checked-hover-bg-color);
     border-color: var(--checkbox-checked-hover-border-color);
 }
 
-.checked:active:not(.disabled):not(.inactive) .box {
+.checked:active:not(.disabled) .box {
     background-color: var(--checkbox-checked-active-bg-color);
     border-color: var(--checkbox-checked-active-border-color);
 }
@@ -122,18 +119,17 @@
     border-color: var(--checkbox-checked-border-color);
 }
 
-.indeterminate:hover:not(.disabled):not(.inactive) .box {
+.indeterminate:hover:not(.disabled) .box {
     background-color: var(--checkbox-checked-hover-bg-color);
     border-color: var(--checkbox-checked-hover-border-color);
 }
 
-.indeterminate:active:not(.disabled):not(.inactive) .box {
+.indeterminate:active:not(.disabled) .box {
     background-color: var(--checkbox-checked-active-bg-color);
     border-color: var(--checkbox-checked-active-border-color);
 }
 
-.disabled,
-.inactive {
+.disabled {
     cursor: var(--disabled-cursor);
 }
 
@@ -145,11 +141,19 @@
 .disabled.checked .box {
     background-color: var(--checkbox-checked-disabled-bg-color);
     border-color: var(--checkbox-checked-disabled-border-color);
+
+    & .checkedIcon {
+        color: var(--checkbox-icon-disabled-color);
+    }
 }
 
 .disabled.indeterminate .box {
     background-color: var(--checkbox-checked-disabled-bg-color);
     border-color: var(--checkbox-checked-disabled-border-color);
+
+    & .indeterminateLine {
+        background-color: var(--checkbox-icon-disabled-color);
+    }
 }
 
 .disabled .label {
@@ -158,20 +162,6 @@
 
 .disabled .hint {
     color: var(--checkbox-disabled-color);
-}
-
-.inactive .box {
-    background-color: var(--checkbox-checked-disabled-bg-color);
-    border-color: var(--checkbox-inactive-border-color);
-}
-
-.inactive.checked .box {
-    color: var(--checkbox-checked-inactive-color);
-    border-color: var(--checkbox-checked-disabled-border-color);
-}
-
-.inactive.indeterminate .box {
-    border-color: var(--checkbox-checked-disabled-border-color);
 }
 
 .focused .box {
@@ -208,10 +198,6 @@
     color: var(--checkbox-hint-color);
 }
 
-.inactive .indeterminateLine {
-    background-color: var(--checkbox-checked-inactive-color);
-}
-
 .indeterminateLine {
     position: absolute;
     width: 10px;
@@ -223,18 +209,4 @@
     position: absolute;
     z-index: -1;
     opacity: 0;
-}
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .checkedIcon {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .indeterminateLine {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
 }

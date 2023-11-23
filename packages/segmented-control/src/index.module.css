@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 .wrapper {
-    background-color: var(--color-light-specialbg-secondary-transparent);
+    background-color: var(--color-light-neutral-translucent-200);
     display: flex;
 }
 
@@ -21,7 +21,7 @@
     @mixin paragraph_primary_small;
 
     &.selected {
-        color: var(--color-static-text-primary-dark);
+        color: var(--color-static-text-primary);
     }
 }
 
@@ -68,13 +68,13 @@
 }
 
 .selectedBox {
-    border: 0.5px solid var(--color-light-border-tertiary);
+    border: 0.5px solid var(--color-light-neutral-translucent-200);
     box-sizing: border-box;
     position: absolute;
     top: var(--gap-3xs);
     bottom: var(--gap-3xs);
     left: var(--gap-3xs);
     box-shadow: var(--shadow-s);
-    background-color: var(--color-static-bg-primary-light);
+    background-color: var(--color-static-neutral-0);
     transition: width 0.2s ease, transform 0.2s ease;
 }

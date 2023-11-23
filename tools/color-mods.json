@@ -41,6 +41,9 @@
         "alpha": [30],
         "tint": [15, 20]
     },
+    "light-status-info": {
+        "alpha": [15]
+    },
     "light-border-underline": {
         "alpha": [30]
     },
@@ -132,6 +135,9 @@
     },
     "light-specialbg-tertiary-transparent-inverted": {
         "tint": [15, 20]
+    },
+    "light-neutral-700": {
+        "alpha": [15]
     },
     "static-bg-primary-dark": {
         "alpha": [10, 20],

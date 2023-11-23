@@ -1,0 +1,15 @@
+@import '../../../../form-control/src/vars.css';
+@import '../../vars.css';
+
+.clearIcon {
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.clearButton + * {
+    margin-left: var(--gap-2xs);
+}
+
+.clearButton + [data-addon='error-icon'] {
+    display: var(--input-error-icon-display);
+}

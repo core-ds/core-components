@@ -1,5 +1,5 @@
 :root {
     --pass-code-max-width: 500px;
-    --button-bg-color: var(--color-light-specialbg-secondary-transparent);
-    --button-bg-color-active: var(--color-light-specialbg-tertiary-transparent);
+    --button-bg-color: var(--color-light-neutral-translucent-200);
+    --button-bg-color-active: var(--color-light-neutral-translucent-200-press);
 }

@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 .bar {
-    background: var(--color-light-specialbg-tertiary-transparent);
+    background: var(--color-light-neutral-translucent-300);
 }
 
 .description {

@@ -99,7 +99,6 @@
         max-height: 100%; /* Needed for vertical scroll to trigger */
         outline: none;
         scrollbar-width: none;
-        -ms-overflow-style: none;
 
         &::-webkit-scrollbar {
             width: 0;
@@ -225,7 +224,6 @@
     visibility: hidden;
     overflow-y: scroll;
     scrollbar-width: none;
-    -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
         width: 0;

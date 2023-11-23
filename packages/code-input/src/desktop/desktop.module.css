@@ -1,0 +1,6 @@
+@import '../../../themes/src/default.css';
+@import '../vars.css';
+
+.component {
+    background-color: var(--code-input-bg-color);
+}

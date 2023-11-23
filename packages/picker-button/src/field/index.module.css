@@ -18,5 +18,5 @@
 }
 
 .linkOpen:not(:hover) {
-    background-color: var(--color-light-neutral-translucent-100);
+    background-color: var(--color-light-transparent-default-hover);
 }

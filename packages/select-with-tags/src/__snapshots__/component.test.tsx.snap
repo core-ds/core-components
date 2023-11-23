@@ -25,7 +25,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
               class="input"
             >
               <div
-                class="contentWrapper contentWrapperVertical"
+                class="contentWrapper"
               >
                 <input
                   aria-autocomplete="list"
@@ -89,15 +89,15 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
               class="input"
             >
               <div
-                class="contentWrapper hasTags contentWrapperVertical"
+                class="contentWrapper hasTags"
               >
                 <button
-                  class="component component component xxs xxs outlined outlined checked rounded outlined tag"
+                  class="component component component xxs xxs outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
                   <span>
                     <span
-                      class="tagContentWrap"
+                      class="tagContentWrap cursorPointer"
                     >
                       H
                       <span
@@ -106,13 +106,15 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                         <svg
                           fill="currentColor"
                           focusable="false"
-                          height="24"
+                          height="16"
                           role="img"
                           viewBox="0 0 24 24"
-                          width="24"
+                          width="16"
                         >
                           <path
-                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                            clip-rule="evenodd"
+                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
+                            fill-rule="evenodd"
                           />
                         </svg>
                       </span>
@@ -120,12 +122,12 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component component component xxs xxs outlined outlined checked rounded outlined tag"
+                  class="component component component xxs xxs outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
                   <span>
                     <span
-                      class="tagContentWrap"
+                      class="tagContentWrap cursorPointer"
                     >
                       Li
                       <span
@@ -134,13 +136,15 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                         <svg
                           fill="currentColor"
                           focusable="false"
-                          height="24"
+                          height="16"
                           role="img"
                           viewBox="0 0 24 24"
-                          width="24"
+                          width="16"
                         >
                           <path
-                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                            clip-rule="evenodd"
+                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
+                            fill-rule="evenodd"
                           />
                         </svg>
                       </span>
@@ -148,12 +152,12 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component component component xxs xxs outlined outlined checked rounded outlined tag"
+                  class="component component component xxs xxs outlined outlined checked rectangular outlined tag"
                   type="button"
                 >
                   <span>
                     <span
-                      class="tagContentWrap"
+                      class="tagContentWrap cursorPointer"
                     >
                       Na
                       <span
@@ -162,13 +166,15 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                         <svg
                           fill="currentColor"
                           focusable="false"
-                          height="24"
+                          height="16"
                           role="img"
                           viewBox="0 0 24 24"
-                          width="24"
+                          width="16"
                         >
                           <path
-                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                            clip-rule="evenodd"
+                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
+                            fill-rule="evenodd"
                           />
                         </svg>
                       </span>
@@ -180,7 +186,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   aria-controls="downshift-:r1:-menu"
                   aria-labelledby="downshift-:r1:-label"
                   autocomplete="off"
-                  class="input"
+                  class="input hidden"
                   id="downshift-:r1:-input"
                   placeholder=""
                   tabindex="0"

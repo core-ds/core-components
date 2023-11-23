@@ -34,6 +34,7 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
             hasCloser,
             hasBackButton,
             backButtonClassName,
+            backButtonProps,
             dataTestId,
             imageUrl,
             closerIcon,
@@ -130,10 +131,11 @@ export const NavigationBar = forwardRef<HTMLDivElement, NavigationBarProps>(
             return (
                 <div className={cn(styles.addon, backButtonClassName)}>
                     <BackArrowAddon
+                        data-test-id={getDataTestId(dataTestId, 'back-button')}
+                        {...backButtonProps}
                         textOpacity={textOpacity}
                         view={view}
                         onClick={onBack}
-                        data-test-id={getDataTestId(dataTestId, 'back-button')}
                     />
                 </div>
             );

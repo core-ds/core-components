@@ -11,7 +11,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ModalMobile } from '@alfalab/core-components-modal/mobile';
 
-import { CalendarDesktop, CalendarDesktopProps } from '../../Component.desktop';
+import { CalendarDesktop, CalendarDesktopProps } from '../../desktop';
 import { Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
 import {

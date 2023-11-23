@@ -117,7 +117,7 @@ render(() => (
                     <PureCell.Text
                         titleColor='primary'
                         valueColor='secondary'
-                        view='component'
+                        view='component-primary'
                         value={
                             <Amount
                                 value={100099}
@@ -150,7 +150,11 @@ render(() => (
             </PureCell.Graphics>
             <PureCell.Content>
                 <PureCell.Main>
-                    <PureCell.Text titleColor='primary' valueColor='secondary' view='component'>
+                    <PureCell.Text
+                        titleColor='primary'
+                        valueColor='secondary'
+                        view='component-primary'
+                    >
                         Title
                     </PureCell.Text>
                     <PureCell.Text
@@ -177,9 +181,13 @@ render(() => (
                 <PureCell.Main>
                     <PureCell.Text
                         titleColor='primary'
-                        view='component'
+                        view='component-primary'
                         value={
-                            <Typography.Text view='component' font='system' color='positive'>
+                            <Typography.Text
+                                view='component-primary'
+                                font='system'
+                                color='positive'
+                            >
                                 <Amount
                                     value={18777}
                                     showPlus={true}
@@ -266,7 +274,7 @@ render(() => (
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='primary' view='component'>
+                        <PureCell.Text titleColor='primary' view='component-primary'>
                             {'Новый\r\nперевод'}
                         </PureCell.Text>
                     </PureCell.Main>
@@ -401,7 +409,7 @@ render(() => {
             <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text rowLimit={1} titleColor='primary' view='component'>
+                        <PureCell.Text rowLimit={1} titleColor='primary' view='component-primary'>
                             Пример отсечения контента в одну строку
                         </PureCell.Text>
                     </PureCell.Main>
@@ -411,7 +419,7 @@ render(() => {
             <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text rowLimit={2} titleColor='primary' view='component'>
+                        <PureCell.Text rowLimit={2} titleColor='primary' view='component-primary'>
                             Пример отсечения текста в несколько строк. Пример отсечения текста в
                             несколько строк
                         </PureCell.Text>
@@ -424,7 +432,7 @@ render(() => {
                     <PureCell.Main>
                         <PureCell.Text
                             titleColor='primary'
-                            view='component'
+                            view='component-primary'
                             value='SubtitleRight'
                             valueColor='secondary'
                         >
@@ -437,7 +445,7 @@ render(() => {
             <PureCell direction='horizontal' verticalPadding='default'>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <PureCell.Text titleColor='secondary' view='component'>
+                        <PureCell.Text titleColor='secondary' view='component-primary'>
                             Text
                         </PureCell.Text>
                     </PureCell.Main>
@@ -477,7 +485,11 @@ render(() => {
                 <PureCell direction='horizontal' verticalPadding='default'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text view='component' value='Text' valueColor='secondary'>
+                            <PureCell.Text
+                                view='component-primary'
+                                value='Text'
+                                valueColor='secondary'
+                            >
                                 <div style={styleContent}></div>
                             </PureCell.Text>
                         </PureCell.Main>
@@ -487,7 +499,11 @@ render(() => {
                 <PureCell direction='horizontal' verticalPadding='default'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text view='component' value='Text' valueColor='primary'>
+                            <PureCell.Text
+                                view='component-primary'
+                                value='Text'
+                                valueColor='primary'
+                            >
                                 <div style={styleContent}></div>
                             </PureCell.Text>
                         </PureCell.Main>
@@ -516,7 +532,7 @@ render(() => (
                             view={'withZeroMinorPart'}
                             transparentMinor={true}
                         />
-                        <PureCell.Text titleColor='secondary' view='component'>
+                        <PureCell.Text titleColor='secondary' view='component-primary'>
                             Text
                         </PureCell.Text>
                     </PureCell.Addon>

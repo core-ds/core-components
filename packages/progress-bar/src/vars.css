@@ -1,0 +1,30 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* bg */
+    --progressbar-bg-color: var(--color-light-neutral-translucent-300);
+
+    /* positive */
+    --progressbar-positive-color: var(--color-light-status-positive);
+
+    /* negative */
+    --progressbar-negative-color: var(--color-light-status-negative);
+
+    /* attention */
+    --progressbar-attention-color: var(--color-light-status-attention);
+
+    /* link */
+    --progressbar-link-color: var(--color-light-status-info);
+
+    /* tertiary */
+    --progressbar-tertiary-color: var(--color-light-neutral-500);
+
+    /* secondary */
+    --progressbar-secondary-color: var(--color-light-neutral-700);
+
+    /* primary */
+    --progressbar-primary-color: var(--color-light-neutral-1500);
+
+    /* accent */
+    --progressbar-accent-color: var(--color-light-accent-primary);
+}

@@ -82,6 +82,8 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     disabled?: boolean;
 
     /**
+     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
+     * Используйте props disabled
      * Управление состоянием активен / неактивен
      */
     inactive?: boolean;
@@ -161,8 +163,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     className,
                     labelProps?.className,
                     {
-                        [styles.disabled]: disabled,
-                        [styles.inactive]: inactive,
+                        [styles.disabled]: disabled || inactive,
                         [styles.checked]: checked,
                         [styles.indeterminate]: indeterminate,
                         [styles.focused]: focused,

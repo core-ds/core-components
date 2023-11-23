@@ -1,1 +1,1 @@
-export { NumberInputDesktop, NumberInputDesktopProps } from '../Component.desktop';
+export { NumberInputDesktop, NumberInputDesktopProps } from './Component.desktop';

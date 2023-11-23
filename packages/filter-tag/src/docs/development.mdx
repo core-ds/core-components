@@ -1,6 +1,6 @@
 import { ArgsTabs, CssVars } from 'storybook/blocks';
-import { FilterTagDesktop } from '../Component.desktop';
-import { FilterTagMobile } from '../Component.mobile';
+import { FilterTagDesktop } from '../desktop';
+import { FilterTagMobile } from '../mobile';
 import { FilterTag } from '../Component.responsive';
 import styles from '!!raw-loader!../components/base-filter-tag/index.module.css';
 
@@ -11,11 +11,12 @@ import { FilterTag } from '@alfalab/core-components/filter-tag';
 import { FilterTagMobile } from '@alfalab/core-components/filter-tag/mobile';
 import { FilterTagDesktop } from '@alfalab/core-components/filter-tag/desktop';
 ```
-Из индекса импортируется responsive версия компонента. 
+
+Из индекса импортируется responsive версия компонента.
 
 ## Свойства
 
-<ArgsTabs components={{FilterTagDesktop, FilterTagMobile, FilterTag}} />
+<ArgsTabs components={{ FilterTagDesktop, FilterTagMobile, FilterTag }} />
 
 ## Переменные
 
