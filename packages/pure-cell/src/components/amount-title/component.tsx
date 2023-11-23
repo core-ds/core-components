@@ -20,7 +20,13 @@ type Props = {
      * Пропсы, которые будут прокинуты в компонент типографики
      */
     titleProps?: TitleProps;
-} & AmountType;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для typography используется модификатор -amount-title, для компонента Amount -core-amount-title
+     */
+    dataTestId?: string;
+} & Omit<AmountType, 'dataTestId'>;
 
 export const AmountTitle: React.FC<Props> = ({
     minority,

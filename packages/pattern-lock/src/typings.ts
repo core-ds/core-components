@@ -44,6 +44,8 @@ export type PatternLockProps = {
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
+     * Для сообщения используется модификатор -message, ошибки -error,
+     * кнопки "забыли код" -forgot-code-btn
      */
     dataTestId?: string;
 

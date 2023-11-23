@@ -28,7 +28,8 @@ export type DateSegments<T = string> = {
     minutes: T;
 };
 
-export interface BaseUniversalDateInputProps extends Omit<InputProps, 'onChange' | 'wrapperRef'> {
+export interface BaseUniversalDateInputProps
+    extends Omit<InputProps, 'onChange' | 'wrapperRef' | 'dataTestId'> {
     /**
      * Автоматическое исправление ввода
      *  @default true
@@ -106,6 +107,12 @@ export interface BaseUniversalDateInputProps extends Omit<InputProps, 'onChange'
      * Обработчик изменения значения
      */
     onChange?: (event: ChangeEvent<HTMLInputElement> | null, payload: { value: string }) => void;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для враппера используется модификатор -wrapper, календаря -calendar, поповера -popover
+     */
+    dataTestId?: string;
 }
 
 export interface InnerDateInputProps extends Omit<BaseUniversalDateInputProps, 'view'> {

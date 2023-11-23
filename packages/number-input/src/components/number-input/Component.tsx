@@ -37,7 +37,7 @@ const colorStyles = {
 };
 
 export interface NumberInputProps
-    extends Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'> {
+    extends Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue' | 'dataTestId'> {
     /**
      * Значение поля ввода
      */
@@ -90,6 +90,12 @@ export interface NumberInputProps
      * Обработчик события изменения значения
      */
     onChange?: (e: ChangeEvent<HTMLInputElement> | null, payload: { value: number | null }) => void;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для кнопки инкремента используется модификатор -increment-button, декремента -decrement-button
+     */
+    dataTestId?: string;
 }
 
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(

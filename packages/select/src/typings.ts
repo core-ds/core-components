@@ -70,7 +70,10 @@ export type BaseSelectChangePayload = {
 
 export type BaseSelectProps = {
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для пункта меню используется модификатор -option, компонента поиска -search,
+     * компонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,
+     * компонента поля -field, компонета FormControl -field-form-control
      */
     dataTestId?: string;
 
