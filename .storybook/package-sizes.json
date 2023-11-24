@@ -14,8 +14,8 @@
         "index.js": 5.73
     },
     "tooltip": {
-        "desktop.js": 45.8,
         "mobile.js": 70.94,
+        "desktop.js": 45.8,
         "index.js": 97.84
     },
     "toast": {
@@ -125,7 +125,7 @@
         "index.js": 5.88
     },
     "pure-cell": {
-        "index.js": 41.9
+        "index.js": 41.93
     },
     "progress-bar": {
         "index.js": 1.61
