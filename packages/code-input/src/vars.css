@@ -7,6 +7,6 @@
     --code-input-font-family: var(--font-family-system);
     --code-input-text-color: var(--color-light-text-primary);
     --code-input-bg-color: var(--form-control-bg-color);
-    --code-input-mobile-bg-color: var(--color-light-bg-secondary);
-    --code-input-error-bg-color: var(--color-light-bg-negative-muted);
+    --code-input-mobile-bg-color: var(--color-light-neutral-translucent-100);
+    --code-input-error-bg-color: var(--color-light-status-muted-negative);
 }

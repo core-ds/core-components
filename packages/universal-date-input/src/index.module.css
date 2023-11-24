@@ -37,5 +37,5 @@
 }
 
 .blink.blink.blink {
-    background-color: var(--color-light-bg-negative-muted);
+    background-color: var(--color-light-status-muted-negative);
 }

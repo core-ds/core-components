@@ -5,8 +5,8 @@
     --primary-tablist-hover-color: var(--color-light-text-primary);
     --primary-tablist-selected-color: var(--color-light-text-primary);
     --primary-tablist-disabled-color: var(--color-light-text-tertiary);
-    --primary-tablist-bottom-border-color: var(--color-light-border-primary);
-    --primary-tablist-line-color: var(--color-light-border-accent);
+    --primary-tablist-bottom-border-color: var(--color-light-neutral-translucent-500);
+    --primary-tablist-line-color: var(--color-light-accent-primary);
     --primary-tablist-font-feature-settings: normal;
 
     /* mobile */

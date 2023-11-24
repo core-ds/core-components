@@ -1,8 +1,8 @@
 @import '../../../../themes/src/default.css';
 
 :root {
-    --steps-option-svg-color: var(--color-light-graphic-positive);
-    --steps-dash-border: 2px solid var(--color-light-graphic-positive);
+    --steps-option-svg-color: var(--color-light-status-positive);
+    --steps-dash-border: 2px solid var(--color-light-status-positive);
 }
 
 .step {
@@ -48,8 +48,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-light-graphic-primary);
-    background: var(--color-light-graphic-quaternary);
+    color: var(--color-light-text-primary);
+    background: var(--color-light-neutral-translucent-300);
     min-width: 24px;
     height: 24px;
     border-radius: var(--border-radius-circle);
@@ -62,7 +62,7 @@
 .dash {
     flex: 1 1 auto;
     min-width: 24px;
-    border-top: 2px solid var(--color-light-border-primary);
+    border-top: 2px solid var(--color-light-neutral-translucent-300);
     margin-right: var(--gap-xs);
 
     &.completed {
@@ -74,7 +74,7 @@
         min-height: 24px;
         margin-right: 0;
         margin-top: var(--gap-xs);
-        border-left: 2px solid var(--color-light-border-primary);
+        border-left: 2px solid var(--color-light-neutral-translucent-300);
         border-top: none;
     }
 
@@ -94,11 +94,11 @@
 
     &.interactive:not(.disabled) {
         &:hover {
-            background: var(--color-light-bg-primary-inverted-alpha-7);
+            background: var(--color-light-transparent-default-hover);
         }
 
         &:active {
-            background: var(--color-light-bg-primary-inverted-alpha-15);
+            background: var(--color-light-transparent-default-press);
         }
     }
 }
@@ -110,12 +110,12 @@
 
 .selected {
     & .text {
-        color: var(--color-light-graphic-primary);
+        color: var(--color-light-text-primary);
     }
 
     & .option {
-        color: var(--color-light-graphic-primary-inverted);
-        background: var(--color-light-graphic-primary);
+        color: var(--color-light-text-primary-inverted);
+        background: var(--color-light-neutral-1500);
     }
 }
 
@@ -126,21 +126,21 @@
     border-radius: var(--border-radius-circle);
     width: 20px;
     height: 20px;
-    border: 2px solid var(--color-light-graphic-quaternary);
+    border: 2px solid var(--color-light-neutral-translucent-300);
 }
 
 .dot {
     width: 10px;
     height: 10px;
     border-radius: var(--border-radius-circle);
-    background: var(--color-light-graphic-quaternary);
+    background: var(--color-light-neutral-translucent-300);
 }
 
 .selected .checkbox {
-    border: 2px solid var(--color-light-graphic-primary);
+    border: 2px solid var(--color-light-neutral-1500);
 
     & .dot {
-        background: var(--color-light-graphic-primary);
+        background: var(--color-light-neutral-1500);
     }
 }
 

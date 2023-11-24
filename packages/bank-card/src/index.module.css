@@ -4,11 +4,11 @@
 .component {
     /* TODO: как это будет собираться и работать в webView */
     --form-control-border-radius: 0;
-    --form-control-border-bottom: 1px solid var(--color-black-60);
+    --form-control-border-bottom: 1px solid var(--color-light-neutral-translucent-700);
     --form-control-bg-color: transparent;
 
     /* focus */
-    --form-control-focus-border-bottom: 1px solid var(--color-black);
+    --form-control-focus-border-bottom: 1px solid var(--color-light-neutral-1500);
     --form-control-focus-shadow: transparent;
 
     /* hover */
@@ -44,7 +44,7 @@
 .label {
     left: 0;
     transform: translateY(-1px);
-    color: var(--color-black-60);
+    color: var(--color-light-text-secondary);
     font-size: 20px;
     line-height: 24px;
 
@@ -55,7 +55,7 @@
 
 .focused .label,
 .filled .label {
-    color: var(--color-black);
+    color: var(--color-light-neutral-1500);
     transform: translateY(-19px) scale(0.6);
 
     @media (max-width: 360px) {
@@ -70,8 +70,8 @@
 .input {
     @mixin promo_xsmall;
 
-    color: var(--color-black);
-    caret-color: var(--color-black);
+    color: var(--color-light-neutral-1500);
+    caret-color: var(--color-light-neutral-1500);
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: 0 !important;
@@ -93,7 +93,7 @@
         display: block;
 
         & g {
-            fill: var(--color-black);
+            fill: var(--color-light-neutral-1500);
         }
     }
 }
@@ -105,7 +105,7 @@
 
     & svg {
         display: block;
-        fill: var(--color-black);
+        fill: var(--color-light-neutral-1500);
     }
 }
 
@@ -127,7 +127,7 @@
     margin-right: calc(var(--gap-s) * -1);
 
     & svg {
-        fill: var(--color-black);
+        fill: var(--color-light-neutral-1500);
         display: block;
     }
 }

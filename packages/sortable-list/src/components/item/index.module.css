@@ -8,7 +8,7 @@
 
     &:hover {
         & .icon {
-            color: var(--color-light-graphic-primary);
+            color: var(--color-light-neutral-1500);
         }
     }
 }
@@ -37,7 +37,7 @@
 
 .icon {
     flex-shrink: 0;
-    color: var(--color-light-graphic-secondary);
+    color: var(--color-light-neutral-translucent-700);
 }
 
 .dragging {
@@ -49,7 +49,7 @@
     animation: pop 200ms ease;
 
     & .icon {
-        color: var(--color-light-graphic-primary);
+        color: var(--color-light-neutral-1500);
     }
 }
 

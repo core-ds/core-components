@@ -9,7 +9,7 @@
 }
 
 .secondary {
-    background: var(--color-light-bg-secondary);
+    background: var(--color-light-neutral-100);
 }
 
 @each $size in 3xs, 2xs, xs, s, m, l {

@@ -2,7 +2,7 @@
 
 :root {
     --skeleton-display: block;
-    --skeleton-default-color: var(--color-light-specialbg-component);
+    --skeleton-default-color: var(--color-light-neutral-translucent-100);
     --skeleton-border-radius: var(--border-radius-m);
     --skeleton-backdrop-filter: none;
 
