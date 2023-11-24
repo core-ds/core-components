@@ -1,3 +1,208 @@
+## 44.0.0
+
+<sup><time>24.11.2023</time></sup>
+
+### [#972](https://github.com/core-ds/core-components/pull/972)
+
+#### Что изменилось
+- в респонсив компоненте useMedia заменен на useMatchMedia
+- в s и m размере десктопной модалки размер шрифта заголовка изменен с 20px на 22px
+
+#### Влияние на компоненты
+- Патчи<br />`modal`
+
+
+### [#969](https://github.com/core-ds/core-components/pull/969)
+
+#### Что изменилось
+- Добавлен новый компонент TabBar
+
+#### Влияние на компоненты
+- Минорное<br />`tab-bar`
+
+
+### [#966](https://github.com/core-ds/core-components/pull/966)
+
+#### Что изменилось
+- В компонентах CustomButton, Link и PickerButton цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+#### Влияние на компоненты
+- Минорное<br />`custom-button` `link` `picker-button`
+
+
+### [#977](https://github.com/core-ds/core-components/pull/977)
+
+#### Что изменилось
+- В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+#### Влияние на компоненты
+- Минорное<br />`backdrop` `base-modal` `bottom-sheet` `modal` `navigation-bar`<br /> `popover` `select` `select-with-tags` `side-panel` `toast-plate`<br /> `tooltip`
+
+
+### [#984](https://github.com/core-ds/core-components/pull/984)
+
+#### Что изменилось
+- Добавлен новый view для PureCell.Text.
+
+#### Влияние на компоненты
+- Минорное<br />`pure-cell`
+
+<br />
+
+#### Что изменилось
+- view у Typography.Text заменен с component на component-primary
+
+#### Влияние на компоненты
+- Минорное<br />`comment`
+
+
+### [#963](https://github.com/core-ds/core-components/pull/963)
+
+#### Что изменилось
+- В компонентах Checkbox и Radio для темы site цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+- В компоненте Slider удалены цветовые css переменные для тем intranet и mobile.
+- В компоненте Switch добавлена темизация для site
+
+#### Влияние на компоненты
+- Мажорное<br />`themes`
+
+<br />
+
+#### Что изменилось
+- В компонентах Checkbox, Radio и Switch цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+- Удалены css переменные для inactive состояния. Пропс inactive - deprecated
+
+#### Влияние на компоненты
+- Мажорное<br />`checkbox` `radio` `switch`
+
+<br />
+
+#### Что изменилось
+- В компонентах CheckboxGroup, RadioGroup, SegmentedControl, и Slider цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+#### Влияние на компоненты
+- Минорное<br />`checkbox-group` `radio-group` `segmented-control` `slider`
+
+
+### [#979](https://github.com/core-ds/core-components/pull/979)
+
+#### Что изменилось
+- Прекращена поддержка IE
+
+#### Влияние на компоненты
+- Мажорное<br />`button` `checkbox` `filter-tag` `form-control` `input`<br /> `password-input` `scrollbar` `select` `tag`
+
+
+### [#997](https://github.com/core-ds/core-components/pull/997)
+
+#### Что изменилось
+- Обновление vars из последней версии ui-primitives
+
+#### Влияние на компоненты
+- Минорное<br />`vars`
+
+
+### [#995](https://github.com/core-ds/core-components/pull/995)
+
+#### Что изменилось
+- Исключены пропcы titleSize и subtitle у десктопного заголовка
+
+#### Влияние на компоненты
+- Патчи<br />`modal` `side-panel`
+
+
+### [#994](https://github.com/core-ds/core-components/pull/994)
+
+#### Что изменилось
+- Удалено свойство flex-direction: column-reverse у Footer с layout='column'
+- Добавлен компонент Controls, который сам правильно расположит кнопки в футере респонсивного компонента.
+
+#### Влияние на компоненты
+- Мажорное<br />`modal` `side-panel`
+
+
+### [#959](https://github.com/core-ds/core-components/pull/959)
+
+#### Что изменилось
+- Исправлена ошибка, из-за которой не работал повторный вызов функции обновления позиции поповера (проп update).
+- anchorElement переданный через проп теперь сохраняется в useLayoutEffect. Это позволяет предотвратить неверное позиционирование поповера на первый рендер
+
+#### Влияние на компоненты
+- Патчи<br />`popover`
+
+<br />
+
+#### Что изменилось
+- Новые стили тэгов
+- Добавлен мобильный компонент (Выпадающий список открывается в BottomSheet, а не Popover)
+
+#### Влияние на компоненты
+- Мажорное<br />`select-with-tags`
+
+
+### [#982](https://github.com/core-ds/core-components/pull/982)
+
+#### Что изменилось
+- В компонентах CalendarInput, CalendarRange, CalendarWithSkeleton, Calendar, Confirmation, DateRangeInput, DateTimeInput, PassCode и Plate цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+#### Влияние на компоненты
+- Минорное<br />`calendar-input` `calendar-range` `calendar-with-skeleton` `calendar` `confirmation`<br /> `date-range-input` `date-time-input` `pass-code` `plate`
+
+
+### [#991](https://github.com/core-ds/core-components/pull/991)
+
+#### Что изменилось
+- Исправлена проблема, из-за которой появлялся warning: "findDOMNode is deprecated"
+
+#### Влияние на компоненты
+- Патчи<br />`backdrop` `base-modal`
+
+
+### [#973](https://github.com/core-ds/core-components/pull/973)
+
+#### Что изменилось
+- В компонентах Badge,CircularProgressBar,Dropzone,FileUploadItem,HatchingProgressBar,Indicator,IconView,Status,ProgressBar и SteppedProgressBar цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+#### Влияние на компоненты
+- Минорное<br />`badge` `circular-progress-bar` `dropzone` `file-upload-item` `hatching-progress-bar`<br /> `icon-view` `indicator` `progress-bar` `status` `stepped-progress-bar`<br />
+
+
+### [#992](https://github.com/core-ds/core-components/pull/992)
+
+#### Что изменилось
+- В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+#### Влияние на компоненты
+- Минорное<br />`bank-card` `code-input` `comment` `divider` `list-header`<br /> `pagination` `scrollbar` `skeleton` `sortable-list` `steps`<br /> `tabs` `underlay` `universal-date-input`
+
+
+### [#990](https://github.com/core-ds/core-components/pull/990)
+
+#### Что изменилось
+- Исправлен баг с отсутствием фокусной обводки у Textarea
+
+#### Влияние на компоненты
+- Патчи<br />`textarea`
+
+
+### [#983](https://github.com/core-ds/core-components/pull/983)
+
+#### Что изменилось
+- Кнопка "очистить" вынесена в отдельный компонент и добавлена в shared
+
+#### Влияние на компоненты
+- Минорное<br />`input`
+
+<br />
+
+#### Что изменилось
+- Добавлен крестик очистки в таргет поле в мобильных компонентах
+
+#### Влияние на компоненты
+- Минорное<br />`input-autocomplete`
+
+
+
 ## 43.2.0
 
 <sup><time>20.11.2023</time></sup>
