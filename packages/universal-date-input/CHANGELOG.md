@@ -1,5 +1,19 @@
 # @alfalab/core-components-universal-date-input
 
+## 1.3.0
+
+### Minor Changes
+
+### [#992](https://github.com/core-ds/core-components/pull/992)
+
+-   В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.0
+    -   input@14.0.0
+
 ## 1.2.3
 
 ### Patch Changes

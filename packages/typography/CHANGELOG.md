@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.2.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   skeleton@4.2.0
+
 ## 4.2.0
 
 ### Minor Changes

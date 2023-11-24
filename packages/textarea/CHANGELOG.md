@@ -1,5 +1,16 @@
 # Change Log
 
+## 8.4.5
+
+### Patch Changes
+
+### [#990](https://github.com/core-ds/core-components/pull/990)
+
+-   Исправлен баг с отсутствием фокусной обводки у Textarea
+
+-   Обновлены зависимости
+    -   form-control@12.0.0
+
 ## 8.4.4
 
 ### Patch Changes

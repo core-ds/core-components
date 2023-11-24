@@ -1,5 +1,20 @@
 # Change Log
 
+## 4.5.0
+
+### Minor Changes
+
+### [#984](https://github.com/core-ds/core-components/pull/984)
+
+-   Добавлен новый view для PureCell.Text.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.0.0
+    -   comment@2.3.0
+    -   typography@4.2.1
+
 ## 4.4.12
 
 ### Patch Changes

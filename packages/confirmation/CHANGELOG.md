@@ -1,5 +1,21 @@
 # Change Log
 
+## 13.3.0
+
+### Minor Changes
+
+### [#982](https://github.com/core-ds/core-components/pull/982)
+
+-   В компонентах CalendarInput, CalendarRange, CalendarWithSkeleton, Calendar, Confirmation, DateRangeInput, DateTimeInput, PassCode и Plate цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   link@5.2.0
+    -   button@11.0.0
+    -   code-input@3.2.0
+    -   typography@4.2.1
+
 ## 13.2.3
 
 ### Patch Changes

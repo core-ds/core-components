@@ -1,5 +1,18 @@
 # @alfalab/core-components-steps
 
+## 1.4.0
+
+### Minor Changes
+
+### [#992](https://github.com/core-ds/core-components/pull/992)
+
+-   В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   badge@5.4.0
+
 ## 1.3.1
 
 ### Patch Changes

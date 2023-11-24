@@ -1,5 +1,29 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+### [#959](https://github.com/core-ds/core-components/pull/959)
+
+-   Новые стили тэгов
+-   Добавлен мобильный компонент (Выпадающий список открывается в BottomSheet, а не Popover)
+
+### Minor Changes
+
+### [#977](https://github.com/core-ds/core-components/pull/977)
+
+-   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.13.0
+    -   popover@6.2.0
+    -   select@17.0.0
+    -   form-control@12.0.0
+    -   tag@8.0.0
+
 ## 7.1.20
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.0.3
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.0.0
+    -   slider@4.4.0
+
 ## 8.0.2
 
 ### Patch Changes

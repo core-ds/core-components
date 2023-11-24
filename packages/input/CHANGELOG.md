@@ -1,5 +1,26 @@
 # Change Log
 
+## 14.0.0
+
+### Major Changes
+
+### [#979](https://github.com/core-ds/core-components/pull/979)
+
+-   Прекращена поддержка IE
+
+### Minor Changes
+
+### [#983](https://github.com/core-ds/core-components/pull/983)
+
+-   Кнопка "очистить" вынесена в отдельный компонент и добавлена в shared
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.0.0
+    -   form-control@12.0.0
+    -   badge@5.4.0
+
 ## 13.0.2
 
 ### Patch Changes

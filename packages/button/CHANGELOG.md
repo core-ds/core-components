@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.0.0
+
+### Major Changes
+
+### [#979](https://github.com/core-ds/core-components/pull/979)
+
+-   Прекращена поддержка IE
+
 ## 10.0.2
 
 ### Patch Changes

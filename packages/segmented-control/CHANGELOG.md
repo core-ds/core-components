@@ -1,5 +1,13 @@
 # @alfalab/core-components-segmented-control
 
+## 1.2.0
+
+### Minor Changes
+
+### [#963](https://github.com/core-ds/core-components/pull/963)
+
+-   В компонентах CheckboxGroup, RadioGroup, SegmentedControl, и Slider цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
 ## 1.1.0
 
 ### Minor Changes

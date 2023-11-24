@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+### [#979](https://github.com/core-ds/core-components/pull/979)
+
+-   Прекращена поддержка IE
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   input@14.0.0
+    -   icon-button@6.4.3
+
 ## 4.2.13
 
 ### Patch Changes

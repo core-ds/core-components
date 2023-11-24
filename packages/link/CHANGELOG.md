@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+### [#966](https://github.com/core-ds/core-components/pull/966)
+
+-   В компонентах CustomButton, Link и PickerButton цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
 ## 5.1.1
 
 ### Patch Changes

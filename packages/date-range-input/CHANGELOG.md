@@ -1,5 +1,21 @@
 # @alfalab/core-components-date-range-input
 
+## 3.2.0
+
+### Minor Changes
+
+### [#982](https://github.com/core-ds/core-components/pull/982)
+
+-   В компонентах CalendarInput, CalendarRange, CalendarWithSkeleton, Calendar, Confirmation, DateRangeInput, DateTimeInput, PassCode и Plate цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.0
+    -   input@14.0.0
+    -   calendar@7.2.0
+    -   icon-button@6.4.3
+
 ## 3.1.3
 
 ### Patch Changes

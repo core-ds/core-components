@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+### [#977](https://github.com/core-ds/core-components/pull/977)
+
+-   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+### [#959](https://github.com/core-ds/core-components/pull/959)
+
+-   Исправлена ошибка, из-за которой не работал повторный вызов функции обновления позиции поповера (проп update).
+-   anchorElement переданный через проп теперь сохраняется в useLayoutEffect. Это позволяет предотвратить неверное позиционирование поповера на первый рендер
+
 ## 6.1.0
 
 ### Minor Changes

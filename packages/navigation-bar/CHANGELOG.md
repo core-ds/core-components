@@ -1,5 +1,20 @@
 # @alfalab/core-components-navigation-bar
 
+## 0.7.0
+
+### Minor Changes
+
+### [#977](https://github.com/core-ds/core-components/pull/977)
+
+-   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.0.0
+    -   icon-button@6.4.3
+    -   typography@4.2.1
+
 ## 0.6.0
 
 ### Minor Changes

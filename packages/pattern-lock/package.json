@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pattern-lock",
-    "version": "1.4.7",
+    "version": "1.4.8",
     "description": "Pattern lock",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^10.0.2",
+        "@alfalab/core-components-button": "^11.0.0",
         "@alfalab/core-components-gap": "^1.2.0",
         "@alfalab/core-components-shared": "^0.8.0",
         "react-canvas-pattern-lock": "^1.1.1",

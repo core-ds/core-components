@@ -1,5 +1,35 @@
 # Change Log
 
+## 9.0.0
+
+### Major Changes
+
+### [#994](https://github.com/core-ds/core-components/pull/994)
+
+-   Удалено свойство flex-direction: column-reverse у Footer с layout='column'
+-   Добавлен компонент Controls, который сам правильно расположит кнопки в футере респонсивного компонента.
+
+### Minor Changes
+
+### [#977](https://github.com/core-ds/core-components/pull/977)
+
+-   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+### [#972](https://github.com/core-ds/core-components/pull/972)
+
+-   в респонсив компоненте useMedia заменен на useMatchMedia
+-   в s и m размере десктопной модалки размер шрифта заголовка изменен с 20px на 22px
+
+### [#995](https://github.com/core-ds/core-components/pull/995)
+
+-   Исключены пропcы titleSize и subtitle у десктопного заголовка
+
+-   Обновлены зависимости
+    -   base-modal@5.7.0
+    -   navigation-bar@0.7.0
+
 ## 8.1.3
 
 ### Patch Changes

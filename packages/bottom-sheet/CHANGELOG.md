@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.13.0
+
+### Minor Changes
+
+### [#977](https://github.com/core-ds/core-components/pull/977)
+
+-   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   backdrop@3.2.0
+    -   base-modal@5.7.0
+    -   navigation-bar@0.7.0
+
 ## 6.12.0
 
 ### Minor Changes

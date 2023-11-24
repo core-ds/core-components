@@ -1,5 +1,18 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+### [#979](https://github.com/core-ds/core-components/pull/979)
+
+-   Прекращена поддержка IE
+
+### [#963](https://github.com/core-ds/core-components/pull/963)
+
+-   В компонентах Checkbox, Radio и Switch цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру).
+-   Удалены css переменные для inactive состояния. Пропс inactive - deprecated
+
 ## 3.3.0
 
 ### Minor Changes

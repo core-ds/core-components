@@ -1,5 +1,21 @@
 # Change Log
 
+## 8.4.0
+
+### Minor Changes
+
+### [#992](https://github.com/core-ds/core-components/pull/992)
+
+-   В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   picker-button@11.4.0
+    -   tag@8.0.0
+    -   badge@5.4.0
+    -   icon-button@6.4.3
+
 ## 8.3.3
 
 ### Patch Changes

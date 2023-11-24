@@ -1,5 +1,34 @@
 # Change Log
 
+## 17.0.0
+
+### Major Changes
+
+### [#979](https://github.com/core-ds/core-components/pull/979)
+
+-   Прекращена поддержка IE
+
+### Minor Changes
+
+### [#977](https://github.com/core-ds/core-components/pull/977)
+
+-   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   modal@9.0.0
+    -   base-modal@5.7.0
+    -   bottom-sheet@6.13.0
+    -   popover@6.2.0
+    -   button@11.0.0
+    -   checkbox@4.0.0
+    -   form-control@12.0.0
+    -   input@14.0.0
+    -   scrollbar@3.0.0
+    -   badge@5.4.0
+    -   skeleton@4.2.0
+
 ## 16.0.3
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+### [#983](https://github.com/core-ds/core-components/pull/983)
+
+-   Добавлен крестик очистки в таргет поле в мобильных компонентах
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   popover@6.2.0
+    -   select@17.0.0
+    -   form-control@12.0.0
+    -   input@14.0.0
+
 ## 11.0.3
 
 ### Patch Changes

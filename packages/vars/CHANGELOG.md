@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.8.0
+
+### Minor Changes
+
+### [#997](https://github.com/core-ds/core-components/pull/997)
+
+-   Обновление vars из последней версии ui-primitives
+
 ## 9.7.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.2.12
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   button@11.0.0
+    -   progress-bar@3.2.0
+
 ## 6.2.11
 
 ### Patch Changes

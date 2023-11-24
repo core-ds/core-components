@@ -1,7 +1,7 @@
 {
     "name": "@alfalab/core-components-markdown",
     "description": "",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "main": "index.js",
     "license": "MIT",
     "publishConfig": {
@@ -14,9 +14,9 @@
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^4.2.0",
-        "@alfalab/core-components-list": "^3.3.2",
-        "@alfalab/core-components-link": "^5.1.1",
+        "@alfalab/core-components-typography": "^4.2.1",
+        "@alfalab/core-components-list": "^3.3.3",
+        "@alfalab/core-components-link": "^5.2.0",
         "@alfalab/core-components-mq": "^4.1.4",
         "@alfalab/core-components-shared": "^0.8.0",
         "tslib": "^2.4.0",
