@@ -22,7 +22,8 @@ export interface TabBarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onCha
     className?: string;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для таба используется модификатор -tab
      */
     dataTestId?: string;
 

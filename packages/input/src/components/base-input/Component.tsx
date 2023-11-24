@@ -200,7 +200,8 @@ export type BaseInputProps = Omit<
     FormControlComponent?: ElementType<FormControlProps & RefAttributes<HTMLDivElement>>;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для FormControl используется модификатор -form-control
      */
     dataTestId?: string;
 

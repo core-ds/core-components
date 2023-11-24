@@ -128,7 +128,9 @@ export type BaseFormControlProps = HTMLAttributes<HTMLDivElement> & {
     rightAddonsProps?: HTMLAttributes<HTMLDivElement>;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для слота слева используется модификатор -left-addons, слота справа -right-addons,
+     * ошибки -error-message, текста подсказки -hint
      */
     dataTestId?: string;
 

@@ -120,7 +120,8 @@ export type TextareaIncomeProps = {
     onHeightChange?: (height?: number) => void;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для FormControl используется модификатор -form-control
      */
     dataTestId?: string;
 
@@ -148,7 +149,7 @@ export type TextareaIncomeProps = {
      * Разрешить переполнение, если количество символов превышает maxLength
      */
     allowOverflow?: boolean;
-    
+
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

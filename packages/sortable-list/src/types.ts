@@ -102,7 +102,8 @@ export type SortableListProps = {
     activatorNode?: ActivatorNode;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для враппера используется модификатор -container, для ячейки -item_${id}
      */
     dataTestId?: string;
 

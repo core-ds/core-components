@@ -23,7 +23,7 @@ const SWIPE_VELOCITY = 0.3;
 const CLOSE_OFFSET = 0.3;
 const ANIMATION_DURATION = 350;
 
-export type PopupSheetProps = Omit<BaseModalProps, 'onClose'> & {
+export type PopupSheetProps = Omit<BaseModalProps, 'onClose' | 'dataTestId'> & {
     /**
      * Наличие кнопки закрытия
      */
@@ -46,6 +46,12 @@ export type PopupSheetProps = Omit<BaseModalProps, 'onClose'> & {
         event: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>,
         reason?: 'backdropClick' | 'escapeKeyDown' | 'closerClick' | 'swipe',
     ) => void;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для кнопки закрытия используется модификатор -closer
+     */
+    dataTestId?: string;
 };
 
 const DEFAULT_PADDING = 32;

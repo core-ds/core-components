@@ -47,6 +47,9 @@ export type BasePassCodeProps = {
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
+     * Для враппера используется модификатор -wrapper, ошибки -error,
+     * сообщения над клавиатурой -message, блока с кодом -input-progress,
+     * блока с цифрами -keypad
      */
     dataTestId?: string;
 };

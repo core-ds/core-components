@@ -128,7 +128,8 @@ export type BottomSheetProps = {
     transitionProps?: Partial<TransitionProps>;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
+     * Для заголовка используется модификатор -header
      */
     dataTestId?: string;
 
