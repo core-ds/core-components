@@ -6,6 +6,7 @@ import { BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
+import { Controls, ControlsProps } from '../components/controls';
 import { FooterDesktop } from '../components/footer/Component.desktop';
 import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
@@ -102,4 +103,5 @@ export const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {
     Content: ContentDesktop,
     Header,
     Footer: FooterDesktop,
+    Controls: Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>,
 });

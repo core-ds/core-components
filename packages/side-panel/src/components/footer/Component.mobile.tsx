@@ -14,7 +14,7 @@ export const FooterMobile: FC<FooterMobileProps> = ({
     ...restProps
 }) => (
     <Footer
-        className={cn(className, styles.footer, styles[layout], {
+        className={cn(className, styles.footer, {
             [styles.sticky]: sticky,
         })}
         sticky={sticky}

@@ -397,17 +397,22 @@ render(() => {
                 </ModalDesktop.Content>
                 {showFooter && (
                     <ModalDesktop.Footer sticky={footerSettings.sticky}>
-                        {footerSettings.hasPrimaryButton && (
-                            <Button view='primary' size='s' onClick={handleClose}>
-                                Primary
-                            </Button>
-                        )}
-
-                        {footerSettings.hasSecondaryButton && (
-                            <Button view='secondary' size='s' onClick={handleClose}>
-                                Secondary
-                            </Button>
-                        )}
+                        <ModalDesktop.Controls
+                            primary={
+                                footerSettings.hasPrimaryButton ? (
+                                    <Button view='primary' size='s' onClick={handleClose}>
+                                        Primary
+                                    </Button>
+                                ) : null
+                            }
+                            secondary={
+                                footerSettings.hasSecondaryButton ? (
+                                    <Button view='secondary' size='s' onClick={handleClose}>
+                                        Secondary
+                                    </Button>
+                                ) : null
+                            }
+                        />
                     </ModalDesktop.Footer>
                 )}
             </ModalDesktop>
@@ -675,20 +680,34 @@ render(() => {
                     <Text onClose={handleClose} />
                 </ModalMobile.Content>
                 {showFooter && (
-                    <ModalMobile.Footer
-                        sticky={footerSettings.sticky}
-                        layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
-                    >
-                        {footerSettings.hasSecondaryButton && (
-                            <ButtonMobile view='secondary' size='m' onClick={handleClose} block={true}>
-                                Secondary
-                            </ButtonMobile>
-                        )}
-                        {footerSettings.hasPrimaryButton && (
-                            <ButtonMobile view='primary' size='m' onClick={handleClose} block={true}>
-                                Primary
-                            </ButtonMobile>
-                        )}
+                    <ModalMobile.Footer sticky={footerSettings.sticky}>
+                        <ModalMobile.Controls
+                            layout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}
+                            primary={
+                                footerSettings.hasPrimaryButton ? (
+                                    <ButtonMobile
+                                        view='primary'
+                                        size='m'
+                                        onClick={handleClose}
+                                        block={true}
+                                    >
+                                        Primary
+                                    </ButtonMobile>
+                                ) : null
+                            }
+                            secondary={
+                                footerSettings.hasSecondaryButton ? (
+                                    <ButtonMobile
+                                        view='secondary'
+                                        size='m'
+                                        onClick={handleClose}
+                                        block={true}
+                                    >
+                                        Secondary
+                                    </ButtonMobile>
+                                ) : null
+                            }
+                        />
                     </ModalMobile.Footer>
                 )}
             </ModalMobile>
