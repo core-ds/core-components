@@ -1,5 +1,14 @@
 # Change Log
 
+## 11.2.0
+
+### Minor Changes
+
+### [#999](https://github.com/core-ds/core-components/pull/999)
+
+-   Добавлены пропы onApply и onCancel в мобильный компонент
+-   Исправлена ошибка с onClear, из-за которой вызывался внутренний обработчик вместо переданного через проп
+
 ## 11.1.0
 
 ### Minor Changes
@@ -50,23 +59,38 @@
 
 ### [#918](https://github.com/core-ds/core-components/pull/918)
 
-- Мобильный компонент приведен в соответствие с десктопным, теперь оба компонента имеют одинаковый список пропсов, за некоторым исключением.
-- Удалены пропы onFilter, filter, onClearFilter и др, которые раньше использовались только в мобильном компоненте
-- bottomSheetHeaderAddonsProps переименованы в inputProps.
-- transitionProps в респонсивном компоненте теперь указывается в mobileProps. <InputAutocomplete mobileProps={{transitionProps}}. В мобильном <InputAutocompleteMobile transitionProps={transitionProps}
+-   Мобильный компонент приведен в соответствие с десктопным, теперь оба компонента имеют одинаковый список пропсов, за некоторым исключением.
+-   Удалены пропы onFilter, filter, onClearFilter и др, которые раньше использовались только в мобильном компоненте
+-   bottomSheetHeaderAddonsProps переименованы в inputProps.
+-   transitionProps в респонсивном компоненте теперь указывается в mobileProps. <InputAutocomplete mobileProps={{transitionProps}}. В мобильном <InputAutocompleteMobile transitionProps={transitionProps}
 
 ## Миграция с предыдущей версии
+
 Из мобильного компонента удалено дополнительное состояние для фильтра,
 соответственно были удалены пропы onFilter, filter, onClearFilter.
 Теперь при открытии шторки в инпут будет попадать состояние, переданное через проп value, как и у десктопного компонента,
 а при вводе значения в инпут будет вызываться коллбэк onInput. При нажатии кнопки "Отмена" также будет вызываться onInput.
 После апдейта нужно заменить
+
 ```jsx
-<InputAutocompleteMobile onFilter={onFilter} filter={filter} value={value} bottomSheetHeaderAddonsProps={{}} bottomSheetProps={{transitionProps}}/>
+<InputAutocompleteMobile
+    onFilter={onFilter}
+    filter={filter}
+    value={value}
+    bottomSheetHeaderAddonsProps={{}}
+    bottomSheetProps={{ transitionProps }}
+/>
 ```
+
 на
+
 ```jsx
-<InputAutocompleteMobile onInput={onFilter} value={value} inputProps={{}} transitionProps={transitionProps}/>
+<InputAutocompleteMobile
+    onInput={onFilter}
+    value={value}
+    inputProps={{}}
+    transitionProps={transitionProps}
+/>
 ```
 
 Примеры можете посмотреть в нашем [сторибуке](https://core-ds.github.io/core-components/master/?path=/docs/inputautocomplete--docs)
