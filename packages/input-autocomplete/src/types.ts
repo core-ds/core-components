@@ -56,12 +56,12 @@ type MobileProps = {
     >['transitionProps'];
 
     /**
-     * Клик на кнопку "Применить"
+     * Обработчик нажатия на кнопку «Продолжить» в BottomSheet
      */
     onApply?: () => void;
 
     /**
-     * Клик на кнопку "Отмена"
+     * Обработчик нажатия на кнопку «Отмена» в BottomSheet
      */
     onCancel?: () => void;
 };
