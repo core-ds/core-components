@@ -39,6 +39,8 @@ export const InputAutocompleteMobile = React.forwardRef(
             isBottomSheet = true,
             dataTestId,
             transitionProps,
+            onCancel,
+            onApply,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -78,14 +80,16 @@ export const InputAutocompleteMobile = React.forwardRef(
             [],
         );
 
-        const handleApply = () => setModalVisibility(false);
+        const handleApply = () => {
+            setModalVisibility(false);
+            onApply?.();
+        };
 
         const handleCancel = () => {
             setModalVisibility(false);
             restorePrevValue();
+            onCancel?.();
         };
-
-        const handleClear = () => onInput?.(null, { value: '' });
 
         const handleExiting = (node: HTMLElement) => {
             targetRef.current?.focus();
@@ -161,7 +165,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 fieldProps={{
                     value: isOpen ? frozenValue.current : value,
                     clear,
-                    onClear: clear ? handleClear : undefined,
+                    onClear: clear ? inputProps?.onClear : undefined,
                     ...(restProps.fieldProps as AnyObject),
                 }}
             />

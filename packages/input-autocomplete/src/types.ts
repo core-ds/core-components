@@ -54,6 +54,16 @@ type MobileProps = {
     transitionProps?: NonNullable<
         BottomSheetSelectMobileProps['bottomSheetProps']
     >['transitionProps'];
+
+    /**
+     * Клик на кнопку "Применить"
+     */
+    onApply?: () => void;
+
+    /**
+     * Клик на кнопку "Отмена"
+     */
+    onCancel?: () => void;
 };
 
 export type InputAutocompleteMobileProps = InputAutocompleteCommonProps & MobileProps;

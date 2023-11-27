@@ -147,6 +147,26 @@ describe('InputAutocompleteMobile', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
+        it('should call onApply', async () => {
+            const cb = jest.fn();
+            const { getByTestId } = render(
+                <InputAutocompleteMobileWrapper onApply={cb} dataTestId={dataTestId} />,
+            );
+
+            fireEvent.click(getByTestId(dataTestId + '-apply'));
+            expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should call onCancel', async () => {
+            const cb = jest.fn();
+            const { getByTestId } = render(
+                <InputAutocompleteMobileWrapper onCancel={cb} dataTestId={dataTestId} />,
+            );
+
+            fireEvent.click(getByTestId(dataTestId + '-clear'));
+            expect(cb).toBeCalledTimes(1);
+        });
+
         it('should call onBlur', async () => {
             const onBlur = jest.fn();
             const onExited = jest.fn();
