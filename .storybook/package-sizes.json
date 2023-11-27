@@ -14,8 +14,8 @@
         "index.js": 5.73
     },
     "tooltip": {
-        "mobile.js": 70.94,
         "desktop.js": 45.8,
+        "mobile.js": 70.94,
         "index.js": 97.84
     },
     "toast": {
@@ -217,8 +217,8 @@
     },
     "international-phone-input": {
         "desktop.js": 498.96,
-        "mobile.js": 504.7,
-        "index.js": 531
+        "mobile.js": 504.71,
+        "index.js": 531.02
     },
     "input": {
         "desktop.js": 17.28,
@@ -228,8 +228,8 @@
     },
     "input-autocomplete": {
         "desktop.js": 182.22,
-        "mobile.js": 189.7,
-        "index.js": 215.46
+        "mobile.js": 189.71,
+        "index.js": 215.48
     },
     "indicator": {
         "index.js": 1.99
