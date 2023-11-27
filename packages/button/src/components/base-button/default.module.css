@@ -21,23 +21,7 @@
 }
 
 .primary {
-    color: var(--button-primary-color);
-    background-color: var(--button-primary-base-bg-color);
     border: 1px solid transparent;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-primary-hover-bg-color);
-        }
-    }
-
-    &:active {
-        background-color: var(--button-primary-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-primary-color);
-    }
 }
 
 .secondary {
@@ -160,12 +144,6 @@
 
         &.loading {
             background-color: var(--button-accent-base-bg-color);
-        }
-    }
-
-    &.primary {
-        &.loading {
-            background-color: var(--button-primary-base-bg-color);
         }
     }
 

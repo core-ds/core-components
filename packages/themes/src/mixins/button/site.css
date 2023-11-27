@@ -15,7 +15,27 @@
         --color-light-neutral-translucent-100-inverted
     );
 
+    /* primary mobile */
+    --button-primary-mobile-base-bg-color: var(--color-light-accent-primary);
+    --button-primary-mobile-hover-bg-color: var(--color-light-accent-primary-hover);
+    --button-primary-mobile-active-bg-color: var(--color-light-accent-primary-press);
+    --button-primary-mobile-color: var(--color-static-text-primary-inverted);
+
+    /* primary inverted mobile */
+    --button-inverted-primary-mobile-base-bg-color: var(--color-light-accent-primary-inverted);
+    --button-inverted-primary-mobile-hover-bg-color: var(
+        --color-light-accent-primary-inverted-hover
+    );
+    --button-inverted-primary-mobile-active-bg-color: var(
+        --color-light-accent-primary-inverted-press
+    );
+    --button-inverted-primary-mobile-color: var(--color-static-text-primary-inverted);
+
     /* spinner */
     --button-spinner-primary-color: var(--color-static-neutral-1500-inverted);
     --button-spinner-inverted-primary-color: var(--color-static-neutral-1500-inverted);
+
+    /* spinner mobile */
+    --button-spinner-primary-mobile-color: var(--color-static-neutral-1500-inverted);
+    --button-spinner-inverted-primary-mobile-color: var(--color-static-neutral-1500-inverted);
 }
