@@ -6,7 +6,14 @@ import { SegmentProps } from './components';
 import { ContextType, SegmentedControlContext } from './context';
 import { IDType } from './typing';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type SegmentedControlProps = {
     /**
@@ -40,6 +47,11 @@ export type SegmentedControlProps = {
     children: Array<ReactElement<SegmentProps>>;
 
     /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -54,6 +66,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     shape = 'rectangular',
     size = 'xxs',
     children: defaultChildren,
+    colors = 'default',
     dataTestId,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -100,21 +113,37 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <SegmentedControlContext.Provider value={{ onChange }}>
+        <SegmentedControlContext.Provider value={{ onChange, colors }}>
             <div
                 ref={wrapperRef}
-                className={cn(styles.wrapper, styles[shape], styles[size], className)}
+                className={cn(
+                    styles.wrapper,
+                    colorStyles[colors].wrapper,
+                    styles[shape],
+                    styles[size],
+                    className,
+                )}
                 data-test-id={dataTestId}
             >
                 <div className={cn(styles.container)}>
-                    <div className={cn(styles.selectedBox, styles[shape])} ref={selectedBoxRef} />
+                    <div
+                        className={cn(
+                            styles.selectedBox,
+                            colorStyles[colors].selectedBox,
+                            styles[shape],
+                        )}
+                        ref={selectedBoxRef}
+                    />
                     <div className={cn(styles.inner)} ref={innerRef}>
                         {React.Children.map(children, (item) =>
                             React.cloneElement(item, {
                                 className: cn(
                                     styles.segment,
+                                    colorStyles[colors].segment,
                                     {
                                         [styles.selected]: item.props.id === selectedId,
+                                        [colorStyles[colors].selected]:
+                                            item.props.id === selectedId,
                                     },
                                     item.props.className,
                                 ),

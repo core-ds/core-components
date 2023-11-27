@@ -3,7 +3,7 @@
 exports[`segment should display correctly 1`] = `
 <div>
   <button
-    class="segment"
+    class="segment segment"
     type="button"
   >
     Title

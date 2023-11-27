@@ -12,7 +12,6 @@
     background-color: transparent;
     position: relative;
     font-family: var(--font-family-system);
-    color: var(--color-light-text-primary);
     transition: font-weight 0.2s ease, color 0.2s ease;
     cursor: pointer;
     white-space: nowrap;
@@ -22,7 +21,6 @@
     &:not(:first-child):before {
         content: '';
         position: absolute;
-        background-color: var(--color-light-neutral-translucent-300);
         transition: opacity 0.2s ease;
         width: 1px;
         top: 8px;

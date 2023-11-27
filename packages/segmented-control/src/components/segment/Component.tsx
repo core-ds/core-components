@@ -7,7 +7,14 @@ import { useFocus } from '@alfalab/hooks';
 import { SegmentedControlContext } from '../../context';
 import { IDType } from '../../typing';
 
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type SegmentProps = {
     /**
@@ -43,7 +50,7 @@ export type SegmentProps = {
 
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
     ({ id, className, title, dataTestId }, ref) => {
-        const { onChange } = useContext(SegmentedControlContext);
+        const { onChange, colors = 'default' } = useContext(SegmentedControlContext);
 
         const segmentRef = useRef<HTMLButtonElement>(null);
 
@@ -58,7 +65,12 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
                 type='button'
                 onClick={handleClick}
                 ref={mergeRefs([segmentRef, ref])}
-                className={cn(styles.segment, className, styles.focused && focused)}
+                className={cn(
+                    styles.segment,
+                    colorStyles[colors].segment,
+                    className,
+                    styles.focused && focused,
+                )}
                 data-test-id={dataTestId}
             >
                 {title}
